@@ -25,10 +25,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.EcoreUtil2;
-import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
-import org.eclipse.xtext.scoping.impl.SimpleScope;
 
 /**
  * This class contains custom scoping description.
@@ -49,45 +47,43 @@ public class DmsScopeProvider extends AbstractDmsScopeProvider {
       boolean _matched = false;
       if (context instanceof DAttribute) {
         _matched=true;
-        _switchResult = this.<IValueType>getContainerTypesOfTypeScope(context, IValueType.class, true);
+        _switchResult = this.<IValueType>getContainerTypesOfTypeScope(context, reference, IValueType.class, true);
       }
       if (!_matched) {
         if (context instanceof DQuery) {
           _matched=true;
-          _switchResult = this.getLocalRootTypeScope(((DQuery)context), this.<IValueType>getContainerTypesOfTypeScope(context, IValueType.class, true));
+          _switchResult = this.getLocalRootTypeScope(((DQuery)context), this.<IValueType>getContainerTypesOfTypeScope(context, reference, IValueType.class, true));
         }
       }
       if (!_matched) {
         if (context instanceof DAssociation) {
           _matched=true;
-          _switchResult = this.<DRootType>getContainerTypesOfTypeScope(context, DRootType.class, true);
+          _switchResult = this.<DRootType>getContainerTypesOfTypeScope(context, reference, DRootType.class, true);
         }
       }
       if (!_matched) {
         if (context instanceof DQueryParameter) {
           _matched=true;
-          _switchResult = this.<IValueType>getContainerTypesOfTypeScope(context, IValueType.class, true);
+          _switchResult = this.<IValueType>getContainerTypesOfTypeScope(context, reference, IValueType.class, true);
         }
       }
       if (!_matched) {
         if (context instanceof DServiceParameter) {
           _matched=true;
-          _switchResult = this.<IValueType>getContainerTypesOfTypeScope(context, IValueType.class, true);
+          _switchResult = this.<IValueType>getContainerTypesOfTypeScope(context, reference, IValueType.class, true);
         }
       }
       if (!_matched) {
         if (context instanceof DFunction) {
           _matched=true;
-          _switchResult = this.<IValueType>getContainerTypesOfTypeScope(context, IValueType.class, true);
+          _switchResult = this.<IValueType>getContainerTypesOfTypeScope(context, reference, IValueType.class, true);
         }
       }
       if (!_matched) {
         _switchResult = IScope.NULLSCOPE;
       }
       final IScope scope = _switchResult;
-      IScope _scope = super.getScope(context, reference);
-      Iterable<IEObjectDescription> _allElements = scope.getAllElements();
-      return new SimpleScope(_scope, _allElements);
+      return scope;
     } else {
       EReference _dComplexType_SuperType = this.epackage.getDComplexType_SuperType();
       boolean _equals_1 = Objects.equal(reference, _dComplexType_SuperType);
@@ -107,7 +103,7 @@ public class DmsScopeProvider extends AbstractDmsScopeProvider {
         if (!_matched_1) {
           if (context instanceof DDetailType) {
             _matched_1=true;
-            _switchResult_1 = this.<DDetailType>getContainerTypesOfTypeScope(context, DDetailType.class, false);
+            _switchResult_1 = this.<DDetailType>getContainerTypesOfTypeScope(context, reference, DDetailType.class, false);
           }
         }
         if (!_matched_1) {

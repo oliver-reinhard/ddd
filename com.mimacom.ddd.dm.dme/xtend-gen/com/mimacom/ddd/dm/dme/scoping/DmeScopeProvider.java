@@ -14,10 +14,8 @@ import com.mimacom.ddd.dm.dme.scoping.AbstractDmeScopeProvider;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.EcoreUtil2;
-import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
-import org.eclipse.xtext.scoping.impl.SimpleScope;
 
 /**
  * This class contains custom scoping description.
@@ -38,26 +36,24 @@ public class DmeScopeProvider extends AbstractDmeScopeProvider {
       boolean _matched = false;
       if (context instanceof DContext) {
         _matched=true;
-        _switchResult = this.<DType>getContainerTypesOfTypeScope(context, DType.class, true);
+        _switchResult = this.<DType>getContainerTypesOfTypeScope(context, reference, DType.class, true);
       }
       if (!_matched) {
         if (context instanceof DNotification) {
           _matched=true;
-          _switchResult = this.<DType>getContainerTypesOfTypeScope(context, DType.class, true);
+          _switchResult = this.<DType>getContainerTypesOfTypeScope(context, reference, DType.class, true);
         }
       }
       if (!_matched) {
         _switchResult = super.getScope(context, reference);
       }
       final IScope scope = _switchResult;
-      IScope _scope = super.getScope(context, reference);
-      Iterable<IEObjectDescription> _allElements = scope.getAllElements();
-      return new SimpleScope(_scope, _allElements);
+      return scope;
     } else {
       if ((Objects.equal(reference, this.epackage.getDDomainEvent_Trigger()) || Objects.equal(reference, this.epackage.getDNotification_Notified()))) {
         final DDomain domain = EcoreUtil2.<DDomain>getContainerOfType(context, DDomain.class);
         if ((domain != null)) {
-          return Scopes.scopeFor(domain.getActors(), this.getImportedObjectsOfTypeScope(context, DActor.class));
+          return Scopes.scopeFor(domain.getActors(), this.<DActor>getContainerTypesOfTypeScope(context, reference, DActor.class, true));
         }
       }
     }

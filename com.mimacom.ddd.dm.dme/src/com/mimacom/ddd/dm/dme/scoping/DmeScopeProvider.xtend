@@ -31,16 +31,16 @@ class DmeScopeProvider extends AbstractDmeScopeProvider {
 		if (reference == epackage.DTypedMember_Type) {
 			
 			 val IScope scope = switch context {	
-				DContext: getContainerTypesOfTypeScope(context, DType, true)
-				DNotification: getContainerTypesOfTypeScope(context, DType, true)
+				DContext: getContainerTypesOfTypeScope(context, reference, DType, true)
+				DNotification: getContainerTypesOfTypeScope(context, reference, DType, true)
 				default:  super.getScope(context, reference)
 			}
-			return new SimpleScope(super.getScope(context, reference), scope.allElements)  // TODO Replace: is not filtering result from super!.
+			return scope // new SimpleScope(super.getScope(context, reference), scope.allElements)  // TODO Replace: is not filtering result from super!.
 			
 		} else if (reference == epackage.DDomainEvent_Trigger || reference == epackage.DNotification_Notified) {
 			val domain = EcoreUtil2.getContainerOfType(context, DDomain)
 			if (domain !== null) {
-				return Scopes.scopeFor(domain.actors, getImportedObjectsOfTypeScope(context, DActor)) // TODO Needed?
+				return Scopes.scopeFor(domain.actors, getContainerTypesOfTypeScope(context, reference, DActor, true)) // getImportedObjectsOfTypeScope(context, DActor)) // TODO Needed?
 			}
 		} 
 		return super.getScope(context, reference)

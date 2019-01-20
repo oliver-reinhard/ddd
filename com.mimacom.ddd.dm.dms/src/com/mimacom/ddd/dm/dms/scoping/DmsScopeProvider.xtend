@@ -40,22 +40,22 @@ class DmsScopeProvider extends AbstractDmsScopeProvider {
 		if (reference == epackage.DTypedMember_Type) {
 			
 			 val IScope scope = switch context {	
-				DAttribute: getContainerTypesOfTypeScope(context, IValueType, true)
-				DQuery: getLocalRootTypeScope(context, getContainerTypesOfTypeScope(context, IValueType, true))
-				DAssociation: getContainerTypesOfTypeScope(context, DRootType, true)
-				DQueryParameter: getContainerTypesOfTypeScope(context, IValueType, true)
-				DServiceParameter: getContainerTypesOfTypeScope(context, IValueType, true)
-				DFunction: getContainerTypesOfTypeScope(context, IValueType, true)
+				DAttribute: getContainerTypesOfTypeScope(context, reference, IValueType, true)
+				DQuery: getLocalRootTypeScope(context, getContainerTypesOfTypeScope(context, reference, IValueType, true))
+				DAssociation: getContainerTypesOfTypeScope(context, reference, DRootType, true)
+				DQueryParameter: getContainerTypesOfTypeScope(context, reference, IValueType, true)
+				DServiceParameter: getContainerTypesOfTypeScope(context, reference, IValueType, true)
+				DFunction: getContainerTypesOfTypeScope(context, reference, IValueType, true)
 				default:  IScope.NULLSCOPE
 			}
-			return new SimpleScope(super.getScope(context, reference), scope.allElements)  // TODO Replace: is not filtering result from super!.
+			return scope // new SimpleScope(super.getScope(context, reference), scope.allElements)  // TODO Replace: is not filtering result from super!.
 			
 		} else if (reference == epackage.DComplexType_SuperType) {
 			
 			return switch context {
 				DRootType:  getIdentityTypeScope(context, DRootType)
 				DRelationship: getIdentityTypeScope(context, DRelationship)
-				DDetailType: getContainerTypesOfTypeScope(context, DDetailType, false)
+				DDetailType: getContainerTypesOfTypeScope(context, reference, DDetailType, false)
 				default:  IScope.NULLSCOPE
 			}
 		} 
