@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated dmx -->
+      <package
+            uri="http://www.mimacom.com/ddd/dm/dmx"
+            class="com.mimacom.ddd.dm.dmx.DmxPackage"
+            genModel="model/dmx.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated dmx -->
+      <package
+            uri="http://www.mimacom.com/ddd/dm/base"
+            class="com.mimacom.ddd.dm.base.BasePackage"
+            genModel="model/dmx.genmodel"/>
+   </extension>
+</plugin>

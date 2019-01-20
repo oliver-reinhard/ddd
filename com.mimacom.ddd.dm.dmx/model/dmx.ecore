@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="dmx" nsURI="http://www.mimacom.com/ddd/dm/dmx" nsPrefix="dmx">
+  <eClassifiers xsi:type="ecore:EClass" name="DmxModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="texts" upperBound="-1"
+        eType="ecore:EClass base.ecore#//DRichText" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
+        eType="ecore:EClass base.ecore#//DExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DAssignment" eSuperTypes="base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="memberContainer" eType="ecore:EClass base.ecore#//DExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="member" eType="ecore:EClass base.ecore#//DTypedMember"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass base.ecore#//DExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DBinaryOperation" eSuperTypes="base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftOperand" eType="ecore:EClass base.ecore#//DExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//DBinaryOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightOperand" eType="ecore:EClass base.ecore#//DExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DBinaryOperator">
+    <eLiterals name="ADD"/>
+    <eLiterals name="SUBTRACT" value="1"/>
+    <eLiterals name="MULTIPLY" value="2"/>
+    <eLiterals name="DIVIDE" value="3"/>
+    <eLiterals name="POWER" value="4"/>
+    <eLiterals name="MODULO" value="5"/>
+    <eLiterals name="AND" value="6"/>
+    <eLiterals name="OR" value="7"/>
+    <eLiterals name="XOR" value="8"/>
+    <eLiterals name="EQUAL" value="9"/>
+    <eLiterals name="NOT_EQUAL" value="10"/>
+    <eLiterals name="LESS" value="11"/>
+    <eLiterals name="LESS_OR_EQUAL" value="12"/>
+    <eLiterals name="GREATER_OR_EQUAL" value="13"/>
+    <eLiterals name="GREATER" value="14"/>
+    <eLiterals name="UNTIL" value="15"/>
+    <eLiterals name="SINGLE_ARROW" value="16"/>
+    <eLiterals name="DOUBLE_ARROW" value="17"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DInstanceOfExpression" eSuperTypes="base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass base.ecore#//DExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass base.ecore#//DType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DUnaryOperation" eSuperTypes="base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operand" eType="ecore:EClass base.ecore#//DExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//DUnaryOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DUnaryOperator">
+    <eLiterals name="PLUS"/>
+    <eLiterals name="MINUS" value="1"/>
+    <eLiterals name="NOT" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DTypedMemberReference" eSuperTypes="base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="memberContainer" eType="ecore:EClass base.ecore#//DExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="member" eType="ecore:EClass base.ecore#//DTypedMember"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="explicitOperationCall"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="memberCallArguments" upperBound="-1"
+        eType="ecore:EClass base.ecore#//DExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DCastExpression" eSuperTypes="base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass base.ecore#//DExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass base.ecore#//DType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSelfExpression" eSuperTypes="base.ecore#//DExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DReturnExpression" eSuperTypes="base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass base.ecore#//DExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DRaiseExpression" eSuperTypes="base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass base.ecore#//DExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DFunctionCall" eSuperTypes="base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="function" eType="ecore:EClass base.ecore#//DFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functionCallArguments"
+        upperBound="-1" eType="ecore:EClass base.ecore#//DExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DConstructorCall" eSuperTypes="base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constructor" eType="ecore:EClass base.ecore#//DIdentityType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="explicitConstructorCall"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
+        eType="ecore:EClass base.ecore#//DExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DContextReference" eSuperTypes="base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contextElement" eType="ecore:EClass base.ecore#//DNamedElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DIfExpression" eSuperTypes="base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="if" eType="ecore:EClass base.ecore#//DExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="then" eType="ecore:EClass base.ecore#//DExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="else" eType="ecore:EClass base.ecore#//DExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DForLoopExpression" eSuperTypes="base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="declaredParam" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="forExpression" eType="ecore:EClass base.ecore#//DExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eachExpression" eType="ecore:EClass base.ecore#//DExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DBooleanLiteral" eSuperTypes="base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DStringLiteral" eSuperTypes="base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DNaturalLiteral" eSuperTypes="base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DDecimalLiteral" eSuperTypes="base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DDateLiteral" eSuperTypes="base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DNilLiteral" eSuperTypes="base.ecore#//DExpression"/>
+</ecore:EPackage>

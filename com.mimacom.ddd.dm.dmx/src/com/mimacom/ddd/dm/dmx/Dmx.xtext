@@ -1,0 +1,217 @@
+grammar com.mimacom.ddd.dm.dmx.Dmx hidden(WS, ML_COMMENT, SL_COMMENT)
+
+import "http://www.mimacom.com/ddd/dm/dmx" 
+import "http://www.mimacom.com/ddd/dm/base"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+DmxModel:
+	{DmxModel}
+	('text' NATURAL ':' texts+=DRichText ';')*
+	('expr' NATURAL ':' expressions+=DExpression ';')*;
+
+////
+
+DRichText:
+	elements+=DTextOnly
+	|
+	(	elements+= DTextStart
+		elements+= DExpression 
+		(elements+=DTextMiddle  elements+=DExpression)* 
+		elements+= DTextEnd
+	);
+
+DTextOnly returns DText:		value=PLAIN_TEXT_ONLY;
+DTextStart returns DText:		value=PLAIN_TEXT_START;
+DTextMiddle returns DText:	value=PLAIN_TEXT_MIDDLE;
+DTextEnd returns DText:		value=PLAIN_TEXT_END;
+
+DExpression returns DExpression :
+	DAssignment;
+
+DAssignment returns DExpression :
+	{DAssignment}
+	member=[DTypedMember|ID] OpSingleAssign value=DAssignment 
+	| DOrExpression;
+
+OpSingleAssign:
+	':=';
+
+DOrExpression returns DExpression:
+	DAndExpression
+	(=> ({DBinaryOperation.leftOperand=current} operator=OpOr) rightOperand=DAndExpression)*;
+
+enum OpOr returns DBinaryOperator:
+	OR='OR' | OR='or' | XOR='XOR' | XOR='xor';
+
+DAndExpression returns DExpression:
+	DEqualityExpression
+	(=>({DBinaryOperation.leftOperand=current} operator=OpAnd) rightOperand=DEqualityExpression)*;
+
+enum OpAnd returns DBinaryOperator:
+	AND='AND' | AND='and';
+
+DEqualityExpression returns DExpression:
+	DRelationalExpression 
+	(=>({DBinaryOperation.leftOperand=current} operator=OpEquality)	rightOperand=DRelationalExpression)*;
+
+enum OpEquality returns DBinaryOperator:
+	EQUAL='=' | NOT_EQUAL='!=' | NOT_EQUAL='<>';
+
+DRelationalExpression returns DExpression:
+	DOtherOperatorExpression
+	(	=> ({DInstanceOfExpression.expression=current} OpInstanceOf) type=[DType]
+	|	=> ({DBinaryOperation.leftOperand=current} operator=OpCompare) rightOperand=DOtherOperatorExpression
+	)*;
+
+OpInstanceOf:
+	'ISA' | 'isa';
+	
+enum OpCompare returns DBinaryOperator:
+	LESS= '<' | LESS_OR_EQUAL= '<=' | LESS_OR_EQUAL='≤' | GREATER_OR_EQUAL='>=' | GREATER_OR_EQUAL='≥' | GREATER='>';
+
+DOtherOperatorExpression returns DExpression:
+	DAdditiveExpression
+	(=>({DBinaryOperation.leftOperand=current} operator=OpOther) rightOperand=DAdditiveExpression)*;
+
+enum OpOther returns DBinaryOperator:
+	UNTIL='..' | SINGLE_ARROW= '->' | DOUBLE_ARROW='=>';
+
+DAdditiveExpression returns DExpression:
+	DMultiplicativeExpression
+	(=>({DBinaryOperation.leftOperand=current} operator=OpAdd) rightOperand=DMultiplicativeExpression)*;
+
+enum OpAdd returns DBinaryOperator:
+	ADD='+' | SUBTRACT='-';
+
+DMultiplicativeExpression returns DExpression:
+	DUnaryOperation
+	(=>({DBinaryOperation.leftOperand=current} operator=OpMulti) rightOperand=DUnaryOperation)*;
+
+enum OpMulti returns DBinaryOperator:
+	MULTIPLY='*' | DIVIDE='/' | POWER='**' | MODULO='%';
+
+DUnaryOperation returns DExpression:
+	{DUnaryOperation}
+	operator=OpUnary operand=DUnaryOperation
+	| DCastExpression;
+
+enum OpUnary returns DUnaryOperator:
+	PLUS='+' | MINUS='-' | NOT='!' | NOT='NOT' | NOT='not' ;
+
+DCastExpression returns DExpression:
+	DTypedMemberReference (=>({DCastExpression.target=current} OpCast) type=[DType])?;
+	
+OpCast:
+	'AS' | 'as';
+	
+DTypedMemberReference returns DExpression:
+	DPrimaryExpression
+	(	=> ({DAssignment.memberContainer=current} '.' member=[DTypedMember|ID] OpSingleAssign) value=DAssignment
+	| 	=> ({DTypedMemberReference.memberContainer=current} '.')
+		member=[DTypedMember|ID] (
+			=> explicitOperationCall?='(' // => boolean => has 0.n explicit arguments
+				(
+					memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*
+				)?
+			')')?
+	)*;
+	
+DPrimaryExpression returns DExpression:
+	DLiteralExpression |
+	DSelfExpression |
+	DReturnExpression |
+	DRaiseExpression |
+	DParenthesizedExpression |
+	DFunctionCall |
+	DConstructorCall |
+	DContextReference |
+	DIfExpression |
+	DForLoopExpression;
+	
+DLiteralExpression returns DExpression:
+	DBooleanLiteral |
+	DStringLiteral |
+	DNaturalLiteral |
+	DDecimalLiteral |
+	DNilLiteral;
+	
+DSelfExpression returns DExpression :
+	{DSelfExpression}
+	('SELF' | 'self');
+		
+DReturnExpression returns DExpression :
+	{DReturnExpression}
+	('RETURN' | 'return') (->expression=DExpression)?;
+	
+DRaiseExpression returns DExpression :
+	{DRaiseExpression}
+	('RAISE' | 'raise') expression=DExpression;
+	
+DParenthesizedExpression returns DExpression:
+	'(' DExpression ')';
+
+DFunctionCall returns DExpression:
+	{DFunctionCall}
+	function=[DFunction|ID]
+	'('
+		(
+			functionCallArguments+=DExpression (',' functionCallArguments+=DExpression)*
+		)?
+	')';
+	
+DConstructorCall returns DExpression:
+	{DConstructorCall}
+	OpConstructor constructor=[DIdentityType|ID]
+	(=> explicitConstructorCall?='(' // => boolean => has 0.n explicit arguments
+		(
+			arguments+=DExpression (',' arguments+=DExpression)*
+		)?
+	')')?;
+
+OpConstructor:
+	'NEW' | 'new';
+		
+DContextReference returns DExpression:
+	{DContextReference}
+	contextElement=[DNamedElement|ID];
+	
+DIfExpression returns DExpression:
+	{DIfExpression}
+	'if' if=DExpression
+	'then' then=DExpression
+	(=> 'else' else=DExpression)?
+	'end';
+	
+DForLoopExpression returns DExpression:
+	=>({DForLoopExpression}
+	'for' declaredParam=ID ':') forExpression=DExpression 'do'
+	eachExpression=DExpression
+	'end';
+
+MULTIPLICITY returns ecore::EInt:
+	NATURAL | '*';
+	
+DBooleanLiteral returns DExpression: {DBooleanLiteral} (value?='TRUE' | value?='true' | 'FALSE' | 'false');
+DStringLiteral returns DExpression: {DStringLiteral} value=STRING;
+DNaturalLiteral returns DExpression: {DNaturalLiteral} value=NATURAL;
+DDecimalLiteral returns DExpression: {DDecimalLiteral} value=DECIMAL;
+DNilLiteral returns DExpression: {DNilLiteral} ('NIL' | 'nil');
+
+DECIMAL returns ecore::EString: NATURAL '.' NATURAL (('E'|'e')  ('+'|'-')? NATURAL)?;
+
+terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+terminal STRING:	'"' ( '\\' . | !('\\'|'"') )* '"';
+terminal NATURAL returns ecore::EInt: '0'..'9'+;
+
+terminal fragment PLAIN_TEXT:	!('»'|'[');
+terminal PLAIN_TEXT_ONLY:		'«' PLAIN_TEXT* '»';
+terminal PLAIN_TEXT_START:		'«' PLAIN_TEXT* '[';
+terminal PLAIN_TEXT_MIDDLE:	']'  PLAIN_TEXT* '[';
+terminal PLAIN_TEXT_END:			']'  PLAIN_TEXT* '»';
+
+terminal ML_COMMENT : '/*' -> '*/';
+terminal SL_COMMENT : '//' !('\n'|'\r')* ('\r'? '\n')?;
+
+terminal WS         : (' '|'\t'|'\r'|'\n')+;
+
+terminal ANY_OTHER: .;

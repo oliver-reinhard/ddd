@@ -1,0 +1,247 @@
+grammar com.mimacom.ddd.dm.dms.Dms with  com.mimacom.ddd.dm.dmx.Dmx
+
+import "http://www.mimacom.com/ddd/dm/dmx" 
+import "http://www.mimacom.com/ddd/dm/base" 
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+/*
+ * CLUSTERING / VISIBILITY
+ */
+DModel:
+	{DModel}
+	(	'global'
+		'{'
+		(	globalTypes+=GlobalValueTypes
+		|	globalFunctions+=DFunction
+		)*
+		'}'
+	)?
+	// define each domain in its own file:
+	(domain=DDomain)?;
+
+GlobalValueTypes returns IValueType:
+	DPrimitive | DEnumeration | DDetailType;
+	
+DFunction:
+	'function' name=ID 
+	'(' parameterNames+=STRING (','  parameterNames+=STRING)* ')'
+	':'
+	type=[DType|ID]  (multiplicity=DMultiplicity)?;
+
+DDomain:
+	'domain'
+	name=ID
+	(description=DRichText)?
+	(imports+=DImport)*
+	(types+=DType | aggregates+=DAggregate | applications+=DExistingApplication |  events+=DDomainEvent | actors+=DActor)*;
+
+DImport:
+	'import' importedNamespace=DQualifiedNameWithWildcard;
+
+DQualifiedNameWithWildcard: 
+	QualifiedName '.*'?;
+
+QualifiedName:
+	ID ('.' ID)*;
+
+DAggregate:
+	{DAggregate}
+	'aggregate'
+	(description=DRichText)?
+	'{'
+		( types+=DType)*
+	'}';
+
+/*
+ * TYPES
+ */
+DType:
+	DPrimitive | DEnumeration | DRootType | DRelationship | DDetailType;
+	
+DConstraint returns DCondition:
+	'constraint'
+	name=ID
+	':'
+	condition=DExpression
+	(description=DRichText)?;
+
+DPrimitive:
+	'primitive'
+	name=ID
+	(description=DRichText)?
+	'{'
+		('redefines' redefines=[DPrimitive])?
+		(constraints+=DConstraint)*
+	'}';
+
+DEnumeration:
+	'enumeration'
+	name=ID
+	(description=DRichText)?
+	'{'
+	 	(literals+=DLiteral (',' literals+=DLiteral)*)?
+		(constraints+=DConstraint)*
+	 '}';
+
+DLiteral:
+	name=ID
+	(description=DRichText)?;
+
+DRootType:
+	(abstract?='abstract')?
+	'root'
+	DComplexType;
+
+DRelationship:
+	(abstract?='abstract')?
+	'relationship'
+	DComplexType;
+
+DDetailType:
+	(abstract?='abstract')?
+	'detail'
+	DComplexType;
+
+fragment DComplexType:
+	name=ID
+	('extends' superType=[DComplexType|ID])?
+	(description=DRichText)?
+	'{'
+		(features+=DFeature | constraints+=DConstraint)*
+	'}';
+	
+DFeature:
+	DAssociation |  DAttribute | DQuery;
+
+DAssociation:
+	(derived?='derived')? 
+	(kind=DAssociationKind | (kind=DAssociationKindInverse "composite"))
+	name=ID
+	':'
+	type=[DRootType|ID]  (multiplicity=DMultiplicity)?
+	(description=DRichText)?;
+
+enum DAssociationKind:
+	REFERENCE="reference" | COMPOSITE="composite";
+
+enum DAssociationKindInverse returns DAssociationKind:	
+	 INVERSE_COMPOSITE="inverse";
+	
+DMultiplicity:
+	'(' minOccurs=NATURAL '..' maxOccurs=MULTIPLICITY ')';
+	
+DAttribute:
+	(	('detail'
+		name=ID
+		':'
+		type=[DDetailType|ID] )
+	|	(name=ID
+		':'
+		type=[DSimpleType|ID] )
+	)
+	(multiplicity=DMultiplicity)?
+	(key?='key')?
+	(description=DRichText)?;
+
+DQuery:
+	name=ID
+	'(' (parameters+=DQueryParameter ( "," parameters+=DQueryParameter)*)? ')'
+	':' 
+	type=[DType|ID]  (multiplicity=DMultiplicity)?
+	('returns' ^returns=DExpression)?
+	(description=DRichText)?;
+
+DQueryParameter:
+	name=ID 
+	':' 
+	type=[DType|ID]  (multiplicity=DMultiplicity)?
+	(description=DRichText)?;
+
+/*
+ * BEHAVIOUR
+ */
+DDomainEvent:
+	'event'
+	name=ID
+	'triggered' 'by' trigger=[DActor|ID]
+	(description=DRichText)?
+	'{'
+		(context+=DContext)+
+		(notifications+=DNotification)+
+		('before'  	(before+=DCondition)+)?
+		('after' 		(after+=DCondition)+ )?
+	'}';
+	
+DCondition:
+	'condition'
+	name=ID
+	':'
+	condition=DExpression
+	(description=DRichText)?;
+	
+DNotification:
+	'notification'
+	name=ID
+	':'
+	type=[DType|ID]  (multiplicity=DMultiplicity)?
+	'sent' 'to' notified=[DActor|ID]
+	(description=DRichText)?;
+
+DContext:
+	'context'
+	name=ID
+	':'
+	type=[DType|ID]  (multiplicity=DMultiplicity)?
+	(description=DRichText)?;
+	
+DActor:
+	DHuman | DService | DTime;
+
+DHuman:
+	'human' 'actor'
+	name=ID
+	(description=DRichText)?;
+
+DTime:
+	'time' 'actor'
+	name=ID
+	(description=DRichText)?;
+
+/*
+ * EXISTING APPLICATIONS
+ */
+DExistingApplication:
+	'application'
+	name=ID
+	(description=DRichText)?
+	'{'
+		(services+=DService | exceptions+=DException)*
+	'}';
+	
+DService:
+	'service'
+	name=ID
+	('(' parameters+=DServiceParameter ( "," parameters+=DServiceParameter)* ')' )?
+	(description=DRichText)?
+	('kind' kind=DServiceKind)?
+	('precondition' precondition=DExpression)?
+	('postcondition' postcondition=DExpression)?
+	('raises' raises+=[DException|ID]  ( "," raises+=[DException|ID])* )?;
+
+DServiceParameter:
+	direction=DDirection
+	name=ID
+	':'
+	type=[DType|ID]  (multiplicity=DMultiplicity)?
+	(description=DRichText)?;
+
+DException:
+	'exception'
+	name=ID
+	(description=DRichText)?;
+
+enum DServiceKind:
+				SYNCHRONOUS = 'SYNC' | ASYNCHRONOUS = 'ASYNC';
+
+enum DDirection:
+				INBOUND = 'IN' | OUTBOUND = 'OUT';
