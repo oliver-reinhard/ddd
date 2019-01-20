@@ -19,7 +19,9 @@ Require-Bundle: com.mimacom.ddd.dm.dme,
  org.eclipse.compare,
  org.eclipse.xtext.builder,
  org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
- org.eclipse.xtend.lib;bundle-version="2.14.0";resolution:=optional
+ org.eclipse.xtend.lib;bundle-version="2.14.0";resolution:=optional,
+ net.sourceforge.plantuml.eclipse;bundle-version="1.1.21",
+ net.sourceforge.plantuml.text;bundle-version="1.1.21"
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.mimacom.ddd.dm.dme.ui.quickfix,

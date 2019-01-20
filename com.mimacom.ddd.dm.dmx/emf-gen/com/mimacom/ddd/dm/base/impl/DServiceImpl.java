@@ -8,6 +8,7 @@ import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DServiceKind;
 import com.mimacom.ddd.dm.base.DServiceParameter;
+import com.mimacom.ddd.dm.base.DType;
 
 import java.util.Collection;
 
@@ -33,37 +34,18 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getRaises <em>Raises</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getPrecondition <em>Precondition</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getPostcondition <em>Postcondition</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getTypes <em>Types</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class DServiceImpl extends DActorImpl implements DService
 {
-	/**
-	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParameters()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DServiceParameter> parameters;
-
-	/**
-	 * The cached value of the '{@link #getRaises() <em>Raises</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRaises()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DException> raises;
-
 	/**
 	 * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -83,6 +65,26 @@ public class DServiceImpl extends DActorImpl implements DService
 	 * @ordered
 	 */
 	protected DServiceKind kind = KIND_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DServiceParameter> parameters;
+
+	/**
+	 * The cached value of the '{@link #getRaises() <em>Raises</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRaises()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DException> raises;
 
 	/**
 	 * The cached value of the '{@link #getPrecondition() <em>Precondition</em>}' containment reference.
@@ -105,6 +107,16 @@ public class DServiceImpl extends DActorImpl implements DService
 	protected DExpression postcondition;
 
 	/**
+	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DType> types;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -123,6 +135,31 @@ public class DServiceImpl extends DActorImpl implements DService
 	protected EClass eStaticClass()
 	{
 		return BasePackage.Literals.DSERVICE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DServiceKind getKind()
+	{
+		return kind;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setKind(DServiceKind newKind)
+	{
+		DServiceKind oldKind = kind;
+		kind = newKind == null ? KIND_EDEFAULT : newKind;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DSERVICE__KIND, oldKind, kind));
 	}
 
 	/**
@@ -153,31 +190,6 @@ public class DServiceImpl extends DActorImpl implements DService
 			raises = new EObjectResolvingEList<DException>(DException.class, this, BasePackage.DSERVICE__RAISES);
 		}
 		return raises;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DServiceKind getKind()
-	{
-		return kind;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setKind(DServiceKind newKind)
-	{
-		DServiceKind oldKind = kind;
-		kind = newKind == null ? KIND_EDEFAULT : newKind;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DSERVICE__KIND, oldKind, kind));
 	}
 
 	/**
@@ -286,6 +298,21 @@ public class DServiceImpl extends DActorImpl implements DService
 	 * @generated
 	 */
 	@Override
+	public EList<DType> getTypes()
+	{
+		if (types == null)
+		{
+			types = new EObjectContainmentEList<DType>(DType.class, this, BasePackage.DSERVICE__TYPES);
+		}
+		return types;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
 		switch (featureID)
@@ -296,6 +323,8 @@ public class DServiceImpl extends DActorImpl implements DService
 				return basicSetPrecondition(null, msgs);
 			case BasePackage.DSERVICE__POSTCONDITION:
 				return basicSetPostcondition(null, msgs);
+			case BasePackage.DSERVICE__TYPES:
+				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -310,16 +339,18 @@ public class DServiceImpl extends DActorImpl implements DService
 	{
 		switch (featureID)
 		{
+			case BasePackage.DSERVICE__KIND:
+				return getKind();
 			case BasePackage.DSERVICE__PARAMETERS:
 				return getParameters();
 			case BasePackage.DSERVICE__RAISES:
 				return getRaises();
-			case BasePackage.DSERVICE__KIND:
-				return getKind();
 			case BasePackage.DSERVICE__PRECONDITION:
 				return getPrecondition();
 			case BasePackage.DSERVICE__POSTCONDITION:
 				return getPostcondition();
+			case BasePackage.DSERVICE__TYPES:
+				return getTypes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -335,6 +366,9 @@ public class DServiceImpl extends DActorImpl implements DService
 	{
 		switch (featureID)
 		{
+			case BasePackage.DSERVICE__KIND:
+				setKind((DServiceKind)newValue);
+				return;
 			case BasePackage.DSERVICE__PARAMETERS:
 				getParameters().clear();
 				getParameters().addAll((Collection<? extends DServiceParameter>)newValue);
@@ -343,14 +377,15 @@ public class DServiceImpl extends DActorImpl implements DService
 				getRaises().clear();
 				getRaises().addAll((Collection<? extends DException>)newValue);
 				return;
-			case BasePackage.DSERVICE__KIND:
-				setKind((DServiceKind)newValue);
-				return;
 			case BasePackage.DSERVICE__PRECONDITION:
 				setPrecondition((DExpression)newValue);
 				return;
 			case BasePackage.DSERVICE__POSTCONDITION:
 				setPostcondition((DExpression)newValue);
+				return;
+			case BasePackage.DSERVICE__TYPES:
+				getTypes().clear();
+				getTypes().addAll((Collection<? extends DType>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -366,20 +401,23 @@ public class DServiceImpl extends DActorImpl implements DService
 	{
 		switch (featureID)
 		{
+			case BasePackage.DSERVICE__KIND:
+				setKind(KIND_EDEFAULT);
+				return;
 			case BasePackage.DSERVICE__PARAMETERS:
 				getParameters().clear();
 				return;
 			case BasePackage.DSERVICE__RAISES:
 				getRaises().clear();
 				return;
-			case BasePackage.DSERVICE__KIND:
-				setKind(KIND_EDEFAULT);
-				return;
 			case BasePackage.DSERVICE__PRECONDITION:
 				setPrecondition((DExpression)null);
 				return;
 			case BasePackage.DSERVICE__POSTCONDITION:
 				setPostcondition((DExpression)null);
+				return;
+			case BasePackage.DSERVICE__TYPES:
+				getTypes().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -395,16 +433,18 @@ public class DServiceImpl extends DActorImpl implements DService
 	{
 		switch (featureID)
 		{
+			case BasePackage.DSERVICE__KIND:
+				return kind != KIND_EDEFAULT;
 			case BasePackage.DSERVICE__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
 			case BasePackage.DSERVICE__RAISES:
 				return raises != null && !raises.isEmpty();
-			case BasePackage.DSERVICE__KIND:
-				return kind != KIND_EDEFAULT;
 			case BasePackage.DSERVICE__PRECONDITION:
 				return precondition != null;
 			case BasePackage.DSERVICE__POSTCONDITION:
 				return postcondition != null;
+			case BasePackage.DSERVICE__TYPES:
+				return types != null && !types.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

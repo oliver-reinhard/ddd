@@ -45,8 +45,6 @@ class DmsScopeProvider extends AbstractDmsScopeProvider {
 				DAssociation: getContainerTypesOfTypeScope(context, DRootType, true)
 				DQueryParameter: getContainerTypesOfTypeScope(context, IValueType, true)
 				DServiceParameter: getContainerTypesOfTypeScope(context, IValueType, true)
-//				DContext: getContainerTypesOfTypeScope(context, DType, true)
-//				DNotification: getContainerTypesOfTypeScope(context, DType, true)
 				DFunction: getContainerTypesOfTypeScope(context, IValueType, true)
 				default:  IScope.NULLSCOPE
 			}
@@ -60,12 +58,6 @@ class DmsScopeProvider extends AbstractDmsScopeProvider {
 				DDetailType: getContainerTypesOfTypeScope(context, DDetailType, false)
 				default:  IScope.NULLSCOPE
 			}
-			
-//		} else if (reference == epackage.DDomainEvent_Trigger || reference == epackage.DNotification_Notified) {
-//			val domain = EcoreUtil2.getContainerOfType(context, DDomain)
-//			if (domain !== null) {
-//				return Scopes.scopeFor(domain.actors, getImportedObjectsOfTypeScope(context, DActor))
-//			}
 		} 
 		return super.getScope(context, reference)
 	}

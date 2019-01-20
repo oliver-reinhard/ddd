@@ -147,15 +147,17 @@
   <eClassifiers xsi:type="ecore:EClass" name="DActor" abstract="true" eSuperTypes="#//DNamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="DHuman" eSuperTypes="#//DActor"/>
   <eClassifiers xsi:type="ecore:EClass" name="DService" eSuperTypes="#//DActor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//DServiceKind"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//DServiceParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="raises" upperBound="-1"
         eType="#//DException"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//DServiceKind"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="precondition" eType="#//DExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="postcondition" eType="#//DExpression"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
+        eType="#//DType" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DServiceParameter" eSuperTypes="#//DTypedMember">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="#//DDirection"/>

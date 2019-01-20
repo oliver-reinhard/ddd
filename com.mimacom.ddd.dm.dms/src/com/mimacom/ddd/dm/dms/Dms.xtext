@@ -33,7 +33,7 @@ DDomain:
 	name=ID
 	(description=DRichText)?
 	(imports+=DImport)*
-	(types+=DType | aggregates+=DAggregate | applications+=DExistingApplication | actors+=DActor)*; // |  events+=DDomainEvent )*;
+	(types+=DType | aggregates+=DAggregate | applications+=DExistingApplication | actors+=DService)*;
 
 DImport:
 	'import' importedNamespace=DQualifiedNameWithWildcard;
@@ -148,55 +148,6 @@ DQueryParameter:
 	type=[DType|ID]  (multiplicity=DMultiplicity)?
 	(description=DRichText)?;
 
-/*
- * BEHAVIOUR
- */
-//DDomainEvent:
-//	'event'
-//	name=ID
-//	'triggered' 'by' trigger=[DActor|ID]
-//	(description=DRichText)?
-//	'{'
-//		(context+=DContext)+
-//		(notifications+=DNotification)+
-//		('before'  	(before+=DCondition)+)?
-//		('after' 		(after+=DCondition)+ )?
-//	'}';
-//	
-//DCondition:
-//	'condition'
-//	name=ID
-//	':'
-//	condition=DExpression
-//	(description=DRichText)?;
-//	
-//DNotification:
-//	'notification'
-//	name=ID
-//	':'
-//	type=[DType|ID]  (multiplicity=DMultiplicity)?
-//	'sent' 'to' notified=[DActor|ID]
-//	(description=DRichText)?;
-//
-//DContext:
-//	'context'
-//	name=ID
-//	':'
-//	type=[DType|ID]  (multiplicity=DMultiplicity)?
-//	(description=DRichText)?;
-	
-DActor:
-	DService; //| DHuman | DTime;
-
-//DHuman:
-//	'human' 'actor'
-//	name=ID
-//	(description=DRichText)?;
-//
-//DTime:
-//	'time' 'actor'
-//	name=ID
-//	(description=DRichText)?;
 
 /*
  * EXISTING APPLICATIONS
@@ -206,18 +157,20 @@ DExistingApplication:
 	name=ID
 	(description=DRichText)?
 	'{'
-		(services+=DService | exceptions+=DException)*
+		(services+=DService | exceptions+=DException | types+=DType)*
 	'}';
 	
 DService:
-	'service'
+	(kind=DServiceKind)? 'service'
 	name=ID
-	('(' parameters+=DServiceParameter ( "," parameters+=DServiceParameter)* ')' )?
-	(description=DRichText)?
-	('kind' kind=DServiceKind)?
+	('(' (parameters+=DServiceParameter ( "," parameters+=DServiceParameter)*)? ')' )?
+	('raises' raises+=[DException|ID]  ( "," raises+=[DException|ID])* )?
+	(description=DRichText)? 
+	'{'
 	('precondition' precondition=DExpression)?
 	('postcondition' postcondition=DExpression)?
-	('raises' raises+=[DException|ID]  ( "," raises+=[DException|ID])* )?;
+	(types+=DType)*
+	'}';
 
 DServiceParameter:
 	direction=DDirection
@@ -232,7 +185,7 @@ DException:
 	(description=DRichText)?;
 
 enum DServiceKind:
-				SYNCHRONOUS = 'SYNC' | ASYNCHRONOUS = 'ASYNC';
+				SYNCHRONOUS = 'synchronous' | ASYNCHRONOUS = 'async';
 
 enum DDirection:
-				INBOUND = 'IN' | OUTBOUND = 'OUT';
+				INBOUND = 'in' | OUTBOUND = 'out';

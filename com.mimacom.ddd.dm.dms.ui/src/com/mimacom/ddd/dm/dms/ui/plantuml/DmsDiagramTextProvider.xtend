@@ -12,6 +12,7 @@ import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DRelationship
 import com.mimacom.ddd.dm.base.DRootType
 import com.mimacom.ddd.dm.base.DType
+import com.mimacom.ddd.dm.dms.ui.internal.DmsActivator
 import java.util.Map
 import net.sourceforge.plantuml.text.AbstractDiagramTextProvider
 import org.eclipse.emf.ecore.EObject
@@ -21,32 +22,61 @@ import org.eclipse.ui.IEditorPart
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.ui.editor.XtextEditor
 import org.eclipse.xtext.ui.editor.model.XtextDocument
-import com.mimacom.ddd.dm.base.DAssociationKind
+import com.mimacom.ddd.dm.base.DPrimitive
 
 class DmsDiagramTextProvider extends AbstractDiagramTextProvider {
 	
 	// @Inject extension DmsUtil // TODO injector not working, bundle setup seems ok => ?
 	
 	def DmsDiagramTextProvider() {
-        //fileExtensions = "mydsl";
         editorType = typeof(XtextEditor)
     }
+    
+	override supportsEditor(IEditorPart editorPart) {
+		super.supportsEditor(editorPart) && (editorPart as XtextEditor).languageName.equals(DmsActivator.COM_MIMACOM_DDD_DM_DMS_DMS)
+	}
 	
 	override supportsSelection(ISelection sel) {
-		return true;
+		return false;
 	}
 				
 	override protected getDiagramText(IEditorPart editorPart, IEditorInput editorInput, ISelection sel, Map<String, Object> obj) {
         // Retrieve the "semantic" EMF from XtextEditor
         val document = (editorPart as XtextEditor).getDocumentProvider().getDocument(editorInput) as XtextDocument;
         val DModel model = document.readOnly[
-            return contents.head as DModel
+            return if (contents.head instanceof DModel) contents.head as DModel else null
         ]
-         
-        val domain = model.domain
-        if (domain === null) {
-        	return ""
+        
+        val globalTypes = model?.globalTypes
+        val globalFunctions = model?.globalFunctions
+        val aggregates = model?.domain?.aggregates
+        
+        if (model === null || globalTypes.empty && globalFunctions.empty && ( aggregates === null || aggregates.empty)) {
+        	return '''note "No structures to show." as N1'''
         }
+        
+        if (aggregates !== null && aggregates.size > 0) {
+        	return domainTypes(model.domain)
+        } else {
+        	return generateGlobalTypes(model)
+        }
+	}
+	
+	def String generateGlobalTypes(DModel model) '''
+		hide empty members
+		package Global <<Frame>> {
+			«FOR t : model.globalTypes»«(t as DType).generateType»
+			«ENDFOR»
+			«IF ! model.globalFunctions.empty»
+				class Functions {
+					«FOR f : model.globalFunctions»«f.name»(«FOR p : f.parameterNames SEPARATOR ','»«p»«ENDFOR»):«f.type.name»
+					«ENDFOR»
+				}
+			«ENDIF»
+		}
+	'''
+	
+	def domainTypes(DDomain domain) {
         val allAggregates = EcoreUtil2.eAllOfType(domain, DAggregate)
         val allAssociations = EcoreUtil2.eAllOfType(domain, DAssociation).filter[type instanceof DRootType]
         val allReferencedDomains = allAssociations.filter[targetType.domainName != domain.name].map[targetType.domainName]
@@ -54,18 +84,19 @@ class DmsDiagramTextProvider extends AbstractDiagramTextProvider {
         val allSubtypes = EcoreUtil2.eAllOfType(domain, DComplexType).filter[superType !== null]
         
        val result = '''
+       		hide empty members
            	«FOR a:allAggregates»package «a.aggregateName» <<Rectangle>> {
-    				«FOR t:a.types»«t.generateType»«ENDFOR»
-           	}
-           	«FOR d:allReferencedDomains»package «d» <<Frame>> { 
-           	}
-           	«ENDFOR»
-    		«ENDFOR»
-            «FOR a:allAssociations»«a.generateAssociation»
-            «ENDFOR»
-            «FOR a:allDetailAttributes»«a.generateLink»
-            «ENDFOR»
-            «FOR s:allSubtypes»«s.aggregateName».«s.name» --|> «s.superType.aggregateName»
+	    				«FOR t:a.types»«t.generateType»«ENDFOR»
+           		}
+	           	«FOR d:allReferencedDomains»package «d» <<Frame>> { 
+	           	}
+	           	«ENDFOR»
+	    		«ENDFOR»
+	            «FOR a:allAssociations»«a.generateAssociation»
+	            «ENDFOR»
+	            «FOR a:allDetailAttributes»«a.generateLink»
+	            «ENDFOR»
+	            «FOR s:allSubtypes»«s.aggregateName».«s.name» --|> «s.superType.aggregateName»
             «ENDFOR»
         '''
        return result
@@ -87,15 +118,9 @@ class DmsDiagramTextProvider extends AbstractDiagramTextProvider {
 		}
 	'''
 	
-	def getSpot(DType t) {
-		// Returns the "Spot Letter" to use next to the class name.
-		switch t {
-		DRootType : "<< (R,crimson) >>"
-		DDetailType : "<< (D,grey) >>"
-		DRelationship:  "<< (R,navy) >>"
-		default:""
-		}
-	}
+	def dispatch  generateType(DPrimitive p) '''	
+		class «p.name» «p.getSpot»
+	'''
 	
 	def dispatch  generateType(DEnumeration e)  '''
 		enum «e.name» << (E,green) >> {
@@ -107,6 +132,17 @@ class DmsDiagramTextProvider extends AbstractDiagramTextProvider {
 	
 	def dispatch generateType(DType t)  '''
 	'''
+	
+	def getSpot(DType t) {
+		// Returns the "Spot Letter" to use next to the class name.
+		switch t {
+		DRootType : "<< (R,crimson) >>"
+		DDetailType : "<< (D,grey) >>"
+		DRelationship:  "<< (R,navy) >>"
+		DPrimitive:  "<< (P,teal) >>"
+		default:""
+		}
+	}
 	
 	
 	def dispatch generateFeature(DAttribute a) '''

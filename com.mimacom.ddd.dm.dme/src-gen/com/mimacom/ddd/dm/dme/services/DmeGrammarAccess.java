@@ -725,7 +725,6 @@ public class DmeGrammarAccess extends AbstractGrammarElementFinder {
 		return getDmxModelAccess().getRule();
 	}
 	
-	//////
 	//DRichText:
 	//	elements+=DTextOnly
 	//	| elements+=DTextStart

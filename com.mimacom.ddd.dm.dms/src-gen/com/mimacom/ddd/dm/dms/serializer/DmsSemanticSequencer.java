@@ -329,7 +329,12 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	 *     DDomain returns DDomain
 	 *
 	 * Constraint:
-	 *     (name=ID description=DRichText? imports+=DImport* (types+=DType | aggregates+=DAggregate | applications+=DExistingApplication | actors+=DActor)*)
+	 *     (
+	 *         name=ID 
+	 *         description=DRichText? 
+	 *         imports+=DImport* 
+	 *         (types+=DType | aggregates+=DAggregate | applications+=DExistingApplication | actors+=DService)*
+	 *     )
 	 */
 	protected void sequence_DDomain(ISerializationContext context, DDomain semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -367,7 +372,7 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	 *     DExistingApplication returns DExistingApplication
 	 *
 	 * Constraint:
-	 *     (name=ID description=DRichText? (services+=DService | exceptions+=DException)*)
+	 *     (name=ID description=DRichText? (services+=DService | exceptions+=DException | types+=DType)*)
 	 */
 	protected void sequence_DExistingApplication(ISerializationContext context, DExistingApplication semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -488,18 +493,18 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DActor returns DService
 	 *     DService returns DService
 	 *
 	 * Constraint:
 	 *     (
+	 *         kind=DServiceKind? 
 	 *         name=ID 
 	 *         (parameters+=DServiceParameter parameters+=DServiceParameter*)? 
+	 *         (raises+=[DException|ID] raises+=[DException|ID]*)? 
 	 *         description=DRichText? 
-	 *         kind=DServiceKind? 
 	 *         precondition=DExpression? 
 	 *         postcondition=DExpression? 
-	 *         (raises+=[DException|ID] raises+=[DException|ID]*)?
+	 *         types+=DType*
 	 *     )
 	 */
 	protected void sequence_DService(ISerializationContext context, DService semanticObject) {

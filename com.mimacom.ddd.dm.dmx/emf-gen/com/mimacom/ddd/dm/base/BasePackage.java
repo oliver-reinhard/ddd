@@ -2500,13 +2500,22 @@ public interface BasePackage extends EPackage
 	int DSERVICE__DESCRIPTION = DACTOR__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSERVICE__KIND = DACTOR_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE__PARAMETERS = DACTOR_FEATURE_COUNT + 0;
+	int DSERVICE__PARAMETERS = DACTOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Raises</b></em>' reference list.
@@ -2515,16 +2524,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE__RAISES = DACTOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Kind</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DSERVICE__KIND = DACTOR_FEATURE_COUNT + 2;
+	int DSERVICE__RAISES = DACTOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Precondition</b></em>' containment reference.
@@ -2545,13 +2545,22 @@ public interface BasePackage extends EPackage
 	int DSERVICE__POSTCONDITION = DACTOR_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSERVICE__TYPES = DACTOR_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>DService</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE_FEATURE_COUNT = DACTOR_FEATURE_COUNT + 5;
+	int DSERVICE_FEATURE_COUNT = DACTOR_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>DService</em>' class.
@@ -3747,6 +3756,17 @@ public interface BasePackage extends EPackage
 	EClass getDService();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DService#getKind <em>Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Kind</em>'.
+	 * @see com.mimacom.ddd.dm.base.DService#getKind()
+	 * @see #getDService()
+	 * @generated
+	 */
+	EAttribute getDService_Kind();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DService#getParameters <em>Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3769,17 +3789,6 @@ public interface BasePackage extends EPackage
 	EReference getDService_Raises();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DService#getKind <em>Kind</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Kind</em>'.
-	 * @see com.mimacom.ddd.dm.base.DService#getKind()
-	 * @see #getDService()
-	 * @generated
-	 */
-	EAttribute getDService_Kind();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.DService#getPrecondition <em>Precondition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3800,6 +3809,17 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EReference getDService_Postcondition();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DService#getTypes <em>Types</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Types</em>'.
+	 * @see com.mimacom.ddd.dm.base.DService#getTypes()
+	 * @see #getDService()
+	 * @generated
+	 */
+	EReference getDService_Types();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DServiceParameter <em>DService Parameter</em>}'.
@@ -4694,6 +4714,14 @@ public interface BasePackage extends EPackage
 		EClass DSERVICE = eINSTANCE.getDService();
 
 		/**
+		 * The meta object literal for the '<em><b>Kind</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DSERVICE__KIND = eINSTANCE.getDService_Kind();
+
+		/**
 		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4710,14 +4738,6 @@ public interface BasePackage extends EPackage
 		EReference DSERVICE__RAISES = eINSTANCE.getDService_Raises();
 
 		/**
-		 * The meta object literal for the '<em><b>Kind</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DSERVICE__KIND = eINSTANCE.getDService_Kind();
-
-		/**
 		 * The meta object literal for the '<em><b>Precondition</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4732,6 +4752,14 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EReference DSERVICE__POSTCONDITION = eINSTANCE.getDService_Postcondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DSERVICE__TYPES = eINSTANCE.getDService_Types();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DServiceParameterImpl <em>DService Parameter</em>}' class.

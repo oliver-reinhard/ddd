@@ -1388,9 +1388,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDService_Parameters()
+	public EAttribute getDService_Kind()
 	{
-		return (EReference)dServiceEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)dServiceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1399,7 +1399,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDService_Raises()
+	public EReference getDService_Parameters()
 	{
 		return (EReference)dServiceEClass.getEStructuralFeatures().get(1);
 	}
@@ -1410,9 +1410,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDService_Kind()
+	public EReference getDService_Raises()
 	{
-		return (EAttribute)dServiceEClass.getEStructuralFeatures().get(2);
+		return (EReference)dServiceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1435,6 +1435,17 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EReference getDService_Postcondition()
 	{
 		return (EReference)dServiceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDService_Types()
+	{
+		return (EReference)dServiceEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1710,11 +1721,12 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dHumanEClass = createEClass(DHUMAN);
 
 		dServiceEClass = createEClass(DSERVICE);
+		createEAttribute(dServiceEClass, DSERVICE__KIND);
 		createEReference(dServiceEClass, DSERVICE__PARAMETERS);
 		createEReference(dServiceEClass, DSERVICE__RAISES);
-		createEAttribute(dServiceEClass, DSERVICE__KIND);
 		createEReference(dServiceEClass, DSERVICE__PRECONDITION);
 		createEReference(dServiceEClass, DSERVICE__POSTCONDITION);
+		createEReference(dServiceEClass, DSERVICE__TYPES);
 
 		dServiceParameterEClass = createEClass(DSERVICE_PARAMETER);
 		createEAttribute(dServiceParameterEClass, DSERVICE_PARAMETER__DIRECTION);
@@ -1924,11 +1936,12 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dHumanEClass, DHuman.class, "DHuman", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dServiceEClass, DService.class, "DService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDService_Kind(), this.getDServiceKind(), "kind", null, 0, 1, DService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDService_Parameters(), this.getDServiceParameter(), null, "parameters", null, 0, -1, DService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDService_Raises(), this.getDException(), null, "raises", null, 0, -1, DService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDService_Kind(), this.getDServiceKind(), "kind", null, 0, 1, DService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDService_Precondition(), this.getDExpression(), null, "precondition", null, 0, 1, DService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDService_Postcondition(), this.getDExpression(), null, "postcondition", null, 0, 1, DService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDService_Types(), this.getDType(), null, "types", null, 0, -1, DService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dServiceParameterEClass, DServiceParameter.class, "DServiceParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDServiceParameter_Direction(), this.getDDirection(), "direction", null, 0, 1, DServiceParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -115,7 +115,6 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cElementsAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
 		private final RuleCall cElementsDTextEndParserRuleCall_1_3_0 = (RuleCall)cElementsAssignment_1_3.eContents().get(0);
 		
-		//////
 		//DRichText:
 		//	elements+=DTextOnly
 		//	| elements+=DTextStart
@@ -2253,7 +2252,6 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		return getDmxModelAccess().getRule();
 	}
 	
-	//////
 	//DRichText:
 	//	elements+=DTextOnly
 	//	| elements+=DTextStart

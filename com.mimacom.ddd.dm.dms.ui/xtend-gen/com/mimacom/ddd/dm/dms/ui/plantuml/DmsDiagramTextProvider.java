@@ -10,12 +10,16 @@ import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DFunction;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DModel;
+import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DRelationship;
 import com.mimacom.ddd.dm.base.DRootType;
 import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.IValueType;
+import com.mimacom.ddd.dm.dms.ui.internal.DmsActivator;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -42,8 +46,13 @@ public class DmsDiagramTextProvider extends AbstractDiagramTextProvider {
   }
   
   @Override
+  public boolean supportsEditor(final IEditorPart editorPart) {
+    return (super.supportsEditor(editorPart) && ((XtextEditor) editorPart).getLanguageName().equals(DmsActivator.COM_MIMACOM_DDD_DM_DMS_DMS));
+  }
+  
+  @Override
   public boolean supportsSelection(final ISelection sel) {
-    return true;
+    return false;
   }
   
   @Override
@@ -51,97 +60,197 @@ public class DmsDiagramTextProvider extends AbstractDiagramTextProvider {
     IDocument _document = ((XtextEditor) editorPart).getDocumentProvider().getDocument(editorInput);
     final XtextDocument document = ((XtextDocument) _document);
     final IUnitOfWork<DModel, XtextResource> _function = (XtextResource it) -> {
+      DModel _xifexpression = null;
       EObject _head = IterableExtensions.<EObject>head(it.getContents());
-      return ((DModel) _head);
+      if ((_head instanceof DModel)) {
+        EObject _head_1 = IterableExtensions.<EObject>head(it.getContents());
+        _xifexpression = ((DModel) _head_1);
+      } else {
+        _xifexpression = null;
+      }
+      return _xifexpression;
     };
     final DModel model = document.<DModel>readOnly(_function);
-    final DDomain domain = model.getDomain();
-    if ((domain == null)) {
-      return "";
+    EList<IValueType> _globalTypes = null;
+    if (model!=null) {
+      _globalTypes=model.getGlobalTypes();
     }
+    final EList<IValueType> globalTypes = _globalTypes;
+    EList<DFunction> _globalFunctions = null;
+    if (model!=null) {
+      _globalFunctions=model.getGlobalFunctions();
+    }
+    final EList<DFunction> globalFunctions = _globalFunctions;
+    DDomain _domain = null;
+    if (model!=null) {
+      _domain=model.getDomain();
+    }
+    EList<DAggregate> _aggregates = null;
+    if (_domain!=null) {
+      _aggregates=_domain.getAggregates();
+    }
+    final EList<DAggregate> aggregates = _aggregates;
+    if (((model == null) || ((globalTypes.isEmpty() && globalFunctions.isEmpty()) && ((aggregates == null) || aggregates.isEmpty())))) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("note \"No structures to show.\" as N1");
+      return _builder.toString();
+    }
+    if (((aggregates != null) && (aggregates.size() > 0))) {
+      return this.domainTypes(model.getDomain());
+    } else {
+      return this.generateGlobalTypes(model);
+    }
+  }
+  
+  public String generateGlobalTypes(final DModel model) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("hide empty members");
+    _builder.newLine();
+    _builder.append("package Global <<Frame>> {");
+    _builder.newLine();
+    _builder.append("\t");
+    {
+      EList<IValueType> _globalTypes = model.getGlobalTypes();
+      for(final IValueType t : _globalTypes) {
+        CharSequence _generateType = this.generateType(((DType) t));
+        _builder.append(_generateType, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      boolean _isEmpty = model.getGlobalFunctions().isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append("\t");
+        _builder.append("class Functions {");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t");
+        {
+          EList<DFunction> _globalFunctions = model.getGlobalFunctions();
+          for(final DFunction f : _globalFunctions) {
+            String _name = f.getName();
+            _builder.append(_name, "\t\t");
+            _builder.append("(");
+            {
+              EList<String> _parameterNames = f.getParameterNames();
+              boolean _hasElements = false;
+              for(final String p : _parameterNames) {
+                if (!_hasElements) {
+                  _hasElements = true;
+                } else {
+                  _builder.appendImmediate(",", "\t\t");
+                }
+                _builder.append(p, "\t\t");
+              }
+            }
+            _builder.append("):");
+            String _name_1 = f.getType().getName();
+            _builder.append(_name_1, "\t\t");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("\t");
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
+    _builder.append("}");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  public String domainTypes(final DDomain domain) {
     final List<DAggregate> allAggregates = EcoreUtil2.<DAggregate>eAllOfType(domain, DAggregate.class);
-    final Function1<DAssociation, Boolean> _function_1 = (DAssociation it) -> {
+    final Function1<DAssociation, Boolean> _function = (DAssociation it) -> {
       DType _type = it.getType();
       return Boolean.valueOf((_type instanceof DRootType));
     };
-    final Iterable<DAssociation> allAssociations = IterableExtensions.<DAssociation>filter(EcoreUtil2.<DAssociation>eAllOfType(domain, DAssociation.class), _function_1);
-    final Function1<DAssociation, Boolean> _function_2 = (DAssociation it) -> {
+    final Iterable<DAssociation> allAssociations = IterableExtensions.<DAssociation>filter(EcoreUtil2.<DAssociation>eAllOfType(domain, DAssociation.class), _function);
+    final Function1<DAssociation, Boolean> _function_1 = (DAssociation it) -> {
       String _domainName = this.domainName(it.getTargetType());
       String _name = domain.getName();
       return Boolean.valueOf((!Objects.equal(_domainName, _name)));
     };
-    final Function1<DAssociation, String> _function_3 = (DAssociation it) -> {
+    final Function1<DAssociation, String> _function_2 = (DAssociation it) -> {
       return this.domainName(it.getTargetType());
     };
-    final Iterable<String> allReferencedDomains = IterableExtensions.<DAssociation, String>map(IterableExtensions.<DAssociation>filter(allAssociations, _function_2), _function_3);
-    final Function1<DAttribute, Boolean> _function_4 = (DAttribute it) -> {
+    final Iterable<String> allReferencedDomains = IterableExtensions.<DAssociation, String>map(IterableExtensions.<DAssociation>filter(allAssociations, _function_1), _function_2);
+    final Function1<DAttribute, Boolean> _function_3 = (DAttribute it) -> {
       DType _type = it.getType();
       return Boolean.valueOf((_type instanceof DDetailType));
     };
-    final Iterable<DAttribute> allDetailAttributes = IterableExtensions.<DAttribute>filter(EcoreUtil2.<DAttribute>eAllOfType(domain, DAttribute.class), _function_4);
-    final Function1<DComplexType, Boolean> _function_5 = (DComplexType it) -> {
+    final Iterable<DAttribute> allDetailAttributes = IterableExtensions.<DAttribute>filter(EcoreUtil2.<DAttribute>eAllOfType(domain, DAttribute.class), _function_3);
+    final Function1<DComplexType, Boolean> _function_4 = (DComplexType it) -> {
       DComplexType _superType = it.getSuperType();
       return Boolean.valueOf((_superType != null));
     };
-    final Iterable<DComplexType> allSubtypes = IterableExtensions.<DComplexType>filter(EcoreUtil2.<DComplexType>eAllOfType(domain, DComplexType.class), _function_5);
+    final Iterable<DComplexType> allSubtypes = IterableExtensions.<DComplexType>filter(EcoreUtil2.<DComplexType>eAllOfType(domain, DComplexType.class), _function_4);
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("hide empty members");
+    _builder.newLine();
+    _builder.append("           \t");
     {
       for(final DAggregate a : allAggregates) {
         _builder.append("package ");
         String _aggregateName = this.aggregateName(a);
-        _builder.append(_aggregateName);
+        _builder.append(_aggregateName, "           \t");
         _builder.append(" <<Rectangle>> {");
         _builder.newLineIfNotEmpty();
-        _builder.append("    \t\t\t\t");
+        _builder.append("\t    \t\t\t\t");
         {
           EList<DType> _types = a.getTypes();
           for(final DType t : _types) {
             CharSequence _generateType = this.generateType(t);
-            _builder.append(_generateType, "    \t\t\t\t");
+            _builder.append(_generateType, "\t    \t\t\t\t");
           }
         }
         _builder.newLineIfNotEmpty();
+        _builder.append("           \t");
+        _builder.append("\t");
         _builder.append("}");
         _builder.newLine();
+        _builder.append("\t           \t");
         {
           for(final String d : allReferencedDomains) {
             _builder.append("package ");
-            _builder.append(d);
+            _builder.append(d, "\t           \t");
             _builder.append(" <<Frame>> { ");
             _builder.newLineIfNotEmpty();
+            _builder.append("\t           \t");
             _builder.append("}");
             _builder.newLine();
           }
         }
       }
     }
-    _builder.append("            ");
+    _builder.append("\t            ");
     {
       for(final DAssociation a_1 : allAssociations) {
         CharSequence _generateAssociation = this.generateAssociation(a_1);
-        _builder.append(_generateAssociation, "            ");
+        _builder.append(_generateAssociation, "\t            ");
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("            ");
+    _builder.append("\t            ");
     {
       for(final DAttribute a_2 : allDetailAttributes) {
         CharSequence _generateLink = this.generateLink(a_2);
-        _builder.append(_generateLink, "            ");
+        _builder.append(_generateLink, "\t            ");
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("            ");
+    _builder.append("\t            ");
     {
       for(final DComplexType s : allSubtypes) {
         String _aggregateName_1 = this.aggregateName(s);
-        _builder.append(_aggregateName_1, "            ");
+        _builder.append(_aggregateName_1, "\t            ");
         _builder.append(".");
         String _name = s.getName();
-        _builder.append(_name, "            ");
+        _builder.append(_name, "\t            ");
         _builder.append(" --|> ");
         String _aggregateName_2 = this.aggregateName(s.getSuperType());
-        _builder.append(_aggregateName_2, "            ");
+        _builder.append(_aggregateName_2, "\t            ");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -204,29 +313,16 @@ public class DmsDiagramTextProvider extends AbstractDiagramTextProvider {
     return _builder;
   }
   
-  public String getSpot(final DType t) {
-    String _switchResult = null;
-    boolean _matched = false;
-    if (t instanceof DRootType) {
-      _matched=true;
-      _switchResult = "<< (R,crimson) >>";
-    }
-    if (!_matched) {
-      if (t instanceof DDetailType) {
-        _matched=true;
-        _switchResult = "<< (D,grey) >>";
-      }
-    }
-    if (!_matched) {
-      if (t instanceof DRelationship) {
-        _matched=true;
-        _switchResult = "<< (R,navy) >>";
-      }
-    }
-    if (!_matched) {
-      _switchResult = "";
-    }
-    return _switchResult;
+  protected CharSequence _generateType(final DPrimitive p) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("class ");
+    String _name = p.getName();
+    _builder.append(_name);
+    _builder.append(" ");
+    String _spot = this.getSpot(p);
+    _builder.append(_spot);
+    _builder.newLineIfNotEmpty();
+    return _builder;
   }
   
   protected CharSequence _generateType(final DEnumeration e) {
@@ -253,6 +349,37 @@ public class DmsDiagramTextProvider extends AbstractDiagramTextProvider {
   protected CharSequence _generateType(final DType t) {
     StringConcatenation _builder = new StringConcatenation();
     return _builder;
+  }
+  
+  public String getSpot(final DType t) {
+    String _switchResult = null;
+    boolean _matched = false;
+    if (t instanceof DRootType) {
+      _matched=true;
+      _switchResult = "<< (R,crimson) >>";
+    }
+    if (!_matched) {
+      if (t instanceof DDetailType) {
+        _matched=true;
+        _switchResult = "<< (D,grey) >>";
+      }
+    }
+    if (!_matched) {
+      if (t instanceof DRelationship) {
+        _matched=true;
+        _switchResult = "<< (R,navy) >>";
+      }
+    }
+    if (!_matched) {
+      if (t instanceof DPrimitive) {
+        _matched=true;
+        _switchResult = "<< (P,teal) >>";
+      }
+    }
+    if (!_matched) {
+      _switchResult = "";
+    }
+    return _switchResult;
   }
   
   protected CharSequence _generateFeature(final DAttribute a) {
@@ -368,6 +495,8 @@ public class DmsDiagramTextProvider extends AbstractDiagramTextProvider {
   public CharSequence generateType(final DType e) {
     if (e instanceof DEnumeration) {
       return _generateType((DEnumeration)e);
+    } else if (e instanceof DPrimitive) {
+      return _generateType((DPrimitive)e);
     } else if (e instanceof DComplexType) {
       return _generateType((DComplexType)e);
     } else if (e != null) {
