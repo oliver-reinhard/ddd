@@ -1466,6 +1466,45 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		//'end'
 		public Keyword getEndKeyword_4() { return cEndKeyword_4; }
 	}
+	public class DMultiplicityElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DMultiplicity");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cMinOccursAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cMinOccursNATURALTerminalRuleCall_1_0 = (RuleCall)cMinOccursAssignment_1.eContents().get(0);
+		private final Keyword cFullStopFullStopKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cMaxOccursAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cMaxOccursMULTIPLICITYParserRuleCall_3_0 = (RuleCall)cMaxOccursAssignment_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//DMultiplicity:
+		//	'(' minOccurs=NATURAL '..' maxOccurs=MULTIPLICITY ')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'(' minOccurs=NATURAL '..' maxOccurs=MULTIPLICITY ')'
+		public Group getGroup() { return cGroup; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
+		
+		//minOccurs=NATURAL
+		public Assignment getMinOccursAssignment_1() { return cMinOccursAssignment_1; }
+		
+		//NATURAL
+		public RuleCall getMinOccursNATURALTerminalRuleCall_1_0() { return cMinOccursNATURALTerminalRuleCall_1_0; }
+		
+		//'..'
+		public Keyword getFullStopFullStopKeyword_2() { return cFullStopFullStopKeyword_2; }
+		
+		//maxOccurs=MULTIPLICITY
+		public Assignment getMaxOccursAssignment_3() { return cMaxOccursAssignment_3; }
+		
+		//MULTIPLICITY
+		public RuleCall getMaxOccursMULTIPLICITYParserRuleCall_3_0() { return cMaxOccursMULTIPLICITYParserRuleCall_3_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+	}
 	public class MULTIPLICITYElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.MULTIPLICITY");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -1678,6 +1717,52 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//NATURAL
 		public RuleCall getNATURALTerminalRuleCall_3_2() { return cNATURALTerminalRuleCall_3_2; }
+	}
+	public class DQualifiedNameWithWildcardElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DQualifiedNameWithWildcard");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cQualifiedNameParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Keyword cFullStopAsteriskKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//DQualifiedNameWithWildcard:
+		//	QualifiedName '.*'?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//QualifiedName '.*'?
+		public Group getGroup() { return cGroup; }
+		
+		//QualifiedName
+		public RuleCall getQualifiedNameParserRuleCall_0() { return cQualifiedNameParserRuleCall_0; }
+		
+		//'.*'?
+		public Keyword getFullStopAsteriskKeyword_1() { return cFullStopAsteriskKeyword_1; }
+	}
+	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.QualifiedName");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		
+		//QualifiedName:
+		//	ID ('.' ID)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ID ('.' ID)*
+		public Group getGroup() { return cGroup; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+		
+		//('.' ID)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
 	}
 	
 	public class OpOrElements extends AbstractEnumRuleElementFinder {
@@ -2042,6 +2127,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	private final DContextReferenceElements pDContextReference;
 	private final DIfExpressionElements pDIfExpression;
 	private final DForLoopExpressionElements pDForLoopExpression;
+	private final DMultiplicityElements pDMultiplicity;
 	private final MULTIPLICITYElements pMULTIPLICITY;
 	private final DBooleanLiteralElements pDBooleanLiteral;
 	private final DStringLiteralElements pDStringLiteral;
@@ -2049,6 +2135,8 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	private final DDecimalLiteralElements pDDecimalLiteral;
 	private final DNilLiteralElements pDNilLiteral;
 	private final DECIMALElements pDECIMAL;
+	private final DQualifiedNameWithWildcardElements pDQualifiedNameWithWildcard;
+	private final QualifiedNameElements pQualifiedName;
 	private final TerminalRule tID;
 	private final TerminalRule tSTRING;
 	private final TerminalRule tNATURAL;
@@ -2108,6 +2196,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDContextReference = new DContextReferenceElements();
 		this.pDIfExpression = new DIfExpressionElements();
 		this.pDForLoopExpression = new DForLoopExpressionElements();
+		this.pDMultiplicity = new DMultiplicityElements();
 		this.pMULTIPLICITY = new MULTIPLICITYElements();
 		this.pDBooleanLiteral = new DBooleanLiteralElements();
 		this.pDStringLiteral = new DStringLiteralElements();
@@ -2115,6 +2204,8 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDDecimalLiteral = new DDecimalLiteralElements();
 		this.pDNilLiteral = new DNilLiteralElements();
 		this.pDECIMAL = new DECIMALElements();
+		this.pDQualifiedNameWithWildcard = new DQualifiedNameWithWildcardElements();
+		this.pQualifiedName = new QualifiedNameElements();
 		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.ID");
 		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.STRING");
 		this.tNATURAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.NATURAL");
@@ -2586,6 +2677,16 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		return getDForLoopExpressionAccess().getRule();
 	}
 	
+	//DMultiplicity:
+	//	'(' minOccurs=NATURAL '..' maxOccurs=MULTIPLICITY ')';
+	public DMultiplicityElements getDMultiplicityAccess() {
+		return pDMultiplicity;
+	}
+	
+	public ParserRule getDMultiplicityRule() {
+		return getDMultiplicityAccess().getRule();
+	}
+	
 	//MULTIPLICITY ecore::EInt:
 	//	NATURAL | '*';
 	public MULTIPLICITYElements getMULTIPLICITYAccess() {
@@ -2654,6 +2755,26 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDECIMALRule() {
 		return getDECIMALAccess().getRule();
+	}
+	
+	//DQualifiedNameWithWildcard:
+	//	QualifiedName '.*'?;
+	public DQualifiedNameWithWildcardElements getDQualifiedNameWithWildcardAccess() {
+		return pDQualifiedNameWithWildcard;
+	}
+	
+	public ParserRule getDQualifiedNameWithWildcardRule() {
+		return getDQualifiedNameWithWildcardAccess().getRule();
+	}
+	
+	//QualifiedName:
+	//	ID ('.' ID)*;
+	public QualifiedNameElements getQualifiedNameAccess() {
+		return pQualifiedName;
+	}
+	
+	public ParserRule getQualifiedNameRule() {
+		return getQualifiedNameAccess().getRule();
 	}
 	
 	//terminal ID:

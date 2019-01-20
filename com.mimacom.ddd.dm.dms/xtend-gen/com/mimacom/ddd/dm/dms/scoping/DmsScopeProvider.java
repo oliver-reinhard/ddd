@@ -6,22 +6,18 @@ package com.mimacom.ddd.dm.dms.scoping;
 import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
 import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DActor;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAttribute;
-import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DFunction;
 import com.mimacom.ddd.dm.base.DIdentityType;
-import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DRelationship;
 import com.mimacom.ddd.dm.base.DRootType;
 import com.mimacom.ddd.dm.base.DServiceParameter;
-import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IValueType;
 import com.mimacom.ddd.dm.dms.scoping.AbstractDmsScopeProvider;
 import java.util.ArrayList;
@@ -80,18 +76,6 @@ public class DmsScopeProvider extends AbstractDmsScopeProvider {
         }
       }
       if (!_matched) {
-        if (context instanceof DContext) {
-          _matched=true;
-          _switchResult = this.<DType>getContainerTypesOfTypeScope(context, DType.class, true);
-        }
-      }
-      if (!_matched) {
-        if (context instanceof DNotification) {
-          _matched=true;
-          _switchResult = this.<DType>getContainerTypesOfTypeScope(context, DType.class, true);
-        }
-      }
-      if (!_matched) {
         if (context instanceof DFunction) {
           _matched=true;
           _switchResult = this.<IValueType>getContainerTypesOfTypeScope(context, IValueType.class, true);
@@ -130,13 +114,6 @@ public class DmsScopeProvider extends AbstractDmsScopeProvider {
           _switchResult_1 = IScope.NULLSCOPE;
         }
         return _switchResult_1;
-      } else {
-        if ((Objects.equal(reference, this.epackage.getDDomainEvent_Trigger()) || Objects.equal(reference, this.epackage.getDNotification_Notified()))) {
-          final DDomain domain = EcoreUtil2.<DDomain>getContainerOfType(context, DDomain.class);
-          if ((domain != null)) {
-            return Scopes.scopeFor(domain.getActors(), this.getImportedObjectsOfTypeScope(context, DActor.class));
-          }
-        }
       }
     }
     return super.getScope(context, reference);

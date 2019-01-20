@@ -5,7 +5,7 @@ import "http://www.mimacom.com/ddd/dm/base"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 /*
- * CLUSTERING / VISIBILITY
+ * MODEL STRUCTURE
  */
 DModel:
 	{DModel}
@@ -16,7 +16,7 @@ DModel:
 		)*
 		'}'
 	)?
-	// define each domain in its own file:
+	// define structures for each domain in its own file:
 	(domain=DDomain)?;
 
 GlobalValueTypes returns IValueType:
@@ -33,16 +33,10 @@ DDomain:
 	name=ID
 	(description=DRichText)?
 	(imports+=DImport)*
-	(types+=DType | aggregates+=DAggregate | applications+=DExistingApplication |  events+=DDomainEvent | actors+=DActor)*;
+	(types+=DType | aggregates+=DAggregate | applications+=DExistingApplication | actors+=DActor)*; // |  events+=DDomainEvent )*;
 
 DImport:
 	'import' importedNamespace=DQualifiedNameWithWildcard;
-
-DQualifiedNameWithWildcard: 
-	QualifiedName '.*'?;
-
-QualifiedName:
-	ID ('.' ID)*;
 
 DAggregate:
 	{DAggregate}
@@ -127,9 +121,6 @@ enum DAssociationKind:
 enum DAssociationKindInverse returns DAssociationKind:	
 	 INVERSE_COMPOSITE="inverse";
 	
-DMultiplicity:
-	'(' minOccurs=NATURAL '..' maxOccurs=MULTIPLICITY ')';
-	
 DAttribute:
 	(	('detail'
 		name=ID
@@ -160,52 +151,52 @@ DQueryParameter:
 /*
  * BEHAVIOUR
  */
-DDomainEvent:
-	'event'
-	name=ID
-	'triggered' 'by' trigger=[DActor|ID]
-	(description=DRichText)?
-	'{'
-		(context+=DContext)+
-		(notifications+=DNotification)+
-		('before'  	(before+=DCondition)+)?
-		('after' 		(after+=DCondition)+ )?
-	'}';
-	
-DCondition:
-	'condition'
-	name=ID
-	':'
-	condition=DExpression
-	(description=DRichText)?;
-	
-DNotification:
-	'notification'
-	name=ID
-	':'
-	type=[DType|ID]  (multiplicity=DMultiplicity)?
-	'sent' 'to' notified=[DActor|ID]
-	(description=DRichText)?;
-
-DContext:
-	'context'
-	name=ID
-	':'
-	type=[DType|ID]  (multiplicity=DMultiplicity)?
-	(description=DRichText)?;
+//DDomainEvent:
+//	'event'
+//	name=ID
+//	'triggered' 'by' trigger=[DActor|ID]
+//	(description=DRichText)?
+//	'{'
+//		(context+=DContext)+
+//		(notifications+=DNotification)+
+//		('before'  	(before+=DCondition)+)?
+//		('after' 		(after+=DCondition)+ )?
+//	'}';
+//	
+//DCondition:
+//	'condition'
+//	name=ID
+//	':'
+//	condition=DExpression
+//	(description=DRichText)?;
+//	
+//DNotification:
+//	'notification'
+//	name=ID
+//	':'
+//	type=[DType|ID]  (multiplicity=DMultiplicity)?
+//	'sent' 'to' notified=[DActor|ID]
+//	(description=DRichText)?;
+//
+//DContext:
+//	'context'
+//	name=ID
+//	':'
+//	type=[DType|ID]  (multiplicity=DMultiplicity)?
+//	(description=DRichText)?;
 	
 DActor:
-	DHuman | DService | DTime;
+	DService; //| DHuman | DTime;
 
-DHuman:
-	'human' 'actor'
-	name=ID
-	(description=DRichText)?;
-
-DTime:
-	'time' 'actor'
-	name=ID
-	(description=DRichText)?;
+//DHuman:
+//	'human' 'actor'
+//	name=ID
+//	(description=DRichText)?;
+//
+//DTime:
+//	'time' 'actor'
+//	name=ID
+//	(description=DRichText)?;
 
 /*
  * EXISTING APPLICATIONS

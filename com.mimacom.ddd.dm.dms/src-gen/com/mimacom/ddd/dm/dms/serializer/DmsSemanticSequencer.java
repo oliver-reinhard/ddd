@@ -9,20 +9,16 @@ import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DCondition;
-import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DDomain;
-import com.mimacom.ddd.dm.base.DDomainEvent;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DException;
 import com.mimacom.ddd.dm.base.DExistingApplication;
 import com.mimacom.ddd.dm.base.DFunction;
-import com.mimacom.ddd.dm.base.DHuman;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DMultiplicity;
-import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
@@ -32,7 +28,6 @@ import com.mimacom.ddd.dm.base.DRootType;
 import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DServiceParameter;
 import com.mimacom.ddd.dm.base.DText;
-import com.mimacom.ddd.dm.base.DTime;
 import com.mimacom.ddd.dm.dms.services.DmsGrammarAccess;
 import com.mimacom.ddd.dm.dmx.DAssignment;
 import com.mimacom.ddd.dm.dmx.DBinaryOperation;
@@ -90,26 +85,13 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 				sequence_DAttribute(context, (DAttribute) semanticObject); 
 				return; 
 			case BasePackage.DCONDITION:
-				if (rule == grammarAccess.getDConditionRule()) {
-					sequence_DCondition(context, (DCondition) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getDConstraintRule()) {
-					sequence_DConstraint(context, (DCondition) semanticObject); 
-					return; 
-				}
-				else break;
-			case BasePackage.DCONTEXT:
-				sequence_DContext(context, (DContext) semanticObject); 
+				sequence_DConstraint(context, (DCondition) semanticObject); 
 				return; 
 			case BasePackage.DDETAIL_TYPE:
 				sequence_DComplexType_DDetailType(context, (DDetailType) semanticObject); 
 				return; 
 			case BasePackage.DDOMAIN:
 				sequence_DDomain(context, (DDomain) semanticObject); 
-				return; 
-			case BasePackage.DDOMAIN_EVENT:
-				sequence_DDomainEvent(context, (DDomainEvent) semanticObject); 
 				return; 
 			case BasePackage.DENUMERATION:
 				sequence_DEnumeration(context, (DEnumeration) semanticObject); 
@@ -123,9 +105,6 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 			case BasePackage.DFUNCTION:
 				sequence_DFunction(context, (DFunction) semanticObject); 
 				return; 
-			case BasePackage.DHUMAN:
-				sequence_DHuman(context, (DHuman) semanticObject); 
-				return; 
 			case BasePackage.DIMPORT:
 				sequence_DImport(context, (DImport) semanticObject); 
 				return; 
@@ -137,9 +116,6 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case BasePackage.DMULTIPLICITY:
 				sequence_DMultiplicity(context, (DMultiplicity) semanticObject); 
-				return; 
-			case BasePackage.DNOTIFICATION:
-				sequence_DNotification(context, (DNotification) semanticObject); 
 				return; 
 			case BasePackage.DPRIMITIVE:
 				sequence_DPrimitive(context, (DPrimitive) semanticObject); 
@@ -183,9 +159,6 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 					return; 
 				}
 				else break;
-			case BasePackage.DTIME:
-				sequence_DTime(context, (DTime) semanticObject); 
-				return; 
 			}
 		else if (epackage == DmxPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
@@ -341,18 +314,6 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DCondition returns DCondition
-	 *
-	 * Constraint:
-	 *     (name=ID condition=DExpression description=DRichText?)
-	 */
-	protected void sequence_DCondition(ISerializationContext context, DCondition semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     DConstraint returns DCondition
 	 *
 	 * Constraint:
@@ -365,47 +326,10 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DContext returns DContext
-	 *
-	 * Constraint:
-	 *     (name=ID type=[DType|ID] multiplicity=DMultiplicity? description=DRichText?)
-	 */
-	protected void sequence_DContext(ISerializationContext context, DContext semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DDomainEvent returns DDomainEvent
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         trigger=[DActor|ID] 
-	 *         description=DRichText? 
-	 *         context+=DContext+ 
-	 *         notifications+=DNotification+ 
-	 *         before+=DCondition* 
-	 *         after+=DCondition*
-	 *     )
-	 */
-	protected void sequence_DDomainEvent(ISerializationContext context, DDomainEvent semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     DDomain returns DDomain
 	 *
 	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         description=DRichText? 
-	 *         imports+=DImport* 
-	 *         (types+=DType | aggregates+=DAggregate | applications+=DExistingApplication | events+=DDomainEvent | actors+=DActor)*
-	 *     )
+	 *     (name=ID description=DRichText? imports+=DImport* (types+=DType | aggregates+=DAggregate | applications+=DExistingApplication | actors+=DActor)*)
 	 */
 	protected void sequence_DDomain(ISerializationContext context, DDomain semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -464,19 +388,6 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DActor returns DHuman
-	 *     DHuman returns DHuman
-	 *
-	 * Constraint:
-	 *     (name=ID description=DRichText?)
-	 */
-	protected void sequence_DHuman(ISerializationContext context, DHuman semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     DImport returns DImport
 	 *
 	 * Constraint:
@@ -513,39 +424,6 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	 *     ((globalTypes+=GlobalValueTypes | globalFunctions+=DFunction)* domain=DDomain?)
 	 */
 	protected void sequence_DModel(ISerializationContext context, DModel semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DMultiplicity returns DMultiplicity
-	 *
-	 * Constraint:
-	 *     (minOccurs=NATURAL maxOccurs=MULTIPLICITY)
-	 */
-	protected void sequence_DMultiplicity(ISerializationContext context, DMultiplicity semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DMULTIPLICITY__MIN_OCCURS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DMULTIPLICITY__MIN_OCCURS));
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DMULTIPLICITY__MAX_OCCURS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DMULTIPLICITY__MAX_OCCURS));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDMultiplicityAccess().getMinOccursNATURALTerminalRuleCall_1_0(), semanticObject.getMinOccurs());
-		feeder.accept(grammarAccess.getDMultiplicityAccess().getMaxOccursMULTIPLICITYParserRuleCall_3_0(), semanticObject.getMaxOccurs());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DNotification returns DNotification
-	 *
-	 * Constraint:
-	 *     (name=ID type=[DType|ID] multiplicity=DMultiplicity? notified=[DActor|ID] description=DRichText?)
-	 */
-	protected void sequence_DNotification(ISerializationContext context, DNotification semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -625,19 +503,6 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	 *     )
 	 */
 	protected void sequence_DService(ISerializationContext context, DService semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DActor returns DTime
-	 *     DTime returns DTime
-	 *
-	 * Constraint:
-	 *     (name=ID description=DRichText?)
-	 */
-	protected void sequence_DTime(ISerializationContext context, DTime semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

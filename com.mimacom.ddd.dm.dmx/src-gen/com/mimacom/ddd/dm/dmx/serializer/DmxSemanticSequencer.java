@@ -5,6 +5,7 @@ package com.mimacom.ddd.dm.dmx.serializer;
 
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
+import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DText;
 import com.mimacom.ddd.dm.dmx.DAssignment;
@@ -54,6 +55,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == BasePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case BasePackage.DMULTIPLICITY:
+				sequence_DMultiplicity(context, (DMultiplicity) semanticObject); 
+				return; 
 			case BasePackage.DRICH_TEXT:
 				sequence_DRichText(context, (DRichText) semanticObject); 
 				return; 
@@ -553,6 +557,27 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_DIfExpression(ISerializationContext context, DIfExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DMultiplicity returns DMultiplicity
+	 *
+	 * Constraint:
+	 *     (minOccurs=NATURAL maxOccurs=MULTIPLICITY)
+	 */
+	protected void sequence_DMultiplicity(ISerializationContext context, DMultiplicity semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DMULTIPLICITY__MIN_OCCURS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DMULTIPLICITY__MIN_OCCURS));
+			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DMULTIPLICITY__MAX_OCCURS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DMULTIPLICITY__MAX_OCCURS));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDMultiplicityAccess().getMinOccursNATURALTerminalRuleCall_1_0(), semanticObject.getMinOccurs());
+		feeder.accept(grammarAccess.getDMultiplicityAccess().getMaxOccursMULTIPLICITYParserRuleCall_3_0(), semanticObject.getMaxOccurs());
+		feeder.finish();
 	}
 	
 	

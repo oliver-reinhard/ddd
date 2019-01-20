@@ -10,7 +10,7 @@ import com.mimacom.ddd.dm.dms.services.DmsGrammarAccess
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
 
-class DmsFormatter extends AbstractFormatter2 {
+class DmsFormatter extends AbstractFormatter2  { // extends DmxFormatter {
 	
 	@Inject extension DmsGrammarAccess
 

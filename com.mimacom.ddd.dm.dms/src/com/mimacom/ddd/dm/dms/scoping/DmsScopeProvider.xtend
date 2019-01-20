@@ -5,28 +5,24 @@ package com.mimacom.ddd.dm.dms.scoping
 
 import com.google.common.collect.Lists
 import com.mimacom.ddd.dm.base.BasePackage
-import com.mimacom.ddd.dm.base.DActor
 import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DAttribute
-import com.mimacom.ddd.dm.base.DContext
 import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DDomain
+import com.mimacom.ddd.dm.base.DFunction
 import com.mimacom.ddd.dm.base.DIdentityType
-import com.mimacom.ddd.dm.base.DNotification
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DQueryParameter
 import com.mimacom.ddd.dm.base.DRelationship
 import com.mimacom.ddd.dm.base.DRootType
 import com.mimacom.ddd.dm.base.DServiceParameter
-import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.base.IValueType
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
-import com.mimacom.ddd.dm.base.DFunction
 import org.eclipse.xtext.scoping.impl.SimpleScope
 
 /**
@@ -49,8 +45,8 @@ class DmsScopeProvider extends AbstractDmsScopeProvider {
 				DAssociation: getContainerTypesOfTypeScope(context, DRootType, true)
 				DQueryParameter: getContainerTypesOfTypeScope(context, IValueType, true)
 				DServiceParameter: getContainerTypesOfTypeScope(context, IValueType, true)
-				DContext: getContainerTypesOfTypeScope(context, DType, true)
-				DNotification: getContainerTypesOfTypeScope(context, DType, true)
+//				DContext: getContainerTypesOfTypeScope(context, DType, true)
+//				DNotification: getContainerTypesOfTypeScope(context, DType, true)
 				DFunction: getContainerTypesOfTypeScope(context, IValueType, true)
 				default:  IScope.NULLSCOPE
 			}
@@ -65,11 +61,11 @@ class DmsScopeProvider extends AbstractDmsScopeProvider {
 				default:  IScope.NULLSCOPE
 			}
 			
-		} else if (reference == epackage.DDomainEvent_Trigger || reference == epackage.DNotification_Notified) {
-			val domain = EcoreUtil2.getContainerOfType(context, DDomain)
-			if (domain !== null) {
-				return Scopes.scopeFor(domain.actors, getImportedObjectsOfTypeScope(context, DActor))
-			}
+//		} else if (reference == epackage.DDomainEvent_Trigger || reference == epackage.DNotification_Notified) {
+//			val domain = EcoreUtil2.getContainerOfType(context, DDomain)
+//			if (domain !== null) {
+//				return Scopes.scopeFor(domain.actors, getImportedObjectsOfTypeScope(context, DActor))
+//			}
 		} 
 		return super.getScope(context, reference)
 	}

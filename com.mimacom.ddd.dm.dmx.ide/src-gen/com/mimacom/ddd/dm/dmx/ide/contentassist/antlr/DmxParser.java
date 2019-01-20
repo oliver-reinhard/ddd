@@ -126,6 +126,7 @@ public class DmxParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDForLoopExpressionAccess().getGroup(), "rule__DForLoopExpression__Group__0");
 			builder.put(grammarAccess.getDForLoopExpressionAccess().getGroup_0(), "rule__DForLoopExpression__Group_0__0");
 			builder.put(grammarAccess.getDForLoopExpressionAccess().getGroup_0_0(), "rule__DForLoopExpression__Group_0_0__0");
+			builder.put(grammarAccess.getDMultiplicityAccess().getGroup(), "rule__DMultiplicity__Group__0");
 			builder.put(grammarAccess.getDBooleanLiteralAccess().getGroup(), "rule__DBooleanLiteral__Group__0");
 			builder.put(grammarAccess.getDStringLiteralAccess().getGroup(), "rule__DStringLiteral__Group__0");
 			builder.put(grammarAccess.getDNaturalLiteralAccess().getGroup(), "rule__DNaturalLiteral__Group__0");
@@ -133,6 +134,9 @@ public class DmxParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDNilLiteralAccess().getGroup(), "rule__DNilLiteral__Group__0");
 			builder.put(grammarAccess.getDECIMALAccess().getGroup(), "rule__DECIMAL__Group__0");
 			builder.put(grammarAccess.getDECIMALAccess().getGroup_3(), "rule__DECIMAL__Group_3__0");
+			builder.put(grammarAccess.getDQualifiedNameWithWildcardAccess().getGroup(), "rule__DQualifiedNameWithWildcard__Group__0");
+			builder.put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
+			builder.put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 			builder.put(grammarAccess.getDmxModelAccess().getTextsAssignment_1_3(), "rule__DmxModel__TextsAssignment_1_3");
 			builder.put(grammarAccess.getDmxModelAccess().getExpressionsAssignment_2_3(), "rule__DmxModel__ExpressionsAssignment_2_3");
 			builder.put(grammarAccess.getDRichTextAccess().getElementsAssignment_0(), "rule__DRichText__ElementsAssignment_0");
@@ -187,6 +191,8 @@ public class DmxParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDForLoopExpressionAccess().getDeclaredParamAssignment_0_0_2(), "rule__DForLoopExpression__DeclaredParamAssignment_0_0_2");
 			builder.put(grammarAccess.getDForLoopExpressionAccess().getForExpressionAssignment_1(), "rule__DForLoopExpression__ForExpressionAssignment_1");
 			builder.put(grammarAccess.getDForLoopExpressionAccess().getEachExpressionAssignment_3(), "rule__DForLoopExpression__EachExpressionAssignment_3");
+			builder.put(grammarAccess.getDMultiplicityAccess().getMinOccursAssignment_1(), "rule__DMultiplicity__MinOccursAssignment_1");
+			builder.put(grammarAccess.getDMultiplicityAccess().getMaxOccursAssignment_3(), "rule__DMultiplicity__MaxOccursAssignment_3");
 			builder.put(grammarAccess.getDBooleanLiteralAccess().getValueAssignment_1_0(), "rule__DBooleanLiteral__ValueAssignment_1_0");
 			builder.put(grammarAccess.getDBooleanLiteralAccess().getValueAssignment_1_1(), "rule__DBooleanLiteral__ValueAssignment_1_1");
 			builder.put(grammarAccess.getDStringLiteralAccess().getValueAssignment_1(), "rule__DStringLiteral__ValueAssignment_1");
