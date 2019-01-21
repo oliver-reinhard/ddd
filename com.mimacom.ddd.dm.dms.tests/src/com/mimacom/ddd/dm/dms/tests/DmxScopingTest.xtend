@@ -46,20 +46,20 @@ class DmxScopingTest {
 					y: GP
 				}
 			}
-			domain D {
-				detail A 
-					«XX»
-						c1 : [a > 0]
-						c2 : [b.x > 0]
-					«YY»
-					{ 
-					a : GP
-					b : GD
-					q1 (m : GP, n : GD) : GD returns m > 0
-					q2 (r : GD) : GD returns r.x > 0
-					constraint c1 : a > 0
-					constraint c2 : b.x > 0
-				}
+			domain D
+			
+			detail A 
+				«XX»
+					c1 : [a > 0]
+					c2 : [b.x > 0]
+				«YY»
+				{ 
+				a : GP
+				b : GD
+				q1 (m : GP, n : GD) : GD returns m > 0
+				q2 (r : GD) : GD returns r.x > 0
+				constraint c1 : a > 0
+				constraint c2 : b.x > 0
 			}
 		''')
 		assertNotNull(model)
@@ -125,21 +125,20 @@ class DmxScopingTest {
 					y: GP
 				}
 			}
-			domain D {
+			domain D
 				
-				detail A 
-					«XX»
-						c3 : [self.a > 0]
-						c4 : [self.b.x > 0]
-					«YY»
-					{ 
-					a : GP
-					b : GD
-					q1 (m : GP, n : GD) : GD returns self.m > 0
-					q2 (r : GD) : GD returns self.r.x > 0
-					constraint c3 : self.a > 0
-					constraint c4 : self.b.x > 0
-				}
+			detail A 
+				«XX»
+					c3 : [self.a > 0]
+					c4 : [self.b.x > 0]
+				«YY»
+				{ 
+				a : GP
+				b : GD
+				q1 (m : GP, n : GD) : GD returns self.m > 0
+				q2 (r : GD) : GD returns self.r.x > 0
+				constraint c3 : self.a > 0
+				constraint c4 : self.b.x > 0
 			}
 		''')
 		assertNotNull(model)
