@@ -3,6 +3,7 @@
  */
 package com.mimacom.ddd.dm.dms.validation;
 
+import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DActor;
@@ -32,11 +33,12 @@ import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IValueType;
 import com.mimacom.ddd.dm.dms.DmsUtil;
 import com.mimacom.ddd.dm.dms.validation.AbstractDmsValidator;
+import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider;
 import java.util.Set;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Extension;
@@ -109,10 +111,9 @@ public class DmsValidator extends AbstractDmsValidator {
       if (_tripleNotEquals_1) {
         this.error("Supertype is not compatible", t, BasePackage.Literals.DNAMED_ELEMENT__NAME);
       }
-      final EObject domain = t.eContainer().eContainer();
-      EObject _eContainer = t.getSuperType().eContainer().eContainer();
-      boolean _tripleNotEquals_2 = (_eContainer != domain);
-      if (_tripleNotEquals_2) {
+      final DDomain tDomain = EcoreUtil2.<DDomain>getContainerOfType(t, DDomain.class);
+      final DDomain superTypeDomain = EcoreUtil2.<DDomain>getContainerOfType(t.getSuperType(), DDomain.class);
+      if ((superTypeDomain != tDomain)) {
         this.error("Supertype must be in same domain", t, BasePackage.Literals.DNAMED_ELEMENT__NAME);
       }
     }
@@ -210,6 +211,9 @@ public class DmsValidator extends AbstractDmsValidator {
   
   public void checkNameStartsWithCapital(final DNamedElement ne) {
     final String name = ne.getName();
+    if (((ne instanceof DDomain) && (Objects.equal(DmxImportedNamespaceAwareLocalScopeProvider.DEFAULT_IMPORT_PRIMITIVES, name) || Objects.equal(DmxImportedNamespaceAwareLocalScopeProvider.DEFAULT_IMPORT_FUNCTIONS, name)))) {
+      return;
+    }
     if ((((name != null) && (name.length() > 0)) && (!Character.isUpperCase(name.charAt(0))))) {
       this.warning("Name should start with a capital", ne, BasePackage.Literals.DNAMED_ELEMENT__NAME);
     }

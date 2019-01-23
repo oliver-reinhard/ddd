@@ -57,7 +57,12 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
       boolean _equals_1 = Objects.equal(reference, _dTypedMemberReference_Member);
       if (_equals_1) {
         if ((context instanceof DTypedMemberReference)) {
-          return this.getMemberReferenceScope(((DTypedMemberReference)context).getMemberContainerReference());
+          boolean _isExplicitOperationCall = ((DTypedMemberReference)context).isExplicitOperationCall();
+          if (_isExplicitOperationCall) {
+            this.getDefaultScopeForType(context, this.bpackage.getDFunction());
+          } else {
+            return this.getMemberReferenceScope(((DTypedMemberReference)context).getMemberContainerReference());
+          }
         }
       } else {
         EReference _dAssignment_Member = this.xpackage.getDAssignment_Member();

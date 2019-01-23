@@ -326,55 +326,13 @@ ruleDFunction returns [EObject current=null]
 		{
 			newLeafNode(otherlv_2, grammarAccess.getDFunctionAccess().getLeftParenthesisKeyword_2());
 		}
-		(
-			(
-				lv_parameterNames_3_0=RULE_STRING
-				{
-					newLeafNode(lv_parameterNames_3_0, grammarAccess.getDFunctionAccess().getParameterNamesSTRINGTerminalRuleCall_3_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDFunctionRule());
-					}
-					addWithLastConsumed(
-						$current,
-						"parameterNames",
-						lv_parameterNames_3_0,
-						"com.mimacom.ddd.dm.dmx.Dmx.STRING");
-				}
-			)
-		)
-		(
-			otherlv_4=','
-			{
-				newLeafNode(otherlv_4, grammarAccess.getDFunctionAccess().getCommaKeyword_4_0());
-			}
-			(
-				(
-					lv_parameterNames_5_0=RULE_STRING
-					{
-						newLeafNode(lv_parameterNames_5_0, grammarAccess.getDFunctionAccess().getParameterNamesSTRINGTerminalRuleCall_4_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDFunctionRule());
-						}
-						addWithLastConsumed(
-							$current,
-							"parameterNames",
-							lv_parameterNames_5_0,
-							"com.mimacom.ddd.dm.dmx.Dmx.STRING");
-					}
-				)
-			)
-		)*
-		otherlv_6=')'
+		otherlv_3=')'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getDFunctionAccess().getRightParenthesisKeyword_5());
+			newLeafNode(otherlv_3, grammarAccess.getDFunctionAccess().getRightParenthesisKeyword_3());
 		}
-		otherlv_7=':'
+		otherlv_4=':'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getDFunctionAccess().getColonKeyword_6());
+			newLeafNode(otherlv_4, grammarAccess.getDFunctionAccess().getColonKeyword_4());
 		}
 		(
 			(
@@ -383,21 +341,18 @@ ruleDFunction returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getDFunctionRule());
 					}
 				}
+				otherlv_5=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getDFunctionAccess().getTypeDTypeCrossReference_7_0());
-				}
-				ruleDQualifiedName
-				{
-					afterParserOrEnumRuleCall();
+					newLeafNode(otherlv_5, grammarAccess.getDFunctionAccess().getTypeDTypeCrossReference_5_0());
 				}
 			)
 		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDFunctionAccess().getMultiplicityDMultiplicityParserRuleCall_8_0());
+					newCompositeNode(grammarAccess.getDFunctionAccess().getMultiplicityDMultiplicityParserRuleCall_6_0());
 				}
-				lv_multiplicity_9_0=ruleDMultiplicity
+				lv_multiplicity_6_0=ruleDMultiplicity
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDFunctionRule());
@@ -405,7 +360,7 @@ ruleDFunction returns [EObject current=null]
 					set(
 						$current,
 						"multiplicity",
-						lv_multiplicity_9_0,
+						lv_multiplicity_6_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DMultiplicity");
 					afterParserOrEnumRuleCall();
 				}
@@ -1115,12 +1070,9 @@ ruleDComplexType[EObject in_current]  returns [EObject current=in_current]
 							$current = createModelElement(grammarAccess.getDComplexTypeRule());
 						}
 					}
+					otherlv_2=RULE_ID
 					{
-						newCompositeNode(grammarAccess.getDComplexTypeAccess().getSuperTypeDComplexTypeCrossReference_1_1_0());
-					}
-					ruleDQualifiedName
-					{
-						afterParserOrEnumRuleCall();
+						newLeafNode(otherlv_2, grammarAccess.getDComplexTypeAccess().getSuperTypeDComplexTypeCrossReference_1_1_0());
 					}
 				)
 			)
@@ -1347,12 +1299,9 @@ ruleDAssociation returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getDAssociationRule());
 					}
 				}
+				otherlv_6=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getDAssociationAccess().getTypeDRootTypeCrossReference_4_0());
-				}
-				ruleDQualifiedName
-				{
-					afterParserOrEnumRuleCall();
+					newLeafNode(otherlv_6, grammarAccess.getDAssociationAccess().getTypeDRootTypeCrossReference_4_0());
 				}
 			)
 		)
@@ -1448,12 +1397,9 @@ ruleDAttribute returns [EObject current=null]
 								$current = createModelElement(grammarAccess.getDAttributeRule());
 							}
 						}
+						otherlv_3=RULE_ID
 						{
-							newCompositeNode(grammarAccess.getDAttributeAccess().getTypeDDetailTypeCrossReference_0_0_3_0());
-						}
-						ruleDQualifiedName
-						{
-							afterParserOrEnumRuleCall();
+							newLeafNode(otherlv_3, grammarAccess.getDAttributeAccess().getTypeDDetailTypeCrossReference_0_0_3_0());
 						}
 					)
 				)
@@ -1489,12 +1435,9 @@ ruleDAttribute returns [EObject current=null]
 								$current = createModelElement(grammarAccess.getDAttributeRule());
 							}
 						}
+						otherlv_6=RULE_ID
 						{
-							newCompositeNode(grammarAccess.getDAttributeAccess().getTypeDSimpleTypeCrossReference_0_1_2_0());
-						}
-						ruleDQualifiedName
-						{
-							afterParserOrEnumRuleCall();
+							newLeafNode(otherlv_6, grammarAccess.getDAttributeAccess().getTypeDSimpleTypeCrossReference_0_1_2_0());
 						}
 					)
 				)
@@ -1654,12 +1597,9 @@ ruleDQuery returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getDQueryRule());
 					}
 				}
+				otherlv_7=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getDQueryAccess().getTypeDTypeCrossReference_5_0());
-				}
-				ruleDQualifiedName
-				{
-					afterParserOrEnumRuleCall();
+					newLeafNode(otherlv_7, grammarAccess.getDQueryAccess().getTypeDTypeCrossReference_5_0());
 				}
 			)
 		)
@@ -1774,12 +1714,9 @@ ruleDQueryParameter returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getDQueryParameterRule());
 					}
 				}
+				otherlv_2=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getDQueryParameterAccess().getTypeDTypeCrossReference_2_0());
-				}
-				ruleDQualifiedName
-				{
-					afterParserOrEnumRuleCall();
+					newLeafNode(otherlv_2, grammarAccess.getDQueryParameterAccess().getTypeDTypeCrossReference_2_0());
 				}
 			)
 		)
@@ -2267,12 +2204,9 @@ ruleDServiceParameter returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getDServiceParameterRule());
 					}
 				}
+				otherlv_3=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getDServiceParameterAccess().getTypeDTypeCrossReference_3_0());
-				}
-				ruleDQualifiedName
-				{
-					afterParserOrEnumRuleCall();
+					newLeafNode(otherlv_3, grammarAccess.getDServiceParameterAccess().getTypeDTypeCrossReference_3_0());
 				}
 			)
 		)

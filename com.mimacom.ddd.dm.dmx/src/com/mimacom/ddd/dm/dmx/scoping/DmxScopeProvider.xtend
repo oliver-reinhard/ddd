@@ -45,7 +45,11 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 
 		} else if (reference == xpackage.DTypedMemberReference_Member) {
 			if (context instanceof DTypedMemberReference) {
-				return getMemberReferenceScope(context.memberContainerReference)
+				if (context.explicitOperationCall) {
+					getDefaultScopeForType(context, bpackage.DFunction)
+				} else {
+					return getMemberReferenceScope(context.memberContainerReference)
+				}
 			}
 
 		} else if (reference == xpackage.DAssignment_Member) {
@@ -123,7 +127,6 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 		}
 	}
 	
-	// CANDIDATE: getMember
 	protected def IScope getExpressionContainerMemberScope(EObject context, IScope outerScope) {
 		var container = context.eContainer
 		return switch container {

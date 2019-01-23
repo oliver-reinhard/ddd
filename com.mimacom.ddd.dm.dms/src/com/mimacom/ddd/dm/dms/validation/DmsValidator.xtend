@@ -33,6 +33,8 @@ import com.mimacom.ddd.dm.base.IValueType
 import com.mimacom.ddd.dm.dms.DmsUtil
 import org.eclipse.emf.common.util.BasicEList
 import org.eclipse.xtext.validation.Check
+import static com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider.*
+import org.eclipse.xtext.EcoreUtil2
 
 /**
  * This class contains custom validation rules. 
@@ -91,8 +93,9 @@ class DmsValidator extends AbstractDmsValidator {
 			if(t.superType.eClass !== t.eClass) {
 				error('Supertype is not compatible', t, BasePackage.Literals.DNAMED_ELEMENT__NAME)
 			}
-			val domain = t.eContainer.eContainer
-			if(t.superType.eContainer.eContainer !== domain) {
+			val tDomain = EcoreUtil2.getContainerOfType(t, DDomain)
+			val superTypeDomain = EcoreUtil2.getContainerOfType(t.superType, DDomain)
+			if(superTypeDomain !== tDomain) {
 				error('Supertype must be in same domain', t, BasePackage.Literals.DNAMED_ELEMENT__NAME)
 			}
 		}
@@ -173,6 +176,9 @@ class DmsValidator extends AbstractDmsValidator {
 	// // Naming: Elements whose names should start with a CAPITAL
 	def void checkNameStartsWithCapital(DNamedElement ne) {
 		val name = ne.name
+		if (ne instanceof DDomain && (DEFAULT_IMPORT_PRIMITIVES == name || DEFAULT_IMPORT_FUNCTIONS == name)) {
+				return
+		}
 		if(name !== null && name.length > 0 && !Character::isUpperCase(name.charAt(0))) {
 			warning("Name should start with a capital", ne, BasePackage.Literals::DNAMED_ELEMENT__NAME)
 		}
@@ -180,7 +186,7 @@ class DmsValidator extends AbstractDmsValidator {
 
 	@Check
 	def void checkTypeNameStartsWithCapital(DDomain d) {
-		checkNameStartsWithCapital(d)
+		checkNameStartsWithCapital(d) // see special case of DEFAULT_IMPORT_*
 	}
 
 	@Check

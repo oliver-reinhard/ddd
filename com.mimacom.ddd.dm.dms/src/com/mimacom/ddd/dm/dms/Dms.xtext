@@ -20,7 +20,7 @@ DImport:
 
 DFunction:
 	'function' name=ID 
-	'(' parameterNames+=STRING (','  parameterNames+=STRING)* ')'
+	'(' /*parameterNames+=STRING (','  parameterNames+=STRING)* */ ')'
 	':'
 	type=[DType|ID]  (multiplicity=DMultiplicity)?;
 	
