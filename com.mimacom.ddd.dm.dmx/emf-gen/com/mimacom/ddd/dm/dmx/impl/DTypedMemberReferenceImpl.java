@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DTypedMemberReferenceImpl#getMemberContainer <em>Member Container</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DTypedMemberReferenceImpl#getMemberContainerReference <em>Member Container Reference</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DTypedMemberReferenceImpl#getMember <em>Member</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DTypedMemberReferenceImpl#isExplicitOperationCall <em>Explicit Operation Call</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DTypedMemberReferenceImpl#getMemberCallArguments <em>Member Call Arguments</em>}</li>
@@ -44,14 +44,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class DTypedMemberReferenceImpl extends DExpressionImpl implements DTypedMemberReference
 {
 	/**
-	 * The cached value of the '{@link #getMemberContainer() <em>Member Container</em>}' containment reference.
+	 * The cached value of the '{@link #getMemberContainerReference() <em>Member Container Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMemberContainer()
+	 * @see #getMemberContainerReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected DExpression memberContainer;
+	protected DExpression memberContainerReference;
 
 	/**
 	 * The cached value of the '{@link #getMember() <em>Member</em>}' reference.
@@ -120,9 +120,9 @@ public class DTypedMemberReferenceImpl extends DExpressionImpl implements DTyped
 	 * @generated
 	 */
 	@Override
-	public DExpression getMemberContainer()
+	public DExpression getMemberContainerReference()
 	{
-		return memberContainer;
+		return memberContainerReference;
 	}
 
 	/**
@@ -130,13 +130,13 @@ public class DTypedMemberReferenceImpl extends DExpressionImpl implements DTyped
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMemberContainer(DExpression newMemberContainer, NotificationChain msgs)
+	public NotificationChain basicSetMemberContainerReference(DExpression newMemberContainerReference, NotificationChain msgs)
 	{
-		DExpression oldMemberContainer = memberContainer;
-		memberContainer = newMemberContainer;
+		DExpression oldMemberContainerReference = memberContainerReference;
+		memberContainerReference = newMemberContainerReference;
 		if (eNotificationRequired())
 		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER, oldMemberContainer, newMemberContainer);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER_REFERENCE, oldMemberContainerReference, newMemberContainerReference);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -148,20 +148,20 @@ public class DTypedMemberReferenceImpl extends DExpressionImpl implements DTyped
 	 * @generated
 	 */
 	@Override
-	public void setMemberContainer(DExpression newMemberContainer)
+	public void setMemberContainerReference(DExpression newMemberContainerReference)
 	{
-		if (newMemberContainer != memberContainer)
+		if (newMemberContainerReference != memberContainerReference)
 		{
 			NotificationChain msgs = null;
-			if (memberContainer != null)
-				msgs = ((InternalEObject)memberContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER, null, msgs);
-			if (newMemberContainer != null)
-				msgs = ((InternalEObject)newMemberContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER, null, msgs);
-			msgs = basicSetMemberContainer(newMemberContainer, msgs);
+			if (memberContainerReference != null)
+				msgs = ((InternalEObject)memberContainerReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER_REFERENCE, null, msgs);
+			if (newMemberContainerReference != null)
+				msgs = ((InternalEObject)newMemberContainerReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER_REFERENCE, null, msgs);
+			msgs = basicSetMemberContainerReference(newMemberContainerReference, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER, newMemberContainer, newMemberContainer));
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER_REFERENCE, newMemberContainerReference, newMemberContainerReference));
 	}
 
 	/**
@@ -259,8 +259,8 @@ public class DTypedMemberReferenceImpl extends DExpressionImpl implements DTyped
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER:
-				return basicSetMemberContainer(null, msgs);
+			case DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER_REFERENCE:
+				return basicSetMemberContainerReference(null, msgs);
 			case DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CALL_ARGUMENTS:
 				return ((InternalEList<?>)getMemberCallArguments()).basicRemove(otherEnd, msgs);
 		}
@@ -277,8 +277,8 @@ public class DTypedMemberReferenceImpl extends DExpressionImpl implements DTyped
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER:
-				return getMemberContainer();
+			case DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER_REFERENCE:
+				return getMemberContainerReference();
 			case DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER:
 				if (resolve) return getMember();
 				return basicGetMember();
@@ -301,8 +301,8 @@ public class DTypedMemberReferenceImpl extends DExpressionImpl implements DTyped
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER:
-				setMemberContainer((DExpression)newValue);
+			case DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER_REFERENCE:
+				setMemberContainerReference((DExpression)newValue);
 				return;
 			case DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER:
 				setMember((DTypedMember)newValue);
@@ -328,8 +328,8 @@ public class DTypedMemberReferenceImpl extends DExpressionImpl implements DTyped
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER:
-				setMemberContainer((DExpression)null);
+			case DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER_REFERENCE:
+				setMemberContainerReference((DExpression)null);
 				return;
 			case DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER:
 				setMember((DTypedMember)null);
@@ -354,8 +354,8 @@ public class DTypedMemberReferenceImpl extends DExpressionImpl implements DTyped
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER:
-				return memberContainer != null;
+			case DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER_REFERENCE:
+				return memberContainerReference != null;
 			case DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER:
 				return member != null;
 			case DmxPackage.DTYPED_MEMBER_REFERENCE__EXPLICIT_OPERATION_CALL:

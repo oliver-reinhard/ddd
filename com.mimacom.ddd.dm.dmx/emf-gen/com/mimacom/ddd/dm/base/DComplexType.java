@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface DComplexType extends DType
+public interface DComplexType extends DType, ITypedMemberContainer
 {
 	/**
 	 * Returns the value of the '<em><b>Abstract</b></em>' attribute.

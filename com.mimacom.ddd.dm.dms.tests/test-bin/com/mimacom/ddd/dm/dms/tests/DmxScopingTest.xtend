@@ -5,11 +5,12 @@ package com.mimacom.ddd.dm.dms.tests
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DDetailType
+import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.base.DExpression
-import com.mimacom.ddd.dm.base.DModel
-import com.mimacom.ddd.dm.dmx.DAssignment
+import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.dmx.DBinaryOperation
 import com.mimacom.ddd.dm.dmx.DContextReference
+import com.mimacom.ddd.dm.dmx.DSelfExpression
 import com.mimacom.ddd.dm.dmx.DTypedMemberReference
 import com.mimacom.ddd.dm.dmx.DmxPackage
 import org.eclipse.emf.ecore.EObject
@@ -23,58 +24,62 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 
 import static extension org.junit.Assert.*
-import com.mimacom.ddd.dm.dmx.DSelfExpression
-import com.mimacom.ddd.dm.base.DQuery
 
 @ExtendWith(InjectionExtension)
 @InjectWith(DmsInjectorProvider)
 class DmxScopingTest {
-	@Inject extension ParseHelper<DModel> parseHelper
+	@Inject extension ParseHelper<DDomain> parseHelper
 	@Inject extension IScopeProvider
 	
 	val epackage = DmxPackage.eINSTANCE
-	
+		
+		
 	@Test
 	def void testContextReferenceExpressionScope() {
 		val XX = "«"
 		val YY = "»"
-		val model = parseHelper.parse('''
-			global { 
-				primitive GP {}
-				detail GD {
-					x : GP
-					y: GP
-				}
+		val domain = parseHelper.parse('''
+			domain D
+			
+			primitive GP {}
+			detail GD {
+				x : GP
+				y : GP
 			}
-			domain D {
-				detail A 
-					«XX»
-						c1 : [a > 0]
-						c2 : [b.x > 0]
-					«YY»
-					{ 
-					a : GP
-					b : GD
-					q1 (m : GP, n : GD) : GD returns m > 0
-					q2 (r : GD) : GD returns r.x > 0
-					constraint c1 : a > 0
-					constraint c2 : b.x > 0
-				}
+			
+			detail A 
+				«XX»
+					c1 : [a > 0]
+					c1 : [GP > 0]
+					c2 : [b.x > 0]
+					c2 : [GD.x > 0]
+				«YY»
+				{ 
+				a : GP
+				b : GD
+				q1 (m : GP, n : GD) : GD returns m > 0
+				q2 (r : GD) : GD returns r.x > 0
+				constraint c1 : a > 0
+				constraint c2 : b.x > 0
 			}
 		''')
-		assertNotNull(model)
-		val errors = model.eResource.errors
+		assertNotNull(domain)
+		val errors = domain.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''ContextReference parsing errors: «errors.join("; ")»''')
 		
-		val detailA = model.domain.types.head as DDetailType
-		val expectedScope1 = "a, b, q1, q2, A, GP, GD, D"
+		val detailA = domain.types.get(2) as DDetailType
+		val expectedScope1 = "a, b, q1, q2, GP, GD, A, D, D.GP, D.GD, D.A"
 		val expectedScope2 = "x, y"
 		
 		{ // RIchText Expressions
-			val c1 = detailA.description.elements.get(1) as DExpression
-			c1.checkExpression1(expectedScope1)
-			val c2 = detailA.description.elements.get(3) as DExpression
-			c2.checkExpression2(expectedScope2, expectedScope1)
+			val c1a = detailA.description.elements.get(1) as DExpression
+			c1a.checkExpression1(expectedScope1)
+			val c1b = detailA.description.elements.get(3) as DExpression
+			c1b.checkExpression1(expectedScope1)
+			val c2a = detailA.description.elements.get(5) as DExpression
+			c2a.checkExpression2(expectedScope2, expectedScope1)
+			val c2b = detailA.description.elements.get(7) as DExpression
+			c2b.checkExpression2(expectedScope2, expectedScope1)
 		}
 		
 		{ // Query Expressions
@@ -99,7 +104,7 @@ class DmxScopingTest {
 		val left = (e as DBinaryOperation).leftOperand
 		assertTrue(left instanceof DContextReference)
 		val ref = left as DContextReference
-		ref => [assertScope(epackage.DContextReference_ContextElement, expectedScopeStr)]
+		ref => [assertScope(epackage.DContextReference_Target, expectedScopeStr)]
 	}
 	
 	protected def checkExpression2(DExpression e, String expectedScopeStr1, String expectedScopeStr2) {
@@ -108,45 +113,43 @@ class DmxScopingTest {
 		assertTrue(left instanceof DTypedMemberReference)
 		val member = left as DTypedMemberReference
 		member => [assertScope(epackage.DTypedMemberReference_Member,expectedScopeStr1)]
-		assertTrue(member.memberContainer instanceof DContextReference)
-		val ref = member.memberContainer as DContextReference
-		ref => [assertScope(epackage.DContextReference_ContextElement, expectedScopeStr2)]
+		assertTrue(member.memberContainerReference instanceof DContextReference)
+		val ref = member.memberContainerReference as DContextReference
+		ref => [assertScope(epackage.DContextReference_Target, expectedScopeStr2)]
 	}
 	
 	@Test
 	def void testSelfExpressionScope() {
 		val XX = "«"
 		val YY = "»"
-		val model = parseHelper.parse('''
-			global { 
-				primitive GP {}
-				detail GD {
-					x : GP
-					y: GP
-				}
+		val domain = parseHelper.parse('''
+			domain D
+			
+			primitive GP {}
+			detail GD {
+				x : GP
+				y : GP
 			}
-			domain D {
 				
-				detail A 
-					«XX»
-						c3 : [self.a > 0]
-						c4 : [self.b.x > 0]
-					«YY»
-					{ 
-					a : GP
-					b : GD
-					q1 (m : GP, n : GD) : GD returns self.m > 0
-					q2 (r : GD) : GD returns self.r.x > 0
-					constraint c3 : self.a > 0
-					constraint c4 : self.b.x > 0
-				}
+			detail A 
+				«XX»
+					c3 : [self.a > 0]
+					c4 : [self.b.x > 0]
+				«YY»
+				{ 
+				a : GP
+				b : GD
+				q1 (m : GP, n : GD) : GD returns self.m > 0
+				q2 (r : GD) : GD returns self.r.x > 0
+				constraint c3 : self.a > 0
+				constraint c4 : self.b.x > 0
 			}
 		''')
-		assertNotNull(model)
-		val errors = model.eResource.errors
+		assertNotNull(domain)
+		val errors = domain.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''"SELF" parsing errors: «errors.join("; ")»''')
 		
-		val detailA = model.domain.types.head as DDetailType
+		val detailA = domain.types.get(2) as DDetailType
 		val expectedScope1 = "a, b, q1, q2"
 		val expectedScope2 = "x, y"
 		
@@ -180,7 +183,7 @@ class DmxScopingTest {
 		assertTrue(left instanceof DTypedMemberReference)
 		val member = left as DTypedMemberReference
 		member => [assertScope(epackage.DTypedMemberReference_Member, expectedScopeStr)]
-		assertTrue(member.memberContainer instanceof DSelfExpression)
+		assertTrue(member.memberContainerReference instanceof DSelfExpression)
 	}
 	
 	protected def  checkExpression4(DExpression e, String expectedScopeStr1, String expectedScopeStr2) {
@@ -189,10 +192,10 @@ class DmxScopingTest {
 		assertTrue(left instanceof DTypedMemberReference)
 		val member1 = left as DTypedMemberReference
 		member1 => [assertScope(epackage.DTypedMemberReference_Member, expectedScopeStr1)]
-		assertTrue(member1.memberContainer instanceof DTypedMemberReference)
-		val member2 = member1.memberContainer as DTypedMemberReference
+		assertTrue(member1.memberContainerReference instanceof DTypedMemberReference)
+		val member2 = member1.memberContainerReference as DTypedMemberReference
 		member2 => [assertScope(epackage.DTypedMemberReference_Member, expectedScopeStr2)]
-		assertTrue(member2.memberContainer instanceof DSelfExpression)
+		assertTrue(member2.memberContainerReference instanceof DSelfExpression)
 	}
 	
 	def private assertScope(EObject context, EReference reference, CharSequence expected) {

@@ -11,7 +11,6 @@ import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DDomainEvent;
 import com.mimacom.ddd.dm.base.DHuman;
 import com.mimacom.ddd.dm.base.DImport;
-import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DRichText;
@@ -81,9 +80,6 @@ public class DmeSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case BasePackage.DIMPORT:
 				sequence_DImport(context, (DImport) semanticObject); 
-				return; 
-			case BasePackage.DMODEL:
-				sequence_DModel(context, (DModel) semanticObject); 
 				return; 
 			case BasePackage.DMULTIPLICITY:
 				sequence_DMultiplicity(context, (DMultiplicity) semanticObject); 
@@ -266,24 +262,6 @@ public class DmeSemanticSequencer extends DmxSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDImportAccess().getImportedNamespaceDQualifiedNameWithWildcardParserRuleCall_1_0(), semanticObject.getImportedNamespace());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DModel returns DModel
-	 *
-	 * Constraint:
-	 *     domain=DDomain
-	 */
-	protected void sequence_DModel(ISerializationContext context, DModel semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DMODEL__DOMAIN) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DMODEL__DOMAIN));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDModelAccess().getDomainDDomainParserRuleCall_1_0(), semanticObject.getDomain());
 		feeder.finish();
 	}
 	

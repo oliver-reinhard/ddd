@@ -41,13 +41,13 @@ public interface BaseFactory extends EFactory
 	DText createDText();
 
 	/**
-	 * Returns a new object of class '<em>DModel</em>'.
+	 * Returns a new object of class '<em>DDomain</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DModel</em>'.
+	 * @return a new object of class '<em>DDomain</em>'.
 	 * @generated
 	 */
-	DModel createDModel();
+	DDomain createDDomain();
 
 	/**
 	 * Returns a new object of class '<em>DImport</em>'.
@@ -66,15 +66,6 @@ public interface BaseFactory extends EFactory
 	 * @generated
 	 */
 	DFunction createDFunction();
-
-	/**
-	 * Returns a new object of class '<em>DDomain</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DDomain</em>'.
-	 * @generated
-	 */
-	DDomain createDDomain();
 
 	/**
 	 * Returns a new object of class '<em>DAggregate</em>'.

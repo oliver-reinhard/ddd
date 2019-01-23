@@ -8,7 +8,6 @@ import com.mimacom.ddd.dm.base.DActor;
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DDomainEvent;
 import com.mimacom.ddd.dm.base.DImport;
-import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.dme.services.DmeGrammarAccess;
 import java.util.Arrays;
@@ -24,10 +23,6 @@ public class DmeFormatter extends AbstractFormatter2 {
   @Inject
   @Extension
   private DmeGrammarAccess _dmeGrammarAccess;
-  
-  protected void _format(final DModel dModel, @Extension final IFormattableDocument document) {
-    document.<DDomain>format(dModel.getDomain());
-  }
   
   protected void _format(final DDomain dDomain, @Extension final IFormattableDocument document) {
     document.<DRichText>format(dDomain.getDescription());
@@ -46,14 +41,11 @@ public class DmeFormatter extends AbstractFormatter2 {
   }
   
   public void format(final Object dDomain, final IFormattableDocument document) {
-    if (dDomain instanceof XtextResource) {
-      _format((XtextResource)dDomain, document);
-      return;
-    } else if (dDomain instanceof DDomain) {
+    if (dDomain instanceof DDomain) {
       _format((DDomain)dDomain, document);
       return;
-    } else if (dDomain instanceof DModel) {
-      _format((DModel)dDomain, document);
+    } else if (dDomain instanceof XtextResource) {
+      _format((XtextResource)dDomain, document);
       return;
     } else if (dDomain instanceof EObject) {
       _format((EObject)dDomain, document);

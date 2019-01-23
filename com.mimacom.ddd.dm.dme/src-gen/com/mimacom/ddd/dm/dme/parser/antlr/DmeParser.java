@@ -27,7 +27,7 @@ public class DmeParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "DModel";
+		return "DDomain";
 	}
 
 	public DmeGrammarAccess getGrammarAccess() {

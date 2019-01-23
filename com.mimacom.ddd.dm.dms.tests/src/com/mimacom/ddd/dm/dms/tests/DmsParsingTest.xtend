@@ -4,7 +4,7 @@
 package com.mimacom.ddd.dm.dms.tests
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DModel
+import com.mimacom.ddd.dm.base.DDomain
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
@@ -16,7 +16,7 @@ import org.junit.jupiter.api.^extension.ExtendWith
 @InjectWith(DmsInjectorProvider)
 class DmsParsingTest {
 	@Inject
-	ParseHelper<DModel> parseHelper
+	ParseHelper<DDomain> parseHelper
 	
 	@Test
 	def void loadModel() {

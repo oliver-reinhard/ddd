@@ -7,7 +7,6 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.mimacom.ddd.dm.dmx.services.DmxGrammarAccess;
 import java.util.List;
-import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
@@ -25,29 +24,6 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class DmeGrammarAccess extends AbstractGrammarElementFinder {
 	
-	public class DModelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dme.Dme.DModel");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cDModelAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cDomainAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDomainDDomainParserRuleCall_1_0 = (RuleCall)cDomainAssignment_1.eContents().get(0);
-		
-		//DModel:
-		//	{DModel} domain=DDomain;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{DModel} domain=DDomain
-		public Group getGroup() { return cGroup; }
-		
-		//{DModel}
-		public Action getDModelAction_0() { return cDModelAction_0; }
-		
-		//domain=DDomain
-		public Assignment getDomainAssignment_1() { return cDomainAssignment_1; }
-		
-		//DDomain
-		public RuleCall getDomainDDomainParserRuleCall_1_0() { return cDomainDDomainParserRuleCall_1_0; }
-	}
 	public class DDomainElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dme.Dme.DDomain");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -529,7 +505,6 @@ public class DmeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	private final DModelElements pDModel;
 	private final DDomainElements pDDomain;
 	private final DImportElements pDImport;
 	private final DDomainEventElements pDDomainEvent;
@@ -549,7 +524,6 @@ public class DmeGrammarAccess extends AbstractGrammarElementFinder {
 			DmxGrammarAccess gaDmx) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaDmx = gaDmx;
-		this.pDModel = new DModelElements();
 		this.pDDomain = new DDomainElements();
 		this.pDImport = new DImportElements();
 		this.pDDomainEvent = new DDomainEventElements();
@@ -587,16 +561,6 @@ public class DmeGrammarAccess extends AbstractGrammarElementFinder {
 		return gaDmx;
 	}
 
-	
-	//DModel:
-	//	{DModel} domain=DDomain;
-	public DModelElements getDModelAccess() {
-		return pDModel;
-	}
-	
-	public ParserRule getDModelRule() {
-		return getDModelAccess().getRule();
-	}
 	
 	//DDomain:
 	//	'domain'
@@ -1006,8 +970,8 @@ public class DmeGrammarAccess extends AbstractGrammarElementFinder {
 	//DTypedMemberReference DExpression:
 	//	DPrimaryExpression (=> ({DAssignment.memberContainer=current} '.' member=[DTypedMember] OpSingleAssign)
 	//	value=DAssignment
-	//	| => ({DTypedMemberReference.memberContainer=current} '.') member=[DTypedMember] (=> explicitOperationCall?='('
-	//	(memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)?
+	//	| => ({DTypedMemberReference.memberContainerReference=current} '.') member=[DTypedMember] (=>
+	//	explicitOperationCall?='(' (memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)?
 	//	')')?)*;
 	public DmxGrammarAccess.DTypedMemberReferenceElements getDTypedMemberReferenceAccess() {
 		return gaDmx.getDTypedMemberReferenceAccess();
@@ -1113,7 +1077,7 @@ public class DmeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DContextReference DExpression:
-	//	{DContextReference} contextElement=[DNamedElement];
+	//	{DContextReference} target=[DNamedElement];
 	public DmxGrammarAccess.DContextReferenceElements getDContextReferenceAccess() {
 		return gaDmx.getDContextReferenceAccess();
 	}
@@ -1229,7 +1193,7 @@ public class DmeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DQualifiedNameWithWildcard:
-	//	QualifiedName '.*'?;
+	//	DQualifiedName '.*'?;
 	public DmxGrammarAccess.DQualifiedNameWithWildcardElements getDQualifiedNameWithWildcardAccess() {
 		return gaDmx.getDQualifiedNameWithWildcardAccess();
 	}
@@ -1238,14 +1202,14 @@ public class DmeGrammarAccess extends AbstractGrammarElementFinder {
 		return getDQualifiedNameWithWildcardAccess().getRule();
 	}
 	
-	//QualifiedName:
+	//DQualifiedName:
 	//	ID ('.' ID)*;
-	public DmxGrammarAccess.QualifiedNameElements getQualifiedNameAccess() {
-		return gaDmx.getQualifiedNameAccess();
+	public DmxGrammarAccess.DQualifiedNameElements getDQualifiedNameAccess() {
+		return gaDmx.getDQualifiedNameAccess();
 	}
 	
-	public ParserRule getQualifiedNameRule() {
-		return getQualifiedNameAccess().getRule();
+	public ParserRule getDQualifiedNameRule() {
+		return getDQualifiedNameAccess().getRule();
 	}
 	
 	//terminal ID:

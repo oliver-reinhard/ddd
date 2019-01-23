@@ -4,7 +4,7 @@
 package com.mimacom.ddd.dm.dms.tests;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DModel;
+import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.dms.tests.DmsInjectorProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -23,7 +23,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @SuppressWarnings("all")
 public class DmsParsingTest {
   @Inject
-  private ParseHelper<DModel> parseHelper;
+  private ParseHelper<DDomain> parseHelper;
   
   @Test
   public void loadModel() {
@@ -31,7 +31,7 @@ public class DmsParsingTest {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Hello Xtext!");
       _builder.newLine();
-      final DModel result = this.parseHelper.parse(_builder);
+      final DDomain result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();

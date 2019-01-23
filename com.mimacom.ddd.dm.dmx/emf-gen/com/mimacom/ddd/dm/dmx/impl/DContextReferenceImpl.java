@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DContextReferenceImpl#getContextElement <em>Context Element</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DContextReferenceImpl#getTarget <em>Target</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,14 +32,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class DContextReferenceImpl extends DExpressionImpl implements DContextReference
 {
 	/**
-	 * The cached value of the '{@link #getContextElement() <em>Context Element</em>}' reference.
+	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContextElement()
+	 * @see #getTarget()
 	 * @generated
 	 * @ordered
 	 */
-	protected DNamedElement contextElement;
+	protected DNamedElement target;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,19 +68,19 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 	 * @generated
 	 */
 	@Override
-	public DNamedElement getContextElement()
+	public DNamedElement getTarget()
 	{
-		if (contextElement != null && contextElement.eIsProxy())
+		if (target != null && target.eIsProxy())
 		{
-			InternalEObject oldContextElement = (InternalEObject)contextElement;
-			contextElement = (DNamedElement)eResolveProxy(oldContextElement);
-			if (contextElement != oldContextElement)
+			InternalEObject oldTarget = (InternalEObject)target;
+			target = (DNamedElement)eResolveProxy(oldTarget);
+			if (target != oldTarget)
 			{
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DmxPackage.DCONTEXT_REFERENCE__CONTEXT_ELEMENT, oldContextElement, contextElement));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DmxPackage.DCONTEXT_REFERENCE__TARGET, oldTarget, target));
 			}
 		}
-		return contextElement;
+		return target;
 	}
 
 	/**
@@ -88,9 +88,9 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DNamedElement basicGetContextElement()
+	public DNamedElement basicGetTarget()
 	{
-		return contextElement;
+		return target;
 	}
 
 	/**
@@ -99,12 +99,12 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 	 * @generated
 	 */
 	@Override
-	public void setContextElement(DNamedElement newContextElement)
+	public void setTarget(DNamedElement newTarget)
 	{
-		DNamedElement oldContextElement = contextElement;
-		contextElement = newContextElement;
+		DNamedElement oldTarget = target;
+		target = newTarget;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DCONTEXT_REFERENCE__CONTEXT_ELEMENT, oldContextElement, contextElement));
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DCONTEXT_REFERENCE__TARGET, oldTarget, target));
 	}
 
 	/**
@@ -117,9 +117,9 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DCONTEXT_REFERENCE__CONTEXT_ELEMENT:
-				if (resolve) return getContextElement();
-				return basicGetContextElement();
+			case DmxPackage.DCONTEXT_REFERENCE__TARGET:
+				if (resolve) return getTarget();
+				return basicGetTarget();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -134,8 +134,8 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DCONTEXT_REFERENCE__CONTEXT_ELEMENT:
-				setContextElement((DNamedElement)newValue);
+			case DmxPackage.DCONTEXT_REFERENCE__TARGET:
+				setTarget((DNamedElement)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -151,8 +151,8 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DCONTEXT_REFERENCE__CONTEXT_ELEMENT:
-				setContextElement((DNamedElement)null);
+			case DmxPackage.DCONTEXT_REFERENCE__TARGET:
+				setTarget((DNamedElement)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -168,8 +168,8 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DCONTEXT_REFERENCE__CONTEXT_ELEMENT:
-				return contextElement != null;
+			case DmxPackage.DCONTEXT_REFERENCE__TARGET:
+				return target != null;
 		}
 		return super.eIsSet(featureID);
 	}

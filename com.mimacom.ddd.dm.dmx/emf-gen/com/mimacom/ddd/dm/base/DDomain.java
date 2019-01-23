@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getTypes <em>Types</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getFunctions <em>Functions</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getAggregates <em>Aggregates</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getApplications <em>Applications</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getEvents <em>Events</em>}</li>
@@ -25,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DDomain extends DNamedElement, INamespace
+public interface DDomain extends DNamedElement, INamespace, IPrimaryNavigationTarget
 {
 	/**
 	 * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
@@ -58,6 +59,22 @@ public interface DDomain extends DNamedElement, INamespace
 	 * @generated
 	 */
 	EList<DType> getTypes();
+
+	/**
+	 * Returns the value of the '<em><b>Functions</b></em>' containment reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DFunction}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Functions</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Functions</em>' containment reference list.
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomain_Functions()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DFunction> getFunctions();
 
 	/**
 	 * Returns the value of the '<em><b>Aggregates</b></em>' containment reference list.

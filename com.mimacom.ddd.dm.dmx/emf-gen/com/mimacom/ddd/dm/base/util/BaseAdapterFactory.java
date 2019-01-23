@@ -105,6 +105,16 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createDTypedMemberAdapter();
 			}
 			@Override
+			public Adapter caseITypedMemberContainer(ITypedMemberContainer object)
+			{
+				return createITypedMemberContainerAdapter();
+			}
+			@Override
+			public Adapter caseIPrimaryNavigationTarget(IPrimaryNavigationTarget object)
+			{
+				return createIPrimaryNavigationTargetAdapter();
+			}
+			@Override
 			public Adapter caseDRichText(DRichText object)
 			{
 				return createDRichTextAdapter();
@@ -120,9 +130,9 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createDExpressionAdapter();
 			}
 			@Override
-			public Adapter caseDModel(DModel object)
+			public Adapter caseDDomain(DDomain object)
 			{
-				return createDModelAdapter();
+				return createDDomainAdapter();
 			}
 			@Override
 			public Adapter caseDImport(DImport object)
@@ -133,11 +143,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseDFunction(DFunction object)
 			{
 				return createDFunctionAdapter();
-			}
-			@Override
-			public Adapter caseDDomain(DDomain object)
-			{
-				return createDDomainAdapter();
 			}
 			@Override
 			public Adapter caseDAggregate(DAggregate object)
@@ -392,6 +397,36 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.ITypedMemberContainer <em>ITyped Member Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.ITypedMemberContainer
+	 * @generated
+	 */
+	public Adapter createITypedMemberContainerAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IPrimaryNavigationTarget <em>IPrimary Navigation Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IPrimaryNavigationTarget
+	 * @generated
+	 */
+	public Adapter createIPrimaryNavigationTargetAdapter()
+	{
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DRichText <em>DRich Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -437,16 +472,16 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DModel <em>DModel</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DDomain <em>DDomain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DModel
+	 * @see com.mimacom.ddd.dm.base.DDomain
 	 * @generated
 	 */
-	public Adapter createDModelAdapter()
+	public Adapter createDDomainAdapter()
 	{
 		return null;
 	}
@@ -477,21 +512,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDFunctionAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DDomain <em>DDomain</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DDomain
-	 * @generated
-	 */
-	public Adapter createDDomainAdapter()
 	{
 		return null;
 	}

@@ -169,10 +169,10 @@ public class DmxSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) ('RETURN' | 'return') expression=DExpression
 	 *     (rule start) (ambiguity) ('SELF' | 'self') (rule start)
 	 *     (rule start) (ambiguity) OpConstructor constructor=[DIdentityType|ID]
-	 *     (rule start) (ambiguity) contextElement=[DNamedElement|ID]
 	 *     (rule start) (ambiguity) function=[DFunction|ID]
 	 *     (rule start) (ambiguity) member=[DTypedMember|ID]
 	 *     (rule start) (ambiguity) operator=OpUnary
+	 *     (rule start) (ambiguity) target=[DNamedElement|ID]
 	 *     (rule start) (ambiguity) value=DECIMAL
 	 *     (rule start) (ambiguity) value=NATURAL
 	 *     (rule start) (ambiguity) value=STRING
@@ -182,7 +182,7 @@ public class DmxSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) {DBinaryOperation.leftOperand=}
 	 *     (rule start) (ambiguity) {DCastExpression.target=}
 	 *     (rule start) (ambiguity) {DInstanceOfExpression.expression=}
-	 *     (rule start) (ambiguity) {DTypedMemberReference.memberContainer=}
+	 *     (rule start) (ambiguity) {DTypedMemberReference.memberContainerReference=}
 	 */
 	protected void emit_DParenthesizedExpression_LeftParenthesisKeyword_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -202,10 +202,10 @@ public class DmxSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) ('RETURN' | 'return') expression=DExpression
 	 *     (rule start) (ambiguity) ('SELF' | 'self') ')' (rule start)
 	 *     (rule start) (ambiguity) OpConstructor constructor=[DIdentityType|ID]
-	 *     (rule start) (ambiguity) contextElement=[DNamedElement|ID]
 	 *     (rule start) (ambiguity) function=[DFunction|ID]
 	 *     (rule start) (ambiguity) member=[DTypedMember|ID]
 	 *     (rule start) (ambiguity) operator=OpUnary
+	 *     (rule start) (ambiguity) target=[DNamedElement|ID]
 	 *     (rule start) (ambiguity) value=DECIMAL
 	 *     (rule start) (ambiguity) value=NATURAL
 	 *     (rule start) (ambiguity) value=STRING
@@ -215,7 +215,7 @@ public class DmxSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) {DBinaryOperation.leftOperand=}
 	 *     (rule start) (ambiguity) {DCastExpression.target=}
 	 *     (rule start) (ambiguity) {DInstanceOfExpression.expression=}
-	 *     (rule start) (ambiguity) {DTypedMemberReference.memberContainer=}
+	 *     (rule start) (ambiguity) {DTypedMemberReference.memberContainerReference=}
 	 */
 	protected void emit_DParenthesizedExpression_LeftParenthesisKeyword_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

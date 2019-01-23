@@ -10,15 +10,12 @@ import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
-import com.mimacom.ddd.dm.base.DFunction;
 import com.mimacom.ddd.dm.base.DLiteral;
-import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DRelationship;
 import com.mimacom.ddd.dm.base.DRootType;
 import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.base.IValueType;
 import com.mimacom.ddd.dm.dms.ui.internal.DmsActivator;
 import java.util.Arrays;
 import java.util.List;
@@ -59,105 +56,25 @@ public class DmsDiagramTextProvider extends AbstractDiagramTextProvider {
   protected String getDiagramText(final IEditorPart editorPart, final IEditorInput editorInput, final ISelection sel, final Map<String, Object> obj) {
     IDocument _document = ((XtextEditor) editorPart).getDocumentProvider().getDocument(editorInput);
     final XtextDocument document = ((XtextDocument) _document);
-    final IUnitOfWork<DModel, XtextResource> _function = (XtextResource it) -> {
-      DModel _xifexpression = null;
+    final IUnitOfWork<DDomain, XtextResource> _function = (XtextResource it) -> {
+      DDomain _xifexpression = null;
       EObject _head = IterableExtensions.<EObject>head(it.getContents());
-      if ((_head instanceof DModel)) {
+      if ((_head instanceof DDomain)) {
         EObject _head_1 = IterableExtensions.<EObject>head(it.getContents());
-        _xifexpression = ((DModel) _head_1);
+        _xifexpression = ((DDomain) _head_1);
       } else {
         _xifexpression = null;
       }
       return _xifexpression;
     };
-    final DModel model = document.<DModel>readOnly(_function);
-    EList<IValueType> _globalTypes = null;
-    if (model!=null) {
-      _globalTypes=model.getGlobalTypes();
-    }
-    final EList<IValueType> globalTypes = _globalTypes;
-    EList<DFunction> _globalFunctions = null;
-    if (model!=null) {
-      _globalFunctions=model.getGlobalFunctions();
-    }
-    final EList<DFunction> globalFunctions = _globalFunctions;
-    DDomain _domain = null;
-    if (model!=null) {
-      _domain=model.getDomain();
-    }
-    EList<DAggregate> _aggregates = null;
-    if (_domain!=null) {
-      _aggregates=_domain.getAggregates();
-    }
-    final EList<DAggregate> aggregates = _aggregates;
-    if (((model == null) || ((globalTypes.isEmpty() && globalFunctions.isEmpty()) && ((aggregates == null) || aggregates.isEmpty())))) {
+    final DDomain domain = document.<DDomain>readOnly(_function);
+    if (((domain != null) && (!domain.getAggregates().isEmpty()))) {
+      return this.domainTypes(domain);
+    } else {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("note \"No structures to show.\" as N1");
       return _builder.toString();
     }
-    if (((aggregates != null) && (aggregates.size() > 0))) {
-      return this.domainTypes(model.getDomain());
-    } else {
-      return this.generateGlobalTypes(model);
-    }
-  }
-  
-  public String generateGlobalTypes(final DModel model) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("hide empty members");
-    _builder.newLine();
-    _builder.append("package Global <<Frame>> {");
-    _builder.newLine();
-    _builder.append("\t");
-    {
-      EList<IValueType> _globalTypes = model.getGlobalTypes();
-      for(final IValueType t : _globalTypes) {
-        CharSequence _generateType = this.generateType(((DType) t));
-        _builder.append(_generateType, "\t");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    {
-      boolean _isEmpty = model.getGlobalFunctions().isEmpty();
-      boolean _not = (!_isEmpty);
-      if (_not) {
-        _builder.append("\t");
-        _builder.append("class Functions {");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append("\t");
-        {
-          EList<DFunction> _globalFunctions = model.getGlobalFunctions();
-          for(final DFunction f : _globalFunctions) {
-            String _name = f.getName();
-            _builder.append(_name, "\t\t");
-            _builder.append("(");
-            {
-              EList<String> _parameterNames = f.getParameterNames();
-              boolean _hasElements = false;
-              for(final String p : _parameterNames) {
-                if (!_hasElements) {
-                  _hasElements = true;
-                } else {
-                  _builder.appendImmediate(",", "\t\t");
-                }
-                _builder.append(p, "\t\t");
-              }
-            }
-            _builder.append("):");
-            String _name_1 = f.getType().getName();
-            _builder.append(_name_1, "\t\t");
-            _builder.newLineIfNotEmpty();
-          }
-        }
-        _builder.append("\t");
-        _builder.append("}");
-        _builder.newLine();
-      }
-    }
-    _builder.append("}");
-    _builder.newLine();
-    return _builder.toString();
   }
   
   public String domainTypes(final DDomain domain) {

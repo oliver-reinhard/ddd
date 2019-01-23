@@ -44,7 +44,7 @@ import com.mimacom.ddd.dm.dme.services.DmeGrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "DModel";
+    	return "DDomain";
    	}
 
    	@Override
@@ -60,51 +60,6 @@ import com.mimacom.ddd.dm.dme.services.DmeGrammarAccess;
         appendSkippedTokens();
     }
 }
-
-// Entry rule entryRuleDModel
-entryRuleDModel returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDModelRule()); }
-	iv_ruleDModel=ruleDModel
-	{ $current=$iv_ruleDModel.current; }
-	EOF;
-
-// Rule DModel
-ruleDModel returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getDModelAccess().getDModelAction_0(),
-					$current);
-			}
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getDModelAccess().getDomainDDomainParserRuleCall_1_0());
-				}
-				lv_domain_1_0=ruleDDomain
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDModelRule());
-					}
-					set(
-						$current,
-						"domain",
-						lv_domain_1_0,
-						"com.mimacom.ddd.dm.dme.Dme.DDomain");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-	)
-;
 
 // Entry rule entryRuleDDomain
 entryRuleDDomain returns [EObject current=null]:
@@ -2271,7 +2226,7 @@ ruleDTypedMemberReference returns [EObject current=null]
 						(
 							{
 								$current = forceCreateModelElementAndSet(
-									grammarAccess.getDTypedMemberReferenceAccess().getDTypedMemberReferenceMemberContainerAction_1_1_0_0_0(),
+									grammarAccess.getDTypedMemberReferenceAccess().getDTypedMemberReferenceMemberContainerReferenceAction_1_1_0_0_0(),
 									$current);
 							}
 						)
@@ -3010,7 +2965,7 @@ ruleDContextReference returns [EObject current=null]
 				}
 				otherlv_1=RULE_ID
 				{
-					newLeafNode(otherlv_1, grammarAccess.getDContextReferenceAccess().getContextElementDNamedElementCrossReference_1_0());
+					newLeafNode(otherlv_1, grammarAccess.getDContextReferenceAccess().getTargetDNamedElementCrossReference_1_0());
 				}
 			)
 		)
@@ -3662,11 +3617,11 @@ ruleDQualifiedNameWithWildcard returns [AntlrDatatypeRuleToken current=new Antlr
 }:
 	(
 		{
-			newCompositeNode(grammarAccess.getDQualifiedNameWithWildcardAccess().getQualifiedNameParserRuleCall_0());
+			newCompositeNode(grammarAccess.getDQualifiedNameWithWildcardAccess().getDQualifiedNameParserRuleCall_0());
 		}
-		this_QualifiedName_0=ruleQualifiedName
+		this_DQualifiedName_0=ruleDQualifiedName
 		{
-			$current.merge(this_QualifiedName_0);
+			$current.merge(this_DQualifiedName_0);
 		}
 		{
 			afterParserOrEnumRuleCall();
@@ -3681,15 +3636,15 @@ ruleDQualifiedNameWithWildcard returns [AntlrDatatypeRuleToken current=new Antlr
 	)
 ;
 
-// Entry rule entryRuleQualifiedName
-entryRuleQualifiedName returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getQualifiedNameRule()); }
-	iv_ruleQualifiedName=ruleQualifiedName
-	{ $current=$iv_ruleQualifiedName.current.getText(); }
+// Entry rule entryRuleDQualifiedName
+entryRuleDQualifiedName returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getDQualifiedNameRule()); }
+	iv_ruleDQualifiedName=ruleDQualifiedName
+	{ $current=$iv_ruleDQualifiedName.current.getText(); }
 	EOF;
 
-// Rule QualifiedName
-ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+// Rule DQualifiedName
+ruleDQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 @init {
 	enterRule();
 }
@@ -3702,20 +3657,20 @@ ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleT
 			$current.merge(this_ID_0);
 		}
 		{
-			newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0());
+			newLeafNode(this_ID_0, grammarAccess.getDQualifiedNameAccess().getIDTerminalRuleCall_0());
 		}
 		(
 			kw='.'
 			{
 				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0());
+				newLeafNode(kw, grammarAccess.getDQualifiedNameAccess().getFullStopKeyword_1_0());
 			}
 			this_ID_2=RULE_ID
 			{
 				$current.merge(this_ID_2);
 			}
 			{
-				newLeafNode(this_ID_2, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1());
+				newLeafNode(this_ID_2, grammarAccess.getDQualifiedNameAccess().getIDTerminalRuleCall_1_1());
 			}
 		)*
 	)

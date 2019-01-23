@@ -57,8 +57,8 @@
     <eLiterals name="NOT" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DTypedMemberReference" eSuperTypes="base.ecore#//DExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="memberContainer" eType="ecore:EClass base.ecore#//DExpression"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="memberContainerReference"
+        eType="ecore:EClass base.ecore#//DExpression" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="member" eType="ecore:EClass base.ecore#//DTypedMember"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="explicitOperationCall"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -92,7 +92,7 @@
         eType="ecore:EClass base.ecore#//DExpression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DContextReference" eSuperTypes="base.ecore#//DExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contextElement" eType="ecore:EClass base.ecore#//DNamedElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass base.ecore#//DNamedElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DIfExpression" eSuperTypes="base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="if" eType="ecore:EClass base.ecore#//DExpression"

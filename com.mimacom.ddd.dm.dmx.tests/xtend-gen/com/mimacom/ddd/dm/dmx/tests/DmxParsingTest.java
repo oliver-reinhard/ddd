@@ -165,9 +165,9 @@ public class DmxParsingTest {
       Assert.assertEquals(DNaturalLiteralImpl.class, ((DConstructorCallImpl) e8).getArguments().get(0).getClass());
       final DExpression e9 = expr.get(9);
       Assert.assertEquals(DContextReferenceImpl.class, e9.getClass());
-      Assert.assertTrue(((DContextReferenceImpl) e9).basicGetContextElement().eIsProxy());
-      DNamedElement _basicGetContextElement = ((DContextReferenceImpl) e9).basicGetContextElement();
-      Assert.assertTrue((_basicGetContextElement instanceof DNamedElement));
+      Assert.assertTrue(((DContextReferenceImpl) e9).basicGetTarget().eIsProxy());
+      DNamedElement _basicGetTarget = ((DContextReferenceImpl) e9).basicGetTarget();
+      Assert.assertTrue((_basicGetTarget instanceof DNamedElement));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -198,40 +198,40 @@ public class DmxParsingTest {
       final DExpression e0 = expr.get(0);
       Assert.assertEquals(DTypedMemberReferenceImpl.class, e0.getClass());
       Assert.assertTrue(((DTypedMemberReferenceImpl) e0).basicGetMember().eIsProxy());
-      Assert.assertEquals(DSelfExpressionImpl.class, ((DTypedMemberReferenceImpl) e0).getMemberContainer().getClass());
+      Assert.assertEquals(DSelfExpressionImpl.class, ((DTypedMemberReferenceImpl) e0).getMemberContainerReference().getClass());
       final DExpression e1 = expr.get(1);
       Assert.assertEquals(DTypedMemberReferenceImpl.class, e1.getClass());
       final DTypedMemberReferenceImpl e1_1 = ((DTypedMemberReferenceImpl) e1);
       Assert.assertTrue(e1_1.basicGetMember().eIsProxy());
-      Assert.assertEquals(DTypedMemberReferenceImpl.class, e1_1.getMemberContainer().getClass());
-      DExpression _memberContainer = e1_1.getMemberContainer();
-      final DTypedMemberReferenceImpl e1_2 = ((DTypedMemberReferenceImpl) _memberContainer);
+      Assert.assertEquals(DTypedMemberReferenceImpl.class, e1_1.getMemberContainerReference().getClass());
+      DExpression _memberContainerReference = e1_1.getMemberContainerReference();
+      final DTypedMemberReferenceImpl e1_2 = ((DTypedMemberReferenceImpl) _memberContainerReference);
       Assert.assertTrue(e1_2.basicGetMember().eIsProxy());
-      Assert.assertEquals(DSelfExpressionImpl.class, e1_2.getMemberContainer().getClass());
+      Assert.assertEquals(DSelfExpressionImpl.class, e1_2.getMemberContainerReference().getClass());
       final DExpression e2 = expr.get(2);
       Assert.assertEquals(DTypedMemberReferenceImpl.class, e2.getClass());
       final DTypedMemberReferenceImpl e2_1 = ((DTypedMemberReferenceImpl) e2);
       Assert.assertTrue(((DTypedMemberReferenceImpl) e2_1).basicGetMember().eIsProxy());
-      Assert.assertEquals(DContextReferenceImpl.class, e2_1.getMemberContainer().getClass());
-      DExpression _memberContainer_1 = e2_1.getMemberContainer();
-      final DContextReferenceImpl e2_2 = ((DContextReferenceImpl) _memberContainer_1);
-      Assert.assertTrue(e2_2.basicGetContextElement().eIsProxy());
-      DNamedElement _basicGetContextElement = e2_2.basicGetContextElement();
-      Assert.assertTrue((_basicGetContextElement instanceof DNamedElement));
+      Assert.assertEquals(DContextReferenceImpl.class, e2_1.getMemberContainerReference().getClass());
+      DExpression _memberContainerReference_1 = e2_1.getMemberContainerReference();
+      final DContextReferenceImpl e2_2 = ((DContextReferenceImpl) _memberContainerReference_1);
+      Assert.assertTrue(e2_2.basicGetTarget().eIsProxy());
+      DNamedElement _basicGetTarget = e2_2.basicGetTarget();
+      Assert.assertTrue((_basicGetTarget instanceof DNamedElement));
       final DExpression e3 = expr.get(3);
       Assert.assertEquals(DTypedMemberReferenceImpl.class, e3.getClass());
       final DTypedMemberReferenceImpl e3_1 = ((DTypedMemberReferenceImpl) e3);
       Assert.assertTrue(e3_1.basicGetMember().eIsProxy());
-      Assert.assertEquals(DTypedMemberReferenceImpl.class, e3_1.getMemberContainer().getClass());
-      DExpression _memberContainer_2 = e3_1.getMemberContainer();
-      final DTypedMemberReferenceImpl e3_2 = ((DTypedMemberReferenceImpl) _memberContainer_2);
+      Assert.assertEquals(DTypedMemberReferenceImpl.class, e3_1.getMemberContainerReference().getClass());
+      DExpression _memberContainerReference_2 = e3_1.getMemberContainerReference();
+      final DTypedMemberReferenceImpl e3_2 = ((DTypedMemberReferenceImpl) _memberContainerReference_2);
       Assert.assertTrue(e3_2.basicGetMember().eIsProxy());
-      Assert.assertEquals(DContextReferenceImpl.class, e3_2.getMemberContainer().getClass());
-      DExpression _memberContainer_3 = e3_2.getMemberContainer();
-      final DContextReferenceImpl e3_3 = ((DContextReferenceImpl) _memberContainer_3);
-      Assert.assertTrue(e3_3.basicGetContextElement().eIsProxy());
-      DNamedElement _basicGetContextElement_1 = e3_3.basicGetContextElement();
-      Assert.assertTrue((_basicGetContextElement_1 instanceof DNamedElement));
+      Assert.assertEquals(DContextReferenceImpl.class, e3_2.getMemberContainerReference().getClass());
+      DExpression _memberContainerReference_3 = e3_2.getMemberContainerReference();
+      final DContextReferenceImpl e3_3 = ((DContextReferenceImpl) _memberContainerReference_3);
+      Assert.assertTrue(e3_3.basicGetTarget().eIsProxy());
+      DNamedElement _basicGetTarget_1 = e3_3.basicGetTarget();
+      Assert.assertTrue((_basicGetTarget_1 instanceof DNamedElement));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -281,7 +281,7 @@ public class DmxParsingTest {
       DExpression _memberContainer = ((DAssignmentImpl) e3).getMemberContainer();
       final DTypedMemberReferenceImpl e3_1 = ((DTypedMemberReferenceImpl) _memberContainer);
       Assert.assertTrue(e3_1.basicGetMember().eIsProxy());
-      Assert.assertEquals(DContextReferenceImpl.class, e3_1.getMemberContainer().getClass());
+      Assert.assertEquals(DContextReferenceImpl.class, e3_1.getMemberContainerReference().getClass());
       Assert.assertEquals(DNaturalLiteralImpl.class, ((DAssignmentImpl) e3).getValue().getClass());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);

@@ -7,23 +7,19 @@ import com.google.common.collect.Lists
 import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DAssociation
-import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DDomain
-import com.mimacom.ddd.dm.base.DFunction
 import com.mimacom.ddd.dm.base.DIdentityType
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DQueryParameter
 import com.mimacom.ddd.dm.base.DRelationship
 import com.mimacom.ddd.dm.base.DRootType
-import com.mimacom.ddd.dm.base.DServiceParameter
-import com.mimacom.ddd.dm.base.IValueType
+import com.mimacom.ddd.dm.base.DTypedMember
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
-import org.eclipse.xtext.scoping.impl.SimpleScope
 
 /**
  * This class contains custom scoping description.
@@ -40,30 +36,27 @@ class DmsScopeProvider extends AbstractDmsScopeProvider {
 		if (reference == epackage.DTypedMember_Type) {
 			
 			 val IScope scope = switch context {	
-				DAttribute: getContainerTypesOfTypeScope(context, reference, IValueType, true)
-				DQuery: getLocalRootTypeScope(context, getContainerTypesOfTypeScope(context, reference, IValueType, true))
-				DAssociation: getContainerTypesOfTypeScope(context, reference, DRootType, true)
-				DQueryParameter: getContainerTypesOfTypeScope(context, reference, IValueType, true)
-				DServiceParameter: getContainerTypesOfTypeScope(context, reference, IValueType, true)
-				DFunction: getContainerTypesOfTypeScope(context, reference, IValueType, true)
-				default:  IScope.NULLSCOPE
+				DQuery: getLocalRootTypeScope(context, getDefaultScopeForType(context, epackage.IValueType))
+				DAssociation: getDefaultScopeForType(context, epackage.DRootType)
+				DQueryParameter: getLocalRootTypeScope(context, getDefaultScopeForType(context,  epackage.IValueType))
+				default:  getDefaultScopeForType(context, epackage.IValueType)
 			}
-			return scope // new SimpleScope(super.getScope(context, reference), scope.allElements)  // TODO Replace: is not filtering result from super!.
+			return scope
 			
 		} else if (reference == epackage.DComplexType_SuperType) {
 			
 			return switch context {
 				DRootType:  getIdentityTypeScope(context, DRootType)
 				DRelationship: getIdentityTypeScope(context, DRelationship)
-				DDetailType: getContainerTypesOfTypeScope(context, reference, DDetailType, false)
+				DDetailType: getDefaultScopeForType(context, epackage.DDetailType)
 				default:  IScope.NULLSCOPE
 			}
 		} 
 		return super.getScope(context, reference)
 	}
 		
-	def IScope getLocalRootTypeScope(DQuery query, IScope outerScope) {
-		val aggregate = EcoreUtil2.getContainerOfType(query, DAggregate)
+	def IScope getLocalRootTypeScope(DTypedMember context, IScope outerScope) {
+		val aggregate = EcoreUtil2.getContainerOfType(context, DAggregate)
 		if (aggregate?.root !== null) {
 			return Scopes.scopeFor(Lists.newArrayList(aggregate.root), outerScope)	
 		}

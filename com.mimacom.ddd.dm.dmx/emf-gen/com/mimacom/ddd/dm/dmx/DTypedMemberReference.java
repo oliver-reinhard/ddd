@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.dmx.DTypedMemberReference#getMemberContainer <em>Member Container</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.DTypedMemberReference#getMemberContainerReference <em>Member Container Reference</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.DTypedMemberReference#getMember <em>Member</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.DTypedMemberReference#isExplicitOperationCall <em>Explicit Operation Call</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.DTypedMemberReference#getMemberCallArguments <em>Member Call Arguments</em>}</li>
@@ -29,30 +29,30 @@ import org.eclipse.emf.common.util.EList;
 public interface DTypedMemberReference extends DExpression
 {
 	/**
-	 * Returns the value of the '<em><b>Member Container</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Member Container Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Member Container</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Member Container Reference</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Member Container</em>' containment reference.
-	 * @see #setMemberContainer(DExpression)
-	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDTypedMemberReference_MemberContainer()
+	 * @return the value of the '<em>Member Container Reference</em>' containment reference.
+	 * @see #setMemberContainerReference(DExpression)
+	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDTypedMemberReference_MemberContainerReference()
 	 * @model containment="true"
 	 * @generated
 	 */
-	DExpression getMemberContainer();
+	DExpression getMemberContainerReference();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DTypedMemberReference#getMemberContainer <em>Member Container</em>}' containment reference.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DTypedMemberReference#getMemberContainerReference <em>Member Container Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Member Container</em>' containment reference.
-	 * @see #getMemberContainer()
+	 * @param value the new value of the '<em>Member Container Reference</em>' containment reference.
+	 * @see #getMemberContainerReference()
 	 * @generated
 	 */
-	void setMemberContainer(DExpression value);
+	void setMemberContainerReference(DExpression value);
 
 	/**
 	 * Returns the value of the '<em><b>Member</b></em>' reference.

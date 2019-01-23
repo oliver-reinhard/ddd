@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DQuery extends DFeature
+public interface DQuery extends DFeature, ITypedMemberContainer
 {
 	/**
 	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.

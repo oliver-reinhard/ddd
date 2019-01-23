@@ -7,7 +7,7 @@ import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.base.DEnumeration
-import com.mimacom.ddd.dm.base.DModel
+import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DRelationship
 import com.mimacom.ddd.dm.base.DRootType
@@ -22,7 +22,6 @@ import org.eclipse.ui.IEditorPart
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.ui.editor.XtextEditor
 import org.eclipse.xtext.ui.editor.model.XtextDocument
-import com.mimacom.ddd.dm.base.DPrimitive
 
 class DmsDiagramTextProvider extends AbstractDiagramTextProvider {
 	
@@ -43,38 +42,16 @@ class DmsDiagramTextProvider extends AbstractDiagramTextProvider {
 	override protected getDiagramText(IEditorPart editorPart, IEditorInput editorInput, ISelection sel, Map<String, Object> obj) {
         // Retrieve the "semantic" EMF from XtextEditor
         val document = (editorPart as XtextEditor).getDocumentProvider().getDocument(editorInput) as XtextDocument;
-        val DModel model = document.readOnly[
-            return if (contents.head instanceof DModel) contents.head as DModel else null
+        val DDomain domain = document.readOnly[
+            return if (contents.head instanceof DDomain) contents.head as DDomain else null
         ]
         
-        val globalTypes = model?.globalTypes
-        val globalFunctions = model?.globalFunctions
-        val aggregates = model?.domain?.aggregates
-        
-        if (model === null || globalTypes.empty && globalFunctions.empty && ( aggregates === null || aggregates.empty)) {
+        if (domain !== null && ! domain.aggregates.empty) {
+        	return domainTypes(domain)
+        } else {
         	return '''note "No structures to show." as N1'''
         }
-        
-        if (aggregates !== null && aggregates.size > 0) {
-        	return domainTypes(model.domain)
-        } else {
-        	return generateGlobalTypes(model)
-        }
 	}
-	
-	def String generateGlobalTypes(DModel model) '''
-		hide empty members
-		package Global <<Frame>> {
-			«FOR t : model.globalTypes»«(t as DType).generateType»
-			«ENDFOR»
-			«IF ! model.globalFunctions.empty»
-				class Functions {
-					«FOR f : model.globalFunctions»«f.name»(«FOR p : f.parameterNames SEPARATOR ','»«p»«ENDFOR»):«f.type.name»
-					«ENDFOR»
-				}
-			«ENDIF»
-		}
-	'''
 	
 	def domainTypes(DDomain domain) {
         val allAggregates = EcoreUtil2.eAllOfType(domain, DAggregate)

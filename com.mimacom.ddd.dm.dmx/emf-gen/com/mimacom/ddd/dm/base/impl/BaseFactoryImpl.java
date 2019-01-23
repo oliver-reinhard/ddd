@@ -67,10 +67,9 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 		{
 			case BasePackage.DRICH_TEXT: return createDRichText();
 			case BasePackage.DTEXT: return createDText();
-			case BasePackage.DMODEL: return createDModel();
+			case BasePackage.DDOMAIN: return createDDomain();
 			case BasePackage.DIMPORT: return createDImport();
 			case BasePackage.DFUNCTION: return createDFunction();
-			case BasePackage.DDOMAIN: return createDDomain();
 			case BasePackage.DAGGREGATE: return createDAggregate();
 			case BasePackage.DCONDITION: return createDCondition();
 			case BasePackage.DPRIMITIVE: return createDPrimitive();
@@ -170,10 +169,10 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * @generated
 	 */
 	@Override
-	public DModel createDModel()
+	public DDomain createDDomain()
 	{
-		DModelImpl dModel = new DModelImpl();
-		return dModel;
+		DDomainImpl dDomain = new DDomainImpl();
+		return dDomain;
 	}
 
 	/**
@@ -198,18 +197,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		DFunctionImpl dFunction = new DFunctionImpl();
 		return dFunction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DDomain createDDomain()
-	{
-		DDomainImpl dDomain = new DDomainImpl();
-		return dDomain;
 	}
 
 	/**

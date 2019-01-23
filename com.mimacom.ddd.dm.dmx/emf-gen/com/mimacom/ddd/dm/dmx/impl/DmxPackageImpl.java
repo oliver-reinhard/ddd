@@ -482,7 +482,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDTypedMemberReference_MemberContainer()
+	public EReference getDTypedMemberReference_MemberContainerReference()
 	{
 		return (EReference)dTypedMemberReferenceEClass.getEStructuralFeatures().get(0);
 	}
@@ -702,7 +702,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDContextReference_ContextElement()
+	public EReference getDContextReference_Target()
 	{
 		return (EReference)dContextReferenceEClass.getEStructuralFeatures().get(0);
 	}
@@ -992,7 +992,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		createEAttribute(dUnaryOperationEClass, DUNARY_OPERATION__OPERATOR);
 
 		dTypedMemberReferenceEClass = createEClass(DTYPED_MEMBER_REFERENCE);
-		createEReference(dTypedMemberReferenceEClass, DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER);
+		createEReference(dTypedMemberReferenceEClass, DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER_REFERENCE);
 		createEReference(dTypedMemberReferenceEClass, DTYPED_MEMBER_REFERENCE__MEMBER);
 		createEAttribute(dTypedMemberReferenceEClass, DTYPED_MEMBER_REFERENCE__EXPLICIT_OPERATION_CALL);
 		createEReference(dTypedMemberReferenceEClass, DTYPED_MEMBER_REFERENCE__MEMBER_CALL_ARGUMENTS);
@@ -1019,7 +1019,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		createEReference(dConstructorCallEClass, DCONSTRUCTOR_CALL__ARGUMENTS);
 
 		dContextReferenceEClass = createEClass(DCONTEXT_REFERENCE);
-		createEReference(dContextReferenceEClass, DCONTEXT_REFERENCE__CONTEXT_ELEMENT);
+		createEReference(dContextReferenceEClass, DCONTEXT_REFERENCE__TARGET);
 
 		dIfExpressionEClass = createEClass(DIF_EXPRESSION);
 		createEReference(dIfExpressionEClass, DIF_EXPRESSION__IF);
@@ -1130,7 +1130,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		initEAttribute(getDUnaryOperation_Operator(), this.getDUnaryOperator(), "operator", null, 0, 1, DUnaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dTypedMemberReferenceEClass, DTypedMemberReference.class, "DTypedMemberReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDTypedMemberReference_MemberContainer(), theBasePackage.getDExpression(), null, "memberContainer", null, 0, 1, DTypedMemberReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDTypedMemberReference_MemberContainerReference(), theBasePackage.getDExpression(), null, "memberContainerReference", null, 0, 1, DTypedMemberReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDTypedMemberReference_Member(), theBasePackage.getDTypedMember(), null, "member", null, 0, 1, DTypedMemberReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDTypedMemberReference_ExplicitOperationCall(), ecorePackage.getEBoolean(), "explicitOperationCall", null, 0, 1, DTypedMemberReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDTypedMemberReference_MemberCallArguments(), theBasePackage.getDExpression(), null, "memberCallArguments", null, 0, -1, DTypedMemberReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1157,7 +1157,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		initEReference(getDConstructorCall_Arguments(), theBasePackage.getDExpression(), null, "arguments", null, 0, -1, DConstructorCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dContextReferenceEClass, DContextReference.class, "DContextReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDContextReference_ContextElement(), theBasePackage.getDNamedElement(), null, "contextElement", null, 0, 1, DContextReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDContextReference_Target(), theBasePackage.getDNamedElement(), null, "target", null, 0, 1, DContextReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dIfExpressionEClass, DIfExpression.class, "DIfExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDIfExpression_If(), theBasePackage.getDExpression(), null, "if", null, 0, 1, DIfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

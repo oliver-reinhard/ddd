@@ -14,7 +14,7 @@ import com.mimacom.ddd.dm.base.DNamedElement;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.dmx.DContextReference#getContextElement <em>Context Element</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.DContextReference#getTarget <em>Target</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDContextReference()
@@ -24,29 +24,29 @@ import com.mimacom.ddd.dm.base.DNamedElement;
 public interface DContextReference extends DExpression
 {
 	/**
-	 * Returns the value of the '<em><b>Context Element</b></em>' reference.
+	 * Returns the value of the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Context Element</em>' reference isn't clear,
+	 * If the meaning of the '<em>Target</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Context Element</em>' reference.
-	 * @see #setContextElement(DNamedElement)
-	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDContextReference_ContextElement()
+	 * @return the value of the '<em>Target</em>' reference.
+	 * @see #setTarget(DNamedElement)
+	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDContextReference_Target()
 	 * @model
 	 * @generated
 	 */
-	DNamedElement getContextElement();
+	DNamedElement getTarget();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DContextReference#getContextElement <em>Context Element</em>}' reference.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DContextReference#getTarget <em>Target</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context Element</em>' reference.
-	 * @see #getContextElement()
+	 * @param value the new value of the '<em>Target</em>' reference.
+	 * @see #getTarget()
 	 * @generated
 	 */
-	void setContextElement(DNamedElement value);
+	void setTarget(DNamedElement value);
 
 } // DContextReference

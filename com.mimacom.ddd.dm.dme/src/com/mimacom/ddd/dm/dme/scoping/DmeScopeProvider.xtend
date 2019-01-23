@@ -4,17 +4,8 @@
 package com.mimacom.ddd.dm.dme.scoping
 
 import com.mimacom.ddd.dm.base.BasePackage
-import com.mimacom.ddd.dm.base.DActor
-import com.mimacom.ddd.dm.base.DContext
-import com.mimacom.ddd.dm.base.DDomain
-import com.mimacom.ddd.dm.base.DNotification
-import com.mimacom.ddd.dm.base.DType
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
-import org.eclipse.xtext.EcoreUtil2
-import org.eclipse.xtext.scoping.IScope
-import org.eclipse.xtext.scoping.impl.SimpleScope
-import org.eclipse.xtext.scoping.Scopes
 
 /**
  * This class contains custom scoping description.
@@ -24,25 +15,10 @@ import org.eclipse.xtext.scoping.Scopes
  */
 class DmeScopeProvider extends AbstractDmeScopeProvider {
 	
-	val epackage = BasePackage.eINSTANCE
+//	val epackage = BasePackage.eINSTANCE
 
 	override getScope(EObject context, EReference reference) {
 		
-		if (reference == epackage.DTypedMember_Type) {
-			
-			 val IScope scope = switch context {	
-				DContext: getContainerTypesOfTypeScope(context, reference, DType, true)
-				DNotification: getContainerTypesOfTypeScope(context, reference, DType, true)
-				default:  super.getScope(context, reference)
-			}
-			return scope // new SimpleScope(super.getScope(context, reference), scope.allElements)  // TODO Replace: is not filtering result from super!.
-			
-		} else if (reference == epackage.DDomainEvent_Trigger || reference == epackage.DNotification_Notified) {
-			val domain = EcoreUtil2.getContainerOfType(context, DDomain)
-			if (domain !== null) {
-				return Scopes.scopeFor(domain.actors, getContainerTypesOfTypeScope(context, reference, DActor, true)) // getImportedObjectsOfTypeScope(context, DActor)) // TODO Needed?
-			}
-		} 
 		return super.getScope(context, reference)
 	}
 

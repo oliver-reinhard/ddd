@@ -31,8 +31,6 @@ public class DmsParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, DmsGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getDModelAccess().getAlternatives_1_2(), "rule__DModel__Alternatives_1_2");
-			builder.put(grammarAccess.getGlobalValueTypesAccess().getAlternatives(), "rule__GlobalValueTypes__Alternatives");
 			builder.put(grammarAccess.getDDomainAccess().getAlternatives_4(), "rule__DDomain__Alternatives_4");
 			builder.put(grammarAccess.getDTypeAccess().getAlternatives(), "rule__DType__Alternatives");
 			builder.put(grammarAccess.getDComplexTypeAccess().getAlternatives_4(), "rule__DComplexType__Alternatives_4");
@@ -69,12 +67,10 @@ public class DmsParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOpAddAccess().getAlternatives(), "rule__OpAdd__Alternatives");
 			builder.put(grammarAccess.getOpMultiAccess().getAlternatives(), "rule__OpMulti__Alternatives");
 			builder.put(grammarAccess.getOpUnaryAccess().getAlternatives(), "rule__OpUnary__Alternatives");
-			builder.put(grammarAccess.getDModelAccess().getGroup(), "rule__DModel__Group__0");
-			builder.put(grammarAccess.getDModelAccess().getGroup_1(), "rule__DModel__Group_1__0");
-			builder.put(grammarAccess.getDFunctionAccess().getGroup(), "rule__DFunction__Group__0");
-			builder.put(grammarAccess.getDFunctionAccess().getGroup_4(), "rule__DFunction__Group_4__0");
 			builder.put(grammarAccess.getDDomainAccess().getGroup(), "rule__DDomain__Group__0");
 			builder.put(grammarAccess.getDImportAccess().getGroup(), "rule__DImport__Group__0");
+			builder.put(grammarAccess.getDFunctionAccess().getGroup(), "rule__DFunction__Group__0");
+			builder.put(grammarAccess.getDFunctionAccess().getGroup_4(), "rule__DFunction__Group_4__0");
 			builder.put(grammarAccess.getDAggregateAccess().getGroup(), "rule__DAggregate__Group__0");
 			builder.put(grammarAccess.getDConstraintAccess().getGroup(), "rule__DConstraint__Group__0");
 			builder.put(grammarAccess.getDPrimitiveAccess().getGroup(), "rule__DPrimitive__Group__0");
@@ -187,24 +183,22 @@ public class DmsParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDECIMALAccess().getGroup(), "rule__DECIMAL__Group__0");
 			builder.put(grammarAccess.getDECIMALAccess().getGroup_3(), "rule__DECIMAL__Group_3__0");
 			builder.put(grammarAccess.getDQualifiedNameWithWildcardAccess().getGroup(), "rule__DQualifiedNameWithWildcard__Group__0");
-			builder.put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
-			builder.put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
-			builder.put(grammarAccess.getDModelAccess().getGlobalTypesAssignment_1_2_0(), "rule__DModel__GlobalTypesAssignment_1_2_0");
-			builder.put(grammarAccess.getDModelAccess().getGlobalFunctionsAssignment_1_2_1(), "rule__DModel__GlobalFunctionsAssignment_1_2_1");
-			builder.put(grammarAccess.getDModelAccess().getDomainAssignment_2(), "rule__DModel__DomainAssignment_2");
+			builder.put(grammarAccess.getDQualifiedNameAccess().getGroup(), "rule__DQualifiedName__Group__0");
+			builder.put(grammarAccess.getDQualifiedNameAccess().getGroup_1(), "rule__DQualifiedName__Group_1__0");
+			builder.put(grammarAccess.getDDomainAccess().getNameAssignment_1(), "rule__DDomain__NameAssignment_1");
+			builder.put(grammarAccess.getDDomainAccess().getDescriptionAssignment_2(), "rule__DDomain__DescriptionAssignment_2");
+			builder.put(grammarAccess.getDDomainAccess().getImportsAssignment_3(), "rule__DDomain__ImportsAssignment_3");
+			builder.put(grammarAccess.getDDomainAccess().getTypesAssignment_4_0(), "rule__DDomain__TypesAssignment_4_0");
+			builder.put(grammarAccess.getDDomainAccess().getFunctionsAssignment_4_1(), "rule__DDomain__FunctionsAssignment_4_1");
+			builder.put(grammarAccess.getDDomainAccess().getAggregatesAssignment_4_2(), "rule__DDomain__AggregatesAssignment_4_2");
+			builder.put(grammarAccess.getDDomainAccess().getApplicationsAssignment_4_3(), "rule__DDomain__ApplicationsAssignment_4_3");
+			builder.put(grammarAccess.getDDomainAccess().getActorsAssignment_4_4(), "rule__DDomain__ActorsAssignment_4_4");
+			builder.put(grammarAccess.getDImportAccess().getImportedNamespaceAssignment_1(), "rule__DImport__ImportedNamespaceAssignment_1");
 			builder.put(grammarAccess.getDFunctionAccess().getNameAssignment_1(), "rule__DFunction__NameAssignment_1");
 			builder.put(grammarAccess.getDFunctionAccess().getParameterNamesAssignment_3(), "rule__DFunction__ParameterNamesAssignment_3");
 			builder.put(grammarAccess.getDFunctionAccess().getParameterNamesAssignment_4_1(), "rule__DFunction__ParameterNamesAssignment_4_1");
 			builder.put(grammarAccess.getDFunctionAccess().getTypeAssignment_7(), "rule__DFunction__TypeAssignment_7");
 			builder.put(grammarAccess.getDFunctionAccess().getMultiplicityAssignment_8(), "rule__DFunction__MultiplicityAssignment_8");
-			builder.put(grammarAccess.getDDomainAccess().getNameAssignment_1(), "rule__DDomain__NameAssignment_1");
-			builder.put(grammarAccess.getDDomainAccess().getDescriptionAssignment_2(), "rule__DDomain__DescriptionAssignment_2");
-			builder.put(grammarAccess.getDDomainAccess().getImportsAssignment_3(), "rule__DDomain__ImportsAssignment_3");
-			builder.put(grammarAccess.getDDomainAccess().getTypesAssignment_4_0(), "rule__DDomain__TypesAssignment_4_0");
-			builder.put(grammarAccess.getDDomainAccess().getAggregatesAssignment_4_1(), "rule__DDomain__AggregatesAssignment_4_1");
-			builder.put(grammarAccess.getDDomainAccess().getApplicationsAssignment_4_2(), "rule__DDomain__ApplicationsAssignment_4_2");
-			builder.put(grammarAccess.getDDomainAccess().getActorsAssignment_4_3(), "rule__DDomain__ActorsAssignment_4_3");
-			builder.put(grammarAccess.getDImportAccess().getImportedNamespaceAssignment_1(), "rule__DImport__ImportedNamespaceAssignment_1");
 			builder.put(grammarAccess.getDAggregateAccess().getDescriptionAssignment_2(), "rule__DAggregate__DescriptionAssignment_2");
 			builder.put(grammarAccess.getDAggregateAccess().getTypesAssignment_4(), "rule__DAggregate__TypesAssignment_4");
 			builder.put(grammarAccess.getDConstraintAccess().getNameAssignment_1(), "rule__DConstraint__NameAssignment_1");
@@ -323,7 +317,7 @@ public class DmsParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDConstructorCallAccess().getExplicitConstructorCallAssignment_3_0(), "rule__DConstructorCall__ExplicitConstructorCallAssignment_3_0");
 			builder.put(grammarAccess.getDConstructorCallAccess().getArgumentsAssignment_3_1_0(), "rule__DConstructorCall__ArgumentsAssignment_3_1_0");
 			builder.put(grammarAccess.getDConstructorCallAccess().getArgumentsAssignment_3_1_1_1(), "rule__DConstructorCall__ArgumentsAssignment_3_1_1_1");
-			builder.put(grammarAccess.getDContextReferenceAccess().getContextElementAssignment_1(), "rule__DContextReference__ContextElementAssignment_1");
+			builder.put(grammarAccess.getDContextReferenceAccess().getTargetAssignment_1(), "rule__DContextReference__TargetAssignment_1");
 			builder.put(grammarAccess.getDIfExpressionAccess().getIfAssignment_2(), "rule__DIfExpression__IfAssignment_2");
 			builder.put(grammarAccess.getDIfExpressionAccess().getThenAssignment_4(), "rule__DIfExpression__ThenAssignment_4");
 			builder.put(grammarAccess.getDIfExpressionAccess().getElseAssignment_5_1(), "rule__DIfExpression__ElseAssignment_5_1");

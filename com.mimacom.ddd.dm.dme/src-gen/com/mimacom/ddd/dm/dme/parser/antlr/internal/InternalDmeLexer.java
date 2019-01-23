@@ -1718,10 +1718,10 @@ public class InternalDmeLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDme.g:4044:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalDme.g:4044:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalDme.g:3999:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalDme.g:3999:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalDme.g:4044:11: ( '^' )?
+            // InternalDme.g:3999:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1730,7 +1730,7 @@ public class InternalDmeLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalDme.g:4044:11: '^'
+                    // InternalDme.g:3999:11: '^'
                     {
                     match('^'); 
 
@@ -1748,7 +1748,7 @@ public class InternalDmeLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalDme.g:4044:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalDme.g:3999:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -1797,11 +1797,11 @@ public class InternalDmeLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDme.g:4046:13: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
-            // InternalDme.g:4046:15: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+            // InternalDme.g:4001:13: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
+            // InternalDme.g:4001:15: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
             {
             match('\"'); 
-            // InternalDme.g:4046:19: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+            // InternalDme.g:4001:19: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
             loop3:
             do {
                 int alt3=3;
@@ -1817,7 +1817,7 @@ public class InternalDmeLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalDme.g:4046:20: '\\\\' .
+            	    // InternalDme.g:4001:20: '\\\\' .
             	    {
             	    match('\\'); 
             	    matchAny(); 
@@ -1825,7 +1825,7 @@ public class InternalDmeLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // InternalDme.g:4046:27: ~ ( ( '\\\\' | '\"' ) )
+            	    // InternalDme.g:4001:27: ~ ( ( '\\\\' | '\"' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1862,10 +1862,10 @@ public class InternalDmeLexer extends Lexer {
         try {
             int _type = RULE_NATURAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDme.g:4048:14: ( ( '0' .. '9' )+ )
-            // InternalDme.g:4048:16: ( '0' .. '9' )+
+            // InternalDme.g:4003:14: ( ( '0' .. '9' )+ )
+            // InternalDme.g:4003:16: ( '0' .. '9' )+
             {
-            // InternalDme.g:4048:16: ( '0' .. '9' )+
+            // InternalDme.g:4003:16: ( '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -1879,7 +1879,7 @@ public class InternalDmeLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalDme.g:4048:17: '0' .. '9'
+            	    // InternalDme.g:4003:17: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1909,8 +1909,8 @@ public class InternalDmeLexer extends Lexer {
     // $ANTLR start "RULE_PLAIN_TEXT"
     public final void mRULE_PLAIN_TEXT() throws RecognitionException {
         try {
-            // InternalDme.g:4050:26: (~ ( ( '\\u00BB' | '[' ) ) )
-            // InternalDme.g:4050:28: ~ ( ( '\\u00BB' | '[' ) )
+            // InternalDme.g:4005:26: (~ ( ( '\\u00BB' | '[' ) ) )
+            // InternalDme.g:4005:28: ~ ( ( '\\u00BB' | '[' ) )
             {
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='Z')||(input.LA(1)>='\\' && input.LA(1)<='\u00BA')||(input.LA(1)>='\u00BC' && input.LA(1)<='\uFFFF') ) {
                 input.consume();
@@ -1935,11 +1935,11 @@ public class InternalDmeLexer extends Lexer {
         try {
             int _type = RULE_PLAIN_TEXT_ONLY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDme.g:4052:22: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB' )
-            // InternalDme.g:4052:24: '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB'
+            // InternalDme.g:4007:22: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB' )
+            // InternalDme.g:4007:24: '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB'
             {
             match('\u00AB'); 
-            // InternalDme.g:4052:33: ( RULE_PLAIN_TEXT )*
+            // InternalDme.g:4007:33: ( RULE_PLAIN_TEXT )*
             loop5:
             do {
                 int alt5=2;
@@ -1952,7 +1952,7 @@ public class InternalDmeLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalDme.g:4052:33: RULE_PLAIN_TEXT
+            	    // InternalDme.g:4007:33: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -1981,11 +1981,11 @@ public class InternalDmeLexer extends Lexer {
         try {
             int _type = RULE_PLAIN_TEXT_START;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDme.g:4054:23: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '[' )
-            // InternalDme.g:4054:25: '\\u00AB' ( RULE_PLAIN_TEXT )* '['
+            // InternalDme.g:4009:23: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '[' )
+            // InternalDme.g:4009:25: '\\u00AB' ( RULE_PLAIN_TEXT )* '['
             {
             match('\u00AB'); 
-            // InternalDme.g:4054:34: ( RULE_PLAIN_TEXT )*
+            // InternalDme.g:4009:34: ( RULE_PLAIN_TEXT )*
             loop6:
             do {
                 int alt6=2;
@@ -1998,7 +1998,7 @@ public class InternalDmeLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalDme.g:4054:34: RULE_PLAIN_TEXT
+            	    // InternalDme.g:4009:34: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2027,11 +2027,11 @@ public class InternalDmeLexer extends Lexer {
         try {
             int _type = RULE_PLAIN_TEXT_MIDDLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDme.g:4056:24: ( ']' ( RULE_PLAIN_TEXT )* '[' )
-            // InternalDme.g:4056:26: ']' ( RULE_PLAIN_TEXT )* '['
+            // InternalDme.g:4011:24: ( ']' ( RULE_PLAIN_TEXT )* '[' )
+            // InternalDme.g:4011:26: ']' ( RULE_PLAIN_TEXT )* '['
             {
             match(']'); 
-            // InternalDme.g:4056:30: ( RULE_PLAIN_TEXT )*
+            // InternalDme.g:4011:30: ( RULE_PLAIN_TEXT )*
             loop7:
             do {
                 int alt7=2;
@@ -2044,7 +2044,7 @@ public class InternalDmeLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalDme.g:4056:30: RULE_PLAIN_TEXT
+            	    // InternalDme.g:4011:30: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2073,11 +2073,11 @@ public class InternalDmeLexer extends Lexer {
         try {
             int _type = RULE_PLAIN_TEXT_END;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDme.g:4058:21: ( ']' ( RULE_PLAIN_TEXT )* '\\u00BB' )
-            // InternalDme.g:4058:23: ']' ( RULE_PLAIN_TEXT )* '\\u00BB'
+            // InternalDme.g:4013:21: ( ']' ( RULE_PLAIN_TEXT )* '\\u00BB' )
+            // InternalDme.g:4013:23: ']' ( RULE_PLAIN_TEXT )* '\\u00BB'
             {
             match(']'); 
-            // InternalDme.g:4058:27: ( RULE_PLAIN_TEXT )*
+            // InternalDme.g:4013:27: ( RULE_PLAIN_TEXT )*
             loop8:
             do {
                 int alt8=2;
@@ -2090,7 +2090,7 @@ public class InternalDmeLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalDme.g:4058:27: RULE_PLAIN_TEXT
+            	    // InternalDme.g:4013:27: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2119,12 +2119,12 @@ public class InternalDmeLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDme.g:4060:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalDme.g:4060:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalDme.g:4015:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalDme.g:4015:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalDme.g:4060:24: ( options {greedy=false; } : . )*
+            // InternalDme.g:4015:24: ( options {greedy=false; } : . )*
             loop9:
             do {
                 int alt9=2;
@@ -2149,7 +2149,7 @@ public class InternalDmeLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalDme.g:4060:52: .
+            	    // InternalDme.g:4015:52: .
             	    {
             	    matchAny(); 
 
@@ -2179,12 +2179,12 @@ public class InternalDmeLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDme.g:4062:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalDme.g:4062:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalDme.g:4017:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalDme.g:4017:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalDme.g:4062:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalDme.g:4017:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop10:
             do {
                 int alt10=2;
@@ -2197,7 +2197,7 @@ public class InternalDmeLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalDme.g:4062:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalDme.g:4017:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2217,7 +2217,7 @@ public class InternalDmeLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalDme.g:4062:40: ( ( '\\r' )? '\\n' )?
+            // InternalDme.g:4017:40: ( ( '\\r' )? '\\n' )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -2226,9 +2226,9 @@ public class InternalDmeLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // InternalDme.g:4062:41: ( '\\r' )? '\\n'
+                    // InternalDme.g:4017:41: ( '\\r' )? '\\n'
                     {
-                    // InternalDme.g:4062:41: ( '\\r' )?
+                    // InternalDme.g:4017:41: ( '\\r' )?
                     int alt11=2;
                     int LA11_0 = input.LA(1);
 
@@ -2237,7 +2237,7 @@ public class InternalDmeLexer extends Lexer {
                     }
                     switch (alt11) {
                         case 1 :
-                            // InternalDme.g:4062:41: '\\r'
+                            // InternalDme.g:4017:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2269,10 +2269,10 @@ public class InternalDmeLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDme.g:4064:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalDme.g:4064:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalDme.g:4019:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalDme.g:4019:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalDme.g:4064:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalDme.g:4019:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt13=0;
             loop13:
             do {
@@ -2326,8 +2326,8 @@ public class InternalDmeLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDme.g:4066:16: ( . )
-            // InternalDme.g:4066:18: .
+            // InternalDme.g:4021:16: ( . )
+            // InternalDme.g:4021:18: .
             {
             matchAny(); 
 

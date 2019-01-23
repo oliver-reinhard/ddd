@@ -106,7 +106,7 @@ OpCast:
 DTypedMemberReference returns DExpression:
 	DPrimaryExpression
 	(	=> ({DAssignment.memberContainer=current} '.' member=[DTypedMember|ID] OpSingleAssign) value=DAssignment
-	| 	=> ({DTypedMemberReference.memberContainer=current} '.')
+	| 	=> ({DTypedMemberReference.memberContainerReference=current} '.')
 		member=[DTypedMember|ID] (
 			=> explicitOperationCall?='(' // => boolean => has 0.n explicit arguments
 				(
@@ -172,7 +172,7 @@ OpConstructor:
 		
 DContextReference returns DExpression:
 	{DContextReference}
-	contextElement=[DNamedElement|ID];
+	target=[DNamedElement|ID];
 	
 DIfExpression returns DExpression:
 	{DIfExpression}
@@ -202,9 +202,9 @@ DNilLiteral returns DExpression: {DNilLiteral} ('NIL' | 'nil');
 DECIMAL returns ecore::EString: NATURAL '.' NATURAL (('E'|'e')  ('+'|'-')? NATURAL)?;
 
 DQualifiedNameWithWildcard: 
-	QualifiedName '.*'?;
+	DQualifiedName '.*'?;
 
-QualifiedName:
+DQualifiedName:
 	ID ('.' ID)*;
 	
 terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

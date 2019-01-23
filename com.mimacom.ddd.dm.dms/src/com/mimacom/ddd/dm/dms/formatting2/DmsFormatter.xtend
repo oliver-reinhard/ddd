@@ -5,7 +5,6 @@ package com.mimacom.ddd.dm.dms.formatting2
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DDomain
-import com.mimacom.ddd.dm.base.DModel
 import com.mimacom.ddd.dm.dms.services.DmsGrammarAccess
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
@@ -13,14 +12,6 @@ import org.eclipse.xtext.formatting2.IFormattableDocument
 class DmsFormatter extends AbstractFormatter2  { // extends DmxFormatter {
 	
 	@Inject extension DmsGrammarAccess
-
-	def dispatch void format(DModel dModel, extension IFormattableDocument document) {
-		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		
-		//for (dDomain : dModel.domains) {
-			dModel.domain.format
-		//}
-	}
 
 	def dispatch void format(DDomain dDomain, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 

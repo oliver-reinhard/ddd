@@ -319,13 +319,13 @@ public interface DmxPackage extends EPackage
 	int DTYPED_MEMBER_REFERENCE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Member Container</b></em>' containment reference.
+	 * The feature id for the '<em><b>Member Container Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER = BasePackage.DEXPRESSION_FEATURE_COUNT + 0;
+	int DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER_REFERENCE = BasePackage.DEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Member</b></em>' reference.
@@ -632,13 +632,13 @@ public interface DmxPackage extends EPackage
 	int DCONTEXT_REFERENCE = 12;
 
 	/**
-	 * The feature id for the '<em><b>Context Element</b></em>' reference.
+	 * The feature id for the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DCONTEXT_REFERENCE__CONTEXT_ELEMENT = BasePackage.DEXPRESSION_FEATURE_COUNT + 0;
+	int DCONTEXT_REFERENCE__TARGET = BasePackage.DEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>DContext Reference</em>' class.
@@ -1195,15 +1195,15 @@ public interface DmxPackage extends EPackage
 	EClass getDTypedMemberReference();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.dmx.DTypedMemberReference#getMemberContainer <em>Member Container</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.dmx.DTypedMemberReference#getMemberContainerReference <em>Member Container Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Member Container</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DTypedMemberReference#getMemberContainer()
+	 * @return the meta object for the containment reference '<em>Member Container Reference</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DTypedMemberReference#getMemberContainerReference()
 	 * @see #getDTypedMemberReference()
 	 * @generated
 	 */
-	EReference getDTypedMemberReference_MemberContainer();
+	EReference getDTypedMemberReference_MemberContainerReference();
 
 	/**
 	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.dmx.DTypedMemberReference#getMember <em>Member</em>}'.
@@ -1408,15 +1408,15 @@ public interface DmxPackage extends EPackage
 	EClass getDContextReference();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.dmx.DContextReference#getContextElement <em>Context Element</em>}'.
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.dmx.DContextReference#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Context Element</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DContextReference#getContextElement()
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DContextReference#getTarget()
 	 * @see #getDContextReference()
 	 * @generated
 	 */
-	EReference getDContextReference_ContextElement();
+	EReference getDContextReference_Target();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DIfExpression <em>DIf Expression</em>}'.
@@ -1820,12 +1820,12 @@ public interface DmxPackage extends EPackage
 		EClass DTYPED_MEMBER_REFERENCE = eINSTANCE.getDTypedMemberReference();
 
 		/**
-		 * The meta object literal for the '<em><b>Member Container</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Member Container Reference</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER = eINSTANCE.getDTypedMemberReference_MemberContainer();
+		EReference DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER_REFERENCE = eINSTANCE.getDTypedMemberReference_MemberContainerReference();
 
 		/**
 		 * The meta object literal for the '<em><b>Member</b></em>' reference feature.
@@ -1994,12 +1994,12 @@ public interface DmxPackage extends EPackage
 		EClass DCONTEXT_REFERENCE = eINSTANCE.getDContextReference();
 
 		/**
-		 * The meta object literal for the '<em><b>Context Element</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DCONTEXT_REFERENCE__CONTEXT_ELEMENT = eINSTANCE.getDContextReference_ContextElement();
+		EReference DCONTEXT_REFERENCE__TARGET = eINSTANCE.getDContextReference_Target();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DIfExpressionImpl <em>DIf Expression</em>}' class.

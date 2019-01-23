@@ -1050,25 +1050,25 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleQualifiedName
-entryRuleQualifiedName
+// Entry rule entryRuleDQualifiedName
+entryRuleDQualifiedName
 :
-{ before(grammarAccess.getQualifiedNameRule()); }
-	 ruleQualifiedName
-{ after(grammarAccess.getQualifiedNameRule()); } 
+{ before(grammarAccess.getDQualifiedNameRule()); }
+	 ruleDQualifiedName
+{ after(grammarAccess.getDQualifiedNameRule()); } 
 	 EOF 
 ;
 
-// Rule QualifiedName
-ruleQualifiedName 
+// Rule DQualifiedName
+ruleDQualifiedName 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getQualifiedNameAccess().getGroup()); }
-		(rule__QualifiedName__Group__0)
-		{ after(grammarAccess.getQualifiedNameAccess().getGroup()); }
+		{ before(grammarAccess.getDQualifiedNameAccess().getGroup()); }
+		(rule__DQualifiedName__Group__0)
+		{ after(grammarAccess.getDQualifiedNameAccess().getGroup()); }
 	)
 ;
 finally {
@@ -4623,9 +4623,9 @@ rule__DTypedMemberReference__Group_1_1_0_0__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDTypedMemberReferenceAccess().getDTypedMemberReferenceMemberContainerAction_1_1_0_0_0()); }
+	{ before(grammarAccess.getDTypedMemberReferenceAccess().getDTypedMemberReferenceMemberContainerReferenceAction_1_1_0_0_0()); }
 	()
-	{ after(grammarAccess.getDTypedMemberReferenceAccess().getDTypedMemberReferenceMemberContainerAction_1_1_0_0_0()); }
+	{ after(grammarAccess.getDTypedMemberReferenceAccess().getDTypedMemberReferenceMemberContainerReferenceAction_1_1_0_0_0()); }
 )
 ;
 finally {
@@ -5729,9 +5729,9 @@ rule__DContextReference__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDContextReferenceAccess().getContextElementAssignment_1()); }
-	(rule__DContextReference__ContextElementAssignment_1)
-	{ after(grammarAccess.getDContextReferenceAccess().getContextElementAssignment_1()); }
+	{ before(grammarAccess.getDContextReferenceAccess().getTargetAssignment_1()); }
+	(rule__DContextReference__TargetAssignment_1)
+	{ after(grammarAccess.getDContextReferenceAccess().getTargetAssignment_1()); }
 )
 ;
 finally {
@@ -6711,53 +6711,53 @@ finally {
 }
 
 
-rule__QualifiedName__Group__0
+rule__DQualifiedName__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__QualifiedName__Group__0__Impl
-	rule__QualifiedName__Group__1
+	rule__DQualifiedName__Group__0__Impl
+	rule__DQualifiedName__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__QualifiedName__Group__0__Impl
+rule__DQualifiedName__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); }
+	{ before(grammarAccess.getDQualifiedNameAccess().getIDTerminalRuleCall_0()); }
 	RULE_ID
-	{ after(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); }
+	{ after(grammarAccess.getDQualifiedNameAccess().getIDTerminalRuleCall_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__QualifiedName__Group__1
+rule__DQualifiedName__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__QualifiedName__Group__1__Impl
+	rule__DQualifiedName__Group__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__QualifiedName__Group__1__Impl
+rule__DQualifiedName__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getQualifiedNameAccess().getGroup_1()); }
-	(rule__QualifiedName__Group_1__0)*
-	{ after(grammarAccess.getQualifiedNameAccess().getGroup_1()); }
+	{ before(grammarAccess.getDQualifiedNameAccess().getGroup_1()); }
+	(rule__DQualifiedName__Group_1__0)*
+	{ after(grammarAccess.getDQualifiedNameAccess().getGroup_1()); }
 )
 ;
 finally {
@@ -6765,53 +6765,53 @@ finally {
 }
 
 
-rule__QualifiedName__Group_1__0
+rule__DQualifiedName__Group_1__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__QualifiedName__Group_1__0__Impl
-	rule__QualifiedName__Group_1__1
+	rule__DQualifiedName__Group_1__0__Impl
+	rule__DQualifiedName__Group_1__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__QualifiedName__Group_1__0__Impl
+rule__DQualifiedName__Group_1__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); }
+	{ before(grammarAccess.getDQualifiedNameAccess().getFullStopKeyword_1_0()); }
 	'.'
-	{ after(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); }
+	{ after(grammarAccess.getDQualifiedNameAccess().getFullStopKeyword_1_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__QualifiedName__Group_1__1
+rule__DQualifiedName__Group_1__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__QualifiedName__Group_1__1__Impl
+	rule__DQualifiedName__Group_1__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__QualifiedName__Group_1__1__Impl
+rule__DQualifiedName__Group_1__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); }
+	{ before(grammarAccess.getDQualifiedNameAccess().getIDTerminalRuleCall_1_1()); }
 	RULE_ID
-	{ after(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); }
+	{ after(grammarAccess.getDQualifiedNameAccess().getIDTerminalRuleCall_1_1()); }
 )
 ;
 finally {
@@ -7560,19 +7560,19 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DContextReference__ContextElementAssignment_1
+rule__DContextReference__TargetAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getDContextReferenceAccess().getContextElementDNamedElementCrossReference_1_0()); }
+		{ before(grammarAccess.getDContextReferenceAccess().getTargetDNamedElementCrossReference_1_0()); }
 		(
-			{ before(grammarAccess.getDContextReferenceAccess().getContextElementDNamedElementIDTerminalRuleCall_1_0_1()); }
+			{ before(grammarAccess.getDContextReferenceAccess().getTargetDNamedElementIDTerminalRuleCall_1_0_1()); }
 			RULE_ID
-			{ after(grammarAccess.getDContextReferenceAccess().getContextElementDNamedElementIDTerminalRuleCall_1_0_1()); }
+			{ after(grammarAccess.getDContextReferenceAccess().getTargetDNamedElementIDTerminalRuleCall_1_0_1()); }
 		)
-		{ after(grammarAccess.getDContextReferenceAccess().getContextElementDNamedElementCrossReference_1_0()); }
+		{ after(grammarAccess.getDContextReferenceAccess().getTargetDNamedElementCrossReference_1_0()); }
 	)
 ;
 finally {

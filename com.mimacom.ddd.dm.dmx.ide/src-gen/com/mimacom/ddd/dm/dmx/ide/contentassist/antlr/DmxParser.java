@@ -135,8 +135,8 @@ public class DmxParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDECIMALAccess().getGroup(), "rule__DECIMAL__Group__0");
 			builder.put(grammarAccess.getDECIMALAccess().getGroup_3(), "rule__DECIMAL__Group_3__0");
 			builder.put(grammarAccess.getDQualifiedNameWithWildcardAccess().getGroup(), "rule__DQualifiedNameWithWildcard__Group__0");
-			builder.put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
-			builder.put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
+			builder.put(grammarAccess.getDQualifiedNameAccess().getGroup(), "rule__DQualifiedName__Group__0");
+			builder.put(grammarAccess.getDQualifiedNameAccess().getGroup_1(), "rule__DQualifiedName__Group_1__0");
 			builder.put(grammarAccess.getDmxModelAccess().getTextsAssignment_1_3(), "rule__DmxModel__TextsAssignment_1_3");
 			builder.put(grammarAccess.getDmxModelAccess().getExpressionsAssignment_2_3(), "rule__DmxModel__ExpressionsAssignment_2_3");
 			builder.put(grammarAccess.getDRichTextAccess().getElementsAssignment_0(), "rule__DRichText__ElementsAssignment_0");
@@ -184,7 +184,7 @@ public class DmxParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDConstructorCallAccess().getExplicitConstructorCallAssignment_3_0(), "rule__DConstructorCall__ExplicitConstructorCallAssignment_3_0");
 			builder.put(grammarAccess.getDConstructorCallAccess().getArgumentsAssignment_3_1_0(), "rule__DConstructorCall__ArgumentsAssignment_3_1_0");
 			builder.put(grammarAccess.getDConstructorCallAccess().getArgumentsAssignment_3_1_1_1(), "rule__DConstructorCall__ArgumentsAssignment_3_1_1_1");
-			builder.put(grammarAccess.getDContextReferenceAccess().getContextElementAssignment_1(), "rule__DContextReference__ContextElementAssignment_1");
+			builder.put(grammarAccess.getDContextReferenceAccess().getTargetAssignment_1(), "rule__DContextReference__TargetAssignment_1");
 			builder.put(grammarAccess.getDIfExpressionAccess().getIfAssignment_2(), "rule__DIfExpression__IfAssignment_2");
 			builder.put(grammarAccess.getDIfExpressionAccess().getThenAssignment_4(), "rule__DIfExpression__ThenAssignment_4");
 			builder.put(grammarAccess.getDIfExpressionAccess().getElseAssignment_5_1(), "rule__DIfExpression__ElseAssignment_5_1");

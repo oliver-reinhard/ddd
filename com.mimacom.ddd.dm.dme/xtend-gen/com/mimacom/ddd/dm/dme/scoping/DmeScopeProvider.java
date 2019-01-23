@@ -3,19 +3,10 @@
  */
 package com.mimacom.ddd.dm.dme.scoping;
 
-import com.google.common.base.Objects;
-import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DActor;
-import com.mimacom.ddd.dm.base.DContext;
-import com.mimacom.ddd.dm.base.DDomain;
-import com.mimacom.ddd.dm.base.DNotification;
-import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dme.scoping.AbstractDmeScopeProvider;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.scoping.IScope;
-import org.eclipse.xtext.scoping.Scopes;
 
 /**
  * This class contains custom scoping description.
@@ -25,38 +16,8 @@ import org.eclipse.xtext.scoping.Scopes;
  */
 @SuppressWarnings("all")
 public class DmeScopeProvider extends AbstractDmeScopeProvider {
-  private final BasePackage epackage = BasePackage.eINSTANCE;
-  
   @Override
   public IScope getScope(final EObject context, final EReference reference) {
-    EReference _dTypedMember_Type = this.epackage.getDTypedMember_Type();
-    boolean _equals = Objects.equal(reference, _dTypedMember_Type);
-    if (_equals) {
-      IScope _switchResult = null;
-      boolean _matched = false;
-      if (context instanceof DContext) {
-        _matched=true;
-        _switchResult = this.<DType>getContainerTypesOfTypeScope(context, reference, DType.class, true);
-      }
-      if (!_matched) {
-        if (context instanceof DNotification) {
-          _matched=true;
-          _switchResult = this.<DType>getContainerTypesOfTypeScope(context, reference, DType.class, true);
-        }
-      }
-      if (!_matched) {
-        _switchResult = super.getScope(context, reference);
-      }
-      final IScope scope = _switchResult;
-      return scope;
-    } else {
-      if ((Objects.equal(reference, this.epackage.getDDomainEvent_Trigger()) || Objects.equal(reference, this.epackage.getDNotification_Notified()))) {
-        final DDomain domain = EcoreUtil2.<DDomain>getContainerOfType(context, DDomain.class);
-        if ((domain != null)) {
-          return Scopes.scopeFor(domain.getActors(), this.<DActor>getContainerTypesOfTypeScope(context, reference, DActor.class, true));
-        }
-      }
-    }
     return super.getScope(context, reference);
   }
 }

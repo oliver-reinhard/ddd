@@ -5,21 +5,18 @@ package com.mimacom.ddd.dm.dmx.scoping;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
+import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DActor;
-import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DComplexType;
-import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DDomainEvent;
-import com.mimacom.ddd.dm.base.DExistingApplication;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFunction;
-import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.DTypedMember;
-import com.mimacom.ddd.dm.base.IIdentityType;
+import com.mimacom.ddd.dm.base.ITypedMemberContainer;
 import com.mimacom.ddd.dm.dmx.DAssignment;
 import com.mimacom.ddd.dm.dmx.DContextReference;
 import com.mimacom.ddd.dm.dmx.DFunctionCall;
@@ -28,17 +25,12 @@ import com.mimacom.ddd.dm.dmx.DTypedMemberReference;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.scoping.AbstractDmxScopeProvider;
 import java.util.ArrayList;
-import java.util.List;
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.xtext.EcoreUtil2;
-import org.eclipse.xtext.resource.IEObjectDescription;
+import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
-import org.eclipse.xtext.scoping.impl.SimpleScope;
-import org.eclipse.xtext.xbase.lib.CollectionExtensions;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * This class contains custom scoping for expressions and {@link DComplexType} feature inheritance.
@@ -48,42 +40,31 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
  */
 @SuppressWarnings("all")
 public class DmxScopeProvider extends AbstractDmxScopeProvider {
-  private final DmxPackage epackage = DmxPackage.eINSTANCE;
+  private final BasePackage bpackage = BasePackage.eINSTANCE;
+  
+  private final DmxPackage xpackage = DmxPackage.eINSTANCE;
   
   @Override
   public IScope getScope(final EObject context, final EReference reference) {
-    EReference _dContextReference_ContextElement = this.epackage.getDContextReference_ContextElement();
-    boolean _equals = Objects.equal(reference, _dContextReference_ContextElement);
+    EReference _dContextReference_Target = this.xpackage.getDContextReference_Target();
+    boolean _equals = Objects.equal(reference, _dContextReference_Target);
     if (_equals) {
-      final IScope outer = this.getPrimaryNavigationTargetScope(context, reference);
-      return this.getExpressionContainerMemberScope(context, outer);
+      final IScope outer = this.getDefaultScopeForType(context, this.bpackage.getIPrimaryNavigationTarget());
+      final IScope scope = this.getExpressionContainerMemberScope(context, outer);
+      return scope;
     } else {
-      EReference _dTypedMemberReference_Member = this.epackage.getDTypedMemberReference_Member();
+      EReference _dTypedMemberReference_Member = this.xpackage.getDTypedMemberReference_Member();
       boolean _equals_1 = Objects.equal(reference, _dTypedMemberReference_Member);
       if (_equals_1) {
         if ((context instanceof DTypedMemberReference)) {
-          return this.getMemberReferenceScope(((DTypedMemberReference)context).getMemberContainer());
+          return this.getMemberReferenceScope(((DTypedMemberReference)context).getMemberContainerReference());
         }
       } else {
-        EReference _dAssignment_Member = this.epackage.getDAssignment_Member();
+        EReference _dAssignment_Member = this.xpackage.getDAssignment_Member();
         boolean _equals_2 = Objects.equal(reference, _dAssignment_Member);
         if (_equals_2) {
           if ((context instanceof DAssignment)) {
             return this.getAssignmentMemberScope(((DAssignment)context), reference);
-          }
-        } else {
-          if ((Objects.equal(reference, this.epackage.getDFunctionCall_Function()) && (context instanceof DFunction))) {
-            return this.getFunctionReferenceScope(((DFunction) context));
-          } else {
-            EReference _dConstructorCall_Constructor = this.epackage.getDConstructorCall_Constructor();
-            boolean _equals_3 = Objects.equal(reference, _dConstructorCall_Constructor);
-            if (_equals_3) {
-              return this.<IIdentityType>getContainerTypesOfTypeScope(context, reference, IIdentityType.class, false);
-            } else {
-              if ((Objects.equal(reference, this.epackage.getDInstanceOfExpression_Type()) || Objects.equal(reference, this.epackage.getDCastExpression_Type()))) {
-                return this.<DType>getContainerTypesOfTypeScope(context, reference, DType.class, false);
-              }
-            }
           }
         }
       }
@@ -91,87 +72,82 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
     return super.getScope(context, reference);
   }
   
-  protected IScope getPrimaryNavigationTargetScope(final EObject context, final EReference reference) {
-    EObject _head = IterableExtensions.<EObject>head(context.eResource().getContents());
-    final DModel model = ((DModel) _head);
-    final ArrayList<EObject> modelChildren = new ArrayList<EObject>();
-    modelChildren.addAll(model.getGlobalTypes());
-    final DDomain domain = model.getDomain();
-    if ((domain == null)) {
-      return Scopes.scopeFor(modelChildren);
-    }
-    CollectionExtensions.<DDomain>addAll(modelChildren, domain);
-    IScope outerScope = Scopes.scopeFor(modelChildren);
-    final IScope importedDomainScope = this.getImportedObjectsOfTypeScope(domain, reference, EObject.class);
-    Iterable<IEObjectDescription> _allElements = importedDomainScope.getAllElements();
-    SimpleScope _simpleScope = new SimpleScope(outerScope, _allElements);
-    outerScope = _simpleScope;
-    final ArrayList<DNamedElement> domainChildren = Lists.<DNamedElement>newArrayList();
-    domainChildren.addAll(domain.getTypes());
-    domainChildren.addAll(domain.getActors());
-    domainChildren.addAll(domain.getEvents());
-    domainChildren.addAll(domain.getApplications());
-    outerScope = Scopes.scopeFor(domainChildren, outerScope);
-    EList<DExistingApplication> _applications = domain.getApplications();
-    for (final DExistingApplication a : _applications) {
-      outerScope = Scopes.scopeFor(a.getServices(), outerScope);
-    }
-    return outerScope;
+  /**
+   * Obtains the default scope for the given reference, then narrows the result down to the given type.
+   */
+  public IScope getDefaultScopeForType(final EObject context, final EClass type) {
+    final EReference reference = EcoreFactory.eINSTANCE.createEReference();
+    reference.setEType(type);
+    final IScope scope = super.getScope(context, reference);
+    return scope;
   }
   
-  protected IScope getMemberReferenceScope(final EObject memberContainer) {
-    if ((memberContainer instanceof DContextReference)) {
-      final DNamedElement context = ((DContextReference)memberContainer).getContextElement();
-      if ((context instanceof DTypedMember)) {
-        final DType type = ((DTypedMember)context).getType();
-        IScope _switchResult = null;
-        boolean _matched = false;
-        if (type instanceof DComplexType) {
-          _matched=true;
-          _switchResult = this.getInheritedFeaturesScope(((DComplexType)type));
-        }
-        if (!_matched) {
-          if (type instanceof DQuery) {
-            _matched=true;
-            _switchResult = Scopes.scopeFor(((DQuery)type).getParameters());
-          }
-        }
-        if (!_matched) {
-          if (type instanceof DService) {
-            _matched=true;
-            _switchResult = Scopes.scopeFor(((DService)type).getParameters());
-          }
-        }
-        if (!_matched) {
-          if (type instanceof DDomainEvent) {
-            _matched=true;
-            _switchResult = this.getDomainEventMemberScope(((DDomainEvent)type), IScope.NULLSCOPE);
-          }
-        }
-        if (!_matched) {
-          _switchResult = IScope.NULLSCOPE;
-        }
-        return _switchResult;
+  protected IScope getMemberReferenceScope(final EObject memberContainerReference) {
+    if ((memberContainerReference instanceof DContextReference)) {
+      final DNamedElement memberContainer = ((DContextReference)memberContainerReference).getTarget();
+      DNamedElement _switchResult = null;
+      boolean _matched = false;
+      if (memberContainer instanceof DTypedMember) {
+        _matched=true;
+        _switchResult = ((DTypedMember)memberContainer).getType();
       }
+      if (!_matched) {
+        if (memberContainer instanceof ITypedMemberContainer) {
+          _matched=true;
+          _switchResult = memberContainer;
+        }
+      }
+      if (!_matched) {
+        _switchResult = null;
+      }
+      final DNamedElement targetKind = _switchResult;
+      IScope _switchResult_1 = null;
+      boolean _matched_1 = false;
+      if (targetKind instanceof DComplexType) {
+        _matched_1=true;
+        _switchResult_1 = this.getInheritedFeaturesScope(((DComplexType)targetKind));
+      }
+      if (!_matched_1) {
+        if (targetKind instanceof DQuery) {
+          _matched_1=true;
+          _switchResult_1 = Scopes.scopeFor(((DQuery)targetKind).getParameters());
+        }
+      }
+      if (!_matched_1) {
+        if (targetKind instanceof DService) {
+          _matched_1=true;
+          _switchResult_1 = Scopes.scopeFor(((DService)targetKind).getParameters());
+        }
+      }
+      if (!_matched_1) {
+        if (targetKind instanceof DDomainEvent) {
+          _matched_1=true;
+          _switchResult_1 = this.getDomainEventMemberScope(((DDomainEvent)targetKind), IScope.NULLSCOPE);
+        }
+      }
+      if (!_matched_1) {
+        _switchResult_1 = IScope.NULLSCOPE;
+      }
+      return _switchResult_1;
     } else {
-      if ((memberContainer instanceof DSelfExpression)) {
-        return this.getExpressionContainerMemberScope(memberContainer, IScope.NULLSCOPE);
+      if ((memberContainerReference instanceof DSelfExpression)) {
+        return this.getExpressionContainerMemberScope(memberContainerReference, IScope.NULLSCOPE);
       } else {
-        if ((memberContainer instanceof DTypedMemberReference)) {
-          final DTypedMember member = ((DTypedMemberReference)memberContainer).getMember();
+        if ((memberContainerReference instanceof DTypedMemberReference)) {
+          final DTypedMember member = ((DTypedMemberReference)memberContainerReference).getMember();
           if ((member instanceof DTypedMember)) {
-            final DType type_1 = member.getType();
-            if ((type_1 instanceof DComplexType)) {
-              return this.getInheritedFeaturesScope(((DComplexType)type_1));
+            final DType type = member.getType();
+            if ((type instanceof DComplexType)) {
+              return this.getInheritedFeaturesScope(((DComplexType)type));
             }
           }
         } else {
-          if ((memberContainer instanceof DFunctionCall)) {
-            final DFunction function = ((DFunctionCall)memberContainer).getFunction();
+          if ((memberContainerReference instanceof DFunctionCall)) {
+            final DFunction function = ((DFunctionCall)memberContainerReference).getFunction();
             if ((function instanceof DFunction)) {
-              final DType type_2 = function.getType();
-              if ((type_2 instanceof DComplexType)) {
-                return this.getInheritedFeaturesScope(((DComplexType)type_2));
+              final DType type_1 = function.getType();
+              if ((type_1 instanceof DComplexType)) {
+                return this.getInheritedFeaturesScope(((DComplexType)type_1));
               }
             }
           }
@@ -186,7 +162,7 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
     if ((memberContainer != null)) {
       return this.getMemberReferenceScope(memberContainer);
     } else {
-      final IScope outerScope = this.getPrimaryNavigationTargetScope(assignment, reference);
+      final IScope outerScope = this.getDefaultScopeForType(assignment, this.bpackage.getIPrimaryNavigationTarget());
       return this.getExpressionContainerMemberScope(assignment, outerScope);
     }
   }
@@ -220,7 +196,7 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
     if (!_matched) {
       if (Objects.equal(container, null)) {
         _matched=true;
-        _switchResult = IScope.NULLSCOPE;
+        _switchResult = outerScope;
       }
     }
     if (!_matched) {
@@ -253,53 +229,5 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
     }
     list.addAll(event.getNotifications());
     return Scopes.scopeFor(list, outerScope);
-  }
-  
-  protected IScope getFunctionReferenceScope(final DFunction context) {
-    EObject _head = IterableExtensions.<EObject>head(context.eResource().getContents());
-    return Scopes.scopeFor(((DModel) _head).getGlobalFunctions());
-  }
-  
-  protected <T extends EObject> IScope getContainerTypesOfTypeScope(final EObject context, final EReference reference, final Class<T> type, final boolean includeImported) {
-    final EObject container = context.eContainer();
-    IScope _switchResult = null;
-    boolean _matched = false;
-    if (Objects.equal(container, null)) {
-      _matched=true;
-      _switchResult = IScope.NULLSCOPE;
-    }
-    if (!_matched) {
-      if (container instanceof DAggregate) {
-        _matched=true;
-        _switchResult = Scopes.scopeFor(EcoreUtil2.<T>typeSelect(((DAggregate)container).getTypes(), type), this.<T>getContainerTypesOfTypeScope(container, reference, type, includeImported));
-      }
-    }
-    if (!_matched) {
-      if (container instanceof DDomain) {
-        _matched=true;
-        List<T> _typeSelect = EcoreUtil2.<T>typeSelect(((DDomain)container).getTypes(), type);
-        IScope _xifexpression = null;
-        if (includeImported) {
-          _xifexpression = this.getImportedObjectsOfTypeScope(container, reference, type);
-        } else {
-          _xifexpression = IScope.NULLSCOPE;
-        }
-        _switchResult = Scopes.scopeFor(_typeSelect, _xifexpression);
-      }
-    }
-    if (!_matched) {
-      if (container instanceof DExistingApplication) {
-        _matched=true;
-        _switchResult = Scopes.scopeFor(EcoreUtil2.<T>typeSelect(((DExistingApplication)container).getTypes(), type), this.<T>getContainerTypesOfTypeScope(container, reference, type, includeImported));
-      }
-    }
-    if (!_matched) {
-      _switchResult = this.<T>getContainerTypesOfTypeScope(container, reference, type, includeImported);
-    }
-    return _switchResult;
-  }
-  
-  protected IScope getImportedObjectsOfTypeScope(final EObject context, final EReference reference, final Class<? extends EObject> type) {
-    return super.getScope(context, reference);
   }
 }

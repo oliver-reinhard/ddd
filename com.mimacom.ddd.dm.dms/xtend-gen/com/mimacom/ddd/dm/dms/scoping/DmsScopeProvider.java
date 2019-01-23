@@ -8,17 +8,14 @@ import com.google.common.collect.Lists;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DAssociation;
-import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DDomain;
-import com.mimacom.ddd.dm.base.DFunction;
 import com.mimacom.ddd.dm.base.DIdentityType;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DRelationship;
 import com.mimacom.ddd.dm.base.DRootType;
-import com.mimacom.ddd.dm.base.DServiceParameter;
-import com.mimacom.ddd.dm.base.IValueType;
+import com.mimacom.ddd.dm.base.DTypedMember;
 import com.mimacom.ddd.dm.dms.scoping.AbstractDmsScopeProvider;
 import java.util.ArrayList;
 import org.eclipse.emf.common.util.EList;
@@ -45,42 +42,24 @@ public class DmsScopeProvider extends AbstractDmsScopeProvider {
     if (_equals) {
       IScope _switchResult = null;
       boolean _matched = false;
-      if (context instanceof DAttribute) {
+      if (context instanceof DQuery) {
         _matched=true;
-        _switchResult = this.<IValueType>getContainerTypesOfTypeScope(context, reference, IValueType.class, true);
-      }
-      if (!_matched) {
-        if (context instanceof DQuery) {
-          _matched=true;
-          _switchResult = this.getLocalRootTypeScope(((DQuery)context), this.<IValueType>getContainerTypesOfTypeScope(context, reference, IValueType.class, true));
-        }
+        _switchResult = this.getLocalRootTypeScope(((DTypedMember)context), this.getDefaultScopeForType(context, this.epackage.getIValueType()));
       }
       if (!_matched) {
         if (context instanceof DAssociation) {
           _matched=true;
-          _switchResult = this.<DRootType>getContainerTypesOfTypeScope(context, reference, DRootType.class, true);
+          _switchResult = this.getDefaultScopeForType(context, this.epackage.getDRootType());
         }
       }
       if (!_matched) {
         if (context instanceof DQueryParameter) {
           _matched=true;
-          _switchResult = this.<IValueType>getContainerTypesOfTypeScope(context, reference, IValueType.class, true);
+          _switchResult = this.getLocalRootTypeScope(((DTypedMember)context), this.getDefaultScopeForType(context, this.epackage.getIValueType()));
         }
       }
       if (!_matched) {
-        if (context instanceof DServiceParameter) {
-          _matched=true;
-          _switchResult = this.<IValueType>getContainerTypesOfTypeScope(context, reference, IValueType.class, true);
-        }
-      }
-      if (!_matched) {
-        if (context instanceof DFunction) {
-          _matched=true;
-          _switchResult = this.<IValueType>getContainerTypesOfTypeScope(context, reference, IValueType.class, true);
-        }
-      }
-      if (!_matched) {
-        _switchResult = IScope.NULLSCOPE;
+        _switchResult = this.getDefaultScopeForType(context, this.epackage.getIValueType());
       }
       final IScope scope = _switchResult;
       return scope;
@@ -103,7 +82,7 @@ public class DmsScopeProvider extends AbstractDmsScopeProvider {
         if (!_matched_1) {
           if (context instanceof DDetailType) {
             _matched_1=true;
-            _switchResult_1 = this.<DDetailType>getContainerTypesOfTypeScope(context, reference, DDetailType.class, false);
+            _switchResult_1 = this.getDefaultScopeForType(context, this.epackage.getDDetailType());
           }
         }
         if (!_matched_1) {
@@ -115,8 +94,8 @@ public class DmsScopeProvider extends AbstractDmsScopeProvider {
     return super.getScope(context, reference);
   }
   
-  public IScope getLocalRootTypeScope(final DQuery query, final IScope outerScope) {
-    final DAggregate aggregate = EcoreUtil2.<DAggregate>getContainerOfType(query, DAggregate.class);
+  public IScope getLocalRootTypeScope(final DTypedMember context, final IScope outerScope) {
+    final DAggregate aggregate = EcoreUtil2.<DAggregate>getContainerOfType(context, DAggregate.class);
     DIdentityType _root = null;
     if (aggregate!=null) {
       _root=aggregate.getRoot();

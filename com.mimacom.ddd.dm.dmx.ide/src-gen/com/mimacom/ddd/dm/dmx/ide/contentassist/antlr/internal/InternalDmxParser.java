@@ -3520,23 +3520,23 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleDECIMAL"
 
 
-    // $ANTLR start "entryRuleQualifiedName"
-    // InternalDmx.g:1054:1: entryRuleQualifiedName : ruleQualifiedName EOF ;
-    public final void entryRuleQualifiedName() throws RecognitionException {
+    // $ANTLR start "entryRuleDQualifiedName"
+    // InternalDmx.g:1054:1: entryRuleDQualifiedName : ruleDQualifiedName EOF ;
+    public final void entryRuleDQualifiedName() throws RecognitionException {
         try {
-            // InternalDmx.g:1055:1: ( ruleQualifiedName EOF )
-            // InternalDmx.g:1056:1: ruleQualifiedName EOF
+            // InternalDmx.g:1055:1: ( ruleDQualifiedName EOF )
+            // InternalDmx.g:1056:1: ruleDQualifiedName EOF
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getQualifiedNameRule()); 
+               before(grammarAccess.getDQualifiedNameRule()); 
             }
             pushFollow(FOLLOW_1);
-            ruleQualifiedName();
+            ruleDQualifiedName();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getQualifiedNameRule()); 
+               after(grammarAccess.getDQualifiedNameRule()); 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return ;
 
@@ -3551,30 +3551,30 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleQualifiedName"
+    // $ANTLR end "entryRuleDQualifiedName"
 
 
-    // $ANTLR start "ruleQualifiedName"
-    // InternalDmx.g:1063:1: ruleQualifiedName : ( ( rule__QualifiedName__Group__0 ) ) ;
-    public final void ruleQualifiedName() throws RecognitionException {
+    // $ANTLR start "ruleDQualifiedName"
+    // InternalDmx.g:1063:1: ruleDQualifiedName : ( ( rule__DQualifiedName__Group__0 ) ) ;
+    public final void ruleDQualifiedName() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDmx.g:1067:2: ( ( ( rule__QualifiedName__Group__0 ) ) )
-            // InternalDmx.g:1068:2: ( ( rule__QualifiedName__Group__0 ) )
+            // InternalDmx.g:1067:2: ( ( ( rule__DQualifiedName__Group__0 ) ) )
+            // InternalDmx.g:1068:2: ( ( rule__DQualifiedName__Group__0 ) )
             {
-            // InternalDmx.g:1068:2: ( ( rule__QualifiedName__Group__0 ) )
-            // InternalDmx.g:1069:3: ( rule__QualifiedName__Group__0 )
+            // InternalDmx.g:1068:2: ( ( rule__DQualifiedName__Group__0 ) )
+            // InternalDmx.g:1069:3: ( rule__DQualifiedName__Group__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getQualifiedNameAccess().getGroup()); 
+               before(grammarAccess.getDQualifiedNameAccess().getGroup()); 
             }
-            // InternalDmx.g:1070:3: ( rule__QualifiedName__Group__0 )
-            // InternalDmx.g:1070:4: rule__QualifiedName__Group__0
+            // InternalDmx.g:1070:3: ( rule__DQualifiedName__Group__0 )
+            // InternalDmx.g:1070:4: rule__DQualifiedName__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__QualifiedName__Group__0();
+            rule__DQualifiedName__Group__0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -3582,7 +3582,7 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getQualifiedNameAccess().getGroup()); 
+               after(grammarAccess.getDQualifiedNameAccess().getGroup()); 
             }
 
             }
@@ -3602,7 +3602,7 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleQualifiedName"
+    // $ANTLR end "ruleDQualifiedName"
 
 
     // $ANTLR start "ruleOpOr"
@@ -15923,7 +15923,7 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
             // InternalDmx.g:4626:2: ()
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getDTypedMemberReferenceMemberContainerAction_1_1_0_0_0()); 
+               before(grammarAccess.getDTypedMemberReferenceAccess().getDTypedMemberReferenceMemberContainerReferenceAction_1_1_0_0_0()); 
             }
             // InternalDmx.g:4627:2: ()
             // InternalDmx.g:4627:3: 
@@ -15931,7 +15931,7 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getDTypedMemberReferenceMemberContainerAction_1_1_0_0_0()); 
+               after(grammarAccess.getDTypedMemberReferenceAccess().getDTypedMemberReferenceMemberContainerReferenceAction_1_1_0_0_0()); 
             }
 
             }
@@ -19402,26 +19402,26 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DContextReference__Group__1__Impl"
-    // InternalDmx.g:5726:1: rule__DContextReference__Group__1__Impl : ( ( rule__DContextReference__ContextElementAssignment_1 ) ) ;
+    // InternalDmx.g:5726:1: rule__DContextReference__Group__1__Impl : ( ( rule__DContextReference__TargetAssignment_1 ) ) ;
     public final void rule__DContextReference__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDmx.g:5730:1: ( ( ( rule__DContextReference__ContextElementAssignment_1 ) ) )
-            // InternalDmx.g:5731:1: ( ( rule__DContextReference__ContextElementAssignment_1 ) )
+            // InternalDmx.g:5730:1: ( ( ( rule__DContextReference__TargetAssignment_1 ) ) )
+            // InternalDmx.g:5731:1: ( ( rule__DContextReference__TargetAssignment_1 ) )
             {
-            // InternalDmx.g:5731:1: ( ( rule__DContextReference__ContextElementAssignment_1 ) )
-            // InternalDmx.g:5732:2: ( rule__DContextReference__ContextElementAssignment_1 )
+            // InternalDmx.g:5731:1: ( ( rule__DContextReference__TargetAssignment_1 ) )
+            // InternalDmx.g:5732:2: ( rule__DContextReference__TargetAssignment_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDContextReferenceAccess().getContextElementAssignment_1()); 
+               before(grammarAccess.getDContextReferenceAccess().getTargetAssignment_1()); 
             }
-            // InternalDmx.g:5733:2: ( rule__DContextReference__ContextElementAssignment_1 )
-            // InternalDmx.g:5733:3: rule__DContextReference__ContextElementAssignment_1
+            // InternalDmx.g:5733:2: ( rule__DContextReference__TargetAssignment_1 )
+            // InternalDmx.g:5733:3: rule__DContextReference__TargetAssignment_1
             {
             pushFollow(FOLLOW_2);
-            rule__DContextReference__ContextElementAssignment_1();
+            rule__DContextReference__TargetAssignment_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -19429,7 +19429,7 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDContextReferenceAccess().getContextElementAssignment_1()); 
+               after(grammarAccess.getDContextReferenceAccess().getTargetAssignment_1()); 
             }
 
             }
@@ -22445,23 +22445,23 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DECIMAL__Group_3__2__Impl"
 
 
-    // $ANTLR start "rule__QualifiedName__Group__0"
-    // InternalDmx.g:6714:1: rule__QualifiedName__Group__0 : rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 ;
-    public final void rule__QualifiedName__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__DQualifiedName__Group__0"
+    // InternalDmx.g:6714:1: rule__DQualifiedName__Group__0 : rule__DQualifiedName__Group__0__Impl rule__DQualifiedName__Group__1 ;
+    public final void rule__DQualifiedName__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDmx.g:6718:1: ( rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 )
-            // InternalDmx.g:6719:2: rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1
+            // InternalDmx.g:6718:1: ( rule__DQualifiedName__Group__0__Impl rule__DQualifiedName__Group__1 )
+            // InternalDmx.g:6719:2: rule__DQualifiedName__Group__0__Impl rule__DQualifiedName__Group__1
             {
             pushFollow(FOLLOW_32);
-            rule__QualifiedName__Group__0__Impl();
+            rule__DQualifiedName__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__QualifiedName__Group__1();
+            rule__DQualifiedName__Group__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22480,12 +22480,12 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__QualifiedName__Group__0"
+    // $ANTLR end "rule__DQualifiedName__Group__0"
 
 
-    // $ANTLR start "rule__QualifiedName__Group__0__Impl"
-    // InternalDmx.g:6726:1: rule__QualifiedName__Group__0__Impl : ( RULE_ID ) ;
-    public final void rule__QualifiedName__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DQualifiedName__Group__0__Impl"
+    // InternalDmx.g:6726:1: rule__DQualifiedName__Group__0__Impl : ( RULE_ID ) ;
+    public final void rule__DQualifiedName__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -22497,11 +22497,11 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
             // InternalDmx.g:6732:2: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
+               before(grammarAccess.getDQualifiedNameAccess().getIDTerminalRuleCall_0()); 
             }
             match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
+               after(grammarAccess.getDQualifiedNameAccess().getIDTerminalRuleCall_0()); 
             }
 
             }
@@ -22521,21 +22521,21 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__QualifiedName__Group__0__Impl"
+    // $ANTLR end "rule__DQualifiedName__Group__0__Impl"
 
 
-    // $ANTLR start "rule__QualifiedName__Group__1"
-    // InternalDmx.g:6741:1: rule__QualifiedName__Group__1 : rule__QualifiedName__Group__1__Impl ;
-    public final void rule__QualifiedName__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__DQualifiedName__Group__1"
+    // InternalDmx.g:6741:1: rule__DQualifiedName__Group__1 : rule__DQualifiedName__Group__1__Impl ;
+    public final void rule__DQualifiedName__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDmx.g:6745:1: ( rule__QualifiedName__Group__1__Impl )
-            // InternalDmx.g:6746:2: rule__QualifiedName__Group__1__Impl
+            // InternalDmx.g:6745:1: ( rule__DQualifiedName__Group__1__Impl )
+            // InternalDmx.g:6746:2: rule__DQualifiedName__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__QualifiedName__Group__1__Impl();
+            rule__DQualifiedName__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22554,26 +22554,26 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__QualifiedName__Group__1"
+    // $ANTLR end "rule__DQualifiedName__Group__1"
 
 
-    // $ANTLR start "rule__QualifiedName__Group__1__Impl"
-    // InternalDmx.g:6752:1: rule__QualifiedName__Group__1__Impl : ( ( rule__QualifiedName__Group_1__0 )* ) ;
-    public final void rule__QualifiedName__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DQualifiedName__Group__1__Impl"
+    // InternalDmx.g:6752:1: rule__DQualifiedName__Group__1__Impl : ( ( rule__DQualifiedName__Group_1__0 )* ) ;
+    public final void rule__DQualifiedName__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDmx.g:6756:1: ( ( ( rule__QualifiedName__Group_1__0 )* ) )
-            // InternalDmx.g:6757:1: ( ( rule__QualifiedName__Group_1__0 )* )
+            // InternalDmx.g:6756:1: ( ( ( rule__DQualifiedName__Group_1__0 )* ) )
+            // InternalDmx.g:6757:1: ( ( rule__DQualifiedName__Group_1__0 )* )
             {
-            // InternalDmx.g:6757:1: ( ( rule__QualifiedName__Group_1__0 )* )
-            // InternalDmx.g:6758:2: ( rule__QualifiedName__Group_1__0 )*
+            // InternalDmx.g:6757:1: ( ( rule__DQualifiedName__Group_1__0 )* )
+            // InternalDmx.g:6758:2: ( rule__DQualifiedName__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getQualifiedNameAccess().getGroup_1()); 
+               before(grammarAccess.getDQualifiedNameAccess().getGroup_1()); 
             }
-            // InternalDmx.g:6759:2: ( rule__QualifiedName__Group_1__0 )*
+            // InternalDmx.g:6759:2: ( rule__DQualifiedName__Group_1__0 )*
             loop51:
             do {
                 int alt51=2;
@@ -22586,10 +22586,10 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
 
                 switch (alt51) {
             	case 1 :
-            	    // InternalDmx.g:6759:3: rule__QualifiedName__Group_1__0
+            	    // InternalDmx.g:6759:3: rule__DQualifiedName__Group_1__0
             	    {
             	    pushFollow(FOLLOW_33);
-            	    rule__QualifiedName__Group_1__0();
+            	    rule__DQualifiedName__Group_1__0();
 
             	    state._fsp--;
             	    if (state.failed) return ;
@@ -22603,7 +22603,7 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getQualifiedNameAccess().getGroup_1()); 
+               after(grammarAccess.getDQualifiedNameAccess().getGroup_1()); 
             }
 
             }
@@ -22623,26 +22623,26 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__QualifiedName__Group__1__Impl"
+    // $ANTLR end "rule__DQualifiedName__Group__1__Impl"
 
 
-    // $ANTLR start "rule__QualifiedName__Group_1__0"
-    // InternalDmx.g:6768:1: rule__QualifiedName__Group_1__0 : rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 ;
-    public final void rule__QualifiedName__Group_1__0() throws RecognitionException {
+    // $ANTLR start "rule__DQualifiedName__Group_1__0"
+    // InternalDmx.g:6768:1: rule__DQualifiedName__Group_1__0 : rule__DQualifiedName__Group_1__0__Impl rule__DQualifiedName__Group_1__1 ;
+    public final void rule__DQualifiedName__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDmx.g:6772:1: ( rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 )
-            // InternalDmx.g:6773:2: rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1
+            // InternalDmx.g:6772:1: ( rule__DQualifiedName__Group_1__0__Impl rule__DQualifiedName__Group_1__1 )
+            // InternalDmx.g:6773:2: rule__DQualifiedName__Group_1__0__Impl rule__DQualifiedName__Group_1__1
             {
             pushFollow(FOLLOW_13);
-            rule__QualifiedName__Group_1__0__Impl();
+            rule__DQualifiedName__Group_1__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__QualifiedName__Group_1__1();
+            rule__DQualifiedName__Group_1__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22661,12 +22661,12 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__QualifiedName__Group_1__0"
+    // $ANTLR end "rule__DQualifiedName__Group_1__0"
 
 
-    // $ANTLR start "rule__QualifiedName__Group_1__0__Impl"
-    // InternalDmx.g:6780:1: rule__QualifiedName__Group_1__0__Impl : ( '.' ) ;
-    public final void rule__QualifiedName__Group_1__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DQualifiedName__Group_1__0__Impl"
+    // InternalDmx.g:6780:1: rule__DQualifiedName__Group_1__0__Impl : ( '.' ) ;
+    public final void rule__DQualifiedName__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -22678,11 +22678,11 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
             // InternalDmx.g:6786:2: '.'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
+               before(grammarAccess.getDQualifiedNameAccess().getFullStopKeyword_1_0()); 
             }
             match(input,66,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
+               after(grammarAccess.getDQualifiedNameAccess().getFullStopKeyword_1_0()); 
             }
 
             }
@@ -22702,21 +22702,21 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__QualifiedName__Group_1__0__Impl"
+    // $ANTLR end "rule__DQualifiedName__Group_1__0__Impl"
 
 
-    // $ANTLR start "rule__QualifiedName__Group_1__1"
-    // InternalDmx.g:6795:1: rule__QualifiedName__Group_1__1 : rule__QualifiedName__Group_1__1__Impl ;
-    public final void rule__QualifiedName__Group_1__1() throws RecognitionException {
+    // $ANTLR start "rule__DQualifiedName__Group_1__1"
+    // InternalDmx.g:6795:1: rule__DQualifiedName__Group_1__1 : rule__DQualifiedName__Group_1__1__Impl ;
+    public final void rule__DQualifiedName__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDmx.g:6799:1: ( rule__QualifiedName__Group_1__1__Impl )
-            // InternalDmx.g:6800:2: rule__QualifiedName__Group_1__1__Impl
+            // InternalDmx.g:6799:1: ( rule__DQualifiedName__Group_1__1__Impl )
+            // InternalDmx.g:6800:2: rule__DQualifiedName__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__QualifiedName__Group_1__1__Impl();
+            rule__DQualifiedName__Group_1__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22735,12 +22735,12 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__QualifiedName__Group_1__1"
+    // $ANTLR end "rule__DQualifiedName__Group_1__1"
 
 
-    // $ANTLR start "rule__QualifiedName__Group_1__1__Impl"
-    // InternalDmx.g:6806:1: rule__QualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
-    public final void rule__QualifiedName__Group_1__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DQualifiedName__Group_1__1__Impl"
+    // InternalDmx.g:6806:1: rule__DQualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
+    public final void rule__DQualifiedName__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -22752,11 +22752,11 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
             // InternalDmx.g:6812:2: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
+               before(grammarAccess.getDQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
             }
             match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
+               after(grammarAccess.getDQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
             }
 
             }
@@ -22776,7 +22776,7 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__QualifiedName__Group_1__1__Impl"
+    // $ANTLR end "rule__DQualifiedName__Group_1__1__Impl"
 
 
     // $ANTLR start "rule__DmxModel__TextsAssignment_1_3"
@@ -24950,9 +24950,9 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DConstructorCall__ArgumentsAssignment_3_1_1_1"
 
 
-    // $ANTLR start "rule__DContextReference__ContextElementAssignment_1"
-    // InternalDmx.g:7563:1: rule__DContextReference__ContextElementAssignment_1 : ( ( RULE_ID ) ) ;
-    public final void rule__DContextReference__ContextElementAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__DContextReference__TargetAssignment_1"
+    // InternalDmx.g:7563:1: rule__DContextReference__TargetAssignment_1 : ( ( RULE_ID ) ) ;
+    public final void rule__DContextReference__TargetAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -24964,23 +24964,23 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
             // InternalDmx.g:7569:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDContextReferenceAccess().getContextElementDNamedElementCrossReference_1_0()); 
+               before(grammarAccess.getDContextReferenceAccess().getTargetDNamedElementCrossReference_1_0()); 
             }
             // InternalDmx.g:7570:3: ( RULE_ID )
             // InternalDmx.g:7571:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDContextReferenceAccess().getContextElementDNamedElementIDTerminalRuleCall_1_0_1()); 
+               before(grammarAccess.getDContextReferenceAccess().getTargetDNamedElementIDTerminalRuleCall_1_0_1()); 
             }
             match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDContextReferenceAccess().getContextElementDNamedElementIDTerminalRuleCall_1_0_1()); 
+               after(grammarAccess.getDContextReferenceAccess().getTargetDNamedElementIDTerminalRuleCall_1_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDContextReferenceAccess().getContextElementDNamedElementCrossReference_1_0()); 
+               after(grammarAccess.getDContextReferenceAccess().getTargetDNamedElementCrossReference_1_0()); 
             }
 
             }
@@ -25000,7 +25000,7 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DContextReference__ContextElementAssignment_1"
+    // $ANTLR end "rule__DContextReference__TargetAssignment_1"
 
 
     // $ANTLR start "rule__DIfExpression__IfAssignment_2"

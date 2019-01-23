@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DExistingApplication extends DNamedElement, INamespace
+public interface DExistingApplication extends DNamedElement, INamespace, IPrimaryNavigationTarget
 {
 	/**
 	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.

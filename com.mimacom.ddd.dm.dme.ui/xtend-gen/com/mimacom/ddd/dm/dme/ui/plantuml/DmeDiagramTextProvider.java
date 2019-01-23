@@ -2,7 +2,6 @@ package com.mimacom.ddd.dm.dme.ui.plantuml;
 
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DDomainEvent;
-import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.dme.ui.internal.DmeActivator;
 import java.util.Map;
@@ -40,28 +39,24 @@ public class DmeDiagramTextProvider extends AbstractDiagramTextProvider {
   protected String getDiagramText(final IEditorPart editorPart, final IEditorInput editorInput, final ISelection sel, final Map<String, Object> obj) {
     IDocument _document = ((XtextEditor) editorPart).getDocumentProvider().getDocument(editorInput);
     final XtextDocument document = ((XtextDocument) _document);
-    final IUnitOfWork<DModel, XtextResource> _function = (XtextResource it) -> {
-      DModel _xifexpression = null;
+    final IUnitOfWork<DDomain, XtextResource> _function = (XtextResource it) -> {
+      DDomain _xifexpression = null;
       EObject _head = IterableExtensions.<EObject>head(it.getContents());
-      if ((_head instanceof DModel)) {
+      if ((_head instanceof DDomain)) {
         EObject _head_1 = IterableExtensions.<EObject>head(it.getContents());
-        _xifexpression = ((DModel) _head_1);
+        _xifexpression = ((DDomain) _head_1);
       } else {
         _xifexpression = null;
       }
       return _xifexpression;
     };
-    final DModel model = document.<DModel>readOnly(_function);
-    DDomain _domain = null;
-    if (model!=null) {
-      _domain=model.getDomain();
-    }
+    final DDomain domain = document.<DDomain>readOnly(_function);
     EList<DDomainEvent> _events = null;
-    if (_domain!=null) {
-      _events=_domain.getEvents();
+    if (domain!=null) {
+      _events=domain.getEvents();
     }
     final EList<DDomainEvent> events = _events;
-    if (((model == null) || events.isEmpty())) {
+    if (((domain == null) || events.isEmpty())) {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("note \"No domain events to show.\" as N1");
       return _builder.toString();

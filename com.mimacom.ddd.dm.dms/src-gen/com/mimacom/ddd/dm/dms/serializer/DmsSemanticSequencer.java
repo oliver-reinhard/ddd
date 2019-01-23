@@ -17,7 +17,6 @@ import com.mimacom.ddd.dm.base.DExistingApplication;
 import com.mimacom.ddd.dm.base.DFunction;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DLiteral;
-import com.mimacom.ddd.dm.base.DModel;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
@@ -110,9 +109,6 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case BasePackage.DLITERAL:
 				sequence_DLiteral(context, (DLiteral) semanticObject); 
-				return; 
-			case BasePackage.DMODEL:
-				sequence_DModel(context, (DModel) semanticObject); 
 				return; 
 			case BasePackage.DMULTIPLICITY:
 				sequence_DMultiplicity(context, (DMultiplicity) semanticObject); 
@@ -249,7 +245,7 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	 *         derived?='derived'? 
 	 *         (kind=DAssociationKind | kind=DAssociationKindInverse) 
 	 *         name=ID 
-	 *         type=[DRootType|ID] 
+	 *         type=[DRootType|DQualifiedName] 
 	 *         multiplicity=DMultiplicity? 
 	 *         description=DRichText?
 	 *     )
@@ -265,7 +261,12 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	 *     DAttribute returns DAttribute
 	 *
 	 * Constraint:
-	 *     (((name=ID type=[DDetailType|ID]) | (name=ID type=[DSimpleType|ID])) multiplicity=DMultiplicity? key?='key'? description=DRichText?)
+	 *     (
+	 *         ((name=ID type=[DDetailType|DQualifiedName]) | (name=ID type=[DSimpleType|DQualifiedName])) 
+	 *         multiplicity=DMultiplicity? 
+	 *         key?='key'? 
+	 *         description=DRichText?
+	 *     )
 	 */
 	protected void sequence_DAttribute(ISerializationContext context, DAttribute semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -274,12 +275,11 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     GlobalValueTypes returns DDetailType
 	 *     DType returns DDetailType
 	 *     DDetailType returns DDetailType
 	 *
 	 * Constraint:
-	 *     (abstract?='abstract'? name=ID superType=[DComplexType|ID]? description=DRichText? (features+=DFeature | constraints+=DConstraint)*)
+	 *     (abstract?='abstract'? name=ID superType=[DComplexType|DQualifiedName]? description=DRichText? (features+=DFeature | constraints+=DConstraint)*)
 	 */
 	protected void sequence_DComplexType_DDetailType(ISerializationContext context, DDetailType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -292,7 +292,7 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	 *     DRelationship returns DRelationship
 	 *
 	 * Constraint:
-	 *     (abstract?='abstract'? name=ID superType=[DComplexType|ID]? description=DRichText? (features+=DFeature | constraints+=DConstraint)*)
+	 *     (abstract?='abstract'? name=ID superType=[DComplexType|DQualifiedName]? description=DRichText? (features+=DFeature | constraints+=DConstraint)*)
 	 */
 	protected void sequence_DComplexType_DRelationship(ISerializationContext context, DRelationship semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -305,7 +305,7 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	 *     DRootType returns DRootType
 	 *
 	 * Constraint:
-	 *     (abstract?='abstract'? name=ID superType=[DComplexType|ID]? description=DRichText? (features+=DFeature | constraints+=DConstraint)*)
+	 *     (abstract?='abstract'? name=ID superType=[DComplexType|DQualifiedName]? description=DRichText? (features+=DFeature | constraints+=DConstraint)*)
 	 */
 	protected void sequence_DComplexType_DRootType(ISerializationContext context, DRootType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -330,10 +330,10 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         name=ID 
+	 *         name=DQualifiedName 
 	 *         description=DRichText? 
 	 *         imports+=DImport* 
-	 *         (types+=DType | aggregates+=DAggregate | applications+=DExistingApplication | actors+=DService)*
+	 *         (types+=DType | functions+=DFunction | aggregates+=DAggregate | applications+=DExistingApplication | actors+=DService)*
 	 *     )
 	 */
 	protected void sequence_DDomain(ISerializationContext context, DDomain semanticObject) {
@@ -343,7 +343,6 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     GlobalValueTypes returns DEnumeration
 	 *     DType returns DEnumeration
 	 *     DEnumeration returns DEnumeration
 	 *
@@ -384,7 +383,7 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	 *     DFunction returns DFunction
 	 *
 	 * Constraint:
-	 *     (name=ID parameterNames+=STRING parameterNames+=STRING* type=[DType|ID] multiplicity=DMultiplicity?)
+	 *     (name=ID parameterNames+=STRING parameterNames+=STRING* type=[DType|DQualifiedName] multiplicity=DMultiplicity?)
 	 */
 	protected void sequence_DFunction(ISerializationContext context, DFunction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -423,19 +422,6 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DModel returns DModel
-	 *
-	 * Constraint:
-	 *     ((globalTypes+=GlobalValueTypes | globalFunctions+=DFunction)* domain=DDomain?)
-	 */
-	protected void sequence_DModel(ISerializationContext context, DModel semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     GlobalValueTypes returns DPrimitive
 	 *     DType returns DPrimitive
 	 *     DPrimitive returns DPrimitive
 	 *
@@ -452,7 +438,7 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	 *     DQueryParameter returns DQueryParameter
 	 *
 	 * Constraint:
-	 *     (name=ID type=[DType|ID] multiplicity=DMultiplicity? description=DRichText?)
+	 *     (name=ID type=[DType|DQualifiedName] multiplicity=DMultiplicity? description=DRichText?)
 	 */
 	protected void sequence_DQueryParameter(ISerializationContext context, DQueryParameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -468,7 +454,7 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	 *     (
 	 *         name=ID 
 	 *         (parameters+=DQueryParameter parameters+=DQueryParameter*)? 
-	 *         type=[DType|ID] 
+	 *         type=[DType|DQualifiedName] 
 	 *         multiplicity=DMultiplicity? 
 	 *         returns=DExpression? 
 	 *         description=DRichText?
@@ -484,7 +470,7 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	 *     DServiceParameter returns DServiceParameter
 	 *
 	 * Constraint:
-	 *     (direction=DDirection name=ID type=[DType|ID] multiplicity=DMultiplicity? description=DRichText?)
+	 *     (direction=DDirection name=ID type=[DType|DQualifiedName] multiplicity=DMultiplicity? description=DRichText?)
 	 */
 	protected void sequence_DServiceParameter(ISerializationContext context, DServiceParameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

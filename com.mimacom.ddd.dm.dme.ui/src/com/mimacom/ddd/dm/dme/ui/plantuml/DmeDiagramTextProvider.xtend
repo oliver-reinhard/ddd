@@ -1,6 +1,6 @@
 package com.mimacom.ddd.dm.dme.ui.plantuml
 
-import com.mimacom.ddd.dm.base.DModel
+import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.dme.ui.internal.DmeActivator
 import java.util.Map
 import net.sourceforge.plantuml.text.AbstractDiagramTextProvider
@@ -29,13 +29,13 @@ class DmeDiagramTextProvider extends AbstractDiagramTextProvider {
 	override protected getDiagramText(IEditorPart editorPart, IEditorInput editorInput, ISelection sel, Map<String, Object> obj) {
         // Retrieve the "semantic" EMF from XtextEditor
         val document = (editorPart as XtextEditor).getDocumentProvider().getDocument(editorInput) as XtextDocument;
-        val DModel model = document.readOnly[
-            return if (contents.head instanceof DModel) contents.head as DModel else null
+        val DDomain domain = document.readOnly[
+            return if (contents.head instanceof DDomain) contents.head as DDomain else null
         ]
         
-        val events = model?.domain?.events
+        val events = domain?.events
         
-        if (model === null || events.empty) {
+        if (domain === null || events.empty) {
         	return '''note "No domain events to show." as N1'''
         }
         

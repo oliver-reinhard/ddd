@@ -23,7 +23,6 @@ public class DmsSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected DmsGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3;
-	protected AbstractElementAlias match_DModel___GlobalKeyword_1_0_LeftCurlyBracketKeyword_1_1_RightCurlyBracketKeyword_1_3__q;
 	protected AbstractElementAlias match_DNilLiteral_NILKeyword_1_0_or_NilKeyword_1_1;
 	protected AbstractElementAlias match_DParenthesizedExpression_LeftParenthesisKeyword_0_a;
 	protected AbstractElementAlias match_DParenthesizedExpression_LeftParenthesisKeyword_0_p;
@@ -36,7 +35,6 @@ public class DmsSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (DmsGrammarAccess) access;
 		match_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDBooleanLiteralAccess().getFALSEKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getDBooleanLiteralAccess().getFalseKeyword_1_3()));
-		match_DModel___GlobalKeyword_1_0_LeftCurlyBracketKeyword_1_1_RightCurlyBracketKeyword_1_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getDModelAccess().getGlobalKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDModelAccess().getLeftCurlyBracketKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getDModelAccess().getRightCurlyBracketKeyword_1_3()));
 		match_DNilLiteral_NILKeyword_1_0_or_NilKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDNilLiteralAccess().getNILKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDNilLiteralAccess().getNilKeyword_1_1()));
 		match_DParenthesizedExpression_LeftParenthesisKeyword_0_a = new TokenAlias(true, true, grammarAccess.getDParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
 		match_DParenthesizedExpression_LeftParenthesisKeyword_0_p = new TokenAlias(true, false, grammarAccess.getDParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
@@ -118,8 +116,6 @@ public class DmsSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3.equals(syntax))
 				emit_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DModel___GlobalKeyword_1_0_LeftCurlyBracketKeyword_1_1_RightCurlyBracketKeyword_1_3__q.equals(syntax))
-				emit_DModel___GlobalKeyword_1_0_LeftCurlyBracketKeyword_1_1_RightCurlyBracketKeyword_1_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DNilLiteral_NILKeyword_1_0_or_NilKeyword_1_1.equals(syntax))
 				emit_DNilLiteral_NILKeyword_1_0_or_NilKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DParenthesizedExpression_LeftParenthesisKeyword_0_a.equals(syntax))
@@ -153,18 +149,6 @@ public class DmsSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('global' '{' '}')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) (rule start)
-	 *     (rule start) (ambiguity) domain=DDomain
-	 */
-	protected void emit_DModel___GlobalKeyword_1_0_LeftCurlyBracketKeyword_1_1_RightCurlyBracketKeyword_1_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
 	 *     'NIL' | 'nil'
 	 *
 	 * This ambiguous syntax occurs at:
@@ -190,10 +174,10 @@ public class DmsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) ('RETURN' | 'return') expression=DExpression
 	 *     (rule start) (ambiguity) ('SELF' | 'self') (rule start)
 	 *     (rule start) (ambiguity) OpConstructor constructor=[DIdentityType|ID]
-	 *     (rule start) (ambiguity) contextElement=[DNamedElement|ID]
 	 *     (rule start) (ambiguity) function=[DFunction|ID]
 	 *     (rule start) (ambiguity) member=[DTypedMember|ID]
 	 *     (rule start) (ambiguity) operator=OpUnary
+	 *     (rule start) (ambiguity) target=[DNamedElement|ID]
 	 *     (rule start) (ambiguity) value=DECIMAL
 	 *     (rule start) (ambiguity) value=NATURAL
 	 *     (rule start) (ambiguity) value=STRING
@@ -203,7 +187,7 @@ public class DmsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) {DBinaryOperation.leftOperand=}
 	 *     (rule start) (ambiguity) {DCastExpression.target=}
 	 *     (rule start) (ambiguity) {DInstanceOfExpression.expression=}
-	 *     (rule start) (ambiguity) {DTypedMemberReference.memberContainer=}
+	 *     (rule start) (ambiguity) {DTypedMemberReference.memberContainerReference=}
 	 */
 	protected void emit_DParenthesizedExpression_LeftParenthesisKeyword_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -223,10 +207,10 @@ public class DmsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) ('RETURN' | 'return') expression=DExpression
 	 *     (rule start) (ambiguity) ('SELF' | 'self') ')' (rule start)
 	 *     (rule start) (ambiguity) OpConstructor constructor=[DIdentityType|ID]
-	 *     (rule start) (ambiguity) contextElement=[DNamedElement|ID]
 	 *     (rule start) (ambiguity) function=[DFunction|ID]
 	 *     (rule start) (ambiguity) member=[DTypedMember|ID]
 	 *     (rule start) (ambiguity) operator=OpUnary
+	 *     (rule start) (ambiguity) target=[DNamedElement|ID]
 	 *     (rule start) (ambiguity) value=DECIMAL
 	 *     (rule start) (ambiguity) value=NATURAL
 	 *     (rule start) (ambiguity) value=STRING
@@ -236,7 +220,7 @@ public class DmsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) {DBinaryOperation.leftOperand=}
 	 *     (rule start) (ambiguity) {DCastExpression.target=}
 	 *     (rule start) (ambiguity) {DInstanceOfExpression.expression=}
-	 *     (rule start) (ambiguity) {DTypedMemberReference.memberContainer=}
+	 *     (rule start) (ambiguity) {DTypedMemberReference.memberContainerReference=}
 	 */
 	protected void emit_DParenthesizedExpression_LeftParenthesisKeyword_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

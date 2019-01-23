@@ -4295,7 +4295,7 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
             	    if ( state.backtracking==0 ) {
 
             	      								current = forceCreateModelElementAndSet(
-            	      									grammarAccess.getDTypedMemberReferenceAccess().getDTypedMemberReferenceMemberContainerAction_1_1_0_0_0(),
+            	      									grammarAccess.getDTypedMemberReferenceAccess().getDTypedMemberReferenceMemberContainerReferenceAction_1_1_0_0_0(),
             	      									current);
             	      							
             	    }
@@ -6512,7 +6512,7 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
             otherlv_1=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(otherlv_1, grammarAccess.getDContextReferenceAccess().getContextElementDNamedElementCrossReference_1_0());
+              					newLeafNode(otherlv_1, grammarAccess.getDContextReferenceAccess().getTargetDNamedElementCrossReference_1_0());
               				
             }
 
@@ -8131,28 +8131,28 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleDECIMAL"
 
 
-    // $ANTLR start "entryRuleQualifiedName"
-    // InternalDmx.g:2837:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
-    public final String entryRuleQualifiedName() throws RecognitionException {
+    // $ANTLR start "entryRuleDQualifiedName"
+    // InternalDmx.g:2837:1: entryRuleDQualifiedName returns [String current=null] : iv_ruleDQualifiedName= ruleDQualifiedName EOF ;
+    public final String entryRuleDQualifiedName() throws RecognitionException {
         String current = null;
 
-        AntlrDatatypeRuleToken iv_ruleQualifiedName = null;
+        AntlrDatatypeRuleToken iv_ruleDQualifiedName = null;
 
 
         try {
-            // InternalDmx.g:2837:53: (iv_ruleQualifiedName= ruleQualifiedName EOF )
-            // InternalDmx.g:2838:2: iv_ruleQualifiedName= ruleQualifiedName EOF
+            // InternalDmx.g:2837:54: (iv_ruleDQualifiedName= ruleDQualifiedName EOF )
+            // InternalDmx.g:2838:2: iv_ruleDQualifiedName= ruleDQualifiedName EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getQualifiedNameRule()); 
+               newCompositeNode(grammarAccess.getDQualifiedNameRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleQualifiedName=ruleQualifiedName();
+            iv_ruleDQualifiedName=ruleDQualifiedName();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleQualifiedName.getText(); 
+               current =iv_ruleDQualifiedName.getText(); 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -8168,12 +8168,12 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleQualifiedName"
+    // $ANTLR end "entryRuleDQualifiedName"
 
 
-    // $ANTLR start "ruleQualifiedName"
-    // InternalDmx.g:2844:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
-    public final AntlrDatatypeRuleToken ruleQualifiedName() throws RecognitionException {
+    // $ANTLR start "ruleDQualifiedName"
+    // InternalDmx.g:2844:1: ruleDQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
+    public final AntlrDatatypeRuleToken ruleDQualifiedName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
         Token this_ID_0=null;
@@ -8198,7 +8198,7 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
             }
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0());
+              			newLeafNode(this_ID_0, grammarAccess.getDQualifiedNameAccess().getIDTerminalRuleCall_0());
               		
             }
             // InternalDmx.g:2859:3: (kw= '.' this_ID_2= RULE_ID )*
@@ -8220,7 +8220,7 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
             	    if ( state.backtracking==0 ) {
 
             	      				current.merge(kw);
-            	      				newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0());
+            	      				newLeafNode(kw, grammarAccess.getDQualifiedNameAccess().getFullStopKeyword_1_0());
             	      			
             	    }
             	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_21); if (state.failed) return current;
@@ -8231,7 +8231,7 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
             	    }
             	    if ( state.backtracking==0 ) {
 
-            	      				newLeafNode(this_ID_2, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1());
+            	      				newLeafNode(this_ID_2, grammarAccess.getDQualifiedNameAccess().getIDTerminalRuleCall_1_1());
             	      			
             	    }
 
@@ -8264,7 +8264,7 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleQualifiedName"
+    // $ANTLR end "ruleDQualifiedName"
 
 
     // $ANTLR start "ruleOpOr"

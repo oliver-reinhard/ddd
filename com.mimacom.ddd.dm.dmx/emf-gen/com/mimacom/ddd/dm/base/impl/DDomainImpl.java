@@ -8,6 +8,7 @@ import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DDomainEvent;
 import com.mimacom.ddd.dm.base.DExistingApplication;
+import com.mimacom.ddd.dm.base.DFunction;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DType;
 
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getTypes <em>Types</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getFunctions <em>Functions</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getAggregates <em>Aggregates</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getApplications <em>Applications</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getEvents <em>Events</em>}</li>
@@ -62,6 +64,16 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * @ordered
 	 */
 	protected EList<DType> types;
+
+	/**
+	 * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFunctions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DFunction> functions;
 
 	/**
 	 * The cached value of the '{@link #getAggregates() <em>Aggregates</em>}' containment reference list.
@@ -160,6 +172,21 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * @generated
 	 */
 	@Override
+	public EList<DFunction> getFunctions()
+	{
+		if (functions == null)
+		{
+			functions = new EObjectContainmentEList<DFunction>(DFunction.class, this, BasePackage.DDOMAIN__FUNCTIONS);
+		}
+		return functions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<DAggregate> getAggregates()
 	{
 		if (aggregates == null)
@@ -228,6 +255,8 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
 			case BasePackage.DDOMAIN__TYPES:
 				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
+			case BasePackage.DDOMAIN__FUNCTIONS:
+				return ((InternalEList<?>)getFunctions()).basicRemove(otherEnd, msgs);
 			case BasePackage.DDOMAIN__AGGREGATES:
 				return ((InternalEList<?>)getAggregates()).basicRemove(otherEnd, msgs);
 			case BasePackage.DDOMAIN__APPLICATIONS:
@@ -254,6 +283,8 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 				return getImports();
 			case BasePackage.DDOMAIN__TYPES:
 				return getTypes();
+			case BasePackage.DDOMAIN__FUNCTIONS:
+				return getFunctions();
 			case BasePackage.DDOMAIN__AGGREGATES:
 				return getAggregates();
 			case BasePackage.DDOMAIN__APPLICATIONS:
@@ -284,6 +315,10 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 			case BasePackage.DDOMAIN__TYPES:
 				getTypes().clear();
 				getTypes().addAll((Collection<? extends DType>)newValue);
+				return;
+			case BasePackage.DDOMAIN__FUNCTIONS:
+				getFunctions().clear();
+				getFunctions().addAll((Collection<? extends DFunction>)newValue);
 				return;
 			case BasePackage.DDOMAIN__AGGREGATES:
 				getAggregates().clear();
@@ -321,6 +356,9 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 			case BasePackage.DDOMAIN__TYPES:
 				getTypes().clear();
 				return;
+			case BasePackage.DDOMAIN__FUNCTIONS:
+				getFunctions().clear();
+				return;
 			case BasePackage.DDOMAIN__AGGREGATES:
 				getAggregates().clear();
 				return;
@@ -351,6 +389,8 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 				return imports != null && !imports.isEmpty();
 			case BasePackage.DDOMAIN__TYPES:
 				return types != null && !types.isEmpty();
+			case BasePackage.DDOMAIN__FUNCTIONS:
+				return functions != null && !functions.isEmpty();
 			case BasePackage.DDOMAIN__AGGREGATES:
 				return aggregates != null && !aggregates.isEmpty();
 			case BasePackage.DDOMAIN__APPLICATIONS:
