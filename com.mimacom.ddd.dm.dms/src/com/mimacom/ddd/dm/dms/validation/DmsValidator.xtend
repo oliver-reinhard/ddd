@@ -176,7 +176,7 @@ class DmsValidator extends AbstractDmsValidator {
 	// // Naming: Elements whose names should start with a CAPITAL
 	def void checkNameStartsWithCapital(DNamedElement ne) {
 		val name = ne.name
-		if (ne instanceof DDomain && (DEFAULT_IMPORT_PRIMITIVES == name || DEFAULT_IMPORT_FUNCTIONS == name)) {
+		if (ne instanceof DDomain && (DEFAULT_IMPORT_TYPES == name || DEFAULT_IMPORT_FUNCTIONS == name)) {
 				return
 		}
 		if(name !== null && name.length > 0 && !Character::isUpperCase(name.charAt(0))) {

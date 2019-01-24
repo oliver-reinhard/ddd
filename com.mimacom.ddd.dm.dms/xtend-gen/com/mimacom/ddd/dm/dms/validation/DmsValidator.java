@@ -211,7 +211,7 @@ public class DmsValidator extends AbstractDmsValidator {
   
   public void checkNameStartsWithCapital(final DNamedElement ne) {
     final String name = ne.getName();
-    if (((ne instanceof DDomain) && (Objects.equal(DmxImportedNamespaceAwareLocalScopeProvider.DEFAULT_IMPORT_PRIMITIVES, name) || Objects.equal(DmxImportedNamespaceAwareLocalScopeProvider.DEFAULT_IMPORT_FUNCTIONS, name)))) {
+    if (((ne instanceof DDomain) && (Objects.equal(DmxImportedNamespaceAwareLocalScopeProvider.DEFAULT_IMPORT_TYPES, name) || Objects.equal(DmxImportedNamespaceAwareLocalScopeProvider.DEFAULT_IMPORT_FUNCTIONS, name)))) {
       return;
     }
     if ((((name != null) && (name.length() > 0)) && (!Character.isUpperCase(name.charAt(0))))) {
