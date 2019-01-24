@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DContextReferenceImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DContextReferenceImpl#isBefore <em>Before</em>}</li>
  * </ul>
  *
  * @generated
@@ -40,6 +41,26 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 	 * @ordered
 	 */
 	protected DNamedElement target;
+
+	/**
+	 * The default value of the '{@link #isBefore() <em>Before</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isBefore()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean BEFORE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isBefore() <em>Before</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isBefore()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean before = BEFORE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,6 +134,31 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 	 * @generated
 	 */
 	@Override
+	public boolean isBefore()
+	{
+		return before;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setBefore(boolean newBefore)
+	{
+		boolean oldBefore = before;
+		before = newBefore;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DCONTEXT_REFERENCE__BEFORE, oldBefore, before));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
 		switch (featureID)
@@ -120,6 +166,8 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 			case DmxPackage.DCONTEXT_REFERENCE__TARGET:
 				if (resolve) return getTarget();
 				return basicGetTarget();
+			case DmxPackage.DCONTEXT_REFERENCE__BEFORE:
+				return isBefore();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -136,6 +184,9 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 		{
 			case DmxPackage.DCONTEXT_REFERENCE__TARGET:
 				setTarget((DNamedElement)newValue);
+				return;
+			case DmxPackage.DCONTEXT_REFERENCE__BEFORE:
+				setBefore((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -154,6 +205,9 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 			case DmxPackage.DCONTEXT_REFERENCE__TARGET:
 				setTarget((DNamedElement)null);
 				return;
+			case DmxPackage.DCONTEXT_REFERENCE__BEFORE:
+				setBefore(BEFORE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -170,8 +224,27 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 		{
 			case DmxPackage.DCONTEXT_REFERENCE__TARGET:
 				return target != null;
+			case DmxPackage.DCONTEXT_REFERENCE__BEFORE:
+				return before != BEFORE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString()
+	{
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (before: ");
+		result.append(before);
+		result.append(')');
+		return result.toString();
 	}
 
 } //DContextReferenceImpl

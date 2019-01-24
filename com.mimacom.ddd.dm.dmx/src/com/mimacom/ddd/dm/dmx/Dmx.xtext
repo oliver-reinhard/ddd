@@ -107,12 +107,17 @@ DTypedMemberReference returns DExpression:
 	DPrimaryExpression
 	(	=> ({DAssignment.memberContainer=current} '.' member=[DTypedMember|ID] OpSingleAssign) value=DAssignment
 	| 	=> ({DTypedMemberReference.memberContainerReference=current} '.')
-		member=[DTypedMember|ID] (
-			=> explicitOperationCall?='(' // => boolean => has 0.n explicit arguments
+		member=[DTypedMember|ID] 
+		(
+			(	=> explicitOperationCall?='(' // => boolean => has 0.n explicit arguments
 				(
 					memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*
 				)?
-			')')?
+				')'
+			)
+			|
+			before?="@before"
+		)?
 	)*;
 	
 DPrimaryExpression returns DExpression:
@@ -172,7 +177,8 @@ OpConstructor:
 		
 DContextReference returns DExpression:
 	{DContextReference}
-	target=[DNamedElement|ID];
+	target=[DNamedElement|ID]
+	(before?="@before")?;
 	
 DIfExpression returns DExpression:
 	{DIfExpression}

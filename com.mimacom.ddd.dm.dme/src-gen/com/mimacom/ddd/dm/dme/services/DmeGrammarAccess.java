@@ -972,7 +972,8 @@ public class DmeGrammarAccess extends AbstractGrammarElementFinder {
 	//	value=DAssignment
 	//	| => ({DTypedMemberReference.memberContainerReference=current} '.') member=[DTypedMember] (=>
 	//	explicitOperationCall?='(' (memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)?
-	//	')')?)*;
+	//	')'
+	//	| before?="@before")?)*;
 	public DmxGrammarAccess.DTypedMemberReferenceElements getDTypedMemberReferenceAccess() {
 		return gaDmx.getDTypedMemberReferenceAccess();
 	}
@@ -1077,7 +1078,7 @@ public class DmeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DContextReference DExpression:
-	//	{DContextReference} target=[DNamedElement];
+	//	{DContextReference} target=[DNamedElement] before?="@before"?;
 	public DmxGrammarAccess.DContextReferenceElements getDContextReferenceAccess() {
 		return gaDmx.getDContextReferenceAccess();
 	}

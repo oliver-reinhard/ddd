@@ -380,16 +380,10 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DContextReference returns DContextReference
 	 *
 	 * Constraint:
-	 *     target=[DNamedElement|ID]
+	 *     (target=[DNamedElement|ID] before?='@before'?)
 	 */
 	protected void sequence_DContextReference(ISerializationContext context, DContextReference semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DmxPackage.Literals.DCONTEXT_REFERENCE__TARGET) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmxPackage.Literals.DCONTEXT_REFERENCE__TARGET));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDContextReferenceAccess().getTargetDNamedElementIDTerminalRuleCall_1_0_1(), semanticObject.eGet(DmxPackage.Literals.DCONTEXT_REFERENCE__TARGET, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -985,7 +979,7 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         memberContainerReference=DTypedMemberReference_DTypedMemberReference_1_1_0_0_0 
 	 *         member=[DTypedMember|ID] 
-	 *         (explicitOperationCall?='(' (memberCallArguments+=DExpression memberCallArguments+=DExpression*)?)?
+	 *         ((explicitOperationCall?='(' (memberCallArguments+=DExpression memberCallArguments+=DExpression*)?) | before?='@before')?
 	 *     )
 	 */
 	protected void sequence_DTypedMemberReference(ISerializationContext context, DTypedMemberReference semanticObject) {

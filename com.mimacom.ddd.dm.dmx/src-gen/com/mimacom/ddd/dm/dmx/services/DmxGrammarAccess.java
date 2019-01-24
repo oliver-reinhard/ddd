@@ -819,29 +819,34 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cMemberAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
 		private final CrossReference cMemberDTypedMemberCrossReference_1_1_1_0 = (CrossReference)cMemberAssignment_1_1_1.eContents().get(0);
 		private final RuleCall cMemberDTypedMemberIDTerminalRuleCall_1_1_1_0_1 = (RuleCall)cMemberDTypedMemberCrossReference_1_1_1_0.eContents().get(1);
-		private final Group cGroup_1_1_2 = (Group)cGroup_1_1.eContents().get(2);
-		private final Assignment cExplicitOperationCallAssignment_1_1_2_0 = (Assignment)cGroup_1_1_2.eContents().get(0);
-		private final Keyword cExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0 = (Keyword)cExplicitOperationCallAssignment_1_1_2_0.eContents().get(0);
-		private final Group cGroup_1_1_2_1 = (Group)cGroup_1_1_2.eContents().get(1);
-		private final Assignment cMemberCallArgumentsAssignment_1_1_2_1_0 = (Assignment)cGroup_1_1_2_1.eContents().get(0);
-		private final RuleCall cMemberCallArgumentsDExpressionParserRuleCall_1_1_2_1_0_0 = (RuleCall)cMemberCallArgumentsAssignment_1_1_2_1_0.eContents().get(0);
-		private final Group cGroup_1_1_2_1_1 = (Group)cGroup_1_1_2_1.eContents().get(1);
-		private final Keyword cCommaKeyword_1_1_2_1_1_0 = (Keyword)cGroup_1_1_2_1_1.eContents().get(0);
-		private final Assignment cMemberCallArgumentsAssignment_1_1_2_1_1_1 = (Assignment)cGroup_1_1_2_1_1.eContents().get(1);
-		private final RuleCall cMemberCallArgumentsDExpressionParserRuleCall_1_1_2_1_1_1_0 = (RuleCall)cMemberCallArgumentsAssignment_1_1_2_1_1_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_1_1_2_2 = (Keyword)cGroup_1_1_2.eContents().get(2);
+		private final Alternatives cAlternatives_1_1_2 = (Alternatives)cGroup_1_1.eContents().get(2);
+		private final Group cGroup_1_1_2_0 = (Group)cAlternatives_1_1_2.eContents().get(0);
+		private final Assignment cExplicitOperationCallAssignment_1_1_2_0_0 = (Assignment)cGroup_1_1_2_0.eContents().get(0);
+		private final Keyword cExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0_0 = (Keyword)cExplicitOperationCallAssignment_1_1_2_0_0.eContents().get(0);
+		private final Group cGroup_1_1_2_0_1 = (Group)cGroup_1_1_2_0.eContents().get(1);
+		private final Assignment cMemberCallArgumentsAssignment_1_1_2_0_1_0 = (Assignment)cGroup_1_1_2_0_1.eContents().get(0);
+		private final RuleCall cMemberCallArgumentsDExpressionParserRuleCall_1_1_2_0_1_0_0 = (RuleCall)cMemberCallArgumentsAssignment_1_1_2_0_1_0.eContents().get(0);
+		private final Group cGroup_1_1_2_0_1_1 = (Group)cGroup_1_1_2_0_1.eContents().get(1);
+		private final Keyword cCommaKeyword_1_1_2_0_1_1_0 = (Keyword)cGroup_1_1_2_0_1_1.eContents().get(0);
+		private final Assignment cMemberCallArgumentsAssignment_1_1_2_0_1_1_1 = (Assignment)cGroup_1_1_2_0_1_1.eContents().get(1);
+		private final RuleCall cMemberCallArgumentsDExpressionParserRuleCall_1_1_2_0_1_1_1_0 = (RuleCall)cMemberCallArgumentsAssignment_1_1_2_0_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_1_2_0_2 = (Keyword)cGroup_1_1_2_0.eContents().get(2);
+		private final Assignment cBeforeAssignment_1_1_2_1 = (Assignment)cAlternatives_1_1_2.eContents().get(1);
+		private final Keyword cBeforeBeforeKeyword_1_1_2_1_0 = (Keyword)cBeforeAssignment_1_1_2_1.eContents().get(0);
 		
 		//DTypedMemberReference DExpression:
 		//	DPrimaryExpression (=> ({DAssignment.memberContainer=current} '.' member=[DTypedMember] OpSingleAssign)
 		//	value=DAssignment
 		//	| => ({DTypedMemberReference.memberContainerReference=current} '.') member=[DTypedMember] (=>
 		//	explicitOperationCall?='(' (memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)?
-		//	')')?)*;
+		//	')'
+		//	| before?="@before")?)*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//DPrimaryExpression (=> ({DAssignment.memberContainer=current} '.' member=[DTypedMember] OpSingleAssign)
 		//value=DAssignment | => ({DTypedMemberReference.memberContainerReference=current} '.') member=[DTypedMember] (=>
-		//explicitOperationCall?='(' (memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)? ')')?)*
+		//explicitOperationCall?='(' (memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)? ')' |
+		//before?="@before")?)*
 		public Group getGroup() { return cGroup; }
 		
 		//DPrimaryExpression
@@ -849,7 +854,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//(=> ({DAssignment.memberContainer=current} '.' member=[DTypedMember] OpSingleAssign) value=DAssignment | =>
 		//({DTypedMemberReference.memberContainerReference=current} '.') member=[DTypedMember] (=> explicitOperationCall?='('
-		//(memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)? ')')?)*
+		//(memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)? ')' | before?="@before")?)*
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//=> ({DAssignment.memberContainer=current} '.' member=[DTypedMember] OpSingleAssign) value=DAssignment
@@ -886,7 +891,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getValueDAssignmentParserRuleCall_1_0_1_0() { return cValueDAssignmentParserRuleCall_1_0_1_0; }
 		
 		//=> ({DTypedMemberReference.memberContainerReference=current} '.') member=[DTypedMember] (=> explicitOperationCall?='('
-		//(memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)? ')')?
+		//(memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)? ')' | before?="@before")?
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//=> ({DTypedMemberReference.memberContainerReference=current} '.')
@@ -910,38 +915,48 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getMemberDTypedMemberIDTerminalRuleCall_1_1_1_0_1() { return cMemberDTypedMemberIDTerminalRuleCall_1_1_1_0_1; }
 		
-		//(=> explicitOperationCall?='(' (memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)? ')')?
-		public Group getGroup_1_1_2() { return cGroup_1_1_2; }
+		//(=> explicitOperationCall?='(' (memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)? ')' |
+		//before?="@before")?
+		public Alternatives getAlternatives_1_1_2() { return cAlternatives_1_1_2; }
+		
+		//=> explicitOperationCall?='(' (memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)? ')'
+		public Group getGroup_1_1_2_0() { return cGroup_1_1_2_0; }
 		
 		//=> explicitOperationCall?='('
-		public Assignment getExplicitOperationCallAssignment_1_1_2_0() { return cExplicitOperationCallAssignment_1_1_2_0; }
+		public Assignment getExplicitOperationCallAssignment_1_1_2_0_0() { return cExplicitOperationCallAssignment_1_1_2_0_0; }
 		
 		//'('
-		public Keyword getExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0() { return cExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0; }
+		public Keyword getExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0_0() { return cExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0_0; }
 		
 		//(memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)?
-		public Group getGroup_1_1_2_1() { return cGroup_1_1_2_1; }
+		public Group getGroup_1_1_2_0_1() { return cGroup_1_1_2_0_1; }
 		
 		//memberCallArguments+=DExpression
-		public Assignment getMemberCallArgumentsAssignment_1_1_2_1_0() { return cMemberCallArgumentsAssignment_1_1_2_1_0; }
+		public Assignment getMemberCallArgumentsAssignment_1_1_2_0_1_0() { return cMemberCallArgumentsAssignment_1_1_2_0_1_0; }
 		
 		//DExpression
-		public RuleCall getMemberCallArgumentsDExpressionParserRuleCall_1_1_2_1_0_0() { return cMemberCallArgumentsDExpressionParserRuleCall_1_1_2_1_0_0; }
+		public RuleCall getMemberCallArgumentsDExpressionParserRuleCall_1_1_2_0_1_0_0() { return cMemberCallArgumentsDExpressionParserRuleCall_1_1_2_0_1_0_0; }
 		
 		//(',' memberCallArguments+=DExpression)*
-		public Group getGroup_1_1_2_1_1() { return cGroup_1_1_2_1_1; }
+		public Group getGroup_1_1_2_0_1_1() { return cGroup_1_1_2_0_1_1; }
 		
 		//','
-		public Keyword getCommaKeyword_1_1_2_1_1_0() { return cCommaKeyword_1_1_2_1_1_0; }
+		public Keyword getCommaKeyword_1_1_2_0_1_1_0() { return cCommaKeyword_1_1_2_0_1_1_0; }
 		
 		//memberCallArguments+=DExpression
-		public Assignment getMemberCallArgumentsAssignment_1_1_2_1_1_1() { return cMemberCallArgumentsAssignment_1_1_2_1_1_1; }
+		public Assignment getMemberCallArgumentsAssignment_1_1_2_0_1_1_1() { return cMemberCallArgumentsAssignment_1_1_2_0_1_1_1; }
 		
 		//DExpression
-		public RuleCall getMemberCallArgumentsDExpressionParserRuleCall_1_1_2_1_1_1_0() { return cMemberCallArgumentsDExpressionParserRuleCall_1_1_2_1_1_1_0; }
+		public RuleCall getMemberCallArgumentsDExpressionParserRuleCall_1_1_2_0_1_1_1_0() { return cMemberCallArgumentsDExpressionParserRuleCall_1_1_2_0_1_1_1_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_1_1_2_2() { return cRightParenthesisKeyword_1_1_2_2; }
+		public Keyword getRightParenthesisKeyword_1_1_2_0_2() { return cRightParenthesisKeyword_1_1_2_0_2; }
+		
+		//before?="@before"
+		public Assignment getBeforeAssignment_1_1_2_1() { return cBeforeAssignment_1_1_2_1; }
+		
+		//"@before"
+		public Keyword getBeforeBeforeKeyword_1_1_2_1_0() { return cBeforeBeforeKeyword_1_1_2_1_0; }
 	}
 	public class DPrimaryExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DPrimaryExpression");
@@ -1317,12 +1332,14 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTargetAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cTargetDNamedElementCrossReference_1_0 = (CrossReference)cTargetAssignment_1.eContents().get(0);
 		private final RuleCall cTargetDNamedElementIDTerminalRuleCall_1_0_1 = (RuleCall)cTargetDNamedElementCrossReference_1_0.eContents().get(1);
+		private final Assignment cBeforeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Keyword cBeforeBeforeKeyword_2_0 = (Keyword)cBeforeAssignment_2.eContents().get(0);
 		
 		//DContextReference DExpression:
-		//	{DContextReference} target=[DNamedElement];
+		//	{DContextReference} target=[DNamedElement] before?="@before"?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DContextReference} target=[DNamedElement]
+		//{DContextReference} target=[DNamedElement] before?="@before"?
 		public Group getGroup() { return cGroup; }
 		
 		//{DContextReference}
@@ -1336,6 +1353,12 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ID
 		public RuleCall getTargetDNamedElementIDTerminalRuleCall_1_0_1() { return cTargetDNamedElementIDTerminalRuleCall_1_0_1; }
+		
+		//before?="@before"?
+		public Assignment getBeforeAssignment_2() { return cBeforeAssignment_2; }
+		
+		//"@before"
+		public Keyword getBeforeBeforeKeyword_2_0() { return cBeforeBeforeKeyword_2_0; }
 	}
 	public class DIfExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DIfExpression");
@@ -2535,7 +2558,8 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	//	value=DAssignment
 	//	| => ({DTypedMemberReference.memberContainerReference=current} '.') member=[DTypedMember] (=>
 	//	explicitOperationCall?='(' (memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)?
-	//	')')?)*;
+	//	')'
+	//	| before?="@before")?)*;
 	public DTypedMemberReferenceElements getDTypedMemberReferenceAccess() {
 		return pDTypedMemberReference;
 	}
@@ -2640,7 +2664,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DContextReference DExpression:
-	//	{DContextReference} target=[DNamedElement];
+	//	{DContextReference} target=[DNamedElement] before?="@before"?;
 	public DContextReferenceElements getDContextReferenceAccess() {
 		return pDContextReference;
 	}

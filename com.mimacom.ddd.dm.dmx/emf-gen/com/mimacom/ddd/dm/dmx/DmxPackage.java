@@ -355,13 +355,22 @@ public interface DmxPackage extends EPackage
 	int DTYPED_MEMBER_REFERENCE__MEMBER_CALL_ARGUMENTS = BasePackage.DEXPRESSION_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTYPED_MEMBER_REFERENCE__BEFORE = BasePackage.DEXPRESSION_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>DTyped Member Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPED_MEMBER_REFERENCE_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 4;
+	int DTYPED_MEMBER_REFERENCE_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>DTyped Member Reference</em>' class.
@@ -641,13 +650,22 @@ public interface DmxPackage extends EPackage
 	int DCONTEXT_REFERENCE__TARGET = BasePackage.DEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCONTEXT_REFERENCE__BEFORE = BasePackage.DEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>DContext Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DCONTEXT_REFERENCE_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 1;
+	int DCONTEXT_REFERENCE_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>DContext Reference</em>' class.
@@ -1239,6 +1257,17 @@ public interface DmxPackage extends EPackage
 	EReference getDTypedMemberReference_MemberCallArguments();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DTypedMemberReference#isBefore <em>Before</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Before</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DTypedMemberReference#isBefore()
+	 * @see #getDTypedMemberReference()
+	 * @generated
+	 */
+	EAttribute getDTypedMemberReference_Before();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DCastExpression <em>DCast Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1417,6 +1446,17 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 */
 	EReference getDContextReference_Target();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DContextReference#isBefore <em>Before</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Before</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DContextReference#isBefore()
+	 * @see #getDContextReference()
+	 * @generated
+	 */
+	EAttribute getDContextReference_Before();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DIfExpression <em>DIf Expression</em>}'.
@@ -1852,6 +1892,14 @@ public interface DmxPackage extends EPackage
 		EReference DTYPED_MEMBER_REFERENCE__MEMBER_CALL_ARGUMENTS = eINSTANCE.getDTypedMemberReference_MemberCallArguments();
 
 		/**
+		 * The meta object literal for the '<em><b>Before</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DTYPED_MEMBER_REFERENCE__BEFORE = eINSTANCE.getDTypedMemberReference_Before();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DCastExpressionImpl <em>DCast Expression</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2000,6 +2048,14 @@ public interface DmxPackage extends EPackage
 		 * @generated
 		 */
 		EReference DCONTEXT_REFERENCE__TARGET = eINSTANCE.getDContextReference_Target();
+
+		/**
+		 * The meta object literal for the '<em><b>Before</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DCONTEXT_REFERENCE__BEFORE = eINSTANCE.getDContextReference_Before();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DIfExpressionImpl <em>DIf Expression</em>}' class.

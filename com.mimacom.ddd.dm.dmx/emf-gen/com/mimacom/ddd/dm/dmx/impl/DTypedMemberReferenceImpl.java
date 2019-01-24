@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DTypedMemberReferenceImpl#getMember <em>Member</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DTypedMemberReferenceImpl#isExplicitOperationCall <em>Explicit Operation Call</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DTypedMemberReferenceImpl#getMemberCallArguments <em>Member Call Arguments</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DTypedMemberReferenceImpl#isBefore <em>Before</em>}</li>
  * </ul>
  *
  * @generated
@@ -92,6 +93,26 @@ public class DTypedMemberReferenceImpl extends DExpressionImpl implements DTyped
 	 * @ordered
 	 */
 	protected EList<DExpression> memberCallArguments;
+
+	/**
+	 * The default value of the '{@link #isBefore() <em>Before</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isBefore()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean BEFORE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isBefore() <em>Before</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isBefore()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean before = BEFORE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -255,6 +276,31 @@ public class DTypedMemberReferenceImpl extends DExpressionImpl implements DTyped
 	 * @generated
 	 */
 	@Override
+	public boolean isBefore()
+	{
+		return before;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setBefore(boolean newBefore)
+	{
+		boolean oldBefore = before;
+		before = newBefore;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DTYPED_MEMBER_REFERENCE__BEFORE, oldBefore, before));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
 		switch (featureID)
@@ -286,6 +332,8 @@ public class DTypedMemberReferenceImpl extends DExpressionImpl implements DTyped
 				return isExplicitOperationCall();
 			case DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CALL_ARGUMENTS:
 				return getMemberCallArguments();
+			case DmxPackage.DTYPED_MEMBER_REFERENCE__BEFORE:
+				return isBefore();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -314,6 +362,9 @@ public class DTypedMemberReferenceImpl extends DExpressionImpl implements DTyped
 				getMemberCallArguments().clear();
 				getMemberCallArguments().addAll((Collection<? extends DExpression>)newValue);
 				return;
+			case DmxPackage.DTYPED_MEMBER_REFERENCE__BEFORE:
+				setBefore((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -340,6 +391,9 @@ public class DTypedMemberReferenceImpl extends DExpressionImpl implements DTyped
 			case DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CALL_ARGUMENTS:
 				getMemberCallArguments().clear();
 				return;
+			case DmxPackage.DTYPED_MEMBER_REFERENCE__BEFORE:
+				setBefore(BEFORE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -362,6 +416,8 @@ public class DTypedMemberReferenceImpl extends DExpressionImpl implements DTyped
 				return explicitOperationCall != EXPLICIT_OPERATION_CALL_EDEFAULT;
 			case DmxPackage.DTYPED_MEMBER_REFERENCE__MEMBER_CALL_ARGUMENTS:
 				return memberCallArguments != null && !memberCallArguments.isEmpty();
+			case DmxPackage.DTYPED_MEMBER_REFERENCE__BEFORE:
+				return before != BEFORE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -379,6 +435,8 @@ public class DTypedMemberReferenceImpl extends DExpressionImpl implements DTyped
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (explicitOperationCall: ");
 		result.append(explicitOperationCall);
+		result.append(", before: ");
+		result.append(before);
 		result.append(')');
 		return result.toString();
 	}

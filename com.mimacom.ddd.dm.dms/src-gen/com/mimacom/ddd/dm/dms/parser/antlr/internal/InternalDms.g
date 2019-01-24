@@ -3702,54 +3702,31 @@ ruleDTypedMemberReference returns [EObject current=null]
 				)
 				(
 					(
-						((
-							'('
-						)
-						)=>
 						(
-							lv_explicitOperationCall_9_0='('
-							{
-								newLeafNode(lv_explicitOperationCall_9_0, grammarAccess.getDTypedMemberReferenceAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0());
-							}
-							{
-								if ($current==null) {
-									$current = createModelElement(grammarAccess.getDTypedMemberReferenceRule());
-								}
-								setWithLastConsumed($current, "explicitOperationCall", true, "(");
-							}
-						)
-					)
-					(
-						(
+							((
+								'('
+							)
+							)=>
 							(
+								lv_explicitOperationCall_9_0='('
 								{
-									newCompositeNode(grammarAccess.getDTypedMemberReferenceAccess().getMemberCallArgumentsDExpressionParserRuleCall_1_1_2_1_0_0());
+									newLeafNode(lv_explicitOperationCall_9_0, grammarAccess.getDTypedMemberReferenceAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0_0());
 								}
-								lv_memberCallArguments_10_0=ruleDExpression
 								{
 									if ($current==null) {
-										$current = createModelElementForParent(grammarAccess.getDTypedMemberReferenceRule());
+										$current = createModelElement(grammarAccess.getDTypedMemberReferenceRule());
 									}
-									add(
-										$current,
-										"memberCallArguments",
-										lv_memberCallArguments_10_0,
-										"com.mimacom.ddd.dm.dmx.Dmx.DExpression");
-									afterParserOrEnumRuleCall();
+									setWithLastConsumed($current, "explicitOperationCall", true, "(");
 								}
 							)
 						)
 						(
-							otherlv_11=','
-							{
-								newLeafNode(otherlv_11, grammarAccess.getDTypedMemberReferenceAccess().getCommaKeyword_1_1_2_1_1_0());
-							}
 							(
 								(
 									{
-										newCompositeNode(grammarAccess.getDTypedMemberReferenceAccess().getMemberCallArgumentsDExpressionParserRuleCall_1_1_2_1_1_1_0());
+										newCompositeNode(grammarAccess.getDTypedMemberReferenceAccess().getMemberCallArgumentsDExpressionParserRuleCall_1_1_2_0_1_0_0());
 									}
-									lv_memberCallArguments_12_0=ruleDExpression
+									lv_memberCallArguments_10_0=ruleDExpression
 									{
 										if ($current==null) {
 											$current = createModelElementForParent(grammarAccess.getDTypedMemberReferenceRule());
@@ -3757,18 +3734,58 @@ ruleDTypedMemberReference returns [EObject current=null]
 										add(
 											$current,
 											"memberCallArguments",
-											lv_memberCallArguments_12_0,
+											lv_memberCallArguments_10_0,
 											"com.mimacom.ddd.dm.dmx.Dmx.DExpression");
 										afterParserOrEnumRuleCall();
 									}
 								)
 							)
-						)*
-					)?
-					otherlv_13=')'
-					{
-						newLeafNode(otherlv_13, grammarAccess.getDTypedMemberReferenceAccess().getRightParenthesisKeyword_1_1_2_2());
-					}
+							(
+								otherlv_11=','
+								{
+									newLeafNode(otherlv_11, grammarAccess.getDTypedMemberReferenceAccess().getCommaKeyword_1_1_2_0_1_1_0());
+								}
+								(
+									(
+										{
+											newCompositeNode(grammarAccess.getDTypedMemberReferenceAccess().getMemberCallArgumentsDExpressionParserRuleCall_1_1_2_0_1_1_1_0());
+										}
+										lv_memberCallArguments_12_0=ruleDExpression
+										{
+											if ($current==null) {
+												$current = createModelElementForParent(grammarAccess.getDTypedMemberReferenceRule());
+											}
+											add(
+												$current,
+												"memberCallArguments",
+												lv_memberCallArguments_12_0,
+												"com.mimacom.ddd.dm.dmx.Dmx.DExpression");
+											afterParserOrEnumRuleCall();
+										}
+									)
+								)
+							)*
+						)?
+						otherlv_13=')'
+						{
+							newLeafNode(otherlv_13, grammarAccess.getDTypedMemberReferenceAccess().getRightParenthesisKeyword_1_1_2_0_2());
+						}
+					)
+					    |
+					(
+						(
+							lv_before_14_0='@before'
+							{
+								newLeafNode(lv_before_14_0, grammarAccess.getDTypedMemberReferenceAccess().getBeforeBeforeKeyword_1_1_2_1_0());
+							}
+							{
+								if ($current==null) {
+									$current = createModelElement(grammarAccess.getDTypedMemberReferenceRule());
+								}
+								setWithLastConsumed($current, "before", true, "@before");
+							}
+						)
+					)
 				)?
 			)
 		)*
@@ -4420,6 +4437,20 @@ ruleDContextReference returns [EObject current=null]
 				}
 			)
 		)
+		(
+			(
+				lv_before_2_0='@before'
+				{
+					newLeafNode(lv_before_2_0, grammarAccess.getDContextReferenceAccess().getBeforeBeforeKeyword_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDContextReferenceRule());
+					}
+					setWithLastConsumed($current, "before", true, "@before");
+				}
+			)
+		)?
 	)
 ;
 

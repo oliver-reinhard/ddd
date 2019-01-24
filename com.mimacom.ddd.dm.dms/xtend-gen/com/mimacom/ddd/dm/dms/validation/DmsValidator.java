@@ -211,9 +211,6 @@ public class DmsValidator extends AbstractDmsValidator {
   
   public void checkNameStartsWithCapital(final DNamedElement ne) {
     final String name = ne.getName();
-    if (((ne instanceof DDomain) && (Objects.equal(DmxImportedNamespaceAwareLocalScopeProvider.DEFAULT_IMPORT_TYPES, name) || Objects.equal(DmxImportedNamespaceAwareLocalScopeProvider.DEFAULT_IMPORT_FUNCTIONS, name)))) {
-      return;
-    }
     if ((((name != null) && (name.length() > 0)) && (!Character.isUpperCase(name.charAt(0))))) {
       this.warning("Name should start with a capital", ne, BasePackage.Literals.DNAMED_ELEMENT__NAME);
     }
@@ -221,6 +218,9 @@ public class DmsValidator extends AbstractDmsValidator {
   
   @Check
   public void checkTypeNameStartsWithCapital(final DDomain d) {
+    if ((Objects.equal(DmxImportedNamespaceAwareLocalScopeProvider.DEFAULT_IMPORT_TYPES, d.getName()) || Objects.equal(DmxImportedNamespaceAwareLocalScopeProvider.DEFAULT_IMPORT_FUNCTIONS, d.getName()))) {
+      return;
+    }
     this.checkNameStartsWithCapital(d);
   }
   
