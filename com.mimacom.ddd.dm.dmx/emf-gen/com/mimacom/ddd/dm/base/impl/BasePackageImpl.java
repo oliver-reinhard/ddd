@@ -1187,6 +1187,17 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getDAttribute_Detail()
+	{
+		return (EAttribute)dAttributeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDQuery()
 	{
 		return dQueryEClass;
@@ -1692,6 +1703,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		dAttributeEClass = createEClass(DATTRIBUTE);
 		createEAttribute(dAttributeEClass, DATTRIBUTE__KEY);
+		createEAttribute(dAttributeEClass, DATTRIBUTE__DETAIL);
 
 		dQueryEClass = createEClass(DQUERY);
 		createEReference(dQueryEClass, DQUERY__PARAMETERS);
@@ -1918,6 +1930,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		initEClass(dAttributeEClass, DAttribute.class, "DAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDAttribute_Key(), ecorePackage.getEBoolean(), "key", null, 0, 1, DAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDAttribute_Detail(), ecorePackage.getEBoolean(), "detail", null, 0, 1, DAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dQueryEClass, DQuery.class, "DQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDQuery_Parameters(), this.getDQueryParameter(), null, "parameters", null, 0, -1, DQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

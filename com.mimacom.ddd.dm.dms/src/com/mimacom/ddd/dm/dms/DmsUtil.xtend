@@ -26,7 +26,7 @@ class DmsUtil {
 	}
 	
 	/*
-	 * Returns the names of all the inherited features of the given type.
+	 * Returns the names of all the inherited features of the given type (but not its own features).
 	 */
 	def Set<String> inheritedFeatureNames(DComplexType type) {
 		val supertypes = type.typeHierarchy

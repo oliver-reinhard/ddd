@@ -36,7 +36,6 @@ public class DmsParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDComplexTypeAccess().getAlternatives_4(), "rule__DComplexType__Alternatives_4");
 			builder.put(grammarAccess.getDFeatureAccess().getAlternatives(), "rule__DFeature__Alternatives");
 			builder.put(grammarAccess.getDAssociationAccess().getAlternatives_1(), "rule__DAssociation__Alternatives_1");
-			builder.put(grammarAccess.getDAttributeAccess().getAlternatives_0(), "rule__DAttribute__Alternatives_0");
 			builder.put(grammarAccess.getDExistingApplicationAccess().getAlternatives_4(), "rule__DExistingApplication__Alternatives_4");
 			builder.put(grammarAccess.getDRichTextAccess().getAlternatives(), "rule__DRichText__Alternatives");
 			builder.put(grammarAccess.getDAssignmentAccess().getAlternatives(), "rule__DAssignment__Alternatives");
@@ -87,8 +86,7 @@ public class DmsParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDAssociationAccess().getGroup(), "rule__DAssociation__Group__0");
 			builder.put(grammarAccess.getDAssociationAccess().getGroup_1_1(), "rule__DAssociation__Group_1_1__0");
 			builder.put(grammarAccess.getDAttributeAccess().getGroup(), "rule__DAttribute__Group__0");
-			builder.put(grammarAccess.getDAttributeAccess().getGroup_0_0(), "rule__DAttribute__Group_0_0__0");
-			builder.put(grammarAccess.getDAttributeAccess().getGroup_0_1(), "rule__DAttribute__Group_0_1__0");
+			builder.put(grammarAccess.getDAttributeAccess().getGroup_1(), "rule__DAttribute__Group_1__0");
 			builder.put(grammarAccess.getDQueryAccess().getGroup(), "rule__DQuery__Group__0");
 			builder.put(grammarAccess.getDQueryAccess().getGroup_2(), "rule__DQuery__Group_2__0");
 			builder.put(grammarAccess.getDQueryAccess().getGroup_2_1(), "rule__DQuery__Group_2_1__0");
@@ -228,13 +226,12 @@ public class DmsParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDAssociationAccess().getTypeAssignment_4(), "rule__DAssociation__TypeAssignment_4");
 			builder.put(grammarAccess.getDAssociationAccess().getMultiplicityAssignment_5(), "rule__DAssociation__MultiplicityAssignment_5");
 			builder.put(grammarAccess.getDAssociationAccess().getDescriptionAssignment_6(), "rule__DAssociation__DescriptionAssignment_6");
-			builder.put(grammarAccess.getDAttributeAccess().getNameAssignment_0_0_1(), "rule__DAttribute__NameAssignment_0_0_1");
-			builder.put(grammarAccess.getDAttributeAccess().getTypeAssignment_0_0_3(), "rule__DAttribute__TypeAssignment_0_0_3");
-			builder.put(grammarAccess.getDAttributeAccess().getNameAssignment_0_1_0(), "rule__DAttribute__NameAssignment_0_1_0");
-			builder.put(grammarAccess.getDAttributeAccess().getTypeAssignment_0_1_2(), "rule__DAttribute__TypeAssignment_0_1_2");
-			builder.put(grammarAccess.getDAttributeAccess().getMultiplicityAssignment_1(), "rule__DAttribute__MultiplicityAssignment_1");
-			builder.put(grammarAccess.getDAttributeAccess().getKeyAssignment_2(), "rule__DAttribute__KeyAssignment_2");
-			builder.put(grammarAccess.getDAttributeAccess().getDescriptionAssignment_3(), "rule__DAttribute__DescriptionAssignment_3");
+			builder.put(grammarAccess.getDAttributeAccess().getDetailAssignment_0(), "rule__DAttribute__DetailAssignment_0");
+			builder.put(grammarAccess.getDAttributeAccess().getNameAssignment_1_0(), "rule__DAttribute__NameAssignment_1_0");
+			builder.put(grammarAccess.getDAttributeAccess().getTypeAssignment_1_2(), "rule__DAttribute__TypeAssignment_1_2");
+			builder.put(grammarAccess.getDAttributeAccess().getMultiplicityAssignment_2(), "rule__DAttribute__MultiplicityAssignment_2");
+			builder.put(grammarAccess.getDAttributeAccess().getKeyAssignment_3(), "rule__DAttribute__KeyAssignment_3");
+			builder.put(grammarAccess.getDAttributeAccess().getDescriptionAssignment_4(), "rule__DAttribute__DescriptionAssignment_4");
 			builder.put(grammarAccess.getDQueryAccess().getNameAssignment_0(), "rule__DQuery__NameAssignment_0");
 			builder.put(grammarAccess.getDQueryAccess().getParametersAssignment_2_0(), "rule__DQuery__ParametersAssignment_2_0");
 			builder.put(grammarAccess.getDQueryAccess().getParametersAssignment_2_1_1(), "rule__DQuery__ParametersAssignment_2_1_1");

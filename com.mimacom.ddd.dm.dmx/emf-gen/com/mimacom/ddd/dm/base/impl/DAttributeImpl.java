@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DAttributeImpl#isKey <em>Key</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DAttributeImpl#isDetail <em>Detail</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,6 +46,26 @@ public class DAttributeImpl extends DFeatureImpl implements DAttribute
 	 * @ordered
 	 */
 	protected boolean key = KEY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isDetail() <em>Detail</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDetail()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DETAIL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isDetail() <em>Detail</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDetail()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean detail = DETAIL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -98,12 +119,39 @@ public class DAttributeImpl extends DFeatureImpl implements DAttribute
 	 * @generated
 	 */
 	@Override
+	public boolean isDetail()
+	{
+		return detail;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDetail(boolean newDetail)
+	{
+		boolean oldDetail = detail;
+		detail = newDetail;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DATTRIBUTE__DETAIL, oldDetail, detail));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
 		switch (featureID)
 		{
 			case BasePackage.DATTRIBUTE__KEY:
 				return isKey();
+			case BasePackage.DATTRIBUTE__DETAIL:
+				return isDetail();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -120,6 +168,9 @@ public class DAttributeImpl extends DFeatureImpl implements DAttribute
 		{
 			case BasePackage.DATTRIBUTE__KEY:
 				setKey((Boolean)newValue);
+				return;
+			case BasePackage.DATTRIBUTE__DETAIL:
+				setDetail((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -138,6 +189,9 @@ public class DAttributeImpl extends DFeatureImpl implements DAttribute
 			case BasePackage.DATTRIBUTE__KEY:
 				setKey(KEY_EDEFAULT);
 				return;
+			case BasePackage.DATTRIBUTE__DETAIL:
+				setDetail(DETAIL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -154,6 +208,8 @@ public class DAttributeImpl extends DFeatureImpl implements DAttribute
 		{
 			case BasePackage.DATTRIBUTE__KEY:
 				return key != KEY_EDEFAULT;
+			case BasePackage.DATTRIBUTE__DETAIL:
+				return detail != DETAIL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -171,6 +227,8 @@ public class DAttributeImpl extends DFeatureImpl implements DAttribute
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (key: ");
 		result.append(key);
+		result.append(", detail: ");
+		result.append(detail);
 		result.append(')');
 		return result.toString();
 	}

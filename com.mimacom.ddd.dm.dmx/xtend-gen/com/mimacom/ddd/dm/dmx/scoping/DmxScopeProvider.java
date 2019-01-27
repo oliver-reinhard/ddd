@@ -40,32 +40,32 @@ import org.eclipse.xtext.scoping.Scopes;
  */
 @SuppressWarnings("all")
 public class DmxScopeProvider extends AbstractDmxScopeProvider {
-  private final BasePackage bpackage = BasePackage.eINSTANCE;
+  private static final BasePackage bpackage = BasePackage.eINSTANCE;
   
-  private final DmxPackage xpackage = DmxPackage.eINSTANCE;
+  private static final DmxPackage xpackage = DmxPackage.eINSTANCE;
   
   @Override
   public IScope getScope(final EObject context, final EReference reference) {
-    EReference _dContextReference_Target = this.xpackage.getDContextReference_Target();
+    EReference _dContextReference_Target = DmxScopeProvider.xpackage.getDContextReference_Target();
     boolean _equals = Objects.equal(reference, _dContextReference_Target);
     if (_equals) {
-      final IScope outer = this.getDefaultScopeForType(context, this.bpackage.getIPrimaryNavigationTarget());
+      final IScope outer = this.getDefaultScopeForType(context, DmxScopeProvider.bpackage.getIPrimaryNavigationTarget());
       final IScope scope = this.getExpressionContainerMemberScope(context, outer);
       return scope;
     } else {
-      EReference _dTypedMemberReference_Member = this.xpackage.getDTypedMemberReference_Member();
+      EReference _dTypedMemberReference_Member = DmxScopeProvider.xpackage.getDTypedMemberReference_Member();
       boolean _equals_1 = Objects.equal(reference, _dTypedMemberReference_Member);
       if (_equals_1) {
         if ((context instanceof DTypedMemberReference)) {
           boolean _isExplicitOperationCall = ((DTypedMemberReference)context).isExplicitOperationCall();
           if (_isExplicitOperationCall) {
-            this.getDefaultScopeForType(context, this.bpackage.getDFunction());
+            this.getDefaultScopeForType(context, DmxScopeProvider.bpackage.getDFunction());
           } else {
             return this.getMemberReferenceScope(((DTypedMemberReference)context).getMemberContainerReference());
           }
         }
       } else {
-        EReference _dAssignment_Member = this.xpackage.getDAssignment_Member();
+        EReference _dAssignment_Member = DmxScopeProvider.xpackage.getDAssignment_Member();
         boolean _equals_2 = Objects.equal(reference, _dAssignment_Member);
         if (_equals_2) {
           if ((context instanceof DAssignment)) {
@@ -167,7 +167,7 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
     if ((memberContainer != null)) {
       return this.getMemberReferenceScope(memberContainer);
     } else {
-      final IScope outerScope = this.getDefaultScopeForType(assignment, this.bpackage.getIPrimaryNavigationTarget());
+      final IScope outerScope = this.getDefaultScopeForType(assignment, DmxScopeProvider.bpackage.getIPrimaryNavigationTarget());
       return this.getExpressionContainerMemberScope(assignment, outerScope);
     }
   }

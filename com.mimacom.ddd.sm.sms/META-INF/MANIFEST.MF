@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.mimacom.ddd.sm.sms
+Bundle-ManifestVersion: 2
+Bundle-Name: com.mimacom.ddd.sm.sms
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.mimacom.ddd.sm.sms; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.eclipse.xtend.lib;bundle-version="2.14.0",
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
+ com.mimacom.ddd.dm.dmx
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.mimacom.ddd.sm.sms,
+ com.mimacom.ddd.sm.sms.generator,
+ com.mimacom.ddd.sm.sms.parser.antlr,
+ com.mimacom.ddd.sm.sms.parser.antlr.internal,
+ com.mimacom.ddd.sm.sms.scoping,
+ com.mimacom.ddd.sm.sms.serializer,
+ com.mimacom.ddd.sm.sms.services,
+ com.mimacom.ddd.sm.sms.impl,
+ com.mimacom.ddd.sm.sms.util,
+ com.mimacom.ddd.sm.sms.validation
+Import-Package: org.apache.log4j

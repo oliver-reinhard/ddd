@@ -261,7 +261,14 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	 *     DAttribute returns DAttribute
 	 *
 	 * Constraint:
-	 *     (((name=ID type=[DDetailType|ID]) | (name=ID type=[DSimpleType|ID])) multiplicity=DMultiplicity? key?='key'? description=DRichText?)
+	 *     (
+	 *         detail?='detail'? 
+	 *         name=ID 
+	 *         type=[DSimpleType|ID] 
+	 *         multiplicity=DMultiplicity? 
+	 *         key?='key'? 
+	 *         description=DRichText?
+	 *     )
 	 */
 	protected void sequence_DAttribute(ISerializationContext context, DAttribute semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

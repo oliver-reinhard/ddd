@@ -1962,13 +1962,22 @@ public interface BasePackage extends EPackage
 	int DATTRIBUTE__KEY = DFEATURE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Detail</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATTRIBUTE__DETAIL = DFEATURE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>DAttribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATTRIBUTE_FEATURE_COUNT = DFEATURE_FEATURE_COUNT + 1;
+	int DATTRIBUTE_FEATURE_COUNT = DFEATURE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>DAttribute</em>' class.
@@ -3582,6 +3591,17 @@ public interface BasePackage extends EPackage
 	EAttribute getDAttribute_Key();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DAttribute#isDetail <em>Detail</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Detail</em>'.
+	 * @see com.mimacom.ddd.dm.base.DAttribute#isDetail()
+	 * @see #getDAttribute()
+	 * @generated
+	 */
+	EAttribute getDAttribute_Detail();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DQuery <em>DQuery</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4562,6 +4582,14 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EAttribute DATTRIBUTE__KEY = eINSTANCE.getDAttribute_Key();
+
+		/**
+		 * The meta object literal for the '<em><b>Detail</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATTRIBUTE__DETAIL = eINSTANCE.getDAttribute_Detail();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DQueryImpl <em>DQuery</em>}' class.

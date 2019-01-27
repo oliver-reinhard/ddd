@@ -33,8 +33,8 @@ import org.eclipse.xtext.scoping.Scopes
  */
 class DmxScopeProvider extends AbstractDmxScopeProvider {
 
-	val bpackage = BasePackage.eINSTANCE
-	val xpackage = DmxPackage.eINSTANCE
+	static val bpackage = BasePackage.eINSTANCE
+	static val xpackage = DmxPackage.eINSTANCE
 
 	override IScope getScope(EObject context, EReference reference) {
 

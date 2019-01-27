@@ -7,6 +7,7 @@ import com.google.common.collect.Lists
 import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DAssociation
+import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.base.DIdentityType
@@ -36,6 +37,7 @@ class DmsScopeProvider extends AbstractDmsScopeProvider {
 		if (reference == epackage.DTypedMember_Type) {
 			
 			 val IScope scope = switch context {	
+			 	DAttribute: if (context.detail == true) getDefaultScopeForType(context, epackage.DDetailType) else getDefaultScopeForType(context,  epackage.IValueType)
 				DQuery: getLocalRootTypeScope(context, getDefaultScopeForType(context, epackage.IValueType))
 				DAssociation: getDefaultScopeForType(context, epackage.DRootType)
 				DQueryParameter: getLocalRootTypeScope(context, getDefaultScopeForType(context,  epackage.IValueType))

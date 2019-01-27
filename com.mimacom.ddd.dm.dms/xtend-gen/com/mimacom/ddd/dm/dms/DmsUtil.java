@@ -33,7 +33,7 @@ public class DmsUtil {
   }
   
   /**
-   * Returns the names of all the inherited features of the given type.
+   * Returns the names of all the inherited features of the given type (but not its own features).
    */
   public Set<String> inheritedFeatureNames(final DComplexType type) {
     final Set<DComplexType> supertypes = this.typeHierarchy(type);

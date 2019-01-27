@@ -8,6 +8,7 @@ import com.google.common.collect.Lists;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DAssociation;
+import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DIdentityType;
@@ -42,9 +43,23 @@ public class DmsScopeProvider extends AbstractDmsScopeProvider {
     if (_equals) {
       IScope _switchResult = null;
       boolean _matched = false;
-      if (context instanceof DQuery) {
+      if (context instanceof DAttribute) {
         _matched=true;
-        _switchResult = this.getLocalRootTypeScope(((DTypedMember)context), this.getDefaultScopeForType(context, this.epackage.getIValueType()));
+        IScope _xifexpression = null;
+        boolean _isDetail = ((DAttribute)context).isDetail();
+        boolean _equals_1 = (_isDetail == true);
+        if (_equals_1) {
+          _xifexpression = this.getDefaultScopeForType(context, this.epackage.getDDetailType());
+        } else {
+          _xifexpression = this.getDefaultScopeForType(context, this.epackage.getIValueType());
+        }
+        _switchResult = _xifexpression;
+      }
+      if (!_matched) {
+        if (context instanceof DQuery) {
+          _matched=true;
+          _switchResult = this.getLocalRootTypeScope(((DTypedMember)context), this.getDefaultScopeForType(context, this.epackage.getIValueType()));
+        }
       }
       if (!_matched) {
         if (context instanceof DAssociation) {

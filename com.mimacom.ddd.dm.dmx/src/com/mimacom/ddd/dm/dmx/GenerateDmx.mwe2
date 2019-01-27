@@ -5,7 +5,7 @@ import org.eclipse.xtext.xtext.generator.model.project.*
 
 var rootPath = ".."
 var project="com.mimacom.ddd.dm.dmx"
-var genModel="platform:/resource/com.mimacom.ddd.dm.dmx/model/dmx.genmodel"
+var genModel="platform:/resource/${project}/model/dmx.genmodel"
 //var baseGenModel="platform:/resource/com.mimacom.ddd.dm.dmx/model/base.genmodel"
 
 Workflow {
@@ -30,7 +30,7 @@ Workflow {
 	bean =  org.eclipse.emf.mwe.utils.StandaloneSetup {
 	    platformUri = "${rootPath}"
 	    scanClassPath = true
-	    registerGeneratedEPackage = "com.mimacom.ddd.dm.dmx.DmxPackage"
+	    registerGeneratedEPackage = "${project}.DmxPackage"
 	    registerGenModelFile = "${genModel}"
 	}
 	

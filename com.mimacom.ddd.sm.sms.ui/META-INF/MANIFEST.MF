@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.mimacom.ddd.sm.sms.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: com.mimacom.ddd.sm.sms.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.mimacom.ddd.sm.sms.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.mimacom.ddd.sm.sms,
+ com.mimacom.ddd.sm.sms.ide,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtend.lib;bundle-version="2.14.0";resolution:=optional
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.mimacom.ddd.sm.sms.ui.contentassist,
+ com.mimacom.ddd.sm.sms.ui.quickfix,
+ com.mimacom.ddd.sm.sms.ui.internal
+Bundle-Activator: com.mimacom.ddd.sm.sms.ui.internal.SmsActivator
