@@ -91,15 +91,15 @@ public class SmsSwitch<T> extends Switch<T>
 			{
 				SDeducibleElement sDeducibleElement = (SDeducibleElement)theEObject;
 				T result = caseSDeducibleElement(sDeducibleElement);
-				if (result == null) result = caseSNamedElement(sDeducibleElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT:
+			case SmsPackage.SNAMED_DEDUCIBLE_ELEMENT:
 			{
-				SDeducibleMemberElement sDeducibleMemberElement = (SDeducibleMemberElement)theEObject;
-				T result = caseSDeducibleMemberElement(sDeducibleMemberElement);
-				if (result == null) result = caseSNamedElement(sDeducibleMemberElement);
+				SNamedDeducibleElement sNamedDeducibleElement = (SNamedDeducibleElement)theEObject;
+				T result = caseSNamedDeducibleElement(sNamedDeducibleElement);
+				if (result == null) result = caseSNamedElement(sNamedDeducibleElement);
+				if (result == null) result = caseSDeducibleElement(sNamedDeducibleElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -114,6 +114,7 @@ public class SmsSwitch<T> extends Switch<T>
 			{
 				SAggregate sAggregate = (SAggregate)theEObject;
 				T result = caseSAggregate(sAggregate);
+				if (result == null) result = caseSDeducibleElement(sAggregate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -121,8 +122,9 @@ public class SmsSwitch<T> extends Switch<T>
 			{
 				SType sType = (SType)theEObject;
 				T result = caseSType(sType);
-				if (result == null) result = caseSDeducibleElement(sType);
+				if (result == null) result = caseSNamedDeducibleElement(sType);
 				if (result == null) result = caseSNamedElement(sType);
+				if (result == null) result = caseSDeducibleElement(sType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -131,8 +133,9 @@ public class SmsSwitch<T> extends Switch<T>
 				SSimpleType sSimpleType = (SSimpleType)theEObject;
 				T result = caseSSimpleType(sSimpleType);
 				if (result == null) result = caseSType(sSimpleType);
-				if (result == null) result = caseSDeducibleElement(sSimpleType);
+				if (result == null) result = caseSNamedDeducibleElement(sSimpleType);
 				if (result == null) result = caseSNamedElement(sSimpleType);
+				if (result == null) result = caseSDeducibleElement(sSimpleType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -141,8 +144,9 @@ public class SmsSwitch<T> extends Switch<T>
 				SComplexType sComplexType = (SComplexType)theEObject;
 				T result = caseSComplexType(sComplexType);
 				if (result == null) result = caseSType(sComplexType);
-				if (result == null) result = caseSDeducibleElement(sComplexType);
+				if (result == null) result = caseSNamedDeducibleElement(sComplexType);
 				if (result == null) result = caseSNamedElement(sComplexType);
+				if (result == null) result = caseSDeducibleElement(sComplexType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -159,8 +163,9 @@ public class SmsSwitch<T> extends Switch<T>
 				T result = caseSPrimitive(sPrimitive);
 				if (result == null) result = caseSSimpleType(sPrimitive);
 				if (result == null) result = caseSType(sPrimitive);
-				if (result == null) result = caseSDeducibleElement(sPrimitive);
+				if (result == null) result = caseSNamedDeducibleElement(sPrimitive);
 				if (result == null) result = caseSNamedElement(sPrimitive);
+				if (result == null) result = caseSDeducibleElement(sPrimitive);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -170,8 +175,9 @@ public class SmsSwitch<T> extends Switch<T>
 				T result = caseSEnumeration(sEnumeration);
 				if (result == null) result = caseSSimpleType(sEnumeration);
 				if (result == null) result = caseSType(sEnumeration);
-				if (result == null) result = caseSDeducibleElement(sEnumeration);
+				if (result == null) result = caseSNamedDeducibleElement(sEnumeration);
 				if (result == null) result = caseSNamedElement(sEnumeration);
+				if (result == null) result = caseSDeducibleElement(sEnumeration);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -179,8 +185,9 @@ public class SmsSwitch<T> extends Switch<T>
 			{
 				SLiteral sLiteral = (SLiteral)theEObject;
 				T result = caseSLiteral(sLiteral);
-				if (result == null) result = caseSDeducibleElement(sLiteral);
+				if (result == null) result = caseSNamedDeducibleElement(sLiteral);
 				if (result == null) result = caseSNamedElement(sLiteral);
+				if (result == null) result = caseSDeducibleElement(sLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -190,8 +197,9 @@ public class SmsSwitch<T> extends Switch<T>
 				T result = caseSRootType(sRootType);
 				if (result == null) result = caseSComplexType(sRootType);
 				if (result == null) result = caseSType(sRootType);
-				if (result == null) result = caseSDeducibleElement(sRootType);
+				if (result == null) result = caseSNamedDeducibleElement(sRootType);
 				if (result == null) result = caseSNamedElement(sRootType);
+				if (result == null) result = caseSDeducibleElement(sRootType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -201,8 +209,9 @@ public class SmsSwitch<T> extends Switch<T>
 				T result = caseSDetailType(sDetailType);
 				if (result == null) result = caseSComplexType(sDetailType);
 				if (result == null) result = caseSType(sDetailType);
-				if (result == null) result = caseSDeducibleElement(sDetailType);
+				if (result == null) result = caseSNamedDeducibleElement(sDetailType);
 				if (result == null) result = caseSNamedElement(sDetailType);
+				if (result == null) result = caseSDeducibleElement(sDetailType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -210,8 +219,9 @@ public class SmsSwitch<T> extends Switch<T>
 			{
 				SFeature sFeature = (SFeature)theEObject;
 				T result = caseSFeature(sFeature);
-				if (result == null) result = caseSDeducibleMemberElement(sFeature);
+				if (result == null) result = caseSNamedDeducibleElement(sFeature);
 				if (result == null) result = caseSNamedElement(sFeature);
+				if (result == null) result = caseSDeducibleElement(sFeature);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -220,8 +230,9 @@ public class SmsSwitch<T> extends Switch<T>
 				SAssociation sAssociation = (SAssociation)theEObject;
 				T result = caseSAssociation(sAssociation);
 				if (result == null) result = caseSFeature(sAssociation);
-				if (result == null) result = caseSDeducibleMemberElement(sAssociation);
+				if (result == null) result = caseSNamedDeducibleElement(sAssociation);
 				if (result == null) result = caseSNamedElement(sAssociation);
+				if (result == null) result = caseSDeducibleElement(sAssociation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -230,8 +241,9 @@ public class SmsSwitch<T> extends Switch<T>
 				SAttribute sAttribute = (SAttribute)theEObject;
 				T result = caseSAttribute(sAttribute);
 				if (result == null) result = caseSFeature(sAttribute);
-				if (result == null) result = caseSDeducibleMemberElement(sAttribute);
+				if (result == null) result = caseSNamedDeducibleElement(sAttribute);
 				if (result == null) result = caseSNamedElement(sAttribute);
+				if (result == null) result = caseSDeducibleElement(sAttribute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -240,8 +252,9 @@ public class SmsSwitch<T> extends Switch<T>
 				SQuery sQuery = (SQuery)theEObject;
 				T result = caseSQuery(sQuery);
 				if (result == null) result = caseSFeature(sQuery);
-				if (result == null) result = caseSDeducibleMemberElement(sQuery);
+				if (result == null) result = caseSNamedDeducibleElement(sQuery);
 				if (result == null) result = caseSNamedElement(sQuery);
+				if (result == null) result = caseSDeducibleElement(sQuery);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -249,8 +262,9 @@ public class SmsSwitch<T> extends Switch<T>
 			{
 				SQueryParameter sQueryParameter = (SQueryParameter)theEObject;
 				T result = caseSQueryParameter(sQueryParameter);
-				if (result == null) result = caseSDeducibleMemberElement(sQueryParameter);
+				if (result == null) result = caseSNamedDeducibleElement(sQueryParameter);
 				if (result == null) result = caseSNamedElement(sQueryParameter);
+				if (result == null) result = caseSDeducibleElement(sQueryParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -275,57 +289,57 @@ public class SmsSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SmsPackage.SMEMBER_DEDUCTION_RULE:
+			case SmsPackage.SNAMED_ELEMENT_DEDUCTION_RULE:
 			{
-				SMemberDeductionRule sMemberDeductionRule = (SMemberDeductionRule)theEObject;
-				T result = caseSMemberDeductionRule(sMemberDeductionRule);
+				SNamedElementDeductionRule sNamedElementDeductionRule = (SNamedElementDeductionRule)theEObject;
+				T result = caseSNamedElementDeductionRule(sNamedElementDeductionRule);
+				if (result == null) result = caseSDeductionRule(sNamedElementDeductionRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SmsPackage.STRANSFORM:
+			case SmsPackage.SGRAB_RULE:
 			{
-				STransform sTransform = (STransform)theEObject;
-				T result = caseSTransform(sTransform);
+				SGrabRule sGrabRule = (SGrabRule)theEObject;
+				T result = caseSGrabRule(sGrabRule);
+				if (result == null) result = caseSNamedElementDeductionRule(sGrabRule);
+				if (result == null) result = caseSDeductionRule(sGrabRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SmsPackage.SSPOOF_TRANSFORM:
+			case SmsPackage.SMORPH_RULE:
 			{
-				SSpoofTransform sSpoofTransform = (SSpoofTransform)theEObject;
-				T result = caseSSpoofTransform(sSpoofTransform);
-				if (result == null) result = caseSTransform(sSpoofTransform);
+				SMorphRule sMorphRule = (SMorphRule)theEObject;
+				T result = caseSMorphRule(sMorphRule);
+				if (result == null) result = caseSGrabRule(sMorphRule);
+				if (result == null) result = caseSNamedElementDeductionRule(sMorphRule);
+				if (result == null) result = caseSDeductionRule(sMorphRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SmsPackage.SMORPH_TRANSFORM:
+			case SmsPackage.SDITCH_RULE:
 			{
-				SMorphTransform sMorphTransform = (SMorphTransform)theEObject;
-				T result = caseSMorphTransform(sMorphTransform);
-				if (result == null) result = caseSTransform(sMorphTransform);
+				SDitchRule sDitchRule = (SDitchRule)theEObject;
+				T result = caseSDitchRule(sDitchRule);
+				if (result == null) result = caseSNamedElementDeductionRule(sDitchRule);
+				if (result == null) result = caseSDeductionRule(sDitchRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SmsPackage.SDITCH_TRANSFORM:
+			case SmsPackage.SFUSE_RULE:
 			{
-				SDitchTransform sDitchTransform = (SDitchTransform)theEObject;
-				T result = caseSDitchTransform(sDitchTransform);
-				if (result == null) result = caseSTransform(sDitchTransform);
+				SFuseRule sFuseRule = (SFuseRule)theEObject;
+				T result = caseSFuseRule(sFuseRule);
+				if (result == null) result = caseSGrabRule(sFuseRule);
+				if (result == null) result = caseSNamedElementDeductionRule(sFuseRule);
+				if (result == null) result = caseSDeductionRule(sFuseRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SmsPackage.SFUSE_TRANSFORM:
+			case SmsPackage.SGRAB_AGGREGATE_RULE:
 			{
-				SFuseTransform sFuseTransform = (SFuseTransform)theEObject;
-				T result = caseSFuseTransform(sFuseTransform);
-				if (result == null) result = caseSTransform(sFuseTransform);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SmsPackage.SCHOP_TRANSFORM:
-			{
-				SChopTransform sChopTransform = (SChopTransform)theEObject;
-				T result = caseSChopTransform(sChopTransform);
-				if (result == null) result = caseSTransform(sChopTransform);
+				SGrabAggregateRule sGrabAggregateRule = (SGrabAggregateRule)theEObject;
+				T result = caseSGrabAggregateRule(sGrabAggregateRule);
+				if (result == null) result = caseSDeductionRule(sGrabAggregateRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -382,17 +396,17 @@ public class SmsSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SDeducible Member Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SNamed Deducible Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SDeducible Member Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SNamed Deducible Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSDeducibleMemberElement(SDeducibleMemberElement object)
+	public T caseSNamedDeducibleElement(SNamedDeducibleElement object)
 	{
 		return null;
 	}
@@ -702,113 +716,97 @@ public class SmsSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SMember Deduction Rule</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SNamed Element Deduction Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SMember Deduction Rule</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SNamed Element Deduction Rule</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSMemberDeductionRule(SMemberDeductionRule object)
+	public T caseSNamedElementDeductionRule(SNamedElementDeductionRule object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>STransform</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SGrab Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>STransform</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SGrab Rule</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSTransform(STransform object)
+	public T caseSGrabRule(SGrabRule object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SSpoof Transform</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SMorph Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SSpoof Transform</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SMorph Rule</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSSpoofTransform(SSpoofTransform object)
+	public T caseSMorphRule(SMorphRule object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SMorph Transform</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SDitch Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SMorph Transform</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SDitch Rule</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSMorphTransform(SMorphTransform object)
+	public T caseSDitchRule(SDitchRule object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SDitch Transform</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SFuse Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SDitch Transform</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SFuse Rule</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSDitchTransform(SDitchTransform object)
+	public T caseSFuseRule(SFuseRule object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SFuse Transform</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SGrab Aggregate Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SFuse Transform</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SGrab Aggregate Rule</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSFuseTransform(SFuseTransform object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SChop Transform</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SChop Transform</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSChopTransform(SChopTransform object)
+	public T caseSGrabAggregateRule(SGrabAggregateRule object)
 	{
 		return null;
 	}

@@ -3,9 +3,10 @@
  */
 package com.mimacom.ddd.sm.sms.impl;
 
-import com.mimacom.ddd.sm.sms.SDeducibleMemberElement;
+import com.mimacom.ddd.sm.sms.SDeducibleElement;
+import com.mimacom.ddd.sm.sms.SDeductionRule;
 import com.mimacom.ddd.sm.sms.SElementNature;
-import com.mimacom.ddd.sm.sms.SMemberDeductionRule;
+import com.mimacom.ddd.sm.sms.SNamedDeducibleElement;
 import com.mimacom.ddd.sm.sms.SmsPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -18,20 +19,20 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>SDeducible Member Element</b></em>'.
+ * An implementation of the model object '<em><b>SNamed Deducible Element</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.sms.impl.SDeducibleMemberElementImpl#getDeductionRule <em>Deduction Rule</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sms.impl.SDeducibleMemberElementImpl#getNature <em>Nature</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sms.impl.SDeducibleMemberElementImpl#getSynthetic <em>Synthetic</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sms.impl.SNamedDeducibleElementImpl#getDeductionRule <em>Deduction Rule</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sms.impl.SNamedDeducibleElementImpl#getNature <em>Nature</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sms.impl.SNamedDeducibleElementImpl#getSynthetic <em>Synthetic</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SDeducibleMemberElementImpl extends SNamedElementImpl implements SDeducibleMemberElement
+public abstract class SNamedDeducibleElementImpl extends SNamedElementImpl implements SNamedDeducibleElement
 {
 	/**
 	 * The cached value of the '{@link #getDeductionRule() <em>Deduction Rule</em>}' containment reference.
@@ -41,7 +42,7 @@ public class SDeducibleMemberElementImpl extends SNamedElementImpl implements SD
 	 * @generated
 	 * @ordered
 	 */
-	protected SMemberDeductionRule deductionRule;
+	protected SDeductionRule deductionRule;
 
 	/**
 	 * The default value of the '{@link #getNature() <em>Nature</em>}' attribute.
@@ -87,7 +88,7 @@ public class SDeducibleMemberElementImpl extends SNamedElementImpl implements SD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SDeducibleMemberElementImpl()
+	protected SNamedDeducibleElementImpl()
 	{
 		super();
 	}
@@ -100,7 +101,7 @@ public class SDeducibleMemberElementImpl extends SNamedElementImpl implements SD
 	@Override
 	protected EClass eStaticClass()
 	{
-		return SmsPackage.Literals.SDEDUCIBLE_MEMBER_ELEMENT;
+		return SmsPackage.Literals.SNAMED_DEDUCIBLE_ELEMENT;
 	}
 
 	/**
@@ -109,7 +110,7 @@ public class SDeducibleMemberElementImpl extends SNamedElementImpl implements SD
 	 * @generated
 	 */
 	@Override
-	public SMemberDeductionRule getDeductionRule()
+	public SDeductionRule getDeductionRule()
 	{
 		return deductionRule;
 	}
@@ -119,13 +120,13 @@ public class SDeducibleMemberElementImpl extends SNamedElementImpl implements SD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDeductionRule(SMemberDeductionRule newDeductionRule, NotificationChain msgs)
+	public NotificationChain basicSetDeductionRule(SDeductionRule newDeductionRule, NotificationChain msgs)
 	{
-		SMemberDeductionRule oldDeductionRule = deductionRule;
+		SDeductionRule oldDeductionRule = deductionRule;
 		deductionRule = newDeductionRule;
 		if (eNotificationRequired())
 		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT__DEDUCTION_RULE, oldDeductionRule, newDeductionRule);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__DEDUCTION_RULE, oldDeductionRule, newDeductionRule);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -137,20 +138,20 @@ public class SDeducibleMemberElementImpl extends SNamedElementImpl implements SD
 	 * @generated
 	 */
 	@Override
-	public void setDeductionRule(SMemberDeductionRule newDeductionRule)
+	public void setDeductionRule(SDeductionRule newDeductionRule)
 	{
 		if (newDeductionRule != deductionRule)
 		{
 			NotificationChain msgs = null;
 			if (deductionRule != null)
-				msgs = ((InternalEObject)deductionRule).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT__DEDUCTION_RULE, null, msgs);
+				msgs = ((InternalEObject)deductionRule).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__DEDUCTION_RULE, null, msgs);
 			if (newDeductionRule != null)
-				msgs = ((InternalEObject)newDeductionRule).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT__DEDUCTION_RULE, null, msgs);
+				msgs = ((InternalEObject)newDeductionRule).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__DEDUCTION_RULE, null, msgs);
 			msgs = basicSetDeductionRule(newDeductionRule, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT__DEDUCTION_RULE, newDeductionRule, newDeductionRule));
+			eNotify(new ENotificationImpl(this, Notification.SET, SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__DEDUCTION_RULE, newDeductionRule, newDeductionRule));
 	}
 
 	/**
@@ -203,7 +204,7 @@ public class SDeducibleMemberElementImpl extends SNamedElementImpl implements SD
 		boolean oldSyntheticESet = syntheticESet;
 		syntheticESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT__SYNTHETIC, oldSynthetic, synthetic, !oldSyntheticESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__SYNTHETIC, oldSynthetic, synthetic, !oldSyntheticESet));
 	}
 
 	/**
@@ -219,7 +220,7 @@ public class SDeducibleMemberElementImpl extends SNamedElementImpl implements SD
 		synthetic = SYNTHETIC_EDEFAULT;
 		syntheticESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT__SYNTHETIC, oldSynthetic, SYNTHETIC_EDEFAULT, oldSyntheticESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__SYNTHETIC, oldSynthetic, SYNTHETIC_EDEFAULT, oldSyntheticESet));
 	}
 
 	/**
@@ -243,7 +244,7 @@ public class SDeducibleMemberElementImpl extends SNamedElementImpl implements SD
 	{
 		switch (featureID)
 		{
-			case SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT__DEDUCTION_RULE:
+			case SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__DEDUCTION_RULE:
 				return basicSetDeductionRule(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -259,11 +260,11 @@ public class SDeducibleMemberElementImpl extends SNamedElementImpl implements SD
 	{
 		switch (featureID)
 		{
-			case SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT__DEDUCTION_RULE:
+			case SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__DEDUCTION_RULE:
 				return getDeductionRule();
-			case SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT__NATURE:
+			case SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__NATURE:
 				return getNature();
-			case SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT__SYNTHETIC:
+			case SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__SYNTHETIC:
 				return getSynthetic();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -279,13 +280,13 @@ public class SDeducibleMemberElementImpl extends SNamedElementImpl implements SD
 	{
 		switch (featureID)
 		{
-			case SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT__DEDUCTION_RULE:
-				setDeductionRule((SMemberDeductionRule)newValue);
+			case SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__DEDUCTION_RULE:
+				setDeductionRule((SDeductionRule)newValue);
 				return;
-			case SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT__NATURE:
+			case SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__NATURE:
 				setNature((SElementNature)newValue);
 				return;
-			case SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT__SYNTHETIC:
+			case SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__SYNTHETIC:
 				setSynthetic((Boolean)newValue);
 				return;
 		}
@@ -302,13 +303,13 @@ public class SDeducibleMemberElementImpl extends SNamedElementImpl implements SD
 	{
 		switch (featureID)
 		{
-			case SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT__DEDUCTION_RULE:
-				setDeductionRule((SMemberDeductionRule)null);
+			case SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__DEDUCTION_RULE:
+				setDeductionRule((SDeductionRule)null);
 				return;
-			case SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT__NATURE:
+			case SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__NATURE:
 				setNature(NATURE_EDEFAULT);
 				return;
-			case SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT__SYNTHETIC:
+			case SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__SYNTHETIC:
 				unsetSynthetic();
 				return;
 		}
@@ -325,14 +326,56 @@ public class SDeducibleMemberElementImpl extends SNamedElementImpl implements SD
 	{
 		switch (featureID)
 		{
-			case SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT__DEDUCTION_RULE:
+			case SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__DEDUCTION_RULE:
 				return deductionRule != null;
-			case SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT__NATURE:
+			case SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__NATURE:
 				return getNature() != NATURE_EDEFAULT;
-			case SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT__SYNTHETIC:
+			case SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__SYNTHETIC:
 				return isSetSynthetic();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == SDeducibleElement.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__DEDUCTION_RULE: return SmsPackage.SDEDUCIBLE_ELEMENT__DEDUCTION_RULE;
+				case SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__NATURE: return SmsPackage.SDEDUCIBLE_ELEMENT__NATURE;
+				case SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__SYNTHETIC: return SmsPackage.SDEDUCIBLE_ELEMENT__SYNTHETIC;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == SDeducibleElement.class)
+		{
+			switch (baseFeatureID)
+			{
+				case SmsPackage.SDEDUCIBLE_ELEMENT__DEDUCTION_RULE: return SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__DEDUCTION_RULE;
+				case SmsPackage.SDEDUCIBLE_ELEMENT__NATURE: return SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__NATURE;
+				case SmsPackage.SDEDUCIBLE_ELEMENT__SYNTHETIC: return SmsPackage.SNAMED_DEDUCIBLE_ELEMENT__SYNTHETIC;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -352,4 +395,4 @@ public class SDeducibleMemberElementImpl extends SNamedElementImpl implements SD
 		return result.toString();
 	}
 
-} //SDeducibleMemberElementImpl
+} //SNamedDeducibleElementImpl

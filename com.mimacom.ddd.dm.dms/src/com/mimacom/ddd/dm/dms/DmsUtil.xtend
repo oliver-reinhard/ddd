@@ -3,12 +3,18 @@ package com.mimacom.ddd.dm.dms
 import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DComplexType
+import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DDomain
+import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DFeature
+import com.mimacom.ddd.dm.base.DPrimitive
+import com.mimacom.ddd.dm.base.DRootType
+import com.mimacom.ddd.dm.base.DType
 import java.util.LinkedHashSet
 import java.util.Set
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
+import com.mimacom.ddd.dm.base.DCondition
 
 class DmsUtil {
 	
@@ -87,6 +93,37 @@ class DmsUtil {
 		val d = f.domain
 		if (d === null) return false
 		return f.isTypeInsideDomain(d)
+	}
+	
+	//// Labels
+	
+	def String label(DAggregate a) {
+		return "Aggregate " + a.rootName
+	}
+	
+	def String label(DType type) {
+		val typeLabel = switch type {
+			DPrimitive: if (type.archetype) "Archetype " else  "Primitive "
+			DEnumeration: "Enumeration "
+			DRootType: "Root "
+			DDetailType: "Detail "
+			DAssociation: switch type.kind {
+				case REFERENCE: "Reference to "
+				case COMPOSITE: "Composite to "
+				case INVERSE_COMPOSITE: "Inverse Composite to "
+				default: type.kind.toString
+			}
+			default: type.class.simpleName
+		}
+		return typeLabel + type?.name
+	}
+	
+	def String label(DFeature f) {
+		return f.name + " : " + f.type?.label
+	}
+	
+	def String label(DCondition c) {
+		return "Constraint " + c.name
 	}
 	
 }

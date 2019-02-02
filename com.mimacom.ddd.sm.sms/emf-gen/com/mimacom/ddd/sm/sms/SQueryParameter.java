@@ -21,7 +21,7 @@ package com.mimacom.ddd.sm.sms;
  * @model
  * @generated
  */
-public interface SQueryParameter extends SDeducibleMemberElement
+public interface SQueryParameter extends SNamedDeducibleElement
 {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' reference.

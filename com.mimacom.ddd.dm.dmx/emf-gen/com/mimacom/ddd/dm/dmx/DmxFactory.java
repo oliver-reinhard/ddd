@@ -203,13 +203,13 @@ public interface DmxFactory extends EFactory
 	DDateLiteral createDDateLiteral();
 
 	/**
-	 * Returns a new object of class '<em>DNil Literal</em>'.
+	 * Returns a new object of class '<em>DUndefined Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DNil Literal</em>'.
+	 * @return a new object of class '<em>DUndefined Literal</em>'.
 	 * @generated
 	 */
-	DNilLiteral createDNilLiteral();
+	DUndefinedLiteral createDUndefinedLiteral();
 
 	/**
 	 * Returns the package supported by this factory.

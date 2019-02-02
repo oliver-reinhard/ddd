@@ -253,12 +253,12 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DNIL_LITERAL:
+			case DmxPackage.DUNDEFINED_LITERAL:
 			{
-				DNilLiteral dNilLiteral = (DNilLiteral)theEObject;
-				T result = caseDNilLiteral(dNilLiteral);
-				if (result == null) result = caseDExpression(dNilLiteral);
-				if (result == null) result = caseIRichTextElement(dNilLiteral);
+				DUndefinedLiteral dUndefinedLiteral = (DUndefinedLiteral)theEObject;
+				T result = caseDUndefinedLiteral(dUndefinedLiteral);
+				if (result == null) result = caseDExpression(dUndefinedLiteral);
+				if (result == null) result = caseIRichTextElement(dUndefinedLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -587,17 +587,17 @@ public class DmxSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DNil Literal</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>DUndefined Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DNil Literal</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>DUndefined Literal</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDNilLiteral(DNilLiteral object)
+	public T caseDUndefinedLiteral(DUndefinedLiteral object)
 	{
 		return null;
 	}

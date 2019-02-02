@@ -203,7 +203,7 @@ DBooleanLiteral returns DExpression: {DBooleanLiteral} (value?='TRUE' | value?='
 DStringLiteral returns DExpression: {DStringLiteral} value=STRING;
 DNaturalLiteral returns DExpression: {DNaturalLiteral} value=NATURAL;
 DDecimalLiteral returns DExpression: {DDecimalLiteral} value=DECIMAL;
-DNilLiteral returns DExpression: {DNilLiteral} ('NIL' | 'nil');
+DNilLiteral returns DExpression: {DUndefinedLiteral} ('UNDEFINED' | 'undefined');
 
 DECIMAL returns ecore::EString: NATURAL '.' NATURAL (('E'|'e')  ('+'|'-')? NATURAL)?;
 
@@ -213,9 +213,10 @@ DQualifiedNameWithWildcard:
 DQualifiedName:
 	ID ('.' ID)*;
 	
-terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+terminal ID: '^'?(LETTER|'_') (LETTER|'_'|'0'..'9')*;
 terminal STRING:	'"' ( '\\' . | !('\\'|'"') )* '"';
 terminal NATURAL returns ecore::EInt: '0'..'9'+;
+terminal fragment LETTER:'a'..'z'|'A'..'Z'|'\u00c0'..'\u00d6'|'\u00d8'..'\u00f6'|'\u00f8'..'\u00ff'; // Latin characters '\uc380'..'\uc396'|'\uc398'..'\uc3b6'|'\uc3b8'..'\uc3bf'
 
 terminal fragment PLAIN_TEXT:	!('»'|'[');
 terminal PLAIN_TEXT_ONLY:		'«' PLAIN_TEXT* '»';

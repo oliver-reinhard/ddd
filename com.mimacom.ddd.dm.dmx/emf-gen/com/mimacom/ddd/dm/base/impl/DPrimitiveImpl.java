@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DPrimitiveImpl#getRedefines <em>Redefines</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DPrimitiveImpl#isArchetype <em>Archetype</em>}</li>
  * </ul>
  *
  * @generated
@@ -36,6 +37,16 @@ public class DPrimitiveImpl extends DSimpleTypeImpl implements DPrimitive
 	 * @ordered
 	 */
 	protected DPrimitive redefines;
+
+	/**
+	 * The default value of the '{@link #isArchetype() <em>Archetype</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isArchetype()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ARCHETYPE_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,6 +120,19 @@ public class DPrimitiveImpl extends DSimpleTypeImpl implements DPrimitive
 	 * @generated
 	 */
 	@Override
+	public boolean isArchetype()
+	{
+		// TODO: implement this method to return the 'Archetype' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
 		switch (featureID)
@@ -116,6 +140,8 @@ public class DPrimitiveImpl extends DSimpleTypeImpl implements DPrimitive
 			case BasePackage.DPRIMITIVE__REDEFINES:
 				if (resolve) return getRedefines();
 				return basicGetRedefines();
+			case BasePackage.DPRIMITIVE__ARCHETYPE:
+				return isArchetype();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -166,6 +192,8 @@ public class DPrimitiveImpl extends DSimpleTypeImpl implements DPrimitive
 		{
 			case BasePackage.DPRIMITIVE__REDEFINES:
 				return redefines != null;
+			case BasePackage.DPRIMITIVE__ARCHETYPE:
+				return isArchetype() != ARCHETYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -4,6 +4,12 @@
 package com.mimacom.ddd.sm.sms.ui.labeling
 
 import com.google.inject.Inject
+import com.mimacom.ddd.sm.sms.SAggregate
+import com.mimacom.ddd.sm.sms.SCondition
+import com.mimacom.ddd.sm.sms.SFeature
+import com.mimacom.ddd.sm.sms.SLiteral
+import com.mimacom.ddd.sm.sms.SType
+import com.mimacom.ddd.sm.sms.SmsUtil
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 
@@ -14,16 +20,37 @@ import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
  */
 class SmsLabelProvider extends DefaultEObjectLabelProvider {
 
+	@Inject extension SmsUtil
 	@Inject
 	new(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
-
-	// Labels and icons can be computed like this:
 	
-//	def text(Greeting ele) {
-//		'A greeting to ' + ele.name
-//	}
+	def text(SAggregate a) {
+		return a.label
+	}
+	
+	def text(SType t) {
+		return t.label
+	}
+	
+	def text(SFeature f) {
+		if (f.deductionRule !== null) {
+			return ">" + f.deductionRule.label
+		}
+		return f.label
+	}
+	
+	def text(SCondition c) {
+		return c.label
+	}
+	
+	def text(SLiteral literal) {
+		if (literal.deductionRule !== null) {
+			return ">" + literal.deductionRule.label
+		}
+		return literal.name
+	}
 //
 //	def image(Greeting ele) {
 //		'Greeting.gif'

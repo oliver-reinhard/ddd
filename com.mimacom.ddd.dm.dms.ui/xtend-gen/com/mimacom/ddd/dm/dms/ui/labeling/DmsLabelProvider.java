@@ -4,8 +4,14 @@
 package com.mimacom.ddd.dm.dms.ui.labeling;
 
 import com.google.inject.Inject;
+import com.mimacom.ddd.dm.base.DAggregate;
+import com.mimacom.ddd.dm.base.DCondition;
+import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.dms.DmsUtil;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
+import org.eclipse.xtext.xbase.lib.Extension;
 
 /**
  * Provides labels for EObjects.
@@ -15,7 +21,27 @@ import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 @SuppressWarnings("all")
 public class DmsLabelProvider extends DefaultEObjectLabelProvider {
   @Inject
+  @Extension
+  private DmsUtil _dmsUtil;
+  
+  @Inject
   public DmsLabelProvider(final AdapterFactoryLabelProvider delegate) {
     super(delegate);
+  }
+  
+  public String text(final DAggregate a) {
+    return this._dmsUtil.label(a);
+  }
+  
+  public String text(final DType t) {
+    return this._dmsUtil.label(t);
+  }
+  
+  public String text(final DFeature f) {
+    return this._dmsUtil.label(f);
+  }
+  
+  public String text(final DCondition c) {
+    return this._dmsUtil.label(c);
   }
 }

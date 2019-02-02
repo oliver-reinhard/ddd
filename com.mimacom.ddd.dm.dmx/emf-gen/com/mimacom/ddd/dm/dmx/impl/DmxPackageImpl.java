@@ -20,7 +20,6 @@ import com.mimacom.ddd.dm.dmx.DFunctionCall;
 import com.mimacom.ddd.dm.dmx.DIfExpression;
 import com.mimacom.ddd.dm.dmx.DInstanceOfExpression;
 import com.mimacom.ddd.dm.dmx.DNaturalLiteral;
-import com.mimacom.ddd.dm.dmx.DNilLiteral;
 import com.mimacom.ddd.dm.dmx.DRaiseExpression;
 import com.mimacom.ddd.dm.dmx.DReturnExpression;
 import com.mimacom.ddd.dm.dmx.DSelfExpression;
@@ -28,6 +27,7 @@ import com.mimacom.ddd.dm.dmx.DStringLiteral;
 import com.mimacom.ddd.dm.dmx.DTypedMemberReference;
 import com.mimacom.ddd.dm.dmx.DUnaryOperation;
 import com.mimacom.ddd.dm.dmx.DUnaryOperator;
+import com.mimacom.ddd.dm.dmx.DUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.DmxFactory;
 import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
@@ -193,7 +193,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dNilLiteralEClass = null;
+	private EClass dUndefinedLiteralEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -933,9 +933,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDNilLiteral()
+	public EClass getDUndefinedLiteral()
 	{
-		return dNilLiteralEClass;
+		return dUndefinedLiteralEClass;
 	}
 
 	/**
@@ -1070,7 +1070,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		dDateLiteralEClass = createEClass(DDATE_LITERAL);
 		createEAttribute(dDateLiteralEClass, DDATE_LITERAL__VALUE);
 
-		dNilLiteralEClass = createEClass(DNIL_LITERAL);
+		dUndefinedLiteralEClass = createEClass(DUNDEFINED_LITERAL);
 
 		// Create enums
 		dBinaryOperatorEEnum = createEEnum(DBINARY_OPERATOR);
@@ -1128,7 +1128,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		dNaturalLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dDecimalLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dDateLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dNilLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dUndefinedLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(dmxModelEClass, DmxModel.class, "DmxModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1210,7 +1210,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		initEClass(dDateLiteralEClass, DDateLiteral.class, "DDateLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDDateLiteral_Value(), ecorePackage.getEDate(), "value", null, 0, 1, DDateLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dNilLiteralEClass, DNilLiteral.class, "DNilLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(dUndefinedLiteralEClass, DUndefinedLiteral.class, "DUndefinedLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(dBinaryOperatorEEnum, DBinaryOperator.class, "DBinaryOperator");

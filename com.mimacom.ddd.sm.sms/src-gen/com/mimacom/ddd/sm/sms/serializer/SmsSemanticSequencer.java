@@ -8,21 +8,22 @@ import com.mimacom.ddd.sm.sms.SAggregate;
 import com.mimacom.ddd.sm.sms.SAssociation;
 import com.mimacom.ddd.sm.sms.SAttribute;
 import com.mimacom.ddd.sm.sms.SCondition;
-import com.mimacom.ddd.sm.sms.SDeductionRule;
 import com.mimacom.ddd.sm.sms.SDetailType;
+import com.mimacom.ddd.sm.sms.SDitchRule;
 import com.mimacom.ddd.sm.sms.SDomain;
 import com.mimacom.ddd.sm.sms.SEnumeration;
 import com.mimacom.ddd.sm.sms.SExpression;
+import com.mimacom.ddd.sm.sms.SFuseRule;
+import com.mimacom.ddd.sm.sms.SGrabAggregateRule;
+import com.mimacom.ddd.sm.sms.SGrabRule;
 import com.mimacom.ddd.sm.sms.SImport;
 import com.mimacom.ddd.sm.sms.SLiteral;
-import com.mimacom.ddd.sm.sms.SMemberDeductionRule;
-import com.mimacom.ddd.sm.sms.SMorphTransform;
+import com.mimacom.ddd.sm.sms.SMorphRule;
 import com.mimacom.ddd.sm.sms.SMultiplicity;
 import com.mimacom.ddd.sm.sms.SPrimitive;
 import com.mimacom.ddd.sm.sms.SQuery;
 import com.mimacom.ddd.sm.sms.SQueryParameter;
 import com.mimacom.ddd.sm.sms.SRootType;
-import com.mimacom.ddd.sm.sms.SSpoofTransform;
 import com.mimacom.ddd.sm.sms.SmsPackage;
 import com.mimacom.ddd.sm.sms.services.SmsGrammarAccess;
 import java.util.Set;
@@ -62,12 +63,19 @@ public class SmsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case SmsPackage.SCONDITION:
 				sequence_SConstraint(context, (SCondition) semanticObject); 
 				return; 
-			case SmsPackage.SDEDUCTION_RULE:
-				sequence_SDeductionRule(context, (SDeductionRule) semanticObject); 
-				return; 
 			case SmsPackage.SDETAIL_TYPE:
-				sequence_SComplexType_SDetailType(context, (SDetailType) semanticObject); 
+				sequence_SComplexTypeExtends_SComplexTypeFeatures_SDetailType(context, (SDetailType) semanticObject); 
 				return; 
+			case SmsPackage.SDITCH_RULE:
+				if (rule == grammarAccess.getSDitchEnumerationLiteralRuleRule()) {
+					sequence_SDitchEnumerationLiteralRule(context, (SDitchRule) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getSDitchFeatureRuleRule()) {
+					sequence_SDitchFeatureRule(context, (SDitchRule) semanticObject); 
+					return; 
+				}
+				else break;
 			case SmsPackage.SDOMAIN:
 				sequence_SDomain(context, (SDomain) semanticObject); 
 				return; 
@@ -77,24 +85,63 @@ public class SmsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case SmsPackage.SEXPRESSION:
 				sequence_SExpression(context, (SExpression) semanticObject); 
 				return; 
+			case SmsPackage.SFUSE_RULE:
+				sequence_SFuseComplexTypeRule(context, (SFuseRule) semanticObject); 
+				return; 
+			case SmsPackage.SGRAB_AGGREGATE_RULE:
+				sequence_SGrabAggregateRule(context, (SGrabAggregateRule) semanticObject); 
+				return; 
+			case SmsPackage.SGRAB_RULE:
+				if (rule == grammarAccess.getSGrabComplexTypeRuleRule()) {
+					sequence_SGrabComplexTypeRule(context, (SGrabRule) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getSGrabEnumerationLiteralRuleRule()) {
+					sequence_SGrabEnumerationLiteralRule(context, (SGrabRule) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getSGrabEnumerationRuleRule()) {
+					sequence_SGrabEnumerationRule(context, (SGrabRule) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getSGrabFeatureRuleRule()) {
+					sequence_SGrabFeatureRule(context, (SGrabRule) semanticObject); 
+					return; 
+				}
+				else break;
 			case SmsPackage.SIMPORT:
 				sequence_SImport(context, (SImport) semanticObject); 
 				return; 
 			case SmsPackage.SLITERAL:
 				sequence_SLiteral(context, (SLiteral) semanticObject); 
 				return; 
-			case SmsPackage.SMEMBER_DEDUCTION_RULE:
-				sequence_SMemberDeductionRule(context, (SMemberDeductionRule) semanticObject); 
-				return; 
-			case SmsPackage.SMORPH_TRANSFORM:
-				sequence_SMorphTransform(context, (SMorphTransform) semanticObject); 
-				return; 
+			case SmsPackage.SMORPH_RULE:
+				if (rule == grammarAccess.getSMorphComplexTypeRuleRule()) {
+					sequence_SMorphComplexTypeRule(context, (SMorphRule) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getSMorphFeatureRuleRule()) {
+					sequence_SMorphFeatureRule(context, (SMorphRule) semanticObject); 
+					return; 
+				}
+				else break;
 			case SmsPackage.SMULTIPLICITY:
 				sequence_SMultiplicity(context, (SMultiplicity) semanticObject); 
 				return; 
 			case SmsPackage.SPRIMITIVE:
-				sequence_SPrimitive(context, (SPrimitive) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getSPrimitiveArchetypeRule()) {
+					sequence_SPrimitiveArchetype(context, (SPrimitive) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getSPrimitiveRule()) {
+					sequence_SPrimitive(context, (SPrimitive) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getSTypeRule()) {
+					sequence_SPrimitive_SPrimitiveArchetype(context, (SPrimitive) semanticObject); 
+					return; 
+				}
+				else break;
 			case SmsPackage.SQUERY:
 				sequence_SQuery(context, (SQuery) semanticObject); 
 				return; 
@@ -102,10 +149,7 @@ public class SmsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_SQueryParameter(context, (SQueryParameter) semanticObject); 
 				return; 
 			case SmsPackage.SROOT_TYPE:
-				sequence_SComplexType_SRootType(context, (SRootType) semanticObject); 
-				return; 
-			case SmsPackage.SSPOOF_TRANSFORM:
-				sequence_SSpoofTransform(context, (SSpoofTransform) semanticObject); 
+				sequence_SComplexTypeExtends_SComplexTypeFeatures_SRootType(context, (SRootType) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -117,7 +161,7 @@ public class SmsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SAggregate returns SAggregate
 	 *
 	 * Constraint:
-	 *     types+=SType*
+	 *     (deductionRule=SGrabAggregateRule | types+=SType+)?
 	 */
 	protected void sequence_SAggregate(ISerializationContext context, SAggregate semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -130,7 +174,12 @@ public class SmsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SAssociation returns SAssociation
 	 *
 	 * Constraint:
-	 *     (derived?='derived'? (kind=SAssociationKind | kind=SAssociationKindInverse) name=ID type=[SRootType|ID] multiplicity=SMultiplicity?)
+	 *     (
+	 *         deductionRule=SGrabFeatureRule | 
+	 *         deductionRule=SMorphFeatureRule | 
+	 *         deductionRule=SDitchFeatureRule | 
+	 *         (derived?='derived'? (kind=SAssociationKind | kind=SAssociationKindInverse) name=ID type=[SRootType|ID] multiplicity=SMultiplicity?)
+	 *     )
 	 */
 	protected void sequence_SAssociation(ISerializationContext context, SAssociation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -144,7 +193,9 @@ public class SmsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         (detail?='detail'? deductionRule=SMemberDeductionRule) | 
+	 *         (detail?='detail'? deductionRule=SGrabFeatureRule) | 
+	 *         (detail?='detail'? deductionRule=SMorphFeatureRule) | 
+	 *         (detail?='detail'? deductionRule=SDitchFeatureRule) | 
 	 *         (detail?='detail'? name=ID type=[SSimpleType|ID] multiplicity=SMultiplicity? key?='key'?)
 	 *     )
 	 */
@@ -160,12 +211,16 @@ public class SmsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         ((abstract?='abstract'? deductionRule=SDeductionRule) | (abstract?='abstract'? name=ID)) 
-	 *         superType=[SComplexType|ID]? 
+	 *         (
+	 *             (abstract?='abstract'? deductionRule=SGrabComplexTypeRule) | 
+	 *             (abstract?='abstract'? deductionRule=SMorphComplexTypeRule) | 
+	 *             (abstract?='abstract'? deductionRule=SFuseComplexTypeRule) | 
+	 *             (abstract?='abstract'? name=ID superType=[SComplexType|ID]?)
+	 *         ) 
 	 *         (features+=SFeature | constraints+=SConstraint)*
 	 *     )
 	 */
-	protected void sequence_SComplexType_SDetailType(ISerializationContext context, SDetailType semanticObject) {
+	protected void sequence_SComplexTypeExtends_SComplexTypeFeatures_SDetailType(ISerializationContext context, SDetailType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -177,12 +232,16 @@ public class SmsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         ((abstract?='abstract'? deductionRule=SDeductionRule) | (abstract?='abstract'? name=ID)) 
-	 *         superType=[SComplexType|ID]? 
+	 *         (
+	 *             (abstract?='abstract'? deductionRule=SGrabComplexTypeRule) | 
+	 *             (abstract?='abstract'? deductionRule=SMorphComplexTypeRule) | 
+	 *             (abstract?='abstract'? deductionRule=SFuseComplexTypeRule) | 
+	 *             (abstract?='abstract'? name=ID superType=[SComplexType|ID]?)
+	 *         ) 
 	 *         (features+=SFeature | constraints+=SConstraint)*
 	 *     )
 	 */
-	protected void sequence_SComplexType_SRootType(ISerializationContext context, SRootType semanticObject) {
+	protected void sequence_SComplexTypeExtends_SComplexTypeFeatures_SRootType(ISerializationContext context, SRootType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -210,21 +269,36 @@ public class SmsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     SDeductionRule returns SDeductionRule
+	 *     SDitchEnumerationLiteralRule returns SDitchRule
 	 *
 	 * Constraint:
-	 *     (source=[DNamedElement|SQualifiedName] transform=STransform)
+	 *     source=[DLiteral|ID]
 	 */
-	protected void sequence_SDeductionRule(ISerializationContext context, SDeductionRule semanticObject) {
+	protected void sequence_SDitchEnumerationLiteralRule(ISerializationContext context, SDitchRule semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmsPackage.Literals.SDEDUCTION_RULE__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmsPackage.Literals.SDEDUCTION_RULE__SOURCE));
-			if (transientValues.isValueTransient(semanticObject, SmsPackage.Literals.SDEDUCTION_RULE__TRANSFORM) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmsPackage.Literals.SDEDUCTION_RULE__TRANSFORM));
+			if (transientValues.isValueTransient(semanticObject, SmsPackage.Literals.SNAMED_ELEMENT_DEDUCTION_RULE__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmsPackage.Literals.SNAMED_ELEMENT_DEDUCTION_RULE__SOURCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSDeductionRuleAccess().getSourceDNamedElementSQualifiedNameParserRuleCall_0_0_1(), semanticObject.eGet(SmsPackage.Literals.SDEDUCTION_RULE__SOURCE, false));
-		feeder.accept(grammarAccess.getSDeductionRuleAccess().getTransformSTransformParserRuleCall_1_0(), semanticObject.getTransform());
+		feeder.accept(grammarAccess.getSDitchEnumerationLiteralRuleAccess().getSourceDLiteralIDTerminalRuleCall_0_1(), semanticObject.eGet(SmsPackage.Literals.SNAMED_ELEMENT_DEDUCTION_RULE__SOURCE, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SDitchFeatureRule returns SDitchRule
+	 *
+	 * Constraint:
+	 *     source=[DFeature|ID]
+	 */
+	protected void sequence_SDitchFeatureRule(ISerializationContext context, SDitchRule semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SmsPackage.Literals.SNAMED_ELEMENT_DEDUCTION_RULE__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmsPackage.Literals.SNAMED_ELEMENT_DEDUCTION_RULE__SOURCE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSDitchFeatureRuleAccess().getSourceDFeatureIDTerminalRuleCall_0_1(), semanticObject.eGet(SmsPackage.Literals.SNAMED_ELEMENT_DEDUCTION_RULE__SOURCE, false));
 		feeder.finish();
 	}
 	
@@ -247,7 +321,7 @@ public class SmsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SEnumeration returns SEnumeration
 	 *
 	 * Constraint:
-	 *     (name=ID (literals+=SLiteral literals+=SLiteral*)? constraints+=SConstraint*)
+	 *     ((deductionRule=SGrabEnumerationRule | name=ID) (literals+=SLiteral literals+=SLiteral*)? constraints+=SConstraint*)
 	 */
 	protected void sequence_SEnumeration(ISerializationContext context, SEnumeration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -274,6 +348,84 @@ public class SmsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     SFuseComplexTypeRule returns SFuseRule
+	 *
+	 * Constraint:
+	 *     (source=[DComplexType|SQualifiedName] source2=[DComplexType|SQualifiedName] renameTo=ID? extendFrom=[SComplexType|ID]?)
+	 */
+	protected void sequence_SFuseComplexTypeRule(ISerializationContext context, SFuseRule semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SGrabAggregateRule returns SGrabAggregateRule
+	 *
+	 * Constraint:
+	 *     source=[DAggregate|ID]
+	 */
+	protected void sequence_SGrabAggregateRule(ISerializationContext context, SGrabAggregateRule semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SmsPackage.Literals.SGRAB_AGGREGATE_RULE__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmsPackage.Literals.SGRAB_AGGREGATE_RULE__SOURCE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSGrabAggregateRuleAccess().getSourceDAggregateIDTerminalRuleCall_0_1(), semanticObject.eGet(SmsPackage.Literals.SGRAB_AGGREGATE_RULE__SOURCE, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SGrabComplexTypeRule returns SGrabRule
+	 *
+	 * Constraint:
+	 *     (source=[DComplexType|SQualifiedName] renameTo=ID?)
+	 */
+	protected void sequence_SGrabComplexTypeRule(ISerializationContext context, SGrabRule semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SGrabEnumerationLiteralRule returns SGrabRule
+	 *
+	 * Constraint:
+	 *     (source=[DLiteral|ID] renameTo=ID?)
+	 */
+	protected void sequence_SGrabEnumerationLiteralRule(ISerializationContext context, SGrabRule semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SGrabEnumerationRule returns SGrabRule
+	 *
+	 * Constraint:
+	 *     (source=[DEnumeration|SQualifiedName] renameTo=ID?)
+	 */
+	protected void sequence_SGrabEnumerationRule(ISerializationContext context, SGrabRule semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SGrabFeatureRule returns SGrabRule
+	 *
+	 * Constraint:
+	 *     (source=[DFeature|ID] renameTo=ID?)
+	 */
+	protected void sequence_SGrabFeatureRule(ISerializationContext context, SGrabRule semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     SImport returns SImport
 	 *
 	 * Constraint:
@@ -295,49 +447,33 @@ public class SmsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SLiteral returns SLiteral
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (deductionRule=SGrabEnumerationLiteralRule | deductionRule=SDitchEnumerationLiteralRule | name=ID)
 	 */
 	protected void sequence_SLiteral(ISerializationContext context, SLiteral semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmsPackage.Literals.SNAMED_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmsPackage.Literals.SNAMED_ELEMENT__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSLiteralAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     SMemberDeductionRule returns SMemberDeductionRule
+	 *     SMorphComplexTypeRule returns SMorphRule
 	 *
 	 * Constraint:
-	 *     (source=[DNamedElement|ID] transform=STransform)
+	 *     (source=[DComplexType|SQualifiedName] renameTo=ID? retypeTo=[SComplexType|ID]?)
 	 */
-	protected void sequence_SMemberDeductionRule(ISerializationContext context, SMemberDeductionRule semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmsPackage.Literals.SMEMBER_DEDUCTION_RULE__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmsPackage.Literals.SMEMBER_DEDUCTION_RULE__SOURCE));
-			if (transientValues.isValueTransient(semanticObject, SmsPackage.Literals.SMEMBER_DEDUCTION_RULE__TRANSFORM) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmsPackage.Literals.SMEMBER_DEDUCTION_RULE__TRANSFORM));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSMemberDeductionRuleAccess().getSourceDNamedElementIDTerminalRuleCall_0_0_1(), semanticObject.eGet(SmsPackage.Literals.SMEMBER_DEDUCTION_RULE__SOURCE, false));
-		feeder.accept(grammarAccess.getSMemberDeductionRuleAccess().getTransformSTransformParserRuleCall_1_0(), semanticObject.getTransform());
-		feeder.finish();
+	protected void sequence_SMorphComplexTypeRule(ISerializationContext context, SMorphRule semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     STransform returns SMorphTransform
-	 *     SMorphTransform returns SMorphTransform
+	 *     SMorphFeatureRule returns SMorphRule
 	 *
 	 * Constraint:
-	 *     (renameTo=ID? (retypeTo=[SType|ID] remultiplyTo=SMultiplicity?)?)
+	 *     (source=[DFeature|ID] renameTo=ID? (retypeTo=[SType|ID] remultiplyTo=SMultiplicity?)?)
 	 */
-	protected void sequence_SMorphTransform(ISerializationContext context, SMorphTransform semanticObject) {
+	protected void sequence_SMorphFeatureRule(ISerializationContext context, SMorphRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -365,13 +501,36 @@ public class SmsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     SType returns SPrimitive
+	 *     SPrimitiveArchetype returns SPrimitive
+	 *
+	 * Constraint:
+	 *     (name=ID constraints+=SConstraint*)
+	 */
+	protected void sequence_SPrimitiveArchetype(ISerializationContext context, SPrimitive semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     SPrimitive returns SPrimitive
 	 *
 	 * Constraint:
-	 *     (deductionRule=SDeductionRule | (name=ID (redefines=[SPrimitive|ID] | realizes=[DPrimitive|SQualifiedName])* constraints+=SConstraint*))
+	 *     (name=ID (redefines=[SPrimitive|ID] | realizes=[DPrimitive|SQualifiedName]) constraints+=SConstraint*)
 	 */
 	protected void sequence_SPrimitive(ISerializationContext context, SPrimitive semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SType returns SPrimitive
+	 *
+	 * Constraint:
+	 *     ((name=ID (redefines=[SPrimitive|ID] | realizes=[DPrimitive|SQualifiedName]) constraints+=SConstraint*) | (name=ID constraints+=SConstraint*))
+	 */
+	protected void sequence_SPrimitive_SPrimitiveArchetype(ISerializationContext context, SPrimitive semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -381,7 +540,11 @@ public class SmsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SQueryParameter returns SQueryParameter
 	 *
 	 * Constraint:
-	 *     (name=ID type=[SType|ID] multiplicity=SMultiplicity?)
+	 *     (
+	 *         deductionRule=SGrabFeatureRule | 
+	 *         deductionRule=SMorphFeatureRule | 
+	 *         (deductionRule=SDitchFeatureRule name=ID type=[SType|ID] multiplicity=SMultiplicity?)
+	 *     )
 	 */
 	protected void sequence_SQueryParameter(ISerializationContext context, SQueryParameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -394,22 +557,13 @@ public class SmsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SQuery returns SQuery
 	 *
 	 * Constraint:
-	 *     (name=ID (parameters+=SQueryParameter parameters+=SQueryParameter*)? type=[SType|ID] multiplicity=SMultiplicity? returns=SExpression?)
+	 *     (
+	 *         ((deductionRule=SGrabFeatureRule | deductionRule=SMorphFeatureRule) (parameters+=SQueryParameter parameters+=SQueryParameter*)?) | 
+	 *         deductionRule=SDitchFeatureRule | 
+	 *         (name=ID (parameters+=SQueryParameter parameters+=SQueryParameter*)? type=[SType|ID] multiplicity=SMultiplicity? returns=SExpression?)
+	 *     )
 	 */
 	protected void sequence_SQuery(ISerializationContext context, SQuery semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     STransform returns SSpoofTransform
-	 *     SSpoofTransform returns SSpoofTransform
-	 *
-	 * Constraint:
-	 *     {SSpoofTransform}
-	 */
-	protected void sequence_SSpoofTransform(ISerializationContext context, SSpoofTransform semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

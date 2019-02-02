@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SFeatureImpl extends SDeducibleMemberElementImplCustom implements SFeature
+public class SFeatureImpl extends SNamedDeducibleElementImplCustom implements SFeature
 {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.

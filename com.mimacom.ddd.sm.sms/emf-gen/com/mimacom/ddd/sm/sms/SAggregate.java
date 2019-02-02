@@ -5,8 +5,6 @@ package com.mimacom.ddd.sm.sms;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>SAggregate</b></em>'.
@@ -17,13 +15,15 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.sm.sms.SAggregate#getTypes <em>Types</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sms.SAggregate#getRoot <em>Root</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sms.SAggregate#getRootName <em>Root Name</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.sm.sms.SmsPackage#getSAggregate()
  * @model
  * @generated
  */
-public interface SAggregate extends EObject
+public interface SAggregate extends SDeducibleElement
 {
 	/**
 	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.
@@ -40,5 +40,35 @@ public interface SAggregate extends EObject
 	 * @generated
 	 */
 	EList<SType> getTypes();
+
+	/**
+	 * Returns the value of the '<em><b>Root</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Root</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Root</em>' reference.
+	 * @see com.mimacom.ddd.sm.sms.SmsPackage#getSAggregate_Root()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	SRootType getRoot();
+
+	/**
+	 * Returns the value of the '<em><b>Root Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Root Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Root Name</em>' attribute.
+	 * @see com.mimacom.ddd.sm.sms.SmsPackage#getSAggregate_RootName()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getRootName();
 
 } // SAggregate

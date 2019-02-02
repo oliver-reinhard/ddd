@@ -232,8 +232,10 @@ public class BaseSwitch<T> extends Switch<T>
 				DEnumeration dEnumeration = (DEnumeration)theEObject;
 				T result = caseDEnumeration(dEnumeration);
 				if (result == null) result = caseDSimpleType(dEnumeration);
+				if (result == null) result = caseITypedMemberContainer(dEnumeration);
 				if (result == null) result = caseDType(dEnumeration);
 				if (result == null) result = caseIValueType(dEnumeration);
+				if (result == null) result = caseINamespace(dEnumeration);
 				if (result == null) result = caseIPrimaryNavigationTarget(dEnumeration);
 				if (result == null) result = caseDNamedElement(dEnumeration);
 				if (result == null) result = defaultCase(theEObject);
@@ -399,6 +401,7 @@ public class BaseSwitch<T> extends Switch<T>
 			{
 				DNotification dNotification = (DNotification)theEObject;
 				T result = caseDNotification(dNotification);
+				if (result == null) result = caseDTypedMember(dNotification);
 				if (result == null) result = caseDNamedElement(dNotification);
 				if (result == null) result = defaultCase(theEObject);
 				return result;

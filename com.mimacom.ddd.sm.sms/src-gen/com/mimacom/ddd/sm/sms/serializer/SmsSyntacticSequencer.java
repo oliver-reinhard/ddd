@@ -11,6 +11,9 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
@@ -18,10 +21,20 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class SmsSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected SmsGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_SAssociation_CompositeKeyword_0_1_1_or_ReferenceKeyword_0_1_0;
+	protected AbstractElementAlias match_SAssociation_CompositeKeyword_1_1_1_or_ReferenceKeyword_1_1_0;
+	protected AbstractElementAlias match_SAssociation_CompositeKeyword_2_1_1_or_ReferenceKeyword_2_1_0;
+	protected AbstractElementAlias match_SPrimitive_RealisesKeyword_2_1_0_1_or_RealizesKeyword_2_1_0_0;
+	protected AbstractElementAlias match_SQuery_AsteriskKeyword_0_2_0_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (SmsGrammarAccess) access;
+		match_SAssociation_CompositeKeyword_0_1_1_or_ReferenceKeyword_0_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSAssociationAccess().getCompositeKeyword_0_1_1()), new TokenAlias(false, false, grammarAccess.getSAssociationAccess().getReferenceKeyword_0_1_0()));
+		match_SAssociation_CompositeKeyword_1_1_1_or_ReferenceKeyword_1_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSAssociationAccess().getCompositeKeyword_1_1_1()), new TokenAlias(false, false, grammarAccess.getSAssociationAccess().getReferenceKeyword_1_1_0()));
+		match_SAssociation_CompositeKeyword_2_1_1_or_ReferenceKeyword_2_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSAssociationAccess().getCompositeKeyword_2_1_1()), new TokenAlias(false, false, grammarAccess.getSAssociationAccess().getReferenceKeyword_2_1_0()));
+		match_SPrimitive_RealisesKeyword_2_1_0_1_or_RealizesKeyword_2_1_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSPrimitiveAccess().getRealisesKeyword_2_1_0_1()), new TokenAlias(false, false, grammarAccess.getSPrimitiveAccess().getRealizesKeyword_2_1_0_0()));
+		match_SQuery_AsteriskKeyword_0_2_0_q = new TokenAlias(false, true, grammarAccess.getSQueryAccess().getAsteriskKeyword_0_2_0());
 	}
 	
 	@Override
@@ -36,8 +49,74 @@ public class SmsSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_SAssociation_CompositeKeyword_0_1_1_or_ReferenceKeyword_0_1_0.equals(syntax))
+				emit_SAssociation_CompositeKeyword_0_1_1_or_ReferenceKeyword_0_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SAssociation_CompositeKeyword_1_1_1_or_ReferenceKeyword_1_1_0.equals(syntax))
+				emit_SAssociation_CompositeKeyword_1_1_1_or_ReferenceKeyword_1_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SAssociation_CompositeKeyword_2_1_1_or_ReferenceKeyword_2_1_0.equals(syntax))
+				emit_SAssociation_CompositeKeyword_2_1_1_or_ReferenceKeyword_2_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SPrimitive_RealisesKeyword_2_1_0_1_or_RealizesKeyword_2_1_0_0.equals(syntax))
+				emit_SPrimitive_RealisesKeyword_2_1_0_1_or_RealizesKeyword_2_1_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SQuery_AsteriskKeyword_0_2_0_q.equals(syntax))
+				emit_SQuery_AsteriskKeyword_0_2_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     'reference' | 'composite'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) 'grab' (ambiguity) deductionRule=SGrabFeatureRule
+	 */
+	protected void emit_SAssociation_CompositeKeyword_0_1_1_or_ReferenceKeyword_0_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'reference' | 'composite'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) 'morph' (ambiguity) deductionRule=SMorphFeatureRule
+	 */
+	protected void emit_SAssociation_CompositeKeyword_1_1_1_or_ReferenceKeyword_1_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'reference' | 'composite'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) 'ditch' (ambiguity) deductionRule=SDitchFeatureRule
+	 */
+	protected void emit_SAssociation_CompositeKeyword_2_1_1_or_ReferenceKeyword_2_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'realizes' | 'realises'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=ID (ambiguity) realizes=[DPrimitive|SQualifiedName]
+	 */
+	protected void emit_SPrimitive_RealisesKeyword_2_1_0_1_or_RealizesKeyword_2_1_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '*'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     deductionRule=SGrabFeatureRule '(' (ambiguity) ')' (rule end)
+	 *     deductionRule=SMorphFeatureRule '(' (ambiguity) ')' (rule end)
+	 */
+	protected void emit_SQuery_AsteriskKeyword_0_2_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

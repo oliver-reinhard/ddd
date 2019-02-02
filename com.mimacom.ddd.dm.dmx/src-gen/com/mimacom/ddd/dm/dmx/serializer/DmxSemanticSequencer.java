@@ -20,13 +20,13 @@ import com.mimacom.ddd.dm.dmx.DFunctionCall;
 import com.mimacom.ddd.dm.dmx.DIfExpression;
 import com.mimacom.ddd.dm.dmx.DInstanceOfExpression;
 import com.mimacom.ddd.dm.dmx.DNaturalLiteral;
-import com.mimacom.ddd.dm.dmx.DNilLiteral;
 import com.mimacom.ddd.dm.dmx.DRaiseExpression;
 import com.mimacom.ddd.dm.dmx.DReturnExpression;
 import com.mimacom.ddd.dm.dmx.DSelfExpression;
 import com.mimacom.ddd.dm.dmx.DStringLiteral;
 import com.mimacom.ddd.dm.dmx.DTypedMemberReference;
 import com.mimacom.ddd.dm.dmx.DUnaryOperation;
+import com.mimacom.ddd.dm.dmx.DUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.services.DmxGrammarAccess;
@@ -118,9 +118,6 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DmxPackage.DNATURAL_LITERAL:
 				sequence_DNaturalLiteral(context, (DNaturalLiteral) semanticObject); 
 				return; 
-			case DmxPackage.DNIL_LITERAL:
-				sequence_DNilLiteral(context, (DNilLiteral) semanticObject); 
-				return; 
 			case DmxPackage.DRAISE_EXPRESSION:
 				sequence_DRaiseExpression(context, (DRaiseExpression) semanticObject); 
 				return; 
@@ -138,6 +135,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DmxPackage.DUNARY_OPERATION:
 				sequence_DUnaryOperation(context, (DUnaryOperation) semanticObject); 
+				return; 
+			case DmxPackage.DUNDEFINED_LITERAL:
+				sequence_DNilLiteral(context, (DUndefinedLiteral) semanticObject); 
 				return; 
 			case DmxPackage.DMX_MODEL:
 				sequence_DmxModel(context, (DmxModel) semanticObject); 
@@ -621,38 +621,38 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DExpression returns DNilLiteral
-	 *     DAssignment returns DNilLiteral
-	 *     DOrExpression returns DNilLiteral
-	 *     DOrExpression.DBinaryOperation_1_0_0_0 returns DNilLiteral
-	 *     DAndExpression returns DNilLiteral
-	 *     DAndExpression.DBinaryOperation_1_0_0_0 returns DNilLiteral
-	 *     DEqualityExpression returns DNilLiteral
-	 *     DEqualityExpression.DBinaryOperation_1_0_0_0 returns DNilLiteral
-	 *     DRelationalExpression returns DNilLiteral
-	 *     DRelationalExpression.DInstanceOfExpression_1_0_0_0_0 returns DNilLiteral
-	 *     DRelationalExpression.DBinaryOperation_1_1_0_0_0 returns DNilLiteral
-	 *     DOtherOperatorExpression returns DNilLiteral
-	 *     DOtherOperatorExpression.DBinaryOperation_1_0_0_0 returns DNilLiteral
-	 *     DAdditiveExpression returns DNilLiteral
-	 *     DAdditiveExpression.DBinaryOperation_1_0_0_0 returns DNilLiteral
-	 *     DMultiplicativeExpression returns DNilLiteral
-	 *     DMultiplicativeExpression.DBinaryOperation_1_0_0_0 returns DNilLiteral
-	 *     DUnaryOperation returns DNilLiteral
-	 *     DCastExpression returns DNilLiteral
-	 *     DCastExpression.DCastExpression_1_0_0_0 returns DNilLiteral
-	 *     DTypedMemberReference returns DNilLiteral
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DNilLiteral
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DNilLiteral
-	 *     DPrimaryExpression returns DNilLiteral
-	 *     DLiteralExpression returns DNilLiteral
-	 *     DParenthesizedExpression returns DNilLiteral
-	 *     DNilLiteral returns DNilLiteral
+	 *     DExpression returns DUndefinedLiteral
+	 *     DAssignment returns DUndefinedLiteral
+	 *     DOrExpression returns DUndefinedLiteral
+	 *     DOrExpression.DBinaryOperation_1_0_0_0 returns DUndefinedLiteral
+	 *     DAndExpression returns DUndefinedLiteral
+	 *     DAndExpression.DBinaryOperation_1_0_0_0 returns DUndefinedLiteral
+	 *     DEqualityExpression returns DUndefinedLiteral
+	 *     DEqualityExpression.DBinaryOperation_1_0_0_0 returns DUndefinedLiteral
+	 *     DRelationalExpression returns DUndefinedLiteral
+	 *     DRelationalExpression.DInstanceOfExpression_1_0_0_0_0 returns DUndefinedLiteral
+	 *     DRelationalExpression.DBinaryOperation_1_1_0_0_0 returns DUndefinedLiteral
+	 *     DOtherOperatorExpression returns DUndefinedLiteral
+	 *     DOtherOperatorExpression.DBinaryOperation_1_0_0_0 returns DUndefinedLiteral
+	 *     DAdditiveExpression returns DUndefinedLiteral
+	 *     DAdditiveExpression.DBinaryOperation_1_0_0_0 returns DUndefinedLiteral
+	 *     DMultiplicativeExpression returns DUndefinedLiteral
+	 *     DMultiplicativeExpression.DBinaryOperation_1_0_0_0 returns DUndefinedLiteral
+	 *     DUnaryOperation returns DUndefinedLiteral
+	 *     DCastExpression returns DUndefinedLiteral
+	 *     DCastExpression.DCastExpression_1_0_0_0 returns DUndefinedLiteral
+	 *     DTypedMemberReference returns DUndefinedLiteral
+	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DUndefinedLiteral
+	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DUndefinedLiteral
+	 *     DPrimaryExpression returns DUndefinedLiteral
+	 *     DLiteralExpression returns DUndefinedLiteral
+	 *     DParenthesizedExpression returns DUndefinedLiteral
+	 *     DNilLiteral returns DUndefinedLiteral
 	 *
 	 * Constraint:
-	 *     {DNilLiteral}
+	 *     {DUndefinedLiteral}
 	 */
-	protected void sequence_DNilLiteral(ISerializationContext context, DNilLiteral semanticObject) {
+	protected void sequence_DNilLiteral(ISerializationContext context, DUndefinedLiteral semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

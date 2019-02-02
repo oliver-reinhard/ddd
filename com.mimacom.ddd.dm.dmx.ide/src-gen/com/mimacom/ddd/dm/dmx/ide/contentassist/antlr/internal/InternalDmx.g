@@ -1623,15 +1623,15 @@ rule__DNilLiteral__Alternatives_1
 	}
 :
 	(
-		{ before(grammarAccess.getDNilLiteralAccess().getNILKeyword_1_0()); }
-		'NIL'
-		{ after(grammarAccess.getDNilLiteralAccess().getNILKeyword_1_0()); }
+		{ before(grammarAccess.getDNilLiteralAccess().getUNDEFINEDKeyword_1_0()); }
+		'UNDEFINED'
+		{ after(grammarAccess.getDNilLiteralAccess().getUNDEFINEDKeyword_1_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getDNilLiteralAccess().getNilKeyword_1_1()); }
-		'nil'
-		{ after(grammarAccess.getDNilLiteralAccess().getNilKeyword_1_1()); }
+		{ before(grammarAccess.getDNilLiteralAccess().getUndefinedKeyword_1_1()); }
+		'undefined'
+		{ after(grammarAccess.getDNilLiteralAccess().getUndefinedKeyword_1_1()); }
 	)
 ;
 finally {
@@ -6534,9 +6534,9 @@ rule__DNilLiteral__Group__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDNilLiteralAccess().getDNilLiteralAction_0()); }
+	{ before(grammarAccess.getDNilLiteralAccess().getDUndefinedLiteralAction_0()); }
 	()
-	{ after(grammarAccess.getDNilLiteralAccess().getDNilLiteralAction_0()); }
+	{ after(grammarAccess.getDNilLiteralAccess().getDUndefinedLiteralAction_0()); }
 )
 ;
 finally {
@@ -7838,11 +7838,13 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+RULE_ID : '^'? (RULE_LETTER|'_') (RULE_LETTER|'_'|'0'..'9')*;
 
 RULE_STRING : '"' ('\\' .|~(('\\'|'"')))* '"';
 
 RULE_NATURAL : ('0'..'9')+;
+
+fragment RULE_LETTER : ('a'..'z'|'A'..'Z'|'\u00C0'..'\u00D6'|'\u00D8'..'\u00F6'|'\u00F8'..'\u00FF');
 
 fragment RULE_PLAIN_TEXT : ~(('\u00BB'|'['));
 

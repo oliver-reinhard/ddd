@@ -231,7 +231,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	@Override
 	public DPrimitive createDPrimitive()
 	{
-		DPrimitiveImpl dPrimitive = new DPrimitiveImpl();
+		DPrimitiveImplCustom dPrimitive = new DPrimitiveImplCustom();
 		return dPrimitive;
 	}
 

@@ -9,6 +9,7 @@ import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DActor;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DDomainEvent;
+import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFunction;
 import com.mimacom.ddd.dm.base.DNamedElement;
@@ -92,9 +93,15 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
       final DNamedElement memberContainer = ((DContextReference)memberContainerReference).getTarget();
       DNamedElement _switchResult = null;
       boolean _matched = false;
-      if (memberContainer instanceof DTypedMember) {
+      if (memberContainer instanceof DEnumeration) {
         _matched=true;
-        _switchResult = ((DTypedMember)memberContainer).getType();
+        _switchResult = memberContainer;
+      }
+      if (!_matched) {
+        if (memberContainer instanceof DTypedMember) {
+          _matched=true;
+          _switchResult = ((DTypedMember)memberContainer).getType();
+        }
       }
       if (!_matched) {
         if (memberContainer instanceof ITypedMemberContainer) {
@@ -105,29 +112,35 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
       if (!_matched) {
         _switchResult = null;
       }
-      final DNamedElement targetKind = _switchResult;
+      final DNamedElement targetType = _switchResult;
       IScope _switchResult_1 = null;
       boolean _matched_1 = false;
-      if (targetKind instanceof DComplexType) {
+      if (targetType instanceof DEnumeration) {
         _matched_1=true;
-        _switchResult_1 = this.getInheritedFeaturesScope(((DComplexType)targetKind));
+        _switchResult_1 = Scopes.scopeFor(((DEnumeration)targetType).getLiterals());
       }
       if (!_matched_1) {
-        if (targetKind instanceof DQuery) {
+        if (targetType instanceof DComplexType) {
           _matched_1=true;
-          _switchResult_1 = Scopes.scopeFor(((DQuery)targetKind).getParameters());
+          _switchResult_1 = this.getInheritedFeaturesScope(((DComplexType)targetType));
         }
       }
       if (!_matched_1) {
-        if (targetKind instanceof DService) {
+        if (targetType instanceof DQuery) {
           _matched_1=true;
-          _switchResult_1 = Scopes.scopeFor(((DService)targetKind).getParameters());
+          _switchResult_1 = Scopes.scopeFor(((DQuery)targetType).getParameters());
         }
       }
       if (!_matched_1) {
-        if (targetKind instanceof DDomainEvent) {
+        if (targetType instanceof DService) {
           _matched_1=true;
-          _switchResult_1 = this.getDomainEventMemberScope(((DDomainEvent)targetKind), IScope.NULLSCOPE);
+          _switchResult_1 = Scopes.scopeFor(((DService)targetType).getParameters());
+        }
+      }
+      if (!_matched_1) {
+        if (targetType instanceof DDomainEvent) {
+          _matched_1=true;
+          _switchResult_1 = this.getDomainEventMemberScope(((DDomainEvent)targetType), IScope.NULLSCOPE);
         }
       }
       if (!_matched_1) {
@@ -176,9 +189,15 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
     EObject container = context.eContainer();
     IScope _switchResult = null;
     boolean _matched = false;
-    if (container instanceof DComplexType) {
+    if (container instanceof DEnumeration) {
       _matched=true;
-      _switchResult = this.getInheritedFeaturesScope(((DComplexType)container), outerScope);
+      _switchResult = Scopes.scopeFor(((DEnumeration)container).getLiterals(), outerScope);
+    }
+    if (!_matched) {
+      if (container instanceof DComplexType) {
+        _matched=true;
+        _switchResult = this.getInheritedFeaturesScope(((DComplexType)container), outerScope);
+      }
     }
     if (!_matched) {
       if (container instanceof DQuery) {

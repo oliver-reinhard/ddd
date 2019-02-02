@@ -36,7 +36,7 @@ DAggregate:
  * TYPES
  */
 DType:
-	DPrimitive | DEnumeration | DRootType | DRelationship | DDetailType;
+	DPrimitive | DPrimitiveArchetype | DEnumeration | DRootType | DRelationship | DDetailType;
 	
 DConstraint returns DCondition:
 	'constraint'
@@ -48,9 +48,17 @@ DConstraint returns DCondition:
 DPrimitive:
 	'primitive'
 	name=ID
+	'redefines' redefines=[DPrimitive]
 	(description=DRichText)?
 	'{'
-		('redefines' redefines=[DPrimitive])?
+		(constraints+=DConstraint)*
+	'}';
+	
+DPrimitiveArchetype returns DPrimitive:
+	'archetype'
+	name=ID
+	(description=DRichText)?
+	'{'
 		(constraints+=DConstraint)*
 	'}';
 

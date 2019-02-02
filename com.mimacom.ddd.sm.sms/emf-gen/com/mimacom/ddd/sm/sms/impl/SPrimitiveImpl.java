@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link com.mimacom.ddd.sm.sms.impl.SPrimitiveImpl#getRedefines <em>Redefines</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sms.impl.SPrimitiveImpl#getRealizes <em>Realizes</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sms.impl.SPrimitiveImpl#isArchetype <em>Archetype</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,6 +51,16 @@ public class SPrimitiveImpl extends SSimpleTypeImpl implements SPrimitive
 	 * @ordered
 	 */
 	protected DPrimitive realizes;
+
+	/**
+	 * The default value of the '{@link #isArchetype() <em>Archetype</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isArchetype()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ARCHETYPE_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -168,6 +179,32 @@ public class SPrimitiveImpl extends SSimpleTypeImpl implements SPrimitive
 	 * @generated
 	 */
 	@Override
+	public boolean isArchetype()
+	{
+		// TODO: implement this method to return the 'Archetype' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setArchetype(boolean newArchetype)
+	{
+		// TODO: implement this method to set the 'Archetype' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
 		switch (featureID)
@@ -178,6 +215,8 @@ public class SPrimitiveImpl extends SSimpleTypeImpl implements SPrimitive
 			case SmsPackage.SPRIMITIVE__REALIZES:
 				if (resolve) return getRealizes();
 				return basicGetRealizes();
+			case SmsPackage.SPRIMITIVE__ARCHETYPE:
+				return isArchetype();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -197,6 +236,9 @@ public class SPrimitiveImpl extends SSimpleTypeImpl implements SPrimitive
 				return;
 			case SmsPackage.SPRIMITIVE__REALIZES:
 				setRealizes((DPrimitive)newValue);
+				return;
+			case SmsPackage.SPRIMITIVE__ARCHETYPE:
+				setArchetype((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -218,6 +260,9 @@ public class SPrimitiveImpl extends SSimpleTypeImpl implements SPrimitive
 			case SmsPackage.SPRIMITIVE__REALIZES:
 				setRealizes((DPrimitive)null);
 				return;
+			case SmsPackage.SPRIMITIVE__ARCHETYPE:
+				setArchetype(ARCHETYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -236,6 +281,8 @@ public class SPrimitiveImpl extends SSimpleTypeImpl implements SPrimitive
 				return redefines != null;
 			case SmsPackage.SPRIMITIVE__REALIZES:
 				return realizes != null;
+			case SmsPackage.SPRIMITIVE__ARCHETYPE:
+				return isArchetype() != ARCHETYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

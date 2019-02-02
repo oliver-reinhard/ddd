@@ -16,6 +16,7 @@ import com.mimacom.ddd.dm.base.DPrimitive;
  * <ul>
  *   <li>{@link com.mimacom.ddd.sm.sms.SPrimitive#getRedefines <em>Redefines</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sms.SPrimitive#getRealizes <em>Realizes</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sms.SPrimitive#isArchetype <em>Archetype</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.sm.sms.SmsPackage#getSPrimitive()
@@ -75,5 +76,31 @@ public interface SPrimitive extends SSimpleType
 	 * @generated
 	 */
 	void setRealizes(DPrimitive value);
+
+	/**
+	 * Returns the value of the '<em><b>Archetype</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Archetype</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Archetype</em>' attribute.
+	 * @see #setArchetype(boolean)
+	 * @see com.mimacom.ddd.sm.sms.SmsPackage#getSPrimitive_Archetype()
+	 * @model transient="true" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isArchetype();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.sm.sms.SPrimitive#isArchetype <em>Archetype</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Archetype</em>' attribute.
+	 * @see #isArchetype()
+	 * @generated
+	 */
+	void setArchetype(boolean value);
 
 } // SPrimitive

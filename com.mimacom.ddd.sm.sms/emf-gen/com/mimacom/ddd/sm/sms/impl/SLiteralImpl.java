@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class SLiteralImpl extends SDeducibleElementImplCustom implements SLiteral
+public class SLiteralImpl extends SNamedDeducibleElementImplCustom implements SLiteral
 {
 	/**
 	 * <!-- begin-user-doc -->

@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SQueryParameterImpl extends SDeducibleMemberElementImplCustom implements SQueryParameter
+public class SQueryParameterImpl extends SNamedDeducibleElementImplCustom implements SQueryParameter
 {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.

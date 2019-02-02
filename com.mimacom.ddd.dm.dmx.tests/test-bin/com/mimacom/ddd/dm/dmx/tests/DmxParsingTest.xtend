@@ -15,7 +15,7 @@ import com.mimacom.ddd.dm.dmx.impl.DContextReferenceImpl
 import com.mimacom.ddd.dm.dmx.impl.DDecimalLiteralImpl
 import com.mimacom.ddd.dm.dmx.impl.DFunctionCallImpl
 import com.mimacom.ddd.dm.dmx.impl.DNaturalLiteralImpl
-import com.mimacom.ddd.dm.dmx.impl.DNilLiteralImpl
+import com.mimacom.ddd.dm.dmx.impl.DUndefinedLiteralImpl
 import com.mimacom.ddd.dm.dmx.impl.DRaiseExpressionImpl
 import com.mimacom.ddd.dm.dmx.impl.DReturnExpressionImpl
 import com.mimacom.ddd.dm.dmx.impl.DSelfExpressionImpl
@@ -63,9 +63,9 @@ class DmxParsingTest {
 		assertEquals(e3.class, DDecimalLiteralImpl)
 		assertEquals("314.159E-2", (e3 as DDecimalLiteralImpl).value)
 		val e4 = expr.get(4)
-		assertEquals(DNilLiteralImpl, e4.class)
+		assertEquals(DUndefinedLiteralImpl, e4.class)
 		val e5 = expr.get(5)
-		assertEquals(DNilLiteralImpl, e5.class)
+		assertEquals(DUndefinedLiteralImpl, e5.class)
 	}
 	
 	@Test

@@ -3,20 +3,18 @@
  */
 package com.mimacom.ddd.sm.sms.generator;
 
-import com.google.common.base.Objects;
 import com.google.common.collect.Iterators;
+import com.google.common.collect.Lists;
 import com.google.inject.Inject;
-import com.mimacom.ddd.sm.sms.SComplexType;
 import com.mimacom.ddd.sm.sms.SDeducibleElement;
-import com.mimacom.ddd.sm.sms.SDeducibleMemberElement;
-import com.mimacom.ddd.sm.sms.SElementNature;
 import com.mimacom.ddd.sm.sms.SFeature;
+import com.mimacom.ddd.sm.sms.SLiteral;
 import java.io.CharArrayWriter;
+import java.util.ArrayList;
 import java.util.Iterator;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
@@ -61,63 +59,22 @@ public class SmsGenerator extends AbstractGenerator {
   public boolean removeTransformationItems(final Resource resource) {
     boolean hadSyntheticItems = false;
     final Iterator<SDeducibleElement> elements = Iterators.<SDeducibleElement>filter(resource.getAllContents(), SDeducibleElement.class);
+    final ArrayList<SDeducibleElement> elementsToRemove = Lists.<SDeducibleElement>newArrayList();
     while (elements.hasNext()) {
       {
         final SDeducibleElement e = elements.next();
-        e.setDeductionRule(null);
-        hadSyntheticItems = (hadSyntheticItems || ((e.getSynthetic() != null) && (e.getSynthetic()).booleanValue()));
-        e.unsetSynthetic();
+        if (((e.getDeductionRule() != null) && ((e instanceof SLiteral) || (e instanceof SFeature)))) {
+          elementsToRemove.add(e);
+        } else {
+          e.setDeductionRule(null);
+          hadSyntheticItems = (hadSyntheticItems || ((e.getSynthetic() != null) && (e.getSynthetic()).booleanValue()));
+          e.unsetSynthetic();
+        }
       }
     }
-    final Iterator<SDeducibleMemberElement> members = Iterators.<SDeducibleMemberElement>filter(resource.getAllContents(), SDeducibleMemberElement.class);
-    while (members.hasNext()) {
-      {
-        final SDeducibleMemberElement m = members.next();
-        m.setDeductionRule(null);
-        hadSyntheticItems = (hadSyntheticItems || ((m.getSynthetic() != null) && (m.getSynthetic()).booleanValue()));
-        m.unsetSynthetic();
-      }
+    for (final SDeducibleElement e : elementsToRemove) {
+      EcoreUtil.remove(e);
     }
     return hadSyntheticItems;
-  }
-  
-  public CharSequence generate(final SComplexType type) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("type ");
-    {
-      SElementNature _nature = type.getNature();
-      boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
-      if (_equals) {
-        String _name = type.getDeductionRule().getSource().getName();
-        _builder.append(_name);
-      } else {
-        String _name_1 = type.getName();
-        _builder.append(_name_1);
-        _builder.append("j");
-      }
-    }
-    _builder.append(" {");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    {
-      EList<SFeature> _features = type.getFeatures();
-      for(final SFeature f : _features) {
-        {
-          SElementNature _nature_1 = f.getNature();
-          boolean _equals_1 = Objects.equal(_nature_1, SElementNature.DEDUCTION_RULE);
-          if (_equals_1) {
-            String _name_2 = f.getDeductionRule().getSource().getName();
-            _builder.append(_name_2, "\t");
-          } else {
-            String _name_3 = f.getName();
-            _builder.append(_name_3, "\t");
-          }
-        }
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.append("}");
-    _builder.newLine();
-    return _builder;
   }
 }

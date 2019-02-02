@@ -61,7 +61,7 @@
         eType="#//DType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="root" ordered="false" unique="false"
         eType="#//DIdentityType" changeable="false" volatile="true" transient="true"
-        derived="true" resolveProxies="false"/>
+        derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
@@ -78,8 +78,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="DSimpleType" abstract="true" eSuperTypes="#//DType #//IValueType"/>
   <eClassifiers xsi:type="ecore:EClass" name="DPrimitive" eSuperTypes="#//DSimpleType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="redefines" eType="#//DPrimitive"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="archetype" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DEnumeration" eSuperTypes="#//DSimpleType">
+  <eClassifiers xsi:type="ecore:EClass" name="DEnumeration" eSuperTypes="#//DSimpleType #//ITypedMemberContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="literals" upperBound="-1"
         eType="#//DLiteral" containment="true"/>
   </eClassifiers>
@@ -136,12 +138,9 @@
         upperBound="-1" eType="#//DContext" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DContext" eSuperTypes="#//DTypedMember"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DNotification" eSuperTypes="#//DNamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="DNotification" eSuperTypes="#//DTypedMember">
     <eStructuralFeatures xsi:type="ecore:EReference" name="notified" lowerBound="1"
         eType="#//DActor"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//DType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="multiplicity" eType="#//DMultiplicity"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DActor" abstract="true" eSuperTypes="#//DNamedElement #//IPrimaryNavigationTarget"/>
   <eClassifiers xsi:type="ecore:EClass" name="DHuman" eSuperTypes="#//DActor"/>

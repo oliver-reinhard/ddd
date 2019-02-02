@@ -4,11 +4,15 @@
 package com.mimacom.ddd.sm.sms.impl;
 
 import com.mimacom.ddd.sm.sms.SAggregate;
+import com.mimacom.ddd.sm.sms.SDeductionRule;
+import com.mimacom.ddd.sm.sms.SElementNature;
+import com.mimacom.ddd.sm.sms.SRootType;
 import com.mimacom.ddd.sm.sms.SType;
 import com.mimacom.ddd.sm.sms.SmsPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -16,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -29,13 +34,67 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.sm.sms.impl.SAggregateImpl#getDeductionRule <em>Deduction Rule</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sms.impl.SAggregateImpl#getNature <em>Nature</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sms.impl.SAggregateImpl#getSynthetic <em>Synthetic</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sms.impl.SAggregateImpl#getTypes <em>Types</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sms.impl.SAggregateImpl#getRoot <em>Root</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sms.impl.SAggregateImpl#getRootName <em>Root Name</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class SAggregateImpl extends MinimalEObjectImpl.Container implements SAggregate
 {
+	/**
+	 * The cached value of the '{@link #getDeductionRule() <em>Deduction Rule</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeductionRule()
+	 * @generated
+	 * @ordered
+	 */
+	protected SDeductionRule deductionRule;
+
+	/**
+	 * The default value of the '{@link #getNature() <em>Nature</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNature()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final SElementNature NATURE_EDEFAULT = SElementNature.GENUINE;
+
+	/**
+	 * The default value of the '{@link #getSynthetic() <em>Synthetic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSynthetic()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean SYNTHETIC_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSynthetic() <em>Synthetic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSynthetic()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean synthetic = SYNTHETIC_EDEFAULT;
+
+	/**
+	 * This is true if the Synthetic attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean syntheticESet;
+
 	/**
 	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -45,6 +104,16 @@ public class SAggregateImpl extends MinimalEObjectImpl.Container implements SAgg
 	 * @ordered
 	 */
 	protected EList<SType> types;
+
+	/**
+	 * The default value of the '{@link #getRootName() <em>Root Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRootName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ROOT_NAME_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -73,6 +142,136 @@ public class SAggregateImpl extends MinimalEObjectImpl.Container implements SAgg
 	 * @generated
 	 */
 	@Override
+	public SDeductionRule getDeductionRule()
+	{
+		return deductionRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDeductionRule(SDeductionRule newDeductionRule, NotificationChain msgs)
+	{
+		SDeductionRule oldDeductionRule = deductionRule;
+		deductionRule = newDeductionRule;
+		if (eNotificationRequired())
+		{
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SmsPackage.SAGGREGATE__DEDUCTION_RULE, oldDeductionRule, newDeductionRule);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDeductionRule(SDeductionRule newDeductionRule)
+	{
+		if (newDeductionRule != deductionRule)
+		{
+			NotificationChain msgs = null;
+			if (deductionRule != null)
+				msgs = ((InternalEObject)deductionRule).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SmsPackage.SAGGREGATE__DEDUCTION_RULE, null, msgs);
+			if (newDeductionRule != null)
+				msgs = ((InternalEObject)newDeductionRule).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SmsPackage.SAGGREGATE__DEDUCTION_RULE, null, msgs);
+			msgs = basicSetDeductionRule(newDeductionRule, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SmsPackage.SAGGREGATE__DEDUCTION_RULE, newDeductionRule, newDeductionRule));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SElementNature getNature()
+	{
+		// TODO: implement this method to return the 'Nature' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNature(SElementNature newNature)
+	{
+		// TODO: implement this method to set the 'Nature' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Boolean getSynthetic()
+	{
+		return synthetic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSynthetic(Boolean newSynthetic)
+	{
+		Boolean oldSynthetic = synthetic;
+		synthetic = newSynthetic;
+		boolean oldSyntheticESet = syntheticESet;
+		syntheticESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SmsPackage.SAGGREGATE__SYNTHETIC, oldSynthetic, synthetic, !oldSyntheticESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void unsetSynthetic()
+	{
+		Boolean oldSynthetic = synthetic;
+		boolean oldSyntheticESet = syntheticESet;
+		synthetic = SYNTHETIC_EDEFAULT;
+		syntheticESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, SmsPackage.SAGGREGATE__SYNTHETIC, oldSynthetic, SYNTHETIC_EDEFAULT, oldSyntheticESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isSetSynthetic()
+	{
+		return syntheticESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<SType> getTypes()
 	{
 		if (types == null)
@@ -88,10 +287,50 @@ public class SAggregateImpl extends MinimalEObjectImpl.Container implements SAgg
 	 * @generated
 	 */
 	@Override
+	public SRootType getRoot()
+	{
+		SRootType root = basicGetRoot();
+		return root != null && root.eIsProxy() ? (SRootType)eResolveProxy((InternalEObject)root) : root;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SRootType basicGetRoot()
+	{
+		// TODO: implement this method to return the 'Root' reference
+		// -> do not perform proxy resolution
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getRootName()
+	{
+		// TODO: implement this method to return the 'Root Name' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
 		switch (featureID)
 		{
+			case SmsPackage.SAGGREGATE__DEDUCTION_RULE:
+				return basicSetDeductionRule(null, msgs);
 			case SmsPackage.SAGGREGATE__TYPES:
 				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
 		}
@@ -108,8 +347,19 @@ public class SAggregateImpl extends MinimalEObjectImpl.Container implements SAgg
 	{
 		switch (featureID)
 		{
+			case SmsPackage.SAGGREGATE__DEDUCTION_RULE:
+				return getDeductionRule();
+			case SmsPackage.SAGGREGATE__NATURE:
+				return getNature();
+			case SmsPackage.SAGGREGATE__SYNTHETIC:
+				return getSynthetic();
 			case SmsPackage.SAGGREGATE__TYPES:
 				return getTypes();
+			case SmsPackage.SAGGREGATE__ROOT:
+				if (resolve) return getRoot();
+				return basicGetRoot();
+			case SmsPackage.SAGGREGATE__ROOT_NAME:
+				return getRootName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -125,6 +375,15 @@ public class SAggregateImpl extends MinimalEObjectImpl.Container implements SAgg
 	{
 		switch (featureID)
 		{
+			case SmsPackage.SAGGREGATE__DEDUCTION_RULE:
+				setDeductionRule((SDeductionRule)newValue);
+				return;
+			case SmsPackage.SAGGREGATE__NATURE:
+				setNature((SElementNature)newValue);
+				return;
+			case SmsPackage.SAGGREGATE__SYNTHETIC:
+				setSynthetic((Boolean)newValue);
+				return;
 			case SmsPackage.SAGGREGATE__TYPES:
 				getTypes().clear();
 				getTypes().addAll((Collection<? extends SType>)newValue);
@@ -143,6 +402,15 @@ public class SAggregateImpl extends MinimalEObjectImpl.Container implements SAgg
 	{
 		switch (featureID)
 		{
+			case SmsPackage.SAGGREGATE__DEDUCTION_RULE:
+				setDeductionRule((SDeductionRule)null);
+				return;
+			case SmsPackage.SAGGREGATE__NATURE:
+				setNature(NATURE_EDEFAULT);
+				return;
+			case SmsPackage.SAGGREGATE__SYNTHETIC:
+				unsetSynthetic();
+				return;
 			case SmsPackage.SAGGREGATE__TYPES:
 				getTypes().clear();
 				return;
@@ -160,10 +428,37 @@ public class SAggregateImpl extends MinimalEObjectImpl.Container implements SAgg
 	{
 		switch (featureID)
 		{
+			case SmsPackage.SAGGREGATE__DEDUCTION_RULE:
+				return deductionRule != null;
+			case SmsPackage.SAGGREGATE__NATURE:
+				return getNature() != NATURE_EDEFAULT;
+			case SmsPackage.SAGGREGATE__SYNTHETIC:
+				return isSetSynthetic();
 			case SmsPackage.SAGGREGATE__TYPES:
 				return types != null && !types.isEmpty();
+			case SmsPackage.SAGGREGATE__ROOT:
+				return basicGetRoot() != null;
+			case SmsPackage.SAGGREGATE__ROOT_NAME:
+				return ROOT_NAME_EDEFAULT == null ? getRootName() != null : !ROOT_NAME_EDEFAULT.equals(getRootName());
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString()
+	{
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (synthetic: ");
+		if (syntheticESet) result.append(synthetic); else result.append("<unset>");
+		result.append(')');
+		return result.toString();
 	}
 
 } //SAggregateImpl

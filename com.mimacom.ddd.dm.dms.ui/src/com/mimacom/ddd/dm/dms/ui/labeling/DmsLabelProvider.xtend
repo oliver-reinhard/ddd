@@ -4,6 +4,11 @@
 package com.mimacom.ddd.dm.dms.ui.labeling
 
 import com.google.inject.Inject
+import com.mimacom.ddd.dm.base.DAggregate
+import com.mimacom.ddd.dm.base.DCondition
+import com.mimacom.ddd.dm.base.DFeature
+import com.mimacom.ddd.dm.base.DType
+import com.mimacom.ddd.dm.dms.DmsUtil
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 
@@ -14,16 +19,27 @@ import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
  */
 class DmsLabelProvider extends DefaultEObjectLabelProvider {
 
+	@Inject extension DmsUtil
 	@Inject
 	new(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
-
-	// Labels and icons can be computed like this:
 	
-//	def text(Greeting ele) {
-//		'A greeting to ' + ele.name
-//	}
+	def text(DAggregate a) {
+		return a.label
+	}
+	
+	def text(DType t) {
+		return t.label
+	}
+	
+	def text(DFeature f) {
+		return f.label
+	}
+	
+	def text(DCondition c) {
+		return c.label
+	}
 //
 //	def image(Greeting ele) {
 //		'Greeting.gif'

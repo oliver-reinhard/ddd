@@ -1661,29 +1661,29 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	public class DNilLiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DNilLiteral");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cDNilLiteralAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cDUndefinedLiteralAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Keyword cNILKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
-		private final Keyword cNilKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
+		private final Keyword cUNDEFINEDKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
+		private final Keyword cUndefinedKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
 		
 		//DNilLiteral DExpression:
-		//	{DNilLiteral} ('NIL' | 'nil');
+		//	{DUndefinedLiteral} ('UNDEFINED' | 'undefined');
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DNilLiteral} ('NIL' | 'nil')
+		//{DUndefinedLiteral} ('UNDEFINED' | 'undefined')
 		public Group getGroup() { return cGroup; }
 		
-		//{DNilLiteral}
-		public Action getDNilLiteralAction_0() { return cDNilLiteralAction_0; }
+		//{DUndefinedLiteral}
+		public Action getDUndefinedLiteralAction_0() { return cDUndefinedLiteralAction_0; }
 		
-		//'NIL' | 'nil'
+		//'UNDEFINED' | 'undefined'
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//'NIL'
-		public Keyword getNILKeyword_1_0() { return cNILKeyword_1_0; }
+		//'UNDEFINED'
+		public Keyword getUNDEFINEDKeyword_1_0() { return cUNDEFINEDKeyword_1_0; }
 		
-		//'nil'
-		public Keyword getNilKeyword_1_1() { return cNilKeyword_1_1; }
+		//'undefined'
+		public Keyword getUndefinedKeyword_1_1() { return cUndefinedKeyword_1_1; }
 	}
 	public class DECIMALElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DECIMAL");
@@ -2162,6 +2162,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tID;
 	private final TerminalRule tSTRING;
 	private final TerminalRule tNATURAL;
+	private final TerminalRule tLETTER;
 	private final TerminalRule tPLAIN_TEXT;
 	private final TerminalRule tPLAIN_TEXT_ONLY;
 	private final TerminalRule tPLAIN_TEXT_START;
@@ -2231,6 +2232,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.ID");
 		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.STRING");
 		this.tNATURAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.NATURAL");
+		this.tLETTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.LETTER");
 		this.tPLAIN_TEXT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.PLAIN_TEXT");
 		this.tPLAIN_TEXT_ONLY = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.PLAIN_TEXT_ONLY");
 		this.tPLAIN_TEXT_START = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.PLAIN_TEXT_START");
@@ -2760,7 +2762,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DNilLiteral DExpression:
-	//	{DNilLiteral} ('NIL' | 'nil');
+	//	{DUndefinedLiteral} ('UNDEFINED' | 'undefined');
 	public DNilLiteralElements getDNilLiteralAccess() {
 		return pDNilLiteral;
 	}
@@ -2800,7 +2802,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal ID:
-	//	'^'? ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')*;
+	//	'^'? (LETTER | '_') (LETTER | '_' | '0'..'9')*;
 	public TerminalRule getIDRule() {
 		return tID;
 	}
@@ -2815,6 +2817,12 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	//	'0'..'9'+;
 	public TerminalRule getNATURALRule() {
 		return tNATURAL;
+	}
+	
+	//terminal fragment LETTER:
+	//	'a'..'z' | 'A'..'Z' | '\\u00c0'..'\\u00d6' | '\\u00d8'..'\\u00f6' | '\\u00f8'..'\\u00ff';
+	public TerminalRule getLETTERRule() {
+		return tLETTER;
 	}
 	
 	//terminal fragment PLAIN_TEXT:

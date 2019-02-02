@@ -178,9 +178,9 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 				return createDDateLiteralAdapter();
 			}
 			@Override
-			public Adapter caseDNilLiteral(DNilLiteral object)
+			public Adapter caseDUndefinedLiteral(DUndefinedLiteral object)
 			{
-				return createDNilLiteralAdapter();
+				return createDUndefinedLiteralAdapter();
 			}
 			@Override
 			public Adapter caseIRichTextElement(IRichTextElement object)
@@ -515,16 +515,16 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DNilLiteral <em>DNil Literal</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DUndefinedLiteral <em>DUndefined Literal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DNilLiteral
+	 * @see com.mimacom.ddd.dm.dmx.DUndefinedLiteral
 	 * @generated
 	 */
-	public Adapter createDNilLiteralAdapter()
+	public Adapter createDUndefinedLiteralAdapter()
 	{
 		return null;
 	}

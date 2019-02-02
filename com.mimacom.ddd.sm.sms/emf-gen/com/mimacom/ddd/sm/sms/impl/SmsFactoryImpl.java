@@ -68,8 +68,6 @@ public class SmsFactoryImpl extends EFactoryImpl implements SmsFactory
 		{
 			case SmsPackage.SDOMAIN: return createSDomain();
 			case SmsPackage.SNAMED_ELEMENT: return createSNamedElement();
-			case SmsPackage.SDEDUCIBLE_ELEMENT: return createSDeducibleElement();
-			case SmsPackage.SDEDUCIBLE_MEMBER_ELEMENT: return createSDeducibleMemberElement();
 			case SmsPackage.SIMPORT: return createSImport();
 			case SmsPackage.SAGGREGATE: return createSAggregate();
 			case SmsPackage.STYPE: return createSType();
@@ -88,13 +86,11 @@ public class SmsFactoryImpl extends EFactoryImpl implements SmsFactory
 			case SmsPackage.SQUERY_PARAMETER: return createSQueryParameter();
 			case SmsPackage.SEXPRESSION: return createSExpression();
 			case SmsPackage.SMULTIPLICITY: return createSMultiplicity();
-			case SmsPackage.SDEDUCTION_RULE: return createSDeductionRule();
-			case SmsPackage.SMEMBER_DEDUCTION_RULE: return createSMemberDeductionRule();
-			case SmsPackage.SSPOOF_TRANSFORM: return createSSpoofTransform();
-			case SmsPackage.SMORPH_TRANSFORM: return createSMorphTransform();
-			case SmsPackage.SDITCH_TRANSFORM: return createSDitchTransform();
-			case SmsPackage.SFUSE_TRANSFORM: return createSFuseTransform();
-			case SmsPackage.SCHOP_TRANSFORM: return createSChopTransform();
+			case SmsPackage.SGRAB_RULE: return createSGrabRule();
+			case SmsPackage.SMORPH_RULE: return createSMorphRule();
+			case SmsPackage.SDITCH_RULE: return createSDitchRule();
+			case SmsPackage.SFUSE_RULE: return createSFuseRule();
+			case SmsPackage.SGRAB_AGGREGATE_RULE: return createSGrabAggregateRule();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -168,30 +164,6 @@ public class SmsFactoryImpl extends EFactoryImpl implements SmsFactory
 	 * @generated
 	 */
 	@Override
-	public SDeducibleElement createSDeducibleElement()
-	{
-		SDeducibleElementImplCustom sDeducibleElement = new SDeducibleElementImplCustom();
-		return sDeducibleElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SDeducibleMemberElement createSDeducibleMemberElement()
-	{
-		SDeducibleMemberElementImplCustom sDeducibleMemberElement = new SDeducibleMemberElementImplCustom();
-		return sDeducibleMemberElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public SImport createSImport()
 	{
 		SImportImpl sImport = new SImportImpl();
@@ -206,7 +178,7 @@ public class SmsFactoryImpl extends EFactoryImpl implements SmsFactory
 	@Override
 	public SAggregate createSAggregate()
 	{
-		SAggregateImpl sAggregate = new SAggregateImpl();
+		SAggregateImplCustom sAggregate = new SAggregateImplCustom();
 		return sAggregate;
 	}
 
@@ -266,7 +238,7 @@ public class SmsFactoryImpl extends EFactoryImpl implements SmsFactory
 	@Override
 	public SPrimitive createSPrimitive()
 	{
-		SPrimitiveImpl sPrimitive = new SPrimitiveImpl();
+		SPrimitiveImplCustom sPrimitive = new SPrimitiveImplCustom();
 		return sPrimitive;
 	}
 
@@ -408,10 +380,10 @@ public class SmsFactoryImpl extends EFactoryImpl implements SmsFactory
 	 * @generated
 	 */
 	@Override
-	public SDeductionRule createSDeductionRule()
+	public SGrabRule createSGrabRule()
 	{
-		SDeductionRuleImpl sDeductionRule = new SDeductionRuleImpl();
-		return sDeductionRule;
+		SGrabRuleImpl sGrabRule = new SGrabRuleImpl();
+		return sGrabRule;
 	}
 
 	/**
@@ -420,10 +392,10 @@ public class SmsFactoryImpl extends EFactoryImpl implements SmsFactory
 	 * @generated
 	 */
 	@Override
-	public SMemberDeductionRule createSMemberDeductionRule()
+	public SMorphRule createSMorphRule()
 	{
-		SMemberDeductionRuleImpl sMemberDeductionRule = new SMemberDeductionRuleImpl();
-		return sMemberDeductionRule;
+		SMorphRuleImpl sMorphRule = new SMorphRuleImpl();
+		return sMorphRule;
 	}
 
 	/**
@@ -432,10 +404,10 @@ public class SmsFactoryImpl extends EFactoryImpl implements SmsFactory
 	 * @generated
 	 */
 	@Override
-	public SSpoofTransform createSSpoofTransform()
+	public SDitchRule createSDitchRule()
 	{
-		SSpoofTransformImpl sSpoofTransform = new SSpoofTransformImpl();
-		return sSpoofTransform;
+		SDitchRuleImpl sDitchRule = new SDitchRuleImpl();
+		return sDitchRule;
 	}
 
 	/**
@@ -444,10 +416,10 @@ public class SmsFactoryImpl extends EFactoryImpl implements SmsFactory
 	 * @generated
 	 */
 	@Override
-	public SMorphTransform createSMorphTransform()
+	public SFuseRule createSFuseRule()
 	{
-		SMorphTransformImpl sMorphTransform = new SMorphTransformImpl();
-		return sMorphTransform;
+		SFuseRuleImpl sFuseRule = new SFuseRuleImpl();
+		return sFuseRule;
 	}
 
 	/**
@@ -456,34 +428,10 @@ public class SmsFactoryImpl extends EFactoryImpl implements SmsFactory
 	 * @generated
 	 */
 	@Override
-	public SDitchTransform createSDitchTransform()
+	public SGrabAggregateRule createSGrabAggregateRule()
 	{
-		SDitchTransformImpl sDitchTransform = new SDitchTransformImpl();
-		return sDitchTransform;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SFuseTransform createSFuseTransform()
-	{
-		SFuseTransformImpl sFuseTransform = new SFuseTransformImpl();
-		return sFuseTransform;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SChopTransform createSChopTransform()
-	{
-		SChopTransformImpl sChopTransform = new SChopTransformImpl();
-		return sChopTransform;
+		SGrabAggregateRuleImpl sGrabAggregateRule = new SGrabAggregateRuleImpl();
+		return sGrabAggregateRule;
 	}
 
 	/**

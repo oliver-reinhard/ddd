@@ -126,5 +126,5 @@
   <eClassifiers xsi:type="ecore:EClass" name="DDateLiteral" eSuperTypes="base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DNilLiteral" eSuperTypes="base.ecore#//DExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DUndefinedLiteral" eSuperTypes="base.ecore#//DExpression"/>
 </ecore:EPackage>

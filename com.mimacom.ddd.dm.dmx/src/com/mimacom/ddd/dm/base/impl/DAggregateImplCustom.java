@@ -11,7 +11,7 @@ public class DAggregateImplCustom extends DAggregateImpl {
 	 * Return the Aggregat's compulsory RootType.
 	 */
 	@Override
-	public DIdentityType getRoot() {
+	public DIdentityType basicGetRoot() {
 		for (DType t : getTypes()) {
 			if (t instanceof DIdentityType) {
 				return (DIdentityType) t;

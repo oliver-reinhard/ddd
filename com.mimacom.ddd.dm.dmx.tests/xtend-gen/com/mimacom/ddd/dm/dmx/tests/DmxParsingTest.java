@@ -16,12 +16,12 @@ import com.mimacom.ddd.dm.dmx.impl.DContextReferenceImpl;
 import com.mimacom.ddd.dm.dmx.impl.DDecimalLiteralImpl;
 import com.mimacom.ddd.dm.dmx.impl.DFunctionCallImpl;
 import com.mimacom.ddd.dm.dmx.impl.DNaturalLiteralImpl;
-import com.mimacom.ddd.dm.dmx.impl.DNilLiteralImpl;
 import com.mimacom.ddd.dm.dmx.impl.DRaiseExpressionImpl;
 import com.mimacom.ddd.dm.dmx.impl.DReturnExpressionImpl;
 import com.mimacom.ddd.dm.dmx.impl.DSelfExpressionImpl;
 import com.mimacom.ddd.dm.dmx.impl.DStringLiteralImpl;
 import com.mimacom.ddd.dm.dmx.impl.DTypedMemberReferenceImpl;
+import com.mimacom.ddd.dm.dmx.impl.DUndefinedLiteralImpl;
 import com.mimacom.ddd.dm.dmx.tests.DmxInjectorProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -84,9 +84,9 @@ public class DmxParsingTest {
       Assert.assertEquals(e3.getClass(), DDecimalLiteralImpl.class);
       Assert.assertEquals("314.159E-2", ((DDecimalLiteralImpl) e3).getValue());
       final DExpression e4 = expr.get(4);
-      Assert.assertEquals(DNilLiteralImpl.class, e4.getClass());
+      Assert.assertEquals(DUndefinedLiteralImpl.class, e4.getClass());
       final DExpression e5 = expr.get(5);
-      Assert.assertEquals(DNilLiteralImpl.class, e5.getClass());
+      Assert.assertEquals(DUndefinedLiteralImpl.class, e5.getClass());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

@@ -251,34 +251,38 @@ public class DmsGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dms.Dms.DType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cDPrimitiveParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cDEnumerationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cDRootTypeParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cDRelationshipParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cDDetailTypeParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cDPrimitiveArchetypeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDEnumerationParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cDRootTypeParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cDRelationshipParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cDDetailTypeParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		///*
 		// * TYPES
 		// */ DType:
-		//	DPrimitive | DEnumeration | DRootType | DRelationship | DDetailType;
+		//	DPrimitive | DPrimitiveArchetype | DEnumeration | DRootType | DRelationship | DDetailType;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//DPrimitive | DEnumeration | DRootType | DRelationship | DDetailType
+		//DPrimitive | DPrimitiveArchetype | DEnumeration | DRootType | DRelationship | DDetailType
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//DPrimitive
 		public RuleCall getDPrimitiveParserRuleCall_0() { return cDPrimitiveParserRuleCall_0; }
 		
+		//DPrimitiveArchetype
+		public RuleCall getDPrimitiveArchetypeParserRuleCall_1() { return cDPrimitiveArchetypeParserRuleCall_1; }
+		
 		//DEnumeration
-		public RuleCall getDEnumerationParserRuleCall_1() { return cDEnumerationParserRuleCall_1; }
+		public RuleCall getDEnumerationParserRuleCall_2() { return cDEnumerationParserRuleCall_2; }
 		
 		//DRootType
-		public RuleCall getDRootTypeParserRuleCall_2() { return cDRootTypeParserRuleCall_2; }
+		public RuleCall getDRootTypeParserRuleCall_3() { return cDRootTypeParserRuleCall_3; }
 		
 		//DRelationship
-		public RuleCall getDRelationshipParserRuleCall_3() { return cDRelationshipParserRuleCall_3; }
+		public RuleCall getDRelationshipParserRuleCall_4() { return cDRelationshipParserRuleCall_4; }
 		
 		//DDetailType
-		public RuleCall getDDetailTypeParserRuleCall_4() { return cDDetailTypeParserRuleCall_4; }
+		public RuleCall getDDetailTypeParserRuleCall_5() { return cDDetailTypeParserRuleCall_5; }
 	}
 	public class DConstraintElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dms.Dms.DConstraint");
@@ -333,32 +337,95 @@ public class DmsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cPrimitiveKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cDescriptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cDescriptionDRichTextParserRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cRedefinesKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cRedefinesAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final CrossReference cRedefinesDPrimitiveCrossReference_4_1_0 = (CrossReference)cRedefinesAssignment_4_1.eContents().get(0);
-		private final RuleCall cRedefinesDPrimitiveIDTerminalRuleCall_4_1_0_1 = (RuleCall)cRedefinesDPrimitiveCrossReference_4_1_0.eContents().get(1);
-		private final Assignment cConstraintsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cConstraintsDConstraintParserRuleCall_5_0 = (RuleCall)cConstraintsAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cRedefinesKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cRedefinesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cRedefinesDPrimitiveCrossReference_3_0 = (CrossReference)cRedefinesAssignment_3.eContents().get(0);
+		private final RuleCall cRedefinesDPrimitiveIDTerminalRuleCall_3_0_1 = (RuleCall)cRedefinesDPrimitiveCrossReference_3_0.eContents().get(1);
+		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDescriptionDRichTextParserRuleCall_4_0 = (RuleCall)cDescriptionAssignment_4.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cConstraintsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cConstraintsDConstraintParserRuleCall_6_0 = (RuleCall)cConstraintsAssignment_6.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//DPrimitive:
 		//	'primitive'
 		//	name=ID
-		//	description=DRichText?
-		//	'{' ('redefines' redefines=[DPrimitive])?
+		//	'redefines' redefines=[DPrimitive] description=DRichText?
+		//	'{'
 		//	constraints+=DConstraint*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'primitive' name=ID description=DRichText? '{' ('redefines' redefines=[DPrimitive])? constraints+=DConstraint* '}'
+		//'primitive' name=ID 'redefines' redefines=[DPrimitive] description=DRichText? '{' constraints+=DConstraint* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'primitive'
 		public Keyword getPrimitiveKeyword_0() { return cPrimitiveKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'redefines'
+		public Keyword getRedefinesKeyword_2() { return cRedefinesKeyword_2; }
+		
+		//redefines=[DPrimitive]
+		public Assignment getRedefinesAssignment_3() { return cRedefinesAssignment_3; }
+		
+		//[DPrimitive]
+		public CrossReference getRedefinesDPrimitiveCrossReference_3_0() { return cRedefinesDPrimitiveCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getRedefinesDPrimitiveIDTerminalRuleCall_3_0_1() { return cRedefinesDPrimitiveIDTerminalRuleCall_3_0_1; }
+		
+		//description=DRichText?
+		public Assignment getDescriptionAssignment_4() { return cDescriptionAssignment_4; }
+		
+		//DRichText
+		public RuleCall getDescriptionDRichTextParserRuleCall_4_0() { return cDescriptionDRichTextParserRuleCall_4_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
+		
+		//constraints+=DConstraint*
+		public Assignment getConstraintsAssignment_6() { return cConstraintsAssignment_6; }
+		
+		//DConstraint
+		public RuleCall getConstraintsDConstraintParserRuleCall_6_0() { return cConstraintsDConstraintParserRuleCall_6_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+	}
+	public class DPrimitiveArchetypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dms.Dms.DPrimitiveArchetype");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cArchetypeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cDescriptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDescriptionDRichTextParserRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cConstraintsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cConstraintsDConstraintParserRuleCall_4_0 = (RuleCall)cConstraintsAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//DPrimitiveArchetype DPrimitive:
+		//	'archetype'
+		//	name=ID
+		//	description=DRichText?
+		//	'{'
+		//	constraints+=DConstraint*
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'archetype' name=ID description=DRichText? '{' constraints+=DConstraint* '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'archetype'
+		public Keyword getArchetypeKeyword_0() { return cArchetypeKeyword_0; }
 		
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -375,29 +442,14 @@ public class DmsGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 		
-		//('redefines' redefines=[DPrimitive])?
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'redefines'
-		public Keyword getRedefinesKeyword_4_0() { return cRedefinesKeyword_4_0; }
-		
-		//redefines=[DPrimitive]
-		public Assignment getRedefinesAssignment_4_1() { return cRedefinesAssignment_4_1; }
-		
-		//[DPrimitive]
-		public CrossReference getRedefinesDPrimitiveCrossReference_4_1_0() { return cRedefinesDPrimitiveCrossReference_4_1_0; }
-		
-		//ID
-		public RuleCall getRedefinesDPrimitiveIDTerminalRuleCall_4_1_0_1() { return cRedefinesDPrimitiveIDTerminalRuleCall_4_1_0_1; }
-		
 		//constraints+=DConstraint*
-		public Assignment getConstraintsAssignment_5() { return cConstraintsAssignment_5; }
+		public Assignment getConstraintsAssignment_4() { return cConstraintsAssignment_4; }
 		
 		//DConstraint
-		public RuleCall getConstraintsDConstraintParserRuleCall_5_0() { return cConstraintsDConstraintParserRuleCall_5_0; }
+		public RuleCall getConstraintsDConstraintParserRuleCall_4_0() { return cConstraintsDConstraintParserRuleCall_4_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 	public class DEnumerationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dms.Dms.DEnumeration");
@@ -1474,6 +1526,7 @@ public class DmsGrammarAccess extends AbstractGrammarElementFinder {
 	private final DTypeElements pDType;
 	private final DConstraintElements pDConstraint;
 	private final DPrimitiveElements pDPrimitive;
+	private final DPrimitiveArchetypeElements pDPrimitiveArchetype;
 	private final DEnumerationElements pDEnumeration;
 	private final DLiteralElements pDLiteral;
 	private final DRootTypeElements pDRootType;
@@ -1510,6 +1563,7 @@ public class DmsGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDType = new DTypeElements();
 		this.pDConstraint = new DConstraintElements();
 		this.pDPrimitive = new DPrimitiveElements();
+		this.pDPrimitiveArchetype = new DPrimitiveArchetypeElements();
 		this.pDEnumeration = new DEnumerationElements();
 		this.pDLiteral = new DLiteralElements();
 		this.pDRootType = new DRootTypeElements();
@@ -1615,7 +1669,7 @@ public class DmsGrammarAccess extends AbstractGrammarElementFinder {
 	///*
 	// * TYPES
 	// */ DType:
-	//	DPrimitive | DEnumeration | DRootType | DRelationship | DDetailType;
+	//	DPrimitive | DPrimitiveArchetype | DEnumeration | DRootType | DRelationship | DDetailType;
 	public DTypeElements getDTypeAccess() {
 		return pDType;
 	}
@@ -1641,8 +1695,8 @@ public class DmsGrammarAccess extends AbstractGrammarElementFinder {
 	//DPrimitive:
 	//	'primitive'
 	//	name=ID
-	//	description=DRichText?
-	//	'{' ('redefines' redefines=[DPrimitive])?
+	//	'redefines' redefines=[DPrimitive] description=DRichText?
+	//	'{'
 	//	constraints+=DConstraint*
 	//	'}';
 	public DPrimitiveElements getDPrimitiveAccess() {
@@ -1651,6 +1705,21 @@ public class DmsGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDPrimitiveRule() {
 		return getDPrimitiveAccess().getRule();
+	}
+	
+	//DPrimitiveArchetype DPrimitive:
+	//	'archetype'
+	//	name=ID
+	//	description=DRichText?
+	//	'{'
+	//	constraints+=DConstraint*
+	//	'}';
+	public DPrimitiveArchetypeElements getDPrimitiveArchetypeAccess() {
+		return pDPrimitiveArchetype;
+	}
+	
+	public ParserRule getDPrimitiveArchetypeRule() {
+		return getDPrimitiveArchetypeAccess().getRule();
 	}
 	
 	//DEnumeration:
@@ -2385,7 +2454,7 @@ public class DmsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DNilLiteral DExpression:
-	//	{DNilLiteral} ('NIL' | 'nil');
+	//	{DUndefinedLiteral} ('UNDEFINED' | 'undefined');
 	public DmxGrammarAccess.DNilLiteralElements getDNilLiteralAccess() {
 		return gaDmx.getDNilLiteralAccess();
 	}
@@ -2425,7 +2494,7 @@ public class DmsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal ID:
-	//	'^'? ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')*;
+	//	'^'? (LETTER | '_') (LETTER | '_' | '0'..'9')*;
 	public TerminalRule getIDRule() {
 		return gaDmx.getIDRule();
 	}
@@ -2440,6 +2509,12 @@ public class DmsGrammarAccess extends AbstractGrammarElementFinder {
 	//	'0'..'9'+;
 	public TerminalRule getNATURALRule() {
 		return gaDmx.getNATURALRule();
+	}
+	
+	//terminal fragment LETTER:
+	//	'a'..'z' | 'A'..'Z' | '\\u00c0'..'\\u00d6' | '\\u00d8'..'\\u00f6' | '\\u00f8'..'\\u00ff';
+	public TerminalRule getLETTERRule() {
+		return gaDmx.getLETTERRule();
 	}
 	
 	//terminal fragment PLAIN_TEXT:

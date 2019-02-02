@@ -40,13 +40,13 @@ import com.mimacom.ddd.dm.dmx.DFunctionCall;
 import com.mimacom.ddd.dm.dmx.DIfExpression;
 import com.mimacom.ddd.dm.dmx.DInstanceOfExpression;
 import com.mimacom.ddd.dm.dmx.DNaturalLiteral;
-import com.mimacom.ddd.dm.dmx.DNilLiteral;
 import com.mimacom.ddd.dm.dmx.DRaiseExpression;
 import com.mimacom.ddd.dm.dmx.DReturnExpression;
 import com.mimacom.ddd.dm.dmx.DSelfExpression;
 import com.mimacom.ddd.dm.dmx.DStringLiteral;
 import com.mimacom.ddd.dm.dmx.DTypedMemberReference;
 import com.mimacom.ddd.dm.dmx.DUnaryOperation;
+import com.mimacom.ddd.dm.dmx.DUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.DmxModel;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.serializer.DmxSemanticSequencer;
@@ -114,8 +114,19 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 				sequence_DMultiplicity(context, (DMultiplicity) semanticObject); 
 				return; 
 			case BasePackage.DPRIMITIVE:
-				sequence_DPrimitive(context, (DPrimitive) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getDPrimitiveArchetypeRule()) {
+					sequence_DPrimitiveArchetype(context, (DPrimitive) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getDPrimitiveRule()) {
+					sequence_DPrimitive(context, (DPrimitive) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getDTypeRule()) {
+					sequence_DPrimitive_DPrimitiveArchetype(context, (DPrimitive) semanticObject); 
+					return; 
+				}
+				else break;
 			case BasePackage.DQUERY:
 				sequence_DQuery(context, (DQuery) semanticObject); 
 				return; 
@@ -194,9 +205,6 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 			case DmxPackage.DNATURAL_LITERAL:
 				sequence_DNaturalLiteral(context, (DNaturalLiteral) semanticObject); 
 				return; 
-			case DmxPackage.DNIL_LITERAL:
-				sequence_DNilLiteral(context, (DNilLiteral) semanticObject); 
-				return; 
 			case DmxPackage.DRAISE_EXPRESSION:
 				sequence_DRaiseExpression(context, (DRaiseExpression) semanticObject); 
 				return; 
@@ -214,6 +222,9 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case DmxPackage.DUNARY_OPERATION:
 				sequence_DUnaryOperation(context, (DUnaryOperation) semanticObject); 
+				return; 
+			case DmxPackage.DUNDEFINED_LITERAL:
+				sequence_DNilLiteral(context, (DUndefinedLiteral) semanticObject); 
 				return; 
 			case DmxPackage.DMX_MODEL:
 				sequence_DmxModel(context, (DmxModel) semanticObject); 
@@ -424,13 +435,39 @@ public class DmsSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DType returns DPrimitive
+	 *     DPrimitiveArchetype returns DPrimitive
+	 *
+	 * Constraint:
+	 *     (name=ID description=DRichText? constraints+=DConstraint*)
+	 */
+	protected void sequence_DPrimitiveArchetype(ISerializationContext context, DPrimitive semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     DPrimitive returns DPrimitive
 	 *
 	 * Constraint:
-	 *     (name=ID description=DRichText? redefines=[DPrimitive|ID]? constraints+=DConstraint*)
+	 *     (name=ID redefines=[DPrimitive|ID] description=DRichText? constraints+=DConstraint*)
 	 */
 	protected void sequence_DPrimitive(ISerializationContext context, DPrimitive semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DType returns DPrimitive
+	 *
+	 * Constraint:
+	 *     (
+	 *         (name=ID redefines=[DPrimitive|ID] description=DRichText? constraints+=DConstraint*) | 
+	 *         (name=ID description=DRichText? constraints+=DConstraint*)
+	 *     )
+	 */
+	protected void sequence_DPrimitive_DPrimitiveArchetype(ISerializationContext context, DPrimitive semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

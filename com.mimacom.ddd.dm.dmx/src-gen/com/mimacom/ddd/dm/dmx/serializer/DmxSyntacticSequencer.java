@@ -22,7 +22,7 @@ public class DmxSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected DmxGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3;
-	protected AbstractElementAlias match_DNilLiteral_NILKeyword_1_0_or_NilKeyword_1_1;
+	protected AbstractElementAlias match_DNilLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1;
 	protected AbstractElementAlias match_DParenthesizedExpression_LeftParenthesisKeyword_0_a;
 	protected AbstractElementAlias match_DParenthesizedExpression_LeftParenthesisKeyword_0_p;
 	protected AbstractElementAlias match_DRaiseExpression_RAISEKeyword_1_0_or_RaiseKeyword_1_1;
@@ -33,7 +33,7 @@ public class DmxSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (DmxGrammarAccess) access;
 		match_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDBooleanLiteralAccess().getFALSEKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getDBooleanLiteralAccess().getFalseKeyword_1_3()));
-		match_DNilLiteral_NILKeyword_1_0_or_NilKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDNilLiteralAccess().getNILKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDNilLiteralAccess().getNilKeyword_1_1()));
+		match_DNilLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDNilLiteralAccess().getUNDEFINEDKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDNilLiteralAccess().getUndefinedKeyword_1_1()));
 		match_DParenthesizedExpression_LeftParenthesisKeyword_0_a = new TokenAlias(true, true, grammarAccess.getDParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
 		match_DParenthesizedExpression_LeftParenthesisKeyword_0_p = new TokenAlias(true, false, grammarAccess.getDParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
 		match_DRaiseExpression_RAISEKeyword_1_0_or_RaiseKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDRaiseExpressionAccess().getRAISEKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDRaiseExpressionAccess().getRaiseKeyword_1_1()));
@@ -113,8 +113,8 @@ public class DmxSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3.equals(syntax))
 				emit_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DNilLiteral_NILKeyword_1_0_or_NilKeyword_1_1.equals(syntax))
-				emit_DNilLiteral_NILKeyword_1_0_or_NilKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_DNilLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1.equals(syntax))
+				emit_DNilLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DParenthesizedExpression_LeftParenthesisKeyword_0_a.equals(syntax))
 				emit_DParenthesizedExpression_LeftParenthesisKeyword_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DParenthesizedExpression_LeftParenthesisKeyword_0_p.equals(syntax))
@@ -144,14 +144,14 @@ public class DmxSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     'NIL' | 'nil'
+	 *     'UNDEFINED' | 'undefined'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) '('* (ambiguity) (rule start)
 	 *     (rule start) '('+ (ambiguity) ')' (rule start)
 	 *     (rule start) (ambiguity) (rule start)
 	 */
-	protected void emit_DNilLiteral_NILKeyword_1_0_or_NilKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_DNilLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -163,11 +163,11 @@ public class DmxSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) 'for' declaredParam=ID
 	 *     (rule start) (ambiguity) 'if' if=DExpression
 	 *     (rule start) (ambiguity) ('FALSE' | 'false') (rule start)
-	 *     (rule start) (ambiguity) ('NIL' | 'nil') (rule start)
 	 *     (rule start) (ambiguity) ('RAISE' | 'raise') expression=DExpression
 	 *     (rule start) (ambiguity) ('RETURN' | 'return') (rule start)
 	 *     (rule start) (ambiguity) ('RETURN' | 'return') expression=DExpression
 	 *     (rule start) (ambiguity) ('SELF' | 'self') (rule start)
+	 *     (rule start) (ambiguity) ('UNDEFINED' | 'undefined') (rule start)
 	 *     (rule start) (ambiguity) OpConstructor constructor=[DIdentityType|ID]
 	 *     (rule start) (ambiguity) function=[DFunction|ID]
 	 *     (rule start) (ambiguity) member=[DTypedMember|ID]
@@ -196,11 +196,11 @@ public class DmxSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) 'for' declaredParam=ID
 	 *     (rule start) (ambiguity) 'if' if=DExpression
 	 *     (rule start) (ambiguity) ('FALSE' | 'false') ')' (rule start)
-	 *     (rule start) (ambiguity) ('NIL' | 'nil') ')' (rule start)
 	 *     (rule start) (ambiguity) ('RAISE' | 'raise') expression=DExpression
 	 *     (rule start) (ambiguity) ('RETURN' | 'return') ')' (rule start)
 	 *     (rule start) (ambiguity) ('RETURN' | 'return') expression=DExpression
 	 *     (rule start) (ambiguity) ('SELF' | 'self') ')' (rule start)
+	 *     (rule start) (ambiguity) ('UNDEFINED' | 'undefined') ')' (rule start)
 	 *     (rule start) (ambiguity) OpConstructor constructor=[DIdentityType|ID]
 	 *     (rule start) (ambiguity) function=[DFunction|ID]
 	 *     (rule start) (ambiguity) member=[DTypedMember|ID]

@@ -3,9 +3,14 @@ package com.mimacom.ddd.dm.dms;
 import com.google.common.base.Objects;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DAssociation;
+import com.mimacom.ddd.dm.base.DAssociationKind;
 import com.mimacom.ddd.dm.base.DComplexType;
+import com.mimacom.ddd.dm.base.DCondition;
+import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DDomain;
+import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DRootType;
 import com.mimacom.ddd.dm.base.DType;
 import java.util.LinkedHashSet;
@@ -117,5 +122,95 @@ public class DmsUtil {
       return false;
     }
     return this.isTypeInsideDomain(f, d);
+  }
+  
+  public String label(final DAggregate a) {
+    String _rootName = a.getRootName();
+    return ("Aggregate " + _rootName);
+  }
+  
+  public String label(final DType type) {
+    String _switchResult = null;
+    boolean _matched = false;
+    if (type instanceof DPrimitive) {
+      _matched=true;
+      String _xifexpression = null;
+      boolean _isArchetype = ((DPrimitive)type).isArchetype();
+      if (_isArchetype) {
+        _xifexpression = "Archetype ";
+      } else {
+        _xifexpression = "Primitive ";
+      }
+      _switchResult = _xifexpression;
+    }
+    if (!_matched) {
+      if (type instanceof DEnumeration) {
+        _matched=true;
+        _switchResult = "Enumeration ";
+      }
+    }
+    if (!_matched) {
+      if (type instanceof DRootType) {
+        _matched=true;
+        _switchResult = "Root ";
+      }
+    }
+    if (!_matched) {
+      if (type instanceof DDetailType) {
+        _matched=true;
+        _switchResult = "Detail ";
+      }
+    }
+    if (!_matched) {
+      if (type instanceof DAssociation) {
+        _matched=true;
+        String _switchResult_1 = null;
+        DAssociationKind _kind = ((DAssociation)type).getKind();
+        if (_kind != null) {
+          switch (_kind) {
+            case REFERENCE:
+              _switchResult_1 = "Reference to ";
+              break;
+            case COMPOSITE:
+              _switchResult_1 = "Composite to ";
+              break;
+            case INVERSE_COMPOSITE:
+              _switchResult_1 = "Inverse Composite to ";
+              break;
+            default:
+              _switchResult_1 = ((DAssociation)type).getKind().toString();
+              break;
+          }
+        } else {
+          _switchResult_1 = ((DAssociation)type).getKind().toString();
+        }
+        _switchResult = _switchResult_1;
+      }
+    }
+    if (!_matched) {
+      _switchResult = type.getClass().getSimpleName();
+    }
+    final String typeLabel = _switchResult;
+    String _name = null;
+    if (type!=null) {
+      _name=type.getName();
+    }
+    return (typeLabel + _name);
+  }
+  
+  public String label(final DFeature f) {
+    String _name = f.getName();
+    String _plus = (_name + " : ");
+    DType _type = f.getType();
+    String _label = null;
+    if (_type!=null) {
+      _label=this.label(_type);
+    }
+    return (_plus + _label);
+  }
+  
+  public String label(final DCondition c) {
+    String _name = c.getName();
+    return ("Constraint " + _name);
   }
 }

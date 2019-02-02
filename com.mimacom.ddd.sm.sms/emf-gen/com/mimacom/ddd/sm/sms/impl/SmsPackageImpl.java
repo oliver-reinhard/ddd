@@ -9,33 +9,32 @@ import com.mimacom.ddd.sm.sms.SAggregate;
 import com.mimacom.ddd.sm.sms.SAssociation;
 import com.mimacom.ddd.sm.sms.SAssociationKind;
 import com.mimacom.ddd.sm.sms.SAttribute;
-import com.mimacom.ddd.sm.sms.SChopTransform;
 import com.mimacom.ddd.sm.sms.SComplexType;
 import com.mimacom.ddd.sm.sms.SCondition;
 import com.mimacom.ddd.sm.sms.SDeducibleElement;
-import com.mimacom.ddd.sm.sms.SDeducibleMemberElement;
 import com.mimacom.ddd.sm.sms.SDeductionRule;
 import com.mimacom.ddd.sm.sms.SDetailType;
-import com.mimacom.ddd.sm.sms.SDitchTransform;
+import com.mimacom.ddd.sm.sms.SDitchRule;
 import com.mimacom.ddd.sm.sms.SDomain;
 import com.mimacom.ddd.sm.sms.SElementNature;
 import com.mimacom.ddd.sm.sms.SEnumeration;
 import com.mimacom.ddd.sm.sms.SExpression;
 import com.mimacom.ddd.sm.sms.SFeature;
-import com.mimacom.ddd.sm.sms.SFuseTransform;
+import com.mimacom.ddd.sm.sms.SFuseRule;
+import com.mimacom.ddd.sm.sms.SGrabAggregateRule;
+import com.mimacom.ddd.sm.sms.SGrabRule;
 import com.mimacom.ddd.sm.sms.SImport;
 import com.mimacom.ddd.sm.sms.SLiteral;
-import com.mimacom.ddd.sm.sms.SMemberDeductionRule;
-import com.mimacom.ddd.sm.sms.SMorphTransform;
+import com.mimacom.ddd.sm.sms.SMorphRule;
 import com.mimacom.ddd.sm.sms.SMultiplicity;
+import com.mimacom.ddd.sm.sms.SNamedDeducibleElement;
 import com.mimacom.ddd.sm.sms.SNamedElement;
+import com.mimacom.ddd.sm.sms.SNamedElementDeductionRule;
 import com.mimacom.ddd.sm.sms.SPrimitive;
 import com.mimacom.ddd.sm.sms.SQuery;
 import com.mimacom.ddd.sm.sms.SQueryParameter;
 import com.mimacom.ddd.sm.sms.SRootType;
 import com.mimacom.ddd.sm.sms.SSimpleType;
-import com.mimacom.ddd.sm.sms.SSpoofTransform;
-import com.mimacom.ddd.sm.sms.STransform;
 import com.mimacom.ddd.sm.sms.SType;
 import com.mimacom.ddd.sm.sms.SmsFactory;
 import com.mimacom.ddd.sm.sms.SmsPackage;
@@ -82,7 +81,7 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sDeducibleMemberElementEClass = null;
+	private EClass sNamedDeducibleElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -222,49 +221,42 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sMemberDeductionRuleEClass = null;
+	private EClass sNamedElementDeductionRuleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sTransformEClass = null;
+	private EClass sGrabRuleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sSpoofTransformEClass = null;
+	private EClass sMorphRuleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sMorphTransformEClass = null;
+	private EClass sDitchRuleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sDitchTransformEClass = null;
+	private EClass sFuseRuleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sFuseTransformEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass sChopTransformEClass = null;
+	private EClass sGrabAggregateRuleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -473,42 +465,9 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSDeducibleMemberElement()
+	public EClass getSNamedDeducibleElement()
 	{
-		return sDeducibleMemberElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSDeducibleMemberElement_DeductionRule()
-	{
-		return (EReference)sDeducibleMemberElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSDeducibleMemberElement_Nature()
-	{
-		return (EAttribute)sDeducibleMemberElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSDeducibleMemberElement_Synthetic()
-	{
-		return (EAttribute)sDeducibleMemberElementEClass.getEStructuralFeatures().get(2);
+		return sNamedDeducibleElementEClass;
 	}
 
 	/**
@@ -553,6 +512,28 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 	public EReference getSAggregate_Types()
 	{
 		return (EReference)sAggregateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSAggregate_Root()
+	{
+		return (EReference)sAggregateEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSAggregate_RootName()
+	{
+		return (EAttribute)sAggregateEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -696,6 +677,17 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 	public EReference getSPrimitive_Realizes()
 	{
 		return (EReference)sPrimitiveEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSPrimitive_Archetype()
+	{
+		return (EAttribute)sPrimitiveEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1012,9 +1004,9 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSDeductionRule_Source()
+	public EClass getSNamedElementDeductionRule()
 	{
-		return (EReference)sDeductionRuleEClass.getEStructuralFeatures().get(0);
+		return sNamedElementDeductionRuleEClass;
 	}
 
 	/**
@@ -1023,9 +1015,9 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSDeductionRule_Transform()
+	public EReference getSNamedElementDeductionRule_Source()
 	{
-		return (EReference)sDeductionRuleEClass.getEStructuralFeatures().get(1);
+		return (EReference)sNamedElementDeductionRuleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1034,9 +1026,9 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSMemberDeductionRule()
+	public EClass getSGrabRule()
 	{
-		return sMemberDeductionRuleEClass;
+		return sGrabRuleEClass;
 	}
 
 	/**
@@ -1045,9 +1037,9 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSMemberDeductionRule_Source()
+	public EAttribute getSGrabRule_RenameTo()
 	{
-		return (EReference)sMemberDeductionRuleEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)sGrabRuleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1056,9 +1048,9 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSMemberDeductionRule_Transform()
+	public EClass getSMorphRule()
 	{
-		return (EReference)sMemberDeductionRuleEClass.getEStructuralFeatures().get(1);
+		return sMorphRuleEClass;
 	}
 
 	/**
@@ -1067,9 +1059,9 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSTransform()
+	public EReference getSMorphRule_RetypeTo()
 	{
-		return sTransformEClass;
+		return (EReference)sMorphRuleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1078,9 +1070,9 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSSpoofTransform()
+	public EReference getSMorphRule_RemultiplyTo()
 	{
-		return sSpoofTransformEClass;
+		return (EReference)sMorphRuleEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1089,9 +1081,9 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSMorphTransform()
+	public EClass getSDitchRule()
 	{
-		return sMorphTransformEClass;
+		return sDitchRuleEClass;
 	}
 
 	/**
@@ -1100,9 +1092,9 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSMorphTransform_RenameTo()
+	public EClass getSFuseRule()
 	{
-		return (EAttribute)sMorphTransformEClass.getEStructuralFeatures().get(0);
+		return sFuseRuleEClass;
 	}
 
 	/**
@@ -1111,9 +1103,9 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSMorphTransform_RetypeTo()
+	public EReference getSFuseRule_Source2()
 	{
-		return (EReference)sMorphTransformEClass.getEStructuralFeatures().get(1);
+		return (EReference)sFuseRuleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1122,9 +1114,9 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSMorphTransform_RemultiplyTo()
+	public EReference getSFuseRule_ExtendFrom()
 	{
-		return (EReference)sMorphTransformEClass.getEStructuralFeatures().get(2);
+		return (EReference)sFuseRuleEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1133,9 +1125,9 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSDitchTransform()
+	public EClass getSGrabAggregateRule()
 	{
-		return sDitchTransformEClass;
+		return sGrabAggregateRuleEClass;
 	}
 
 	/**
@@ -1144,20 +1136,9 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSFuseTransform()
+	public EReference getSGrabAggregateRule_Source()
 	{
-		return sFuseTransformEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSChopTransform()
-	{
-		return sChopTransformEClass;
+		return (EReference)sGrabAggregateRuleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1227,16 +1208,15 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 		createEAttribute(sDeducibleElementEClass, SDEDUCIBLE_ELEMENT__NATURE);
 		createEAttribute(sDeducibleElementEClass, SDEDUCIBLE_ELEMENT__SYNTHETIC);
 
-		sDeducibleMemberElementEClass = createEClass(SDEDUCIBLE_MEMBER_ELEMENT);
-		createEReference(sDeducibleMemberElementEClass, SDEDUCIBLE_MEMBER_ELEMENT__DEDUCTION_RULE);
-		createEAttribute(sDeducibleMemberElementEClass, SDEDUCIBLE_MEMBER_ELEMENT__NATURE);
-		createEAttribute(sDeducibleMemberElementEClass, SDEDUCIBLE_MEMBER_ELEMENT__SYNTHETIC);
+		sNamedDeducibleElementEClass = createEClass(SNAMED_DEDUCIBLE_ELEMENT);
 
 		sImportEClass = createEClass(SIMPORT);
 		createEAttribute(sImportEClass, SIMPORT__IMPORTED_NAMESPACE);
 
 		sAggregateEClass = createEClass(SAGGREGATE);
 		createEReference(sAggregateEClass, SAGGREGATE__TYPES);
+		createEReference(sAggregateEClass, SAGGREGATE__ROOT);
+		createEAttribute(sAggregateEClass, SAGGREGATE__ROOT_NAME);
 
 		sTypeEClass = createEClass(STYPE);
 
@@ -1255,6 +1235,7 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 		sPrimitiveEClass = createEClass(SPRIMITIVE);
 		createEReference(sPrimitiveEClass, SPRIMITIVE__REDEFINES);
 		createEReference(sPrimitiveEClass, SPRIMITIVE__REALIZES);
+		createEAttribute(sPrimitiveEClass, SPRIMITIVE__ARCHETYPE);
 
 		sEnumerationEClass = createEClass(SENUMERATION);
 		createEReference(sEnumerationEClass, SENUMERATION__LITERALS);
@@ -1295,27 +1276,25 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 		createEAttribute(sMultiplicityEClass, SMULTIPLICITY__MAX_OCCURS);
 
 		sDeductionRuleEClass = createEClass(SDEDUCTION_RULE);
-		createEReference(sDeductionRuleEClass, SDEDUCTION_RULE__SOURCE);
-		createEReference(sDeductionRuleEClass, SDEDUCTION_RULE__TRANSFORM);
 
-		sMemberDeductionRuleEClass = createEClass(SMEMBER_DEDUCTION_RULE);
-		createEReference(sMemberDeductionRuleEClass, SMEMBER_DEDUCTION_RULE__SOURCE);
-		createEReference(sMemberDeductionRuleEClass, SMEMBER_DEDUCTION_RULE__TRANSFORM);
+		sNamedElementDeductionRuleEClass = createEClass(SNAMED_ELEMENT_DEDUCTION_RULE);
+		createEReference(sNamedElementDeductionRuleEClass, SNAMED_ELEMENT_DEDUCTION_RULE__SOURCE);
 
-		sTransformEClass = createEClass(STRANSFORM);
+		sGrabRuleEClass = createEClass(SGRAB_RULE);
+		createEAttribute(sGrabRuleEClass, SGRAB_RULE__RENAME_TO);
 
-		sSpoofTransformEClass = createEClass(SSPOOF_TRANSFORM);
+		sMorphRuleEClass = createEClass(SMORPH_RULE);
+		createEReference(sMorphRuleEClass, SMORPH_RULE__RETYPE_TO);
+		createEReference(sMorphRuleEClass, SMORPH_RULE__REMULTIPLY_TO);
 
-		sMorphTransformEClass = createEClass(SMORPH_TRANSFORM);
-		createEAttribute(sMorphTransformEClass, SMORPH_TRANSFORM__RENAME_TO);
-		createEReference(sMorphTransformEClass, SMORPH_TRANSFORM__RETYPE_TO);
-		createEReference(sMorphTransformEClass, SMORPH_TRANSFORM__REMULTIPLY_TO);
+		sDitchRuleEClass = createEClass(SDITCH_RULE);
 
-		sDitchTransformEClass = createEClass(SDITCH_TRANSFORM);
+		sFuseRuleEClass = createEClass(SFUSE_RULE);
+		createEReference(sFuseRuleEClass, SFUSE_RULE__SOURCE2);
+		createEReference(sFuseRuleEClass, SFUSE_RULE__EXTEND_FROM);
 
-		sFuseTransformEClass = createEClass(SFUSE_TRANSFORM);
-
-		sChopTransformEClass = createEClass(SCHOP_TRANSFORM);
+		sGrabAggregateRuleEClass = createEClass(SGRAB_AGGREGATE_RULE);
+		createEReference(sGrabAggregateRuleEClass, SGRAB_AGGREGATE_RULE__SOURCE);
 
 		// Create enums
 		sElementNatureEEnum = createEEnum(SELEMENT_NATURE);
@@ -1354,26 +1333,28 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		sDeducibleElementEClass.getESuperTypes().add(this.getSNamedElement());
-		sDeducibleMemberElementEClass.getESuperTypes().add(this.getSNamedElement());
-		sTypeEClass.getESuperTypes().add(this.getSDeducibleElement());
+		sNamedDeducibleElementEClass.getESuperTypes().add(this.getSNamedElement());
+		sNamedDeducibleElementEClass.getESuperTypes().add(this.getSDeducibleElement());
+		sAggregateEClass.getESuperTypes().add(this.getSDeducibleElement());
+		sTypeEClass.getESuperTypes().add(this.getSNamedDeducibleElement());
 		sSimpleTypeEClass.getESuperTypes().add(this.getSType());
 		sComplexTypeEClass.getESuperTypes().add(this.getSType());
 		sPrimitiveEClass.getESuperTypes().add(this.getSSimpleType());
 		sEnumerationEClass.getESuperTypes().add(this.getSSimpleType());
-		sLiteralEClass.getESuperTypes().add(this.getSDeducibleElement());
+		sLiteralEClass.getESuperTypes().add(this.getSNamedDeducibleElement());
 		sRootTypeEClass.getESuperTypes().add(this.getSComplexType());
 		sDetailTypeEClass.getESuperTypes().add(this.getSComplexType());
-		sFeatureEClass.getESuperTypes().add(this.getSDeducibleMemberElement());
+		sFeatureEClass.getESuperTypes().add(this.getSNamedDeducibleElement());
 		sAssociationEClass.getESuperTypes().add(this.getSFeature());
 		sAttributeEClass.getESuperTypes().add(this.getSFeature());
 		sQueryEClass.getESuperTypes().add(this.getSFeature());
-		sQueryParameterEClass.getESuperTypes().add(this.getSDeducibleMemberElement());
-		sSpoofTransformEClass.getESuperTypes().add(this.getSTransform());
-		sMorphTransformEClass.getESuperTypes().add(this.getSTransform());
-		sDitchTransformEClass.getESuperTypes().add(this.getSTransform());
-		sFuseTransformEClass.getESuperTypes().add(this.getSTransform());
-		sChopTransformEClass.getESuperTypes().add(this.getSTransform());
+		sQueryParameterEClass.getESuperTypes().add(this.getSNamedDeducibleElement());
+		sNamedElementDeductionRuleEClass.getESuperTypes().add(this.getSDeductionRule());
+		sGrabRuleEClass.getESuperTypes().add(this.getSNamedElementDeductionRule());
+		sMorphRuleEClass.getESuperTypes().add(this.getSGrabRule());
+		sDitchRuleEClass.getESuperTypes().add(this.getSNamedElementDeductionRule());
+		sFuseRuleEClass.getESuperTypes().add(this.getSGrabRule());
+		sGrabAggregateRuleEClass.getESuperTypes().add(this.getSDeductionRule());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(sDomainEClass, SDomain.class, "SDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1385,21 +1366,20 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 		initEClass(sNamedElementEClass, SNamedElement.class, "SNamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, SNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sDeducibleElementEClass, SDeducibleElement.class, "SDeducibleElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(sDeducibleElementEClass, SDeducibleElement.class, "SDeducibleElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSDeducibleElement_DeductionRule(), this.getSDeductionRule(), null, "deductionRule", null, 0, 1, SDeducibleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSDeducibleElement_Nature(), this.getSElementNature(), "nature", null, 0, 1, SDeducibleElement.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSDeducibleElement_Synthetic(), ecorePackage.getEBooleanObject(), "synthetic", null, 0, 1, SDeducibleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sDeducibleMemberElementEClass, SDeducibleMemberElement.class, "SDeducibleMemberElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSDeducibleMemberElement_DeductionRule(), this.getSMemberDeductionRule(), null, "deductionRule", null, 0, 1, SDeducibleMemberElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSDeducibleMemberElement_Nature(), this.getSElementNature(), "nature", null, 0, 1, SDeducibleMemberElement.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSDeducibleMemberElement_Synthetic(), ecorePackage.getEBooleanObject(), "synthetic", null, 0, 1, SDeducibleMemberElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(sNamedDeducibleElementEClass, SNamedDeducibleElement.class, "SNamedDeducibleElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(sImportEClass, SImport.class, "SImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, SImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sAggregateEClass, SAggregate.class, "SAggregate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSAggregate_Types(), this.getSType(), null, "types", null, 0, -1, SAggregate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSAggregate_Root(), this.getSRootType(), null, "root", null, 0, 1, SAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSAggregate_RootName(), ecorePackage.getEString(), "rootName", null, 0, 1, SAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(sTypeEClass, SType.class, "SType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1418,6 +1398,7 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 		initEClass(sPrimitiveEClass, SPrimitive.class, "SPrimitive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSPrimitive_Redefines(), this.getSPrimitive(), null, "redefines", null, 0, 1, SPrimitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSPrimitive_Realizes(), theBasePackage.getDPrimitive(), null, "realizes", null, 0, 1, SPrimitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSPrimitive_Archetype(), ecorePackage.getEBoolean(), "archetype", null, 0, 1, SPrimitive.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(sEnumerationEClass, SEnumeration.class, "SEnumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSEnumeration_Literals(), this.getSLiteral(), null, "literals", null, 0, -1, SEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1457,28 +1438,26 @@ public class SmsPackageImpl extends EPackageImpl implements SmsPackage
 		initEAttribute(getSMultiplicity_MinOccurs(), ecorePackage.getEInt(), "minOccurs", null, 0, 1, SMultiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSMultiplicity_MaxOccurs(), ecorePackage.getEInt(), "maxOccurs", null, 0, 1, SMultiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sDeductionRuleEClass, SDeductionRule.class, "SDeductionRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSDeductionRule_Source(), theBasePackage.getDNamedElement(), null, "source", null, 0, 1, SDeductionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSDeductionRule_Transform(), this.getSTransform(), null, "transform", null, 0, 1, SDeductionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(sDeductionRuleEClass, SDeductionRule.class, "SDeductionRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sMemberDeductionRuleEClass, SMemberDeductionRule.class, "SMemberDeductionRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSMemberDeductionRule_Source(), theBasePackage.getDNamedElement(), null, "source", null, 0, 1, SMemberDeductionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSMemberDeductionRule_Transform(), this.getSTransform(), null, "transform", null, 0, 1, SMemberDeductionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(sNamedElementDeductionRuleEClass, SNamedElementDeductionRule.class, "SNamedElementDeductionRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSNamedElementDeductionRule_Source(), theBasePackage.getDNamedElement(), null, "source", null, 0, 1, SNamedElementDeductionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sTransformEClass, STransform.class, "STransform", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(sGrabRuleEClass, SGrabRule.class, "SGrabRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSGrabRule_RenameTo(), ecorePackage.getEString(), "renameTo", null, 0, 1, SGrabRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sSpoofTransformEClass, SSpoofTransform.class, "SSpoofTransform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(sMorphRuleEClass, SMorphRule.class, "SMorphRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSMorphRule_RetypeTo(), this.getSType(), null, "retypeTo", null, 0, 1, SMorphRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSMorphRule_RemultiplyTo(), this.getSMultiplicity(), null, "remultiplyTo", null, 0, 1, SMorphRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sMorphTransformEClass, SMorphTransform.class, "SMorphTransform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSMorphTransform_RenameTo(), ecorePackage.getEString(), "renameTo", null, 0, 1, SMorphTransform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSMorphTransform_RetypeTo(), this.getSType(), null, "retypeTo", null, 0, 1, SMorphTransform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSMorphTransform_RemultiplyTo(), this.getSMultiplicity(), null, "remultiplyTo", null, 0, 1, SMorphTransform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(sDitchRuleEClass, SDitchRule.class, "SDitchRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sDitchTransformEClass, SDitchTransform.class, "SDitchTransform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(sFuseRuleEClass, SFuseRule.class, "SFuseRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSFuseRule_Source2(), theBasePackage.getDNamedElement(), null, "source2", null, 0, 1, SFuseRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSFuseRule_ExtendFrom(), this.getSType(), null, "extendFrom", null, 0, 1, SFuseRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sFuseTransformEClass, SFuseTransform.class, "SFuseTransform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(sChopTransformEClass, SChopTransform.class, "SChopTransform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(sGrabAggregateRuleEClass, SGrabAggregateRule.class, "SGrabAggregateRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSGrabAggregateRule_Source(), theBasePackage.getDAggregate(), null, "source", null, 0, 1, SGrabAggregateRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(sElementNatureEEnum, SElementNature.class, "SElementNature");

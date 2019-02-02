@@ -3,7 +3,7 @@
  */
 package com.mimacom.ddd.sm.sms.impl;
 
-import com.mimacom.ddd.sm.sms.SMorphTransform;
+import com.mimacom.ddd.sm.sms.SMorphRule;
 import com.mimacom.ddd.sm.sms.SMultiplicity;
 import com.mimacom.ddd.sm.sms.SType;
 import com.mimacom.ddd.sm.sms.SmsPackage;
@@ -18,41 +18,20 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>SMorph Transform</b></em>'.
+ * An implementation of the model object '<em><b>SMorph Rule</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.sms.impl.SMorphTransformImpl#getRenameTo <em>Rename To</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sms.impl.SMorphTransformImpl#getRetypeTo <em>Retype To</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sms.impl.SMorphTransformImpl#getRemultiplyTo <em>Remultiply To</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sms.impl.SMorphRuleImpl#getRetypeTo <em>Retype To</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sms.impl.SMorphRuleImpl#getRemultiplyTo <em>Remultiply To</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SMorphTransformImpl extends STransformImpl implements SMorphTransform
+public class SMorphRuleImpl extends SGrabRuleImpl implements SMorphRule
 {
-	/**
-	 * The default value of the '{@link #getRenameTo() <em>Rename To</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRenameTo()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String RENAME_TO_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getRenameTo() <em>Rename To</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRenameTo()
-	 * @generated
-	 * @ordered
-	 */
-	protected String renameTo = RENAME_TO_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getRetypeTo() <em>Retype To</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -78,7 +57,7 @@ public class SMorphTransformImpl extends STransformImpl implements SMorphTransfo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SMorphTransformImpl()
+	protected SMorphRuleImpl()
 	{
 		super();
 	}
@@ -91,32 +70,7 @@ public class SMorphTransformImpl extends STransformImpl implements SMorphTransfo
 	@Override
 	protected EClass eStaticClass()
 	{
-		return SmsPackage.Literals.SMORPH_TRANSFORM;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getRenameTo()
-	{
-		return renameTo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setRenameTo(String newRenameTo)
-	{
-		String oldRenameTo = renameTo;
-		renameTo = newRenameTo;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SmsPackage.SMORPH_TRANSFORM__RENAME_TO, oldRenameTo, renameTo));
+		return SmsPackage.Literals.SMORPH_RULE;
 	}
 
 	/**
@@ -134,7 +88,7 @@ public class SMorphTransformImpl extends STransformImpl implements SMorphTransfo
 			if (retypeTo != oldRetypeTo)
 			{
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SmsPackage.SMORPH_TRANSFORM__RETYPE_TO, oldRetypeTo, retypeTo));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SmsPackage.SMORPH_RULE__RETYPE_TO, oldRetypeTo, retypeTo));
 			}
 		}
 		return retypeTo;
@@ -161,7 +115,7 @@ public class SMorphTransformImpl extends STransformImpl implements SMorphTransfo
 		SType oldRetypeTo = retypeTo;
 		retypeTo = newRetypeTo;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SmsPackage.SMORPH_TRANSFORM__RETYPE_TO, oldRetypeTo, retypeTo));
+			eNotify(new ENotificationImpl(this, Notification.SET, SmsPackage.SMORPH_RULE__RETYPE_TO, oldRetypeTo, retypeTo));
 	}
 
 	/**
@@ -186,7 +140,7 @@ public class SMorphTransformImpl extends STransformImpl implements SMorphTransfo
 		remultiplyTo = newRemultiplyTo;
 		if (eNotificationRequired())
 		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SmsPackage.SMORPH_TRANSFORM__REMULTIPLY_TO, oldRemultiplyTo, newRemultiplyTo);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SmsPackage.SMORPH_RULE__REMULTIPLY_TO, oldRemultiplyTo, newRemultiplyTo);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -204,14 +158,14 @@ public class SMorphTransformImpl extends STransformImpl implements SMorphTransfo
 		{
 			NotificationChain msgs = null;
 			if (remultiplyTo != null)
-				msgs = ((InternalEObject)remultiplyTo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SmsPackage.SMORPH_TRANSFORM__REMULTIPLY_TO, null, msgs);
+				msgs = ((InternalEObject)remultiplyTo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SmsPackage.SMORPH_RULE__REMULTIPLY_TO, null, msgs);
 			if (newRemultiplyTo != null)
-				msgs = ((InternalEObject)newRemultiplyTo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SmsPackage.SMORPH_TRANSFORM__REMULTIPLY_TO, null, msgs);
+				msgs = ((InternalEObject)newRemultiplyTo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SmsPackage.SMORPH_RULE__REMULTIPLY_TO, null, msgs);
 			msgs = basicSetRemultiplyTo(newRemultiplyTo, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SmsPackage.SMORPH_TRANSFORM__REMULTIPLY_TO, newRemultiplyTo, newRemultiplyTo));
+			eNotify(new ENotificationImpl(this, Notification.SET, SmsPackage.SMORPH_RULE__REMULTIPLY_TO, newRemultiplyTo, newRemultiplyTo));
 	}
 
 	/**
@@ -224,7 +178,7 @@ public class SMorphTransformImpl extends STransformImpl implements SMorphTransfo
 	{
 		switch (featureID)
 		{
-			case SmsPackage.SMORPH_TRANSFORM__REMULTIPLY_TO:
+			case SmsPackage.SMORPH_RULE__REMULTIPLY_TO:
 				return basicSetRemultiplyTo(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -240,12 +194,10 @@ public class SMorphTransformImpl extends STransformImpl implements SMorphTransfo
 	{
 		switch (featureID)
 		{
-			case SmsPackage.SMORPH_TRANSFORM__RENAME_TO:
-				return getRenameTo();
-			case SmsPackage.SMORPH_TRANSFORM__RETYPE_TO:
+			case SmsPackage.SMORPH_RULE__RETYPE_TO:
 				if (resolve) return getRetypeTo();
 				return basicGetRetypeTo();
-			case SmsPackage.SMORPH_TRANSFORM__REMULTIPLY_TO:
+			case SmsPackage.SMORPH_RULE__REMULTIPLY_TO:
 				return getRemultiplyTo();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -261,13 +213,10 @@ public class SMorphTransformImpl extends STransformImpl implements SMorphTransfo
 	{
 		switch (featureID)
 		{
-			case SmsPackage.SMORPH_TRANSFORM__RENAME_TO:
-				setRenameTo((String)newValue);
-				return;
-			case SmsPackage.SMORPH_TRANSFORM__RETYPE_TO:
+			case SmsPackage.SMORPH_RULE__RETYPE_TO:
 				setRetypeTo((SType)newValue);
 				return;
-			case SmsPackage.SMORPH_TRANSFORM__REMULTIPLY_TO:
+			case SmsPackage.SMORPH_RULE__REMULTIPLY_TO:
 				setRemultiplyTo((SMultiplicity)newValue);
 				return;
 		}
@@ -284,13 +233,10 @@ public class SMorphTransformImpl extends STransformImpl implements SMorphTransfo
 	{
 		switch (featureID)
 		{
-			case SmsPackage.SMORPH_TRANSFORM__RENAME_TO:
-				setRenameTo(RENAME_TO_EDEFAULT);
-				return;
-			case SmsPackage.SMORPH_TRANSFORM__RETYPE_TO:
+			case SmsPackage.SMORPH_RULE__RETYPE_TO:
 				setRetypeTo((SType)null);
 				return;
-			case SmsPackage.SMORPH_TRANSFORM__REMULTIPLY_TO:
+			case SmsPackage.SMORPH_RULE__REMULTIPLY_TO:
 				setRemultiplyTo((SMultiplicity)null);
 				return;
 		}
@@ -307,31 +253,12 @@ public class SMorphTransformImpl extends STransformImpl implements SMorphTransfo
 	{
 		switch (featureID)
 		{
-			case SmsPackage.SMORPH_TRANSFORM__RENAME_TO:
-				return RENAME_TO_EDEFAULT == null ? renameTo != null : !RENAME_TO_EDEFAULT.equals(renameTo);
-			case SmsPackage.SMORPH_TRANSFORM__RETYPE_TO:
+			case SmsPackage.SMORPH_RULE__RETYPE_TO:
 				return retypeTo != null;
-			case SmsPackage.SMORPH_TRANSFORM__REMULTIPLY_TO:
+			case SmsPackage.SMORPH_RULE__REMULTIPLY_TO:
 				return remultiplyTo != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString()
-	{
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (renameTo: ");
-		result.append(renameTo);
-		result.append(')');
-		return result.toString();
-	}
-
-} //SMorphTransformImpl
+} //SMorphRuleImpl

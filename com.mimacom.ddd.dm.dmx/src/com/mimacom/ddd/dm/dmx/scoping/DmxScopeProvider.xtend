@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EReference
 import org.eclipse.emf.ecore.EcoreFactory
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
+import com.mimacom.ddd.dm.base.DEnumeration
 
 /**
  * This class contains custom scoping for expressions and {@link DComplexType} feature inheritance.
@@ -78,16 +79,18 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 	
 		if (memberContainerReference instanceof DContextReference) {
 			val memberContainer = memberContainerReference.target
-			val targetKind = switch memberContainer {
+			val targetType = switch memberContainer {
+				DEnumeration: memberContainer // memberContainer.type is always null !
 				DTypedMember: memberContainer.type 
 				ITypedMemberContainer: memberContainer
 				default: null
 			}
-			return switch targetKind {
-				DComplexType: getInheritedFeaturesScope(targetKind)
-				DQuery: Scopes.scopeFor(targetKind.parameters)
-				DService: Scopes.scopeFor(targetKind.parameters)
-				DDomainEvent: getDomainEventMemberScope(targetKind, IScope.NULLSCOPE)
+			return switch targetType {
+				DEnumeration: Scopes.scopeFor(targetType.literals) // type is null
+				DComplexType: getInheritedFeaturesScope(targetType)
+				DQuery: Scopes.scopeFor(targetType.parameters)
+				DService: Scopes.scopeFor(targetType.parameters)
+				DDomainEvent: getDomainEventMemberScope(targetType, IScope.NULLSCOPE)
 				default: IScope.NULLSCOPE
 			}
 
@@ -130,6 +133,7 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 	protected def IScope getExpressionContainerMemberScope(EObject context, IScope outerScope) {
 		var container = context.eContainer
 		return switch container {
+			DEnumeration: Scopes.scopeFor(container.literals, outerScope)
 			DComplexType: getInheritedFeaturesScope(container, outerScope)
 			DQuery: Scopes.scopeFor(container.parameters, getExpressionContainerMemberScope(container, outerScope))
 			DService: Scopes.scopeFor(container.parameters, outerScope)

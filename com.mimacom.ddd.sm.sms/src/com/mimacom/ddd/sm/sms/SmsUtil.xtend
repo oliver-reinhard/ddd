@@ -57,4 +57,45 @@ class SmsUtil {
 		}
 		return features
 	}
+	//// Labels
+	
+	def String label(SAggregate a) {
+		return "Aggregate " + a.rootName
+	}
+	
+	def String label(SType type) {
+		val typeLabel = switch type {
+			SPrimitive: if (type.archetype) "Archetype " else  "Primitive "
+			SEnumeration: "Enumeration "
+			SRootType: "Root "
+			SDetailType: "Detail "
+			SAssociation: switch type.kind {
+				case REFERENCE: "Reference "
+				case COMPOSITE: "Composite "
+				case INVERSE_COMPOSITE: "Inverse Composite "
+				default: type.kind.toString
+			}
+			default: type.class.simpleName
+		}
+		return typeLabel + type?.name
+	}
+	
+	def String label(SFeature f) {
+		return f?.name + " : " + f.type?.label
+	}
+	
+	def String label(SCondition c) {
+		return "Constraint " + c.name
+	}
+	
+	def String label(SDeductionRule rule) {
+		return switch rule {
+			SMorphRule : "Morph "  + rule.source?.name
+			SFuseRule:  "Fuse "  + rule.source?.name + " and " + rule.source2?.name
+			SGrabRule : "Grab "  + rule.source?.name
+			SDitchRule : "Ditch "  + rule.source?.name
+			SGrabAggregateRule: "Grab aggregate " + rule.source?.rootName
+			default: rule.class.simpleName
+		}
+	}
 }

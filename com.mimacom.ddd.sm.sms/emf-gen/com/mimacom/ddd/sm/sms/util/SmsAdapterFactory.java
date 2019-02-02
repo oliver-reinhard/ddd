@@ -91,9 +91,9 @@ public class SmsAdapterFactory extends AdapterFactoryImpl
 				return createSDeducibleElementAdapter();
 			}
 			@Override
-			public Adapter caseSDeducibleMemberElement(SDeducibleMemberElement object)
+			public Adapter caseSNamedDeducibleElement(SNamedDeducibleElement object)
 			{
-				return createSDeducibleMemberElementAdapter();
+				return createSNamedDeducibleElementAdapter();
 			}
 			@Override
 			public Adapter caseSImport(SImport object)
@@ -191,39 +191,34 @@ public class SmsAdapterFactory extends AdapterFactoryImpl
 				return createSDeductionRuleAdapter();
 			}
 			@Override
-			public Adapter caseSMemberDeductionRule(SMemberDeductionRule object)
+			public Adapter caseSNamedElementDeductionRule(SNamedElementDeductionRule object)
 			{
-				return createSMemberDeductionRuleAdapter();
+				return createSNamedElementDeductionRuleAdapter();
 			}
 			@Override
-			public Adapter caseSTransform(STransform object)
+			public Adapter caseSGrabRule(SGrabRule object)
 			{
-				return createSTransformAdapter();
+				return createSGrabRuleAdapter();
 			}
 			@Override
-			public Adapter caseSSpoofTransform(SSpoofTransform object)
+			public Adapter caseSMorphRule(SMorphRule object)
 			{
-				return createSSpoofTransformAdapter();
+				return createSMorphRuleAdapter();
 			}
 			@Override
-			public Adapter caseSMorphTransform(SMorphTransform object)
+			public Adapter caseSDitchRule(SDitchRule object)
 			{
-				return createSMorphTransformAdapter();
+				return createSDitchRuleAdapter();
 			}
 			@Override
-			public Adapter caseSDitchTransform(SDitchTransform object)
+			public Adapter caseSFuseRule(SFuseRule object)
 			{
-				return createSDitchTransformAdapter();
+				return createSFuseRuleAdapter();
 			}
 			@Override
-			public Adapter caseSFuseTransform(SFuseTransform object)
+			public Adapter caseSGrabAggregateRule(SGrabAggregateRule object)
 			{
-				return createSFuseTransformAdapter();
-			}
-			@Override
-			public Adapter caseSChopTransform(SChopTransform object)
-			{
-				return createSChopTransformAdapter();
+				return createSGrabAggregateRuleAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object)
@@ -293,16 +288,16 @@ public class SmsAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sms.SDeducibleMemberElement <em>SDeducible Member Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sms.SNamedDeducibleElement <em>SNamed Deducible Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sms.SDeducibleMemberElement
+	 * @see com.mimacom.ddd.sm.sms.SNamedDeducibleElement
 	 * @generated
 	 */
-	public Adapter createSDeducibleMemberElementAdapter()
+	public Adapter createSNamedDeducibleElementAdapter()
 	{
 		return null;
 	}
@@ -593,106 +588,91 @@ public class SmsAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sms.SMemberDeductionRule <em>SMember Deduction Rule</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sms.SNamedElementDeductionRule <em>SNamed Element Deduction Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sms.SMemberDeductionRule
+	 * @see com.mimacom.ddd.sm.sms.SNamedElementDeductionRule
 	 * @generated
 	 */
-	public Adapter createSMemberDeductionRuleAdapter()
+	public Adapter createSNamedElementDeductionRuleAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sms.STransform <em>STransform</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sms.SGrabRule <em>SGrab Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sms.STransform
+	 * @see com.mimacom.ddd.sm.sms.SGrabRule
 	 * @generated
 	 */
-	public Adapter createSTransformAdapter()
+	public Adapter createSGrabRuleAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sms.SSpoofTransform <em>SSpoof Transform</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sms.SMorphRule <em>SMorph Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sms.SSpoofTransform
+	 * @see com.mimacom.ddd.sm.sms.SMorphRule
 	 * @generated
 	 */
-	public Adapter createSSpoofTransformAdapter()
+	public Adapter createSMorphRuleAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sms.SMorphTransform <em>SMorph Transform</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sms.SDitchRule <em>SDitch Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sms.SMorphTransform
+	 * @see com.mimacom.ddd.sm.sms.SDitchRule
 	 * @generated
 	 */
-	public Adapter createSMorphTransformAdapter()
+	public Adapter createSDitchRuleAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sms.SDitchTransform <em>SDitch Transform</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sms.SFuseRule <em>SFuse Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sms.SDitchTransform
+	 * @see com.mimacom.ddd.sm.sms.SFuseRule
 	 * @generated
 	 */
-	public Adapter createSDitchTransformAdapter()
+	public Adapter createSFuseRuleAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sms.SFuseTransform <em>SFuse Transform</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sms.SGrabAggregateRule <em>SGrab Aggregate Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sms.SFuseTransform
+	 * @see com.mimacom.ddd.sm.sms.SGrabAggregateRule
 	 * @generated
 	 */
-	public Adapter createSFuseTransformAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sms.SChopTransform <em>SChop Transform</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sms.SChopTransform
-	 * @generated
-	 */
-	public Adapter createSChopTransformAdapter()
+	public Adapter createSGrabAggregateRuleAdapter()
 	{
 		return null;
 	}

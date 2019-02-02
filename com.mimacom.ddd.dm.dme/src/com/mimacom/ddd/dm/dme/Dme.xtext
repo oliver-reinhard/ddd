@@ -21,24 +21,22 @@ DImport:
 DDomainEvent:
 	'event'
 	name=ID
-	'triggered' 'by' trigger=[DActor|ID]
 	(description=DRichText)?
 	'{'
-		(context+=DContext)+
-		(notifications+=DNotification)+
-		('before'  	(before+=DCondition)+)?
-		('after' 		(after+=DCondition)+ )?
+		'context' (context+=DContext)+
+		'triggered' 'by' trigger=[DActor|ID]
+		('notifications' (notifications+=DNotification)+)?
+		('before'  'conditions' (before+=DCondition)+)?
+		('after' 'conditions' (after+=DCondition)+)?
 	'}';
 	
 DCondition:
-	'condition'
 	name=ID
 	':'
 	condition=DExpression
 	(description=DRichText)?;
 	
 DNotification:
-	'notification'
 	name=ID
 	':'
 	type=[DType|ID]  (multiplicity=DMultiplicity)?
@@ -46,7 +44,7 @@ DNotification:
 	(description=DRichText)?;
 
 DContext:
-	'context'
+	
 	name=ID
 	':'
 	type=[DType|ID]  (multiplicity=DMultiplicity)?

@@ -73,7 +73,7 @@ public class DmsParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDAggregateAccess().getGroup(), "rule__DAggregate__Group__0");
 			builder.put(grammarAccess.getDConstraintAccess().getGroup(), "rule__DConstraint__Group__0");
 			builder.put(grammarAccess.getDPrimitiveAccess().getGroup(), "rule__DPrimitive__Group__0");
-			builder.put(grammarAccess.getDPrimitiveAccess().getGroup_4(), "rule__DPrimitive__Group_4__0");
+			builder.put(grammarAccess.getDPrimitiveArchetypeAccess().getGroup(), "rule__DPrimitiveArchetype__Group__0");
 			builder.put(grammarAccess.getDEnumerationAccess().getGroup(), "rule__DEnumeration__Group__0");
 			builder.put(grammarAccess.getDEnumerationAccess().getGroup_4(), "rule__DEnumeration__Group_4__0");
 			builder.put(grammarAccess.getDEnumerationAccess().getGroup_4_1(), "rule__DEnumeration__Group_4_1__0");
@@ -201,9 +201,12 @@ public class DmsParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDConstraintAccess().getConditionAssignment_3(), "rule__DConstraint__ConditionAssignment_3");
 			builder.put(grammarAccess.getDConstraintAccess().getDescriptionAssignment_4(), "rule__DConstraint__DescriptionAssignment_4");
 			builder.put(grammarAccess.getDPrimitiveAccess().getNameAssignment_1(), "rule__DPrimitive__NameAssignment_1");
-			builder.put(grammarAccess.getDPrimitiveAccess().getDescriptionAssignment_2(), "rule__DPrimitive__DescriptionAssignment_2");
-			builder.put(grammarAccess.getDPrimitiveAccess().getRedefinesAssignment_4_1(), "rule__DPrimitive__RedefinesAssignment_4_1");
-			builder.put(grammarAccess.getDPrimitiveAccess().getConstraintsAssignment_5(), "rule__DPrimitive__ConstraintsAssignment_5");
+			builder.put(grammarAccess.getDPrimitiveAccess().getRedefinesAssignment_3(), "rule__DPrimitive__RedefinesAssignment_3");
+			builder.put(grammarAccess.getDPrimitiveAccess().getDescriptionAssignment_4(), "rule__DPrimitive__DescriptionAssignment_4");
+			builder.put(grammarAccess.getDPrimitiveAccess().getConstraintsAssignment_6(), "rule__DPrimitive__ConstraintsAssignment_6");
+			builder.put(grammarAccess.getDPrimitiveArchetypeAccess().getNameAssignment_1(), "rule__DPrimitiveArchetype__NameAssignment_1");
+			builder.put(grammarAccess.getDPrimitiveArchetypeAccess().getDescriptionAssignment_2(), "rule__DPrimitiveArchetype__DescriptionAssignment_2");
+			builder.put(grammarAccess.getDPrimitiveArchetypeAccess().getConstraintsAssignment_4(), "rule__DPrimitiveArchetype__ConstraintsAssignment_4");
 			builder.put(grammarAccess.getDEnumerationAccess().getNameAssignment_1(), "rule__DEnumeration__NameAssignment_1");
 			builder.put(grammarAccess.getDEnumerationAccess().getDescriptionAssignment_2(), "rule__DEnumeration__DescriptionAssignment_2");
 			builder.put(grammarAccess.getDEnumerationAccess().getLiteralsAssignment_4_0(), "rule__DEnumeration__LiteralsAssignment_4_0");

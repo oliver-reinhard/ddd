@@ -4,9 +4,7 @@
 package com.mimacom.ddd.sm.sms.generator
 
 import com.google.inject.Inject
-import com.mimacom.ddd.sm.sms.SComplexType
 import com.mimacom.ddd.sm.sms.SDeducibleElement
-import com.mimacom.ddd.sm.sms.SDeducibleMemberElement
 import java.io.CharArrayWriter
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.EcoreUtil2
@@ -16,8 +14,10 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import org.eclipse.xtext.resource.SaveOptions
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.serializer.ISerializer
-
-import static com.mimacom.ddd.sm.sms.SElementNature.*
+import com.mimacom.ddd.sm.sms.SLiteral
+import com.mimacom.ddd.sm.sms.SFeature
+import org.eclipse.emf.ecore.util.EcoreUtil
+import com.google.common.collect.Lists
 
 /**
  * Generates code from your model files on save.
@@ -39,32 +39,25 @@ class SmsGenerator extends AbstractGenerator {
 			serializer.serialize(resourceCopy.contents.head, writer, saveOptions)
 			fsa.generateFile("Deduced" + resource.URI.lastSegment.toFirstUpper, writer.toString)
 		}
-//		resource.allContents.filter(SComplexType).head.generate)
 	}
 	
 	def boolean removeTransformationItems(Resource resource) {
 		var hadSyntheticItems = false
 		val elements = resource.allContents.filter(SDeducibleElement)
+		val elementsToRemove = Lists.newArrayList
 		while (elements.hasNext) {
 			val e = elements.next
-			e.deductionRule = null
-			hadSyntheticItems = hadSyntheticItems || (e.synthetic !== null && e.synthetic)
-			e.unsetSynthetic
+			if (e.deductionRule !== null && (e instanceof SLiteral || e instanceof SFeature)) {
+				elementsToRemove.add(e)
+			} else {
+				e.deductionRule = null
+				hadSyntheticItems = hadSyntheticItems || (e.synthetic !== null && e.synthetic)
+				e.unsetSynthetic
+			}
 		}
-		val members = resource.allContents.filter(SDeducibleMemberElement)
-		while (members.hasNext) {
-			val m = members.next
-			m.deductionRule = null
-			hadSyntheticItems = hadSyntheticItems || (m.synthetic !== null && m.synthetic)
-			m.unsetSynthetic
+		for (e : elementsToRemove) {
+			EcoreUtil.remove(e)
 		}
 		return hadSyntheticItems
 	}
-	
-	def CharSequence generate(SComplexType type) '''
-	type «IF type.nature == DEDUCTION_RULE»«type.deductionRule.source.name»«ELSE»«type.name»j«ENDIF» {
-		«FOR f : type.features»«IF f.nature == DEDUCTION_RULE»«f.deductionRule.source.name»«ELSE»«f.name»«ENDIF»
-		«ENDFOR»
-	}
-	'''
 }

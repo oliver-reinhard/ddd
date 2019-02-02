@@ -1015,13 +1015,22 @@ public interface BasePackage extends EPackage
 	int DPRIMITIVE__REDEFINES = DSIMPLE_TYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Archetype</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DPRIMITIVE__ARCHETYPE = DSIMPLE_TYPE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>DPrimitive</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DPRIMITIVE_FEATURE_COUNT = DSIMPLE_TYPE_FEATURE_COUNT + 1;
+	int DPRIMITIVE_FEATURE_COUNT = DSIMPLE_TYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>DPrimitive</em>' class.
@@ -1953,22 +1962,22 @@ public interface BasePackage extends EPackage
 	int DATTRIBUTE__COLLECTION = DFEATURE__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Key</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATTRIBUTE__KEY = DFEATURE_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Detail</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATTRIBUTE__DETAIL = DFEATURE_FEATURE_COUNT + 1;
+	int DATTRIBUTE__DETAIL = DFEATURE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATTRIBUTE__KEY = DFEATURE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>DAttribute</em>' class.
@@ -2360,7 +2369,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNOTIFICATION__NAME = DNAMED_ELEMENT__NAME;
+	int DNOTIFICATION__NAME = DTYPED_MEMBER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2369,16 +2378,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNOTIFICATION__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Notified</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DNOTIFICATION__NOTIFIED = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int DNOTIFICATION__DESCRIPTION = DTYPED_MEMBER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -2387,7 +2387,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNOTIFICATION__TYPE = DNAMED_ELEMENT_FEATURE_COUNT + 1;
+	int DNOTIFICATION__TYPE = DTYPED_MEMBER__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
@@ -2396,7 +2396,34 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNOTIFICATION__MULTIPLICITY = DNAMED_ELEMENT_FEATURE_COUNT + 2;
+	int DNOTIFICATION__MULTIPLICITY = DTYPED_MEMBER__MULTIPLICITY;
+
+	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DNOTIFICATION__OPTIONAL = DTYPED_MEMBER__OPTIONAL;
+
+	/**
+	 * The feature id for the '<em><b>Collection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DNOTIFICATION__COLLECTION = DTYPED_MEMBER__COLLECTION;
+
+	/**
+	 * The feature id for the '<em><b>Notified</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DNOTIFICATION__NOTIFIED = DTYPED_MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>DNotification</em>' class.
@@ -2405,7 +2432,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNOTIFICATION_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 3;
+	int DNOTIFICATION_FEATURE_COUNT = DTYPED_MEMBER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>DNotification</em>' class.
@@ -2414,7 +2441,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNOTIFICATION_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
+	int DNOTIFICATION_OPERATION_COUNT = DTYPED_MEMBER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DActorImpl <em>DActor</em>}' class.
@@ -3361,6 +3388,17 @@ public interface BasePackage extends EPackage
 	EReference getDPrimitive_Redefines();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DPrimitive#isArchetype <em>Archetype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Archetype</em>'.
+	 * @see com.mimacom.ddd.dm.base.DPrimitive#isArchetype()
+	 * @see #getDPrimitive()
+	 * @generated
+	 */
+	EAttribute getDPrimitive_Archetype();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DEnumeration <em>DEnumeration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3580,17 +3618,6 @@ public interface BasePackage extends EPackage
 	EClass getDAttribute();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DAttribute#isKey <em>Key</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Key</em>'.
-	 * @see com.mimacom.ddd.dm.base.DAttribute#isKey()
-	 * @see #getDAttribute()
-	 * @generated
-	 */
-	EAttribute getDAttribute_Key();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DAttribute#isDetail <em>Detail</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3600,6 +3627,17 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EAttribute getDAttribute_Detail();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DAttribute#isKey <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see com.mimacom.ddd.dm.base.DAttribute#isKey()
+	 * @see #getDAttribute()
+	 * @generated
+	 */
+	EAttribute getDAttribute_Key();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DQuery <em>DQuery</em>}'.
@@ -3738,28 +3776,6 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EReference getDNotification_Notified();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.DNotification#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see com.mimacom.ddd.dm.base.DNotification#getType()
-	 * @see #getDNotification()
-	 * @generated
-	 */
-	EReference getDNotification_Type();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.DNotification#getMultiplicity <em>Multiplicity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Multiplicity</em>'.
-	 * @see com.mimacom.ddd.dm.base.DNotification#getMultiplicity()
-	 * @see #getDNotification()
-	 * @generated
-	 */
-	EReference getDNotification_Multiplicity();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DActor <em>DActor</em>}'.
@@ -4386,6 +4402,14 @@ public interface BasePackage extends EPackage
 		EReference DPRIMITIVE__REDEFINES = eINSTANCE.getDPrimitive_Redefines();
 
 		/**
+		 * The meta object literal for the '<em><b>Archetype</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DPRIMITIVE__ARCHETYPE = eINSTANCE.getDPrimitive_Archetype();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DEnumerationImpl <em>DEnumeration</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4576,20 +4600,20 @@ public interface BasePackage extends EPackage
 		EClass DATTRIBUTE = eINSTANCE.getDAttribute();
 
 		/**
-		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DATTRIBUTE__KEY = eINSTANCE.getDAttribute_Key();
-
-		/**
 		 * The meta object literal for the '<em><b>Detail</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DATTRIBUTE__DETAIL = eINSTANCE.getDAttribute_Detail();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATTRIBUTE__KEY = eINSTANCE.getDAttribute_Key();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DQueryImpl <em>DQuery</em>}' class.
@@ -4704,22 +4728,6 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EReference DNOTIFICATION__NOTIFIED = eINSTANCE.getDNotification_Notified();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DNOTIFICATION__TYPE = eINSTANCE.getDNotification_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Multiplicity</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DNOTIFICATION__MULTIPLICITY = eINSTANCE.getDNotification_Multiplicity();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DActorImpl <em>DActor</em>}' class.

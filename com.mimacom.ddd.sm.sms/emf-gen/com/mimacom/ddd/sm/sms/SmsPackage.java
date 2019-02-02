@@ -142,23 +142,14 @@ public interface SmsPackage extends EPackage
 	int SNAMED_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SDeducibleElementImpl <em>SDeducible Element</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.SDeducibleElement <em>SDeducible Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sms.impl.SDeducibleElementImpl
+	 * @see com.mimacom.ddd.sm.sms.SDeducibleElement
 	 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSDeducibleElement()
 	 * @generated
 	 */
 	int SDEDUCIBLE_ELEMENT = 2;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SDEDUCIBLE_ELEMENT__NAME = SNAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -167,7 +158,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SDEDUCIBLE_ELEMENT__DEDUCTION_RULE = SNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int SDEDUCIBLE_ELEMENT__DEDUCTION_RULE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Nature</b></em>' attribute.
@@ -176,7 +167,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SDEDUCIBLE_ELEMENT__NATURE = SNAMED_ELEMENT_FEATURE_COUNT + 1;
+	int SDEDUCIBLE_ELEMENT__NATURE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -185,7 +176,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SDEDUCIBLE_ELEMENT__SYNTHETIC = SNAMED_ELEMENT_FEATURE_COUNT + 2;
+	int SDEDUCIBLE_ELEMENT__SYNTHETIC = 2;
 
 	/**
 	 * The number of structural features of the '<em>SDeducible Element</em>' class.
@@ -194,17 +185,17 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SDEDUCIBLE_ELEMENT_FEATURE_COUNT = SNAMED_ELEMENT_FEATURE_COUNT + 3;
+	int SDEDUCIBLE_ELEMENT_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SDeducibleMemberElementImpl <em>SDeducible Member Element</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SNamedDeducibleElementImpl <em>SNamed Deducible Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sms.impl.SDeducibleMemberElementImpl
-	 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSDeducibleMemberElement()
+	 * @see com.mimacom.ddd.sm.sms.impl.SNamedDeducibleElementImpl
+	 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSNamedDeducibleElement()
 	 * @generated
 	 */
-	int SDEDUCIBLE_MEMBER_ELEMENT = 3;
+	int SNAMED_DEDUCIBLE_ELEMENT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -213,7 +204,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SDEDUCIBLE_MEMBER_ELEMENT__NAME = SNAMED_ELEMENT__NAME;
+	int SNAMED_DEDUCIBLE_ELEMENT__NAME = SNAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -222,7 +213,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SDEDUCIBLE_MEMBER_ELEMENT__DEDUCTION_RULE = SNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int SNAMED_DEDUCIBLE_ELEMENT__DEDUCTION_RULE = SNAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Nature</b></em>' attribute.
@@ -231,7 +222,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SDEDUCIBLE_MEMBER_ELEMENT__NATURE = SNAMED_ELEMENT_FEATURE_COUNT + 1;
+	int SNAMED_DEDUCIBLE_ELEMENT__NATURE = SNAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -240,16 +231,16 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SDEDUCIBLE_MEMBER_ELEMENT__SYNTHETIC = SNAMED_ELEMENT_FEATURE_COUNT + 2;
+	int SNAMED_DEDUCIBLE_ELEMENT__SYNTHETIC = SNAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>SDeducible Member Element</em>' class.
+	 * The number of structural features of the '<em>SNamed Deducible Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SDEDUCIBLE_MEMBER_ELEMENT_FEATURE_COUNT = SNAMED_ELEMENT_FEATURE_COUNT + 3;
+	int SNAMED_DEDUCIBLE_ELEMENT_FEATURE_COUNT = SNAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SImportImpl <em>SImport</em>}' class.
@@ -290,13 +281,58 @@ public interface SmsPackage extends EPackage
 	int SAGGREGATE = 5;
 
 	/**
+	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAGGREGATE__DEDUCTION_RULE = SDEDUCIBLE_ELEMENT__DEDUCTION_RULE;
+
+	/**
+	 * The feature id for the '<em><b>Nature</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAGGREGATE__NATURE = SDEDUCIBLE_ELEMENT__NATURE;
+
+	/**
+	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAGGREGATE__SYNTHETIC = SDEDUCIBLE_ELEMENT__SYNTHETIC;
+
+	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SAGGREGATE__TYPES = 0;
+	int SAGGREGATE__TYPES = SDEDUCIBLE_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Root</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAGGREGATE__ROOT = SDEDUCIBLE_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Root Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAGGREGATE__ROOT_NAME = SDEDUCIBLE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>SAggregate</em>' class.
@@ -305,7 +341,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SAGGREGATE_FEATURE_COUNT = 1;
+	int SAGGREGATE_FEATURE_COUNT = SDEDUCIBLE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.STypeImpl <em>SType</em>}' class.
@@ -324,7 +360,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int STYPE__NAME = SDEDUCIBLE_ELEMENT__NAME;
+	int STYPE__NAME = SNAMED_DEDUCIBLE_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -333,7 +369,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int STYPE__DEDUCTION_RULE = SDEDUCIBLE_ELEMENT__DEDUCTION_RULE;
+	int STYPE__DEDUCTION_RULE = SNAMED_DEDUCIBLE_ELEMENT__DEDUCTION_RULE;
 
 	/**
 	 * The feature id for the '<em><b>Nature</b></em>' attribute.
@@ -342,7 +378,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int STYPE__NATURE = SDEDUCIBLE_ELEMENT__NATURE;
+	int STYPE__NATURE = SNAMED_DEDUCIBLE_ELEMENT__NATURE;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -351,7 +387,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int STYPE__SYNTHETIC = SDEDUCIBLE_ELEMENT__SYNTHETIC;
+	int STYPE__SYNTHETIC = SNAMED_DEDUCIBLE_ELEMENT__SYNTHETIC;
 
 	/**
 	 * The number of structural features of the '<em>SType</em>' class.
@@ -360,7 +396,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int STYPE_FEATURE_COUNT = SDEDUCIBLE_ELEMENT_FEATURE_COUNT + 0;
+	int STYPE_FEATURE_COUNT = SNAMED_DEDUCIBLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SSimpleTypeImpl <em>SSimple Type</em>}' class.
@@ -619,13 +655,22 @@ public interface SmsPackage extends EPackage
 	int SPRIMITIVE__REALIZES = SSIMPLE_TYPE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Archetype</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRIMITIVE__ARCHETYPE = SSIMPLE_TYPE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>SPrimitive</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPRIMITIVE_FEATURE_COUNT = SSIMPLE_TYPE_FEATURE_COUNT + 2;
+	int SPRIMITIVE_FEATURE_COUNT = SSIMPLE_TYPE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SEnumerationImpl <em>SEnumeration</em>}' class.
@@ -717,7 +762,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SLITERAL__NAME = SDEDUCIBLE_ELEMENT__NAME;
+	int SLITERAL__NAME = SNAMED_DEDUCIBLE_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -726,7 +771,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SLITERAL__DEDUCTION_RULE = SDEDUCIBLE_ELEMENT__DEDUCTION_RULE;
+	int SLITERAL__DEDUCTION_RULE = SNAMED_DEDUCIBLE_ELEMENT__DEDUCTION_RULE;
 
 	/**
 	 * The feature id for the '<em><b>Nature</b></em>' attribute.
@@ -735,7 +780,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SLITERAL__NATURE = SDEDUCIBLE_ELEMENT__NATURE;
+	int SLITERAL__NATURE = SNAMED_DEDUCIBLE_ELEMENT__NATURE;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -744,7 +789,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SLITERAL__SYNTHETIC = SDEDUCIBLE_ELEMENT__SYNTHETIC;
+	int SLITERAL__SYNTHETIC = SNAMED_DEDUCIBLE_ELEMENT__SYNTHETIC;
 
 	/**
 	 * The number of structural features of the '<em>SLiteral</em>' class.
@@ -753,7 +798,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SLITERAL_FEATURE_COUNT = SDEDUCIBLE_ELEMENT_FEATURE_COUNT + 0;
+	int SLITERAL_FEATURE_COUNT = SNAMED_DEDUCIBLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SRootTypeImpl <em>SRoot Type</em>}' class.
@@ -954,7 +999,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SFEATURE__NAME = SDEDUCIBLE_MEMBER_ELEMENT__NAME;
+	int SFEATURE__NAME = SNAMED_DEDUCIBLE_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -963,7 +1008,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SFEATURE__DEDUCTION_RULE = SDEDUCIBLE_MEMBER_ELEMENT__DEDUCTION_RULE;
+	int SFEATURE__DEDUCTION_RULE = SNAMED_DEDUCIBLE_ELEMENT__DEDUCTION_RULE;
 
 	/**
 	 * The feature id for the '<em><b>Nature</b></em>' attribute.
@@ -972,7 +1017,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SFEATURE__NATURE = SDEDUCIBLE_MEMBER_ELEMENT__NATURE;
+	int SFEATURE__NATURE = SNAMED_DEDUCIBLE_ELEMENT__NATURE;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -981,7 +1026,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SFEATURE__SYNTHETIC = SDEDUCIBLE_MEMBER_ELEMENT__SYNTHETIC;
+	int SFEATURE__SYNTHETIC = SNAMED_DEDUCIBLE_ELEMENT__SYNTHETIC;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -990,7 +1035,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SFEATURE__TYPE = SDEDUCIBLE_MEMBER_ELEMENT_FEATURE_COUNT + 0;
+	int SFEATURE__TYPE = SNAMED_DEDUCIBLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
@@ -999,7 +1044,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SFEATURE__MULTIPLICITY = SDEDUCIBLE_MEMBER_ELEMENT_FEATURE_COUNT + 1;
+	int SFEATURE__MULTIPLICITY = SNAMED_DEDUCIBLE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>SFeature</em>' class.
@@ -1008,7 +1053,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SFEATURE_FEATURE_COUNT = SDEDUCIBLE_MEMBER_ELEMENT_FEATURE_COUNT + 2;
+	int SFEATURE_FEATURE_COUNT = SNAMED_DEDUCIBLE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SAssociationImpl <em>SAssociation</em>}' class.
@@ -1300,7 +1345,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SQUERY_PARAMETER__NAME = SDEDUCIBLE_MEMBER_ELEMENT__NAME;
+	int SQUERY_PARAMETER__NAME = SNAMED_DEDUCIBLE_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -1309,7 +1354,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SQUERY_PARAMETER__DEDUCTION_RULE = SDEDUCIBLE_MEMBER_ELEMENT__DEDUCTION_RULE;
+	int SQUERY_PARAMETER__DEDUCTION_RULE = SNAMED_DEDUCIBLE_ELEMENT__DEDUCTION_RULE;
 
 	/**
 	 * The feature id for the '<em><b>Nature</b></em>' attribute.
@@ -1318,7 +1363,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SQUERY_PARAMETER__NATURE = SDEDUCIBLE_MEMBER_ELEMENT__NATURE;
+	int SQUERY_PARAMETER__NATURE = SNAMED_DEDUCIBLE_ELEMENT__NATURE;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -1327,7 +1372,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SQUERY_PARAMETER__SYNTHETIC = SDEDUCIBLE_MEMBER_ELEMENT__SYNTHETIC;
+	int SQUERY_PARAMETER__SYNTHETIC = SNAMED_DEDUCIBLE_ELEMENT__SYNTHETIC;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1336,7 +1381,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SQUERY_PARAMETER__TYPE = SDEDUCIBLE_MEMBER_ELEMENT_FEATURE_COUNT + 0;
+	int SQUERY_PARAMETER__TYPE = SNAMED_DEDUCIBLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
@@ -1345,7 +1390,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SQUERY_PARAMETER__MULTIPLICITY = SDEDUCIBLE_MEMBER_ELEMENT_FEATURE_COUNT + 1;
+	int SQUERY_PARAMETER__MULTIPLICITY = SNAMED_DEDUCIBLE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>SQuery Parameter</em>' class.
@@ -1354,7 +1399,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SQUERY_PARAMETER_FEATURE_COUNT = SDEDUCIBLE_MEMBER_ELEMENT_FEATURE_COUNT + 2;
+	int SQUERY_PARAMETER_FEATURE_COUNT = SNAMED_DEDUCIBLE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SExpressionImpl <em>SExpression</em>}' class.
@@ -1432,41 +1477,23 @@ public interface SmsPackage extends EPackage
 	int SDEDUCTION_RULE = 22;
 
 	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SDEDUCTION_RULE__SOURCE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Transform</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SDEDUCTION_RULE__TRANSFORM = 1;
-
-	/**
 	 * The number of structural features of the '<em>SDeduction Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SDEDUCTION_RULE_FEATURE_COUNT = 2;
+	int SDEDUCTION_RULE_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SMemberDeductionRuleImpl <em>SMember Deduction Rule</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SNamedElementDeductionRuleImpl <em>SNamed Element Deduction Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sms.impl.SMemberDeductionRuleImpl
-	 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSMemberDeductionRule()
+	 * @see com.mimacom.ddd.sm.sms.impl.SNamedElementDeductionRuleImpl
+	 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSNamedElementDeductionRule()
 	 * @generated
 	 */
-	int SMEMBER_DEDUCTION_RULE = 23;
+	int SNAMED_ELEMENT_DEDUCTION_RULE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1475,73 +1502,35 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SMEMBER_DEDUCTION_RULE__SOURCE = 0;
+	int SNAMED_ELEMENT_DEDUCTION_RULE__SOURCE = SDEDUCTION_RULE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Transform</b></em>' containment reference.
+	 * The number of structural features of the '<em>SNamed Element Deduction Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SMEMBER_DEDUCTION_RULE__TRANSFORM = 1;
+	int SNAMED_ELEMENT_DEDUCTION_RULE_FEATURE_COUNT = SDEDUCTION_RULE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>SMember Deduction Rule</em>' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SGrabRuleImpl <em>SGrab Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sms.impl.SGrabRuleImpl
+	 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSGrabRule()
+	 * @generated
+	 */
+	int SGRAB_RULE = 24;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SMEMBER_DEDUCTION_RULE_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.STransformImpl <em>STransform</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sms.impl.STransformImpl
-	 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSTransform()
-	 * @generated
-	 */
-	int STRANSFORM = 24;
-
-	/**
-	 * The number of structural features of the '<em>STransform</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRANSFORM_FEATURE_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SSpoofTransformImpl <em>SSpoof Transform</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sms.impl.SSpoofTransformImpl
-	 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSSpoofTransform()
-	 * @generated
-	 */
-	int SSPOOF_TRANSFORM = 25;
-
-	/**
-	 * The number of structural features of the '<em>SSpoof Transform</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SSPOOF_TRANSFORM_FEATURE_COUNT = STRANSFORM_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SMorphTransformImpl <em>SMorph Transform</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sms.impl.SMorphTransformImpl
-	 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSMorphTransform()
-	 * @generated
-	 */
-	int SMORPH_TRANSFORM = 26;
+	int SGRAB_RULE__SOURCE = SNAMED_ELEMENT_DEDUCTION_RULE__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Rename To</b></em>' attribute.
@@ -1550,7 +1539,44 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SMORPH_TRANSFORM__RENAME_TO = STRANSFORM_FEATURE_COUNT + 0;
+	int SGRAB_RULE__RENAME_TO = SNAMED_ELEMENT_DEDUCTION_RULE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>SGrab Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SGRAB_RULE_FEATURE_COUNT = SNAMED_ELEMENT_DEDUCTION_RULE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SMorphRuleImpl <em>SMorph Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sms.impl.SMorphRuleImpl
+	 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSMorphRule()
+	 * @generated
+	 */
+	int SMORPH_RULE = 25;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMORPH_RULE__SOURCE = SGRAB_RULE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Rename To</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMORPH_RULE__RENAME_TO = SGRAB_RULE__RENAME_TO;
 
 	/**
 	 * The feature id for the '<em><b>Retype To</b></em>' reference.
@@ -1559,7 +1585,7 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SMORPH_TRANSFORM__RETYPE_TO = STRANSFORM_FEATURE_COUNT + 1;
+	int SMORPH_RULE__RETYPE_TO = SGRAB_RULE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Remultiply To</b></em>' containment reference.
@@ -1568,73 +1594,127 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SMORPH_TRANSFORM__REMULTIPLY_TO = STRANSFORM_FEATURE_COUNT + 2;
+	int SMORPH_RULE__REMULTIPLY_TO = SGRAB_RULE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>SMorph Transform</em>' class.
+	 * The number of structural features of the '<em>SMorph Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SMORPH_TRANSFORM_FEATURE_COUNT = STRANSFORM_FEATURE_COUNT + 3;
+	int SMORPH_RULE_FEATURE_COUNT = SGRAB_RULE_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SDitchTransformImpl <em>SDitch Transform</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SDitchRuleImpl <em>SDitch Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sms.impl.SDitchTransformImpl
-	 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSDitchTransform()
+	 * @see com.mimacom.ddd.sm.sms.impl.SDitchRuleImpl
+	 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSDitchRule()
 	 * @generated
 	 */
-	int SDITCH_TRANSFORM = 27;
+	int SDITCH_RULE = 26;
 
 	/**
-	 * The number of structural features of the '<em>SDitch Transform</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SDITCH_TRANSFORM_FEATURE_COUNT = STRANSFORM_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SFuseTransformImpl <em>SFuse Transform</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sms.impl.SFuseTransformImpl
-	 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSFuseTransform()
-	 * @generated
-	 */
-	int SFUSE_TRANSFORM = 28;
-
-	/**
-	 * The number of structural features of the '<em>SFuse Transform</em>' class.
+	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SFUSE_TRANSFORM_FEATURE_COUNT = STRANSFORM_FEATURE_COUNT + 0;
+	int SDITCH_RULE__SOURCE = SNAMED_ELEMENT_DEDUCTION_RULE__SOURCE;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SChopTransformImpl <em>SChop Transform</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sms.impl.SChopTransformImpl
-	 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSChopTransform()
-	 * @generated
-	 */
-	int SCHOP_TRANSFORM = 29;
-
-	/**
-	 * The number of structural features of the '<em>SChop Transform</em>' class.
+	 * The number of structural features of the '<em>SDitch Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHOP_TRANSFORM_FEATURE_COUNT = STRANSFORM_FEATURE_COUNT + 0;
+	int SDITCH_RULE_FEATURE_COUNT = SNAMED_ELEMENT_DEDUCTION_RULE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SFuseRuleImpl <em>SFuse Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sms.impl.SFuseRuleImpl
+	 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSFuseRule()
+	 * @generated
+	 */
+	int SFUSE_RULE = 27;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SFUSE_RULE__SOURCE = SGRAB_RULE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Rename To</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SFUSE_RULE__RENAME_TO = SGRAB_RULE__RENAME_TO;
+
+	/**
+	 * The feature id for the '<em><b>Source2</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SFUSE_RULE__SOURCE2 = SGRAB_RULE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Extend From</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SFUSE_RULE__EXTEND_FROM = SGRAB_RULE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>SFuse Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SFUSE_RULE_FEATURE_COUNT = SGRAB_RULE_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.impl.SGrabAggregateRuleImpl <em>SGrab Aggregate Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sms.impl.SGrabAggregateRuleImpl
+	 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSGrabAggregateRule()
+	 * @generated
+	 */
+	int SGRAB_AGGREGATE_RULE = 28;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SGRAB_AGGREGATE_RULE__SOURCE = SDEDUCTION_RULE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>SGrab Aggregate Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SGRAB_AGGREGATE_RULE_FEATURE_COUNT = SDEDUCTION_RULE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.SElementNature <em>SElement Nature</em>}' enum.
@@ -1644,7 +1724,7 @@ public interface SmsPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSElementNature()
 	 * @generated
 	 */
-	int SELEMENT_NATURE = 30;
+	int SELEMENT_NATURE = 29;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sms.SAssociationKind <em>SAssociation Kind</em>}' enum.
@@ -1654,7 +1734,7 @@ public interface SmsPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSAssociationKind()
 	 * @generated
 	 */
-	int SASSOCIATION_KIND = 31;
+	int SASSOCIATION_KIND = 30;
 
 
 	/**
@@ -1776,47 +1856,14 @@ public interface SmsPackage extends EPackage
 	EAttribute getSDeducibleElement_Synthetic();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sms.SDeducibleMemberElement <em>SDeducible Member Element</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sms.SNamedDeducibleElement <em>SNamed Deducible Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SDeducible Member Element</em>'.
-	 * @see com.mimacom.ddd.sm.sms.SDeducibleMemberElement
+	 * @return the meta object for class '<em>SNamed Deducible Element</em>'.
+	 * @see com.mimacom.ddd.sm.sms.SNamedDeducibleElement
 	 * @generated
 	 */
-	EClass getSDeducibleMemberElement();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.sm.sms.SDeducibleMemberElement#getDeductionRule <em>Deduction Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Deduction Rule</em>'.
-	 * @see com.mimacom.ddd.sm.sms.SDeducibleMemberElement#getDeductionRule()
-	 * @see #getSDeducibleMemberElement()
-	 * @generated
-	 */
-	EReference getSDeducibleMemberElement_DeductionRule();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sms.SDeducibleMemberElement#getNature <em>Nature</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Nature</em>'.
-	 * @see com.mimacom.ddd.sm.sms.SDeducibleMemberElement#getNature()
-	 * @see #getSDeducibleMemberElement()
-	 * @generated
-	 */
-	EAttribute getSDeducibleMemberElement_Nature();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sms.SDeducibleMemberElement#getSynthetic <em>Synthetic</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Synthetic</em>'.
-	 * @see com.mimacom.ddd.sm.sms.SDeducibleMemberElement#getSynthetic()
-	 * @see #getSDeducibleMemberElement()
-	 * @generated
-	 */
-	EAttribute getSDeducibleMemberElement_Synthetic();
+	EClass getSNamedDeducibleElement();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sms.SImport <em>SImport</em>}'.
@@ -1859,6 +1906,28 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 */
 	EReference getSAggregate_Types();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sms.SAggregate#getRoot <em>Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Root</em>'.
+	 * @see com.mimacom.ddd.sm.sms.SAggregate#getRoot()
+	 * @see #getSAggregate()
+	 * @generated
+	 */
+	EReference getSAggregate_Root();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sms.SAggregate#getRootName <em>Root Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Root Name</em>'.
+	 * @see com.mimacom.ddd.sm.sms.SAggregate#getRootName()
+	 * @see #getSAggregate()
+	 * @generated
+	 */
+	EAttribute getSAggregate_RootName();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sms.SType <em>SType</em>}'.
@@ -1997,6 +2066,17 @@ public interface SmsPackage extends EPackage
 	 * @generated
 	 */
 	EReference getSPrimitive_Realizes();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sms.SPrimitive#isArchetype <em>Archetype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Archetype</em>'.
+	 * @see com.mimacom.ddd.sm.sms.SPrimitive#isArchetype()
+	 * @see #getSPrimitive()
+	 * @generated
+	 */
+	EAttribute getSPrimitive_Archetype();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sms.SEnumeration <em>SEnumeration</em>}'.
@@ -2295,151 +2375,141 @@ public interface SmsPackage extends EPackage
 	EClass getSDeductionRule();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sms.SDeductionRule#getSource <em>Source</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sms.SNamedElementDeductionRule <em>SNamed Element Deduction Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SNamed Element Deduction Rule</em>'.
+	 * @see com.mimacom.ddd.sm.sms.SNamedElementDeductionRule
+	 * @generated
+	 */
+	EClass getSNamedElementDeductionRule();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sms.SNamedElementDeductionRule#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see com.mimacom.ddd.sm.sms.SDeductionRule#getSource()
-	 * @see #getSDeductionRule()
+	 * @see com.mimacom.ddd.sm.sms.SNamedElementDeductionRule#getSource()
+	 * @see #getSNamedElementDeductionRule()
 	 * @generated
 	 */
-	EReference getSDeductionRule_Source();
+	EReference getSNamedElementDeductionRule_Source();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.sm.sms.SDeductionRule#getTransform <em>Transform</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sms.SGrabRule <em>SGrab Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Transform</em>'.
-	 * @see com.mimacom.ddd.sm.sms.SDeductionRule#getTransform()
-	 * @see #getSDeductionRule()
+	 * @return the meta object for class '<em>SGrab Rule</em>'.
+	 * @see com.mimacom.ddd.sm.sms.SGrabRule
 	 * @generated
 	 */
-	EReference getSDeductionRule_Transform();
+	EClass getSGrabRule();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sms.SMemberDeductionRule <em>SMember Deduction Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SMember Deduction Rule</em>'.
-	 * @see com.mimacom.ddd.sm.sms.SMemberDeductionRule
-	 * @generated
-	 */
-	EClass getSMemberDeductionRule();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sms.SMemberDeductionRule#getSource <em>Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see com.mimacom.ddd.sm.sms.SMemberDeductionRule#getSource()
-	 * @see #getSMemberDeductionRule()
-	 * @generated
-	 */
-	EReference getSMemberDeductionRule_Source();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.sm.sms.SMemberDeductionRule#getTransform <em>Transform</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Transform</em>'.
-	 * @see com.mimacom.ddd.sm.sms.SMemberDeductionRule#getTransform()
-	 * @see #getSMemberDeductionRule()
-	 * @generated
-	 */
-	EReference getSMemberDeductionRule_Transform();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sms.STransform <em>STransform</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>STransform</em>'.
-	 * @see com.mimacom.ddd.sm.sms.STransform
-	 * @generated
-	 */
-	EClass getSTransform();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sms.SSpoofTransform <em>SSpoof Transform</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SSpoof Transform</em>'.
-	 * @see com.mimacom.ddd.sm.sms.SSpoofTransform
-	 * @generated
-	 */
-	EClass getSSpoofTransform();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sms.SMorphTransform <em>SMorph Transform</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SMorph Transform</em>'.
-	 * @see com.mimacom.ddd.sm.sms.SMorphTransform
-	 * @generated
-	 */
-	EClass getSMorphTransform();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sms.SMorphTransform#getRenameTo <em>Rename To</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sms.SGrabRule#getRenameTo <em>Rename To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Rename To</em>'.
-	 * @see com.mimacom.ddd.sm.sms.SMorphTransform#getRenameTo()
-	 * @see #getSMorphTransform()
+	 * @see com.mimacom.ddd.sm.sms.SGrabRule#getRenameTo()
+	 * @see #getSGrabRule()
 	 * @generated
 	 */
-	EAttribute getSMorphTransform_RenameTo();
+	EAttribute getSGrabRule_RenameTo();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sms.SMorphTransform#getRetypeTo <em>Retype To</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sms.SMorphRule <em>SMorph Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SMorph Rule</em>'.
+	 * @see com.mimacom.ddd.sm.sms.SMorphRule
+	 * @generated
+	 */
+	EClass getSMorphRule();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sms.SMorphRule#getRetypeTo <em>Retype To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Retype To</em>'.
-	 * @see com.mimacom.ddd.sm.sms.SMorphTransform#getRetypeTo()
-	 * @see #getSMorphTransform()
+	 * @see com.mimacom.ddd.sm.sms.SMorphRule#getRetypeTo()
+	 * @see #getSMorphRule()
 	 * @generated
 	 */
-	EReference getSMorphTransform_RetypeTo();
+	EReference getSMorphRule_RetypeTo();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.sm.sms.SMorphTransform#getRemultiplyTo <em>Remultiply To</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.sm.sms.SMorphRule#getRemultiplyTo <em>Remultiply To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Remultiply To</em>'.
-	 * @see com.mimacom.ddd.sm.sms.SMorphTransform#getRemultiplyTo()
-	 * @see #getSMorphTransform()
+	 * @see com.mimacom.ddd.sm.sms.SMorphRule#getRemultiplyTo()
+	 * @see #getSMorphRule()
 	 * @generated
 	 */
-	EReference getSMorphTransform_RemultiplyTo();
+	EReference getSMorphRule_RemultiplyTo();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sms.SDitchTransform <em>SDitch Transform</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sms.SDitchRule <em>SDitch Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SDitch Transform</em>'.
-	 * @see com.mimacom.ddd.sm.sms.SDitchTransform
+	 * @return the meta object for class '<em>SDitch Rule</em>'.
+	 * @see com.mimacom.ddd.sm.sms.SDitchRule
 	 * @generated
 	 */
-	EClass getSDitchTransform();
+	EClass getSDitchRule();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sms.SFuseTransform <em>SFuse Transform</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sms.SFuseRule <em>SFuse Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SFuse Transform</em>'.
-	 * @see com.mimacom.ddd.sm.sms.SFuseTransform
+	 * @return the meta object for class '<em>SFuse Rule</em>'.
+	 * @see com.mimacom.ddd.sm.sms.SFuseRule
 	 * @generated
 	 */
-	EClass getSFuseTransform();
+	EClass getSFuseRule();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sms.SChopTransform <em>SChop Transform</em>}'.
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sms.SFuseRule#getSource2 <em>Source2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SChop Transform</em>'.
-	 * @see com.mimacom.ddd.sm.sms.SChopTransform
+	 * @return the meta object for the reference '<em>Source2</em>'.
+	 * @see com.mimacom.ddd.sm.sms.SFuseRule#getSource2()
+	 * @see #getSFuseRule()
 	 * @generated
 	 */
-	EClass getSChopTransform();
+	EReference getSFuseRule_Source2();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sms.SFuseRule#getExtendFrom <em>Extend From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Extend From</em>'.
+	 * @see com.mimacom.ddd.sm.sms.SFuseRule#getExtendFrom()
+	 * @see #getSFuseRule()
+	 * @generated
+	 */
+	EReference getSFuseRule_ExtendFrom();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sms.SGrabAggregateRule <em>SGrab Aggregate Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SGrab Aggregate Rule</em>'.
+	 * @see com.mimacom.ddd.sm.sms.SGrabAggregateRule
+	 * @generated
+	 */
+	EClass getSGrabAggregateRule();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sms.SGrabAggregateRule#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see com.mimacom.ddd.sm.sms.SGrabAggregateRule#getSource()
+	 * @see #getSGrabAggregateRule()
+	 * @generated
+	 */
+	EReference getSGrabAggregateRule_Source();
 
 	/**
 	 * Returns the meta object for enum '{@link com.mimacom.ddd.sm.sms.SElementNature <em>SElement Nature</em>}'.
@@ -2545,10 +2615,10 @@ public interface SmsPackage extends EPackage
 		EAttribute SNAMED_ELEMENT__NAME = eINSTANCE.getSNamedElement_Name();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.impl.SDeducibleElementImpl <em>SDeducible Element</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.SDeducibleElement <em>SDeducible Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sms.impl.SDeducibleElementImpl
+		 * @see com.mimacom.ddd.sm.sms.SDeducibleElement
 		 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSDeducibleElement()
 		 * @generated
 		 */
@@ -2579,38 +2649,14 @@ public interface SmsPackage extends EPackage
 		EAttribute SDEDUCIBLE_ELEMENT__SYNTHETIC = eINSTANCE.getSDeducibleElement_Synthetic();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.impl.SDeducibleMemberElementImpl <em>SDeducible Member Element</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.impl.SNamedDeducibleElementImpl <em>SNamed Deducible Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sms.impl.SDeducibleMemberElementImpl
-		 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSDeducibleMemberElement()
+		 * @see com.mimacom.ddd.sm.sms.impl.SNamedDeducibleElementImpl
+		 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSNamedDeducibleElement()
 		 * @generated
 		 */
-		EClass SDEDUCIBLE_MEMBER_ELEMENT = eINSTANCE.getSDeducibleMemberElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Deduction Rule</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SDEDUCIBLE_MEMBER_ELEMENT__DEDUCTION_RULE = eINSTANCE.getSDeducibleMemberElement_DeductionRule();
-
-		/**
-		 * The meta object literal for the '<em><b>Nature</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SDEDUCIBLE_MEMBER_ELEMENT__NATURE = eINSTANCE.getSDeducibleMemberElement_Nature();
-
-		/**
-		 * The meta object literal for the '<em><b>Synthetic</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SDEDUCIBLE_MEMBER_ELEMENT__SYNTHETIC = eINSTANCE.getSDeducibleMemberElement_Synthetic();
+		EClass SNAMED_DEDUCIBLE_ELEMENT = eINSTANCE.getSNamedDeducibleElement();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.impl.SImportImpl <em>SImport</em>}' class.
@@ -2647,6 +2693,22 @@ public interface SmsPackage extends EPackage
 		 * @generated
 		 */
 		EReference SAGGREGATE__TYPES = eINSTANCE.getSAggregate_Types();
+
+		/**
+		 * The meta object literal for the '<em><b>Root</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SAGGREGATE__ROOT = eINSTANCE.getSAggregate_Root();
+
+		/**
+		 * The meta object literal for the '<em><b>Root Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SAGGREGATE__ROOT_NAME = eINSTANCE.getSAggregate_RootName();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.impl.STypeImpl <em>SType</em>}' class.
@@ -2761,6 +2823,14 @@ public interface SmsPackage extends EPackage
 		 * @generated
 		 */
 		EReference SPRIMITIVE__REALIZES = eINSTANCE.getSPrimitive_Realizes();
+
+		/**
+		 * The meta object literal for the '<em><b>Archetype</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPRIMITIVE__ARCHETYPE = eINSTANCE.getSPrimitive_Archetype();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.impl.SEnumerationImpl <em>SEnumeration</em>}' class.
@@ -3011,30 +3081,14 @@ public interface SmsPackage extends EPackage
 		EClass SDEDUCTION_RULE = eINSTANCE.getSDeductionRule();
 
 		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.impl.SNamedElementDeductionRuleImpl <em>SNamed Element Deduction Rule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sms.impl.SNamedElementDeductionRuleImpl
+		 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSNamedElementDeductionRule()
 		 * @generated
 		 */
-		EReference SDEDUCTION_RULE__SOURCE = eINSTANCE.getSDeductionRule_Source();
-
-		/**
-		 * The meta object literal for the '<em><b>Transform</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SDEDUCTION_RULE__TRANSFORM = eINSTANCE.getSDeductionRule_Transform();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.impl.SMemberDeductionRuleImpl <em>SMember Deduction Rule</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sms.impl.SMemberDeductionRuleImpl
-		 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSMemberDeductionRule()
-		 * @generated
-		 */
-		EClass SMEMBER_DEDUCTION_RULE = eINSTANCE.getSMemberDeductionRule();
+		EClass SNAMED_ELEMENT_DEDUCTION_RULE = eINSTANCE.getSNamedElementDeductionRule();
 
 		/**
 		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
@@ -3042,45 +3096,17 @@ public interface SmsPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SMEMBER_DEDUCTION_RULE__SOURCE = eINSTANCE.getSMemberDeductionRule_Source();
+		EReference SNAMED_ELEMENT_DEDUCTION_RULE__SOURCE = eINSTANCE.getSNamedElementDeductionRule_Source();
 
 		/**
-		 * The meta object literal for the '<em><b>Transform</b></em>' containment reference feature.
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.impl.SGrabRuleImpl <em>SGrab Rule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sms.impl.SGrabRuleImpl
+		 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSGrabRule()
 		 * @generated
 		 */
-		EReference SMEMBER_DEDUCTION_RULE__TRANSFORM = eINSTANCE.getSMemberDeductionRule_Transform();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.impl.STransformImpl <em>STransform</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sms.impl.STransformImpl
-		 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSTransform()
-		 * @generated
-		 */
-		EClass STRANSFORM = eINSTANCE.getSTransform();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.impl.SSpoofTransformImpl <em>SSpoof Transform</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sms.impl.SSpoofTransformImpl
-		 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSSpoofTransform()
-		 * @generated
-		 */
-		EClass SSPOOF_TRANSFORM = eINSTANCE.getSSpoofTransform();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.impl.SMorphTransformImpl <em>SMorph Transform</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sms.impl.SMorphTransformImpl
-		 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSMorphTransform()
-		 * @generated
-		 */
-		EClass SMORPH_TRANSFORM = eINSTANCE.getSMorphTransform();
+		EClass SGRAB_RULE = eINSTANCE.getSGrabRule();
 
 		/**
 		 * The meta object literal for the '<em><b>Rename To</b></em>' attribute feature.
@@ -3088,7 +3114,17 @@ public interface SmsPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SMORPH_TRANSFORM__RENAME_TO = eINSTANCE.getSMorphTransform_RenameTo();
+		EAttribute SGRAB_RULE__RENAME_TO = eINSTANCE.getSGrabRule_RenameTo();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.impl.SMorphRuleImpl <em>SMorph Rule</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sms.impl.SMorphRuleImpl
+		 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSMorphRule()
+		 * @generated
+		 */
+		EClass SMORPH_RULE = eINSTANCE.getSMorphRule();
 
 		/**
 		 * The meta object literal for the '<em><b>Retype To</b></em>' reference feature.
@@ -3096,7 +3132,7 @@ public interface SmsPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SMORPH_TRANSFORM__RETYPE_TO = eINSTANCE.getSMorphTransform_RetypeTo();
+		EReference SMORPH_RULE__RETYPE_TO = eINSTANCE.getSMorphRule_RetypeTo();
 
 		/**
 		 * The meta object literal for the '<em><b>Remultiply To</b></em>' containment reference feature.
@@ -3104,37 +3140,61 @@ public interface SmsPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SMORPH_TRANSFORM__REMULTIPLY_TO = eINSTANCE.getSMorphTransform_RemultiplyTo();
+		EReference SMORPH_RULE__REMULTIPLY_TO = eINSTANCE.getSMorphRule_RemultiplyTo();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.impl.SDitchTransformImpl <em>SDitch Transform</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.impl.SDitchRuleImpl <em>SDitch Rule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sms.impl.SDitchTransformImpl
-		 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSDitchTransform()
+		 * @see com.mimacom.ddd.sm.sms.impl.SDitchRuleImpl
+		 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSDitchRule()
 		 * @generated
 		 */
-		EClass SDITCH_TRANSFORM = eINSTANCE.getSDitchTransform();
+		EClass SDITCH_RULE = eINSTANCE.getSDitchRule();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.impl.SFuseTransformImpl <em>SFuse Transform</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.impl.SFuseRuleImpl <em>SFuse Rule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sms.impl.SFuseTransformImpl
-		 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSFuseTransform()
+		 * @see com.mimacom.ddd.sm.sms.impl.SFuseRuleImpl
+		 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSFuseRule()
 		 * @generated
 		 */
-		EClass SFUSE_TRANSFORM = eINSTANCE.getSFuseTransform();
+		EClass SFUSE_RULE = eINSTANCE.getSFuseRule();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.impl.SChopTransformImpl <em>SChop Transform</em>}' class.
+		 * The meta object literal for the '<em><b>Source2</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sms.impl.SChopTransformImpl
-		 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSChopTransform()
 		 * @generated
 		 */
-		EClass SCHOP_TRANSFORM = eINSTANCE.getSChopTransform();
+		EReference SFUSE_RULE__SOURCE2 = eINSTANCE.getSFuseRule_Source2();
+
+		/**
+		 * The meta object literal for the '<em><b>Extend From</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SFUSE_RULE__EXTEND_FROM = eINSTANCE.getSFuseRule_ExtendFrom();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.impl.SGrabAggregateRuleImpl <em>SGrab Aggregate Rule</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sms.impl.SGrabAggregateRuleImpl
+		 * @see com.mimacom.ddd.sm.sms.impl.SmsPackageImpl#getSGrabAggregateRule()
+		 * @generated
+		 */
+		EClass SGRAB_AGGREGATE_RULE = eINSTANCE.getSGrabAggregateRule();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SGRAB_AGGREGATE_RULE__SOURCE = eINSTANCE.getSGrabAggregateRule_Source();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sms.SElementNature <em>SElement Nature</em>}' enum.

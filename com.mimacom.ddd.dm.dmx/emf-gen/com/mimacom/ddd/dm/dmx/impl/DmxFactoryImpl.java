@@ -85,7 +85,7 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 			case DmxPackage.DNATURAL_LITERAL: return createDNaturalLiteral();
 			case DmxPackage.DDECIMAL_LITERAL: return createDDecimalLiteral();
 			case DmxPackage.DDATE_LITERAL: return createDDateLiteral();
-			case DmxPackage.DNIL_LITERAL: return createDNilLiteral();
+			case DmxPackage.DUNDEFINED_LITERAL: return createDUndefinedLiteral();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -375,10 +375,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DNilLiteral createDNilLiteral()
+	public DUndefinedLiteral createDUndefinedLiteral()
 	{
-		DNilLiteralImpl dNilLiteral = new DNilLiteralImpl();
-		return dNilLiteral;
+		DUndefinedLiteralImpl dUndefinedLiteral = new DUndefinedLiteralImpl();
+		return dUndefinedLiteral;
 	}
 
 	/**

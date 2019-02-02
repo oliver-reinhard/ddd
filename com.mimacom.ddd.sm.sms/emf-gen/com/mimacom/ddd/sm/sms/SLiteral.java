@@ -14,6 +14,6 @@ package com.mimacom.ddd.sm.sms;
  * @model
  * @generated
  */
-public interface SLiteral extends SDeducibleElement
+public interface SLiteral extends SNamedDeducibleElement
 {
 } // SLiteral

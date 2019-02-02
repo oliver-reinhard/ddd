@@ -148,6 +148,14 @@ class DmsDiagramTextProvider extends AbstractDiagramTextProvider {
 	}
 	
 	def generateLink(String sourceArrowhead, DType source, DType target, String targetRole, String targetArrowhead) '''
-		«source.aggregateName».«source.name» «sourceArrowhead»--«targetArrowhead» «IF source.domainName == target.domainName»«target.aggregateName»«ELSE»«target.domainName»«ENDIF»«IF target instanceof DDetailType».«target.name»«ENDIF» : «targetRole»
+		«source.aggregateName».«source.name» «sourceArrowhead»--«targetArrowhead» «getTargetName(source,target)» : «targetRole»
 	'''
+	
+	def String getTargetName(DType source, DType target) {
+		if (source.domainName == target.domainName) {
+			if (source.aggregateName == target.aggregateName) return target.aggregateName + "." + target.name
+			return  target.aggregateName
+		}
+		return target.domainName
+	}
 }

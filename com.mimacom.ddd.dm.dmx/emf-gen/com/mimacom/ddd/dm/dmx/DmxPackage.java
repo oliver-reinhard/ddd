@@ -972,32 +972,32 @@ public interface DmxPackage extends EPackage
 	int DDATE_LITERAL_OPERATION_COUNT = BasePackage.DEXPRESSION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DNilLiteralImpl <em>DNil Literal</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DUndefinedLiteralImpl <em>DUndefined Literal</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.dmx.impl.DNilLiteralImpl
-	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDNilLiteral()
+	 * @see com.mimacom.ddd.dm.dmx.impl.DUndefinedLiteralImpl
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDUndefinedLiteral()
 	 * @generated
 	 */
-	int DNIL_LITERAL = 20;
+	int DUNDEFINED_LITERAL = 20;
 
 	/**
-	 * The number of structural features of the '<em>DNil Literal</em>' class.
+	 * The number of structural features of the '<em>DUndefined Literal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DNIL_LITERAL_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 0;
+	int DUNDEFINED_LITERAL_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>DNil Literal</em>' class.
+	 * The number of operations of the '<em>DUndefined Literal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DNIL_LITERAL_OPERATION_COUNT = BasePackage.DEXPRESSION_OPERATION_COUNT + 0;
+	int DUNDEFINED_LITERAL_OPERATION_COUNT = BasePackage.DEXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.DBinaryOperator <em>DBinary Operator</em>}' enum.
@@ -1650,14 +1650,14 @@ public interface DmxPackage extends EPackage
 	EAttribute getDDateLiteral_Value();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DNilLiteral <em>DNil Literal</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DUndefinedLiteral <em>DUndefined Literal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DNil Literal</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DNilLiteral
+	 * @return the meta object for class '<em>DUndefined Literal</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DUndefinedLiteral
 	 * @generated
 	 */
-	EClass getDNilLiteral();
+	EClass getDUndefinedLiteral();
 
 	/**
 	 * Returns the meta object for enum '{@link com.mimacom.ddd.dm.dmx.DBinaryOperator <em>DBinary Operator</em>}'.
@@ -2216,14 +2216,14 @@ public interface DmxPackage extends EPackage
 		EAttribute DDATE_LITERAL__VALUE = eINSTANCE.getDDateLiteral_Value();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DNilLiteralImpl <em>DNil Literal</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DUndefinedLiteralImpl <em>DUndefined Literal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.dmx.impl.DNilLiteralImpl
-		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDNilLiteral()
+		 * @see com.mimacom.ddd.dm.dmx.impl.DUndefinedLiteralImpl
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDUndefinedLiteral()
 		 * @generated
 		 */
-		EClass DNIL_LITERAL = eINSTANCE.getDNilLiteral();
+		EClass DUNDEFINED_LITERAL = eINSTANCE.getDUndefinedLiteral();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.DBinaryOperator <em>DBinary Operator</em>}' enum.

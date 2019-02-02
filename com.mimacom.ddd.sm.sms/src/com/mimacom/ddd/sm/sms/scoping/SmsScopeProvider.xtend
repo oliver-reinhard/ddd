@@ -4,13 +4,23 @@
 package com.mimacom.ddd.sm.sms.scoping
 
 import com.mimacom.ddd.dm.base.DComplexType
+import com.mimacom.ddd.dm.base.DEnumeration
+import com.mimacom.ddd.dm.base.DQuery
+import com.mimacom.ddd.sm.sms.SAggregate
 import com.mimacom.ddd.sm.sms.SComplexType
+import com.mimacom.ddd.sm.sms.SEnumeration
+import com.mimacom.ddd.sm.sms.SFeature
+import com.mimacom.ddd.sm.sms.SLiteral
+import com.mimacom.ddd.sm.sms.SNamedElementDeductionRule
+import com.mimacom.ddd.sm.sms.SQuery
+import com.mimacom.ddd.sm.sms.SQueryParameter
 import com.mimacom.ddd.sm.sms.SmsPackage
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
 import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider
+import com.mimacom.ddd.sm.sms.SGrabAggregateRule
 
 /**
  * This class contains custom scoping description.
@@ -24,12 +34,28 @@ class SmsScopeProvider extends ImportedNamespaceAwareLocalScopeProvider  {
 	
 	override getScope(EObject context, EReference reference) {
 		
-		if (reference == epackage.SMemberDeductionRule_Source) {
+		if (reference == epackage.SNamedElementDeductionRule_Source) {
 			val container = context.eContainer
-			if (container instanceof 	SComplexType) {
-				val sourceType = container.deductionRule.source
-				if (sourceType instanceof DComplexType) {
-					return getInheritedFeaturesScope(sourceType, IScope.NULLSCOPE)
+			if (context instanceof SLiteral) {
+				if (container instanceof 	SEnumeration) {
+					val sourceType = (container.deductionRule as SNamedElementDeductionRule).source
+					if (sourceType instanceof DEnumeration) {
+						return Scopes.scopeFor(sourceType.literals)
+					}
+				}
+			} else if (context instanceof SFeature) {
+				if (container instanceof 	SComplexType) {
+					val sourceType = (container.deductionRule as SNamedElementDeductionRule).source
+					if (sourceType instanceof DComplexType) {
+						return getInheritedFeaturesScope(sourceType, IScope.NULLSCOPE)
+					}
+				}
+			} else if (context instanceof SQueryParameter) {
+				if (container instanceof 	SQuery) {
+					val sourceType = (container.deductionRule as SNamedElementDeductionRule).source
+					if (sourceType instanceof DQuery) {
+						return Scopes.scopeFor(sourceType.parameters)
+					}
 				}
 			}
 		}

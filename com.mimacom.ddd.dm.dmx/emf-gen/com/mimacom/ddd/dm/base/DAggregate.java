@@ -79,7 +79,7 @@ public interface DAggregate extends EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Root</em>' reference.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDAggregate_Root()
-	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false"
+	 * @model transient="true" changeable="false" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
 	DIdentityType getRoot();

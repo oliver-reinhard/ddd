@@ -5,8 +5,17 @@ package com.mimacom.ddd.sm.sms.scoping;
 
 import com.google.common.base.Objects;
 import com.mimacom.ddd.dm.base.DComplexType;
+import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.sm.sms.SComplexType;
+import com.mimacom.ddd.sm.sms.SDeductionRule;
+import com.mimacom.ddd.sm.sms.SEnumeration;
+import com.mimacom.ddd.sm.sms.SFeature;
+import com.mimacom.ddd.sm.sms.SLiteral;
+import com.mimacom.ddd.sm.sms.SNamedElementDeductionRule;
+import com.mimacom.ddd.sm.sms.SQuery;
+import com.mimacom.ddd.sm.sms.SQueryParameter;
 import com.mimacom.ddd.sm.sms.SmsPackage;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -28,14 +37,37 @@ public class SmsScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
   public IScope getScope(final EObject context, final EReference reference) {
     IScope _xblockexpression = null;
     {
-      EReference _sMemberDeductionRule_Source = SmsScopeProvider.epackage.getSMemberDeductionRule_Source();
-      boolean _equals = Objects.equal(reference, _sMemberDeductionRule_Source);
+      EReference _sNamedElementDeductionRule_Source = SmsScopeProvider.epackage.getSNamedElementDeductionRule_Source();
+      boolean _equals = Objects.equal(reference, _sNamedElementDeductionRule_Source);
       if (_equals) {
         final EObject container = context.eContainer();
-        if ((container instanceof SComplexType)) {
-          final DNamedElement sourceType = ((SComplexType)container).getDeductionRule().getSource();
-          if ((sourceType instanceof DComplexType)) {
-            return this.getInheritedFeaturesScope(((DComplexType)sourceType), IScope.NULLSCOPE);
+        if ((context instanceof SLiteral)) {
+          if ((container instanceof SEnumeration)) {
+            SDeductionRule _deductionRule = ((SEnumeration)container).getDeductionRule();
+            final DNamedElement sourceType = ((SNamedElementDeductionRule) _deductionRule).getSource();
+            if ((sourceType instanceof DEnumeration)) {
+              return Scopes.scopeFor(((DEnumeration)sourceType).getLiterals());
+            }
+          }
+        } else {
+          if ((context instanceof SFeature)) {
+            if ((container instanceof SComplexType)) {
+              SDeductionRule _deductionRule_1 = ((SComplexType)container).getDeductionRule();
+              final DNamedElement sourceType_1 = ((SNamedElementDeductionRule) _deductionRule_1).getSource();
+              if ((sourceType_1 instanceof DComplexType)) {
+                return this.getInheritedFeaturesScope(((DComplexType)sourceType_1), IScope.NULLSCOPE);
+              }
+            }
+          } else {
+            if ((context instanceof SQueryParameter)) {
+              if ((container instanceof SQuery)) {
+                SDeductionRule _deductionRule_2 = ((SQuery)container).getDeductionRule();
+                final DNamedElement sourceType_2 = ((SNamedElementDeductionRule) _deductionRule_2).getSource();
+                if ((sourceType_2 instanceof DQuery)) {
+                  return Scopes.scopeFor(((DQuery)sourceType_2).getParameters());
+                }
+              }
+            }
           }
         }
       }

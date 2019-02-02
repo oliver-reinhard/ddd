@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class STypeImpl extends SDeducibleElementImplCustom implements SType
+public class STypeImpl extends SNamedDeducibleElementImplCustom implements SType
 {
 	/**
 	 * <!-- begin-user-doc -->

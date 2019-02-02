@@ -471,38 +471,47 @@ ruleDType returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getDTypeAccess().getDEnumerationParserRuleCall_1());
+			newCompositeNode(grammarAccess.getDTypeAccess().getDPrimitiveArchetypeParserRuleCall_1());
 		}
-		this_DEnumeration_1=ruleDEnumeration
+		this_DPrimitiveArchetype_1=ruleDPrimitiveArchetype
 		{
-			$current = $this_DEnumeration_1.current;
+			$current = $this_DPrimitiveArchetype_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getDTypeAccess().getDRootTypeParserRuleCall_2());
+			newCompositeNode(grammarAccess.getDTypeAccess().getDEnumerationParserRuleCall_2());
 		}
-		this_DRootType_2=ruleDRootType
+		this_DEnumeration_2=ruleDEnumeration
 		{
-			$current = $this_DRootType_2.current;
+			$current = $this_DEnumeration_2.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getDTypeAccess().getDRelationshipParserRuleCall_3());
+			newCompositeNode(grammarAccess.getDTypeAccess().getDRootTypeParserRuleCall_3());
 		}
-		this_DRelationship_3=ruleDRelationship
+		this_DRootType_3=ruleDRootType
 		{
-			$current = $this_DRelationship_3.current;
+			$current = $this_DRootType_3.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getDTypeAccess().getDDetailTypeParserRuleCall_4());
+			newCompositeNode(grammarAccess.getDTypeAccess().getDRelationshipParserRuleCall_4());
 		}
-		this_DDetailType_4=ruleDDetailType
+		this_DRelationship_4=ruleDRelationship
 		{
-			$current = $this_DDetailType_4.current;
+			$current = $this_DRelationship_4.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getDTypeAccess().getDDetailTypeParserRuleCall_5());
+		}
+		this_DDetailType_5=ruleDDetailType
+		{
+			$current = $this_DDetailType_5.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -629,12 +638,29 @@ ruleDPrimitive returns [EObject current=null]
 				}
 			)
 		)
+		otherlv_2='redefines'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getDPrimitiveAccess().getRedefinesKeyword_2());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDPrimitiveAccess().getDescriptionDRichTextParserRuleCall_2_0());
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDPrimitiveRule());
+					}
 				}
-				lv_description_2_0=ruleDRichText
+				otherlv_3=RULE_ID
+				{
+					newLeafNode(otherlv_3, grammarAccess.getDPrimitiveAccess().getRedefinesDPrimitiveCrossReference_3_0());
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDPrimitiveAccess().getDescriptionDRichTextParserRuleCall_4_0());
+				}
+				lv_description_4_0=ruleDRichText
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDPrimitiveRule());
@@ -642,39 +668,20 @@ ruleDPrimitive returns [EObject current=null]
 					set(
 						$current,
 						"description",
-						lv_description_2_0,
+						lv_description_4_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
-		otherlv_3='{'
+		otherlv_5='{'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getDPrimitiveAccess().getLeftCurlyBracketKeyword_3());
+			newLeafNode(otherlv_5, grammarAccess.getDPrimitiveAccess().getLeftCurlyBracketKeyword_5());
 		}
-		(
-			otherlv_4='redefines'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getDPrimitiveAccess().getRedefinesKeyword_4_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDPrimitiveRule());
-						}
-					}
-					otherlv_5=RULE_ID
-					{
-						newLeafNode(otherlv_5, grammarAccess.getDPrimitiveAccess().getRedefinesDPrimitiveCrossReference_4_1_0());
-					}
-				)
-			)
-		)?
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDPrimitiveAccess().getConstraintsDConstraintParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getDPrimitiveAccess().getConstraintsDConstraintParserRuleCall_6_0());
 				}
 				lv_constraints_6_0=ruleDConstraint
 				{
@@ -692,7 +699,94 @@ ruleDPrimitive returns [EObject current=null]
 		)*
 		otherlv_7='}'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getDPrimitiveAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_7, grammarAccess.getDPrimitiveAccess().getRightCurlyBracketKeyword_7());
+		}
+	)
+;
+
+// Entry rule entryRuleDPrimitiveArchetype
+entryRuleDPrimitiveArchetype returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDPrimitiveArchetypeRule()); }
+	iv_ruleDPrimitiveArchetype=ruleDPrimitiveArchetype
+	{ $current=$iv_ruleDPrimitiveArchetype.current; }
+	EOF;
+
+// Rule DPrimitiveArchetype
+ruleDPrimitiveArchetype returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='archetype'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getDPrimitiveArchetypeAccess().getArchetypeKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getDPrimitiveArchetypeAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDPrimitiveArchetypeRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.ID");
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDPrimitiveArchetypeAccess().getDescriptionDRichTextParserRuleCall_2_0());
+				}
+				lv_description_2_0=ruleDRichText
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDPrimitiveArchetypeRule());
+					}
+					set(
+						$current,
+						"description",
+						lv_description_2_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		otherlv_3='{'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getDPrimitiveArchetypeAccess().getLeftCurlyBracketKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDPrimitiveArchetypeAccess().getConstraintsDConstraintParserRuleCall_4_0());
+				}
+				lv_constraints_4_0=ruleDConstraint
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDPrimitiveArchetypeRule());
+					}
+					add(
+						$current,
+						"constraints",
+						lv_constraints_4_0,
+						"com.mimacom.ddd.dm.dms.Dms.DConstraint");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_5='}'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getDPrimitiveArchetypeAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;
@@ -4019,7 +4113,7 @@ ruleDReturnExpression returns [EObject current=null]
 			}
 		)
 		(
-			('+' | '-' | '!' | 'NOT' | 'not' | 'TRUE' | 'true' | 'FALSE' | 'false' | 'NIL' | 'nil' | 'SELF' | 'self' | 'RETURN' | 'return' | 'RAISE' | 'raise' | '(' | 'NEW' | 'new' | 'if' | 'for' | RULE_ID | RULE_STRING | RULE_NATURAL)=>
+			('+' | '-' | '!' | 'NOT' | 'not' | 'TRUE' | 'true' | 'FALSE' | 'false' | 'UNDEFINED' | 'undefined' | 'SELF' | 'self' | 'RETURN' | 'return' | 'RAISE' | 'raise' | '(' | 'NEW' | 'new' | 'if' | 'for' | RULE_ID | RULE_STRING | RULE_NATURAL)=>
 			(
 				{
 					newCompositeNode(grammarAccess.getDReturnExpressionAccess().getExpressionDExpressionParserRuleCall_2_0());
@@ -4961,19 +5055,19 @@ ruleDNilLiteral returns [EObject current=null]
 		(
 			{
 				$current = forceCreateModelElement(
-					grammarAccess.getDNilLiteralAccess().getDNilLiteralAction_0(),
+					grammarAccess.getDNilLiteralAccess().getDUndefinedLiteralAction_0(),
 					$current);
 			}
 		)
 		(
-			otherlv_1='NIL'
+			otherlv_1='UNDEFINED'
 			{
-				newLeafNode(otherlv_1, grammarAccess.getDNilLiteralAccess().getNILKeyword_1_0());
+				newLeafNode(otherlv_1, grammarAccess.getDNilLiteralAccess().getUNDEFINEDKeyword_1_0());
 			}
 			    |
-			otherlv_2='nil'
+			otherlv_2='undefined'
 			{
-				newLeafNode(otherlv_2, grammarAccess.getDNilLiteralAccess().getNilKeyword_1_1());
+				newLeafNode(otherlv_2, grammarAccess.getDNilLiteralAccess().getUndefinedKeyword_1_1());
 			}
 		)
 	)
@@ -5546,11 +5640,13 @@ ruleOpUnary returns [Enumerator current=null]
 	)
 ;
 
-RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+RULE_ID : '^'? (RULE_LETTER|'_') (RULE_LETTER|'_'|'0'..'9')*;
 
 RULE_STRING : '"' ('\\' .|~(('\\'|'"')))* '"';
 
 RULE_NATURAL : ('0'..'9')+;
+
+fragment RULE_LETTER : ('a'..'z'|'A'..'Z'|'\u00C0'..'\u00D6'|'\u00D8'..'\u00F6'|'\u00F8'..'\u00FF');
 
 fragment RULE_PLAIN_TEXT : ~(('\u00BB'|'['));
 

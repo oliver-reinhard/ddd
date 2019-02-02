@@ -4,7 +4,7 @@ import static com.mimacom.ddd.sm.sms.SElementNature.*;
 
 import com.mimacom.ddd.sm.sms.SElementNature;
 
-public class SDeducibleElementImplCustom extends SDeducibleElementImpl {
+public class SNamedDeducibleElementImplCustom extends SNamedDeducibleElementImpl {
 
 	@Override
 	public SElementNature getNature() {

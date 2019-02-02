@@ -14,6 +14,6 @@ package com.mimacom.ddd.sm.sms;
  * @model
  * @generated
  */
-public interface SType extends SDeducibleElement
+public interface SType extends SNamedDeducibleElement
 {
 } // SType

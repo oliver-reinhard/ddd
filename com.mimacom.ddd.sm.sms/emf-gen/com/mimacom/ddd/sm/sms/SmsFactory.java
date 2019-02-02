@@ -42,24 +42,6 @@ public interface SmsFactory extends EFactory
 	SNamedElement createSNamedElement();
 
 	/**
-	 * Returns a new object of class '<em>SDeducible Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SDeducible Element</em>'.
-	 * @generated
-	 */
-	SDeducibleElement createSDeducibleElement();
-
-	/**
-	 * Returns a new object of class '<em>SDeducible Member Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SDeducible Member Element</em>'.
-	 * @generated
-	 */
-	SDeducibleMemberElement createSDeducibleMemberElement();
-
-	/**
 	 * Returns a new object of class '<em>SImport</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -222,67 +204,49 @@ public interface SmsFactory extends EFactory
 	SMultiplicity createSMultiplicity();
 
 	/**
-	 * Returns a new object of class '<em>SDeduction Rule</em>'.
+	 * Returns a new object of class '<em>SGrab Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SDeduction Rule</em>'.
+	 * @return a new object of class '<em>SGrab Rule</em>'.
 	 * @generated
 	 */
-	SDeductionRule createSDeductionRule();
+	SGrabRule createSGrabRule();
 
 	/**
-	 * Returns a new object of class '<em>SMember Deduction Rule</em>'.
+	 * Returns a new object of class '<em>SMorph Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SMember Deduction Rule</em>'.
+	 * @return a new object of class '<em>SMorph Rule</em>'.
 	 * @generated
 	 */
-	SMemberDeductionRule createSMemberDeductionRule();
+	SMorphRule createSMorphRule();
 
 	/**
-	 * Returns a new object of class '<em>SSpoof Transform</em>'.
+	 * Returns a new object of class '<em>SDitch Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SSpoof Transform</em>'.
+	 * @return a new object of class '<em>SDitch Rule</em>'.
 	 * @generated
 	 */
-	SSpoofTransform createSSpoofTransform();
+	SDitchRule createSDitchRule();
 
 	/**
-	 * Returns a new object of class '<em>SMorph Transform</em>'.
+	 * Returns a new object of class '<em>SFuse Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SMorph Transform</em>'.
+	 * @return a new object of class '<em>SFuse Rule</em>'.
 	 * @generated
 	 */
-	SMorphTransform createSMorphTransform();
+	SFuseRule createSFuseRule();
 
 	/**
-	 * Returns a new object of class '<em>SDitch Transform</em>'.
+	 * Returns a new object of class '<em>SGrab Aggregate Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SDitch Transform</em>'.
+	 * @return a new object of class '<em>SGrab Aggregate Rule</em>'.
 	 * @generated
 	 */
-	SDitchTransform createSDitchTransform();
-
-	/**
-	 * Returns a new object of class '<em>SFuse Transform</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SFuse Transform</em>'.
-	 * @generated
-	 */
-	SFuseTransform createSFuseTransform();
-
-	/**
-	 * Returns a new object of class '<em>SChop Transform</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SChop Transform</em>'.
-	 * @generated
-	 */
-	SChopTransform createSChopTransform();
+	SGrabAggregateRule createSGrabAggregateRule();
 
 	/**
 	 * Returns the package supported by this factory.

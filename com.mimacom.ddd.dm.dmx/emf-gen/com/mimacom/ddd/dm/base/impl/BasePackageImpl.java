@@ -945,6 +945,17 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getDPrimitive_Archetype()
+	{
+		return (EAttribute)dPrimitiveEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDEnumeration()
 	{
 		return dEnumerationEClass;
@@ -1176,7 +1187,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDAttribute_Key()
+	public EAttribute getDAttribute_Detail()
 	{
 		return (EAttribute)dAttributeEClass.getEStructuralFeatures().get(0);
 	}
@@ -1187,7 +1198,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDAttribute_Detail()
+	public EAttribute getDAttribute_Key()
 	{
 		return (EAttribute)dAttributeEClass.getEStructuralFeatures().get(1);
 	}
@@ -1333,28 +1344,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EReference getDNotification_Notified()
 	{
 		return (EReference)dNotificationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDNotification_Type()
-	{
-		return (EReference)dNotificationEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDNotification_Multiplicity()
-	{
-		return (EReference)dNotificationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1670,6 +1659,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		dPrimitiveEClass = createEClass(DPRIMITIVE);
 		createEReference(dPrimitiveEClass, DPRIMITIVE__REDEFINES);
+		createEAttribute(dPrimitiveEClass, DPRIMITIVE__ARCHETYPE);
 
 		dEnumerationEClass = createEClass(DENUMERATION);
 		createEReference(dEnumerationEClass, DENUMERATION__LITERALS);
@@ -1702,8 +1692,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		createEAttribute(dMultiplicityEClass, DMULTIPLICITY__MAX_OCCURS);
 
 		dAttributeEClass = createEClass(DATTRIBUTE);
-		createEAttribute(dAttributeEClass, DATTRIBUTE__KEY);
 		createEAttribute(dAttributeEClass, DATTRIBUTE__DETAIL);
+		createEAttribute(dAttributeEClass, DATTRIBUTE__KEY);
 
 		dQueryEClass = createEClass(DQUERY);
 		createEReference(dQueryEClass, DQUERY__PARAMETERS);
@@ -1722,8 +1712,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		dNotificationEClass = createEClass(DNOTIFICATION);
 		createEReference(dNotificationEClass, DNOTIFICATION__NOTIFIED);
-		createEReference(dNotificationEClass, DNOTIFICATION__TYPE);
-		createEReference(dNotificationEClass, DNOTIFICATION__MULTIPLICITY);
 
 		dActorEClass = createEClass(DACTOR);
 
@@ -1800,6 +1788,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dSimpleTypeEClass.getESuperTypes().add(this.getIValueType());
 		dPrimitiveEClass.getESuperTypes().add(this.getDSimpleType());
 		dEnumerationEClass.getESuperTypes().add(this.getDSimpleType());
+		dEnumerationEClass.getESuperTypes().add(this.getITypedMemberContainer());
 		dLiteralEClass.getESuperTypes().add(this.getDTypedMember());
 		dComplexTypeEClass.getESuperTypes().add(this.getDType());
 		dComplexTypeEClass.getESuperTypes().add(this.getITypedMemberContainer());
@@ -1819,7 +1808,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dDomainEventEClass.getESuperTypes().add(this.getITypedMemberContainer());
 		dDomainEventEClass.getESuperTypes().add(this.getIPrimaryNavigationTarget());
 		dContextEClass.getESuperTypes().add(this.getDTypedMember());
-		dNotificationEClass.getESuperTypes().add(this.getDNamedElement());
+		dNotificationEClass.getESuperTypes().add(this.getDTypedMember());
 		dActorEClass.getESuperTypes().add(this.getDNamedElement());
 		dActorEClass.getESuperTypes().add(this.getIPrimaryNavigationTarget());
 		dHumanEClass.getESuperTypes().add(this.getDActor());
@@ -1882,7 +1871,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dAggregateEClass, DAggregate.class, "DAggregate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDAggregate_Description(), this.getDRichText(), null, "description", null, 0, 1, DAggregate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDAggregate_Types(), this.getDType(), null, "types", null, 0, -1, DAggregate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDAggregate_Root(), this.getDIdentityType(), null, "root", null, 0, 1, DAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEReference(getDAggregate_Root(), this.getDIdentityType(), null, "root", null, 0, 1, DAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getDAggregate_RootName(), ecorePackage.getEString(), "rootName", null, 0, 1, DAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(dTypeEClass, DType.class, "DType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1896,6 +1885,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		initEClass(dPrimitiveEClass, DPrimitive.class, "DPrimitive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDPrimitive_Redefines(), this.getDPrimitive(), null, "redefines", null, 0, 1, DPrimitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDPrimitive_Archetype(), ecorePackage.getEBoolean(), "archetype", null, 0, 1, DPrimitive.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(dEnumerationEClass, DEnumeration.class, "DEnumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDEnumeration_Literals(), this.getDLiteral(), null, "literals", null, 0, -1, DEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1929,8 +1919,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEAttribute(getDMultiplicity_MaxOccurs(), ecorePackage.getEInt(), "maxOccurs", null, 0, 1, DMultiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dAttributeEClass, DAttribute.class, "DAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDAttribute_Key(), ecorePackage.getEBoolean(), "key", null, 0, 1, DAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDAttribute_Detail(), ecorePackage.getEBoolean(), "detail", null, 0, 1, DAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDAttribute_Key(), ecorePackage.getEBoolean(), "key", null, 0, 1, DAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dQueryEClass, DQuery.class, "DQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDQuery_Parameters(), this.getDQueryParameter(), null, "parameters", null, 0, -1, DQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1949,8 +1939,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		initEClass(dNotificationEClass, DNotification.class, "DNotification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDNotification_Notified(), this.getDActor(), null, "notified", null, 1, 1, DNotification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDNotification_Type(), this.getDType(), null, "type", null, 0, 1, DNotification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDNotification_Multiplicity(), this.getDMultiplicity(), null, "multiplicity", null, 0, 1, DNotification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dActorEClass, DActor.class, "DActor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

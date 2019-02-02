@@ -166,7 +166,19 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	@Override
 	public DIdentityType getRoot()
 	{
+		DIdentityType root = basicGetRoot();
+		return root != null && root.eIsProxy() ? (DIdentityType)eResolveProxy((InternalEObject)root) : root;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DIdentityType basicGetRoot()
+	{
 		// TODO: implement this method to return the 'Root' reference
+		// -> do not perform proxy resolution
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
@@ -217,7 +229,8 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 			case BasePackage.DAGGREGATE__TYPES:
 				return getTypes();
 			case BasePackage.DAGGREGATE__ROOT:
-				return getRoot();
+				if (resolve) return getRoot();
+				return basicGetRoot();
 			case BasePackage.DAGGREGATE__ROOT_NAME:
 				return getRootName();
 		}
@@ -281,7 +294,7 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 			case BasePackage.DAGGREGATE__TYPES:
 				return types != null && !types.isEmpty();
 			case BasePackage.DAGGREGATE__ROOT:
-				return getRoot() != null;
+				return basicGetRoot() != null;
 			case BasePackage.DAGGREGATE__ROOT_NAME:
 				return ROOT_NAME_EDEFAULT == null ? getRootName() != null : !ROOT_NAME_EDEFAULT.equals(getRootName());
 		}

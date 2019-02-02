@@ -3,26 +3,26 @@
  */
 package com.mimacom.ddd.sm.sms.impl;
 
-import com.mimacom.ddd.sm.sms.SChopTransform;
+import com.mimacom.ddd.sm.sms.SDitchRule;
 import com.mimacom.ddd.sm.sms.SmsPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>SChop Transform</b></em>'.
+ * An implementation of the model object '<em><b>SDitch Rule</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class SChopTransformImpl extends STransformImpl implements SChopTransform
+public class SDitchRuleImpl extends SNamedElementDeductionRuleImpl implements SDitchRule
 {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SChopTransformImpl()
+	protected SDitchRuleImpl()
 	{
 		super();
 	}
@@ -35,7 +35,7 @@ public class SChopTransformImpl extends STransformImpl implements SChopTransform
 	@Override
 	protected EClass eStaticClass()
 	{
-		return SmsPackage.Literals.SCHOP_TRANSFORM;
+		return SmsPackage.Literals.SDITCH_RULE;
 	}
 
-} //SChopTransformImpl
+} //SDitchRuleImpl

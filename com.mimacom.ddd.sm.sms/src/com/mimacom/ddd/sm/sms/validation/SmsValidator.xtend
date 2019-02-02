@@ -4,11 +4,12 @@
 package com.mimacom.ddd.sm.sms.validation
 
 import com.mimacom.ddd.sm.sms.SComplexType
-import com.mimacom.ddd.sm.sms.SDitchTransform
-import static com.mimacom.ddd.sm.sms.SElementNature.*
-import com.mimacom.ddd.sm.sms.SSpoofTransform
+import com.mimacom.ddd.sm.sms.SDitchRule
+import com.mimacom.ddd.sm.sms.SGrabRule
 import com.mimacom.ddd.sm.sms.SmsPackage
 import org.eclipse.xtext.validation.Check
+
+import static com.mimacom.ddd.sm.sms.SElementNature.*
 
 /**
  * This class contains custom validation rules. 
@@ -20,14 +21,20 @@ class SmsValidator extends AbstractSmsValidator {
 	@Check
 	def checkDeducedFeatures(SComplexType type) {
 		if (type.nature == DEDUCTION_RULE) {
-			if (type.deductionRule.transform instanceof SSpoofTransform) {
-				val hasDitchElements= type.features.exists[nature == DEDUCTION_RULE && deductionRule.transform instanceof SDitchTransform]
-				val hasOtherElements= type.features.exists[nature == DEDUCTION_RULE && deductionRule.transform instanceof SDitchTransform]
+			if (type.deductionRule instanceof SGrabRule) {
+				val hasDitchElements= type.features.exists[nature == DEDUCTION_RULE && deductionRule instanceof SDitchRule]
+				val hasOtherElements= type.features.exists[nature == DEDUCTION_RULE && ! (deductionRule instanceof SDitchRule)]
 				if ( hasDitchElements && hasOtherElements) {
-					error("Cannot declare \"ditch\" transformations with other kinds of transformations", SmsPackage.Literals.SNAMED_ELEMENT__NAME)
+					error("Cannot declare \"ditch\" rule with other kinds of rules", SmsPackage.Literals.SNAMED_ELEMENT__NAME)
 				}
 			}
 		}
 	}
+	
+	// - only 1 SPrimitive can realize a given DPrimitive
+	
+	// - Complex types must map to same metatype (root -> root, etc.)
+	
+	// - check feature types (DetailType => value, etc.)
 	
 }

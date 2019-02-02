@@ -3,6 +3,7 @@
  */
 package com.mimacom.ddd.sm.sms;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,10 +20,10 @@ package com.mimacom.ddd.sm.sms;
  * </ul>
  *
  * @see com.mimacom.ddd.sm.sms.SmsPackage#getSDeducibleElement()
- * @model
+ * @model interface="true" abstract="true"
  * @generated
  */
-public interface SDeducibleElement extends SNamedElement
+public interface SDeducibleElement extends EObject
 {
 	/**
 	 * Returns the value of the '<em><b>Deduction Rule</b></em>' containment reference.

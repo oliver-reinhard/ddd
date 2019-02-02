@@ -13,7 +13,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="SNamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SDeducibleElement" eSuperTypes="#//SNamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="SDeducibleElement" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="deductionRule" eType="#//SDeductionRule"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nature" eType="#//SElementNature"
@@ -21,14 +21,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="synthetic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
         unsettable="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SDeducibleMemberElement" eSuperTypes="#//SNamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="deductionRule" eType="#//SMemberDeductionRule"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nature" eType="#//SElementNature"
-        volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="synthetic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
-        unsettable="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SNamedDeducibleElement" abstract="true"
+      eSuperTypes="#//SNamedElement #//SDeducibleElement"/>
   <eClassifiers xsi:type="ecore:EEnum" name="SElementNature">
     <eLiterals name="GENUINE"/>
     <eLiterals name="DEDUCTION_RULE" value="1"/>
@@ -37,11 +31,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="SImport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SAggregate">
+  <eClassifiers xsi:type="ecore:EClass" name="SAggregate" eSuperTypes="#//SDeducibleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
         eType="#//SType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="#//SRootType"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SType" eSuperTypes="#//SDeducibleElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SType" eSuperTypes="#//SNamedDeducibleElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="SSimpleType" eSuperTypes="#//SType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
         eType="#//SCondition" containment="true"/>
@@ -61,19 +59,21 @@
   <eClassifiers xsi:type="ecore:EClass" name="SPrimitive" eSuperTypes="#//SSimpleType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="redefines" eType="#//SPrimitive"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="realizes" eType="ecore:EClass ../../com.mimacom.ddd.dm.dmx/model/base.ecore#//DPrimitive"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="archetype" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SEnumeration" eSuperTypes="#//SSimpleType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="literals" upperBound="-1"
         eType="#//SLiteral" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SLiteral" eSuperTypes="#//SDeducibleElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SLiteral" eSuperTypes="#//SNamedDeducibleElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="SRootType" eSuperTypes="#//SComplexType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SDetailType" eSuperTypes="#//SComplexType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SFeature" eSuperTypes="#//SDeducibleMemberElement">
+  <eClassifiers xsi:type="ecore:EClass" name="SFeature" eSuperTypes="#//SNamedDeducibleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//SType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="multiplicity" eType="#//SMultiplicity"
         containment="true"/>
@@ -97,7 +97,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="returns" eType="#//SExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SQueryParameter" eSuperTypes="#//SDeducibleMemberElement">
+  <eClassifiers xsi:type="ecore:EClass" name="SQueryParameter" eSuperTypes="#//SNamedDeducibleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//SType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="multiplicity" eType="#//SMultiplicity"
         containment="true"/>
@@ -109,25 +109,25 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minOccurs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxOccurs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SDeductionRule">
+  <eClassifiers xsi:type="ecore:EClass" name="SDeductionRule" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SNamedElementDeductionRule" abstract="true"
+      eSuperTypes="#//SDeductionRule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass ../../com.mimacom.ddd.dm.dmx/model/base.ecore#//DNamedElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="transform" eType="#//STransform"
-        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SMemberDeductionRule">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass ../../com.mimacom.ddd.dm.dmx/model/base.ecore#//DNamedElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="transform" eType="#//STransform"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="STransform" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SSpoofTransform" eSuperTypes="#//STransform"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SMorphTransform" eSuperTypes="#//STransform">
+  <eClassifiers xsi:type="ecore:EClass" name="SGrabRule" eSuperTypes="#//SNamedElementDeductionRule">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="renameTo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SMorphRule" eSuperTypes="#//SGrabRule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="retypeTo" eType="#//SType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="remultiplyTo" eType="#//SMultiplicity"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SDitchTransform" eSuperTypes="#//STransform"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SFuseTransform" eSuperTypes="#//STransform"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SChopTransform" eSuperTypes="#//STransform"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SDitchRule" eSuperTypes="#//SNamedElementDeductionRule"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SFuseRule" eSuperTypes="#//SGrabRule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source2" eType="ecore:EClass ../../com.mimacom.ddd.dm.dmx/model/base.ecore#//DNamedElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extendFrom" eType="#//SType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SGrabAggregateRule" eSuperTypes="#//SDeductionRule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass ../../com.mimacom.ddd.dm.dmx/model/base.ecore#//DAggregate"/>
+  </eClassifiers>
 </ecore:EPackage>

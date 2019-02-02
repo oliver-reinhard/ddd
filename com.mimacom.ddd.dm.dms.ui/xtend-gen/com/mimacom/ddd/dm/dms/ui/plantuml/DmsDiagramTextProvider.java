@@ -384,29 +384,31 @@ public class DmsDiagramTextProvider extends AbstractDiagramTextProvider {
     _builder.append("--");
     _builder.append(targetArrowhead);
     _builder.append(" ");
-    {
-      String _domainName = this.domainName(source);
-      String _domainName_1 = this.domainName(target);
-      boolean _equals = Objects.equal(_domainName, _domainName_1);
-      if (_equals) {
-        String _aggregateName_1 = this.aggregateName(target);
-        _builder.append(_aggregateName_1);
-      } else {
-        String _domainName_2 = this.domainName(target);
-        _builder.append(_domainName_2);
-      }
-    }
-    {
-      if ((target instanceof DDetailType)) {
-        _builder.append(".");
-        String _name_1 = ((DDetailType)target).getName();
-        _builder.append(_name_1);
-      }
-    }
+    String _targetName = this.getTargetName(source, target);
+    _builder.append(_targetName);
     _builder.append(" : ");
     _builder.append(targetRole);
     _builder.newLineIfNotEmpty();
     return _builder;
+  }
+  
+  public String getTargetName(final DType source, final DType target) {
+    String _domainName = this.domainName(source);
+    String _domainName_1 = this.domainName(target);
+    boolean _equals = Objects.equal(_domainName, _domainName_1);
+    if (_equals) {
+      String _aggregateName = this.aggregateName(source);
+      String _aggregateName_1 = this.aggregateName(target);
+      boolean _equals_1 = Objects.equal(_aggregateName, _aggregateName_1);
+      if (_equals_1) {
+        String _aggregateName_2 = this.aggregateName(target);
+        String _plus = (_aggregateName_2 + ".");
+        String _name = target.getName();
+        return (_plus + _name);
+      }
+      return this.aggregateName(target);
+    }
+    return this.domainName(target);
   }
   
   public CharSequence generateType(final DType e) {
