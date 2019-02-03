@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension
+		point="org.eclipse.ui.editors">
+		<editor
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+			default="true"
+			extensions="dem"
+			id="com.mimacom.ddd.dm.dem.Dem"
+			name="Dem Editor">
+		</editor>
+	</extension>
+	<extension
+		point="org.eclipse.ui.handlers">
+		<handler
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+			commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
+			<activeWhen>
+				<reference
+					definitionId="com.mimacom.ddd.dm.dem.Dem.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+		<handler
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+			commandId="com.mimacom.ddd.dm.dem.Dem.validate">
+		<activeWhen>
+			<reference
+					definitionId="com.mimacom.ddd.dm.dem.Dem.Editor.opened">
+			</reference>
+		</activeWhen>
+		</handler>
+		<!-- copy qualified name -->
+		<handler
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
+			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName">
+			<activeWhen>
+				<reference definitionId="com.mimacom.ddd.dm.dem.Dem.Editor.opened" />
+			</activeWhen>
+		</handler>
+		<handler
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
+			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName">
+			<activeWhen>
+				<and>
+					<reference definitionId="com.mimacom.ddd.dm.dem.Dem.XtextEditor.opened" />
+					<iterate>
+						<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
+					</iterate>
+				</and>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension point="org.eclipse.core.expressions.definitions">
+		<definition id="com.mimacom.ddd.dm.dem.Dem.Editor.opened">
+			<and>
+				<reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
+				<with variable="activeEditor">
+					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
+						value="com.mimacom.ddd.dm.dem.Dem"
+						forcePluginActivation="true"/>
+				</with>
+			</and>
+		</definition>
+		<definition id="com.mimacom.ddd.dm.dem.Dem.XtextEditor.opened">
+			<and>
+				<reference definitionId="isXtextEditorActive"/>
+				<with variable="activeEditor">
+					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
+						value="com.mimacom.ddd.dm.dem.Dem"
+						forcePluginActivation="true"/>
+				</with>
+			</and>
+		</definition>
+	</extension>
+	<extension
+			point="org.eclipse.ui.preferencePages">
+		<page
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			id="com.mimacom.ddd.dm.dem.Dem"
+			name="Dem">
+			<keywordReference id="com.mimacom.ddd.dm.dem.ui.keyword_Dem"/>
+		</page>
+		<page
+			category="com.mimacom.ddd.dm.dem.Dem"
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+			id="com.mimacom.ddd.dm.dem.Dem.coloring"
+			name="Syntax Coloring">
+			<keywordReference id="com.mimacom.ddd.dm.dem.ui.keyword_Dem"/>
+		</page>
+		<page
+			category="com.mimacom.ddd.dm.dem.Dem"
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+			id="com.mimacom.ddd.dm.dem.Dem.templates"
+			name="Templates">
+			<keywordReference id="com.mimacom.ddd.dm.dem.ui.keyword_Dem"/>
+		</page>
+	</extension>
+	<extension
+			point="org.eclipse.ui.propertyPages">
+		<page
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			id="com.mimacom.ddd.dm.dem.Dem"
+			name="Dem">
+			<keywordReference id="com.mimacom.ddd.dm.dem.ui.keyword_Dem"/>
+			<enabledWhen>
+				<adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+			<filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+		</page>
+	</extension>
+	<extension
+		point="org.eclipse.ui.keywords">
+		<keyword
+			id="com.mimacom.ddd.dm.dem.ui.keyword_Dem"
+			label="Dem"/>
+	</extension>
+	<extension
+		point="org.eclipse.ui.commands">
+	<command
+			description="Trigger expensive validation"
+			id="com.mimacom.ddd.dm.dem.Dem.validate"
+			name="Validate">
+	</command>
+	<!-- copy qualified name -->
+	<command
+			id="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
+			categoryId="org.eclipse.ui.category.edit"
+			description="Copy the qualified name for the selected element"
+			name="Copy Qualified Name">
+	</command>
+	<command
+			id="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName"
+			categoryId="org.eclipse.ui.category.edit"
+			description="Copy the qualified name for the selected element"
+			name="Copy Qualified Name">
+	</command>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.edit">
+			 <command
+				 commandId="com.mimacom.ddd.dm.dem.Dem.validate"
+				 style="push"
+				 tooltip="Trigger expensive validation">
+			<visibleWhen checkEnabled="false">
+				<reference
+					definitionId="com.mimacom.ddd.dm.dem.Dem.Editor.opened">
+				</reference>
+			</visibleWhen>
+		</command>
+		</menuContribution>
+		<!-- copy qualified name -->
+		<menuContribution locationURI="popup:#TextEditorContext?after=copy">
+			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
+				style="push" tooltip="Copy Qualified Name">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="com.mimacom.ddd.dm.dem.Dem.Editor.opened" />
+				</visibleWhen>
+			</command>
+		</menuContribution>
+		<menuContribution locationURI="menu:edit?after=copy">
+			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
+				style="push" tooltip="Copy Qualified Name">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="com.mimacom.ddd.dm.dem.Dem.Editor.opened" />
+				</visibleWhen>
+			</command>
+		</menuContribution>
+		<menuContribution locationURI="popup:org.eclipse.xtext.ui.outline?after=additions">
+			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName"
+				style="push" tooltip="Copy Qualified Name">
+				<visibleWhen checkEnabled="false">
+					<and>
+						<reference definitionId="com.mimacom.ddd.dm.dem.Dem.XtextEditor.opened" />
+						<iterate>
+							<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
+						</iterate>
+					</and>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
+			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="com.mimacom.ddd.dm.dem.Dem.Editor.opened">
+					</reference>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+		<handler
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+			commandId="org.eclipse.xtext.ui.editor.FindReferences">
+			<activeWhen>
+				<reference
+					definitionId="com.mimacom.ddd.dm.dem.Dem.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension point="org.eclipse.core.contenttype.contentTypes">
+		<content-type
+			base-type="org.eclipse.core.runtime.text"
+			file-extensions="dem"
+			id="com.mimacom.ddd.dm.dem.Dem.contenttype"
+			name="Dem File"
+			priority="normal">
+		</content-type>
+	</extension>
+	<!-- adding resource factories -->
+	<extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="dem">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+		<resourceServiceProvider
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+			uriExtension="dem">
+		</resourceServiceProvider>
+	</extension>
+	<!-- marker definitions for com.mimacom.ddd.dm.dem.Dem -->
+	<extension
+			id="dem.check.fast"
+			name="Dem Problem"
+			point="org.eclipse.core.resources.markers">
+		<super type="org.eclipse.xtext.ui.check.fast"/>
+		<persistent value="true"/>
+	</extension>
+	<extension
+			id="dem.check.normal"
+			name="Dem Problem"
+			point="org.eclipse.core.resources.markers">
+		<super type="org.eclipse.xtext.ui.check.normal"/>
+		<persistent value="true"/>
+	</extension>
+	<extension
+			id="dem.check.expensive"
+			name="Dem Problem"
+			point="org.eclipse.core.resources.markers">
+		<super type="org.eclipse.xtext.ui.check.expensive"/>
+		<persistent value="true"/>
+	</extension>
+	<extension point="org.eclipse.ui.preferencePages">
+		<page
+			category="com.mimacom.ddd.dm.dem.Dem"
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.validation.ValidatorPreferencePage"
+			id="com.mimacom.ddd.dm.dem.Dem.validator.preferencePage"
+			name="Errors/Warnings">
+			<keywordReference id="com.mimacom.ddd.dm.dem.ui.keyword_Dem"/>
+		</page>
+	</extension>
+	<extension point="org.eclipse.xtext.builder.participant">
+		<participant
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
+			fileExtensions="dem"/>
+	</extension>
+	<extension point="org.eclipse.ui.preferencePages">
+		<page
+			category="com.mimacom.ddd.dm.dem.Dem"
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			id="com.mimacom.ddd.dm.dem.Dem.compiler.preferencePage"
+			name="Compiler">
+			<keywordReference id="com.mimacom.ddd.dm.dem.ui.keyword_Dem"/>
+		</page>
+	</extension>
+	<extension point="org.eclipse.ui.propertyPages">
+		<page
+			category="com.mimacom.ddd.dm.dem.Dem"
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			id="com.mimacom.ddd.dm.dem.Dem.compiler.propertyPage"
+			name="Compiler">
+			<keywordReference id="com.mimacom.ddd.dm.dem.ui.keyword_Dem"/>
+			<enabledWhen>
+				<adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+			<filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+		</page>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:#TextEditorContext?after=xtext.ui.openDeclaration">
+			<command
+				commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand"
+				id="com.mimacom.ddd.dm.dem.Dem.OpenGeneratedCode"
+				style="push">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="com.mimacom.ddd.dm.dem.Dem.Editor.opened" />
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+		<handler
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler"
+			commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand">
+			<activeWhen>
+				<reference definitionId="com.mimacom.ddd.dm.dem.Dem.Editor.opened" />
+			</activeWhen>
+		</handler>
+	</extension>
+	<!-- Quick Outline -->
+	<extension
+		point="org.eclipse.ui.handlers">
+		<handler 
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
+			<activeWhen>
+				<reference
+					definitionId="com.mimacom.ddd.dm.dem.Dem.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension
+		point="org.eclipse.ui.commands">
+		<command
+			description="Open the quick outline."
+			id="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+			name="Quick Outline">
+		</command>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.open">
+			<command commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+				style="push"
+				tooltip="Open Quick Outline">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="com.mimacom.ddd.dm.dem.Dem.Editor.opened"/>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<!-- quickfix marker resolution generator for com.mimacom.ddd.dm.dem.Dem -->
+	<extension
+			point="org.eclipse.ui.ide.markerResolution">
+		<markerResolutionGenerator
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="com.mimacom.ddd.dm.dem.ui.dem.check.fast">
+			<attribute
+				name="FIXABLE_KEY"
+				value="true">
+			</attribute>
+		</markerResolutionGenerator>
+		<markerResolutionGenerator
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="com.mimacom.ddd.dm.dem.ui.dem.check.normal">
+			<attribute
+				name="FIXABLE_KEY"
+				value="true">
+			</attribute>
+		</markerResolutionGenerator>
+		<markerResolutionGenerator
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="com.mimacom.ddd.dm.dem.ui.dem.check.expensive">
+			<attribute
+				name="FIXABLE_KEY"
+				value="true">
+			</attribute>
+		</markerResolutionGenerator>
+	</extension>
+	<!-- Rename Refactoring -->
+	<extension point="org.eclipse.ui.handlers">
+		<handler 
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler"
+			commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
+			<activeWhen>
+				<reference
+					definitionId="com.mimacom.ddd.dm.dem.Dem.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.edit">
+			<command commandId="org.eclipse.xtext.ui.refactoring.RenameElement"
+				style="push">
+				<visibleWhen checkEnabled="false">
+					<reference
+						definitionId="com.mimacom.ddd.dm.dem.Dem.Editor.opened">
+					</reference>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.preferencePages">
+		<page
+			category="com.mimacom.ddd.dm.dem.Dem"
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
+			id="com.mimacom.ddd.dm.dem.Dem.refactoring"
+			name="Refactoring">
+			<keywordReference id="com.mimacom.ddd.dm.dem.ui.keyword_Dem"/>
+		</page>
+	</extension>
+	<extension point="org.eclipse.compare.contentViewers">
+		<viewer id="com.mimacom.ddd.dm.dem.Dem.compare.contentViewers"
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+			extensions="dem">
+		</viewer>
+		<contentTypeBinding
+			contentTypeId="com.mimacom.ddd.dm.dem.Dem.contenttype"
+			contentViewerId="com.mimacom.ddd.dm.dem.Dem.compare.contentViewers" />
+	</extension>
+	<extension point="org.eclipse.compare.contentMergeViewers">
+		<viewer id="com.mimacom.ddd.dm.dem.Dem.compare.contentMergeViewers"
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+			extensions="dem" label="Dem Compare">
+		</viewer>
+		<contentTypeBinding
+			contentTypeId="com.mimacom.ddd.dm.dem.Dem.contenttype"
+			contentMergeViewerId="com.mimacom.ddd.dm.dem.Dem.compare.contentMergeViewers" />
+	</extension>
+	<extension point="org.eclipse.ui.editors.documentProviders">
+		<provider id="com.mimacom.ddd.dm.dem.Dem.editors.documentProviders"
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
+			extensions="dem">
+		</provider>
+	</extension>
+	<extension point="org.eclipse.team.core.fileTypes">
+		<fileTypes
+			extension="dem"
+			type="text">
+		</fileTypes>
+	</extension>
+	<extension
+		point="org.eclipse.ui.newWizards">
+		<category id="com.mimacom.ddd.dm.dem.ui.category" name="Dem">
+		</category>
+		<wizard
+			category="com.mimacom.ddd.dm.dem.ui.category"
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:org.eclipse.xtext.ui.wizard.template.TemplateNewFileWizard"
+			id="com.mimacom.ddd.dm.dem.ui.wizard.DemNewFileWizard"
+			name="Dem File"
+			icon="icons/new_Dem_file.png">
+		</wizard>
+	</extension>
+	<extension
+		point="org.eclipse.xtext.ui.fileTemplate">
+		<fileTemplateProvider
+			class="com.mimacom.ddd.dm.dem.ui.DemExecutableExtensionFactory:com.mimacom.ddd.dm.dem.ui.wizard.DemFileTemplateProvider"
+			grammarName="com.mimacom.ddd.dm.dem.Dem">
+		</fileTemplateProvider>
+	</extension>
+	<extension
+		point="org.eclipse.ui.perspectiveExtensions">
+		<perspectiveExtension targetID="org.eclipse.ui.resourcePerspective">
+			<newWizardShortcut id="com.mimacom.ddd.dm.dem.ui.wizard.DemNewFileWizard"/>
+		</perspectiveExtension>
+		<perspectiveExtension targetID="org.eclipse.jdt.ui.JavaPerspective">
+			<newWizardShortcut id="com.mimacom.ddd.dm.dem.ui.wizard.DemNewFileWizard"/>
+		</perspectiveExtension>
+	</extension>
+<extension
+       point="net.sourceforge.plantuml.eclipse.diagramTextProvider">
+    <diagramTextProvider
+          priority="100"
+          providerClass="com.mimacom.ddd.dm.dem.ui.plantuml.DemDiagramTextProvider">
+    </diagramTextProvider>
+ </extension>
+</plugin>

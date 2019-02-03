@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.mimacom.ddd.dm.dme.feature"
+      label="Dem Feature"
+      version="1.0.0.qualifier">
+
+   <plugin
+         id="com.mimacom.ddd.dm.dem"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="com.mimacom.ddd.dm.dem.ide"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.mimacom.ddd.dm.dem.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
