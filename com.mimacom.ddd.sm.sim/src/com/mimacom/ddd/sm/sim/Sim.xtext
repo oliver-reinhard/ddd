@@ -1,0 +1,226 @@
+grammar com.mimacom.ddd.sm.sim.Sim with org.eclipse.xtext.common.Terminals
+
+import "http://www.mimacom.com/ddd/sm/sim/Sim"
+import "http://www.mimacom.com/ddd/dm/base" 
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+SDomain:
+	'domain'
+	name=SQualifiedName
+//	(description=DRichText)?
+	(imports+=SImport)*
+	(types+=SType |	aggregates+=SAggregate)*;
+
+SImport:
+	'import' importedNamespace=SQualifiedNameWithWildcard;
+
+// Transformation rules
+	
+SGrabAggregateRule:
+	source=[DAggregate|ID];
+	
+SGrabEnumerationRule returns SGrabRule:
+	source=[DEnumeration|SQualifiedName]
+	('name' '=' renameTo=ID)?;
+
+SGrabEnumerationLiteralRule returns SGrabRule:
+	source=[DLiteral|ID]
+	('name' '=' renameTo=ID)?;
+	
+SDitchEnumerationLiteralRule returns SDitchRule:
+	source=[DLiteral|ID];
+	
+SGrabComplexTypeRule returns SGrabRule:
+	source=[DComplexType|SQualifiedName]
+	('name' '=' renameTo=ID)?;
+	
+SMorphComplexTypeRule returns SMorphRule:
+	source=[DComplexType|SQualifiedName]
+	('name' '=' renameTo=ID)?
+	('extends' '=' retypeTo=[SComplexType|ID])?;
+	
+SFuseComplexTypeRule returns SFuseRule:
+	source=[DComplexType|SQualifiedName]
+	'and'
+	source2=[DComplexType|SQualifiedName]
+	('name' '=' renameTo=ID)?
+	('extends' '=' extendFrom=[SComplexType|ID])?;
+
+SGrabFeatureRule returns SGrabRule:
+	source=[DFeature|ID]
+	('name' '=' renameTo=ID)?;
+	
+SMorphFeatureRule returns SMorphRule:
+	source=[DFeature|ID]
+	('name' '=' renameTo=ID)? 
+	('type' '=' retypeTo=[SType|ID] (remultiplyTo=SMultiplicity)?)?;	
+
+SDitchFeatureRule returns SDitchRule:
+	source=[DFeature|ID];
+	
+SAggregate:
+	{SAggregate}
+	(	'grab' 'aggregate' deductionRule=SGrabAggregateRule
+	|	'aggregate'
+	//	(description=DRichText)?
+		'{'
+			( types+=SType)*
+		'}'
+	);
+
+/*
+ * TYPES
+ */
+SType:
+	SPrimitive | SPrimitiveArchetype | SEnumeration | SRootType | SDetailType;
+	
+SConstraint returns SCondition:
+	'constraint'
+	name=ID
+	':'
+	condition=SExpression;
+//	(description=DRichText)?;
+
+SPrimitive:
+	'primitive'
+	name=ID
+	(	'redefines' redefines=[SPrimitive]
+	| 	('realizes' | 'realises') realizes=[DPrimitive|SQualifiedName]
+	)
+	//(description=DRichText)?
+	'{'
+		(constraints+=SConstraint)*
+	'}';
+	
+SPrimitiveArchetype returns SPrimitive:
+	'archetype'
+	name=ID
+	// (description=DRichText)?
+	'{'
+		(constraints+=SConstraint)*
+	'}';
+	
+SEnumeration:
+	(	{SEnumeration} 'grab' 'enumeration' deductionRule=SGrabEnumerationRule
+	|	'enumeration'
+		name=ID
+		//	(description=DRichText)?
+	)
+	'{'
+	 	(literals+=SLiteral (',' literals+=SLiteral)*)?
+		(constraints+=SConstraint)*
+	 '}';
+
+SLiteral:
+	(	{SLiteral} 'grab' deductionRule=SGrabEnumerationLiteralRule
+	|	{SLiteral} 'ditch' deductionRule=SDitchEnumerationLiteralRule
+	| 	name=ID
+	);
+	//	(description=DRichText)?;
+
+SRootType:
+	(	{SRootType} 'grab' (abstract?='abstract')? 'root' deductionRule=SGrabComplexTypeRule
+	|	{SRootType} 'morph' (abstract?='abstract')? 'root' deductionRule=SMorphComplexTypeRule
+	|	{SRootType} 'fuse' (abstract?='abstract')? 'root' deductionRule=SFuseComplexTypeRule
+	|	(abstract?='abstract')? 'root'
+		name=ID
+		SComplexTypeExtends
+	)
+	SComplexTypeFeatures;
+
+SDetailType:
+	(	{SDetailType} 'grab' (abstract?='abstract')? 'detail' deductionRule=SGrabComplexTypeRule
+	|	{SDetailType} 'morph' (abstract?='abstract')? 'detail' deductionRule=SMorphComplexTypeRule
+	|	{SDetailType} 'fuse' (abstract?='abstract')? 'detail' deductionRule=SFuseComplexTypeRule
+	|	(abstract?='abstract')? 'detail'
+		name=ID
+		SComplexTypeExtends
+	)
+	SComplexTypeFeatures;
+
+fragment SComplexTypeExtends returns SComplexType:
+	('extends' superType=[SComplexType|ID])?
+//	(description=DRichText)?
+	;
+
+fragment SComplexTypeFeatures returns SComplexType:
+	'{'
+		(features+=SFeature | constraints+=SConstraint)*
+	'}';
+	
+SFeature:
+	SAssociation |  SAttribute | SQuery;
+
+SAssociation:
+	(	{SAssociation} 'grab' ('reference' | 'composite') deductionRule=SGrabFeatureRule
+	|	{SAssociation} 'morph' ('reference' | 'composite')deductionRule=SMorphFeatureRule
+	|	{SAssociation} 'ditch' ('reference' | 'composite') deductionRule=SDitchFeatureRule
+	|	(derived?='derived')? 
+		(kind=SAssociationKind | (kind=SAssociationKindInverse 'composite'))
+		name=ID
+		':'
+		type=[SRootType|ID]  (multiplicity=SMultiplicity)?
+		//	(description=DRichText)?;
+	);
+
+enum SAssociationKind:
+	REFERENCE='reference' | COMPOSITE='composite';
+
+enum SAssociationKindInverse returns SAssociationKind:	
+	 INVERSE_COMPOSITE='inverse';
+	
+SAttribute:
+	(	{SAttribute} 'grab' ('attribute' | detail?='detail')? deductionRule=SGrabFeatureRule
+	|	{SAttribute} 'morph' ('attribute' | detail?='detail')? deductionRule=SMorphFeatureRule
+	|	{SAttribute} 'ditch' ('attribute' | detail?='detail')? deductionRule=SDitchFeatureRule
+	|	(detail?='detail')?
+		name=ID
+		':'
+		type=[SSimpleType|ID] 
+		(multiplicity=SMultiplicity)?
+		(key?='key')?
+	);
+	//	(description=DRichText)?;
+
+SQuery:
+	(	(	{SQuery} 'grab' 'query' deductionRule=SGrabFeatureRule
+		|	{SQuery} 'morph' 'query' deductionRule=SMorphFeatureRule
+		)
+		'('
+		(	'*'
+		|	(parameters+=SQueryParameter ( ',' parameters+=SQueryParameter)*)?
+		)
+		')'
+	|	'ditch' 'query' deductionRule=SDitchFeatureRule
+	|	name=ID
+		'(' (parameters+=SQueryParameter ( ',' parameters+=SQueryParameter)*)? ')'
+		':' 
+		type=[SType|ID]  (multiplicity=SMultiplicity)?
+		('returns' ^returns=SExpression)?
+	);
+	//	(description=DRichText)?;
+
+SQueryParameter:
+	(	{SQueryParameter} 'grab' deductionRule=SGrabFeatureRule
+	|	{SQueryParameter} 'morph' deductionRule=SMorphFeatureRule
+	|	{SQueryParameter} 'ditch' deductionRule=SDitchFeatureRule
+	|	name=ID 
+		':' 
+		type=[SType|ID]  (multiplicity=SMultiplicity)?
+	);
+	//	(description=DRichText)?;
+
+SExpression:
+	expr=STRING;
+
+SQualifiedNameWithWildcard: 
+	SQualifiedName '.*'?;
+
+SQualifiedName:
+	ID ('.' ID)*;
+	
+SMultiplicity:
+	'(' minOccurs=INT '..' maxOccurs=MULTIPLICITY ')';
+	
+MULTIPLICITY returns ecore::EInt:
+	INT | '*';

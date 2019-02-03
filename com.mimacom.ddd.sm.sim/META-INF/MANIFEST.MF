@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.mimacom.ddd.sm.sim
+Bundle-ManifestVersion: 2
+Bundle-Name: com.mimacom.ddd.sm.sim
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.mimacom.ddd.sm.sim; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.eclipse.xtend.lib;bundle-version="2.14.0",
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
+ com.mimacom.ddd.dm.dmx;visibility:=reexport
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.mimacom.ddd.sm.sim.validation,
+ com.mimacom.ddd.sm.sim.scoping,
+ com.mimacom.ddd.sm.sim.parser.antlr.internal,
+ com.mimacom.ddd.sm.sim.services,
+ com.mimacom.ddd.sm.sim,
+ com.mimacom.ddd.sm.sim.impl,
+ com.mimacom.ddd.sm.sim.util,
+ com.mimacom.ddd.sm.sim.parser.antlr,
+ com.mimacom.ddd.sm.sim.generator,
+ com.mimacom.ddd.sm.sim.serializer,
+ com.mimacom.ddd.sm.sim.formatting2
+Import-Package: org.apache.log4j
