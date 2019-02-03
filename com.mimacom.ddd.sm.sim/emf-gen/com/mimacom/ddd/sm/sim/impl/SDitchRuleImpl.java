@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class SDitchRuleImpl extends SNamedElementDeductionRuleImpl implements SDitchRule
+public class SDitchRuleImpl extends SDeductionRuleImplCustom implements SDitchRule
 {
 	/**
 	 * <!-- begin-user-doc -->

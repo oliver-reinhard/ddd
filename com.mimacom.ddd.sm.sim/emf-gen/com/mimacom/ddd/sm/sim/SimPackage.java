@@ -509,13 +509,22 @@ public interface SimPackage extends EPackage
 	int SCOMPLEX_TYPE__SYNTHETIC = STYPE__SYNTHETIC;
 
 	/**
+	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCOMPLEX_TYPE__ABSTRACT = STYPE_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Super Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCOMPLEX_TYPE__SUPER_TYPE = STYPE_FEATURE_COUNT + 0;
+	int SCOMPLEX_TYPE__SUPER_TYPE = STYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
@@ -524,7 +533,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SCOMPLEX_TYPE__FEATURES = STYPE_FEATURE_COUNT + 1;
+	int SCOMPLEX_TYPE__FEATURES = STYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -533,7 +542,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SCOMPLEX_TYPE__CONSTRAINTS = STYPE_FEATURE_COUNT + 2;
+	int SCOMPLEX_TYPE__CONSTRAINTS = STYPE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>SComplex Type</em>' class.
@@ -542,7 +551,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SCOMPLEX_TYPE_FEATURE_COUNT = STYPE_FEATURE_COUNT + 3;
+	int SCOMPLEX_TYPE_FEATURE_COUNT = STYPE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SConditionImpl <em>SCondition</em>}' class.
@@ -847,6 +856,15 @@ public interface SimPackage extends EPackage
 	int SROOT_TYPE__SYNTHETIC = SCOMPLEX_TYPE__SYNTHETIC;
 
 	/**
+	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SROOT_TYPE__ABSTRACT = SCOMPLEX_TYPE__ABSTRACT;
+
+	/**
 	 * The feature id for the '<em><b>Super Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -874,22 +892,13 @@ public interface SimPackage extends EPackage
 	int SROOT_TYPE__CONSTRAINTS = SCOMPLEX_TYPE__CONSTRAINTS;
 
 	/**
-	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SROOT_TYPE__ABSTRACT = SCOMPLEX_TYPE_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>SRoot Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SROOT_TYPE_FEATURE_COUNT = SCOMPLEX_TYPE_FEATURE_COUNT + 1;
+	int SROOT_TYPE_FEATURE_COUNT = SCOMPLEX_TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SDetailTypeImpl <em>SDetail Type</em>}' class.
@@ -938,6 +947,15 @@ public interface SimPackage extends EPackage
 	int SDETAIL_TYPE__SYNTHETIC = SCOMPLEX_TYPE__SYNTHETIC;
 
 	/**
+	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SDETAIL_TYPE__ABSTRACT = SCOMPLEX_TYPE__ABSTRACT;
+
+	/**
 	 * The feature id for the '<em><b>Super Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -965,22 +983,13 @@ public interface SimPackage extends EPackage
 	int SDETAIL_TYPE__CONSTRAINTS = SCOMPLEX_TYPE__CONSTRAINTS;
 
 	/**
-	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SDETAIL_TYPE__ABSTRACT = SCOMPLEX_TYPE_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>SDetail Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SDETAIL_TYPE_FEATURE_COUNT = SCOMPLEX_TYPE_FEATURE_COUNT + 1;
+	int SDETAIL_TYPE_FEATURE_COUNT = SCOMPLEX_TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SFeatureImpl <em>SFeature</em>}' class.
@@ -1477,41 +1486,31 @@ public interface SimPackage extends EPackage
 	int SDEDUCTION_RULE = 22;
 
 	/**
-	 * The number of structural features of the '<em>SDeduction Rule</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SDEDUCTION_RULE_FEATURE_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SNamedElementDeductionRuleImpl <em>SNamed Element Deduction Rule</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sim.impl.SNamedElementDeductionRuleImpl
-	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSNamedElementDeductionRule()
-	 * @generated
-	 */
-	int SNAMED_ELEMENT_DEDUCTION_RULE = 23;
-
-	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SNAMED_ELEMENT_DEDUCTION_RULE__SOURCE = SDEDUCTION_RULE_FEATURE_COUNT + 0;
+	int SDEDUCTION_RULE__SOURCE = 0;
 
 	/**
-	 * The number of structural features of the '<em>SNamed Element Deduction Rule</em>' class.
+	 * The feature id for the '<em><b>Named Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SNAMED_ELEMENT_DEDUCTION_RULE_FEATURE_COUNT = SDEDUCTION_RULE_FEATURE_COUNT + 1;
+	int SDEDUCTION_RULE__NAMED_SOURCE = 1;
+
+	/**
+	 * The number of structural features of the '<em>SDeduction Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SDEDUCTION_RULE_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SGrabRuleImpl <em>SGrab Rule</em>}' class.
@@ -1521,7 +1520,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabRule()
 	 * @generated
 	 */
-	int SGRAB_RULE = 24;
+	int SGRAB_RULE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1530,7 +1529,16 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SGRAB_RULE__SOURCE = SNAMED_ELEMENT_DEDUCTION_RULE__SOURCE;
+	int SGRAB_RULE__SOURCE = SDEDUCTION_RULE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Named Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SGRAB_RULE__NAMED_SOURCE = SDEDUCTION_RULE__NAMED_SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Rename To</b></em>' attribute.
@@ -1539,7 +1547,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SGRAB_RULE__RENAME_TO = SNAMED_ELEMENT_DEDUCTION_RULE_FEATURE_COUNT + 0;
+	int SGRAB_RULE__RENAME_TO = SDEDUCTION_RULE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>SGrab Rule</em>' class.
@@ -1548,7 +1556,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SGRAB_RULE_FEATURE_COUNT = SNAMED_ELEMENT_DEDUCTION_RULE_FEATURE_COUNT + 1;
+	int SGRAB_RULE_FEATURE_COUNT = SDEDUCTION_RULE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SMorphRuleImpl <em>SMorph Rule</em>}' class.
@@ -1558,7 +1566,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSMorphRule()
 	 * @generated
 	 */
-	int SMORPH_RULE = 25;
+	int SMORPH_RULE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1568,6 +1576,15 @@ public interface SimPackage extends EPackage
 	 * @ordered
 	 */
 	int SMORPH_RULE__SOURCE = SGRAB_RULE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Named Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMORPH_RULE__NAMED_SOURCE = SGRAB_RULE__NAMED_SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Rename To</b></em>' attribute.
@@ -1613,7 +1630,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDitchRule()
 	 * @generated
 	 */
-	int SDITCH_RULE = 26;
+	int SDITCH_RULE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1622,7 +1639,16 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SDITCH_RULE__SOURCE = SNAMED_ELEMENT_DEDUCTION_RULE__SOURCE;
+	int SDITCH_RULE__SOURCE = SDEDUCTION_RULE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Named Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SDITCH_RULE__NAMED_SOURCE = SDEDUCTION_RULE__NAMED_SOURCE;
 
 	/**
 	 * The number of structural features of the '<em>SDitch Rule</em>' class.
@@ -1631,7 +1657,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SDITCH_RULE_FEATURE_COUNT = SNAMED_ELEMENT_DEDUCTION_RULE_FEATURE_COUNT + 0;
+	int SDITCH_RULE_FEATURE_COUNT = SDEDUCTION_RULE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SFuseRuleImpl <em>SFuse Rule</em>}' class.
@@ -1641,7 +1667,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSFuseRule()
 	 * @generated
 	 */
-	int SFUSE_RULE = 27;
+	int SFUSE_RULE = 26;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1651,6 +1677,15 @@ public interface SimPackage extends EPackage
 	 * @ordered
 	 */
 	int SFUSE_RULE__SOURCE = SGRAB_RULE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Named Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SFUSE_RULE__NAMED_SOURCE = SGRAB_RULE__NAMED_SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Rename To</b></em>' attribute.
@@ -1696,7 +1731,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabAggregateRule()
 	 * @generated
 	 */
-	int SGRAB_AGGREGATE_RULE = 28;
+	int SGRAB_AGGREGATE_RULE = 27;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1705,7 +1740,25 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SGRAB_AGGREGATE_RULE__SOURCE = SDEDUCTION_RULE_FEATURE_COUNT + 0;
+	int SGRAB_AGGREGATE_RULE__SOURCE = SDEDUCTION_RULE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Named Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SGRAB_AGGREGATE_RULE__NAMED_SOURCE = SDEDUCTION_RULE__NAMED_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Aggregate</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SGRAB_AGGREGATE_RULE__AGGREGATE = SDEDUCTION_RULE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>SGrab Aggregate Rule</em>' class.
@@ -1724,7 +1777,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSElementNature()
 	 * @generated
 	 */
-	int SELEMENT_NATURE = 29;
+	int SELEMENT_NATURE = 28;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.SAssociationKind <em>SAssociation Kind</em>}' enum.
@@ -1734,7 +1787,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAssociationKind()
 	 * @generated
 	 */
-	int SASSOCIATION_KIND = 30;
+	int SASSOCIATION_KIND = 29;
 
 
 	/**
@@ -1971,6 +2024,17 @@ public interface SimPackage extends EPackage
 	EClass getSComplexType();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SComplexType#isAbstract <em>Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Abstract</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SComplexType#isAbstract()
+	 * @see #getSComplexType()
+	 * @generated
+	 */
+	EAttribute getSComplexType_Abstract();
+
+	/**
 	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SComplexType#getSuperType <em>Super Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2120,17 +2184,6 @@ public interface SimPackage extends EPackage
 	EClass getSRootType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SRootType#isAbstract <em>Abstract</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Abstract</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SRootType#isAbstract()
-	 * @see #getSRootType()
-	 * @generated
-	 */
-	EAttribute getSRootType_Abstract();
-
-	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SDetailType <em>SDetail Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2139,17 +2192,6 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 */
 	EClass getSDetailType();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SDetailType#isAbstract <em>Abstract</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Abstract</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SDetailType#isAbstract()
-	 * @see #getSDetailType()
-	 * @generated
-	 */
-	EAttribute getSDetailType_Abstract();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SFeature <em>SFeature</em>}'.
@@ -2375,25 +2417,26 @@ public interface SimPackage extends EPackage
 	EClass getSDeductionRule();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SNamedElementDeductionRule <em>SNamed Element Deduction Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SNamed Element Deduction Rule</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SNamedElementDeductionRule
-	 * @generated
-	 */
-	EClass getSNamedElementDeductionRule();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SNamedElementDeductionRule#getSource <em>Source</em>}'.
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SDeductionRule#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SNamedElementDeductionRule#getSource()
-	 * @see #getSNamedElementDeductionRule()
+	 * @see com.mimacom.ddd.sm.sim.SDeductionRule#getSource()
+	 * @see #getSDeductionRule()
 	 * @generated
 	 */
-	EReference getSNamedElementDeductionRule_Source();
+	EReference getSDeductionRule_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SDeductionRule#getNamedSource <em>Named Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Named Source</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SDeductionRule#getNamedSource()
+	 * @see #getSDeductionRule()
+	 * @generated
+	 */
+	EReference getSDeductionRule_NamedSource();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SGrabRule <em>SGrab Rule</em>}'.
@@ -2501,15 +2544,15 @@ public interface SimPackage extends EPackage
 	EClass getSGrabAggregateRule();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SGrabAggregateRule#getSource <em>Source</em>}'.
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SGrabAggregateRule#getAggregate <em>Aggregate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SGrabAggregateRule#getSource()
+	 * @return the meta object for the reference '<em>Aggregate</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SGrabAggregateRule#getAggregate()
 	 * @see #getSGrabAggregateRule()
 	 * @generated
 	 */
-	EReference getSGrabAggregateRule_Source();
+	EReference getSGrabAggregateRule_Aggregate();
 
 	/**
 	 * Returns the meta object for enum '{@link com.mimacom.ddd.sm.sim.SElementNature <em>SElement Nature</em>}'.
@@ -2749,6 +2792,14 @@ public interface SimPackage extends EPackage
 		EClass SCOMPLEX_TYPE = eINSTANCE.getSComplexType();
 
 		/**
+		 * The meta object literal for the '<em><b>Abstract</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCOMPLEX_TYPE__ABSTRACT = eINSTANCE.getSComplexType_Abstract();
+
+		/**
 		 * The meta object literal for the '<em><b>Super Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2871,14 +2922,6 @@ public interface SimPackage extends EPackage
 		EClass SROOT_TYPE = eINSTANCE.getSRootType();
 
 		/**
-		 * The meta object literal for the '<em><b>Abstract</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SROOT_TYPE__ABSTRACT = eINSTANCE.getSRootType_Abstract();
-
-		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SDetailTypeImpl <em>SDetail Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2887,14 +2930,6 @@ public interface SimPackage extends EPackage
 		 * @generated
 		 */
 		EClass SDETAIL_TYPE = eINSTANCE.getSDetailType();
-
-		/**
-		 * The meta object literal for the '<em><b>Abstract</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SDETAIL_TYPE__ABSTRACT = eINSTANCE.getSDetailType_Abstract();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SFeatureImpl <em>SFeature</em>}' class.
@@ -3081,22 +3116,20 @@ public interface SimPackage extends EPackage
 		EClass SDEDUCTION_RULE = eINSTANCE.getSDeductionRule();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SNamedElementDeductionRuleImpl <em>SNamed Element Deduction Rule</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sim.impl.SNamedElementDeductionRuleImpl
-		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSNamedElementDeductionRule()
-		 * @generated
-		 */
-		EClass SNAMED_ELEMENT_DEDUCTION_RULE = eINSTANCE.getSNamedElementDeductionRule();
-
-		/**
 		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SNAMED_ELEMENT_DEDUCTION_RULE__SOURCE = eINSTANCE.getSNamedElementDeductionRule_Source();
+		EReference SDEDUCTION_RULE__SOURCE = eINSTANCE.getSDeductionRule_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Named Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SDEDUCTION_RULE__NAMED_SOURCE = eINSTANCE.getSDeductionRule_NamedSource();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SGrabRuleImpl <em>SGrab Rule</em>}' class.
@@ -3189,12 +3222,12 @@ public interface SimPackage extends EPackage
 		EClass SGRAB_AGGREGATE_RULE = eINSTANCE.getSGrabAggregateRule();
 
 		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Aggregate</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SGRAB_AGGREGATE_RULE__SOURCE = eINSTANCE.getSGrabAggregateRule_Source();
+		EReference SGRAB_AGGREGATE_RULE__AGGREGATE = eINSTANCE.getSGrabAggregateRule_Aggregate();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.SElementNature <em>SElement Nature</em>}' enum.

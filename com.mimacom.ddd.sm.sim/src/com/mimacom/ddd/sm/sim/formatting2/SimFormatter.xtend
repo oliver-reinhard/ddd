@@ -45,8 +45,8 @@ class SimFormatter extends AbstractFormatter2 {
 	}
 	
 	def dispatch void format(SAggregate aggregate, extension IFormattableDocument document) {
-		val open = aggregate.regionFor.keyword(SAggregateAccess.leftCurlyBracketKeyword_1_1_1)
-		val close = aggregate.regionFor.keyword(SAggregateAccess.rightCurlyBracketKeyword_1_1_3)
+		val open = aggregate.regionFor.keyword(SAggregateAccess.leftCurlyBracketKeyword_2)
+		val close = aggregate.regionFor.keyword(SAggregateAccess.rightCurlyBracketKeyword_4)
 		open.append[newLines = 2]
 		interior(open, close) [indent]
 		

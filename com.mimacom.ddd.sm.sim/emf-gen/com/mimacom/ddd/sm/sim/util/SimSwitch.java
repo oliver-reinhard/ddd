@@ -289,19 +289,10 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SNAMED_ELEMENT_DEDUCTION_RULE:
-			{
-				SNamedElementDeductionRule sNamedElementDeductionRule = (SNamedElementDeductionRule)theEObject;
-				T result = caseSNamedElementDeductionRule(sNamedElementDeductionRule);
-				if (result == null) result = caseSDeductionRule(sNamedElementDeductionRule);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SimPackage.SGRAB_RULE:
 			{
 				SGrabRule sGrabRule = (SGrabRule)theEObject;
 				T result = caseSGrabRule(sGrabRule);
-				if (result == null) result = caseSNamedElementDeductionRule(sGrabRule);
 				if (result == null) result = caseSDeductionRule(sGrabRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -311,7 +302,6 @@ public class SimSwitch<T> extends Switch<T>
 				SMorphRule sMorphRule = (SMorphRule)theEObject;
 				T result = caseSMorphRule(sMorphRule);
 				if (result == null) result = caseSGrabRule(sMorphRule);
-				if (result == null) result = caseSNamedElementDeductionRule(sMorphRule);
 				if (result == null) result = caseSDeductionRule(sMorphRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -320,7 +310,6 @@ public class SimSwitch<T> extends Switch<T>
 			{
 				SDitchRule sDitchRule = (SDitchRule)theEObject;
 				T result = caseSDitchRule(sDitchRule);
-				if (result == null) result = caseSNamedElementDeductionRule(sDitchRule);
 				if (result == null) result = caseSDeductionRule(sDitchRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -330,7 +319,6 @@ public class SimSwitch<T> extends Switch<T>
 				SFuseRule sFuseRule = (SFuseRule)theEObject;
 				T result = caseSFuseRule(sFuseRule);
 				if (result == null) result = caseSGrabRule(sFuseRule);
-				if (result == null) result = caseSNamedElementDeductionRule(sFuseRule);
 				if (result == null) result = caseSDeductionRule(sFuseRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -711,22 +699,6 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseSDeductionRule(SDeductionRule object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SNamed Element Deduction Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SNamed Element Deduction Rule</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSNamedElementDeductionRule(SNamedElementDeductionRule object)
 	{
 		return null;
 	}

@@ -21,39 +21,45 @@ SGrabAggregateRule:
 	
 SGrabEnumerationRule returns SGrabRule:
 	source=[DEnumeration|SQualifiedName]
-	('name' '=' renameTo=ID)?;
+	('as' renameTo=ID)?;
+	
+SDitchEnumerationRule returns SDitchRule:
+	source=[DEnumeration|ID];
 
 SGrabEnumerationLiteralRule returns SGrabRule:
 	source=[DLiteral|ID]
-	('name' '=' renameTo=ID)?;
+	('as' renameTo=ID)?;
 	
 SDitchEnumerationLiteralRule returns SDitchRule:
 	source=[DLiteral|ID];
 	
 SGrabComplexTypeRule returns SGrabRule:
 	source=[DComplexType|SQualifiedName]
-	('name' '=' renameTo=ID)?;
+	('as' renameTo=ID)?;
+	
+SDitchComplexTypeRule returns SDitchRule:
+	source=[DEnumeration|ID];
 	
 SMorphComplexTypeRule returns SMorphRule:
 	source=[DComplexType|SQualifiedName]
-	('name' '=' renameTo=ID)?
+	('as' renameTo=ID)?
 	('extends' '=' retypeTo=[SComplexType|ID])?;
 	
 SFuseComplexTypeRule returns SFuseRule:
 	source=[DComplexType|SQualifiedName]
 	'and'
 	source2=[DComplexType|SQualifiedName]
-	('name' '=' renameTo=ID)?
-	('extends' '=' extendFrom=[SComplexType|ID])?;
+	('as' renameTo=ID)?
+	('extends' extendFrom=[SComplexType|ID])?;
 
 SGrabFeatureRule returns SGrabRule:
 	source=[DFeature|ID]
-	('name' '=' renameTo=ID)?;
+	('as' renameTo=ID)?;
 	
 SMorphFeatureRule returns SMorphRule:
 	source=[DFeature|ID]
-	('name' '=' renameTo=ID)? 
-	('type' '=' retypeTo=[SType|ID] (remultiplyTo=SMultiplicity)?)?;	
+	('as' renameTo=ID)? 
+	(':' retypeTo=[SType|ID] (remultiplyTo=SMultiplicity)?)?;	
 
 SDitchFeatureRule returns SDitchRule:
 	source=[DFeature|ID];
@@ -62,11 +68,11 @@ SAggregate:
 	{SAggregate}
 	(	'grab' 'aggregate' deductionRule=SGrabAggregateRule
 	|	'aggregate'
+	)
 	//	(description=DRichText)?
-		'{'
-			( types+=SType)*
-		'}'
-	);
+	'{'
+		( types+=SType)*
+	'}';
 
 /*
  * TYPES
@@ -102,6 +108,7 @@ SPrimitiveArchetype returns SPrimitive:
 	
 SEnumeration:
 	(	{SEnumeration} 'grab' 'enumeration' deductionRule=SGrabEnumerationRule
+	|	{SEnumeration} 'ditch' 'enumeration' deductionRule=SDitchEnumerationRule
 	|	'enumeration'
 		name=ID
 		//	(description=DRichText)?
@@ -120,6 +127,7 @@ SLiteral:
 
 SRootType:
 	(	{SRootType} 'grab' (abstract?='abstract')? 'root' deductionRule=SGrabComplexTypeRule
+	|	{SRootType} 'ditch' (abstract?='abstract')? 'root' deductionRule=SDitchComplexTypeRule
 	|	{SRootType} 'morph' (abstract?='abstract')? 'root' deductionRule=SMorphComplexTypeRule
 	|	{SRootType} 'fuse' (abstract?='abstract')? 'root' deductionRule=SFuseComplexTypeRule
 	|	(abstract?='abstract')? 'root'
@@ -130,6 +138,7 @@ SRootType:
 
 SDetailType:
 	(	{SDetailType} 'grab' (abstract?='abstract')? 'detail' deductionRule=SGrabComplexTypeRule
+	|	{SDetailType} 'ditch' (abstract?='abstract')? 'detail' deductionRule=SDitchComplexTypeRule
 	|	{SDetailType} 'morph' (abstract?='abstract')? 'detail' deductionRule=SMorphComplexTypeRule
 	|	{SDetailType} 'fuse' (abstract?='abstract')? 'detail' deductionRule=SFuseComplexTypeRule
 	|	(abstract?='abstract')? 'detail'

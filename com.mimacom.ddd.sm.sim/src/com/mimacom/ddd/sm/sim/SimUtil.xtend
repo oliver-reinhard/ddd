@@ -90,11 +90,11 @@ class SimUtil {
 	
 	def String label(SDeductionRule rule) {
 		return switch rule {
-			SMorphRule : "Morph "  + rule.source?.name
-			SFuseRule:  "Fuse "  + rule.source?.name + " and " + rule.source2?.name
-			SGrabRule : "Grab "  + rule.source?.name
-			SDitchRule : "Ditch "  + rule.source?.name
-			SGrabAggregateRule: "Grab aggregate " + rule.source?.rootName
+			SMorphRule : "Morph "  + rule.namedSource?.name
+			SFuseRule:  "Fuse "  + rule.namedSource?.name + " and " + rule.source2?.name
+			SGrabRule : "Grab "  + rule.namedSource?.name
+			SDitchRule : "Ditch "  + rule.namedSource?.name
+			SGrabAggregateRule: "Grab aggregate " + rule.aggregate?.rootName
 			default: rule.class.simpleName
 		}
 	}

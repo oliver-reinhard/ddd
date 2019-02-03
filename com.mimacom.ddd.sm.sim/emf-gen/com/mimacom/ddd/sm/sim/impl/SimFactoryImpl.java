@@ -430,7 +430,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	@Override
 	public SGrabAggregateRule createSGrabAggregateRule()
 	{
-		SGrabAggregateRuleImpl sGrabAggregateRule = new SGrabAggregateRuleImpl();
+		SGrabAggregateRuleImplCustom sGrabAggregateRule = new SGrabAggregateRuleImplCustom();
 		return sGrabAggregateRule;
 	}
 

@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.sm.sim.SComplexType#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SComplexType#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SComplexType#getFeatures <em>Features</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SComplexType#getConstraints <em>Constraints</em>}</li>
@@ -25,6 +26,32 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface SComplexType extends SType
 {
+	/**
+	 * Returns the value of the '<em><b>Abstract</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Abstract</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Abstract</em>' attribute.
+	 * @see #setAbstract(boolean)
+	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSComplexType_Abstract()
+	 * @model
+	 * @generated
+	 */
+	boolean isAbstract();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.sm.sim.SComplexType#isAbstract <em>Abstract</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Abstract</em>' attribute.
+	 * @see #isAbstract()
+	 * @generated
+	 */
+	void setAbstract(boolean value);
+
 	/**
 	 * Returns the value of the '<em><b>Super Type</b></em>' reference.
 	 * <!-- begin-user-doc -->

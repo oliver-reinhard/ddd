@@ -191,11 +191,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createSDeductionRuleAdapter();
 			}
 			@Override
-			public Adapter caseSNamedElementDeductionRule(SNamedElementDeductionRule object)
-			{
-				return createSNamedElementDeductionRuleAdapter();
-			}
-			@Override
 			public Adapter caseSGrabRule(SGrabRule object)
 			{
 				return createSGrabRuleAdapter();
@@ -583,21 +578,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createSDeductionRuleAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SNamedElementDeductionRule <em>SNamed Element Deduction Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SNamedElementDeductionRule
-	 * @generated
-	 */
-	public Adapter createSNamedElementDeductionRuleAdapter()
 	{
 		return null;
 	}

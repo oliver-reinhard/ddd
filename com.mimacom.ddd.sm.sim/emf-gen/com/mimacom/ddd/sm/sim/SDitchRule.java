@@ -14,6 +14,6 @@ package com.mimacom.ddd.sm.sim;
  * @model
  * @generated
  */
-public interface SDitchRule extends SNamedElementDeductionRule
+public interface SDitchRule extends SDeductionRule
 {
 } // SDitchRule

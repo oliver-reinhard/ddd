@@ -22,10 +22,10 @@ class SimValidator extends AbstractSimValidator {
 	def checkDeducedFeatures(SComplexType type) {
 		if (type.nature == DEDUCTION_RULE) {
 			if (type.deductionRule instanceof SGrabRule) {
-				val hasDitchElements= type.features.exists[nature == DEDUCTION_RULE && deductionRule instanceof SDitchRule]
-				val hasOtherElements= type.features.exists[nature == DEDUCTION_RULE && ! (deductionRule instanceof SDitchRule)]
-				if ( hasDitchElements && hasOtherElements) {
-					error("Cannot declare \"ditch\" rule with other kinds of rules", SimPackage.Literals.SNAMED_ELEMENT__NAME)
+				val hasDitchElements= type.features.exists[deductionRule instanceof SDitchRule]
+				val hasGrabElements= type.features.exists[deductionRule instanceof SGrabRule]
+				if ( hasDitchElements && hasGrabElements) {
+					error("Cannot use both grab rule and ditch rules together.", SimPackage.Literals.SNAMED_ELEMENT__NAME)
 				}
 			}
 		}
@@ -34,6 +34,9 @@ class SimValidator extends AbstractSimValidator {
 	// - only 1 SPrimitive can realize a given DPrimitive
 	
 	// - Complex types must map to same metatype (root -> root, etc.)
+	
+	// - features of a complex type cannot be deduced if complex type is not deduced
+	// - same for literals
 	
 	// - check feature types (DetailType => value, etc.)
 	

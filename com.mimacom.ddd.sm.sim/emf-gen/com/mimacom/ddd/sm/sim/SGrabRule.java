@@ -20,7 +20,7 @@ package com.mimacom.ddd.sm.sim;
  * @model
  * @generated
  */
-public interface SGrabRule extends SNamedElementDeductionRule
+public interface SGrabRule extends SDeductionRule
 {
 	/**
 	 * Returns the value of the '<em><b>Rename To</b></em>' attribute.

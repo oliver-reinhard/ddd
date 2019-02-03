@@ -32,10 +32,22 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public String text(final SAggregate a) {
+    SDeductionRule _deductionRule = a.getDeductionRule();
+    boolean _tripleNotEquals = (_deductionRule != null);
+    if (_tripleNotEquals) {
+      String _label = this._simUtil.label(a.getDeductionRule());
+      return (">" + _label);
+    }
     return this._simUtil.label(a);
   }
   
   public String text(final SType t) {
+    SDeductionRule _deductionRule = t.getDeductionRule();
+    boolean _tripleNotEquals = (_deductionRule != null);
+    if (_tripleNotEquals) {
+      String _label = this._simUtil.label(t.getDeductionRule());
+      return (">" + _label);
+    }
     return this._simUtil.label(t);
   }
   

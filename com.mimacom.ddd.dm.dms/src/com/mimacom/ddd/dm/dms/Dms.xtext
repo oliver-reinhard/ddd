@@ -119,7 +119,7 @@ DAttribute:
 	(detail?='detail')?
 	(name=ID
 	':'
-	type=[DSimpleType|ID] )
+	type=[DType|ID] )
 	(multiplicity=DMultiplicity)?
 	(key?='key')?
 	(description=DRichText)?;

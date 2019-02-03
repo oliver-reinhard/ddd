@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SGrabRuleImpl extends SNamedElementDeductionRuleImpl implements SGrabRule
+public class SGrabRuleImpl extends SDeductionRuleImplCustom implements SGrabRule
 {
 	/**
 	 * The default value of the '{@link #getRenameTo() <em>Rename To</em>}' attribute.

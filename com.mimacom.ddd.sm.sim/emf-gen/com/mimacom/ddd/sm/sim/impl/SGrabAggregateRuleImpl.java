@@ -8,12 +8,7 @@ import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
 import com.mimacom.ddd.sm.sim.SimPackage;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,23 +18,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.sim.impl.SGrabAggregateRuleImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SGrabAggregateRuleImpl#getAggregate <em>Aggregate</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SGrabAggregateRuleImpl extends SDeductionRuleImpl implements SGrabAggregateRule
+public class SGrabAggregateRuleImpl extends SDeductionRuleImplCustom implements SGrabAggregateRule
 {
-	/**
-	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSource()
-	 * @generated
-	 * @ordered
-	 */
-	protected DAggregate source;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,43 +52,11 @@ public class SGrabAggregateRuleImpl extends SDeductionRuleImpl implements SGrabA
 	 * @generated
 	 */
 	@Override
-	public DAggregate getSource()
+	public DAggregate getAggregate()
 	{
-		if (source != null && source.eIsProxy())
-		{
-			InternalEObject oldSource = (InternalEObject)source;
-			source = (DAggregate)eResolveProxy(oldSource);
-			if (source != oldSource)
-			{
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimPackage.SGRAB_AGGREGATE_RULE__SOURCE, oldSource, source));
-			}
-		}
-		return source;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DAggregate basicGetSource()
-	{
-		return source;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setSource(DAggregate newSource)
-	{
-		DAggregate oldSource = source;
-		source = newSource;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SGRAB_AGGREGATE_RULE__SOURCE, oldSource, source));
+		// TODO: implement this method to return the 'Aggregate' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -116,45 +69,10 @@ public class SGrabAggregateRuleImpl extends SDeductionRuleImpl implements SGrabA
 	{
 		switch (featureID)
 		{
-			case SimPackage.SGRAB_AGGREGATE_RULE__SOURCE:
-				if (resolve) return getSource();
-				return basicGetSource();
+			case SimPackage.SGRAB_AGGREGATE_RULE__AGGREGATE:
+				return getAggregate();
 		}
 		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch (featureID)
-		{
-			case SimPackage.SGRAB_AGGREGATE_RULE__SOURCE:
-				setSource((DAggregate)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID)
-	{
-		switch (featureID)
-		{
-			case SimPackage.SGRAB_AGGREGATE_RULE__SOURCE:
-				setSource((DAggregate)null);
-				return;
-		}
-		super.eUnset(featureID);
 	}
 
 	/**
@@ -167,8 +85,8 @@ public class SGrabAggregateRuleImpl extends SDeductionRuleImpl implements SGrabA
 	{
 		switch (featureID)
 		{
-			case SimPackage.SGRAB_AGGREGATE_RULE__SOURCE:
-				return source != null;
+			case SimPackage.SGRAB_AGGREGATE_RULE__AGGREGATE:
+				return getAggregate() != null;
 		}
 		return super.eIsSet(featureID);
 	}

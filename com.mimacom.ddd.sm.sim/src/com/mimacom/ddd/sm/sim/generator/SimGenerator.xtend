@@ -43,11 +43,11 @@ class SimGenerator extends AbstractGenerator {
 	
 	def boolean removeTransformationItems(Resource resource) {
 		var hadSyntheticItems = false
-		val elements = resource.allContents.filter(SDeducibleElement)
+		val deducibles = resource.allContents.filter(SDeducibleElement)
 		val elementsToRemove = Lists.newArrayList
-		while (elements.hasNext) {
-			val e = elements.next
-			if (e.deductionRule !== null && (e instanceof SLiteral || e instanceof SFeature)) {
+		while (deducibles.hasNext) {
+			val e = deducibles.next
+			if (e.deductionRule !== null ) {
 				elementsToRemove.add(e)
 			} else {
 				e.deductionRule = null

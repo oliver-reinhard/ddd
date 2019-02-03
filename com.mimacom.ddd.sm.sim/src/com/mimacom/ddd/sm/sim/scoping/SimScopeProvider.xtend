@@ -3,19 +3,24 @@
  */
 package com.mimacom.ddd.sm.sim.scoping
 
+import com.mimacom.ddd.dm.base.DAssociation
+import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DQuery
+import com.mimacom.ddd.sm.sim.SAssociation
+import com.mimacom.ddd.sm.sim.SAttribute
 import com.mimacom.ddd.sm.sim.SComplexType
 import com.mimacom.ddd.sm.sim.SEnumeration
 import com.mimacom.ddd.sm.sim.SFeature
 import com.mimacom.ddd.sm.sim.SLiteral
-import com.mimacom.ddd.sm.sim.SNamedElementDeductionRule
 import com.mimacom.ddd.sm.sim.SQuery
 import com.mimacom.ddd.sm.sim.SQueryParameter
 import com.mimacom.ddd.sm.sim.SimPackage
+import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
+import org.eclipse.emf.ecore.EcoreFactory
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
 import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider
@@ -32,25 +37,30 @@ class SimScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
 	
 	override getScope(EObject context, EReference reference) {
 		
-		if (reference == epackage.SNamedElementDeductionRule_Source) {
+		if (reference == epackage.SDeductionRule_Source) {
 			val container = context.eContainer
 			if (context instanceof SLiteral) {
 				if (container instanceof 	SEnumeration) {
-					val sourceType = (container.deductionRule as SNamedElementDeductionRule).source
+					val sourceType = container.deductionRule.source
 					if (sourceType instanceof DEnumeration) {
 						return Scopes.scopeFor(sourceType.literals)
 					}
 				}
 			} else if (context instanceof SFeature) {
 				if (container instanceof 	SComplexType) {
-					val sourceType = (container.deductionRule as SNamedElementDeductionRule).source
+					val sourceType = container.deductionRule.source
 					if (sourceType instanceof DComplexType) {
-						return getInheritedFeaturesScope(sourceType, IScope.NULLSCOPE)
+						val requiredFeatureType = switch (context) {
+							SAttribute : DAttribute
+							SAssociation : DAssociation
+							SQuery : DQuery
+						}
+						return getInheritedFeaturesScope(sourceType, requiredFeatureType, IScope.NULLSCOPE)
 					}
 				}
 			} else if (context instanceof SQueryParameter) {
 				if (container instanceof 	SQuery) {
-					val sourceType = (container.deductionRule as SNamedElementDeductionRule).source
+					val sourceType = container.deductionRule.source
 					if (sourceType instanceof DQuery) {
 						return Scopes.scopeFor(sourceType.parameters)
 					}
@@ -60,24 +70,23 @@ class SimScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
 		super.getScope(context, reference)
 	}
 
-	protected def IScope getInheritedFeaturesScope(DComplexType type, IScope outerScope) {
-		if (type.superType !== null) {
-			return Scopes.scopeFor(type.features, getInheritedFeaturesScope(type.superType, outerScope)) // recursion
+	protected def IScope getInheritedFeaturesScope(DComplexType owner, Class<? extends EObject> featureType, IScope outerScope) {
+		val features = owner.features.filter(featureType)
+		if (owner.superType !== null) {
+			return Scopes.scopeFor(features, getInheritedFeaturesScope(owner.superType, featureType, outerScope)) // recursion
 		} else {
-			return Scopes.scopeFor(type.features, outerScope)
+			return Scopes.scopeFor(features, outerScope)
 		}
 	}
 	
-//	/*
-//	 * Obtains the default scope for the given reference narrowed down to the given type.
-//	 */
-//	def IScope getDefaultScopeForType(EObject context, EClass type) {
-//		val reference = EcoreFactory.eINSTANCE.createEReference
-//		// Default scoping only uses the EType field of the reference:
-//		reference.EType = type
-//		val scope = super.getScope(context, reference)
-//		return scope
-//	}
-
-
+	/*
+	 * Obtains the default scope for the given reference narrowed down to the given type.
+	 */
+	def IScope getDefaultScopeForType(EObject context, EClass type) {
+		val reference = EcoreFactory.eINSTANCE.createEReference
+		// Default scoping only uses the EType field of the reference:
+		reference.EType = type
+		val scope = super.getScope(context, reference)
+		return scope
+	}
 }

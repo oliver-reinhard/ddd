@@ -27,10 +27,16 @@ class SimLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	def text(SAggregate a) {
+		if (a.deductionRule !== null) {
+			return ">" + a.deductionRule.label
+		}
 		return a.label
 	}
 	
 	def text(SType t) {
+		if (t.deductionRule !== null) {
+			return ">" + t.deductionRule.label
+		}
 		return t.label
 	}
 	

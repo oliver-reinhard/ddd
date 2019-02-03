@@ -31,15 +31,17 @@ public class SimValidator extends AbstractSimValidator {
       SDeductionRule _deductionRule = type.getDeductionRule();
       if ((_deductionRule instanceof SGrabRule)) {
         final Function1<SFeature, Boolean> _function = (SFeature it) -> {
-          return Boolean.valueOf((Objects.equal(it.getNature(), SElementNature.DEDUCTION_RULE) && (it.getDeductionRule() instanceof SDitchRule)));
+          SDeductionRule _deductionRule_1 = it.getDeductionRule();
+          return Boolean.valueOf((_deductionRule_1 instanceof SDitchRule));
         };
         final boolean hasDitchElements = IterableExtensions.<SFeature>exists(type.getFeatures(), _function);
         final Function1<SFeature, Boolean> _function_1 = (SFeature it) -> {
-          return Boolean.valueOf((Objects.equal(it.getNature(), SElementNature.DEDUCTION_RULE) && (!(it.getDeductionRule() instanceof SDitchRule))));
+          SDeductionRule _deductionRule_1 = it.getDeductionRule();
+          return Boolean.valueOf((_deductionRule_1 instanceof SGrabRule));
         };
-        final boolean hasOtherElements = IterableExtensions.<SFeature>exists(type.getFeatures(), _function_1);
-        if ((hasDitchElements && hasOtherElements)) {
-          this.error("Cannot declare \"ditch\" rule with other kinds of rules", SimPackage.Literals.SNAMED_ELEMENT__NAME);
+        final boolean hasGrabElements = IterableExtensions.<SFeature>exists(type.getFeatures(), _function_1);
+        if ((hasDitchElements && hasGrabElements)) {
+          this.error("Cannot use both grab rule and ditch rules together.", SimPackage.Literals.SNAMED_ELEMENT__NAME);
         }
       }
     }

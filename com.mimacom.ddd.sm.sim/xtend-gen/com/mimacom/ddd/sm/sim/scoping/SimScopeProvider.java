@@ -4,21 +4,26 @@
 package com.mimacom.ddd.sm.sim.scoping;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
+import com.mimacom.ddd.dm.base.DAssociation;
+import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DEnumeration;
-import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DQuery;
+import com.mimacom.ddd.sm.sim.SAssociation;
+import com.mimacom.ddd.sm.sim.SAttribute;
 import com.mimacom.ddd.sm.sim.SComplexType;
-import com.mimacom.ddd.sm.sim.SDeductionRule;
 import com.mimacom.ddd.sm.sim.SEnumeration;
 import com.mimacom.ddd.sm.sim.SFeature;
 import com.mimacom.ddd.sm.sim.SLiteral;
-import com.mimacom.ddd.sm.sim.SNamedElementDeductionRule;
 import com.mimacom.ddd.sm.sim.SQuery;
 import com.mimacom.ddd.sm.sim.SQueryParameter;
 import com.mimacom.ddd.sm.sim.SimPackage;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider;
@@ -37,14 +42,13 @@ public class SimScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
   public IScope getScope(final EObject context, final EReference reference) {
     IScope _xblockexpression = null;
     {
-      EReference _sNamedElementDeductionRule_Source = SimScopeProvider.epackage.getSNamedElementDeductionRule_Source();
-      boolean _equals = Objects.equal(reference, _sNamedElementDeductionRule_Source);
+      EReference _sDeductionRule_Source = SimScopeProvider.epackage.getSDeductionRule_Source();
+      boolean _equals = Objects.equal(reference, _sDeductionRule_Source);
       if (_equals) {
         final EObject container = context.eContainer();
         if ((context instanceof SLiteral)) {
           if ((container instanceof SEnumeration)) {
-            SDeductionRule _deductionRule = ((SEnumeration)container).getDeductionRule();
-            final DNamedElement sourceType = ((SNamedElementDeductionRule) _deductionRule).getSource();
+            final EObject sourceType = ((SEnumeration)container).getDeductionRule().getSource();
             if ((sourceType instanceof DEnumeration)) {
               return Scopes.scopeFor(((DEnumeration)sourceType).getLiterals());
             }
@@ -52,17 +56,34 @@ public class SimScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
         } else {
           if ((context instanceof SFeature)) {
             if ((container instanceof SComplexType)) {
-              SDeductionRule _deductionRule_1 = ((SComplexType)container).getDeductionRule();
-              final DNamedElement sourceType_1 = ((SNamedElementDeductionRule) _deductionRule_1).getSource();
+              final EObject sourceType_1 = ((SComplexType)container).getDeductionRule().getSource();
               if ((sourceType_1 instanceof DComplexType)) {
-                return this.getInheritedFeaturesScope(((DComplexType)sourceType_1), IScope.NULLSCOPE);
+                Class<? extends DFeature> _switchResult = null;
+                boolean _matched = false;
+                if (context instanceof SAttribute) {
+                  _matched=true;
+                  _switchResult = DAttribute.class;
+                }
+                if (!_matched) {
+                  if (context instanceof SAssociation) {
+                    _matched=true;
+                    _switchResult = DAssociation.class;
+                  }
+                }
+                if (!_matched) {
+                  if (context instanceof SQuery) {
+                    _matched=true;
+                    _switchResult = DQuery.class;
+                  }
+                }
+                final Class<? extends DFeature> requiredFeatureType = _switchResult;
+                return this.getInheritedFeaturesScope(((DComplexType)sourceType_1), requiredFeatureType, IScope.NULLSCOPE);
               }
             }
           } else {
             if ((context instanceof SQueryParameter)) {
               if ((container instanceof SQuery)) {
-                SDeductionRule _deductionRule_2 = ((SQuery)container).getDeductionRule();
-                final DNamedElement sourceType_2 = ((SNamedElementDeductionRule) _deductionRule_2).getSource();
+                final EObject sourceType_2 = ((SQuery)container).getDeductionRule().getSource();
                 if ((sourceType_2 instanceof DQuery)) {
                   return Scopes.scopeFor(((DQuery)sourceType_2).getParameters());
                 }
@@ -76,13 +97,24 @@ public class SimScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
     return _xblockexpression;
   }
   
-  protected IScope getInheritedFeaturesScope(final DComplexType type, final IScope outerScope) {
-    DComplexType _superType = type.getSuperType();
+  protected IScope getInheritedFeaturesScope(final DComplexType owner, final Class<? extends EObject> featureType, final IScope outerScope) {
+    final Iterable<? extends EObject> features = Iterables.filter(owner.getFeatures(), featureType);
+    DComplexType _superType = owner.getSuperType();
     boolean _tripleNotEquals = (_superType != null);
     if (_tripleNotEquals) {
-      return Scopes.scopeFor(type.getFeatures(), this.getInheritedFeaturesScope(type.getSuperType(), outerScope));
+      return Scopes.scopeFor(features, this.getInheritedFeaturesScope(owner.getSuperType(), featureType, outerScope));
     } else {
-      return Scopes.scopeFor(type.getFeatures(), outerScope);
+      return Scopes.scopeFor(features, outerScope);
     }
+  }
+  
+  /**
+   * Obtains the default scope for the given reference narrowed down to the given type.
+   */
+  public IScope getDefaultScopeForType(final EObject context, final EClass type) {
+    final EReference reference = EcoreFactory.eINSTANCE.createEReference();
+    reference.setEType(type);
+    final IScope scope = super.getScope(context, reference);
+    return scope;
   }
 }

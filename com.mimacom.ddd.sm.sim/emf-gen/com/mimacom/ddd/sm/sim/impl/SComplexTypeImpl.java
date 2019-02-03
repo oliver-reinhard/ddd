@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SComplexTypeImpl#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SComplexTypeImpl#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SComplexTypeImpl#getFeatures <em>Features</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SComplexTypeImpl#getConstraints <em>Constraints</em>}</li>
@@ -40,6 +41,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class SComplexTypeImpl extends STypeImpl implements SComplexType
 {
+	/**
+	 * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAbstract()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ABSTRACT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAbstract()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean abstract_ = ABSTRACT_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getSuperType() <em>Super Type</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -89,6 +110,31 @@ public class SComplexTypeImpl extends STypeImpl implements SComplexType
 	protected EClass eStaticClass()
 	{
 		return SimPackage.Literals.SCOMPLEX_TYPE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isAbstract()
+	{
+		return abstract_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAbstract(boolean newAbstract)
+	{
+		boolean oldAbstract = abstract_;
+		abstract_ = newAbstract;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SCOMPLEX_TYPE__ABSTRACT, oldAbstract, abstract_));
 	}
 
 	/**
@@ -194,6 +240,8 @@ public class SComplexTypeImpl extends STypeImpl implements SComplexType
 	{
 		switch (featureID)
 		{
+			case SimPackage.SCOMPLEX_TYPE__ABSTRACT:
+				return isAbstract();
 			case SimPackage.SCOMPLEX_TYPE__SUPER_TYPE:
 				if (resolve) return getSuperType();
 				return basicGetSuperType();
@@ -216,6 +264,9 @@ public class SComplexTypeImpl extends STypeImpl implements SComplexType
 	{
 		switch (featureID)
 		{
+			case SimPackage.SCOMPLEX_TYPE__ABSTRACT:
+				setAbstract((Boolean)newValue);
+				return;
 			case SimPackage.SCOMPLEX_TYPE__SUPER_TYPE:
 				setSuperType((SComplexType)newValue);
 				return;
@@ -241,6 +292,9 @@ public class SComplexTypeImpl extends STypeImpl implements SComplexType
 	{
 		switch (featureID)
 		{
+			case SimPackage.SCOMPLEX_TYPE__ABSTRACT:
+				setAbstract(ABSTRACT_EDEFAULT);
+				return;
 			case SimPackage.SCOMPLEX_TYPE__SUPER_TYPE:
 				setSuperType((SComplexType)null);
 				return;
@@ -264,6 +318,8 @@ public class SComplexTypeImpl extends STypeImpl implements SComplexType
 	{
 		switch (featureID)
 		{
+			case SimPackage.SCOMPLEX_TYPE__ABSTRACT:
+				return abstract_ != ABSTRACT_EDEFAULT;
 			case SimPackage.SCOMPLEX_TYPE__SUPER_TYPE:
 				return superType != null;
 			case SimPackage.SCOMPLEX_TYPE__FEATURES:
@@ -272,6 +328,23 @@ public class SComplexTypeImpl extends STypeImpl implements SComplexType
 				return constraints != null && !constraints.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString()
+	{
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (abstract: ");
+		result.append(abstract_);
+		result.append(')');
+		return result.toString();
 	}
 
 } //SComplexTypeImpl

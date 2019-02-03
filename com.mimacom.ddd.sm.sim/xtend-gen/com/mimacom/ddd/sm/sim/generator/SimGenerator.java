@@ -7,8 +7,7 @@ import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.mimacom.ddd.sm.sim.SDeducibleElement;
-import com.mimacom.ddd.sm.sim.SFeature;
-import com.mimacom.ddd.sm.sim.SLiteral;
+import com.mimacom.ddd.sm.sim.SDeductionRule;
 import java.io.CharArrayWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -58,12 +57,14 @@ public class SimGenerator extends AbstractGenerator {
   
   public boolean removeTransformationItems(final Resource resource) {
     boolean hadSyntheticItems = false;
-    final Iterator<SDeducibleElement> elements = Iterators.<SDeducibleElement>filter(resource.getAllContents(), SDeducibleElement.class);
+    final Iterator<SDeducibleElement> deducibles = Iterators.<SDeducibleElement>filter(resource.getAllContents(), SDeducibleElement.class);
     final ArrayList<SDeducibleElement> elementsToRemove = Lists.<SDeducibleElement>newArrayList();
-    while (elements.hasNext()) {
+    while (deducibles.hasNext()) {
       {
-        final SDeducibleElement e = elements.next();
-        if (((e.getDeductionRule() != null) && ((e instanceof SLiteral) || (e instanceof SFeature)))) {
+        final SDeducibleElement e = deducibles.next();
+        SDeductionRule _deductionRule = e.getDeductionRule();
+        boolean _tripleNotEquals = (_deductionRule != null);
+        if (_tripleNotEquals) {
           elementsToRemove.add(e);
         } else {
           e.setDeductionRule(null);

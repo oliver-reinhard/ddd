@@ -186,20 +186,20 @@ public class SimUtil {
     boolean _matched = false;
     if (rule instanceof SMorphRule) {
       _matched=true;
-      DNamedElement _source = ((SMorphRule)rule).getSource();
+      DNamedElement _namedSource = ((SMorphRule)rule).getNamedSource();
       String _name = null;
-      if (_source!=null) {
-        _name=_source.getName();
+      if (_namedSource!=null) {
+        _name=_namedSource.getName();
       }
       _switchResult = ("Morph " + _name);
     }
     if (!_matched) {
       if (rule instanceof SFuseRule) {
         _matched=true;
-        DNamedElement _source = ((SFuseRule)rule).getSource();
+        DNamedElement _namedSource = ((SFuseRule)rule).getNamedSource();
         String _name = null;
-        if (_source!=null) {
-          _name=_source.getName();
+        if (_namedSource!=null) {
+          _name=_namedSource.getName();
         }
         String _plus = ("Fuse " + _name);
         String _plus_1 = (_plus + " and ");
@@ -214,10 +214,10 @@ public class SimUtil {
     if (!_matched) {
       if (rule instanceof SGrabRule) {
         _matched=true;
-        DNamedElement _source = ((SGrabRule)rule).getSource();
+        DNamedElement _namedSource = ((SGrabRule)rule).getNamedSource();
         String _name = null;
-        if (_source!=null) {
-          _name=_source.getName();
+        if (_namedSource!=null) {
+          _name=_namedSource.getName();
         }
         _switchResult = ("Grab " + _name);
       }
@@ -225,10 +225,10 @@ public class SimUtil {
     if (!_matched) {
       if (rule instanceof SDitchRule) {
         _matched=true;
-        DNamedElement _source = ((SDitchRule)rule).getSource();
+        DNamedElement _namedSource = ((SDitchRule)rule).getNamedSource();
         String _name = null;
-        if (_source!=null) {
-          _name=_source.getName();
+        if (_namedSource!=null) {
+          _name=_namedSource.getName();
         }
         _switchResult = ("Ditch " + _name);
       }
@@ -236,10 +236,10 @@ public class SimUtil {
     if (!_matched) {
       if (rule instanceof SGrabAggregateRule) {
         _matched=true;
-        DAggregate _source = ((SGrabAggregateRule)rule).getSource();
+        DAggregate _aggregate = ((SGrabAggregateRule)rule).getAggregate();
         String _rootName = null;
-        if (_source!=null) {
-          _rootName=_source.getRootName();
+        if (_aggregate!=null) {
+          _rootName=_aggregate.getRootName();
         }
         _switchResult = ("Grab aggregate " + _rootName);
       }

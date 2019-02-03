@@ -14,7 +14,7 @@ import com.mimacom.ddd.dm.base.DAggregate;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.sim.SGrabAggregateRule#getSource <em>Source</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.SGrabAggregateRule#getAggregate <em>Aggregate</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.sm.sim.SimPackage#getSGrabAggregateRule()
@@ -24,29 +24,18 @@ import com.mimacom.ddd.dm.base.DAggregate;
 public interface SGrabAggregateRule extends SDeductionRule
 {
 	/**
-	 * Returns the value of the '<em><b>Source</b></em>' reference.
+	 * Returns the value of the '<em><b>Aggregate</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Source</em>' reference isn't clear,
+	 * If the meaning of the '<em>Aggregate</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Source</em>' reference.
-	 * @see #setSource(DAggregate)
-	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSGrabAggregateRule_Source()
-	 * @model
+	 * @return the value of the '<em>Aggregate</em>' reference.
+	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSGrabAggregateRule_Aggregate()
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	DAggregate getSource();
-
-	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.sm.sim.SGrabAggregateRule#getSource <em>Source</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source</em>' reference.
-	 * @see #getSource()
-	 * @generated
-	 */
-	void setSource(DAggregate value);
+	DAggregate getAggregate();
 
 } // SGrabAggregateRule

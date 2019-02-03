@@ -73,8 +73,8 @@ public class SimFormatter extends AbstractFormatter2 {
   }
   
   protected void _format(final SAggregate aggregate, @Extension final IFormattableDocument document) {
-    final ISemanticRegion open = this.textRegionExtensions.regionFor(aggregate).keyword(this._simGrammarAccess.getSAggregateAccess().getLeftCurlyBracketKeyword_1_1_1());
-    final ISemanticRegion close = this.textRegionExtensions.regionFor(aggregate).keyword(this._simGrammarAccess.getSAggregateAccess().getRightCurlyBracketKeyword_1_1_3());
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(aggregate).keyword(this._simGrammarAccess.getSAggregateAccess().getLeftCurlyBracketKeyword_2());
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(aggregate).keyword(this._simGrammarAccess.getSAggregateAccess().getRightCurlyBracketKeyword_4());
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
