@@ -6,7 +6,10 @@ package com.mimacom.ddd.sm.sim.validation;
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
+import com.mimacom.ddd.dm.base.DAssociation;
+import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DDetailType;
+import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DRootType;
 import com.mimacom.ddd.sm.sim.SAggregate;
 import com.mimacom.ddd.sm.sim.SAssociation;
@@ -24,6 +27,7 @@ import com.mimacom.ddd.sm.sim.SGrabRule;
 import com.mimacom.ddd.sm.sim.SLiteral;
 import com.mimacom.ddd.sm.sim.SMultiplicity;
 import com.mimacom.ddd.sm.sim.SNamedElement;
+import com.mimacom.ddd.sm.sim.SQuery;
 import com.mimacom.ddd.sm.sim.SQueryParameter;
 import com.mimacom.ddd.sm.sim.SRootType;
 import com.mimacom.ddd.sm.sim.SType;
@@ -109,7 +113,7 @@ public class SimValidator extends AbstractSimValidator {
     boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
     if (_equals) {
       if (((t.getDeductionRule().getSource() != null) && (!(t.getDeductionRule().getSource() instanceof DRootType)))) {
-        this.error("RootType rule must have a domain-model RootType as source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+        this.error("Deduced RootType rule must have a domain-model RootType as its source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
     }
   }
@@ -120,7 +124,7 @@ public class SimValidator extends AbstractSimValidator {
     boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
     if (_equals) {
       if (((t.getDeductionRule().getSource() != null) && (!(t.getDeductionRule().getSource() instanceof DDetailType)))) {
-        this.error("DetailType rule must have a domain-model DetailType as source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+        this.error("Deduced DetailType rule must have a domain-model DetailType as its source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
     }
   }
@@ -160,6 +164,39 @@ public class SimValidator extends AbstractSimValidator {
       boolean _notEquals = (!Objects.equal(_nature_1, SElementNature.DEDUCTION_RULE));
       if (_notEquals) {
         this.error("Features can only have deduction rule if the containing type also has a deduction rule.", SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+      }
+    }
+  }
+  
+  @Check
+  public void checkCorrespondingDAttributeType(final SAttribute a) {
+    SElementNature _nature = a.getNature();
+    boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
+    if (_equals) {
+      if (((a.getDeductionRule().getSource() != null) && (!(a.getDeductionRule().getSource() instanceof DAttribute)))) {
+        this.error("Deduced attribute rule must have a domain-model attribute as its source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+      }
+    }
+  }
+  
+  @Check
+  public void checkCorrespondingDQueryType(final SQuery q) {
+    SElementNature _nature = q.getNature();
+    boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
+    if (_equals) {
+      if (((q.getDeductionRule().getSource() != null) && (!(q.getDeductionRule().getSource() instanceof DQuery)))) {
+        this.error("Deduced query rule must have a domain-model attribute as its source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+      }
+    }
+  }
+  
+  @Check
+  public void checkCorrespondingDAssociationType(final SAssociation a) {
+    SElementNature _nature = a.getNature();
+    boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
+    if (_equals) {
+      if (((a.getDeductionRule().getSource() != null) && (!(a.getDeductionRule().getSource() instanceof DAssociation)))) {
+        this.error("Deduced association rule must have a domain-model attribute as its source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
     }
   }

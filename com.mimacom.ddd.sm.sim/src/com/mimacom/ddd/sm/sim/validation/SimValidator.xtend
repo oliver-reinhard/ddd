@@ -4,7 +4,10 @@
 package com.mimacom.ddd.sm.sim.validation
 
 import com.google.inject.Inject
+import com.mimacom.ddd.dm.base.DAssociation
+import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DDetailType
+import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DRootType
 import com.mimacom.ddd.sm.sim.SAggregate
 import com.mimacom.ddd.sm.sim.SAssociation
@@ -20,6 +23,7 @@ import com.mimacom.ddd.sm.sim.SGrabRule
 import com.mimacom.ddd.sm.sim.SLiteral
 import com.mimacom.ddd.sm.sim.SMultiplicity
 import com.mimacom.ddd.sm.sim.SNamedElement
+import com.mimacom.ddd.sm.sim.SQuery
 import com.mimacom.ddd.sm.sim.SQueryParameter
 import com.mimacom.ddd.sm.sim.SRootType
 import com.mimacom.ddd.sm.sim.SType
@@ -87,7 +91,7 @@ class SimValidator extends AbstractSimValidator {
 	def checkCorrespondingDRootType(SRootType t) {
 		if (t.nature == DEDUCTION_RULE) {
 			if (t.deductionRule.source !== null && ! (t.deductionRule.source instanceof DRootType)) {
-					error("RootType rule must have a domain-model RootType as source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+					error("Deduced RootType rule must have a domain-model RootType as its source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
 		}
 	}
@@ -96,7 +100,7 @@ class SimValidator extends AbstractSimValidator {
 	def checkCorrespondingDDetailType(SDetailType t) {
 		if (t.nature == DEDUCTION_RULE) {
 			if (t.deductionRule.source !== null && ! (t.deductionRule.source instanceof DDetailType)) {
-					error("DetailType rule must have a domain-model DetailType as source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+					error("Deduced DetailType rule must have a domain-model DetailType as its source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
 		}
 	}
@@ -120,6 +124,33 @@ class SimValidator extends AbstractSimValidator {
 			val container = feature.eContainer as SComplexType
 			if (container.nature != DEDUCTION_RULE) {
 				error("Features can only have deduction rule if the containing type also has a deduction rule.", SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+			}
+		}
+	}
+
+	@Check
+	def checkCorrespondingDAttributeType(SAttribute a) {
+		if (a.nature == DEDUCTION_RULE) {
+			if (a.deductionRule.source !== null && ! (a.deductionRule.source instanceof DAttribute)) {
+					error("Deduced attribute rule must have a domain-model attribute as its source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+			}
+		}
+	}
+
+	@Check
+	def checkCorrespondingDQueryType(SQuery q) {
+		if (q.nature == DEDUCTION_RULE) {
+			if (q.deductionRule.source !== null && ! (q.deductionRule.source instanceof DQuery)) {
+					error("Deduced query rule must have a domain-model attribute as its source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+			}
+		}
+	}
+
+	@Check
+	def checkCorrespondingDAssociationType(SAssociation a) {
+		if (a.nature == DEDUCTION_RULE) {
+			if (a.deductionRule.source !== null && ! (a.deductionRule.source instanceof DAssociation)) {
+					error("Deduced association rule must have a domain-model attribute as its source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
 		}
 	}
