@@ -14,6 +14,6 @@ package com.mimacom.ddd.sm.sim;
  * @model
  * @generated
  */
-public interface SRootType extends SComplexType
+public interface SRootType extends SComplexType, SIdentityType
 {
 } // SRootType

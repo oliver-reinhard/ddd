@@ -31,10 +31,10 @@ import com.mimacom.ddd.dm.base.DTime
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.base.IValueType
 import com.mimacom.ddd.dm.dms.DmsUtil
-import org.eclipse.emf.common.util.BasicEList
-import org.eclipse.xtext.validation.Check
-import static com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider.*
 import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.xtext.validation.Check
+
+import static com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider.*
 
 /**
  * This class contains custom validation rules. 
@@ -63,12 +63,7 @@ class DmsValidator extends AbstractDmsValidator {
 
 	@Check
 	def checkAggregateHasSingleRoot(DAggregate a) {
-		val roots = new BasicEList<DIdentityType>
-		for (t : a.types) {
-			if(t instanceof DIdentityType) {
-				roots.add(t)
-			}
-		}
+		val roots = a.types.filter(DIdentityType)
 		if(roots.size > 1) {
 			for (t : roots) {
 				error('Aggregate can only declare a single root or relationship', t, BasePackage.Literals.DNAMED_ELEMENT__NAME)
@@ -153,8 +148,8 @@ class DmsValidator extends AbstractDmsValidator {
 // // Parameters: restrictions on their types
 	@Check
 	def checkParameterIsValueType(DQueryParameter p) {
-		if(! (p.type instanceof IValueType)) {
-			error('Refererenced type is not a ValueType', p, BasePackage.Literals.DTYPED_MEMBER__TYPE)
+		if(p.type instanceof IValueType && ! (p.type == p.eContainer)) {
+			error('Refererenced type is not a ValueType nor the query\'s own container', p, BasePackage.Literals.DTYPED_MEMBER__TYPE)
 		}
 	}
 

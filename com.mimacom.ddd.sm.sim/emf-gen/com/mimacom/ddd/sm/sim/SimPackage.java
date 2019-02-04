@@ -59,6 +59,44 @@ public interface SimPackage extends EPackage
 	SimPackage eINSTANCE = com.mimacom.ddd.sm.sim.impl.SimPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.SIdentityType <em>SIdentity Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sim.SIdentityType
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSIdentityType()
+	 * @generated
+	 */
+	int SIDENTITY_TYPE = 0;
+
+	/**
+	 * The number of structural features of the '<em>SIdentity Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIDENTITY_TYPE_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.SValueType <em>SValue Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sim.SValueType
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSValueType()
+	 * @generated
+	 */
+	int SVALUE_TYPE = 1;
+
+	/**
+	 * The number of structural features of the '<em>SValue Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVALUE_TYPE_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SDomainImpl <em>SDomain</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,7 +104,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDomain()
 	 * @generated
 	 */
-	int SDOMAIN = 0;
+	int SDOMAIN = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -121,7 +159,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSNamedElement()
 	 * @generated
 	 */
-	int SNAMED_ELEMENT = 1;
+	int SNAMED_ELEMENT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -149,7 +187,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDeducibleElement()
 	 * @generated
 	 */
-	int SDEDUCIBLE_ELEMENT = 2;
+	int SDEDUCIBLE_ELEMENT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -195,7 +233,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSNamedDeducibleElement()
 	 * @generated
 	 */
-	int SNAMED_DEDUCIBLE_ELEMENT = 3;
+	int SNAMED_DEDUCIBLE_ELEMENT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -250,7 +288,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSImport()
 	 * @generated
 	 */
-	int SIMPORT = 4;
+	int SIMPORT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
@@ -278,7 +316,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAggregate()
 	 * @generated
 	 */
-	int SAGGREGATE = 5;
+	int SAGGREGATE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -351,7 +389,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSType()
 	 * @generated
 	 */
-	int STYPE = 6;
+	int STYPE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -406,7 +444,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSSimpleType()
 	 * @generated
 	 */
-	int SSIMPLE_TYPE = 7;
+	int SSIMPLE_TYPE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -470,7 +508,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSComplexType()
 	 * @generated
 	 */
-	int SCOMPLEX_TYPE = 8;
+	int SCOMPLEX_TYPE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -561,7 +599,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSCondition()
 	 * @generated
 	 */
-	int SCONDITION = 9;
+	int SCONDITION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -570,7 +608,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SCONDITION__NAME = 0;
+	int SCONDITION__NAME = SNAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -579,7 +617,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SCONDITION__CONDITION = 1;
+	int SCONDITION__CONDITION = SNAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>SCondition</em>' class.
@@ -588,7 +626,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SCONDITION_FEATURE_COUNT = 2;
+	int SCONDITION_FEATURE_COUNT = SNAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SPrimitiveImpl <em>SPrimitive</em>}' class.
@@ -598,7 +636,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSPrimitive()
 	 * @generated
 	 */
-	int SPRIMITIVE = 10;
+	int SPRIMITIVE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -689,7 +727,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSEnumeration()
 	 * @generated
 	 */
-	int SENUMERATION = 11;
+	int SENUMERATION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -762,7 +800,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSLiteral()
 	 * @generated
 	 */
-	int SLITERAL = 12;
+	int SLITERAL = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -817,7 +855,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSRootType()
 	 * @generated
 	 */
-	int SROOT_TYPE = 13;
+	int SROOT_TYPE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -908,7 +946,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDetailType()
 	 * @generated
 	 */
-	int SDETAIL_TYPE = 14;
+	int SDETAIL_TYPE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -999,7 +1037,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSFeature()
 	 * @generated
 	 */
-	int SFEATURE = 15;
+	int SFEATURE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1072,7 +1110,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAssociation()
 	 * @generated
 	 */
-	int SASSOCIATION = 16;
+	int SASSOCIATION = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1163,7 +1201,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAttribute()
 	 * @generated
 	 */
-	int SATTRIBUTE = 17;
+	int SATTRIBUTE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1254,7 +1292,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSQuery()
 	 * @generated
 	 */
-	int SQUERY = 18;
+	int SQUERY = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1345,7 +1383,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSQueryParameter()
 	 * @generated
 	 */
-	int SQUERY_PARAMETER = 19;
+	int SQUERY_PARAMETER = 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1418,7 +1456,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSExpression()
 	 * @generated
 	 */
-	int SEXPRESSION = 20;
+	int SEXPRESSION = 22;
 
 	/**
 	 * The feature id for the '<em><b>Expr</b></em>' attribute.
@@ -1446,7 +1484,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSMultiplicity()
 	 * @generated
 	 */
-	int SMULTIPLICITY = 21;
+	int SMULTIPLICITY = 23;
 
 	/**
 	 * The feature id for the '<em><b>Min Occurs</b></em>' attribute.
@@ -1483,7 +1521,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDeductionRule()
 	 * @generated
 	 */
-	int SDEDUCTION_RULE = 22;
+	int SDEDUCTION_RULE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1520,7 +1558,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabRule()
 	 * @generated
 	 */
-	int SGRAB_RULE = 23;
+	int SGRAB_RULE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1566,7 +1604,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSMorphRule()
 	 * @generated
 	 */
-	int SMORPH_RULE = 24;
+	int SMORPH_RULE = 26;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1630,7 +1668,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDitchRule()
 	 * @generated
 	 */
-	int SDITCH_RULE = 25;
+	int SDITCH_RULE = 27;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1667,7 +1705,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSFuseRule()
 	 * @generated
 	 */
-	int SFUSE_RULE = 26;
+	int SFUSE_RULE = 28;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1731,7 +1769,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabAggregateRule()
 	 * @generated
 	 */
-	int SGRAB_AGGREGATE_RULE = 27;
+	int SGRAB_AGGREGATE_RULE = 29;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1777,7 +1815,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSElementNature()
 	 * @generated
 	 */
-	int SELEMENT_NATURE = 28;
+	int SELEMENT_NATURE = 30;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.SAssociationKind <em>SAssociation Kind</em>}' enum.
@@ -1787,8 +1825,28 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAssociationKind()
 	 * @generated
 	 */
-	int SASSOCIATION_KIND = 29;
+	int SASSOCIATION_KIND = 31;
 
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SIdentityType <em>SIdentity Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SIdentity Type</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SIdentityType
+	 * @generated
+	 */
+	EClass getSIdentityType();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SValueType <em>SValue Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SValue Type</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SValueType
+	 * @generated
+	 */
+	EClass getSValueType();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SDomain <em>SDomain</em>}'.
@@ -2076,17 +2134,6 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 */
 	EClass getSCondition();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SCondition#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SCondition#getName()
-	 * @see #getSCondition()
-	 * @generated
-	 */
-	EAttribute getSCondition_Name();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.sm.sim.SCondition#getCondition <em>Condition</em>}'.
@@ -2598,6 +2645,26 @@ public interface SimPackage extends EPackage
 	interface Literals
 	{
 		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.SIdentityType <em>SIdentity Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sim.SIdentityType
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSIdentityType()
+		 * @generated
+		 */
+		EClass SIDENTITY_TYPE = eINSTANCE.getSIdentityType();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.SValueType <em>SValue Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sim.SValueType
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSValueType()
+		 * @generated
+		 */
+		EClass SVALUE_TYPE = eINSTANCE.getSValueType();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SDomainImpl <em>SDomain</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2832,14 +2899,6 @@ public interface SimPackage extends EPackage
 		 * @generated
 		 */
 		EClass SCONDITION = eINSTANCE.getSCondition();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCONDITION__NAME = eINSTANCE.getSCondition_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.

@@ -265,8 +265,8 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_SConstraint(ISerializationContext context, SCondition semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SimPackage.Literals.SCONDITION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SCONDITION__NAME));
+			if (transientValues.isValueTransient(semanticObject, SimPackage.Literals.SNAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SNAMED_ELEMENT__NAME));
 			if (transientValues.isValueTransient(semanticObject, SimPackage.Literals.SCONDITION__CONDITION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SCONDITION__CONDITION));
 		}

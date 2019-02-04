@@ -4,6 +4,7 @@
 package com.mimacom.ddd.dm.dms.validation;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DActor;
@@ -35,13 +36,13 @@ import com.mimacom.ddd.dm.dms.DmsUtil;
 import com.mimacom.ddd.dm.dms.validation.AbstractDmsValidator;
 import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider;
 import java.util.Set;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * This class contains custom validation rules.
@@ -76,18 +77,12 @@ public class DmsValidator extends AbstractDmsValidator {
   
   @Check
   public void checkAggregateHasSingleRoot(final DAggregate a) {
-    final BasicEList<DIdentityType> roots = new BasicEList<DIdentityType>();
-    EList<DType> _types = a.getTypes();
-    for (final DType t : _types) {
-      if ((t instanceof DIdentityType)) {
-        roots.add(((DIdentityType)t));
-      }
-    }
-    int _size = roots.size();
+    final Iterable<DIdentityType> roots = Iterables.<DIdentityType>filter(a.getTypes(), DIdentityType.class);
+    int _size = IterableExtensions.size(roots);
     boolean _greaterThan = (_size > 1);
     if (_greaterThan) {
-      for (final DIdentityType t_1 : roots) {
-        this.error("Aggregate can only declare a single root or relationship", t_1, BasePackage.Literals.DNAMED_ELEMENT__NAME);
+      for (final DIdentityType t : roots) {
+        this.error("Aggregate can only declare a single root or relationship", t, BasePackage.Literals.DNAMED_ELEMENT__NAME);
       }
     }
   }
@@ -185,10 +180,8 @@ public class DmsValidator extends AbstractDmsValidator {
   
   @Check
   public void checkParameterIsValueType(final DQueryParameter p) {
-    DType _type = p.getType();
-    boolean _not = (!(_type instanceof IValueType));
-    if (_not) {
-      this.error("Refererenced type is not a ValueType", p, BasePackage.Literals.DTYPED_MEMBER__TYPE);
+    if (((p.getType() instanceof IValueType) && (!Objects.equal(p.getType(), p.eContainer())))) {
+      this.error("Refererenced type is not a ValueType nor the query\'s own container", p, BasePackage.Literals.DTYPED_MEMBER__TYPE);
     }
   }
   

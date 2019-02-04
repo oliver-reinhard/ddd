@@ -23,6 +23,7 @@ import com.mimacom.ddd.sm.sim.SFeature;
 import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
+import com.mimacom.ddd.sm.sim.SIdentityType;
 import com.mimacom.ddd.sm.sim.SImport;
 import com.mimacom.ddd.sm.sim.SLiteral;
 import com.mimacom.ddd.sm.sim.SMorphRule;
@@ -35,6 +36,7 @@ import com.mimacom.ddd.sm.sim.SQueryParameter;
 import com.mimacom.ddd.sm.sim.SRootType;
 import com.mimacom.ddd.sm.sim.SSimpleType;
 import com.mimacom.ddd.sm.sim.SType;
+import com.mimacom.ddd.sm.sim.SValueType;
 import com.mimacom.ddd.sm.sim.SimFactory;
 import com.mimacom.ddd.sm.sim.SimPackage;
 
@@ -54,6 +56,20 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  */
 public class SimPackageImpl extends EPackageImpl implements SimPackage
 {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sIdentityTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sValueTypeEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -328,6 +344,28 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(SimPackage.eNS_URI, theSimPackage);
 		return theSimPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSIdentityType()
+	{
+		return sIdentityTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSValueType()
+	{
+		return sValueTypeEClass;
 	}
 
 	/**
@@ -633,20 +671,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSCondition_Name()
-	{
-		return (EAttribute)sConditionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getSCondition_Condition()
 	{
-		return (EReference)sConditionEClass.getEStructuralFeatures().get(1);
+		return (EReference)sConditionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1175,6 +1202,10 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		isCreated = true;
 
 		// Create classes and their features
+		sIdentityTypeEClass = createEClass(SIDENTITY_TYPE);
+
+		sValueTypeEClass = createEClass(SVALUE_TYPE);
+
 		sDomainEClass = createEClass(SDOMAIN);
 		createEAttribute(sDomainEClass, SDOMAIN__NAME);
 		createEReference(sDomainEClass, SDOMAIN__IMPORTS);
@@ -1211,7 +1242,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		createEReference(sComplexTypeEClass, SCOMPLEX_TYPE__CONSTRAINTS);
 
 		sConditionEClass = createEClass(SCONDITION);
-		createEAttribute(sConditionEClass, SCONDITION__NAME);
 		createEReference(sConditionEClass, SCONDITION__CONDITION);
 
 		sPrimitiveEClass = createEClass(SPRIMITIVE);
@@ -1317,12 +1347,16 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		sAggregateEClass.getESuperTypes().add(this.getSDeducibleElement());
 		sTypeEClass.getESuperTypes().add(this.getSNamedDeducibleElement());
 		sSimpleTypeEClass.getESuperTypes().add(this.getSType());
+		sSimpleTypeEClass.getESuperTypes().add(this.getSValueType());
 		sComplexTypeEClass.getESuperTypes().add(this.getSType());
+		sConditionEClass.getESuperTypes().add(this.getSNamedElement());
 		sPrimitiveEClass.getESuperTypes().add(this.getSSimpleType());
 		sEnumerationEClass.getESuperTypes().add(this.getSSimpleType());
 		sLiteralEClass.getESuperTypes().add(this.getSNamedDeducibleElement());
 		sRootTypeEClass.getESuperTypes().add(this.getSComplexType());
+		sRootTypeEClass.getESuperTypes().add(this.getSIdentityType());
 		sDetailTypeEClass.getESuperTypes().add(this.getSComplexType());
+		sDetailTypeEClass.getESuperTypes().add(this.getSValueType());
 		sFeatureEClass.getESuperTypes().add(this.getSNamedDeducibleElement());
 		sAssociationEClass.getESuperTypes().add(this.getSFeature());
 		sAttributeEClass.getESuperTypes().add(this.getSFeature());
@@ -1335,6 +1369,10 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		sGrabAggregateRuleEClass.getESuperTypes().add(this.getSDeductionRule());
 
 		// Initialize classes and features; add operations and parameters
+		initEClass(sIdentityTypeEClass, SIdentityType.class, "SIdentityType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(sValueTypeEClass, SValueType.class, "SValueType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(sDomainEClass, SDomain.class, "SDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSDomain_Name(), ecorePackage.getEString(), "name", null, 0, 1, SDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSDomain_Imports(), this.getSImport(), null, "imports", null, 0, -1, SDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1371,7 +1409,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		initEReference(getSComplexType_Constraints(), this.getSCondition(), null, "constraints", null, 0, -1, SComplexType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sConditionEClass, SCondition.class, "SCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSCondition_Name(), ecorePackage.getEString(), "name", null, 0, 1, SCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSCondition_Condition(), this.getSExpression(), null, "condition", null, 0, 1, SCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sPrimitiveEClass, SPrimitive.class, "SPrimitive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

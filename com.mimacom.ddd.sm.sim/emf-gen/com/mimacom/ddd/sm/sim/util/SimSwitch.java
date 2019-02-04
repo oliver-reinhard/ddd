@@ -73,6 +73,20 @@ public class SimSwitch<T> extends Switch<T>
 	{
 		switch (classifierID)
 		{
+			case SimPackage.SIDENTITY_TYPE:
+			{
+				SIdentityType sIdentityType = (SIdentityType)theEObject;
+				T result = caseSIdentityType(sIdentityType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SimPackage.SVALUE_TYPE:
+			{
+				SValueType sValueType = (SValueType)theEObject;
+				T result = caseSValueType(sValueType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SimPackage.SDOMAIN:
 			{
 				SDomain sDomain = (SDomain)theEObject;
@@ -133,6 +147,7 @@ public class SimSwitch<T> extends Switch<T>
 				SSimpleType sSimpleType = (SSimpleType)theEObject;
 				T result = caseSSimpleType(sSimpleType);
 				if (result == null) result = caseSType(sSimpleType);
+				if (result == null) result = caseSValueType(sSimpleType);
 				if (result == null) result = caseSNamedDeducibleElement(sSimpleType);
 				if (result == null) result = caseSNamedElement(sSimpleType);
 				if (result == null) result = caseSDeducibleElement(sSimpleType);
@@ -154,6 +169,7 @@ public class SimSwitch<T> extends Switch<T>
 			{
 				SCondition sCondition = (SCondition)theEObject;
 				T result = caseSCondition(sCondition);
+				if (result == null) result = caseSNamedElement(sCondition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -163,6 +179,7 @@ public class SimSwitch<T> extends Switch<T>
 				T result = caseSPrimitive(sPrimitive);
 				if (result == null) result = caseSSimpleType(sPrimitive);
 				if (result == null) result = caseSType(sPrimitive);
+				if (result == null) result = caseSValueType(sPrimitive);
 				if (result == null) result = caseSNamedDeducibleElement(sPrimitive);
 				if (result == null) result = caseSNamedElement(sPrimitive);
 				if (result == null) result = caseSDeducibleElement(sPrimitive);
@@ -175,6 +192,7 @@ public class SimSwitch<T> extends Switch<T>
 				T result = caseSEnumeration(sEnumeration);
 				if (result == null) result = caseSSimpleType(sEnumeration);
 				if (result == null) result = caseSType(sEnumeration);
+				if (result == null) result = caseSValueType(sEnumeration);
 				if (result == null) result = caseSNamedDeducibleElement(sEnumeration);
 				if (result == null) result = caseSNamedElement(sEnumeration);
 				if (result == null) result = caseSDeducibleElement(sEnumeration);
@@ -196,6 +214,7 @@ public class SimSwitch<T> extends Switch<T>
 				SRootType sRootType = (SRootType)theEObject;
 				T result = caseSRootType(sRootType);
 				if (result == null) result = caseSComplexType(sRootType);
+				if (result == null) result = caseSIdentityType(sRootType);
 				if (result == null) result = caseSType(sRootType);
 				if (result == null) result = caseSNamedDeducibleElement(sRootType);
 				if (result == null) result = caseSNamedElement(sRootType);
@@ -208,6 +227,7 @@ public class SimSwitch<T> extends Switch<T>
 				SDetailType sDetailType = (SDetailType)theEObject;
 				T result = caseSDetailType(sDetailType);
 				if (result == null) result = caseSComplexType(sDetailType);
+				if (result == null) result = caseSValueType(sDetailType);
 				if (result == null) result = caseSType(sDetailType);
 				if (result == null) result = caseSNamedDeducibleElement(sDetailType);
 				if (result == null) result = caseSNamedElement(sDetailType);
@@ -333,6 +353,38 @@ public class SimSwitch<T> extends Switch<T>
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>SIdentity Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>SIdentity Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSIdentityType(SIdentityType object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>SValue Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>SValue Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSValueType(SValueType object)
+	{
+		return null;
 	}
 
 	/**

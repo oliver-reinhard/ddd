@@ -14,6 +14,6 @@ package com.mimacom.ddd.sm.sim;
  * @model
  * @generated
  */
-public interface SDetailType extends SComplexType
+public interface SDetailType extends SComplexType, SValueType
 {
 } // SDetailType

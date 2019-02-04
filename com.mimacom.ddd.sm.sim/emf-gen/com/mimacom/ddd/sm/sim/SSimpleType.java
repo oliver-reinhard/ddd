@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface SSimpleType extends SType
+public interface SSimpleType extends SType, SValueType
 {
 	/**
 	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference list.

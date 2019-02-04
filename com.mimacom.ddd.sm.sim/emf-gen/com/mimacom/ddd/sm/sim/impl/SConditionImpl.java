@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,34 +23,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.sim.impl.SConditionImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SConditionImpl#getCondition <em>Condition</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SConditionImpl extends MinimalEObjectImpl.Container implements SCondition
+public class SConditionImpl extends SNamedElementImpl implements SCondition
 {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -81,31 +59,6 @@ public class SConditionImpl extends MinimalEObjectImpl.Container implements SCon
 	protected EClass eStaticClass()
 	{
 		return SimPackage.Literals.SCONDITION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getName()
-	{
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setName(String newName)
-	{
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SCONDITION__NAME, oldName, name));
 	}
 
 	/**
@@ -184,8 +137,6 @@ public class SConditionImpl extends MinimalEObjectImpl.Container implements SCon
 	{
 		switch (featureID)
 		{
-			case SimPackage.SCONDITION__NAME:
-				return getName();
 			case SimPackage.SCONDITION__CONDITION:
 				return getCondition();
 		}
@@ -202,9 +153,6 @@ public class SConditionImpl extends MinimalEObjectImpl.Container implements SCon
 	{
 		switch (featureID)
 		{
-			case SimPackage.SCONDITION__NAME:
-				setName((String)newValue);
-				return;
 			case SimPackage.SCONDITION__CONDITION:
 				setCondition((SExpression)newValue);
 				return;
@@ -222,9 +170,6 @@ public class SConditionImpl extends MinimalEObjectImpl.Container implements SCon
 	{
 		switch (featureID)
 		{
-			case SimPackage.SCONDITION__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case SimPackage.SCONDITION__CONDITION:
 				setCondition((SExpression)null);
 				return;
@@ -242,29 +187,10 @@ public class SConditionImpl extends MinimalEObjectImpl.Container implements SCon
 	{
 		switch (featureID)
 		{
-			case SimPackage.SCONDITION__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SimPackage.SCONDITION__CONDITION:
 				return condition != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString()
-	{
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
 	}
 
 } //SConditionImpl

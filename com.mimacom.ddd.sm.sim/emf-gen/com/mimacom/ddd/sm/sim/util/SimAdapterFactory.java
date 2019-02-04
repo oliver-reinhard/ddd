@@ -76,6 +76,16 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 		new SimSwitch<Adapter>()
 		{
 			@Override
+			public Adapter caseSIdentityType(SIdentityType object)
+			{
+				return createSIdentityTypeAdapter();
+			}
+			@Override
+			public Adapter caseSValueType(SValueType object)
+			{
+				return createSValueTypeAdapter();
+			}
+			@Override
 			public Adapter caseSDomain(SDomain object)
 			{
 				return createSDomainAdapter();
@@ -236,6 +246,36 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SIdentityType <em>SIdentity Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.sm.sim.SIdentityType
+	 * @generated
+	 */
+	public Adapter createSIdentityTypeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SValueType <em>SValue Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.sm.sim.SValueType
+	 * @generated
+	 */
+	public Adapter createSValueTypeAdapter()
+	{
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SDomain <em>SDomain</em>}'.

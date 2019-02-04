@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sim" nsURI="http://www.mimacom.com/ddd/sm/sim/Sim" nsPrefix="sim">
+  <eClassifiers xsi:type="ecore:EClass" name="SIdentityType" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SValueType" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="SDomain">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
@@ -40,7 +42,7 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SType" eSuperTypes="#//SNamedDeducibleElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SSimpleType" eSuperTypes="#//SType">
+  <eClassifiers xsi:type="ecore:EClass" name="SSimpleType" eSuperTypes="#//SType #//SValueType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
         eType="#//SCondition" containment="true"/>
   </eClassifiers>
@@ -52,8 +54,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
         eType="#//SCondition" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SCondition">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SCondition" eSuperTypes="#//SNamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//SExpression"
         containment="true"/>
   </eClassifiers>
@@ -68,8 +69,8 @@
         eType="#//SLiteral" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SLiteral" eSuperTypes="#//SNamedDeducibleElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SRootType" eSuperTypes="#//SComplexType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SDetailType" eSuperTypes="#//SComplexType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SRootType" eSuperTypes="#//SComplexType #//SIdentityType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SDetailType" eSuperTypes="#//SComplexType #//SValueType"/>
   <eClassifiers xsi:type="ecore:EClass" name="SFeature" eSuperTypes="#//SNamedDeducibleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//SType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="multiplicity" eType="#//SMultiplicity"
