@@ -27,7 +27,7 @@ public class SimParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "SDomain";
+		return "SInformationModel";
 	}
 
 	public SimGrammarAccess getGrammarAccess() {

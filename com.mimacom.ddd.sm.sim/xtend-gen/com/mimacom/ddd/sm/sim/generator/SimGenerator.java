@@ -8,6 +8,7 @@ import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.mimacom.ddd.sm.sim.SDeducibleElement;
 import com.mimacom.ddd.sm.sim.SDeductionRule;
+import com.mimacom.ddd.sm.sim.SInformationModel;
 import java.io.CharArrayWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -57,24 +58,28 @@ public class SimGenerator extends AbstractGenerator {
   
   public boolean removeTransformationItems(final Resource resource) {
     boolean hadSyntheticItems = false;
-    final Iterator<SDeducibleElement> deducibles = Iterators.<SDeducibleElement>filter(resource.getAllContents(), SDeducibleElement.class);
-    final ArrayList<SDeducibleElement> elementsToRemove = Lists.<SDeducibleElement>newArrayList();
-    while (deducibles.hasNext()) {
-      {
-        final SDeducibleElement e = deducibles.next();
-        SDeductionRule _deductionRule = e.getDeductionRule();
-        boolean _tripleNotEquals = (_deductionRule != null);
-        if (_tripleNotEquals) {
-          elementsToRemove.add(e);
-        } else {
-          e.setDeductionRule(null);
-          hadSyntheticItems = (hadSyntheticItems || ((e.getSynthetic() != null) && (e.getSynthetic()).booleanValue()));
-          e.unsetSynthetic();
+    final EObject model = IterableExtensions.<EObject>head(resource.getContents());
+    if ((model instanceof SInformationModel)) {
+      ((SInformationModel)model).setDeduced(false);
+      final Iterator<SDeducibleElement> deducibles = Iterators.<SDeducibleElement>filter(resource.getAllContents(), SDeducibleElement.class);
+      final ArrayList<SDeducibleElement> elementsToRemove = Lists.<SDeducibleElement>newArrayList();
+      while (deducibles.hasNext()) {
+        {
+          final SDeducibleElement e = deducibles.next();
+          SDeductionRule _deductionRule = e.getDeductionRule();
+          boolean _tripleNotEquals = (_deductionRule != null);
+          if (_tripleNotEquals) {
+            elementsToRemove.add(e);
+          } else {
+            e.setDeductionRule(null);
+            hadSyntheticItems = (hadSyntheticItems || ((e.getSynthetic() != null) && (e.getSynthetic()).booleanValue()));
+            e.unsetSynthetic();
+          }
         }
       }
-    }
-    for (final SDeducibleElement e : elementsToRemove) {
-      EcoreUtil.remove(e);
+      for (final SDeducibleElement e : elementsToRemove) {
+        EcoreUtil.remove(e);
+      }
     }
     return hadSyntheticItems;
   }

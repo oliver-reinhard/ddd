@@ -4,6 +4,7 @@ import com.google.common.collect.Maps
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.sm.sim.SPrimitive
 import com.mimacom.ddd.sm.sim.SType
+import com.mimacom.ddd.sm.sim.SimFactory
 import java.util.Map
 import org.eclipse.xtext.resource.DerivedStateAwareResource
 
@@ -14,6 +15,8 @@ class TransformationContext {
 			super("A system-model primitive type realizing the domain-model primitive type \"" + type?.name + "\"  the has not been declared")
 		}
 	}
+	
+	static val SPrimitive UNKNOWN_TYPE= SimFactory.eINSTANCE.createSPrimitive => [name = "UNKNOWN_TYPE"]
 
 	val Map<DType, SType> dTypeToSTypeMap
 	val DerivedStateAwareResource resource
@@ -23,6 +26,9 @@ class TransformationContext {
 		dTypeToSTypeMap = Maps.newHashMap()
 		initializeMappedDPrimitives(resource)
 	}
+	
+	
+	
 	/*
 	 * Crates a new map and adds those primitives of the resource to the map that realize DPrimitives.
 	 */

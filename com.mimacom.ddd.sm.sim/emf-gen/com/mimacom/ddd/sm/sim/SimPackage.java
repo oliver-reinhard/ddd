@@ -97,14 +97,32 @@ public interface SimPackage extends EPackage
 	int SVALUE_TYPE_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SDomainImpl <em>SDomain</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl <em>SInformation Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sim.impl.SDomainImpl
-	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDomain()
+	 * @see com.mimacom.ddd.sm.sim.impl.SInformationModelImpl
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSInformationModel()
 	 * @generated
 	 */
-	int SDOMAIN = 2;
+	int SINFORMATION_MODEL = 2;
+
+	/**
+	 * The feature id for the '<em><b>Deduced</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINFORMATION_MODEL__DEDUCED = 0;
+
+	/**
+	 * The feature id for the '<em><b>Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINFORMATION_MODEL__KIND = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -113,7 +131,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SDOMAIN__NAME = 0;
+	int SINFORMATION_MODEL__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
@@ -122,7 +140,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SDOMAIN__IMPORTS = 1;
+	int SINFORMATION_MODEL__IMPORTS = 3;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -131,7 +149,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SDOMAIN__TYPES = 2;
+	int SINFORMATION_MODEL__TYPES = 4;
 
 	/**
 	 * The feature id for the '<em><b>Aggregates</b></em>' containment reference list.
@@ -140,16 +158,16 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SDOMAIN__AGGREGATES = 3;
+	int SINFORMATION_MODEL__AGGREGATES = 5;
 
 	/**
-	 * The number of structural features of the '<em>SDomain</em>' class.
+	 * The number of structural features of the '<em>SInformation Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SDOMAIN_FEATURE_COUNT = 4;
+	int SINFORMATION_MODEL_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SNamedElementImpl <em>SNamed Element</em>}' class.
@@ -1808,6 +1826,16 @@ public interface SimPackage extends EPackage
 	int SGRAB_AGGREGATE_RULE_FEATURE_COUNT = SDEDUCTION_RULE_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.SInformationModelKind <em>SInformation Model Kind</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sim.SInformationModelKind
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSInformationModelKind()
+	 * @generated
+	 */
+	int SINFORMATION_MODEL_KIND = 30;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.SElementNature <em>SElement Nature</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1815,7 +1843,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSElementNature()
 	 * @generated
 	 */
-	int SELEMENT_NATURE = 30;
+	int SELEMENT_NATURE = 31;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.SAssociationKind <em>SAssociation Kind</em>}' enum.
@@ -1825,7 +1853,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAssociationKind()
 	 * @generated
 	 */
-	int SASSOCIATION_KIND = 31;
+	int SASSOCIATION_KIND = 32;
 
 
 	/**
@@ -1849,58 +1877,80 @@ public interface SimPackage extends EPackage
 	EClass getSValueType();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SDomain <em>SDomain</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SInformationModel <em>SInformation Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SDomain</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SDomain
+	 * @return the meta object for class '<em>SInformation Model</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SInformationModel
 	 * @generated
 	 */
-	EClass getSDomain();
+	EClass getSInformationModel();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SDomain#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SInformationModel#isDeduced <em>Deduced</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Deduced</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SInformationModel#isDeduced()
+	 * @see #getSInformationModel()
+	 * @generated
+	 */
+	EAttribute getSInformationModel_Deduced();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SInformationModel#getKind <em>Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Kind</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SInformationModel#getKind()
+	 * @see #getSInformationModel()
+	 * @generated
+	 */
+	EAttribute getSInformationModel_Kind();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SInformationModel#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SDomain#getName()
-	 * @see #getSDomain()
+	 * @see com.mimacom.ddd.sm.sim.SInformationModel#getName()
+	 * @see #getSInformationModel()
 	 * @generated
 	 */
-	EAttribute getSDomain_Name();
+	EAttribute getSInformationModel_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sim.SDomain#getImports <em>Imports</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sim.SInformationModel#getImports <em>Imports</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Imports</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SDomain#getImports()
-	 * @see #getSDomain()
+	 * @see com.mimacom.ddd.sm.sim.SInformationModel#getImports()
+	 * @see #getSInformationModel()
 	 * @generated
 	 */
-	EReference getSDomain_Imports();
+	EReference getSInformationModel_Imports();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sim.SDomain#getTypes <em>Types</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sim.SInformationModel#getTypes <em>Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Types</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SDomain#getTypes()
-	 * @see #getSDomain()
+	 * @see com.mimacom.ddd.sm.sim.SInformationModel#getTypes()
+	 * @see #getSInformationModel()
 	 * @generated
 	 */
-	EReference getSDomain_Types();
+	EReference getSInformationModel_Types();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sim.SDomain#getAggregates <em>Aggregates</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sim.SInformationModel#getAggregates <em>Aggregates</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Aggregates</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SDomain#getAggregates()
-	 * @see #getSDomain()
+	 * @see com.mimacom.ddd.sm.sim.SInformationModel#getAggregates()
+	 * @see #getSInformationModel()
 	 * @generated
 	 */
-	EReference getSDomain_Aggregates();
+	EReference getSInformationModel_Aggregates();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SNamedElement <em>SNamed Element</em>}'.
@@ -2602,6 +2652,16 @@ public interface SimPackage extends EPackage
 	EReference getSGrabAggregateRule_Aggregate();
 
 	/**
+	 * Returns the meta object for enum '{@link com.mimacom.ddd.sm.sim.SInformationModelKind <em>SInformation Model Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>SInformation Model Kind</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SInformationModelKind
+	 * @generated
+	 */
+	EEnum getSInformationModelKind();
+
+	/**
 	 * Returns the meta object for enum '{@link com.mimacom.ddd.sm.sim.SElementNature <em>SElement Nature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2665,14 +2725,30 @@ public interface SimPackage extends EPackage
 		EClass SVALUE_TYPE = eINSTANCE.getSValueType();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SDomainImpl <em>SDomain</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl <em>SInformation Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sim.impl.SDomainImpl
-		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDomain()
+		 * @see com.mimacom.ddd.sm.sim.impl.SInformationModelImpl
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSInformationModel()
 		 * @generated
 		 */
-		EClass SDOMAIN = eINSTANCE.getSDomain();
+		EClass SINFORMATION_MODEL = eINSTANCE.getSInformationModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Deduced</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SINFORMATION_MODEL__DEDUCED = eINSTANCE.getSInformationModel_Deduced();
+
+		/**
+		 * The meta object literal for the '<em><b>Kind</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SINFORMATION_MODEL__KIND = eINSTANCE.getSInformationModel_Kind();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -2680,7 +2756,7 @@ public interface SimPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SDOMAIN__NAME = eINSTANCE.getSDomain_Name();
+		EAttribute SINFORMATION_MODEL__NAME = eINSTANCE.getSInformationModel_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
@@ -2688,7 +2764,7 @@ public interface SimPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SDOMAIN__IMPORTS = eINSTANCE.getSDomain_Imports();
+		EReference SINFORMATION_MODEL__IMPORTS = eINSTANCE.getSInformationModel_Imports();
 
 		/**
 		 * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
@@ -2696,7 +2772,7 @@ public interface SimPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SDOMAIN__TYPES = eINSTANCE.getSDomain_Types();
+		EReference SINFORMATION_MODEL__TYPES = eINSTANCE.getSInformationModel_Types();
 
 		/**
 		 * The meta object literal for the '<em><b>Aggregates</b></em>' containment reference list feature.
@@ -2704,7 +2780,7 @@ public interface SimPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SDOMAIN__AGGREGATES = eINSTANCE.getSDomain_Aggregates();
+		EReference SINFORMATION_MODEL__AGGREGATES = eINSTANCE.getSInformationModel_Aggregates();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SNamedElementImpl <em>SNamed Element</em>}' class.
@@ -3287,6 +3363,16 @@ public interface SimPackage extends EPackage
 		 * @generated
 		 */
 		EReference SGRAB_AGGREGATE_RULE__AGGREGATE = eINSTANCE.getSGrabAggregateRule_Aggregate();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.SInformationModelKind <em>SInformation Model Kind</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sim.SInformationModelKind
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSInformationModelKind()
+		 * @generated
+		 */
+		EEnum SINFORMATION_MODEL_KIND = eINSTANCE.getSInformationModelKind();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.SElementNature <em>SElement Nature</em>}' enum.

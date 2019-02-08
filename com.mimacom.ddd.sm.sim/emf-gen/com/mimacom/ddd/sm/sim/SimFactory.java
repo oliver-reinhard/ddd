@@ -24,13 +24,13 @@ public interface SimFactory extends EFactory
 	SimFactory eINSTANCE = com.mimacom.ddd.sm.sim.impl.SimFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>SDomain</em>'.
+	 * Returns a new object of class '<em>SInformation Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SDomain</em>'.
+	 * @return a new object of class '<em>SInformation Model</em>'.
 	 * @generated
 	 */
-	SDomain createSDomain();
+	SInformationModel createSInformationModel();
 
 	/**
 	 * Returns a new object of class '<em>SNamed Element</em>'.

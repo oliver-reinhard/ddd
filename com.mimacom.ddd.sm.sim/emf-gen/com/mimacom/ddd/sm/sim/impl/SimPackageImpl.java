@@ -15,7 +15,6 @@ import com.mimacom.ddd.sm.sim.SDeducibleElement;
 import com.mimacom.ddd.sm.sim.SDeductionRule;
 import com.mimacom.ddd.sm.sim.SDetailType;
 import com.mimacom.ddd.sm.sim.SDitchRule;
-import com.mimacom.ddd.sm.sim.SDomain;
 import com.mimacom.ddd.sm.sim.SElementNature;
 import com.mimacom.ddd.sm.sim.SEnumeration;
 import com.mimacom.ddd.sm.sim.SExpression;
@@ -25,6 +24,8 @@ import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
 import com.mimacom.ddd.sm.sim.SIdentityType;
 import com.mimacom.ddd.sm.sim.SImport;
+import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SInformationModelKind;
 import com.mimacom.ddd.sm.sim.SLiteral;
 import com.mimacom.ddd.sm.sim.SMorphRule;
 import com.mimacom.ddd.sm.sim.SMultiplicity;
@@ -75,7 +76,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sDomainEClass = null;
+	private EClass sInformationModelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -271,6 +272,13 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum sInformationModelKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum sElementNatureEEnum = null;
 
 	/**
@@ -374,9 +382,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSDomain()
+	public EClass getSInformationModel()
 	{
-		return sDomainEClass;
+		return sInformationModelEClass;
 	}
 
 	/**
@@ -385,9 +393,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSDomain_Name()
+	public EAttribute getSInformationModel_Deduced()
 	{
-		return (EAttribute)sDomainEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)sInformationModelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -396,9 +404,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSDomain_Imports()
+	public EAttribute getSInformationModel_Kind()
 	{
-		return (EReference)sDomainEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)sInformationModelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -407,9 +415,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSDomain_Types()
+	public EAttribute getSInformationModel_Name()
 	{
-		return (EReference)sDomainEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)sInformationModelEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -418,9 +426,31 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSDomain_Aggregates()
+	public EReference getSInformationModel_Imports()
 	{
-		return (EReference)sDomainEClass.getEStructuralFeatures().get(3);
+		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSInformationModel_Types()
+	{
+		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSInformationModel_Aggregates()
+	{
+		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1155,6 +1185,17 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
+	public EEnum getSInformationModelKind()
+	{
+		return sInformationModelKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getSElementNature()
 	{
 		return sElementNatureEEnum;
@@ -1206,11 +1247,13 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 
 		sValueTypeEClass = createEClass(SVALUE_TYPE);
 
-		sDomainEClass = createEClass(SDOMAIN);
-		createEAttribute(sDomainEClass, SDOMAIN__NAME);
-		createEReference(sDomainEClass, SDOMAIN__IMPORTS);
-		createEReference(sDomainEClass, SDOMAIN__TYPES);
-		createEReference(sDomainEClass, SDOMAIN__AGGREGATES);
+		sInformationModelEClass = createEClass(SINFORMATION_MODEL);
+		createEAttribute(sInformationModelEClass, SINFORMATION_MODEL__DEDUCED);
+		createEAttribute(sInformationModelEClass, SINFORMATION_MODEL__KIND);
+		createEAttribute(sInformationModelEClass, SINFORMATION_MODEL__NAME);
+		createEReference(sInformationModelEClass, SINFORMATION_MODEL__IMPORTS);
+		createEReference(sInformationModelEClass, SINFORMATION_MODEL__TYPES);
+		createEReference(sInformationModelEClass, SINFORMATION_MODEL__AGGREGATES);
 
 		sNamedElementEClass = createEClass(SNAMED_ELEMENT);
 		createEAttribute(sNamedElementEClass, SNAMED_ELEMENT__NAME);
@@ -1306,6 +1349,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		createEReference(sGrabAggregateRuleEClass, SGRAB_AGGREGATE_RULE__AGGREGATE);
 
 		// Create enums
+		sInformationModelKindEEnum = createEEnum(SINFORMATION_MODEL_KIND);
 		sElementNatureEEnum = createEEnum(SELEMENT_NATURE);
 		sAssociationKindEEnum = createEEnum(SASSOCIATION_KIND);
 	}
@@ -1373,11 +1417,13 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 
 		initEClass(sValueTypeEClass, SValueType.class, "SValueType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sDomainEClass, SDomain.class, "SDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSDomain_Name(), ecorePackage.getEString(), "name", null, 0, 1, SDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSDomain_Imports(), this.getSImport(), null, "imports", null, 0, -1, SDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSDomain_Types(), this.getSType(), null, "types", null, 0, -1, SDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSDomain_Aggregates(), this.getSAggregate(), null, "aggregates", null, 0, -1, SDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(sInformationModelEClass, SInformationModel.class, "SInformationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSInformationModel_Deduced(), ecorePackage.getEBoolean(), "deduced", null, 0, 1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSInformationModel_Kind(), this.getSInformationModelKind(), "kind", null, 0, 1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSInformationModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSInformationModel_Imports(), this.getSImport(), null, "imports", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSInformationModel_Types(), this.getSType(), null, "types", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSInformationModel_Aggregates(), this.getSAggregate(), null, "aggregates", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sNamedElementEClass, SNamedElement.class, "SNamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, SNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1414,7 +1460,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		initEClass(sPrimitiveEClass, SPrimitive.class, "SPrimitive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSPrimitive_Redefines(), this.getSPrimitive(), null, "redefines", null, 0, 1, SPrimitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSPrimitive_Realizes(), theBasePackage.getDPrimitive(), null, "realizes", null, 0, 1, SPrimitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSPrimitive_Archetype(), ecorePackage.getEBoolean(), "archetype", null, 0, 1, SPrimitive.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSPrimitive_Archetype(), ecorePackage.getEBoolean(), "archetype", null, 0, 1, SPrimitive.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(sEnumerationEClass, SEnumeration.class, "SEnumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSEnumeration_Literals(), this.getSLiteral(), null, "literals", null, 0, -1, SEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1473,6 +1519,11 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		initEReference(getSGrabAggregateRule_Aggregate(), theBasePackage.getDAggregate(), null, "aggregate", null, 0, 1, SGrabAggregateRule.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
+		initEEnum(sInformationModelKindEEnum, SInformationModelKind.class, "SInformationModelKind");
+		addEEnumLiteral(sInformationModelKindEEnum, SInformationModelKind.BASE);
+		addEEnumLiteral(sInformationModelKindEEnum, SInformationModelKind.INTERFACE);
+		addEEnumLiteral(sInformationModelKindEEnum, SInformationModelKind.CORE);
+
 		initEEnum(sElementNatureEEnum, SElementNature.class, "SElementNature");
 		addEEnumLiteral(sElementNatureEEnum, SElementNature.GENUINE);
 		addEEnumLiteral(sElementNatureEEnum, SElementNature.DEDUCTION_RULE);

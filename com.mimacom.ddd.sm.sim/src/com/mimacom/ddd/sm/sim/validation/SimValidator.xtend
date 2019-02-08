@@ -16,7 +16,7 @@ import com.mimacom.ddd.sm.sim.SComplexType
 import com.mimacom.ddd.sm.sim.SCondition
 import com.mimacom.ddd.sm.sim.SDetailType
 import com.mimacom.ddd.sm.sim.SDitchRule
-import com.mimacom.ddd.sm.sim.SDomain
+import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.SEnumeration
 import com.mimacom.ddd.sm.sim.SFeature
 import com.mimacom.ddd.sm.sim.SGrabRule
@@ -46,7 +46,7 @@ class SimValidator extends AbstractSimValidator {
 	
 	@Check
 	def checkAggregateHasSingleRoot(SAggregate a) {
-		val roots = a.types.filter(SRootType)
+		val roots = a.types.filter(SRootType).filter[nature != DEDUCTION_RULE]
 		if(roots.size > 1) {
 			for (t : roots) {
 				error('Aggregate can only declare a single root or relationship', t, SimPackage.Literals.SNAMED_ELEMENT__NAME)
@@ -69,10 +69,10 @@ class SimValidator extends AbstractSimValidator {
 			if(t.superType.eClass !== t.eClass) {
 				error('Supertype is not compatible', t, SimPackage.Literals.SNAMED_ELEMENT__NAME)
 			}
-			val tDomain = EcoreUtil2.getContainerOfType(t, SDomain)
-			val superTypeDomain = EcoreUtil2.getContainerOfType(t.superType, SDomain)
+			val tDomain = EcoreUtil2.getContainerOfType(t, SInformationModel)
+			val superTypeDomain = EcoreUtil2.getContainerOfType(t.superType, SInformationModel)
 			if(superTypeDomain !== tDomain) {
-				error('Supertype must be in same domain', t, SimPackage.Literals.SNAMED_ELEMENT__NAME)
+				error('Supertype must be in same information model', t, SimPackage.Literals.SNAMED_ELEMENT__NAME)
 			}
 		}
 	}
@@ -174,14 +174,14 @@ class SimValidator extends AbstractSimValidator {
 
 	@Check
 	def checkAttributeIsValueType(SAttribute a) {
-		if(! (a.type instanceof SValueType)) {
+		if (a.nature != DEDUCTION_RULE && ! (a.type instanceof SValueType)) {
 			error('Refererenced type is not a ValueType', a,SimPackage.Literals.SFEATURE__TYPE)
 		}
 	}
 
 	@Check
 	def checkAssocitionToRootType(SAssociation a) {
-		if(! (a.type instanceof SRootType)) {
+		if(a.nature != DEDUCTION_RULE && ! (a.type instanceof SRootType)) {
 			error('Refererenced type is not a RootType', a,SimPackage.Literals.SFEATURE__TYPE)
 		}
 	}
@@ -196,7 +196,7 @@ class SimValidator extends AbstractSimValidator {
 // // Parameters: restrictions on their types
 	@Check
 	def checkParameterIsValueType(SQueryParameter p) {
-		if(p.type instanceof SValueType && ! (p.type == p.eContainer)) {
+		if (p.nature != DEDUCTION_RULE && p.type instanceof SValueType && ! (p.type == p.eContainer)) {
 			error('Refererenced type is not a ValueType nor the query\'s own container', p,SimPackage.Literals.SQUERY_PARAMETER__TYPE)
 		}
 	}
@@ -211,8 +211,8 @@ class SimValidator extends AbstractSimValidator {
 	}
 
 //	@Check
-//	def void checkTypeNameStartsWithCapital(SDomain d) {
-//		if (DEFAULT_IMPORT_TYPES == d.name || DEFAULT_IMPORT_FUNCTIONS == d.name) {
+//	def void checkTypeNameStartsWithCapital(SInformationModel m) {
+//		if (DEFAULT_IMPORT_TYPES == dm.name || DEFAULT_IMPORT_FUNCTIONS == m.name) {
 //			return
 //		}
 //		checkNameStartsWithCapital(d)

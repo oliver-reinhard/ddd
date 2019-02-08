@@ -86,21 +86,10 @@ public interface SPrimitive extends SSimpleType
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Archetype</em>' attribute.
-	 * @see #setArchetype(boolean)
 	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSPrimitive_Archetype()
-	 * @model transient="true" volatile="true" derived="true"
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	boolean isArchetype();
-
-	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.sm.sim.SPrimitive#isArchetype <em>Archetype</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Archetype</em>' attribute.
-	 * @see #isArchetype()
-	 * @generated
-	 */
-	void setArchetype(boolean value);
 
 } // SPrimitive

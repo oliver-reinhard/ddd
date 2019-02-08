@@ -10,13 +10,13 @@ import com.mimacom.ddd.sm.sim.SAttribute;
 import com.mimacom.ddd.sm.sim.SCondition;
 import com.mimacom.ddd.sm.sim.SDetailType;
 import com.mimacom.ddd.sm.sim.SDitchRule;
-import com.mimacom.ddd.sm.sim.SDomain;
 import com.mimacom.ddd.sm.sim.SEnumeration;
 import com.mimacom.ddd.sm.sim.SExpression;
 import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
 import com.mimacom.ddd.sm.sim.SImport;
+import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SLiteral;
 import com.mimacom.ddd.sm.sim.SMorphRule;
 import com.mimacom.ddd.sm.sim.SMultiplicity;
@@ -84,9 +84,6 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case SimPackage.SDOMAIN:
-				sequence_SDomain(context, (SDomain) semanticObject); 
-				return; 
 			case SimPackage.SENUMERATION:
 				sequence_SEnumeration(context, (SEnumeration) semanticObject); 
 				return; 
@@ -119,6 +116,9 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				else break;
 			case SimPackage.SIMPORT:
 				sequence_SImport(context, (SImport) semanticObject); 
+				return; 
+			case SimPackage.SINFORMATION_MODEL:
+				sequence_SInformationModel(context, (SInformationModel) semanticObject); 
 				return; 
 			case SimPackage.SLITERAL:
 				sequence_SLiteral(context, (SLiteral) semanticObject); 
@@ -351,18 +351,6 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     SDomain returns SDomain
-	 *
-	 * Constraint:
-	 *     (name=SQualifiedName imports+=SImport* (types+=SType | aggregates+=SAggregate)*)
-	 */
-	protected void sequence_SDomain(ISerializationContext context, SDomain semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     SType returns SEnumeration
 	 *     SEnumeration returns SEnumeration
 	 *
@@ -489,6 +477,18 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getSImportAccess().getImportedNamespaceSQualifiedNameWithWildcardParserRuleCall_1_0(), semanticObject.getImportedNamespace());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SInformationModel returns SInformationModel
+	 *
+	 * Constraint:
+	 *     (deduced?='deduce'? kind=SInformationModelKind name=SQualifiedName imports+=SImport* (types+=SType | aggregates+=SAggregate)*)
+	 */
+	protected void sequence_SInformationModel(ISerializationContext context, SInformationModel semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -6,7 +6,7 @@ package com.mimacom.ddd.sm.sim.formatting2
 import com.google.inject.Inject
 import com.mimacom.ddd.sm.sim.SAggregate
 import com.mimacom.ddd.sm.sim.SComplexType
-import com.mimacom.ddd.sm.sim.SDomain
+import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.SEnumeration
 import com.mimacom.ddd.sm.sim.SImport
 import com.mimacom.ddd.sm.sim.SMorphRule
@@ -19,18 +19,18 @@ class SimFormatter extends AbstractFormatter2 {
 	
 	@Inject extension SimGrammarAccess
 
-	def dispatch void format(SDomain domain, extension IFormattableDocument document) {
+	def dispatch void format(SInformationModel model, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		domain.regionFor.assignment(SDomainAccess.nameAssignment_1).append[newLines = 2]
-		for (i : domain.imports) {
-			i.append[newLine]
+		model.regionFor.assignment(SInformationModelAccess.nameAssignment_4).append[newLines = 2]
+		for (i : model.imports) {
+			i.append[if (i == model.imports.last) newLines=2 else newLine]
 		}
-		domain.imports.last.append[newLines = 2]
+		model.imports.last.append[newLines = 2]
 		
-		for (type : domain.types) {
+		for (type : model.types) {
 			type.format
 		}
-		for (aggregate : domain.aggregates) {
+		for (aggregate : model.aggregates) {
 			aggregate.format
 		}
 	}

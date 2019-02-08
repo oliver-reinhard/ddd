@@ -44,7 +44,7 @@ import com.mimacom.ddd.sm.sim.services.SimGrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "SDomain";
+    	return "SInformationModel";
    	}
 
    	@Override
@@ -61,15 +61,15 @@ import com.mimacom.ddd.sm.sim.services.SimGrammarAccess;
     }
 }
 
-// Entry rule entryRuleSDomain
-entryRuleSDomain returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSDomainRule()); }
-	iv_ruleSDomain=ruleSDomain
-	{ $current=$iv_ruleSDomain.current; }
+// Entry rule entryRuleSInformationModel
+entryRuleSInformationModel returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSInformationModelRule()); }
+	iv_ruleSInformationModel=ruleSInformationModel
+	{ $current=$iv_ruleSInformationModel.current; }
 	EOF;
 
-// Rule SDomain
-ruleSDomain returns [EObject current=null]
+// Rule SInformationModel
+ruleSInformationModel returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -77,24 +77,61 @@ ruleSDomain returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='domain'
+		(
+			(
+				lv_deduced_0_0='deduce'
+				{
+					newLeafNode(lv_deduced_0_0, grammarAccess.getSInformationModelAccess().getDeducedDeduceKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSInformationModelRule());
+					}
+					setWithLastConsumed($current, "deduced", true, "deduce");
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSInformationModelAccess().getKindSInformationModelKindEnumRuleCall_1_0());
+				}
+				lv_kind_1_0=ruleSInformationModelKind
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSInformationModelRule());
+					}
+					set(
+						$current,
+						"kind",
+						lv_kind_1_0,
+						"com.mimacom.ddd.sm.sim.Sim.SInformationModelKind");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2='information'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getSDomainAccess().getDomainKeyword_0());
+			newLeafNode(otherlv_2, grammarAccess.getSInformationModelAccess().getInformationKeyword_2());
+		}
+		otherlv_3='model'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getSInformationModelAccess().getModelKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSDomainAccess().getNameSQualifiedNameParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getSInformationModelAccess().getNameSQualifiedNameParserRuleCall_4_0());
 				}
-				lv_name_1_0=ruleSQualifiedName
+				lv_name_4_0=ruleSQualifiedName
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSDomainRule());
+						$current = createModelElementForParent(grammarAccess.getSInformationModelRule());
 					}
 					set(
 						$current,
 						"name",
-						lv_name_1_0,
+						lv_name_4_0,
 						"com.mimacom.ddd.sm.sim.Sim.SQualifiedName");
 					afterParserOrEnumRuleCall();
 				}
@@ -103,17 +140,17 @@ ruleSDomain returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSDomainAccess().getImportsSImportParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getSInformationModelAccess().getImportsSImportParserRuleCall_5_0());
 				}
-				lv_imports_2_0=ruleSImport
+				lv_imports_5_0=ruleSImport
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSDomainRule());
+						$current = createModelElementForParent(grammarAccess.getSInformationModelRule());
 					}
 					add(
 						$current,
 						"imports",
-						lv_imports_2_0,
+						lv_imports_5_0,
 						"com.mimacom.ddd.sm.sim.Sim.SImport");
 					afterParserOrEnumRuleCall();
 				}
@@ -123,17 +160,17 @@ ruleSDomain returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSDomainAccess().getTypesSTypeParserRuleCall_3_0_0());
+						newCompositeNode(grammarAccess.getSInformationModelAccess().getTypesSTypeParserRuleCall_6_0_0());
 					}
-					lv_types_3_0=ruleSType
+					lv_types_6_0=ruleSType
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSDomainRule());
+							$current = createModelElementForParent(grammarAccess.getSInformationModelRule());
 						}
 						add(
 							$current,
 							"types",
-							lv_types_3_0,
+							lv_types_6_0,
 							"com.mimacom.ddd.sm.sim.Sim.SType");
 						afterParserOrEnumRuleCall();
 					}
@@ -143,17 +180,17 @@ ruleSDomain returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSDomainAccess().getAggregatesSAggregateParserRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getSInformationModelAccess().getAggregatesSAggregateParserRuleCall_6_1_0());
 					}
-					lv_aggregates_4_0=ruleSAggregate
+					lv_aggregates_7_0=ruleSAggregate
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSDomainRule());
+							$current = createModelElementForParent(grammarAccess.getSInformationModelRule());
 						}
 						add(
 							$current,
 							"aggregates",
-							lv_aggregates_4_0,
+							lv_aggregates_7_0,
 							"com.mimacom.ddd.sm.sim.Sim.SAggregate");
 						afterParserOrEnumRuleCall();
 					}
@@ -3502,6 +3539,41 @@ ruleMULTIPLICITY returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleTo
 			$current.merge(kw);
 			newLeafNode(kw, grammarAccess.getMULTIPLICITYAccess().getAsteriskKeyword_1());
 		}
+	)
+;
+
+// Rule SInformationModelKind
+ruleSInformationModelKind returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='base'
+			{
+				$current = grammarAccess.getSInformationModelKindAccess().getBASEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getSInformationModelKindAccess().getBASEEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='interface'
+			{
+				$current = grammarAccess.getSInformationModelKindAccess().getINTERFACEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getSInformationModelKindAccess().getINTERFACEEnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='core'
+			{
+				$current = grammarAccess.getSInformationModelKindAccess().getCOREEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getSInformationModelKindAccess().getCOREEnumLiteralDeclaration_2());
+			}
+		)
 	)
 ;
 

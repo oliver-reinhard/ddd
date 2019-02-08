@@ -18,6 +18,7 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import org.eclipse.xtext.resource.SaveOptions
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.serializer.ISerializer
+import com.mimacom.ddd.sm.sim.SInformationModel
 
 /**
  * Generates code from your model files on save.
@@ -43,20 +44,24 @@ class SimGenerator extends AbstractGenerator {
 	
 	def boolean removeTransformationItems(Resource resource) {
 		var hadSyntheticItems = false
-		val deducibles = resource.allContents.filter(SDeducibleElement)
-		val elementsToRemove = Lists.newArrayList
-		while (deducibles.hasNext) {
-			val e = deducibles.next
-			if (e.deductionRule !== null ) {
-				elementsToRemove.add(e)
-			} else {
-				e.deductionRule = null
-				hadSyntheticItems = hadSyntheticItems || (e.synthetic !== null && e.synthetic)
-				e.unsetSynthetic
+		val model = resource.contents.head
+		if (model instanceof SInformationModel) {
+			model.deduced = false
+			val deducibles = resource.allContents.filter(SDeducibleElement)
+			val elementsToRemove = Lists.newArrayList
+			while (deducibles.hasNext) {
+				val e = deducibles.next
+				if (e.deductionRule !== null ) {
+					elementsToRemove.add(e)
+				} else {
+					e.deductionRule = null
+					hadSyntheticItems = hadSyntheticItems || (e.synthetic !== null && e.synthetic)
+					e.unsetSynthetic
+				}
 			}
-		}
-		for (e : elementsToRemove) {
-			EcoreUtil.remove(e)
+			for (e : elementsToRemove) {
+				EcoreUtil.remove(e)
+			}
 		}
 		return hadSyntheticItems
 	}

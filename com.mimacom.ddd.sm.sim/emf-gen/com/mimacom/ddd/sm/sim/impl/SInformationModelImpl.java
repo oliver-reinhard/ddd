@@ -4,8 +4,9 @@
 package com.mimacom.ddd.sm.sim.impl;
 
 import com.mimacom.ddd.sm.sim.SAggregate;
-import com.mimacom.ddd.sm.sim.SDomain;
 import com.mimacom.ddd.sm.sim.SImport;
+import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SInformationModelKind;
 import com.mimacom.ddd.sm.sim.SType;
 import com.mimacom.ddd.sm.sim.SimPackage;
 
@@ -27,22 +28,64 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>SDomain</b></em>'.
+ * An implementation of the model object '<em><b>SInformation Model</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.sim.impl.SDomainImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sim.impl.SDomainImpl#getImports <em>Imports</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sim.impl.SDomainImpl#getTypes <em>Types</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sim.impl.SDomainImpl#getAggregates <em>Aggregates</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#isDeduced <em>Deduced</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getKind <em>Kind</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getImports <em>Imports</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getTypes <em>Types</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getAggregates <em>Aggregates</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SDomainImpl extends MinimalEObjectImpl.Container implements SDomain
+public class SInformationModelImpl extends MinimalEObjectImpl.Container implements SInformationModel
 {
+	/**
+	 * The default value of the '{@link #isDeduced() <em>Deduced</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDeduced()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DEDUCED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isDeduced() <em>Deduced</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDeduced()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean deduced = DEDUCED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKind()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final SInformationModelKind KIND_EDEFAULT = SInformationModelKind.BASE;
+
+	/**
+	 * The cached value of the '{@link #getKind() <em>Kind</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKind()
+	 * @generated
+	 * @ordered
+	 */
+	protected SInformationModelKind kind = KIND_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -98,7 +141,7 @@ public class SDomainImpl extends MinimalEObjectImpl.Container implements SDomain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SDomainImpl()
+	protected SInformationModelImpl()
 	{
 		super();
 	}
@@ -111,7 +154,57 @@ public class SDomainImpl extends MinimalEObjectImpl.Container implements SDomain
 	@Override
 	protected EClass eStaticClass()
 	{
-		return SimPackage.Literals.SDOMAIN;
+		return SimPackage.Literals.SINFORMATION_MODEL;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isDeduced()
+	{
+		return deduced;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDeduced(boolean newDeduced)
+	{
+		boolean oldDeduced = deduced;
+		deduced = newDeduced;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SINFORMATION_MODEL__DEDUCED, oldDeduced, deduced));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SInformationModelKind getKind()
+	{
+		return kind;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setKind(SInformationModelKind newKind)
+	{
+		SInformationModelKind oldKind = kind;
+		kind = newKind == null ? KIND_EDEFAULT : newKind;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SINFORMATION_MODEL__KIND, oldKind, kind));
 	}
 
 	/**
@@ -136,7 +229,7 @@ public class SDomainImpl extends MinimalEObjectImpl.Container implements SDomain
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SDOMAIN__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SINFORMATION_MODEL__NAME, oldName, name));
 	}
 
 	/**
@@ -149,7 +242,7 @@ public class SDomainImpl extends MinimalEObjectImpl.Container implements SDomain
 	{
 		if (imports == null)
 		{
-			imports = new EObjectContainmentEList<SImport>(SImport.class, this, SimPackage.SDOMAIN__IMPORTS);
+			imports = new EObjectContainmentEList<SImport>(SImport.class, this, SimPackage.SINFORMATION_MODEL__IMPORTS);
 		}
 		return imports;
 	}
@@ -164,7 +257,7 @@ public class SDomainImpl extends MinimalEObjectImpl.Container implements SDomain
 	{
 		if (types == null)
 		{
-			types = new EObjectContainmentEList<SType>(SType.class, this, SimPackage.SDOMAIN__TYPES);
+			types = new EObjectContainmentEList<SType>(SType.class, this, SimPackage.SINFORMATION_MODEL__TYPES);
 		}
 		return types;
 	}
@@ -179,7 +272,7 @@ public class SDomainImpl extends MinimalEObjectImpl.Container implements SDomain
 	{
 		if (aggregates == null)
 		{
-			aggregates = new EObjectContainmentEList<SAggregate>(SAggregate.class, this, SimPackage.SDOMAIN__AGGREGATES);
+			aggregates = new EObjectContainmentEList<SAggregate>(SAggregate.class, this, SimPackage.SINFORMATION_MODEL__AGGREGATES);
 		}
 		return aggregates;
 	}
@@ -194,11 +287,11 @@ public class SDomainImpl extends MinimalEObjectImpl.Container implements SDomain
 	{
 		switch (featureID)
 		{
-			case SimPackage.SDOMAIN__IMPORTS:
+			case SimPackage.SINFORMATION_MODEL__IMPORTS:
 				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
-			case SimPackage.SDOMAIN__TYPES:
+			case SimPackage.SINFORMATION_MODEL__TYPES:
 				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
-			case SimPackage.SDOMAIN__AGGREGATES:
+			case SimPackage.SINFORMATION_MODEL__AGGREGATES:
 				return ((InternalEList<?>)getAggregates()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -214,13 +307,17 @@ public class SDomainImpl extends MinimalEObjectImpl.Container implements SDomain
 	{
 		switch (featureID)
 		{
-			case SimPackage.SDOMAIN__NAME:
+			case SimPackage.SINFORMATION_MODEL__DEDUCED:
+				return isDeduced();
+			case SimPackage.SINFORMATION_MODEL__KIND:
+				return getKind();
+			case SimPackage.SINFORMATION_MODEL__NAME:
 				return getName();
-			case SimPackage.SDOMAIN__IMPORTS:
+			case SimPackage.SINFORMATION_MODEL__IMPORTS:
 				return getImports();
-			case SimPackage.SDOMAIN__TYPES:
+			case SimPackage.SINFORMATION_MODEL__TYPES:
 				return getTypes();
-			case SimPackage.SDOMAIN__AGGREGATES:
+			case SimPackage.SINFORMATION_MODEL__AGGREGATES:
 				return getAggregates();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -237,18 +334,24 @@ public class SDomainImpl extends MinimalEObjectImpl.Container implements SDomain
 	{
 		switch (featureID)
 		{
-			case SimPackage.SDOMAIN__NAME:
+			case SimPackage.SINFORMATION_MODEL__DEDUCED:
+				setDeduced((Boolean)newValue);
+				return;
+			case SimPackage.SINFORMATION_MODEL__KIND:
+				setKind((SInformationModelKind)newValue);
+				return;
+			case SimPackage.SINFORMATION_MODEL__NAME:
 				setName((String)newValue);
 				return;
-			case SimPackage.SDOMAIN__IMPORTS:
+			case SimPackage.SINFORMATION_MODEL__IMPORTS:
 				getImports().clear();
 				getImports().addAll((Collection<? extends SImport>)newValue);
 				return;
-			case SimPackage.SDOMAIN__TYPES:
+			case SimPackage.SINFORMATION_MODEL__TYPES:
 				getTypes().clear();
 				getTypes().addAll((Collection<? extends SType>)newValue);
 				return;
-			case SimPackage.SDOMAIN__AGGREGATES:
+			case SimPackage.SINFORMATION_MODEL__AGGREGATES:
 				getAggregates().clear();
 				getAggregates().addAll((Collection<? extends SAggregate>)newValue);
 				return;
@@ -266,16 +369,22 @@ public class SDomainImpl extends MinimalEObjectImpl.Container implements SDomain
 	{
 		switch (featureID)
 		{
-			case SimPackage.SDOMAIN__NAME:
+			case SimPackage.SINFORMATION_MODEL__DEDUCED:
+				setDeduced(DEDUCED_EDEFAULT);
+				return;
+			case SimPackage.SINFORMATION_MODEL__KIND:
+				setKind(KIND_EDEFAULT);
+				return;
+			case SimPackage.SINFORMATION_MODEL__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case SimPackage.SDOMAIN__IMPORTS:
+			case SimPackage.SINFORMATION_MODEL__IMPORTS:
 				getImports().clear();
 				return;
-			case SimPackage.SDOMAIN__TYPES:
+			case SimPackage.SINFORMATION_MODEL__TYPES:
 				getTypes().clear();
 				return;
-			case SimPackage.SDOMAIN__AGGREGATES:
+			case SimPackage.SINFORMATION_MODEL__AGGREGATES:
 				getAggregates().clear();
 				return;
 		}
@@ -292,13 +401,17 @@ public class SDomainImpl extends MinimalEObjectImpl.Container implements SDomain
 	{
 		switch (featureID)
 		{
-			case SimPackage.SDOMAIN__NAME:
+			case SimPackage.SINFORMATION_MODEL__DEDUCED:
+				return deduced != DEDUCED_EDEFAULT;
+			case SimPackage.SINFORMATION_MODEL__KIND:
+				return kind != KIND_EDEFAULT;
+			case SimPackage.SINFORMATION_MODEL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case SimPackage.SDOMAIN__IMPORTS:
+			case SimPackage.SINFORMATION_MODEL__IMPORTS:
 				return imports != null && !imports.isEmpty();
-			case SimPackage.SDOMAIN__TYPES:
+			case SimPackage.SINFORMATION_MODEL__TYPES:
 				return types != null && !types.isEmpty();
-			case SimPackage.SDOMAIN__AGGREGATES:
+			case SimPackage.SINFORMATION_MODEL__AGGREGATES:
 				return aggregates != null && !aggregates.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -315,10 +428,14 @@ public class SDomainImpl extends MinimalEObjectImpl.Container implements SDomain
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
+		result.append(" (deduced: ");
+		result.append(deduced);
+		result.append(", kind: ");
+		result.append(kind);
+		result.append(", name: ");
 		result.append(name);
 		result.append(')');
 		return result.toString();
 	}
 
-} //SDomainImpl
+} //SInformationModelImpl

@@ -87,10 +87,10 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SDOMAIN:
+			case SimPackage.SINFORMATION_MODEL:
 			{
-				SDomain sDomain = (SDomain)theEObject;
-				T result = caseSDomain(sDomain);
+				SInformationModel sInformationModel = (SInformationModel)theEObject;
+				T result = caseSInformationModel(sInformationModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -388,17 +388,17 @@ public class SimSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SDomain</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SInformation Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SDomain</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SInformation Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSDomain(SDomain object)
+	public T caseSInformationModel(SInformationModel object)
 	{
 		return null;
 	}

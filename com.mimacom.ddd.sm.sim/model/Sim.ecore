@@ -3,7 +3,9 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sim" nsURI="http://www.mimacom.com/ddd/sm/sim/Sim" nsPrefix="sim">
   <eClassifiers xsi:type="ecore:EClass" name="SIdentityType" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="SValueType" abstract="true" interface="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SDomain">
+  <eClassifiers xsi:type="ecore:EClass" name="SInformationModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deduced" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//SInformationModelKind"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
         eType="#//SImport" containment="true"/>
@@ -11,6 +13,11 @@
         eType="#//SType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregates" upperBound="-1"
         eType="#//SAggregate" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SInformationModelKind">
+    <eLiterals name="BASE"/>
+    <eLiterals name="INTERFACE" value="1"/>
+    <eLiterals name="CORE" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SNamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -62,7 +69,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="redefines" eType="#//SPrimitive"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="realizes" eType="ecore:EClass ../../com.mimacom.ddd.dm.dmx/model/base.ecore#//DPrimitive"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="archetype" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        volatile="true" transient="true" derived="true"/>
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SEnumeration" eSuperTypes="#//SSimpleType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="literals" upperBound="-1"

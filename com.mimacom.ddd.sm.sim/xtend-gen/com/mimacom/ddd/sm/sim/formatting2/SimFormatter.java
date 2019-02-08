@@ -3,14 +3,15 @@
  */
 package com.mimacom.ddd.sm.sim.formatting2;
 
+import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.mimacom.ddd.sm.sim.SAggregate;
 import com.mimacom.ddd.sm.sim.SComplexType;
 import com.mimacom.ddd.sm.sim.SCondition;
-import com.mimacom.ddd.sm.sim.SDomain;
 import com.mimacom.ddd.sm.sim.SEnumeration;
 import com.mimacom.ddd.sm.sim.SFeature;
 import com.mimacom.ddd.sm.sim.SImport;
+import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SLiteral;
 import com.mimacom.ddd.sm.sim.SMorphRule;
 import com.mimacom.ddd.sm.sim.SMultiplicity;
@@ -35,27 +36,33 @@ public class SimFormatter extends AbstractFormatter2 {
   @Extension
   private SimGrammarAccess _simGrammarAccess;
   
-  protected void _format(final SDomain domain, @Extension final IFormattableDocument document) {
+  protected void _format(final SInformationModel model, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.append(this.textRegionExtensions.regionFor(domain).assignment(this._simGrammarAccess.getSDomainAccess().getNameAssignment_1()), _function);
-    EList<SImport> _imports = domain.getImports();
+    document.append(this.textRegionExtensions.regionFor(model).assignment(this._simGrammarAccess.getSInformationModelAccess().getNameAssignment_4()), _function);
+    EList<SImport> _imports = model.getImports();
     for (final SImport i : _imports) {
       final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
-        it.newLine();
+        SImport _last = IterableExtensions.<SImport>last(model.getImports());
+        boolean _equals = Objects.equal(i, _last);
+        if (_equals) {
+          it.setNewLines(2);
+        } else {
+          it.newLine();
+        }
       };
       document.<SImport>append(i, _function_1);
     }
     final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.<SImport>append(IterableExtensions.<SImport>last(domain.getImports()), _function_2);
-    EList<SType> _types = domain.getTypes();
+    document.<SImport>append(IterableExtensions.<SImport>last(model.getImports()), _function_2);
+    EList<SType> _types = model.getTypes();
     for (final SType type : _types) {
       document.<SType>format(type);
     }
-    EList<SAggregate> _aggregates = domain.getAggregates();
+    EList<SAggregate> _aggregates = model.getAggregates();
     for (final SAggregate aggregate : _aggregates) {
       document.<SAggregate>format(aggregate);
     }
@@ -185,11 +192,11 @@ public class SimFormatter extends AbstractFormatter2 {
     } else if (en instanceof SAggregate) {
       _format((SAggregate)en, document);
       return;
-    } else if (en instanceof SDomain) {
-      _format((SDomain)en, document);
-      return;
     } else if (en instanceof SImport) {
       _format((SImport)en, document);
+      return;
+    } else if (en instanceof SInformationModel) {
+      _format((SInformationModel)en, document);
       return;
     } else if (en instanceof EObject) {
       _format((EObject)en, document);

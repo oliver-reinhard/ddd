@@ -5,10 +5,13 @@ import com.google.common.collect.Maps;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.sm.sim.SPrimitive;
 import com.mimacom.ddd.sm.sim.SType;
+import com.mimacom.ddd.sm.sim.SimFactory;
 import java.util.Iterator;
 import java.util.Map;
 import org.eclipse.xtext.resource.DerivedStateAwareResource;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
+import org.eclipse.xtext.xbase.lib.ObjectExtensions;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @SuppressWarnings("all")
 public class TransformationContext {
@@ -27,6 +30,10 @@ public class TransformationContext {
       }.apply());
     }
   }
+  
+  private static final SPrimitive UNKNOWN_TYPE = ObjectExtensions.<SPrimitive>operator_doubleArrow(SimFactory.eINSTANCE.createSPrimitive(), ((Procedure1<SPrimitive>) (SPrimitive it) -> {
+    it.setName("UNKNOWN_TYPE");
+  }));
   
   private final Map<DType, SType> dTypeToSTypeMap;
   

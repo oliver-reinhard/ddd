@@ -66,7 +66,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	{
 		switch (eClass.getClassifierID())
 		{
-			case SimPackage.SDOMAIN: return createSDomain();
+			case SimPackage.SINFORMATION_MODEL: return createSInformationModel();
 			case SimPackage.SNAMED_ELEMENT: return createSNamedElement();
 			case SimPackage.SIMPORT: return createSImport();
 			case SimPackage.SAGGREGATE: return createSAggregate();
@@ -106,6 +106,8 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	{
 		switch (eDataType.getClassifierID())
 		{
+			case SimPackage.SINFORMATION_MODEL_KIND:
+				return createSInformationModelKindFromString(eDataType, initialValue);
 			case SimPackage.SELEMENT_NATURE:
 				return createSElementNatureFromString(eDataType, initialValue);
 			case SimPackage.SASSOCIATION_KIND:
@@ -125,6 +127,8 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	{
 		switch (eDataType.getClassifierID())
 		{
+			case SimPackage.SINFORMATION_MODEL_KIND:
+				return convertSInformationModelKindToString(eDataType, instanceValue);
 			case SimPackage.SELEMENT_NATURE:
 				return convertSElementNatureToString(eDataType, instanceValue);
 			case SimPackage.SASSOCIATION_KIND:
@@ -140,10 +144,10 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	@Override
-	public SDomain createSDomain()
+	public SInformationModel createSInformationModel()
 	{
-		SDomainImpl sDomain = new SDomainImpl();
-		return sDomain;
+		SInformationModelImpl sInformationModel = new SInformationModelImpl();
+		return sInformationModel;
 	}
 
 	/**
@@ -432,6 +436,28 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	{
 		SGrabAggregateRuleImplCustom sGrabAggregateRule = new SGrabAggregateRuleImplCustom();
 		return sGrabAggregateRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SInformationModelKind createSInformationModelKindFromString(EDataType eDataType, String initialValue)
+	{
+		SInformationModelKind result = SInformationModelKind.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSInformationModelKindToString(EDataType eDataType, Object instanceValue)
+	{
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

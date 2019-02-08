@@ -27,61 +27,82 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	
-	public class SDomainElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SDomain");
+	public class SInformationModelElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SInformationModel");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cDomainKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameSQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cImportsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cImportsSImportParserRuleCall_2_0 = (RuleCall)cImportsAssignment_2.eContents().get(0);
-		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
-		private final Assignment cTypesAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
-		private final RuleCall cTypesSTypeParserRuleCall_3_0_0 = (RuleCall)cTypesAssignment_3_0.eContents().get(0);
-		private final Assignment cAggregatesAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
-		private final RuleCall cAggregatesSAggregateParserRuleCall_3_1_0 = (RuleCall)cAggregatesAssignment_3_1.eContents().get(0);
+		private final Assignment cDeducedAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cDeducedDeduceKeyword_0_0 = (Keyword)cDeducedAssignment_0.eContents().get(0);
+		private final Assignment cKindAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cKindSInformationModelKindEnumRuleCall_1_0 = (RuleCall)cKindAssignment_1.eContents().get(0);
+		private final Keyword cInformationKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cModelKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameSQualifiedNameParserRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Assignment cImportsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cImportsSImportParserRuleCall_5_0 = (RuleCall)cImportsAssignment_5.eContents().get(0);
+		private final Alternatives cAlternatives_6 = (Alternatives)cGroup.eContents().get(6);
+		private final Assignment cTypesAssignment_6_0 = (Assignment)cAlternatives_6.eContents().get(0);
+		private final RuleCall cTypesSTypeParserRuleCall_6_0_0 = (RuleCall)cTypesAssignment_6_0.eContents().get(0);
+		private final Assignment cAggregatesAssignment_6_1 = (Assignment)cAlternatives_6.eContents().get(1);
+		private final RuleCall cAggregatesSAggregateParserRuleCall_6_1_0 = (RuleCall)cAggregatesAssignment_6_1.eContents().get(0);
 		
-		//SDomain:
-		//	'domain'
+		//SInformationModel:
+		//	deduced?='deduce'?
+		//	kind=SInformationModelKind 'information' 'model'
 		//	name=SQualifiedName
 		//	//	(description=DRichText)?
 		//	imports+=SImport* (types+=SType | aggregates+=SAggregate)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'domain' name=SQualifiedName //	(description=DRichText)?
+		//deduced?='deduce'? kind=SInformationModelKind 'information' 'model' name=SQualifiedName //	(description=DRichText)?
 		//imports+=SImport* (types+=SType | aggregates+=SAggregate)*
 		public Group getGroup() { return cGroup; }
 		
-		//'domain'
-		public Keyword getDomainKeyword_0() { return cDomainKeyword_0; }
+		//deduced?='deduce'?
+		public Assignment getDeducedAssignment_0() { return cDeducedAssignment_0; }
+		
+		//'deduce'
+		public Keyword getDeducedDeduceKeyword_0_0() { return cDeducedDeduceKeyword_0_0; }
+		
+		//kind=SInformationModelKind
+		public Assignment getKindAssignment_1() { return cKindAssignment_1; }
+		
+		//SInformationModelKind
+		public RuleCall getKindSInformationModelKindEnumRuleCall_1_0() { return cKindSInformationModelKindEnumRuleCall_1_0; }
+		
+		//'information'
+		public Keyword getInformationKeyword_2() { return cInformationKeyword_2; }
+		
+		//'model'
+		public Keyword getModelKeyword_3() { return cModelKeyword_3; }
 		
 		//name=SQualifiedName
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
 		
 		//SQualifiedName
-		public RuleCall getNameSQualifiedNameParserRuleCall_1_0() { return cNameSQualifiedNameParserRuleCall_1_0; }
+		public RuleCall getNameSQualifiedNameParserRuleCall_4_0() { return cNameSQualifiedNameParserRuleCall_4_0; }
 		
 		////	(description=DRichText)?
 		//imports+=SImport*
-		public Assignment getImportsAssignment_2() { return cImportsAssignment_2; }
+		public Assignment getImportsAssignment_5() { return cImportsAssignment_5; }
 		
 		//SImport
-		public RuleCall getImportsSImportParserRuleCall_2_0() { return cImportsSImportParserRuleCall_2_0; }
+		public RuleCall getImportsSImportParserRuleCall_5_0() { return cImportsSImportParserRuleCall_5_0; }
 		
 		//(types+=SType | aggregates+=SAggregate)*
-		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+		public Alternatives getAlternatives_6() { return cAlternatives_6; }
 		
 		//types+=SType
-		public Assignment getTypesAssignment_3_0() { return cTypesAssignment_3_0; }
+		public Assignment getTypesAssignment_6_0() { return cTypesAssignment_6_0; }
 		
 		//SType
-		public RuleCall getTypesSTypeParserRuleCall_3_0_0() { return cTypesSTypeParserRuleCall_3_0_0; }
+		public RuleCall getTypesSTypeParserRuleCall_6_0_0() { return cTypesSTypeParserRuleCall_6_0_0; }
 		
 		//aggregates+=SAggregate
-		public Assignment getAggregatesAssignment_3_1() { return cAggregatesAssignment_3_1; }
+		public Assignment getAggregatesAssignment_6_1() { return cAggregatesAssignment_6_1; }
 		
 		//SAggregate
-		public RuleCall getAggregatesSAggregateParserRuleCall_3_1_0() { return cAggregatesSAggregateParserRuleCall_3_1_0; }
+		public RuleCall getAggregatesSAggregateParserRuleCall_6_1_0() { return cAggregatesSAggregateParserRuleCall_6_1_0; }
 	}
 	public class SImportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SImport");
@@ -2352,6 +2373,41 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getAsteriskKeyword_1() { return cAsteriskKeyword_1; }
 	}
 	
+	public class SInformationModelKindElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SInformationModelKind");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cBASEEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cBASEBaseKeyword_0_0 = (Keyword)cBASEEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cINTERFACEEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cINTERFACEInterfaceKeyword_1_0 = (Keyword)cINTERFACEEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cCOREEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cCORECoreKeyword_2_0 = (Keyword)cCOREEnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum SInformationModelKind:
+		//	BASE='base' | INTERFACE='interface' | CORE='core';
+		public EnumRule getRule() { return rule; }
+		
+		//BASE='base' | INTERFACE='interface' | CORE='core'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//BASE='base'
+		public EnumLiteralDeclaration getBASEEnumLiteralDeclaration_0() { return cBASEEnumLiteralDeclaration_0; }
+		
+		//'base'
+		public Keyword getBASEBaseKeyword_0_0() { return cBASEBaseKeyword_0_0; }
+		
+		//INTERFACE='interface'
+		public EnumLiteralDeclaration getINTERFACEEnumLiteralDeclaration_1() { return cINTERFACEEnumLiteralDeclaration_1; }
+		
+		//'interface'
+		public Keyword getINTERFACEInterfaceKeyword_1_0() { return cINTERFACEInterfaceKeyword_1_0; }
+		
+		//CORE='core'
+		public EnumLiteralDeclaration getCOREEnumLiteralDeclaration_2() { return cCOREEnumLiteralDeclaration_2; }
+		
+		//'core'
+		public Keyword getCORECoreKeyword_2_0() { return cCORECoreKeyword_2_0; }
+	}
 	public class SAssociationKindElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SAssociationKind");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -2395,7 +2451,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getINVERSE_COMPOSITEInverseKeyword_0() { return cINVERSE_COMPOSITEInverseKeyword_0; }
 	}
 	
-	private final SDomainElements pSDomain;
+	private final SInformationModelElements pSInformationModel;
+	private final SInformationModelKindElements eSInformationModelKind;
 	private final SImportElements pSImport;
 	private final SGrabAggregateRuleElements pSGrabAggregateRule;
 	private final SGrabEnumerationRuleElements pSGrabEnumerationRule;
@@ -2442,7 +2499,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
-		this.pSDomain = new SDomainElements();
+		this.pSInformationModel = new SInformationModelElements();
+		this.eSInformationModelKind = new SInformationModelKindElements();
 		this.pSImport = new SImportElements();
 		this.pSGrabAggregateRule = new SGrabAggregateRuleElements();
 		this.pSGrabEnumerationRule = new SGrabEnumerationRuleElements();
@@ -2508,17 +2566,28 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//SDomain:
-	//	'domain'
+	//SInformationModel:
+	//	deduced?='deduce'?
+	//	kind=SInformationModelKind 'information' 'model'
 	//	name=SQualifiedName
 	//	//	(description=DRichText)?
 	//	imports+=SImport* (types+=SType | aggregates+=SAggregate)*;
-	public SDomainElements getSDomainAccess() {
-		return pSDomain;
+	public SInformationModelElements getSInformationModelAccess() {
+		return pSInformationModel;
 	}
 	
-	public ParserRule getSDomainRule() {
-		return getSDomainAccess().getRule();
+	public ParserRule getSInformationModelRule() {
+		return getSInformationModelAccess().getRule();
+	}
+	
+	//enum SInformationModelKind:
+	//	BASE='base' | INTERFACE='interface' | CORE='core';
+	public SInformationModelKindElements getSInformationModelKindAccess() {
+		return eSInformationModelKind;
+	}
+	
+	public EnumRule getSInformationModelKindRule() {
+		return getSInformationModelKindAccess().getRule();
 	}
 	
 	//SImport:

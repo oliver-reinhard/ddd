@@ -86,9 +86,9 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createSValueTypeAdapter();
 			}
 			@Override
-			public Adapter caseSDomain(SDomain object)
+			public Adapter caseSInformationModel(SInformationModel object)
 			{
-				return createSDomainAdapter();
+				return createSInformationModelAdapter();
 			}
 			@Override
 			public Adapter caseSNamedElement(SNamedElement object)
@@ -278,16 +278,16 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SDomain <em>SDomain</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SInformationModel <em>SInformation Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SDomain
+	 * @see com.mimacom.ddd.sm.sim.SInformationModel
 	 * @generated
 	 */
-	public Adapter createSDomainAdapter()
+	public Adapter createSInformationModelAdapter()
 	{
 		return null;
 	}

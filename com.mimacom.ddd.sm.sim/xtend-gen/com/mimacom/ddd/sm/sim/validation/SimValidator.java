@@ -19,11 +19,11 @@ import com.mimacom.ddd.sm.sim.SCondition;
 import com.mimacom.ddd.sm.sim.SDeductionRule;
 import com.mimacom.ddd.sm.sim.SDetailType;
 import com.mimacom.ddd.sm.sim.SDitchRule;
-import com.mimacom.ddd.sm.sim.SDomain;
 import com.mimacom.ddd.sm.sim.SElementNature;
 import com.mimacom.ddd.sm.sim.SEnumeration;
 import com.mimacom.ddd.sm.sim.SFeature;
 import com.mimacom.ddd.sm.sim.SGrabRule;
+import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SLiteral;
 import com.mimacom.ddd.sm.sim.SMultiplicity;
 import com.mimacom.ddd.sm.sim.SNamedElement;
@@ -58,7 +58,11 @@ public class SimValidator extends AbstractSimValidator {
   
   @Check
   public void checkAggregateHasSingleRoot(final SAggregate a) {
-    final Iterable<SRootType> roots = Iterables.<SRootType>filter(a.getTypes(), SRootType.class);
+    final Function1<SRootType, Boolean> _function = (SRootType it) -> {
+      SElementNature _nature = it.getNature();
+      return Boolean.valueOf((!Objects.equal(_nature, SElementNature.DEDUCTION_RULE)));
+    };
+    final Iterable<SRootType> roots = IterableExtensions.<SRootType>filter(Iterables.<SRootType>filter(a.getTypes(), SRootType.class), _function);
     int _size = IterableExtensions.size(roots);
     boolean _greaterThan = (_size > 1);
     if (_greaterThan) {
@@ -87,10 +91,10 @@ public class SimValidator extends AbstractSimValidator {
       if (_tripleNotEquals_1) {
         this.error("Supertype is not compatible", t, SimPackage.Literals.SNAMED_ELEMENT__NAME);
       }
-      final SDomain tDomain = EcoreUtil2.<SDomain>getContainerOfType(t, SDomain.class);
-      final SDomain superTypeDomain = EcoreUtil2.<SDomain>getContainerOfType(t.getSuperType(), SDomain.class);
+      final SInformationModel tDomain = EcoreUtil2.<SInformationModel>getContainerOfType(t, SInformationModel.class);
+      final SInformationModel superTypeDomain = EcoreUtil2.<SInformationModel>getContainerOfType(t.getSuperType(), SInformationModel.class);
       if ((superTypeDomain != tDomain)) {
-        this.error("Supertype must be in same domain", t, SimPackage.Literals.SNAMED_ELEMENT__NAME);
+        this.error("Supertype must be in same information model", t, SimPackage.Literals.SNAMED_ELEMENT__NAME);
       }
     }
   }
@@ -227,18 +231,14 @@ public class SimValidator extends AbstractSimValidator {
   
   @Check
   public void checkAttributeIsValueType(final SAttribute a) {
-    SType _type = a.getType();
-    boolean _not = (!(_type instanceof SValueType));
-    if (_not) {
+    if (((!Objects.equal(a.getNature(), SElementNature.DEDUCTION_RULE)) && (!(a.getType() instanceof SValueType)))) {
       this.error("Refererenced type is not a ValueType", a, SimPackage.Literals.SFEATURE__TYPE);
     }
   }
   
   @Check
   public void checkAssocitionToRootType(final SAssociation a) {
-    SType _type = a.getType();
-    boolean _not = (!(_type instanceof SRootType));
-    if (_not) {
+    if (((!Objects.equal(a.getNature(), SElementNature.DEDUCTION_RULE)) && (!(a.getType() instanceof SRootType)))) {
       this.error("Refererenced type is not a RootType", a, SimPackage.Literals.SFEATURE__TYPE);
     }
   }
@@ -254,7 +254,7 @@ public class SimValidator extends AbstractSimValidator {
   
   @Check
   public void checkParameterIsValueType(final SQueryParameter p) {
-    if (((p.getType() instanceof SValueType) && (!Objects.equal(p.getType(), p.eContainer())))) {
+    if ((((!Objects.equal(p.getNature(), SElementNature.DEDUCTION_RULE)) && (p.getType() instanceof SValueType)) && (!Objects.equal(p.getType(), p.eContainer())))) {
       this.error("Refererenced type is not a ValueType nor the query\'s own container", p, SimPackage.Literals.SQUERY_PARAMETER__TYPE);
     }
   }
