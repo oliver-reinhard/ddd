@@ -1,4 +1,4 @@
-package com.mimacom.ddd.dm.dms.ui.plantuml;
+package com.mimacom.ddd.dm.dim.ui.plantuml;
 
 import com.google.common.base.Objects;
 import com.mimacom.ddd.dm.base.DAggregate;
@@ -16,7 +16,7 @@ import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DRelationship;
 import com.mimacom.ddd.dm.base.DRootType;
 import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.dms.ui.internal.DmsActivator;
+import com.mimacom.ddd.dm.dim.ui.internal.DimActivator;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -37,14 +37,14 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
-public class DmsDiagramTextProvider extends AbstractDiagramTextProvider {
+public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
   public void DmsDiagramTextProvider() {
     this.setEditorType(XtextEditor.class);
   }
   
   @Override
   public boolean supportsEditor(final IEditorPart editorPart) {
-    return (super.supportsEditor(editorPart) && ((XtextEditor) editorPart).getLanguageName().equals(DmsActivator.COM_MIMACOM_DDD_DM_DMS_DMS));
+    return (super.supportsEditor(editorPart) && ((XtextEditor) editorPart).getLanguageName().equals(DimActivator.COM_MIMACOM_DDD_DM_DIM_DIM));
   }
   
   @Override

@@ -5,7 +5,6 @@ package com.mimacom.ddd.dm.dem.formatting2;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DActor;
 import com.mimacom.ddd.dm.base.DCondition;
 import com.mimacom.ddd.dm.base.DContext;
@@ -16,11 +15,12 @@ import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.dem.services.DemGrammarAccess;
+import com.mimacom.ddd.dm.dmx.DmxModel;
+import com.mimacom.ddd.dm.dmx.formatting2.DmxFormatter;
 import java.util.Arrays;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.formatting2.AbstractFormatter2;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
 import org.eclipse.xtext.formatting2.IHiddenRegionFormatter;
 import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
@@ -30,12 +30,10 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @SuppressWarnings("all")
-public class DemFormatter extends AbstractFormatter2 {
+public class DemFormatter extends DmxFormatter {
   @Inject
   @Extension
   private DemGrammarAccess _demGrammarAccess;
-  
-  private static final BasePackage bpackage = BasePackage.eINSTANCE;
   
   protected void _format(final DDomain domain, @Extension final IFormattableDocument document) {
     document.<DRichText>format(domain.getDescription());
@@ -188,6 +186,12 @@ public class DemFormatter extends AbstractFormatter2 {
       return;
     } else if (context instanceof XtextResource) {
       _format((XtextResource)context, document);
+      return;
+    } else if (context instanceof DRichText) {
+      _format((DRichText)context, document);
+      return;
+    } else if (context instanceof DmxModel) {
+      _format((DmxModel)context, document);
       return;
     } else if (context instanceof List) {
       _format((List<DCondition>)context, document);

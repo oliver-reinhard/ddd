@@ -62,6 +62,9 @@ Workflow {
 			//referencedResource =  "${baseGenModel}"
 			referencedResource =  "${genModel}"
 
+			formatter = {
+				generateStub = true
+			}
 			serializer = {
 				generateStub = false
 			}

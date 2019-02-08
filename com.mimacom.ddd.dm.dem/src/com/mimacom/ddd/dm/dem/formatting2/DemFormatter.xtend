@@ -4,21 +4,19 @@
 package com.mimacom.ddd.dm.dem.formatting2
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DCondition
 import com.mimacom.ddd.dm.base.DContext
 import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.base.DDomainEvent
 import com.mimacom.ddd.dm.dem.services.DemGrammarAccess
+import com.mimacom.ddd.dm.dmx.formatting2.DmxFormatter
 import java.util.List
-import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
 
-class DemFormatter extends  AbstractFormatter2  { // DmxFormatter {
+class DemFormatter extends  DmxFormatter {
 	
 	@Inject extension DemGrammarAccess
-	
-	static val bpackage = BasePackage.eINSTANCE
+
 
 	def dispatch void format(DDomain domain, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 

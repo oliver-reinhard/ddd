@@ -31,5 +31,6 @@ Export-Package: com.mimacom.ddd.dm.base,
  com.mimacom.ddd.dm.dmx,
  com.mimacom.ddd.dm.dmx.impl,
  com.mimacom.ddd.dm.dmx.util,
- com.mimacom.ddd.dm.dmx.services
+ com.mimacom.ddd.dm.dmx.services,
+ com.mimacom.ddd.dm.dmx.formatting2
 Import-Package: org.apache.log4j

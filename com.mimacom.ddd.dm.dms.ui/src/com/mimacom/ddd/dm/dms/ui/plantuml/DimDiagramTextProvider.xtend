@@ -23,7 +23,7 @@ import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.ui.editor.XtextEditor
 import org.eclipse.xtext.ui.editor.model.XtextDocument
 
-class DmsDiagramTextProvider extends AbstractDiagramTextProvider {
+class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	
 	// @Inject extension DmsUtil // TODO injector not working, bundle setup seems ok => ?
 	
