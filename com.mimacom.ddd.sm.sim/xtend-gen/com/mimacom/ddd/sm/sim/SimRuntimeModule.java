@@ -5,10 +5,12 @@ package com.mimacom.ddd.sm.sim;
 
 import com.mimacom.ddd.sm.sim.AbstractSimRuntimeModule;
 import com.mimacom.ddd.sm.sim.derivedState.SimDerivedStateComputer;
+import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy;
 import com.mimacom.ddd.sm.sim.parsing.SimValueConverters;
 import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.resource.DerivedStateAwareResource;
 import org.eclipse.xtext.resource.DerivedStateAwareResourceDescriptionManager;
+import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy;
 import org.eclipse.xtext.resource.IDerivedStateComputer;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.eclipse.xtext.resource.XtextResource;
@@ -34,5 +36,9 @@ public class SimRuntimeModule extends AbstractSimRuntimeModule {
   
   public Class<? extends IResourceDescription.Manager> bindIResourceDescriptionManager() {
     return DerivedStateAwareResourceDescriptionManager.class;
+  }
+  
+  public Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
+    return SimResourceDescriptionStrategy.class;
   }
 }

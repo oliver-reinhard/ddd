@@ -91,7 +91,7 @@ class SimValidator extends AbstractSimValidator {
 	def checkCorrespondingDRootType(SRootType t) {
 		if (t.nature == DEDUCTION_RULE) {
 			if (t.deductionRule.source !== null && ! (t.deductionRule.source instanceof DRootType)) {
-					error("Deduced RootType rule must have a domain-model RootType as its source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+					error("Deduced RootType rule must have a domain-model RootType as its source", t.deductionRule, SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
 		}
 	}
@@ -100,7 +100,7 @@ class SimValidator extends AbstractSimValidator {
 	def checkCorrespondingDDetailType(SDetailType t) {
 		if (t.nature == DEDUCTION_RULE) {
 			if (t.deductionRule.source !== null && ! (t.deductionRule.source instanceof DDetailType)) {
-					error("Deduced DetailType rule must have a domain-model DetailType as its source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+					error("Deduced DetailType rule must have a domain-model DetailType as its source", t.deductionRule, SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
 		}
 	}
@@ -112,7 +112,7 @@ class SimValidator extends AbstractSimValidator {
 				val hasDitchElements= type.features.exists[deductionRule instanceof SDitchRule]
 				val hasGrabElements= type.features.exists[deductionRule instanceof SGrabRule]
 				if ( hasDitchElements && hasGrabElements) {
-					error("Cannot use both grab rule and ditch rules together.", SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+					error("Cannot use both grab rule and ditch rules together.", type.deductionRule, SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 				}
 			}
 		} 
@@ -123,7 +123,7 @@ class SimValidator extends AbstractSimValidator {
 		if (feature.nature == DEDUCTION_RULE) {
 			val container = feature.eContainer as SComplexType
 			if (container.nature != DEDUCTION_RULE) {
-				error("Features can only have deduction rule if the containing type also has a deduction rule.", SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+				error("Features can only have deduction rule if the containing type also has a deduction rule.", feature.deductionRule, SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
 		}
 	}
@@ -132,7 +132,7 @@ class SimValidator extends AbstractSimValidator {
 	def checkCorrespondingDAttributeType(SAttribute a) {
 		if (a.nature == DEDUCTION_RULE) {
 			if (a.deductionRule.source !== null && ! (a.deductionRule.source instanceof DAttribute)) {
-					error("Deduced attribute rule must have a domain-model attribute as its source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+					error("Deduced attribute rule must have a domain-model attribute as its source", a.deductionRule, SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
 		}
 	}
@@ -141,7 +141,7 @@ class SimValidator extends AbstractSimValidator {
 	def checkCorrespondingDQueryType(SQuery q) {
 		if (q.nature == DEDUCTION_RULE) {
 			if (q.deductionRule.source !== null && ! (q.deductionRule.source instanceof DQuery)) {
-					error("Deduced query rule must have a domain-model attribute as its source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+					error("Deduced query rule must have a domain-model attribute as its source", q.deductionRule, SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
 		}
 	}
@@ -160,7 +160,7 @@ class SimValidator extends AbstractSimValidator {
 		if (literal.nature == DEDUCTION_RULE) {
 			val container = literal.eContainer as SEnumeration
 			if (container.nature != DEDUCTION_RULE) {
-				error("Literals can only have deduction rule if the containing enumeration also has a deduction rule.", SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+				error("Literals can only have deduction rule if the containing enumeration also has a deduction rule.", literal.deductionRule, SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
 		}
 	}

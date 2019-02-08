@@ -117,7 +117,7 @@ public class SimValidator extends AbstractSimValidator {
     boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
     if (_equals) {
       if (((t.getDeductionRule().getSource() != null) && (!(t.getDeductionRule().getSource() instanceof DRootType)))) {
-        this.error("Deduced RootType rule must have a domain-model RootType as its source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+        this.error("Deduced RootType rule must have a domain-model RootType as its source", t.getDeductionRule(), SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
     }
   }
@@ -128,7 +128,7 @@ public class SimValidator extends AbstractSimValidator {
     boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
     if (_equals) {
       if (((t.getDeductionRule().getSource() != null) && (!(t.getDeductionRule().getSource() instanceof DDetailType)))) {
-        this.error("Deduced DetailType rule must have a domain-model DetailType as its source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+        this.error("Deduced DetailType rule must have a domain-model DetailType as its source", t.getDeductionRule(), SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
     }
   }
@@ -151,7 +151,7 @@ public class SimValidator extends AbstractSimValidator {
         };
         final boolean hasGrabElements = IterableExtensions.<SFeature>exists(type.getFeatures(), _function_1);
         if ((hasDitchElements && hasGrabElements)) {
-          this.error("Cannot use both grab rule and ditch rules together.", SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+          this.error("Cannot use both grab rule and ditch rules together.", type.getDeductionRule(), SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
         }
       }
     }
@@ -167,7 +167,7 @@ public class SimValidator extends AbstractSimValidator {
       SElementNature _nature_1 = container.getNature();
       boolean _notEquals = (!Objects.equal(_nature_1, SElementNature.DEDUCTION_RULE));
       if (_notEquals) {
-        this.error("Features can only have deduction rule if the containing type also has a deduction rule.", SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+        this.error("Features can only have deduction rule if the containing type also has a deduction rule.", feature.getDeductionRule(), SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
     }
   }
@@ -178,7 +178,7 @@ public class SimValidator extends AbstractSimValidator {
     boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
     if (_equals) {
       if (((a.getDeductionRule().getSource() != null) && (!(a.getDeductionRule().getSource() instanceof DAttribute)))) {
-        this.error("Deduced attribute rule must have a domain-model attribute as its source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+        this.error("Deduced attribute rule must have a domain-model attribute as its source", a.getDeductionRule(), SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
     }
   }
@@ -189,7 +189,7 @@ public class SimValidator extends AbstractSimValidator {
     boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
     if (_equals) {
       if (((q.getDeductionRule().getSource() != null) && (!(q.getDeductionRule().getSource() instanceof DQuery)))) {
-        this.error("Deduced query rule must have a domain-model attribute as its source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+        this.error("Deduced query rule must have a domain-model attribute as its source", q.getDeductionRule(), SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
     }
   }
@@ -215,7 +215,7 @@ public class SimValidator extends AbstractSimValidator {
       SElementNature _nature_1 = container.getNature();
       boolean _notEquals = (!Objects.equal(_nature_1, SElementNature.DEDUCTION_RULE));
       if (_notEquals) {
-        this.error("Literals can only have deduction rule if the containing enumeration also has a deduction rule.", SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+        this.error("Literals can only have deduction rule if the containing enumeration also has a deduction rule.", literal.getDeductionRule(), SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
     }
   }

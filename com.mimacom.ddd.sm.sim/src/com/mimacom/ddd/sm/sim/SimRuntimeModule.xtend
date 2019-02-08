@@ -4,10 +4,12 @@
 package com.mimacom.ddd.sm.sim
 
 import com.mimacom.ddd.sm.sim.derivedState.SimDerivedStateComputer
+import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy
 import com.mimacom.ddd.sm.sim.parsing.SimValueConverters
 import org.eclipse.xtext.conversion.IValueConverterService
 import org.eclipse.xtext.resource.DerivedStateAwareResource
 import org.eclipse.xtext.resource.DerivedStateAwareResourceDescriptionManager
+import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy
 import org.eclipse.xtext.resource.IDerivedStateComputer
 import org.eclipse.xtext.resource.IResourceDescription
 
@@ -15,7 +17,7 @@ import org.eclipse.xtext.resource.IResourceDescription
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class SimRuntimeModule extends AbstractSimRuntimeModule {
-	
+
 	override Class<? extends IValueConverterService> bindIValueConverterService() {
 		return SimValueConverters
 	}
@@ -23,12 +25,16 @@ class SimRuntimeModule extends AbstractSimRuntimeModule {
 	override bindXtextResource() {
 		DerivedStateAwareResource
 	}
-	
+
 	def Class<? extends IDerivedStateComputer> bindIDerivedStateComputer() {
 		SimDerivedStateComputer
 	}
-	
+
 	def Class<? extends IResourceDescription.Manager> bindIResourceDescriptionManager() {
 		DerivedStateAwareResourceDescriptionManager
+	}
+
+	def Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
+		return SimResourceDescriptionStrategy;
 	}
 }

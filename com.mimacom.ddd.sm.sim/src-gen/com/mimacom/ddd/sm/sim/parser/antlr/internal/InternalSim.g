@@ -79,15 +79,15 @@ ruleSInformationModel returns [EObject current=null]
 	(
 		(
 			(
-				lv_deduced_0_0='deduce'
+				lv_deduced_0_0='deduced'
 				{
-					newLeafNode(lv_deduced_0_0, grammarAccess.getSInformationModelAccess().getDeducedDeduceKeyword_0_0());
+					newLeafNode(lv_deduced_0_0, grammarAccess.getSInformationModelAccess().getDeducedDeducedKeyword_0_0());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getSInformationModelRule());
 					}
-					setWithLastConsumed($current, "deduced", true, "deduce");
+					setWithLastConsumed($current, "deduced", true, "deduced");
 				}
 			)
 		)?

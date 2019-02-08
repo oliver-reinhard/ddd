@@ -31,7 +31,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SInformationModel");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cDeducedAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cDeducedDeduceKeyword_0_0 = (Keyword)cDeducedAssignment_0.eContents().get(0);
+		private final Keyword cDeducedDeducedKeyword_0_0 = (Keyword)cDeducedAssignment_0.eContents().get(0);
 		private final Assignment cKindAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cKindSInformationModelKindEnumRuleCall_1_0 = (RuleCall)cKindAssignment_1.eContents().get(0);
 		private final Keyword cInformationKeyword_2 = (Keyword)cGroup.eContents().get(2);
@@ -47,22 +47,22 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAggregatesSAggregateParserRuleCall_6_1_0 = (RuleCall)cAggregatesAssignment_6_1.eContents().get(0);
 		
 		//SInformationModel:
-		//	deduced?='deduce'?
+		//	deduced?='deduced'?
 		//	kind=SInformationModelKind 'information' 'model'
 		//	name=SQualifiedName
 		//	//	(description=DRichText)?
 		//	imports+=SImport* (types+=SType | aggregates+=SAggregate)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//deduced?='deduce'? kind=SInformationModelKind 'information' 'model' name=SQualifiedName //	(description=DRichText)?
+		//deduced?='deduced'? kind=SInformationModelKind 'information' 'model' name=SQualifiedName //	(description=DRichText)?
 		//imports+=SImport* (types+=SType | aggregates+=SAggregate)*
 		public Group getGroup() { return cGroup; }
 		
-		//deduced?='deduce'?
+		//deduced?='deduced'?
 		public Assignment getDeducedAssignment_0() { return cDeducedAssignment_0; }
 		
-		//'deduce'
-		public Keyword getDeducedDeduceKeyword_0_0() { return cDeducedDeduceKeyword_0_0; }
+		//'deduced'
+		public Keyword getDeducedDeducedKeyword_0_0() { return cDeducedDeducedKeyword_0_0; }
 		
 		//kind=SInformationModelKind
 		public Assignment getKindAssignment_1() { return cKindAssignment_1; }
@@ -2567,7 +2567,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//SInformationModel:
-	//	deduced?='deduce'?
+	//	deduced?='deduced'?
 	//	kind=SInformationModelKind 'information' 'model'
 	//	name=SQualifiedName
 	//	//	(description=DRichText)?

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSimParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'deduce'", "'information'", "'model'", "'import'", "'as'", "'extends'", "'='", "'and'", "':'", "'grab'", "'aggregate'", "'{'", "'}'", "'constraint'", "'primitive'", "'redefines'", "'realizes'", "'realises'", "'archetype'", "'enumeration'", "'ditch'", "','", "'abstract'", "'root'", "'morph'", "'fuse'", "'detail'", "'reference'", "'composite'", "'derived'", "'attribute'", "'key'", "'query'", "'('", "'*'", "')'", "'returns'", "'.*'", "'.'", "'..'", "'base'", "'interface'", "'core'", "'inverse'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'deduced'", "'information'", "'model'", "'import'", "'as'", "'extends'", "'='", "'and'", "':'", "'grab'", "'aggregate'", "'{'", "'}'", "'constraint'", "'primitive'", "'redefines'", "'realizes'", "'realises'", "'archetype'", "'enumeration'", "'ditch'", "','", "'abstract'", "'root'", "'morph'", "'fuse'", "'detail'", "'reference'", "'composite'", "'derived'", "'attribute'", "'key'", "'query'", "'('", "'*'", "')'", "'returns'", "'.*'", "'.'", "'..'", "'base'", "'interface'", "'core'", "'inverse'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -153,7 +153,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSInformationModel"
-    // InternalSim.g:72:1: ruleSInformationModel returns [EObject current=null] : ( ( (lv_deduced_0_0= 'deduce' ) )? ( (lv_kind_1_0= ruleSInformationModelKind ) ) otherlv_2= 'information' otherlv_3= 'model' ( (lv_name_4_0= ruleSQualifiedName ) ) ( (lv_imports_5_0= ruleSImport ) )* ( ( (lv_types_6_0= ruleSType ) ) | ( (lv_aggregates_7_0= ruleSAggregate ) ) )* ) ;
+    // InternalSim.g:72:1: ruleSInformationModel returns [EObject current=null] : ( ( (lv_deduced_0_0= 'deduced' ) )? ( (lv_kind_1_0= ruleSInformationModelKind ) ) otherlv_2= 'information' otherlv_3= 'model' ( (lv_name_4_0= ruleSQualifiedName ) ) ( (lv_imports_5_0= ruleSImport ) )* ( ( (lv_types_6_0= ruleSType ) ) | ( (lv_aggregates_7_0= ruleSAggregate ) ) )* ) ;
     public final EObject ruleSInformationModel() throws RecognitionException {
         EObject current = null;
 
@@ -175,13 +175,13 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:78:2: ( ( ( (lv_deduced_0_0= 'deduce' ) )? ( (lv_kind_1_0= ruleSInformationModelKind ) ) otherlv_2= 'information' otherlv_3= 'model' ( (lv_name_4_0= ruleSQualifiedName ) ) ( (lv_imports_5_0= ruleSImport ) )* ( ( (lv_types_6_0= ruleSType ) ) | ( (lv_aggregates_7_0= ruleSAggregate ) ) )* ) )
-            // InternalSim.g:79:2: ( ( (lv_deduced_0_0= 'deduce' ) )? ( (lv_kind_1_0= ruleSInformationModelKind ) ) otherlv_2= 'information' otherlv_3= 'model' ( (lv_name_4_0= ruleSQualifiedName ) ) ( (lv_imports_5_0= ruleSImport ) )* ( ( (lv_types_6_0= ruleSType ) ) | ( (lv_aggregates_7_0= ruleSAggregate ) ) )* )
+            // InternalSim.g:78:2: ( ( ( (lv_deduced_0_0= 'deduced' ) )? ( (lv_kind_1_0= ruleSInformationModelKind ) ) otherlv_2= 'information' otherlv_3= 'model' ( (lv_name_4_0= ruleSQualifiedName ) ) ( (lv_imports_5_0= ruleSImport ) )* ( ( (lv_types_6_0= ruleSType ) ) | ( (lv_aggregates_7_0= ruleSAggregate ) ) )* ) )
+            // InternalSim.g:79:2: ( ( (lv_deduced_0_0= 'deduced' ) )? ( (lv_kind_1_0= ruleSInformationModelKind ) ) otherlv_2= 'information' otherlv_3= 'model' ( (lv_name_4_0= ruleSQualifiedName ) ) ( (lv_imports_5_0= ruleSImport ) )* ( ( (lv_types_6_0= ruleSType ) ) | ( (lv_aggregates_7_0= ruleSAggregate ) ) )* )
             {
-            // InternalSim.g:79:2: ( ( (lv_deduced_0_0= 'deduce' ) )? ( (lv_kind_1_0= ruleSInformationModelKind ) ) otherlv_2= 'information' otherlv_3= 'model' ( (lv_name_4_0= ruleSQualifiedName ) ) ( (lv_imports_5_0= ruleSImport ) )* ( ( (lv_types_6_0= ruleSType ) ) | ( (lv_aggregates_7_0= ruleSAggregate ) ) )* )
-            // InternalSim.g:80:3: ( (lv_deduced_0_0= 'deduce' ) )? ( (lv_kind_1_0= ruleSInformationModelKind ) ) otherlv_2= 'information' otherlv_3= 'model' ( (lv_name_4_0= ruleSQualifiedName ) ) ( (lv_imports_5_0= ruleSImport ) )* ( ( (lv_types_6_0= ruleSType ) ) | ( (lv_aggregates_7_0= ruleSAggregate ) ) )*
+            // InternalSim.g:79:2: ( ( (lv_deduced_0_0= 'deduced' ) )? ( (lv_kind_1_0= ruleSInformationModelKind ) ) otherlv_2= 'information' otherlv_3= 'model' ( (lv_name_4_0= ruleSQualifiedName ) ) ( (lv_imports_5_0= ruleSImport ) )* ( ( (lv_types_6_0= ruleSType ) ) | ( (lv_aggregates_7_0= ruleSAggregate ) ) )* )
+            // InternalSim.g:80:3: ( (lv_deduced_0_0= 'deduced' ) )? ( (lv_kind_1_0= ruleSInformationModelKind ) ) otherlv_2= 'information' otherlv_3= 'model' ( (lv_name_4_0= ruleSQualifiedName ) ) ( (lv_imports_5_0= ruleSImport ) )* ( ( (lv_types_6_0= ruleSType ) ) | ( (lv_aggregates_7_0= ruleSAggregate ) ) )*
             {
-            // InternalSim.g:80:3: ( (lv_deduced_0_0= 'deduce' ) )?
+            // InternalSim.g:80:3: ( (lv_deduced_0_0= 'deduced' ) )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -190,20 +190,20 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalSim.g:81:4: (lv_deduced_0_0= 'deduce' )
+                    // InternalSim.g:81:4: (lv_deduced_0_0= 'deduced' )
                     {
-                    // InternalSim.g:81:4: (lv_deduced_0_0= 'deduce' )
-                    // InternalSim.g:82:5: lv_deduced_0_0= 'deduce'
+                    // InternalSim.g:81:4: (lv_deduced_0_0= 'deduced' )
+                    // InternalSim.g:82:5: lv_deduced_0_0= 'deduced'
                     {
                     lv_deduced_0_0=(Token)match(input,11,FOLLOW_3); 
 
-                    					newLeafNode(lv_deduced_0_0, grammarAccess.getSInformationModelAccess().getDeducedDeduceKeyword_0_0());
+                    					newLeafNode(lv_deduced_0_0, grammarAccess.getSInformationModelAccess().getDeducedDeducedKeyword_0_0());
                     				
 
                     					if (current==null) {
                     						current = createModelElement(grammarAccess.getSInformationModelRule());
                     					}
-                    					setWithLastConsumed(current, "deduced", true, "deduce");
+                    					setWithLastConsumed(current, "deduced", true, "deduced");
                     				
 
                     }

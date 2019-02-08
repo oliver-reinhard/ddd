@@ -8507,13 +8507,13 @@ rule__SInformationModel__DeducedAssignment_0
 	}
 :
 	(
-		{ before(grammarAccess.getSInformationModelAccess().getDeducedDeduceKeyword_0_0()); }
+		{ before(grammarAccess.getSInformationModelAccess().getDeducedDeducedKeyword_0_0()); }
 		(
-			{ before(grammarAccess.getSInformationModelAccess().getDeducedDeduceKeyword_0_0()); }
-			'deduce'
-			{ after(grammarAccess.getSInformationModelAccess().getDeducedDeduceKeyword_0_0()); }
+			{ before(grammarAccess.getSInformationModelAccess().getDeducedDeducedKeyword_0_0()); }
+			'deduced'
+			{ after(grammarAccess.getSInformationModelAccess().getDeducedDeducedKeyword_0_0()); }
 		)
-		{ after(grammarAccess.getSInformationModelAccess().getDeducedDeduceKeyword_0_0()); }
+		{ after(grammarAccess.getSInformationModelAccess().getDeducedDeducedKeyword_0_0()); }
 	)
 ;
 finally {

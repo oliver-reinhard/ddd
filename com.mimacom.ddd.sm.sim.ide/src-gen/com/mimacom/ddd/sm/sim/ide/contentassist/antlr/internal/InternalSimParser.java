@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSimParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'inverse'", "'aggregate'", "'realizes'", "'realises'", "'reference'", "'composite'", "'attribute'", "'*'", "'base'", "'interface'", "'core'", "'information'", "'model'", "'import'", "'as'", "'extends'", "'='", "'and'", "':'", "'{'", "'}'", "'grab'", "'constraint'", "'primitive'", "'redefines'", "'archetype'", "'enumeration'", "'ditch'", "','", "'root'", "'morph'", "'fuse'", "'detail'", "'('", "')'", "'query'", "'returns'", "'.*'", "'.'", "'..'", "'deduce'", "'abstract'", "'derived'", "'key'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'inverse'", "'aggregate'", "'realizes'", "'realises'", "'reference'", "'composite'", "'attribute'", "'*'", "'base'", "'interface'", "'core'", "'information'", "'model'", "'import'", "'as'", "'extends'", "'='", "'and'", "':'", "'{'", "'}'", "'grab'", "'constraint'", "'primitive'", "'redefines'", "'archetype'", "'enumeration'", "'ditch'", "','", "'root'", "'morph'", "'fuse'", "'detail'", "'('", "')'", "'query'", "'returns'", "'.*'", "'.'", "'..'", "'deduced'", "'abstract'", "'derived'", "'key'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -26520,29 +26520,29 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SInformationModel__DeducedAssignment_0"
-    // InternalSim.g:8504:1: rule__SInformationModel__DeducedAssignment_0 : ( ( 'deduce' ) ) ;
+    // InternalSim.g:8504:1: rule__SInformationModel__DeducedAssignment_0 : ( ( 'deduced' ) ) ;
     public final void rule__SInformationModel__DeducedAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:8508:1: ( ( ( 'deduce' ) ) )
-            // InternalSim.g:8509:2: ( ( 'deduce' ) )
+            // InternalSim.g:8508:1: ( ( ( 'deduced' ) ) )
+            // InternalSim.g:8509:2: ( ( 'deduced' ) )
             {
-            // InternalSim.g:8509:2: ( ( 'deduce' ) )
-            // InternalSim.g:8510:3: ( 'deduce' )
+            // InternalSim.g:8509:2: ( ( 'deduced' ) )
+            // InternalSim.g:8510:3: ( 'deduced' )
             {
-             before(grammarAccess.getSInformationModelAccess().getDeducedDeduceKeyword_0_0()); 
-            // InternalSim.g:8511:3: ( 'deduce' )
-            // InternalSim.g:8512:4: 'deduce'
+             before(grammarAccess.getSInformationModelAccess().getDeducedDeducedKeyword_0_0()); 
+            // InternalSim.g:8511:3: ( 'deduced' )
+            // InternalSim.g:8512:4: 'deduced'
             {
-             before(grammarAccess.getSInformationModelAccess().getDeducedDeduceKeyword_0_0()); 
+             before(grammarAccess.getSInformationModelAccess().getDeducedDeducedKeyword_0_0()); 
             match(input,51,FOLLOW_2); 
-             after(grammarAccess.getSInformationModelAccess().getDeducedDeduceKeyword_0_0()); 
+             after(grammarAccess.getSInformationModelAccess().getDeducedDeducedKeyword_0_0()); 
 
             }
 
-             after(grammarAccess.getSInformationModelAccess().getDeducedDeduceKeyword_0_0()); 
+             after(grammarAccess.getSInformationModelAccess().getDeducedDeducedKeyword_0_0()); 
 
             }
 

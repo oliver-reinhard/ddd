@@ -60,7 +60,7 @@ public class SimGenerator extends AbstractGenerator {
     boolean hadSyntheticItems = false;
     final EObject model = IterableExtensions.<EObject>head(resource.getContents());
     if ((model instanceof SInformationModel)) {
-      ((SInformationModel)model).setDeduced(false);
+      ((SInformationModel)model).setDeduced(true);
       final Iterator<SDeducibleElement> deducibles = Iterators.<SDeducibleElement>filter(resource.getAllContents(), SDeducibleElement.class);
       final ArrayList<SDeducibleElement> elementsToRemove = Lists.<SDeducibleElement>newArrayList();
       while (deducibles.hasNext()) {

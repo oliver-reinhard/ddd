@@ -6,8 +6,7 @@ package com.mimacom.ddd.sm.sim.generator
 import com.google.common.collect.Lists
 import com.google.inject.Inject
 import com.mimacom.ddd.sm.sim.SDeducibleElement
-import com.mimacom.ddd.sm.sim.SFeature
-import com.mimacom.ddd.sm.sim.SLiteral
+import com.mimacom.ddd.sm.sim.SInformationModel
 import java.io.CharArrayWriter
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.util.EcoreUtil
@@ -18,7 +17,6 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import org.eclipse.xtext.resource.SaveOptions
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.serializer.ISerializer
-import com.mimacom.ddd.sm.sim.SInformationModel
 
 /**
  * Generates code from your model files on save.
@@ -46,7 +44,7 @@ class SimGenerator extends AbstractGenerator {
 		var hadSyntheticItems = false
 		val model = resource.contents.head
 		if (model instanceof SInformationModel) {
-			model.deduced = false
+			model.deduced = true
 			val deducibles = resource.allContents.filter(SDeducibleElement)
 			val elementsToRemove = Lists.newArrayList
 			while (deducibles.hasNext) {
