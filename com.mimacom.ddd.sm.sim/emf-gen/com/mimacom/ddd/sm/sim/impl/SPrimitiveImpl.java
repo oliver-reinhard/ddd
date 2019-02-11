@@ -3,8 +3,6 @@
  */
 package com.mimacom.ddd.sm.sim.impl;
 
-import com.mimacom.ddd.dm.base.DPrimitive;
-
 import com.mimacom.ddd.sm.sim.SPrimitive;
 import com.mimacom.ddd.sm.sim.SimPackage;
 
@@ -24,7 +22,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SPrimitiveImpl#getRedefines <em>Redefines</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sim.impl.SPrimitiveImpl#getRealizes <em>Realizes</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SPrimitiveImpl#isArchetype <em>Archetype</em>}</li>
  * </ul>
  *
@@ -41,16 +38,6 @@ public class SPrimitiveImpl extends SSimpleTypeImpl implements SPrimitive
 	 * @ordered
 	 */
 	protected SPrimitive redefines;
-
-	/**
-	 * The cached value of the '{@link #getRealizes() <em>Realizes</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRealizes()
-	 * @generated
-	 * @ordered
-	 */
-	protected DPrimitive realizes;
 
 	/**
 	 * The default value of the '{@link #isArchetype() <em>Archetype</em>}' attribute.
@@ -134,51 +121,6 @@ public class SPrimitiveImpl extends SSimpleTypeImpl implements SPrimitive
 	 * @generated
 	 */
 	@Override
-	public DPrimitive getRealizes()
-	{
-		if (realizes != null && realizes.eIsProxy())
-		{
-			InternalEObject oldRealizes = (InternalEObject)realizes;
-			realizes = (DPrimitive)eResolveProxy(oldRealizes);
-			if (realizes != oldRealizes)
-			{
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimPackage.SPRIMITIVE__REALIZES, oldRealizes, realizes));
-			}
-		}
-		return realizes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DPrimitive basicGetRealizes()
-	{
-		return realizes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setRealizes(DPrimitive newRealizes)
-	{
-		DPrimitive oldRealizes = realizes;
-		realizes = newRealizes;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SPRIMITIVE__REALIZES, oldRealizes, realizes));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public boolean isArchetype()
 	{
 		// TODO: implement this method to return the 'Archetype' attribute
@@ -199,9 +141,6 @@ public class SPrimitiveImpl extends SSimpleTypeImpl implements SPrimitive
 			case SimPackage.SPRIMITIVE__REDEFINES:
 				if (resolve) return getRedefines();
 				return basicGetRedefines();
-			case SimPackage.SPRIMITIVE__REALIZES:
-				if (resolve) return getRealizes();
-				return basicGetRealizes();
 			case SimPackage.SPRIMITIVE__ARCHETYPE:
 				return isArchetype();
 		}
@@ -221,9 +160,6 @@ public class SPrimitiveImpl extends SSimpleTypeImpl implements SPrimitive
 			case SimPackage.SPRIMITIVE__REDEFINES:
 				setRedefines((SPrimitive)newValue);
 				return;
-			case SimPackage.SPRIMITIVE__REALIZES:
-				setRealizes((DPrimitive)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -241,9 +177,6 @@ public class SPrimitiveImpl extends SSimpleTypeImpl implements SPrimitive
 			case SimPackage.SPRIMITIVE__REDEFINES:
 				setRedefines((SPrimitive)null);
 				return;
-			case SimPackage.SPRIMITIVE__REALIZES:
-				setRealizes((DPrimitive)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -260,8 +193,6 @@ public class SPrimitiveImpl extends SSimpleTypeImpl implements SPrimitive
 		{
 			case SimPackage.SPRIMITIVE__REDEFINES:
 				return redefines != null;
-			case SimPackage.SPRIMITIVE__REALIZES:
-				return realizes != null;
 			case SimPackage.SPRIMITIVE__ARCHETYPE:
 				return isArchetype() != ARCHETYPE_EDEFAULT;
 		}

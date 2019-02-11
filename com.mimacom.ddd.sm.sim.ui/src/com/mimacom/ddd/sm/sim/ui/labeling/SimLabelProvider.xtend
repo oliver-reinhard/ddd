@@ -27,21 +27,21 @@ class SimLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	def text(SAggregate a) {
-		if (a.deductionRule !== null) {
+		if (a.deductionRule !== null && (a.synthetic === null)) {
 			return ">" + a.deductionRule.label
 		}
 		return a.label
 	}
 	
 	def text(SType t) {
-		if (t.deductionRule !== null) {
+		if (t.deductionRule !== null && t.synthetic === null) {
 			return ">" + t.deductionRule.label
 		}
 		return t.label
 	}
 	
 	def text(SFeature f) {
-		if (f.deductionRule !== null) {
+		if (f.deductionRule !== null && f.synthetic === null) {
 			return ">" + f.deductionRule.label
 		}
 		return f.label
@@ -52,7 +52,7 @@ class SimLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	def text(SLiteral literal) {
-		if (literal.deductionRule !== null) {
+		if (literal.deductionRule !== null && literal.synthetic === null) {
 			return ">" + literal.deductionRule.label
 		}
 		return literal.name

@@ -711,22 +711,13 @@ public interface SimPackage extends EPackage
 	int SPRIMITIVE__REDEFINES = SSIMPLE_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Realizes</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPRIMITIVE__REALIZES = SSIMPLE_TYPE_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Archetype</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPRIMITIVE__ARCHETYPE = SSIMPLE_TYPE_FEATURE_COUNT + 2;
+	int SPRIMITIVE__ARCHETYPE = SSIMPLE_TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>SPrimitive</em>' class.
@@ -735,7 +726,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SPRIMITIVE_FEATURE_COUNT = SSIMPLE_TYPE_FEATURE_COUNT + 3;
+	int SPRIMITIVE_FEATURE_COUNT = SSIMPLE_TYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SEnumerationImpl <em>SEnumeration</em>}' class.
@@ -2218,17 +2209,6 @@ public interface SimPackage extends EPackage
 	EReference getSPrimitive_Redefines();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SPrimitive#getRealizes <em>Realizes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Realizes</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SPrimitive#getRealizes()
-	 * @see #getSPrimitive()
-	 * @generated
-	 */
-	EReference getSPrimitive_Realizes();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SPrimitive#isArchetype <em>Archetype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3001,14 +2981,6 @@ public interface SimPackage extends EPackage
 		 * @generated
 		 */
 		EReference SPRIMITIVE__REDEFINES = eINSTANCE.getSPrimitive_Redefines();
-
-		/**
-		 * The meta object literal for the '<em><b>Realizes</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SPRIMITIVE__REALIZES = eINSTANCE.getSPrimitive_Realizes();
 
 		/**
 		 * The meta object literal for the '<em><b>Archetype</b></em>' attribute feature.

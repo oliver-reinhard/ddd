@@ -3,7 +3,6 @@
  */
 package com.mimacom.ddd.sm.sim;
 
-import com.mimacom.ddd.dm.base.DPrimitive;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +14,6 @@ import com.mimacom.ddd.dm.base.DPrimitive;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.sm.sim.SPrimitive#getRedefines <em>Redefines</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sim.SPrimitive#getRealizes <em>Realizes</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SPrimitive#isArchetype <em>Archetype</em>}</li>
  * </ul>
  *
@@ -50,32 +48,6 @@ public interface SPrimitive extends SSimpleType
 	 * @generated
 	 */
 	void setRedefines(SPrimitive value);
-
-	/**
-	 * Returns the value of the '<em><b>Realizes</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Realizes</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Realizes</em>' reference.
-	 * @see #setRealizes(DPrimitive)
-	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSPrimitive_Realizes()
-	 * @model
-	 * @generated
-	 */
-	DPrimitive getRealizes();
-
-	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.sm.sim.SPrimitive#getRealizes <em>Realizes</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Realizes</em>' reference.
-	 * @see #getRealizes()
-	 * @generated
-	 */
-	void setRealizes(DPrimitive value);
 
 	/**
 	 * Returns the value of the '<em><b>Archetype</b></em>' attribute.

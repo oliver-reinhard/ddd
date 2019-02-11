@@ -18,11 +18,11 @@ class DmxRuntimeModule extends AbstractDmxRuntimeModule {
 		return DmxValueConverters
 	}
 	
-	override void configureIScopeProviderDelegate(Binder binder) {
-		binder.bind(org.eclipse.xtext.scoping.IScopeProvider)
-		.annotatedWith(com.google.inject.name.Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE))
-		.to(DmxImportedNamespaceAwareLocalScopeProvider);
-	}
+//	override void configureIScopeProviderDelegate(Binder binder) {
+//		binder.bind(org.eclipse.xtext.scoping.IScopeProvider)
+//		.annotatedWith(com.google.inject.name.Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE))
+//		.to(DmxImportedNamespaceAwareLocalScopeProvider);
+//	}
 	
 //	override Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider()  {
 //		return typeof(DmxQualifiedNameProvider)

@@ -6,7 +6,6 @@ package com.mimacom.ddd.sm.sim.ui.labeling;
 import com.google.inject.Inject;
 import com.mimacom.ddd.sm.sim.SAggregate;
 import com.mimacom.ddd.sm.sim.SCondition;
-import com.mimacom.ddd.sm.sim.SDeductionRule;
 import com.mimacom.ddd.sm.sim.SFeature;
 import com.mimacom.ddd.sm.sim.SLiteral;
 import com.mimacom.ddd.sm.sim.SType;
@@ -32,9 +31,7 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public String text(final SAggregate a) {
-    SDeductionRule _deductionRule = a.getDeductionRule();
-    boolean _tripleNotEquals = (_deductionRule != null);
-    if (_tripleNotEquals) {
+    if (((a.getDeductionRule() != null) && (a.getSynthetic() == null))) {
       String _label = this._simUtil.label(a.getDeductionRule());
       return (">" + _label);
     }
@@ -42,9 +39,7 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public String text(final SType t) {
-    SDeductionRule _deductionRule = t.getDeductionRule();
-    boolean _tripleNotEquals = (_deductionRule != null);
-    if (_tripleNotEquals) {
+    if (((t.getDeductionRule() != null) && (t.getSynthetic() == null))) {
       String _label = this._simUtil.label(t.getDeductionRule());
       return (">" + _label);
     }
@@ -52,9 +47,7 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public String text(final SFeature f) {
-    SDeductionRule _deductionRule = f.getDeductionRule();
-    boolean _tripleNotEquals = (_deductionRule != null);
-    if (_tripleNotEquals) {
+    if (((f.getDeductionRule() != null) && (f.getSynthetic() == null))) {
       String _label = this._simUtil.label(f.getDeductionRule());
       return (">" + _label);
     }
@@ -66,9 +59,7 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public String text(final SLiteral literal) {
-    SDeductionRule _deductionRule = literal.getDeductionRule();
-    boolean _tripleNotEquals = (_deductionRule != null);
-    if (_tripleNotEquals) {
+    if (((literal.getDeductionRule() != null) && (literal.getSynthetic() == null))) {
       String _label = this._simUtil.label(literal.getDeductionRule());
       return (">" + _label);
     }

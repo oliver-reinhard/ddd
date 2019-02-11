@@ -14,6 +14,7 @@ import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DRelationship;
 import com.mimacom.ddd.dm.base.DRootType;
@@ -32,6 +33,7 @@ import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SLiteral;
 import com.mimacom.ddd.sm.sim.SMorphRule;
 import com.mimacom.ddd.sm.sim.SMultiplicity;
+import com.mimacom.ddd.sm.sim.SPrimitive;
 import com.mimacom.ddd.sm.sim.SType;
 import com.mimacom.ddd.sm.sim.SimFactory;
 import com.mimacom.ddd.sm.sim.SimUtil;
@@ -59,7 +61,10 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
   @Extension
   private SimUtil _simUtil;
   
-  private static Logger LOGGER = Logger.getLogger(SimDerivedStateComputer.class);
+  @Inject
+  private TransformationContext context;
+  
+  private static final Logger LOGGER = Logger.getLogger(SimDerivedStateComputer.class);
   
   private static final SimFactory simFactory = SimFactory.eINSTANCE;
   
@@ -68,10 +73,25 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
   @Override
   public void installDerivedState(final DerivedStateAwareResource resource, final boolean preLinkingPhase) {
     if ((!preLinkingPhase)) {
-      final TransformationContext context = new TransformationContext(resource);
+      this.context.init(resource);
       EObject _head = IteratorExtensions.<EObject>head(resource.getAllContents());
       final SInformationModel model = ((SInformationModel) _head);
-      this.processInformationModel(model, context);
+      this.processInformationModel(model, this.context);
+    }
+  }
+  
+  @Override
+  public void discardDerivedState(final DerivedStateAwareResource resource) {
+    final Function1<SDeducibleElement, Boolean> _function = (SDeducibleElement it) -> {
+      return Boolean.valueOf(((it.getSynthetic() != null) && (it.getSynthetic()).booleanValue()));
+    };
+    final Iterator<SDeducibleElement> syntheticElements = IteratorExtensions.<SDeducibleElement>filter(Iterators.<SDeducibleElement>filter(resource.getAllContents(), SDeducibleElement.class), _function);
+    final ArrayList<SDeducibleElement> list = Lists.<SDeducibleElement>newArrayList();
+    while (syntheticElements.hasNext()) {
+      list.add(syntheticElements.next());
+    }
+    for (final SDeducibleElement e : list) {
+      EcoreUtil.remove(e);
     }
   }
   
@@ -123,11 +143,24 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
     }
   }
   
-  public SAggregate addSyntheticAggregate(final SInformationModel container, final DAggregate source, final TransformationContext context) throws TransformationContext.UnsupportedDomainTypeException {
-    final SAggregate sAggregate = SimDerivedStateComputer.simFactory.createSAggregate();
-    sAggregate.setSynthetic(Boolean.valueOf(true));
-    container.getAggregates().add(sAggregate);
-    return sAggregate;
+  protected void _processType(final SPrimitive sType, final SGrabRule rule, final TransformationContext context) {
+    try {
+      final EObject source = rule.getSource();
+      if ((source instanceof DPrimitive)) {
+        String _xifexpression = null;
+        String _renameTo = rule.getRenameTo();
+        boolean _tripleNotEquals = (_renameTo != null);
+        if (_tripleNotEquals) {
+          _xifexpression = rule.getRenameTo();
+        } else {
+          _xifexpression = ((DPrimitive)source).getName();
+        }
+        final String name = _xifexpression;
+        this.addSyntheticPrimitive(sType.eContainer(), name, ((DPrimitive)source), context);
+      }
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   protected void _processType(final SEnumeration sEnum, final SGrabRule rule, final TransformationContext context) {
@@ -201,31 +234,6 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
-  }
-  
-  public SEnumeration addSyntheticEnumeration(final EObject container, final String name, final DEnumeration source, final TransformationContext context) throws TransformationContext.UnsupportedDomainTypeException {
-    final SEnumeration sType = SimDerivedStateComputer.simFactory.createSEnumeration();
-    sType.setName(name);
-    sType.setSynthetic(Boolean.valueOf(true));
-    boolean _matched = false;
-    if (container instanceof SAggregate) {
-      _matched=true;
-      ((SAggregate)container).getTypes().add(sType);
-    }
-    if (!_matched) {
-      if (container instanceof SInformationModel) {
-        _matched=true;
-        ((SInformationModel)container).getTypes().add(sType);
-      }
-    }
-    return sType;
-  }
-  
-  public void addSyntheticLiteral(final SEnumeration container, final String name) {
-    final SLiteral sLiteral = SimDerivedStateComputer.simFactory.createSLiteral();
-    sLiteral.setName(name);
-    sLiteral.setSynthetic(Boolean.valueOf(true));
-    container.getLiterals().add(sLiteral);
   }
   
   protected void _processType(final SComplexType sType, final SGrabRule rule, final TransformationContext context) {
@@ -307,43 +315,6 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
     }
   }
   
-  public SComplexType addSyntheticComplexType(final EObject container, final String name, final DComplexType source, final TransformationContext context) throws TransformationContext.UnsupportedDomainTypeException {
-    SComplexType _switchResult = null;
-    boolean _matched = false;
-    if (source instanceof DRootType) {
-      _matched=true;
-      _switchResult = SimDerivedStateComputer.simFactory.createSRootType();
-    }
-    if (!_matched) {
-      if (source instanceof DRelationship) {
-        _matched=true;
-        _switchResult = SimDerivedStateComputer.simFactory.createSRootType();
-      }
-    }
-    if (!_matched) {
-      if (source instanceof DDetailType) {
-        _matched=true;
-        _switchResult = SimDerivedStateComputer.simFactory.createSDetailType();
-      }
-    }
-    final SComplexType sType = _switchResult;
-    sType.setName(name);
-    sType.setAbstract(source.isAbstract());
-    sType.setSynthetic(Boolean.valueOf(true));
-    boolean _matched_1 = false;
-    if (container instanceof SAggregate) {
-      _matched_1=true;
-      ((SAggregate)container).getTypes().add(sType);
-    }
-    if (!_matched_1) {
-      if (container instanceof SInformationModel) {
-        _matched_1=true;
-        ((SInformationModel)container).getTypes().add(sType);
-      }
-    }
-    return sType;
-  }
-  
   protected void _processType(final SComplexType type, final SMorphRule rule, final TransformationContext context) {
   }
   
@@ -352,46 +323,6 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
   
   protected void _processType(final SType type, final SDeductionRule rule, final TransformationContext context) {
     throw new UnsupportedOperationException();
-  }
-  
-  public SFeature addSyntheticFeature(final SComplexType container, final String name, final DFeature source, final TransformationContext context) throws TransformationContext.UnsupportedDomainTypeException {
-    SFeature _switchResult = null;
-    boolean _matched = false;
-    if (source instanceof DAttribute) {
-      _matched=true;
-      _switchResult = SimDerivedStateComputer.simFactory.createSAttribute();
-    }
-    if (!_matched) {
-      if (source instanceof DQuery) {
-        _matched=true;
-        _switchResult = SimDerivedStateComputer.simFactory.createSQuery();
-      }
-    }
-    if (!_matched) {
-      if (source instanceof DAssociation) {
-        _matched=true;
-        _switchResult = SimDerivedStateComputer.simFactory.createSAssociation();
-      }
-    }
-    final SFeature sFeature = _switchResult;
-    sFeature.setName(name);
-    final DType dFeatureType = source.getType();
-    if ((dFeatureType == null)) {
-      return null;
-    }
-    sFeature.setType(context.getSType(dFeatureType));
-    DMultiplicity _multiplicity = source.getMultiplicity();
-    boolean _tripleNotEquals = (_multiplicity != null);
-    if (_tripleNotEquals) {
-      sFeature.setMultiplicity(SimDerivedStateComputer.simFactory.createSMultiplicity());
-      SMultiplicity _multiplicity_1 = sFeature.getMultiplicity();
-      _multiplicity_1.setMinOccurs(source.getMultiplicity().getMinOccurs());
-      SMultiplicity _multiplicity_2 = sFeature.getMultiplicity();
-      _multiplicity_2.setMaxOccurs(source.getMultiplicity().getMaxOccurs());
-    }
-    sFeature.setSynthetic(Boolean.valueOf(true));
-    container.getFeatures().add(sFeature);
-    return sFeature;
   }
   
   public SFeature grabFeature(final SComplexType container, final SFeature sFeature, final SGrabRule rule, final TransformationContext context) {
@@ -444,25 +375,138 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
     return null;
   }
   
-  @Override
-  public void discardDerivedState(final DerivedStateAwareResource resource) {
-    final Function1<SDeducibleElement, Boolean> _function = (SDeducibleElement it) -> {
-      return Boolean.valueOf(((it.getSynthetic() != null) && (it.getSynthetic()).booleanValue()));
-    };
-    final Iterator<SDeducibleElement> syntheticElements = IteratorExtensions.<SDeducibleElement>filter(Iterators.<SDeducibleElement>filter(resource.getAllContents(), SDeducibleElement.class), _function);
-    final ArrayList<SDeducibleElement> list = Lists.<SDeducibleElement>newArrayList();
-    while (syntheticElements.hasNext()) {
-      list.add(syntheticElements.next());
+  public SAggregate addSyntheticAggregate(final SInformationModel container, final DAggregate source, final TransformationContext context) throws TransformationContext.UnsupportedDomainTypeException {
+    final SAggregate sAggregate = SimDerivedStateComputer.simFactory.createSAggregate();
+    sAggregate.setSynthetic(Boolean.valueOf(true));
+    sAggregate.setDeductionRule(SimDerivedStateComputer.simFactory.createSGrabAggregateRule());
+    SDeductionRule _deductionRule = sAggregate.getDeductionRule();
+    _deductionRule.setSource(source);
+    container.getAggregates().add(sAggregate);
+    return sAggregate;
+  }
+  
+  public SPrimitive addSyntheticPrimitive(final EObject container, final String name, final DPrimitive source, final TransformationContext context) throws TransformationContext.UnsupportedDomainTypeException {
+    final SPrimitive sType = SimDerivedStateComputer.simFactory.createSPrimitive();
+    this.initSyntheticType(sType, name, source, container);
+    return sType;
+  }
+  
+  public SEnumeration addSyntheticEnumeration(final EObject container, final String name, final DEnumeration source, final TransformationContext context) throws TransformationContext.UnsupportedDomainTypeException {
+    final SEnumeration sType = SimDerivedStateComputer.simFactory.createSEnumeration();
+    this.initSyntheticType(sType, name, source, container);
+    return sType;
+  }
+  
+  public SComplexType addSyntheticComplexType(final EObject container, final String name, final DComplexType source, final TransformationContext context) throws TransformationContext.UnsupportedDomainTypeException {
+    SComplexType _switchResult = null;
+    boolean _matched = false;
+    if (source instanceof DRootType) {
+      _matched=true;
+      _switchResult = SimDerivedStateComputer.simFactory.createSRootType();
     }
-    for (final SDeducibleElement e : list) {
-      EcoreUtil.remove(e);
+    if (!_matched) {
+      if (source instanceof DRelationship) {
+        _matched=true;
+        _switchResult = SimDerivedStateComputer.simFactory.createSRootType();
+      }
     }
+    if (!_matched) {
+      if (source instanceof DDetailType) {
+        _matched=true;
+        _switchResult = SimDerivedStateComputer.simFactory.createSDetailType();
+      }
+    }
+    final SComplexType sType = _switchResult;
+    this.initSyntheticType(sType, name, source, container);
+    sType.setAbstract(source.isAbstract());
+    boolean _matched_1 = false;
+    if (container instanceof SAggregate) {
+      _matched_1=true;
+      ((SAggregate)container).getTypes().add(sType);
+    }
+    if (!_matched_1) {
+      if (container instanceof SInformationModel) {
+        _matched_1=true;
+        ((SInformationModel)container).getTypes().add(sType);
+      }
+    }
+    return sType;
+  }
+  
+  public SFeature addSyntheticFeature(final SComplexType container, final String name, final DFeature source, final TransformationContext context) throws TransformationContext.UnsupportedDomainTypeException {
+    SFeature _switchResult = null;
+    boolean _matched = false;
+    if (source instanceof DAttribute) {
+      _matched=true;
+      _switchResult = SimDerivedStateComputer.simFactory.createSAttribute();
+    }
+    if (!_matched) {
+      if (source instanceof DQuery) {
+        _matched=true;
+        _switchResult = SimDerivedStateComputer.simFactory.createSQuery();
+      }
+    }
+    if (!_matched) {
+      if (source instanceof DAssociation) {
+        _matched=true;
+        _switchResult = SimDerivedStateComputer.simFactory.createSAssociation();
+      }
+    }
+    final SFeature sFeature = _switchResult;
+    sFeature.setName(name);
+    final DType dFeatureType = source.getType();
+    if ((dFeatureType == null)) {
+      return null;
+    }
+    sFeature.setType(context.getSType(dFeatureType));
+    DMultiplicity _multiplicity = source.getMultiplicity();
+    boolean _tripleNotEquals = (_multiplicity != null);
+    if (_tripleNotEquals) {
+      sFeature.setMultiplicity(SimDerivedStateComputer.simFactory.createSMultiplicity());
+      SMultiplicity _multiplicity_1 = sFeature.getMultiplicity();
+      _multiplicity_1.setMinOccurs(source.getMultiplicity().getMinOccurs());
+      SMultiplicity _multiplicity_2 = sFeature.getMultiplicity();
+      _multiplicity_2.setMaxOccurs(source.getMultiplicity().getMaxOccurs());
+    }
+    sFeature.setSynthetic(Boolean.valueOf(true));
+    container.getFeatures().add(sFeature);
+    return sFeature;
+  }
+  
+  protected void initSyntheticType(final SType t, final String name, final DNamedElement source, final EObject container) {
+    t.setName(name);
+    t.setSynthetic(Boolean.valueOf(true));
+    t.setDeductionRule(SimDerivedStateComputer.simFactory.createSGrabRule());
+    SDeductionRule _deductionRule = t.getDeductionRule();
+    _deductionRule.setSource(source);
+    boolean _matched = false;
+    if (container instanceof SAggregate) {
+      _matched=true;
+      ((SAggregate)container).getTypes().add(t);
+    }
+    if (!_matched) {
+      if (container instanceof SInformationModel) {
+        _matched=true;
+        ((SInformationModel)container).getTypes().add(t);
+      }
+    }
+  }
+  
+  public void addSyntheticLiteral(final SEnumeration container, final String name) {
+    final SLiteral sLiteral = SimDerivedStateComputer.simFactory.createSLiteral();
+    sLiteral.setName(name);
+    sLiteral.setSynthetic(Boolean.valueOf(true));
+    container.getLiterals().add(sLiteral);
   }
   
   public void processType(final SType sEnum, final SDeductionRule rule, final TransformationContext context) {
     if (sEnum instanceof SEnumeration
          && rule instanceof SGrabRule) {
       _processType((SEnumeration)sEnum, (SGrabRule)rule, context);
+      return;
+    } else if (sEnum instanceof SPrimitive
+         && rule instanceof SGrabRule) {
+      _processType((SPrimitive)sEnum, (SGrabRule)rule, context);
       return;
     } else if (sEnum instanceof SComplexType
          && rule instanceof SFuseRule) {

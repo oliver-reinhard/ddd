@@ -27,7 +27,6 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_SAttribute_AttributeKeyword_0_2_0_q;
 	protected AbstractElementAlias match_SAttribute_AttributeKeyword_1_2_0_q;
 	protected AbstractElementAlias match_SAttribute_AttributeKeyword_2_2_0_q;
-	protected AbstractElementAlias match_SPrimitive_RealisesKeyword_2_1_0_1_or_RealizesKeyword_2_1_0_0;
 	protected AbstractElementAlias match_SQuery_AsteriskKeyword_0_2_0_q;
 	
 	@Inject
@@ -39,7 +38,6 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_SAttribute_AttributeKeyword_0_2_0_q = new TokenAlias(false, true, grammarAccess.getSAttributeAccess().getAttributeKeyword_0_2_0());
 		match_SAttribute_AttributeKeyword_1_2_0_q = new TokenAlias(false, true, grammarAccess.getSAttributeAccess().getAttributeKeyword_1_2_0());
 		match_SAttribute_AttributeKeyword_2_2_0_q = new TokenAlias(false, true, grammarAccess.getSAttributeAccess().getAttributeKeyword_2_2_0());
-		match_SPrimitive_RealisesKeyword_2_1_0_1_or_RealizesKeyword_2_1_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSPrimitiveAccess().getRealisesKeyword_2_1_0_1()), new TokenAlias(false, false, grammarAccess.getSPrimitiveAccess().getRealizesKeyword_2_1_0_0()));
 		match_SQuery_AsteriskKeyword_0_2_0_q = new TokenAlias(false, true, grammarAccess.getSQueryAccess().getAsteriskKeyword_0_2_0());
 	}
 	
@@ -67,8 +65,6 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_SAttribute_AttributeKeyword_1_2_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SAttribute_AttributeKeyword_2_2_0_q.equals(syntax))
 				emit_SAttribute_AttributeKeyword_2_2_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_SPrimitive_RealisesKeyword_2_1_0_1_or_RealizesKeyword_2_1_0_0.equals(syntax))
-				emit_SPrimitive_RealisesKeyword_2_1_0_1_or_RealizesKeyword_2_1_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SQuery_AsteriskKeyword_0_2_0_q.equals(syntax))
 				emit_SQuery_AsteriskKeyword_0_2_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
@@ -138,17 +134,6 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) 'ditch' (ambiguity) deductionRule=SDitchFeatureRule
 	 */
 	protected void emit_SAttribute_AttributeKeyword_2_2_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'realizes' | 'realises'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     name=ID (ambiguity) realizes=[DPrimitive|SQualifiedName]
-	 */
-	protected void emit_SPrimitive_RealisesKeyword_2_1_0_1_or_RealizesKeyword_2_1_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

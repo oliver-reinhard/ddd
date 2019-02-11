@@ -67,7 +67,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SPrimitive" eSuperTypes="#//SSimpleType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="redefines" eType="#//SPrimitive"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="realizes" eType="ecore:EClass ../../com.mimacom.ddd.dm.dmx/model/base.ecore#//DPrimitive"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="archetype" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>

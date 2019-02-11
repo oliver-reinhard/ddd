@@ -147,6 +147,45 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getSourceDAggregateIDTerminalRuleCall_0_1() { return cSourceDAggregateIDTerminalRuleCall_0_1; }
 	}
+	public class SGrabPrimitiveRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SGrabPrimitiveRule");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cSourceDPrimitiveCrossReference_0_0 = (CrossReference)cSourceAssignment_0.eContents().get(0);
+		private final RuleCall cSourceDPrimitiveSQualifiedNameParserRuleCall_0_0_1 = (RuleCall)cSourceDPrimitiveCrossReference_0_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cAsKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cRenameToAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cRenameToIDTerminalRuleCall_1_1_0 = (RuleCall)cRenameToAssignment_1_1.eContents().get(0);
+		
+		//SGrabPrimitiveRule SGrabRule:
+		//	source=[DPrimitive|SQualifiedName] ('as' renameTo=ID)?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//source=[DPrimitive|SQualifiedName] ('as' renameTo=ID)?
+		public Group getGroup() { return cGroup; }
+		
+		//source=[DPrimitive|SQualifiedName]
+		public Assignment getSourceAssignment_0() { return cSourceAssignment_0; }
+		
+		//[DPrimitive|SQualifiedName]
+		public CrossReference getSourceDPrimitiveCrossReference_0_0() { return cSourceDPrimitiveCrossReference_0_0; }
+		
+		//SQualifiedName
+		public RuleCall getSourceDPrimitiveSQualifiedNameParserRuleCall_0_0_1() { return cSourceDPrimitiveSQualifiedNameParserRuleCall_0_0_1; }
+		
+		//('as' renameTo=ID)?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'as'
+		public Keyword getAsKeyword_1_0() { return cAsKeyword_1_0; }
+		
+		//renameTo=ID
+		public Assignment getRenameToAssignment_1_1() { return cRenameToAssignment_1_1; }
+		
+		//ID
+		public RuleCall getRenameToIDTerminalRuleCall_1_1_0() { return cRenameToIDTerminalRuleCall_1_1_0; }
+	}
 	public class SGrabEnumerationRuleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SGrabEnumerationRule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -657,34 +696,30 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cSPrimitiveParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cSPrimitiveArchetypeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cSEnumerationParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cSRootTypeParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cSDetailTypeParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cSEnumerationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cSRootTypeParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cSDetailTypeParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		///*
 		// * TYPES
 		// */ SType:
-		//	SPrimitive | SPrimitiveArchetype | SEnumeration | SRootType | SDetailType;
+		//	SPrimitive | SEnumeration | SRootType | SDetailType;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SPrimitive | SPrimitiveArchetype | SEnumeration | SRootType | SDetailType
+		//SPrimitive | SEnumeration | SRootType | SDetailType
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//SPrimitive
 		public RuleCall getSPrimitiveParserRuleCall_0() { return cSPrimitiveParserRuleCall_0; }
 		
-		//SPrimitiveArchetype
-		public RuleCall getSPrimitiveArchetypeParserRuleCall_1() { return cSPrimitiveArchetypeParserRuleCall_1; }
-		
 		//SEnumeration
-		public RuleCall getSEnumerationParserRuleCall_2() { return cSEnumerationParserRuleCall_2; }
+		public RuleCall getSEnumerationParserRuleCall_1() { return cSEnumerationParserRuleCall_1; }
 		
 		//SRootType
-		public RuleCall getSRootTypeParserRuleCall_3() { return cSRootTypeParserRuleCall_3; }
+		public RuleCall getSRootTypeParserRuleCall_2() { return cSRootTypeParserRuleCall_2; }
 		
 		//SDetailType
-		public RuleCall getSDetailTypeParserRuleCall_4() { return cSDetailTypeParserRuleCall_4; }
+		public RuleCall getSDetailTypeParserRuleCall_3() { return cSDetailTypeParserRuleCall_3; }
 	}
 	public class SConstraintElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SConstraint");
@@ -727,148 +762,116 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	public class SPrimitiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SPrimitive");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cPrimitiveKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final Group cGroup_2_0 = (Group)cAlternatives_2.eContents().get(0);
-		private final Keyword cRedefinesKeyword_2_0_0 = (Keyword)cGroup_2_0.eContents().get(0);
-		private final Assignment cRedefinesAssignment_2_0_1 = (Assignment)cGroup_2_0.eContents().get(1);
-		private final CrossReference cRedefinesSPrimitiveCrossReference_2_0_1_0 = (CrossReference)cRedefinesAssignment_2_0_1.eContents().get(0);
-		private final RuleCall cRedefinesSPrimitiveIDTerminalRuleCall_2_0_1_0_1 = (RuleCall)cRedefinesSPrimitiveCrossReference_2_0_1_0.eContents().get(1);
-		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
-		private final Alternatives cAlternatives_2_1_0 = (Alternatives)cGroup_2_1.eContents().get(0);
-		private final Keyword cRealizesKeyword_2_1_0_0 = (Keyword)cAlternatives_2_1_0.eContents().get(0);
-		private final Keyword cRealisesKeyword_2_1_0_1 = (Keyword)cAlternatives_2_1_0.eContents().get(1);
-		private final Assignment cRealizesAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
-		private final CrossReference cRealizesDPrimitiveCrossReference_2_1_1_0 = (CrossReference)cRealizesAssignment_2_1_1.eContents().get(0);
-		private final RuleCall cRealizesDPrimitiveSQualifiedNameParserRuleCall_2_1_1_0_1 = (RuleCall)cRealizesDPrimitiveCrossReference_2_1_1_0.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cConstraintsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cConstraintsSConstraintParserRuleCall_4_0 = (RuleCall)cConstraintsAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Group cGroup_0_0 = (Group)cAlternatives_0.eContents().get(0);
+		private final Action cSPrimitiveAction_0_0_0 = (Action)cGroup_0_0.eContents().get(0);
+		private final Keyword cGrabKeyword_0_0_1 = (Keyword)cGroup_0_0.eContents().get(1);
+		private final Keyword cPrimitiveKeyword_0_0_2 = (Keyword)cGroup_0_0.eContents().get(2);
+		private final Assignment cDeductionRuleAssignment_0_0_3 = (Assignment)cGroup_0_0.eContents().get(3);
+		private final RuleCall cDeductionRuleSGrabPrimitiveRuleParserRuleCall_0_0_3_0 = (RuleCall)cDeductionRuleAssignment_0_0_3.eContents().get(0);
+		private final Group cGroup_0_1 = (Group)cAlternatives_0.eContents().get(1);
+		private final Keyword cArchetypeKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
+		private final Assignment cNameAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0_1_1_0 = (RuleCall)cNameAssignment_0_1_1.eContents().get(0);
+		private final Group cGroup_0_2 = (Group)cAlternatives_0.eContents().get(2);
+		private final Keyword cPrimitiveKeyword_0_2_0 = (Keyword)cGroup_0_2.eContents().get(0);
+		private final Assignment cNameAssignment_0_2_1 = (Assignment)cGroup_0_2.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0_2_1_0 = (RuleCall)cNameAssignment_0_2_1.eContents().get(0);
+		private final Keyword cRedefinesKeyword_0_2_2 = (Keyword)cGroup_0_2.eContents().get(2);
+		private final Assignment cRedefinesAssignment_0_2_3 = (Assignment)cGroup_0_2.eContents().get(3);
+		private final CrossReference cRedefinesSPrimitiveCrossReference_0_2_3_0 = (CrossReference)cRedefinesAssignment_0_2_3.eContents().get(0);
+		private final RuleCall cRedefinesSPrimitiveIDTerminalRuleCall_0_2_3_0_1 = (RuleCall)cRedefinesSPrimitiveCrossReference_0_2_3_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cConstraintsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cConstraintsSConstraintParserRuleCall_2_0 = (RuleCall)cConstraintsAssignment_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		////	(description=DRichText)?;
 		//SPrimitive:
-		//	'primitive'
-		//	name=ID ('redefines' redefines=[SPrimitive] | ('realizes' | 'realises') realizes=[DPrimitive|SQualifiedName])
-		//	//(description=DRichText)?
+		//	({SPrimitive} 'grab' 'primitive' deductionRule=SGrabPrimitiveRule
+		//	| 'archetype'
+		//	name=ID
+		//	| 'primitive'
+		//	name=ID
+		//	'redefines' redefines=[SPrimitive])
 		//	'{'
 		//	constraints+=SConstraint*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'primitive' name=ID ('redefines' redefines=[SPrimitive] | ('realizes' | 'realises')
-		//realizes=[DPrimitive|SQualifiedName]) //(description=DRichText)?
-		//'{' constraints+=SConstraint* '}'
+		//({SPrimitive} 'grab' 'primitive' deductionRule=SGrabPrimitiveRule | 'archetype' name=ID | 'primitive' name=ID
+		//'redefines' redefines=[SPrimitive]) '{' constraints+=SConstraint* '}'
 		public Group getGroup() { return cGroup; }
+		
+		//{SPrimitive} 'grab' 'primitive' deductionRule=SGrabPrimitiveRule | 'archetype' name=ID | 'primitive' name=ID 'redefines'
+		//redefines=[SPrimitive]
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
+		//{SPrimitive} 'grab' 'primitive' deductionRule=SGrabPrimitiveRule
+		public Group getGroup_0_0() { return cGroup_0_0; }
+		
+		//{SPrimitive}
+		public Action getSPrimitiveAction_0_0_0() { return cSPrimitiveAction_0_0_0; }
+		
+		//'grab'
+		public Keyword getGrabKeyword_0_0_1() { return cGrabKeyword_0_0_1; }
 		
 		//'primitive'
-		public Keyword getPrimitiveKeyword_0() { return cPrimitiveKeyword_0; }
+		public Keyword getPrimitiveKeyword_0_0_2() { return cPrimitiveKeyword_0_0_2; }
 		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//deductionRule=SGrabPrimitiveRule
+		public Assignment getDeductionRuleAssignment_0_0_3() { return cDeductionRuleAssignment_0_0_3; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		//SGrabPrimitiveRule
+		public RuleCall getDeductionRuleSGrabPrimitiveRuleParserRuleCall_0_0_3_0() { return cDeductionRuleSGrabPrimitiveRuleParserRuleCall_0_0_3_0; }
 		
-		//'redefines' redefines=[SPrimitive] | ('realizes' | 'realises') realizes=[DPrimitive|SQualifiedName]
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
-		
-		//'redefines' redefines=[SPrimitive]
-		public Group getGroup_2_0() { return cGroup_2_0; }
-		
-		//'redefines'
-		public Keyword getRedefinesKeyword_2_0_0() { return cRedefinesKeyword_2_0_0; }
-		
-		//redefines=[SPrimitive]
-		public Assignment getRedefinesAssignment_2_0_1() { return cRedefinesAssignment_2_0_1; }
-		
-		//[SPrimitive]
-		public CrossReference getRedefinesSPrimitiveCrossReference_2_0_1_0() { return cRedefinesSPrimitiveCrossReference_2_0_1_0; }
-		
-		//ID
-		public RuleCall getRedefinesSPrimitiveIDTerminalRuleCall_2_0_1_0_1() { return cRedefinesSPrimitiveIDTerminalRuleCall_2_0_1_0_1; }
-		
-		//('realizes' | 'realises') realizes=[DPrimitive|SQualifiedName]
-		public Group getGroup_2_1() { return cGroup_2_1; }
-		
-		//'realizes' | 'realises'
-		public Alternatives getAlternatives_2_1_0() { return cAlternatives_2_1_0; }
-		
-		//'realizes'
-		public Keyword getRealizesKeyword_2_1_0_0() { return cRealizesKeyword_2_1_0_0; }
-		
-		//'realises'
-		public Keyword getRealisesKeyword_2_1_0_1() { return cRealisesKeyword_2_1_0_1; }
-		
-		//realizes=[DPrimitive|SQualifiedName]
-		public Assignment getRealizesAssignment_2_1_1() { return cRealizesAssignment_2_1_1; }
-		
-		//[DPrimitive|SQualifiedName]
-		public CrossReference getRealizesDPrimitiveCrossReference_2_1_1_0() { return cRealizesDPrimitiveCrossReference_2_1_1_0; }
-		
-		//SQualifiedName
-		public RuleCall getRealizesDPrimitiveSQualifiedNameParserRuleCall_2_1_1_0_1() { return cRealizesDPrimitiveSQualifiedNameParserRuleCall_2_1_1_0_1; }
-		
-		////(description=DRichText)?
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
-		
-		//constraints+=SConstraint*
-		public Assignment getConstraintsAssignment_4() { return cConstraintsAssignment_4; }
-		
-		//SConstraint
-		public RuleCall getConstraintsSConstraintParserRuleCall_4_0() { return cConstraintsSConstraintParserRuleCall_4_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
-	}
-	public class SPrimitiveArchetypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SPrimitiveArchetype");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cArchetypeKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cConstraintsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cConstraintsSConstraintParserRuleCall_3_0 = (RuleCall)cConstraintsAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		
-		//SPrimitiveArchetype SPrimitive:
-		//	'archetype'
-		//	name=ID
-		//	// (description=DRichText)?
-		//	'{'
-		//	constraints+=SConstraint*
-		//	'}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'archetype' name=ID // (description=DRichText)?
-		//'{' constraints+=SConstraint* '}'
-		public Group getGroup() { return cGroup; }
+		//'archetype' name=ID
+		public Group getGroup_0_1() { return cGroup_0_1; }
 		
 		//'archetype'
-		public Keyword getArchetypeKeyword_0() { return cArchetypeKeyword_0; }
+		public Keyword getArchetypeKeyword_0_1_0() { return cArchetypeKeyword_0_1_0; }
 		
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_0_1_1() { return cNameAssignment_0_1_1; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_0_1_1_0() { return cNameIDTerminalRuleCall_0_1_1_0; }
 		
-		//// (description=DRichText)?
+		//'primitive' name=ID 'redefines' redefines=[SPrimitive]
+		public Group getGroup_0_2() { return cGroup_0_2; }
+		
+		//'primitive'
+		public Keyword getPrimitiveKeyword_0_2_0() { return cPrimitiveKeyword_0_2_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_0_2_1() { return cNameAssignment_0_2_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_2_1_0() { return cNameIDTerminalRuleCall_0_2_1_0; }
+		
+		//'redefines'
+		public Keyword getRedefinesKeyword_0_2_2() { return cRedefinesKeyword_0_2_2; }
+		
+		//redefines=[SPrimitive]
+		public Assignment getRedefinesAssignment_0_2_3() { return cRedefinesAssignment_0_2_3; }
+		
+		//[SPrimitive]
+		public CrossReference getRedefinesSPrimitiveCrossReference_0_2_3_0() { return cRedefinesSPrimitiveCrossReference_0_2_3_0; }
+		
+		//ID
+		public RuleCall getRedefinesSPrimitiveIDTerminalRuleCall_0_2_3_0_1() { return cRedefinesSPrimitiveIDTerminalRuleCall_0_2_3_0_1; }
+		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
 		//constraints+=SConstraint*
-		public Assignment getConstraintsAssignment_3() { return cConstraintsAssignment_3; }
+		public Assignment getConstraintsAssignment_2() { return cConstraintsAssignment_2; }
 		
 		//SConstraint
-		public RuleCall getConstraintsSConstraintParserRuleCall_3_0() { return cConstraintsSConstraintParserRuleCall_3_0; }
+		public RuleCall getConstraintsSConstraintParserRuleCall_2_0() { return cConstraintsSConstraintParserRuleCall_2_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
 	}
 	public class SEnumerationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SEnumeration");
@@ -2455,6 +2458,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	private final SInformationModelKindElements eSInformationModelKind;
 	private final SImportElements pSImport;
 	private final SGrabAggregateRuleElements pSGrabAggregateRule;
+	private final SGrabPrimitiveRuleElements pSGrabPrimitiveRule;
 	private final SGrabEnumerationRuleElements pSGrabEnumerationRule;
 	private final SDitchEnumerationRuleElements pSDitchEnumerationRule;
 	private final SGrabEnumerationLiteralRuleElements pSGrabEnumerationLiteralRule;
@@ -2470,7 +2474,6 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	private final STypeElements pSType;
 	private final SConstraintElements pSConstraint;
 	private final SPrimitiveElements pSPrimitive;
-	private final SPrimitiveArchetypeElements pSPrimitiveArchetype;
 	private final SEnumerationElements pSEnumeration;
 	private final SLiteralElements pSLiteral;
 	private final SRootTypeElements pSRootType;
@@ -2503,6 +2506,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		this.eSInformationModelKind = new SInformationModelKindElements();
 		this.pSImport = new SImportElements();
 		this.pSGrabAggregateRule = new SGrabAggregateRuleElements();
+		this.pSGrabPrimitiveRule = new SGrabPrimitiveRuleElements();
 		this.pSGrabEnumerationRule = new SGrabEnumerationRuleElements();
 		this.pSDitchEnumerationRule = new SDitchEnumerationRuleElements();
 		this.pSGrabEnumerationLiteralRule = new SGrabEnumerationLiteralRuleElements();
@@ -2518,7 +2522,6 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSType = new STypeElements();
 		this.pSConstraint = new SConstraintElements();
 		this.pSPrimitive = new SPrimitiveElements();
-		this.pSPrimitiveArchetype = new SPrimitiveArchetypeElements();
 		this.pSEnumeration = new SEnumerationElements();
 		this.pSLiteral = new SLiteralElements();
 		this.pSRootType = new SRootTypeElements();
@@ -2609,6 +2612,16 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getSGrabAggregateRuleRule() {
 		return getSGrabAggregateRuleAccess().getRule();
+	}
+	
+	//SGrabPrimitiveRule SGrabRule:
+	//	source=[DPrimitive|SQualifiedName] ('as' renameTo=ID)?;
+	public SGrabPrimitiveRuleElements getSGrabPrimitiveRuleAccess() {
+		return pSGrabPrimitiveRule;
+	}
+	
+	public ParserRule getSGrabPrimitiveRuleRule() {
+		return getSGrabPrimitiveRuleAccess().getRule();
 	}
 	
 	//SGrabEnumerationRule SGrabRule:
@@ -2741,7 +2754,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	///*
 	// * TYPES
 	// */ SType:
-	//	SPrimitive | SPrimitiveArchetype | SEnumeration | SRootType | SDetailType;
+	//	SPrimitive | SEnumeration | SRootType | SDetailType;
 	public STypeElements getSTypeAccess() {
 		return pSType;
 	}
@@ -2765,9 +2778,12 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////	(description=DRichText)?;
 	//SPrimitive:
-	//	'primitive'
-	//	name=ID ('redefines' redefines=[SPrimitive] | ('realizes' | 'realises') realizes=[DPrimitive|SQualifiedName])
-	//	//(description=DRichText)?
+	//	({SPrimitive} 'grab' 'primitive' deductionRule=SGrabPrimitiveRule
+	//	| 'archetype'
+	//	name=ID
+	//	| 'primitive'
+	//	name=ID
+	//	'redefines' redefines=[SPrimitive])
 	//	'{'
 	//	constraints+=SConstraint*
 	//	'}';
@@ -2777,21 +2793,6 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getSPrimitiveRule() {
 		return getSPrimitiveAccess().getRule();
-	}
-	
-	//SPrimitiveArchetype SPrimitive:
-	//	'archetype'
-	//	name=ID
-	//	// (description=DRichText)?
-	//	'{'
-	//	constraints+=SConstraint*
-	//	'}';
-	public SPrimitiveArchetypeElements getSPrimitiveArchetypeAccess() {
-		return pSPrimitiveArchetype;
-	}
-	
-	public ParserRule getSPrimitiveArchetypeRule() {
-		return getSPrimitiveArchetypeAccess().getRule();
 	}
 	
 	//SEnumeration:

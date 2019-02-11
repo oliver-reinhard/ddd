@@ -28,16 +28,19 @@ class SimGenerator extends AbstractGenerator {
 	@Inject ISerializer serializer;
 	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		val targetRS = new XtextResourceSet
-		EcoreUtil2.clone(targetRS, resource.resourceSet)
-		val resourceCopy = targetRS.getResource(resource.URI, false)
-		if (resourceCopy.removeTransformationItems) {
-			// if no synthetic members were present, then resource is already a generated file.
-			val writer = new CharArrayWriter(1000)
-			val  saveOptions = SaveOptions.getOptions(null)
-			serializer.serialize(resourceCopy.contents.head, writer, saveOptions)
-			fsa.generateFile("Deduced" + resource.URI.lastSegment.toFirstUpper, writer.toString)
-		}
+		//
+		// DEDUCED RESOURCES DO NOT CREATE EOBJECTDESCRIPTIONS => SERIALIZER CANNOT LINK !!!
+		// 
+//		val targetRS = new XtextResourceSet
+//		EcoreUtil2.clone(targetRS, resource.resourceSet)
+//		val resourceCopy = targetRS.getResource(resource.URI, false)
+//		if (resourceCopy.removeTransformationItems) {
+//			// if no synthetic members were present, then resource is already a generated file.
+//			val writer = new CharArrayWriter(1000)
+//			val  saveOptions = SaveOptions.getOptions(null)
+//			serializer.serialize(resourceCopy.contents.head, writer, saveOptions)
+//			fsa.generateFile("Deduced" + resource.URI.lastSegment.toFirstUpper, writer.toString)
+//		}
 	}
 	
 	def boolean removeTransformationItems(Resource resource) {

@@ -34,8 +34,7 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSInformationModelAccess().getAlternatives_6(), "rule__SInformationModel__Alternatives_6");
 			builder.put(grammarAccess.getSAggregateAccess().getAlternatives_1(), "rule__SAggregate__Alternatives_1");
 			builder.put(grammarAccess.getSTypeAccess().getAlternatives(), "rule__SType__Alternatives");
-			builder.put(grammarAccess.getSPrimitiveAccess().getAlternatives_2(), "rule__SPrimitive__Alternatives_2");
-			builder.put(grammarAccess.getSPrimitiveAccess().getAlternatives_2_1_0(), "rule__SPrimitive__Alternatives_2_1_0");
+			builder.put(grammarAccess.getSPrimitiveAccess().getAlternatives_0(), "rule__SPrimitive__Alternatives_0");
 			builder.put(grammarAccess.getSEnumerationAccess().getAlternatives_0(), "rule__SEnumeration__Alternatives_0");
 			builder.put(grammarAccess.getSLiteralAccess().getAlternatives(), "rule__SLiteral__Alternatives");
 			builder.put(grammarAccess.getSRootTypeAccess().getAlternatives_0(), "rule__SRootType__Alternatives_0");
@@ -60,6 +59,8 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSAssociationKindAccess().getAlternatives(), "rule__SAssociationKind__Alternatives");
 			builder.put(grammarAccess.getSInformationModelAccess().getGroup(), "rule__SInformationModel__Group__0");
 			builder.put(grammarAccess.getSImportAccess().getGroup(), "rule__SImport__Group__0");
+			builder.put(grammarAccess.getSGrabPrimitiveRuleAccess().getGroup(), "rule__SGrabPrimitiveRule__Group__0");
+			builder.put(grammarAccess.getSGrabPrimitiveRuleAccess().getGroup_1(), "rule__SGrabPrimitiveRule__Group_1__0");
 			builder.put(grammarAccess.getSGrabEnumerationRuleAccess().getGroup(), "rule__SGrabEnumerationRule__Group__0");
 			builder.put(grammarAccess.getSGrabEnumerationRuleAccess().getGroup_1(), "rule__SGrabEnumerationRule__Group_1__0");
 			builder.put(grammarAccess.getSGrabEnumerationLiteralRuleAccess().getGroup(), "rule__SGrabEnumerationLiteralRule__Group__0");
@@ -81,9 +82,9 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSAggregateAccess().getGroup_1_0(), "rule__SAggregate__Group_1_0__0");
 			builder.put(grammarAccess.getSConstraintAccess().getGroup(), "rule__SConstraint__Group__0");
 			builder.put(grammarAccess.getSPrimitiveAccess().getGroup(), "rule__SPrimitive__Group__0");
-			builder.put(grammarAccess.getSPrimitiveAccess().getGroup_2_0(), "rule__SPrimitive__Group_2_0__0");
-			builder.put(grammarAccess.getSPrimitiveAccess().getGroup_2_1(), "rule__SPrimitive__Group_2_1__0");
-			builder.put(grammarAccess.getSPrimitiveArchetypeAccess().getGroup(), "rule__SPrimitiveArchetype__Group__0");
+			builder.put(grammarAccess.getSPrimitiveAccess().getGroup_0_0(), "rule__SPrimitive__Group_0_0__0");
+			builder.put(grammarAccess.getSPrimitiveAccess().getGroup_0_1(), "rule__SPrimitive__Group_0_1__0");
+			builder.put(grammarAccess.getSPrimitiveAccess().getGroup_0_2(), "rule__SPrimitive__Group_0_2__0");
 			builder.put(grammarAccess.getSEnumerationAccess().getGroup(), "rule__SEnumeration__Group__0");
 			builder.put(grammarAccess.getSEnumerationAccess().getGroup_0_0(), "rule__SEnumeration__Group_0_0__0");
 			builder.put(grammarAccess.getSEnumerationAccess().getGroup_0_1(), "rule__SEnumeration__Group_0_1__0");
@@ -141,6 +142,8 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSInformationModelAccess().getAggregatesAssignment_6_1(), "rule__SInformationModel__AggregatesAssignment_6_1");
 			builder.put(grammarAccess.getSImportAccess().getImportedNamespaceAssignment_1(), "rule__SImport__ImportedNamespaceAssignment_1");
 			builder.put(grammarAccess.getSGrabAggregateRuleAccess().getSourceAssignment(), "rule__SGrabAggregateRule__SourceAssignment");
+			builder.put(grammarAccess.getSGrabPrimitiveRuleAccess().getSourceAssignment_0(), "rule__SGrabPrimitiveRule__SourceAssignment_0");
+			builder.put(grammarAccess.getSGrabPrimitiveRuleAccess().getRenameToAssignment_1_1(), "rule__SGrabPrimitiveRule__RenameToAssignment_1_1");
 			builder.put(grammarAccess.getSGrabEnumerationRuleAccess().getSourceAssignment_0(), "rule__SGrabEnumerationRule__SourceAssignment_0");
 			builder.put(grammarAccess.getSGrabEnumerationRuleAccess().getRenameToAssignment_1_1(), "rule__SGrabEnumerationRule__RenameToAssignment_1_1");
 			builder.put(grammarAccess.getSDitchEnumerationRuleAccess().getSourceAssignment(), "rule__SDitchEnumerationRule__SourceAssignment");
@@ -168,12 +171,11 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSAggregateAccess().getTypesAssignment_3(), "rule__SAggregate__TypesAssignment_3");
 			builder.put(grammarAccess.getSConstraintAccess().getNameAssignment_1(), "rule__SConstraint__NameAssignment_1");
 			builder.put(grammarAccess.getSConstraintAccess().getConditionAssignment_3(), "rule__SConstraint__ConditionAssignment_3");
-			builder.put(grammarAccess.getSPrimitiveAccess().getNameAssignment_1(), "rule__SPrimitive__NameAssignment_1");
-			builder.put(grammarAccess.getSPrimitiveAccess().getRedefinesAssignment_2_0_1(), "rule__SPrimitive__RedefinesAssignment_2_0_1");
-			builder.put(grammarAccess.getSPrimitiveAccess().getRealizesAssignment_2_1_1(), "rule__SPrimitive__RealizesAssignment_2_1_1");
-			builder.put(grammarAccess.getSPrimitiveAccess().getConstraintsAssignment_4(), "rule__SPrimitive__ConstraintsAssignment_4");
-			builder.put(grammarAccess.getSPrimitiveArchetypeAccess().getNameAssignment_1(), "rule__SPrimitiveArchetype__NameAssignment_1");
-			builder.put(grammarAccess.getSPrimitiveArchetypeAccess().getConstraintsAssignment_3(), "rule__SPrimitiveArchetype__ConstraintsAssignment_3");
+			builder.put(grammarAccess.getSPrimitiveAccess().getDeductionRuleAssignment_0_0_3(), "rule__SPrimitive__DeductionRuleAssignment_0_0_3");
+			builder.put(grammarAccess.getSPrimitiveAccess().getNameAssignment_0_1_1(), "rule__SPrimitive__NameAssignment_0_1_1");
+			builder.put(grammarAccess.getSPrimitiveAccess().getNameAssignment_0_2_1(), "rule__SPrimitive__NameAssignment_0_2_1");
+			builder.put(grammarAccess.getSPrimitiveAccess().getRedefinesAssignment_0_2_3(), "rule__SPrimitive__RedefinesAssignment_0_2_3");
+			builder.put(grammarAccess.getSPrimitiveAccess().getConstraintsAssignment_2(), "rule__SPrimitive__ConstraintsAssignment_2");
 			builder.put(grammarAccess.getSEnumerationAccess().getDeductionRuleAssignment_0_0_3(), "rule__SEnumeration__DeductionRuleAssignment_0_0_3");
 			builder.put(grammarAccess.getSEnumerationAccess().getDeductionRuleAssignment_0_1_3(), "rule__SEnumeration__DeductionRuleAssignment_0_1_3");
 			builder.put(grammarAccess.getSEnumerationAccess().getNameAssignment_0_2_1(), "rule__SEnumeration__NameAssignment_0_2_1");

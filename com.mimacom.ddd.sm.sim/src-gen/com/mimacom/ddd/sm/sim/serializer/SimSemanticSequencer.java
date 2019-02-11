@@ -113,6 +113,10 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					sequence_SGrabFeatureRule(context, (SGrabRule) semanticObject); 
 					return; 
 				}
+				else if (rule == grammarAccess.getSGrabPrimitiveRuleRule()) {
+					sequence_SGrabPrimitiveRule(context, (SGrabRule) semanticObject); 
+					return; 
+				}
 				else break;
 			case SimPackage.SIMPORT:
 				sequence_SImport(context, (SImport) semanticObject); 
@@ -137,19 +141,8 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_SMultiplicity(context, (SMultiplicity) semanticObject); 
 				return; 
 			case SimPackage.SPRIMITIVE:
-				if (rule == grammarAccess.getSPrimitiveArchetypeRule()) {
-					sequence_SPrimitiveArchetype(context, (SPrimitive) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getSPrimitiveRule()) {
-					sequence_SPrimitive(context, (SPrimitive) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getSTypeRule()) {
-					sequence_SPrimitive_SPrimitiveArchetype(context, (SPrimitive) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_SPrimitive(context, (SPrimitive) semanticObject); 
+				return; 
 			case SimPackage.SQUERY:
 				sequence_SQuery(context, (SQuery) semanticObject); 
 				return; 
@@ -464,6 +457,18 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     SGrabPrimitiveRule returns SGrabRule
+	 *
+	 * Constraint:
+	 *     (source=[DPrimitive|SQualifiedName] renameTo=ID?)
+	 */
+	protected void sequence_SGrabPrimitiveRule(ISerializationContext context, SGrabRule semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     SImport returns SImport
 	 *
 	 * Constraint:
@@ -551,36 +556,13 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     SPrimitiveArchetype returns SPrimitive
-	 *
-	 * Constraint:
-	 *     (name=ID constraints+=SConstraint*)
-	 */
-	protected void sequence_SPrimitiveArchetype(ISerializationContext context, SPrimitive semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
+	 *     SType returns SPrimitive
 	 *     SPrimitive returns SPrimitive
 	 *
 	 * Constraint:
-	 *     (name=ID (redefines=[SPrimitive|ID] | realizes=[DPrimitive|SQualifiedName]) constraints+=SConstraint*)
+	 *     ((deductionRule=SGrabPrimitiveRule | name=ID | (name=ID redefines=[SPrimitive|ID])) constraints+=SConstraint*)
 	 */
 	protected void sequence_SPrimitive(ISerializationContext context, SPrimitive semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     SType returns SPrimitive
-	 *
-	 * Constraint:
-	 *     ((name=ID (redefines=[SPrimitive|ID] | realizes=[DPrimitive|SQualifiedName]) constraints+=SConstraint*) | (name=ID constraints+=SConstraint*))
-	 */
-	protected void sequence_SPrimitive_SPrimitiveArchetype(ISerializationContext context, SPrimitive semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -10,6 +10,8 @@ import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DFeature
 import com.mimacom.ddd.dm.base.DLiteral
+import com.mimacom.ddd.dm.base.DNamedElement
+import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DRelationship
 import com.mimacom.ddd.dm.base.DRootType
@@ -18,11 +20,11 @@ import com.mimacom.ddd.sm.sim.SComplexType
 import com.mimacom.ddd.sm.sim.SDeducibleElement
 import com.mimacom.ddd.sm.sim.SDeductionRule
 import com.mimacom.ddd.sm.sim.SDitchRule
-import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.SEnumeration
 import com.mimacom.ddd.sm.sim.SFeature
 import com.mimacom.ddd.sm.sim.SFuseRule
 import com.mimacom.ddd.sm.sim.SGrabRule
+import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.SMorphRule
 import com.mimacom.ddd.sm.sim.SPrimitive
 import com.mimacom.ddd.sm.sim.SType
@@ -40,19 +42,29 @@ import static com.mimacom.ddd.sm.sim.SElementNature.*
 class SimDerivedStateComputer implements IDerivedStateComputer {
 	
 	@Inject extension SimUtil
+	@Inject TransformationContext context
 	
-	static Logger LOGGER = Logger.getLogger(SimDerivedStateComputer);
+	static val LOGGER = Logger.getLogger(SimDerivedStateComputer);
 	static val simFactory = SimFactory.eINSTANCE
 	static val UNDEFINED = "UNDEFINED"
 	
 	override void installDerivedState(DerivedStateAwareResource resource, boolean preLinkingPhase) {
 		if (!preLinkingPhase) {
-			// make sure we start with fresh type maps:
-			val context = new TransformationContext(resource)
 			
+			context.init(resource)
 			val model = resource.allContents.head as SInformationModel
 			processInformationModel(model, context)
 		}
+	}
+	
+	override discardDerivedState(DerivedStateAwareResource resource) {
+			// create list from TreeIterator because we are going to modify the tree while we iterate over the elements:
+			val syntheticElements = resource.allContents.filter(SDeducibleElement).filter[synthetic !== null && synthetic]
+			val list = Lists.newArrayList
+			while(syntheticElements.hasNext) list.add(syntheticElements.next)
+			for(e : list) {
+				EcoreUtil.remove(e)
+			}
 	}
 	
 	def  void processInformationModel(SInformationModel model, TransformationContext context) {
@@ -85,11 +97,12 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 		}
 	}
 	
-	def SAggregate addSyntheticAggregate(SInformationModel container, DAggregate source, TransformationContext context) throws UnsupportedDomainTypeException {
-		val sAggregate = simFactory.createSAggregate
-		sAggregate.synthetic = true
-		container.aggregates.add(sAggregate)
-		return sAggregate
+	def dispatch void processType(SPrimitive sType, SGrabRule rule, TransformationContext context) {
+		val source = rule.source
+		if (source instanceof DPrimitive) {
+			val name = if (rule.renameTo !== null) rule.renameTo else source.name
+			addSyntheticPrimitive(sType.eContainer, name, source, context)
+		}
 	}
 	
 	def dispatch void processType(SEnumeration sEnum, SGrabRule rule, TransformationContext context) {
@@ -122,24 +135,6 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 				}
 			}	
 		}
-	}
-	
-	def SEnumeration addSyntheticEnumeration(EObject container, String name, DEnumeration source, TransformationContext context) throws UnsupportedDomainTypeException {
-		val sType = simFactory.createSEnumeration
-		sType.name = name
-		sType.synthetic = true
-		switch container {
-			SAggregate : container.types.add(sType)
-			SInformationModel : container.types.add(sType)
-		}
-		return sType
-	}
-	
-	def void addSyntheticLiteral(SEnumeration container, String name) {
-		val sLiteral = simFactory.createSLiteral
-		sLiteral.name = name
-		sLiteral.synthetic = true
-		container.literals.add(sLiteral)
 	}
 	
 	
@@ -178,22 +173,6 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 		}
 	}
 	
-	def SComplexType addSyntheticComplexType(EObject container, String name, DComplexType source, TransformationContext context) throws UnsupportedDomainTypeException {
-		val sType = switch source {
-			DRootType: simFactory.createSRootType
-			DRelationship: simFactory.createSRootType
-			DDetailType: simFactory.createSDetailType
-		}
-		sType.name = name
-		sType.abstract = source.abstract
-		sType.synthetic = true
-		switch container {
-			SAggregate : container.types.add(sType)
-			SInformationModel : container.types.add(sType)
-		}
-		return sType
-	}
-	
 	def dispatch void processType(SComplexType type, SMorphRule rule, TransformationContext context) {
 		// TODO
 	}
@@ -204,28 +183,6 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 	
 	def dispatch void processType(SType type, SDeductionRule rule, TransformationContext context) {
 		throw new UnsupportedOperationException() // catch-all => should not occur
-	}
-	
-	def SFeature addSyntheticFeature(SComplexType container, String name, DFeature source, TransformationContext context) throws UnsupportedDomainTypeException {
-			val sFeature = switch source {
-				DAttribute: simFactory.createSAttribute
-				DQuery: simFactory.createSQuery
-				DAssociation: simFactory.createSAssociation
-			}
-			sFeature.name = name
-			val dFeatureType = source.type
-			if (dFeatureType === null) {  // the domain model is (temporarily incomplete => don't add sFeature now
-				return null 
-			}
-			sFeature.type = context.getSType(dFeatureType)
-			if (source.multiplicity !== null) {
-				sFeature.multiplicity = simFactory.createSMultiplicity
-				sFeature.multiplicity.minOccurs = source.multiplicity.minOccurs
-				sFeature.multiplicity.maxOccurs = source.multiplicity.maxOccurs
-			}
-			sFeature.synthetic = true
-			container.features.add(sFeature)
-			return sFeature
 	}
 	
 	def  SFeature grabFeature(SComplexType container, SFeature sFeature, SGrabRule rule, TransformationContext context) {
@@ -260,13 +217,80 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 		// do nothing (has been taken care of by SComplexType
 	}
 	
-	override discardDerivedState(DerivedStateAwareResource resource) {
-			// create list from TreeIterator because we are going to modify the tree while we iterate over the elements:
-			val syntheticElements = resource.allContents.filter(SDeducibleElement).filter[synthetic !== null && synthetic]
-			val list = Lists.newArrayList
-			while(syntheticElements.hasNext) list.add(syntheticElements.next)
-			for(e : list) {
-				EcoreUtil.remove(e)
+	
+	def SAggregate addSyntheticAggregate(SInformationModel container, DAggregate source, TransformationContext context) throws UnsupportedDomainTypeException {
+		val sAggregate = simFactory.createSAggregate
+		sAggregate.synthetic = true
+		sAggregate.deductionRule = simFactory.createSGrabAggregateRule
+		sAggregate.deductionRule.source = source
+		container.aggregates.add(sAggregate)
+		return sAggregate
+	}
+	
+	def SPrimitive addSyntheticPrimitive(EObject container, String name, DPrimitive source, TransformationContext context) throws UnsupportedDomainTypeException {
+		val sType = simFactory.createSPrimitive
+		sType.initSyntheticType(name, source, container)
+		return sType
+	}
+	
+	def SEnumeration addSyntheticEnumeration(EObject container, String name, DEnumeration source, TransformationContext context) throws UnsupportedDomainTypeException {
+		val sType = simFactory.createSEnumeration
+		sType.initSyntheticType(name, source, container)
+		return sType
+	}
+	
+	def SComplexType addSyntheticComplexType(EObject container, String name, DComplexType source, TransformationContext context) throws UnsupportedDomainTypeException {
+		val sType = switch source {
+			DRootType: simFactory.createSRootType
+			DRelationship: simFactory.createSRootType
+			DDetailType: simFactory.createSDetailType
+		}
+		sType.initSyntheticType(name, source, container)
+		sType.abstract = source.abstract
+		switch container {
+			SAggregate : container.types.add(sType)
+			SInformationModel : container.types.add(sType)
+		}
+		return sType
+	}
+	
+	def SFeature addSyntheticFeature(SComplexType container, String name, DFeature source, TransformationContext context) throws UnsupportedDomainTypeException {
+			val sFeature = switch source {
+				DAttribute: simFactory.createSAttribute
+				DQuery: simFactory.createSQuery
+				DAssociation: simFactory.createSAssociation
 			}
+			sFeature.name = name
+			val dFeatureType = source.type
+			if (dFeatureType === null) {  // the domain model is (temporarily incomplete => don't add sFeature now
+				return null 
+			}
+			sFeature.type = context.getSType(dFeatureType)
+			if (source.multiplicity !== null) {
+				sFeature.multiplicity = simFactory.createSMultiplicity
+				sFeature.multiplicity.minOccurs = source.multiplicity.minOccurs
+				sFeature.multiplicity.maxOccurs = source.multiplicity.maxOccurs
+			}
+			sFeature.synthetic = true
+			container.features.add(sFeature)
+			return sFeature
+	}
+	
+	protected def void initSyntheticType(SType t, String name, DNamedElement source, EObject container) {
+		t.name = name
+		t.synthetic = true
+		t.deductionRule = simFactory.createSGrabRule
+		t.deductionRule.source = source
+		switch container {
+			SAggregate : container.types.add(t)
+			SInformationModel : container.types.add(t)
+		}
+	}
+	
+	def void addSyntheticLiteral(SEnumeration container, String name) {
+		val sLiteral = simFactory.createSLiteral
+		sLiteral.name = name
+		sLiteral.synthetic = true
+		container.literals.add(sLiteral)
 	}
 }

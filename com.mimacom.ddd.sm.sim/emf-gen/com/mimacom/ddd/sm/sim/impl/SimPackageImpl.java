@@ -734,20 +734,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSPrimitive_Realizes()
-	{
-		return (EReference)sPrimitiveEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getSPrimitive_Archetype()
 	{
-		return (EAttribute)sPrimitiveEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)sPrimitiveEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1289,7 +1278,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 
 		sPrimitiveEClass = createEClass(SPRIMITIVE);
 		createEReference(sPrimitiveEClass, SPRIMITIVE__REDEFINES);
-		createEReference(sPrimitiveEClass, SPRIMITIVE__REALIZES);
 		createEAttribute(sPrimitiveEClass, SPRIMITIVE__ARCHETYPE);
 
 		sEnumerationEClass = createEClass(SENUMERATION);
@@ -1459,7 +1447,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 
 		initEClass(sPrimitiveEClass, SPrimitive.class, "SPrimitive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSPrimitive_Redefines(), this.getSPrimitive(), null, "redefines", null, 0, 1, SPrimitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSPrimitive_Realizes(), theBasePackage.getDPrimitive(), null, "realizes", null, 0, 1, SPrimitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSPrimitive_Archetype(), ecorePackage.getEBoolean(), "archetype", null, 0, 1, SPrimitive.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(sEnumerationEClass, SEnumeration.class, "SEnumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

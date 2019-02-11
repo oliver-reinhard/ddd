@@ -13,8 +13,7 @@ SInformationModel:
 	(types+=SType |	aggregates+=SAggregate)*;
 
 enum SInformationModelKind:
-	BASE='base' | INTERFACE='interface' | CORE='core'
-;
+	BASE='base' | INTERFACE='interface' | CORE='core';
 
 SImport:
 	'import' importedNamespace=SQualifiedNameWithWildcard;
@@ -23,6 +22,10 @@ SImport:
 	
 SGrabAggregateRule:
 	source=[DAggregate|ID];
+	
+SGrabPrimitiveRule returns SGrabRule:
+	source=[DPrimitive|SQualifiedName]
+	('as' renameTo=ID)?;
 	
 SGrabEnumerationRule returns SGrabRule:
 	source=[DEnumeration|SQualifiedName]
@@ -83,7 +86,7 @@ SAggregate:
  * TYPES
  */
 SType:
-	SPrimitive | SPrimitiveArchetype | SEnumeration | SRootType | SDetailType;
+	SPrimitive | SEnumeration | SRootType | SDetailType;
 	
 SConstraint returns SCondition:
 	'constraint'
@@ -93,20 +96,14 @@ SConstraint returns SCondition:
 //	(description=DRichText)?;
 
 SPrimitive:
-	'primitive'
-	name=ID
-	(	'redefines' redefines=[SPrimitive]
-	| 	('realizes' | 'realises') realizes=[DPrimitive|SQualifiedName]
-	)
+	( 	{SPrimitive} 'grab' 'primitive' deductionRule=SGrabPrimitiveRule
+	|	'archetype'
+		name=ID
+	|	'primitive'
+		name=ID
+		'redefines' redefines=[SPrimitive]
 	//(description=DRichText)?
-	'{'
-		(constraints+=SConstraint)*
-	'}';
-	
-SPrimitiveArchetype returns SPrimitive:
-	'archetype'
-	name=ID
-	// (description=DRichText)?
+	)
 	'{'
 		(constraints+=SConstraint)*
 	'}';

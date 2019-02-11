@@ -272,6 +272,65 @@ ruleSGrabAggregateRule returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleSGrabPrimitiveRule
+entryRuleSGrabPrimitiveRule returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSGrabPrimitiveRuleRule()); }
+	iv_ruleSGrabPrimitiveRule=ruleSGrabPrimitiveRule
+	{ $current=$iv_ruleSGrabPrimitiveRule.current; }
+	EOF;
+
+// Rule SGrabPrimitiveRule
+ruleSGrabPrimitiveRule returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSGrabPrimitiveRuleRule());
+					}
+				}
+				{
+					newCompositeNode(grammarAccess.getSGrabPrimitiveRuleAccess().getSourceDPrimitiveCrossReference_0_0());
+				}
+				ruleSQualifiedName
+				{
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_1='as'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getSGrabPrimitiveRuleAccess().getAsKeyword_1_0());
+			}
+			(
+				(
+					lv_renameTo_2_0=RULE_ID
+					{
+						newLeafNode(lv_renameTo_2_0, grammarAccess.getSGrabPrimitiveRuleAccess().getRenameToIDTerminalRuleCall_1_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSGrabPrimitiveRuleRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"renameTo",
+							lv_renameTo_2_0,
+							"org.eclipse.xtext.common.Terminals.ID");
+					}
+				)
+			)
+		)?
+	)
+;
+
 // Entry rule entryRuleSGrabEnumerationRule
 entryRuleSGrabEnumerationRule returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getSGrabEnumerationRuleRule()); }
@@ -1011,38 +1070,29 @@ ruleSType returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getSTypeAccess().getSPrimitiveArchetypeParserRuleCall_1());
+			newCompositeNode(grammarAccess.getSTypeAccess().getSEnumerationParserRuleCall_1());
 		}
-		this_SPrimitiveArchetype_1=ruleSPrimitiveArchetype
+		this_SEnumeration_1=ruleSEnumeration
 		{
-			$current = $this_SPrimitiveArchetype_1.current;
+			$current = $this_SEnumeration_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getSTypeAccess().getSEnumerationParserRuleCall_2());
+			newCompositeNode(grammarAccess.getSTypeAccess().getSRootTypeParserRuleCall_2());
 		}
-		this_SEnumeration_2=ruleSEnumeration
+		this_SRootType_2=ruleSRootType
 		{
-			$current = $this_SEnumeration_2.current;
+			$current = $this_SRootType_2.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getSTypeAccess().getSRootTypeParserRuleCall_3());
+			newCompositeNode(grammarAccess.getSTypeAccess().getSDetailTypeParserRuleCall_3());
 		}
-		this_SRootType_3=ruleSRootType
+		this_SDetailType_3=ruleSDetailType
 		{
-			$current = $this_SRootType_3.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getSTypeAccess().getSDetailTypeParserRuleCall_4());
-		}
-		this_SDetailType_4=ruleSDetailType
-		{
-			$current = $this_SDetailType_4.current;
+			$current = $this_SDetailType_3.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -1128,61 +1178,96 @@ ruleSPrimitive returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='primitive'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getSPrimitiveAccess().getPrimitiveKeyword_0());
-		}
 		(
 			(
-				lv_name_1_0=RULE_ID
-				{
-					newLeafNode(lv_name_1_0, grammarAccess.getSPrimitiveAccess().getNameIDTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSPrimitiveRule());
+				(
+					{
+						$current = forceCreateModelElement(
+							grammarAccess.getSPrimitiveAccess().getSPrimitiveAction_0_0_0(),
+							$current);
 					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		(
-			(
-				otherlv_2='redefines'
+				)
+				otherlv_1='grab'
 				{
-					newLeafNode(otherlv_2, grammarAccess.getSPrimitiveAccess().getRedefinesKeyword_2_0_0());
+					newLeafNode(otherlv_1, grammarAccess.getSPrimitiveAccess().getGrabKeyword_0_0_1());
+				}
+				otherlv_2='primitive'
+				{
+					newLeafNode(otherlv_2, grammarAccess.getSPrimitiveAccess().getPrimitiveKeyword_0_0_2());
 				}
 				(
 					(
 						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getSPrimitiveRule());
-							}
+							newCompositeNode(grammarAccess.getSPrimitiveAccess().getDeductionRuleSGrabPrimitiveRuleParserRuleCall_0_0_3_0());
 						}
-						otherlv_3=RULE_ID
+						lv_deductionRule_3_0=ruleSGrabPrimitiveRule
 						{
-							newLeafNode(otherlv_3, grammarAccess.getSPrimitiveAccess().getRedefinesSPrimitiveCrossReference_2_0_1_0());
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getSPrimitiveRule());
+							}
+							set(
+								$current,
+								"deductionRule",
+								lv_deductionRule_3_0,
+								"com.mimacom.ddd.sm.sim.Sim.SGrabPrimitiveRule");
+							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)
 			    |
 			(
+				otherlv_4='archetype'
+				{
+					newLeafNode(otherlv_4, grammarAccess.getSPrimitiveAccess().getArchetypeKeyword_0_1_0());
+				}
 				(
-					otherlv_4='realizes'
-					{
-						newLeafNode(otherlv_4, grammarAccess.getSPrimitiveAccess().getRealizesKeyword_2_1_0_0());
-					}
-					    |
-					otherlv_5='realises'
-					{
-						newLeafNode(otherlv_5, grammarAccess.getSPrimitiveAccess().getRealisesKeyword_2_1_0_1());
-					}
+					(
+						lv_name_5_0=RULE_ID
+						{
+							newLeafNode(lv_name_5_0, grammarAccess.getSPrimitiveAccess().getNameIDTerminalRuleCall_0_1_1_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getSPrimitiveRule());
+							}
+							setWithLastConsumed(
+								$current,
+								"name",
+								lv_name_5_0,
+								"org.eclipse.xtext.common.Terminals.ID");
+						}
+					)
 				)
+			)
+			    |
+			(
+				otherlv_6='primitive'
+				{
+					newLeafNode(otherlv_6, grammarAccess.getSPrimitiveAccess().getPrimitiveKeyword_0_2_0());
+				}
+				(
+					(
+						lv_name_7_0=RULE_ID
+						{
+							newLeafNode(lv_name_7_0, grammarAccess.getSPrimitiveAccess().getNameIDTerminalRuleCall_0_2_1_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getSPrimitiveRule());
+							}
+							setWithLastConsumed(
+								$current,
+								"name",
+								lv_name_7_0,
+								"org.eclipse.xtext.common.Terminals.ID");
+						}
+					)
+				)
+				otherlv_8='redefines'
+				{
+					newLeafNode(otherlv_8, grammarAccess.getSPrimitiveAccess().getRedefinesKeyword_0_2_2());
+				}
 				(
 					(
 						{
@@ -1190,27 +1275,24 @@ ruleSPrimitive returns [EObject current=null]
 								$current = createModelElement(grammarAccess.getSPrimitiveRule());
 							}
 						}
+						otherlv_9=RULE_ID
 						{
-							newCompositeNode(grammarAccess.getSPrimitiveAccess().getRealizesDPrimitiveCrossReference_2_1_1_0());
-						}
-						ruleSQualifiedName
-						{
-							afterParserOrEnumRuleCall();
+							newLeafNode(otherlv_9, grammarAccess.getSPrimitiveAccess().getRedefinesSPrimitiveCrossReference_0_2_3_0());
 						}
 					)
 				)
 			)
 		)
-		otherlv_7='{'
+		otherlv_10='{'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getSPrimitiveAccess().getLeftCurlyBracketKeyword_3());
+			newLeafNode(otherlv_10, grammarAccess.getSPrimitiveAccess().getLeftCurlyBracketKeyword_1());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSPrimitiveAccess().getConstraintsSConstraintParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getSPrimitiveAccess().getConstraintsSConstraintParserRuleCall_2_0());
 				}
-				lv_constraints_8_0=ruleSConstraint
+				lv_constraints_11_0=ruleSConstraint
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSPrimitiveRule());
@@ -1218,83 +1300,15 @@ ruleSPrimitive returns [EObject current=null]
 					add(
 						$current,
 						"constraints",
-						lv_constraints_8_0,
+						lv_constraints_11_0,
 						"com.mimacom.ddd.sm.sim.Sim.SConstraint");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_9='}'
+		otherlv_12='}'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getSPrimitiveAccess().getRightCurlyBracketKeyword_5());
-		}
-	)
-;
-
-// Entry rule entryRuleSPrimitiveArchetype
-entryRuleSPrimitiveArchetype returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSPrimitiveArchetypeRule()); }
-	iv_ruleSPrimitiveArchetype=ruleSPrimitiveArchetype
-	{ $current=$iv_ruleSPrimitiveArchetype.current; }
-	EOF;
-
-// Rule SPrimitiveArchetype
-ruleSPrimitiveArchetype returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='archetype'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getSPrimitiveArchetypeAccess().getArchetypeKeyword_0());
-		}
-		(
-			(
-				lv_name_1_0=RULE_ID
-				{
-					newLeafNode(lv_name_1_0, grammarAccess.getSPrimitiveArchetypeAccess().getNameIDTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSPrimitiveArchetypeRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		otherlv_2='{'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getSPrimitiveArchetypeAccess().getLeftCurlyBracketKeyword_2());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getSPrimitiveArchetypeAccess().getConstraintsSConstraintParserRuleCall_3_0());
-				}
-				lv_constraints_3_0=ruleSConstraint
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSPrimitiveArchetypeRule());
-					}
-					add(
-						$current,
-						"constraints",
-						lv_constraints_3_0,
-						"com.mimacom.ddd.sm.sim.Sim.SConstraint");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		otherlv_4='}'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getSPrimitiveArchetypeAccess().getRightCurlyBracketKeyword_4());
+			newLeafNode(otherlv_12, grammarAccess.getSPrimitiveAccess().getRightCurlyBracketKeyword_3());
 		}
 	)
 ;

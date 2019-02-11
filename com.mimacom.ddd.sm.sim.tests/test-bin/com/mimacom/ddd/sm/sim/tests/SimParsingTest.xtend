@@ -4,7 +4,7 @@
 package com.mimacom.ddd.sm.sim.tests
 
 import com.google.inject.Inject
-import com.mimacom.ddd.sm.sim.SDomain
+import com.mimacom.ddd.sm.sim.SInformationModel
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
@@ -16,7 +16,7 @@ import org.junit.jupiter.api.^extension.ExtendWith
 @InjectWith(SimInjectorProvider)
 class SimParsingTest {
 	@Inject
-	ParseHelper<SDomain> parseHelper
+	ParseHelper<SInformationModel> parseHelper
 	
 	@Test
 	def void loadModel() {

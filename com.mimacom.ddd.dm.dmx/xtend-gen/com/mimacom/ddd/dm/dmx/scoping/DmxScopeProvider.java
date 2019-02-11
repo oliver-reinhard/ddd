@@ -24,7 +24,7 @@ import com.mimacom.ddd.dm.dmx.DFunctionCall;
 import com.mimacom.ddd.dm.dmx.DSelfExpression;
 import com.mimacom.ddd.dm.dmx.DTypedMemberReference;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
-import com.mimacom.ddd.dm.dmx.scoping.AbstractDmxScopeProvider;
+import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider;
 import java.util.ArrayList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -40,7 +40,7 @@ import org.eclipse.xtext.scoping.Scopes;
  * on how and when to use it.
  */
 @SuppressWarnings("all")
-public class DmxScopeProvider extends AbstractDmxScopeProvider {
+public class DmxScopeProvider extends DmxImportedNamespaceAwareLocalScopeProvider {
   private static final BasePackage bpackage = BasePackage.eINSTANCE;
   
   private static final DmxPackage xpackage = DmxPackage.eINSTANCE;
