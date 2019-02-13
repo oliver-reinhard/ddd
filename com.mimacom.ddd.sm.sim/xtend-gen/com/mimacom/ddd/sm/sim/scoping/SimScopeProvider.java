@@ -5,21 +5,21 @@ package com.mimacom.ddd.sm.sim.scoping;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
-import com.mimacom.ddd.dm.base.DAssociation;
-import com.mimacom.ddd.dm.base.DAttribute;
+import com.google.inject.Inject;
+import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DQuery;
-import com.mimacom.ddd.sm.sim.SAssociation;
-import com.mimacom.ddd.sm.sim.SAttribute;
 import com.mimacom.ddd.sm.sim.SComplexType;
+import com.mimacom.ddd.sm.sim.SDeductionRule;
 import com.mimacom.ddd.sm.sim.SEnumeration;
 import com.mimacom.ddd.sm.sim.SFeature;
 import com.mimacom.ddd.sm.sim.SLiteral;
 import com.mimacom.ddd.sm.sim.SQuery;
 import com.mimacom.ddd.sm.sim.SQueryParameter;
 import com.mimacom.ddd.sm.sim.SimPackage;
+import com.mimacom.ddd.sm.sim.SimUtil;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider;
+import org.eclipse.xtext.xbase.lib.Extension;
 
 /**
  * This class contains custom scoping description.
@@ -36,6 +37,10 @@ import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider;
  */
 @SuppressWarnings("all")
 public class SimScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
+  @Inject
+  @Extension
+  private SimUtil _simUtil;
+  
   private static final SimPackage epackage = SimPackage.eINSTANCE;
   
   @Override
@@ -48,46 +53,47 @@ public class SimScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
         final EObject container = context.eContainer();
         if ((context instanceof SLiteral)) {
           if ((container instanceof SEnumeration)) {
-            final EObject sourceType = ((SEnumeration)container).getDeductionRule().getSource();
+            SDeductionRule _deductionRule = ((SEnumeration)container).getDeductionRule();
+            EObject _source = null;
+            if (_deductionRule!=null) {
+              _source=_deductionRule.getSource();
+            }
+            final EObject sourceType = _source;
             if ((sourceType instanceof DEnumeration)) {
               return Scopes.scopeFor(((DEnumeration)sourceType).getLiterals());
             }
           }
+          return this.getDefaultScopeForType(context, BasePackage.eINSTANCE.getDLiteral());
         } else {
           if ((context instanceof SFeature)) {
             if ((container instanceof SComplexType)) {
-              final EObject sourceType_1 = ((SComplexType)container).getDeductionRule().getSource();
+              SDeductionRule _deductionRule_1 = ((SComplexType)container).getDeductionRule();
+              EObject _source_1 = null;
+              if (_deductionRule_1!=null) {
+                _source_1=_deductionRule_1.getSource();
+              }
+              final EObject sourceType_1 = _source_1;
               if ((sourceType_1 instanceof DComplexType)) {
-                Class<? extends DFeature> _switchResult = null;
-                boolean _matched = false;
-                if (context instanceof SAttribute) {
-                  _matched=true;
-                  _switchResult = DAttribute.class;
-                }
-                if (!_matched) {
-                  if (context instanceof SAssociation) {
-                    _matched=true;
-                    _switchResult = DAssociation.class;
-                  }
-                }
-                if (!_matched) {
-                  if (context instanceof SQuery) {
-                    _matched=true;
-                    _switchResult = DQuery.class;
-                  }
-                }
-                final Class<? extends DFeature> requiredFeatureType = _switchResult;
+                final Class<? extends DFeature> requiredFeatureType = this._simUtil.baseClass(((SFeature)context));
                 return this.getInheritedFeaturesScope(((DComplexType)sourceType_1), requiredFeatureType, IScope.NULLSCOPE);
               }
             }
+            final EClass requiredFeatureType_1 = this._simUtil.baseEClass(((SFeature)context));
+            return this.getDefaultScopeForType(context, requiredFeatureType_1);
           } else {
             if ((context instanceof SQueryParameter)) {
               if ((container instanceof SQuery)) {
-                final EObject sourceType_2 = ((SQuery)container).getDeductionRule().getSource();
+                SDeductionRule _deductionRule_2 = ((SQuery)container).getDeductionRule();
+                EObject _source_2 = null;
+                if (_deductionRule_2!=null) {
+                  _source_2=_deductionRule_2.getSource();
+                }
+                final EObject sourceType_2 = _source_2;
                 if ((sourceType_2 instanceof DQuery)) {
                   return Scopes.scopeFor(((DQuery)sourceType_2).getParameters());
                 }
               }
+              return this.getDefaultScopeForType(context, BasePackage.eINSTANCE.getDQueryParameter());
             }
           }
         }

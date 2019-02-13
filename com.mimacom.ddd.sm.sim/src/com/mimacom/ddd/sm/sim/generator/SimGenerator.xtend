@@ -18,6 +18,9 @@ import org.eclipse.xtext.resource.SaveOptions
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.serializer.ISerializer
 
+import static com.mimacom.ddd.sm.sim.SElementNature.*
+import org.eclipse.xtext.resource.XtextResource
+
 /**
  * Generates code from your model files on save.
  * 
@@ -28,18 +31,17 @@ class SimGenerator extends AbstractGenerator {
 	@Inject ISerializer serializer;
 	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		//
-		// DEDUCED RESOURCES DO NOT CREATE EOBJECTDESCRIPTIONS => SERIALIZER CANNOT LINK !!!
-		// 
-//		val targetRS = new XtextResourceSet
-//		EcoreUtil2.clone(targetRS, resource.resourceSet)
-//		val resourceCopy = targetRS.getResource(resource.URI, false)
+		val targetRS = new XtextResourceSet
+		EcoreUtil2.clone(targetRS, resource.resourceSet)
+		val resourceCopy = targetRS.getResource(resource.URI, true)
 //		if (resourceCopy.removeTransformationItems) {
-//			// if no synthetic members were present, then resource is already a generated file.
-//			val writer = new CharArrayWriter(1000)
-//			val  saveOptions = SaveOptions.getOptions(null)
-//			serializer.serialize(resourceCopy.contents.head, writer, saveOptions)
-//			fsa.generateFile("Deduced" + resource.URI.lastSegment.toFirstUpper, writer.toString)
+			// if no synthetic members were present, then resource is already a generated file.
+			val model = resourceCopy.contents.head;
+//			(resourceCopy as XtextResource).relink
+			val writer = new CharArrayWriter(1000)
+			val  saveOptions = SaveOptions.getOptions(null)
+			serializer.serialize(model, writer, saveOptions)
+			fsa.generateFile("Deduced" + resource.URI.lastSegment.toFirstUpper, writer.toString)
 //		}
 	}
 	
@@ -48,15 +50,17 @@ class SimGenerator extends AbstractGenerator {
 		val model = resource.contents.head
 		if (model instanceof SInformationModel) {
 			model.deduced = true
+			// change name space so index entries to avoid conflict with original Sim file:
+			model.name = model.name + ".synthetic"
 			val deducibles = resource.allContents.filter(SDeducibleElement)
 			val elementsToRemove = Lists.newArrayList
 			while (deducibles.hasNext) {
 				val e = deducibles.next
-				if (e.deductionRule !== null ) {
+				if (e.nature == DEDUCTION_RULE ) {
 					elementsToRemove.add(e)
 				} else {
 					e.deductionRule = null
-					hadSyntheticItems = hadSyntheticItems || (e.synthetic !== null && e.synthetic)
+					hadSyntheticItems = hadSyntheticItems || (e.nature == SYNTHETIC)
 					e.unsetSynthetic
 				}
 			}

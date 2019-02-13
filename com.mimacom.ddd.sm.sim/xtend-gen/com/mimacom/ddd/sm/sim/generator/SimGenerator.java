@@ -3,22 +3,29 @@
  */
 package com.mimacom.ddd.sm.sim.generator;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.mimacom.ddd.sm.sim.SDeducibleElement;
-import com.mimacom.ddd.sm.sim.SDeductionRule;
+import com.mimacom.ddd.sm.sim.SElementNature;
 import com.mimacom.ddd.sm.sim.SInformationModel;
+import java.io.CharArrayWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.resource.SaveOptions;
+import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.serializer.ISerializer;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -32,6 +39,20 @@ public class SimGenerator extends AbstractGenerator {
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    try {
+      final XtextResourceSet targetRS = new XtextResourceSet();
+      EcoreUtil2.<XtextResourceSet>clone(targetRS, resource.getResourceSet());
+      final Resource resourceCopy = targetRS.getResource(resource.getURI(), true);
+      final EObject model = IterableExtensions.<EObject>head(resourceCopy.getContents());
+      final CharArrayWriter writer = new CharArrayWriter(1000);
+      final SaveOptions saveOptions = SaveOptions.getOptions(null);
+      this.serializer.serialize(model, writer, saveOptions);
+      String _firstUpper = StringExtensions.toFirstUpper(resource.getURI().lastSegment());
+      String _plus = ("Deduced" + _firstUpper);
+      fsa.generateFile(_plus, writer.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   public boolean removeTransformationItems(final Resource resource) {
@@ -39,18 +60,21 @@ public class SimGenerator extends AbstractGenerator {
     final EObject model = IterableExtensions.<EObject>head(resource.getContents());
     if ((model instanceof SInformationModel)) {
       ((SInformationModel)model).setDeduced(true);
+      String _name = ((SInformationModel)model).getName();
+      String _plus = (_name + ".synthetic");
+      ((SInformationModel)model).setName(_plus);
       final Iterator<SDeducibleElement> deducibles = Iterators.<SDeducibleElement>filter(resource.getAllContents(), SDeducibleElement.class);
       final ArrayList<SDeducibleElement> elementsToRemove = Lists.<SDeducibleElement>newArrayList();
       while (deducibles.hasNext()) {
         {
           final SDeducibleElement e = deducibles.next();
-          SDeductionRule _deductionRule = e.getDeductionRule();
-          boolean _tripleNotEquals = (_deductionRule != null);
-          if (_tripleNotEquals) {
+          SElementNature _nature = e.getNature();
+          boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
+          if (_equals) {
             elementsToRemove.add(e);
           } else {
             e.setDeductionRule(null);
-            hadSyntheticItems = (hadSyntheticItems || ((e.getSynthetic() != null) && (e.getSynthetic()).booleanValue()));
+            hadSyntheticItems = (hadSyntheticItems || Objects.equal(e.getNature(), SElementNature.SYNTHETIC));
             e.unsetSynthetic();
           }
         }

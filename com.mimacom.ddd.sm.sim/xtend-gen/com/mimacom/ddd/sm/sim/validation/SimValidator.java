@@ -16,6 +16,7 @@ import com.mimacom.ddd.sm.sim.SAssociation;
 import com.mimacom.ddd.sm.sim.SAttribute;
 import com.mimacom.ddd.sm.sim.SComplexType;
 import com.mimacom.ddd.sm.sim.SCondition;
+import com.mimacom.ddd.sm.sim.SDeducibleElement;
 import com.mimacom.ddd.sm.sim.SDeductionRule;
 import com.mimacom.ddd.sm.sim.SDetailType;
 import com.mimacom.ddd.sm.sim.SDitchRule;
@@ -231,15 +232,84 @@ public class SimValidator extends AbstractSimValidator {
   
   @Check
   public void checkAttributeIsValueType(final SAttribute a) {
-    if (((!Objects.equal(a.getNature(), SElementNature.DEDUCTION_RULE)) && (!(a.getType() instanceof SValueType)))) {
-      this.error("Refererenced type is not a ValueType", a, SimPackage.Literals.SFEATURE__TYPE);
+    if ((Objects.equal(a.getNature(), SElementNature.GENUINE) && (!(a.getType() instanceof SValueType)))) {
+      this.error("Referenced type is not a ValueType", a, SimPackage.Literals.SFEATURE__TYPE);
+    } else {
+      SElementNature _nature = a.getNature();
+      boolean _equals = Objects.equal(_nature, SElementNature.SYNTHETIC);
+      if (_equals) {
+        SType _type = a.getType();
+        boolean _tripleEquals = (_type == null);
+        if (_tripleEquals) {
+          EObject _eContainer = a.eContainer();
+          String _name = a.getName();
+          String _plus = ("Synthetic attribute \"" + _name);
+          String _plus_1 = (_plus + "\": no mapping rule for type");
+          this.errorOnSyntheticFeature(((SComplexType) _eContainer), _plus_1);
+        } else {
+          SType _type_1 = a.getType();
+          boolean _not = (!(_type_1 instanceof SValueType));
+          if (_not) {
+            EObject _eContainer_1 = a.eContainer();
+            String _name_1 = a.getName();
+            String _plus_2 = ("Synthetic attribute \"" + _name_1);
+            String _plus_3 = (_plus_2 + "\": referenced type is not a ValueType");
+            this.errorOnSyntheticFeature(((SComplexType) _eContainer_1), _plus_3);
+          }
+        }
+      }
     }
   }
   
   @Check
   public void checkAssocitionToRootType(final SAssociation a) {
-    if (((!Objects.equal(a.getNature(), SElementNature.DEDUCTION_RULE)) && (!(a.getType() instanceof SRootType)))) {
-      this.error("Refererenced type is not a RootType", a, SimPackage.Literals.SFEATURE__TYPE);
+    if ((Objects.equal(a.getNature(), SElementNature.GENUINE) && (!(a.getType() instanceof SRootType)))) {
+      this.error("Referenced type is not a RootType", a, SimPackage.Literals.SFEATURE__TYPE);
+    } else {
+      SElementNature _nature = a.getNature();
+      boolean _equals = Objects.equal(_nature, SElementNature.SYNTHETIC);
+      if (_equals) {
+        SType _type = a.getType();
+        boolean _tripleEquals = (_type == null);
+        if (_tripleEquals) {
+          EObject _eContainer = a.eContainer();
+          String _name = a.getName();
+          String _plus = ("Synthetic reference \"" + _name);
+          String _plus_1 = (_plus + "\": no mapping rule for type");
+          this.errorOnSyntheticFeature(((SComplexType) _eContainer), _plus_1);
+        } else {
+          SType _type_1 = a.getType();
+          boolean _not = (!(_type_1 instanceof SValueType));
+          if (_not) {
+            EObject _eContainer_1 = a.eContainer();
+            String _name_1 = a.getName();
+            String _plus_2 = ("Synthetic reference \"" + _name_1);
+            String _plus_3 = (_plus_2 + "\": referenced type is not a RootType");
+            this.errorOnSyntheticFeature(((SComplexType) _eContainer_1), _plus_3);
+          }
+        }
+      }
+    }
+  }
+  
+  public void errorOnSyntheticFeature(final SDeducibleElement container, final String errorMsg) {
+    SElementNature _nature = container.getNature();
+    boolean _equals = Objects.equal(_nature, SElementNature.GENUINE);
+    if (_equals) {
+      if ((container instanceof SNamedElement)) {
+        this.error(errorMsg, container, SimPackage.Literals.SNAMED_ELEMENT__NAME);
+      } else {
+        this.error(errorMsg, container, null);
+      }
+    } else {
+      SElementNature _nature_1 = container.getNature();
+      boolean _equals_1 = Objects.equal(_nature_1, SElementNature.DEDUCTION_RULE);
+      if (_equals_1) {
+        this.error(errorMsg, container, SimPackage.Literals.SDEDUCIBLE_ELEMENT__DEDUCTION_RULE);
+      } else {
+        EObject _eContainer = container.eContainer();
+        this.errorOnSyntheticFeature(((SDeducibleElement) _eContainer), errorMsg);
+      }
     }
   }
   

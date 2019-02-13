@@ -129,9 +129,6 @@ public class TransformationContext {
     SType sPrimitive = this.localDTypeToSTypeMap.get(dType);
     if ((sPrimitive == null)) {
       sPrimitive = this.importedDTypeToSTypeMap.get(dType);
-      if ((sPrimitive == null)) {
-        sPrimitive = TransformationContext.UNKNOWN_TYPE;
-      }
     }
     return sPrimitive;
   }

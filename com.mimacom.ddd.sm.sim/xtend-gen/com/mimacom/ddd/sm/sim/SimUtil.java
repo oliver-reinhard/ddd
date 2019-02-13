@@ -1,13 +1,18 @@
 package com.mimacom.ddd.sm.sim;
 
 import com.google.common.collect.Lists;
+import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DAggregate;
+import com.mimacom.ddd.dm.base.DAssociation;
+import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.sm.sim.SAggregate;
 import com.mimacom.ddd.sm.sim.SAssociation;
 import com.mimacom.ddd.sm.sim.SAssociationKind;
+import com.mimacom.ddd.sm.sim.SAttribute;
 import com.mimacom.ddd.sm.sim.SComplexType;
 import com.mimacom.ddd.sm.sim.SCondition;
 import com.mimacom.ddd.sm.sim.SDeductionRule;
@@ -20,17 +25,63 @@ import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
 import com.mimacom.ddd.sm.sim.SMorphRule;
 import com.mimacom.ddd.sm.sim.SPrimitive;
+import com.mimacom.ddd.sm.sim.SQuery;
 import com.mimacom.ddd.sm.sim.SRootType;
 import com.mimacom.ddd.sm.sim.SType;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 
 @SuppressWarnings("all")
 public class SimUtil {
+  public Class<? extends DFeature> baseClass(final SFeature feature) {
+    Class<? extends DFeature> _switchResult = null;
+    boolean _matched = false;
+    if (feature instanceof SAttribute) {
+      _matched=true;
+      _switchResult = DAttribute.class;
+    }
+    if (!_matched) {
+      if (feature instanceof SAssociation) {
+        _matched=true;
+        _switchResult = DAssociation.class;
+      }
+    }
+    if (!_matched) {
+      if (feature instanceof SQuery) {
+        _matched=true;
+        _switchResult = DQuery.class;
+      }
+    }
+    return _switchResult;
+  }
+  
+  public EClass baseEClass(final SFeature feature) {
+    EClass _switchResult = null;
+    boolean _matched = false;
+    if (feature instanceof SAttribute) {
+      _matched=true;
+      _switchResult = BasePackage.eINSTANCE.getDAttribute();
+    }
+    if (!_matched) {
+      if (feature instanceof SAssociation) {
+        _matched=true;
+        _switchResult = BasePackage.eINSTANCE.getDAssociation();
+      }
+    }
+    if (!_matched) {
+      if (feature instanceof SQuery) {
+        _matched=true;
+        _switchResult = BasePackage.eINSTANCE.getDQuery();
+      }
+    }
+    return _switchResult;
+  }
+  
   /**
    * Returns all the supertypes of the given type.
    */

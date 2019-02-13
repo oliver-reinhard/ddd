@@ -1,16 +1,15 @@
 package com.mimacom.ddd.sm.sim.indexing;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Maps;
 import com.google.inject.Singleton;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.sm.sim.SDeducibleElement;
-import com.mimacom.ddd.sm.sim.SDeductionRule;
-import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SElementNature;
 import com.mimacom.ddd.sm.sim.SType;
 import java.util.HashMap;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.resource.EObjectDescription;
@@ -18,7 +17,6 @@ import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.resource.impl.DefaultResourceDescriptionStrategy;
 import org.eclipse.xtext.util.IAcceptor;
 import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @Singleton
 @SuppressWarnings("all")
@@ -33,7 +31,7 @@ public class SimResourceDescriptionStrategy extends DefaultResourceDescriptionSt
   @Override
   public boolean createEObjectDescriptions(final EObject obj, final IAcceptor<IEObjectDescription> acceptor) {
     if ((obj instanceof SType)) {
-      if ((((((SType)obj).getSynthetic() != null) && (((SType)obj).getSynthetic()).booleanValue()) && (((SType)obj).getDeductionRule() != null))) {
+      if ((Objects.equal(((SType)obj).getNature(), SElementNature.SYNTHETIC) && (((SType)obj).getDeductionRule() != null))) {
         final EObject source = ((SType)obj).getDeductionRule().getSource();
         if ((source instanceof DType)) {
           return this.createSTypeDescription(((SType)obj), ((DType)source), acceptor);
@@ -41,21 +39,10 @@ public class SimResourceDescriptionStrategy extends DefaultResourceDescriptionSt
       }
     }
     if ((obj instanceof SDeducibleElement)) {
-      SDeductionRule _deductionRule = ((SDeducibleElement)obj).getDeductionRule();
-      boolean _tripleNotEquals = (_deductionRule != null);
-      if (_tripleNotEquals) {
+      SElementNature _nature = ((SDeducibleElement)obj).getNature();
+      boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
+      if (_equals) {
         return false;
-      }
-    }
-    Resource _eResource = obj.eResource();
-    boolean _tripleNotEquals_1 = (_eResource != null);
-    if (_tripleNotEquals_1) {
-      final EObject model = IterableExtensions.<EObject>head(obj.eResource().getContents());
-      if ((model instanceof SInformationModel)) {
-        boolean _isDeduced = ((SInformationModel)model).isDeduced();
-        if (_isDeduced) {
-          return false;
-        }
       }
     }
     return super.createEObjectDescriptions(obj, acceptor);

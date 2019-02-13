@@ -34,6 +34,7 @@ import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.validation.Check
 
 import static com.mimacom.ddd.sm.sim.SElementNature.*
+import com.mimacom.ddd.sm.sim.SDeducibleElement
 
 /**
  * This class contains custom validation rules. 
@@ -168,28 +169,54 @@ class SimValidator extends AbstractSimValidator {
 	@Check
 	def checkEnumerationHasLiterals(SEnumeration e) {
 		if(e.literals.size == 0) {
-			warning('Enumeration does not declare literals', e,SimPackage.Literals.SNAMED_ELEMENT__NAME)
+			warning('Enumeration does not declare literals', e, SimPackage.Literals.SNAMED_ELEMENT__NAME)
 		}
 	}
 
 	@Check
 	def checkAttributeIsValueType(SAttribute a) {
-		if (a.nature != DEDUCTION_RULE && ! (a.type instanceof SValueType)) {
-			error('Refererenced type is not a ValueType', a,SimPackage.Literals.SFEATURE__TYPE)
-		}
+		if (a.nature == GENUINE && ! (a.type instanceof SValueType)) {
+			error('Referenced type is not a ValueType', a, SimPackage.Literals.SFEATURE__TYPE)
+		} else if (a.nature == SYNTHETIC) {
+			if (a.type === null) {
+				errorOnSyntheticFeature( a.eContainer as SComplexType, "Synthetic attribute \"" + a.name + "\": no mapping rule for type")
+			} else if ( ! (a.type instanceof SValueType)) {
+				errorOnSyntheticFeature( a.eContainer as SComplexType, "Synthetic attribute \"" + a.name + "\": referenced type is not a ValueType")
+			}
+		} 
 	}
 
 	@Check
 	def checkAssocitionToRootType(SAssociation a) {
-		if(a.nature != DEDUCTION_RULE && ! (a.type instanceof SRootType)) {
-			error('Refererenced type is not a RootType', a,SimPackage.Literals.SFEATURE__TYPE)
+		if (a.nature == GENUINE && ! (a.type instanceof SRootType)) {
+			error('Referenced type is not a RootType', a, SimPackage.Literals.SFEATURE__TYPE)
+		} else if (a.nature == SYNTHETIC) {
+			if (a.type === null) {
+				errorOnSyntheticFeature( a.eContainer as SComplexType, "Synthetic reference \"" + a.name + "\": no mapping rule for type")
+			} else if ( ! (a.type instanceof SValueType)) {
+				errorOnSyntheticFeature( a.eContainer as SComplexType, "Synthetic reference \"" + a.name + "\": referenced type is not a RootType")
+			}
+		} 
+	}
+	
+	def void errorOnSyntheticFeature(SDeducibleElement container, String errorMsg) {
+		if (container.nature == GENUINE) {
+			if (container instanceof SNamedElement) {
+				error(errorMsg, container, SimPackage.Literals.SNAMED_ELEMENT__NAME)
+			} else {
+				error(errorMsg, container, null)
+			}
+		} else if (container.nature == DEDUCTION_RULE) {
+			error(errorMsg, container, SimPackage.Literals.SDEDUCIBLE_ELEMENT__DEDUCTION_RULE)
+		} else { // synthetic
+			errorOnSyntheticFeature(container.eContainer as SDeducibleElement, errorMsg)
 		}
 	}
 
 	@Check
 	def checkAssociationMultiplicities(SMultiplicity m) {
 		if(m.maxOccurs == 0) {
-			error('Maximum targets cannot be 0', m,SimPackage.Literals.SMULTIPLICITY__MAX_OCCURS)
+			error('Maximum targets cannot be 0', m, SimPackage.Literals.SMULTIPLICITY__MAX_OCCURS)
 		}
 	}
 

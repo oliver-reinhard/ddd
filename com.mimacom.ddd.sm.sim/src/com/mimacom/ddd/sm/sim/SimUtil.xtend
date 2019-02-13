@@ -1,13 +1,33 @@
 package com.mimacom.ddd.sm.sim
 
 import com.google.common.collect.Lists
+import com.mimacom.ddd.dm.base.BasePackage
+import com.mimacom.ddd.dm.base.DAssociation
+import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DFeature
+import com.mimacom.ddd.dm.base.DQuery
 import java.util.LinkedHashSet
 import java.util.List
 import java.util.Set
 
 class SimUtil {
+	
+	def baseClass(SFeature feature) {
+		switch (feature) {
+			SAttribute : DAttribute
+			SAssociation : DAssociation
+			SQuery : DQuery
+		}
+	}
+	
+	def baseEClass(SFeature feature) {
+		switch (feature) {
+			SAttribute : BasePackage.eINSTANCE.DAttribute
+			SAssociation : BasePackage.eINSTANCE.DAssociation
+			SQuery : BasePackage.eINSTANCE.DQuery
+		}
+	}
 	
 	/*
 	 * Returns all the supertypes of the given type.

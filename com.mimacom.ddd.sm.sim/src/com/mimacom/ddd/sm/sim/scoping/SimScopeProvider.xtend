@@ -3,13 +3,11 @@
  */
 package com.mimacom.ddd.sm.sim.scoping
 
-import com.mimacom.ddd.dm.base.DAssociation
-import com.mimacom.ddd.dm.base.DAttribute
+import com.google.inject.Inject
+import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DQuery
-import com.mimacom.ddd.sm.sim.SAssociation
-import com.mimacom.ddd.sm.sim.SAttribute
 import com.mimacom.ddd.sm.sim.SComplexType
 import com.mimacom.ddd.sm.sim.SEnumeration
 import com.mimacom.ddd.sm.sim.SFeature
@@ -17,6 +15,7 @@ import com.mimacom.ddd.sm.sim.SLiteral
 import com.mimacom.ddd.sm.sim.SQuery
 import com.mimacom.ddd.sm.sim.SQueryParameter
 import com.mimacom.ddd.sm.sim.SimPackage
+import com.mimacom.ddd.sm.sim.SimUtil
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
@@ -33,6 +32,8 @@ import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider
  */
 class SimScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
 	
+	@Inject extension SimUtil
+	
 	static val epackage = SimPackage.eINSTANCE
 	
 	override getScope(EObject context, EReference reference) {
@@ -41,30 +42,30 @@ class SimScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
 			val container = context.eContainer
 			if (context instanceof SLiteral) {
 				if (container instanceof 	SEnumeration) {
-					val sourceType = container.deductionRule.source
+					val sourceType = container.deductionRule?.source
 					if (sourceType instanceof DEnumeration) {
 						return Scopes.scopeFor(sourceType.literals)
 					}
 				}
+				return getDefaultScopeForType(context, BasePackage.eINSTANCE.DLiteral)
 			} else if (context instanceof SFeature) {
 				if (container instanceof 	SComplexType) {
-					val sourceType = container.deductionRule.source
+					val sourceType = container.deductionRule?.source
 					if (sourceType instanceof DComplexType) {
-						val requiredFeatureType = switch (context) {
-							SAttribute : DAttribute
-							SAssociation : DAssociation
-							SQuery : DQuery
-						}
+						val requiredFeatureType = context.baseClass
 						return getInheritedFeaturesScope(sourceType, requiredFeatureType, IScope.NULLSCOPE)
 					}
 				}
+				val requiredFeatureType = context.baseEClass
+				return getDefaultScopeForType(context, requiredFeatureType)
 			} else if (context instanceof SQueryParameter) {
 				if (container instanceof 	SQuery) {
-					val sourceType = container.deductionRule.source
+					val sourceType = container.deductionRule?.source
 					if (sourceType instanceof DQuery) {
 						return Scopes.scopeFor(sourceType.parameters)
 					}
 				}
+				return getDefaultScopeForType(context, BasePackage.eINSTANCE.DQueryParameter)
 			}
 		}
 		super.getScope(context, reference)

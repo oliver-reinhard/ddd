@@ -13,6 +13,8 @@ import org.eclipse.xtext.resource.IEObjectDescription
 import org.eclipse.xtext.resource.impl.DefaultResourceDescriptionStrategy
 import org.eclipse.xtext.util.IAcceptor
 
+import static com.mimacom.ddd.sm.sim.SElementNature.*
+
 @Singleton
 class SimResourceDescriptionStrategy extends DefaultResourceDescriptionStrategy {
 	
@@ -24,7 +26,7 @@ class SimResourceDescriptionStrategy extends DefaultResourceDescriptionStrategy 
 	 */
 	override boolean createEObjectDescriptions(EObject obj, IAcceptor<IEObjectDescription> acceptor) {
 		if (obj instanceof SType) {
-			if (obj.synthetic !== null && obj.synthetic  && obj.deductionRule !== null) {
+			if (obj.nature == SYNTHETIC && obj.deductionRule !== null) {
 				val source = obj.deductionRule.source
 				if (source instanceof DType) {
 					return createSTypeDescription(obj, source, acceptor)
@@ -32,18 +34,18 @@ class SimResourceDescriptionStrategy extends DefaultResourceDescriptionStrategy 
 			}
 		}
 		if (obj instanceof SDeducibleElement) {
-			if (obj.deductionRule !== null) {
+			if (obj.nature == DEDUCTION_RULE) {
 				return false
 			}
 		}
-		if (obj.eResource !== null) {
-			val model = obj.eResource.contents.head
-			if (model instanceof SInformationModel) {
-				if (model.deduced) {
-					return false
-				}
-			}
-		}
+//		if (obj.eResource !== null) {
+//			val model = obj.eResource.contents.head
+//			if (model instanceof SInformationModel) {
+//				if (model.deduced) {
+//					return false
+//				}
+//			}
+//		}
 		return super.createEObjectDescriptions(obj, acceptor);
 	}
 	

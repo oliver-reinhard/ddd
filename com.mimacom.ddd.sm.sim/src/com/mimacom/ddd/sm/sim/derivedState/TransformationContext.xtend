@@ -86,9 +86,9 @@ class TransformationContext {
 		var sPrimitive = localDTypeToSTypeMap.get(dType)
 		if (sPrimitive === null) {
 			sPrimitive = importedDTypeToSTypeMap.get(dType)
-			if (sPrimitive === null) {
-				sPrimitive = UNKNOWN_TYPE
-			}
+//			if (sPrimitive === null) {
+//				sPrimitive = UNKNOWN_TYPE
+//			}
 		}
 		return sPrimitive
 	}
