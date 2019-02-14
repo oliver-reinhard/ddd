@@ -7,6 +7,7 @@ import com.mimacom.ddd.sm.sim.AbstractSimRuntimeModule;
 import com.mimacom.ddd.sm.sim.derivedState.SimDerivedStateComputer;
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy;
 import com.mimacom.ddd.sm.sim.parsing.SimValueConverters;
+import com.mimacom.ddd.sm.sim.scoping.SimCrossReferenceSerializer;
 import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.resource.DerivedStateAwareResource;
 import org.eclipse.xtext.resource.DerivedStateAwareResourceDescriptionManager;
@@ -14,6 +15,7 @@ import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy;
 import org.eclipse.xtext.resource.IDerivedStateComputer;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.serializer.tokens.ICrossReferenceSerializer;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -40,5 +42,9 @@ public class SimRuntimeModule extends AbstractSimRuntimeModule {
   
   public Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
     return SimResourceDescriptionStrategy.class;
+  }
+  
+  public Class<? extends ICrossReferenceSerializer> bindICrossReferenceSerializer() {
+    return SimCrossReferenceSerializer.class;
   }
 }

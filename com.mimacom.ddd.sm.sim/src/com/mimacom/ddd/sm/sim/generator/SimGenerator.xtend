@@ -19,7 +19,6 @@ import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.serializer.ISerializer
 
 import static com.mimacom.ddd.sm.sim.SElementNature.*
-import org.eclipse.xtext.resource.XtextResource
 
 /**
  * Generates code from your model files on save.
@@ -31,27 +30,31 @@ class SimGenerator extends AbstractGenerator {
 	@Inject ISerializer serializer;
 	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		val targetRS = new XtextResourceSet
-		EcoreUtil2.clone(targetRS, resource.resourceSet)
-		val resourceCopy = targetRS.getResource(resource.URI, true)
-//		if (resourceCopy.removeTransformationItems) {
-			// if no synthetic members were present, then resource is already a generated file.
-			val model = resourceCopy.contents.head;
-//			(resourceCopy as XtextResource).relink
-			val writer = new CharArrayWriter(1000)
-			val  saveOptions = SaveOptions.getOptions(null)
-			serializer.serialize(model, writer, saveOptions)
-			fsa.generateFile("Deduced" + resource.URI.lastSegment.toFirstUpper, writer.toString)
-//		}
+		val model = resource.contents.head
+		if (model instanceof SInformationModel) {
+			if (model.generate) {
+				val targetRS = new XtextResourceSet
+				EcoreUtil2.clone(targetRS, resource.resourceSet)
+				val resourceCopy = targetRS.getResource(resource.URI, true)
+				if (resourceCopy.removeTransformationItems) {
+					// if no synthetic members were present, then resource is already a generated file.
+					val modelCopy = resourceCopy.contents.head;
+					val writer = new CharArrayWriter(1000)
+					val  saveOptions = SaveOptions.getOptions(null)
+					serializer.serialize(modelCopy, writer, saveOptions)
+					fsa.generateFile("Deduced" + resource.URI.lastSegment.toFirstUpper, writer.toString)
+				}
+			}
+		}
 	}
 	
 	def boolean removeTransformationItems(Resource resource) {
 		var hadSyntheticItems = false
 		val model = resource.contents.head
 		if (model instanceof SInformationModel) {
-			model.deduced = true
+			model.generate = false
 			// change name space so index entries to avoid conflict with original Sim file:
-			model.name = model.name + ".synthetic"
+			model.name = model.name + ".generated"
 			val deducibles = resource.allContents.filter(SDeducibleElement)
 			val elementsToRemove = Lists.newArrayList
 			while (deducibles.hasNext) {
@@ -60,8 +63,8 @@ class SimGenerator extends AbstractGenerator {
 					elementsToRemove.add(e)
 				} else {
 					e.deductionRule = null
-					hadSyntheticItems = hadSyntheticItems || (e.nature == SYNTHETIC)
-					e.unsetSynthetic
+					hadSyntheticItems = hadSyntheticItems || (e.synthetic)
+					e.synthetic = false
 				}
 			}
 			for (e : elementsToRemove) {

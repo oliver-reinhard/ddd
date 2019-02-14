@@ -40,16 +40,25 @@ public class SimGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     try {
-      final XtextResourceSet targetRS = new XtextResourceSet();
-      EcoreUtil2.<XtextResourceSet>clone(targetRS, resource.getResourceSet());
-      final Resource resourceCopy = targetRS.getResource(resource.getURI(), true);
-      final EObject model = IterableExtensions.<EObject>head(resourceCopy.getContents());
-      final CharArrayWriter writer = new CharArrayWriter(1000);
-      final SaveOptions saveOptions = SaveOptions.getOptions(null);
-      this.serializer.serialize(model, writer, saveOptions);
-      String _firstUpper = StringExtensions.toFirstUpper(resource.getURI().lastSegment());
-      String _plus = ("Deduced" + _firstUpper);
-      fsa.generateFile(_plus, writer.toString());
+      final EObject model = IterableExtensions.<EObject>head(resource.getContents());
+      if ((model instanceof SInformationModel)) {
+        boolean _isGenerate = ((SInformationModel)model).isGenerate();
+        if (_isGenerate) {
+          final XtextResourceSet targetRS = new XtextResourceSet();
+          EcoreUtil2.<XtextResourceSet>clone(targetRS, resource.getResourceSet());
+          final Resource resourceCopy = targetRS.getResource(resource.getURI(), true);
+          boolean _removeTransformationItems = this.removeTransformationItems(resourceCopy);
+          if (_removeTransformationItems) {
+            final EObject modelCopy = IterableExtensions.<EObject>head(resourceCopy.getContents());
+            final CharArrayWriter writer = new CharArrayWriter(1000);
+            final SaveOptions saveOptions = SaveOptions.getOptions(null);
+            this.serializer.serialize(modelCopy, writer, saveOptions);
+            String _firstUpper = StringExtensions.toFirstUpper(resource.getURI().lastSegment());
+            String _plus = ("Deduced" + _firstUpper);
+            fsa.generateFile(_plus, writer.toString());
+          }
+        }
+      }
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -59,9 +68,9 @@ public class SimGenerator extends AbstractGenerator {
     boolean hadSyntheticItems = false;
     final EObject model = IterableExtensions.<EObject>head(resource.getContents());
     if ((model instanceof SInformationModel)) {
-      ((SInformationModel)model).setDeduced(true);
+      ((SInformationModel)model).setGenerate(false);
       String _name = ((SInformationModel)model).getName();
-      String _plus = (_name + ".synthetic");
+      String _plus = (_name + ".generated");
       ((SInformationModel)model).setName(_plus);
       final Iterator<SDeducibleElement> deducibles = Iterators.<SDeducibleElement>filter(resource.getAllContents(), SDeducibleElement.class);
       final ArrayList<SDeducibleElement> elementsToRemove = Lists.<SDeducibleElement>newArrayList();
@@ -74,8 +83,8 @@ public class SimGenerator extends AbstractGenerator {
             elementsToRemove.add(e);
           } else {
             e.setDeductionRule(null);
-            hadSyntheticItems = (hadSyntheticItems || Objects.equal(e.getNature(), SElementNature.SYNTHETIC));
-            e.unsetSynthetic();
+            hadSyntheticItems = (hadSyntheticItems || e.isSynthetic());
+            e.setSynthetic(false);
           }
         }
       }

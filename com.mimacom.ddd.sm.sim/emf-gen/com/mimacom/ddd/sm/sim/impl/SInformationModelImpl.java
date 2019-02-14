@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#isDeduced <em>Deduced</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#isGenerate <em>Generate</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getImports <em>Imports</em>}</li>
@@ -47,24 +47,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class SInformationModelImpl extends MinimalEObjectImpl.Container implements SInformationModel
 {
 	/**
-	 * The default value of the '{@link #isDeduced() <em>Deduced</em>}' attribute.
+	 * The default value of the '{@link #isGenerate() <em>Generate</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isDeduced()
+	 * @see #isGenerate()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean DEDUCED_EDEFAULT = false;
+	protected static final boolean GENERATE_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isDeduced() <em>Deduced</em>}' attribute.
+	 * The cached value of the '{@link #isGenerate() <em>Generate</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isDeduced()
+	 * @see #isGenerate()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean deduced = DEDUCED_EDEFAULT;
+	protected boolean generate = GENERATE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
@@ -163,9 +163,9 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public boolean isDeduced()
+	public boolean isGenerate()
 	{
-		return deduced;
+		return generate;
 	}
 
 	/**
@@ -174,12 +174,12 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public void setDeduced(boolean newDeduced)
+	public void setGenerate(boolean newGenerate)
 	{
-		boolean oldDeduced = deduced;
-		deduced = newDeduced;
+		boolean oldGenerate = generate;
+		generate = newGenerate;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SINFORMATION_MODEL__DEDUCED, oldDeduced, deduced));
+			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SINFORMATION_MODEL__GENERATE, oldGenerate, generate));
 	}
 
 	/**
@@ -307,8 +307,8 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	{
 		switch (featureID)
 		{
-			case SimPackage.SINFORMATION_MODEL__DEDUCED:
-				return isDeduced();
+			case SimPackage.SINFORMATION_MODEL__GENERATE:
+				return isGenerate();
 			case SimPackage.SINFORMATION_MODEL__KIND:
 				return getKind();
 			case SimPackage.SINFORMATION_MODEL__NAME:
@@ -334,8 +334,8 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	{
 		switch (featureID)
 		{
-			case SimPackage.SINFORMATION_MODEL__DEDUCED:
-				setDeduced((Boolean)newValue);
+			case SimPackage.SINFORMATION_MODEL__GENERATE:
+				setGenerate((Boolean)newValue);
 				return;
 			case SimPackage.SINFORMATION_MODEL__KIND:
 				setKind((SInformationModelKind)newValue);
@@ -369,8 +369,8 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	{
 		switch (featureID)
 		{
-			case SimPackage.SINFORMATION_MODEL__DEDUCED:
-				setDeduced(DEDUCED_EDEFAULT);
+			case SimPackage.SINFORMATION_MODEL__GENERATE:
+				setGenerate(GENERATE_EDEFAULT);
 				return;
 			case SimPackage.SINFORMATION_MODEL__KIND:
 				setKind(KIND_EDEFAULT);
@@ -401,8 +401,8 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	{
 		switch (featureID)
 		{
-			case SimPackage.SINFORMATION_MODEL__DEDUCED:
-				return deduced != DEDUCED_EDEFAULT;
+			case SimPackage.SINFORMATION_MODEL__GENERATE:
+				return generate != GENERATE_EDEFAULT;
 			case SimPackage.SINFORMATION_MODEL__KIND:
 				return kind != KIND_EDEFAULT;
 			case SimPackage.SINFORMATION_MODEL__NAME:
@@ -428,8 +428,8 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (deduced: ");
-		result.append(deduced);
+		result.append(" (generate: ");
+		result.append(generate);
 		result.append(", kind: ");
 		result.append(kind);
 		result.append(", name: ");

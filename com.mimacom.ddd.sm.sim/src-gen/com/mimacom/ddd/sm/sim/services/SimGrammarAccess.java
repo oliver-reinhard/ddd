@@ -30,14 +30,14 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	public class SInformationModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SInformationModel");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cDeducedAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cDeducedDeducedKeyword_0_0 = (Keyword)cDeducedAssignment_0.eContents().get(0);
-		private final Assignment cKindAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cKindSInformationModelKindEnumRuleCall_1_0 = (RuleCall)cKindAssignment_1.eContents().get(0);
-		private final Keyword cInformationKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cModelKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cNameSQualifiedNameParserRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Assignment cKindAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cKindSInformationModelKindEnumRuleCall_0_0 = (RuleCall)cKindAssignment_0.eContents().get(0);
+		private final Keyword cInformationKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cModelKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameSQualifiedNameParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Assignment cGenerateAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final Keyword cGenerateGenerateKeyword_4_0 = (Keyword)cGenerateAssignment_4.eContents().get(0);
 		private final Assignment cImportsAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cImportsSImportParserRuleCall_5_0 = (RuleCall)cImportsAssignment_5.eContents().get(0);
 		private final Alternatives cAlternatives_6 = (Alternatives)cGroup.eContents().get(6);
@@ -47,40 +47,40 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAggregatesSAggregateParserRuleCall_6_1_0 = (RuleCall)cAggregatesAssignment_6_1.eContents().get(0);
 		
 		//SInformationModel:
-		//	deduced?='deduced'?
 		//	kind=SInformationModelKind 'information' 'model'
 		//	name=SQualifiedName
+		//	^generate?='generate'?
 		//	//	(description=DRichText)?
 		//	imports+=SImport* (types+=SType | aggregates+=SAggregate)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//deduced?='deduced'? kind=SInformationModelKind 'information' 'model' name=SQualifiedName //	(description=DRichText)?
+		//kind=SInformationModelKind 'information' 'model' name=SQualifiedName ^generate?='generate'? //	(description=DRichText)?
 		//imports+=SImport* (types+=SType | aggregates+=SAggregate)*
 		public Group getGroup() { return cGroup; }
 		
-		//deduced?='deduced'?
-		public Assignment getDeducedAssignment_0() { return cDeducedAssignment_0; }
-		
-		//'deduced'
-		public Keyword getDeducedDeducedKeyword_0_0() { return cDeducedDeducedKeyword_0_0; }
-		
 		//kind=SInformationModelKind
-		public Assignment getKindAssignment_1() { return cKindAssignment_1; }
+		public Assignment getKindAssignment_0() { return cKindAssignment_0; }
 		
 		//SInformationModelKind
-		public RuleCall getKindSInformationModelKindEnumRuleCall_1_0() { return cKindSInformationModelKindEnumRuleCall_1_0; }
+		public RuleCall getKindSInformationModelKindEnumRuleCall_0_0() { return cKindSInformationModelKindEnumRuleCall_0_0; }
 		
 		//'information'
-		public Keyword getInformationKeyword_2() { return cInformationKeyword_2; }
+		public Keyword getInformationKeyword_1() { return cInformationKeyword_1; }
 		
 		//'model'
-		public Keyword getModelKeyword_3() { return cModelKeyword_3; }
+		public Keyword getModelKeyword_2() { return cModelKeyword_2; }
 		
 		//name=SQualifiedName
-		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 		
 		//SQualifiedName
-		public RuleCall getNameSQualifiedNameParserRuleCall_4_0() { return cNameSQualifiedNameParserRuleCall_4_0; }
+		public RuleCall getNameSQualifiedNameParserRuleCall_3_0() { return cNameSQualifiedNameParserRuleCall_3_0; }
+		
+		//^generate?='generate'?
+		public Assignment getGenerateAssignment_4() { return cGenerateAssignment_4; }
+		
+		//'generate'
+		public Keyword getGenerateGenerateKeyword_4_0() { return cGenerateGenerateKeyword_4_0; }
 		
 		////	(description=DRichText)?
 		//imports+=SImport*
@@ -2570,9 +2570,9 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//SInformationModel:
-	//	deduced?='deduced'?
 	//	kind=SInformationModelKind 'information' 'model'
 	//	name=SQualifiedName
+	//	^generate?='generate'?
 	//	//	(description=DRichText)?
 	//	imports+=SImport* (types+=SType | aggregates+=SAggregate)*;
 	public SInformationModelElements getSInformationModelAccess() {

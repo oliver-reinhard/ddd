@@ -4,7 +4,6 @@ import com.google.common.collect.Maps
 import com.google.inject.Singleton
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.sm.sim.SDeducibleElement
-import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.SType
 import org.apache.log4j.Logger
 import org.eclipse.emf.ecore.EObject
@@ -60,7 +59,7 @@ class SimResourceDescriptionStrategy extends DefaultResourceDescriptionStrategy 
 			if (sQualifiedName !== null) {
 				if (dQualifiedName !== null) {
 					val userData = Maps.newHashMap
-					userData.put(com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy.KEY_DEDUCED_FROM, dQualifiedName.toString)
+					userData.put(SimResourceDescriptionStrategy.KEY_DEDUCED_FROM, dQualifiedName.toString)
 					acceptor.accept(EObjectDescription.create(sQualifiedName, type, userData));
 				}  else {
 					acceptor.accept(EObjectDescription.create(sQualifiedName, type));

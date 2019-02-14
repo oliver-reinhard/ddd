@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSimParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'inverse'", "'aggregate'", "'reference'", "'composite'", "'attribute'", "'*'", "'base'", "'interface'", "'core'", "'information'", "'model'", "'import'", "'as'", "'extends'", "'='", "'and'", "':'", "'{'", "'}'", "'grab'", "'constraint'", "'primitive'", "'archetype'", "'redefines'", "'enumeration'", "'ditch'", "','", "'root'", "'morph'", "'fuse'", "'detail'", "'('", "')'", "'query'", "'returns'", "'.*'", "'.'", "'..'", "'deduced'", "'abstract'", "'derived'", "'key'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'inverse'", "'aggregate'", "'reference'", "'composite'", "'attribute'", "'*'", "'base'", "'interface'", "'core'", "'information'", "'model'", "'import'", "'as'", "'extends'", "'='", "'and'", "':'", "'{'", "'}'", "'grab'", "'constraint'", "'primitive'", "'archetype'", "'redefines'", "'enumeration'", "'ditch'", "','", "'root'", "'morph'", "'fuse'", "'detail'", "'('", "')'", "'query'", "'returns'", "'.*'", "'.'", "'..'", "'generate'", "'abstract'", "'derived'", "'key'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -5881,42 +5881,31 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SInformationModel__Group__0__Impl"
-    // InternalSim.g:1637:1: rule__SInformationModel__Group__0__Impl : ( ( rule__SInformationModel__DeducedAssignment_0 )? ) ;
+    // InternalSim.g:1637:1: rule__SInformationModel__Group__0__Impl : ( ( rule__SInformationModel__KindAssignment_0 ) ) ;
     public final void rule__SInformationModel__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:1641:1: ( ( ( rule__SInformationModel__DeducedAssignment_0 )? ) )
-            // InternalSim.g:1642:1: ( ( rule__SInformationModel__DeducedAssignment_0 )? )
+            // InternalSim.g:1641:1: ( ( ( rule__SInformationModel__KindAssignment_0 ) ) )
+            // InternalSim.g:1642:1: ( ( rule__SInformationModel__KindAssignment_0 ) )
             {
-            // InternalSim.g:1642:1: ( ( rule__SInformationModel__DeducedAssignment_0 )? )
-            // InternalSim.g:1643:2: ( rule__SInformationModel__DeducedAssignment_0 )?
+            // InternalSim.g:1642:1: ( ( rule__SInformationModel__KindAssignment_0 ) )
+            // InternalSim.g:1643:2: ( rule__SInformationModel__KindAssignment_0 )
             {
-             before(grammarAccess.getSInformationModelAccess().getDeducedAssignment_0()); 
-            // InternalSim.g:1644:2: ( rule__SInformationModel__DeducedAssignment_0 )?
-            int alt29=2;
-            int LA29_0 = input.LA(1);
+             before(grammarAccess.getSInformationModelAccess().getKindAssignment_0()); 
+            // InternalSim.g:1644:2: ( rule__SInformationModel__KindAssignment_0 )
+            // InternalSim.g:1644:3: rule__SInformationModel__KindAssignment_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__SInformationModel__KindAssignment_0();
 
-            if ( (LA29_0==49) ) {
-                alt29=1;
-            }
-            switch (alt29) {
-                case 1 :
-                    // InternalSim.g:1644:3: rule__SInformationModel__DeducedAssignment_0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__SInformationModel__DeducedAssignment_0();
+            state._fsp--;
 
-                    state._fsp--;
-
-
-                    }
-                    break;
 
             }
 
-             after(grammarAccess.getSInformationModelAccess().getDeducedAssignment_0()); 
+             after(grammarAccess.getSInformationModelAccess().getKindAssignment_0()); 
 
             }
 
@@ -5977,31 +5966,21 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SInformationModel__Group__1__Impl"
-    // InternalSim.g:1664:1: rule__SInformationModel__Group__1__Impl : ( ( rule__SInformationModel__KindAssignment_1 ) ) ;
+    // InternalSim.g:1664:1: rule__SInformationModel__Group__1__Impl : ( 'information' ) ;
     public final void rule__SInformationModel__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:1668:1: ( ( ( rule__SInformationModel__KindAssignment_1 ) ) )
-            // InternalSim.g:1669:1: ( ( rule__SInformationModel__KindAssignment_1 ) )
+            // InternalSim.g:1668:1: ( ( 'information' ) )
+            // InternalSim.g:1669:1: ( 'information' )
             {
-            // InternalSim.g:1669:1: ( ( rule__SInformationModel__KindAssignment_1 ) )
-            // InternalSim.g:1670:2: ( rule__SInformationModel__KindAssignment_1 )
+            // InternalSim.g:1669:1: ( 'information' )
+            // InternalSim.g:1670:2: 'information'
             {
-             before(grammarAccess.getSInformationModelAccess().getKindAssignment_1()); 
-            // InternalSim.g:1671:2: ( rule__SInformationModel__KindAssignment_1 )
-            // InternalSim.g:1671:3: rule__SInformationModel__KindAssignment_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__SInformationModel__KindAssignment_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getSInformationModelAccess().getKindAssignment_1()); 
+             before(grammarAccess.getSInformationModelAccess().getInformationKeyword_1()); 
+            match(input,20,FOLLOW_2); 
+             after(grammarAccess.getSInformationModelAccess().getInformationKeyword_1()); 
 
             }
 
@@ -6062,21 +6041,21 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SInformationModel__Group__2__Impl"
-    // InternalSim.g:1691:1: rule__SInformationModel__Group__2__Impl : ( 'information' ) ;
+    // InternalSim.g:1691:1: rule__SInformationModel__Group__2__Impl : ( 'model' ) ;
     public final void rule__SInformationModel__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:1695:1: ( ( 'information' ) )
-            // InternalSim.g:1696:1: ( 'information' )
+            // InternalSim.g:1695:1: ( ( 'model' ) )
+            // InternalSim.g:1696:1: ( 'model' )
             {
-            // InternalSim.g:1696:1: ( 'information' )
-            // InternalSim.g:1697:2: 'information'
+            // InternalSim.g:1696:1: ( 'model' )
+            // InternalSim.g:1697:2: 'model'
             {
-             before(grammarAccess.getSInformationModelAccess().getInformationKeyword_2()); 
-            match(input,20,FOLLOW_2); 
-             after(grammarAccess.getSInformationModelAccess().getInformationKeyword_2()); 
+             before(grammarAccess.getSInformationModelAccess().getModelKeyword_2()); 
+            match(input,21,FOLLOW_2); 
+             after(grammarAccess.getSInformationModelAccess().getModelKeyword_2()); 
 
             }
 
@@ -6137,21 +6116,31 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SInformationModel__Group__3__Impl"
-    // InternalSim.g:1718:1: rule__SInformationModel__Group__3__Impl : ( 'model' ) ;
+    // InternalSim.g:1718:1: rule__SInformationModel__Group__3__Impl : ( ( rule__SInformationModel__NameAssignment_3 ) ) ;
     public final void rule__SInformationModel__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:1722:1: ( ( 'model' ) )
-            // InternalSim.g:1723:1: ( 'model' )
+            // InternalSim.g:1722:1: ( ( ( rule__SInformationModel__NameAssignment_3 ) ) )
+            // InternalSim.g:1723:1: ( ( rule__SInformationModel__NameAssignment_3 ) )
             {
-            // InternalSim.g:1723:1: ( 'model' )
-            // InternalSim.g:1724:2: 'model'
+            // InternalSim.g:1723:1: ( ( rule__SInformationModel__NameAssignment_3 ) )
+            // InternalSim.g:1724:2: ( rule__SInformationModel__NameAssignment_3 )
             {
-             before(grammarAccess.getSInformationModelAccess().getModelKeyword_3()); 
-            match(input,21,FOLLOW_2); 
-             after(grammarAccess.getSInformationModelAccess().getModelKeyword_3()); 
+             before(grammarAccess.getSInformationModelAccess().getNameAssignment_3()); 
+            // InternalSim.g:1725:2: ( rule__SInformationModel__NameAssignment_3 )
+            // InternalSim.g:1725:3: rule__SInformationModel__NameAssignment_3
+            {
+            pushFollow(FOLLOW_2);
+            rule__SInformationModel__NameAssignment_3();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getSInformationModelAccess().getNameAssignment_3()); 
 
             }
 
@@ -6183,7 +6172,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:1737:1: ( rule__SInformationModel__Group__4__Impl rule__SInformationModel__Group__5 )
             // InternalSim.g:1738:2: rule__SInformationModel__Group__4__Impl rule__SInformationModel__Group__5
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_6);
             rule__SInformationModel__Group__4__Impl();
 
             state._fsp--;
@@ -6212,31 +6201,42 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SInformationModel__Group__4__Impl"
-    // InternalSim.g:1745:1: rule__SInformationModel__Group__4__Impl : ( ( rule__SInformationModel__NameAssignment_4 ) ) ;
+    // InternalSim.g:1745:1: rule__SInformationModel__Group__4__Impl : ( ( rule__SInformationModel__GenerateAssignment_4 )? ) ;
     public final void rule__SInformationModel__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:1749:1: ( ( ( rule__SInformationModel__NameAssignment_4 ) ) )
-            // InternalSim.g:1750:1: ( ( rule__SInformationModel__NameAssignment_4 ) )
+            // InternalSim.g:1749:1: ( ( ( rule__SInformationModel__GenerateAssignment_4 )? ) )
+            // InternalSim.g:1750:1: ( ( rule__SInformationModel__GenerateAssignment_4 )? )
             {
-            // InternalSim.g:1750:1: ( ( rule__SInformationModel__NameAssignment_4 ) )
-            // InternalSim.g:1751:2: ( rule__SInformationModel__NameAssignment_4 )
+            // InternalSim.g:1750:1: ( ( rule__SInformationModel__GenerateAssignment_4 )? )
+            // InternalSim.g:1751:2: ( rule__SInformationModel__GenerateAssignment_4 )?
             {
-             before(grammarAccess.getSInformationModelAccess().getNameAssignment_4()); 
-            // InternalSim.g:1752:2: ( rule__SInformationModel__NameAssignment_4 )
-            // InternalSim.g:1752:3: rule__SInformationModel__NameAssignment_4
-            {
-            pushFollow(FOLLOW_2);
-            rule__SInformationModel__NameAssignment_4();
+             before(grammarAccess.getSInformationModelAccess().getGenerateAssignment_4()); 
+            // InternalSim.g:1752:2: ( rule__SInformationModel__GenerateAssignment_4 )?
+            int alt29=2;
+            int LA29_0 = input.LA(1);
 
-            state._fsp--;
+            if ( (LA29_0==49) ) {
+                alt29=1;
+            }
+            switch (alt29) {
+                case 1 :
+                    // InternalSim.g:1752:3: rule__SInformationModel__GenerateAssignment_4
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__SInformationModel__GenerateAssignment_4();
 
+                    state._fsp--;
+
+
+                    }
+                    break;
 
             }
 
-             after(grammarAccess.getSInformationModelAccess().getNameAssignment_4()); 
+             after(grammarAccess.getSInformationModelAccess().getGenerateAssignment_4()); 
 
             }
 
@@ -6268,7 +6268,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:1764:1: ( rule__SInformationModel__Group__5__Impl rule__SInformationModel__Group__6 )
             // InternalSim.g:1765:2: rule__SInformationModel__Group__5__Impl rule__SInformationModel__Group__6
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_6);
             rule__SInformationModel__Group__5__Impl();
 
             state._fsp--;
@@ -6325,7 +6325,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalSim.g:1779:3: rule__SInformationModel__ImportsAssignment_5
             	    {
-            	    pushFollow(FOLLOW_8);
+            	    pushFollow(FOLLOW_7);
             	    rule__SInformationModel__ImportsAssignment_5();
 
             	    state._fsp--;
@@ -6423,7 +6423,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalSim.g:1805:3: rule__SInformationModel__Alternatives_6
             	    {
-            	    pushFollow(FOLLOW_9);
+            	    pushFollow(FOLLOW_8);
             	    rule__SInformationModel__Alternatives_6();
 
             	    state._fsp--;
@@ -6469,7 +6469,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:1818:1: ( rule__SImport__Group__0__Impl rule__SImport__Group__1 )
             // InternalSim.g:1819:2: rule__SImport__Group__0__Impl rule__SImport__Group__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SImport__Group__0__Impl();
 
             state._fsp--;
@@ -6624,7 +6624,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:1872:1: ( rule__SGrabPrimitiveRule__Group__0__Impl rule__SGrabPrimitiveRule__Group__1 )
             // InternalSim.g:1873:2: rule__SGrabPrimitiveRule__Group__0__Impl rule__SGrabPrimitiveRule__Group__1
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_9);
             rule__SGrabPrimitiveRule__Group__0__Impl();
 
             state._fsp--;
@@ -6800,7 +6800,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:1926:1: ( rule__SGrabPrimitiveRule__Group_1__0__Impl rule__SGrabPrimitiveRule__Group_1__1 )
             // InternalSim.g:1927:2: rule__SGrabPrimitiveRule__Group_1__0__Impl rule__SGrabPrimitiveRule__Group_1__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SGrabPrimitiveRule__Group_1__0__Impl();
 
             state._fsp--;
@@ -6955,7 +6955,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:1980:1: ( rule__SGrabEnumerationRule__Group__0__Impl rule__SGrabEnumerationRule__Group__1 )
             // InternalSim.g:1981:2: rule__SGrabEnumerationRule__Group__0__Impl rule__SGrabEnumerationRule__Group__1
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_9);
             rule__SGrabEnumerationRule__Group__0__Impl();
 
             state._fsp--;
@@ -7131,7 +7131,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2034:1: ( rule__SGrabEnumerationRule__Group_1__0__Impl rule__SGrabEnumerationRule__Group_1__1 )
             // InternalSim.g:2035:2: rule__SGrabEnumerationRule__Group_1__0__Impl rule__SGrabEnumerationRule__Group_1__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SGrabEnumerationRule__Group_1__0__Impl();
 
             state._fsp--;
@@ -7286,7 +7286,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2088:1: ( rule__SGrabEnumerationLiteralRule__Group__0__Impl rule__SGrabEnumerationLiteralRule__Group__1 )
             // InternalSim.g:2089:2: rule__SGrabEnumerationLiteralRule__Group__0__Impl rule__SGrabEnumerationLiteralRule__Group__1
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_9);
             rule__SGrabEnumerationLiteralRule__Group__0__Impl();
 
             state._fsp--;
@@ -7462,7 +7462,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2142:1: ( rule__SGrabEnumerationLiteralRule__Group_1__0__Impl rule__SGrabEnumerationLiteralRule__Group_1__1 )
             // InternalSim.g:2143:2: rule__SGrabEnumerationLiteralRule__Group_1__0__Impl rule__SGrabEnumerationLiteralRule__Group_1__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SGrabEnumerationLiteralRule__Group_1__0__Impl();
 
             state._fsp--;
@@ -7617,7 +7617,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2196:1: ( rule__SGrabComplexTypeRule__Group__0__Impl rule__SGrabComplexTypeRule__Group__1 )
             // InternalSim.g:2197:2: rule__SGrabComplexTypeRule__Group__0__Impl rule__SGrabComplexTypeRule__Group__1
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_9);
             rule__SGrabComplexTypeRule__Group__0__Impl();
 
             state._fsp--;
@@ -7793,7 +7793,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2250:1: ( rule__SGrabComplexTypeRule__Group_1__0__Impl rule__SGrabComplexTypeRule__Group_1__1 )
             // InternalSim.g:2251:2: rule__SGrabComplexTypeRule__Group_1__0__Impl rule__SGrabComplexTypeRule__Group_1__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SGrabComplexTypeRule__Group_1__0__Impl();
 
             state._fsp--;
@@ -7948,7 +7948,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2304:1: ( rule__SMorphComplexTypeRule__Group__0__Impl rule__SMorphComplexTypeRule__Group__1 )
             // InternalSim.g:2305:2: rule__SMorphComplexTypeRule__Group__0__Impl rule__SMorphComplexTypeRule__Group__1
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_10);
             rule__SMorphComplexTypeRule__Group__0__Impl();
 
             state._fsp--;
@@ -8033,7 +8033,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2331:1: ( rule__SMorphComplexTypeRule__Group__1__Impl rule__SMorphComplexTypeRule__Group__2 )
             // InternalSim.g:2332:2: rule__SMorphComplexTypeRule__Group__1__Impl rule__SMorphComplexTypeRule__Group__2
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_10);
             rule__SMorphComplexTypeRule__Group__1__Impl();
 
             state._fsp--;
@@ -8220,7 +8220,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2385:1: ( rule__SMorphComplexTypeRule__Group_1__0__Impl rule__SMorphComplexTypeRule__Group_1__1 )
             // InternalSim.g:2386:2: rule__SMorphComplexTypeRule__Group_1__0__Impl rule__SMorphComplexTypeRule__Group_1__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SMorphComplexTypeRule__Group_1__0__Impl();
 
             state._fsp--;
@@ -8375,7 +8375,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2439:1: ( rule__SMorphComplexTypeRule__Group_2__0__Impl rule__SMorphComplexTypeRule__Group_2__1 )
             // InternalSim.g:2440:2: rule__SMorphComplexTypeRule__Group_2__0__Impl rule__SMorphComplexTypeRule__Group_2__1
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_11);
             rule__SMorphComplexTypeRule__Group_2__0__Impl();
 
             state._fsp--;
@@ -8450,7 +8450,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2466:1: ( rule__SMorphComplexTypeRule__Group_2__1__Impl rule__SMorphComplexTypeRule__Group_2__2 )
             // InternalSim.g:2467:2: rule__SMorphComplexTypeRule__Group_2__1__Impl rule__SMorphComplexTypeRule__Group_2__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SMorphComplexTypeRule__Group_2__1__Impl();
 
             state._fsp--;
@@ -8605,7 +8605,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2520:1: ( rule__SFuseComplexTypeRule__Group__0__Impl rule__SFuseComplexTypeRule__Group__1 )
             // InternalSim.g:2521:2: rule__SFuseComplexTypeRule__Group__0__Impl rule__SFuseComplexTypeRule__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_12);
             rule__SFuseComplexTypeRule__Group__0__Impl();
 
             state._fsp--;
@@ -8690,7 +8690,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2547:1: ( rule__SFuseComplexTypeRule__Group__1__Impl rule__SFuseComplexTypeRule__Group__2 )
             // InternalSim.g:2548:2: rule__SFuseComplexTypeRule__Group__1__Impl rule__SFuseComplexTypeRule__Group__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SFuseComplexTypeRule__Group__1__Impl();
 
             state._fsp--;
@@ -8765,7 +8765,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2574:1: ( rule__SFuseComplexTypeRule__Group__2__Impl rule__SFuseComplexTypeRule__Group__3 )
             // InternalSim.g:2575:2: rule__SFuseComplexTypeRule__Group__2__Impl rule__SFuseComplexTypeRule__Group__3
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_10);
             rule__SFuseComplexTypeRule__Group__2__Impl();
 
             state._fsp--;
@@ -8850,7 +8850,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2601:1: ( rule__SFuseComplexTypeRule__Group__3__Impl rule__SFuseComplexTypeRule__Group__4 )
             // InternalSim.g:2602:2: rule__SFuseComplexTypeRule__Group__3__Impl rule__SFuseComplexTypeRule__Group__4
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_10);
             rule__SFuseComplexTypeRule__Group__3__Impl();
 
             state._fsp--;
@@ -9037,7 +9037,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2655:1: ( rule__SFuseComplexTypeRule__Group_3__0__Impl rule__SFuseComplexTypeRule__Group_3__1 )
             // InternalSim.g:2656:2: rule__SFuseComplexTypeRule__Group_3__0__Impl rule__SFuseComplexTypeRule__Group_3__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SFuseComplexTypeRule__Group_3__0__Impl();
 
             state._fsp--;
@@ -9192,7 +9192,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2709:1: ( rule__SFuseComplexTypeRule__Group_4__0__Impl rule__SFuseComplexTypeRule__Group_4__1 )
             // InternalSim.g:2710:2: rule__SFuseComplexTypeRule__Group_4__0__Impl rule__SFuseComplexTypeRule__Group_4__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SFuseComplexTypeRule__Group_4__0__Impl();
 
             state._fsp--;
@@ -9347,7 +9347,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2763:1: ( rule__SGrabFeatureRule__Group__0__Impl rule__SGrabFeatureRule__Group__1 )
             // InternalSim.g:2764:2: rule__SGrabFeatureRule__Group__0__Impl rule__SGrabFeatureRule__Group__1
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_9);
             rule__SGrabFeatureRule__Group__0__Impl();
 
             state._fsp--;
@@ -9523,7 +9523,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2817:1: ( rule__SGrabFeatureRule__Group_1__0__Impl rule__SGrabFeatureRule__Group_1__1 )
             // InternalSim.g:2818:2: rule__SGrabFeatureRule__Group_1__0__Impl rule__SGrabFeatureRule__Group_1__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SGrabFeatureRule__Group_1__0__Impl();
 
             state._fsp--;
@@ -9678,7 +9678,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2871:1: ( rule__SMorphFeatureRule__Group__0__Impl rule__SMorphFeatureRule__Group__1 )
             // InternalSim.g:2872:2: rule__SMorphFeatureRule__Group__0__Impl rule__SMorphFeatureRule__Group__1
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_13);
             rule__SMorphFeatureRule__Group__0__Impl();
 
             state._fsp--;
@@ -9763,7 +9763,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2898:1: ( rule__SMorphFeatureRule__Group__1__Impl rule__SMorphFeatureRule__Group__2 )
             // InternalSim.g:2899:2: rule__SMorphFeatureRule__Group__1__Impl rule__SMorphFeatureRule__Group__2
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_13);
             rule__SMorphFeatureRule__Group__1__Impl();
 
             state._fsp--;
@@ -9950,7 +9950,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:2952:1: ( rule__SMorphFeatureRule__Group_1__0__Impl rule__SMorphFeatureRule__Group_1__1 )
             // InternalSim.g:2953:2: rule__SMorphFeatureRule__Group_1__0__Impl rule__SMorphFeatureRule__Group_1__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SMorphFeatureRule__Group_1__0__Impl();
 
             state._fsp--;
@@ -10105,7 +10105,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3006:1: ( rule__SMorphFeatureRule__Group_2__0__Impl rule__SMorphFeatureRule__Group_2__1 )
             // InternalSim.g:3007:2: rule__SMorphFeatureRule__Group_2__0__Impl rule__SMorphFeatureRule__Group_2__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SMorphFeatureRule__Group_2__0__Impl();
 
             state._fsp--;
@@ -10180,7 +10180,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3033:1: ( rule__SMorphFeatureRule__Group_2__1__Impl rule__SMorphFeatureRule__Group_2__2 )
             // InternalSim.g:3034:2: rule__SMorphFeatureRule__Group_2__1__Impl rule__SMorphFeatureRule__Group_2__2
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_14);
             rule__SMorphFeatureRule__Group_2__1__Impl();
 
             state._fsp--;
@@ -10360,7 +10360,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3087:1: ( rule__SAggregate__Group__0__Impl rule__SAggregate__Group__1 )
             // InternalSim.g:3088:2: rule__SAggregate__Group__0__Impl rule__SAggregate__Group__1
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_15);
             rule__SAggregate__Group__0__Impl();
 
             state._fsp--;
@@ -10435,7 +10435,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3114:1: ( rule__SAggregate__Group__1__Impl rule__SAggregate__Group__2 )
             // InternalSim.g:3115:2: rule__SAggregate__Group__1__Impl rule__SAggregate__Group__2
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             rule__SAggregate__Group__1__Impl();
 
             state._fsp--;
@@ -10520,7 +10520,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3141:1: ( rule__SAggregate__Group__2__Impl rule__SAggregate__Group__3 )
             // InternalSim.g:3142:2: rule__SAggregate__Group__2__Impl rule__SAggregate__Group__3
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__SAggregate__Group__2__Impl();
 
             state._fsp--;
@@ -10595,7 +10595,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3168:1: ( rule__SAggregate__Group__3__Impl rule__SAggregate__Group__4 )
             // InternalSim.g:3169:2: rule__SAggregate__Group__3__Impl rule__SAggregate__Group__4
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__SAggregate__Group__3__Impl();
 
             state._fsp--;
@@ -10652,7 +10652,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalSim.g:3183:3: rule__SAggregate__TypesAssignment_3
             	    {
-            	    pushFollow(FOLLOW_19);
+            	    pushFollow(FOLLOW_18);
             	    rule__SAggregate__TypesAssignment_3();
 
             	    state._fsp--;
@@ -10768,7 +10768,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3222:1: ( rule__SAggregate__Group_1_0__0__Impl rule__SAggregate__Group_1_0__1 )
             // InternalSim.g:3223:2: rule__SAggregate__Group_1_0__0__Impl rule__SAggregate__Group_1_0__1
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_19);
             rule__SAggregate__Group_1_0__0__Impl();
 
             state._fsp--;
@@ -10843,7 +10843,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3249:1: ( rule__SAggregate__Group_1_0__1__Impl rule__SAggregate__Group_1_0__2 )
             // InternalSim.g:3250:2: rule__SAggregate__Group_1_0__1__Impl rule__SAggregate__Group_1_0__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SAggregate__Group_1_0__1__Impl();
 
             state._fsp--;
@@ -10998,7 +10998,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3303:1: ( rule__SConstraint__Group__0__Impl rule__SConstraint__Group__1 )
             // InternalSim.g:3304:2: rule__SConstraint__Group__0__Impl rule__SConstraint__Group__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SConstraint__Group__0__Impl();
 
             state._fsp--;
@@ -11073,7 +11073,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3330:1: ( rule__SConstraint__Group__1__Impl rule__SConstraint__Group__2 )
             // InternalSim.g:3331:2: rule__SConstraint__Group__1__Impl rule__SConstraint__Group__2
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__SConstraint__Group__1__Impl();
 
             state._fsp--;
@@ -11158,7 +11158,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3357:1: ( rule__SConstraint__Group__2__Impl rule__SConstraint__Group__3 )
             // InternalSim.g:3358:2: rule__SConstraint__Group__2__Impl rule__SConstraint__Group__3
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_21);
             rule__SConstraint__Group__2__Impl();
 
             state._fsp--;
@@ -11313,7 +11313,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3411:1: ( rule__SPrimitive__Group__0__Impl rule__SPrimitive__Group__1 )
             // InternalSim.g:3412:2: rule__SPrimitive__Group__0__Impl rule__SPrimitive__Group__1
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             rule__SPrimitive__Group__0__Impl();
 
             state._fsp--;
@@ -11398,7 +11398,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3438:1: ( rule__SPrimitive__Group__1__Impl rule__SPrimitive__Group__2 )
             // InternalSim.g:3439:2: rule__SPrimitive__Group__1__Impl rule__SPrimitive__Group__2
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_22);
             rule__SPrimitive__Group__1__Impl();
 
             state._fsp--;
@@ -11473,7 +11473,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3465:1: ( rule__SPrimitive__Group__2__Impl rule__SPrimitive__Group__3 )
             // InternalSim.g:3466:2: rule__SPrimitive__Group__2__Impl rule__SPrimitive__Group__3
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_22);
             rule__SPrimitive__Group__2__Impl();
 
             state._fsp--;
@@ -11530,7 +11530,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalSim.g:3480:3: rule__SPrimitive__ConstraintsAssignment_2
             	    {
-            	    pushFollow(FOLLOW_24);
+            	    pushFollow(FOLLOW_23);
             	    rule__SPrimitive__ConstraintsAssignment_2();
 
             	    state._fsp--;
@@ -11646,7 +11646,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3519:1: ( rule__SPrimitive__Group_0_0__0__Impl rule__SPrimitive__Group_0_0__1 )
             // InternalSim.g:3520:2: rule__SPrimitive__Group_0_0__0__Impl rule__SPrimitive__Group_0_0__1
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_24);
             rule__SPrimitive__Group_0_0__0__Impl();
 
             state._fsp--;
@@ -11721,7 +11721,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3546:1: ( rule__SPrimitive__Group_0_0__1__Impl rule__SPrimitive__Group_0_0__2 )
             // InternalSim.g:3547:2: rule__SPrimitive__Group_0_0__1__Impl rule__SPrimitive__Group_0_0__2
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_25);
             rule__SPrimitive__Group_0_0__1__Impl();
 
             state._fsp--;
@@ -11796,7 +11796,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3573:1: ( rule__SPrimitive__Group_0_0__2__Impl rule__SPrimitive__Group_0_0__3 )
             // InternalSim.g:3574:2: rule__SPrimitive__Group_0_0__2__Impl rule__SPrimitive__Group_0_0__3
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SPrimitive__Group_0_0__2__Impl();
 
             state._fsp--;
@@ -11951,7 +11951,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3627:1: ( rule__SPrimitive__Group_0_1__0__Impl rule__SPrimitive__Group_0_1__1 )
             // InternalSim.g:3628:2: rule__SPrimitive__Group_0_1__0__Impl rule__SPrimitive__Group_0_1__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SPrimitive__Group_0_1__0__Impl();
 
             state._fsp--;
@@ -12106,7 +12106,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3681:1: ( rule__SPrimitive__Group_0_2__0__Impl rule__SPrimitive__Group_0_2__1 )
             // InternalSim.g:3682:2: rule__SPrimitive__Group_0_2__0__Impl rule__SPrimitive__Group_0_2__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SPrimitive__Group_0_2__0__Impl();
 
             state._fsp--;
@@ -12181,7 +12181,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3708:1: ( rule__SPrimitive__Group_0_2__1__Impl rule__SPrimitive__Group_0_2__2 )
             // InternalSim.g:3709:2: rule__SPrimitive__Group_0_2__1__Impl rule__SPrimitive__Group_0_2__2
             {
-            pushFollow(FOLLOW_27);
+            pushFollow(FOLLOW_26);
             rule__SPrimitive__Group_0_2__1__Impl();
 
             state._fsp--;
@@ -12266,7 +12266,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3735:1: ( rule__SPrimitive__Group_0_2__2__Impl rule__SPrimitive__Group_0_2__3 )
             // InternalSim.g:3736:2: rule__SPrimitive__Group_0_2__2__Impl rule__SPrimitive__Group_0_2__3
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SPrimitive__Group_0_2__2__Impl();
 
             state._fsp--;
@@ -12421,7 +12421,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3789:1: ( rule__SEnumeration__Group__0__Impl rule__SEnumeration__Group__1 )
             // InternalSim.g:3790:2: rule__SEnumeration__Group__0__Impl rule__SEnumeration__Group__1
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             rule__SEnumeration__Group__0__Impl();
 
             state._fsp--;
@@ -12506,7 +12506,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3816:1: ( rule__SEnumeration__Group__1__Impl rule__SEnumeration__Group__2 )
             // InternalSim.g:3817:2: rule__SEnumeration__Group__1__Impl rule__SEnumeration__Group__2
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_27);
             rule__SEnumeration__Group__1__Impl();
 
             state._fsp--;
@@ -12581,7 +12581,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3843:1: ( rule__SEnumeration__Group__2__Impl rule__SEnumeration__Group__3 )
             // InternalSim.g:3844:2: rule__SEnumeration__Group__2__Impl rule__SEnumeration__Group__3
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_27);
             rule__SEnumeration__Group__2__Impl();
 
             state._fsp--;
@@ -12677,7 +12677,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3870:1: ( rule__SEnumeration__Group__3__Impl rule__SEnumeration__Group__4 )
             // InternalSim.g:3871:2: rule__SEnumeration__Group__3__Impl rule__SEnumeration__Group__4
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_27);
             rule__SEnumeration__Group__3__Impl();
 
             state._fsp--;
@@ -12734,7 +12734,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalSim.g:3885:3: rule__SEnumeration__ConstraintsAssignment_3
             	    {
-            	    pushFollow(FOLLOW_24);
+            	    pushFollow(FOLLOW_23);
             	    rule__SEnumeration__ConstraintsAssignment_3();
 
             	    state._fsp--;
@@ -12850,7 +12850,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3924:1: ( rule__SEnumeration__Group_0_0__0__Impl rule__SEnumeration__Group_0_0__1 )
             // InternalSim.g:3925:2: rule__SEnumeration__Group_0_0__0__Impl rule__SEnumeration__Group_0_0__1
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_24);
             rule__SEnumeration__Group_0_0__0__Impl();
 
             state._fsp--;
@@ -12925,7 +12925,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3951:1: ( rule__SEnumeration__Group_0_0__1__Impl rule__SEnumeration__Group_0_0__2 )
             // InternalSim.g:3952:2: rule__SEnumeration__Group_0_0__1__Impl rule__SEnumeration__Group_0_0__2
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_28);
             rule__SEnumeration__Group_0_0__1__Impl();
 
             state._fsp--;
@@ -13000,7 +13000,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:3978:1: ( rule__SEnumeration__Group_0_0__2__Impl rule__SEnumeration__Group_0_0__3 )
             // InternalSim.g:3979:2: rule__SEnumeration__Group_0_0__2__Impl rule__SEnumeration__Group_0_0__3
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SEnumeration__Group_0_0__2__Impl();
 
             state._fsp--;
@@ -13155,7 +13155,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4032:1: ( rule__SEnumeration__Group_0_1__0__Impl rule__SEnumeration__Group_0_1__1 )
             // InternalSim.g:4033:2: rule__SEnumeration__Group_0_1__0__Impl rule__SEnumeration__Group_0_1__1
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_29);
             rule__SEnumeration__Group_0_1__0__Impl();
 
             state._fsp--;
@@ -13230,7 +13230,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4059:1: ( rule__SEnumeration__Group_0_1__1__Impl rule__SEnumeration__Group_0_1__2 )
             // InternalSim.g:4060:2: rule__SEnumeration__Group_0_1__1__Impl rule__SEnumeration__Group_0_1__2
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_28);
             rule__SEnumeration__Group_0_1__1__Impl();
 
             state._fsp--;
@@ -13305,7 +13305,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4086:1: ( rule__SEnumeration__Group_0_1__2__Impl rule__SEnumeration__Group_0_1__3 )
             // InternalSim.g:4087:2: rule__SEnumeration__Group_0_1__2__Impl rule__SEnumeration__Group_0_1__3
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SEnumeration__Group_0_1__2__Impl();
 
             state._fsp--;
@@ -13460,7 +13460,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4140:1: ( rule__SEnumeration__Group_0_2__0__Impl rule__SEnumeration__Group_0_2__1 )
             // InternalSim.g:4141:2: rule__SEnumeration__Group_0_2__0__Impl rule__SEnumeration__Group_0_2__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SEnumeration__Group_0_2__0__Impl();
 
             state._fsp--;
@@ -13615,7 +13615,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4194:1: ( rule__SEnumeration__Group_2__0__Impl rule__SEnumeration__Group_2__1 )
             // InternalSim.g:4195:2: rule__SEnumeration__Group_2__0__Impl rule__SEnumeration__Group_2__1
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_30);
             rule__SEnumeration__Group_2__0__Impl();
 
             state._fsp--;
@@ -13752,7 +13752,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalSim.g:4235:3: rule__SEnumeration__Group_2_1__0
             	    {
-            	    pushFollow(FOLLOW_32);
+            	    pushFollow(FOLLOW_31);
             	    rule__SEnumeration__Group_2_1__0();
 
             	    state._fsp--;
@@ -13798,7 +13798,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4248:1: ( rule__SEnumeration__Group_2_1__0__Impl rule__SEnumeration__Group_2_1__1 )
             // InternalSim.g:4249:2: rule__SEnumeration__Group_2_1__0__Impl rule__SEnumeration__Group_2_1__1
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_32);
             rule__SEnumeration__Group_2_1__0__Impl();
 
             state._fsp--;
@@ -13953,7 +13953,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4302:1: ( rule__SLiteral__Group_0__0__Impl rule__SLiteral__Group_0__1 )
             // InternalSim.g:4303:2: rule__SLiteral__Group_0__0__Impl rule__SLiteral__Group_0__1
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_24);
             rule__SLiteral__Group_0__0__Impl();
 
             state._fsp--;
@@ -14028,7 +14028,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4329:1: ( rule__SLiteral__Group_0__1__Impl rule__SLiteral__Group_0__2 )
             // InternalSim.g:4330:2: rule__SLiteral__Group_0__1__Impl rule__SLiteral__Group_0__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SLiteral__Group_0__1__Impl();
 
             state._fsp--;
@@ -14183,7 +14183,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4383:1: ( rule__SLiteral__Group_1__0__Impl rule__SLiteral__Group_1__1 )
             // InternalSim.g:4384:2: rule__SLiteral__Group_1__0__Impl rule__SLiteral__Group_1__1
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_29);
             rule__SLiteral__Group_1__0__Impl();
 
             state._fsp--;
@@ -14258,7 +14258,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4410:1: ( rule__SLiteral__Group_1__1__Impl rule__SLiteral__Group_1__2 )
             // InternalSim.g:4411:2: rule__SLiteral__Group_1__1__Impl rule__SLiteral__Group_1__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SLiteral__Group_1__1__Impl();
 
             state._fsp--;
@@ -14413,7 +14413,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4464:1: ( rule__SRootType__Group__0__Impl rule__SRootType__Group__1 )
             // InternalSim.g:4465:2: rule__SRootType__Group__0__Impl rule__SRootType__Group__1
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             rule__SRootType__Group__0__Impl();
 
             state._fsp--;
@@ -14572,7 +14572,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4518:1: ( rule__SRootType__Group_0_0__0__Impl rule__SRootType__Group_0_0__1 )
             // InternalSim.g:4519:2: rule__SRootType__Group_0_0__0__Impl rule__SRootType__Group_0_0__1
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_24);
             rule__SRootType__Group_0_0__0__Impl();
 
             state._fsp--;
@@ -14647,7 +14647,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4545:1: ( rule__SRootType__Group_0_0__1__Impl rule__SRootType__Group_0_0__2 )
             // InternalSim.g:4546:2: rule__SRootType__Group_0_0__1__Impl rule__SRootType__Group_0_0__2
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_33);
             rule__SRootType__Group_0_0__1__Impl();
 
             state._fsp--;
@@ -14722,7 +14722,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4572:1: ( rule__SRootType__Group_0_0__2__Impl rule__SRootType__Group_0_0__3 )
             // InternalSim.g:4573:2: rule__SRootType__Group_0_0__2__Impl rule__SRootType__Group_0_0__3
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_33);
             rule__SRootType__Group_0_0__2__Impl();
 
             state._fsp--;
@@ -14818,7 +14818,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4599:1: ( rule__SRootType__Group_0_0__3__Impl rule__SRootType__Group_0_0__4 )
             // InternalSim.g:4600:2: rule__SRootType__Group_0_0__3__Impl rule__SRootType__Group_0_0__4
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SRootType__Group_0_0__3__Impl();
 
             state._fsp--;
@@ -14973,7 +14973,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4653:1: ( rule__SRootType__Group_0_1__0__Impl rule__SRootType__Group_0_1__1 )
             // InternalSim.g:4654:2: rule__SRootType__Group_0_1__0__Impl rule__SRootType__Group_0_1__1
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_29);
             rule__SRootType__Group_0_1__0__Impl();
 
             state._fsp--;
@@ -15048,7 +15048,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4680:1: ( rule__SRootType__Group_0_1__1__Impl rule__SRootType__Group_0_1__2 )
             // InternalSim.g:4681:2: rule__SRootType__Group_0_1__1__Impl rule__SRootType__Group_0_1__2
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_33);
             rule__SRootType__Group_0_1__1__Impl();
 
             state._fsp--;
@@ -15123,7 +15123,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4707:1: ( rule__SRootType__Group_0_1__2__Impl rule__SRootType__Group_0_1__3 )
             // InternalSim.g:4708:2: rule__SRootType__Group_0_1__2__Impl rule__SRootType__Group_0_1__3
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_33);
             rule__SRootType__Group_0_1__2__Impl();
 
             state._fsp--;
@@ -15219,7 +15219,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4734:1: ( rule__SRootType__Group_0_1__3__Impl rule__SRootType__Group_0_1__4 )
             // InternalSim.g:4735:2: rule__SRootType__Group_0_1__3__Impl rule__SRootType__Group_0_1__4
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SRootType__Group_0_1__3__Impl();
 
             state._fsp--;
@@ -15374,7 +15374,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4788:1: ( rule__SRootType__Group_0_2__0__Impl rule__SRootType__Group_0_2__1 )
             // InternalSim.g:4789:2: rule__SRootType__Group_0_2__0__Impl rule__SRootType__Group_0_2__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_34);
             rule__SRootType__Group_0_2__0__Impl();
 
             state._fsp--;
@@ -15449,7 +15449,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4815:1: ( rule__SRootType__Group_0_2__1__Impl rule__SRootType__Group_0_2__2 )
             // InternalSim.g:4816:2: rule__SRootType__Group_0_2__1__Impl rule__SRootType__Group_0_2__2
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_33);
             rule__SRootType__Group_0_2__1__Impl();
 
             state._fsp--;
@@ -15524,7 +15524,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4842:1: ( rule__SRootType__Group_0_2__2__Impl rule__SRootType__Group_0_2__3 )
             // InternalSim.g:4843:2: rule__SRootType__Group_0_2__2__Impl rule__SRootType__Group_0_2__3
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_33);
             rule__SRootType__Group_0_2__2__Impl();
 
             state._fsp--;
@@ -15620,7 +15620,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4869:1: ( rule__SRootType__Group_0_2__3__Impl rule__SRootType__Group_0_2__4 )
             // InternalSim.g:4870:2: rule__SRootType__Group_0_2__3__Impl rule__SRootType__Group_0_2__4
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SRootType__Group_0_2__3__Impl();
 
             state._fsp--;
@@ -15775,7 +15775,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4923:1: ( rule__SRootType__Group_0_3__0__Impl rule__SRootType__Group_0_3__1 )
             // InternalSim.g:4924:2: rule__SRootType__Group_0_3__0__Impl rule__SRootType__Group_0_3__1
             {
-            pushFollow(FOLLOW_36);
+            pushFollow(FOLLOW_35);
             rule__SRootType__Group_0_3__0__Impl();
 
             state._fsp--;
@@ -15850,7 +15850,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4950:1: ( rule__SRootType__Group_0_3__1__Impl rule__SRootType__Group_0_3__2 )
             // InternalSim.g:4951:2: rule__SRootType__Group_0_3__1__Impl rule__SRootType__Group_0_3__2
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_33);
             rule__SRootType__Group_0_3__1__Impl();
 
             state._fsp--;
@@ -15925,7 +15925,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:4977:1: ( rule__SRootType__Group_0_3__2__Impl rule__SRootType__Group_0_3__3 )
             // InternalSim.g:4978:2: rule__SRootType__Group_0_3__2__Impl rule__SRootType__Group_0_3__3
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_33);
             rule__SRootType__Group_0_3__2__Impl();
 
             state._fsp--;
@@ -16021,7 +16021,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5004:1: ( rule__SRootType__Group_0_3__3__Impl rule__SRootType__Group_0_3__4 )
             // InternalSim.g:5005:2: rule__SRootType__Group_0_3__3__Impl rule__SRootType__Group_0_3__4
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SRootType__Group_0_3__3__Impl();
 
             state._fsp--;
@@ -16176,7 +16176,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5058:1: ( rule__SRootType__Group_0_4__0__Impl rule__SRootType__Group_0_4__1 )
             // InternalSim.g:5059:2: rule__SRootType__Group_0_4__0__Impl rule__SRootType__Group_0_4__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_36);
             rule__SRootType__Group_0_4__0__Impl();
 
             state._fsp--;
@@ -16272,7 +16272,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5085:1: ( rule__SRootType__Group_0_4__1__Impl rule__SRootType__Group_0_4__2 )
             // InternalSim.g:5086:2: rule__SRootType__Group_0_4__1__Impl rule__SRootType__Group_0_4__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SRootType__Group_0_4__1__Impl();
 
             state._fsp--;
@@ -16347,7 +16347,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5112:1: ( rule__SRootType__Group_0_4__2__Impl rule__SRootType__Group_0_4__3 )
             // InternalSim.g:5113:2: rule__SRootType__Group_0_4__2__Impl rule__SRootType__Group_0_4__3
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_37);
             rule__SRootType__Group_0_4__2__Impl();
 
             state._fsp--;
@@ -16506,7 +16506,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5166:1: ( rule__SDetailType__Group__0__Impl rule__SDetailType__Group__1 )
             // InternalSim.g:5167:2: rule__SDetailType__Group__0__Impl rule__SDetailType__Group__1
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             rule__SDetailType__Group__0__Impl();
 
             state._fsp--;
@@ -16665,7 +16665,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5220:1: ( rule__SDetailType__Group_0_0__0__Impl rule__SDetailType__Group_0_0__1 )
             // InternalSim.g:5221:2: rule__SDetailType__Group_0_0__0__Impl rule__SDetailType__Group_0_0__1
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_24);
             rule__SDetailType__Group_0_0__0__Impl();
 
             state._fsp--;
@@ -16740,7 +16740,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5247:1: ( rule__SDetailType__Group_0_0__1__Impl rule__SDetailType__Group_0_0__2 )
             // InternalSim.g:5248:2: rule__SDetailType__Group_0_0__1__Impl rule__SDetailType__Group_0_0__2
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_38);
             rule__SDetailType__Group_0_0__1__Impl();
 
             state._fsp--;
@@ -16815,7 +16815,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5274:1: ( rule__SDetailType__Group_0_0__2__Impl rule__SDetailType__Group_0_0__3 )
             // InternalSim.g:5275:2: rule__SDetailType__Group_0_0__2__Impl rule__SDetailType__Group_0_0__3
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_38);
             rule__SDetailType__Group_0_0__2__Impl();
 
             state._fsp--;
@@ -16911,7 +16911,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5301:1: ( rule__SDetailType__Group_0_0__3__Impl rule__SDetailType__Group_0_0__4 )
             // InternalSim.g:5302:2: rule__SDetailType__Group_0_0__3__Impl rule__SDetailType__Group_0_0__4
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SDetailType__Group_0_0__3__Impl();
 
             state._fsp--;
@@ -17066,7 +17066,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5355:1: ( rule__SDetailType__Group_0_1__0__Impl rule__SDetailType__Group_0_1__1 )
             // InternalSim.g:5356:2: rule__SDetailType__Group_0_1__0__Impl rule__SDetailType__Group_0_1__1
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_29);
             rule__SDetailType__Group_0_1__0__Impl();
 
             state._fsp--;
@@ -17141,7 +17141,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5382:1: ( rule__SDetailType__Group_0_1__1__Impl rule__SDetailType__Group_0_1__2 )
             // InternalSim.g:5383:2: rule__SDetailType__Group_0_1__1__Impl rule__SDetailType__Group_0_1__2
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_38);
             rule__SDetailType__Group_0_1__1__Impl();
 
             state._fsp--;
@@ -17216,7 +17216,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5409:1: ( rule__SDetailType__Group_0_1__2__Impl rule__SDetailType__Group_0_1__3 )
             // InternalSim.g:5410:2: rule__SDetailType__Group_0_1__2__Impl rule__SDetailType__Group_0_1__3
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_38);
             rule__SDetailType__Group_0_1__2__Impl();
 
             state._fsp--;
@@ -17312,7 +17312,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5436:1: ( rule__SDetailType__Group_0_1__3__Impl rule__SDetailType__Group_0_1__4 )
             // InternalSim.g:5437:2: rule__SDetailType__Group_0_1__3__Impl rule__SDetailType__Group_0_1__4
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SDetailType__Group_0_1__3__Impl();
 
             state._fsp--;
@@ -17467,7 +17467,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5490:1: ( rule__SDetailType__Group_0_2__0__Impl rule__SDetailType__Group_0_2__1 )
             // InternalSim.g:5491:2: rule__SDetailType__Group_0_2__0__Impl rule__SDetailType__Group_0_2__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_34);
             rule__SDetailType__Group_0_2__0__Impl();
 
             state._fsp--;
@@ -17542,7 +17542,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5517:1: ( rule__SDetailType__Group_0_2__1__Impl rule__SDetailType__Group_0_2__2 )
             // InternalSim.g:5518:2: rule__SDetailType__Group_0_2__1__Impl rule__SDetailType__Group_0_2__2
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_38);
             rule__SDetailType__Group_0_2__1__Impl();
 
             state._fsp--;
@@ -17617,7 +17617,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5544:1: ( rule__SDetailType__Group_0_2__2__Impl rule__SDetailType__Group_0_2__3 )
             // InternalSim.g:5545:2: rule__SDetailType__Group_0_2__2__Impl rule__SDetailType__Group_0_2__3
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_38);
             rule__SDetailType__Group_0_2__2__Impl();
 
             state._fsp--;
@@ -17713,7 +17713,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5571:1: ( rule__SDetailType__Group_0_2__3__Impl rule__SDetailType__Group_0_2__4 )
             // InternalSim.g:5572:2: rule__SDetailType__Group_0_2__3__Impl rule__SDetailType__Group_0_2__4
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SDetailType__Group_0_2__3__Impl();
 
             state._fsp--;
@@ -17868,7 +17868,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5625:1: ( rule__SDetailType__Group_0_3__0__Impl rule__SDetailType__Group_0_3__1 )
             // InternalSim.g:5626:2: rule__SDetailType__Group_0_3__0__Impl rule__SDetailType__Group_0_3__1
             {
-            pushFollow(FOLLOW_36);
+            pushFollow(FOLLOW_35);
             rule__SDetailType__Group_0_3__0__Impl();
 
             state._fsp--;
@@ -17943,7 +17943,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5652:1: ( rule__SDetailType__Group_0_3__1__Impl rule__SDetailType__Group_0_3__2 )
             // InternalSim.g:5653:2: rule__SDetailType__Group_0_3__1__Impl rule__SDetailType__Group_0_3__2
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_38);
             rule__SDetailType__Group_0_3__1__Impl();
 
             state._fsp--;
@@ -18018,7 +18018,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5679:1: ( rule__SDetailType__Group_0_3__2__Impl rule__SDetailType__Group_0_3__3 )
             // InternalSim.g:5680:2: rule__SDetailType__Group_0_3__2__Impl rule__SDetailType__Group_0_3__3
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_38);
             rule__SDetailType__Group_0_3__2__Impl();
 
             state._fsp--;
@@ -18114,7 +18114,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5706:1: ( rule__SDetailType__Group_0_3__3__Impl rule__SDetailType__Group_0_3__4 )
             // InternalSim.g:5707:2: rule__SDetailType__Group_0_3__3__Impl rule__SDetailType__Group_0_3__4
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SDetailType__Group_0_3__3__Impl();
 
             state._fsp--;
@@ -18269,7 +18269,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5760:1: ( rule__SDetailType__Group_0_4__0__Impl rule__SDetailType__Group_0_4__1 )
             // InternalSim.g:5761:2: rule__SDetailType__Group_0_4__0__Impl rule__SDetailType__Group_0_4__1
             {
-            pushFollow(FOLLOW_40);
+            pushFollow(FOLLOW_39);
             rule__SDetailType__Group_0_4__0__Impl();
 
             state._fsp--;
@@ -18365,7 +18365,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5787:1: ( rule__SDetailType__Group_0_4__1__Impl rule__SDetailType__Group_0_4__2 )
             // InternalSim.g:5788:2: rule__SDetailType__Group_0_4__1__Impl rule__SDetailType__Group_0_4__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SDetailType__Group_0_4__1__Impl();
 
             state._fsp--;
@@ -18440,7 +18440,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5814:1: ( rule__SDetailType__Group_0_4__2__Impl rule__SDetailType__Group_0_4__3 )
             // InternalSim.g:5815:2: rule__SDetailType__Group_0_4__2__Impl rule__SDetailType__Group_0_4__3
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_37);
             rule__SDetailType__Group_0_4__2__Impl();
 
             state._fsp--;
@@ -18599,7 +18599,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5868:1: ( rule__SComplexTypeExtends__Group__0__Impl rule__SComplexTypeExtends__Group__1 )
             // InternalSim.g:5869:2: rule__SComplexTypeExtends__Group__0__Impl rule__SComplexTypeExtends__Group__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SComplexTypeExtends__Group__0__Impl();
 
             state._fsp--;
@@ -18754,7 +18754,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5922:1: ( rule__SComplexTypeFeatures__Group__0__Impl rule__SComplexTypeFeatures__Group__1 )
             // InternalSim.g:5923:2: rule__SComplexTypeFeatures__Group__0__Impl rule__SComplexTypeFeatures__Group__1
             {
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_40);
             rule__SComplexTypeFeatures__Group__0__Impl();
 
             state._fsp--;
@@ -18829,7 +18829,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:5949:1: ( rule__SComplexTypeFeatures__Group__1__Impl rule__SComplexTypeFeatures__Group__2 )
             // InternalSim.g:5950:2: rule__SComplexTypeFeatures__Group__1__Impl rule__SComplexTypeFeatures__Group__2
             {
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_40);
             rule__SComplexTypeFeatures__Group__1__Impl();
 
             state._fsp--;
@@ -18886,7 +18886,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalSim.g:5964:3: rule__SComplexTypeFeatures__Alternatives_1
             	    {
-            	    pushFollow(FOLLOW_42);
+            	    pushFollow(FOLLOW_41);
             	    rule__SComplexTypeFeatures__Alternatives_1();
 
             	    state._fsp--;
@@ -19002,7 +19002,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6003:1: ( rule__SAssociation__Group_0__0__Impl rule__SAssociation__Group_0__1 )
             // InternalSim.g:6004:2: rule__SAssociation__Group_0__0__Impl rule__SAssociation__Group_0__1
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_24);
             rule__SAssociation__Group_0__0__Impl();
 
             state._fsp--;
@@ -19077,7 +19077,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6030:1: ( rule__SAssociation__Group_0__1__Impl rule__SAssociation__Group_0__2 )
             // InternalSim.g:6031:2: rule__SAssociation__Group_0__1__Impl rule__SAssociation__Group_0__2
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_42);
             rule__SAssociation__Group_0__1__Impl();
 
             state._fsp--;
@@ -19152,7 +19152,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6057:1: ( rule__SAssociation__Group_0__2__Impl rule__SAssociation__Group_0__3 )
             // InternalSim.g:6058:2: rule__SAssociation__Group_0__2__Impl rule__SAssociation__Group_0__3
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SAssociation__Group_0__2__Impl();
 
             state._fsp--;
@@ -19317,7 +19317,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6111:1: ( rule__SAssociation__Group_1__0__Impl rule__SAssociation__Group_1__1 )
             // InternalSim.g:6112:2: rule__SAssociation__Group_1__0__Impl rule__SAssociation__Group_1__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_34);
             rule__SAssociation__Group_1__0__Impl();
 
             state._fsp--;
@@ -19392,7 +19392,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6138:1: ( rule__SAssociation__Group_1__1__Impl rule__SAssociation__Group_1__2 )
             // InternalSim.g:6139:2: rule__SAssociation__Group_1__1__Impl rule__SAssociation__Group_1__2
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_42);
             rule__SAssociation__Group_1__1__Impl();
 
             state._fsp--;
@@ -19467,7 +19467,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6165:1: ( rule__SAssociation__Group_1__2__Impl rule__SAssociation__Group_1__3 )
             // InternalSim.g:6166:2: rule__SAssociation__Group_1__2__Impl rule__SAssociation__Group_1__3
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SAssociation__Group_1__2__Impl();
 
             state._fsp--;
@@ -19632,7 +19632,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6219:1: ( rule__SAssociation__Group_2__0__Impl rule__SAssociation__Group_2__1 )
             // InternalSim.g:6220:2: rule__SAssociation__Group_2__0__Impl rule__SAssociation__Group_2__1
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_29);
             rule__SAssociation__Group_2__0__Impl();
 
             state._fsp--;
@@ -19707,7 +19707,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6246:1: ( rule__SAssociation__Group_2__1__Impl rule__SAssociation__Group_2__2 )
             // InternalSim.g:6247:2: rule__SAssociation__Group_2__1__Impl rule__SAssociation__Group_2__2
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_42);
             rule__SAssociation__Group_2__1__Impl();
 
             state._fsp--;
@@ -19782,7 +19782,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6273:1: ( rule__SAssociation__Group_2__2__Impl rule__SAssociation__Group_2__3 )
             // InternalSim.g:6274:2: rule__SAssociation__Group_2__2__Impl rule__SAssociation__Group_2__3
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SAssociation__Group_2__2__Impl();
 
             state._fsp--;
@@ -19947,7 +19947,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6327:1: ( rule__SAssociation__Group_3__0__Impl rule__SAssociation__Group_3__1 )
             // InternalSim.g:6328:2: rule__SAssociation__Group_3__0__Impl rule__SAssociation__Group_3__1
             {
-            pushFollow(FOLLOW_44);
+            pushFollow(FOLLOW_43);
             rule__SAssociation__Group_3__0__Impl();
 
             state._fsp--;
@@ -20043,7 +20043,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6354:1: ( rule__SAssociation__Group_3__1__Impl rule__SAssociation__Group_3__2 )
             // InternalSim.g:6355:2: rule__SAssociation__Group_3__1__Impl rule__SAssociation__Group_3__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SAssociation__Group_3__1__Impl();
 
             state._fsp--;
@@ -20128,7 +20128,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6381:1: ( rule__SAssociation__Group_3__2__Impl rule__SAssociation__Group_3__3 )
             // InternalSim.g:6382:2: rule__SAssociation__Group_3__2__Impl rule__SAssociation__Group_3__3
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__SAssociation__Group_3__2__Impl();
 
             state._fsp--;
@@ -20213,7 +20213,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6408:1: ( rule__SAssociation__Group_3__3__Impl rule__SAssociation__Group_3__4 )
             // InternalSim.g:6409:2: rule__SAssociation__Group_3__3__Impl rule__SAssociation__Group_3__4
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SAssociation__Group_3__3__Impl();
 
             state._fsp--;
@@ -20288,7 +20288,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6435:1: ( rule__SAssociation__Group_3__4__Impl rule__SAssociation__Group_3__5 )
             // InternalSim.g:6436:2: rule__SAssociation__Group_3__4__Impl rule__SAssociation__Group_3__5
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_14);
             rule__SAssociation__Group_3__4__Impl();
 
             state._fsp--;
@@ -20464,7 +20464,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6489:1: ( rule__SAssociation__Group_3_1_1__0__Impl rule__SAssociation__Group_3_1_1__1 )
             // InternalSim.g:6490:2: rule__SAssociation__Group_3_1_1__0__Impl rule__SAssociation__Group_3_1_1__1
             {
-            pushFollow(FOLLOW_45);
+            pushFollow(FOLLOW_44);
             rule__SAssociation__Group_3_1_1__0__Impl();
 
             state._fsp--;
@@ -20619,7 +20619,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6543:1: ( rule__SAttribute__Group_0__0__Impl rule__SAttribute__Group_0__1 )
             // InternalSim.g:6544:2: rule__SAttribute__Group_0__0__Impl rule__SAttribute__Group_0__1
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_24);
             rule__SAttribute__Group_0__0__Impl();
 
             state._fsp--;
@@ -20694,7 +20694,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6570:1: ( rule__SAttribute__Group_0__1__Impl rule__SAttribute__Group_0__2 )
             // InternalSim.g:6571:2: rule__SAttribute__Group_0__1__Impl rule__SAttribute__Group_0__2
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_45);
             rule__SAttribute__Group_0__1__Impl();
 
             state._fsp--;
@@ -20769,7 +20769,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6597:1: ( rule__SAttribute__Group_0__2__Impl rule__SAttribute__Group_0__3 )
             // InternalSim.g:6598:2: rule__SAttribute__Group_0__2__Impl rule__SAttribute__Group_0__3
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_45);
             rule__SAttribute__Group_0__2__Impl();
 
             state._fsp--;
@@ -20945,7 +20945,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6651:1: ( rule__SAttribute__Group_1__0__Impl rule__SAttribute__Group_1__1 )
             // InternalSim.g:6652:2: rule__SAttribute__Group_1__0__Impl rule__SAttribute__Group_1__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_34);
             rule__SAttribute__Group_1__0__Impl();
 
             state._fsp--;
@@ -21020,7 +21020,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6678:1: ( rule__SAttribute__Group_1__1__Impl rule__SAttribute__Group_1__2 )
             // InternalSim.g:6679:2: rule__SAttribute__Group_1__1__Impl rule__SAttribute__Group_1__2
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_45);
             rule__SAttribute__Group_1__1__Impl();
 
             state._fsp--;
@@ -21095,7 +21095,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6705:1: ( rule__SAttribute__Group_1__2__Impl rule__SAttribute__Group_1__3 )
             // InternalSim.g:6706:2: rule__SAttribute__Group_1__2__Impl rule__SAttribute__Group_1__3
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_45);
             rule__SAttribute__Group_1__2__Impl();
 
             state._fsp--;
@@ -21271,7 +21271,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6759:1: ( rule__SAttribute__Group_2__0__Impl rule__SAttribute__Group_2__1 )
             // InternalSim.g:6760:2: rule__SAttribute__Group_2__0__Impl rule__SAttribute__Group_2__1
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_29);
             rule__SAttribute__Group_2__0__Impl();
 
             state._fsp--;
@@ -21346,7 +21346,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6786:1: ( rule__SAttribute__Group_2__1__Impl rule__SAttribute__Group_2__2 )
             // InternalSim.g:6787:2: rule__SAttribute__Group_2__1__Impl rule__SAttribute__Group_2__2
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_45);
             rule__SAttribute__Group_2__1__Impl();
 
             state._fsp--;
@@ -21421,7 +21421,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6813:1: ( rule__SAttribute__Group_2__2__Impl rule__SAttribute__Group_2__3 )
             // InternalSim.g:6814:2: rule__SAttribute__Group_2__2__Impl rule__SAttribute__Group_2__3
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_45);
             rule__SAttribute__Group_2__2__Impl();
 
             state._fsp--;
@@ -21597,7 +21597,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6867:1: ( rule__SAttribute__Group_3__0__Impl rule__SAttribute__Group_3__1 )
             // InternalSim.g:6868:2: rule__SAttribute__Group_3__0__Impl rule__SAttribute__Group_3__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_46);
             rule__SAttribute__Group_3__0__Impl();
 
             state._fsp--;
@@ -21693,7 +21693,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6894:1: ( rule__SAttribute__Group_3__1__Impl rule__SAttribute__Group_3__2 )
             // InternalSim.g:6895:2: rule__SAttribute__Group_3__1__Impl rule__SAttribute__Group_3__2
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__SAttribute__Group_3__1__Impl();
 
             state._fsp--;
@@ -21778,7 +21778,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6921:1: ( rule__SAttribute__Group_3__2__Impl rule__SAttribute__Group_3__3 )
             // InternalSim.g:6922:2: rule__SAttribute__Group_3__2__Impl rule__SAttribute__Group_3__3
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SAttribute__Group_3__2__Impl();
 
             state._fsp--;
@@ -21853,7 +21853,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6948:1: ( rule__SAttribute__Group_3__3__Impl rule__SAttribute__Group_3__4 )
             // InternalSim.g:6949:2: rule__SAttribute__Group_3__3__Impl rule__SAttribute__Group_3__4
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_47);
             rule__SAttribute__Group_3__3__Impl();
 
             state._fsp--;
@@ -21938,7 +21938,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:6975:1: ( rule__SAttribute__Group_3__4__Impl rule__SAttribute__Group_3__5 )
             // InternalSim.g:6976:2: rule__SAttribute__Group_3__4__Impl rule__SAttribute__Group_3__5
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_47);
             rule__SAttribute__Group_3__4__Impl();
 
             state._fsp--;
@@ -22125,7 +22125,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7029:1: ( rule__SQuery__Group_0__0__Impl rule__SQuery__Group_0__1 )
             // InternalSim.g:7030:2: rule__SQuery__Group_0__0__Impl rule__SQuery__Group_0__1
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_14);
             rule__SQuery__Group_0__0__Impl();
 
             state._fsp--;
@@ -22210,7 +22210,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7056:1: ( rule__SQuery__Group_0__1__Impl rule__SQuery__Group_0__2 )
             // InternalSim.g:7057:2: rule__SQuery__Group_0__1__Impl rule__SQuery__Group_0__2
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_48);
             rule__SQuery__Group_0__1__Impl();
 
             state._fsp--;
@@ -22285,7 +22285,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7083:1: ( rule__SQuery__Group_0__2__Impl rule__SQuery__Group_0__3 )
             // InternalSim.g:7084:2: rule__SQuery__Group_0__2__Impl rule__SQuery__Group_0__3
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_49);
             rule__SQuery__Group_0__2__Impl();
 
             state._fsp--;
@@ -22440,7 +22440,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7137:1: ( rule__SQuery__Group_0_0_0__0__Impl rule__SQuery__Group_0_0_0__1 )
             // InternalSim.g:7138:2: rule__SQuery__Group_0_0_0__0__Impl rule__SQuery__Group_0_0_0__1
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_24);
             rule__SQuery__Group_0_0_0__0__Impl();
 
             state._fsp--;
@@ -22515,7 +22515,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7164:1: ( rule__SQuery__Group_0_0_0__1__Impl rule__SQuery__Group_0_0_0__2 )
             // InternalSim.g:7165:2: rule__SQuery__Group_0_0_0__1__Impl rule__SQuery__Group_0_0_0__2
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_50);
             rule__SQuery__Group_0_0_0__1__Impl();
 
             state._fsp--;
@@ -22590,7 +22590,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7191:1: ( rule__SQuery__Group_0_0_0__2__Impl rule__SQuery__Group_0_0_0__3 )
             // InternalSim.g:7192:2: rule__SQuery__Group_0_0_0__2__Impl rule__SQuery__Group_0_0_0__3
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SQuery__Group_0_0_0__2__Impl();
 
             state._fsp--;
@@ -22745,7 +22745,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7245:1: ( rule__SQuery__Group_0_0_1__0__Impl rule__SQuery__Group_0_0_1__1 )
             // InternalSim.g:7246:2: rule__SQuery__Group_0_0_1__0__Impl rule__SQuery__Group_0_0_1__1
             {
-            pushFollow(FOLLOW_52);
+            pushFollow(FOLLOW_51);
             rule__SQuery__Group_0_0_1__0__Impl();
 
             state._fsp--;
@@ -22820,7 +22820,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7272:1: ( rule__SQuery__Group_0_0_1__1__Impl rule__SQuery__Group_0_0_1__2 )
             // InternalSim.g:7273:2: rule__SQuery__Group_0_0_1__1__Impl rule__SQuery__Group_0_0_1__2
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_50);
             rule__SQuery__Group_0_0_1__1__Impl();
 
             state._fsp--;
@@ -22895,7 +22895,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7299:1: ( rule__SQuery__Group_0_0_1__2__Impl rule__SQuery__Group_0_0_1__3 )
             // InternalSim.g:7300:2: rule__SQuery__Group_0_0_1__2__Impl rule__SQuery__Group_0_0_1__3
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SQuery__Group_0_0_1__2__Impl();
 
             state._fsp--;
@@ -23050,7 +23050,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7353:1: ( rule__SQuery__Group_0_2_1__0__Impl rule__SQuery__Group_0_2_1__1 )
             // InternalSim.g:7354:2: rule__SQuery__Group_0_2_1__0__Impl rule__SQuery__Group_0_2_1__1
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_30);
             rule__SQuery__Group_0_2_1__0__Impl();
 
             state._fsp--;
@@ -23187,7 +23187,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalSim.g:7394:3: rule__SQuery__Group_0_2_1_1__0
             	    {
-            	    pushFollow(FOLLOW_32);
+            	    pushFollow(FOLLOW_31);
             	    rule__SQuery__Group_0_2_1_1__0();
 
             	    state._fsp--;
@@ -23233,7 +23233,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7407:1: ( rule__SQuery__Group_0_2_1_1__0__Impl rule__SQuery__Group_0_2_1_1__1 )
             // InternalSim.g:7408:2: rule__SQuery__Group_0_2_1_1__0__Impl rule__SQuery__Group_0_2_1_1__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_52);
             rule__SQuery__Group_0_2_1_1__0__Impl();
 
             state._fsp--;
@@ -23388,7 +23388,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7461:1: ( rule__SQuery__Group_1__0__Impl rule__SQuery__Group_1__1 )
             // InternalSim.g:7462:2: rule__SQuery__Group_1__0__Impl rule__SQuery__Group_1__1
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_50);
             rule__SQuery__Group_1__0__Impl();
 
             state._fsp--;
@@ -23463,7 +23463,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7488:1: ( rule__SQuery__Group_1__1__Impl rule__SQuery__Group_1__2 )
             // InternalSim.g:7489:2: rule__SQuery__Group_1__1__Impl rule__SQuery__Group_1__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SQuery__Group_1__1__Impl();
 
             state._fsp--;
@@ -23618,7 +23618,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7542:1: ( rule__SQuery__Group_2__0__Impl rule__SQuery__Group_2__1 )
             // InternalSim.g:7543:2: rule__SQuery__Group_2__0__Impl rule__SQuery__Group_2__1
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_14);
             rule__SQuery__Group_2__0__Impl();
 
             state._fsp--;
@@ -23703,7 +23703,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7569:1: ( rule__SQuery__Group_2__1__Impl rule__SQuery__Group_2__2 )
             // InternalSim.g:7570:2: rule__SQuery__Group_2__1__Impl rule__SQuery__Group_2__2
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_53);
             rule__SQuery__Group_2__1__Impl();
 
             state._fsp--;
@@ -23778,7 +23778,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7596:1: ( rule__SQuery__Group_2__2__Impl rule__SQuery__Group_2__3 )
             // InternalSim.g:7597:2: rule__SQuery__Group_2__2__Impl rule__SQuery__Group_2__3
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_53);
             rule__SQuery__Group_2__2__Impl();
 
             state._fsp--;
@@ -23874,7 +23874,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7623:1: ( rule__SQuery__Group_2__3__Impl rule__SQuery__Group_2__4 )
             // InternalSim.g:7624:2: rule__SQuery__Group_2__3__Impl rule__SQuery__Group_2__4
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__SQuery__Group_2__3__Impl();
 
             state._fsp--;
@@ -23949,7 +23949,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7650:1: ( rule__SQuery__Group_2__4__Impl rule__SQuery__Group_2__5 )
             // InternalSim.g:7651:2: rule__SQuery__Group_2__4__Impl rule__SQuery__Group_2__5
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SQuery__Group_2__4__Impl();
 
             state._fsp--;
@@ -24024,7 +24024,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7677:1: ( rule__SQuery__Group_2__5__Impl rule__SQuery__Group_2__6 )
             // InternalSim.g:7678:2: rule__SQuery__Group_2__5__Impl rule__SQuery__Group_2__6
             {
-            pushFollow(FOLLOW_55);
+            pushFollow(FOLLOW_54);
             rule__SQuery__Group_2__5__Impl();
 
             state._fsp--;
@@ -24109,7 +24109,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7704:1: ( rule__SQuery__Group_2__6__Impl rule__SQuery__Group_2__7 )
             // InternalSim.g:7705:2: rule__SQuery__Group_2__6__Impl rule__SQuery__Group_2__7
             {
-            pushFollow(FOLLOW_55);
+            pushFollow(FOLLOW_54);
             rule__SQuery__Group_2__6__Impl();
 
             state._fsp--;
@@ -24296,7 +24296,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7758:1: ( rule__SQuery__Group_2_2__0__Impl rule__SQuery__Group_2_2__1 )
             // InternalSim.g:7759:2: rule__SQuery__Group_2_2__0__Impl rule__SQuery__Group_2_2__1
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_30);
             rule__SQuery__Group_2_2__0__Impl();
 
             state._fsp--;
@@ -24433,7 +24433,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalSim.g:7799:3: rule__SQuery__Group_2_2_1__0
             	    {
-            	    pushFollow(FOLLOW_32);
+            	    pushFollow(FOLLOW_31);
             	    rule__SQuery__Group_2_2_1__0();
 
             	    state._fsp--;
@@ -24479,7 +24479,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7812:1: ( rule__SQuery__Group_2_2_1__0__Impl rule__SQuery__Group_2_2_1__1 )
             // InternalSim.g:7813:2: rule__SQuery__Group_2_2_1__0__Impl rule__SQuery__Group_2_2_1__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_52);
             rule__SQuery__Group_2_2_1__0__Impl();
 
             state._fsp--;
@@ -24634,7 +24634,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7866:1: ( rule__SQuery__Group_2_7__0__Impl rule__SQuery__Group_2_7__1 )
             // InternalSim.g:7867:2: rule__SQuery__Group_2_7__0__Impl rule__SQuery__Group_2_7__1
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_21);
             rule__SQuery__Group_2_7__0__Impl();
 
             state._fsp--;
@@ -24789,7 +24789,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7920:1: ( rule__SQueryParameter__Group_0__0__Impl rule__SQueryParameter__Group_0__1 )
             // InternalSim.g:7921:2: rule__SQueryParameter__Group_0__0__Impl rule__SQueryParameter__Group_0__1
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_24);
             rule__SQueryParameter__Group_0__0__Impl();
 
             state._fsp--;
@@ -24864,7 +24864,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:7947:1: ( rule__SQueryParameter__Group_0__1__Impl rule__SQueryParameter__Group_0__2 )
             // InternalSim.g:7948:2: rule__SQueryParameter__Group_0__1__Impl rule__SQueryParameter__Group_0__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SQueryParameter__Group_0__1__Impl();
 
             state._fsp--;
@@ -25019,7 +25019,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:8001:1: ( rule__SQueryParameter__Group_1__0__Impl rule__SQueryParameter__Group_1__1 )
             // InternalSim.g:8002:2: rule__SQueryParameter__Group_1__0__Impl rule__SQueryParameter__Group_1__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_34);
             rule__SQueryParameter__Group_1__0__Impl();
 
             state._fsp--;
@@ -25094,7 +25094,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:8028:1: ( rule__SQueryParameter__Group_1__1__Impl rule__SQueryParameter__Group_1__2 )
             // InternalSim.g:8029:2: rule__SQueryParameter__Group_1__1__Impl rule__SQueryParameter__Group_1__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SQueryParameter__Group_1__1__Impl();
 
             state._fsp--;
@@ -25249,7 +25249,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:8082:1: ( rule__SQueryParameter__Group_2__0__Impl rule__SQueryParameter__Group_2__1 )
             // InternalSim.g:8083:2: rule__SQueryParameter__Group_2__0__Impl rule__SQueryParameter__Group_2__1
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_29);
             rule__SQueryParameter__Group_2__0__Impl();
 
             state._fsp--;
@@ -25324,7 +25324,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:8109:1: ( rule__SQueryParameter__Group_2__1__Impl rule__SQueryParameter__Group_2__2 )
             // InternalSim.g:8110:2: rule__SQueryParameter__Group_2__1__Impl rule__SQueryParameter__Group_2__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SQueryParameter__Group_2__1__Impl();
 
             state._fsp--;
@@ -25479,7 +25479,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:8163:1: ( rule__SQueryParameter__Group_3__0__Impl rule__SQueryParameter__Group_3__1 )
             // InternalSim.g:8164:2: rule__SQueryParameter__Group_3__0__Impl rule__SQueryParameter__Group_3__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__SQueryParameter__Group_3__0__Impl();
 
             state._fsp--;
@@ -25564,7 +25564,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:8190:1: ( rule__SQueryParameter__Group_3__1__Impl rule__SQueryParameter__Group_3__2 )
             // InternalSim.g:8191:2: rule__SQueryParameter__Group_3__1__Impl rule__SQueryParameter__Group_3__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SQueryParameter__Group_3__1__Impl();
 
             state._fsp--;
@@ -25639,7 +25639,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:8217:1: ( rule__SQueryParameter__Group_3__2__Impl rule__SQueryParameter__Group_3__3 )
             // InternalSim.g:8218:2: rule__SQueryParameter__Group_3__2__Impl rule__SQueryParameter__Group_3__3
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_14);
             rule__SQueryParameter__Group_3__2__Impl();
 
             state._fsp--;
@@ -25815,7 +25815,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:8271:1: ( rule__SQualifiedNameWithWildcard__Group__0__Impl rule__SQualifiedNameWithWildcard__Group__1 )
             // InternalSim.g:8272:2: rule__SQualifiedNameWithWildcard__Group__0__Impl rule__SQualifiedNameWithWildcard__Group__1
             {
-            pushFollow(FOLLOW_56);
+            pushFollow(FOLLOW_55);
             rule__SQualifiedNameWithWildcard__Group__0__Impl();
 
             state._fsp--;
@@ -25981,7 +25981,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:8325:1: ( rule__SQualifiedName__Group__0__Impl rule__SQualifiedName__Group__1 )
             // InternalSim.g:8326:2: rule__SQualifiedName__Group__0__Impl rule__SQualifiedName__Group__1
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_56);
             rule__SQualifiedName__Group__0__Impl();
 
             state._fsp--;
@@ -26108,7 +26108,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalSim.g:8366:3: rule__SQualifiedName__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_58);
+            	    pushFollow(FOLLOW_57);
             	    rule__SQualifiedName__Group_1__0();
 
             	    state._fsp--;
@@ -26154,7 +26154,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:8379:1: ( rule__SQualifiedName__Group_1__0__Impl rule__SQualifiedName__Group_1__1 )
             // InternalSim.g:8380:2: rule__SQualifiedName__Group_1__0__Impl rule__SQualifiedName__Group_1__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__SQualifiedName__Group_1__0__Impl();
 
             state._fsp--;
@@ -26299,7 +26299,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:8433:1: ( rule__SMultiplicity__Group__0__Impl rule__SMultiplicity__Group__1 )
             // InternalSim.g:8434:2: rule__SMultiplicity__Group__0__Impl rule__SMultiplicity__Group__1
             {
-            pushFollow(FOLLOW_59);
+            pushFollow(FOLLOW_58);
             rule__SMultiplicity__Group__0__Impl();
 
             state._fsp--;
@@ -26374,7 +26374,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:8460:1: ( rule__SMultiplicity__Group__1__Impl rule__SMultiplicity__Group__2 )
             // InternalSim.g:8461:2: rule__SMultiplicity__Group__1__Impl rule__SMultiplicity__Group__2
             {
-            pushFollow(FOLLOW_60);
+            pushFollow(FOLLOW_59);
             rule__SMultiplicity__Group__1__Impl();
 
             state._fsp--;
@@ -26459,7 +26459,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:8487:1: ( rule__SMultiplicity__Group__2__Impl rule__SMultiplicity__Group__3 )
             // InternalSim.g:8488:2: rule__SMultiplicity__Group__2__Impl rule__SMultiplicity__Group__3
             {
-            pushFollow(FOLLOW_61);
+            pushFollow(FOLLOW_60);
             rule__SMultiplicity__Group__2__Impl();
 
             state._fsp--;
@@ -26534,7 +26534,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             // InternalSim.g:8514:1: ( rule__SMultiplicity__Group__3__Impl rule__SMultiplicity__Group__4 )
             // InternalSim.g:8515:2: rule__SMultiplicity__Group__3__Impl rule__SMultiplicity__Group__4
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_49);
             rule__SMultiplicity__Group__3__Impl();
 
             state._fsp--;
@@ -26679,71 +26679,26 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__SMultiplicity__Group__4__Impl"
 
 
-    // $ANTLR start "rule__SInformationModel__DeducedAssignment_0"
-    // InternalSim.g:8564:1: rule__SInformationModel__DeducedAssignment_0 : ( ( 'deduced' ) ) ;
-    public final void rule__SInformationModel__DeducedAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__SInformationModel__KindAssignment_0"
+    // InternalSim.g:8564:1: rule__SInformationModel__KindAssignment_0 : ( ruleSInformationModelKind ) ;
+    public final void rule__SInformationModel__KindAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:8568:1: ( ( ( 'deduced' ) ) )
-            // InternalSim.g:8569:2: ( ( 'deduced' ) )
+            // InternalSim.g:8568:1: ( ( ruleSInformationModelKind ) )
+            // InternalSim.g:8569:2: ( ruleSInformationModelKind )
             {
-            // InternalSim.g:8569:2: ( ( 'deduced' ) )
-            // InternalSim.g:8570:3: ( 'deduced' )
+            // InternalSim.g:8569:2: ( ruleSInformationModelKind )
+            // InternalSim.g:8570:3: ruleSInformationModelKind
             {
-             before(grammarAccess.getSInformationModelAccess().getDeducedDeducedKeyword_0_0()); 
-            // InternalSim.g:8571:3: ( 'deduced' )
-            // InternalSim.g:8572:4: 'deduced'
-            {
-             before(grammarAccess.getSInformationModelAccess().getDeducedDeducedKeyword_0_0()); 
-            match(input,49,FOLLOW_2); 
-             after(grammarAccess.getSInformationModelAccess().getDeducedDeducedKeyword_0_0()); 
-
-            }
-
-             after(grammarAccess.getSInformationModelAccess().getDeducedDeducedKeyword_0_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__SInformationModel__DeducedAssignment_0"
-
-
-    // $ANTLR start "rule__SInformationModel__KindAssignment_1"
-    // InternalSim.g:8583:1: rule__SInformationModel__KindAssignment_1 : ( ruleSInformationModelKind ) ;
-    public final void rule__SInformationModel__KindAssignment_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalSim.g:8587:1: ( ( ruleSInformationModelKind ) )
-            // InternalSim.g:8588:2: ( ruleSInformationModelKind )
-            {
-            // InternalSim.g:8588:2: ( ruleSInformationModelKind )
-            // InternalSim.g:8589:3: ruleSInformationModelKind
-            {
-             before(grammarAccess.getSInformationModelAccess().getKindSInformationModelKindEnumRuleCall_1_0()); 
+             before(grammarAccess.getSInformationModelAccess().getKindSInformationModelKindEnumRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
             ruleSInformationModelKind();
 
             state._fsp--;
 
-             after(grammarAccess.getSInformationModelAccess().getKindSInformationModelKindEnumRuleCall_1_0()); 
+             after(grammarAccess.getSInformationModelAccess().getKindSInformationModelKindEnumRuleCall_0_0()); 
 
             }
 
@@ -26762,29 +26717,29 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__KindAssignment_1"
+    // $ANTLR end "rule__SInformationModel__KindAssignment_0"
 
 
-    // $ANTLR start "rule__SInformationModel__NameAssignment_4"
-    // InternalSim.g:8598:1: rule__SInformationModel__NameAssignment_4 : ( ruleSQualifiedName ) ;
-    public final void rule__SInformationModel__NameAssignment_4() throws RecognitionException {
+    // $ANTLR start "rule__SInformationModel__NameAssignment_3"
+    // InternalSim.g:8579:1: rule__SInformationModel__NameAssignment_3 : ( ruleSQualifiedName ) ;
+    public final void rule__SInformationModel__NameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:8602:1: ( ( ruleSQualifiedName ) )
-            // InternalSim.g:8603:2: ( ruleSQualifiedName )
+            // InternalSim.g:8583:1: ( ( ruleSQualifiedName ) )
+            // InternalSim.g:8584:2: ( ruleSQualifiedName )
             {
-            // InternalSim.g:8603:2: ( ruleSQualifiedName )
-            // InternalSim.g:8604:3: ruleSQualifiedName
+            // InternalSim.g:8584:2: ( ruleSQualifiedName )
+            // InternalSim.g:8585:3: ruleSQualifiedName
             {
-             before(grammarAccess.getSInformationModelAccess().getNameSQualifiedNameParserRuleCall_4_0()); 
+             before(grammarAccess.getSInformationModelAccess().getNameSQualifiedNameParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
             ruleSQualifiedName();
 
             state._fsp--;
 
-             after(grammarAccess.getSInformationModelAccess().getNameSQualifiedNameParserRuleCall_4_0()); 
+             after(grammarAccess.getSInformationModelAccess().getNameSQualifiedNameParserRuleCall_3_0()); 
 
             }
 
@@ -26803,7 +26758,52 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SInformationModel__NameAssignment_4"
+    // $ANTLR end "rule__SInformationModel__NameAssignment_3"
+
+
+    // $ANTLR start "rule__SInformationModel__GenerateAssignment_4"
+    // InternalSim.g:8594:1: rule__SInformationModel__GenerateAssignment_4 : ( ( 'generate' ) ) ;
+    public final void rule__SInformationModel__GenerateAssignment_4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSim.g:8598:1: ( ( ( 'generate' ) ) )
+            // InternalSim.g:8599:2: ( ( 'generate' ) )
+            {
+            // InternalSim.g:8599:2: ( ( 'generate' ) )
+            // InternalSim.g:8600:3: ( 'generate' )
+            {
+             before(grammarAccess.getSInformationModelAccess().getGenerateGenerateKeyword_4_0()); 
+            // InternalSim.g:8601:3: ( 'generate' )
+            // InternalSim.g:8602:4: 'generate'
+            {
+             before(grammarAccess.getSInformationModelAccess().getGenerateGenerateKeyword_4_0()); 
+            match(input,49,FOLLOW_2); 
+             after(grammarAccess.getSInformationModelAccess().getGenerateGenerateKeyword_4_0()); 
+
+            }
+
+             after(grammarAccess.getSInformationModelAccess().getGenerateGenerateKeyword_4_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SInformationModel__GenerateAssignment_4"
 
 
     // $ANTLR start "rule__SInformationModel__ImportsAssignment_5"
@@ -31506,64 +31506,63 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x00000000000E0000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x000403DB40401000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x000403DB40001002L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000001800000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000008800000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x000403DB40001000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x000403DB60000000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x000403DB40000002L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x00000000A0000000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000080000002L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x00000010E0000020L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000002000000002L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000001040000020L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0004004000000000L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x000401D040000000L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0004020000000000L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x000403DB40000000L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x00080290E0006820L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x00080290C0006822L});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000000006000L});
-    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0008009040006800L});
-    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000020000008020L});
-    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000029040000020L});
-    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0010040000000000L});
-    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000009040010020L});
-    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000008040000000L});
-    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0000009040000020L});
-    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0000089040000020L});
-    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000240000000000L});
-    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0000800000000002L});
-    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0000000000010010L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x000603DB40401000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x000403DB40001002L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000001800000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000008800000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x000403DB40001000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x000403DB60000000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x000403DB40000002L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x00000000A0000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000080000002L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x00000010E0000020L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000002000000002L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000001040000020L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0004004000000000L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x000401D040000000L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0004020000000000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x000403DB40000000L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x00080290E0006820L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x00080290C0006822L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000000000006000L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0008009040006800L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000020000008020L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000029040000020L});
+    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0010040000000000L});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000009040010020L});
+    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000008040000000L});
+    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000009040000020L});
+    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0000089040000020L});
+    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0000240000000000L});
+    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000400000000000L});
+    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0000800000000000L});
+    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0000800000000002L});
+    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0001000000000000L});
+    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0000000000010010L});
 
 }

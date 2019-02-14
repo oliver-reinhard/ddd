@@ -8,7 +8,6 @@ import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.sm.sim.SDeductionRule;
 import com.mimacom.ddd.sm.sim.SPrimitive;
 import com.mimacom.ddd.sm.sim.SType;
-import com.mimacom.ddd.sm.sim.SimFactory;
 import com.mimacom.ddd.sm.sim.indexing.SimIndex;
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy;
 import java.util.Iterator;
@@ -17,35 +16,12 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.resource.DerivedStateAwareResource;
 import org.eclipse.xtext.resource.IEObjectDescription;
-import org.eclipse.xtext.xbase.lib.Functions.Function0;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
-import org.eclipse.xtext.xbase.lib.ObjectExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @SuppressWarnings("all")
 public class TransformationContext {
-  public static class UnsupportedDomainTypeException extends Exception {
-    public UnsupportedDomainTypeException(final DType type) {
-      super(new Function0<String>() {
-        public String apply() {
-          String _name = null;
-          if (type!=null) {
-            _name=type.getName();
-          }
-          String _plus = ("A system-model primitive type realizing the domain-model primitive type \"" + _name);
-          String _plus_1 = (_plus + "\"  the has not been declared");
-          return _plus_1;
-        }
-      }.apply());
-    }
-  }
-  
-  private static final SPrimitive UNKNOWN_TYPE = ObjectExtensions.<SPrimitive>operator_doubleArrow(SimFactory.eINSTANCE.createSPrimitive(), ((Procedure1<SPrimitive>) (SPrimitive it) -> {
-    it.setName("UNKNOWN_TYPE");
-  }));
-  
   @Inject
   private SimIndex index;
   
@@ -125,7 +101,7 @@ public class TransformationContext {
     }
   }
   
-  public SType getSType(final DType dType) throws TransformationContext.UnsupportedDomainTypeException {
+  public SType getSType(final DType dType) {
     SType sPrimitive = this.localDTypeToSTypeMap.get(dType);
     if ((sPrimitive == null)) {
       sPrimitive = this.importedDTypeToSTypeMap.get(dType);

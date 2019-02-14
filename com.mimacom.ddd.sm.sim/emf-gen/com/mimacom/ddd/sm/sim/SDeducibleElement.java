@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.mimacom.ddd.sm.sim.SDeducibleElement#getDeductionRule <em>Deduction Rule</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SDeducibleElement#getNature <em>Nature</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sim.SDeducibleElement#getSynthetic <em>Synthetic</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.SDeducibleElement#isSynthetic <em>Synthetic</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.sm.sim.SimPackage#getSDeducibleElement()
@@ -89,48 +89,21 @@ public interface SDeducibleElement extends EObject
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Synthetic</em>' attribute.
-	 * @see #isSetSynthetic()
-	 * @see #unsetSynthetic()
-	 * @see #setSynthetic(Boolean)
+	 * @see #setSynthetic(boolean)
 	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSDeducibleElement_Synthetic()
-	 * @model unsettable="true"
+	 * @model transient="true"
 	 * @generated
 	 */
-	Boolean getSynthetic();
+	boolean isSynthetic();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.sm.sim.SDeducibleElement#getSynthetic <em>Synthetic</em>}' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.sm.sim.SDeducibleElement#isSynthetic <em>Synthetic</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Synthetic</em>' attribute.
-	 * @see #isSetSynthetic()
-	 * @see #unsetSynthetic()
-	 * @see #getSynthetic()
+	 * @see #isSynthetic()
 	 * @generated
 	 */
-	void setSynthetic(Boolean value);
-
-	/**
-	 * Unsets the value of the '{@link com.mimacom.ddd.sm.sim.SDeducibleElement#getSynthetic <em>Synthetic</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSetSynthetic()
-	 * @see #getSynthetic()
-	 * @see #setSynthetic(Boolean)
-	 * @generated
-	 */
-	void unsetSynthetic();
-
-	/**
-	 * Returns whether the value of the '{@link com.mimacom.ddd.sm.sim.SDeducibleElement#getSynthetic <em>Synthetic</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Synthetic</em>' attribute is set.
-	 * @see #unsetSynthetic()
-	 * @see #getSynthetic()
-	 * @see #setSynthetic(Boolean)
-	 * @generated
-	 */
-	boolean isSetSynthetic();
+	void setSynthetic(boolean value);
 
 } // SDeducibleElement

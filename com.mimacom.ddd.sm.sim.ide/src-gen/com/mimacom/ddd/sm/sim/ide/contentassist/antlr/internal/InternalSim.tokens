@@ -17,13 +17,13 @@
 'composite'=14
 'constraint'=31
 'core'=19
-'deduced'=49
 'derived'=51
 'detail'=41
 'ditch'=36
 'enumeration'=35
 'extends'=24
 'fuse'=40
+'generate'=49
 'grab'=30
 'import'=22
 'information'=20

@@ -4,7 +4,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="SIdentityType" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="SValueType" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="SInformationModel">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deduced" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="generate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//SInformationModelKind"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
@@ -27,8 +27,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nature" eType="#//SElementNature"
         volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="synthetic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
-        unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="synthetic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SNamedDeducibleElement" abstract="true"
       eSuperTypes="#//SNamedElement #//SDeducibleElement"/>

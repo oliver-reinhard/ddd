@@ -6,7 +6,6 @@ import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.sm.sim.SPrimitive
 import com.mimacom.ddd.sm.sim.SType
-import com.mimacom.ddd.sm.sim.SimFactory
 import com.mimacom.ddd.sm.sim.indexing.SimIndex
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy
 import java.util.Map
@@ -14,15 +13,6 @@ import org.eclipse.xtext.naming.QualifiedName
 import org.eclipse.xtext.resource.DerivedStateAwareResource
 
 class TransformationContext {
-	
-	static class UnsupportedDomainTypeException extends Exception {
-		new(DType type) {
-			super("A system-model primitive type realizing the domain-model primitive type \"" + type?.name + "\"  the has not been declared")
-		}
-	}
-	
-	static val SPrimitive UNKNOWN_TYPE = SimFactory.eINSTANCE.createSPrimitive => [name = "UNKNOWN_TYPE"]
-//	static val simPackage = SimPackage.eINSTANCE
 
 	@Inject SimIndex index
 	
@@ -82,7 +72,7 @@ class TransformationContext {
 		}
 	}
 	
-	def SType getSType(DType dType) throws UnsupportedDomainTypeException {
+	def SType getSType(DType dType)  {
 		var sPrimitive = localDTypeToSTypeMap.get(dType)
 		if (sPrimitive === null) {
 			sPrimitive = importedDTypeToSTypeMap.get(dType)

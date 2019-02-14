@@ -1640,9 +1640,9 @@ rule__SInformationModel__Group__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSInformationModelAccess().getDeducedAssignment_0()); }
-	(rule__SInformationModel__DeducedAssignment_0)?
-	{ after(grammarAccess.getSInformationModelAccess().getDeducedAssignment_0()); }
+	{ before(grammarAccess.getSInformationModelAccess().getKindAssignment_0()); }
+	(rule__SInformationModel__KindAssignment_0)
+	{ after(grammarAccess.getSInformationModelAccess().getKindAssignment_0()); }
 )
 ;
 finally {
@@ -1667,9 +1667,9 @@ rule__SInformationModel__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSInformationModelAccess().getKindAssignment_1()); }
-	(rule__SInformationModel__KindAssignment_1)
-	{ after(grammarAccess.getSInformationModelAccess().getKindAssignment_1()); }
+	{ before(grammarAccess.getSInformationModelAccess().getInformationKeyword_1()); }
+	'information'
+	{ after(grammarAccess.getSInformationModelAccess().getInformationKeyword_1()); }
 )
 ;
 finally {
@@ -1694,9 +1694,9 @@ rule__SInformationModel__Group__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSInformationModelAccess().getInformationKeyword_2()); }
-	'information'
-	{ after(grammarAccess.getSInformationModelAccess().getInformationKeyword_2()); }
+	{ before(grammarAccess.getSInformationModelAccess().getModelKeyword_2()); }
+	'model'
+	{ after(grammarAccess.getSInformationModelAccess().getModelKeyword_2()); }
 )
 ;
 finally {
@@ -1721,9 +1721,9 @@ rule__SInformationModel__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSInformationModelAccess().getModelKeyword_3()); }
-	'model'
-	{ after(grammarAccess.getSInformationModelAccess().getModelKeyword_3()); }
+	{ before(grammarAccess.getSInformationModelAccess().getNameAssignment_3()); }
+	(rule__SInformationModel__NameAssignment_3)
+	{ after(grammarAccess.getSInformationModelAccess().getNameAssignment_3()); }
 )
 ;
 finally {
@@ -1748,9 +1748,9 @@ rule__SInformationModel__Group__4__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSInformationModelAccess().getNameAssignment_4()); }
-	(rule__SInformationModel__NameAssignment_4)
-	{ after(grammarAccess.getSInformationModelAccess().getNameAssignment_4()); }
+	{ before(grammarAccess.getSInformationModelAccess().getGenerateAssignment_4()); }
+	(rule__SInformationModel__GenerateAssignment_4)?
+	{ after(grammarAccess.getSInformationModelAccess().getGenerateAssignment_4()); }
 )
 ;
 finally {
@@ -8561,49 +8561,49 @@ finally {
 }
 
 
-rule__SInformationModel__DeducedAssignment_0
+rule__SInformationModel__KindAssignment_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSInformationModelAccess().getDeducedDeducedKeyword_0_0()); }
-		(
-			{ before(grammarAccess.getSInformationModelAccess().getDeducedDeducedKeyword_0_0()); }
-			'deduced'
-			{ after(grammarAccess.getSInformationModelAccess().getDeducedDeducedKeyword_0_0()); }
-		)
-		{ after(grammarAccess.getSInformationModelAccess().getDeducedDeducedKeyword_0_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__SInformationModel__KindAssignment_1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getSInformationModelAccess().getKindSInformationModelKindEnumRuleCall_1_0()); }
+		{ before(grammarAccess.getSInformationModelAccess().getKindSInformationModelKindEnumRuleCall_0_0()); }
 		ruleSInformationModelKind
-		{ after(grammarAccess.getSInformationModelAccess().getKindSInformationModelKindEnumRuleCall_1_0()); }
+		{ after(grammarAccess.getSInformationModelAccess().getKindSInformationModelKindEnumRuleCall_0_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SInformationModel__NameAssignment_4
+rule__SInformationModel__NameAssignment_3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSInformationModelAccess().getNameSQualifiedNameParserRuleCall_4_0()); }
+		{ before(grammarAccess.getSInformationModelAccess().getNameSQualifiedNameParserRuleCall_3_0()); }
 		ruleSQualifiedName
-		{ after(grammarAccess.getSInformationModelAccess().getNameSQualifiedNameParserRuleCall_4_0()); }
+		{ after(grammarAccess.getSInformationModelAccess().getNameSQualifiedNameParserRuleCall_3_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SInformationModel__GenerateAssignment_4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getSInformationModelAccess().getGenerateGenerateKeyword_4_0()); }
+		(
+			{ before(grammarAccess.getSInformationModelAccess().getGenerateGenerateKeyword_4_0()); }
+			'generate'
+			{ after(grammarAccess.getSInformationModelAccess().getGenerateGenerateKeyword_4_0()); }
+		)
+		{ after(grammarAccess.getSInformationModelAccess().getGenerateGenerateKeyword_4_0()); }
 	)
 ;
 finally {

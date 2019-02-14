@@ -36,7 +36,7 @@ public class SAggregateImplCustom extends SAggregateImpl {
 	
 	@Override
 	public SElementNature getNature() {
-		if (isSetSynthetic() && synthetic) return SYNTHETIC;
+		if (synthetic) return SYNTHETIC;
 		if (deductionRule != null) return DEDUCTION_RULE;
 		return GENUINE;
 	}

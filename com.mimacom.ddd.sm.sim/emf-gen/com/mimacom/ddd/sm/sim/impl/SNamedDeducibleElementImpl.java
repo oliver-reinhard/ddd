@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SNamedDeducibleElementImpl#getDeductionRule <em>Deduction Rule</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SNamedDeducibleElementImpl#getNature <em>Nature</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sim.impl.SNamedDeducibleElementImpl#getSynthetic <em>Synthetic</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SNamedDeducibleElementImpl#isSynthetic <em>Synthetic</em>}</li>
  * </ul>
  *
  * @generated
@@ -55,33 +55,24 @@ public abstract class SNamedDeducibleElementImpl extends SNamedElementImpl imple
 	protected static final SElementNature NATURE_EDEFAULT = SElementNature.GENUINE;
 
 	/**
-	 * The default value of the '{@link #getSynthetic() <em>Synthetic</em>}' attribute.
+	 * The default value of the '{@link #isSynthetic() <em>Synthetic</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSynthetic()
+	 * @see #isSynthetic()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean SYNTHETIC_EDEFAULT = null;
+	protected static final boolean SYNTHETIC_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #getSynthetic() <em>Synthetic</em>}' attribute.
+	 * The cached value of the '{@link #isSynthetic() <em>Synthetic</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSynthetic()
+	 * @see #isSynthetic()
 	 * @generated
 	 * @ordered
 	 */
-	protected Boolean synthetic = SYNTHETIC_EDEFAULT;
-
-	/**
-	 * This is true if the Synthetic attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean syntheticESet;
+	protected boolean synthetic = SYNTHETIC_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -186,7 +177,7 @@ public abstract class SNamedDeducibleElementImpl extends SNamedElementImpl imple
 	 * @generated
 	 */
 	@Override
-	public Boolean getSynthetic()
+	public boolean isSynthetic()
 	{
 		return synthetic;
 	}
@@ -197,41 +188,12 @@ public abstract class SNamedDeducibleElementImpl extends SNamedElementImpl imple
 	 * @generated
 	 */
 	@Override
-	public void setSynthetic(Boolean newSynthetic)
+	public void setSynthetic(boolean newSynthetic)
 	{
-		Boolean oldSynthetic = synthetic;
+		boolean oldSynthetic = synthetic;
 		synthetic = newSynthetic;
-		boolean oldSyntheticESet = syntheticESet;
-		syntheticESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SNAMED_DEDUCIBLE_ELEMENT__SYNTHETIC, oldSynthetic, synthetic, !oldSyntheticESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void unsetSynthetic()
-	{
-		Boolean oldSynthetic = synthetic;
-		boolean oldSyntheticESet = syntheticESet;
-		synthetic = SYNTHETIC_EDEFAULT;
-		syntheticESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, SimPackage.SNAMED_DEDUCIBLE_ELEMENT__SYNTHETIC, oldSynthetic, SYNTHETIC_EDEFAULT, oldSyntheticESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isSetSynthetic()
-	{
-		return syntheticESet;
+			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SNAMED_DEDUCIBLE_ELEMENT__SYNTHETIC, oldSynthetic, synthetic));
 	}
 
 	/**
@@ -265,7 +227,7 @@ public abstract class SNamedDeducibleElementImpl extends SNamedElementImpl imple
 			case SimPackage.SNAMED_DEDUCIBLE_ELEMENT__NATURE:
 				return getNature();
 			case SimPackage.SNAMED_DEDUCIBLE_ELEMENT__SYNTHETIC:
-				return getSynthetic();
+				return isSynthetic();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -310,7 +272,7 @@ public abstract class SNamedDeducibleElementImpl extends SNamedElementImpl imple
 				setNature(NATURE_EDEFAULT);
 				return;
 			case SimPackage.SNAMED_DEDUCIBLE_ELEMENT__SYNTHETIC:
-				unsetSynthetic();
+				setSynthetic(SYNTHETIC_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -331,7 +293,7 @@ public abstract class SNamedDeducibleElementImpl extends SNamedElementImpl imple
 			case SimPackage.SNAMED_DEDUCIBLE_ELEMENT__NATURE:
 				return getNature() != NATURE_EDEFAULT;
 			case SimPackage.SNAMED_DEDUCIBLE_ELEMENT__SYNTHETIC:
-				return isSetSynthetic();
+				return synthetic != SYNTHETIC_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -390,7 +352,7 @@ public abstract class SNamedDeducibleElementImpl extends SNamedElementImpl imple
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (synthetic: ");
-		if (syntheticESet) result.append(synthetic); else result.append("<unset>");
+		result.append(synthetic);
 		result.append(')');
 		return result.toString();
 	}

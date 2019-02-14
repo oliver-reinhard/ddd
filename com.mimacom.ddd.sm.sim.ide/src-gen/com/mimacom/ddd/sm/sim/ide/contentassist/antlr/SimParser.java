@@ -134,9 +134,9 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSQualifiedNameAccess().getGroup(), "rule__SQualifiedName__Group__0");
 			builder.put(grammarAccess.getSQualifiedNameAccess().getGroup_1(), "rule__SQualifiedName__Group_1__0");
 			builder.put(grammarAccess.getSMultiplicityAccess().getGroup(), "rule__SMultiplicity__Group__0");
-			builder.put(grammarAccess.getSInformationModelAccess().getDeducedAssignment_0(), "rule__SInformationModel__DeducedAssignment_0");
-			builder.put(grammarAccess.getSInformationModelAccess().getKindAssignment_1(), "rule__SInformationModel__KindAssignment_1");
-			builder.put(grammarAccess.getSInformationModelAccess().getNameAssignment_4(), "rule__SInformationModel__NameAssignment_4");
+			builder.put(grammarAccess.getSInformationModelAccess().getKindAssignment_0(), "rule__SInformationModel__KindAssignment_0");
+			builder.put(grammarAccess.getSInformationModelAccess().getNameAssignment_3(), "rule__SInformationModel__NameAssignment_3");
+			builder.put(grammarAccess.getSInformationModelAccess().getGenerateAssignment_4(), "rule__SInformationModel__GenerateAssignment_4");
 			builder.put(grammarAccess.getSInformationModelAccess().getImportsAssignment_5(), "rule__SInformationModel__ImportsAssignment_5");
 			builder.put(grammarAccess.getSInformationModelAccess().getTypesAssignment_6_0(), "rule__SInformationModel__TypesAssignment_6_0");
 			builder.put(grammarAccess.getSInformationModelAccess().getAggregatesAssignment_6_1(), "rule__SInformationModel__AggregatesAssignment_6_1");

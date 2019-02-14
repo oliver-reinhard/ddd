@@ -31,7 +31,7 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public String text(final SAggregate a) {
-    if (((a.getDeductionRule() != null) && (a.getSynthetic() == null))) {
+    if (((a.getDeductionRule() != null) && (!a.isSynthetic()))) {
       String _label = this._simUtil.label(a.getDeductionRule());
       return (">" + _label);
     }
@@ -39,7 +39,7 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public String text(final SType t) {
-    if (((t.getDeductionRule() != null) && (t.getSynthetic() == null))) {
+    if (((t.getDeductionRule() != null) && (!t.isSynthetic()))) {
       String _label = this._simUtil.label(t.getDeductionRule());
       return (">" + _label);
     }
@@ -47,7 +47,7 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public String text(final SFeature f) {
-    if (((f.getDeductionRule() != null) && (f.getSynthetic() == null))) {
+    if (((f.getDeductionRule() != null) && (!f.isSynthetic()))) {
       String _label = this._simUtil.label(f.getDeductionRule());
       return (">" + _label);
     }
@@ -59,7 +59,7 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public String text(final SLiteral literal) {
-    if (((literal.getDeductionRule() != null) && (literal.getSynthetic() == null))) {
+    if (((literal.getDeductionRule() != null) && (!literal.isSynthetic()))) {
       String _label = this._simUtil.label(literal.getDeductionRule());
       return (">" + _label);
     }

@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#isDeduced <em>Deduced</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#isGenerate <em>Generate</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getKind <em>Kind</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getImports <em>Imports</em>}</li>
@@ -31,30 +31,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface SInformationModel extends EObject
 {
 	/**
-	 * Returns the value of the '<em><b>Deduced</b></em>' attribute.
+	 * Returns the value of the '<em><b>Generate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Deduced</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Generate</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Deduced</em>' attribute.
-	 * @see #setDeduced(boolean)
-	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSInformationModel_Deduced()
+	 * @return the value of the '<em>Generate</em>' attribute.
+	 * @see #setGenerate(boolean)
+	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSInformationModel_Generate()
 	 * @model
 	 * @generated
 	 */
-	boolean isDeduced();
+	boolean isGenerate();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.sm.sim.SInformationModel#isDeduced <em>Deduced</em>}' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.sm.sim.SInformationModel#isGenerate <em>Generate</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Deduced</em>' attribute.
-	 * @see #isDeduced()
+	 * @param value the new value of the '<em>Generate</em>' attribute.
+	 * @see #isGenerate()
 	 * @generated
 	 */
-	void setDeduced(boolean value);
+	void setGenerate(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Kind</b></em>' attribute.

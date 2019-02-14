@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SAggregateImpl#getDeductionRule <em>Deduction Rule</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SAggregateImpl#getNature <em>Nature</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sim.impl.SAggregateImpl#getSynthetic <em>Synthetic</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SAggregateImpl#isSynthetic <em>Synthetic</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SAggregateImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SAggregateImpl#getRoot <em>Root</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SAggregateImpl#getRootName <em>Root Name</em>}</li>
@@ -67,33 +67,24 @@ public class SAggregateImpl extends MinimalEObjectImpl.Container implements SAgg
 	protected static final SElementNature NATURE_EDEFAULT = SElementNature.GENUINE;
 
 	/**
-	 * The default value of the '{@link #getSynthetic() <em>Synthetic</em>}' attribute.
+	 * The default value of the '{@link #isSynthetic() <em>Synthetic</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSynthetic()
+	 * @see #isSynthetic()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean SYNTHETIC_EDEFAULT = null;
+	protected static final boolean SYNTHETIC_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #getSynthetic() <em>Synthetic</em>}' attribute.
+	 * The cached value of the '{@link #isSynthetic() <em>Synthetic</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSynthetic()
+	 * @see #isSynthetic()
 	 * @generated
 	 * @ordered
 	 */
-	protected Boolean synthetic = SYNTHETIC_EDEFAULT;
-
-	/**
-	 * This is true if the Synthetic attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean syntheticESet;
+	protected boolean synthetic = SYNTHETIC_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
@@ -218,7 +209,7 @@ public class SAggregateImpl extends MinimalEObjectImpl.Container implements SAgg
 	 * @generated
 	 */
 	@Override
-	public Boolean getSynthetic()
+	public boolean isSynthetic()
 	{
 		return synthetic;
 	}
@@ -229,41 +220,12 @@ public class SAggregateImpl extends MinimalEObjectImpl.Container implements SAgg
 	 * @generated
 	 */
 	@Override
-	public void setSynthetic(Boolean newSynthetic)
+	public void setSynthetic(boolean newSynthetic)
 	{
-		Boolean oldSynthetic = synthetic;
+		boolean oldSynthetic = synthetic;
 		synthetic = newSynthetic;
-		boolean oldSyntheticESet = syntheticESet;
-		syntheticESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SAGGREGATE__SYNTHETIC, oldSynthetic, synthetic, !oldSyntheticESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void unsetSynthetic()
-	{
-		Boolean oldSynthetic = synthetic;
-		boolean oldSyntheticESet = syntheticESet;
-		synthetic = SYNTHETIC_EDEFAULT;
-		syntheticESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, SimPackage.SAGGREGATE__SYNTHETIC, oldSynthetic, SYNTHETIC_EDEFAULT, oldSyntheticESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isSetSynthetic()
-	{
-		return syntheticESet;
+			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SAGGREGATE__SYNTHETIC, oldSynthetic, synthetic));
 	}
 
 	/**
@@ -352,7 +314,7 @@ public class SAggregateImpl extends MinimalEObjectImpl.Container implements SAgg
 			case SimPackage.SAGGREGATE__NATURE:
 				return getNature();
 			case SimPackage.SAGGREGATE__SYNTHETIC:
-				return getSynthetic();
+				return isSynthetic();
 			case SimPackage.SAGGREGATE__TYPES:
 				return getTypes();
 			case SimPackage.SAGGREGATE__ROOT:
@@ -409,7 +371,7 @@ public class SAggregateImpl extends MinimalEObjectImpl.Container implements SAgg
 				setNature(NATURE_EDEFAULT);
 				return;
 			case SimPackage.SAGGREGATE__SYNTHETIC:
-				unsetSynthetic();
+				setSynthetic(SYNTHETIC_EDEFAULT);
 				return;
 			case SimPackage.SAGGREGATE__TYPES:
 				getTypes().clear();
@@ -433,7 +395,7 @@ public class SAggregateImpl extends MinimalEObjectImpl.Container implements SAgg
 			case SimPackage.SAGGREGATE__NATURE:
 				return getNature() != NATURE_EDEFAULT;
 			case SimPackage.SAGGREGATE__SYNTHETIC:
-				return isSetSynthetic();
+				return synthetic != SYNTHETIC_EDEFAULT;
 			case SimPackage.SAGGREGATE__TYPES:
 				return types != null && !types.isEmpty();
 			case SimPackage.SAGGREGATE__ROOT:
@@ -456,7 +418,7 @@ public class SAggregateImpl extends MinimalEObjectImpl.Container implements SAgg
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (synthetic: ");
-		if (syntheticESet) result.append(synthetic); else result.append("<unset>");
+		result.append(synthetic);
 		result.append(')');
 		return result.toString();
 	}

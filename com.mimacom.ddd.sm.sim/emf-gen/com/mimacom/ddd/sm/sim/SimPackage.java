@@ -107,13 +107,13 @@ public interface SimPackage extends EPackage
 	int SINFORMATION_MODEL = 2;
 
 	/**
-	 * The feature id for the '<em><b>Deduced</b></em>' attribute.
+	 * The feature id for the '<em><b>Generate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__DEDUCED = 0;
+	int SINFORMATION_MODEL__GENERATE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -1878,15 +1878,15 @@ public interface SimPackage extends EPackage
 	EClass getSInformationModel();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SInformationModel#isDeduced <em>Deduced</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SInformationModel#isGenerate <em>Generate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Deduced</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SInformationModel#isDeduced()
+	 * @return the meta object for the attribute '<em>Generate</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SInformationModel#isGenerate()
 	 * @see #getSInformationModel()
 	 * @generated
 	 */
-	EAttribute getSInformationModel_Deduced();
+	EAttribute getSInformationModel_Generate();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SInformationModel#getKind <em>Kind</em>}'.
@@ -1997,11 +1997,11 @@ public interface SimPackage extends EPackage
 	EAttribute getSDeducibleElement_Nature();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SDeducibleElement#getSynthetic <em>Synthetic</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SDeducibleElement#isSynthetic <em>Synthetic</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Synthetic</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SDeducibleElement#getSynthetic()
+	 * @see com.mimacom.ddd.sm.sim.SDeducibleElement#isSynthetic()
 	 * @see #getSDeducibleElement()
 	 * @generated
 	 */
@@ -2715,12 +2715,12 @@ public interface SimPackage extends EPackage
 		EClass SINFORMATION_MODEL = eINSTANCE.getSInformationModel();
 
 		/**
-		 * The meta object literal for the '<em><b>Deduced</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Generate</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SINFORMATION_MODEL__DEDUCED = eINSTANCE.getSInformationModel_Deduced();
+		EAttribute SINFORMATION_MODEL__GENERATE = eINSTANCE.getSInformationModel_Generate();
 
 		/**
 		 * The meta object literal for the '<em><b>Kind</b></em>' attribute feature.

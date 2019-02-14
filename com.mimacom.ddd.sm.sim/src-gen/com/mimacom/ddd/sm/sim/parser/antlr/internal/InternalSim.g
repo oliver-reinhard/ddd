@@ -79,24 +79,10 @@ ruleSInformationModel returns [EObject current=null]
 	(
 		(
 			(
-				lv_deduced_0_0='deduced'
 				{
-					newLeafNode(lv_deduced_0_0, grammarAccess.getSInformationModelAccess().getDeducedDeducedKeyword_0_0());
+					newCompositeNode(grammarAccess.getSInformationModelAccess().getKindSInformationModelKindEnumRuleCall_0_0());
 				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSInformationModelRule());
-					}
-					setWithLastConsumed($current, "deduced", true, "deduced");
-				}
-			)
-		)?
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getSInformationModelAccess().getKindSInformationModelKindEnumRuleCall_1_0());
-				}
-				lv_kind_1_0=ruleSInformationModelKind
+				lv_kind_0_0=ruleSInformationModelKind
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSInformationModelRule());
@@ -104,26 +90,26 @@ ruleSInformationModel returns [EObject current=null]
 					set(
 						$current,
 						"kind",
-						lv_kind_1_0,
+						lv_kind_0_0,
 						"com.mimacom.ddd.sm.sim.Sim.SInformationModelKind");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_2='information'
+		otherlv_1='information'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getSInformationModelAccess().getInformationKeyword_2());
+			newLeafNode(otherlv_1, grammarAccess.getSInformationModelAccess().getInformationKeyword_1());
 		}
-		otherlv_3='model'
+		otherlv_2='model'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getSInformationModelAccess().getModelKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getSInformationModelAccess().getModelKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSInformationModelAccess().getNameSQualifiedNameParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getSInformationModelAccess().getNameSQualifiedNameParserRuleCall_3_0());
 				}
-				lv_name_4_0=ruleSQualifiedName
+				lv_name_3_0=ruleSQualifiedName
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSInformationModelRule());
@@ -131,12 +117,26 @@ ruleSInformationModel returns [EObject current=null]
 					set(
 						$current,
 						"name",
-						lv_name_4_0,
+						lv_name_3_0,
 						"com.mimacom.ddd.sm.sim.Sim.SQualifiedName");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+		(
+			(
+				lv_generate_4_0='generate'
+				{
+					newLeafNode(lv_generate_4_0, grammarAccess.getSInformationModelAccess().getGenerateGenerateKeyword_4_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSInformationModelRule());
+					}
+					setWithLastConsumed($current, "generate", true, "generate");
+				}
+			)
+		)?
 		(
 			(
 				{

@@ -393,7 +393,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSInformationModel_Deduced()
+	public EAttribute getSInformationModel_Generate()
 	{
 		return (EAttribute)sInformationModelEClass.getEStructuralFeatures().get(0);
 	}
@@ -1237,7 +1237,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		sValueTypeEClass = createEClass(SVALUE_TYPE);
 
 		sInformationModelEClass = createEClass(SINFORMATION_MODEL);
-		createEAttribute(sInformationModelEClass, SINFORMATION_MODEL__DEDUCED);
+		createEAttribute(sInformationModelEClass, SINFORMATION_MODEL__GENERATE);
 		createEAttribute(sInformationModelEClass, SINFORMATION_MODEL__KIND);
 		createEAttribute(sInformationModelEClass, SINFORMATION_MODEL__NAME);
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__IMPORTS);
@@ -1406,7 +1406,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		initEClass(sValueTypeEClass, SValueType.class, "SValueType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(sInformationModelEClass, SInformationModel.class, "SInformationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSInformationModel_Deduced(), ecorePackage.getEBoolean(), "deduced", null, 0, 1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSInformationModel_Generate(), ecorePackage.getEBoolean(), "generate", null, 0, 1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSInformationModel_Kind(), this.getSInformationModelKind(), "kind", null, 0, 1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSInformationModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSInformationModel_Imports(), this.getSImport(), null, "imports", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1419,7 +1419,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		initEClass(sDeducibleElementEClass, SDeducibleElement.class, "SDeducibleElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSDeducibleElement_DeductionRule(), this.getSDeductionRule(), null, "deductionRule", null, 0, 1, SDeducibleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSDeducibleElement_Nature(), this.getSElementNature(), "nature", null, 0, 1, SDeducibleElement.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSDeducibleElement_Synthetic(), ecorePackage.getEBooleanObject(), "synthetic", null, 0, 1, SDeducibleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSDeducibleElement_Synthetic(), ecorePackage.getEBoolean(), "synthetic", null, 0, 1, SDeducibleElement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sNamedDeducibleElementEClass, SNamedDeducibleElement.class, "SNamedDeducibleElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

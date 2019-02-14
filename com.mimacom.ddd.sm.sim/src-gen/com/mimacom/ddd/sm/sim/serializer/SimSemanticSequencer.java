@@ -490,7 +490,7 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SInformationModel returns SInformationModel
 	 *
 	 * Constraint:
-	 *     (deduced?='deduced'? kind=SInformationModelKind name=SQualifiedName imports+=SImport* (types+=SType | aggregates+=SAggregate)*)
+	 *     (kind=SInformationModelKind name=SQualifiedName generate?='generate'? imports+=SImport* (types+=SType | aggregates+=SAggregate)*)
 	 */
 	protected void sequence_SInformationModel(ISerializationContext context, SInformationModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
