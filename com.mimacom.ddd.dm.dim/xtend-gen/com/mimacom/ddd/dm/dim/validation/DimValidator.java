@@ -180,7 +180,8 @@ public class DimValidator extends AbstractDimValidator {
   
   @Check
   public void checkParameterIsValueType(final DQueryParameter p) {
-    if (((p.getType() instanceof IValueType) && (!Objects.equal(p.getType(), p.eContainer())))) {
+    boolean _not = (!((p.getType() instanceof IValueType) || Objects.equal(p.getType(), p.eContainer())));
+    if (_not) {
       this.error("Refererenced type is not a ValueType nor the query\'s own container", p, BasePackage.Literals.DTYPED_MEMBER__TYPE);
     }
   }

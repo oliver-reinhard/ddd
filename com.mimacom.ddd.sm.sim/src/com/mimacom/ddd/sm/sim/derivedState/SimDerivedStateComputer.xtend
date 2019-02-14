@@ -10,9 +10,11 @@ import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DFeature
 import com.mimacom.ddd.dm.base.DLiteral
+import com.mimacom.ddd.dm.base.DMultiplicity
 import com.mimacom.ddd.dm.base.DNamedElement
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
+import com.mimacom.ddd.dm.base.DQueryParameter
 import com.mimacom.ddd.dm.base.DRelationship
 import com.mimacom.ddd.dm.base.DRootType
 import com.mimacom.ddd.sm.sim.SAggregate
@@ -26,7 +28,10 @@ import com.mimacom.ddd.sm.sim.SFuseRule
 import com.mimacom.ddd.sm.sim.SGrabRule
 import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.SMorphRule
+import com.mimacom.ddd.sm.sim.SMultiplicity
 import com.mimacom.ddd.sm.sim.SPrimitive
+import com.mimacom.ddd.sm.sim.SQuery
+import com.mimacom.ddd.sm.sim.SQueryParameter
 import com.mimacom.ddd.sm.sim.SType
 import com.mimacom.ddd.sm.sim.SimFactory
 import com.mimacom.ddd.sm.sim.SimUtil
@@ -67,16 +72,16 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 	def  void processInformationModel(SInformationModel model, TransformationContext context) {
 		val typesToDeduce = model.types.filter[nature == DEDUCTION_RULE]
 		for (type : typesToDeduce?.toList) {  // cannot change iterable while iterating
-			type.processType(type.deductionRule, context) 
+			type.processTypeWithRule(type.deductionRule, context) 
 		}
 		
 		val modelList = Lists.newArrayList(model.aggregates) // cannot add to list while iterating it
 		for (aggregate : modelList) {
-			aggregate.processAggregate(context)
+			aggregate.processAggregateWithRule(context)
 		}
 	}
 	
-	def  void processAggregate(SAggregate aggregate, TransformationContext context) {
+	def  void processAggregateWithRule(SAggregate aggregate, TransformationContext context) {
 		var current = aggregate
 		if (aggregate.deductionRule !== null) {
 			val source = aggregate.deductionRule
@@ -90,11 +95,11 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 		} 
 		val typesToDeduce = current.types.filter[nature == DEDUCTION_RULE]
 		for (type : typesToDeduce.toList) { // cannot change iterable while iterating
-			type.processType(type.deductionRule, context)
+			type.processTypeWithRule(type.deductionRule, context)
 		}
 	}
 	
-	def dispatch void processType(SPrimitive sType, SGrabRule rule, TransformationContext context) {
+	def dispatch void processTypeWithRule(SPrimitive sType, SGrabRule rule, TransformationContext context) {
 		val source = rule.source
 		if (source instanceof DPrimitive) {
 			val name = if (rule.renameTo !== null) rule.renameTo else source.name
@@ -102,7 +107,7 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 		}
 	}
 	
-	def dispatch void processType(SEnumeration sEnum, SGrabRule rule, TransformationContext context) {
+	def dispatch void processTypeWithRule(SEnumeration sEnum, SGrabRule rule, TransformationContext context) {
 		val source = rule.source
 		if (source instanceof DEnumeration) {
 			val name = if (rule.renameTo !== null) rule.renameTo else source.name
@@ -135,7 +140,7 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 	}
 	
 	
-	def dispatch void processType(SComplexType sType, SGrabRule rule, TransformationContext context) {
+	def dispatch void processTypeWithRule(SComplexType sType, SGrabRule rule, TransformationContext context) {
 		val source = rule.source
 		if (source instanceof DComplexType) {
 			val name = if (rule.renameTo !== null) rule.renameTo else source.name
@@ -156,56 +161,103 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 			
 			val sFeaturesWithExplicitRuleList = sFeaturesWithExplicitRule.toList  // cannot change iterable while iterating
 			for (sFeature : sFeaturesWithExplicitRuleList) {
-				val featureRule = sFeature.deductionRule
-				switch  featureRule {
-					SDitchRule: ditchFeature(syntheticType, sFeature, featureRule, context)
-					SMorphRule: morphFeature(syntheticType, sFeature, featureRule, context)
-					SGrabRule: grabFeature(syntheticType, sFeature, featureRule, context)
-				}
+				syntheticType.processFeatureWithRule( sFeature, sFeature.deductionRule, context)
 			}
 		}
 	}
 	
-	def dispatch void processType(SComplexType type, SMorphRule rule, TransformationContext context) {
+	def dispatch void processTypeWithRule(SComplexType type, SMorphRule rule, TransformationContext context) {
 		// TODO
 	}
 	
-	def dispatch void processType(SComplexType type, SFuseRule rule, TransformationContext context) {
+	def dispatch void processTypeWithRule(SComplexType type, SFuseRule rule, TransformationContext context) {
 		// TODO
 	}
 	
-	def dispatch void processType(SType type, SDeductionRule rule, TransformationContext context) {
+	def dispatch void processTypeWithRule(SType type, SDeductionRule rule, TransformationContext context) {
 		throw new UnsupportedOperationException() // catch-all => should not occur
 	}
 	
-	def  SFeature grabFeature(SComplexType container, SFeature sFeature, SGrabRule rule, TransformationContext context) {
-		val source = rule.source
-		if (source instanceof DFeature) {
-			return container.addSyntheticFeature(if (rule.renameTo !== null) rule.renameTo else source.name, source, context)
-		}
-		return null
+	def  dispatch void processFeatureWithRule(SComplexType container, SFeature sFeature, SGrabRule rule, TransformationContext context) {
+		grabFeature(container, sFeature, rule, context)
 	}
 	
-	def  SFeature morphFeature(SComplexType container, SFeature sFeature, SMorphRule rule, TransformationContext context) {
+	def  dispatch void processFeatureWithRule(SComplexType container, SFeature sFeature, SMorphRule rule, TransformationContext context) {
 		val syntheticFeature = grabFeature(container, sFeature, rule, context)
 		if (syntheticFeature !== null) {
 			if (rule.retypeTo !== null) {
 				syntheticFeature.type = rule.retypeTo
 			}
 			if (rule.remultiplyTo !== null) {
-				syntheticFeature.multiplicity = simFactory.createSMultiplicity
-				syntheticFeature.multiplicity.minOccurs = rule.remultiplyTo.minOccurs
-				syntheticFeature.multiplicity.maxOccurs = rule.remultiplyTo.maxOccurs
+				syntheticFeature.multiplicity = rule.remultiplyTo
 			}
 		}
-		return syntheticFeature
 	}
 
 	
-	def  SFeature ditchFeature(SComplexType container, SFeature sFeature, SDitchRule rule, TransformationContext context) {
+	def  dispatch void processFeatureWithRule(SComplexType container, SFeature sFeature, SDitchRule rule, TransformationContext context) {
 		// do nothing (has been taken care of by SComplexType
 	}
 	
+	def  SFeature grabFeature(SComplexType container, SFeature sFeature, SGrabRule rule, TransformationContext context) {
+		val source = rule.source
+		if (source instanceof DFeature) {
+			val syntheticFeature = container.addSyntheticFeature(if (rule.renameTo !== null) rule.renameTo else source.name, source, context)
+			
+			if (sFeature instanceof SQuery) {
+				val syntheticQuery = syntheticFeature as SQuery
+			
+				val sParametersWithExplicitRule = sFeature.parameters.filter[nature == DEDUCTION_RULE]
+				
+				if (! sParametersWithExplicitRule.exists[deductionRule instanceof SGrabRule]) {
+					// there are not explicit grabs, so implicitly grab all features without a rule:
+					val implicitlyGrabbedDParameters = Lists.newArrayList((source as DQuery).parameters)
+					val dParametersAffectedByRule = sParametersWithExplicitRule.filter[deductionRule.source instanceof DQueryParameter].map[deductionRule.source as DQueryParameter]
+					implicitlyGrabbedDParameters.removeAll(dParametersAffectedByRule)
+					// create synthetic SFeatures for implicit features:
+					for (dParameter : implicitlyGrabbedDParameters) {
+						syntheticQuery.addSyntheticQueryParameter(dParameter.name, dParameter, context)
+					}
+				}
+				
+				val sParametersWithExplicitRuleList = sParametersWithExplicitRule.toList  // cannot change iterable while iterating
+				for (sParameter : sParametersWithExplicitRuleList) {
+					syntheticQuery.processQueryParameterWithRule(sParameter, sParameter.deductionRule, context)
+				}
+			}
+			return syntheticFeature
+		}
+		return null
+	}
+	
+	
+	def  dispatch void processQueryParameterWithRule(SQuery container, SQueryParameter sParameter, SGrabRule rule, TransformationContext context) {
+		grabQueryParameter(container, sParameter, rule, context)
+	}
+	
+	def  dispatch void processQueryParameterWithRule(SQuery container, SQueryParameter sParameter, SMorphRule rule, TransformationContext context) {
+		val syntheticParameter = grabQueryParameter(container, sParameter, rule, context)
+		if (syntheticParameter !== null) {
+			if (rule.retypeTo !== null) {
+				syntheticParameter.type = rule.retypeTo
+			}
+			if (rule.remultiplyTo !== null) {
+				syntheticParameter.multiplicity = rule.remultiplyTo
+			}
+		}
+	}
+	
+	def  SQueryParameter grabQueryParameter(SQuery container, SQueryParameter sParameter, SGrabRule rule, TransformationContext context) {
+		val source = rule.source
+		if (source instanceof DQueryParameter) {
+			val syntheticParameter = container.addSyntheticQueryParameter(if (rule.renameTo !== null) rule.renameTo else source.name, source, context)
+			return syntheticParameter
+		}
+	}
+	
+	def  dispatch void processQueryParameterWithRule(SQuery container, SQueryParameter sParameter, SDitchRule rule, TransformationContext context) {
+		// do nothing (has been taken care of by SQuery
+	}
 	
 	def SAggregate addSyntheticAggregate(SInformationModel container, DAggregate source, TransformationContext context)  {
 		val sAggregate = simFactory.createSAggregate
@@ -243,6 +295,17 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 		return sType
 	}
 	
+	protected def void initSyntheticType(SType t, String name, DNamedElement source, EObject container) {
+		t.name = name
+		t.synthetic = true
+		t.deductionRule = simFactory.createSGrabRule
+		t.deductionRule.source = source
+		switch container {
+			SAggregate : container.types.add(t)
+			SInformationModel : container.types.add(t)
+		}
+	}
+	
 	def SFeature addSyntheticFeature(SComplexType container, String name, DFeature source, TransformationContext context)  {
 			val sFeature = switch source {
 				DAttribute: simFactory.createSAttribute
@@ -255,25 +318,24 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 				return null 
 			}
 			sFeature.type = context.getSType(dFeatureType)
-			if (source.multiplicity !== null) {
-				sFeature.multiplicity = simFactory.createSMultiplicity
-				sFeature.multiplicity.minOccurs = source.multiplicity.minOccurs
-				sFeature.multiplicity.maxOccurs = source.multiplicity.maxOccurs
-			}
+			sFeature.multiplicity = grabMultiplicity(source.multiplicity)
 			sFeature.synthetic = true
 			container.features.add(sFeature)
 			return sFeature
 	}
 	
-	protected def void initSyntheticType(SType t, String name, DNamedElement source, EObject container) {
-		t.name = name
-		t.synthetic = true
-		t.deductionRule = simFactory.createSGrabRule
-		t.deductionRule.source = source
-		switch container {
-			SAggregate : container.types.add(t)
-			SInformationModel : container.types.add(t)
-		}
+	def SQueryParameter addSyntheticQueryParameter(SQuery container, String name, DQueryParameter source, TransformationContext context)  {
+			val sParameter = simFactory.createSQueryParameter
+			sParameter.name = name
+			val dParameterType = source.type
+			if (dParameterType === null) {  // the domain model is (temporarily incomplete => don't add sFeature now
+				return null 
+			}
+			sParameter.type = context.getSType(dParameterType)
+			sParameter.multiplicity = grabMultiplicity(source.multiplicity)
+			sParameter.synthetic = true
+			container.parameters.add(sParameter)
+			return sParameter
 	}
 	
 	def void addSyntheticLiteral(SEnumeration container, String name) {
@@ -281,5 +343,15 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 		sLiteral.name = name
 		sLiteral.synthetic = true
 		container.literals.add(sLiteral)
+	}
+	
+	def SMultiplicity grabMultiplicity(DMultiplicity source) {
+		var SMultiplicity result = null
+		if (source !== null) {
+			result = simFactory.createSMultiplicity
+			result.minOccurs = source.minOccurs
+			result.maxOccurs = source.maxOccurs
+		}
+		return result
 	}
 }

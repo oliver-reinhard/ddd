@@ -101,6 +101,9 @@ public class TransformationContext {
     }
   }
   
+  /**
+   * @return  null if no SType is found for DType.
+   */
   public SType getSType(final DType dType) {
     SType sPrimitive = this.localDTypeToSTypeMap.get(dType);
     if ((sPrimitive == null)) {

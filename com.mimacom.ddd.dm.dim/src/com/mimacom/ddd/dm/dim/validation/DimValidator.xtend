@@ -148,7 +148,7 @@ class DimValidator extends AbstractDimValidator {
 // // Parameters: restrictions on their types
 	@Check
 	def checkParameterIsValueType(DQueryParameter p) {
-		if(p.type instanceof IValueType && ! (p.type == p.eContainer)) {
+		if(! (p.type instanceof IValueType || p.type == p.eContainer)) {
 			error('Refererenced type is not a ValueType nor the query\'s own container', p, BasePackage.Literals.DTYPED_MEMBER__TYPE)
 		}
 	}

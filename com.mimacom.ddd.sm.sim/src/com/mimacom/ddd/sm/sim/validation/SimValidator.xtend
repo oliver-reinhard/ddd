@@ -223,7 +223,7 @@ class SimValidator extends AbstractSimValidator {
 // // Parameters: restrictions on their types
 	@Check
 	def checkParameterIsValueType(SQueryParameter p) {
-		if (p.nature != DEDUCTION_RULE && p.type instanceof SValueType && ! (p.type == p.eContainer)) {
+		if (p.nature != DEDUCTION_RULE && ! (p.type instanceof SValueType || p.type == p.eContainer)) {
 			error('Refererenced type is not a ValueType nor the query\'s own container', p,SimPackage.Literals.SQUERY_PARAMETER__TYPE)
 		}
 	}

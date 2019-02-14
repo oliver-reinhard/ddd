@@ -324,7 +324,7 @@ public class SimValidator extends AbstractSimValidator {
   
   @Check
   public void checkParameterIsValueType(final SQueryParameter p) {
-    if ((((!Objects.equal(p.getNature(), SElementNature.DEDUCTION_RULE)) && (p.getType() instanceof SValueType)) && (!Objects.equal(p.getType(), p.eContainer())))) {
+    if (((!Objects.equal(p.getNature(), SElementNature.DEDUCTION_RULE)) && (!((p.getType() instanceof SValueType) || Objects.equal(p.getType(), p.eContainer()))))) {
       this.error("Refererenced type is not a ValueType nor the query\'s own container", p, SimPackage.Literals.SQUERY_PARAMETER__TYPE);
     }
   }

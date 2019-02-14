@@ -16,6 +16,7 @@ import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
+import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DRelationship;
 import com.mimacom.ddd.dm.base.DRootType;
 import com.mimacom.ddd.dm.base.DType;
@@ -34,6 +35,8 @@ import com.mimacom.ddd.sm.sim.SLiteral;
 import com.mimacom.ddd.sm.sim.SMorphRule;
 import com.mimacom.ddd.sm.sim.SMultiplicity;
 import com.mimacom.ddd.sm.sim.SPrimitive;
+import com.mimacom.ddd.sm.sim.SQuery;
+import com.mimacom.ddd.sm.sim.SQueryParameter;
 import com.mimacom.ddd.sm.sim.SType;
 import com.mimacom.ddd.sm.sim.SimFactory;
 import com.mimacom.ddd.sm.sim.SimUtil;
@@ -102,15 +105,15 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
       _list=IterableExtensions.<SType>toList(typesToDeduce);
     }
     for (final SType type : _list) {
-      this.processType(type, type.getDeductionRule(), context);
+      this.processTypeWithRule(type, type.getDeductionRule(), context);
     }
     final ArrayList<SAggregate> modelList = Lists.<SAggregate>newArrayList(model.getAggregates());
     for (final SAggregate aggregate : modelList) {
-      this.processAggregate(aggregate, context);
+      this.processAggregateWithRule(aggregate, context);
     }
   }
   
-  public void processAggregate(final SAggregate aggregate, final TransformationContext context) {
+  public void processAggregateWithRule(final SAggregate aggregate, final TransformationContext context) {
     SAggregate current = aggregate;
     SDeductionRule _deductionRule = aggregate.getDeductionRule();
     boolean _tripleNotEquals = (_deductionRule != null);
@@ -131,11 +134,11 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
     final Iterable<SType> typesToDeduce = IterableExtensions.<SType>filter(current.getTypes(), _function);
     List<SType> _list = IterableExtensions.<SType>toList(typesToDeduce);
     for (final SType type_1 : _list) {
-      this.processType(type_1, type_1.getDeductionRule(), context);
+      this.processTypeWithRule(type_1, type_1.getDeductionRule(), context);
     }
   }
   
-  protected void _processType(final SPrimitive sType, final SGrabRule rule, final TransformationContext context) {
+  protected void _processTypeWithRule(final SPrimitive sType, final SGrabRule rule, final TransformationContext context) {
     final EObject source = rule.getSource();
     if ((source instanceof DPrimitive)) {
       String _xifexpression = null;
@@ -151,7 +154,7 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
     }
   }
   
-  protected void _processType(final SEnumeration sEnum, final SGrabRule rule, final TransformationContext context) {
+  protected void _processTypeWithRule(final SEnumeration sEnum, final SGrabRule rule, final TransformationContext context) {
     final EObject source = rule.getSource();
     if ((source instanceof DEnumeration)) {
       String _xifexpression = null;
@@ -220,7 +223,7 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
     }
   }
   
-  protected void _processType(final SComplexType sType, final SGrabRule rule, final TransformationContext context) {
+  protected void _processTypeWithRule(final SComplexType sType, final SGrabRule rule, final TransformationContext context) {
     final EObject source = rule.getSource();
     if ((source instanceof DComplexType)) {
       String _xifexpression = null;
@@ -262,38 +265,42 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
       }
       final List<SFeature> sFeaturesWithExplicitRuleList = IterableExtensions.<SFeature>toList(sFeaturesWithExplicitRule);
       for (final SFeature sFeature : sFeaturesWithExplicitRuleList) {
-        {
-          final SDeductionRule featureRule = sFeature.getDeductionRule();
-          boolean _matched = false;
-          if (featureRule instanceof SDitchRule) {
-            _matched=true;
-            this.ditchFeature(syntheticType, sFeature, ((SDitchRule)featureRule), context);
-          }
-          if (!_matched) {
-            if (featureRule instanceof SMorphRule) {
-              _matched=true;
-              this.morphFeature(syntheticType, sFeature, ((SMorphRule)featureRule), context);
-            }
-          }
-          if (!_matched) {
-            if (featureRule instanceof SGrabRule) {
-              _matched=true;
-              this.grabFeature(syntheticType, sFeature, ((SGrabRule)featureRule), context);
-            }
-          }
-        }
+        this.processFeatureWithRule(syntheticType, sFeature, sFeature.getDeductionRule(), context);
       }
     }
   }
   
-  protected void _processType(final SComplexType type, final SMorphRule rule, final TransformationContext context) {
+  protected void _processTypeWithRule(final SComplexType type, final SMorphRule rule, final TransformationContext context) {
   }
   
-  protected void _processType(final SComplexType type, final SFuseRule rule, final TransformationContext context) {
+  protected void _processTypeWithRule(final SComplexType type, final SFuseRule rule, final TransformationContext context) {
   }
   
-  protected void _processType(final SType type, final SDeductionRule rule, final TransformationContext context) {
+  protected void _processTypeWithRule(final SType type, final SDeductionRule rule, final TransformationContext context) {
     throw new UnsupportedOperationException();
+  }
+  
+  protected void _processFeatureWithRule(final SComplexType container, final SFeature sFeature, final SGrabRule rule, final TransformationContext context) {
+    this.grabFeature(container, sFeature, rule, context);
+  }
+  
+  protected void _processFeatureWithRule(final SComplexType container, final SFeature sFeature, final SMorphRule rule, final TransformationContext context) {
+    final SFeature syntheticFeature = this.grabFeature(container, sFeature, rule, context);
+    if ((syntheticFeature != null)) {
+      SType _retypeTo = rule.getRetypeTo();
+      boolean _tripleNotEquals = (_retypeTo != null);
+      if (_tripleNotEquals) {
+        syntheticFeature.setType(rule.getRetypeTo());
+      }
+      SMultiplicity _remultiplyTo = rule.getRemultiplyTo();
+      boolean _tripleNotEquals_1 = (_remultiplyTo != null);
+      if (_tripleNotEquals_1) {
+        syntheticFeature.setMultiplicity(rule.getRemultiplyTo());
+      }
+    }
+  }
+  
+  protected void _processFeatureWithRule(final SComplexType container, final SFeature sFeature, final SDitchRule rule, final TransformationContext context) {
   }
   
   public SFeature grabFeature(final SComplexType container, final SFeature sFeature, final SGrabRule rule, final TransformationContext context) {
@@ -307,34 +314,84 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
       } else {
         _xifexpression = ((DFeature)source).getName();
       }
-      return this.addSyntheticFeature(container, _xifexpression, ((DFeature)source), context);
+      final SFeature syntheticFeature = this.addSyntheticFeature(container, _xifexpression, ((DFeature)source), context);
+      if ((sFeature instanceof SQuery)) {
+        final SQuery syntheticQuery = ((SQuery) syntheticFeature);
+        final Function1<SQueryParameter, Boolean> _function = (SQueryParameter it) -> {
+          SElementNature _nature = it.getNature();
+          return Boolean.valueOf(Objects.equal(_nature, SElementNature.DEDUCTION_RULE));
+        };
+        final Iterable<SQueryParameter> sParametersWithExplicitRule = IterableExtensions.<SQueryParameter>filter(((SQuery)sFeature).getParameters(), _function);
+        final Function1<SQueryParameter, Boolean> _function_1 = (SQueryParameter it) -> {
+          SDeductionRule _deductionRule = it.getDeductionRule();
+          return Boolean.valueOf((_deductionRule instanceof SGrabRule));
+        };
+        boolean _exists = IterableExtensions.<SQueryParameter>exists(sParametersWithExplicitRule, _function_1);
+        boolean _not = (!_exists);
+        if (_not) {
+          final ArrayList<DQueryParameter> implicitlyGrabbedDParameters = Lists.<DQueryParameter>newArrayList(((DQuery) source).getParameters());
+          final Function1<SQueryParameter, Boolean> _function_2 = (SQueryParameter it) -> {
+            EObject _source = it.getDeductionRule().getSource();
+            return Boolean.valueOf((_source instanceof DQueryParameter));
+          };
+          final Function1<SQueryParameter, DQueryParameter> _function_3 = (SQueryParameter it) -> {
+            EObject _source = it.getDeductionRule().getSource();
+            return ((DQueryParameter) _source);
+          };
+          final Iterable<DQueryParameter> dParametersAffectedByRule = IterableExtensions.<SQueryParameter, DQueryParameter>map(IterableExtensions.<SQueryParameter>filter(sParametersWithExplicitRule, _function_2), _function_3);
+          CollectionExtensions.<DQueryParameter>removeAll(implicitlyGrabbedDParameters, dParametersAffectedByRule);
+          for (final DQueryParameter dParameter : implicitlyGrabbedDParameters) {
+            this.addSyntheticQueryParameter(syntheticQuery, dParameter.getName(), dParameter, context);
+          }
+        }
+        final List<SQueryParameter> sParametersWithExplicitRuleList = IterableExtensions.<SQueryParameter>toList(sParametersWithExplicitRule);
+        for (final SQueryParameter sParameter : sParametersWithExplicitRuleList) {
+          this.processQueryParameterWithRule(syntheticQuery, sParameter, sParameter.getDeductionRule(), context);
+        }
+      }
+      return syntheticFeature;
     }
     return null;
   }
   
-  public SFeature morphFeature(final SComplexType container, final SFeature sFeature, final SMorphRule rule, final TransformationContext context) {
-    final SFeature syntheticFeature = this.grabFeature(container, sFeature, rule, context);
-    if ((syntheticFeature != null)) {
+  protected void _processQueryParameterWithRule(final SQuery container, final SQueryParameter sParameter, final SGrabRule rule, final TransformationContext context) {
+    this.grabQueryParameter(container, sParameter, rule, context);
+  }
+  
+  protected void _processQueryParameterWithRule(final SQuery container, final SQueryParameter sParameter, final SMorphRule rule, final TransformationContext context) {
+    final SQueryParameter syntheticParameter = this.grabQueryParameter(container, sParameter, rule, context);
+    if ((syntheticParameter != null)) {
       SType _retypeTo = rule.getRetypeTo();
       boolean _tripleNotEquals = (_retypeTo != null);
       if (_tripleNotEquals) {
-        syntheticFeature.setType(rule.getRetypeTo());
+        syntheticParameter.setType(rule.getRetypeTo());
       }
       SMultiplicity _remultiplyTo = rule.getRemultiplyTo();
       boolean _tripleNotEquals_1 = (_remultiplyTo != null);
       if (_tripleNotEquals_1) {
-        syntheticFeature.setMultiplicity(SimDerivedStateComputer.simFactory.createSMultiplicity());
-        SMultiplicity _multiplicity = syntheticFeature.getMultiplicity();
-        _multiplicity.setMinOccurs(rule.getRemultiplyTo().getMinOccurs());
-        SMultiplicity _multiplicity_1 = syntheticFeature.getMultiplicity();
-        _multiplicity_1.setMaxOccurs(rule.getRemultiplyTo().getMaxOccurs());
+        syntheticParameter.setMultiplicity(rule.getRemultiplyTo());
       }
     }
-    return syntheticFeature;
   }
   
-  public SFeature ditchFeature(final SComplexType container, final SFeature sFeature, final SDitchRule rule, final TransformationContext context) {
+  public SQueryParameter grabQueryParameter(final SQuery container, final SQueryParameter sParameter, final SGrabRule rule, final TransformationContext context) {
+    final EObject source = rule.getSource();
+    if ((source instanceof DQueryParameter)) {
+      String _xifexpression = null;
+      String _renameTo = rule.getRenameTo();
+      boolean _tripleNotEquals = (_renameTo != null);
+      if (_tripleNotEquals) {
+        _xifexpression = rule.getRenameTo();
+      } else {
+        _xifexpression = ((DQueryParameter)source).getName();
+      }
+      final SQueryParameter syntheticParameter = this.addSyntheticQueryParameter(container, _xifexpression, ((DQueryParameter)source), context);
+      return syntheticParameter;
+    }
     return null;
+  }
+  
+  protected void _processQueryParameterWithRule(final SQuery container, final SQueryParameter sParameter, final SDitchRule rule, final TransformationContext context) {
   }
   
   public SAggregate addSyntheticAggregate(final SInformationModel container, final DAggregate source, final TransformationContext context) {
@@ -395,6 +452,25 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
     return sType;
   }
   
+  protected void initSyntheticType(final SType t, final String name, final DNamedElement source, final EObject container) {
+    t.setName(name);
+    t.setSynthetic(true);
+    t.setDeductionRule(SimDerivedStateComputer.simFactory.createSGrabRule());
+    SDeductionRule _deductionRule = t.getDeductionRule();
+    _deductionRule.setSource(source);
+    boolean _matched = false;
+    if (container instanceof SAggregate) {
+      _matched=true;
+      ((SAggregate)container).getTypes().add(t);
+    }
+    if (!_matched) {
+      if (container instanceof SInformationModel) {
+        _matched=true;
+        ((SInformationModel)container).getTypes().add(t);
+      }
+    }
+  }
+  
   public SFeature addSyntheticFeature(final SComplexType container, final String name, final DFeature source, final TransformationContext context) {
     SFeature _switchResult = null;
     boolean _matched = false;
@@ -421,37 +497,24 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
       return null;
     }
     sFeature.setType(context.getSType(dFeatureType));
-    DMultiplicity _multiplicity = source.getMultiplicity();
-    boolean _tripleNotEquals = (_multiplicity != null);
-    if (_tripleNotEquals) {
-      sFeature.setMultiplicity(SimDerivedStateComputer.simFactory.createSMultiplicity());
-      SMultiplicity _multiplicity_1 = sFeature.getMultiplicity();
-      _multiplicity_1.setMinOccurs(source.getMultiplicity().getMinOccurs());
-      SMultiplicity _multiplicity_2 = sFeature.getMultiplicity();
-      _multiplicity_2.setMaxOccurs(source.getMultiplicity().getMaxOccurs());
-    }
+    sFeature.setMultiplicity(this.grabMultiplicity(source.getMultiplicity()));
     sFeature.setSynthetic(true);
     container.getFeatures().add(sFeature);
     return sFeature;
   }
   
-  protected void initSyntheticType(final SType t, final String name, final DNamedElement source, final EObject container) {
-    t.setName(name);
-    t.setSynthetic(true);
-    t.setDeductionRule(SimDerivedStateComputer.simFactory.createSGrabRule());
-    SDeductionRule _deductionRule = t.getDeductionRule();
-    _deductionRule.setSource(source);
-    boolean _matched = false;
-    if (container instanceof SAggregate) {
-      _matched=true;
-      ((SAggregate)container).getTypes().add(t);
+  public SQueryParameter addSyntheticQueryParameter(final SQuery container, final String name, final DQueryParameter source, final TransformationContext context) {
+    final SQueryParameter sParameter = SimDerivedStateComputer.simFactory.createSQueryParameter();
+    sParameter.setName(name);
+    final DType dParameterType = source.getType();
+    if ((dParameterType == null)) {
+      return null;
     }
-    if (!_matched) {
-      if (container instanceof SInformationModel) {
-        _matched=true;
-        ((SInformationModel)container).getTypes().add(t);
-      }
-    }
+    sParameter.setType(context.getSType(dParameterType));
+    sParameter.setMultiplicity(this.grabMultiplicity(source.getMultiplicity()));
+    sParameter.setSynthetic(true);
+    container.getParameters().add(sParameter);
+    return sParameter;
   }
   
   public void addSyntheticLiteral(final SEnumeration container, final String name) {
@@ -461,34 +524,76 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
     container.getLiterals().add(sLiteral);
   }
   
-  public void processType(final SType sEnum, final SDeductionRule rule, final TransformationContext context) {
+  public SMultiplicity grabMultiplicity(final DMultiplicity source) {
+    SMultiplicity result = null;
+    if ((source != null)) {
+      result = SimDerivedStateComputer.simFactory.createSMultiplicity();
+      result.setMinOccurs(source.getMinOccurs());
+      result.setMaxOccurs(source.getMaxOccurs());
+    }
+    return result;
+  }
+  
+  public void processTypeWithRule(final SType sEnum, final SDeductionRule rule, final TransformationContext context) {
     if (sEnum instanceof SEnumeration
          && rule instanceof SGrabRule) {
-      _processType((SEnumeration)sEnum, (SGrabRule)rule, context);
+      _processTypeWithRule((SEnumeration)sEnum, (SGrabRule)rule, context);
       return;
     } else if (sEnum instanceof SPrimitive
          && rule instanceof SGrabRule) {
-      _processType((SPrimitive)sEnum, (SGrabRule)rule, context);
+      _processTypeWithRule((SPrimitive)sEnum, (SGrabRule)rule, context);
       return;
     } else if (sEnum instanceof SComplexType
          && rule instanceof SFuseRule) {
-      _processType((SComplexType)sEnum, (SFuseRule)rule, context);
+      _processTypeWithRule((SComplexType)sEnum, (SFuseRule)rule, context);
       return;
     } else if (sEnum instanceof SComplexType
          && rule instanceof SMorphRule) {
-      _processType((SComplexType)sEnum, (SMorphRule)rule, context);
+      _processTypeWithRule((SComplexType)sEnum, (SMorphRule)rule, context);
       return;
     } else if (sEnum instanceof SComplexType
          && rule instanceof SGrabRule) {
-      _processType((SComplexType)sEnum, (SGrabRule)rule, context);
+      _processTypeWithRule((SComplexType)sEnum, (SGrabRule)rule, context);
       return;
     } else if (sEnum != null
          && rule != null) {
-      _processType(sEnum, rule, context);
+      _processTypeWithRule(sEnum, rule, context);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(sEnum, rule, context).toString());
+    }
+  }
+  
+  public void processFeatureWithRule(final SComplexType container, final SFeature sFeature, final SDeductionRule rule, final TransformationContext context) {
+    if (rule instanceof SMorphRule) {
+      _processFeatureWithRule(container, sFeature, (SMorphRule)rule, context);
+      return;
+    } else if (rule instanceof SDitchRule) {
+      _processFeatureWithRule(container, sFeature, (SDitchRule)rule, context);
+      return;
+    } else if (rule instanceof SGrabRule) {
+      _processFeatureWithRule(container, sFeature, (SGrabRule)rule, context);
+      return;
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(container, sFeature, rule, context).toString());
+    }
+  }
+  
+  public void processQueryParameterWithRule(final SQuery container, final SQueryParameter sParameter, final SDeductionRule rule, final TransformationContext context) {
+    if (rule instanceof SMorphRule) {
+      _processQueryParameterWithRule(container, sParameter, (SMorphRule)rule, context);
+      return;
+    } else if (rule instanceof SDitchRule) {
+      _processQueryParameterWithRule(container, sParameter, (SDitchRule)rule, context);
+      return;
+    } else if (rule instanceof SGrabRule) {
+      _processQueryParameterWithRule(container, sParameter, (SGrabRule)rule, context);
+      return;
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(container, sParameter, rule, context).toString());
     }
   }
 }

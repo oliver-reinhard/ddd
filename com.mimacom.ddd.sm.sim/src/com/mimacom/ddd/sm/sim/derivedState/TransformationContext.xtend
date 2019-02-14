@@ -72,6 +72,9 @@ class TransformationContext {
 		}
 	}
 	
+	/*
+	 * @return  null if no SType is found for DType.
+	 */
 	def SType getSType(DType dType)  {
 		var sPrimitive = localDTypeToSTypeMap.get(dType)
 		if (sPrimitive === null) {
