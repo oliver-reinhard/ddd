@@ -7,6 +7,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="INamespace" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="DNamedElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aliases" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//DRichText"
         containment="true"/>
   </eClassifiers>

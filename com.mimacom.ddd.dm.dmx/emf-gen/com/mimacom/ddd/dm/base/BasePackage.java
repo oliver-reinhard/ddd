@@ -191,13 +191,22 @@ public interface BasePackage extends EPackage
 	int DNAMED_ELEMENT__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DNAMED_ELEMENT__ALIASES = 1;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DNAMED_ELEMENT__DESCRIPTION = 1;
+	int DNAMED_ELEMENT__DESCRIPTION = 2;
 
 	/**
 	 * The number of structural features of the '<em>DNamed Element</em>' class.
@@ -206,7 +215,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNAMED_ELEMENT_FEATURE_COUNT = 2;
+	int DNAMED_ELEMENT_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>DNamed Element</em>' class.
@@ -235,6 +244,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DTYPED_MEMBER__NAME = DNAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTYPED_MEMBER__ALIASES = DNAMED_ELEMENT__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -345,6 +363,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int IPRIMARY_NAVIGATION_TARGET__NAME = DNAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IPRIMARY_NAVIGATION_TARGET__ALIASES = DNAMED_ELEMENT__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -495,6 +522,15 @@ public interface BasePackage extends EPackage
 	int DDOMAIN__NAME = DNAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DDOMAIN__ALIASES = DNAMED_ELEMENT__ALIASES;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -639,6 +675,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DFUNCTION__NAME = DTYPED_MEMBER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DFUNCTION__ALIASES = DTYPED_MEMBER__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -796,6 +841,15 @@ public interface BasePackage extends EPackage
 	int DTYPE__NAME = DNAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTYPE__ALIASES = DNAMED_ELEMENT__ALIASES;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -860,6 +914,15 @@ public interface BasePackage extends EPackage
 	int DCONDITION__NAME = DNAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCONDITION__ALIASES = DNAMED_ELEMENT__ALIASES;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -913,6 +976,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DSIMPLE_TYPE__NAME = DTYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSIMPLE_TYPE__ALIASES = DTYPE__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -977,6 +1049,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DPRIMITIVE__NAME = DSIMPLE_TYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DPRIMITIVE__ALIASES = DSIMPLE_TYPE__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1061,6 +1142,15 @@ public interface BasePackage extends EPackage
 	int DENUMERATION__NAME = DSIMPLE_TYPE__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DENUMERATION__ALIASES = DSIMPLE_TYPE__ALIASES;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1132,6 +1222,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DLITERAL__NAME = DTYPED_MEMBER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DLITERAL__ALIASES = DTYPED_MEMBER__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1214,6 +1313,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DCOMPLEX_TYPE__NAME = DTYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCOMPLEX_TYPE__ALIASES = DTYPE__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1307,6 +1415,15 @@ public interface BasePackage extends EPackage
 	int DIDENTITY_TYPE__NAME = DCOMPLEX_TYPE__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIDENTITY_TYPE__ALIASES = DCOMPLEX_TYPE__ALIASES;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1396,6 +1513,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DDETAIL_TYPE__NAME = DCOMPLEX_TYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DDETAIL_TYPE__ALIASES = DCOMPLEX_TYPE__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1489,6 +1615,15 @@ public interface BasePackage extends EPackage
 	int DROOT_TYPE__NAME = DIDENTITY_TYPE__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROOT_TYPE__ALIASES = DIDENTITY_TYPE__ALIASES;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1578,6 +1713,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DRELATIONSHIP__NAME = DIDENTITY_TYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DRELATIONSHIP__ALIASES = DIDENTITY_TYPE__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1671,6 +1815,15 @@ public interface BasePackage extends EPackage
 	int DFEATURE__NAME = DTYPED_MEMBER__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DFEATURE__ALIASES = DTYPED_MEMBER__ALIASES;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1751,6 +1904,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DASSOCIATION__NAME = DFEATURE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DASSOCIATION__ALIASES = DFEATURE__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1917,6 +2079,15 @@ public interface BasePackage extends EPackage
 	int DATTRIBUTE__NAME = DFEATURE__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATTRIBUTE__ALIASES = DFEATURE__ALIASES;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2015,6 +2186,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DQUERY__NAME = DFEATURE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DQUERY__ALIASES = DFEATURE__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2117,6 +2297,15 @@ public interface BasePackage extends EPackage
 	int DQUERY_PARAMETER__NAME = DTYPED_MEMBER__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DQUERY_PARAMETER__ALIASES = DTYPED_MEMBER__ALIASES;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2197,6 +2386,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DDOMAIN_EVENT__NAME = DNAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DDOMAIN_EVENT__ALIASES = DNAMED_ELEMENT__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2290,6 +2488,15 @@ public interface BasePackage extends EPackage
 	int DCONTEXT__NAME = DTYPED_MEMBER__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCONTEXT__ALIASES = DTYPED_MEMBER__ALIASES;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2370,6 +2577,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DNOTIFICATION__NAME = DTYPED_MEMBER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DNOTIFICATION__ALIASES = DTYPED_MEMBER__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2463,6 +2679,15 @@ public interface BasePackage extends EPackage
 	int DACTOR__NAME = DNAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DACTOR__ALIASES = DNAMED_ELEMENT__ALIASES;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2509,6 +2734,15 @@ public interface BasePackage extends EPackage
 	int DHUMAN__NAME = DACTOR__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DHUMAN__ALIASES = DACTOR__ALIASES;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2553,6 +2787,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DSERVICE__NAME = DACTOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSERVICE__ALIASES = DACTOR__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2655,6 +2898,15 @@ public interface BasePackage extends EPackage
 	int DSERVICE_PARAMETER__NAME = DTYPED_MEMBER__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSERVICE_PARAMETER__ALIASES = DTYPED_MEMBER__ALIASES;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2746,6 +2998,15 @@ public interface BasePackage extends EPackage
 	int DTIME__NAME = DACTOR__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTIME__ALIASES = DACTOR__ALIASES;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2790,6 +3051,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DEXISTING_APPLICATION__NAME = DNAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEXISTING_APPLICATION__ALIASES = DNAMED_ELEMENT__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2863,6 +3133,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DEXCEPTION__NAME = DNAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEXCEPTION__ALIASES = DNAMED_ELEMENT__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2982,6 +3261,17 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EAttribute getDNamedElement_Name();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link com.mimacom.ddd.dm.base.DNamedElement#getAliases <em>Aliases</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Aliases</em>'.
+	 * @see com.mimacom.ddd.dm.base.DNamedElement#getAliases()
+	 * @see #getDNamedElement()
+	 * @generated
+	 */
+	EAttribute getDNamedElement_Aliases();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.DNamedElement#getDescription <em>Description</em>}'.
@@ -4068,6 +4358,14 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EAttribute DNAMED_ELEMENT__NAME = eINSTANCE.getDNamedElement_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Aliases</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DNAMED_ELEMENT__ALIASES = eINSTANCE.getDNamedElement_Aliases();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' containment reference feature.

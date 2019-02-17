@@ -184,7 +184,7 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *     DCondition returns DCondition
 	 *
 	 * Constraint:
-	 *     (name=ID condition=DExpression description=DRichText?)
+	 *     (name=ID aliases+=ID* condition=DExpression description=DRichText?)
 	 */
 	protected void sequence_DCondition(ISerializationContext context, DCondition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -196,7 +196,7 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *     DContext returns DContext
 	 *
 	 * Constraint:
-	 *     (name=ID type=[DType|ID] multiplicity=DMultiplicity? description=DRichText?)
+	 *     (name=ID aliases+=ID* type=[DType|ID] multiplicity=DMultiplicity? description=DRichText?)
 	 */
 	protected void sequence_DContext(ISerializationContext context, DContext semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -210,6 +210,7 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=ID 
+	 *         aliases+=ID* 
 	 *         description=DRichText? 
 	 *         context+=DContext+ 
 	 *         trigger=[DActor|ID] 
@@ -228,7 +229,7 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *     DDomain returns DDomain
 	 *
 	 * Constraint:
-	 *     (name=ID description=DRichText? imports+=DImport* (events+=DDomainEvent | actors+=DActor)*)
+	 *     (name=DQualifiedName aliases+=ID* description=DRichText? imports+=DImport* (events+=DDomainEvent | actors+=DActor)*)
 	 */
 	protected void sequence_DDomain(ISerializationContext context, DDomain semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -241,7 +242,7 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *     DHuman returns DHuman
 	 *
 	 * Constraint:
-	 *     (name=ID description=DRichText?)
+	 *     (name=ID aliases+=ID* description=DRichText?)
 	 */
 	protected void sequence_DHuman(ISerializationContext context, DHuman semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -271,7 +272,14 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *     DNotification returns DNotification
 	 *
 	 * Constraint:
-	 *     (name=ID type=[DType|ID] multiplicity=DMultiplicity? notified=[DActor|ID] description=DRichText?)
+	 *     (
+	 *         name=ID 
+	 *         aliases+=ID* 
+	 *         type=[DType|ID] 
+	 *         multiplicity=DMultiplicity? 
+	 *         notified=[DActor|ID] 
+	 *         description=DRichText?
+	 *     )
 	 */
 	protected void sequence_DNotification(ISerializationContext context, DNotification semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -284,7 +292,7 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *     DTime returns DTime
 	 *
 	 * Constraint:
-	 *     (name=ID description=DRichText?)
+	 *     (name=ID aliases+=ID* description=DRichText?)
 	 */
 	protected void sequence_DTime(ISerializationContext context, DTime semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -5,9 +5,6 @@ package com.mimacom.ddd.dm.dmx
 
 import com.mimacom.ddd.dm.dmx.parsing.DmxValueConverters
 import org.eclipse.xtext.conversion.IValueConverterService
-import com.google.inject.Binder
-import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
-import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.

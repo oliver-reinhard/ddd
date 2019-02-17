@@ -527,9 +527,20 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getDNamedElement_Aliases()
+	{
+		return (EAttribute)dNamedElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getDNamedElement_Description()
 	{
-		return (EReference)dNamedElementEClass.getEStructuralFeatures().get(1);
+		return (EReference)dNamedElementEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1607,6 +1618,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		dNamedElementEClass = createEClass(DNAMED_ELEMENT);
 		createEAttribute(dNamedElementEClass, DNAMED_ELEMENT__NAME);
+		createEAttribute(dNamedElementEClass, DNAMED_ELEMENT__ALIASES);
 		createEReference(dNamedElementEClass, DNAMED_ELEMENT__DESCRIPTION);
 
 		dTypedMemberEClass = createEClass(DTYPED_MEMBER);
@@ -1833,6 +1845,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		initEClass(dNamedElementEClass, DNamedElement.class, "DNamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDNamedElement_Aliases(), ecorePackage.getEString(), "aliases", null, 0, -1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDNamedElement_Description(), this.getDRichText(), null, "description", null, 0, 1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dTypedMemberEClass, DTypedMember.class, "DTypedMember", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

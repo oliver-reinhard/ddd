@@ -2,6 +2,8 @@
  */
 package com.mimacom.ddd.dm.base;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.DNamedElement#getName <em>Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DNamedElement#getAliases <em>Aliases</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DNamedElement#getDescription <em>Description</em>}</li>
  * </ul>
  *
@@ -48,6 +51,22 @@ public interface DNamedElement extends EObject
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Aliases</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Aliases</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Aliases</em>' attribute list.
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getDNamedElement_Aliases()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getAliases();
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.

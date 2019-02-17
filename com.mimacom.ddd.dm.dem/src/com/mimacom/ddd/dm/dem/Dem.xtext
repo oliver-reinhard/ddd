@@ -7,7 +7,8 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 DDomain:
 	'domain'
-	name=ID
+	name=DQualifiedName
+	('alias' aliases+=ID)*	
 	(description=DRichText)?
 	(imports+=DImport)*
 	(events+=DDomainEvent | actors+=DActor)*;
@@ -21,6 +22,7 @@ DImport:
 DDomainEvent:
 	'event'
 	name=ID
+	('alias' aliases+=ID)*
 	(description=DRichText)?
 	'{'
 		'context' (context+=DContext)+
@@ -32,20 +34,22 @@ DDomainEvent:
 	
 DCondition:
 	name=ID
+	('alias' aliases+=ID)*
 	':'
 	condition=DExpression
 	(description=DRichText)?;
 	
 DNotification:
 	name=ID
+	('alias' aliases+=ID)*
 	':'
 	type=[DType|ID]  (multiplicity=DMultiplicity)?
 	'sent' 'to' notified=[DActor|ID]
 	(description=DRichText)?;
 
 DContext:
-	
 	name=ID
+	('alias' aliases+=ID)*
 	':'
 	type=[DType|ID]  (multiplicity=DMultiplicity)?
 	(description=DRichText)?;
@@ -56,9 +60,11 @@ DActor:
 DHuman:
 	'human' 'actor'
 	name=ID
+	('alias' aliases+=ID)*
 	(description=DRichText)?;
 
 DTime:
 	'time' 'actor'
 	name=ID
+	('alias' aliases+=ID)*
 	(description=DRichText)?;
