@@ -31,6 +31,7 @@ import com.mimacom.ddd.sm.sim.SNamedElement;
 import com.mimacom.ddd.sm.sim.SQuery;
 import com.mimacom.ddd.sm.sim.SQueryParameter;
 import com.mimacom.ddd.sm.sim.SRootType;
+import com.mimacom.ddd.sm.sim.SSyntheticDeductionRule;
 import com.mimacom.ddd.sm.sim.SType;
 import com.mimacom.ddd.sm.sim.SValueType;
 import com.mimacom.ddd.sm.sim.SimPackage;
@@ -118,7 +119,8 @@ public class SimValidator extends AbstractSimValidator {
     boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
     if (_equals) {
       if (((t.getDeductionRule().getSource() != null) && (!(t.getDeductionRule().getSource() instanceof DRootType)))) {
-        this.error("Deduced RootType rule must have a domain-model RootType as its source", t.getDeductionRule(), SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+        this.error("Deduced RootType rule must have a domain-model RootType as its source", t.getDeductionRule(), 
+          SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
     }
   }
@@ -129,7 +131,8 @@ public class SimValidator extends AbstractSimValidator {
     boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
     if (_equals) {
       if (((t.getDeductionRule().getSource() != null) && (!(t.getDeductionRule().getSource() instanceof DDetailType)))) {
-        this.error("Deduced DetailType rule must have a domain-model DetailType as its source", t.getDeductionRule(), SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+        this.error("Deduced DetailType rule must have a domain-model DetailType as its source", t.getDeductionRule(), 
+          SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
     }
   }
@@ -152,7 +155,8 @@ public class SimValidator extends AbstractSimValidator {
         };
         final boolean hasGrabElements = IterableExtensions.<SFeature>exists(type.getFeatures(), _function_1);
         if ((hasDitchElements && hasGrabElements)) {
-          this.error("Cannot use both grab rule and ditch rules together.", type.getDeductionRule(), SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+          this.error("Cannot use both grab rule and ditch rules together.", type.getDeductionRule(), 
+            SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
         }
       }
     }
@@ -168,7 +172,8 @@ public class SimValidator extends AbstractSimValidator {
       SElementNature _nature_1 = container.getNature();
       boolean _notEquals = (!Objects.equal(_nature_1, SElementNature.DEDUCTION_RULE));
       if (_notEquals) {
-        this.error("Features can only have deduction rule if the containing type also has a deduction rule.", feature.getDeductionRule(), SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+        this.error("Features can only have deduction rule if the containing type also has a deduction rule.", feature.getDeductionRule(), 
+          SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
     }
   }
@@ -179,7 +184,8 @@ public class SimValidator extends AbstractSimValidator {
     boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
     if (_equals) {
       if (((a.getDeductionRule().getSource() != null) && (!(a.getDeductionRule().getSource() instanceof DAttribute)))) {
-        this.error("Deduced attribute rule must have a domain-model attribute as its source", a.getDeductionRule(), SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+        this.error("Deduced attribute rule must have a domain-model attribute as its source", a.getDeductionRule(), 
+          SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
     }
   }
@@ -190,7 +196,8 @@ public class SimValidator extends AbstractSimValidator {
     boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
     if (_equals) {
       if (((q.getDeductionRule().getSource() != null) && (!(q.getDeductionRule().getSource() instanceof DQuery)))) {
-        this.error("Deduced query rule must have a domain-model attribute as its source", q.getDeductionRule(), SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+        this.error("Deduced query rule must have a domain-model attribute as its source", q.getDeductionRule(), 
+          SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
     }
   }
@@ -201,7 +208,8 @@ public class SimValidator extends AbstractSimValidator {
     boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
     if (_equals) {
       if (((a.getDeductionRule().getSource() != null) && (!(a.getDeductionRule().getSource() instanceof DAssociation)))) {
-        this.error("Deduced association rule must have a domain-model attribute as its source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+        this.error("Deduced association rule must have a domain-model attribute as its source", 
+          SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
     }
   }
@@ -216,7 +224,8 @@ public class SimValidator extends AbstractSimValidator {
       SElementNature _nature_1 = container.getNature();
       boolean _notEquals = (!Objects.equal(_nature_1, SElementNature.DEDUCTION_RULE));
       if (_notEquals) {
-        this.error("Literals can only have deduction rule if the containing enumeration also has a deduction rule.", literal.getDeductionRule(), SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+        this.error("Literals can only have deduction rule if the containing enumeration also has a deduction rule.", 
+          literal.getDeductionRule(), SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
     }
   }
@@ -245,7 +254,7 @@ public class SimValidator extends AbstractSimValidator {
           String _name = a.getName();
           String _plus = ("Synthetic attribute \"" + _name);
           String _plus_1 = (_plus + "\": no mapping rule for type");
-          this.errorOnSyntheticFeature(((SComplexType) _eContainer), _plus_1);
+          this.errorOnSyntheticElement(((SComplexType) _eContainer), _plus_1);
         } else {
           SType _type_1 = a.getType();
           boolean _not = (!(_type_1 instanceof SValueType));
@@ -254,7 +263,7 @@ public class SimValidator extends AbstractSimValidator {
             String _name_1 = a.getName();
             String _plus_2 = ("Synthetic attribute \"" + _name_1);
             String _plus_3 = (_plus_2 + "\": referenced type is not a ValueType");
-            this.errorOnSyntheticFeature(((SComplexType) _eContainer_1), _plus_3);
+            this.errorOnSyntheticElement(((SComplexType) _eContainer_1), _plus_3);
           }
         }
       }
@@ -272,43 +281,59 @@ public class SimValidator extends AbstractSimValidator {
         SType _type = a.getType();
         boolean _tripleEquals = (_type == null);
         if (_tripleEquals) {
-          EObject _eContainer = a.eContainer();
           String _name = a.getName();
           String _plus = ("Synthetic reference \"" + _name);
           String _plus_1 = (_plus + "\": no mapping rule for type");
-          this.errorOnSyntheticFeature(((SComplexType) _eContainer), _plus_1);
+          this.errorOnSyntheticElement(a, _plus_1);
         } else {
           SType _type_1 = a.getType();
           boolean _not = (!(_type_1 instanceof SValueType));
           if (_not) {
-            EObject _eContainer_1 = a.eContainer();
             String _name_1 = a.getName();
             String _plus_2 = ("Synthetic reference \"" + _name_1);
             String _plus_3 = (_plus_2 + "\": referenced type is not a RootType");
-            this.errorOnSyntheticFeature(((SComplexType) _eContainer_1), _plus_3);
+            this.errorOnSyntheticElement(a, _plus_3);
           }
         }
       }
     }
   }
   
-  public void errorOnSyntheticFeature(final SDeducibleElement container, final String errorMsg) {
-    SElementNature _nature = container.getNature();
+  public void errorOnSyntheticElement(final SDeducibleElement e, final String errorMsg) {
+    SElementNature _nature = e.getNature();
     boolean _equals = Objects.equal(_nature, SElementNature.GENUINE);
     if (_equals) {
-      if ((container instanceof SNamedElement)) {
-        this.error(errorMsg, container, SimPackage.Literals.SNAMED_ELEMENT__NAME);
+      if ((e instanceof SNamedElement)) {
+        this.error(errorMsg, e, SimPackage.Literals.SNAMED_ELEMENT__NAME);
       } else {
-        this.error(errorMsg, container, null);
+        this.error(errorMsg, e, null);
       }
     } else {
-      SElementNature _nature_1 = container.getNature();
+      SElementNature _nature_1 = e.getNature();
       boolean _equals_1 = Objects.equal(_nature_1, SElementNature.DEDUCTION_RULE);
       if (_equals_1) {
-        this.error(errorMsg, container, SimPackage.Literals.SDEDUCIBLE_ELEMENT__DEDUCTION_RULE);
+        this.error(errorMsg, e, SimPackage.Literals.SDEDUCIBLE_ELEMENT__DEDUCTION_RULE);
       } else {
-        EObject _eContainer = container.eContainer();
-        this.errorOnSyntheticFeature(((SDeducibleElement) _eContainer), errorMsg);
+        final SDeductionRule rule = e.getDeductionRule();
+        if ((rule instanceof SSyntheticDeductionRule)) {
+          EObject _elementWithExplicitRule = ((SSyntheticDeductionRule)rule).getElementWithExplicitRule();
+          if ((_elementWithExplicitRule instanceof SNamedElement)) {
+            this.error(errorMsg, ((SSyntheticDeductionRule)rule).getElementWithExplicitRule(), SimPackage.Literals.SNAMED_ELEMENT__NAME);
+          } else {
+            this.error(errorMsg, ((SSyntheticDeductionRule)rule).getElementWithExplicitRule(), null);
+          }
+        } else {
+          final EObject container = e.eContainer();
+          if ((container instanceof SDeducibleElement)) {
+            this.errorOnSyntheticElement(((SDeducibleElement)container), errorMsg);
+          } else {
+            if ((container instanceof SNamedElement)) {
+              this.error(errorMsg, container, SimPackage.Literals.SNAMED_ELEMENT__NAME);
+            } else {
+              this.error(errorMsg, container, null);
+            }
+          }
+        }
       }
     }
   }
@@ -324,8 +349,34 @@ public class SimValidator extends AbstractSimValidator {
   
   @Check
   public void checkParameterIsValueType(final SQueryParameter p) {
-    if (((!Objects.equal(p.getNature(), SElementNature.DEDUCTION_RULE)) && (!((p.getType() instanceof SValueType) || Objects.equal(p.getType(), p.eContainer()))))) {
-      this.error("Refererenced type is not a ValueType nor the query\'s own container", p, SimPackage.Literals.SQUERY_PARAMETER__TYPE);
+    SElementNature _nature = p.getNature();
+    boolean _equals = Objects.equal(_nature, SElementNature.GENUINE);
+    if (_equals) {
+      boolean _not = (!((p.getType() instanceof SValueType) || Objects.equal(p.getType(), p.eContainer())));
+      if (_not) {
+        this.error("Refererenced query-parameter type is neither a ValueType nor the query\'s own container", p, SimPackage.Literals.SQUERY_PARAMETER__TYPE);
+      }
+    } else {
+      SElementNature _nature_1 = p.getNature();
+      boolean _equals_1 = Objects.equal(_nature_1, SElementNature.SYNTHETIC);
+      if (_equals_1) {
+        SType _type = p.getType();
+        boolean _tripleEquals = (_type == null);
+        if (_tripleEquals) {
+          String _name = p.getName();
+          String _plus = ("Synthetic query-parameter \"" + _name);
+          String _plus_1 = (_plus + "\": no mapping rule for type");
+          this.errorOnSyntheticElement(p, _plus_1);
+        } else {
+          boolean _not_1 = (!((p.getType() instanceof SValueType) || Objects.equal(p.getType(), p.eContainer())));
+          if (_not_1) {
+            String _name_1 = p.getName();
+            String _plus_2 = ("Synthetic query-parameter \"" + _name_1);
+            String _plus_3 = (_plus_2 + "\": type is neither a ValueType nor the query\'s own container");
+            this.errorOnSyntheticElement(p, _plus_3);
+          }
+        }
+      }
     }
   }
   

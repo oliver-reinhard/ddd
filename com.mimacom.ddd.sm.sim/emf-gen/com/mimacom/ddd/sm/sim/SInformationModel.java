@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getAggregates <em>Aggregates</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getGrabDomainRules <em>Grab Domain Rules</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.sm.sim.SimPackage#getSInformationModel()
@@ -158,5 +159,21 @@ public interface SInformationModel extends EObject
 	 * @generated
 	 */
 	EList<SAggregate> getAggregates();
+
+	/**
+	 * Returns the value of the '<em><b>Grab Domain Rules</b></em>' containment reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.sm.sim.SGrabDomainRule}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Grab Domain Rules</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Grab Domain Rules</em>' containment reference list.
+	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSInformationModel_GrabDomainRules()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<SGrabDomainRule> getGrabDomainRules();
 
 } // SInformationModel

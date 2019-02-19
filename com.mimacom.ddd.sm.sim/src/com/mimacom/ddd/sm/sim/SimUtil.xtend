@@ -111,11 +111,20 @@ class SimUtil {
 	def String label(SDeductionRule rule) {
 		return switch rule {
 			SMorphRule : "Morph "  + rule.namedSource?.name
-			SFuseRule:  "Fuse "  + rule.namedSource?.name + " and " + rule.source2?.name
+			SFuseRule:  "Fuse "  + rule.label
 			SGrabRule : "Grab "  + rule.namedSource?.name
 			SDitchRule : "Ditch "  + rule.namedSource?.name
 			SGrabAggregateRule: "Grab aggregate " + rule.aggregate?.rootName
 			default: rule.class.simpleName
 		}
+	}
+	
+	def String label(SFuseRule rule) {
+		val sb = new StringBuilder(rule.namedSource?.name)
+		for (s : rule.otherSources) {
+			sb.append(" and ")
+			sb.append(s.name)
+		}
+		return sb.toString
 	}
 }

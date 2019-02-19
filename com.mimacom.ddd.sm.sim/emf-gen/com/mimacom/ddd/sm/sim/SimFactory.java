@@ -249,6 +249,24 @@ public interface SimFactory extends EFactory
 	SGrabAggregateRule createSGrabAggregateRule();
 
 	/**
+	 * Returns a new object of class '<em>SGrab Domain Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>SGrab Domain Rule</em>'.
+	 * @generated
+	 */
+	SGrabDomainRule createSGrabDomainRule();
+
+	/**
+	 * Returns a new object of class '<em>SSynthetic Deduction Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>SSynthetic Deduction Rule</em>'.
+	 * @generated
+	 */
+	SSyntheticDeductionRule createSSyntheticDeductionRule();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

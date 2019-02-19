@@ -35,16 +35,17 @@ import org.eclipse.xtext.validation.Check
 
 import static com.mimacom.ddd.sm.sim.SElementNature.*
 import com.mimacom.ddd.sm.sim.SDeducibleElement
+import com.mimacom.ddd.sm.sim.SSyntheticDeductionRule
 
 /**
  * This class contains custom validation rules. 
- *
+ * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 class SimValidator extends AbstractSimValidator {
-	
+
 	@Inject extension SimUtil
-	
+
 	@Check
 	def checkAggregateHasSingleRoot(SAggregate a) {
 		val roots = a.types.filter(SRootType).filter[nature != DEDUCTION_RULE]
@@ -56,7 +57,6 @@ class SimValidator extends AbstractSimValidator {
 	}
 
 // Types: restrictions on features and supertypes
-
 	@Check
 	def checkCyclicTypeHierarchy(SComplexType t) {
 		if(t.typeHierarchy.contains(t)) {
@@ -90,82 +90,90 @@ class SimValidator extends AbstractSimValidator {
 
 	@Check
 	def checkCorrespondingDRootType(SRootType t) {
-		if (t.nature == DEDUCTION_RULE) {
-			if (t.deductionRule.source !== null && ! (t.deductionRule.source instanceof DRootType)) {
-					error("Deduced RootType rule must have a domain-model RootType as its source", t.deductionRule, SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+		if(t.nature == DEDUCTION_RULE) {
+			if(t.deductionRule.source !== null && ! (t.deductionRule.source instanceof DRootType)) {
+				error("Deduced RootType rule must have a domain-model RootType as its source", t.deductionRule,
+					SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
 		}
 	}
 
 	@Check
 	def checkCorrespondingDDetailType(SDetailType t) {
-		if (t.nature == DEDUCTION_RULE) {
-			if (t.deductionRule.source !== null && ! (t.deductionRule.source instanceof DDetailType)) {
-					error("Deduced DetailType rule must have a domain-model DetailType as its source", t.deductionRule, SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+		if(t.nature == DEDUCTION_RULE) {
+			if(t.deductionRule.source !== null && ! (t.deductionRule.source instanceof DDetailType)) {
+				error("Deduced DetailType rule must have a domain-model DetailType as its source", t.deductionRule,
+					SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
 		}
 	}
-	
+
 	@Check
 	def void checkDeducedFeaturesCombination(SComplexType type) {
-		if (type.nature == DEDUCTION_RULE) {
-			if (type.deductionRule instanceof SGrabRule) {
-				val hasDitchElements= type.features.exists[deductionRule instanceof SDitchRule]
-				val hasGrabElements= type.features.exists[deductionRule instanceof SGrabRule]
-				if ( hasDitchElements && hasGrabElements) {
-					error("Cannot use both grab rule and ditch rules together.", type.deductionRule, SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+		if(type.nature == DEDUCTION_RULE) {
+			if(type.deductionRule instanceof SGrabRule) {
+				val hasDitchElements = type.features.exists[deductionRule instanceof SDitchRule]
+				val hasGrabElements = type.features.exists[deductionRule instanceof SGrabRule]
+				if(hasDitchElements && hasGrabElements) {
+					error("Cannot use both grab rule and ditch rules together.", type.deductionRule,
+						SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 				}
 			}
-		} 
+		}
 	}
-	
+
 	@Check
 	def void checkHasDeducedContainer(SFeature feature) {
-		if (feature.nature == DEDUCTION_RULE) {
+		if(feature.nature == DEDUCTION_RULE) {
 			val container = feature.eContainer as SComplexType
-			if (container.nature != DEDUCTION_RULE) {
-				error("Features can only have deduction rule if the containing type also has a deduction rule.", feature.deductionRule, SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+			if(container.nature != DEDUCTION_RULE) {
+				error("Features can only have deduction rule if the containing type also has a deduction rule.", feature.deductionRule,
+					SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
 		}
 	}
 
 	@Check
 	def checkCorrespondingDAttributeType(SAttribute a) {
-		if (a.nature == DEDUCTION_RULE) {
-			if (a.deductionRule.source !== null && ! (a.deductionRule.source instanceof DAttribute)) {
-					error("Deduced attribute rule must have a domain-model attribute as its source", a.deductionRule, SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+		if(a.nature == DEDUCTION_RULE) {
+			if(a.deductionRule.source !== null && ! (a.deductionRule.source instanceof DAttribute)) {
+				error("Deduced attribute rule must have a domain-model attribute as its source", a.deductionRule,
+					SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
 		}
 	}
 
 	@Check
 	def checkCorrespondingDQueryType(SQuery q) {
-		if (q.nature == DEDUCTION_RULE) {
-			if (q.deductionRule.source !== null && ! (q.deductionRule.source instanceof DQuery)) {
-					error("Deduced query rule must have a domain-model attribute as its source", q.deductionRule, SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+		if(q.nature == DEDUCTION_RULE) {
+			if(q.deductionRule.source !== null && ! (q.deductionRule.source instanceof DQuery)) {
+				error("Deduced query rule must have a domain-model attribute as its source", q.deductionRule,
+					SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
 		}
 	}
 
 	@Check
 	def checkCorrespondingDAssociationType(SAssociation a) {
-		if (a.nature == DEDUCTION_RULE) {
-			if (a.deductionRule.source !== null && ! (a.deductionRule.source instanceof DAssociation)) {
-					error("Deduced association rule must have a domain-model attribute as its source", SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+		if(a.nature == DEDUCTION_RULE) {
+			if(a.deductionRule.source !== null && ! (a.deductionRule.source instanceof DAssociation)) {
+				error("Deduced association rule must have a domain-model attribute as its source",
+					SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
 		}
 	}
-	
+
 	@Check
 	def void checkHasDeducedEnumeration(SLiteral literal) {
-		if (literal.nature == DEDUCTION_RULE) {
+		if(literal.nature == DEDUCTION_RULE) {
 			val container = literal.eContainer as SEnumeration
-			if (container.nature != DEDUCTION_RULE) {
-				error("Literals can only have deduction rule if the containing enumeration also has a deduction rule.", literal.deductionRule, SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+			if(container.nature != DEDUCTION_RULE) {
+				error("Literals can only have deduction rule if the containing enumeration also has a deduction rule.",
+					literal.deductionRule, SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
 		}
 	}
-	
+
 	@Check
 	def checkEnumerationHasLiterals(SEnumeration e) {
 		if(e.literals.size == 0) {
@@ -175,64 +183,88 @@ class SimValidator extends AbstractSimValidator {
 
 	@Check
 	def checkAttributeIsValueType(SAttribute a) {
-		if (a.nature == GENUINE && ! (a.type instanceof SValueType)) {
+		if(a.nature == GENUINE && ! (a.type instanceof SValueType)) {
 			error('Referenced type is not a ValueType', a, SimPackage.Literals.SFEATURE__TYPE)
-		} else if (a.nature == SYNTHETIC) {
-			if (a.type === null) {
-				errorOnSyntheticFeature( a.eContainer as SComplexType, "Synthetic attribute \"" + a.name + "\": no mapping rule for type")
-			} else if ( ! (a.type instanceof SValueType)) {
-				errorOnSyntheticFeature( a.eContainer as SComplexType, "Synthetic attribute \"" + a.name + "\": referenced type is not a ValueType")
+		} else if(a.nature == SYNTHETIC) {
+			if(a.type === null) {
+				errorOnSyntheticElement(a.eContainer as SComplexType, "Synthetic attribute \"" + a.name + "\": no mapping rule for type")
+			} else if(! (a.type instanceof SValueType)) {
+				errorOnSyntheticElement(a.eContainer as SComplexType,
+					"Synthetic attribute \"" + a.name + "\": referenced type is not a ValueType")
 			}
-		} 
-	}
-
-	@Check
-	def checkAssocitionToRootType(SAssociation a) {
-		if (a.nature == GENUINE && ! (a.type instanceof SRootType)) {
-			error('Referenced type is not a RootType', a, SimPackage.Literals.SFEATURE__TYPE)
-		} else if (a.nature == SYNTHETIC) {
-			if (a.type === null) {
-				errorOnSyntheticFeature( a.eContainer as SComplexType, "Synthetic reference \"" + a.name + "\": no mapping rule for type")
-			} else if ( ! (a.type instanceof SValueType)) {
-				errorOnSyntheticFeature( a.eContainer as SComplexType, "Synthetic reference \"" + a.name + "\": referenced type is not a RootType")
-			}
-		} 
-	}
-	
-	def void errorOnSyntheticFeature(SDeducibleElement container, String errorMsg) {
-		if (container.nature == GENUINE) {
-			if (container instanceof SNamedElement) {
-				error(errorMsg, container, SimPackage.Literals.SNAMED_ELEMENT__NAME)
-			} else {
-				error(errorMsg, container, null)
-			}
-		} else if (container.nature == DEDUCTION_RULE) {
-			error(errorMsg, container, SimPackage.Literals.SDEDUCIBLE_ELEMENT__DEDUCTION_RULE)
-		} else { // synthetic
-			errorOnSyntheticFeature(container.eContainer as SDeducibleElement, errorMsg)
 		}
 	}
 
 	@Check
+	def checkAssocitionToRootType(SAssociation a) {
+		if(a.nature == GENUINE && ! (a.type instanceof SRootType)) {
+			error('Referenced type is not a RootType', a, SimPackage.Literals.SFEATURE__TYPE)
+		} else if(a.nature == SYNTHETIC) {
+			if(a.type === null) {
+				errorOnSyntheticElement(a, "Synthetic reference \"" + a.name + "\": no mapping rule for type")
+			} else if(! (a.type instanceof SValueType)) {
+				errorOnSyntheticElement(a, "Synthetic reference \"" + a.name + "\": referenced type is not a RootType")
+			}
+		}
+	}
+
+	def void errorOnSyntheticElement(SDeducibleElement e, String errorMsg) {
+		if(e.nature == GENUINE) {
+			if(e instanceof SNamedElement) {
+				error(errorMsg, e, SimPackage.Literals.SNAMED_ELEMENT__NAME)
+			} else {
+				error(errorMsg, e, null)
+			}
+		} else if(e.nature == DEDUCTION_RULE) {
+			error(errorMsg, e, SimPackage.Literals.SDEDUCIBLE_ELEMENT__DEDUCTION_RULE)
+		} else { // synthetic
+			val rule = e.deductionRule
+			if(rule instanceof SSyntheticDeductionRule) {
+				if(rule.elementWithExplicitRule instanceof SNamedElement) {
+					error(errorMsg, rule.elementWithExplicitRule, SimPackage.Literals.SNAMED_ELEMENT__NAME)
+				} else {
+					error(errorMsg, rule.elementWithExplicitRule, null)
+				}
+			} else {
+				val container = e.eContainer
+				if(container instanceof SDeducibleElement) {
+					errorOnSyntheticElement(container, errorMsg) // recursion
+				} else if(container instanceof SNamedElement) {
+					error(errorMsg, container, SimPackage.Literals.SNAMED_ELEMENT__NAME)
+				} else {
+					error(errorMsg, container, null)
+				}
+			}
+		}
+	}
+
+@Check
 	def checkAssociationMultiplicities(SMultiplicity m) {
-		if(m.maxOccurs == 0) {
+		if (m.maxOccurs == 0) {
 			error('Maximum targets cannot be 0', m, SimPackage.Literals.SMULTIPLICITY__MAX_OCCURS)
 		}
 	}
 
 // // Parameters: restrictions on their types
-	@Check
+@Check
 	def checkParameterIsValueType(SQueryParameter p) {
-		if (p.nature != DEDUCTION_RULE && ! (p.type instanceof SValueType || p.type == p.eContainer)) {
-			error('Refererenced type is not a ValueType nor the query\'s own container', p,SimPackage.Literals.SQUERY_PARAMETER__TYPE)
+		if (p.nature == GENUINE) {
+			if (! (p.type instanceof SValueType || p.type == p.eContainer)) {
+				error('Refererenced query-parameter type is neither a ValueType nor the query\'s own container', p, SimPackage.Literals.SQUERY_PARAMETER__TYPE)
+			}
+		} else if (p.nature == SYNTHETIC) {
+			if (p.type === null) {
+				errorOnSyntheticElement(p, "Synthetic query-parameter \"" + p.name + "\": no mapping rule for type")
+			} else if (! (p.type instanceof SValueType || p.type == p.eContainer)) {
+				errorOnSyntheticElement(p, "Synthetic query-parameter \"" + p.name + "\": type is neither a ValueType nor the query\'s own container")
+			}
 		}
 	}
-	
 
 	// // Naming: Elements whose names should start with a CAPITAL
 	def void checkNameStartsWithCapital(SNamedElement ne) {
 		val name = ne.name
-		if(name !== null && name.length > 0 && !Character::isUpperCase(name.charAt(0))) {
+		if (name !== null && name.length > 0 && !Character::isUpperCase(name.charAt(0))) {
 			warning("Name should start with a capital", ne, SimPackage.Literals.SNAMED_ELEMENT__NAME)
 		}
 	}
@@ -244,13 +276,12 @@ class SimValidator extends AbstractSimValidator {
 //		}
 //		checkNameStartsWithCapital(d)
 //	}
-
-	@Check
+@Check
 	def void checkTypeNameStartsWithCapital(SType t) {
 		checkNameStartsWithCapital(t)
 	}
 
-	@Check
+@Check
 	def void checkTypeNameStartsWithCapital(SCondition c) {
 		checkNameStartsWithCapital(c)
 	}
@@ -259,29 +290,27 @@ class SimValidator extends AbstractSimValidator {
 	def void checkNameStartsWithLowercase(SNamedElement ne) {
 		val first = ne.getName().charAt(0)
 		val char underscore = '_'
-		if(!Character::isLowerCase(first) && first !== underscore) {
+		if (!Character::isLowerCase(first) && first !== underscore) {
 			warning("Name should start with a lowercase or underscore", SimPackage.Literals.SNAMED_ELEMENT__NAME)
 		}
 	}
 
-	@Check
+@Check
 	def void checkFeatureNameStartsWithLowercase(SFeature f) {
 		checkNameStartsWithLowercase(f)
 	}
 
-	@Check
+@Check
 	def void checkFeatureNameStartsWithLowercase(SQueryParameter p) {
 		checkNameStartsWithLowercase(p)
 	}
 
 // // Naming: Elements whose names should be ALL UPPERCASE
-	@Check def void checkLiteralIsUppercase(SLiteral literal) {
-		if(! literal.name.equals(literal.name.toUpperCase)) {
+@Check def void checkLiteralIsUppercase(SLiteral literal) {
+		if (! literal.name.equals(literal.name.toUpperCase)) {
 			warning("Name should be all upercase", SimPackage.Literals.SNAMED_ELEMENT__NAME)
 		}
 	}
-	
-	
-	// - only 1 SPrimitive can realize a given DPrimitive
-	
+
+// - only 1 SPrimitive can realize a given DPrimitive
 }

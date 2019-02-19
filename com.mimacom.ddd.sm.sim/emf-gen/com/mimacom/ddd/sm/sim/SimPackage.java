@@ -161,13 +161,22 @@ public interface SimPackage extends EPackage
 	int SINFORMATION_MODEL__AGGREGATES = 5;
 
 	/**
+	 * The feature id for the '<em><b>Grab Domain Rules</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINFORMATION_MODEL__GRAB_DOMAIN_RULES = 6;
+
+	/**
 	 * The number of structural features of the '<em>SInformation Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL_FEATURE_COUNT = 6;
+	int SINFORMATION_MODEL_FEATURE_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SNamedElementImpl <em>SNamed Element</em>}' class.
@@ -1744,13 +1753,13 @@ public interface SimPackage extends EPackage
 	int SFUSE_RULE__RENAME_TO = SGRAB_RULE__RENAME_TO;
 
 	/**
-	 * The feature id for the '<em><b>Source2</b></em>' reference.
+	 * The feature id for the '<em><b>Other Sources</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SFUSE_RULE__SOURCE2 = SGRAB_RULE_FEATURE_COUNT + 0;
+	int SFUSE_RULE__OTHER_SOURCES = SGRAB_RULE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Extend From</b></em>' reference.
@@ -1817,6 +1826,98 @@ public interface SimPackage extends EPackage
 	int SGRAB_AGGREGATE_RULE_FEATURE_COUNT = SDEDUCTION_RULE_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SGrabDomainRuleImpl <em>SGrab Domain Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sim.impl.SGrabDomainRuleImpl
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabDomainRule()
+	 * @generated
+	 */
+	int SGRAB_DOMAIN_RULE = 30;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SGRAB_DOMAIN_RULE__SOURCE = SDEDUCTION_RULE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Named Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SGRAB_DOMAIN_RULE__NAMED_SOURCE = SDEDUCTION_RULE__NAMED_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Domain</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SGRAB_DOMAIN_RULE__DOMAIN = SDEDUCTION_RULE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>SGrab Domain Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SGRAB_DOMAIN_RULE_FEATURE_COUNT = SDEDUCTION_RULE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SSyntheticDeductionRuleImpl <em>SSynthetic Deduction Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sim.impl.SSyntheticDeductionRuleImpl
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSSyntheticDeductionRule()
+	 * @generated
+	 */
+	int SSYNTHETIC_DEDUCTION_RULE = 31;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSYNTHETIC_DEDUCTION_RULE__SOURCE = SDEDUCTION_RULE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Named Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSYNTHETIC_DEDUCTION_RULE__NAMED_SOURCE = SDEDUCTION_RULE__NAMED_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Element With Explicit Rule</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_EXPLICIT_RULE = SDEDUCTION_RULE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>SSynthetic Deduction Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSYNTHETIC_DEDUCTION_RULE_FEATURE_COUNT = SDEDUCTION_RULE_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.SInformationModelKind <em>SInformation Model Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1824,7 +1925,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSInformationModelKind()
 	 * @generated
 	 */
-	int SINFORMATION_MODEL_KIND = 30;
+	int SINFORMATION_MODEL_KIND = 32;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.SElementNature <em>SElement Nature</em>}' enum.
@@ -1834,7 +1935,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSElementNature()
 	 * @generated
 	 */
-	int SELEMENT_NATURE = 31;
+	int SELEMENT_NATURE = 33;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.SAssociationKind <em>SAssociation Kind</em>}' enum.
@@ -1844,7 +1945,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAssociationKind()
 	 * @generated
 	 */
-	int SASSOCIATION_KIND = 32;
+	int SASSOCIATION_KIND = 34;
 
 
 	/**
@@ -1942,6 +2043,17 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 */
 	EReference getSInformationModel_Aggregates();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sim.SInformationModel#getGrabDomainRules <em>Grab Domain Rules</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Grab Domain Rules</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SInformationModel#getGrabDomainRules()
+	 * @see #getSInformationModel()
+	 * @generated
+	 */
+	EReference getSInformationModel_GrabDomainRules();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SNamedElement <em>SNamed Element</em>}'.
@@ -2589,15 +2701,15 @@ public interface SimPackage extends EPackage
 	EClass getSFuseRule();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SFuseRule#getSource2 <em>Source2</em>}'.
+	 * Returns the meta object for the reference list '{@link com.mimacom.ddd.sm.sim.SFuseRule#getOtherSources <em>Other Sources</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source2</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SFuseRule#getSource2()
+	 * @return the meta object for the reference list '<em>Other Sources</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SFuseRule#getOtherSources()
 	 * @see #getSFuseRule()
 	 * @generated
 	 */
-	EReference getSFuseRule_Source2();
+	EReference getSFuseRule_OtherSources();
 
 	/**
 	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SFuseRule#getExtendFrom <em>Extend From</em>}'.
@@ -2630,6 +2742,48 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 */
 	EReference getSGrabAggregateRule_Aggregate();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SGrabDomainRule <em>SGrab Domain Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SGrab Domain Rule</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SGrabDomainRule
+	 * @generated
+	 */
+	EClass getSGrabDomainRule();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SGrabDomainRule#getDomain <em>Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Domain</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SGrabDomainRule#getDomain()
+	 * @see #getSGrabDomainRule()
+	 * @generated
+	 */
+	EReference getSGrabDomainRule_Domain();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SSyntheticDeductionRule <em>SSynthetic Deduction Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SSynthetic Deduction Rule</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SSyntheticDeductionRule
+	 * @generated
+	 */
+	EClass getSSyntheticDeductionRule();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SSyntheticDeductionRule#getElementWithExplicitRule <em>Element With Explicit Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Element With Explicit Rule</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SSyntheticDeductionRule#getElementWithExplicitRule()
+	 * @see #getSSyntheticDeductionRule()
+	 * @generated
+	 */
+	EReference getSSyntheticDeductionRule_ElementWithExplicitRule();
 
 	/**
 	 * Returns the meta object for enum '{@link com.mimacom.ddd.sm.sim.SInformationModelKind <em>SInformation Model Kind</em>}'.
@@ -2761,6 +2915,14 @@ public interface SimPackage extends EPackage
 		 * @generated
 		 */
 		EReference SINFORMATION_MODEL__AGGREGATES = eINSTANCE.getSInformationModel_Aggregates();
+
+		/**
+		 * The meta object literal for the '<em><b>Grab Domain Rules</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINFORMATION_MODEL__GRAB_DOMAIN_RULES = eINSTANCE.getSInformationModel_GrabDomainRules();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SNamedElementImpl <em>SNamed Element</em>}' class.
@@ -3303,12 +3465,12 @@ public interface SimPackage extends EPackage
 		EClass SFUSE_RULE = eINSTANCE.getSFuseRule();
 
 		/**
-		 * The meta object literal for the '<em><b>Source2</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Other Sources</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SFUSE_RULE__SOURCE2 = eINSTANCE.getSFuseRule_Source2();
+		EReference SFUSE_RULE__OTHER_SOURCES = eINSTANCE.getSFuseRule_OtherSources();
 
 		/**
 		 * The meta object literal for the '<em><b>Extend From</b></em>' reference feature.
@@ -3335,6 +3497,42 @@ public interface SimPackage extends EPackage
 		 * @generated
 		 */
 		EReference SGRAB_AGGREGATE_RULE__AGGREGATE = eINSTANCE.getSGrabAggregateRule_Aggregate();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SGrabDomainRuleImpl <em>SGrab Domain Rule</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sim.impl.SGrabDomainRuleImpl
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabDomainRule()
+		 * @generated
+		 */
+		EClass SGRAB_DOMAIN_RULE = eINSTANCE.getSGrabDomainRule();
+
+		/**
+		 * The meta object literal for the '<em><b>Domain</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SGRAB_DOMAIN_RULE__DOMAIN = eINSTANCE.getSGrabDomainRule_Domain();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SSyntheticDeductionRuleImpl <em>SSynthetic Deduction Rule</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sim.impl.SSyntheticDeductionRuleImpl
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSSyntheticDeductionRule()
+		 * @generated
+		 */
+		EClass SSYNTHETIC_DEDUCTION_RULE = eINSTANCE.getSSyntheticDeductionRule();
+
+		/**
+		 * The meta object literal for the '<em><b>Element With Explicit Rule</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_EXPLICIT_RULE = eINSTANCE.getSSyntheticDeductionRule_ElementWithExplicitRule();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.SInformationModelKind <em>SInformation Model Kind</em>}' enum.

@@ -91,6 +91,8 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 			case SimPackage.SDITCH_RULE: return createSDitchRule();
 			case SimPackage.SFUSE_RULE: return createSFuseRule();
 			case SimPackage.SGRAB_AGGREGATE_RULE: return createSGrabAggregateRule();
+			case SimPackage.SGRAB_DOMAIN_RULE: return createSGrabDomainRule();
+			case SimPackage.SSYNTHETIC_DEDUCTION_RULE: return createSSyntheticDeductionRule();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -436,6 +438,30 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	{
 		SGrabAggregateRuleImplCustom sGrabAggregateRule = new SGrabAggregateRuleImplCustom();
 		return sGrabAggregateRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SGrabDomainRule createSGrabDomainRule()
+	{
+		SGrabDomainRuleImpl sGrabDomainRule = new SGrabDomainRuleImpl();
+		return sGrabDomainRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SSyntheticDeductionRule createSSyntheticDeductionRule()
+	{
+		SSyntheticDeductionRuleImpl sSyntheticDeductionRule = new SSyntheticDeductionRuleImpl();
+		return sSyntheticDeductionRule;
 	}
 
 	/**

@@ -2,9 +2,7 @@ package com.mimacom.ddd.sm.sim.derivedState
 
 import com.google.common.collect.Maps
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DType
-import com.mimacom.ddd.sm.sim.SPrimitive
 import com.mimacom.ddd.sm.sim.SType
 import com.mimacom.ddd.sm.sim.indexing.SimIndex
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy
@@ -24,11 +22,11 @@ class TransformationContext {
 		this.resource = resource
 		localDTypeToSTypeMap = Maps.newHashMap()
 		importedDTypeToSTypeMap = Maps.newHashMap()
-		initializeLocallyMappedDTypes()
-		initializeImportedMappedDTypes() 
+//		initializeLocallyMappedDTypes()
+		initializeImportedMappedDTypesFromIndex() 
 	}
 	
-	def void initializeImportedMappedDTypes() {
+	def void initializeImportedMappedDTypesFromIndex() {
 		val model = resource.contents.head
 		val deducedSTypeDescriptions = index.getVisibleExternalDeducedSTypes(model)
 		val dTypeDescriptionsMap = index.getVisibleDTypeDescriptionsMap(model)
@@ -56,19 +54,19 @@ class TransformationContext {
 	 * Crates a new map and adds those primitives of the resource to the map that realize DPrimitives.
 	 */
 	def void initializeLocallyMappedDTypes() {
-		val contibutors = resource.allContents.filter(SPrimitive).filter[deductionRule?.source !== null]
-		while(contibutors.hasNext) {
-			val sPrimitive = contibutors.next
-			if (sPrimitive.archetype && sPrimitive.deductionRule.source instanceof DPrimitive) {
-				putSType(sPrimitive.deductionRule.source as DPrimitive, sPrimitive)
-			}
-		}
+//		val contibutors = resource.allContents.filter(SPrimitive).filter[deductionRule?.source !== null]
+//		while(contibutors.hasNext) {
+//			val sPrimitive = contibutors.next
+//			if (sPrimitive.archetype && sPrimitive.deductionRule.source instanceof DPrimitive) {
+//				putSType(sPrimitive.deductionRule.source as DPrimitive, sPrimitive)
+//			}
+//		}
 	}
 	
 	def putSType(DType dType, SType sType) {
 		val previousS = localDTypeToSTypeMap.put(dType, sType)
 		if (previousS !== null) {
-			throw new IllegalStateException("There are two STypes realizing DType \"" + dType.name + "\"") // TODO remove => log  or create error marker
+			throw new IllegalStateException("There are two STypes realizing DType \"" + dType.name + "\" as \"" + sType.name + "\" and as \"" + previousS + "\"") // TODO remove => log  or create error marker
 		}
 	}
 	

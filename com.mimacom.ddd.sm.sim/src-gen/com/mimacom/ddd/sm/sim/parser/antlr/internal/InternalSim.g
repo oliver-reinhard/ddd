@@ -196,6 +196,26 @@ ruleSInformationModel returns [EObject current=null]
 					}
 				)
 			)
+			    |
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSInformationModelAccess().getGrabDomainRulesSGrabDomainRuleParserRuleCall_6_2_0());
+					}
+					lv_grabDomainRules_8_0=ruleSGrabDomainRule
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSInformationModelRule());
+						}
+						add(
+							$current,
+							"grabDomainRules",
+							lv_grabDomainRules_8_0,
+							"com.mimacom.ddd.sm.sim.Sim.SGrabDomainRule");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 		)*
 	)
 ;
@@ -235,6 +255,49 @@ ruleSImport returns [EObject current=null]
 						"importedNamespace",
 						lv_importedNamespace_1_0,
 						"com.mimacom.ddd.sm.sim.Sim.SQualifiedNameWithWildcard");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleSGrabDomainRule
+entryRuleSGrabDomainRule returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSGrabDomainRuleRule()); }
+	iv_ruleSGrabDomainRule=ruleSGrabDomainRule
+	{ $current=$iv_ruleSGrabDomainRule.current; }
+	EOF;
+
+// Rule SGrabDomainRule
+ruleSGrabDomainRule returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='grab'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getSGrabDomainRuleAccess().getGrabKeyword_0());
+		}
+		otherlv_1='domain'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getSGrabDomainRuleAccess().getDomainKeyword_1());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSGrabDomainRuleRule());
+					}
+				}
+				{
+					newCompositeNode(grammarAccess.getSGrabDomainRuleAccess().getSourceDDomainCrossReference_2_0());
+				}
+				ruleSQualifiedName
+				{
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -709,36 +772,38 @@ ruleSFuseComplexTypeRule returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_1='and'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getSFuseComplexTypeRuleAccess().getAndKeyword_1());
-		}
 		(
+			otherlv_1='and'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getSFuseComplexTypeRuleAccess().getAndKeyword_1_0());
+			}
 			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSFuseComplexTypeRuleRule());
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSFuseComplexTypeRuleRule());
+						}
 					}
-				}
-				{
-					newCompositeNode(grammarAccess.getSFuseComplexTypeRuleAccess().getSource2DComplexTypeCrossReference_2_0());
-				}
-				ruleSQualifiedName
-				{
-					afterParserOrEnumRuleCall();
-				}
+					{
+						newCompositeNode(grammarAccess.getSFuseComplexTypeRuleAccess().getOtherSourcesDComplexTypeCrossReference_1_1_0());
+					}
+					ruleSQualifiedName
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
-		)
+		)+
 		(
 			otherlv_3='as'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getSFuseComplexTypeRuleAccess().getAsKeyword_3_0());
+				newLeafNode(otherlv_3, grammarAccess.getSFuseComplexTypeRuleAccess().getAsKeyword_2_0());
 			}
 			(
 				(
 					lv_renameTo_4_0=RULE_ID
 					{
-						newLeafNode(lv_renameTo_4_0, grammarAccess.getSFuseComplexTypeRuleAccess().getRenameToIDTerminalRuleCall_3_1_0());
+						newLeafNode(lv_renameTo_4_0, grammarAccess.getSFuseComplexTypeRuleAccess().getRenameToIDTerminalRuleCall_2_1_0());
 					}
 					{
 						if ($current==null) {
@@ -756,7 +821,7 @@ ruleSFuseComplexTypeRule returns [EObject current=null]
 		(
 			otherlv_5='extends'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getSFuseComplexTypeRuleAccess().getExtendsKeyword_4_0());
+				newLeafNode(otherlv_5, grammarAccess.getSFuseComplexTypeRuleAccess().getExtendsKeyword_3_0());
 			}
 			(
 				(
@@ -767,7 +832,7 @@ ruleSFuseComplexTypeRule returns [EObject current=null]
 					}
 					otherlv_6=RULE_ID
 					{
-						newLeafNode(otherlv_6, grammarAccess.getSFuseComplexTypeRuleAccess().getExtendFromSComplexTypeCrossReference_4_1_0());
+						newLeafNode(otherlv_6, grammarAccess.getSFuseComplexTypeRuleAccess().getExtendFromSComplexTypeCrossReference_3_1_0());
 					}
 				)
 			)

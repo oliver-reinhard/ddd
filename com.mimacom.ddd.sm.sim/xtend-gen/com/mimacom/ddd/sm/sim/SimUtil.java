@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
@@ -247,19 +248,8 @@ public class SimUtil {
     if (!_matched) {
       if (rule instanceof SFuseRule) {
         _matched=true;
-        DNamedElement _namedSource = ((SFuseRule)rule).getNamedSource();
-        String _name = null;
-        if (_namedSource!=null) {
-          _name=_namedSource.getName();
-        }
-        String _plus = ("Fuse " + _name);
-        String _plus_1 = (_plus + " and ");
-        DNamedElement _source2 = ((SFuseRule)rule).getSource2();
-        String _name_1 = null;
-        if (_source2!=null) {
-          _name_1=_source2.getName();
-        }
-        _switchResult = (_plus_1 + _name_1);
+        String _label = this.label(((SFuseRule)rule));
+        _switchResult = ("Fuse " + _label);
       }
     }
     if (!_matched) {
@@ -299,5 +289,22 @@ public class SimUtil {
       _switchResult = rule.getClass().getSimpleName();
     }
     return _switchResult;
+  }
+  
+  public String label(final SFuseRule rule) {
+    DNamedElement _namedSource = rule.getNamedSource();
+    String _name = null;
+    if (_namedSource!=null) {
+      _name=_namedSource.getName();
+    }
+    final StringBuilder sb = new StringBuilder(_name);
+    EList<DNamedElement> _otherSources = rule.getOtherSources();
+    for (final DNamedElement s : _otherSources) {
+      {
+        sb.append(" and ");
+        sb.append(s.getName());
+      }
+    }
+    return sb.toString();
   }
 }

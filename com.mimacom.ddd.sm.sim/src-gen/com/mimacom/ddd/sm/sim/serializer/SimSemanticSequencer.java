@@ -14,6 +14,7 @@ import com.mimacom.ddd.sm.sim.SEnumeration;
 import com.mimacom.ddd.sm.sim.SExpression;
 import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
+import com.mimacom.ddd.sm.sim.SGrabDomainRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
 import com.mimacom.ddd.sm.sim.SImport;
 import com.mimacom.ddd.sm.sim.SInformationModel;
@@ -95,6 +96,9 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case SimPackage.SGRAB_AGGREGATE_RULE:
 				sequence_SGrabAggregateRule(context, (SGrabAggregateRule) semanticObject); 
+				return; 
+			case SimPackage.SGRAB_DOMAIN_RULE:
+				sequence_SGrabDomainRule(context, (SGrabDomainRule) semanticObject); 
 				return; 
 			case SimPackage.SGRAB_RULE:
 				if (rule == grammarAccess.getSGrabComplexTypeRuleRule()) {
@@ -382,7 +386,7 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SFuseComplexTypeRule returns SFuseRule
 	 *
 	 * Constraint:
-	 *     (source=[DComplexType|SQualifiedName] source2=[DComplexType|SQualifiedName] renameTo=ID? extendFrom=[SComplexType|ID]?)
+	 *     (source=[DComplexType|SQualifiedName] otherSources+=[DComplexType|SQualifiedName]+ renameTo=ID? extendFrom=[SComplexType|ID]?)
 	 */
 	protected void sequence_SFuseComplexTypeRule(ISerializationContext context, SFuseRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -416,6 +420,24 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_SGrabComplexTypeRule(ISerializationContext context, SGrabRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SGrabDomainRule returns SGrabDomainRule
+	 *
+	 * Constraint:
+	 *     source=[DDomain|SQualifiedName]
+	 */
+	protected void sequence_SGrabDomainRule(ISerializationContext context, SGrabDomainRule semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SimPackage.Literals.SDEDUCTION_RULE__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SDEDUCTION_RULE__SOURCE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSGrabDomainRuleAccess().getSourceDDomainSQualifiedNameParserRuleCall_2_0_1(), semanticObject.eGet(SimPackage.Literals.SDEDUCTION_RULE__SOURCE, false));
+		feeder.finish();
 	}
 	
 	
@@ -490,7 +512,13 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SInformationModel returns SInformationModel
 	 *
 	 * Constraint:
-	 *     (kind=SInformationModelKind name=SQualifiedName generate?='generate'? imports+=SImport* (types+=SType | aggregates+=SAggregate)*)
+	 *     (
+	 *         kind=SInformationModelKind 
+	 *         name=SQualifiedName 
+	 *         generate?='generate'? 
+	 *         imports+=SImport* 
+	 *         (types+=SType | aggregates+=SAggregate | grabDomainRules+=SGrabDomainRule)*
+	 *     )
 	 */
 	protected void sequence_SInformationModel(ISerializationContext context, SInformationModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

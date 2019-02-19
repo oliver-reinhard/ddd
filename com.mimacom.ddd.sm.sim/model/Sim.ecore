@@ -13,6 +13,8 @@
         eType="#//SType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregates" upperBound="-1"
         eType="#//SAggregate" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="grabDomainRules" upperBound="-1"
+        eType="#//SGrabDomainRule" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SInformationModelKind">
     <eLiterals name="BASE"/>
@@ -128,11 +130,20 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SDitchRule" eSuperTypes="#//SDeductionRule"/>
   <eClassifiers xsi:type="ecore:EClass" name="SFuseRule" eSuperTypes="#//SGrabRule">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source2" eType="ecore:EClass ../../com.mimacom.ddd.dm.dmx/model/base.ecore#//DNamedElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="otherSources" upperBound="-1"
+        eType="ecore:EClass ../../com.mimacom.ddd.dm.dmx/model/base.ecore#//DNamedElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extendFrom" eType="#//SType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SGrabAggregateRule" eSuperTypes="#//SDeductionRule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregate" eType="ecore:EClass ../../com.mimacom.ddd.dm.dmx/model/base.ecore#//DAggregate"
         changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SGrabDomainRule" eSuperTypes="#//SDeductionRule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domain" eType="ecore:EClass ../../com.mimacom.ddd.dm.dmx/model/base.ecore#//DDomain"
+        changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SSyntheticDeductionRule" eSuperTypes="#//SDeductionRule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elementWithExplicitRule"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" transient="true"/>
   </eClassifiers>
 </ecore:EPackage>

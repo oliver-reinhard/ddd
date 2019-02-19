@@ -4,7 +4,10 @@
 package com.mimacom.ddd.sm.sim.tests
 
 import com.google.inject.Inject
+import com.google.inject.Provider
+import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.sm.sim.SInformationModel
+import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
@@ -15,16 +18,31 @@ import org.junit.jupiter.api.^extension.ExtendWith
 @ExtendWith(InjectionExtension)
 @InjectWith(SimInjectorProvider)
 class SimParsingTest {
+	@Inject 
+	ParseHelper<DDomain> dmParseHelper
+	
+	@Inject 
+	ParseHelper<SInformationModel> smParseHelper
+	
 	@Inject
-	ParseHelper<SInformationModel> parseHelper
+	Provider<ResourceSet> resourceSetProvider
 	
 	@Test
-	def void loadModel() {
-		val result = parseHelper.parse('''
-			Hello Xtext!
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	def void grabArchetype() {
+		val resourceSet = resourceSetProvider.get
+		val dm = dmParseHelper.parse('''
+			domain DM
+			archetype DT { }
+		''', resourceSet)
+		val sm = smParseHelper.parse('''
+			base information model SM
+			grab primitive DM.DT as ST 
+		''', resourceSet)
+		Assertions.assertNotNull(dm)
+		val dmErrors = dm.eResource.errors
+		Assertions.assertTrue(dmErrors.isEmpty, '''Unexpected errors in dm: «dmErrors.join(", ")»''')
+		Assertions.assertNotNull(sm)
+		val smErrors = sm.eResource.errors
+		Assertions.assertTrue(smErrors.isEmpty, '''Unexpected errors in sm: «smErrors.join(", ")»''')
 	}
 }

@@ -1,24 +1,17 @@
 package com.mimacom.ddd.sm.sim.derivedState;
 
-import com.google.common.collect.Iterators;
 import com.google.common.collect.Maps;
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.sm.sim.SDeductionRule;
-import com.mimacom.ddd.sm.sim.SPrimitive;
 import com.mimacom.ddd.sm.sim.SType;
 import com.mimacom.ddd.sm.sim.indexing.SimIndex;
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy;
-import java.util.Iterator;
 import java.util.Map;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.resource.DerivedStateAwareResource;
 import org.eclipse.xtext.resource.IEObjectDescription;
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 @SuppressWarnings("all")
 public class TransformationContext {
@@ -35,11 +28,10 @@ public class TransformationContext {
     this.resource = resource;
     this.localDTypeToSTypeMap = Maps.<DType, SType>newHashMap();
     this.importedDTypeToSTypeMap = Maps.<DType, SType>newHashMap();
-    this.initializeLocallyMappedDTypes();
-    this.initializeImportedMappedDTypes();
+    this.initializeImportedMappedDTypesFromIndex();
   }
   
-  public void initializeImportedMappedDTypes() {
+  public void initializeImportedMappedDTypesFromIndex() {
     final EObject model = IterableExtensions.<EObject>head(this.resource.getContents());
     final Iterable<IEObjectDescription> deducedSTypeDescriptions = this.index.getVisibleExternalDeducedSTypes(model);
     final Map<QualifiedName, IEObjectDescription> dTypeDescriptionsMap = this.index.getVisibleDTypeDescriptionsMap(model);
@@ -71,24 +63,6 @@ public class TransformationContext {
    * Crates a new map and adds those primitives of the resource to the map that realize DPrimitives.
    */
   public void initializeLocallyMappedDTypes() {
-    final Function1<SPrimitive, Boolean> _function = (SPrimitive it) -> {
-      SDeductionRule _deductionRule = it.getDeductionRule();
-      EObject _source = null;
-      if (_deductionRule!=null) {
-        _source=_deductionRule.getSource();
-      }
-      return Boolean.valueOf((_source != null));
-    };
-    final Iterator<SPrimitive> contibutors = IteratorExtensions.<SPrimitive>filter(Iterators.<SPrimitive>filter(this.resource.getAllContents(), SPrimitive.class), _function);
-    while (contibutors.hasNext()) {
-      {
-        final SPrimitive sPrimitive = contibutors.next();
-        if ((sPrimitive.isArchetype() && (sPrimitive.getDeductionRule().getSource() instanceof DPrimitive))) {
-          EObject _source = sPrimitive.getDeductionRule().getSource();
-          this.putSType(((DPrimitive) _source), sPrimitive);
-        }
-      }
-    }
   }
   
   public void putSType(final DType dType, final SType sType) {
@@ -96,8 +70,13 @@ public class TransformationContext {
     if ((previousS != null)) {
       String _name = dType.getName();
       String _plus = ("There are two STypes realizing DType \"" + _name);
-      String _plus_1 = (_plus + "\"");
-      throw new IllegalStateException(_plus_1);
+      String _plus_1 = (_plus + "\" as \"");
+      String _name_1 = sType.getName();
+      String _plus_2 = (_plus_1 + _name_1);
+      String _plus_3 = (_plus_2 + "\" and as \"");
+      String _plus_4 = (_plus_3 + previousS);
+      String _plus_5 = (_plus_4 + "\"");
+      throw new IllegalStateException(_plus_5);
     }
   }
   

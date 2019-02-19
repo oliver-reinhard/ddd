@@ -5,6 +5,8 @@ package com.mimacom.ddd.sm.sim;
 
 import com.mimacom.ddd.dm.base.DNamedElement;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>SFuse Rule</b></em>'.
@@ -14,7 +16,7 @@ import com.mimacom.ddd.dm.base.DNamedElement;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.sim.SFuseRule#getSource2 <em>Source2</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.SFuseRule#getOtherSources <em>Other Sources</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SFuseRule#getExtendFrom <em>Extend From</em>}</li>
  * </ul>
  *
@@ -25,30 +27,20 @@ import com.mimacom.ddd.dm.base.DNamedElement;
 public interface SFuseRule extends SGrabRule
 {
 	/**
-	 * Returns the value of the '<em><b>Source2</b></em>' reference.
+	 * Returns the value of the '<em><b>Other Sources</b></em>' reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DNamedElement}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Source2</em>' reference isn't clear,
+	 * If the meaning of the '<em>Other Sources</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Source2</em>' reference.
-	 * @see #setSource2(DNamedElement)
-	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSFuseRule_Source2()
+	 * @return the value of the '<em>Other Sources</em>' reference list.
+	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSFuseRule_OtherSources()
 	 * @model
 	 * @generated
 	 */
-	DNamedElement getSource2();
-
-	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.sm.sim.SFuseRule#getSource2 <em>Source2</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source2</em>' reference.
-	 * @see #getSource2()
-	 * @generated
-	 */
-	void setSource2(DNamedElement value);
+	EList<DNamedElement> getOtherSources();
 
 	/**
 	 * Returns the value of the '<em><b>Extend From</b></em>' reference.

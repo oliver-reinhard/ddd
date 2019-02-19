@@ -4,6 +4,7 @@
 package com.mimacom.ddd.sm.sim.impl;
 
 import com.mimacom.ddd.sm.sim.SAggregate;
+import com.mimacom.ddd.sm.sim.SGrabDomainRule;
 import com.mimacom.ddd.sm.sim.SImport;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SInformationModelKind;
@@ -40,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getAggregates <em>Aggregates</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getGrabDomainRules <em>Grab Domain Rules</em>}</li>
  * </ul>
  *
  * @generated
@@ -135,6 +137,16 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected EList<SAggregate> aggregates;
+
+	/**
+	 * The cached value of the '{@link #getGrabDomainRules() <em>Grab Domain Rules</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGrabDomainRules()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SGrabDomainRule> grabDomainRules;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -283,6 +295,21 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
+	public EList<SGrabDomainRule> getGrabDomainRules()
+	{
+		if (grabDomainRules == null)
+		{
+			grabDomainRules = new EObjectContainmentEList<SGrabDomainRule>(SGrabDomainRule.class, this, SimPackage.SINFORMATION_MODEL__GRAB_DOMAIN_RULES);
+		}
+		return grabDomainRules;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
 		switch (featureID)
@@ -293,6 +320,8 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
 			case SimPackage.SINFORMATION_MODEL__AGGREGATES:
 				return ((InternalEList<?>)getAggregates()).basicRemove(otherEnd, msgs);
+			case SimPackage.SINFORMATION_MODEL__GRAB_DOMAIN_RULES:
+				return ((InternalEList<?>)getGrabDomainRules()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -319,6 +348,8 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 				return getTypes();
 			case SimPackage.SINFORMATION_MODEL__AGGREGATES:
 				return getAggregates();
+			case SimPackage.SINFORMATION_MODEL__GRAB_DOMAIN_RULES:
+				return getGrabDomainRules();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -355,6 +386,10 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 				getAggregates().clear();
 				getAggregates().addAll((Collection<? extends SAggregate>)newValue);
 				return;
+			case SimPackage.SINFORMATION_MODEL__GRAB_DOMAIN_RULES:
+				getGrabDomainRules().clear();
+				getGrabDomainRules().addAll((Collection<? extends SGrabDomainRule>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -387,6 +422,9 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 			case SimPackage.SINFORMATION_MODEL__AGGREGATES:
 				getAggregates().clear();
 				return;
+			case SimPackage.SINFORMATION_MODEL__GRAB_DOMAIN_RULES:
+				getGrabDomainRules().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -413,6 +451,8 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 				return types != null && !types.isEmpty();
 			case SimPackage.SINFORMATION_MODEL__AGGREGATES:
 				return aggregates != null && !aggregates.isEmpty();
+			case SimPackage.SINFORMATION_MODEL__GRAB_DOMAIN_RULES:
+				return grabDomainRules != null && !grabDomainRules.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

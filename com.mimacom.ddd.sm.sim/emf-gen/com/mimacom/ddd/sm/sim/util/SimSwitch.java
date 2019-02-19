@@ -351,6 +351,22 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SimPackage.SGRAB_DOMAIN_RULE:
+			{
+				SGrabDomainRule sGrabDomainRule = (SGrabDomainRule)theEObject;
+				T result = caseSGrabDomainRule(sGrabDomainRule);
+				if (result == null) result = caseSDeductionRule(sGrabDomainRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SimPackage.SSYNTHETIC_DEDUCTION_RULE:
+			{
+				SSyntheticDeductionRule sSyntheticDeductionRule = (SSyntheticDeductionRule)theEObject;
+				T result = caseSSyntheticDeductionRule(sSyntheticDeductionRule);
+				if (result == null) result = caseSDeductionRule(sSyntheticDeductionRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -831,6 +847,38 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseSGrabAggregateRule(SGrabAggregateRule object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>SGrab Domain Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>SGrab Domain Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSGrabDomainRule(SGrabDomainRule object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>SSynthetic Deduction Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>SSynthetic Deduction Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSSyntheticDeductionRule(SSyntheticDeductionRule object)
 	{
 		return null;
 	}

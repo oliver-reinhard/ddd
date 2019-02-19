@@ -21,6 +21,7 @@ import com.mimacom.ddd.sm.sim.SExpression;
 import com.mimacom.ddd.sm.sim.SFeature;
 import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
+import com.mimacom.ddd.sm.sim.SGrabDomainRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
 import com.mimacom.ddd.sm.sim.SIdentityType;
 import com.mimacom.ddd.sm.sim.SImport;
@@ -36,6 +37,7 @@ import com.mimacom.ddd.sm.sim.SQuery;
 import com.mimacom.ddd.sm.sim.SQueryParameter;
 import com.mimacom.ddd.sm.sim.SRootType;
 import com.mimacom.ddd.sm.sim.SSimpleType;
+import com.mimacom.ddd.sm.sim.SSyntheticDeductionRule;
 import com.mimacom.ddd.sm.sim.SType;
 import com.mimacom.ddd.sm.sim.SValueType;
 import com.mimacom.ddd.sm.sim.SimFactory;
@@ -272,6 +274,20 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass sGrabDomainRuleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sSyntheticDeductionRuleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum sInformationModelKindEEnum = null;
 
 	/**
@@ -451,6 +467,17 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	public EReference getSInformationModel_Aggregates()
 	{
 		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSInformationModel_GrabDomainRules()
+	{
+		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1130,7 +1157,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSFuseRule_Source2()
+	public EReference getSFuseRule_OtherSources()
 	{
 		return (EReference)sFuseRuleEClass.getEStructuralFeatures().get(0);
 	}
@@ -1166,6 +1193,50 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	public EReference getSGrabAggregateRule_Aggregate()
 	{
 		return (EReference)sGrabAggregateRuleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSGrabDomainRule()
+	{
+		return sGrabDomainRuleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSGrabDomainRule_Domain()
+	{
+		return (EReference)sGrabDomainRuleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSSyntheticDeductionRule()
+	{
+		return sSyntheticDeductionRuleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSSyntheticDeductionRule_ElementWithExplicitRule()
+	{
+		return (EReference)sSyntheticDeductionRuleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1243,6 +1314,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__IMPORTS);
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__TYPES);
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__AGGREGATES);
+		createEReference(sInformationModelEClass, SINFORMATION_MODEL__GRAB_DOMAIN_RULES);
 
 		sNamedElementEClass = createEClass(SNAMED_ELEMENT);
 		createEAttribute(sNamedElementEClass, SNAMED_ELEMENT__NAME);
@@ -1330,11 +1402,17 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		sDitchRuleEClass = createEClass(SDITCH_RULE);
 
 		sFuseRuleEClass = createEClass(SFUSE_RULE);
-		createEReference(sFuseRuleEClass, SFUSE_RULE__SOURCE2);
+		createEReference(sFuseRuleEClass, SFUSE_RULE__OTHER_SOURCES);
 		createEReference(sFuseRuleEClass, SFUSE_RULE__EXTEND_FROM);
 
 		sGrabAggregateRuleEClass = createEClass(SGRAB_AGGREGATE_RULE);
 		createEReference(sGrabAggregateRuleEClass, SGRAB_AGGREGATE_RULE__AGGREGATE);
+
+		sGrabDomainRuleEClass = createEClass(SGRAB_DOMAIN_RULE);
+		createEReference(sGrabDomainRuleEClass, SGRAB_DOMAIN_RULE__DOMAIN);
+
+		sSyntheticDeductionRuleEClass = createEClass(SSYNTHETIC_DEDUCTION_RULE);
+		createEReference(sSyntheticDeductionRuleEClass, SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_EXPLICIT_RULE);
 
 		// Create enums
 		sInformationModelKindEEnum = createEEnum(SINFORMATION_MODEL_KIND);
@@ -1399,6 +1477,8 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		sDitchRuleEClass.getESuperTypes().add(this.getSDeductionRule());
 		sFuseRuleEClass.getESuperTypes().add(this.getSGrabRule());
 		sGrabAggregateRuleEClass.getESuperTypes().add(this.getSDeductionRule());
+		sGrabDomainRuleEClass.getESuperTypes().add(this.getSDeductionRule());
+		sSyntheticDeductionRuleEClass.getESuperTypes().add(this.getSDeductionRule());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(sIdentityTypeEClass, SIdentityType.class, "SIdentityType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1412,6 +1492,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		initEReference(getSInformationModel_Imports(), this.getSImport(), null, "imports", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSInformationModel_Types(), this.getSType(), null, "types", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSInformationModel_Aggregates(), this.getSAggregate(), null, "aggregates", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSInformationModel_GrabDomainRules(), this.getSGrabDomainRule(), null, "grabDomainRules", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sNamedElementEClass, SNamedElement.class, "SNamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, SNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1499,11 +1580,17 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		initEClass(sDitchRuleEClass, SDitchRule.class, "SDitchRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(sFuseRuleEClass, SFuseRule.class, "SFuseRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSFuseRule_Source2(), theBasePackage.getDNamedElement(), null, "source2", null, 0, 1, SFuseRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSFuseRule_OtherSources(), theBasePackage.getDNamedElement(), null, "otherSources", null, 0, -1, SFuseRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSFuseRule_ExtendFrom(), this.getSType(), null, "extendFrom", null, 0, 1, SFuseRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sGrabAggregateRuleEClass, SGrabAggregateRule.class, "SGrabAggregateRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSGrabAggregateRule_Aggregate(), theBasePackage.getDAggregate(), null, "aggregate", null, 0, 1, SGrabAggregateRule.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(sGrabDomainRuleEClass, SGrabDomainRule.class, "SGrabDomainRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSGrabDomainRule_Domain(), theBasePackage.getDDomain(), null, "domain", null, 0, 1, SGrabDomainRule.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(sSyntheticDeductionRuleEClass, SSyntheticDeductionRule.class, "SSyntheticDeductionRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSSyntheticDeductionRule_ElementWithExplicitRule(), ecorePackage.getEObject(), null, "elementWithExplicitRule", null, 0, 1, SSyntheticDeductionRule.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(sInformationModelKindEEnum, SInformationModelKind.class, "SInformationModelKind");
