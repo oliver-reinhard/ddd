@@ -8858,9 +8858,9 @@ rule__SGrabAggregateRule__SourceAssignment
 	(
 		{ before(grammarAccess.getSGrabAggregateRuleAccess().getSourceDAggregateCrossReference_0()); }
 		(
-			{ before(grammarAccess.getSGrabAggregateRuleAccess().getSourceDAggregateIDTerminalRuleCall_0_1()); }
-			RULE_ID
-			{ after(grammarAccess.getSGrabAggregateRuleAccess().getSourceDAggregateIDTerminalRuleCall_0_1()); }
+			{ before(grammarAccess.getSGrabAggregateRuleAccess().getSourceDAggregateSQualifiedNameParserRuleCall_0_1()); }
+			ruleSQualifiedName
+			{ after(grammarAccess.getSGrabAggregateRuleAccess().getSourceDAggregateSQualifiedNameParserRuleCall_0_1()); }
 		)
 		{ after(grammarAccess.getSGrabAggregateRuleAccess().getSourceDAggregateCrossReference_0()); }
 	)

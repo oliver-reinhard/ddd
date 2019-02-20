@@ -13,6 +13,7 @@ import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
+import com.mimacom.ddd.dm.base.DRootType;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.sm.sim.SAggregate;
 import com.mimacom.ddd.sm.sim.SComplexType;
@@ -136,7 +137,10 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
     final ArrayList<SyntheticComplexTypeDescriptor> complexSyntheticTypes = Lists.<SyntheticComplexTypeDescriptor>newArrayList();
     SDeductionRule _deductionRule = sAggregate.getDeductionRule();
     if ((_deductionRule instanceof SGrabAggregateRule)) {
-      final SDeductionRule source = sAggregate.getDeductionRule();
+      EObject source = sAggregate.getDeductionRule().getSource();
+      if ((source instanceof DRootType)) {
+        source = ((DRootType)source).eContainer();
+      }
       if ((source instanceof DAggregate)) {
         EObject _eContainer = sAggregate.eContainer();
         final SInformationModel model = ((SInformationModel) _eContainer);
@@ -419,11 +423,14 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
   }
   
   public void addSyntheticFeatures(final SyntheticComplexTypeDescriptor desc, final TransformationContext context) {
-    final Function1<SFeature, Boolean> _function = (SFeature it) -> {
-      SElementNature _nature = it.getNature();
-      return Boolean.valueOf(Objects.equal(_nature, SElementNature.DEDUCTION_RULE));
-    };
-    final Iterable<SFeature> sFeaturesWithExplicitRule = IterableExtensions.<SFeature>filter(desc.typeWithExplicitRule.getFeatures(), _function);
+    Iterable<SFeature> sFeaturesWithExplicitRule = Lists.<SFeature>newArrayList();
+    if ((desc.typeWithExplicitRule != null)) {
+      final Function1<SFeature, Boolean> _function = (SFeature it) -> {
+        SElementNature _nature = it.getNature();
+        return Boolean.valueOf(Objects.equal(_nature, SElementNature.DEDUCTION_RULE));
+      };
+      sFeaturesWithExplicitRule = IterableExtensions.<SFeature>filter(desc.typeWithExplicitRule.getFeatures(), _function);
+    }
     final Function1<SFeature, Boolean> _function_1 = (SFeature it) -> {
       SDeductionRule _deductionRule = it.getDeductionRule();
       return Boolean.valueOf((_deductionRule instanceof SGrabRule));

@@ -327,9 +327,12 @@ ruleSGrabAggregateRule returns [EObject current=null]
 					$current = createModelElement(grammarAccess.getSGrabAggregateRuleRule());
 				}
 			}
-			otherlv_0=RULE_ID
 			{
-				newLeafNode(otherlv_0, grammarAccess.getSGrabAggregateRuleAccess().getSourceDAggregateCrossReference_0());
+				newCompositeNode(grammarAccess.getSGrabAggregateRuleAccess().getSourceDAggregateCrossReference_0());
+			}
+			ruleSQualifiedName
+			{
+				afterParserOrEnumRuleCall();
 			}
 		)
 	)

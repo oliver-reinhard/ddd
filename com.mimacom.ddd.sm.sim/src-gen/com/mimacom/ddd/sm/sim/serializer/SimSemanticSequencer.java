@@ -398,7 +398,7 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SGrabAggregateRule returns SGrabAggregateRule
 	 *
 	 * Constraint:
-	 *     source=[DAggregate|ID]
+	 *     source=[DAggregate|SQualifiedName]
 	 */
 	protected void sequence_SGrabAggregateRule(ISerializationContext context, SGrabAggregateRule semanticObject) {
 		if (errorAcceptor != null) {
@@ -406,7 +406,7 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SDEDUCTION_RULE__SOURCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSGrabAggregateRuleAccess().getSourceDAggregateIDTerminalRuleCall_0_1(), semanticObject.eGet(SimPackage.Literals.SDEDUCTION_RULE__SOURCE, false));
+		feeder.accept(grammarAccess.getSGrabAggregateRuleAccess().getSourceDAggregateSQualifiedNameParserRuleCall_0_1(), semanticObject.eGet(SimPackage.Literals.SDEDUCTION_RULE__SOURCE, false));
 		feeder.finish();
 	}
 	

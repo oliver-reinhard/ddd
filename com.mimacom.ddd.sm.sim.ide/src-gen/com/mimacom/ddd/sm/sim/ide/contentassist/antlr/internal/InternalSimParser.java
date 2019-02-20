@@ -27530,25 +27530,29 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SGrabAggregateRule__SourceAssignment"
-    // InternalSim.g:8853:1: rule__SGrabAggregateRule__SourceAssignment : ( ( RULE_ID ) ) ;
+    // InternalSim.g:8853:1: rule__SGrabAggregateRule__SourceAssignment : ( ( ruleSQualifiedName ) ) ;
     public final void rule__SGrabAggregateRule__SourceAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:8857:1: ( ( ( RULE_ID ) ) )
-            // InternalSim.g:8858:2: ( ( RULE_ID ) )
+            // InternalSim.g:8857:1: ( ( ( ruleSQualifiedName ) ) )
+            // InternalSim.g:8858:2: ( ( ruleSQualifiedName ) )
             {
-            // InternalSim.g:8858:2: ( ( RULE_ID ) )
-            // InternalSim.g:8859:3: ( RULE_ID )
+            // InternalSim.g:8858:2: ( ( ruleSQualifiedName ) )
+            // InternalSim.g:8859:3: ( ruleSQualifiedName )
             {
              before(grammarAccess.getSGrabAggregateRuleAccess().getSourceDAggregateCrossReference_0()); 
-            // InternalSim.g:8860:3: ( RULE_ID )
-            // InternalSim.g:8861:4: RULE_ID
+            // InternalSim.g:8860:3: ( ruleSQualifiedName )
+            // InternalSim.g:8861:4: ruleSQualifiedName
             {
-             before(grammarAccess.getSGrabAggregateRuleAccess().getSourceDAggregateIDTerminalRuleCall_0_1()); 
-            match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getSGrabAggregateRuleAccess().getSourceDAggregateIDTerminalRuleCall_0_1()); 
+             before(grammarAccess.getSGrabAggregateRuleAccess().getSourceDAggregateSQualifiedNameParserRuleCall_0_1()); 
+            pushFollow(FOLLOW_2);
+            ruleSQualifiedName();
+
+            state._fsp--;
+
+             after(grammarAccess.getSGrabAggregateRuleAccess().getSourceDAggregateSQualifiedNameParserRuleCall_0_1()); 
 
             }
 

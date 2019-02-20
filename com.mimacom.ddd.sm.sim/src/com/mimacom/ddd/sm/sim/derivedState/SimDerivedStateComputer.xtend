@@ -35,6 +35,7 @@ import org.eclipse.xtext.resource.DerivedStateAwareResource
 import org.eclipse.xtext.resource.IDerivedStateComputer
 
 import static com.mimacom.ddd.sm.sim.SElementNature.*
+import com.mimacom.ddd.dm.base.DRootType
 
 class SimDerivedStateComputer implements IDerivedStateComputer {
 	
@@ -94,7 +95,10 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 		var current = sAggregate
 		val complexSyntheticTypes = Lists.newArrayList
 		if (sAggregate.deductionRule instanceof SGrabAggregateRule) {
-			val source = sAggregate.deductionRule
+			var source = sAggregate.deductionRule.source
+			if (source instanceof DRootType) { // aggregates don't have a name and cannot be linked to
+				source = source.eContainer
+			}
 			if (source instanceof DAggregate) {
 				val model = sAggregate.eContainer as SInformationModel
 				current = model.addSyntheticAggregate(source, sAggregate, context)
@@ -267,7 +271,10 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 	}
 	
 	def void addSyntheticFeatures(SyntheticComplexTypeDescriptor desc, TransformationContext context) {
-		val sFeaturesWithExplicitRule = desc.typeWithExplicitRule.features.filter[nature == DEDUCTION_RULE]
+		var Iterable<SFeature> sFeaturesWithExplicitRule = Lists.newArrayList
+		if (desc.typeWithExplicitRule !== null) {
+			sFeaturesWithExplicitRule = desc.typeWithExplicitRule.features.filter[nature == DEDUCTION_RULE]
+		}
 		if (! sFeaturesWithExplicitRule.exists[deductionRule instanceof SGrabRule]) {
 			// there are no explicit grabs, so implicitly grab all features without a rule:
 			val implicitlyGrabbedDFeatures = Lists.newArrayList(desc.source.allFeatures)

@@ -24,7 +24,7 @@ SGrabDomainRule:
 	'grab' 'domain' source=[DDomain|SQualifiedName];
 		
 SGrabAggregateRule:
-	source=[DAggregate|ID];
+	source=[DAggregate|SQualifiedName];
 	
 SGrabPrimitiveRule returns SGrabRule:
 	source=[DPrimitive|SQualifiedName]

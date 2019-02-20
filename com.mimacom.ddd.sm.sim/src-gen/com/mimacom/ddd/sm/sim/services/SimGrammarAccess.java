@@ -171,20 +171,20 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SGrabAggregateRule");
 		private final Assignment cSourceAssignment = (Assignment)rule.eContents().get(1);
 		private final CrossReference cSourceDAggregateCrossReference_0 = (CrossReference)cSourceAssignment.eContents().get(0);
-		private final RuleCall cSourceDAggregateIDTerminalRuleCall_0_1 = (RuleCall)cSourceDAggregateCrossReference_0.eContents().get(1);
+		private final RuleCall cSourceDAggregateSQualifiedNameParserRuleCall_0_1 = (RuleCall)cSourceDAggregateCrossReference_0.eContents().get(1);
 		
 		//SGrabAggregateRule:
-		//	source=[DAggregate];
+		//	source=[DAggregate|SQualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//source=[DAggregate]
+		//source=[DAggregate|SQualifiedName]
 		public Assignment getSourceAssignment() { return cSourceAssignment; }
 		
-		//[DAggregate]
+		//[DAggregate|SQualifiedName]
 		public CrossReference getSourceDAggregateCrossReference_0() { return cSourceDAggregateCrossReference_0; }
 		
-		//ID
-		public RuleCall getSourceDAggregateIDTerminalRuleCall_0_1() { return cSourceDAggregateIDTerminalRuleCall_0_1; }
+		//SQualifiedName
+		public RuleCall getSourceDAggregateSQualifiedNameParserRuleCall_0_1() { return cSourceDAggregateSQualifiedNameParserRuleCall_0_1; }
 	}
 	public class SGrabPrimitiveRuleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SGrabPrimitiveRule");
@@ -2659,7 +2659,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SGrabAggregateRule:
-	//	source=[DAggregate];
+	//	source=[DAggregate|SQualifiedName];
 	public SGrabAggregateRuleElements getSGrabAggregateRuleAccess() {
 		return pSGrabAggregateRule;
 	}
