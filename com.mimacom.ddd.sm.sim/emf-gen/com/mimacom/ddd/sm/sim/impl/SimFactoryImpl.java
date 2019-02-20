@@ -329,7 +329,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	@Override
 	public SAssociation createSAssociation()
 	{
-		SAssociationImpl sAssociation = new SAssociationImpl();
+		SAssociationImplCustom sAssociation = new SAssociationImplCustom();
 		return sAssociation;
 	}
 

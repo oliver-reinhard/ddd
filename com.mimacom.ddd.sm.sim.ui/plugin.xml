@@ -459,4 +459,11 @@
 			<newWizardShortcut id="com.mimacom.ddd.sm.sim.ui.wizard.SimNewFileWizard"/>
 		</perspectiveExtension>
 	</extension>
+	
+	<extension point="net.sourceforge.plantuml.eclipse.diagramTextProvider">
+	   <diagramTextProvider
+	         priority="100"
+	         providerClass="com.mimacom.ddd.sm.sim.ui.plantuml.SimDiagramTextProvider">
+	   </diagramTextProvider>
+	</extension>
 </plugin>

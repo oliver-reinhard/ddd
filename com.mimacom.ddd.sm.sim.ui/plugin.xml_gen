@@ -4,48 +4,48 @@
 	<extension
 		point="org.eclipse.ui.editors">
 		<editor
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
 			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
 			default="true"
-			extensions="dim"
-			id="com.mimacom.ddd.dm.dim.Dim"
-			name="Dim Editor">
+			extensions="sim"
+			id="com.mimacom.ddd.sm.sim.Sim"
+			name="Sim Editor">
 		</editor>
 	</extension>
 	<extension
 		point="org.eclipse.ui.handlers">
 		<handler
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
 			commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
 			<activeWhen>
 				<reference
-					definitionId="com.mimacom.ddd.dm.dim.Dim.Editor.opened">
+					definitionId="com.mimacom.ddd.sm.sim.Sim.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
 		<handler
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
-			commandId="com.mimacom.ddd.dm.dim.Dim.validate">
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+			commandId="com.mimacom.ddd.sm.sim.Sim.validate">
 		<activeWhen>
 			<reference
-					definitionId="com.mimacom.ddd.dm.dim.Dim.Editor.opened">
+					definitionId="com.mimacom.ddd.sm.sim.Sim.Editor.opened">
 			</reference>
 		</activeWhen>
 		</handler>
 		<!-- copy qualified name -->
 		<handler
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
 			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName">
 			<activeWhen>
-				<reference definitionId="com.mimacom.ddd.dm.dim.Dim.Editor.opened" />
+				<reference definitionId="com.mimacom.ddd.sm.sim.Sim.Editor.opened" />
 			</activeWhen>
 		</handler>
 		<handler
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
 			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName">
 			<activeWhen>
 				<and>
-					<reference definitionId="com.mimacom.ddd.dm.dim.Dim.XtextEditor.opened" />
+					<reference definitionId="com.mimacom.ddd.sm.sim.Sim.XtextEditor.opened" />
 					<iterate>
 						<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
 					</iterate>
@@ -54,22 +54,22 @@
 		</handler>
 	</extension>
 	<extension point="org.eclipse.core.expressions.definitions">
-		<definition id="com.mimacom.ddd.dm.dim.Dim.Editor.opened">
+		<definition id="com.mimacom.ddd.sm.sim.Sim.Editor.opened">
 			<and>
 				<reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
 				<with variable="activeEditor">
 					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
-						value="com.mimacom.ddd.dm.dim.Dim"
+						value="com.mimacom.ddd.sm.sim.Sim"
 						forcePluginActivation="true"/>
 				</with>
 			</and>
 		</definition>
-		<definition id="com.mimacom.ddd.dm.dim.Dim.XtextEditor.opened">
+		<definition id="com.mimacom.ddd.sm.sim.Sim.XtextEditor.opened">
 			<and>
 				<reference definitionId="isXtextEditorActive"/>
 				<with variable="activeEditor">
 					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
-						value="com.mimacom.ddd.dm.dim.Dim"
+						value="com.mimacom.ddd.sm.sim.Sim"
 						forcePluginActivation="true"/>
 				</with>
 			</and>
@@ -78,33 +78,33 @@
 	<extension
 			point="org.eclipse.ui.preferencePages">
 		<page
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-			id="com.mimacom.ddd.dm.dim.Dim"
-			name="Dim">
-			<keywordReference id="com.mimacom.ddd.dm.dim.ui.keyword_Dim"/>
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			id="com.mimacom.ddd.sm.sim.Sim"
+			name="Sim">
+			<keywordReference id="com.mimacom.ddd.sm.sim.ui.keyword_Sim"/>
 		</page>
 		<page
-			category="com.mimacom.ddd.dm.dim.Dim"
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
-			id="com.mimacom.ddd.dm.dim.Dim.coloring"
+			category="com.mimacom.ddd.sm.sim.Sim"
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+			id="com.mimacom.ddd.sm.sim.Sim.coloring"
 			name="Syntax Coloring">
-			<keywordReference id="com.mimacom.ddd.dm.dim.ui.keyword_Dim"/>
+			<keywordReference id="com.mimacom.ddd.sm.sim.ui.keyword_Sim"/>
 		</page>
 		<page
-			category="com.mimacom.ddd.dm.dim.Dim"
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
-			id="com.mimacom.ddd.dm.dim.Dim.templates"
+			category="com.mimacom.ddd.sm.sim.Sim"
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+			id="com.mimacom.ddd.sm.sim.Sim.templates"
 			name="Templates">
-			<keywordReference id="com.mimacom.ddd.dm.dim.ui.keyword_Dim"/>
+			<keywordReference id="com.mimacom.ddd.sm.sim.ui.keyword_Sim"/>
 		</page>
 	</extension>
 	<extension
 			point="org.eclipse.ui.propertyPages">
 		<page
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-			id="com.mimacom.ddd.dm.dim.Dim"
-			name="Dim">
-			<keywordReference id="com.mimacom.ddd.dm.dim.ui.keyword_Dim"/>
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			id="com.mimacom.ddd.sm.sim.Sim"
+			name="Sim">
+			<keywordReference id="com.mimacom.ddd.sm.sim.ui.keyword_Sim"/>
 			<enabledWhen>
 				<adapt type="org.eclipse.core.resources.IProject"/>
 			</enabledWhen>
@@ -114,14 +114,14 @@
 	<extension
 		point="org.eclipse.ui.keywords">
 		<keyword
-			id="com.mimacom.ddd.dm.dim.ui.keyword_Dim"
-			label="Dim"/>
+			id="com.mimacom.ddd.sm.sim.ui.keyword_Sim"
+			label="Sim"/>
 	</extension>
 	<extension
 		point="org.eclipse.ui.commands">
 	<command
 			description="Trigger expensive validation"
-			id="com.mimacom.ddd.dm.dim.Dim.validate"
+			id="com.mimacom.ddd.sm.sim.Sim.validate"
 			name="Validate">
 	</command>
 	<!-- copy qualified name -->
@@ -142,12 +142,12 @@
 		<menuContribution
 			locationURI="popup:#TextEditorContext?after=group.edit">
 			 <command
-				 commandId="com.mimacom.ddd.dm.dim.Dim.validate"
+				 commandId="com.mimacom.ddd.sm.sim.Sim.validate"
 				 style="push"
 				 tooltip="Trigger expensive validation">
 			<visibleWhen checkEnabled="false">
 				<reference
-					definitionId="com.mimacom.ddd.dm.dim.Dim.Editor.opened">
+					definitionId="com.mimacom.ddd.sm.sim.Sim.Editor.opened">
 				</reference>
 			</visibleWhen>
 		</command>
@@ -157,7 +157,7 @@
 			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="com.mimacom.ddd.dm.dim.Dim.Editor.opened" />
+					<reference definitionId="com.mimacom.ddd.sm.sim.Sim.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
@@ -165,7 +165,7 @@
 			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="com.mimacom.ddd.dm.dim.Dim.Editor.opened" />
+					<reference definitionId="com.mimacom.ddd.sm.sim.Sim.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
@@ -174,7 +174,7 @@
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
 					<and>
-						<reference definitionId="com.mimacom.ddd.dm.dim.Dim.XtextEditor.opened" />
+						<reference definitionId="com.mimacom.ddd.sm.sim.Sim.XtextEditor.opened" />
 						<iterate>
 							<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
 						</iterate>
@@ -187,7 +187,7 @@
 		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
 			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="com.mimacom.ddd.dm.dim.Dim.Editor.opened">
+					<reference definitionId="com.mimacom.ddd.sm.sim.Sim.Editor.opened">
 					</reference>
 				</visibleWhen>
 			</command>
@@ -195,11 +195,11 @@
 	</extension>
 	<extension point="org.eclipse.ui.handlers">
 		<handler
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
 			commandId="org.eclipse.xtext.ui.editor.FindReferences">
 			<activeWhen>
 				<reference
-					definitionId="com.mimacom.ddd.dm.dim.Dim.Editor.opened">
+					definitionId="com.mimacom.ddd.sm.sim.Sim.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -207,9 +207,9 @@
 	<extension point="org.eclipse.core.contenttype.contentTypes">
 		<content-type
 			base-type="org.eclipse.core.runtime.text"
-			file-extensions="dim"
-			id="com.mimacom.ddd.dm.dim.Dim.contenttype"
-			name="Dim File"
+			file-extensions="sim"
+			id="com.mimacom.ddd.sm.sim.Sim.contenttype"
+			name="Sim File"
 			priority="normal">
 		</content-type>
 	</extension>
@@ -217,68 +217,68 @@
 	<extension
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
-			type="dim">
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="sim">
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
 		<resourceServiceProvider
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
-			uriExtension="dim">
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+			uriExtension="sim">
 		</resourceServiceProvider>
 	</extension>
-	<!-- marker definitions for com.mimacom.ddd.dm.dim.Dim -->
+	<!-- marker definitions for com.mimacom.ddd.sm.sim.Sim -->
 	<extension
-			id="dim.check.fast"
-			name="Dim Problem"
+			id="sim.check.fast"
+			name="Sim Problem"
 			point="org.eclipse.core.resources.markers">
 		<super type="org.eclipse.xtext.ui.check.fast"/>
 		<persistent value="true"/>
 	</extension>
 	<extension
-			id="dim.check.normal"
-			name="Dim Problem"
+			id="sim.check.normal"
+			name="Sim Problem"
 			point="org.eclipse.core.resources.markers">
 		<super type="org.eclipse.xtext.ui.check.normal"/>
 		<persistent value="true"/>
 	</extension>
 	<extension
-			id="dim.check.expensive"
-			name="Dim Problem"
+			id="sim.check.expensive"
+			name="Sim Problem"
 			point="org.eclipse.core.resources.markers">
 		<super type="org.eclipse.xtext.ui.check.expensive"/>
 		<persistent value="true"/>
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
-			category="com.mimacom.ddd.dm.dim.Dim"
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.validation.ValidatorPreferencePage"
-			id="com.mimacom.ddd.dm.dim.Dim.validator.preferencePage"
+			category="com.mimacom.ddd.sm.sim.Sim"
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.validation.ValidatorPreferencePage"
+			id="com.mimacom.ddd.sm.sim.Sim.validator.preferencePage"
 			name="Errors/Warnings">
-			<keywordReference id="com.mimacom.ddd.dm.dim.ui.keyword_Dim"/>
+			<keywordReference id="com.mimacom.ddd.sm.sim.ui.keyword_Sim"/>
 		</page>
 	</extension>
 	<extension point="org.eclipse.xtext.builder.participant">
 		<participant
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
-			fileExtensions="dim"/>
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
+			fileExtensions="sim"/>
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
-			category="com.mimacom.ddd.dm.dim.Dim"
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-			id="com.mimacom.ddd.dm.dim.Dim.compiler.preferencePage"
+			category="com.mimacom.ddd.sm.sim.Sim"
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			id="com.mimacom.ddd.sm.sim.Sim.compiler.preferencePage"
 			name="Compiler">
-			<keywordReference id="com.mimacom.ddd.dm.dim.ui.keyword_Dim"/>
+			<keywordReference id="com.mimacom.ddd.sm.sim.ui.keyword_Sim"/>
 		</page>
 	</extension>
 	<extension point="org.eclipse.ui.propertyPages">
 		<page
-			category="com.mimacom.ddd.dm.dim.Dim"
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-			id="com.mimacom.ddd.dm.dim.Dim.compiler.propertyPage"
+			category="com.mimacom.ddd.sm.sim.Sim"
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			id="com.mimacom.ddd.sm.sim.Sim.compiler.propertyPage"
 			name="Compiler">
-			<keywordReference id="com.mimacom.ddd.dm.dim.ui.keyword_Dim"/>
+			<keywordReference id="com.mimacom.ddd.sm.sim.ui.keyword_Sim"/>
 			<enabledWhen>
 				<adapt type="org.eclipse.core.resources.IProject"/>
 			</enabledWhen>
@@ -289,20 +289,20 @@
 		<menuContribution locationURI="popup:#TextEditorContext?after=xtext.ui.openDeclaration">
 			<command
 				commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand"
-				id="com.mimacom.ddd.dm.dim.Dim.OpenGeneratedCode"
+				id="com.mimacom.ddd.sm.sim.Sim.OpenGeneratedCode"
 				style="push">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="com.mimacom.ddd.dm.dim.Dim.Editor.opened" />
+					<reference definitionId="com.mimacom.ddd.sm.sim.Sim.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
 	</extension>
 	<extension point="org.eclipse.ui.handlers">
 		<handler
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler"
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler"
 			commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand">
 			<activeWhen>
-				<reference definitionId="com.mimacom.ddd.dm.dim.Dim.Editor.opened" />
+				<reference definitionId="com.mimacom.ddd.sm.sim.Sim.Editor.opened" />
 			</activeWhen>
 		</handler>
 	</extension>
@@ -310,11 +310,11 @@
 	<extension
 		point="org.eclipse.ui.handlers">
 		<handler 
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
 			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
 			<activeWhen>
 				<reference
-					definitionId="com.mimacom.ddd.dm.dim.Dim.Editor.opened">
+					definitionId="com.mimacom.ddd.sm.sim.Sim.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -334,33 +334,33 @@
 				style="push"
 				tooltip="Open Quick Outline">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="com.mimacom.ddd.dm.dim.Dim.Editor.opened"/>
+					<reference definitionId="com.mimacom.ddd.sm.sim.Sim.Editor.opened"/>
 				</visibleWhen>
 			</command>
 		</menuContribution>
 	</extension>
-	<!-- quickfix marker resolution generator for com.mimacom.ddd.dm.dim.Dim -->
+	<!-- quickfix marker resolution generator for com.mimacom.ddd.sm.sim.Sim -->
 	<extension
 			point="org.eclipse.ui.ide.markerResolution">
 		<markerResolutionGenerator
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-			markerType="com.mimacom.ddd.dm.dim.ui.dim.check.fast">
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="com.mimacom.ddd.sm.sim.ui.sim.check.fast">
 			<attribute
 				name="FIXABLE_KEY"
 				value="true">
 			</attribute>
 		</markerResolutionGenerator>
 		<markerResolutionGenerator
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-			markerType="com.mimacom.ddd.dm.dim.ui.dim.check.normal">
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="com.mimacom.ddd.sm.sim.ui.sim.check.normal">
 			<attribute
 				name="FIXABLE_KEY"
 				value="true">
 			</attribute>
 		</markerResolutionGenerator>
 		<markerResolutionGenerator
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-			markerType="com.mimacom.ddd.dm.dim.ui.dim.check.expensive">
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="com.mimacom.ddd.sm.sim.ui.sim.check.expensive">
 			<attribute
 				name="FIXABLE_KEY"
 				value="true">
@@ -370,11 +370,11 @@
 	<!-- Rename Refactoring -->
 	<extension point="org.eclipse.ui.handlers">
 		<handler 
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler"
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler"
 			commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
 			<activeWhen>
 				<reference
-					definitionId="com.mimacom.ddd.dm.dim.Dim.Editor.opened">
+					definitionId="com.mimacom.ddd.sm.sim.Sim.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -386,7 +386,7 @@
 				style="push">
 				<visibleWhen checkEnabled="false">
 					<reference
-						definitionId="com.mimacom.ddd.dm.dim.Dim.Editor.opened">
+						definitionId="com.mimacom.ddd.sm.sim.Sim.Editor.opened">
 					</reference>
 				</visibleWhen>
 			</command>
@@ -394,48 +394,69 @@
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
-			category="com.mimacom.ddd.dm.dim.Dim"
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
-			id="com.mimacom.ddd.dm.dim.Dim.refactoring"
+			category="com.mimacom.ddd.sm.sim.Sim"
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
+			id="com.mimacom.ddd.sm.sim.Sim.refactoring"
 			name="Refactoring">
-			<keywordReference id="com.mimacom.ddd.dm.dim.ui.keyword_Dim"/>
+			<keywordReference id="com.mimacom.ddd.sm.sim.ui.keyword_Sim"/>
 		</page>
 	</extension>
 	<extension point="org.eclipse.compare.contentViewers">
-		<viewer id="com.mimacom.ddd.dm.dim.Dim.compare.contentViewers"
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-			extensions="dim">
+		<viewer id="com.mimacom.ddd.sm.sim.Sim.compare.contentViewers"
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+			extensions="sim">
 		</viewer>
 		<contentTypeBinding
-			contentTypeId="com.mimacom.ddd.dm.dim.Dim.contenttype"
-			contentViewerId="com.mimacom.ddd.dm.dim.Dim.compare.contentViewers" />
+			contentTypeId="com.mimacom.ddd.sm.sim.Sim.contenttype"
+			contentViewerId="com.mimacom.ddd.sm.sim.Sim.compare.contentViewers" />
 	</extension>
 	<extension point="org.eclipse.compare.contentMergeViewers">
-		<viewer id="com.mimacom.ddd.dm.dim.Dim.compare.contentMergeViewers"
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-			extensions="dim" label="Dim Compare">
+		<viewer id="com.mimacom.ddd.sm.sim.Sim.compare.contentMergeViewers"
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+			extensions="sim" label="Sim Compare">
 		</viewer>
 		<contentTypeBinding
-			contentTypeId="com.mimacom.ddd.dm.dim.Dim.contenttype"
-			contentMergeViewerId="com.mimacom.ddd.dm.dim.Dim.compare.contentMergeViewers" />
+			contentTypeId="com.mimacom.ddd.sm.sim.Sim.contenttype"
+			contentMergeViewerId="com.mimacom.ddd.sm.sim.Sim.compare.contentMergeViewers" />
 	</extension>
 	<extension point="org.eclipse.ui.editors.documentProviders">
-		<provider id="com.mimacom.ddd.dm.dim.Dim.editors.documentProviders"
-			class="com.mimacom.ddd.dm.dim.ui.DimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
-			extensions="dim">
+		<provider id="com.mimacom.ddd.sm.sim.Sim.editors.documentProviders"
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
+			extensions="sim">
 		</provider>
 	</extension>
 	<extension point="org.eclipse.team.core.fileTypes">
 		<fileTypes
-			extension="dim"
+			extension="sim"
 			type="text">
 		</fileTypes>
 	</extension>
-	
-	<extension point="net.sourceforge.plantuml.eclipse.diagramTextProvider">
-	   <diagramTextProvider
-	         priority="100"
-	         providerClass="com.mimacom.ddd.dm.dim.ui.plantuml.DimDiagramTextProvider">
-	   </diagramTextProvider>
+	<extension
+		point="org.eclipse.ui.newWizards">
+		<category id="com.mimacom.ddd.sm.sim.ui.category" name="Sim">
+		</category>
+		<wizard
+			category="com.mimacom.ddd.sm.sim.ui.category"
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:org.eclipse.xtext.ui.wizard.template.TemplateNewFileWizard"
+			id="com.mimacom.ddd.sm.sim.ui.wizard.SimNewFileWizard"
+			name="Sim File"
+			icon="icons/new_Sim_file.png">
+		</wizard>
+	</extension>
+	<extension
+		point="org.eclipse.xtext.ui.fileTemplate">
+		<fileTemplateProvider
+			class="com.mimacom.ddd.sm.sim.ui.SimExecutableExtensionFactory:com.mimacom.ddd.sm.sim.ui.wizard.SimFileTemplateProvider"
+			grammarName="com.mimacom.ddd.sm.sim.Sim">
+		</fileTemplateProvider>
+	</extension>
+	<extension
+		point="org.eclipse.ui.perspectiveExtensions">
+		<perspectiveExtension targetID="org.eclipse.ui.resourcePerspective">
+			<newWizardShortcut id="com.mimacom.ddd.sm.sim.ui.wizard.SimNewFileWizard"/>
+		</perspectiveExtension>
+		<perspectiveExtension targetID="org.eclipse.jdt.ui.JavaPerspective">
+			<newWizardShortcut id="com.mimacom.ddd.sm.sim.ui.wizard.SimNewFileWizard"/>
+		</perspectiveExtension>
 	</extension>
 </plugin>

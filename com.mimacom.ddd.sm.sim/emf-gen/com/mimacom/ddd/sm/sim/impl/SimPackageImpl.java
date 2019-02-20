@@ -1571,6 +1571,8 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		initEAttribute(getSAssociation_Derived(), ecorePackage.getEBoolean(), "derived", null, 0, 1, SAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSAssociation_Kind(), this.getSAssociationKind(), "kind", null, 0, 1, SAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		addEOperation(sAssociationEClass, this.getSRootType(), "getTargetType", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(sAttributeEClass, SAttribute.class, "SAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSAttribute_Detail(), ecorePackage.getEBoolean(), "detail", null, 0, 1, SAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSAttribute_Key(), ecorePackage.getEBoolean(), "key", null, 0, 1, SAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

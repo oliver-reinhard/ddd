@@ -78,4 +78,12 @@ public interface SAssociation extends SFeature
 	 */
 	void setKind(SAssociationKind value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	SRootType getTargetType();
+
 } // SAssociation

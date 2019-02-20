@@ -5,6 +5,7 @@ package com.mimacom.ddd.sm.sim.impl;
 
 import com.mimacom.ddd.sm.sim.SAssociation;
 import com.mimacom.ddd.sm.sim.SAssociationKind;
+import com.mimacom.ddd.sm.sim.SRootType;
 import com.mimacom.ddd.sm.sim.SimPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -138,6 +139,19 @@ public class SAssociationImpl extends SFeatureImpl implements SAssociation
 		kind = newKind == null ? KIND_EDEFAULT : newKind;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SASSOCIATION__KIND, oldKind, kind));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SRootType getTargetType()
+	{
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
