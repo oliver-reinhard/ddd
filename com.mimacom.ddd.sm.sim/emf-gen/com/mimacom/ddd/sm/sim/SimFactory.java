@@ -51,6 +51,15 @@ public interface SimFactory extends EFactory
 	SImport createSImport();
 
 	/**
+	 * Returns a new object of class '<em>SDomain Proxy</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>SDomain Proxy</em>'.
+	 * @generated
+	 */
+	SDomainProxy createSDomainProxy();
+
+	/**
 	 * Returns a new object of class '<em>SAggregate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

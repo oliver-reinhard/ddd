@@ -200,18 +200,18 @@ ruleSInformationModel returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSInformationModelAccess().getGrabDomainRulesSGrabDomainRuleParserRuleCall_6_2_0());
+						newCompositeNode(grammarAccess.getSInformationModelAccess().getDomainProxiesSDomainProxyParserRuleCall_6_2_0());
 					}
-					lv_grabDomainRules_8_0=ruleSGrabDomainRule
+					lv_domainProxies_8_0=ruleSDomainProxy
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getSInformationModelRule());
 						}
 						add(
 							$current,
-							"grabDomainRules",
-							lv_grabDomainRules_8_0,
-							"com.mimacom.ddd.sm.sim.Sim.SGrabDomainRule");
+							"domainProxies",
+							lv_domainProxies_8_0,
+							"com.mimacom.ddd.sm.sim.Sim.SDomainProxy");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -278,29 +278,19 @@ ruleSGrabDomainRule returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='grab'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getSGrabDomainRuleAccess().getGrabKeyword_0());
-		}
-		otherlv_1='domain'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getSGrabDomainRuleAccess().getDomainKeyword_1());
-		}
 		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSGrabDomainRuleRule());
-					}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getSGrabDomainRuleRule());
 				}
-				{
-					newCompositeNode(grammarAccess.getSGrabDomainRuleAccess().getSourceDDomainCrossReference_2_0());
-				}
-				ruleSQualifiedName
-				{
-					afterParserOrEnumRuleCall();
-				}
-			)
+			}
+			{
+				newCompositeNode(grammarAccess.getSGrabDomainRuleAccess().getSourceDDomainCrossReference_0());
+			}
+			ruleSQualifiedName
+			{
+				afterParserOrEnumRuleCall();
+			}
 		)
 	)
 ;
@@ -1019,6 +1009,59 @@ ruleSDitchFeatureRule returns [EObject current=null]
 			{
 				newLeafNode(otherlv_0, grammarAccess.getSDitchFeatureRuleAccess().getSourceDFeatureCrossReference_0());
 			}
+		)
+	)
+;
+
+// Entry rule entryRuleSDomainProxy
+entryRuleSDomainProxy returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSDomainProxyRule()); }
+	iv_ruleSDomainProxy=ruleSDomainProxy
+	{ $current=$iv_ruleSDomainProxy.current; }
+	EOF;
+
+// Rule SDomainProxy
+ruleSDomainProxy returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getSDomainProxyAccess().getSDomainProxyAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='grab'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getSDomainProxyAccess().getGrabKeyword_1());
+		}
+		otherlv_2='domain'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getSDomainProxyAccess().getDomainKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSDomainProxyAccess().getDeductionRuleSGrabDomainRuleParserRuleCall_3_0());
+				}
+				lv_deductionRule_3_0=ruleSGrabDomainRule
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSDomainProxyRule());
+					}
+					set(
+						$current,
+						"deductionRule",
+						lv_deductionRule_3_0,
+						"com.mimacom.ddd.sm.sim.Sim.SGrabDomainRule");
+					afterParserOrEnumRuleCall();
+				}
+			)
 		)
 	)
 ;

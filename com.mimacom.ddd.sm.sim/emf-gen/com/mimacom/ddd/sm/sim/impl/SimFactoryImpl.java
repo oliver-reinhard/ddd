@@ -69,6 +69,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 			case SimPackage.SINFORMATION_MODEL: return createSInformationModel();
 			case SimPackage.SNAMED_ELEMENT: return createSNamedElement();
 			case SimPackage.SIMPORT: return createSImport();
+			case SimPackage.SDOMAIN_PROXY: return createSDomainProxy();
 			case SimPackage.SAGGREGATE: return createSAggregate();
 			case SimPackage.STYPE: return createSType();
 			case SimPackage.SSIMPLE_TYPE: return createSSimpleType();
@@ -174,6 +175,18 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	{
 		SImportImpl sImport = new SImportImpl();
 		return sImport;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SDomainProxy createSDomainProxy()
+	{
+		SDomainProxyImplCustom sDomainProxy = new SDomainProxyImplCustom();
+		return sDomainProxy;
 	}
 
 	/**

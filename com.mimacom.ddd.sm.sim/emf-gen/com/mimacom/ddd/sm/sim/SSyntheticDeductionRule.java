@@ -3,7 +3,6 @@
  */
 package com.mimacom.ddd.sm.sim;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.sim.SSyntheticDeductionRule#getElementWithExplicitRule <em>Element With Explicit Rule</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.SSyntheticDeductionRule#getElementWithRule <em>Element With Rule</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.sm.sim.SimPackage#getSSyntheticDeductionRule()
@@ -24,29 +23,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface SSyntheticDeductionRule extends SDeductionRule
 {
 	/**
-	 * Returns the value of the '<em><b>Element With Explicit Rule</b></em>' reference.
+	 * Returns the value of the '<em><b>Element With Rule</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Element With Explicit Rule</em>' reference isn't clear,
+	 * If the meaning of the '<em>Element With Rule</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element With Explicit Rule</em>' reference.
-	 * @see #setElementWithExplicitRule(EObject)
-	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSSyntheticDeductionRule_ElementWithExplicitRule()
+	 * @return the value of the '<em>Element With Rule</em>' reference.
+	 * @see #setElementWithRule(SDeducibleElement)
+	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSSyntheticDeductionRule_ElementWithRule()
 	 * @model transient="true"
 	 * @generated
 	 */
-	EObject getElementWithExplicitRule();
+	SDeducibleElement getElementWithRule();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.sm.sim.SSyntheticDeductionRule#getElementWithExplicitRule <em>Element With Explicit Rule</em>}' reference.
+	 * Sets the value of the '{@link com.mimacom.ddd.sm.sim.SSyntheticDeductionRule#getElementWithRule <em>Element With Rule</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Element With Explicit Rule</em>' reference.
-	 * @see #getElementWithExplicitRule()
+	 * @param value the new value of the '<em>Element With Rule</em>' reference.
+	 * @see #getElementWithRule()
 	 * @generated
 	 */
-	void setElementWithExplicitRule(EObject value);
+	void setElementWithRule(SDeducibleElement value);
 
 } // SSyntheticDeductionRule

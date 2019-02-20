@@ -20,6 +20,7 @@ import com.mimacom.ddd.sm.sim.SComplexType;
 import com.mimacom.ddd.sm.sim.SDeducibleElement;
 import com.mimacom.ddd.sm.sim.SDeductionRule;
 import com.mimacom.ddd.sm.sim.SDitchRule;
+import com.mimacom.ddd.sm.sim.SDomainProxy;
 import com.mimacom.ddd.sm.sim.SElementNature;
 import com.mimacom.ddd.sm.sim.SEnumeration;
 import com.mimacom.ddd.sm.sim.SFeature;
@@ -44,6 +45,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.resource.DerivedStateAwareResource;
@@ -104,12 +106,12 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
     if (_filter!=null) {
       _list=IterableExtensions.<SType>toList(_filter);
     }
-    final List<SType> sTypesWithExplicitRule = _list;
-    if ((sTypesWithExplicitRule != null)) {
+    final List<SType> sTypesWithRule = _list;
+    if ((sTypesWithRule != null)) {
       SimSTypeSorter _simSTypeSorter = new SimSTypeSorter();
-      Collections.<SType>sort(sTypesWithExplicitRule, _simSTypeSorter);
+      Collections.<SType>sort(sTypesWithRule, _simSTypeSorter);
       final ArrayList<SyntheticComplexTypeDescriptor> complexSyntheticTypes = Lists.<SyntheticComplexTypeDescriptor>newArrayList();
-      for (final SType type : sTypesWithExplicitRule) {
+      for (final SType type : sTypesWithRule) {
         {
           final SDeductionRule rule = type.getDeductionRule();
           final EObject source = rule.getSource();
@@ -126,13 +128,16 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
         this.addSyntheticFeatures(desc, context);
       }
     }
+    EList<SDomainProxy> _domainProxies = model.getDomainProxies();
+    for (final SDomainProxy domainWithRule : _domainProxies) {
+    }
     final ArrayList<SAggregate> modelList = Lists.<SAggregate>newArrayList(model.getAggregates());
     for (final SAggregate aggregate : modelList) {
-      this.processAggregate(aggregate, context);
+      this.processAggregate(model, aggregate, null, context);
     }
   }
   
-  public void processAggregate(final SAggregate sAggregate, final TransformationContext context) {
+  public void processAggregate(final SInformationModel model, final SAggregate sAggregate, final SDomainProxy elementWithRule, final TransformationContext context) {
     SAggregate current = sAggregate;
     final ArrayList<SyntheticComplexTypeDescriptor> complexSyntheticTypes = Lists.<SyntheticComplexTypeDescriptor>newArrayList();
     SDeductionRule _deductionRule = sAggregate.getDeductionRule();
@@ -142,29 +147,27 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
         source = ((DRootType)source).eContainer();
       }
       if ((source instanceof DAggregate)) {
-        EObject _eContainer = sAggregate.eContainer();
-        final SInformationModel model = ((SInformationModel) _eContainer);
         current = this._simSyntheticModelElementsUtil.addSyntheticAggregate(model, ((DAggregate)source), sAggregate, context);
         this.addImplicitSyntheticTypes(current, sAggregate, ((DAggregate)source), complexSyntheticTypes, context);
       }
     }
-    this.addExplicitSyntheticTypes(current, complexSyntheticTypes, context);
+    this.addSyntheticTypes(current, complexSyntheticTypes, context);
     for (final SyntheticComplexTypeDescriptor desc : complexSyntheticTypes) {
       this.addSyntheticFeatures(desc, context);
     }
   }
   
-  protected void addImplicitSyntheticTypes(final SAggregate container, final SAggregate sAggregateWithExplicitRule, final DAggregate source, final List<SyntheticComplexTypeDescriptor> acceptor, final TransformationContext context) {
+  protected void addImplicitSyntheticTypes(final SAggregate container, final SAggregate aggregateWithRule, final DAggregate source, final List<SyntheticComplexTypeDescriptor> acceptor, final TransformationContext context) {
     final Function1<SType, Boolean> _function = (SType it) -> {
       SElementNature _nature = it.getNature();
       return Boolean.valueOf(Objects.equal(_nature, SElementNature.DEDUCTION_RULE));
     };
-    final Iterable<SType> sTypesWithExplicitRule = IterableExtensions.<SType>filter(sAggregateWithExplicitRule.getTypes(), _function);
+    final Iterable<SType> sTypesWithRule = IterableExtensions.<SType>filter(aggregateWithRule.getTypes(), _function);
     final Function1<SType, Boolean> _function_1 = (SType it) -> {
       SDeductionRule _deductionRule = it.getDeductionRule();
       return Boolean.valueOf((_deductionRule instanceof SGrabRule));
     };
-    boolean _exists = IterableExtensions.<SType>exists(sTypesWithExplicitRule, _function_1);
+    boolean _exists = IterableExtensions.<SType>exists(sTypesWithRule, _function_1);
     boolean _not = (!_exists);
     if (_not) {
       final ArrayList<DType> implicitlyGrabbedDTypes = Lists.<DType>newArrayList(source.getTypes());
@@ -176,29 +179,33 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
         EObject _source = it.getDeductionRule().getSource();
         return ((DType) _source);
       };
-      final Iterable<DType> dTypesAffectedByRule = IterableExtensions.<SType, DType>map(IterableExtensions.<SType>filter(sTypesWithExplicitRule, _function_2), _function_3);
+      final Iterable<DType> dTypesAffectedByRule = IterableExtensions.<SType, DType>map(IterableExtensions.<SType>filter(sTypesWithRule, _function_2), _function_3);
       CollectionExtensions.<DType>removeAll(implicitlyGrabbedDTypes, dTypesAffectedByRule);
       for (final DType dType : implicitlyGrabbedDTypes) {
         {
-          final SType syntheticType = this._simSyntheticModelElementsUtil.addSyntheticType(container, dType.getName(), dType, sAggregateWithExplicitRule, context);
-          if ((syntheticType instanceof SComplexType)) {
-            SyntheticComplexTypeDescriptor _syntheticComplexTypeDescriptor = new SyntheticComplexTypeDescriptor(((SComplexType)syntheticType), ((DComplexType) dType));
-            acceptor.add(_syntheticComplexTypeDescriptor);
+          final SType syntheticType = this._simSyntheticModelElementsUtil.addSyntheticType(container, dType.getName(), dType, null, context);
+          if ((syntheticType instanceof SEnumeration)) {
+            this.addImplicitSyntheticLiterals(((SEnumeration)syntheticType), ((DEnumeration) dType), null);
+          } else {
+            if ((syntheticType instanceof SComplexType)) {
+              SyntheticComplexTypeDescriptor _syntheticComplexTypeDescriptor = new SyntheticComplexTypeDescriptor(((SComplexType)syntheticType), ((DComplexType) dType));
+              acceptor.add(_syntheticComplexTypeDescriptor);
+            }
           }
         }
       }
     }
   }
   
-  protected void addExplicitSyntheticTypes(final SAggregate container, final List<SyntheticComplexTypeDescriptor> acceptor, final TransformationContext context) {
+  protected void addSyntheticTypes(final SAggregate container, final List<SyntheticComplexTypeDescriptor> acceptor, final TransformationContext context) {
     final Function1<SType, Boolean> _function = (SType it) -> {
       SElementNature _nature = it.getNature();
       return Boolean.valueOf(Objects.equal(_nature, SElementNature.DEDUCTION_RULE));
     };
-    final List<SType> sTypesWithExplicitRule = IterableExtensions.<SType>toList(IterableExtensions.<SType>filter(container.getTypes(), _function));
+    final List<SType> sTypesWithRule = IterableExtensions.<SType>toList(IterableExtensions.<SType>filter(container.getTypes(), _function));
     SimSTypeSorter _simSTypeSorter = new SimSTypeSorter();
-    Collections.<SType>sort(sTypesWithExplicitRule, _simSTypeSorter);
-    for (final SType sType : sTypesWithExplicitRule) {
+    Collections.<SType>sort(sTypesWithRule, _simSTypeSorter);
+    for (final SType sType : sTypesWithRule) {
       {
         final SDeductionRule rule = sType.getDeductionRule();
         final EObject source = rule.getSource();
@@ -213,7 +220,7 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
     }
   }
   
-  protected SPrimitive _processTypeWithRule(final SPrimitive sType, final SGrabRule rule, final TransformationContext context) {
+  protected SPrimitive _processTypeWithRule(final SPrimitive typeWithRule, final SGrabRule rule, final TransformationContext context) {
     final EObject source = rule.getSource();
     if ((source instanceof DPrimitive)) {
       String _xifexpression = null;
@@ -225,14 +232,14 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
         _xifexpression = ((DPrimitive)source).getName();
       }
       final String name = _xifexpression;
-      SType _addSyntheticType = this._simSyntheticModelElementsUtil.addSyntheticType(sType.eContainer(), name, ((DType)source), sType, context);
+      SType _addSyntheticType = this._simSyntheticModelElementsUtil.addSyntheticType(typeWithRule.eContainer(), name, ((DType)source), typeWithRule, context);
       final SPrimitive syntheticType = ((SPrimitive) _addSyntheticType);
       return syntheticType;
     }
     return null;
   }
   
-  protected SEnumeration _processTypeWithRule(final SEnumeration sEnum, final SGrabRule rule, final TransformationContext context) {
+  protected SEnumeration _processTypeWithRule(final SEnumeration typeWithRule, final SGrabRule rule, final TransformationContext context) {
     final EObject source = rule.getSource();
     if ((source instanceof DEnumeration)) {
       String _xifexpression = null;
@@ -244,16 +251,16 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
         _xifexpression = ((DEnumeration)source).getName();
       }
       final String name = _xifexpression;
-      SType _addSyntheticType = this._simSyntheticModelElementsUtil.addSyntheticType(sEnum.eContainer(), name, ((DType)source), sEnum, context);
+      SType _addSyntheticType = this._simSyntheticModelElementsUtil.addSyntheticType(typeWithRule.eContainer(), name, ((DType)source), typeWithRule, context);
       final SEnumeration syntheticEnum = ((SEnumeration) _addSyntheticType);
-      this.addImplicitSyntheticLiterals(syntheticEnum, ((DEnumeration)source), sEnum);
-      this.addExplicitSyntheticLiterals(syntheticEnum, sEnum);
+      this.addImplicitSyntheticLiterals(syntheticEnum, ((DEnumeration)source), typeWithRule);
+      this.addSyntheticLiterals(syntheticEnum, typeWithRule);
       return syntheticEnum;
     }
     return null;
   }
   
-  protected SComplexType _processTypeWithRule(final SComplexType sType, final SGrabRule rule, final TransformationContext context) {
+  protected SComplexType _processTypeWithRule(final SComplexType typeWithRule, final SGrabRule rule, final TransformationContext context) {
     final EObject source = rule.getSource();
     if ((source instanceof DComplexType)) {
       String _xifexpression = null;
@@ -265,36 +272,39 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
         _xifexpression = ((DComplexType)source).getName();
       }
       final String name = _xifexpression;
-      SType _addSyntheticType = this._simSyntheticModelElementsUtil.addSyntheticType(sType.eContainer(), name, ((DType)source), sType, context);
+      SType _addSyntheticType = this._simSyntheticModelElementsUtil.addSyntheticType(typeWithRule.eContainer(), name, ((DType)source), typeWithRule, context);
       final SComplexType syntheticType = ((SComplexType) _addSyntheticType);
       return syntheticType;
     }
     return null;
   }
   
-  protected SComplexType _processTypeWithRule(final SComplexType type, final SMorphRule rule, final TransformationContext context) {
+  protected SComplexType _processTypeWithRule(final SComplexType typeWithRule, final SMorphRule rule, final TransformationContext context) {
     return null;
   }
   
-  protected SComplexType _processTypeWithRule(final SComplexType type, final SFuseRule rule, final TransformationContext context) {
+  protected SComplexType _processTypeWithRule(final SComplexType typeWithRule, final SFuseRule rule, final TransformationContext context) {
     return null;
   }
   
-  protected SType _processTypeWithRule(final SType type, final SDeductionRule rule, final TransformationContext context) {
+  protected SType _processTypeWithRule(final SType typeWithRule, final SDeductionRule rule, final TransformationContext context) {
     throw new UnsupportedOperationException();
   }
   
-  public void addImplicitSyntheticLiterals(final SEnumeration syntheticEnum, final DEnumeration source, final SEnumeration sEnumWithExplicitRule) {
-    final Function1<SLiteral, Boolean> _function = (SLiteral it) -> {
-      SElementNature _nature = it.getNature();
-      return Boolean.valueOf(Objects.equal(_nature, SElementNature.DEDUCTION_RULE));
-    };
-    final Iterable<SLiteral> sLiteralsWithExplicitRule = IterableExtensions.<SLiteral>filter(sEnumWithExplicitRule.getLiterals(), _function);
+  public void addImplicitSyntheticLiterals(final SEnumeration syntheticEnum, final DEnumeration source, final SEnumeration sEnumWithRule) {
+    Iterable<SLiteral> sLiteralsWithRule = Lists.<SLiteral>newArrayList();
+    if ((sEnumWithRule != null)) {
+      final Function1<SLiteral, Boolean> _function = (SLiteral it) -> {
+        SElementNature _nature = it.getNature();
+        return Boolean.valueOf(Objects.equal(_nature, SElementNature.DEDUCTION_RULE));
+      };
+      sLiteralsWithRule = IterableExtensions.<SLiteral>filter(sEnumWithRule.getLiterals(), _function);
+    }
     final Function1<SLiteral, Boolean> _function_1 = (SLiteral it) -> {
       SDeductionRule _deductionRule = it.getDeductionRule();
       return Boolean.valueOf((_deductionRule instanceof SGrabRule));
     };
-    boolean _exists = IterableExtensions.<SLiteral>exists(sLiteralsWithExplicitRule, _function_1);
+    boolean _exists = IterableExtensions.<SLiteral>exists(sLiteralsWithRule, _function_1);
     boolean _not = (!_exists);
     if (_not) {
       final ArrayList<DLiteral> implicitlyGrabbedDLiterals = Lists.<DLiteral>newArrayList(source.getLiterals());
@@ -306,7 +316,7 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
         EObject _source = it.getDeductionRule().getSource();
         return ((DLiteral) _source);
       };
-      final Iterable<DLiteral> dLiteralsAffectedByRule = IterableExtensions.<SLiteral, DLiteral>map(IterableExtensions.<SLiteral>filter(sLiteralsWithExplicitRule, _function_2), _function_3);
+      final Iterable<DLiteral> dLiteralsAffectedByRule = IterableExtensions.<SLiteral, DLiteral>map(IterableExtensions.<SLiteral>filter(sLiteralsWithRule, _function_2), _function_3);
       CollectionExtensions.<DLiteral>removeAll(implicitlyGrabbedDLiterals, dLiteralsAffectedByRule);
       for (final DLiteral dLiteral : implicitlyGrabbedDLiterals) {
         this._simSyntheticModelElementsUtil.addSyntheticLiteral(syntheticEnum, dLiteral.getName());
@@ -314,14 +324,14 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
     }
   }
   
-  public void addExplicitSyntheticLiterals(final SEnumeration syntheticEnum, final SEnumeration sEnumWithExplicitRule) {
+  public void addSyntheticLiterals(final SEnumeration syntheticEnum, final SEnumeration sEnumWithRule) {
     final Function1<SLiteral, Boolean> _function = (SLiteral it) -> {
       SElementNature _nature = it.getNature();
       return Boolean.valueOf(Objects.equal(_nature, SElementNature.DEDUCTION_RULE));
     };
-    final Iterable<SLiteral> sLiteralsWithExplicitRule = IterableExtensions.<SLiteral>filter(sEnumWithExplicitRule.getLiterals(), _function);
-    final List<SLiteral> sLiteralsWithExplicitRuleList = IterableExtensions.<SLiteral>toList(sLiteralsWithExplicitRule);
-    for (final SLiteral sLiteral : sLiteralsWithExplicitRuleList) {
+    final Iterable<SLiteral> sLiteralsWithRule = IterableExtensions.<SLiteral>filter(sEnumWithRule.getLiterals(), _function);
+    final List<SLiteral> sLiteralsWithRuleList = IterableExtensions.<SLiteral>toList(sLiteralsWithRule);
+    for (final SLiteral sLiteral : sLiteralsWithRuleList) {
       {
         final SDeductionRule literalRule = sLiteral.getDeductionRule();
         if ((literalRule instanceof SGrabRule)) {
@@ -348,12 +358,12 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
     }
   }
   
-  protected void _processFeatureWithRule(final SComplexType container, final SFeature sFeature, final SGrabRule rule, final TransformationContext context) {
-    this.grabFeature(container, sFeature, rule, context);
+  protected void _processFeatureWithRule(final SComplexType container, final SFeature featureWithRule, final SGrabRule rule, final TransformationContext context) {
+    this.grabFeature(container, featureWithRule, rule, context);
   }
   
-  protected void _processFeatureWithRule(final SComplexType container, final SFeature sFeature, final SMorphRule rule, final TransformationContext context) {
-    final SFeature syntheticFeature = this.grabFeature(container, sFeature, rule, context);
+  protected void _processFeatureWithRule(final SComplexType container, final SFeature featureWithRule, final SMorphRule rule, final TransformationContext context) {
+    final SFeature syntheticFeature = this.grabFeature(container, featureWithRule, rule, context);
     if ((syntheticFeature != null)) {
       SType _retypeTo = rule.getRetypeTo();
       boolean _tripleNotEquals = (_retypeTo != null);
@@ -368,10 +378,10 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
     }
   }
   
-  protected void _processFeatureWithRule(final SComplexType container, final SFeature sFeature, final SDitchRule rule, final TransformationContext context) {
+  protected void _processFeatureWithRule(final SComplexType container, final SFeature featureWithRule, final SDitchRule rule, final TransformationContext context) {
   }
   
-  public SFeature grabFeature(final SComplexType container, final SFeature sFeature, final SGrabRule rule, final TransformationContext context) {
+  public SFeature grabFeature(final SComplexType container, final SFeature featureWithRule, final SGrabRule rule, final TransformationContext context) {
     final EObject source = rule.getSource();
     if ((source instanceof DFeature)) {
       String _xifexpression = null;
@@ -382,19 +392,19 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
       } else {
         _xifexpression = ((DFeature)source).getName();
       }
-      final SFeature syntheticFeature = this._simSyntheticModelElementsUtil.addSyntheticFeature(container, _xifexpression, ((DFeature)source), sFeature, context);
-      if ((sFeature instanceof SQuery)) {
+      final SFeature syntheticFeature = this._simSyntheticModelElementsUtil.addSyntheticFeature(container, _xifexpression, ((DFeature)source), featureWithRule, context);
+      if ((featureWithRule instanceof SQuery)) {
         final SQuery syntheticQuery = ((SQuery) syntheticFeature);
         final Function1<SQueryParameter, Boolean> _function = (SQueryParameter it) -> {
           SElementNature _nature = it.getNature();
           return Boolean.valueOf(Objects.equal(_nature, SElementNature.DEDUCTION_RULE));
         };
-        final Iterable<SQueryParameter> sParametersWithExplicitRule = IterableExtensions.<SQueryParameter>filter(((SQuery)sFeature).getParameters(), _function);
+        final Iterable<SQueryParameter> sParametersWithRule = IterableExtensions.<SQueryParameter>filter(((SQuery)featureWithRule).getParameters(), _function);
         final Function1<SQueryParameter, Boolean> _function_1 = (SQueryParameter it) -> {
           SDeductionRule _deductionRule = it.getDeductionRule();
           return Boolean.valueOf((_deductionRule instanceof SGrabRule));
         };
-        boolean _exists = IterableExtensions.<SQueryParameter>exists(sParametersWithExplicitRule, _function_1);
+        boolean _exists = IterableExtensions.<SQueryParameter>exists(sParametersWithRule, _function_1);
         boolean _not = (!_exists);
         if (_not) {
           final ArrayList<DQueryParameter> implicitlyGrabbedDParameters = Lists.<DQueryParameter>newArrayList(((DQuery) source).getParameters());
@@ -406,14 +416,14 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
             EObject _source = it.getDeductionRule().getSource();
             return ((DQueryParameter) _source);
           };
-          final Iterable<DQueryParameter> dParametersAffectedByRule = IterableExtensions.<SQueryParameter, DQueryParameter>map(IterableExtensions.<SQueryParameter>filter(sParametersWithExplicitRule, _function_2), _function_3);
+          final Iterable<DQueryParameter> dParametersAffectedByRule = IterableExtensions.<SQueryParameter, DQueryParameter>map(IterableExtensions.<SQueryParameter>filter(sParametersWithRule, _function_2), _function_3);
           CollectionExtensions.<DQueryParameter>removeAll(implicitlyGrabbedDParameters, dParametersAffectedByRule);
           for (final DQueryParameter dParameter : implicitlyGrabbedDParameters) {
-            this._simSyntheticModelElementsUtil.addSyntheticQueryParameter(syntheticQuery, dParameter.getName(), dParameter, sFeature, context);
+            this._simSyntheticModelElementsUtil.addSyntheticQueryParameter(syntheticQuery, dParameter.getName(), dParameter, null, context);
           }
         }
-        final List<SQueryParameter> sParametersWithExplicitRuleList = IterableExtensions.<SQueryParameter>toList(sParametersWithExplicitRule);
-        for (final SQueryParameter sParameter : sParametersWithExplicitRuleList) {
+        final List<SQueryParameter> sParametersWithRuleList = IterableExtensions.<SQueryParameter>toList(sParametersWithRule);
+        for (final SQueryParameter sParameter : sParametersWithRuleList) {
           this.processQueryParameterWithRule(syntheticQuery, sParameter, sParameter.getDeductionRule(), context);
         }
       }
@@ -423,19 +433,19 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
   }
   
   public void addSyntheticFeatures(final SyntheticComplexTypeDescriptor desc, final TransformationContext context) {
-    Iterable<SFeature> sFeaturesWithExplicitRule = Lists.<SFeature>newArrayList();
-    if ((desc.typeWithExplicitRule != null)) {
+    Iterable<SFeature> sFeaturesWithRule = Lists.<SFeature>newArrayList();
+    if ((desc.typeWithRule != null)) {
       final Function1<SFeature, Boolean> _function = (SFeature it) -> {
         SElementNature _nature = it.getNature();
         return Boolean.valueOf(Objects.equal(_nature, SElementNature.DEDUCTION_RULE));
       };
-      sFeaturesWithExplicitRule = IterableExtensions.<SFeature>filter(desc.typeWithExplicitRule.getFeatures(), _function);
+      sFeaturesWithRule = IterableExtensions.<SFeature>filter(desc.typeWithRule.getFeatures(), _function);
     }
     final Function1<SFeature, Boolean> _function_1 = (SFeature it) -> {
       SDeductionRule _deductionRule = it.getDeductionRule();
       return Boolean.valueOf((_deductionRule instanceof SGrabRule));
     };
-    boolean _exists = IterableExtensions.<SFeature>exists(sFeaturesWithExplicitRule, _function_1);
+    boolean _exists = IterableExtensions.<SFeature>exists(sFeaturesWithRule, _function_1);
     boolean _not = (!_exists);
     if (_not) {
       final ArrayList<DFeature> implicitlyGrabbedDFeatures = Lists.<DFeature>newArrayList(this._simUtil.allFeatures(desc.source));
@@ -447,14 +457,14 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
         EObject _source = it.getDeductionRule().getSource();
         return ((DFeature) _source);
       };
-      final Iterable<DFeature> dFeaturesAffectedByRule = IterableExtensions.<SFeature, DFeature>map(IterableExtensions.<SFeature>filter(sFeaturesWithExplicitRule, _function_2), _function_3);
+      final Iterable<DFeature> dFeaturesAffectedByRule = IterableExtensions.<SFeature, DFeature>map(IterableExtensions.<SFeature>filter(sFeaturesWithRule, _function_2), _function_3);
       CollectionExtensions.<DFeature>removeAll(implicitlyGrabbedDFeatures, dFeaturesAffectedByRule);
       for (final DFeature dFeature : implicitlyGrabbedDFeatures) {
-        this._simSyntheticModelElementsUtil.addSyntheticFeature(desc.syntheticType, dFeature.getName(), dFeature, desc.typeWithExplicitRule, context);
+        this._simSyntheticModelElementsUtil.addSyntheticFeature(desc.syntheticType, dFeature.getName(), dFeature, null, context);
       }
     }
-    final List<SFeature> sFeaturesWithExplicitRuleList = IterableExtensions.<SFeature>toList(sFeaturesWithExplicitRule);
-    for (final SFeature sFeature : sFeaturesWithExplicitRuleList) {
+    final List<SFeature> sFeaturesWithRuleList = IterableExtensions.<SFeature>toList(sFeaturesWithRule);
+    for (final SFeature sFeature : sFeaturesWithRuleList) {
       this.processFeatureWithRule(desc.syntheticType, sFeature, sFeature.getDeductionRule(), context);
     }
   }
@@ -499,44 +509,44 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
   protected void _processQueryParameterWithRule(final SQuery container, final SQueryParameter sParameter, final SDitchRule rule, final TransformationContext context) {
   }
   
-  public SType processTypeWithRule(final SType sEnum, final SDeductionRule rule, final TransformationContext context) {
-    if (sEnum instanceof SEnumeration
+  public SType processTypeWithRule(final SType typeWithRule, final SDeductionRule rule, final TransformationContext context) {
+    if (typeWithRule instanceof SEnumeration
          && rule instanceof SGrabRule) {
-      return _processTypeWithRule((SEnumeration)sEnum, (SGrabRule)rule, context);
-    } else if (sEnum instanceof SPrimitive
+      return _processTypeWithRule((SEnumeration)typeWithRule, (SGrabRule)rule, context);
+    } else if (typeWithRule instanceof SPrimitive
          && rule instanceof SGrabRule) {
-      return _processTypeWithRule((SPrimitive)sEnum, (SGrabRule)rule, context);
-    } else if (sEnum instanceof SComplexType
+      return _processTypeWithRule((SPrimitive)typeWithRule, (SGrabRule)rule, context);
+    } else if (typeWithRule instanceof SComplexType
          && rule instanceof SFuseRule) {
-      return _processTypeWithRule((SComplexType)sEnum, (SFuseRule)rule, context);
-    } else if (sEnum instanceof SComplexType
+      return _processTypeWithRule((SComplexType)typeWithRule, (SFuseRule)rule, context);
+    } else if (typeWithRule instanceof SComplexType
          && rule instanceof SMorphRule) {
-      return _processTypeWithRule((SComplexType)sEnum, (SMorphRule)rule, context);
-    } else if (sEnum instanceof SComplexType
+      return _processTypeWithRule((SComplexType)typeWithRule, (SMorphRule)rule, context);
+    } else if (typeWithRule instanceof SComplexType
          && rule instanceof SGrabRule) {
-      return _processTypeWithRule((SComplexType)sEnum, (SGrabRule)rule, context);
-    } else if (sEnum != null
+      return _processTypeWithRule((SComplexType)typeWithRule, (SGrabRule)rule, context);
+    } else if (typeWithRule != null
          && rule != null) {
-      return _processTypeWithRule(sEnum, rule, context);
+      return _processTypeWithRule(typeWithRule, rule, context);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(sEnum, rule, context).toString());
+        Arrays.<Object>asList(typeWithRule, rule, context).toString());
     }
   }
   
-  public void processFeatureWithRule(final SComplexType container, final SFeature sFeature, final SDeductionRule rule, final TransformationContext context) {
+  public void processFeatureWithRule(final SComplexType container, final SFeature featureWithRule, final SDeductionRule rule, final TransformationContext context) {
     if (rule instanceof SMorphRule) {
-      _processFeatureWithRule(container, sFeature, (SMorphRule)rule, context);
+      _processFeatureWithRule(container, featureWithRule, (SMorphRule)rule, context);
       return;
     } else if (rule instanceof SDitchRule) {
-      _processFeatureWithRule(container, sFeature, (SDitchRule)rule, context);
+      _processFeatureWithRule(container, featureWithRule, (SDitchRule)rule, context);
       return;
     } else if (rule instanceof SGrabRule) {
-      _processFeatureWithRule(container, sFeature, (SGrabRule)rule, context);
+      _processFeatureWithRule(container, featureWithRule, (SGrabRule)rule, context);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(container, sFeature, rule, context).toString());
+        Arrays.<Object>asList(container, featureWithRule, rule, context).toString());
     }
   }
   

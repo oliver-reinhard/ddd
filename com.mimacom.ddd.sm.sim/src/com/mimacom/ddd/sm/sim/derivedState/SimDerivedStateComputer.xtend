@@ -10,18 +10,21 @@ import com.mimacom.ddd.dm.base.DLiteral
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DQueryParameter
+import com.mimacom.ddd.dm.base.DRootType
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.sm.sim.SAggregate
 import com.mimacom.ddd.sm.sim.SComplexType
 import com.mimacom.ddd.sm.sim.SDeducibleElement
 import com.mimacom.ddd.sm.sim.SDeductionRule
 import com.mimacom.ddd.sm.sim.SDitchRule
+import com.mimacom.ddd.sm.sim.SDomainProxy
 import com.mimacom.ddd.sm.sim.SEnumeration
 import com.mimacom.ddd.sm.sim.SFeature
 import com.mimacom.ddd.sm.sim.SFuseRule
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule
 import com.mimacom.ddd.sm.sim.SGrabRule
 import com.mimacom.ddd.sm.sim.SInformationModel
+import com.mimacom.ddd.sm.sim.SLiteral
 import com.mimacom.ddd.sm.sim.SMorphRule
 import com.mimacom.ddd.sm.sim.SPrimitive
 import com.mimacom.ddd.sm.sim.SQuery
@@ -35,7 +38,6 @@ import org.eclipse.xtext.resource.DerivedStateAwareResource
 import org.eclipse.xtext.resource.IDerivedStateComputer
 
 import static com.mimacom.ddd.sm.sim.SElementNature.*
-import com.mimacom.ddd.dm.base.DRootType
 
 class SimDerivedStateComputer implements IDerivedStateComputer {
 	
@@ -66,11 +68,11 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 	}
 	
 	def  void processInformationModel(SInformationModel model, TransformationContext context) {
-		val sTypesWithExplicitRule = model.types.filter[nature == DEDUCTION_RULE]?.toList  // cannot sort iterable 
-		if (sTypesWithExplicitRule !== null) {
-			Collections.sort(sTypesWithExplicitRule, new SimSTypeSorter)
+		val sTypesWithRule = model.types.filter[nature == DEDUCTION_RULE]?.toList  // cannot sort iterable 
+		if (sTypesWithRule !== null) {
+			Collections.sort(sTypesWithRule, new SimSTypeSorter)
 			val complexSyntheticTypes = Lists.newArrayList
-			for (type : sTypesWithExplicitRule) { 
+			for (type : sTypesWithRule) { 
 				val rule = type.deductionRule
 				val source = rule.source
 				if (source instanceof DType) {
@@ -85,13 +87,17 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 			}
 		}
 		
+		for (domainWithRule : model.domainProxies) {
+			// TODO
+		}
+		
 		val modelList = Lists.newArrayList(model.aggregates) // cannot add to list while iterating it
 		for (aggregate : modelList) {
-			aggregate.processAggregate(context)
+			model.processAggregate(aggregate, null, context)
 		}
 	}
 	
-	def  void processAggregate(SAggregate sAggregate, TransformationContext context) {
+	def  void processAggregate(SInformationModel model, SAggregate sAggregate, SDomainProxy elementWithRule, TransformationContext context) {
 		var current = sAggregate
 		val complexSyntheticTypes = Lists.newArrayList
 		if (sAggregate.deductionRule instanceof SGrabAggregateRule) {
@@ -100,41 +106,42 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 				source = source.eContainer
 			}
 			if (source instanceof DAggregate) {
-				val model = sAggregate.eContainer as SInformationModel
 				current = model.addSyntheticAggregate(source, sAggregate, context)
 				current.addImplicitSyntheticTypes(sAggregate, source, complexSyntheticTypes, context) // adds types but not features of complex types
 			}
 		} 
 			
-		current.addExplicitSyntheticTypes(complexSyntheticTypes, context)
+		current.addSyntheticTypes(complexSyntheticTypes, context)
 		
 		for (desc : complexSyntheticTypes) {
 			desc.addSyntheticFeatures(context)
 		}
 	}
 	
-	protected def void addImplicitSyntheticTypes(SAggregate container, SAggregate sAggregateWithExplicitRule, DAggregate source, List<SyntheticComplexTypeDescriptor> acceptor, TransformationContext context) {
-		val sTypesWithExplicitRule = sAggregateWithExplicitRule.types.filter[nature == DEDUCTION_RULE]
-		if (! sTypesWithExplicitRule.exists[deductionRule instanceof SGrabRule]) {
+	protected def void addImplicitSyntheticTypes(SAggregate container, SAggregate aggregateWithRule, DAggregate source, List<SyntheticComplexTypeDescriptor> acceptor, TransformationContext context) {
+		val sTypesWithRule = aggregateWithRule.types.filter[nature == DEDUCTION_RULE]
+		if (! sTypesWithRule.exists[deductionRule instanceof SGrabRule]) {
 			// there are no explicit grabs, so implicitly grab all types without a rule:
 			val implicitlyGrabbedDTypes = Lists.newArrayList(source.types)
-			val dTypesAffectedByRule = sTypesWithExplicitRule.filter[deductionRule.source instanceof DType].map[deductionRule.source as DType]
+			val dTypesAffectedByRule = sTypesWithRule.filter[deductionRule.source instanceof DType].map[deductionRule.source as DType]
 			implicitlyGrabbedDTypes.removeAll(dTypesAffectedByRule)
 			
 			// create synthetic STypes for implicit types (but not their features yet because they may depend on the mappings of those types ):
 			for (dType : implicitlyGrabbedDTypes) {
-				val syntheticType = container.addSyntheticType(dType.name, dType, sAggregateWithExplicitRule, context)
-				if (syntheticType instanceof SComplexType) {
+				val syntheticType = container.addSyntheticType(dType.name, dType, null, context)
+				if (syntheticType instanceof SEnumeration) {
+					syntheticType.addImplicitSyntheticLiterals(dType as DEnumeration, null)
+				} else if (syntheticType instanceof SComplexType) {
 					acceptor.add(new SyntheticComplexTypeDescriptor(syntheticType, dType as DComplexType))
 				}
 			}
 		}
 	}
 	
-	protected def void addExplicitSyntheticTypes(SAggregate container, List<SyntheticComplexTypeDescriptor> acceptor, TransformationContext context) {
-		val sTypesWithExplicitRule = container.types.filter[nature == DEDUCTION_RULE].toList // cannot sort iterable 
-		Collections.sort(sTypesWithExplicitRule, new SimSTypeSorter)
-		for (sType : sTypesWithExplicitRule) {
+	protected def void addSyntheticTypes(SAggregate container, List<SyntheticComplexTypeDescriptor> acceptor, TransformationContext context) {
+		val sTypesWithRule = container.types.filter[nature == DEDUCTION_RULE].toList // cannot sort iterable 
+		Collections.sort(sTypesWithRule, new SimSTypeSorter)
+		for (sType : sTypesWithRule) {
 			val rule = sType.deductionRule
 			val source = rule.source
 			if (source instanceof DType) {
@@ -146,58 +153,62 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 		}
 	}
 	
-	def dispatch SPrimitive processTypeWithRule(SPrimitive sType, SGrabRule rule, TransformationContext context) {
+	def dispatch SPrimitive processTypeWithRule(SPrimitive typeWithRule, SGrabRule rule, TransformationContext context) {
 		val source = rule.source
 		if (source instanceof DPrimitive) {
 			val name = if (rule.renameTo !== null) rule.renameTo else source.name
-			val syntheticType = sType.eContainer.addSyntheticType(name, source, sType, context) as SPrimitive
+			val syntheticType = typeWithRule.eContainer.addSyntheticType(name, source, typeWithRule, context) as SPrimitive
 			return syntheticType
 		}
 		return null
 	}
 	
-	def dispatch SEnumeration processTypeWithRule(SEnumeration sEnum, SGrabRule rule, TransformationContext context) {
+	def dispatch SEnumeration processTypeWithRule(SEnumeration typeWithRule, SGrabRule rule, TransformationContext context) {
 		val source = rule.source
 		if (source instanceof DEnumeration) {
 			val name = if (rule.renameTo !== null) rule.renameTo else source.name
-			val syntheticEnum = sEnum.eContainer.addSyntheticType(name , source, sEnum, context) as SEnumeration
-			syntheticEnum.addImplicitSyntheticLiterals(source, sEnum)
-			syntheticEnum.addExplicitSyntheticLiterals(sEnum)
+			val syntheticEnum = typeWithRule.eContainer.addSyntheticType(name , source, typeWithRule, context) as SEnumeration
+			syntheticEnum.addImplicitSyntheticLiterals(source, typeWithRule)
+			syntheticEnum.addSyntheticLiterals(typeWithRule)
 			return syntheticEnum
 		}
 		return null
 	}
 	
 	
-	def dispatch SComplexType processTypeWithRule(SComplexType sType, SGrabRule rule, TransformationContext context) {
+	def dispatch SComplexType processTypeWithRule(SComplexType typeWithRule, SGrabRule rule, TransformationContext context) {
 		val source = rule.source
 		if (source instanceof DComplexType) {
 			val name = if (rule.renameTo !== null) rule.renameTo else source.name
-			val syntheticType = addSyntheticType(sType.eContainer, name , source, sType, context) as SComplexType
+			val syntheticType = addSyntheticType(typeWithRule.eContainer, name , source, typeWithRule, context) as SComplexType
 			// do not add features yet (they may refer to types that might not exist yet)
 			return syntheticType
 		}
 		return null
 	}
 	
-	def dispatch SComplexType processTypeWithRule(SComplexType type, SMorphRule rule, TransformationContext context) {
+	def dispatch SComplexType processTypeWithRule(SComplexType typeWithRule, SMorphRule rule, TransformationContext context) {
 		// TODO
 	}
 	
-	def dispatch SComplexType processTypeWithRule(SComplexType type, SFuseRule rule, TransformationContext context) {
+	def dispatch SComplexType processTypeWithRule(SComplexType typeWithRule, SFuseRule rule, TransformationContext context) {
 		// TODO need to enhance scope provider
 	}
 	
-	def dispatch SType processTypeWithRule(SType type, SDeductionRule rule, TransformationContext context) {
+	def dispatch SType processTypeWithRule(SType typeWithRule, SDeductionRule rule, TransformationContext context) {
 		throw new UnsupportedOperationException() // catch-all => should not occur
 	}
 	
-	def void addImplicitSyntheticLiterals(SEnumeration syntheticEnum, DEnumeration source, SEnumeration sEnumWithExplicitRule) {
-		val sLiteralsWithExplicitRule = sEnumWithExplicitRule.literals.filter[nature == DEDUCTION_RULE]
-		if (! sLiteralsWithExplicitRule.exists[deductionRule instanceof SGrabRule]) {
+	def void addImplicitSyntheticLiterals(SEnumeration syntheticEnum, DEnumeration source, SEnumeration sEnumWithRule) {
+		var Iterable<SLiteral> sLiteralsWithRule = Lists.newArrayList
+		if (sEnumWithRule !== null) {
+			sLiteralsWithRule = sEnumWithRule.literals.filter[nature == DEDUCTION_RULE]
+		}
+
+		if (! sLiteralsWithRule.exists[deductionRule instanceof SGrabRule]) {
 			// there are no explicit grabs, so implicitly grab all literals without a rule:
 			val implicitlyGrabbedDLiterals = Lists.newArrayList(source.literals)
-			val dLiteralsAffectedByRule = sLiteralsWithExplicitRule.filter[deductionRule.source instanceof DLiteral].map[deductionRule.source as DLiteral]
+			val dLiteralsAffectedByRule = sLiteralsWithRule.filter[deductionRule.source instanceof DLiteral].map[deductionRule.source as DLiteral]
 			implicitlyGrabbedDLiterals.removeAll(dLiteralsAffectedByRule)
 			// create synthetic SLiterals for implicit literals:
 			for (dLiteral : implicitlyGrabbedDLiterals) {
@@ -206,10 +217,10 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 		}
 	}
 	
-	def void addExplicitSyntheticLiterals(SEnumeration syntheticEnum, SEnumeration sEnumWithExplicitRule) {
-		val sLiteralsWithExplicitRule = sEnumWithExplicitRule.literals.filter[nature == DEDUCTION_RULE]
-		val sLiteralsWithExplicitRuleList = sLiteralsWithExplicitRule.toList  // cannot change iterable while iterating => create new list
-		for (sLiteral : sLiteralsWithExplicitRuleList) {
+	def void addSyntheticLiterals(SEnumeration syntheticEnum, SEnumeration sEnumWithRule) {
+		val sLiteralsWithRule = sEnumWithRule.literals.filter[nature == DEDUCTION_RULE]
+		val sLiteralsWithRuleList = sLiteralsWithRule.toList  // cannot change iterable while iterating => create new list
+		for (sLiteral : sLiteralsWithRuleList) {
 			val literalRule = sLiteral.deductionRule
 			if (literalRule instanceof SGrabRule) {
 				val literalName = if (literalRule.renameTo !== null) literalRule.renameTo
@@ -221,12 +232,12 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 		}
 	}
 	
-	def  dispatch void processFeatureWithRule(SComplexType container, SFeature sFeature, SGrabRule rule, TransformationContext context) {
-		grabFeature(container, sFeature, rule, context)
+	def  dispatch void processFeatureWithRule(SComplexType container, SFeature featureWithRule, SGrabRule rule, TransformationContext context) {
+		grabFeature(container, featureWithRule, rule, context)
 	}
 	
-	def  dispatch void processFeatureWithRule(SComplexType container, SFeature sFeature, SMorphRule rule, TransformationContext context) {
-		val syntheticFeature = grabFeature(container, sFeature, rule, context)
+	def  dispatch void processFeatureWithRule(SComplexType container, SFeature featureWithRule, SMorphRule rule, TransformationContext context) {
+		val syntheticFeature = grabFeature(container, featureWithRule, rule, context)
 		if (syntheticFeature !== null) {
 			if (rule.retypeTo !== null) {
 				syntheticFeature.type = rule.retypeTo
@@ -237,31 +248,31 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 		}
 	}
 	
-	def  dispatch void processFeatureWithRule(SComplexType container, SFeature sFeature, SDitchRule rule, TransformationContext context) {
+	def  dispatch void processFeatureWithRule(SComplexType container, SFeature featureWithRule, SDitchRule rule, TransformationContext context) {
 		// do nothing (has been taken care of by SComplexType
 	}
 	
-	def  SFeature grabFeature(SComplexType container, SFeature sFeature, SGrabRule rule, TransformationContext context) {
+	def  SFeature grabFeature(SComplexType container, SFeature featureWithRule, SGrabRule rule, TransformationContext context) {
 		val source = rule.source
 		if (source instanceof DFeature) {
-			val syntheticFeature = container.addSyntheticFeature(if (rule.renameTo !== null) rule.renameTo else source.name, source, sFeature, context)
+			val syntheticFeature = container.addSyntheticFeature(if (rule.renameTo !== null) rule.renameTo else source.name, source, featureWithRule, context)
 			
-			if (sFeature instanceof SQuery) {
+			if (featureWithRule instanceof SQuery) {
 				val syntheticQuery = syntheticFeature as SQuery
-				val sParametersWithExplicitRule = sFeature.parameters.filter[nature == DEDUCTION_RULE]
-				if (! sParametersWithExplicitRule.exists[deductionRule instanceof SGrabRule]) {
+				val sParametersWithRule = featureWithRule.parameters.filter[nature == DEDUCTION_RULE]
+				if (! sParametersWithRule.exists[deductionRule instanceof SGrabRule]) {
 					// there are not explicit grabs, so implicitly grab all features without a rule:
 					val implicitlyGrabbedDParameters = Lists.newArrayList((source as DQuery).parameters)
-					val dParametersAffectedByRule = sParametersWithExplicitRule.filter[deductionRule.source instanceof DQueryParameter].map[deductionRule.source as DQueryParameter]
+					val dParametersAffectedByRule = sParametersWithRule.filter[deductionRule.source instanceof DQueryParameter].map[deductionRule.source as DQueryParameter]
 					implicitlyGrabbedDParameters.removeAll(dParametersAffectedByRule)
 					// create synthetic SFeatures for implicit features:
 					for (dParameter : implicitlyGrabbedDParameters) {
-						syntheticQuery.addSyntheticQueryParameter(dParameter.name, dParameter, sFeature, context)
+						syntheticQuery.addSyntheticQueryParameter(dParameter.name, dParameter, null, context)
 					}
 				}
 				
-				val sParametersWithExplicitRuleList = sParametersWithExplicitRule.toList  // cannot change iterable while iterating
-				for (sParameter : sParametersWithExplicitRuleList) {
+				val sParametersWithRuleList = sParametersWithRule.toList  // cannot change iterable while iterating
+				for (sParameter : sParametersWithRuleList) {
 					syntheticQuery.processQueryParameterWithRule(sParameter, sParameter.deductionRule, context)
 				}
 			}
@@ -271,23 +282,23 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 	}
 	
 	def void addSyntheticFeatures(SyntheticComplexTypeDescriptor desc, TransformationContext context) {
-		var Iterable<SFeature> sFeaturesWithExplicitRule = Lists.newArrayList
-		if (desc.typeWithExplicitRule !== null) {
-			sFeaturesWithExplicitRule = desc.typeWithExplicitRule.features.filter[nature == DEDUCTION_RULE]
+		var Iterable<SFeature> sFeaturesWithRule = Lists.newArrayList
+		if (desc.typeWithRule !== null) {
+			sFeaturesWithRule = desc.typeWithRule.features.filter[nature == DEDUCTION_RULE]
 		}
-		if (! sFeaturesWithExplicitRule.exists[deductionRule instanceof SGrabRule]) {
+		if (! sFeaturesWithRule.exists[deductionRule instanceof SGrabRule]) {
 			// there are no explicit grabs, so implicitly grab all features without a rule:
 			val implicitlyGrabbedDFeatures = Lists.newArrayList(desc.source.allFeatures)
-			val dFeaturesAffectedByRule = sFeaturesWithExplicitRule.filter[deductionRule.source instanceof DFeature].map[deductionRule.source as DFeature]
+			val dFeaturesAffectedByRule = sFeaturesWithRule.filter[deductionRule.source instanceof DFeature].map[deductionRule.source as DFeature]
 			implicitlyGrabbedDFeatures.removeAll(dFeaturesAffectedByRule)
 			// create synthetic SFeatures for implicit features:
 			for (dFeature : implicitlyGrabbedDFeatures) {
-				desc.syntheticType.addSyntheticFeature(dFeature.name, dFeature, desc.typeWithExplicitRule, context)
+				desc.syntheticType.addSyntheticFeature(dFeature.name, dFeature, null, context)
 			}
 		}
 		
-		val sFeaturesWithExplicitRuleList = sFeaturesWithExplicitRule.toList  // cannot change iterable while iterating => create new list
-		for (sFeature : sFeaturesWithExplicitRuleList) {
+		val sFeaturesWithRuleList = sFeaturesWithRule.toList  // cannot change iterable while iterating => create new list
+		for (sFeature : sFeaturesWithRuleList) {
 			desc.syntheticType.processFeatureWithRule( sFeature, sFeature.deductionRule, context)
 		}
 	}

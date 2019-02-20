@@ -16,6 +16,7 @@ import com.mimacom.ddd.dm.base.DRootType
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.sm.sim.SAggregate
 import com.mimacom.ddd.sm.sim.SComplexType
+import com.mimacom.ddd.sm.sim.SDeducibleElement
 import com.mimacom.ddd.sm.sim.SEnumeration
 import com.mimacom.ddd.sm.sim.SFeature
 import com.mimacom.ddd.sm.sim.SInformationModel
@@ -32,34 +33,33 @@ class SimSyntheticModelElementsUtil {
 	
 	static val simFactory = SimFactory.eINSTANCE
 	
-	def SAggregate addSyntheticAggregate(SInformationModel container, DAggregate source, EObject elementWithExplicitRule, TransformationContext context)  {
+	def SAggregate addSyntheticAggregate(SInformationModel container, DAggregate source, SDeducibleElement elementWithRule, TransformationContext context)  {
 		val sAggregate = simFactory.createSAggregate
 		sAggregate.synthetic = true
-		sAggregate.deductionRule = simFactory.createSGrabAggregateRule
-		sAggregate.deductionRule.source = source
+		sAggregate.deductionRule = createSyntheticDeductionRuleOrNull(source, elementWithRule)
 		container.aggregates.add(sAggregate)
 		return sAggregate
 	}
 	
-	def dispatch SPrimitive addSyntheticType(EObject container, String name, DPrimitive source, EObject elementWithExplicitRule, TransformationContext context)  {
+	def dispatch SPrimitive addSyntheticType(EObject container, String name, DPrimitive source, SDeducibleElement elementWithRule, TransformationContext context)  {
 		val sType = simFactory.createSPrimitive
-		sType.initSyntheticType(container, name, source, elementWithExplicitRule, context)
+		sType.initSyntheticType(container, name, source, elementWithRule, context)
 		return sType
 	}
 	
-	def dispatch SEnumeration addSyntheticType(EObject container, String name, DEnumeration source,EObject elementWithExplicitRule,  TransformationContext context)  {
+	def dispatch SEnumeration addSyntheticType(EObject container, String name, DEnumeration source, SDeducibleElement elementWithRule,  TransformationContext context)  {
 		val sType = simFactory.createSEnumeration
-		sType.initSyntheticType(container, name, source, elementWithExplicitRule, context)
+		sType.initSyntheticType(container, name, source, elementWithRule, context)
 		return sType
 	}
 	
-	def dispatch SComplexType addSyntheticType(EObject container, String name, DComplexType source, EObject elementWithExplicitRule, TransformationContext context)  {
+	def dispatch SComplexType addSyntheticType(EObject container, String name, DComplexType source, SDeducibleElement elementWithRule, TransformationContext context)  {
 		val sType = switch source {
 			DRootType: simFactory.createSRootType
 			DRelationship: simFactory.createSRootType
 			DDetailType: simFactory.createSDetailType
 		}
-		sType.initSyntheticType(container, name, source, elementWithExplicitRule, context)
+		sType.initSyntheticType(container, name, source, elementWithRule, context)
 		sType.abstract = source.abstract
 		switch container {
 			SAggregate : container.types.add(sType)
@@ -68,10 +68,10 @@ class SimSyntheticModelElementsUtil {
 		return sType
 	}
 	
-	protected def void initSyntheticType(SType t, EObject container, String name, DType source, EObject elementWithExplicitRule, TransformationContext context) {
+	protected def void initSyntheticType(SType t, EObject container, String name, DType source, SDeducibleElement elementWithRule, TransformationContext context) {
 		t.name = name
 		t.synthetic = true
-		t.deductionRule= createSyntheticDeductionRule(source, elementWithExplicitRule)
+		t.deductionRule= createSyntheticDeductionRuleOrNull(source, elementWithRule)
 		switch container {
 			SAggregate : container.types.add(t)
 			SInformationModel : container.types.add(t)
@@ -79,14 +79,17 @@ class SimSyntheticModelElementsUtil {
 		context.putSType(source, t)
 	}
 	
-	protected def SSyntheticDeductionRule createSyntheticDeductionRule(EObject source, EObject elementWithExplicitRule) {
+	protected def SSyntheticDeductionRule createSyntheticDeductionRuleOrNull(EObject source, SDeducibleElement elementWithRule) {
+		if (source === null || elementWithRule === null) {
+			return null
+		}
 		val rule = simFactory.createSSyntheticDeductionRule
 		rule.source = source
-		rule.elementWithExplicitRule = elementWithExplicitRule
+		rule.elementWithRule = elementWithRule
 		return rule
 	}
 	
-	def SFeature addSyntheticFeature(SComplexType container, String name, DFeature source, EObject elementWithExplicitRule, TransformationContext context)  {
+	def SFeature addSyntheticFeature(SComplexType container, String name, DFeature source, SDeducibleElement elementWithRule, TransformationContext context)  {
 			val sFeature = switch source {
 				DAttribute: simFactory.createSAttribute
 				DQuery: simFactory.createSQuery
@@ -100,12 +103,12 @@ class SimSyntheticModelElementsUtil {
 			sFeature.type = context.getSType(dFeatureType) // may be null
 			sFeature.multiplicity = grabMultiplicity(source.multiplicity)
 			sFeature.synthetic = true
-			sFeature.deductionRule = createSyntheticDeductionRule(source, elementWithExplicitRule)
+			sFeature.deductionRule = createSyntheticDeductionRuleOrNull(source, elementWithRule)
 			container.features.add(sFeature)
 			return sFeature
 	}
 	
-	def SQueryParameter addSyntheticQueryParameter(SQuery container, String name, DQueryParameter source, EObject elementWithExplicitRule,TransformationContext context)  {
+	def SQueryParameter addSyntheticQueryParameter(SQuery container, String name, DQueryParameter source, SDeducibleElement elementWithRule,TransformationContext context)  {
 			val sParameter = simFactory.createSQueryParameter
 			sParameter.name = name
 			val dParameterType = source.type
@@ -115,7 +118,7 @@ class SimSyntheticModelElementsUtil {
 			sParameter.type = context.getSType(dParameterType)
 			sParameter.multiplicity = grabMultiplicity(source.multiplicity)
 			sParameter.synthetic = true
-			sParameter.deductionRule = createSyntheticDeductionRule(source, elementWithExplicitRule)
+			sParameter.deductionRule = createSyntheticDeductionRuleOrNull(source, elementWithRule)
 			container.parameters.add(sParameter)
 			return sParameter
 	}

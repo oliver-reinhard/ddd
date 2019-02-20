@@ -3,13 +3,13 @@
  */
 package com.mimacom.ddd.sm.sim.impl;
 
+import com.mimacom.ddd.sm.sim.SDeducibleElement;
 import com.mimacom.ddd.sm.sim.SSyntheticDeductionRule;
 import com.mimacom.ddd.sm.sim.SimPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.sim.impl.SSyntheticDeductionRuleImpl#getElementWithExplicitRule <em>Element With Explicit Rule</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SSyntheticDeductionRuleImpl#getElementWithRule <em>Element With Rule</em>}</li>
  * </ul>
  *
  * @generated
@@ -30,14 +30,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class SSyntheticDeductionRuleImpl extends SDeductionRuleImplCustom implements SSyntheticDeductionRule
 {
 	/**
-	 * The cached value of the '{@link #getElementWithExplicitRule() <em>Element With Explicit Rule</em>}' reference.
+	 * The cached value of the '{@link #getElementWithRule() <em>Element With Rule</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElementWithExplicitRule()
+	 * @see #getElementWithRule()
 	 * @generated
 	 * @ordered
 	 */
-	protected EObject elementWithExplicitRule;
+	protected SDeducibleElement elementWithRule;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -66,19 +66,19 @@ public class SSyntheticDeductionRuleImpl extends SDeductionRuleImplCustom implem
 	 * @generated
 	 */
 	@Override
-	public EObject getElementWithExplicitRule()
+	public SDeducibleElement getElementWithRule()
 	{
-		if (elementWithExplicitRule != null && elementWithExplicitRule.eIsProxy())
+		if (elementWithRule != null && elementWithRule.eIsProxy())
 		{
-			InternalEObject oldElementWithExplicitRule = (InternalEObject)elementWithExplicitRule;
-			elementWithExplicitRule = eResolveProxy(oldElementWithExplicitRule);
-			if (elementWithExplicitRule != oldElementWithExplicitRule)
+			InternalEObject oldElementWithRule = (InternalEObject)elementWithRule;
+			elementWithRule = (SDeducibleElement)eResolveProxy(oldElementWithRule);
+			if (elementWithRule != oldElementWithRule)
 			{
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimPackage.SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_EXPLICIT_RULE, oldElementWithExplicitRule, elementWithExplicitRule));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimPackage.SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_RULE, oldElementWithRule, elementWithRule));
 			}
 		}
-		return elementWithExplicitRule;
+		return elementWithRule;
 	}
 
 	/**
@@ -86,9 +86,9 @@ public class SSyntheticDeductionRuleImpl extends SDeductionRuleImplCustom implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObject basicGetElementWithExplicitRule()
+	public SDeducibleElement basicGetElementWithRule()
 	{
-		return elementWithExplicitRule;
+		return elementWithRule;
 	}
 
 	/**
@@ -97,12 +97,12 @@ public class SSyntheticDeductionRuleImpl extends SDeductionRuleImplCustom implem
 	 * @generated
 	 */
 	@Override
-	public void setElementWithExplicitRule(EObject newElementWithExplicitRule)
+	public void setElementWithRule(SDeducibleElement newElementWithRule)
 	{
-		EObject oldElementWithExplicitRule = elementWithExplicitRule;
-		elementWithExplicitRule = newElementWithExplicitRule;
+		SDeducibleElement oldElementWithRule = elementWithRule;
+		elementWithRule = newElementWithRule;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_EXPLICIT_RULE, oldElementWithExplicitRule, elementWithExplicitRule));
+			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_RULE, oldElementWithRule, elementWithRule));
 	}
 
 	/**
@@ -115,9 +115,9 @@ public class SSyntheticDeductionRuleImpl extends SDeductionRuleImplCustom implem
 	{
 		switch (featureID)
 		{
-			case SimPackage.SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_EXPLICIT_RULE:
-				if (resolve) return getElementWithExplicitRule();
-				return basicGetElementWithExplicitRule();
+			case SimPackage.SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_RULE:
+				if (resolve) return getElementWithRule();
+				return basicGetElementWithRule();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -132,8 +132,8 @@ public class SSyntheticDeductionRuleImpl extends SDeductionRuleImplCustom implem
 	{
 		switch (featureID)
 		{
-			case SimPackage.SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_EXPLICIT_RULE:
-				setElementWithExplicitRule((EObject)newValue);
+			case SimPackage.SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_RULE:
+				setElementWithRule((SDeducibleElement)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -149,8 +149,8 @@ public class SSyntheticDeductionRuleImpl extends SDeductionRuleImplCustom implem
 	{
 		switch (featureID)
 		{
-			case SimPackage.SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_EXPLICIT_RULE:
-				setElementWithExplicitRule((EObject)null);
+			case SimPackage.SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_RULE:
+				setElementWithRule((SDeducibleElement)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -166,8 +166,8 @@ public class SSyntheticDeductionRuleImpl extends SDeductionRuleImplCustom implem
 	{
 		switch (featureID)
 		{
-			case SimPackage.SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_EXPLICIT_RULE:
-				return elementWithExplicitRule != null;
+			case SimPackage.SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_RULE:
+				return elementWithRule != null;
 		}
 		return super.eIsSet(featureID);
 	}

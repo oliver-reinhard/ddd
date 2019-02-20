@@ -13,8 +13,8 @@
         eType="#//SType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregates" upperBound="-1"
         eType="#//SAggregate" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="grabDomainRules" upperBound="-1"
-        eType="#//SGrabDomainRule" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainProxies" upperBound="-1"
+        eType="#//SDomainProxy" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SInformationModelKind">
     <eLiterals name="BASE"/>
@@ -42,6 +42,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="SImport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SDomainProxy" eSuperTypes="#//SDeducibleElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="SAggregate" eSuperTypes="#//SDeducibleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
         eType="#//SType" containment="true"/>
@@ -143,7 +144,7 @@
         changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SSyntheticDeductionRule" eSuperTypes="#//SDeductionRule">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elementWithExplicitRule"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elementWithRule" eType="#//SDeducibleElement"
+        transient="true"/>
   </eClassifiers>
 </ecore:EPackage>

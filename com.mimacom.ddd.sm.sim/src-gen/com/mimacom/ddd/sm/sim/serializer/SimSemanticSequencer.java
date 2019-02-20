@@ -10,6 +10,7 @@ import com.mimacom.ddd.sm.sim.SAttribute;
 import com.mimacom.ddd.sm.sim.SCondition;
 import com.mimacom.ddd.sm.sim.SDetailType;
 import com.mimacom.ddd.sm.sim.SDitchRule;
+import com.mimacom.ddd.sm.sim.SDomainProxy;
 import com.mimacom.ddd.sm.sim.SEnumeration;
 import com.mimacom.ddd.sm.sim.SExpression;
 import com.mimacom.ddd.sm.sim.SFuseRule;
@@ -85,6 +86,9 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
+			case SimPackage.SDOMAIN_PROXY:
+				sequence_SDomainProxy(context, (SDomainProxy) semanticObject); 
+				return; 
 			case SimPackage.SENUMERATION:
 				sequence_SEnumeration(context, (SEnumeration) semanticObject); 
 				return; 
@@ -348,6 +352,24 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     SDomainProxy returns SDomainProxy
+	 *
+	 * Constraint:
+	 *     deductionRule=SGrabDomainRule
+	 */
+	protected void sequence_SDomainProxy(ISerializationContext context, SDomainProxy semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SimPackage.Literals.SDEDUCIBLE_ELEMENT__DEDUCTION_RULE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SDEDUCIBLE_ELEMENT__DEDUCTION_RULE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSDomainProxyAccess().getDeductionRuleSGrabDomainRuleParserRuleCall_3_0(), semanticObject.getDeductionRule());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     SType returns SEnumeration
 	 *     SEnumeration returns SEnumeration
 	 *
@@ -436,7 +458,7 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SDEDUCTION_RULE__SOURCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSGrabDomainRuleAccess().getSourceDDomainSQualifiedNameParserRuleCall_2_0_1(), semanticObject.eGet(SimPackage.Literals.SDEDUCTION_RULE__SOURCE, false));
+		feeder.accept(grammarAccess.getSGrabDomainRuleAccess().getSourceDDomainSQualifiedNameParserRuleCall_0_1(), semanticObject.eGet(SimPackage.Literals.SDEDUCTION_RULE__SOURCE, false));
 		feeder.finish();
 	}
 	
@@ -517,7 +539,7 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         name=SQualifiedName 
 	 *         generate?='generate'? 
 	 *         imports+=SImport* 
-	 *         (types+=SType | aggregates+=SAggregate | grabDomainRules+=SGrabDomainRule)*
+	 *         (types+=SType | aggregates+=SAggregate | domainProxies+=SDomainProxy)*
 	 *     )
 	 */
 	protected void sequence_SInformationModel(ISerializationContext context, SInformationModel semanticObject) {

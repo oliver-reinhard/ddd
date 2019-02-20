@@ -45,19 +45,19 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTypesSTypeParserRuleCall_6_0_0 = (RuleCall)cTypesAssignment_6_0.eContents().get(0);
 		private final Assignment cAggregatesAssignment_6_1 = (Assignment)cAlternatives_6.eContents().get(1);
 		private final RuleCall cAggregatesSAggregateParserRuleCall_6_1_0 = (RuleCall)cAggregatesAssignment_6_1.eContents().get(0);
-		private final Assignment cGrabDomainRulesAssignment_6_2 = (Assignment)cAlternatives_6.eContents().get(2);
-		private final RuleCall cGrabDomainRulesSGrabDomainRuleParserRuleCall_6_2_0 = (RuleCall)cGrabDomainRulesAssignment_6_2.eContents().get(0);
+		private final Assignment cDomainProxiesAssignment_6_2 = (Assignment)cAlternatives_6.eContents().get(2);
+		private final RuleCall cDomainProxiesSDomainProxyParserRuleCall_6_2_0 = (RuleCall)cDomainProxiesAssignment_6_2.eContents().get(0);
 		
 		//SInformationModel:
 		//	kind=SInformationModelKind 'information' 'model'
 		//	name=SQualifiedName
 		//	^generate?='generate'?
 		//	//	(description=DRichText)?
-		//	imports+=SImport* (types+=SType | aggregates+=SAggregate | grabDomainRules+=SGrabDomainRule)*;
+		//	imports+=SImport* (types+=SType | aggregates+=SAggregate | domainProxies+=SDomainProxy)*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//kind=SInformationModelKind 'information' 'model' name=SQualifiedName ^generate?='generate'? //	(description=DRichText)?
-		//imports+=SImport* (types+=SType | aggregates+=SAggregate | grabDomainRules+=SGrabDomainRule)*
+		//imports+=SImport* (types+=SType | aggregates+=SAggregate | domainProxies+=SDomainProxy)*
 		public Group getGroup() { return cGroup; }
 		
 		//kind=SInformationModelKind
@@ -91,7 +91,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//SImport
 		public RuleCall getImportsSImportParserRuleCall_5_0() { return cImportsSImportParserRuleCall_5_0; }
 		
-		//(types+=SType | aggregates+=SAggregate | grabDomainRules+=SGrabDomainRule)*
+		//(types+=SType | aggregates+=SAggregate | domainProxies+=SDomainProxy)*
 		public Alternatives getAlternatives_6() { return cAlternatives_6; }
 		
 		//types+=SType
@@ -106,11 +106,11 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//SAggregate
 		public RuleCall getAggregatesSAggregateParserRuleCall_6_1_0() { return cAggregatesSAggregateParserRuleCall_6_1_0; }
 		
-		//grabDomainRules+=SGrabDomainRule
-		public Assignment getGrabDomainRulesAssignment_6_2() { return cGrabDomainRulesAssignment_6_2; }
+		//domainProxies+=SDomainProxy
+		public Assignment getDomainProxiesAssignment_6_2() { return cDomainProxiesAssignment_6_2; }
 		
-		//SGrabDomainRule
-		public RuleCall getGrabDomainRulesSGrabDomainRuleParserRuleCall_6_2_0() { return cGrabDomainRulesSGrabDomainRuleParserRuleCall_6_2_0; }
+		//SDomainProxy
+		public RuleCall getDomainProxiesSDomainProxyParserRuleCall_6_2_0() { return cDomainProxiesSDomainProxyParserRuleCall_6_2_0; }
 	}
 	public class SImportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SImport");
@@ -137,35 +137,23 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class SGrabDomainRuleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SGrabDomainRule");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cGrabKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cDomainKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cSourceAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cSourceDDomainCrossReference_2_0 = (CrossReference)cSourceAssignment_2.eContents().get(0);
-		private final RuleCall cSourceDDomainSQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cSourceDDomainCrossReference_2_0.eContents().get(1);
+		private final Assignment cSourceAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cSourceDDomainCrossReference_0 = (CrossReference)cSourceAssignment.eContents().get(0);
+		private final RuleCall cSourceDDomainSQualifiedNameParserRuleCall_0_1 = (RuleCall)cSourceDDomainCrossReference_0.eContents().get(1);
 		
 		//// Transformation rules
 		//SGrabDomainRule:
-		//	'grab' 'domain' source=[DDomain|SQualifiedName];
+		//	source=[DDomain|SQualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'grab' 'domain' source=[DDomain|SQualifiedName]
-		public Group getGroup() { return cGroup; }
-		
-		//'grab'
-		public Keyword getGrabKeyword_0() { return cGrabKeyword_0; }
-		
-		//'domain'
-		public Keyword getDomainKeyword_1() { return cDomainKeyword_1; }
-		
 		//source=[DDomain|SQualifiedName]
-		public Assignment getSourceAssignment_2() { return cSourceAssignment_2; }
+		public Assignment getSourceAssignment() { return cSourceAssignment; }
 		
 		//[DDomain|SQualifiedName]
-		public CrossReference getSourceDDomainCrossReference_2_0() { return cSourceDDomainCrossReference_2_0; }
+		public CrossReference getSourceDDomainCrossReference_0() { return cSourceDDomainCrossReference_0; }
 		
 		//SQualifiedName
-		public RuleCall getSourceDDomainSQualifiedNameParserRuleCall_2_0_1() { return cSourceDDomainSQualifiedNameParserRuleCall_2_0_1; }
+		public RuleCall getSourceDDomainSQualifiedNameParserRuleCall_0_1() { return cSourceDDomainSQualifiedNameParserRuleCall_0_1; }
 	}
 	public class SGrabAggregateRuleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SGrabAggregateRule");
@@ -667,6 +655,38 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ID
 		public RuleCall getSourceDFeatureIDTerminalRuleCall_0_1() { return cSourceDFeatureIDTerminalRuleCall_0_1; }
+	}
+	public class SDomainProxyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SDomainProxy");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cSDomainProxyAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cGrabKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cDomainKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cDeductionRuleAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cDeductionRuleSGrabDomainRuleParserRuleCall_3_0 = (RuleCall)cDeductionRuleAssignment_3.eContents().get(0);
+		
+		//SDomainProxy:
+		//	{SDomainProxy}
+		//	'grab' 'domain' deductionRule=SGrabDomainRule;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{SDomainProxy} 'grab' 'domain' deductionRule=SGrabDomainRule
+		public Group getGroup() { return cGroup; }
+		
+		//{SDomainProxy}
+		public Action getSDomainProxyAction_0() { return cSDomainProxyAction_0; }
+		
+		//'grab'
+		public Keyword getGrabKeyword_1() { return cGrabKeyword_1; }
+		
+		//'domain'
+		public Keyword getDomainKeyword_2() { return cDomainKeyword_2; }
+		
+		//deductionRule=SGrabDomainRule
+		public Assignment getDeductionRuleAssignment_3() { return cDeductionRuleAssignment_3; }
+		
+		//SGrabDomainRule
+		public RuleCall getDeductionRuleSGrabDomainRuleParserRuleCall_3_0() { return cDeductionRuleSGrabDomainRuleParserRuleCall_3_0; }
 	}
 	public class SAggregateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SAggregate");
@@ -2513,6 +2533,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	private final SGrabFeatureRuleElements pSGrabFeatureRule;
 	private final SMorphFeatureRuleElements pSMorphFeatureRule;
 	private final SDitchFeatureRuleElements pSDitchFeatureRule;
+	private final SDomainProxyElements pSDomainProxy;
 	private final SAggregateElements pSAggregate;
 	private final STypeElements pSType;
 	private final SConstraintElements pSConstraint;
@@ -2562,6 +2583,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSGrabFeatureRule = new SGrabFeatureRuleElements();
 		this.pSMorphFeatureRule = new SMorphFeatureRuleElements();
 		this.pSDitchFeatureRule = new SDitchFeatureRuleElements();
+		this.pSDomainProxy = new SDomainProxyElements();
 		this.pSAggregate = new SAggregateElements();
 		this.pSType = new STypeElements();
 		this.pSConstraint = new SConstraintElements();
@@ -2618,7 +2640,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	//	name=SQualifiedName
 	//	^generate?='generate'?
 	//	//	(description=DRichText)?
-	//	imports+=SImport* (types+=SType | aggregates+=SAggregate | grabDomainRules+=SGrabDomainRule)*;
+	//	imports+=SImport* (types+=SType | aggregates+=SAggregate | domainProxies+=SDomainProxy)*;
 	public SInformationModelElements getSInformationModelAccess() {
 		return pSInformationModel;
 	}
@@ -2649,7 +2671,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//// Transformation rules
 	//SGrabDomainRule:
-	//	'grab' 'domain' source=[DDomain|SQualifiedName];
+	//	source=[DDomain|SQualifiedName];
 	public SGrabDomainRuleElements getSGrabDomainRuleAccess() {
 		return pSGrabDomainRule;
 	}
@@ -2787,6 +2809,17 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getSDitchFeatureRuleRule() {
 		return getSDitchFeatureRuleAccess().getRule();
+	}
+	
+	//SDomainProxy:
+	//	{SDomainProxy}
+	//	'grab' 'domain' deductionRule=SGrabDomainRule;
+	public SDomainProxyElements getSDomainProxyAccess() {
+		return pSDomainProxy;
+	}
+	
+	public ParserRule getSDomainProxyRule() {
+		return getSDomainProxyAccess().getRule();
 	}
 	
 	//SAggregate:

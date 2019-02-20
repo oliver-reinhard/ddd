@@ -10,7 +10,7 @@ SInformationModel:
 	 (^generate?='generate')?
 //	(description=DRichText)?
 	(imports+=SImport)*
-	(types+=SType |	aggregates+=SAggregate | grabDomainRules+=SGrabDomainRule)*;
+	(types+=SType |	aggregates+=SAggregate | domainProxies+=SDomainProxy)*;
 
 enum SInformationModelKind:
 	BASE='base' | INTERFACE='interface' | CORE='core';
@@ -21,7 +21,7 @@ SImport:
 // Transformation rules
 
 SGrabDomainRule:
-	'grab' 'domain' source=[DDomain|SQualifiedName];
+	source=[DDomain|SQualifiedName];
 		
 SGrabAggregateRule:
 	source=[DAggregate|SQualifiedName];
@@ -73,7 +73,12 @@ SMorphFeatureRule returns SMorphRule:
 
 SDitchFeatureRule returns SDitchRule:
 	source=[DFeature|ID];
-	
+
+SDomainProxy:
+	{SDomainProxy}
+	'grab' 'domain' deductionRule=SGrabDomainRule
+;
+
 SAggregate:
 	{SAggregate}
 	(	'grab' 'aggregate' deductionRule=SGrabAggregateRule

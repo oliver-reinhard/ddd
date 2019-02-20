@@ -7,13 +7,13 @@ import com.mimacom.ddd.sm.sim.SComplexType;
 public class SyntheticComplexTypeDescriptor {
   public final SComplexType syntheticType;
   
-  public final SComplexType typeWithExplicitRule;
+  public final SComplexType typeWithRule;
   
   public final DComplexType source;
   
-  public SyntheticComplexTypeDescriptor(final SComplexType syntheticType, final SComplexType typeWithExplicitRule, final DComplexType source) {
+  public SyntheticComplexTypeDescriptor(final SComplexType syntheticType, final SComplexType typeWithRule, final DComplexType source) {
     this.syntheticType = syntheticType;
-    this.typeWithExplicitRule = typeWithExplicitRule;
+    this.typeWithRule = typeWithRule;
     this.source = source;
   }
   

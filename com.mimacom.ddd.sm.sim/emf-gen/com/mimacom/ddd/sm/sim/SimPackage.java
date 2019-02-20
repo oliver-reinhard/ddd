@@ -161,13 +161,13 @@ public interface SimPackage extends EPackage
 	int SINFORMATION_MODEL__AGGREGATES = 5;
 
 	/**
-	 * The feature id for the '<em><b>Grab Domain Rules</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Domain Proxies</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__GRAB_DOMAIN_RULES = 6;
+	int SINFORMATION_MODEL__DOMAIN_PROXIES = 6;
 
 	/**
 	 * The number of structural features of the '<em>SInformation Model</em>' class.
@@ -336,6 +336,52 @@ public interface SimPackage extends EPackage
 	int SIMPORT_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SDomainProxyImpl <em>SDomain Proxy</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sim.impl.SDomainProxyImpl
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDomainProxy()
+	 * @generated
+	 */
+	int SDOMAIN_PROXY = 7;
+
+	/**
+	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SDOMAIN_PROXY__DEDUCTION_RULE = SDEDUCIBLE_ELEMENT__DEDUCTION_RULE;
+
+	/**
+	 * The feature id for the '<em><b>Nature</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SDOMAIN_PROXY__NATURE = SDEDUCIBLE_ELEMENT__NATURE;
+
+	/**
+	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SDOMAIN_PROXY__SYNTHETIC = SDEDUCIBLE_ELEMENT__SYNTHETIC;
+
+	/**
+	 * The number of structural features of the '<em>SDomain Proxy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SDOMAIN_PROXY_FEATURE_COUNT = SDEDUCIBLE_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SAggregateImpl <em>SAggregate</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -343,7 +389,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAggregate()
 	 * @generated
 	 */
-	int SAGGREGATE = 7;
+	int SAGGREGATE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -416,7 +462,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSType()
 	 * @generated
 	 */
-	int STYPE = 8;
+	int STYPE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -471,7 +517,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSSimpleType()
 	 * @generated
 	 */
-	int SSIMPLE_TYPE = 9;
+	int SSIMPLE_TYPE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -535,7 +581,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSComplexType()
 	 * @generated
 	 */
-	int SCOMPLEX_TYPE = 10;
+	int SCOMPLEX_TYPE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -626,7 +672,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSCondition()
 	 * @generated
 	 */
-	int SCONDITION = 11;
+	int SCONDITION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -663,7 +709,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSPrimitive()
 	 * @generated
 	 */
-	int SPRIMITIVE = 12;
+	int SPRIMITIVE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -745,7 +791,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSEnumeration()
 	 * @generated
 	 */
-	int SENUMERATION = 13;
+	int SENUMERATION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -818,7 +864,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSLiteral()
 	 * @generated
 	 */
-	int SLITERAL = 14;
+	int SLITERAL = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -873,7 +919,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSRootType()
 	 * @generated
 	 */
-	int SROOT_TYPE = 15;
+	int SROOT_TYPE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -964,7 +1010,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDetailType()
 	 * @generated
 	 */
-	int SDETAIL_TYPE = 16;
+	int SDETAIL_TYPE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1055,7 +1101,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSFeature()
 	 * @generated
 	 */
-	int SFEATURE = 17;
+	int SFEATURE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1128,7 +1174,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAssociation()
 	 * @generated
 	 */
-	int SASSOCIATION = 18;
+	int SASSOCIATION = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1219,7 +1265,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAttribute()
 	 * @generated
 	 */
-	int SATTRIBUTE = 19;
+	int SATTRIBUTE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1310,7 +1356,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSQuery()
 	 * @generated
 	 */
-	int SQUERY = 20;
+	int SQUERY = 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1401,7 +1447,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSQueryParameter()
 	 * @generated
 	 */
-	int SQUERY_PARAMETER = 21;
+	int SQUERY_PARAMETER = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1474,7 +1520,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSExpression()
 	 * @generated
 	 */
-	int SEXPRESSION = 22;
+	int SEXPRESSION = 23;
 
 	/**
 	 * The feature id for the '<em><b>Expr</b></em>' attribute.
@@ -1502,7 +1548,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSMultiplicity()
 	 * @generated
 	 */
-	int SMULTIPLICITY = 23;
+	int SMULTIPLICITY = 24;
 
 	/**
 	 * The feature id for the '<em><b>Min Occurs</b></em>' attribute.
@@ -1539,7 +1585,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDeductionRule()
 	 * @generated
 	 */
-	int SDEDUCTION_RULE = 24;
+	int SDEDUCTION_RULE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1576,7 +1622,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabRule()
 	 * @generated
 	 */
-	int SGRAB_RULE = 25;
+	int SGRAB_RULE = 26;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1622,7 +1668,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSMorphRule()
 	 * @generated
 	 */
-	int SMORPH_RULE = 26;
+	int SMORPH_RULE = 27;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1686,7 +1732,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDitchRule()
 	 * @generated
 	 */
-	int SDITCH_RULE = 27;
+	int SDITCH_RULE = 28;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1723,7 +1769,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSFuseRule()
 	 * @generated
 	 */
-	int SFUSE_RULE = 28;
+	int SFUSE_RULE = 29;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1787,7 +1833,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabAggregateRule()
 	 * @generated
 	 */
-	int SGRAB_AGGREGATE_RULE = 29;
+	int SGRAB_AGGREGATE_RULE = 30;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1833,7 +1879,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabDomainRule()
 	 * @generated
 	 */
-	int SGRAB_DOMAIN_RULE = 30;
+	int SGRAB_DOMAIN_RULE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1879,7 +1925,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSSyntheticDeductionRule()
 	 * @generated
 	 */
-	int SSYNTHETIC_DEDUCTION_RULE = 31;
+	int SSYNTHETIC_DEDUCTION_RULE = 32;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1900,13 +1946,13 @@ public interface SimPackage extends EPackage
 	int SSYNTHETIC_DEDUCTION_RULE__NAMED_SOURCE = SDEDUCTION_RULE__NAMED_SOURCE;
 
 	/**
-	 * The feature id for the '<em><b>Element With Explicit Rule</b></em>' reference.
+	 * The feature id for the '<em><b>Element With Rule</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_EXPLICIT_RULE = SDEDUCTION_RULE_FEATURE_COUNT + 0;
+	int SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_RULE = SDEDUCTION_RULE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>SSynthetic Deduction Rule</em>' class.
@@ -1925,7 +1971,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSInformationModelKind()
 	 * @generated
 	 */
-	int SINFORMATION_MODEL_KIND = 32;
+	int SINFORMATION_MODEL_KIND = 33;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.SElementNature <em>SElement Nature</em>}' enum.
@@ -1935,7 +1981,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSElementNature()
 	 * @generated
 	 */
-	int SELEMENT_NATURE = 33;
+	int SELEMENT_NATURE = 34;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.SAssociationKind <em>SAssociation Kind</em>}' enum.
@@ -1945,7 +1991,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAssociationKind()
 	 * @generated
 	 */
-	int SASSOCIATION_KIND = 34;
+	int SASSOCIATION_KIND = 35;
 
 
 	/**
@@ -2045,15 +2091,15 @@ public interface SimPackage extends EPackage
 	EReference getSInformationModel_Aggregates();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sim.SInformationModel#getGrabDomainRules <em>Grab Domain Rules</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sim.SInformationModel#getDomainProxies <em>Domain Proxies</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Grab Domain Rules</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SInformationModel#getGrabDomainRules()
+	 * @return the meta object for the containment reference list '<em>Domain Proxies</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SInformationModel#getDomainProxies()
 	 * @see #getSInformationModel()
 	 * @generated
 	 */
-	EReference getSInformationModel_GrabDomainRules();
+	EReference getSInformationModel_DomainProxies();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SNamedElement <em>SNamed Element</em>}'.
@@ -2149,6 +2195,16 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 */
 	EAttribute getSImport_ImportedNamespace();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SDomainProxy <em>SDomain Proxy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SDomain Proxy</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SDomainProxy
+	 * @generated
+	 */
+	EClass getSDomainProxy();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SAggregate <em>SAggregate</em>}'.
@@ -2775,15 +2831,15 @@ public interface SimPackage extends EPackage
 	EClass getSSyntheticDeductionRule();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SSyntheticDeductionRule#getElementWithExplicitRule <em>Element With Explicit Rule</em>}'.
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SSyntheticDeductionRule#getElementWithRule <em>Element With Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Element With Explicit Rule</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SSyntheticDeductionRule#getElementWithExplicitRule()
+	 * @return the meta object for the reference '<em>Element With Rule</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SSyntheticDeductionRule#getElementWithRule()
 	 * @see #getSSyntheticDeductionRule()
 	 * @generated
 	 */
-	EReference getSSyntheticDeductionRule_ElementWithExplicitRule();
+	EReference getSSyntheticDeductionRule_ElementWithRule();
 
 	/**
 	 * Returns the meta object for enum '{@link com.mimacom.ddd.sm.sim.SInformationModelKind <em>SInformation Model Kind</em>}'.
@@ -2917,12 +2973,12 @@ public interface SimPackage extends EPackage
 		EReference SINFORMATION_MODEL__AGGREGATES = eINSTANCE.getSInformationModel_Aggregates();
 
 		/**
-		 * The meta object literal for the '<em><b>Grab Domain Rules</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Domain Proxies</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SINFORMATION_MODEL__GRAB_DOMAIN_RULES = eINSTANCE.getSInformationModel_GrabDomainRules();
+		EReference SINFORMATION_MODEL__DOMAIN_PROXIES = eINSTANCE.getSInformationModel_DomainProxies();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SNamedElementImpl <em>SNamed Element</em>}' class.
@@ -3003,6 +3059,16 @@ public interface SimPackage extends EPackage
 		 * @generated
 		 */
 		EAttribute SIMPORT__IMPORTED_NAMESPACE = eINSTANCE.getSImport_ImportedNamespace();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SDomainProxyImpl <em>SDomain Proxy</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sim.impl.SDomainProxyImpl
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDomainProxy()
+		 * @generated
+		 */
+		EClass SDOMAIN_PROXY = eINSTANCE.getSDomainProxy();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SAggregateImpl <em>SAggregate</em>}' class.
@@ -3527,12 +3593,12 @@ public interface SimPackage extends EPackage
 		EClass SSYNTHETIC_DEDUCTION_RULE = eINSTANCE.getSSyntheticDeductionRule();
 
 		/**
-		 * The meta object literal for the '<em><b>Element With Explicit Rule</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Element With Rule</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_EXPLICIT_RULE = eINSTANCE.getSSyntheticDeductionRule_ElementWithExplicitRule();
+		EReference SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_RULE = eINSTANCE.getSSyntheticDeductionRule_ElementWithRule();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.SInformationModelKind <em>SInformation Model Kind</em>}' enum.

@@ -124,6 +124,14 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SimPackage.SDOMAIN_PROXY:
+			{
+				SDomainProxy sDomainProxy = (SDomainProxy)theEObject;
+				T result = caseSDomainProxy(sDomainProxy);
+				if (result == null) result = caseSDeducibleElement(sDomainProxy);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SimPackage.SAGGREGATE:
 			{
 				SAggregate sAggregate = (SAggregate)theEObject;
@@ -479,6 +487,22 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseSImport(SImport object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>SDomain Proxy</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>SDomain Proxy</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSDomainProxy(SDomainProxy object)
 	{
 		return null;
 	}

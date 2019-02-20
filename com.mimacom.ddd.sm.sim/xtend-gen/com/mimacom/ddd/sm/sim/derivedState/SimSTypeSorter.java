@@ -6,6 +6,13 @@ import com.mimacom.ddd.sm.sim.SPrimitive;
 import com.mimacom.ddd.sm.sim.SType;
 import java.util.Comparator;
 
+/**
+ * Sorts STypes in this order:
+ * 1 – Archetypes
+ * 2 – SPrimitives
+ * 3 – SEnumerations
+ * 4 – SComplexTypes
+ */
 @SuppressWarnings("all")
 public class SimSTypeSorter implements Comparator<SType> {
   @Override

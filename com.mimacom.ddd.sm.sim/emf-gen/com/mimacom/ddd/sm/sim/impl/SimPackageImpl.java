@@ -15,6 +15,7 @@ import com.mimacom.ddd.sm.sim.SDeducibleElement;
 import com.mimacom.ddd.sm.sim.SDeductionRule;
 import com.mimacom.ddd.sm.sim.SDetailType;
 import com.mimacom.ddd.sm.sim.SDitchRule;
+import com.mimacom.ddd.sm.sim.SDomainProxy;
 import com.mimacom.ddd.sm.sim.SElementNature;
 import com.mimacom.ddd.sm.sim.SEnumeration;
 import com.mimacom.ddd.sm.sim.SExpression;
@@ -107,6 +108,13 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	private EClass sImportEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sDomainProxyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -475,7 +483,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSInformationModel_GrabDomainRules()
+	public EReference getSInformationModel_DomainProxies()
 	{
 		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(6);
 	}
@@ -577,6 +585,17 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	public EAttribute getSImport_ImportedNamespace()
 	{
 		return (EAttribute)sImportEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSDomainProxy()
+	{
+		return sDomainProxyEClass;
 	}
 
 	/**
@@ -1234,7 +1253,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSSyntheticDeductionRule_ElementWithExplicitRule()
+	public EReference getSSyntheticDeductionRule_ElementWithRule()
 	{
 		return (EReference)sSyntheticDeductionRuleEClass.getEStructuralFeatures().get(0);
 	}
@@ -1314,7 +1333,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__IMPORTS);
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__TYPES);
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__AGGREGATES);
-		createEReference(sInformationModelEClass, SINFORMATION_MODEL__GRAB_DOMAIN_RULES);
+		createEReference(sInformationModelEClass, SINFORMATION_MODEL__DOMAIN_PROXIES);
 
 		sNamedElementEClass = createEClass(SNAMED_ELEMENT);
 		createEAttribute(sNamedElementEClass, SNAMED_ELEMENT__NAME);
@@ -1328,6 +1347,8 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 
 		sImportEClass = createEClass(SIMPORT);
 		createEAttribute(sImportEClass, SIMPORT__IMPORTED_NAMESPACE);
+
+		sDomainProxyEClass = createEClass(SDOMAIN_PROXY);
 
 		sAggregateEClass = createEClass(SAGGREGATE);
 		createEReference(sAggregateEClass, SAGGREGATE__TYPES);
@@ -1412,7 +1433,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		createEReference(sGrabDomainRuleEClass, SGRAB_DOMAIN_RULE__DOMAIN);
 
 		sSyntheticDeductionRuleEClass = createEClass(SSYNTHETIC_DEDUCTION_RULE);
-		createEReference(sSyntheticDeductionRuleEClass, SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_EXPLICIT_RULE);
+		createEReference(sSyntheticDeductionRuleEClass, SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_RULE);
 
 		// Create enums
 		sInformationModelKindEEnum = createEEnum(SINFORMATION_MODEL_KIND);
@@ -1454,6 +1475,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		// Add supertypes to classes
 		sNamedDeducibleElementEClass.getESuperTypes().add(this.getSNamedElement());
 		sNamedDeducibleElementEClass.getESuperTypes().add(this.getSDeducibleElement());
+		sDomainProxyEClass.getESuperTypes().add(this.getSDeducibleElement());
 		sAggregateEClass.getESuperTypes().add(this.getSDeducibleElement());
 		sTypeEClass.getESuperTypes().add(this.getSNamedDeducibleElement());
 		sSimpleTypeEClass.getESuperTypes().add(this.getSType());
@@ -1492,7 +1514,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		initEReference(getSInformationModel_Imports(), this.getSImport(), null, "imports", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSInformationModel_Types(), this.getSType(), null, "types", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSInformationModel_Aggregates(), this.getSAggregate(), null, "aggregates", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSInformationModel_GrabDomainRules(), this.getSGrabDomainRule(), null, "grabDomainRules", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSInformationModel_DomainProxies(), this.getSDomainProxy(), null, "domainProxies", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sNamedElementEClass, SNamedElement.class, "SNamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, SNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1506,6 +1528,8 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 
 		initEClass(sImportEClass, SImport.class, "SImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, SImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(sDomainProxyEClass, SDomainProxy.class, "SDomainProxy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(sAggregateEClass, SAggregate.class, "SAggregate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSAggregate_Types(), this.getSType(), null, "types", null, 0, -1, SAggregate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1590,7 +1614,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		initEReference(getSGrabDomainRule_Domain(), theBasePackage.getDDomain(), null, "domain", null, 0, 1, SGrabDomainRule.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(sSyntheticDeductionRuleEClass, SSyntheticDeductionRule.class, "SSyntheticDeductionRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSSyntheticDeductionRule_ElementWithExplicitRule(), ecorePackage.getEObject(), null, "elementWithExplicitRule", null, 0, 1, SSyntheticDeductionRule.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSSyntheticDeductionRule_ElementWithRule(), this.getSDeducibleElement(), null, "elementWithRule", null, 0, 1, SSyntheticDeductionRule.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(sInformationModelKindEEnum, SInformationModelKind.class, "SInformationModelKind");

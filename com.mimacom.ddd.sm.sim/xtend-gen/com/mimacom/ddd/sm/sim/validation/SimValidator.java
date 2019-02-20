@@ -42,6 +42,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
@@ -57,6 +59,9 @@ public class SimValidator extends AbstractSimValidator {
   @Inject
   @Extension
   private SimUtil _simUtil;
+  
+  @Inject
+  private IQualifiedNameProvider qualifiedNameProvider;
   
   @Check
   public void checkAggregateHasSingleRoot(final SAggregate a) {
@@ -172,7 +177,7 @@ public class SimValidator extends AbstractSimValidator {
       SElementNature _nature_1 = container.getNature();
       boolean _notEquals = (!Objects.equal(_nature_1, SElementNature.DEDUCTION_RULE));
       if (_notEquals) {
-        this.error("Features can only have deduction rule if the containing type also has a deduction rule.", feature.getDeductionRule(), 
+        this.error("Features can only have a deduction rule if the containing type also has a deduction rule.", feature.getDeductionRule(), 
           SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
     }
@@ -208,7 +213,7 @@ public class SimValidator extends AbstractSimValidator {
     boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
     if (_equals) {
       if (((a.getDeductionRule().getSource() != null) && (!(a.getDeductionRule().getSource() instanceof DAssociation)))) {
-        this.error("Deduced association rule must have a domain-model attribute as its source", 
+        this.error("Deduced association rule must have a domain-model association as its source", 
           SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
     }
@@ -224,7 +229,7 @@ public class SimValidator extends AbstractSimValidator {
       SElementNature _nature_1 = container.getNature();
       boolean _notEquals = (!Objects.equal(_nature_1, SElementNature.DEDUCTION_RULE));
       if (_notEquals) {
-        this.error("Literals can only have deduction rule if the containing enumeration also has a deduction rule.", 
+        this.error("Literals can only have a deduction rule if the containing enumeration also has a deduction rule.", 
           literal.getDeductionRule(), SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
     }
@@ -235,7 +240,9 @@ public class SimValidator extends AbstractSimValidator {
     int _size = e.getLiterals().size();
     boolean _equals = (_size == 0);
     if (_equals) {
-      this.warning("Enumeration does not declare literals", e, SimPackage.Literals.SNAMED_ELEMENT__NAME);
+      String _description = this.getDescription(e);
+      String _plus = (_description + ": Enumeration does not declare literals");
+      this.warningOnStructuralElement(e, _plus);
     }
   }
   
@@ -250,20 +257,16 @@ public class SimValidator extends AbstractSimValidator {
         SType _type = a.getType();
         boolean _tripleEquals = (_type == null);
         if (_tripleEquals) {
-          EObject _eContainer = a.eContainer();
-          String _name = a.getName();
-          String _plus = ("Synthetic attribute \"" + _name);
-          String _plus_1 = (_plus + "\": no mapping rule for type");
-          this.errorOnSyntheticElement(((SComplexType) _eContainer), _plus_1);
+          String _description = this.getDescription(a);
+          String _plus = (_description + ": no mapping rule for type");
+          this.errorOnStructuralElement(a, _plus);
         } else {
           SType _type_1 = a.getType();
           boolean _not = (!(_type_1 instanceof SValueType));
           if (_not) {
-            EObject _eContainer_1 = a.eContainer();
-            String _name_1 = a.getName();
-            String _plus_2 = ("Synthetic attribute \"" + _name_1);
-            String _plus_3 = (_plus_2 + "\": referenced type is not a ValueType");
-            this.errorOnSyntheticElement(((SComplexType) _eContainer_1), _plus_3);
+            String _description_1 = this.getDescription(a);
+            String _plus_1 = (_description_1 + ": referenced type is not a ValueType");
+            this.errorOnStructuralElement(a, _plus_1);
           }
         }
       }
@@ -281,57 +284,16 @@ public class SimValidator extends AbstractSimValidator {
         SType _type = a.getType();
         boolean _tripleEquals = (_type == null);
         if (_tripleEquals) {
-          String _name = a.getName();
-          String _plus = ("Synthetic reference \"" + _name);
-          String _plus_1 = (_plus + "\": no mapping rule for type");
-          this.errorOnSyntheticElement(a, _plus_1);
+          String _description = this.getDescription(a);
+          String _plus = (_description + ": no mapping rule for type");
+          this.errorOnStructuralElement(a, _plus);
         } else {
           SType _type_1 = a.getType();
           boolean _not = (!(_type_1 instanceof SValueType));
           if (_not) {
-            String _name_1 = a.getName();
-            String _plus_2 = ("Synthetic reference \"" + _name_1);
-            String _plus_3 = (_plus_2 + "\": referenced type is not a RootType");
-            this.errorOnSyntheticElement(a, _plus_3);
-          }
-        }
-      }
-    }
-  }
-  
-  public void errorOnSyntheticElement(final SDeducibleElement e, final String errorMsg) {
-    SElementNature _nature = e.getNature();
-    boolean _equals = Objects.equal(_nature, SElementNature.GENUINE);
-    if (_equals) {
-      if ((e instanceof SNamedElement)) {
-        this.error(errorMsg, e, SimPackage.Literals.SNAMED_ELEMENT__NAME);
-      } else {
-        this.error(errorMsg, e, null);
-      }
-    } else {
-      SElementNature _nature_1 = e.getNature();
-      boolean _equals_1 = Objects.equal(_nature_1, SElementNature.DEDUCTION_RULE);
-      if (_equals_1) {
-        this.error(errorMsg, e, SimPackage.Literals.SDEDUCIBLE_ELEMENT__DEDUCTION_RULE);
-      } else {
-        final SDeductionRule rule = e.getDeductionRule();
-        if ((rule instanceof SSyntheticDeductionRule)) {
-          EObject _elementWithExplicitRule = ((SSyntheticDeductionRule)rule).getElementWithExplicitRule();
-          if ((_elementWithExplicitRule instanceof SNamedElement)) {
-            this.error(errorMsg, ((SSyntheticDeductionRule)rule).getElementWithExplicitRule(), SimPackage.Literals.SNAMED_ELEMENT__NAME);
-          } else {
-            this.error(errorMsg, ((SSyntheticDeductionRule)rule).getElementWithExplicitRule(), null);
-          }
-        } else {
-          final EObject container = e.eContainer();
-          if ((container instanceof SDeducibleElement)) {
-            this.errorOnSyntheticElement(((SDeducibleElement)container), errorMsg);
-          } else {
-            if ((container instanceof SNamedElement)) {
-              this.error(errorMsg, container, SimPackage.Literals.SNAMED_ELEMENT__NAME);
-            } else {
-              this.error(errorMsg, container, null);
-            }
+            String _description_1 = this.getDescription(a);
+            String _plus_1 = (_description_1 + ": referenced type is not a RootType");
+            this.errorOnStructuralElement(a, _plus_1);
           }
         }
       }
@@ -354,7 +316,8 @@ public class SimValidator extends AbstractSimValidator {
     if (_equals) {
       boolean _not = (!((p.getType() instanceof SValueType) || Objects.equal(p.getType(), p.eContainer())));
       if (_not) {
-        this.error("Refererenced query-parameter type is neither a ValueType nor the query\'s own container", p, SimPackage.Literals.SQUERY_PARAMETER__TYPE);
+        this.error("Refererenced query-parameter type is neither a ValueType nor the query\'s own container", p, 
+          SimPackage.Literals.SQUERY_PARAMETER__TYPE);
       }
     } else {
       SElementNature _nature_1 = p.getNature();
@@ -363,17 +326,15 @@ public class SimValidator extends AbstractSimValidator {
         SType _type = p.getType();
         boolean _tripleEquals = (_type == null);
         if (_tripleEquals) {
-          String _name = p.getName();
-          String _plus = ("Synthetic query-parameter \"" + _name);
-          String _plus_1 = (_plus + "\": no mapping rule for type");
-          this.errorOnSyntheticElement(p, _plus_1);
+          String _description = this.getDescription(p);
+          String _plus = (_description + ": no mapping rule for type");
+          this.errorOnStructuralElement(p, _plus);
         } else {
           boolean _not_1 = (!((p.getType() instanceof SValueType) || Objects.equal(p.getType(), p.eContainer())));
           if (_not_1) {
-            String _name_1 = p.getName();
-            String _plus_2 = ("Synthetic query-parameter \"" + _name_1);
-            String _plus_3 = (_plus_2 + "\": type is neither a ValueType nor the query\'s own container");
-            this.errorOnSyntheticElement(p, _plus_3);
+            String _description_1 = this.getDescription(p);
+            String _plus_1 = (_description_1 + ": type is neither a ValueType nor the query\'s own container");
+            this.errorOnStructuralElement(p, _plus_1);
           }
         }
       }
@@ -383,7 +344,9 @@ public class SimValidator extends AbstractSimValidator {
   public void checkNameStartsWithCapital(final SNamedElement ne) {
     final String name = ne.getName();
     if ((((name != null) && (name.length() > 0)) && (!Character.isUpperCase(name.charAt(0))))) {
-      this.warning("Name should start with a capital", ne, SimPackage.Literals.SNAMED_ELEMENT__NAME);
+      String _description = this.getDescription(ne);
+      String _plus = (_description + ": Name should start with a capital");
+      this.warningOnStructuralElement(ne, _plus);
     }
   }
   
@@ -401,7 +364,9 @@ public class SimValidator extends AbstractSimValidator {
     final char first = ne.getName().charAt(0);
     final char underscore = '_';
     if (((!Character.isLowerCase(first)) && (first != underscore))) {
-      this.warning("Name should start with a lowercase or underscore", SimPackage.Literals.SNAMED_ELEMENT__NAME);
+      String _description = this.getDescription(ne);
+      String _plus = (_description + ": Name should start with a lowercase or underscore");
+      this.warningOnStructuralElement(ne, _plus);
     }
   }
   
@@ -420,7 +385,112 @@ public class SimValidator extends AbstractSimValidator {
     boolean _equals = literal.getName().equals(literal.getName().toUpperCase());
     boolean _not = (!_equals);
     if (_not) {
-      this.warning("Name should be all upercase", SimPackage.Literals.SNAMED_ELEMENT__NAME);
+      String _description = this.getDescription(literal);
+      String _plus = (_description + ": Name should be all upercase");
+      this.warningOnStructuralElement(literal, _plus);
+    }
+  }
+  
+  protected String getDescription(final EObject obj) {
+    String _xblockexpression = null;
+    {
+      String synthetic = "";
+      if ((obj instanceof SDeducibleElement)) {
+        boolean _isSynthetic = ((SDeducibleElement)obj).isSynthetic();
+        if (_isSynthetic) {
+          synthetic = "Synthetic ";
+        }
+      }
+      String _simpleName = obj.getClass().getSimpleName();
+      String _plus = (synthetic + _simpleName);
+      String _plus_1 = (_plus + " ");
+      QualifiedName _fullyQualifiedName = this.qualifiedNameProvider.getFullyQualifiedName(obj);
+      _xblockexpression = (_plus_1 + _fullyQualifiedName);
+    }
+    return _xblockexpression;
+  }
+  
+  protected void warningOnStructuralElement(final EObject e, final String warningMsg) {
+    if ((e instanceof SDeducibleElement)) {
+      SElementNature _nature = ((SDeducibleElement)e).getNature();
+      boolean _equals = Objects.equal(_nature, SElementNature.SYNTHETIC);
+      if (_equals) {
+        final SDeductionRule rule = ((SDeducibleElement)e).getDeductionRule();
+        if ((rule instanceof SSyntheticDeductionRule)) {
+          this.warningOnStructuralElementImpl(((SSyntheticDeductionRule)rule).getElementWithRule(), warningMsg);
+        } else {
+          final EObject container = ((SDeducibleElement)e).eContainer();
+          if ((container instanceof SDeducibleElement)) {
+            this.warningOnStructuralElement(container, warningMsg);
+          } else {
+            this.warningOnStructuralElementImpl(container, warningMsg);
+          }
+        }
+      } else {
+        SElementNature _nature_1 = ((SDeducibleElement)e).getNature();
+        boolean _equals_1 = Objects.equal(_nature_1, SElementNature.DEDUCTION_RULE);
+        if (_equals_1) {
+          this.warning(warningMsg, e, SimPackage.Literals.SDEDUCIBLE_ELEMENT__DEDUCTION_RULE);
+        } else {
+          SElementNature _nature_2 = ((SDeducibleElement)e).getNature();
+          boolean _equals_2 = Objects.equal(_nature_2, SElementNature.GENUINE);
+          if (_equals_2) {
+            this.warningOnStructuralElementImpl(e, warningMsg);
+          }
+        }
+      }
+    } else {
+      this.warningOnStructuralElementImpl(e, warningMsg);
+    }
+  }
+  
+  protected void warningOnStructuralElementImpl(final EObject obj, final String warningMsg) {
+    if ((obj instanceof SNamedElement)) {
+      this.warning(warningMsg, obj, SimPackage.Literals.SNAMED_ELEMENT__NAME);
+    } else {
+      this.warning(warningMsg, obj, null);
+    }
+  }
+  
+  protected void errorOnStructuralElement(final EObject e, final String errorMsg) {
+    if ((e instanceof SDeducibleElement)) {
+      SElementNature _nature = ((SDeducibleElement)e).getNature();
+      boolean _equals = Objects.equal(_nature, SElementNature.SYNTHETIC);
+      if (_equals) {
+        final SDeductionRule rule = ((SDeducibleElement)e).getDeductionRule();
+        if ((rule instanceof SSyntheticDeductionRule)) {
+          this.errorOnStructuralElementImpl(((SSyntheticDeductionRule)rule).getElementWithRule(), errorMsg);
+        } else {
+          final EObject container = ((SDeducibleElement)e).eContainer();
+          if ((container instanceof SDeducibleElement)) {
+            this.errorOnStructuralElement(container, errorMsg);
+          } else {
+            this.errorOnStructuralElementImpl(container, errorMsg);
+          }
+        }
+      } else {
+        SElementNature _nature_1 = ((SDeducibleElement)e).getNature();
+        boolean _equals_1 = Objects.equal(_nature_1, SElementNature.DEDUCTION_RULE);
+        if (_equals_1) {
+          this.error(errorMsg, e, SimPackage.Literals.SDEDUCIBLE_ELEMENT__DEDUCTION_RULE);
+        } else {
+          SElementNature _nature_2 = ((SDeducibleElement)e).getNature();
+          boolean _equals_2 = Objects.equal(_nature_2, SElementNature.GENUINE);
+          if (_equals_2) {
+            this.errorOnStructuralElementImpl(e, errorMsg);
+          }
+        }
+      }
+    } else {
+      this.errorOnStructuralElementImpl(e, errorMsg);
+    }
+  }
+  
+  protected void errorOnStructuralElementImpl(final EObject obj, final String errorMsg) {
+    if ((obj instanceof SNamedElement)) {
+      this.error(errorMsg, obj, SimPackage.Literals.SNAMED_ELEMENT__NAME);
+    } else {
+      this.error(errorMsg, obj, null);
     }
   }
 }

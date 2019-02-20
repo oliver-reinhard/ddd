@@ -14,28 +14,30 @@ import com.mimacom.ddd.sm.sim.SAssociation
 import com.mimacom.ddd.sm.sim.SAttribute
 import com.mimacom.ddd.sm.sim.SComplexType
 import com.mimacom.ddd.sm.sim.SCondition
+import com.mimacom.ddd.sm.sim.SDeducibleElement
 import com.mimacom.ddd.sm.sim.SDetailType
 import com.mimacom.ddd.sm.sim.SDitchRule
-import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.SEnumeration
 import com.mimacom.ddd.sm.sim.SFeature
 import com.mimacom.ddd.sm.sim.SGrabRule
+import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.SLiteral
 import com.mimacom.ddd.sm.sim.SMultiplicity
 import com.mimacom.ddd.sm.sim.SNamedElement
 import com.mimacom.ddd.sm.sim.SQuery
 import com.mimacom.ddd.sm.sim.SQueryParameter
 import com.mimacom.ddd.sm.sim.SRootType
+import com.mimacom.ddd.sm.sim.SSyntheticDeductionRule
 import com.mimacom.ddd.sm.sim.SType
 import com.mimacom.ddd.sm.sim.SValueType
 import com.mimacom.ddd.sm.sim.SimPackage
 import com.mimacom.ddd.sm.sim.SimUtil
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.validation.Check
 
 import static com.mimacom.ddd.sm.sim.SElementNature.*
-import com.mimacom.ddd.sm.sim.SDeducibleElement
-import com.mimacom.ddd.sm.sim.SSyntheticDeductionRule
 
 /**
  * This class contains custom validation rules. 
@@ -45,6 +47,8 @@ import com.mimacom.ddd.sm.sim.SSyntheticDeductionRule
 class SimValidator extends AbstractSimValidator {
 
 	@Inject extension SimUtil
+	
+	@Inject IQualifiedNameProvider qualifiedNameProvider
 
 	@Check
 	def checkAggregateHasSingleRoot(SAggregate a) {
@@ -127,7 +131,7 @@ class SimValidator extends AbstractSimValidator {
 		if(feature.nature == DEDUCTION_RULE) {
 			val container = feature.eContainer as SComplexType
 			if(container.nature != DEDUCTION_RULE) {
-				error("Features can only have deduction rule if the containing type also has a deduction rule.", feature.deductionRule,
+				error("Features can only have a deduction rule if the containing type also has a deduction rule.", feature.deductionRule,
 					SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
 		}
@@ -157,7 +161,7 @@ class SimValidator extends AbstractSimValidator {
 	def checkCorrespondingDAssociationType(SAssociation a) {
 		if(a.nature == DEDUCTION_RULE) {
 			if(a.deductionRule.source !== null && ! (a.deductionRule.source instanceof DAssociation)) {
-				error("Deduced association rule must have a domain-model attribute as its source",
+				error("Deduced association rule must have a domain-model association as its source",
 					SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
 		}
@@ -168,7 +172,7 @@ class SimValidator extends AbstractSimValidator {
 		if(literal.nature == DEDUCTION_RULE) {
 			val container = literal.eContainer as SEnumeration
 			if(container.nature != DEDUCTION_RULE) {
-				error("Literals can only have deduction rule if the containing enumeration also has a deduction rule.",
+				error("Literals can only have a deduction rule if the containing enumeration also has a deduction rule.",
 					literal.deductionRule, SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
 		}
@@ -177,7 +181,7 @@ class SimValidator extends AbstractSimValidator {
 	@Check
 	def checkEnumerationHasLiterals(SEnumeration e) {
 		if(e.literals.size == 0) {
-			warning('Enumeration does not declare literals', e, SimPackage.Literals.SNAMED_ELEMENT__NAME)
+			warningOnStructuralElement(e, getDescription(e) + ": Enumeration does not declare literals")
 		}
 	}
 
@@ -187,10 +191,9 @@ class SimValidator extends AbstractSimValidator {
 			error('Referenced type is not a ValueType', a, SimPackage.Literals.SFEATURE__TYPE)
 		} else if(a.nature == SYNTHETIC) {
 			if(a.type === null) {
-				errorOnSyntheticElement(a.eContainer as SComplexType, "Synthetic attribute \"" + a.name + "\": no mapping rule for type")
+				errorOnStructuralElement(a,  getDescription(a) + ": no mapping rule for type")
 			} else if(! (a.type instanceof SValueType)) {
-				errorOnSyntheticElement(a.eContainer as SComplexType,
-					"Synthetic attribute \"" + a.name + "\": referenced type is not a ValueType")
+				errorOnStructuralElement(a, getDescription(a) + ": referenced type is not a ValueType")
 			}
 		}
 	}
@@ -201,62 +204,33 @@ class SimValidator extends AbstractSimValidator {
 			error('Referenced type is not a RootType', a, SimPackage.Literals.SFEATURE__TYPE)
 		} else if(a.nature == SYNTHETIC) {
 			if(a.type === null) {
-				errorOnSyntheticElement(a, "Synthetic reference \"" + a.name + "\": no mapping rule for type")
+				errorOnStructuralElement(a,  getDescription(a) + ": no mapping rule for type")
 			} else if(! (a.type instanceof SValueType)) {
-				errorOnSyntheticElement(a, "Synthetic reference \"" + a.name + "\": referenced type is not a RootType")
+				errorOnStructuralElement(a,  getDescription(a) + ": referenced type is not a RootType")
 			}
 		}
 	}
 
-	def void errorOnSyntheticElement(SDeducibleElement e, String errorMsg) {
-		if(e.nature == GENUINE) {
-			if(e instanceof SNamedElement) {
-				error(errorMsg, e, SimPackage.Literals.SNAMED_ELEMENT__NAME)
-			} else {
-				error(errorMsg, e, null)
-			}
-		} else if(e.nature == DEDUCTION_RULE) {
-			error(errorMsg, e, SimPackage.Literals.SDEDUCIBLE_ELEMENT__DEDUCTION_RULE)
-		} else { // synthetic
-			val rule = e.deductionRule
-			if(rule instanceof SSyntheticDeductionRule) {
-				if(rule.elementWithExplicitRule instanceof SNamedElement) {
-					error(errorMsg, rule.elementWithExplicitRule, SimPackage.Literals.SNAMED_ELEMENT__NAME)
-				} else {
-					error(errorMsg, rule.elementWithExplicitRule, null)
-				}
-			} else {
-				val container = e.eContainer
-				if(container instanceof SDeducibleElement) {
-					errorOnSyntheticElement(container, errorMsg) // recursion
-				} else if(container instanceof SNamedElement) {
-					error(errorMsg, container, SimPackage.Literals.SNAMED_ELEMENT__NAME)
-				} else {
-					error(errorMsg, container, null)
-				}
-			}
-		}
-	}
-
-@Check
+	@Check
 	def checkAssociationMultiplicities(SMultiplicity m) {
-		if (m.maxOccurs == 0) {
+		if(m.maxOccurs == 0) {
 			error('Maximum targets cannot be 0', m, SimPackage.Literals.SMULTIPLICITY__MAX_OCCURS)
 		}
 	}
 
 // // Parameters: restrictions on their types
-@Check
+	@Check
 	def checkParameterIsValueType(SQueryParameter p) {
-		if (p.nature == GENUINE) {
-			if (! (p.type instanceof SValueType || p.type == p.eContainer)) {
-				error('Refererenced query-parameter type is neither a ValueType nor the query\'s own container', p, SimPackage.Literals.SQUERY_PARAMETER__TYPE)
+		if(p.nature == GENUINE) {
+			if(! (p.type instanceof SValueType || p.type == p.eContainer)) {
+				error('Refererenced query-parameter type is neither a ValueType nor the query\'s own container', p,
+					SimPackage.Literals.SQUERY_PARAMETER__TYPE)
 			}
-		} else if (p.nature == SYNTHETIC) {
-			if (p.type === null) {
-				errorOnSyntheticElement(p, "Synthetic query-parameter \"" + p.name + "\": no mapping rule for type")
-			} else if (! (p.type instanceof SValueType || p.type == p.eContainer)) {
-				errorOnSyntheticElement(p, "Synthetic query-parameter \"" + p.name + "\": type is neither a ValueType nor the query\'s own container")
+		} else if(p.nature == SYNTHETIC) {
+			if(p.type === null) {
+				errorOnStructuralElement(p,  getDescription(p) + ": no mapping rule for type")
+			} else if(! (p.type instanceof SValueType || p.type == p.eContainer)) {
+				errorOnStructuralElement(p, getDescription(p) + ": type is neither a ValueType nor the query\'s own container")
 			}
 		}
 	}
@@ -264,8 +238,8 @@ class SimValidator extends AbstractSimValidator {
 	// // Naming: Elements whose names should start with a CAPITAL
 	def void checkNameStartsWithCapital(SNamedElement ne) {
 		val name = ne.name
-		if (name !== null && name.length > 0 && !Character::isUpperCase(name.charAt(0))) {
-			warning("Name should start with a capital", ne, SimPackage.Literals.SNAMED_ELEMENT__NAME)
+		if(name !== null && name.length > 0 && !Character::isUpperCase(name.charAt(0))) {
+			warningOnStructuralElement(ne, getDescription(ne) + ": Name should start with a capital")
 		}
 	}
 
@@ -276,12 +250,12 @@ class SimValidator extends AbstractSimValidator {
 //		}
 //		checkNameStartsWithCapital(d)
 //	}
-@Check
+	@Check
 	def void checkTypeNameStartsWithCapital(SType t) {
 		checkNameStartsWithCapital(t)
 	}
 
-@Check
+	@Check
 	def void checkTypeNameStartsWithCapital(SCondition c) {
 		checkNameStartsWithCapital(c)
 	}
@@ -290,27 +264,103 @@ class SimValidator extends AbstractSimValidator {
 	def void checkNameStartsWithLowercase(SNamedElement ne) {
 		val first = ne.getName().charAt(0)
 		val char underscore = '_'
-		if (!Character::isLowerCase(first) && first !== underscore) {
-			warning("Name should start with a lowercase or underscore", SimPackage.Literals.SNAMED_ELEMENT__NAME)
+		if(!Character::isLowerCase(first) && first !== underscore) {
+			warningOnStructuralElement(ne,  getDescription(ne) + ": Name should start with a lowercase or underscore")
 		}
 	}
 
-@Check
+	@Check
 	def void checkFeatureNameStartsWithLowercase(SFeature f) {
 		checkNameStartsWithLowercase(f)
 	}
 
-@Check
+	@Check
 	def void checkFeatureNameStartsWithLowercase(SQueryParameter p) {
 		checkNameStartsWithLowercase(p)
 	}
 
 // // Naming: Elements whose names should be ALL UPPERCASE
-@Check def void checkLiteralIsUppercase(SLiteral literal) {
-		if (! literal.name.equals(literal.name.toUpperCase)) {
-			warning("Name should be all upercase", SimPackage.Literals.SNAMED_ELEMENT__NAME)
+	@Check def void checkLiteralIsUppercase(SLiteral literal) {
+		if(! literal.name.equals(literal.name.toUpperCase)) {
+			warningOnStructuralElement(literal, getDescription(literal) + ": Name should be all upercase")
 		}
 	}
 
 // - only 1 SPrimitive can realize a given DPrimitive
+
+	protected def String getDescription(EObject obj) {
+		var synthetic = ""	
+		if (obj instanceof SDeducibleElement) {
+			if (obj.synthetic) synthetic = "Synthetic "
+		}
+		synthetic + obj.class.simpleName + " " + qualifiedNameProvider.getFullyQualifiedName(obj)
+	}
+	
+	protected def void warningOnStructuralElement(EObject e, String warningMsg) {
+		if(e instanceof SDeducibleElement) {
+			if(e.nature == SYNTHETIC) {
+				val rule = e.deductionRule
+				if(rule instanceof SSyntheticDeductionRule) {
+					warningOnStructuralElementImpl(rule.elementWithRule, warningMsg)
+				} else {
+					val container = e.eContainer
+					if(container instanceof SDeducibleElement) {
+						warningOnStructuralElement(container, warningMsg) // recursion
+					} else {
+						warningOnStructuralElementImpl(container, warningMsg)
+					}
+				}
+
+			} else if(e.nature == DEDUCTION_RULE) {
+				warning(warningMsg, e, SimPackage.Literals.SDEDUCIBLE_ELEMENT__DEDUCTION_RULE)
+
+			} else if(e.nature == GENUINE) {
+				warningOnStructuralElementImpl(e, warningMsg)
+			}
+		} else {
+			warningOnStructuralElementImpl(e, warningMsg)
+		}
+	}
+
+	protected def void warningOnStructuralElementImpl(EObject obj, String warningMsg) {
+		if(obj instanceof SNamedElement) {
+			warning(warningMsg, obj, SimPackage.Literals.SNAMED_ELEMENT__NAME)
+		} else {
+			warning(warningMsg, obj, null)
+		}
+	}
+
+	protected def void errorOnStructuralElement(EObject e, String errorMsg) {
+		if(e instanceof SDeducibleElement) {
+			if(e.nature == SYNTHETIC) {
+				val rule = e.deductionRule
+				if(rule instanceof SSyntheticDeductionRule) {
+					errorOnStructuralElementImpl(rule.elementWithRule, errorMsg)
+				} else {
+					val container = e.eContainer
+					if(container instanceof SDeducibleElement) {
+						errorOnStructuralElement(container, errorMsg) // recursion
+					} else {
+						errorOnStructuralElementImpl(container, errorMsg)
+					}
+				}
+
+			} else if(e.nature == DEDUCTION_RULE) {
+				error(errorMsg, e, SimPackage.Literals.SDEDUCIBLE_ELEMENT__DEDUCTION_RULE)
+
+			} else if(e.nature == GENUINE) {
+				errorOnStructuralElementImpl(e, errorMsg)
+			}
+		} else {
+			errorOnStructuralElementImpl(e, errorMsg)
+		}
+	}
+
+	protected def void errorOnStructuralElementImpl(EObject obj, String errorMsg) {
+		if(obj instanceof SNamedElement) {
+			error(errorMsg, obj, SimPackage.Literals.SNAMED_ELEMENT__NAME)
+		} else {
+			error(errorMsg, obj, null)
+		}
+	}
 }

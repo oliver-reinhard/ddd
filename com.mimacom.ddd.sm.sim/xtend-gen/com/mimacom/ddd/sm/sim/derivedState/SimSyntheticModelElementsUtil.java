@@ -16,7 +16,7 @@ import com.mimacom.ddd.dm.base.DRootType;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.sm.sim.SAggregate;
 import com.mimacom.ddd.sm.sim.SComplexType;
-import com.mimacom.ddd.sm.sim.SDeductionRule;
+import com.mimacom.ddd.sm.sim.SDeducibleElement;
 import com.mimacom.ddd.sm.sim.SEnumeration;
 import com.mimacom.ddd.sm.sim.SFeature;
 import com.mimacom.ddd.sm.sim.SInformationModel;
@@ -36,29 +36,27 @@ import org.eclipse.emf.ecore.EObject;
 public class SimSyntheticModelElementsUtil {
   private static final SimFactory simFactory = SimFactory.eINSTANCE;
   
-  public SAggregate addSyntheticAggregate(final SInformationModel container, final DAggregate source, final EObject elementWithExplicitRule, final TransformationContext context) {
+  public SAggregate addSyntheticAggregate(final SInformationModel container, final DAggregate source, final SDeducibleElement elementWithRule, final TransformationContext context) {
     final SAggregate sAggregate = SimSyntheticModelElementsUtil.simFactory.createSAggregate();
     sAggregate.setSynthetic(true);
-    sAggregate.setDeductionRule(SimSyntheticModelElementsUtil.simFactory.createSGrabAggregateRule());
-    SDeductionRule _deductionRule = sAggregate.getDeductionRule();
-    _deductionRule.setSource(source);
+    sAggregate.setDeductionRule(this.createSyntheticDeductionRuleOrNull(source, elementWithRule));
     container.getAggregates().add(sAggregate);
     return sAggregate;
   }
   
-  protected SPrimitive _addSyntheticType(final EObject container, final String name, final DPrimitive source, final EObject elementWithExplicitRule, final TransformationContext context) {
+  protected SPrimitive _addSyntheticType(final EObject container, final String name, final DPrimitive source, final SDeducibleElement elementWithRule, final TransformationContext context) {
     final SPrimitive sType = SimSyntheticModelElementsUtil.simFactory.createSPrimitive();
-    this.initSyntheticType(sType, container, name, source, elementWithExplicitRule, context);
+    this.initSyntheticType(sType, container, name, source, elementWithRule, context);
     return sType;
   }
   
-  protected SEnumeration _addSyntheticType(final EObject container, final String name, final DEnumeration source, final EObject elementWithExplicitRule, final TransformationContext context) {
+  protected SEnumeration _addSyntheticType(final EObject container, final String name, final DEnumeration source, final SDeducibleElement elementWithRule, final TransformationContext context) {
     final SEnumeration sType = SimSyntheticModelElementsUtil.simFactory.createSEnumeration();
-    this.initSyntheticType(sType, container, name, source, elementWithExplicitRule, context);
+    this.initSyntheticType(sType, container, name, source, elementWithRule, context);
     return sType;
   }
   
-  protected SComplexType _addSyntheticType(final EObject container, final String name, final DComplexType source, final EObject elementWithExplicitRule, final TransformationContext context) {
+  protected SComplexType _addSyntheticType(final EObject container, final String name, final DComplexType source, final SDeducibleElement elementWithRule, final TransformationContext context) {
     SComplexType _switchResult = null;
     boolean _matched = false;
     if (source instanceof DRootType) {
@@ -78,7 +76,7 @@ public class SimSyntheticModelElementsUtil {
       }
     }
     final SComplexType sType = _switchResult;
-    this.initSyntheticType(sType, container, name, source, elementWithExplicitRule, context);
+    this.initSyntheticType(sType, container, name, source, elementWithRule, context);
     sType.setAbstract(source.isAbstract());
     boolean _matched_1 = false;
     if (container instanceof SAggregate) {
@@ -94,10 +92,10 @@ public class SimSyntheticModelElementsUtil {
     return sType;
   }
   
-  protected void initSyntheticType(final SType t, final EObject container, final String name, final DType source, final EObject elementWithExplicitRule, final TransformationContext context) {
+  protected void initSyntheticType(final SType t, final EObject container, final String name, final DType source, final SDeducibleElement elementWithRule, final TransformationContext context) {
     t.setName(name);
     t.setSynthetic(true);
-    t.setDeductionRule(this.createSyntheticDeductionRule(source, elementWithExplicitRule));
+    t.setDeductionRule(this.createSyntheticDeductionRuleOrNull(source, elementWithRule));
     boolean _matched = false;
     if (container instanceof SAggregate) {
       _matched=true;
@@ -112,14 +110,17 @@ public class SimSyntheticModelElementsUtil {
     context.putSType(source, t);
   }
   
-  protected SSyntheticDeductionRule createSyntheticDeductionRule(final EObject source, final EObject elementWithExplicitRule) {
+  protected SSyntheticDeductionRule createSyntheticDeductionRuleOrNull(final EObject source, final SDeducibleElement elementWithRule) {
+    if (((source == null) || (elementWithRule == null))) {
+      return null;
+    }
     final SSyntheticDeductionRule rule = SimSyntheticModelElementsUtil.simFactory.createSSyntheticDeductionRule();
     rule.setSource(source);
-    rule.setElementWithExplicitRule(elementWithExplicitRule);
+    rule.setElementWithRule(elementWithRule);
     return rule;
   }
   
-  public SFeature addSyntheticFeature(final SComplexType container, final String name, final DFeature source, final EObject elementWithExplicitRule, final TransformationContext context) {
+  public SFeature addSyntheticFeature(final SComplexType container, final String name, final DFeature source, final SDeducibleElement elementWithRule, final TransformationContext context) {
     SFeature _switchResult = null;
     boolean _matched = false;
     if (source instanceof DAttribute) {
@@ -147,12 +148,12 @@ public class SimSyntheticModelElementsUtil {
     sFeature.setType(context.getSType(dFeatureType));
     sFeature.setMultiplicity(this.grabMultiplicity(source.getMultiplicity()));
     sFeature.setSynthetic(true);
-    sFeature.setDeductionRule(this.createSyntheticDeductionRule(source, elementWithExplicitRule));
+    sFeature.setDeductionRule(this.createSyntheticDeductionRuleOrNull(source, elementWithRule));
     container.getFeatures().add(sFeature);
     return sFeature;
   }
   
-  public SQueryParameter addSyntheticQueryParameter(final SQuery container, final String name, final DQueryParameter source, final EObject elementWithExplicitRule, final TransformationContext context) {
+  public SQueryParameter addSyntheticQueryParameter(final SQuery container, final String name, final DQueryParameter source, final SDeducibleElement elementWithRule, final TransformationContext context) {
     final SQueryParameter sParameter = SimSyntheticModelElementsUtil.simFactory.createSQueryParameter();
     sParameter.setName(name);
     final DType dParameterType = source.getType();
@@ -162,7 +163,7 @@ public class SimSyntheticModelElementsUtil {
     sParameter.setType(context.getSType(dParameterType));
     sParameter.setMultiplicity(this.grabMultiplicity(source.getMultiplicity()));
     sParameter.setSynthetic(true);
-    sParameter.setDeductionRule(this.createSyntheticDeductionRule(source, elementWithExplicitRule));
+    sParameter.setDeductionRule(this.createSyntheticDeductionRuleOrNull(source, elementWithRule));
     container.getParameters().add(sParameter);
     return sParameter;
   }
@@ -184,16 +185,16 @@ public class SimSyntheticModelElementsUtil {
     return result;
   }
   
-  public SType addSyntheticType(final EObject container, final String name, final DType source, final EObject elementWithExplicitRule, final TransformationContext context) {
+  public SType addSyntheticType(final EObject container, final String name, final DType source, final SDeducibleElement elementWithRule, final TransformationContext context) {
     if (source instanceof DEnumeration) {
-      return _addSyntheticType(container, name, (DEnumeration)source, elementWithExplicitRule, context);
+      return _addSyntheticType(container, name, (DEnumeration)source, elementWithRule, context);
     } else if (source instanceof DPrimitive) {
-      return _addSyntheticType(container, name, (DPrimitive)source, elementWithExplicitRule, context);
+      return _addSyntheticType(container, name, (DPrimitive)source, elementWithRule, context);
     } else if (source instanceof DComplexType) {
-      return _addSyntheticType(container, name, (DComplexType)source, elementWithExplicitRule, context);
+      return _addSyntheticType(container, name, (DComplexType)source, elementWithRule, context);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(container, name, source, elementWithExplicitRule, context).toString());
+        Arrays.<Object>asList(container, name, source, elementWithRule, context).toString());
     }
   }
 }
