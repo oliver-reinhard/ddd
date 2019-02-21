@@ -106,6 +106,18 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("hide empty members");
     _builder.newLine();
+    _builder.append("       \t\t");
+    _builder.newLine();
+    _builder.append("skinparam package {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("BorderColor FireBrick");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("FontColor FireBrick");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
     _builder.append("           \t");
     {
       for(final DAggregate a : allAggregates) {

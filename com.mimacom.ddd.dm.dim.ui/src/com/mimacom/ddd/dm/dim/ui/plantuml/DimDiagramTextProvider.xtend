@@ -62,6 +62,11 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
         
        val result = '''
        		hide empty members
+       		       		
+       		skinparam package {
+       			BorderColor FireBrick
+       			FontColor FireBrick
+       		}
            	«FOR a:allAggregates»package «a.aggregateName» <<Rectangle>> {
 	    				«FOR t:a.types»«t.generateType»«ENDFOR»
            		}

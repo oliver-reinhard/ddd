@@ -70,6 +70,11 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
        			BackgroundColor AliceBlue
        		}
        		
+       		skinparam package {
+       			BorderColor MediumBlue
+       			FontColor MediumBlue
+       		}
+       		
            	«FOR a:allAggregates»package «a.aggregateName» <<Rectangle>> {
 	    				«FOR t:a.types»«t.generateType»«ENDFOR»
            		}

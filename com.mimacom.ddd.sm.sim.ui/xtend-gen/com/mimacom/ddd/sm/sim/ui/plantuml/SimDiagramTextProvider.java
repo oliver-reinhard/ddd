@@ -122,6 +122,17 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     _builder.append("}");
     _builder.newLine();
     _builder.newLine();
+    _builder.append("skinparam package {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("BorderColor MediumBlue");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("FontColor MediumBlue");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
     _builder.append("           \t");
     {
       for(final SAggregate a : allAggregates) {
