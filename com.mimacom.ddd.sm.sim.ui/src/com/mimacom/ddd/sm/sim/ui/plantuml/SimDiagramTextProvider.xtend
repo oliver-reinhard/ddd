@@ -76,7 +76,7 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
        		}
        		
            	«FOR a:allAggregates»package «a.aggregateName» <<Rectangle>> {
-	    				«FOR t:a.types»«t.generateType»«ENDFOR»
+	    				«FOR t:a.types.filter[nature != DEDUCTION_RULE]»«t.generateType»«ENDFOR»
            		}
 	           	«FOR d:allReferencedDomains»package «d» <<Frame>> { 
 	           	}

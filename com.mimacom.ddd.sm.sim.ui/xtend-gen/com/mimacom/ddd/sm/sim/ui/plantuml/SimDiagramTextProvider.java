@@ -143,8 +143,12 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
         _builder.newLineIfNotEmpty();
         _builder.append("\t    \t\t\t\t");
         {
-          EList<SType> _types = a.getTypes();
-          for(final SType t : _types) {
+          final Function1<SType, Boolean> _function_6 = (SType it) -> {
+            SElementNature _nature = it.getNature();
+            return Boolean.valueOf((!Objects.equal(_nature, SElementNature.DEDUCTION_RULE)));
+          };
+          Iterable<SType> _filter = IterableExtensions.<SType>filter(a.getTypes(), _function_6);
+          for(final SType t : _filter) {
             CharSequence _generateType = this.generateType(t);
             _builder.append(_generateType, "\t    \t\t\t\t");
           }

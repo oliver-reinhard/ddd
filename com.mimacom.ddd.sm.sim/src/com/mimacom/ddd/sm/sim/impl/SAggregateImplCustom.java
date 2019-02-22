@@ -18,7 +18,7 @@ public class SAggregateImplCustom extends SAggregateImpl {
 	@Override
 	public SRootType basicGetRoot() {
 		for (SType t : getTypes()) {
-			if (t instanceof SRootType) {
+			if (t instanceof SRootType && t.getNature() != DEDUCTION_RULE) {
 				return (SRootType) t;
 			}
 		}
