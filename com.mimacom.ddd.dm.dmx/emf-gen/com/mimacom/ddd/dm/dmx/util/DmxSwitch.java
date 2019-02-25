@@ -3,7 +3,7 @@
 package com.mimacom.ddd.dm.dmx.util;
 
 import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.IRichTextElement;
+import com.mimacom.ddd.dm.base.IRichTextSegment;
 
 import com.mimacom.ddd.dm.dmx.*;
 
@@ -87,7 +87,7 @@ public class DmxSwitch<T> extends Switch<T>
 				DAssignment dAssignment = (DAssignment)theEObject;
 				T result = caseDAssignment(dAssignment);
 				if (result == null) result = caseDExpression(dAssignment);
-				if (result == null) result = caseIRichTextElement(dAssignment);
+				if (result == null) result = caseIRichTextSegment(dAssignment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -96,7 +96,7 @@ public class DmxSwitch<T> extends Switch<T>
 				DBinaryOperation dBinaryOperation = (DBinaryOperation)theEObject;
 				T result = caseDBinaryOperation(dBinaryOperation);
 				if (result == null) result = caseDExpression(dBinaryOperation);
-				if (result == null) result = caseIRichTextElement(dBinaryOperation);
+				if (result == null) result = caseIRichTextSegment(dBinaryOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -105,7 +105,7 @@ public class DmxSwitch<T> extends Switch<T>
 				DInstanceOfExpression dInstanceOfExpression = (DInstanceOfExpression)theEObject;
 				T result = caseDInstanceOfExpression(dInstanceOfExpression);
 				if (result == null) result = caseDExpression(dInstanceOfExpression);
-				if (result == null) result = caseIRichTextElement(dInstanceOfExpression);
+				if (result == null) result = caseIRichTextSegment(dInstanceOfExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -114,7 +114,7 @@ public class DmxSwitch<T> extends Switch<T>
 				DUnaryOperation dUnaryOperation = (DUnaryOperation)theEObject;
 				T result = caseDUnaryOperation(dUnaryOperation);
 				if (result == null) result = caseDExpression(dUnaryOperation);
-				if (result == null) result = caseIRichTextElement(dUnaryOperation);
+				if (result == null) result = caseIRichTextSegment(dUnaryOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -123,7 +123,7 @@ public class DmxSwitch<T> extends Switch<T>
 				DTypedMemberReference dTypedMemberReference = (DTypedMemberReference)theEObject;
 				T result = caseDTypedMemberReference(dTypedMemberReference);
 				if (result == null) result = caseDExpression(dTypedMemberReference);
-				if (result == null) result = caseIRichTextElement(dTypedMemberReference);
+				if (result == null) result = caseIRichTextSegment(dTypedMemberReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -132,7 +132,7 @@ public class DmxSwitch<T> extends Switch<T>
 				DCastExpression dCastExpression = (DCastExpression)theEObject;
 				T result = caseDCastExpression(dCastExpression);
 				if (result == null) result = caseDExpression(dCastExpression);
-				if (result == null) result = caseIRichTextElement(dCastExpression);
+				if (result == null) result = caseIRichTextSegment(dCastExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -141,7 +141,7 @@ public class DmxSwitch<T> extends Switch<T>
 				DSelfExpression dSelfExpression = (DSelfExpression)theEObject;
 				T result = caseDSelfExpression(dSelfExpression);
 				if (result == null) result = caseDExpression(dSelfExpression);
-				if (result == null) result = caseIRichTextElement(dSelfExpression);
+				if (result == null) result = caseIRichTextSegment(dSelfExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -150,7 +150,7 @@ public class DmxSwitch<T> extends Switch<T>
 				DReturnExpression dReturnExpression = (DReturnExpression)theEObject;
 				T result = caseDReturnExpression(dReturnExpression);
 				if (result == null) result = caseDExpression(dReturnExpression);
-				if (result == null) result = caseIRichTextElement(dReturnExpression);
+				if (result == null) result = caseIRichTextSegment(dReturnExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -159,7 +159,7 @@ public class DmxSwitch<T> extends Switch<T>
 				DRaiseExpression dRaiseExpression = (DRaiseExpression)theEObject;
 				T result = caseDRaiseExpression(dRaiseExpression);
 				if (result == null) result = caseDExpression(dRaiseExpression);
-				if (result == null) result = caseIRichTextElement(dRaiseExpression);
+				if (result == null) result = caseIRichTextSegment(dRaiseExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -168,7 +168,7 @@ public class DmxSwitch<T> extends Switch<T>
 				DFunctionCall dFunctionCall = (DFunctionCall)theEObject;
 				T result = caseDFunctionCall(dFunctionCall);
 				if (result == null) result = caseDExpression(dFunctionCall);
-				if (result == null) result = caseIRichTextElement(dFunctionCall);
+				if (result == null) result = caseIRichTextSegment(dFunctionCall);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -177,7 +177,7 @@ public class DmxSwitch<T> extends Switch<T>
 				DConstructorCall dConstructorCall = (DConstructorCall)theEObject;
 				T result = caseDConstructorCall(dConstructorCall);
 				if (result == null) result = caseDExpression(dConstructorCall);
-				if (result == null) result = caseIRichTextElement(dConstructorCall);
+				if (result == null) result = caseIRichTextSegment(dConstructorCall);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -186,7 +186,7 @@ public class DmxSwitch<T> extends Switch<T>
 				DContextReference dContextReference = (DContextReference)theEObject;
 				T result = caseDContextReference(dContextReference);
 				if (result == null) result = caseDExpression(dContextReference);
-				if (result == null) result = caseIRichTextElement(dContextReference);
+				if (result == null) result = caseIRichTextSegment(dContextReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -195,7 +195,7 @@ public class DmxSwitch<T> extends Switch<T>
 				DIfExpression dIfExpression = (DIfExpression)theEObject;
 				T result = caseDIfExpression(dIfExpression);
 				if (result == null) result = caseDExpression(dIfExpression);
-				if (result == null) result = caseIRichTextElement(dIfExpression);
+				if (result == null) result = caseIRichTextSegment(dIfExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -204,7 +204,7 @@ public class DmxSwitch<T> extends Switch<T>
 				DForLoopExpression dForLoopExpression = (DForLoopExpression)theEObject;
 				T result = caseDForLoopExpression(dForLoopExpression);
 				if (result == null) result = caseDExpression(dForLoopExpression);
-				if (result == null) result = caseIRichTextElement(dForLoopExpression);
+				if (result == null) result = caseIRichTextSegment(dForLoopExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -213,7 +213,7 @@ public class DmxSwitch<T> extends Switch<T>
 				DBooleanLiteral dBooleanLiteral = (DBooleanLiteral)theEObject;
 				T result = caseDBooleanLiteral(dBooleanLiteral);
 				if (result == null) result = caseDExpression(dBooleanLiteral);
-				if (result == null) result = caseIRichTextElement(dBooleanLiteral);
+				if (result == null) result = caseIRichTextSegment(dBooleanLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -222,7 +222,7 @@ public class DmxSwitch<T> extends Switch<T>
 				DStringLiteral dStringLiteral = (DStringLiteral)theEObject;
 				T result = caseDStringLiteral(dStringLiteral);
 				if (result == null) result = caseDExpression(dStringLiteral);
-				if (result == null) result = caseIRichTextElement(dStringLiteral);
+				if (result == null) result = caseIRichTextSegment(dStringLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -231,7 +231,7 @@ public class DmxSwitch<T> extends Switch<T>
 				DNaturalLiteral dNaturalLiteral = (DNaturalLiteral)theEObject;
 				T result = caseDNaturalLiteral(dNaturalLiteral);
 				if (result == null) result = caseDExpression(dNaturalLiteral);
-				if (result == null) result = caseIRichTextElement(dNaturalLiteral);
+				if (result == null) result = caseIRichTextSegment(dNaturalLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -240,7 +240,7 @@ public class DmxSwitch<T> extends Switch<T>
 				DDecimalLiteral dDecimalLiteral = (DDecimalLiteral)theEObject;
 				T result = caseDDecimalLiteral(dDecimalLiteral);
 				if (result == null) result = caseDExpression(dDecimalLiteral);
-				if (result == null) result = caseIRichTextElement(dDecimalLiteral);
+				if (result == null) result = caseIRichTextSegment(dDecimalLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -249,7 +249,7 @@ public class DmxSwitch<T> extends Switch<T>
 				DDateLiteral dDateLiteral = (DDateLiteral)theEObject;
 				T result = caseDDateLiteral(dDateLiteral);
 				if (result == null) result = caseDExpression(dDateLiteral);
-				if (result == null) result = caseIRichTextElement(dDateLiteral);
+				if (result == null) result = caseIRichTextSegment(dDateLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -258,7 +258,7 @@ public class DmxSwitch<T> extends Switch<T>
 				DUndefinedLiteral dUndefinedLiteral = (DUndefinedLiteral)theEObject;
 				T result = caseDUndefinedLiteral(dUndefinedLiteral);
 				if (result == null) result = caseDExpression(dUndefinedLiteral);
-				if (result == null) result = caseIRichTextElement(dUndefinedLiteral);
+				if (result == null) result = caseIRichTextSegment(dUndefinedLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -603,17 +603,17 @@ public class DmxSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IRich Text Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>IRich Text Segment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IRich Text Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>IRich Text Segment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIRichTextElement(IRichTextElement object)
+	public T caseIRichTextSegment(IRichTextSegment object)
 	{
 		return null;
 	}

@@ -184,11 +184,11 @@ public class DemFormatter extends DmxFormatter {
     } else if (context instanceof DDomainEvent) {
       _format((DDomainEvent)context, document);
       return;
-    } else if (context instanceof XtextResource) {
-      _format((XtextResource)context, document);
-      return;
     } else if (context instanceof DRichText) {
       _format((DRichText)context, document);
+      return;
+    } else if (context instanceof XtextResource) {
+      _format((XtextResource)context, document);
       return;
     } else if (context instanceof DmxModel) {
       _format((DmxModel)context, document);

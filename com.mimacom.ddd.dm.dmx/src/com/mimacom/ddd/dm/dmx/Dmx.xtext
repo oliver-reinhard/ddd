@@ -10,22 +10,23 @@ DmxModel:
 	('text' NATURAL ':' texts+=DRichText ';')*
 	('expr' NATURAL ':' expressions+=DExpression ';')*;
 
+DExpression returns DExpression :
+	DAssignment | DRichText;
+	
 DRichText:
-	elements+=DTextOnly
+	segments+=DTextOnly
 	|
-	(	elements+= DTextStart
-		elements+= DExpression 
-		(elements+=DTextMiddle  elements+=DExpression)* 
-		elements+= DTextEnd
+	(	segments+= DTextStart
+		segments+= DExpression 
+		(segments+=DTextMiddle  segments+=DExpression)* 
+		segments+= DTextEnd
 	);
 
-DTextOnly returns DText:		value=PLAIN_TEXT_ONLY;
-DTextStart returns DText:		value=PLAIN_TEXT_START;
-DTextMiddle returns DText:	value=PLAIN_TEXT_MIDDLE;
-DTextEnd returns DText:		value=PLAIN_TEXT_END;
+DTextOnly returns DTextSegment:		value=PLAIN_TEXT_ONLY;
+DTextStart returns DTextSegment:		value=PLAIN_TEXT_START;
+DTextMiddle returns DTextSegment:	value=PLAIN_TEXT_MIDDLE;
+DTextEnd returns DTextSegment:		value=PLAIN_TEXT_END;
 
-DExpression returns DExpression :
-	DAssignment;
 
 DAssignment returns DExpression :
 	{DAssignment}

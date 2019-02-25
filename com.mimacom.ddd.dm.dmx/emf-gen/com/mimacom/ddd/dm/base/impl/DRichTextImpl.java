@@ -4,7 +4,7 @@ package com.mimacom.ddd.dm.base.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DRichText;
-import com.mimacom.ddd.dm.base.IRichTextElement;
+import com.mimacom.ddd.dm.base.IRichTextSegment;
 
 import java.util.Collection;
 
@@ -14,8 +14,6 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -28,22 +26,22 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DRichTextImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DRichTextImpl#getSegments <em>Segments</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DRichTextImpl extends MinimalEObjectImpl.Container implements DRichText
+public class DRichTextImpl extends DExpressionImpl implements DRichText
 {
 	/**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+	 * The cached value of the '{@link #getSegments() <em>Segments</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElements()
+	 * @see #getSegments()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<IRichTextElement> elements;
+	protected EList<IRichTextSegment> segments;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -72,13 +70,13 @@ public class DRichTextImpl extends MinimalEObjectImpl.Container implements DRich
 	 * @generated
 	 */
 	@Override
-	public EList<IRichTextElement> getElements()
+	public EList<IRichTextSegment> getSegments()
 	{
-		if (elements == null)
+		if (segments == null)
 		{
-			elements = new EObjectContainmentEList<IRichTextElement>(IRichTextElement.class, this, BasePackage.DRICH_TEXT__ELEMENTS);
+			segments = new EObjectContainmentEList<IRichTextSegment>(IRichTextSegment.class, this, BasePackage.DRICH_TEXT__SEGMENTS);
 		}
-		return elements;
+		return segments;
 	}
 
 	/**
@@ -91,8 +89,8 @@ public class DRichTextImpl extends MinimalEObjectImpl.Container implements DRich
 	{
 		switch (featureID)
 		{
-			case BasePackage.DRICH_TEXT__ELEMENTS:
-				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+			case BasePackage.DRICH_TEXT__SEGMENTS:
+				return ((InternalEList<?>)getSegments()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -107,8 +105,8 @@ public class DRichTextImpl extends MinimalEObjectImpl.Container implements DRich
 	{
 		switch (featureID)
 		{
-			case BasePackage.DRICH_TEXT__ELEMENTS:
-				return getElements();
+			case BasePackage.DRICH_TEXT__SEGMENTS:
+				return getSegments();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -124,9 +122,9 @@ public class DRichTextImpl extends MinimalEObjectImpl.Container implements DRich
 	{
 		switch (featureID)
 		{
-			case BasePackage.DRICH_TEXT__ELEMENTS:
-				getElements().clear();
-				getElements().addAll((Collection<? extends IRichTextElement>)newValue);
+			case BasePackage.DRICH_TEXT__SEGMENTS:
+				getSegments().clear();
+				getSegments().addAll((Collection<? extends IRichTextSegment>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -142,8 +140,8 @@ public class DRichTextImpl extends MinimalEObjectImpl.Container implements DRich
 	{
 		switch (featureID)
 		{
-			case BasePackage.DRICH_TEXT__ELEMENTS:
-				getElements().clear();
+			case BasePackage.DRICH_TEXT__SEGMENTS:
+				getSegments().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -159,8 +157,8 @@ public class DRichTextImpl extends MinimalEObjectImpl.Container implements DRich
 	{
 		switch (featureID)
 		{
-			case BasePackage.DRICH_TEXT__ELEMENTS:
-				return elements != null && !elements.isEmpty();
+			case BasePackage.DRICH_TEXT__SEGMENTS:
+				return segments != null && !segments.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

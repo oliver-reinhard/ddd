@@ -3,7 +3,7 @@
 package com.mimacom.ddd.dm.base.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DText;
+import com.mimacom.ddd.dm.base.DTextSegment;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,18 +14,18 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>DText</b></em>'.
+ * An implementation of the model object '<em><b>DText Segment</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DTextImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DTextSegmentImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DTextImpl extends MinimalEObjectImpl.Container implements DText
+public class DTextSegmentImpl extends MinimalEObjectImpl.Container implements DTextSegment
 {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -52,7 +52,7 @@ public class DTextImpl extends MinimalEObjectImpl.Container implements DText
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DTextImpl()
+	protected DTextSegmentImpl()
 	{
 		super();
 	}
@@ -65,7 +65,7 @@ public class DTextImpl extends MinimalEObjectImpl.Container implements DText
 	@Override
 	protected EClass eStaticClass()
 	{
-		return BasePackage.Literals.DTEXT;
+		return BasePackage.Literals.DTEXT_SEGMENT;
 	}
 
 	/**
@@ -90,7 +90,7 @@ public class DTextImpl extends MinimalEObjectImpl.Container implements DText
 		String oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DTEXT__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DTEXT_SEGMENT__VALUE, oldValue, value));
 	}
 
 	/**
@@ -103,7 +103,7 @@ public class DTextImpl extends MinimalEObjectImpl.Container implements DText
 	{
 		switch (featureID)
 		{
-			case BasePackage.DTEXT__VALUE:
+			case BasePackage.DTEXT_SEGMENT__VALUE:
 				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -119,7 +119,7 @@ public class DTextImpl extends MinimalEObjectImpl.Container implements DText
 	{
 		switch (featureID)
 		{
-			case BasePackage.DTEXT__VALUE:
+			case BasePackage.DTEXT_SEGMENT__VALUE:
 				setValue((String)newValue);
 				return;
 		}
@@ -136,7 +136,7 @@ public class DTextImpl extends MinimalEObjectImpl.Container implements DText
 	{
 		switch (featureID)
 		{
-			case BasePackage.DTEXT__VALUE:
+			case BasePackage.DTEXT_SEGMENT__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
 		}
@@ -153,7 +153,7 @@ public class DTextImpl extends MinimalEObjectImpl.Container implements DText
 	{
 		switch (featureID)
 		{
-			case BasePackage.DTEXT__VALUE:
+			case BasePackage.DTEXT_SEGMENT__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
@@ -176,4 +176,4 @@ public class DTextImpl extends MinimalEObjectImpl.Container implements DText
 		return result.toString();
 	}
 
-} //DTextImpl
+} //DTextSegmentImpl

@@ -97,83 +97,102 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		//';'
 		public Keyword getSemicolonKeyword_2_4() { return cSemicolonKeyword_2_4; }
 	}
+	public class DExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DExpression");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cDAssignmentParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cDRichTextParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//DExpression:
+		//	DAssignment | DRichText;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//DAssignment | DRichText
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//DAssignment
+		public RuleCall getDAssignmentParserRuleCall_0() { return cDAssignmentParserRuleCall_0; }
+		
+		//DRichText
+		public RuleCall getDRichTextParserRuleCall_1() { return cDRichTextParserRuleCall_1; }
+	}
 	public class DRichTextElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DRichText");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cElementsAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cElementsDTextOnlyParserRuleCall_0_0 = (RuleCall)cElementsAssignment_0.eContents().get(0);
+		private final Assignment cSegmentsAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cSegmentsDTextOnlyParserRuleCall_0_0 = (RuleCall)cSegmentsAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Assignment cElementsAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final RuleCall cElementsDTextStartParserRuleCall_1_0_0 = (RuleCall)cElementsAssignment_1_0.eContents().get(0);
-		private final Assignment cElementsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cElementsDExpressionParserRuleCall_1_1_0 = (RuleCall)cElementsAssignment_1_1.eContents().get(0);
+		private final Assignment cSegmentsAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cSegmentsDTextStartParserRuleCall_1_0_0 = (RuleCall)cSegmentsAssignment_1_0.eContents().get(0);
+		private final Assignment cSegmentsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cSegmentsDExpressionParserRuleCall_1_1_0 = (RuleCall)cSegmentsAssignment_1_1.eContents().get(0);
 		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
-		private final Assignment cElementsAssignment_1_2_0 = (Assignment)cGroup_1_2.eContents().get(0);
-		private final RuleCall cElementsDTextMiddleParserRuleCall_1_2_0_0 = (RuleCall)cElementsAssignment_1_2_0.eContents().get(0);
-		private final Assignment cElementsAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
-		private final RuleCall cElementsDExpressionParserRuleCall_1_2_1_0 = (RuleCall)cElementsAssignment_1_2_1.eContents().get(0);
-		private final Assignment cElementsAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
-		private final RuleCall cElementsDTextEndParserRuleCall_1_3_0 = (RuleCall)cElementsAssignment_1_3.eContents().get(0);
+		private final Assignment cSegmentsAssignment_1_2_0 = (Assignment)cGroup_1_2.eContents().get(0);
+		private final RuleCall cSegmentsDTextMiddleParserRuleCall_1_2_0_0 = (RuleCall)cSegmentsAssignment_1_2_0.eContents().get(0);
+		private final Assignment cSegmentsAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
+		private final RuleCall cSegmentsDExpressionParserRuleCall_1_2_1_0 = (RuleCall)cSegmentsAssignment_1_2_1.eContents().get(0);
+		private final Assignment cSegmentsAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cSegmentsDTextEndParserRuleCall_1_3_0 = (RuleCall)cSegmentsAssignment_1_3.eContents().get(0);
 		
 		//DRichText:
-		//	elements+=DTextOnly
-		//	| elements+=DTextStart
-		//	elements+=DExpression (elements+=DTextMiddle elements+=DExpression)*
-		//	elements+=DTextEnd;
+		//	segments+=DTextOnly
+		//	| segments+=DTextStart
+		//	segments+=DExpression (segments+=DTextMiddle segments+=DExpression)*
+		//	segments+=DTextEnd;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//elements+=DTextOnly | elements+=DTextStart elements+=DExpression (elements+=DTextMiddle elements+=DExpression)*
-		//elements+=DTextEnd
+		//segments+=DTextOnly | segments+=DTextStart segments+=DExpression (segments+=DTextMiddle segments+=DExpression)*
+		//segments+=DTextEnd
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//elements+=DTextOnly
-		public Assignment getElementsAssignment_0() { return cElementsAssignment_0; }
+		//segments+=DTextOnly
+		public Assignment getSegmentsAssignment_0() { return cSegmentsAssignment_0; }
 		
 		//DTextOnly
-		public RuleCall getElementsDTextOnlyParserRuleCall_0_0() { return cElementsDTextOnlyParserRuleCall_0_0; }
+		public RuleCall getSegmentsDTextOnlyParserRuleCall_0_0() { return cSegmentsDTextOnlyParserRuleCall_0_0; }
 		
-		//elements+=DTextStart elements+=DExpression (elements+=DTextMiddle elements+=DExpression)* elements+=DTextEnd
+		//segments+=DTextStart segments+=DExpression (segments+=DTextMiddle segments+=DExpression)* segments+=DTextEnd
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//elements+=DTextStart
-		public Assignment getElementsAssignment_1_0() { return cElementsAssignment_1_0; }
+		//segments+=DTextStart
+		public Assignment getSegmentsAssignment_1_0() { return cSegmentsAssignment_1_0; }
 		
 		//DTextStart
-		public RuleCall getElementsDTextStartParserRuleCall_1_0_0() { return cElementsDTextStartParserRuleCall_1_0_0; }
+		public RuleCall getSegmentsDTextStartParserRuleCall_1_0_0() { return cSegmentsDTextStartParserRuleCall_1_0_0; }
 		
-		//elements+=DExpression
-		public Assignment getElementsAssignment_1_1() { return cElementsAssignment_1_1; }
+		//segments+=DExpression
+		public Assignment getSegmentsAssignment_1_1() { return cSegmentsAssignment_1_1; }
 		
 		//DExpression
-		public RuleCall getElementsDExpressionParserRuleCall_1_1_0() { return cElementsDExpressionParserRuleCall_1_1_0; }
+		public RuleCall getSegmentsDExpressionParserRuleCall_1_1_0() { return cSegmentsDExpressionParserRuleCall_1_1_0; }
 		
-		//(elements+=DTextMiddle elements+=DExpression)*
+		//(segments+=DTextMiddle segments+=DExpression)*
 		public Group getGroup_1_2() { return cGroup_1_2; }
 		
-		//elements+=DTextMiddle
-		public Assignment getElementsAssignment_1_2_0() { return cElementsAssignment_1_2_0; }
+		//segments+=DTextMiddle
+		public Assignment getSegmentsAssignment_1_2_0() { return cSegmentsAssignment_1_2_0; }
 		
 		//DTextMiddle
-		public RuleCall getElementsDTextMiddleParserRuleCall_1_2_0_0() { return cElementsDTextMiddleParserRuleCall_1_2_0_0; }
+		public RuleCall getSegmentsDTextMiddleParserRuleCall_1_2_0_0() { return cSegmentsDTextMiddleParserRuleCall_1_2_0_0; }
 		
-		//elements+=DExpression
-		public Assignment getElementsAssignment_1_2_1() { return cElementsAssignment_1_2_1; }
+		//segments+=DExpression
+		public Assignment getSegmentsAssignment_1_2_1() { return cSegmentsAssignment_1_2_1; }
 		
 		//DExpression
-		public RuleCall getElementsDExpressionParserRuleCall_1_2_1_0() { return cElementsDExpressionParserRuleCall_1_2_1_0; }
+		public RuleCall getSegmentsDExpressionParserRuleCall_1_2_1_0() { return cSegmentsDExpressionParserRuleCall_1_2_1_0; }
 		
-		//elements+=DTextEnd
-		public Assignment getElementsAssignment_1_3() { return cElementsAssignment_1_3; }
+		//segments+=DTextEnd
+		public Assignment getSegmentsAssignment_1_3() { return cSegmentsAssignment_1_3; }
 		
 		//DTextEnd
-		public RuleCall getElementsDTextEndParserRuleCall_1_3_0() { return cElementsDTextEndParserRuleCall_1_3_0; }
+		public RuleCall getSegmentsDTextEndParserRuleCall_1_3_0() { return cSegmentsDTextEndParserRuleCall_1_3_0; }
 	}
 	public class DTextOnlyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DTextOnly");
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cValuePLAIN_TEXT_ONLYTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
 		
-		//DTextOnly DText:
+		//DTextOnly DTextSegment:
 		//	value=PLAIN_TEXT_ONLY;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -188,7 +207,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cValuePLAIN_TEXT_STARTTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
 		
-		//DTextStart DText:
+		//DTextStart DTextSegment:
 		//	value=PLAIN_TEXT_START;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -203,7 +222,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cValuePLAIN_TEXT_MIDDLETerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
 		
-		//DTextMiddle DText:
+		//DTextMiddle DTextSegment:
 		//	value=PLAIN_TEXT_MIDDLE;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -218,7 +237,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cValuePLAIN_TEXT_ENDTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
 		
-		//DTextEnd DText:
+		//DTextEnd DTextSegment:
 		//	value=PLAIN_TEXT_END;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -227,17 +246,6 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//PLAIN_TEXT_END
 		public RuleCall getValuePLAIN_TEXT_ENDTerminalRuleCall_0() { return cValuePLAIN_TEXT_ENDTerminalRuleCall_0; }
-	}
-	public class DExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DExpression");
-		private final RuleCall cDAssignmentParserRuleCall = (RuleCall)rule.eContents().get(1);
-		
-		//DExpression:
-		//	DAssignment;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//DAssignment
-		public RuleCall getDAssignmentParserRuleCall() { return cDAssignmentParserRuleCall; }
 	}
 	public class DAssignmentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DAssignment");
@@ -2109,12 +2117,12 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	private final DmxModelElements pDmxModel;
+	private final DExpressionElements pDExpression;
 	private final DRichTextElements pDRichText;
 	private final DTextOnlyElements pDTextOnly;
 	private final DTextStartElements pDTextStart;
 	private final DTextMiddleElements pDTextMiddle;
 	private final DTextEndElements pDTextEnd;
-	private final DExpressionElements pDExpression;
 	private final DAssignmentElements pDAssignment;
 	private final OpSingleAssignElements pOpSingleAssign;
 	private final DOrExpressionElements pDOrExpression;
@@ -2179,12 +2187,12 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	public DmxGrammarAccess(GrammarProvider grammarProvider) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.pDmxModel = new DmxModelElements();
+		this.pDExpression = new DExpressionElements();
 		this.pDRichText = new DRichTextElements();
 		this.pDTextOnly = new DTextOnlyElements();
 		this.pDTextStart = new DTextStartElements();
 		this.pDTextMiddle = new DTextMiddleElements();
 		this.pDTextEnd = new DTextEndElements();
-		this.pDExpression = new DExpressionElements();
 		this.pDAssignment = new DAssignmentElements();
 		this.pOpSingleAssign = new OpSingleAssignElements();
 		this.pDOrExpression = new DOrExpressionElements();
@@ -2277,11 +2285,21 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		return getDmxModelAccess().getRule();
 	}
 	
+	//DExpression:
+	//	DAssignment | DRichText;
+	public DExpressionElements getDExpressionAccess() {
+		return pDExpression;
+	}
+	
+	public ParserRule getDExpressionRule() {
+		return getDExpressionAccess().getRule();
+	}
+	
 	//DRichText:
-	//	elements+=DTextOnly
-	//	| elements+=DTextStart
-	//	elements+=DExpression (elements+=DTextMiddle elements+=DExpression)*
-	//	elements+=DTextEnd;
+	//	segments+=DTextOnly
+	//	| segments+=DTextStart
+	//	segments+=DExpression (segments+=DTextMiddle segments+=DExpression)*
+	//	segments+=DTextEnd;
 	public DRichTextElements getDRichTextAccess() {
 		return pDRichText;
 	}
@@ -2290,7 +2308,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		return getDRichTextAccess().getRule();
 	}
 	
-	//DTextOnly DText:
+	//DTextOnly DTextSegment:
 	//	value=PLAIN_TEXT_ONLY;
 	public DTextOnlyElements getDTextOnlyAccess() {
 		return pDTextOnly;
@@ -2300,7 +2318,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		return getDTextOnlyAccess().getRule();
 	}
 	
-	//DTextStart DText:
+	//DTextStart DTextSegment:
 	//	value=PLAIN_TEXT_START;
 	public DTextStartElements getDTextStartAccess() {
 		return pDTextStart;
@@ -2310,7 +2328,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		return getDTextStartAccess().getRule();
 	}
 	
-	//DTextMiddle DText:
+	//DTextMiddle DTextSegment:
 	//	value=PLAIN_TEXT_MIDDLE;
 	public DTextMiddleElements getDTextMiddleAccess() {
 		return pDTextMiddle;
@@ -2320,7 +2338,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		return getDTextMiddleAccess().getRule();
 	}
 	
-	//DTextEnd DText:
+	//DTextEnd DTextSegment:
 	//	value=PLAIN_TEXT_END;
 	public DTextEndElements getDTextEndAccess() {
 		return pDTextEnd;
@@ -2328,16 +2346,6 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDTextEndRule() {
 		return getDTextEndAccess().getRule();
-	}
-	
-	//DExpression:
-	//	DAssignment;
-	public DExpressionElements getDExpressionAccess() {
-		return pDExpression;
-	}
-	
-	public ParserRule getDExpressionRule() {
-		return getDExpressionAccess().getRule();
 	}
 	
 	//DAssignment DExpression:

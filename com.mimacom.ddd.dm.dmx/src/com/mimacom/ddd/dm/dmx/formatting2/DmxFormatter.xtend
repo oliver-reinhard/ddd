@@ -24,7 +24,7 @@ class DmxFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(DRichText dRichText, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (iRichTextElement : dRichText.elements) {
+		for (iRichTextElement : dRichText.segments) {
 			iRichTextElement.format
 		}
 	}

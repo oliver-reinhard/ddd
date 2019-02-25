@@ -26,7 +26,7 @@ import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DRootType;
 import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DServiceParameter;
-import com.mimacom.ddd.dm.base.DText;
+import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.dim.services.DimGrammarAccess;
 import com.mimacom.ddd.dm.dmx.DAssignment;
 import com.mimacom.ddd.dm.dmx.DBinaryOperation;
@@ -148,21 +148,21 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 			case BasePackage.DSERVICE_PARAMETER:
 				sequence_DServiceParameter(context, (DServiceParameter) semanticObject); 
 				return; 
-			case BasePackage.DTEXT:
+			case BasePackage.DTEXT_SEGMENT:
 				if (rule == grammarAccess.getDTextEndRule()) {
-					sequence_DTextEnd(context, (DText) semanticObject); 
+					sequence_DTextEnd(context, (DTextSegment) semanticObject); 
 					return; 
 				}
 				else if (rule == grammarAccess.getDTextMiddleRule()) {
-					sequence_DTextMiddle(context, (DText) semanticObject); 
+					sequence_DTextMiddle(context, (DTextSegment) semanticObject); 
 					return; 
 				}
 				else if (rule == grammarAccess.getDTextOnlyRule()) {
-					sequence_DTextOnly(context, (DText) semanticObject); 
+					sequence_DTextOnly(context, (DTextSegment) semanticObject); 
 					return; 
 				}
 				else if (rule == grammarAccess.getDTextStartRule()) {
-					sequence_DTextStart(context, (DText) semanticObject); 
+					sequence_DTextStart(context, (DTextSegment) semanticObject); 
 					return; 
 				}
 				else break;

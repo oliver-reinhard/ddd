@@ -1763,10 +1763,10 @@ public class InternalDemLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDem.g:10553:9: ( ( '^' )? ( RULE_LETTER | '_' ) ( RULE_LETTER | '_' | '0' .. '9' )* )
-            // InternalDem.g:10553:11: ( '^' )? ( RULE_LETTER | '_' ) ( RULE_LETTER | '_' | '0' .. '9' )*
+            // InternalDem.g:10574:9: ( ( '^' )? ( RULE_LETTER | '_' ) ( RULE_LETTER | '_' | '0' .. '9' )* )
+            // InternalDem.g:10574:11: ( '^' )? ( RULE_LETTER | '_' ) ( RULE_LETTER | '_' | '0' .. '9' )*
             {
-            // InternalDem.g:10553:11: ( '^' )?
+            // InternalDem.g:10574:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1775,7 +1775,7 @@ public class InternalDemLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalDem.g:10553:11: '^'
+                    // InternalDem.g:10574:11: '^'
                     {
                     match('^'); 
 
@@ -1793,7 +1793,7 @@ public class InternalDemLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalDem.g:10553:34: ( RULE_LETTER | '_' | '0' .. '9' )*
+            // InternalDem.g:10574:34: ( RULE_LETTER | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -1842,11 +1842,11 @@ public class InternalDemLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDem.g:10555:13: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
-            // InternalDem.g:10555:15: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+            // InternalDem.g:10576:13: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
+            // InternalDem.g:10576:15: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
             {
             match('\"'); 
-            // InternalDem.g:10555:19: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+            // InternalDem.g:10576:19: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
             loop3:
             do {
                 int alt3=3;
@@ -1862,7 +1862,7 @@ public class InternalDemLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalDem.g:10555:20: '\\\\' .
+            	    // InternalDem.g:10576:20: '\\\\' .
             	    {
             	    match('\\'); 
             	    matchAny(); 
@@ -1870,7 +1870,7 @@ public class InternalDemLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // InternalDem.g:10555:27: ~ ( ( '\\\\' | '\"' ) )
+            	    // InternalDem.g:10576:27: ~ ( ( '\\\\' | '\"' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1907,10 +1907,10 @@ public class InternalDemLexer extends Lexer {
         try {
             int _type = RULE_NATURAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDem.g:10557:14: ( ( '0' .. '9' )+ )
-            // InternalDem.g:10557:16: ( '0' .. '9' )+
+            // InternalDem.g:10578:14: ( ( '0' .. '9' )+ )
+            // InternalDem.g:10578:16: ( '0' .. '9' )+
             {
-            // InternalDem.g:10557:16: ( '0' .. '9' )+
+            // InternalDem.g:10578:16: ( '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -1924,7 +1924,7 @@ public class InternalDemLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalDem.g:10557:17: '0' .. '9'
+            	    // InternalDem.g:10578:17: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1954,8 +1954,8 @@ public class InternalDemLexer extends Lexer {
     // $ANTLR start "RULE_LETTER"
     public final void mRULE_LETTER() throws RecognitionException {
         try {
-            // InternalDem.g:10559:22: ( ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u00FF' ) )
-            // InternalDem.g:10559:24: ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u00FF' )
+            // InternalDem.g:10580:22: ( ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u00FF' ) )
+            // InternalDem.g:10580:24: ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u00FF' )
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z')||(input.LA(1)>='\u00C0' && input.LA(1)<='\u00D6')||(input.LA(1)>='\u00D8' && input.LA(1)<='\u00F6')||(input.LA(1)>='\u00F8' && input.LA(1)<='\u00FF') ) {
                 input.consume();
@@ -1978,8 +1978,8 @@ public class InternalDemLexer extends Lexer {
     // $ANTLR start "RULE_PLAIN_TEXT"
     public final void mRULE_PLAIN_TEXT() throws RecognitionException {
         try {
-            // InternalDem.g:10561:26: (~ ( ( '\\u00BB' | '[' ) ) )
-            // InternalDem.g:10561:28: ~ ( ( '\\u00BB' | '[' ) )
+            // InternalDem.g:10582:26: (~ ( ( '\\u00BB' | '[' ) ) )
+            // InternalDem.g:10582:28: ~ ( ( '\\u00BB' | '[' ) )
             {
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='Z')||(input.LA(1)>='\\' && input.LA(1)<='\u00BA')||(input.LA(1)>='\u00BC' && input.LA(1)<='\uFFFF') ) {
                 input.consume();
@@ -2004,11 +2004,11 @@ public class InternalDemLexer extends Lexer {
         try {
             int _type = RULE_PLAIN_TEXT_ONLY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDem.g:10563:22: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB' )
-            // InternalDem.g:10563:24: '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB'
+            // InternalDem.g:10584:22: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB' )
+            // InternalDem.g:10584:24: '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB'
             {
             match('\u00AB'); 
-            // InternalDem.g:10563:33: ( RULE_PLAIN_TEXT )*
+            // InternalDem.g:10584:33: ( RULE_PLAIN_TEXT )*
             loop5:
             do {
                 int alt5=2;
@@ -2021,7 +2021,7 @@ public class InternalDemLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalDem.g:10563:33: RULE_PLAIN_TEXT
+            	    // InternalDem.g:10584:33: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2050,11 +2050,11 @@ public class InternalDemLexer extends Lexer {
         try {
             int _type = RULE_PLAIN_TEXT_START;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDem.g:10565:23: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '[' )
-            // InternalDem.g:10565:25: '\\u00AB' ( RULE_PLAIN_TEXT )* '['
+            // InternalDem.g:10586:23: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '[' )
+            // InternalDem.g:10586:25: '\\u00AB' ( RULE_PLAIN_TEXT )* '['
             {
             match('\u00AB'); 
-            // InternalDem.g:10565:34: ( RULE_PLAIN_TEXT )*
+            // InternalDem.g:10586:34: ( RULE_PLAIN_TEXT )*
             loop6:
             do {
                 int alt6=2;
@@ -2067,7 +2067,7 @@ public class InternalDemLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalDem.g:10565:34: RULE_PLAIN_TEXT
+            	    // InternalDem.g:10586:34: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2096,11 +2096,11 @@ public class InternalDemLexer extends Lexer {
         try {
             int _type = RULE_PLAIN_TEXT_MIDDLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDem.g:10567:24: ( ']' ( RULE_PLAIN_TEXT )* '[' )
-            // InternalDem.g:10567:26: ']' ( RULE_PLAIN_TEXT )* '['
+            // InternalDem.g:10588:24: ( ']' ( RULE_PLAIN_TEXT )* '[' )
+            // InternalDem.g:10588:26: ']' ( RULE_PLAIN_TEXT )* '['
             {
             match(']'); 
-            // InternalDem.g:10567:30: ( RULE_PLAIN_TEXT )*
+            // InternalDem.g:10588:30: ( RULE_PLAIN_TEXT )*
             loop7:
             do {
                 int alt7=2;
@@ -2113,7 +2113,7 @@ public class InternalDemLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalDem.g:10567:30: RULE_PLAIN_TEXT
+            	    // InternalDem.g:10588:30: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2142,11 +2142,11 @@ public class InternalDemLexer extends Lexer {
         try {
             int _type = RULE_PLAIN_TEXT_END;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDem.g:10569:21: ( ']' ( RULE_PLAIN_TEXT )* '\\u00BB' )
-            // InternalDem.g:10569:23: ']' ( RULE_PLAIN_TEXT )* '\\u00BB'
+            // InternalDem.g:10590:21: ( ']' ( RULE_PLAIN_TEXT )* '\\u00BB' )
+            // InternalDem.g:10590:23: ']' ( RULE_PLAIN_TEXT )* '\\u00BB'
             {
             match(']'); 
-            // InternalDem.g:10569:27: ( RULE_PLAIN_TEXT )*
+            // InternalDem.g:10590:27: ( RULE_PLAIN_TEXT )*
             loop8:
             do {
                 int alt8=2;
@@ -2159,7 +2159,7 @@ public class InternalDemLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalDem.g:10569:27: RULE_PLAIN_TEXT
+            	    // InternalDem.g:10590:27: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2188,12 +2188,12 @@ public class InternalDemLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDem.g:10571:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalDem.g:10571:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalDem.g:10592:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalDem.g:10592:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalDem.g:10571:24: ( options {greedy=false; } : . )*
+            // InternalDem.g:10592:24: ( options {greedy=false; } : . )*
             loop9:
             do {
                 int alt9=2;
@@ -2218,7 +2218,7 @@ public class InternalDemLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalDem.g:10571:52: .
+            	    // InternalDem.g:10592:52: .
             	    {
             	    matchAny(); 
 
@@ -2248,12 +2248,12 @@ public class InternalDemLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDem.g:10573:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalDem.g:10573:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalDem.g:10594:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalDem.g:10594:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalDem.g:10573:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalDem.g:10594:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop10:
             do {
                 int alt10=2;
@@ -2266,7 +2266,7 @@ public class InternalDemLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalDem.g:10573:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalDem.g:10594:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2286,7 +2286,7 @@ public class InternalDemLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalDem.g:10573:40: ( ( '\\r' )? '\\n' )?
+            // InternalDem.g:10594:40: ( ( '\\r' )? '\\n' )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -2295,9 +2295,9 @@ public class InternalDemLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // InternalDem.g:10573:41: ( '\\r' )? '\\n'
+                    // InternalDem.g:10594:41: ( '\\r' )? '\\n'
                     {
-                    // InternalDem.g:10573:41: ( '\\r' )?
+                    // InternalDem.g:10594:41: ( '\\r' )?
                     int alt11=2;
                     int LA11_0 = input.LA(1);
 
@@ -2306,7 +2306,7 @@ public class InternalDemLexer extends Lexer {
                     }
                     switch (alt11) {
                         case 1 :
-                            // InternalDem.g:10573:41: '\\r'
+                            // InternalDem.g:10594:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2338,10 +2338,10 @@ public class InternalDemLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDem.g:10575:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalDem.g:10575:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalDem.g:10596:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalDem.g:10596:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalDem.g:10575:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalDem.g:10596:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt13=0;
             loop13:
             do {
@@ -2395,8 +2395,8 @@ public class InternalDemLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDem.g:10577:16: ( . )
-            // InternalDem.g:10577:18: .
+            // InternalDem.g:10598:16: ( . )
+            // InternalDem.g:10598:18: .
             {
             matchAny(); 
 

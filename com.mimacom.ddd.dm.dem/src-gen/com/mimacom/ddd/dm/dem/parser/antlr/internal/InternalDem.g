@@ -1035,6 +1035,42 @@ ruleDTime returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleDExpression
+entryRuleDExpression returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDExpressionRule()); }
+	iv_ruleDExpression=ruleDExpression
+	{ $current=$iv_ruleDExpression.current; }
+	EOF;
+
+// Rule DExpression
+ruleDExpression returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getDExpressionAccess().getDAssignmentParserRuleCall_0());
+		}
+		this_DAssignment_0=ruleDAssignment
+		{
+			$current = $this_DAssignment_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getDExpressionAccess().getDRichTextParserRuleCall_1());
+		}
+		this_DRichText_1=ruleDRichText
+		{
+			$current = $this_DRichText_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
 // Entry rule entryRuleDRichText
 entryRuleDRichText returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getDRichTextRule()); }
@@ -1054,17 +1090,17 @@ ruleDRichText returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDRichTextAccess().getElementsDTextOnlyParserRuleCall_0_0());
+					newCompositeNode(grammarAccess.getDRichTextAccess().getSegmentsDTextOnlyParserRuleCall_0_0());
 				}
-				lv_elements_0_0=ruleDTextOnly
+				lv_segments_0_0=ruleDTextOnly
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDRichTextRule());
 					}
 					add(
 						$current,
-						"elements",
-						lv_elements_0_0,
+						"segments",
+						lv_segments_0_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DTextOnly");
 					afterParserOrEnumRuleCall();
 				}
@@ -1075,17 +1111,17 @@ ruleDRichText returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDRichTextAccess().getElementsDTextStartParserRuleCall_1_0_0());
+						newCompositeNode(grammarAccess.getDRichTextAccess().getSegmentsDTextStartParserRuleCall_1_0_0());
 					}
-					lv_elements_1_0=ruleDTextStart
+					lv_segments_1_0=ruleDTextStart
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDRichTextRule());
 						}
 						add(
 							$current,
-							"elements",
-							lv_elements_1_0,
+							"segments",
+							lv_segments_1_0,
 							"com.mimacom.ddd.dm.dmx.Dmx.DTextStart");
 						afterParserOrEnumRuleCall();
 					}
@@ -1094,17 +1130,17 @@ ruleDRichText returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDRichTextAccess().getElementsDExpressionParserRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getDRichTextAccess().getSegmentsDExpressionParserRuleCall_1_1_0());
 					}
-					lv_elements_2_0=ruleDExpression
+					lv_segments_2_0=ruleDExpression
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDRichTextRule());
 						}
 						add(
 							$current,
-							"elements",
-							lv_elements_2_0,
+							"segments",
+							lv_segments_2_0,
 							"com.mimacom.ddd.dm.dmx.Dmx.DExpression");
 						afterParserOrEnumRuleCall();
 					}
@@ -1114,17 +1150,17 @@ ruleDRichText returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDRichTextAccess().getElementsDTextMiddleParserRuleCall_1_2_0_0());
+							newCompositeNode(grammarAccess.getDRichTextAccess().getSegmentsDTextMiddleParserRuleCall_1_2_0_0());
 						}
-						lv_elements_3_0=ruleDTextMiddle
+						lv_segments_3_0=ruleDTextMiddle
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDRichTextRule());
 							}
 							add(
 								$current,
-								"elements",
-								lv_elements_3_0,
+								"segments",
+								lv_segments_3_0,
 								"com.mimacom.ddd.dm.dmx.Dmx.DTextMiddle");
 							afterParserOrEnumRuleCall();
 						}
@@ -1133,17 +1169,17 @@ ruleDRichText returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDRichTextAccess().getElementsDExpressionParserRuleCall_1_2_1_0());
+							newCompositeNode(grammarAccess.getDRichTextAccess().getSegmentsDExpressionParserRuleCall_1_2_1_0());
 						}
-						lv_elements_4_0=ruleDExpression
+						lv_segments_4_0=ruleDExpression
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDRichTextRule());
 							}
 							add(
 								$current,
-								"elements",
-								lv_elements_4_0,
+								"segments",
+								lv_segments_4_0,
 								"com.mimacom.ddd.dm.dmx.Dmx.DExpression");
 							afterParserOrEnumRuleCall();
 						}
@@ -1153,17 +1189,17 @@ ruleDRichText returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDRichTextAccess().getElementsDTextEndParserRuleCall_1_3_0());
+						newCompositeNode(grammarAccess.getDRichTextAccess().getSegmentsDTextEndParserRuleCall_1_3_0());
 					}
-					lv_elements_5_0=ruleDTextEnd
+					lv_segments_5_0=ruleDTextEnd
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDRichTextRule());
 						}
 						add(
 							$current,
-							"elements",
-							lv_elements_5_0,
+							"segments",
+							lv_segments_5_0,
 							"com.mimacom.ddd.dm.dmx.Dmx.DTextEnd");
 						afterParserOrEnumRuleCall();
 					}
@@ -1311,31 +1347,6 @@ ruleDTextEnd returns [EObject current=null]
 			}
 		)
 	)
-;
-
-// Entry rule entryRuleDExpression
-entryRuleDExpression returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDExpressionRule()); }
-	iv_ruleDExpression=ruleDExpression
-	{ $current=$iv_ruleDExpression.current; }
-	EOF;
-
-// Rule DExpression
-ruleDExpression returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	{
-		newCompositeNode(grammarAccess.getDExpressionAccess().getDAssignmentParserRuleCall());
-	}
-	this_DAssignment_0=ruleDAssignment
-	{
-		$current = $this_DAssignment_0.current;
-		afterParserOrEnumRuleCall();
-	}
 ;
 
 // Entry rule entryRuleDAssignment
@@ -2773,7 +2784,7 @@ ruleDReturnExpression returns [EObject current=null]
 			}
 		)
 		(
-			('+' | '-' | '!' | 'NOT' | 'not' | 'TRUE' | 'true' | 'FALSE' | 'false' | 'UNDEFINED' | 'undefined' | 'SELF' | 'self' | 'RETURN' | 'return' | 'RAISE' | 'raise' | '(' | 'NEW' | 'new' | 'if' | 'for' | RULE_ID | RULE_STRING | RULE_NATURAL)=>
+			('+' | '-' | '!' | 'NOT' | 'not' | 'TRUE' | 'true' | 'FALSE' | 'false' | 'UNDEFINED' | 'undefined' | 'SELF' | 'self' | 'RETURN' | 'return' | 'RAISE' | 'raise' | '(' | 'NEW' | 'new' | 'if' | 'for' | RULE_ID | RULE_STRING | RULE_NATURAL | RULE_PLAIN_TEXT_ONLY | RULE_PLAIN_TEXT_START)=>
 			(
 				{
 					newCompositeNode(grammarAccess.getDReturnExpressionAccess().getExpressionDExpressionParserRuleCall_2_0());

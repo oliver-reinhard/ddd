@@ -23,6 +23,15 @@ public interface BaseFactory extends EFactory
 	BaseFactory eINSTANCE = com.mimacom.ddd.dm.base.impl.BaseFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>DText Segment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DText Segment</em>'.
+	 * @generated
+	 */
+	DTextSegment createDTextSegment();
+
+	/**
 	 * Returns a new object of class '<em>DRich Text</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -30,15 +39,6 @@ public interface BaseFactory extends EFactory
 	 * @generated
 	 */
 	DRichText createDRichText();
-
-	/**
-	 * Returns a new object of class '<em>DText</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DText</em>'.
-	 * @generated
-	 */
-	DText createDText();
 
 	/**
 	 * Returns a new object of class '<em>DDomain</em>'.

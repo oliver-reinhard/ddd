@@ -11,7 +11,7 @@ import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.base.IRichTextElement;
+import com.mimacom.ddd.dm.base.IRichTextSegment;
 import com.mimacom.ddd.dm.dim.tests.DimInjectorProvider;
 import com.mimacom.ddd.dm.dmx.DBinaryOperation;
 import com.mimacom.ddd.dm.dmx.DContextReference;
@@ -134,16 +134,16 @@ public class DmxScopingTest {
       final String expectedScope1 = "a, b, q1, q2, GP, GD, A, D, D.GP, D.GD, D.A";
       final String expectedScope2 = "x, y";
       {
-        IRichTextElement _get_1 = detailA.getDescription().getElements().get(1);
+        IRichTextSegment _get_1 = detailA.getDescription().getSegments().get(1);
         final DExpression c1a = ((DExpression) _get_1);
         this.checkExpression1(c1a, expectedScope1);
-        IRichTextElement _get_2 = detailA.getDescription().getElements().get(3);
+        IRichTextSegment _get_2 = detailA.getDescription().getSegments().get(3);
         final DExpression c1b = ((DExpression) _get_2);
         this.checkExpression1(c1b, expectedScope1);
-        IRichTextElement _get_3 = detailA.getDescription().getElements().get(5);
+        IRichTextSegment _get_3 = detailA.getDescription().getSegments().get(5);
         final DExpression c2a = ((DExpression) _get_3);
         this.checkExpression2(c2a, expectedScope2, expectedScope1);
-        IRichTextElement _get_4 = detailA.getDescription().getElements().get(7);
+        IRichTextSegment _get_4 = detailA.getDescription().getSegments().get(7);
         final DExpression c2b = ((DExpression) _get_4);
         this.checkExpression2(c2b, expectedScope2, expectedScope1);
       }
@@ -280,10 +280,10 @@ public class DmxScopingTest {
       final String expectedScope1 = "a, b, q1, q2";
       final String expectedScope2 = "x, y";
       {
-        IRichTextElement _get_1 = detailA.getDescription().getElements().get(1);
+        IRichTextSegment _get_1 = detailA.getDescription().getSegments().get(1);
         final DExpression c3 = ((DExpression) _get_1);
         this.checkExpression3(c3, expectedScope1);
-        IRichTextElement _get_2 = detailA.getDescription().getElements().get(3);
+        IRichTextSegment _get_2 = detailA.getDescription().getSegments().get(3);
         final DExpression c4 = ((DExpression) _get_2);
         this.checkExpression4(c4, expectedScope2, expectedScope1);
       }

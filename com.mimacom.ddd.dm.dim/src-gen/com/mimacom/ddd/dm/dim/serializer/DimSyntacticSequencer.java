@@ -177,6 +177,8 @@ public class DimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) function=[DFunction|ID]
 	 *     (rule start) (ambiguity) member=[DTypedMember|ID]
 	 *     (rule start) (ambiguity) operator=OpUnary
+	 *     (rule start) (ambiguity) segments+=DTextOnly
+	 *     (rule start) (ambiguity) segments+=DTextStart
 	 *     (rule start) (ambiguity) target=[DNamedElement|ID]
 	 *     (rule start) (ambiguity) value=DECIMAL
 	 *     (rule start) (ambiguity) value=NATURAL
@@ -210,6 +212,8 @@ public class DimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) function=[DFunction|ID]
 	 *     (rule start) (ambiguity) member=[DTypedMember|ID]
 	 *     (rule start) (ambiguity) operator=OpUnary
+	 *     (rule start) (ambiguity) segments+=DTextOnly
+	 *     (rule start) (ambiguity) segments+=DTextStart
 	 *     (rule start) (ambiguity) target=[DNamedElement|ID]
 	 *     (rule start) (ambiguity) value=DECIMAL
 	 *     (rule start) (ambiguity) value=NATURAL

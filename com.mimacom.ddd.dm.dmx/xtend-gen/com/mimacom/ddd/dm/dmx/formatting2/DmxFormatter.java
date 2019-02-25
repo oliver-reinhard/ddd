@@ -5,7 +5,7 @@ package com.mimacom.ddd.dm.dmx.formatting2;
 
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DRichText;
-import com.mimacom.ddd.dm.base.IRichTextElement;
+import com.mimacom.ddd.dm.base.IRichTextSegment;
 import com.mimacom.ddd.dm.dmx.DmxModel;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
@@ -29,18 +29,18 @@ public class DmxFormatter extends AbstractFormatter2 {
   }
   
   protected void _format(final DRichText dRichText, @Extension final IFormattableDocument document) {
-    EList<IRichTextElement> _elements = dRichText.getElements();
-    for (final IRichTextElement iRichTextElement : _elements) {
-      document.<IRichTextElement>format(iRichTextElement);
+    EList<IRichTextSegment> _segments = dRichText.getSegments();
+    for (final IRichTextSegment iRichTextElement : _segments) {
+      document.<IRichTextSegment>format(iRichTextElement);
     }
   }
   
   public void format(final Object dRichText, final IFormattableDocument document) {
-    if (dRichText instanceof XtextResource) {
-      _format((XtextResource)dRichText, document);
-      return;
-    } else if (dRichText instanceof DRichText) {
+    if (dRichText instanceof DRichText) {
       _format((DRichText)dRichText, document);
+      return;
+    } else if (dRichText instanceof XtextResource) {
+      _format((XtextResource)dRichText, document);
       return;
     } else if (dRichText instanceof DmxModel) {
       _format((DmxModel)dRichText, document);

@@ -7,7 +7,7 @@ import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DRichText;
-import com.mimacom.ddd.dm.base.DText;
+import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.dmx.DAssignment;
 import com.mimacom.ddd.dm.dmx.DBinaryOperation;
 import com.mimacom.ddd.dm.dmx.DBooleanLiteral;
@@ -61,21 +61,21 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case BasePackage.DRICH_TEXT:
 				sequence_DRichText(context, (DRichText) semanticObject); 
 				return; 
-			case BasePackage.DTEXT:
+			case BasePackage.DTEXT_SEGMENT:
 				if (rule == grammarAccess.getDTextEndRule()) {
-					sequence_DTextEnd(context, (DText) semanticObject); 
+					sequence_DTextEnd(context, (DTextSegment) semanticObject); 
 					return; 
 				}
 				else if (rule == grammarAccess.getDTextMiddleRule()) {
-					sequence_DTextMiddle(context, (DText) semanticObject); 
+					sequence_DTextMiddle(context, (DTextSegment) semanticObject); 
 					return; 
 				}
 				else if (rule == grammarAccess.getDTextOnlyRule()) {
-					sequence_DTextOnly(context, (DText) semanticObject); 
+					sequence_DTextOnly(context, (DTextSegment) semanticObject); 
 					return; 
 				}
 				else if (rule == grammarAccess.getDTextStartRule()) {
-					sequence_DTextStart(context, (DText) semanticObject); 
+					sequence_DTextStart(context, (DTextSegment) semanticObject); 
 					return; 
 				}
 				else break;
@@ -784,10 +784,35 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     DExpression returns DRichText
 	 *     DRichText returns DRichText
+	 *     DAssignment returns DRichText
+	 *     DOrExpression returns DRichText
+	 *     DOrExpression.DBinaryOperation_1_0_0_0 returns DRichText
+	 *     DAndExpression returns DRichText
+	 *     DAndExpression.DBinaryOperation_1_0_0_0 returns DRichText
+	 *     DEqualityExpression returns DRichText
+	 *     DEqualityExpression.DBinaryOperation_1_0_0_0 returns DRichText
+	 *     DRelationalExpression returns DRichText
+	 *     DRelationalExpression.DInstanceOfExpression_1_0_0_0_0 returns DRichText
+	 *     DRelationalExpression.DBinaryOperation_1_1_0_0_0 returns DRichText
+	 *     DOtherOperatorExpression returns DRichText
+	 *     DOtherOperatorExpression.DBinaryOperation_1_0_0_0 returns DRichText
+	 *     DAdditiveExpression returns DRichText
+	 *     DAdditiveExpression.DBinaryOperation_1_0_0_0 returns DRichText
+	 *     DMultiplicativeExpression returns DRichText
+	 *     DMultiplicativeExpression.DBinaryOperation_1_0_0_0 returns DRichText
+	 *     DUnaryOperation returns DRichText
+	 *     DCastExpression returns DRichText
+	 *     DCastExpression.DCastExpression_1_0_0_0 returns DRichText
+	 *     DTypedMemberReference returns DRichText
+	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DRichText
+	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DRichText
+	 *     DPrimaryExpression returns DRichText
+	 *     DParenthesizedExpression returns DRichText
 	 *
 	 * Constraint:
-	 *     (elements+=DTextOnly | (elements+=DTextStart elements+=DExpression (elements+=DTextMiddle elements+=DExpression)* elements+=DTextEnd))
+	 *     (segments+=DTextOnly | (segments+=DTextStart segments+=DExpression (segments+=DTextMiddle segments+=DExpression)* segments+=DTextEnd))
 	 */
 	protected void sequence_DRichText(ISerializationContext context, DRichText semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -877,15 +902,15 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DTextEnd returns DText
+	 *     DTextEnd returns DTextSegment
 	 *
 	 * Constraint:
 	 *     value=PLAIN_TEXT_END
 	 */
-	protected void sequence_DTextEnd(ISerializationContext context, DText semanticObject) {
+	protected void sequence_DTextEnd(ISerializationContext context, DTextSegment semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DTEXT__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DTEXT__VALUE));
+			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DTEXT_SEGMENT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DTEXT_SEGMENT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDTextEndAccess().getValuePLAIN_TEXT_ENDTerminalRuleCall_0(), semanticObject.getValue());
@@ -895,15 +920,15 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DTextMiddle returns DText
+	 *     DTextMiddle returns DTextSegment
 	 *
 	 * Constraint:
 	 *     value=PLAIN_TEXT_MIDDLE
 	 */
-	protected void sequence_DTextMiddle(ISerializationContext context, DText semanticObject) {
+	protected void sequence_DTextMiddle(ISerializationContext context, DTextSegment semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DTEXT__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DTEXT__VALUE));
+			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DTEXT_SEGMENT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DTEXT_SEGMENT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDTextMiddleAccess().getValuePLAIN_TEXT_MIDDLETerminalRuleCall_0(), semanticObject.getValue());
@@ -913,15 +938,15 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DTextOnly returns DText
+	 *     DTextOnly returns DTextSegment
 	 *
 	 * Constraint:
 	 *     value=PLAIN_TEXT_ONLY
 	 */
-	protected void sequence_DTextOnly(ISerializationContext context, DText semanticObject) {
+	protected void sequence_DTextOnly(ISerializationContext context, DTextSegment semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DTEXT__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DTEXT__VALUE));
+			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DTEXT_SEGMENT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DTEXT_SEGMENT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDTextOnlyAccess().getValuePLAIN_TEXT_ONLYTerminalRuleCall_0(), semanticObject.getValue());
@@ -931,15 +956,15 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DTextStart returns DText
+	 *     DTextStart returns DTextSegment
 	 *
 	 * Constraint:
 	 *     value=PLAIN_TEXT_START
 	 */
-	protected void sequence_DTextStart(ISerializationContext context, DText semanticObject) {
+	protected void sequence_DTextStart(ISerializationContext context, DTextSegment semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DTEXT__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DTEXT__VALUE));
+			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DTEXT_SEGMENT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DTEXT_SEGMENT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDTextStartAccess().getValuePLAIN_TEXT_STARTTerminalRuleCall_0(), semanticObject.getValue());

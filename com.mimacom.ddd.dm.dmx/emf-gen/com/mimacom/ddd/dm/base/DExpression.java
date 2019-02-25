@@ -13,6 +13,6 @@ package com.mimacom.ddd.dm.base;
  * @model abstract="true"
  * @generated
  */
-public interface DExpression extends IRichTextElement
+public interface DExpression extends IRichTextSegment
 {
 } // DExpression

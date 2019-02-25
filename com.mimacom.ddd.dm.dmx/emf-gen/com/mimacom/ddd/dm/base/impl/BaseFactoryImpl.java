@@ -65,8 +65,8 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		switch (eClass.getClassifierID())
 		{
+			case BasePackage.DTEXT_SEGMENT: return createDTextSegment();
 			case BasePackage.DRICH_TEXT: return createDRichText();
-			case BasePackage.DTEXT: return createDText();
 			case BasePackage.DDOMAIN: return createDDomain();
 			case BasePackage.DIMPORT: return createDImport();
 			case BasePackage.DFUNCTION: return createDFunction();
@@ -145,10 +145,10 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * @generated
 	 */
 	@Override
-	public DRichText createDRichText()
+	public DTextSegment createDTextSegment()
 	{
-		DRichTextImpl dRichText = new DRichTextImpl();
-		return dRichText;
+		DTextSegmentImpl dTextSegment = new DTextSegmentImpl();
+		return dTextSegment;
 	}
 
 	/**
@@ -157,10 +157,10 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * @generated
 	 */
 	@Override
-	public DText createDText()
+	public DRichText createDRichText()
 	{
-		DTextImpl dText = new DTextImpl();
-		return dText;
+		DRichTextImpl dRichText = new DRichTextImpl();
+		return dRichText;
 	}
 
 	/**

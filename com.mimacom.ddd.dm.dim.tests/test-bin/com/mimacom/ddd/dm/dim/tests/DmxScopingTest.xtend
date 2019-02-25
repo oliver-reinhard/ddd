@@ -71,13 +71,13 @@ class DmxScopingTest {
 		val expectedScope2 = "x, y"
 		
 		{ // RIchText Expressions
-			val c1a = detailA.description.elements.get(1) as DExpression
+			val c1a = detailA.description.segments.get(1) as DExpression
 			c1a.checkExpression1(expectedScope1)
-			val c1b = detailA.description.elements.get(3) as DExpression
+			val c1b = detailA.description.segments.get(3) as DExpression
 			c1b.checkExpression1(expectedScope1)
-			val c2a = detailA.description.elements.get(5) as DExpression
+			val c2a = detailA.description.segments.get(5) as DExpression
 			c2a.checkExpression2(expectedScope2, expectedScope1)
-			val c2b = detailA.description.elements.get(7) as DExpression
+			val c2b = detailA.description.segments.get(7) as DExpression
 			c2b.checkExpression2(expectedScope2, expectedScope1)
 		}
 		
@@ -153,9 +153,9 @@ class DmxScopingTest {
 		val expectedScope2 = "x, y"
 		
 		{ // RIchText Expressions
-			val c3 = detailA.description.elements.get(1) as DExpression
+			val c3 = detailA.description.segments.get(1) as DExpression
 			c3.checkExpression3(expectedScope1)
-			val c4 = detailA.description.elements.get(3) as DExpression
+			val c4 = detailA.description.segments.get(3) as DExpression
 			c4.checkExpression4(expectedScope2, expectedScope1)
 		}
 		

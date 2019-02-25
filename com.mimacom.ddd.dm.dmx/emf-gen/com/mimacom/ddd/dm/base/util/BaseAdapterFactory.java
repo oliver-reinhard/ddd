@@ -85,11 +85,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createIValueTypeAdapter();
 			}
 			@Override
-			public Adapter caseIRichTextElement(IRichTextElement object)
-			{
-				return createIRichTextElementAdapter();
-			}
-			@Override
 			public Adapter caseINamespace(INamespace object)
 			{
 				return createINamespaceAdapter();
@@ -115,19 +110,24 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createIPrimaryNavigationTargetAdapter();
 			}
 			@Override
-			public Adapter caseDRichText(DRichText object)
+			public Adapter caseIRichTextSegment(IRichTextSegment object)
 			{
-				return createDRichTextAdapter();
+				return createIRichTextSegmentAdapter();
 			}
 			@Override
-			public Adapter caseDText(DText object)
+			public Adapter caseDTextSegment(DTextSegment object)
 			{
-				return createDTextAdapter();
+				return createDTextSegmentAdapter();
 			}
 			@Override
 			public Adapter caseDExpression(DExpression object)
 			{
 				return createDExpressionAdapter();
+			}
+			@Override
+			public Adapter caseDRichText(DRichText object)
+			{
+				return createDRichTextAdapter();
 			}
 			@Override
 			public Adapter caseDDomain(DDomain object)
@@ -337,21 +337,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IRichTextElement <em>IRich Text Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.IRichTextElement
-	 * @generated
-	 */
-	public Adapter createIRichTextElementAdapter()
-	{
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INamespace <em>INamespace</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -427,31 +412,31 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DRichText <em>DRich Text</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IRichTextSegment <em>IRich Text Segment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DRichText
+	 * @see com.mimacom.ddd.dm.base.IRichTextSegment
 	 * @generated
 	 */
-	public Adapter createDRichTextAdapter()
+	public Adapter createIRichTextSegmentAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DText <em>DText</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DTextSegment <em>DText Segment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DText
+	 * @see com.mimacom.ddd.dm.base.DTextSegment
 	 * @generated
 	 */
-	public Adapter createDTextAdapter()
+	public Adapter createDTextSegmentAdapter()
 	{
 		return null;
 	}
@@ -467,6 +452,21 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDExpressionAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DRichText <em>DRich Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DRichText
+	 * @generated
+	 */
+	public Adapter createDRichTextAdapter()
 	{
 		return null;
 	}

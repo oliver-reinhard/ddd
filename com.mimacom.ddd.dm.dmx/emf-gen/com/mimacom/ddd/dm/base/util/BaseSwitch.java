@@ -86,13 +86,6 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BasePackage.IRICH_TEXT_ELEMENT:
-			{
-				IRichTextElement iRichTextElement = (IRichTextElement)theEObject;
-				T result = caseIRichTextElement(iRichTextElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case BasePackage.INAMESPACE:
 			{
 				INamespace iNamespace = (INamespace)theEObject;
@@ -131,18 +124,18 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BasePackage.DRICH_TEXT:
+			case BasePackage.IRICH_TEXT_SEGMENT:
 			{
-				DRichText dRichText = (DRichText)theEObject;
-				T result = caseDRichText(dRichText);
+				IRichTextSegment iRichTextSegment = (IRichTextSegment)theEObject;
+				T result = caseIRichTextSegment(iRichTextSegment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BasePackage.DTEXT:
+			case BasePackage.DTEXT_SEGMENT:
 			{
-				DText dText = (DText)theEObject;
-				T result = caseDText(dText);
-				if (result == null) result = caseIRichTextElement(dText);
+				DTextSegment dTextSegment = (DTextSegment)theEObject;
+				T result = caseDTextSegment(dTextSegment);
+				if (result == null) result = caseIRichTextSegment(dTextSegment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -150,7 +143,16 @@ public class BaseSwitch<T> extends Switch<T>
 			{
 				DExpression dExpression = (DExpression)theEObject;
 				T result = caseDExpression(dExpression);
-				if (result == null) result = caseIRichTextElement(dExpression);
+				if (result == null) result = caseIRichTextSegment(dExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.DRICH_TEXT:
+			{
+				DRichText dRichText = (DRichText)theEObject;
+				T result = caseDRichText(dRichText);
+				if (result == null) result = caseDExpression(dRichText);
+				if (result == null) result = caseIRichTextSegment(dRichText);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -511,22 +513,6 @@ public class BaseSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IRich Text Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IRich Text Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIRichTextElement(IRichTextElement object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>INamespace</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -607,33 +593,33 @@ public class BaseSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DRich Text</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>IRich Text Segment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DRich Text</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>IRich Text Segment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDRichText(DRichText object)
+	public T caseIRichTextSegment(IRichTextSegment object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DText</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>DText Segment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DText</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>DText Segment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDText(DText object)
+	public T caseDTextSegment(DTextSegment object)
 	{
 		return null;
 	}
@@ -650,6 +636,22 @@ public class BaseSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDExpression(DExpression object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DRich Text</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DRich Text</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDRichText(DRichText object)
 	{
 		return null;
 	}

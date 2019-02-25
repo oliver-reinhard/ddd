@@ -75,6 +75,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleDExpression
+entryRuleDExpression
+:
+{ before(grammarAccess.getDExpressionRule()); }
+	 ruleDExpression
+{ after(grammarAccess.getDExpressionRule()); } 
+	 EOF 
+;
+
+// Rule DExpression
+ruleDExpression 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getDExpressionAccess().getAlternatives()); }
+		(rule__DExpression__Alternatives)
+		{ after(grammarAccess.getDExpressionAccess().getAlternatives()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleDRichText
 entryRuleDRichText
 :
@@ -194,31 +219,6 @@ ruleDTextEnd
 		{ before(grammarAccess.getDTextEndAccess().getValueAssignment()); }
 		(rule__DTextEnd__ValueAssignment)
 		{ after(grammarAccess.getDTextEndAccess().getValueAssignment()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-// Entry rule entryRuleDExpression
-entryRuleDExpression
-:
-{ before(grammarAccess.getDExpressionRule()); }
-	 ruleDExpression
-{ after(grammarAccess.getDExpressionRule()); } 
-	 EOF 
-;
-
-// Rule DExpression
-ruleDExpression 
-	@init {
-		int stackSize = keepStackSize();
-	}
-	:
-	(
-		{ before(grammarAccess.getDExpressionAccess().getDAssignmentParserRuleCall()); }
-		ruleDAssignment
-		{ after(grammarAccess.getDExpressionAccess().getDAssignmentParserRuleCall()); }
 	)
 ;
 finally {
@@ -1203,15 +1203,36 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__DExpression__Alternatives
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getDExpressionAccess().getDAssignmentParserRuleCall_0()); }
+		ruleDAssignment
+		{ after(grammarAccess.getDExpressionAccess().getDAssignmentParserRuleCall_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getDExpressionAccess().getDRichTextParserRuleCall_1()); }
+		ruleDRichText
+		{ after(grammarAccess.getDExpressionAccess().getDRichTextParserRuleCall_1()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__DRichText__Alternatives
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getDRichTextAccess().getElementsAssignment_0()); }
-		(rule__DRichText__ElementsAssignment_0)
-		{ after(grammarAccess.getDRichTextAccess().getElementsAssignment_0()); }
+		{ before(grammarAccess.getDRichTextAccess().getSegmentsAssignment_0()); }
+		(rule__DRichText__SegmentsAssignment_0)
+		{ after(grammarAccess.getDRichTextAccess().getSegmentsAssignment_0()); }
 	)
 	|
 	(
@@ -2295,9 +2316,9 @@ rule__DRichText__Group_1__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDRichTextAccess().getElementsAssignment_1_0()); }
-	(rule__DRichText__ElementsAssignment_1_0)
-	{ after(grammarAccess.getDRichTextAccess().getElementsAssignment_1_0()); }
+	{ before(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_0()); }
+	(rule__DRichText__SegmentsAssignment_1_0)
+	{ after(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_0()); }
 )
 ;
 finally {
@@ -2322,9 +2343,9 @@ rule__DRichText__Group_1__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDRichTextAccess().getElementsAssignment_1_1()); }
-	(rule__DRichText__ElementsAssignment_1_1)
-	{ after(grammarAccess.getDRichTextAccess().getElementsAssignment_1_1()); }
+	{ before(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_1()); }
+	(rule__DRichText__SegmentsAssignment_1_1)
+	{ after(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_1()); }
 )
 ;
 finally {
@@ -2375,9 +2396,9 @@ rule__DRichText__Group_1__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDRichTextAccess().getElementsAssignment_1_3()); }
-	(rule__DRichText__ElementsAssignment_1_3)
-	{ after(grammarAccess.getDRichTextAccess().getElementsAssignment_1_3()); }
+	{ before(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_3()); }
+	(rule__DRichText__SegmentsAssignment_1_3)
+	{ after(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_3()); }
 )
 ;
 finally {
@@ -2403,9 +2424,9 @@ rule__DRichText__Group_1_2__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDRichTextAccess().getElementsAssignment_1_2_0()); }
-	(rule__DRichText__ElementsAssignment_1_2_0)
-	{ after(grammarAccess.getDRichTextAccess().getElementsAssignment_1_2_0()); }
+	{ before(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_2_0()); }
+	(rule__DRichText__SegmentsAssignment_1_2_0)
+	{ after(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_2_0()); }
 )
 ;
 finally {
@@ -2429,9 +2450,9 @@ rule__DRichText__Group_1_2__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDRichTextAccess().getElementsAssignment_1_2_1()); }
-	(rule__DRichText__ElementsAssignment_1_2_1)
-	{ after(grammarAccess.getDRichTextAccess().getElementsAssignment_1_2_1()); }
+	{ before(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_2_1()); }
+	(rule__DRichText__SegmentsAssignment_1_2_1)
+	{ after(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_2_1()); }
 )
 ;
 finally {
@@ -6897,90 +6918,90 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DRichText__ElementsAssignment_0
+rule__DRichText__SegmentsAssignment_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getDRichTextAccess().getElementsDTextOnlyParserRuleCall_0_0()); }
+		{ before(grammarAccess.getDRichTextAccess().getSegmentsDTextOnlyParserRuleCall_0_0()); }
 		ruleDTextOnly
-		{ after(grammarAccess.getDRichTextAccess().getElementsDTextOnlyParserRuleCall_0_0()); }
+		{ after(grammarAccess.getDRichTextAccess().getSegmentsDTextOnlyParserRuleCall_0_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DRichText__ElementsAssignment_1_0
+rule__DRichText__SegmentsAssignment_1_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getDRichTextAccess().getElementsDTextStartParserRuleCall_1_0_0()); }
+		{ before(grammarAccess.getDRichTextAccess().getSegmentsDTextStartParserRuleCall_1_0_0()); }
 		ruleDTextStart
-		{ after(grammarAccess.getDRichTextAccess().getElementsDTextStartParserRuleCall_1_0_0()); }
+		{ after(grammarAccess.getDRichTextAccess().getSegmentsDTextStartParserRuleCall_1_0_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DRichText__ElementsAssignment_1_1
+rule__DRichText__SegmentsAssignment_1_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getDRichTextAccess().getElementsDExpressionParserRuleCall_1_1_0()); }
+		{ before(grammarAccess.getDRichTextAccess().getSegmentsDExpressionParserRuleCall_1_1_0()); }
 		ruleDExpression
-		{ after(grammarAccess.getDRichTextAccess().getElementsDExpressionParserRuleCall_1_1_0()); }
+		{ after(grammarAccess.getDRichTextAccess().getSegmentsDExpressionParserRuleCall_1_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DRichText__ElementsAssignment_1_2_0
+rule__DRichText__SegmentsAssignment_1_2_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getDRichTextAccess().getElementsDTextMiddleParserRuleCall_1_2_0_0()); }
+		{ before(grammarAccess.getDRichTextAccess().getSegmentsDTextMiddleParserRuleCall_1_2_0_0()); }
 		ruleDTextMiddle
-		{ after(grammarAccess.getDRichTextAccess().getElementsDTextMiddleParserRuleCall_1_2_0_0()); }
+		{ after(grammarAccess.getDRichTextAccess().getSegmentsDTextMiddleParserRuleCall_1_2_0_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DRichText__ElementsAssignment_1_2_1
+rule__DRichText__SegmentsAssignment_1_2_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getDRichTextAccess().getElementsDExpressionParserRuleCall_1_2_1_0()); }
+		{ before(grammarAccess.getDRichTextAccess().getSegmentsDExpressionParserRuleCall_1_2_1_0()); }
 		ruleDExpression
-		{ after(grammarAccess.getDRichTextAccess().getElementsDExpressionParserRuleCall_1_2_1_0()); }
+		{ after(grammarAccess.getDRichTextAccess().getSegmentsDExpressionParserRuleCall_1_2_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DRichText__ElementsAssignment_1_3
+rule__DRichText__SegmentsAssignment_1_3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getDRichTextAccess().getElementsDTextEndParserRuleCall_1_3_0()); }
+		{ before(grammarAccess.getDRichTextAccess().getSegmentsDTextEndParserRuleCall_1_3_0()); }
 		ruleDTextEnd
-		{ after(grammarAccess.getDRichTextAccess().getElementsDTextEndParserRuleCall_1_3_0()); }
+		{ after(grammarAccess.getDRichTextAccess().getSegmentsDTextEndParserRuleCall_1_3_0()); }
 	)
 ;
 finally {

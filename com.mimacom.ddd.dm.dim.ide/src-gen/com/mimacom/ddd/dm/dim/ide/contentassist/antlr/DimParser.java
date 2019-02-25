@@ -37,6 +37,7 @@ public class DimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDFeatureAccess().getAlternatives(), "rule__DFeature__Alternatives");
 			builder.put(grammarAccess.getDAssociationAccess().getAlternatives_1(), "rule__DAssociation__Alternatives_1");
 			builder.put(grammarAccess.getDExistingApplicationAccess().getAlternatives_4(), "rule__DExistingApplication__Alternatives_4");
+			builder.put(grammarAccess.getDExpressionAccess().getAlternatives(), "rule__DExpression__Alternatives");
 			builder.put(grammarAccess.getDRichTextAccess().getAlternatives(), "rule__DRichText__Alternatives");
 			builder.put(grammarAccess.getDAssignmentAccess().getAlternatives(), "rule__DAssignment__Alternatives");
 			builder.put(grammarAccess.getDRelationalExpressionAccess().getAlternatives_1(), "rule__DRelationalExpression__Alternatives_1");
@@ -290,12 +291,12 @@ public class DimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDExceptionAccess().getDescriptionAssignment_2(), "rule__DException__DescriptionAssignment_2");
 			builder.put(grammarAccess.getDmxModelAccess().getTextsAssignment_1_3(), "rule__DmxModel__TextsAssignment_1_3");
 			builder.put(grammarAccess.getDmxModelAccess().getExpressionsAssignment_2_3(), "rule__DmxModel__ExpressionsAssignment_2_3");
-			builder.put(grammarAccess.getDRichTextAccess().getElementsAssignment_0(), "rule__DRichText__ElementsAssignment_0");
-			builder.put(grammarAccess.getDRichTextAccess().getElementsAssignment_1_0(), "rule__DRichText__ElementsAssignment_1_0");
-			builder.put(grammarAccess.getDRichTextAccess().getElementsAssignment_1_1(), "rule__DRichText__ElementsAssignment_1_1");
-			builder.put(grammarAccess.getDRichTextAccess().getElementsAssignment_1_2_0(), "rule__DRichText__ElementsAssignment_1_2_0");
-			builder.put(grammarAccess.getDRichTextAccess().getElementsAssignment_1_2_1(), "rule__DRichText__ElementsAssignment_1_2_1");
-			builder.put(grammarAccess.getDRichTextAccess().getElementsAssignment_1_3(), "rule__DRichText__ElementsAssignment_1_3");
+			builder.put(grammarAccess.getDRichTextAccess().getSegmentsAssignment_0(), "rule__DRichText__SegmentsAssignment_0");
+			builder.put(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_0(), "rule__DRichText__SegmentsAssignment_1_0");
+			builder.put(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_1(), "rule__DRichText__SegmentsAssignment_1_1");
+			builder.put(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_2_0(), "rule__DRichText__SegmentsAssignment_1_2_0");
+			builder.put(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_2_1(), "rule__DRichText__SegmentsAssignment_1_2_1");
+			builder.put(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_3(), "rule__DRichText__SegmentsAssignment_1_3");
 			builder.put(grammarAccess.getDTextOnlyAccess().getValueAssignment(), "rule__DTextOnly__ValueAssignment");
 			builder.put(grammarAccess.getDTextStartAccess().getValueAssignment(), "rule__DTextStart__ValueAssignment");
 			builder.put(grammarAccess.getDTextMiddleAccess().getValueAssignment(), "rule__DTextMiddle__ValueAssignment");

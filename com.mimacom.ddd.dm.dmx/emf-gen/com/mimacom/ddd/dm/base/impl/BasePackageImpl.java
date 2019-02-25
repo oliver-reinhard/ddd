@@ -39,14 +39,14 @@ import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DServiceKind;
 import com.mimacom.ddd.dm.base.DServiceParameter;
 import com.mimacom.ddd.dm.base.DSimpleType;
-import com.mimacom.ddd.dm.base.DText;
+import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.base.DTime;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.DTypedMember;
 import com.mimacom.ddd.dm.base.IIdentityType;
 import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
-import com.mimacom.ddd.dm.base.IRichTextElement;
+import com.mimacom.ddd.dm.base.IRichTextSegment;
 import com.mimacom.ddd.dm.base.ITypedMemberContainer;
 import com.mimacom.ddd.dm.base.IValueType;
 
@@ -90,13 +90,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass iRichTextElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass iNamespaceEClass = null;
 
 	/**
@@ -132,14 +125,14 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dRichTextEClass = null;
+	private EClass iRichTextSegmentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dTextEClass = null;
+	private EClass dTextSegmentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,6 +140,13 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	private EClass dExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dRichTextEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -483,17 +483,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getIRichTextElement()
-	{
-		return iRichTextElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getINamespace()
 	{
 		return iNamespaceEClass;
@@ -626,9 +615,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDRichText()
+	public EClass getIRichTextSegment()
 	{
-		return dRichTextEClass;
+		return iRichTextSegmentEClass;
 	}
 
 	/**
@@ -637,9 +626,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDRichText_Elements()
+	public EClass getDTextSegment()
 	{
-		return (EReference)dRichTextEClass.getEStructuralFeatures().get(0);
+		return dTextSegmentEClass;
 	}
 
 	/**
@@ -648,20 +637,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDText()
+	public EAttribute getDTextSegment_Value()
 	{
-		return dTextEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDText_Value()
-	{
-		return (EAttribute)dTextEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)dTextSegmentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -673,6 +651,28 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EClass getDExpression()
 	{
 		return dExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDRichText()
+	{
+		return dRichTextEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDRichText_Segments()
+	{
+		return (EReference)dRichTextEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1612,8 +1612,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		iValueTypeEClass = createEClass(IVALUE_TYPE);
 
-		iRichTextElementEClass = createEClass(IRICH_TEXT_ELEMENT);
-
 		iNamespaceEClass = createEClass(INAMESPACE);
 
 		dNamedElementEClass = createEClass(DNAMED_ELEMENT);
@@ -1631,13 +1629,15 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		iPrimaryNavigationTargetEClass = createEClass(IPRIMARY_NAVIGATION_TARGET);
 
-		dRichTextEClass = createEClass(DRICH_TEXT);
-		createEReference(dRichTextEClass, DRICH_TEXT__ELEMENTS);
+		iRichTextSegmentEClass = createEClass(IRICH_TEXT_SEGMENT);
 
-		dTextEClass = createEClass(DTEXT);
-		createEAttribute(dTextEClass, DTEXT__VALUE);
+		dTextSegmentEClass = createEClass(DTEXT_SEGMENT);
+		createEAttribute(dTextSegmentEClass, DTEXT_SEGMENT__VALUE);
 
 		dExpressionEClass = createEClass(DEXPRESSION);
+
+		dRichTextEClass = createEClass(DRICH_TEXT);
+		createEReference(dRichTextEClass, DRICH_TEXT__SEGMENTS);
 
 		dDomainEClass = createEClass(DDOMAIN);
 		createEReference(dDomainEClass, DDOMAIN__IMPORTS);
@@ -1787,8 +1787,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dTypedMemberEClass.getESuperTypes().add(this.getDNamedElement());
 		iTypedMemberContainerEClass.getESuperTypes().add(this.getINamespace());
 		iPrimaryNavigationTargetEClass.getESuperTypes().add(this.getDNamedElement());
-		dTextEClass.getESuperTypes().add(this.getIRichTextElement());
-		dExpressionEClass.getESuperTypes().add(this.getIRichTextElement());
+		dTextSegmentEClass.getESuperTypes().add(this.getIRichTextSegment());
+		dExpressionEClass.getESuperTypes().add(this.getIRichTextSegment());
+		dRichTextEClass.getESuperTypes().add(this.getDExpression());
 		dDomainEClass.getESuperTypes().add(this.getDNamedElement());
 		dDomainEClass.getESuperTypes().add(this.getINamespace());
 		dDomainEClass.getESuperTypes().add(this.getIPrimaryNavigationTarget());
@@ -1839,8 +1840,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		initEClass(iValueTypeEClass, IValueType.class, "IValueType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(iRichTextElementEClass, IRichTextElement.class, "IRichTextElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(iNamespaceEClass, INamespace.class, "INamespace", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dNamedElementEClass, DNamedElement.class, "DNamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1858,13 +1857,15 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		initEClass(iPrimaryNavigationTargetEClass, IPrimaryNavigationTarget.class, "IPrimaryNavigationTarget", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(dRichTextEClass, DRichText.class, "DRichText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDRichText_Elements(), this.getIRichTextElement(), null, "elements", null, 0, -1, DRichText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(iRichTextSegmentEClass, IRichTextSegment.class, "IRichTextSegment", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(dTextEClass, DText.class, "DText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDText_Value(), ecorePackage.getEString(), "value", null, 0, 1, DText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dTextSegmentEClass, DTextSegment.class, "DTextSegment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDTextSegment_Value(), ecorePackage.getEString(), "value", null, 0, 1, DTextSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dExpressionEClass, DExpression.class, "DExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dRichTextEClass, DRichText.class, "DRichText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDRichText_Segments(), this.getIRichTextSegment(), null, "segments", null, 0, -1, DRichText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dDomainEClass, DDomain.class, "DDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDDomain_Imports(), this.getDImport(), null, "imports", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

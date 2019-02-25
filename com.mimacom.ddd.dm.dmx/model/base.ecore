@@ -3,7 +3,6 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="base" nsURI="http://www.mimacom.com/ddd/dm/base" nsPrefix="base">
   <eClassifiers xsi:type="ecore:EClass" name="IIdentityType" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="IValueType" abstract="true" interface="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="IRichTextElement" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="INamespace" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="DNamedElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -25,14 +24,15 @@
       interface="true" eSuperTypes="#//INamespace"/>
   <eClassifiers xsi:type="ecore:EClass" name="IPrimaryNavigationTarget" abstract="true"
       interface="true" eSuperTypes="#//DNamedElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DRichText">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//IRichTextElement" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DText" eSuperTypes="#//IRichTextElement">
+  <eClassifiers xsi:type="ecore:EClass" name="IRichTextSegment" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DTextSegment" eSuperTypes="#//IRichTextSegment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DExpression" abstract="true" eSuperTypes="#//IRichTextElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DExpression" abstract="true" eSuperTypes="#//IRichTextSegment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DRichText" eSuperTypes="#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="segments" upperBound="-1"
+        eType="#//IRichTextSegment" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DDomain" eSuperTypes="#//DNamedElement #//INamespace #//IPrimaryNavigationTarget">
     <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
         eType="#//DImport" containment="true"/>

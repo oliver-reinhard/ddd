@@ -116,34 +116,6 @@ public interface BasePackage extends EPackage
 	int IVALUE_TYPE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.IRichTextElement <em>IRich Text Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.IRichTextElement
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIRichTextElement()
-	 * @generated
-	 */
-	int IRICH_TEXT_ELEMENT = 2;
-
-	/**
-	 * The number of structural features of the '<em>IRich Text Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IRICH_TEXT_ELEMENT_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>IRich Text Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IRICH_TEXT_ELEMENT_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.INamespace <em>INamespace</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -151,7 +123,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getINamespace()
 	 * @generated
 	 */
-	int INAMESPACE = 3;
+	int INAMESPACE = 2;
 
 	/**
 	 * The number of structural features of the '<em>INamespace</em>' class.
@@ -179,7 +151,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDNamedElement()
 	 * @generated
 	 */
-	int DNAMED_ELEMENT = 4;
+	int DNAMED_ELEMENT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -234,7 +206,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDTypedMember()
 	 * @generated
 	 */
-	int DTYPED_MEMBER = 5;
+	int DTYPED_MEMBER = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -325,7 +297,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getITypedMemberContainer()
 	 * @generated
 	 */
-	int ITYPED_MEMBER_CONTAINER = 6;
+	int ITYPED_MEMBER_CONTAINER = 5;
 
 	/**
 	 * The number of structural features of the '<em>ITyped Member Container</em>' class.
@@ -353,7 +325,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIPrimaryNavigationTarget()
 	 * @generated
 	 */
-	int IPRIMARY_NAVIGATION_TARGET = 7;
+	int IPRIMARY_NAVIGATION_TARGET = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -401,51 +373,42 @@ public interface BasePackage extends EPackage
 	int IPRIMARY_NAVIGATION_TARGET_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DRichTextImpl <em>DRich Text</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.IRichTextSegment <em>IRich Text Segment</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.impl.DRichTextImpl
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDRichText()
+	 * @see com.mimacom.ddd.dm.base.IRichTextSegment
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIRichTextSegment()
 	 * @generated
 	 */
-	int DRICH_TEXT = 8;
+	int IRICH_TEXT_SEGMENT = 7;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * The number of structural features of the '<em>IRich Text Segment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DRICH_TEXT__ELEMENTS = 0;
+	int IRICH_TEXT_SEGMENT_FEATURE_COUNT = 0;
 
 	/**
-	 * The number of structural features of the '<em>DRich Text</em>' class.
+	 * The number of operations of the '<em>IRich Text Segment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DRICH_TEXT_FEATURE_COUNT = 1;
+	int IRICH_TEXT_SEGMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The number of operations of the '<em>DRich Text</em>' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DTextSegmentImpl <em>DText Segment</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DRICH_TEXT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DTextImpl <em>DText</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.impl.DTextImpl
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDText()
+	 * @see com.mimacom.ddd.dm.base.impl.DTextSegmentImpl
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDTextSegment()
 	 * @generated
 	 */
-	int DTEXT = 9;
+	int DTEXT_SEGMENT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -454,25 +417,25 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DTEXT__VALUE = IRICH_TEXT_ELEMENT_FEATURE_COUNT + 0;
+	int DTEXT_SEGMENT__VALUE = IRICH_TEXT_SEGMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>DText</em>' class.
+	 * The number of structural features of the '<em>DText Segment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DTEXT_FEATURE_COUNT = IRICH_TEXT_ELEMENT_FEATURE_COUNT + 1;
+	int DTEXT_SEGMENT_FEATURE_COUNT = IRICH_TEXT_SEGMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>DText</em>' class.
+	 * The number of operations of the '<em>DText Segment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DTEXT_OPERATION_COUNT = IRICH_TEXT_ELEMENT_OPERATION_COUNT + 0;
+	int DTEXT_SEGMENT_OPERATION_COUNT = IRICH_TEXT_SEGMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DExpressionImpl <em>DExpression</em>}' class.
@@ -482,7 +445,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDExpression()
 	 * @generated
 	 */
-	int DEXPRESSION = 10;
+	int DEXPRESSION = 9;
 
 	/**
 	 * The number of structural features of the '<em>DExpression</em>' class.
@@ -491,7 +454,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEXPRESSION_FEATURE_COUNT = IRICH_TEXT_ELEMENT_FEATURE_COUNT + 0;
+	int DEXPRESSION_FEATURE_COUNT = IRICH_TEXT_SEGMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>DExpression</em>' class.
@@ -500,7 +463,44 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DEXPRESSION_OPERATION_COUNT = IRICH_TEXT_ELEMENT_OPERATION_COUNT + 0;
+	int DEXPRESSION_OPERATION_COUNT = IRICH_TEXT_SEGMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DRichTextImpl <em>DRich Text</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.impl.DRichTextImpl
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDRichText()
+	 * @generated
+	 */
+	int DRICH_TEXT = 10;
+
+	/**
+	 * The feature id for the '<em><b>Segments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DRICH_TEXT__SEGMENTS = DEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>DRich Text</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DRICH_TEXT_FEATURE_COUNT = DEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>DRich Text</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DRICH_TEXT_OPERATION_COUNT = DEXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DDomainImpl <em>DDomain</em>}' class.
@@ -3222,16 +3222,6 @@ public interface BasePackage extends EPackage
 	EClass getIValueType();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.IRichTextElement <em>IRich Text Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>IRich Text Element</em>'.
-	 * @see com.mimacom.ddd.dm.base.IRichTextElement
-	 * @generated
-	 */
-	EClass getIRichTextElement();
-
-	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.INamespace <em>INamespace</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3359,46 +3349,35 @@ public interface BasePackage extends EPackage
 	EClass getIPrimaryNavigationTarget();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DRichText <em>DRich Text</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.IRichTextSegment <em>IRich Text Segment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DRich Text</em>'.
-	 * @see com.mimacom.ddd.dm.base.DRichText
+	 * @return the meta object for class '<em>IRich Text Segment</em>'.
+	 * @see com.mimacom.ddd.dm.base.IRichTextSegment
 	 * @generated
 	 */
-	EClass getDRichText();
+	EClass getIRichTextSegment();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DRichText#getElements <em>Elements</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DTextSegment <em>DText Segment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Elements</em>'.
-	 * @see com.mimacom.ddd.dm.base.DRichText#getElements()
-	 * @see #getDRichText()
+	 * @return the meta object for class '<em>DText Segment</em>'.
+	 * @see com.mimacom.ddd.dm.base.DTextSegment
 	 * @generated
 	 */
-	EReference getDRichText_Elements();
+	EClass getDTextSegment();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DText <em>DText</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DText</em>'.
-	 * @see com.mimacom.ddd.dm.base.DText
-	 * @generated
-	 */
-	EClass getDText();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DText#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DTextSegment#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see com.mimacom.ddd.dm.base.DText#getValue()
-	 * @see #getDText()
+	 * @see com.mimacom.ddd.dm.base.DTextSegment#getValue()
+	 * @see #getDTextSegment()
 	 * @generated
 	 */
-	EAttribute getDText_Value();
+	EAttribute getDTextSegment_Value();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DExpression <em>DExpression</em>}'.
@@ -3409,6 +3388,27 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EClass getDExpression();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DRichText <em>DRich Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>DRich Text</em>'.
+	 * @see com.mimacom.ddd.dm.base.DRichText
+	 * @generated
+	 */
+	EClass getDRichText();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DRichText#getSegments <em>Segments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Segments</em>'.
+	 * @see com.mimacom.ddd.dm.base.DRichText#getSegments()
+	 * @see #getDRichText()
+	 * @generated
+	 */
+	EReference getDRichText_Segments();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DDomain <em>DDomain</em>}'.
@@ -4322,16 +4322,6 @@ public interface BasePackage extends EPackage
 		EClass IVALUE_TYPE = eINSTANCE.getIValueType();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.IRichTextElement <em>IRich Text Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.IRichTextElement
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIRichTextElement()
-		 * @generated
-		 */
-		EClass IRICH_TEXT_ELEMENT = eINSTANCE.getIRichTextElement();
-
-		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.INamespace <em>INamespace</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4438,32 +4428,24 @@ public interface BasePackage extends EPackage
 		EClass IPRIMARY_NAVIGATION_TARGET = eINSTANCE.getIPrimaryNavigationTarget();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DRichTextImpl <em>DRich Text</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.IRichTextSegment <em>IRich Text Segment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.impl.DRichTextImpl
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDRichText()
+		 * @see com.mimacom.ddd.dm.base.IRichTextSegment
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIRichTextSegment()
 		 * @generated
 		 */
-		EClass DRICH_TEXT = eINSTANCE.getDRichText();
+		EClass IRICH_TEXT_SEGMENT = eINSTANCE.getIRichTextSegment();
 
 		/**
-		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DTextSegmentImpl <em>DText Segment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.impl.DTextSegmentImpl
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDTextSegment()
 		 * @generated
 		 */
-		EReference DRICH_TEXT__ELEMENTS = eINSTANCE.getDRichText_Elements();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DTextImpl <em>DText</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.impl.DTextImpl
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDText()
-		 * @generated
-		 */
-		EClass DTEXT = eINSTANCE.getDText();
+		EClass DTEXT_SEGMENT = eINSTANCE.getDTextSegment();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -4471,7 +4453,7 @@ public interface BasePackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DTEXT__VALUE = eINSTANCE.getDText_Value();
+		EAttribute DTEXT_SEGMENT__VALUE = eINSTANCE.getDTextSegment_Value();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DExpressionImpl <em>DExpression</em>}' class.
@@ -4482,6 +4464,24 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EClass DEXPRESSION = eINSTANCE.getDExpression();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DRichTextImpl <em>DRich Text</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.impl.DRichTextImpl
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDRichText()
+		 * @generated
+		 */
+		EClass DRICH_TEXT = eINSTANCE.getDRichText();
+
+		/**
+		 * The meta object literal for the '<em><b>Segments</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DRICH_TEXT__SEGMENTS = eINSTANCE.getDRichText_Segments();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DDomainImpl <em>DDomain</em>}' class.

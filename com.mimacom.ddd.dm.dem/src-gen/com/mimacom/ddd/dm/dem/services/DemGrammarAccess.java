@@ -808,11 +808,21 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		return getDmxModelAccess().getRule();
 	}
 	
+	//DExpression:
+	//	DAssignment | DRichText;
+	public DmxGrammarAccess.DExpressionElements getDExpressionAccess() {
+		return gaDmx.getDExpressionAccess();
+	}
+	
+	public ParserRule getDExpressionRule() {
+		return getDExpressionAccess().getRule();
+	}
+	
 	//DRichText:
-	//	elements+=DTextOnly
-	//	| elements+=DTextStart
-	//	elements+=DExpression (elements+=DTextMiddle elements+=DExpression)*
-	//	elements+=DTextEnd;
+	//	segments+=DTextOnly
+	//	| segments+=DTextStart
+	//	segments+=DExpression (segments+=DTextMiddle segments+=DExpression)*
+	//	segments+=DTextEnd;
 	public DmxGrammarAccess.DRichTextElements getDRichTextAccess() {
 		return gaDmx.getDRichTextAccess();
 	}
@@ -821,7 +831,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		return getDRichTextAccess().getRule();
 	}
 	
-	//DTextOnly DText:
+	//DTextOnly DTextSegment:
 	//	value=PLAIN_TEXT_ONLY;
 	public DmxGrammarAccess.DTextOnlyElements getDTextOnlyAccess() {
 		return gaDmx.getDTextOnlyAccess();
@@ -831,7 +841,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		return getDTextOnlyAccess().getRule();
 	}
 	
-	//DTextStart DText:
+	//DTextStart DTextSegment:
 	//	value=PLAIN_TEXT_START;
 	public DmxGrammarAccess.DTextStartElements getDTextStartAccess() {
 		return gaDmx.getDTextStartAccess();
@@ -841,7 +851,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		return getDTextStartAccess().getRule();
 	}
 	
-	//DTextMiddle DText:
+	//DTextMiddle DTextSegment:
 	//	value=PLAIN_TEXT_MIDDLE;
 	public DmxGrammarAccess.DTextMiddleElements getDTextMiddleAccess() {
 		return gaDmx.getDTextMiddleAccess();
@@ -851,7 +861,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		return getDTextMiddleAccess().getRule();
 	}
 	
-	//DTextEnd DText:
+	//DTextEnd DTextSegment:
 	//	value=PLAIN_TEXT_END;
 	public DmxGrammarAccess.DTextEndElements getDTextEndAccess() {
 		return gaDmx.getDTextEndAccess();
@@ -859,16 +869,6 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDTextEndRule() {
 		return getDTextEndAccess().getRule();
-	}
-	
-	//DExpression:
-	//	DAssignment;
-	public DmxGrammarAccess.DExpressionElements getDExpressionAccess() {
-		return gaDmx.getDExpressionAccess();
-	}
-	
-	public ParserRule getDExpressionRule() {
-		return getDExpressionAccess().getRule();
 	}
 	
 	//DAssignment DExpression:
