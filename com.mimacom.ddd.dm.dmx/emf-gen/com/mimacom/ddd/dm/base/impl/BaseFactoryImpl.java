@@ -76,7 +76,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 			case BasePackage.DENUMERATION: return createDEnumeration();
 			case BasePackage.DLITERAL: return createDLiteral();
 			case BasePackage.DDETAIL_TYPE: return createDDetailType();
-			case BasePackage.DROOT_TYPE: return createDRootType();
+			case BasePackage.DENTITY_TYPE: return createDEntityType();
 			case BasePackage.DRELATIONSHIP: return createDRelationship();
 			case BasePackage.DASSOCIATION: return createDAssociation();
 			case BasePackage.DMULTIPLICITY: return createDMultiplicity();
@@ -277,10 +277,10 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * @generated
 	 */
 	@Override
-	public DRootType createDRootType()
+	public DEntityType createDEntityType()
 	{
-		DRootTypeImpl dRootType = new DRootTypeImpl();
-		return dRootType;
+		DEntityTypeImpl dEntityType = new DEntityTypeImpl();
+		return dEntityType;
 	}
 
 	/**

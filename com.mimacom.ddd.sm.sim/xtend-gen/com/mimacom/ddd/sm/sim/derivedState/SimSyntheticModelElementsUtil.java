@@ -5,6 +5,7 @@ import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DDetailType;
+import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DMultiplicity;
@@ -12,7 +13,6 @@ import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DRelationship;
-import com.mimacom.ddd.dm.base.DRootType;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.sm.sim.SAggregate;
 import com.mimacom.ddd.sm.sim.SComplexType;
@@ -59,14 +59,14 @@ public class SimSyntheticModelElementsUtil {
   protected SComplexType _addSyntheticType(final EObject container, final String name, final DComplexType source, final SDeducibleElement elementWithRule, final TransformationContext context) {
     SComplexType _switchResult = null;
     boolean _matched = false;
-    if (source instanceof DRootType) {
+    if (source instanceof DEntityType) {
       _matched=true;
-      _switchResult = SimSyntheticModelElementsUtil.simFactory.createSRootType();
+      _switchResult = SimSyntheticModelElementsUtil.simFactory.createSEntityType();
     }
     if (!_matched) {
       if (source instanceof DRelationship) {
         _matched=true;
-        _switchResult = SimSyntheticModelElementsUtil.simFactory.createSRootType();
+        _switchResult = SimSyntheticModelElementsUtil.simFactory.createSEntityType();
       }
     }
     if (!_matched) {

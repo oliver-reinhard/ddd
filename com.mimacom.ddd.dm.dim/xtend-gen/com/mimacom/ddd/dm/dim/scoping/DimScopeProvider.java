@@ -4,6 +4,7 @@
 package com.mimacom.ddd.dm.dim.scoping;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DAggregate;
@@ -11,11 +12,11 @@ import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DDomain;
+import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DIdentityType;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DRelationship;
-import com.mimacom.ddd.dm.base.DRootType;
 import com.mimacom.ddd.dm.base.DTypedMember;
 import com.mimacom.ddd.dm.dim.scoping.AbstractDimScopeProvider;
 import java.util.ArrayList;
@@ -25,6 +26,8 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * This class contains custom scoping description.
@@ -64,7 +67,7 @@ public class DimScopeProvider extends AbstractDimScopeProvider {
       if (!_matched) {
         if (context instanceof DAssociation) {
           _matched=true;
-          _switchResult = this.getDefaultScopeForType(context, this.epackage.getDRootType());
+          _switchResult = this.getDefaultScopeForType(context, this.epackage.getDEntityType());
         }
       }
       if (!_matched) {
@@ -84,9 +87,9 @@ public class DimScopeProvider extends AbstractDimScopeProvider {
       if (_equals_1) {
         IScope _switchResult_1 = null;
         boolean _matched_1 = false;
-        if (context instanceof DRootType) {
+        if (context instanceof DEntityType) {
           _matched_1=true;
-          _switchResult_1 = this.getIdentityTypeScope(((DIdentityType)context), DRootType.class);
+          _switchResult_1 = this.getIdentityTypeScope(((DIdentityType)context), DEntityType.class);
         }
         if (!_matched_1) {
           if (context instanceof DRelationship) {
@@ -111,13 +114,10 @@ public class DimScopeProvider extends AbstractDimScopeProvider {
   
   public IScope getLocalRootTypeScope(final DTypedMember context, final IScope outerScope) {
     final DAggregate aggregate = EcoreUtil2.<DAggregate>getContainerOfType(context, DAggregate.class);
-    DIdentityType _root = null;
-    if (aggregate!=null) {
-      _root=aggregate.getRoot();
-    }
-    boolean _tripleNotEquals = (_root != null);
-    if (_tripleNotEquals) {
-      return Scopes.scopeFor(Lists.<DIdentityType>newArrayList(aggregate.getRoot()), outerScope);
+    boolean _isEmpty = aggregate.getRoots().isEmpty();
+    boolean _not = (!_isEmpty);
+    if (_not) {
+      return Scopes.scopeFor(aggregate.getRoots(), outerScope);
     }
     return outerScope;
   }
@@ -129,10 +129,11 @@ public class DimScopeProvider extends AbstractDimScopeProvider {
       EList<DAggregate> _aggregates = domain.getAggregates();
       for (final DAggregate a : _aggregates) {
         {
-          final DIdentityType root = a.getRoot();
-          if ((((root != null) && (root != context)) && type.isAssignableFrom(root.getClass()))) {
-            list.add(root);
-          }
+          final Function1<DIdentityType, Boolean> _function = (DIdentityType it) -> {
+            return Boolean.valueOf(((it != context) && type.isAssignableFrom(it.getClass())));
+          };
+          final Iterable<DIdentityType> roots = IterableExtensions.<DIdentityType>filter(a.getRoots(), _function);
+          Iterables.<DIdentityType>addAll(list, roots);
         }
       }
       return Scopes.scopeFor(list);

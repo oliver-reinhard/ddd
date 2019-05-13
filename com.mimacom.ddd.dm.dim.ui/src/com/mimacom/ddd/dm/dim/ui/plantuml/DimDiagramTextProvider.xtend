@@ -10,7 +10,7 @@ import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DRelationship
-import com.mimacom.ddd.dm.base.DRootType
+import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.dim.ui.internal.DimActivator
 import java.util.Map
@@ -55,7 +55,7 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	
 	def domainTypes(DDomain domain) {
         val allAggregates = EcoreUtil2.eAllOfType(domain, DAggregate)
-        val allAssociations = EcoreUtil2.eAllOfType(domain, DAssociation).filter[type instanceof DRootType]
+        val allAssociations = EcoreUtil2.eAllOfType(domain, DAssociation).filter[type instanceof DEntityType]
         val allReferencedDomains = allAssociations.filter[targetType.domainName != domain.name].map[targetType.domainName]
         val allDetailAttributes = EcoreUtil2.eAllOfType(domain, DAttribute).filter[type instanceof DDetailType]
         val allSubtypes = EcoreUtil2.eAllOfType(domain, DComplexType).filter[superType !== null]
@@ -73,12 +73,12 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	           	«FOR d:allReferencedDomains»package «d» <<Frame>> { 
 	           	}
 	           	«ENDFOR»
-	    		«ENDFOR»
-	            «FOR a:allAssociations»«a.generateAssociation»
-	            «ENDFOR»
-	            «FOR a:allDetailAttributes»«a.generateLink»
-	            «ENDFOR»
-	            «FOR s:allSubtypes»«s.aggregateName».«s.name» --|> «s.superType.aggregateName»
+    		«ENDFOR»
+            «FOR a:allAssociations»«a.generateAssociation»
+            «ENDFOR»
+            «FOR a:allDetailAttributes»«a.generateLink»
+            «ENDFOR»
+            «FOR s:allSubtypes»«s.aggregateName».«s.name» --|> «s.superType.aggregateName»«IF s.aggregateName === s.superType.aggregateName».«s.superType.name»«ENDIF»
             «ENDFOR»
         '''
        return result
@@ -91,7 +91,7 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	
 	def String aggregateName(EObject obj) {
 			val a = EcoreUtil2.getContainerOfType(obj, DAggregate)// global types are not owned by a domain => null
-			return if (a !== null) a.rootName else "undefined" 
+			return if (a !== null) a.derivedName else "undefined" 
 	}
 	
 	def dispatch  generateType(DComplexType c) '''	
@@ -105,7 +105,7 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	'''
 	
 	def dispatch  generateType(DEnumeration e)  '''
-		enum «e.name» << (E,green) >> {
+		enum «e.name» «e.getSpot» {
 			«FOR f:e.literals»
 				«f.name»
 			«ENDFOR»
@@ -118,10 +118,11 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	def getSpot(DType t) {
 		// Returns the "Spot Letter" to use next to the class name.
 		switch t {
-		DRootType : "<< (R,crimson) >>"
-		DDetailType : "<< (D,grey) >>"
-		DRelationship:  "<< (R,navy) >>"
-		DPrimitive:  "<< (P,teal) >>"
+		DEntityType : if (t.root) "<< (R,#FB3333) >>" else "<< (E,#F78100) >>"
+		DDetailType : "<< (D,#FAE55F) >>"
+		DRelationship:  "<< (R,#FA78C8) >>"
+		DEnumeration: "<< (e,#66B371) >>"
+		DPrimitive:  "<< (p,#9AF78F) >>"
 		default:""
 		}
 	}

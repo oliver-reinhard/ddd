@@ -80,14 +80,14 @@ class SimUtil {
 	//// Labels
 	
 	def String label(SAggregate a) {
-		return "Aggregate " + a.rootName
+		return "Aggregate " + a.derivedName
 	}
 	
 	def String label(SType type) {
 		val typeLabel = switch type {
 			SPrimitive: if (type.archetype) "Archetype " else  "Primitive "
 			SEnumeration: "Enumeration "
-			SRootType: "Root "
+			SEntityType: if (type.root) "Root " else "Entity "
 			SDetailType: "Detail "
 			SAssociation: switch type.kind {
 				case REFERENCE: "Reference "
@@ -114,7 +114,7 @@ class SimUtil {
 			SFuseRule:  "Fuse "  + rule.label
 			SGrabRule : "Grab "  + rule.namedSource?.name
 			SDitchRule : "Ditch "  + rule.namedSource?.name
-			SGrabAggregateRule: "Grab aggregate " + rule.aggregate?.rootName
+			SGrabAggregateRule: "Grab aggregate " + rule.aggregate?.derivedName
 			default: rule.class.simpleName
 		}
 	}

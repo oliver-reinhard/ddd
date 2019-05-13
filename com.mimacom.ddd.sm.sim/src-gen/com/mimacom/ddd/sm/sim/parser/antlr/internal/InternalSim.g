@@ -1190,11 +1190,11 @@ ruleSType returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getSTypeAccess().getSRootTypeParserRuleCall_2());
+			newCompositeNode(grammarAccess.getSTypeAccess().getSEntityTypeParserRuleCall_2());
 		}
-		this_SRootType_2=ruleSRootType
+		this_SEntityType_2=ruleSEntityType
 		{
-			$current = $this_SRootType_2.current;
+			$current = $this_SEntityType_2.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -1719,15 +1719,15 @@ ruleSLiteral returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleSRootType
-entryRuleSRootType returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSRootTypeRule()); }
-	iv_ruleSRootType=ruleSRootType
-	{ $current=$iv_ruleSRootType.current; }
+// Entry rule entryRuleSEntityType
+entryRuleSEntityType returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSEntityTypeRule()); }
+	iv_ruleSEntityType=ruleSEntityType
+	{ $current=$iv_ruleSEntityType.current; }
 	EOF;
 
-// Rule SRootType
-ruleSRootType returns [EObject current=null]
+// Rule SEntityType
+ruleSEntityType returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -1740,46 +1740,60 @@ ruleSRootType returns [EObject current=null]
 				(
 					{
 						$current = forceCreateModelElement(
-							grammarAccess.getSRootTypeAccess().getSRootTypeAction_0_0_0(),
+							grammarAccess.getSEntityTypeAccess().getSEntityTypeAction_0_0_0(),
 							$current);
 					}
 				)
 				otherlv_1='grab'
 				{
-					newLeafNode(otherlv_1, grammarAccess.getSRootTypeAccess().getGrabKeyword_0_0_1());
+					newLeafNode(otherlv_1, grammarAccess.getSEntityTypeAccess().getGrabKeyword_0_0_1());
 				}
 				(
 					(
 						lv_abstract_2_0='abstract'
 						{
-							newLeafNode(lv_abstract_2_0, grammarAccess.getSRootTypeAccess().getAbstractAbstractKeyword_0_0_2_0());
+							newLeafNode(lv_abstract_2_0, grammarAccess.getSEntityTypeAccess().getAbstractAbstractKeyword_0_0_2_0());
 						}
 						{
 							if ($current==null) {
-								$current = createModelElement(grammarAccess.getSRootTypeRule());
+								$current = createModelElement(grammarAccess.getSEntityTypeRule());
 							}
 							setWithLastConsumed($current, "abstract", true, "abstract");
 						}
 					)
 				)?
-				otherlv_3='root'
+				(
+					(
+						lv_root_3_0='root'
+						{
+							newLeafNode(lv_root_3_0, grammarAccess.getSEntityTypeAccess().getRootRootKeyword_0_0_3_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getSEntityTypeRule());
+							}
+							setWithLastConsumed($current, "root", true, "root");
+						}
+					)
+				)?
+				otherlv_4='entity'
 				{
-					newLeafNode(otherlv_3, grammarAccess.getSRootTypeAccess().getRootKeyword_0_0_3());
+					newLeafNode(otherlv_4, grammarAccess.getSEntityTypeAccess().getEntityKeyword_0_0_4());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getSRootTypeAccess().getDeductionRuleSGrabComplexTypeRuleParserRuleCall_0_0_4_0());
+							newCompositeNode(grammarAccess.getSEntityTypeAccess().getDeductionRuleSGrabComplexTypeRuleParserRuleCall_0_0_5_0());
 						}
-						lv_deductionRule_4_0=ruleSGrabComplexTypeRule
+						lv_deductionRule_5_0=ruleSGrabComplexTypeRule
 						{
 							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getSRootTypeRule());
+								$current = createModelElementForParent(grammarAccess.getSEntityTypeRule());
 							}
 							set(
 								$current,
 								"deductionRule",
-								lv_deductionRule_4_0,
+								lv_deductionRule_5_0,
 								"com.mimacom.ddd.sm.sim.Sim.SGrabComplexTypeRule");
 							afterParserOrEnumRuleCall();
 						}
@@ -1791,46 +1805,60 @@ ruleSRootType returns [EObject current=null]
 				(
 					{
 						$current = forceCreateModelElement(
-							grammarAccess.getSRootTypeAccess().getSRootTypeAction_0_1_0(),
+							grammarAccess.getSEntityTypeAccess().getSEntityTypeAction_0_1_0(),
 							$current);
 					}
 				)
-				otherlv_6='ditch'
+				otherlv_7='ditch'
 				{
-					newLeafNode(otherlv_6, grammarAccess.getSRootTypeAccess().getDitchKeyword_0_1_1());
+					newLeafNode(otherlv_7, grammarAccess.getSEntityTypeAccess().getDitchKeyword_0_1_1());
 				}
 				(
 					(
-						lv_abstract_7_0='abstract'
+						lv_abstract_8_0='abstract'
 						{
-							newLeafNode(lv_abstract_7_0, grammarAccess.getSRootTypeAccess().getAbstractAbstractKeyword_0_1_2_0());
+							newLeafNode(lv_abstract_8_0, grammarAccess.getSEntityTypeAccess().getAbstractAbstractKeyword_0_1_2_0());
 						}
 						{
 							if ($current==null) {
-								$current = createModelElement(grammarAccess.getSRootTypeRule());
+								$current = createModelElement(grammarAccess.getSEntityTypeRule());
 							}
 							setWithLastConsumed($current, "abstract", true, "abstract");
 						}
 					)
 				)?
-				otherlv_8='root'
+				(
+					(
+						lv_root_9_0='root'
+						{
+							newLeafNode(lv_root_9_0, grammarAccess.getSEntityTypeAccess().getRootRootKeyword_0_1_3_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getSEntityTypeRule());
+							}
+							setWithLastConsumed($current, "root", true, "root");
+						}
+					)
+				)?
+				otherlv_10='entity'
 				{
-					newLeafNode(otherlv_8, grammarAccess.getSRootTypeAccess().getRootKeyword_0_1_3());
+					newLeafNode(otherlv_10, grammarAccess.getSEntityTypeAccess().getEntityKeyword_0_1_4());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getSRootTypeAccess().getDeductionRuleSDitchComplexTypeRuleParserRuleCall_0_1_4_0());
+							newCompositeNode(grammarAccess.getSEntityTypeAccess().getDeductionRuleSDitchComplexTypeRuleParserRuleCall_0_1_5_0());
 						}
-						lv_deductionRule_9_0=ruleSDitchComplexTypeRule
+						lv_deductionRule_11_0=ruleSDitchComplexTypeRule
 						{
 							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getSRootTypeRule());
+								$current = createModelElementForParent(grammarAccess.getSEntityTypeRule());
 							}
 							set(
 								$current,
 								"deductionRule",
-								lv_deductionRule_9_0,
+								lv_deductionRule_11_0,
 								"com.mimacom.ddd.sm.sim.Sim.SDitchComplexTypeRule");
 							afterParserOrEnumRuleCall();
 						}
@@ -1842,46 +1870,60 @@ ruleSRootType returns [EObject current=null]
 				(
 					{
 						$current = forceCreateModelElement(
-							grammarAccess.getSRootTypeAccess().getSRootTypeAction_0_2_0(),
+							grammarAccess.getSEntityTypeAccess().getSEntityTypeAction_0_2_0(),
 							$current);
 					}
 				)
-				otherlv_11='morph'
+				otherlv_13='morph'
 				{
-					newLeafNode(otherlv_11, grammarAccess.getSRootTypeAccess().getMorphKeyword_0_2_1());
+					newLeafNode(otherlv_13, grammarAccess.getSEntityTypeAccess().getMorphKeyword_0_2_1());
 				}
 				(
 					(
-						lv_abstract_12_0='abstract'
+						lv_abstract_14_0='abstract'
 						{
-							newLeafNode(lv_abstract_12_0, grammarAccess.getSRootTypeAccess().getAbstractAbstractKeyword_0_2_2_0());
+							newLeafNode(lv_abstract_14_0, grammarAccess.getSEntityTypeAccess().getAbstractAbstractKeyword_0_2_2_0());
 						}
 						{
 							if ($current==null) {
-								$current = createModelElement(grammarAccess.getSRootTypeRule());
+								$current = createModelElement(grammarAccess.getSEntityTypeRule());
 							}
 							setWithLastConsumed($current, "abstract", true, "abstract");
 						}
 					)
 				)?
-				otherlv_13='root'
+				(
+					(
+						lv_root_15_0='root'
+						{
+							newLeafNode(lv_root_15_0, grammarAccess.getSEntityTypeAccess().getRootRootKeyword_0_2_3_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getSEntityTypeRule());
+							}
+							setWithLastConsumed($current, "root", true, "root");
+						}
+					)
+				)?
+				otherlv_16='entity'
 				{
-					newLeafNode(otherlv_13, grammarAccess.getSRootTypeAccess().getRootKeyword_0_2_3());
+					newLeafNode(otherlv_16, grammarAccess.getSEntityTypeAccess().getEntityKeyword_0_2_4());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getSRootTypeAccess().getDeductionRuleSMorphComplexTypeRuleParserRuleCall_0_2_4_0());
+							newCompositeNode(grammarAccess.getSEntityTypeAccess().getDeductionRuleSMorphComplexTypeRuleParserRuleCall_0_2_5_0());
 						}
-						lv_deductionRule_14_0=ruleSMorphComplexTypeRule
+						lv_deductionRule_17_0=ruleSMorphComplexTypeRule
 						{
 							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getSRootTypeRule());
+								$current = createModelElementForParent(grammarAccess.getSEntityTypeRule());
 							}
 							set(
 								$current,
 								"deductionRule",
-								lv_deductionRule_14_0,
+								lv_deductionRule_17_0,
 								"com.mimacom.ddd.sm.sim.Sim.SMorphComplexTypeRule");
 							afterParserOrEnumRuleCall();
 						}
@@ -1893,46 +1935,60 @@ ruleSRootType returns [EObject current=null]
 				(
 					{
 						$current = forceCreateModelElement(
-							grammarAccess.getSRootTypeAccess().getSRootTypeAction_0_3_0(),
+							grammarAccess.getSEntityTypeAccess().getSEntityTypeAction_0_3_0(),
 							$current);
 					}
 				)
-				otherlv_16='fuse'
+				otherlv_19='fuse'
 				{
-					newLeafNode(otherlv_16, grammarAccess.getSRootTypeAccess().getFuseKeyword_0_3_1());
+					newLeafNode(otherlv_19, grammarAccess.getSEntityTypeAccess().getFuseKeyword_0_3_1());
 				}
 				(
 					(
-						lv_abstract_17_0='abstract'
+						lv_abstract_20_0='abstract'
 						{
-							newLeafNode(lv_abstract_17_0, grammarAccess.getSRootTypeAccess().getAbstractAbstractKeyword_0_3_2_0());
+							newLeafNode(lv_abstract_20_0, grammarAccess.getSEntityTypeAccess().getAbstractAbstractKeyword_0_3_2_0());
 						}
 						{
 							if ($current==null) {
-								$current = createModelElement(grammarAccess.getSRootTypeRule());
+								$current = createModelElement(grammarAccess.getSEntityTypeRule());
 							}
 							setWithLastConsumed($current, "abstract", true, "abstract");
 						}
 					)
 				)?
-				otherlv_18='root'
+				(
+					(
+						lv_root_21_0='root'
+						{
+							newLeafNode(lv_root_21_0, grammarAccess.getSEntityTypeAccess().getRootRootKeyword_0_3_3_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getSEntityTypeRule());
+							}
+							setWithLastConsumed($current, "root", true, "root");
+						}
+					)
+				)?
+				otherlv_22='entity'
 				{
-					newLeafNode(otherlv_18, grammarAccess.getSRootTypeAccess().getRootKeyword_0_3_3());
+					newLeafNode(otherlv_22, grammarAccess.getSEntityTypeAccess().getEntityKeyword_0_3_4());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getSRootTypeAccess().getDeductionRuleSFuseComplexTypeRuleParserRuleCall_0_3_4_0());
+							newCompositeNode(grammarAccess.getSEntityTypeAccess().getDeductionRuleSFuseComplexTypeRuleParserRuleCall_0_3_5_0());
 						}
-						lv_deductionRule_19_0=ruleSFuseComplexTypeRule
+						lv_deductionRule_23_0=ruleSFuseComplexTypeRule
 						{
 							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getSRootTypeRule());
+								$current = createModelElementForParent(grammarAccess.getSEntityTypeRule());
 							}
 							set(
 								$current,
 								"deductionRule",
-								lv_deductionRule_19_0,
+								lv_deductionRule_23_0,
 								"com.mimacom.ddd.sm.sim.Sim.SFuseComplexTypeRule");
 							afterParserOrEnumRuleCall();
 						}
@@ -1943,62 +1999,76 @@ ruleSRootType returns [EObject current=null]
 			(
 				(
 					(
-						lv_abstract_20_0='abstract'
+						lv_abstract_24_0='abstract'
 						{
-							newLeafNode(lv_abstract_20_0, grammarAccess.getSRootTypeAccess().getAbstractAbstractKeyword_0_4_0_0());
+							newLeafNode(lv_abstract_24_0, grammarAccess.getSEntityTypeAccess().getAbstractAbstractKeyword_0_4_0_0());
 						}
 						{
 							if ($current==null) {
-								$current = createModelElement(grammarAccess.getSRootTypeRule());
+								$current = createModelElement(grammarAccess.getSEntityTypeRule());
 							}
 							setWithLastConsumed($current, "abstract", true, "abstract");
 						}
 					)
 				)?
-				otherlv_21='root'
-				{
-					newLeafNode(otherlv_21, grammarAccess.getSRootTypeAccess().getRootKeyword_0_4_1());
-				}
 				(
 					(
-						lv_name_22_0=RULE_ID
+						lv_root_25_0='root'
 						{
-							newLeafNode(lv_name_22_0, grammarAccess.getSRootTypeAccess().getNameIDTerminalRuleCall_0_4_2_0());
+							newLeafNode(lv_root_25_0, grammarAccess.getSEntityTypeAccess().getRootRootKeyword_0_4_1_0());
 						}
 						{
 							if ($current==null) {
-								$current = createModelElement(grammarAccess.getSRootTypeRule());
+								$current = createModelElement(grammarAccess.getSEntityTypeRule());
+							}
+							setWithLastConsumed($current, "root", true, "root");
+						}
+					)
+				)?
+				otherlv_26='entity'
+				{
+					newLeafNode(otherlv_26, grammarAccess.getSEntityTypeAccess().getEntityKeyword_0_4_2());
+				}
+				(
+					(
+						lv_name_27_0=RULE_ID
+						{
+							newLeafNode(lv_name_27_0, grammarAccess.getSEntityTypeAccess().getNameIDTerminalRuleCall_0_4_3_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getSEntityTypeRule());
 							}
 							setWithLastConsumed(
 								$current,
 								"name",
-								lv_name_22_0,
+								lv_name_27_0,
 								"org.eclipse.xtext.common.Terminals.ID");
 						}
 					)
 				)
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSRootTypeRule());
+						$current = createModelElement(grammarAccess.getSEntityTypeRule());
 					}
-					newCompositeNode(grammarAccess.getSRootTypeAccess().getSComplexTypeExtendsParserRuleCall_0_4_3());
+					newCompositeNode(grammarAccess.getSEntityTypeAccess().getSComplexTypeExtendsParserRuleCall_0_4_4());
 				}
-				this_SComplexTypeExtends_23=ruleSComplexTypeExtends[$current]
+				this_SComplexTypeExtends_28=ruleSComplexTypeExtends[$current]
 				{
-					$current = $this_SComplexTypeExtends_23.current;
+					$current = $this_SComplexTypeExtends_28.current;
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		{
 			if ($current==null) {
-				$current = createModelElement(grammarAccess.getSRootTypeRule());
+				$current = createModelElement(grammarAccess.getSEntityTypeRule());
 			}
-			newCompositeNode(grammarAccess.getSRootTypeAccess().getSComplexTypeFeaturesParserRuleCall_1());
+			newCompositeNode(grammarAccess.getSEntityTypeAccess().getSComplexTypeFeaturesParserRuleCall_1());
 		}
-		this_SComplexTypeFeatures_24=ruleSComplexTypeFeatures[$current]
+		this_SComplexTypeFeatures_29=ruleSComplexTypeFeatures[$current]
 		{
-			$current = $this_SComplexTypeFeatures_24.current;
+			$current = $this_SComplexTypeFeatures_29.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -2667,7 +2737,7 @@ ruleSAssociation returns [EObject current=null]
 					}
 					otherlv_21=RULE_ID
 					{
-						newLeafNode(otherlv_21, grammarAccess.getSAssociationAccess().getTypeSRootTypeCrossReference_3_4_0());
+						newLeafNode(otherlv_21, grammarAccess.getSAssociationAccess().getTypeSEntityTypeCrossReference_3_4_0());
 					}
 				)
 			)

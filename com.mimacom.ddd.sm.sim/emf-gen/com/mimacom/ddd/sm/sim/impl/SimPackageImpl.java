@@ -17,6 +17,7 @@ import com.mimacom.ddd.sm.sim.SDetailType;
 import com.mimacom.ddd.sm.sim.SDitchRule;
 import com.mimacom.ddd.sm.sim.SDomainProxy;
 import com.mimacom.ddd.sm.sim.SElementNature;
+import com.mimacom.ddd.sm.sim.SEntityType;
 import com.mimacom.ddd.sm.sim.SEnumeration;
 import com.mimacom.ddd.sm.sim.SExpression;
 import com.mimacom.ddd.sm.sim.SFeature;
@@ -36,7 +37,6 @@ import com.mimacom.ddd.sm.sim.SNamedElement;
 import com.mimacom.ddd.sm.sim.SPrimitive;
 import com.mimacom.ddd.sm.sim.SQuery;
 import com.mimacom.ddd.sm.sim.SQueryParameter;
-import com.mimacom.ddd.sm.sim.SRootType;
 import com.mimacom.ddd.sm.sim.SSimpleType;
 import com.mimacom.ddd.sm.sim.SSyntheticDeductionRule;
 import com.mimacom.ddd.sm.sim.SType;
@@ -177,7 +177,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sRootTypeEClass = null;
+	private EClass sEntityTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -626,7 +626,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSAggregate_Root()
+	public EReference getSAggregate_Roots()
 	{
 		return (EReference)sAggregateEClass.getEStructuralFeatures().get(1);
 	}
@@ -637,7 +637,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSAggregate_RootName()
+	public EAttribute getSAggregate_DerivedName()
 	{
 		return (EAttribute)sAggregateEClass.getEStructuralFeatures().get(2);
 	}
@@ -824,9 +824,20 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSRootType()
+	public EClass getSEntityType()
 	{
-		return sRootTypeEClass;
+		return sEntityTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSEntityType_Root()
+	{
+		return (EAttribute)sEntityTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1352,8 +1363,8 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 
 		sAggregateEClass = createEClass(SAGGREGATE);
 		createEReference(sAggregateEClass, SAGGREGATE__TYPES);
-		createEReference(sAggregateEClass, SAGGREGATE__ROOT);
-		createEAttribute(sAggregateEClass, SAGGREGATE__ROOT_NAME);
+		createEReference(sAggregateEClass, SAGGREGATE__ROOTS);
+		createEAttribute(sAggregateEClass, SAGGREGATE__DERIVED_NAME);
 
 		sTypeEClass = createEClass(STYPE);
 
@@ -1378,7 +1389,8 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 
 		sLiteralEClass = createEClass(SLITERAL);
 
-		sRootTypeEClass = createEClass(SROOT_TYPE);
+		sEntityTypeEClass = createEClass(SENTITY_TYPE);
+		createEAttribute(sEntityTypeEClass, SENTITY_TYPE__ROOT);
 
 		sDetailTypeEClass = createEClass(SDETAIL_TYPE);
 
@@ -1485,8 +1497,8 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		sPrimitiveEClass.getESuperTypes().add(this.getSSimpleType());
 		sEnumerationEClass.getESuperTypes().add(this.getSSimpleType());
 		sLiteralEClass.getESuperTypes().add(this.getSNamedDeducibleElement());
-		sRootTypeEClass.getESuperTypes().add(this.getSComplexType());
-		sRootTypeEClass.getESuperTypes().add(this.getSIdentityType());
+		sEntityTypeEClass.getESuperTypes().add(this.getSComplexType());
+		sEntityTypeEClass.getESuperTypes().add(this.getSIdentityType());
 		sDetailTypeEClass.getESuperTypes().add(this.getSComplexType());
 		sDetailTypeEClass.getESuperTypes().add(this.getSValueType());
 		sFeatureEClass.getESuperTypes().add(this.getSNamedDeducibleElement());
@@ -1533,8 +1545,8 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 
 		initEClass(sAggregateEClass, SAggregate.class, "SAggregate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSAggregate_Types(), this.getSType(), null, "types", null, 0, -1, SAggregate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSAggregate_Root(), this.getSRootType(), null, "root", null, 0, 1, SAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSAggregate_RootName(), ecorePackage.getEString(), "rootName", null, 0, 1, SAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getSAggregate_Roots(), this.getSEntityType(), null, "roots", null, 0, -1, SAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSAggregate_DerivedName(), ecorePackage.getEString(), "derivedName", null, 0, 1, SAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(sTypeEClass, SType.class, "SType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1559,7 +1571,8 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 
 		initEClass(sLiteralEClass, SLiteral.class, "SLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sRootTypeEClass, SRootType.class, "SRootType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(sEntityTypeEClass, SEntityType.class, "SEntityType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSEntityType_Root(), ecorePackage.getEBoolean(), "root", null, 0, 1, SEntityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sDetailTypeEClass, SDetailType.class, "SDetailType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1571,7 +1584,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		initEAttribute(getSAssociation_Derived(), ecorePackage.getEBoolean(), "derived", null, 0, 1, SAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSAssociation_Kind(), this.getSAssociationKind(), "kind", null, 0, 1, SAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		addEOperation(sAssociationEClass, this.getSRootType(), "getTargetType", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(sAssociationEClass, this.getSEntityType(), "getTargetType", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(sAttributeEClass, SAttribute.class, "SAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSAttribute_Detail(), ecorePackage.getEBoolean(), "detail", null, 0, 1, SAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

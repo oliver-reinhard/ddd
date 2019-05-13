@@ -10,7 +10,7 @@ import com.mimacom.ddd.dm.base.DLiteral
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DQueryParameter
-import com.mimacom.ddd.dm.base.DRootType
+import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.sm.sim.SAggregate
 import com.mimacom.ddd.sm.sim.SComplexType
@@ -102,7 +102,7 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 		val complexSyntheticTypes = Lists.newArrayList
 		if (sAggregate.deductionRule instanceof SGrabAggregateRule) {
 			var source = sAggregate.deductionRule.source
-			if (source instanceof DRootType) { // aggregates don't have a name and cannot be linked to
+			if (source instanceof DEntityType) { // aggregates don't have a name and cannot be linked to
 				source = source.eContainer
 			}
 			if (source instanceof DAggregate) {

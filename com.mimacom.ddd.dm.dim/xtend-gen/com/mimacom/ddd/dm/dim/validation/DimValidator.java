@@ -16,6 +16,7 @@ import com.mimacom.ddd.dm.base.DCondition;
 import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DDomainEvent;
+import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DException;
 import com.mimacom.ddd.dm.base.DExistingApplication;
@@ -27,7 +28,6 @@ import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DRelationship;
-import com.mimacom.ddd.dm.base.DRootType;
 import com.mimacom.ddd.dm.base.DServiceParameter;
 import com.mimacom.ddd.dm.base.DTime;
 import com.mimacom.ddd.dm.base.DType;
@@ -42,6 +42,7 @@ import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
@@ -76,13 +77,21 @@ public class DimValidator extends AbstractDimValidator {
   }
   
   @Check
-  public void checkAggregateHasSingleRoot(final DAggregate a) {
-    final Iterable<DIdentityType> roots = Iterables.<DIdentityType>filter(a.getTypes(), DIdentityType.class);
-    int _size = IterableExtensions.size(roots);
+  public void checkAggregateHasSingleRootOrRootHiearchy(final DAggregate a) {
+    final Function1<DIdentityType, Boolean> _function = (DIdentityType it) -> {
+      return Boolean.valueOf(it.isRoot());
+    };
+    final Iterable<DIdentityType> roots = IterableExtensions.<DIdentityType>filter(Iterables.<DIdentityType>filter(a.getTypes(), DIdentityType.class), _function);
+    final Function1<DIdentityType, Boolean> _function_1 = (DIdentityType it) -> {
+      DAggregate _aggregate = this._dimUtil.aggregate(it.getSuperType());
+      return Boolean.valueOf((!Objects.equal(_aggregate, a)));
+    };
+    final Iterable<DIdentityType> topLevelRoots = IterableExtensions.<DIdentityType>filter(roots, _function_1);
+    int _size = IterableExtensions.size(topLevelRoots);
     boolean _greaterThan = (_size > 1);
     if (_greaterThan) {
-      for (final DIdentityType t : roots) {
-        this.error("Aggregate can only declare a single root or relationship", t, BasePackage.Literals.DNAMED_ELEMENT__NAME);
+      for (final DIdentityType r : roots) {
+        this.error("Aggregate can only declare a single root or relationship or a a single hierarchy thereof", r, BasePackage.Literals.DNAMED_ELEMENT__NAME);
       }
     }
   }
@@ -105,6 +114,16 @@ public class DimValidator extends AbstractDimValidator {
       boolean _tripleNotEquals_1 = (_eClass != _eClass_1);
       if (_tripleNotEquals_1) {
         this.error("Supertype is not compatible", t, BasePackage.Literals.DNAMED_ELEMENT__NAME);
+      } else {
+        if ((t instanceof DIdentityType)) {
+          boolean _isRoot = ((DIdentityType)t).isRoot();
+          DComplexType _superType_1 = ((DIdentityType)t).getSuperType();
+          boolean _isRoot_1 = ((DIdentityType) _superType_1).isRoot();
+          boolean _tripleNotEquals_2 = (Boolean.valueOf(_isRoot) != Boolean.valueOf(_isRoot_1));
+          if (_tripleNotEquals_2) {
+            this.error("Entity or relationship root property must match supertype\'s root property", t, BasePackage.Literals.DNAMED_ELEMENT__NAME);
+          }
+        }
       }
       final DDomain tDomain = EcoreUtil2.<DDomain>getContainerOfType(t, DDomain.class);
       final DDomain superTypeDomain = EcoreUtil2.<DDomain>getContainerOfType(t.getSuperType(), DDomain.class);
@@ -163,9 +182,9 @@ public class DimValidator extends AbstractDimValidator {
   @Check
   public void checkAssocitionToRootType(final DAssociation a) {
     DType _type = a.getType();
-    boolean _not = (!(_type instanceof DRootType));
+    boolean _not = (!(_type instanceof DEntityType));
     if (_not) {
-      this.error("Refererenced type is not a RootType", a, BasePackage.Literals.DTYPED_MEMBER__TYPE);
+      this.error("Refererenced type is not an EntitytType", a, BasePackage.Literals.DTYPED_MEMBER__TYPE);
     }
   }
   

@@ -14,6 +14,7 @@ import com.mimacom.ddd.dm.base.DCondition
 import com.mimacom.ddd.dm.base.DContext
 import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.base.DDomainEvent
+import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DException
 import com.mimacom.ddd.dm.base.DExistingApplication
@@ -25,7 +26,6 @@ import com.mimacom.ddd.dm.base.DNamedElement
 import com.mimacom.ddd.dm.base.DNotification
 import com.mimacom.ddd.dm.base.DQueryParameter
 import com.mimacom.ddd.dm.base.DRelationship
-import com.mimacom.ddd.dm.base.DRootType
 import com.mimacom.ddd.dm.base.DServiceParameter
 import com.mimacom.ddd.dm.base.DTime
 import com.mimacom.ddd.dm.base.DType
@@ -62,11 +62,13 @@ class DimValidator extends AbstractDimValidator {
 	}
 
 	@Check
-	def checkAggregateHasSingleRoot(DAggregate a) {
-		val roots = a.types.filter(DIdentityType)
-		if(roots.size > 1) {
-			for (t : roots) {
-				error('Aggregate can only declare a single root or relationship', t, BasePackage.Literals.DNAMED_ELEMENT__NAME)
+	def checkAggregateHasSingleRootOrRootHiearchy(DAggregate a) {
+		val roots = a.types.filter(DIdentityType).filter[isRoot]
+		// only one root hierarchy is allowed => top level is in same aggregate (superType == null) or in another aggregate
+		val topLevelRoots =roots.filter[superType.aggregate != a]
+		if(topLevelRoots.size > 1) {
+			for (r: roots) {
+				error('Aggregate can only declare a single root or relationship or a a single hierarchy thereof', r, BasePackage.Literals.DNAMED_ELEMENT__NAME)
 			}
 		}
 //		if(roots.size == 0) {
@@ -87,6 +89,10 @@ class DimValidator extends AbstractDimValidator {
 		if(t.superType !== null) {
 			if(t.superType.eClass !== t.eClass) {
 				error('Supertype is not compatible', t, BasePackage.Literals.DNAMED_ELEMENT__NAME)
+			} else if (t instanceof DIdentityType) {
+				if (t.root !== (t.superType as DIdentityType).root) {
+					error('Entity or relationship root property must match supertype\'s root property', t, BasePackage.Literals.DNAMED_ELEMENT__NAME)
+				}
 			}
 			val tDomain = EcoreUtil2.getContainerOfType(t, DDomain)
 			val superTypeDomain = EcoreUtil2.getContainerOfType(t.superType, DDomain)
@@ -133,8 +139,8 @@ class DimValidator extends AbstractDimValidator {
 
 	@Check
 	def checkAssocitionToRootType(DAssociation a) {
-		if(! (a.type instanceof DRootType)) {
-			error('Refererenced type is not a RootType', a, BasePackage.Literals.DTYPED_MEMBER__TYPE)
+		if(! (a.type instanceof DEntityType)) {
+			error('Refererenced type is not an EntitytType', a, BasePackage.Literals.DTYPED_MEMBER__TYPE)
 		}
 	}
 

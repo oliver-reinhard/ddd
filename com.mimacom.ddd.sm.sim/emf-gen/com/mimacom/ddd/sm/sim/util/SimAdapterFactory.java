@@ -156,9 +156,9 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createSLiteralAdapter();
 			}
 			@Override
-			public Adapter caseSRootType(SRootType object)
+			public Adapter caseSEntityType(SEntityType object)
 			{
-				return createSRootTypeAdapter();
+				return createSEntityTypeAdapter();
 			}
 			@Override
 			public Adapter caseSDetailType(SDetailType object)
@@ -503,16 +503,16 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SRootType <em>SRoot Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SEntityType <em>SEntity Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SRootType
+	 * @see com.mimacom.ddd.sm.sim.SEntityType
 	 * @generated
 	 */
-	public Adapter createSRootTypeAdapter()
+	public Adapter createSEntityTypeAdapter()
 	{
 		return null;
 	}

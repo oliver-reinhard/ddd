@@ -122,13 +122,13 @@ public interface BaseFactory extends EFactory
 	DDetailType createDDetailType();
 
 	/**
-	 * Returns a new object of class '<em>DRoot Type</em>'.
+	 * Returns a new object of class '<em>DEntity Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DRoot Type</em>'.
+	 * @return a new object of class '<em>DEntity Type</em>'.
 	 * @generated
 	 */
-	DRootType createDRootType();
+	DEntityType createDEntityType();
 
 	/**
 	 * Returns a new object of class '<em>DRelationship</em>'.

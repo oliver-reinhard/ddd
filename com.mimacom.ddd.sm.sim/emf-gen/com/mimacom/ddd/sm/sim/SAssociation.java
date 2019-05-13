@@ -84,6 +84,6 @@ public interface SAssociation extends SFeature
 	 * @model kind="operation"
 	 * @generated
 	 */
-	SRootType getTargetType();
+	SEntityType getTargetType();
 
 } // SAssociation

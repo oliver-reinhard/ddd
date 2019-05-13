@@ -1,13 +1,13 @@
 package com.mimacom.ddd.sm.sim.impl;
 
-import com.mimacom.ddd.sm.sim.SRootType;
+import com.mimacom.ddd.sm.sim.SEntityType;
 
 public class SAssociationImplCustom extends SAssociationImpl {
 	
 	@Override
-	public SRootType getTargetType() {
-		if (getType() instanceof SRootType) {
-			return (SRootType) getType();
+	public SEntityType getTargetType() {
+		if (getType() instanceof SEntityType) {
+			return (SEntityType) getType();
 		}
 		return null;
 	}

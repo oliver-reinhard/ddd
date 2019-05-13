@@ -11,6 +11,7 @@ import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DCondition;
 import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DDomain;
+import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DException;
 import com.mimacom.ddd.dm.base.DExistingApplication;
@@ -23,7 +24,6 @@ import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DRelationship;
 import com.mimacom.ddd.dm.base.DRichText;
-import com.mimacom.ddd.dm.base.DRootType;
 import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DServiceParameter;
 import com.mimacom.ddd.dm.base.DTextSegment;
@@ -92,6 +92,9 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 			case BasePackage.DDOMAIN:
 				sequence_DDomain(context, (DDomain) semanticObject); 
 				return; 
+			case BasePackage.DENTITY_TYPE:
+				sequence_DComplexType_DEntityType(context, (DEntityType) semanticObject); 
+				return; 
 			case BasePackage.DENUMERATION:
 				sequence_DEnumeration(context, (DEnumeration) semanticObject); 
 				return; 
@@ -138,9 +141,6 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case BasePackage.DRICH_TEXT:
 				sequence_DRichText(context, (DRichText) semanticObject); 
-				return; 
-			case BasePackage.DROOT_TYPE:
-				sequence_DComplexType_DRootType(context, (DRootType) semanticObject); 
 				return; 
 			case BasePackage.DSERVICE:
 				sequence_DService(context, (DService) semanticObject); 
@@ -257,7 +257,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *         (kind=DAssociationKind | kind=DAssociationKindInverse) 
 	 *         name=ID 
 	 *         aliases+=ID* 
-	 *         type=[DRootType|ID] 
+	 *         type=[DEntityType|ID] 
 	 *         multiplicity=DMultiplicity? 
 	 *         description=DRichText?
 	 *     )
@@ -310,12 +310,34 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     DType returns DEntityType
+	 *     DEntityType returns DEntityType
+	 *
+	 * Constraint:
+	 *     (
+	 *         abstract?='abstract'? 
+	 *         root?='root'? 
+	 *         name=ID 
+	 *         aliases+=ID* 
+	 *         superType=[DComplexType|ID]? 
+	 *         description=DRichText? 
+	 *         (features+=DFeature | constraints+=DConstraint)*
+	 *     )
+	 */
+	protected void sequence_DComplexType_DEntityType(ISerializationContext context, DEntityType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     DType returns DRelationship
 	 *     DRelationship returns DRelationship
 	 *
 	 * Constraint:
 	 *     (
 	 *         abstract?='abstract'? 
+	 *         root?='root'? 
 	 *         name=ID 
 	 *         aliases+=ID* 
 	 *         superType=[DComplexType|ID]? 
@@ -324,26 +346,6 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *     )
 	 */
 	protected void sequence_DComplexType_DRelationship(ISerializationContext context, DRelationship semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DType returns DRootType
-	 *     DRootType returns DRootType
-	 *
-	 * Constraint:
-	 *     (
-	 *         abstract?='abstract'? 
-	 *         name=ID 
-	 *         aliases+=ID* 
-	 *         superType=[DComplexType|ID]? 
-	 *         description=DRichText? 
-	 *         (features+=DFeature | constraints+=DConstraint)*
-	 *     )
-	 */
-	protected void sequence_DComplexType_DRootType(ISerializationContext context, DRootType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

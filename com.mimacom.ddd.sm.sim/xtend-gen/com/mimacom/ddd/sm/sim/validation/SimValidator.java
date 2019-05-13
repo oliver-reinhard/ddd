@@ -9,8 +9,8 @@ import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DDetailType;
+import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DQuery;
-import com.mimacom.ddd.dm.base.DRootType;
 import com.mimacom.ddd.sm.sim.SAggregate;
 import com.mimacom.ddd.sm.sim.SAssociation;
 import com.mimacom.ddd.sm.sim.SAttribute;
@@ -21,6 +21,7 @@ import com.mimacom.ddd.sm.sim.SDeductionRule;
 import com.mimacom.ddd.sm.sim.SDetailType;
 import com.mimacom.ddd.sm.sim.SDitchRule;
 import com.mimacom.ddd.sm.sim.SElementNature;
+import com.mimacom.ddd.sm.sim.SEntityType;
 import com.mimacom.ddd.sm.sim.SEnumeration;
 import com.mimacom.ddd.sm.sim.SFeature;
 import com.mimacom.ddd.sm.sim.SGrabRule;
@@ -30,7 +31,6 @@ import com.mimacom.ddd.sm.sim.SMultiplicity;
 import com.mimacom.ddd.sm.sim.SNamedElement;
 import com.mimacom.ddd.sm.sim.SQuery;
 import com.mimacom.ddd.sm.sim.SQueryParameter;
-import com.mimacom.ddd.sm.sim.SRootType;
 import com.mimacom.ddd.sm.sim.SSyntheticDeductionRule;
 import com.mimacom.ddd.sm.sim.SType;
 import com.mimacom.ddd.sm.sim.SValueType;
@@ -65,15 +65,15 @@ public class SimValidator extends AbstractSimValidator {
   
   @Check
   public void checkAggregateHasSingleRoot(final SAggregate a) {
-    final Function1<SRootType, Boolean> _function = (SRootType it) -> {
+    final Function1<SEntityType, Boolean> _function = (SEntityType it) -> {
       SElementNature _nature = it.getNature();
       return Boolean.valueOf((!Objects.equal(_nature, SElementNature.DEDUCTION_RULE)));
     };
-    final Iterable<SRootType> roots = IterableExtensions.<SRootType>filter(Iterables.<SRootType>filter(a.getTypes(), SRootType.class), _function);
+    final Iterable<SEntityType> roots = IterableExtensions.<SEntityType>filter(Iterables.<SEntityType>filter(a.getTypes(), SEntityType.class), _function);
     int _size = IterableExtensions.size(roots);
     boolean _greaterThan = (_size > 1);
     if (_greaterThan) {
-      for (final SRootType t : roots) {
+      for (final SEntityType t : roots) {
         this.error("Aggregate can only declare a single root or relationship", t, SimPackage.Literals.SNAMED_ELEMENT__NAME);
       }
     }
@@ -119,13 +119,24 @@ public class SimValidator extends AbstractSimValidator {
   }
   
   @Check
-  public void checkCorrespondingDRootType(final SRootType t) {
+  public void checkCorrespondingDEntityType(final SEntityType t) {
     SElementNature _nature = t.getNature();
     boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
     if (_equals) {
-      if (((t.getDeductionRule().getSource() != null) && (!(t.getDeductionRule().getSource() instanceof DRootType)))) {
-        this.error("Deduced RootType rule must have a domain-model RootType as its source", t.getDeductionRule(), 
-          SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+      final EObject source = t.getDeductionRule().getSource();
+      if ((source instanceof DEntityType)) {
+        boolean _isRoot = ((DEntityType)source).isRoot();
+        boolean _isRoot_1 = t.isRoot();
+        boolean _tripleNotEquals = (Boolean.valueOf(_isRoot) != Boolean.valueOf(_isRoot_1));
+        if (_tripleNotEquals) {
+          this.error("Deduced entity rule must match domain-model root root property", t.getDeductionRule(), 
+            SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+        }
+      } else {
+        if ((source != null)) {
+          this.error("Deduced entity rule must have a domain-model entity as its source", t.getDeductionRule(), 
+            SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
+        }
       }
     }
   }
@@ -275,7 +286,7 @@ public class SimValidator extends AbstractSimValidator {
   
   @Check
   public void checkAssocitionToRootType(final SAssociation a) {
-    if ((Objects.equal(a.getNature(), SElementNature.GENUINE) && (!(a.getType() instanceof SRootType)))) {
+    if ((Objects.equal(a.getNature(), SElementNature.GENUINE) && (!((a.getType() instanceof SEntityType) && ((SEntityType) a.getType()).isRoot())))) {
       this.error("Referenced type is not a RootType", a, SimPackage.Literals.SFEATURE__TYPE);
     } else {
       SElementNature _nature = a.getNature();

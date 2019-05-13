@@ -22,7 +22,7 @@
 '=>'=63
 '>'=60
 '>='=58
-'@before'=108
+'@before'=109
 'AND'=50
 'AS'=21
 'E'=36
@@ -34,7 +34,7 @@
 'RAISE'=27
 'RETURN'=25
 'SELF'=23
-'TRUE'=109
+'TRUE'=110
 'UNDEFINED'=34
 'XOR'=48
 '\u2264'=57
@@ -49,13 +49,14 @@
 'async'=43
 'composite'=41
 'constraint'=80
-'derived'=106
+'derived'=107
 'detail'=88
 'do'=102
 'domain'=70
 'e'=37
 'else'=101
 'end'=100
+'entity'=86
 'enumeration'=84
 'exception'=96
 'extends'=89
@@ -67,7 +68,7 @@
 'in'=44
 'inverse'=18
 'isa'=20
-'key'=107
+'key'=108
 'new'=30
 'not'=69
 'or'=47
@@ -82,12 +83,12 @@
 'relationship'=87
 'return'=26
 'returns'=90
-'root'=86
+'root'=106
 'self'=24
 'service'=92
 'synchronous'=42
 'then'=99
-'true'=110
+'true'=111
 'undefined'=35
 'xor'=49
 '{'=78
@@ -116,6 +117,7 @@ T__107=107
 T__108=108
 T__109=109
 T__110=110
+T__111=111
 T__17=17
 T__18=18
 T__19=19

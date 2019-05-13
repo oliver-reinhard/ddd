@@ -99,6 +99,6 @@ public interface DAssociation extends DFeature
 	 * @model kind="operation"
 	 * @generated
 	 */
-	DRootType getTargetType();
+	DEntityType getTargetType();
 
 } // DAssociation

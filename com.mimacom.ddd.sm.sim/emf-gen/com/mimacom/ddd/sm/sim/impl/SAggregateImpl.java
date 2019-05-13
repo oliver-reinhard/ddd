@@ -6,7 +6,7 @@ package com.mimacom.ddd.sm.sim.impl;
 import com.mimacom.ddd.sm.sim.SAggregate;
 import com.mimacom.ddd.sm.sim.SDeductionRule;
 import com.mimacom.ddd.sm.sim.SElementNature;
-import com.mimacom.ddd.sm.sim.SRootType;
+import com.mimacom.ddd.sm.sim.SEntityType;
 import com.mimacom.ddd.sm.sim.SType;
 import com.mimacom.ddd.sm.sim.SimPackage;
 
@@ -38,8 +38,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SAggregateImpl#getNature <em>Nature</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SAggregateImpl#isSynthetic <em>Synthetic</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SAggregateImpl#getTypes <em>Types</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sim.impl.SAggregateImpl#getRoot <em>Root</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sim.impl.SAggregateImpl#getRootName <em>Root Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SAggregateImpl#getRoots <em>Roots</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SAggregateImpl#getDerivedName <em>Derived Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -97,14 +97,14 @@ public class SAggregateImpl extends MinimalEObjectImpl.Container implements SAgg
 	protected EList<SType> types;
 
 	/**
-	 * The default value of the '{@link #getRootName() <em>Root Name</em>}' attribute.
+	 * The default value of the '{@link #getDerivedName() <em>Derived Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRootName()
+	 * @see #getDerivedName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ROOT_NAME_EDEFAULT = null;
+	protected static final String DERIVED_NAME_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -249,22 +249,12 @@ public class SAggregateImpl extends MinimalEObjectImpl.Container implements SAgg
 	 * @generated
 	 */
 	@Override
-	public SRootType getRoot()
+	public EList<SEntityType> getRoots()
 	{
-		SRootType root = basicGetRoot();
-		return root != null && root.eIsProxy() ? (SRootType)eResolveProxy((InternalEObject)root) : root;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SRootType basicGetRoot()
-	{
-		// TODO: implement this method to return the 'Root' reference
-		// -> do not perform proxy resolution
+		// TODO: implement this method to return the 'Roots' reference list
 		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
 		throw new UnsupportedOperationException();
 	}
 
@@ -274,9 +264,9 @@ public class SAggregateImpl extends MinimalEObjectImpl.Container implements SAgg
 	 * @generated
 	 */
 	@Override
-	public String getRootName()
+	public String getDerivedName()
 	{
-		// TODO: implement this method to return the 'Root Name' attribute
+		// TODO: implement this method to return the 'Derived Name' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
@@ -317,11 +307,10 @@ public class SAggregateImpl extends MinimalEObjectImpl.Container implements SAgg
 				return isSynthetic();
 			case SimPackage.SAGGREGATE__TYPES:
 				return getTypes();
-			case SimPackage.SAGGREGATE__ROOT:
-				if (resolve) return getRoot();
-				return basicGetRoot();
-			case SimPackage.SAGGREGATE__ROOT_NAME:
-				return getRootName();
+			case SimPackage.SAGGREGATE__ROOTS:
+				return getRoots();
+			case SimPackage.SAGGREGATE__DERIVED_NAME:
+				return getDerivedName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -398,10 +387,10 @@ public class SAggregateImpl extends MinimalEObjectImpl.Container implements SAgg
 				return synthetic != SYNTHETIC_EDEFAULT;
 			case SimPackage.SAGGREGATE__TYPES:
 				return types != null && !types.isEmpty();
-			case SimPackage.SAGGREGATE__ROOT:
-				return basicGetRoot() != null;
-			case SimPackage.SAGGREGATE__ROOT_NAME:
-				return ROOT_NAME_EDEFAULT == null ? getRootName() != null : !ROOT_NAME_EDEFAULT.equals(getRootName());
+			case SimPackage.SAGGREGATE__ROOTS:
+				return !getRoots().isEmpty();
+			case SimPackage.SAGGREGATE__DERIVED_NAME:
+				return DERIVED_NAME_EDEFAULT == null ? getDerivedName() != null : !DERIVED_NAME_EDEFAULT.equals(getDerivedName());
 		}
 		return super.eIsSet(featureID);
 	}

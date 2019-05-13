@@ -93,7 +93,7 @@ SAggregate:
  * TYPES
  */
 SType:
-	SPrimitive | SEnumeration | SRootType | SDetailType;
+	SPrimitive | SEnumeration | SEntityType | SDetailType;
 	
 SConstraint returns SCondition:
 	'constraint'
@@ -134,12 +134,12 @@ SLiteral:
 	);
 	//	(description=DRichText)?;
 
-SRootType:
-	(	{SRootType} 'grab' (abstract?='abstract')? 'root' deductionRule=SGrabComplexTypeRule
-	|	{SRootType} 'ditch' (abstract?='abstract')? 'root' deductionRule=SDitchComplexTypeRule
-	|	{SRootType} 'morph' (abstract?='abstract')? 'root' deductionRule=SMorphComplexTypeRule
-	|	{SRootType} 'fuse' (abstract?='abstract')? 'root' deductionRule=SFuseComplexTypeRule
-	|	(abstract?='abstract')? 'root'
+SEntityType:
+	(	{SEntityType} 'grab' (abstract?='abstract')? (root?='root')? 'entity' deductionRule=SGrabComplexTypeRule
+	|	{SEntityType} 'ditch' (abstract?='abstract')? (root?='root')? 'entity' deductionRule=SDitchComplexTypeRule
+	|	{SEntityType} 'morph' (abstract?='abstract')? (root?='root')? 'entity' deductionRule=SMorphComplexTypeRule
+	|	{SEntityType} 'fuse' (abstract?='abstract')? (root?='root')? 'entity' deductionRule=SFuseComplexTypeRule
+	|	(abstract?='abstract')? (root?='root')? 'entity'
 		name=ID
 		SComplexTypeExtends
 	)
@@ -177,7 +177,7 @@ SAssociation:
 		(kind=SAssociationKind | (kind=SAssociationKindInverse 'composite'))
 		name=ID
 		':'
-		type=[SRootType|ID]  (multiplicity=SMultiplicity)?
+		type=[SEntityType|ID]  (multiplicity=SMultiplicity)?
 		//	(description=DRichText)?;
 	);
 

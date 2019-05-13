@@ -132,13 +132,13 @@ public interface SimFactory extends EFactory
 	SLiteral createSLiteral();
 
 	/**
-	 * Returns a new object of class '<em>SRoot Type</em>'.
+	 * Returns a new object of class '<em>SEntity Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SRoot Type</em>'.
+	 * @return a new object of class '<em>SEntity Type</em>'.
 	 * @generated
 	 */
-	SRootType createSRootType();
+	SEntityType createSEntityType();
 
 	/**
 	 * Returns a new object of class '<em>SDetail Type</em>'.

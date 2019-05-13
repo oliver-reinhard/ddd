@@ -428,22 +428,22 @@ public interface SimPackage extends EPackage
 	int SAGGREGATE__TYPES = SDEDUCIBLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Root</b></em>' reference.
+	 * The feature id for the '<em><b>Roots</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SAGGREGATE__ROOT = SDEDUCIBLE_ELEMENT_FEATURE_COUNT + 1;
+	int SAGGREGATE__ROOTS = SDEDUCIBLE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Root Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Derived Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SAGGREGATE__ROOT_NAME = SDEDUCIBLE_ELEMENT_FEATURE_COUNT + 2;
+	int SAGGREGATE__DERIVED_NAME = SDEDUCIBLE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>SAggregate</em>' class.
@@ -912,14 +912,14 @@ public interface SimPackage extends EPackage
 	int SLITERAL_FEATURE_COUNT = SNAMED_DEDUCIBLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SRootTypeImpl <em>SRoot Type</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SEntityTypeImpl <em>SEntity Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sim.impl.SRootTypeImpl
-	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSRootType()
+	 * @see com.mimacom.ddd.sm.sim.impl.SEntityTypeImpl
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSEntityType()
 	 * @generated
 	 */
-	int SROOT_TYPE = 16;
+	int SENTITY_TYPE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -928,7 +928,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SROOT_TYPE__NAME = SCOMPLEX_TYPE__NAME;
+	int SENTITY_TYPE__NAME = SCOMPLEX_TYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -937,7 +937,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SROOT_TYPE__DEDUCTION_RULE = SCOMPLEX_TYPE__DEDUCTION_RULE;
+	int SENTITY_TYPE__DEDUCTION_RULE = SCOMPLEX_TYPE__DEDUCTION_RULE;
 
 	/**
 	 * The feature id for the '<em><b>Nature</b></em>' attribute.
@@ -946,7 +946,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SROOT_TYPE__NATURE = SCOMPLEX_TYPE__NATURE;
+	int SENTITY_TYPE__NATURE = SCOMPLEX_TYPE__NATURE;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -955,7 +955,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SROOT_TYPE__SYNTHETIC = SCOMPLEX_TYPE__SYNTHETIC;
+	int SENTITY_TYPE__SYNTHETIC = SCOMPLEX_TYPE__SYNTHETIC;
 
 	/**
 	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
@@ -964,7 +964,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SROOT_TYPE__ABSTRACT = SCOMPLEX_TYPE__ABSTRACT;
+	int SENTITY_TYPE__ABSTRACT = SCOMPLEX_TYPE__ABSTRACT;
 
 	/**
 	 * The feature id for the '<em><b>Super Type</b></em>' reference.
@@ -973,7 +973,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SROOT_TYPE__SUPER_TYPE = SCOMPLEX_TYPE__SUPER_TYPE;
+	int SENTITY_TYPE__SUPER_TYPE = SCOMPLEX_TYPE__SUPER_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
@@ -982,7 +982,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SROOT_TYPE__FEATURES = SCOMPLEX_TYPE__FEATURES;
+	int SENTITY_TYPE__FEATURES = SCOMPLEX_TYPE__FEATURES;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -991,16 +991,25 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SROOT_TYPE__CONSTRAINTS = SCOMPLEX_TYPE__CONSTRAINTS;
+	int SENTITY_TYPE__CONSTRAINTS = SCOMPLEX_TYPE__CONSTRAINTS;
 
 	/**
-	 * The number of structural features of the '<em>SRoot Type</em>' class.
+	 * The feature id for the '<em><b>Root</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SROOT_TYPE_FEATURE_COUNT = SCOMPLEX_TYPE_FEATURE_COUNT + 0;
+	int SENTITY_TYPE__ROOT = SCOMPLEX_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>SEntity Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTITY_TYPE_FEATURE_COUNT = SCOMPLEX_TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SDetailTypeImpl <em>SDetail Type</em>}' class.
@@ -2228,26 +2237,26 @@ public interface SimPackage extends EPackage
 	EReference getSAggregate_Types();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SAggregate#getRoot <em>Root</em>}'.
+	 * Returns the meta object for the reference list '{@link com.mimacom.ddd.sm.sim.SAggregate#getRoots <em>Roots</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Root</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SAggregate#getRoot()
+	 * @return the meta object for the reference list '<em>Roots</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SAggregate#getRoots()
 	 * @see #getSAggregate()
 	 * @generated
 	 */
-	EReference getSAggregate_Root();
+	EReference getSAggregate_Roots();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SAggregate#getRootName <em>Root Name</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SAggregate#getDerivedName <em>Derived Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Root Name</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SAggregate#getRootName()
+	 * @return the meta object for the attribute '<em>Derived Name</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SAggregate#getDerivedName()
 	 * @see #getSAggregate()
 	 * @generated
 	 */
-	EAttribute getSAggregate_RootName();
+	EAttribute getSAggregate_DerivedName();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SType <em>SType</em>}'.
@@ -2419,14 +2428,25 @@ public interface SimPackage extends EPackage
 	EClass getSLiteral();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SRootType <em>SRoot Type</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SEntityType <em>SEntity Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SRoot Type</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SRootType
+	 * @return the meta object for class '<em>SEntity Type</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SEntityType
 	 * @generated
 	 */
-	EClass getSRootType();
+	EClass getSEntityType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SEntityType#isRoot <em>Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Root</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SEntityType#isRoot()
+	 * @see #getSEntityType()
+	 * @generated
+	 */
+	EAttribute getSEntityType_Root();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SDetailType <em>SDetail Type</em>}'.
@@ -3089,20 +3109,20 @@ public interface SimPackage extends EPackage
 		EReference SAGGREGATE__TYPES = eINSTANCE.getSAggregate_Types();
 
 		/**
-		 * The meta object literal for the '<em><b>Root</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Roots</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SAGGREGATE__ROOT = eINSTANCE.getSAggregate_Root();
+		EReference SAGGREGATE__ROOTS = eINSTANCE.getSAggregate_Roots();
 
 		/**
-		 * The meta object literal for the '<em><b>Root Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Derived Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SAGGREGATE__ROOT_NAME = eINSTANCE.getSAggregate_RootName();
+		EAttribute SAGGREGATE__DERIVED_NAME = eINSTANCE.getSAggregate_DerivedName();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.STypeImpl <em>SType</em>}' class.
@@ -3247,14 +3267,22 @@ public interface SimPackage extends EPackage
 		EClass SLITERAL = eINSTANCE.getSLiteral();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SRootTypeImpl <em>SRoot Type</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SEntityTypeImpl <em>SEntity Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sim.impl.SRootTypeImpl
-		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSRootType()
+		 * @see com.mimacom.ddd.sm.sim.impl.SEntityTypeImpl
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSEntityType()
 		 * @generated
 		 */
-		EClass SROOT_TYPE = eINSTANCE.getSRootType();
+		EClass SENTITY_TYPE = eINSTANCE.getSEntityType();
+
+		/**
+		 * The meta object literal for the '<em><b>Root</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SENTITY_TYPE__ROOT = eINSTANCE.getSEntityType_Root();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SDetailTypeImpl <em>SDetail Type</em>}' class.

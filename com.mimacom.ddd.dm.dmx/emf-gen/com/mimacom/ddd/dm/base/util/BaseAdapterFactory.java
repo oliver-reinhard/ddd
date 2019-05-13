@@ -195,9 +195,9 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createDDetailTypeAdapter();
 			}
 			@Override
-			public Adapter caseDRootType(DRootType object)
+			public Adapter caseDEntityType(DEntityType object)
 			{
-				return createDRootTypeAdapter();
+				return createDEntityTypeAdapter();
 			}
 			@Override
 			public Adapter caseDRelationship(DRelationship object)
@@ -667,16 +667,16 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DRootType <em>DRoot Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DEntityType <em>DEntity Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DRootType
+	 * @see com.mimacom.ddd.dm.base.DEntityType
 	 * @generated
 	 */
-	public Adapter createDRootTypeAdapter()
+	public Adapter createDEntityTypeAdapter()
 	{
 		return null;
 	}

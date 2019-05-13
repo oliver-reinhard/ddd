@@ -8,10 +8,10 @@ import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DCondition;
 import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DDomain;
+import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DPrimitive;
-import com.mimacom.ddd.dm.base.DRootType;
 import com.mimacom.ddd.dm.base.DType;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -62,7 +62,7 @@ public class DimUtil {
     if ((d != null)) {
       _xifexpression = d.getName();
     } else {
-      _xifexpression = "undefined";
+      _xifexpression = "NO DOMAIN";
     }
     return _xifexpression;
   }
@@ -75,9 +75,9 @@ public class DimUtil {
     final DAggregate a = this.aggregate(obj);
     String _xifexpression = null;
     if ((a != null)) {
-      _xifexpression = a.getRootName();
+      _xifexpression = a.getDerivedName();
     } else {
-      _xifexpression = "undefined";
+      _xifexpression = "NO AGGREGATE";
     }
     return _xifexpression;
   }
@@ -86,7 +86,7 @@ public class DimUtil {
    * Precondition: d is the domain owning the association
    */
   public boolean isTargetInsideDomain(final DAssociation a, final DDomain d) {
-    DRootType _targetType = a.getTargetType();
+    DEntityType _targetType = a.getTargetType();
     boolean _tripleNotEquals = (_targetType != null);
     if (_tripleNotEquals) {
       final DDomain targetDomain = this.domain(a.getTargetType());
@@ -125,8 +125,8 @@ public class DimUtil {
   }
   
   public String label(final DAggregate a) {
-    String _rootName = a.getRootName();
-    return ("Aggregate " + _rootName);
+    String _derivedName = a.getDerivedName();
+    return ("Aggregate " + _derivedName);
   }
   
   public String label(final DType type) {
@@ -150,9 +150,16 @@ public class DimUtil {
       }
     }
     if (!_matched) {
-      if (type instanceof DRootType) {
+      if (type instanceof DEntityType) {
         _matched=true;
-        _switchResult = "Root ";
+        String _xifexpression = null;
+        boolean _isRoot = ((DEntityType)type).isRoot();
+        if (_isRoot) {
+          _xifexpression = "Root ";
+        } else {
+          _xifexpression = "Entity ";
+        }
+        _switchResult = _xifexpression;
       }
     }
     if (!_matched) {

@@ -37,7 +37,7 @@ DAggregate:
  * TYPES
  */
 DType:
-	DPrimitive | DPrimitiveArchetype | DEnumeration | DRootType | DRelationship | DDetailType;
+	DPrimitive | DPrimitiveArchetype | DEnumeration | DEntityType | DRelationship | DDetailType;
 	
 DConstraint returns DCondition:
 	'constraint'
@@ -81,13 +81,15 @@ DLiteral:
 	('alias' aliases+=ID)*
 	(description=DRichText)?;
 
-DRootType:
+DEntityType:
 	(abstract?='abstract')?
-	'root'
+	(root?='root')?
+	'entity'
 	DComplexType;
 
 DRelationship:
 	(abstract?='abstract')?
+	(root?='root')?
 	'relationship'
 	DComplexType;
 
@@ -114,7 +116,7 @@ DAssociation:
 	name=ID
 	('alias' aliases+=ID)*
 	':'
-	type=[DRootType|ID]  (multiplicity=DMultiplicity)?
+	type=[DEntityType|ID]  (multiplicity=DMultiplicity)?
 	(description=DRichText)?;
 
 enum DAssociationKind:

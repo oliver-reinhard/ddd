@@ -11,6 +11,7 @@ import com.mimacom.ddd.sm.sim.SCondition;
 import com.mimacom.ddd.sm.sim.SDetailType;
 import com.mimacom.ddd.sm.sim.SDitchRule;
 import com.mimacom.ddd.sm.sim.SDomainProxy;
+import com.mimacom.ddd.sm.sim.SEntityType;
 import com.mimacom.ddd.sm.sim.SEnumeration;
 import com.mimacom.ddd.sm.sim.SExpression;
 import com.mimacom.ddd.sm.sim.SFuseRule;
@@ -25,7 +26,6 @@ import com.mimacom.ddd.sm.sim.SMultiplicity;
 import com.mimacom.ddd.sm.sim.SPrimitive;
 import com.mimacom.ddd.sm.sim.SQuery;
 import com.mimacom.ddd.sm.sim.SQueryParameter;
-import com.mimacom.ddd.sm.sim.SRootType;
 import com.mimacom.ddd.sm.sim.SimPackage;
 import com.mimacom.ddd.sm.sim.services.SimGrammarAccess;
 import java.util.Set;
@@ -88,6 +88,9 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				else break;
 			case SimPackage.SDOMAIN_PROXY:
 				sequence_SDomainProxy(context, (SDomainProxy) semanticObject); 
+				return; 
+			case SimPackage.SENTITY_TYPE:
+				sequence_SComplexTypeExtends_SComplexTypeFeatures_SEntityType(context, (SEntityType) semanticObject); 
 				return; 
 			case SimPackage.SENUMERATION:
 				sequence_SEnumeration(context, (SEnumeration) semanticObject); 
@@ -157,9 +160,6 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case SimPackage.SQUERY_PARAMETER:
 				sequence_SQueryParameter(context, (SQueryParameter) semanticObject); 
 				return; 
-			case SimPackage.SROOT_TYPE:
-				sequence_SComplexTypeExtends_SComplexTypeFeatures_SRootType(context, (SRootType) semanticObject); 
-				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -187,7 +187,7 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         deductionRule=SGrabFeatureRule | 
 	 *         deductionRule=SMorphFeatureRule | 
 	 *         deductionRule=SDitchFeatureRule | 
-	 *         (derived?='derived'? (kind=SAssociationKind | kind=SAssociationKindInverse) name=ID type=[SRootType|ID] multiplicity=SMultiplicity?)
+	 *         (derived?='derived'? (kind=SAssociationKind | kind=SAssociationKindInverse) name=ID type=[SEntityType|ID] multiplicity=SMultiplicity?)
 	 *     )
 	 */
 	protected void sequence_SAssociation(ISerializationContext context, SAssociation semanticObject) {
@@ -237,22 +237,22 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     SType returns SRootType
-	 *     SRootType returns SRootType
+	 *     SType returns SEntityType
+	 *     SEntityType returns SEntityType
 	 *
 	 * Constraint:
 	 *     (
 	 *         (
-	 *             (abstract?='abstract'? deductionRule=SGrabComplexTypeRule) | 
-	 *             (abstract?='abstract'? deductionRule=SDitchComplexTypeRule) | 
-	 *             (abstract?='abstract'? deductionRule=SMorphComplexTypeRule) | 
-	 *             (abstract?='abstract'? deductionRule=SFuseComplexTypeRule) | 
-	 *             (abstract?='abstract'? name=ID superType=[SComplexType|ID]?)
+	 *             (abstract?='abstract'? root?='root'? deductionRule=SGrabComplexTypeRule) | 
+	 *             (abstract?='abstract'? root?='root'? deductionRule=SDitchComplexTypeRule) | 
+	 *             (abstract?='abstract'? root?='root'? deductionRule=SMorphComplexTypeRule) | 
+	 *             (abstract?='abstract'? root?='root'? deductionRule=SFuseComplexTypeRule) | 
+	 *             (abstract?='abstract'? root?='root'? name=ID superType=[SComplexType|ID]?)
 	 *         ) 
 	 *         (features+=SFeature | constraints+=SConstraint)*
 	 *     )
 	 */
-	protected void sequence_SComplexTypeExtends_SComplexTypeFeatures_SRootType(ISerializationContext context, SRootType semanticObject) {
+	protected void sequence_SComplexTypeExtends_SComplexTypeFeatures_SEntityType(ISerializationContext context, SEntityType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

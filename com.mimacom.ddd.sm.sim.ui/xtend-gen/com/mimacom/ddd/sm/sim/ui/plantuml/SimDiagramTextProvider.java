@@ -8,13 +8,13 @@ import com.mimacom.ddd.sm.sim.SAttribute;
 import com.mimacom.ddd.sm.sim.SComplexType;
 import com.mimacom.ddd.sm.sim.SDetailType;
 import com.mimacom.ddd.sm.sim.SElementNature;
+import com.mimacom.ddd.sm.sim.SEntityType;
 import com.mimacom.ddd.sm.sim.SEnumeration;
 import com.mimacom.ddd.sm.sim.SFeature;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SLiteral;
 import com.mimacom.ddd.sm.sim.SPrimitive;
 import com.mimacom.ddd.sm.sim.SQuery;
-import com.mimacom.ddd.sm.sim.SRootType;
 import com.mimacom.ddd.sm.sim.SType;
 import com.mimacom.ddd.sm.sim.ui.internal.SimActivator;
 import java.util.Arrays;
@@ -83,7 +83,7 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     };
     final Iterable<SAggregate> allAggregates = IterableExtensions.<SAggregate>filter(EcoreUtil2.<SAggregate>eAllOfType(model, SAggregate.class), _function);
     final Function1<SAssociation, Boolean> _function_1 = (SAssociation it) -> {
-      return Boolean.valueOf(((it.getType() instanceof SRootType) && (!Objects.equal(it.getNature(), SElementNature.DEDUCTION_RULE))));
+      return Boolean.valueOf(((it.getType() instanceof SEntityType) && (!Objects.equal(it.getNature(), SElementNature.DEDUCTION_RULE))));
     };
     final Iterable<SAssociation> allAssociations = IterableExtensions.<SAssociation>filter(EcoreUtil2.<SAssociation>eAllOfType(model, SAssociation.class), _function_1);
     final Function1<SAssociation, Boolean> _function_2 = (SAssociation it) -> {
@@ -172,33 +172,43 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
         }
       }
     }
-    _builder.append("\t            ");
+    _builder.append("            ");
     {
       for(final SAssociation a_1 : allAssociations) {
         CharSequence _generateAssociation = this.generateAssociation(a_1);
-        _builder.append(_generateAssociation, "\t            ");
+        _builder.append(_generateAssociation, "            ");
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("\t            ");
+    _builder.append("            ");
     {
       for(final SAttribute a_2 : allDetailAttributes) {
         CharSequence _generateLink = this.generateLink(a_2);
-        _builder.append(_generateLink, "\t            ");
+        _builder.append(_generateLink, "            ");
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("\t            ");
+    _builder.append("            ");
     {
       for(final SComplexType s : allSubtypes) {
         String _aggregateName_1 = this.aggregateName(s);
-        _builder.append(_aggregateName_1, "\t            ");
+        _builder.append(_aggregateName_1, "            ");
         _builder.append(".");
         String _name = s.getName();
-        _builder.append(_name, "\t            ");
+        _builder.append(_name, "            ");
         _builder.append(" --|> ");
         String _aggregateName_2 = this.aggregateName(s.getSuperType());
-        _builder.append(_aggregateName_2, "\t            ");
+        _builder.append(_aggregateName_2, "            ");
+        {
+          String _aggregateName_3 = this.aggregateName(s);
+          String _aggregateName_4 = this.aggregateName(s.getSuperType());
+          boolean _tripleEquals = (_aggregateName_3 == _aggregateName_4);
+          if (_tripleEquals) {
+            _builder.append(".");
+            String _name_1 = s.getSuperType().getName();
+            _builder.append(_name_1, "            ");
+          }
+        }
         _builder.newLineIfNotEmpty();
       }
     }
@@ -221,7 +231,7 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     final SAggregate a = EcoreUtil2.<SAggregate>getContainerOfType(obj, SAggregate.class);
     String _xifexpression = null;
     if ((a != null)) {
-      _xifexpression = a.getRootName();
+      _xifexpression = a.getDerivedName();
     } else {
       _xifexpression = "undefined";
     }
@@ -282,7 +292,10 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     _builder.append("enum ");
     String _name = e.getName();
     _builder.append(_name);
-    _builder.append(" << (E,green) >> {");
+    _builder.append(" ");
+    String _spot = this.getSpot(e);
+    _builder.append(_spot);
+    _builder.append(" {");
     _builder.newLineIfNotEmpty();
     {
       EList<SLiteral> _literals = e.getLiterals();
@@ -306,20 +319,33 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
   public String getSpot(final SType t) {
     String _switchResult = null;
     boolean _matched = false;
-    if (t instanceof SRootType) {
+    if (t instanceof SEntityType) {
       _matched=true;
-      _switchResult = "<< (R,crimson) >>";
+      String _xifexpression = null;
+      boolean _isRoot = ((SEntityType)t).isRoot();
+      if (_isRoot) {
+        _xifexpression = "<< (R,#FB3333) >>";
+      } else {
+        _xifexpression = "<< (E,#F78100) >>";
+      }
+      _switchResult = _xifexpression;
     }
     if (!_matched) {
       if (t instanceof SDetailType) {
         _matched=true;
-        _switchResult = "<< (D,grey) >>";
+        _switchResult = "<< (D,#FAE55F) >>";
+      }
+    }
+    if (!_matched) {
+      if (t instanceof SEnumeration) {
+        _matched=true;
+        _switchResult = "<< (e,#66B371) >>";
       }
     }
     if (!_matched) {
       if (t instanceof SPrimitive) {
         _matched=true;
-        _switchResult = "<< (P,teal) >>";
+        _switchResult = "<< (p,#9AF78F) >>";
       }
     }
     if (!_matched) {

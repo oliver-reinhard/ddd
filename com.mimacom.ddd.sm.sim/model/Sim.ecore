@@ -46,9 +46,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="SAggregate" eSuperTypes="#//SDeducibleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
         eType="#//SType" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="#//SRootType"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roots" upperBound="-1"
+        eType="#//SEntityType" changeable="false" volatile="true" transient="true"
+        derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="derivedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SType" eSuperTypes="#//SNamedDeducibleElement"/>
@@ -78,7 +79,9 @@
         eType="#//SLiteral" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SLiteral" eSuperTypes="#//SNamedDeducibleElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SRootType" eSuperTypes="#//SComplexType #//SIdentityType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SEntityType" eSuperTypes="#//SComplexType #//SIdentityType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="root" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SDetailType" eSuperTypes="#//SComplexType #//SValueType"/>
   <eClassifiers xsi:type="ecore:EClass" name="SFeature" eSuperTypes="#//SNamedDeducibleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//SType"/>
@@ -86,7 +89,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SAssociation" eSuperTypes="#//SFeature">
-    <eOperations name="getTargetType" eType="#//SRootType"/>
+    <eOperations name="getTargetType" eType="#//SEntityType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="derived" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//SAssociationKind"/>
   </eClassifiers>

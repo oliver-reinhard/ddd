@@ -1,7 +1,7 @@
 package com.mimacom.ddd.dm.base.impl;
 
 import com.mimacom.ddd.dm.base.DComplexType;
-import com.mimacom.ddd.dm.base.DRootType;
+import com.mimacom.ddd.dm.base.DEntityType;
 
 public class DAssociationImplCustom extends DAssociationImpl {
 
@@ -14,9 +14,9 @@ public class DAssociationImplCustom extends DAssociationImpl {
 	}
 	
 	@Override
-	public DRootType getTargetType() {
-		if (getType() instanceof DRootType) {
-			return (DRootType) getType();
+	public DEntityType getTargetType() {
+		if (getType() instanceof DEntityType) {
+			return (DEntityType) getType();
 		}
 		return null;
 	}

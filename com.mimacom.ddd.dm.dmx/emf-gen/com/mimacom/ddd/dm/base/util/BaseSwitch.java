@@ -292,18 +292,18 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BasePackage.DROOT_TYPE:
+			case BasePackage.DENTITY_TYPE:
 			{
-				DRootType dRootType = (DRootType)theEObject;
-				T result = caseDRootType(dRootType);
-				if (result == null) result = caseDIdentityType(dRootType);
-				if (result == null) result = caseDComplexType(dRootType);
-				if (result == null) result = caseIIdentityType(dRootType);
-				if (result == null) result = caseDType(dRootType);
-				if (result == null) result = caseITypedMemberContainer(dRootType);
-				if (result == null) result = caseIPrimaryNavigationTarget(dRootType);
-				if (result == null) result = caseINamespace(dRootType);
-				if (result == null) result = caseDNamedElement(dRootType);
+				DEntityType dEntityType = (DEntityType)theEObject;
+				T result = caseDEntityType(dEntityType);
+				if (result == null) result = caseDIdentityType(dEntityType);
+				if (result == null) result = caseDComplexType(dEntityType);
+				if (result == null) result = caseIIdentityType(dEntityType);
+				if (result == null) result = caseDType(dEntityType);
+				if (result == null) result = caseITypedMemberContainer(dEntityType);
+				if (result == null) result = caseIPrimaryNavigationTarget(dEntityType);
+				if (result == null) result = caseINamespace(dEntityType);
+				if (result == null) result = caseDNamedElement(dEntityType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -865,17 +865,17 @@ public class BaseSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DRoot Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>DEntity Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DRoot Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>DEntity Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDRootType(DRootType object)
+	public T caseDEntityType(DEntityType object)
 	{
 		return null;
 	}

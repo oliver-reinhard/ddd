@@ -34,8 +34,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getTypes <em>Types</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getRoot <em>Root</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getRootName <em>Root Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getRoots <em>Roots</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getDerivedName <em>Derived Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,14 +63,14 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	protected EList<DType> types;
 
 	/**
-	 * The default value of the '{@link #getRootName() <em>Root Name</em>}' attribute.
+	 * The default value of the '{@link #getDerivedName() <em>Derived Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRootName()
+	 * @see #getDerivedName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ROOT_NAME_EDEFAULT = null;
+	protected static final String DERIVED_NAME_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -164,22 +164,12 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	 * @generated
 	 */
 	@Override
-	public DIdentityType getRoot()
+	public EList<DIdentityType> getRoots()
 	{
-		DIdentityType root = basicGetRoot();
-		return root != null && root.eIsProxy() ? (DIdentityType)eResolveProxy((InternalEObject)root) : root;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DIdentityType basicGetRoot()
-	{
-		// TODO: implement this method to return the 'Root' reference
-		// -> do not perform proxy resolution
+		// TODO: implement this method to return the 'Roots' reference list
 		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
 		throw new UnsupportedOperationException();
 	}
 
@@ -189,9 +179,9 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	 * @generated
 	 */
 	@Override
-	public String getRootName()
+	public String getDerivedName()
 	{
-		// TODO: implement this method to return the 'Root Name' attribute
+		// TODO: implement this method to return the 'Derived Name' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
@@ -228,11 +218,10 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 				return getDescription();
 			case BasePackage.DAGGREGATE__TYPES:
 				return getTypes();
-			case BasePackage.DAGGREGATE__ROOT:
-				if (resolve) return getRoot();
-				return basicGetRoot();
-			case BasePackage.DAGGREGATE__ROOT_NAME:
-				return getRootName();
+			case BasePackage.DAGGREGATE__ROOTS:
+				return getRoots();
+			case BasePackage.DAGGREGATE__DERIVED_NAME:
+				return getDerivedName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -293,10 +282,10 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 				return description != null;
 			case BasePackage.DAGGREGATE__TYPES:
 				return types != null && !types.isEmpty();
-			case BasePackage.DAGGREGATE__ROOT:
-				return basicGetRoot() != null;
-			case BasePackage.DAGGREGATE__ROOT_NAME:
-				return ROOT_NAME_EDEFAULT == null ? getRootName() != null : !ROOT_NAME_EDEFAULT.equals(getRootName());
+			case BasePackage.DAGGREGATE__ROOTS:
+				return !getRoots().isEmpty();
+			case BasePackage.DAGGREGATE__DERIVED_NAME:
+				return DERIVED_NAME_EDEFAULT == null ? getDerivedName() != null : !DERIVED_NAME_EDEFAULT.equals(getDerivedName());
 		}
 		return super.eIsSet(featureID);
 	}

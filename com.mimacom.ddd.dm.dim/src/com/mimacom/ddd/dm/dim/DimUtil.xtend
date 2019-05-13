@@ -8,7 +8,7 @@ import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DFeature
 import com.mimacom.ddd.dm.base.DPrimitive
-import com.mimacom.ddd.dm.base.DRootType
+import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DType
 import java.util.LinkedHashSet
 import java.util.Set
@@ -50,7 +50,7 @@ class DimUtil {
 	
 	def String domainName(EObject obj) {
 			val d = obj.domain
-			return if (d !== null) d.name else "undefined" 
+			return if (d !== null) d.name else "NO DOMAIN" 
 	}
 	
 	def DAggregate aggregate(EObject obj) {
@@ -59,7 +59,7 @@ class DimUtil {
 	
 	def String aggregateName(EObject obj) {
 			val a = obj.aggregate
-			return if (a !== null) a.rootName else "undefined" 
+			return if (a !== null) a.derivedName else "NO AGGREGATE" 
 	}
 	/*
 	 * Precondition: d is the domain owning the association
@@ -98,14 +98,14 @@ class DimUtil {
 	//// Labels
 	
 	def String label(DAggregate a) {
-		return "Aggregate " + a.rootName
+		return "Aggregate " + a.derivedName
 	}
 	
 	def String label(DType type) {
 		val typeLabel = switch type {
 			DPrimitive: if (type.archetype) "Archetype " else  "Primitive "
 			DEnumeration: "Enumeration "
-			DRootType: "Root "
+			DEntityType: if (type.root) "Root " else "Entity "
 			DDetailType: "Detail "
 			DAssociation: switch type.kind {
 				case REFERENCE: "Reference to "

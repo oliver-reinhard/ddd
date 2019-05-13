@@ -18,6 +18,7 @@ import com.mimacom.ddd.sm.sim.SCondition;
 import com.mimacom.ddd.sm.sim.SDeductionRule;
 import com.mimacom.ddd.sm.sim.SDetailType;
 import com.mimacom.ddd.sm.sim.SDitchRule;
+import com.mimacom.ddd.sm.sim.SEntityType;
 import com.mimacom.ddd.sm.sim.SEnumeration;
 import com.mimacom.ddd.sm.sim.SFeature;
 import com.mimacom.ddd.sm.sim.SFuseRule;
@@ -26,7 +27,6 @@ import com.mimacom.ddd.sm.sim.SGrabRule;
 import com.mimacom.ddd.sm.sim.SMorphRule;
 import com.mimacom.ddd.sm.sim.SPrimitive;
 import com.mimacom.ddd.sm.sim.SQuery;
-import com.mimacom.ddd.sm.sim.SRootType;
 import com.mimacom.ddd.sm.sim.SType;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -141,8 +141,8 @@ public class SimUtil {
   }
   
   public String label(final SAggregate a) {
-    String _rootName = a.getRootName();
-    return ("Aggregate " + _rootName);
+    String _derivedName = a.getDerivedName();
+    return ("Aggregate " + _derivedName);
   }
   
   public String label(final SType type) {
@@ -166,9 +166,16 @@ public class SimUtil {
       }
     }
     if (!_matched) {
-      if (type instanceof SRootType) {
+      if (type instanceof SEntityType) {
         _matched=true;
-        _switchResult = "Root ";
+        String _xifexpression = null;
+        boolean _isRoot = ((SEntityType)type).isRoot();
+        if (_isRoot) {
+          _xifexpression = "Root ";
+        } else {
+          _xifexpression = "Entity ";
+        }
+        _switchResult = _xifexpression;
       }
     }
     if (!_matched) {
@@ -278,11 +285,11 @@ public class SimUtil {
       if (rule instanceof SGrabAggregateRule) {
         _matched=true;
         DAggregate _aggregate = ((SGrabAggregateRule)rule).getAggregate();
-        String _rootName = null;
+        String _derivedName = null;
         if (_aggregate!=null) {
-          _rootName=_aggregate.getRootName();
+          _derivedName=_aggregate.getDerivedName();
         }
-        _switchResult = ("Grab aggregate " + _rootName);
+        _switchResult = ("Grab aggregate " + _derivedName);
       }
     }
     if (!_matched) {

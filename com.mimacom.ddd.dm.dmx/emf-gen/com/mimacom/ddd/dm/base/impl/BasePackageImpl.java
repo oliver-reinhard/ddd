@@ -16,6 +16,7 @@ import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DDirection;
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DDomainEvent;
+import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DException;
 import com.mimacom.ddd.dm.base.DExistingApplication;
@@ -34,7 +35,6 @@ import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DRelationship;
 import com.mimacom.ddd.dm.base.DRichText;
-import com.mimacom.ddd.dm.base.DRootType;
 import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DServiceKind;
 import com.mimacom.ddd.dm.base.DServiceParameter;
@@ -244,7 +244,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dRootTypeEClass = null;
+	private EClass dEntityTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -846,7 +846,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDAggregate_Root()
+	public EReference getDAggregate_Roots()
 	{
 		return (EReference)dAggregateEClass.getEStructuralFeatures().get(2);
 	}
@@ -857,7 +857,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDAggregate_RootName()
+	public EAttribute getDAggregate_DerivedName()
 	{
 		return (EAttribute)dAggregateEClass.getEStructuralFeatures().get(3);
 	}
@@ -1055,6 +1055,17 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getDIdentityType_Root()
+	{
+		return (EAttribute)dIdentityTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDDetailType()
 	{
 		return dDetailTypeEClass;
@@ -1066,9 +1077,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDRootType()
+	public EClass getDEntityType()
 	{
-		return dRootTypeEClass;
+		return dEntityTypeEClass;
 	}
 
 	/**
@@ -1657,8 +1668,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dAggregateEClass = createEClass(DAGGREGATE);
 		createEReference(dAggregateEClass, DAGGREGATE__DESCRIPTION);
 		createEReference(dAggregateEClass, DAGGREGATE__TYPES);
-		createEReference(dAggregateEClass, DAGGREGATE__ROOT);
-		createEAttribute(dAggregateEClass, DAGGREGATE__ROOT_NAME);
+		createEReference(dAggregateEClass, DAGGREGATE__ROOTS);
+		createEAttribute(dAggregateEClass, DAGGREGATE__DERIVED_NAME);
 
 		dTypeEClass = createEClass(DTYPE);
 		createEReference(dTypeEClass, DTYPE__CONSTRAINTS);
@@ -1684,10 +1695,11 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		createEReference(dComplexTypeEClass, DCOMPLEX_TYPE__SUPER_TYPE);
 
 		dIdentityTypeEClass = createEClass(DIDENTITY_TYPE);
+		createEAttribute(dIdentityTypeEClass, DIDENTITY_TYPE__ROOT);
 
 		dDetailTypeEClass = createEClass(DDETAIL_TYPE);
 
-		dRootTypeEClass = createEClass(DROOT_TYPE);
+		dEntityTypeEClass = createEClass(DENTITY_TYPE);
 
 		dRelationshipEClass = createEClass(DRELATIONSHIP);
 
@@ -1809,7 +1821,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dIdentityTypeEClass.getESuperTypes().add(this.getIIdentityType());
 		dDetailTypeEClass.getESuperTypes().add(this.getDComplexType());
 		dDetailTypeEClass.getESuperTypes().add(this.getIValueType());
-		dRootTypeEClass.getESuperTypes().add(this.getDIdentityType());
+		dEntityTypeEClass.getESuperTypes().add(this.getDIdentityType());
 		dRelationshipEClass.getESuperTypes().add(this.getDIdentityType());
 		dFeatureEClass.getESuperTypes().add(this.getDTypedMember());
 		dAssociationEClass.getESuperTypes().add(this.getDFeature());
@@ -1885,8 +1897,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dAggregateEClass, DAggregate.class, "DAggregate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDAggregate_Description(), this.getDRichText(), null, "description", null, 0, 1, DAggregate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDAggregate_Types(), this.getDType(), null, "types", null, 0, -1, DAggregate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDAggregate_Root(), this.getDIdentityType(), null, "root", null, 0, 1, DAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getDAggregate_RootName(), ecorePackage.getEString(), "rootName", null, 0, 1, DAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDAggregate_Roots(), this.getDIdentityType(), null, "roots", null, 0, -1, DAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getDAggregate_DerivedName(), ecorePackage.getEString(), "derivedName", null, 0, 1, DAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(dTypeEClass, DType.class, "DType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDType_Constraints(), this.getDCondition(), null, "constraints", null, 0, -1, DType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1912,10 +1924,11 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEReference(getDComplexType_SuperType(), this.getDComplexType(), null, "superType", null, 0, 1, DComplexType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dIdentityTypeEClass, DIdentityType.class, "DIdentityType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDIdentityType_Root(), ecorePackage.getEBoolean(), "root", null, 0, 1, DIdentityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dDetailTypeEClass, DDetailType.class, "DDetailType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(dRootTypeEClass, DRootType.class, "DRootType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(dEntityTypeEClass, DEntityType.class, "DEntityType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dRelationshipEClass, DRelationship.class, "DRelationship", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1926,7 +1939,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEAttribute(getDAssociation_Derived(), ecorePackage.getEBoolean(), "derived", null, 0, 1, DAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDAssociation_SourceType(), this.getDComplexType(), null, "sourceType", null, 1, 1, DAssociation.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 
-		initEOperation(getDAssociation__GetTargetType(), this.getDRootType(), "getTargetType", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getDAssociation__GetTargetType(), this.getDEntityType(), "getTargetType", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dMultiplicityEClass, DMultiplicity.class, "DMultiplicity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDMultiplicity_MinOccurs(), ecorePackage.getEInt(), "minOccurs", null, 0, 1, DMultiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

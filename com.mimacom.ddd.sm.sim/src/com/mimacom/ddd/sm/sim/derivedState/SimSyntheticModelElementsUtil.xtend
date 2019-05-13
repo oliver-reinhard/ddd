@@ -12,7 +12,7 @@ import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DQueryParameter
 import com.mimacom.ddd.dm.base.DRelationship
-import com.mimacom.ddd.dm.base.DRootType
+import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.sm.sim.SAggregate
 import com.mimacom.ddd.sm.sim.SComplexType
@@ -55,8 +55,8 @@ class SimSyntheticModelElementsUtil {
 	
 	def dispatch SComplexType addSyntheticType(EObject container, String name, DComplexType source, SDeducibleElement elementWithRule, TransformationContext context)  {
 		val sType = switch source {
-			DRootType: simFactory.createSRootType
-			DRelationship: simFactory.createSRootType
+			DEntityType: simFactory.createSEntityType
+			DRelationship: simFactory.createSEntityType
 			DDetailType: simFactory.createSDetailType
 		}
 		sType.initSyntheticType(container, name, source, elementWithRule, context)

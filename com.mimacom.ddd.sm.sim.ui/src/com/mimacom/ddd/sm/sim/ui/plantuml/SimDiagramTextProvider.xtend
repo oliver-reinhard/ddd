@@ -5,11 +5,11 @@ import com.mimacom.ddd.sm.sim.SAssociation
 import com.mimacom.ddd.sm.sim.SAttribute
 import com.mimacom.ddd.sm.sim.SComplexType
 import com.mimacom.ddd.sm.sim.SDetailType
+import com.mimacom.ddd.sm.sim.SEntityType
 import com.mimacom.ddd.sm.sim.SEnumeration
 import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.SPrimitive
 import com.mimacom.ddd.sm.sim.SQuery
-import com.mimacom.ddd.sm.sim.SRootType
 import com.mimacom.ddd.sm.sim.SType
 import com.mimacom.ddd.sm.sim.ui.internal.SimActivator
 import java.util.Map
@@ -56,7 +56,7 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 	
 	def modelTypes(SInformationModel model) {
         val allAggregates = EcoreUtil2.eAllOfType(model, SAggregate).filter[nature != DEDUCTION_RULE]
-        val allAssociations = EcoreUtil2.eAllOfType(model, SAssociation).filter[type instanceof SRootType && nature != DEDUCTION_RULE]
+        val allAssociations = EcoreUtil2.eAllOfType(model, SAssociation).filter[type instanceof SEntityType && nature != DEDUCTION_RULE]
         val allReferencedDomains = allAssociations.filter[targetType.modelName != model.name].map[targetType.modelName]
         val allDetailAttributes = EcoreUtil2.eAllOfType(model, SAttribute).filter[type instanceof SDetailType && nature != DEDUCTION_RULE]
         val allSubtypes = EcoreUtil2.eAllOfType(model, SComplexType).filter[superType !== null]
@@ -81,12 +81,12 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 	           	«FOR d:allReferencedDomains»package «d» <<Frame>> { 
 	           	}
 	           	«ENDFOR»
-	    		«ENDFOR»
-	            «FOR a:allAssociations»«a.generateAssociation»
-	            «ENDFOR»
-	            «FOR a:allDetailAttributes»«a.generateLink»
-	            «ENDFOR»
-	            «FOR s:allSubtypes»«s.aggregateName».«s.name» --|> «s.superType.aggregateName»
+    		«ENDFOR»
+            «FOR a:allAssociations»«a.generateAssociation»
+            «ENDFOR»
+            «FOR a:allDetailAttributes»«a.generateLink»
+            «ENDFOR»
+            «FOR s:allSubtypes»«s.aggregateName».«s.name» --|> «s.superType.aggregateName»«IF s.aggregateName === s.superType.aggregateName».«s.superType.name»«ENDIF»
             «ENDFOR»
         '''
        return result
@@ -99,7 +99,7 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 	
 	def String aggregateName(EObject obj) {
 			val a = EcoreUtil2.getContainerOfType(obj, SAggregate)// global types are not owned by a domain => null
-			return if (a !== null) a.rootName else "undefined" 
+			return if (a !== null) a.derivedName else "undefined" 
 	}
 	
 	def dispatch  generateType(SComplexType c) '''	
@@ -113,7 +113,7 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 	'''
 	
 	def dispatch  generateType(SEnumeration e)  '''
-		enum «e.name» << (E,green) >> {
+		enum «e.name» «e.getSpot» {
 			«FOR f:e.literals»
 				«f.name»
 			«ENDFOR»
@@ -126,9 +126,10 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 	def getSpot(SType t) {
 		// Returns the "Spot Letter" to use next to the class name.
 		switch t {
-		SRootType : "<< (R,crimson) >>"
-		SDetailType : "<< (D,grey) >>"
-		SPrimitive:  "<< (P,teal) >>"
+		SEntityType : if (t.root) "<< (R,#FB3333) >>" else "<< (E,#F78100) >>"
+		SDetailType : "<< (D,#FAE55F) >>"
+		SEnumeration: "<< (e,#66B371) >>"
+		SPrimitive:  "<< (p,#9AF78F) >>"
 		default:""
 		}
 	}

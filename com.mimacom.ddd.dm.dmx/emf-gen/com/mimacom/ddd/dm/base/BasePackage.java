@@ -786,22 +786,22 @@ public interface BasePackage extends EPackage
 	int DAGGREGATE__TYPES = 1;
 
 	/**
-	 * The feature id for the '<em><b>Root</b></em>' reference.
+	 * The feature id for the '<em><b>Roots</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE__ROOT = 2;
+	int DAGGREGATE__ROOTS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Root Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Derived Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE__ROOT_NAME = 3;
+	int DAGGREGATE__DERIVED_NAME = 3;
 
 	/**
 	 * The number of structural features of the '<em>DAggregate</em>' class.
@@ -1478,13 +1478,22 @@ public interface BasePackage extends EPackage
 	int DIDENTITY_TYPE__SUPER_TYPE = DCOMPLEX_TYPE__SUPER_TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Root</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIDENTITY_TYPE__ROOT = DCOMPLEX_TYPE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>DIdentity Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIDENTITY_TYPE_FEATURE_COUNT = DCOMPLEX_TYPE_FEATURE_COUNT + 0;
+	int DIDENTITY_TYPE_FEATURE_COUNT = DCOMPLEX_TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>DIdentity Type</em>' class.
@@ -1596,14 +1605,14 @@ public interface BasePackage extends EPackage
 	int DDETAIL_TYPE_OPERATION_COUNT = DCOMPLEX_TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DRootTypeImpl <em>DRoot Type</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DEntityTypeImpl <em>DEntity Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.impl.DRootTypeImpl
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDRootType()
+	 * @see com.mimacom.ddd.dm.base.impl.DEntityTypeImpl
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDEntityType()
 	 * @generated
 	 */
-	int DROOT_TYPE = 24;
+	int DENTITY_TYPE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1612,7 +1621,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DROOT_TYPE__NAME = DIDENTITY_TYPE__NAME;
+	int DENTITY_TYPE__NAME = DIDENTITY_TYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -1621,7 +1630,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DROOT_TYPE__ALIASES = DIDENTITY_TYPE__ALIASES;
+	int DENTITY_TYPE__ALIASES = DIDENTITY_TYPE__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1630,7 +1639,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DROOT_TYPE__DESCRIPTION = DIDENTITY_TYPE__DESCRIPTION;
+	int DENTITY_TYPE__DESCRIPTION = DIDENTITY_TYPE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -1639,7 +1648,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DROOT_TYPE__CONSTRAINTS = DIDENTITY_TYPE__CONSTRAINTS;
+	int DENTITY_TYPE__CONSTRAINTS = DIDENTITY_TYPE__CONSTRAINTS;
 
 	/**
 	 * The feature id for the '<em><b>Primitive</b></em>' attribute.
@@ -1648,7 +1657,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DROOT_TYPE__PRIMITIVE = DIDENTITY_TYPE__PRIMITIVE;
+	int DENTITY_TYPE__PRIMITIVE = DIDENTITY_TYPE__PRIMITIVE;
 
 	/**
 	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
@@ -1657,7 +1666,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DROOT_TYPE__ABSTRACT = DIDENTITY_TYPE__ABSTRACT;
+	int DENTITY_TYPE__ABSTRACT = DIDENTITY_TYPE__ABSTRACT;
 
 	/**
 	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
@@ -1666,7 +1675,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DROOT_TYPE__FEATURES = DIDENTITY_TYPE__FEATURES;
+	int DENTITY_TYPE__FEATURES = DIDENTITY_TYPE__FEATURES;
 
 	/**
 	 * The feature id for the '<em><b>Super Type</b></em>' reference.
@@ -1675,25 +1684,34 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DROOT_TYPE__SUPER_TYPE = DIDENTITY_TYPE__SUPER_TYPE;
+	int DENTITY_TYPE__SUPER_TYPE = DIDENTITY_TYPE__SUPER_TYPE;
 
 	/**
-	 * The number of structural features of the '<em>DRoot Type</em>' class.
+	 * The feature id for the '<em><b>Root</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DROOT_TYPE_FEATURE_COUNT = DIDENTITY_TYPE_FEATURE_COUNT + 0;
+	int DENTITY_TYPE__ROOT = DIDENTITY_TYPE__ROOT;
 
 	/**
-	 * The number of operations of the '<em>DRoot Type</em>' class.
+	 * The number of structural features of the '<em>DEntity Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DROOT_TYPE_OPERATION_COUNT = DIDENTITY_TYPE_OPERATION_COUNT + 0;
+	int DENTITY_TYPE_FEATURE_COUNT = DIDENTITY_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>DEntity Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DENTITY_TYPE_OPERATION_COUNT = DIDENTITY_TYPE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DRelationshipImpl <em>DRelationship</em>}' class.
@@ -1776,6 +1794,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DRELATIONSHIP__SUPER_TYPE = DIDENTITY_TYPE__SUPER_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Root</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DRELATIONSHIP__ROOT = DIDENTITY_TYPE__ROOT;
 
 	/**
 	 * The number of structural features of the '<em>DRelationship</em>' class.
@@ -3572,26 +3599,26 @@ public interface BasePackage extends EPackage
 	EReference getDAggregate_Types();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.DAggregate#getRoot <em>Root</em>}'.
+	 * Returns the meta object for the reference list '{@link com.mimacom.ddd.dm.base.DAggregate#getRoots <em>Roots</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Root</em>'.
-	 * @see com.mimacom.ddd.dm.base.DAggregate#getRoot()
+	 * @return the meta object for the reference list '<em>Roots</em>'.
+	 * @see com.mimacom.ddd.dm.base.DAggregate#getRoots()
 	 * @see #getDAggregate()
 	 * @generated
 	 */
-	EReference getDAggregate_Root();
+	EReference getDAggregate_Roots();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DAggregate#getRootName <em>Root Name</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DAggregate#getDerivedName <em>Derived Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Root Name</em>'.
-	 * @see com.mimacom.ddd.dm.base.DAggregate#getRootName()
+	 * @return the meta object for the attribute '<em>Derived Name</em>'.
+	 * @see com.mimacom.ddd.dm.base.DAggregate#getDerivedName()
 	 * @see #getDAggregate()
 	 * @generated
 	 */
-	EAttribute getDAggregate_RootName();
+	EAttribute getDAggregate_DerivedName();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DType <em>DType</em>}'.
@@ -3773,6 +3800,17 @@ public interface BasePackage extends EPackage
 	EClass getDIdentityType();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DIdentityType#isRoot <em>Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Root</em>'.
+	 * @see com.mimacom.ddd.dm.base.DIdentityType#isRoot()
+	 * @see #getDIdentityType()
+	 * @generated
+	 */
+	EAttribute getDIdentityType_Root();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DDetailType <em>DDetail Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3783,14 +3821,14 @@ public interface BasePackage extends EPackage
 	EClass getDDetailType();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DRootType <em>DRoot Type</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DEntityType <em>DEntity Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DRoot Type</em>'.
-	 * @see com.mimacom.ddd.dm.base.DRootType
+	 * @return the meta object for class '<em>DEntity Type</em>'.
+	 * @see com.mimacom.ddd.dm.base.DEntityType
 	 * @generated
 	 */
-	EClass getDRootType();
+	EClass getDEntityType();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DRelationship <em>DRelationship</em>}'.
@@ -4612,20 +4650,20 @@ public interface BasePackage extends EPackage
 		EReference DAGGREGATE__TYPES = eINSTANCE.getDAggregate_Types();
 
 		/**
-		 * The meta object literal for the '<em><b>Root</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Roots</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DAGGREGATE__ROOT = eINSTANCE.getDAggregate_Root();
+		EReference DAGGREGATE__ROOTS = eINSTANCE.getDAggregate_Roots();
 
 		/**
-		 * The meta object literal for the '<em><b>Root Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Derived Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DAGGREGATE__ROOT_NAME = eINSTANCE.getDAggregate_RootName();
+		EAttribute DAGGREGATE__DERIVED_NAME = eINSTANCE.getDAggregate_DerivedName();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DTypeImpl <em>DType</em>}' class.
@@ -4780,6 +4818,14 @@ public interface BasePackage extends EPackage
 		EClass DIDENTITY_TYPE = eINSTANCE.getDIdentityType();
 
 		/**
+		 * The meta object literal for the '<em><b>Root</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIDENTITY_TYPE__ROOT = eINSTANCE.getDIdentityType_Root();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DDetailTypeImpl <em>DDetail Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4790,14 +4836,14 @@ public interface BasePackage extends EPackage
 		EClass DDETAIL_TYPE = eINSTANCE.getDDetailType();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DRootTypeImpl <em>DRoot Type</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DEntityTypeImpl <em>DEntity Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.impl.DRootTypeImpl
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDRootType()
+		 * @see com.mimacom.ddd.dm.base.impl.DEntityTypeImpl
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDEntityType()
 		 * @generated
 		 */
-		EClass DROOT_TYPE = eINSTANCE.getDRootType();
+		EClass DENTITY_TYPE = eINSTANCE.getDEntityType();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DRelationshipImpl <em>DRelationship</em>}' class.

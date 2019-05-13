@@ -14,7 +14,7 @@ import com.mimacom.ddd.dm.base.DIdentityType
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DQueryParameter
 import com.mimacom.ddd.dm.base.DRelationship
-import com.mimacom.ddd.dm.base.DRootType
+import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DTypedMember
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
@@ -39,7 +39,7 @@ class DimScopeProvider extends AbstractDimScopeProvider {
 			 val IScope scope = switch context {	
 			 	DAttribute: if (context.detail == true) getDefaultScopeForType(context, epackage.DDetailType) else getDefaultScopeForType(context,  epackage.IValueType)
 				DQuery: getLocalRootTypeScope(context, getDefaultScopeForType(context, epackage.IValueType))
-				DAssociation: getDefaultScopeForType(context, epackage.DRootType)
+				DAssociation: getDefaultScopeForType(context, epackage.DEntityType)
 				DQueryParameter: getLocalRootTypeScope(context, getDefaultScopeForType(context,  epackage.IValueType))
 				default:  getDefaultScopeForType(context, epackage.IValueType)
 			}
@@ -48,7 +48,7 @@ class DimScopeProvider extends AbstractDimScopeProvider {
 		} else if (reference == epackage.DComplexType_SuperType) {
 			
 			return switch context {
-				DRootType:  getIdentityTypeScope(context, DRootType)
+				DEntityType:  getIdentityTypeScope(context, DEntityType)
 				DRelationship: getIdentityTypeScope(context, DRelationship)
 				DDetailType: getDefaultScopeForType(context, epackage.DDetailType)
 				default:  IScope.NULLSCOPE
@@ -59,8 +59,8 @@ class DimScopeProvider extends AbstractDimScopeProvider {
 		
 	def IScope getLocalRootTypeScope(DTypedMember context, IScope outerScope) {
 		val aggregate = EcoreUtil2.getContainerOfType(context, DAggregate)
-		if (aggregate?.root !== null) {
-			return Scopes.scopeFor(Lists.newArrayList(aggregate.root), outerScope)	
+		if (! aggregate.roots.empty) {
+			return Scopes.scopeFor(aggregate.roots, outerScope)	
 		}
 		return outerScope
 	}
@@ -70,10 +70,8 @@ class DimScopeProvider extends AbstractDimScopeProvider {
 		if (domain !==  null) {
 			val list = Lists.newArrayList
 			for (a:domain.aggregates) {
-				val root = a.root
-				if (root !== null && root !== context && type.isAssignableFrom(root.class) ) {
-					list.add(root)
-				}
+				val roots = a.roots.filter[it !== context && type.isAssignableFrom(it.class)]
+				list.addAll(roots)
 			}
 			return Scopes.scopeFor(list)
 		}

@@ -269,17 +269,17 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDPrimitiveParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cDPrimitiveArchetypeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cDEnumerationParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cDRootTypeParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cDEntityTypeParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cDRelationshipParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cDDetailTypeParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		///*
 		// * TYPES
 		// */ DType:
-		//	DPrimitive | DPrimitiveArchetype | DEnumeration | DRootType | DRelationship | DDetailType;
+		//	DPrimitive | DPrimitiveArchetype | DEnumeration | DEntityType | DRelationship | DDetailType;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//DPrimitive | DPrimitiveArchetype | DEnumeration | DRootType | DRelationship | DDetailType
+		//DPrimitive | DPrimitiveArchetype | DEnumeration | DEntityType | DRelationship | DDetailType
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//DPrimitive
@@ -291,8 +291,8 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		//DEnumeration
 		public RuleCall getDEnumerationParserRuleCall_2() { return cDEnumerationParserRuleCall_2; }
 		
-		//DRootType
-		public RuleCall getDRootTypeParserRuleCall_3() { return cDRootTypeParserRuleCall_3; }
+		//DEntityType
+		public RuleCall getDEntityTypeParserRuleCall_3() { return cDEntityTypeParserRuleCall_3; }
 		
 		//DRelationship
 		public RuleCall getDRelationshipParserRuleCall_4() { return cDRelationshipParserRuleCall_4; }
@@ -657,21 +657,24 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		//DRichText
 		public RuleCall getDescriptionDRichTextParserRuleCall_2_0() { return cDescriptionDRichTextParserRuleCall_2_0; }
 	}
-	public class DRootTypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DRootType");
+	public class DEntityTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DEntityType");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cAbstractAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Keyword cAbstractAbstractKeyword_0_0 = (Keyword)cAbstractAssignment_0.eContents().get(0);
-		private final Keyword cRootKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final RuleCall cDComplexTypeParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cRootAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cRootRootKeyword_1_0 = (Keyword)cRootAssignment_1.eContents().get(0);
+		private final Keyword cEntityKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final RuleCall cDComplexTypeParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		
-		//DRootType:
+		//DEntityType:
 		//	abstract?='abstract'?
-		//	'root'
+		//	root?='root'?
+		//	'entity'
 		//	DComplexType;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//abstract?='abstract'? 'root' DComplexType
+		//abstract?='abstract'? root?='root'? 'entity' DComplexType
 		public Group getGroup() { return cGroup; }
 		
 		//abstract?='abstract'?
@@ -680,27 +683,36 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		//'abstract'
 		public Keyword getAbstractAbstractKeyword_0_0() { return cAbstractAbstractKeyword_0_0; }
 		
+		//root?='root'?
+		public Assignment getRootAssignment_1() { return cRootAssignment_1; }
+		
 		//'root'
-		public Keyword getRootKeyword_1() { return cRootKeyword_1; }
+		public Keyword getRootRootKeyword_1_0() { return cRootRootKeyword_1_0; }
+		
+		//'entity'
+		public Keyword getEntityKeyword_2() { return cEntityKeyword_2; }
 		
 		//DComplexType
-		public RuleCall getDComplexTypeParserRuleCall_2() { return cDComplexTypeParserRuleCall_2; }
+		public RuleCall getDComplexTypeParserRuleCall_3() { return cDComplexTypeParserRuleCall_3; }
 	}
 	public class DRelationshipElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DRelationship");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cAbstractAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Keyword cAbstractAbstractKeyword_0_0 = (Keyword)cAbstractAssignment_0.eContents().get(0);
-		private final Keyword cRelationshipKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final RuleCall cDComplexTypeParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cRootAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cRootRootKeyword_1_0 = (Keyword)cRootAssignment_1.eContents().get(0);
+		private final Keyword cRelationshipKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final RuleCall cDComplexTypeParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		
 		//DRelationship:
 		//	abstract?='abstract'?
+		//	root?='root'?
 		//	'relationship'
 		//	DComplexType;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//abstract?='abstract'? 'relationship' DComplexType
+		//abstract?='abstract'? root?='root'? 'relationship' DComplexType
 		public Group getGroup() { return cGroup; }
 		
 		//abstract?='abstract'?
@@ -709,11 +721,17 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		//'abstract'
 		public Keyword getAbstractAbstractKeyword_0_0() { return cAbstractAbstractKeyword_0_0; }
 		
+		//root?='root'?
+		public Assignment getRootAssignment_1() { return cRootAssignment_1; }
+		
+		//'root'
+		public Keyword getRootRootKeyword_1_0() { return cRootRootKeyword_1_0; }
+		
 		//'relationship'
-		public Keyword getRelationshipKeyword_1() { return cRelationshipKeyword_1; }
+		public Keyword getRelationshipKeyword_2() { return cRelationshipKeyword_2; }
 		
 		//DComplexType
-		public RuleCall getDComplexTypeParserRuleCall_2() { return cDComplexTypeParserRuleCall_2; }
+		public RuleCall getDComplexTypeParserRuleCall_3() { return cDComplexTypeParserRuleCall_3; }
 	}
 	public class DDetailTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DDetailType");
@@ -882,8 +900,8 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAliasesIDTerminalRuleCall_3_1_0 = (RuleCall)cAliasesAssignment_3_1.eContents().get(0);
 		private final Keyword cColonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cTypeAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final CrossReference cTypeDRootTypeCrossReference_5_0 = (CrossReference)cTypeAssignment_5.eContents().get(0);
-		private final RuleCall cTypeDRootTypeIDTerminalRuleCall_5_0_1 = (RuleCall)cTypeDRootTypeCrossReference_5_0.eContents().get(1);
+		private final CrossReference cTypeDEntityTypeCrossReference_5_0 = (CrossReference)cTypeAssignment_5.eContents().get(0);
+		private final RuleCall cTypeDEntityTypeIDTerminalRuleCall_5_0_1 = (RuleCall)cTypeDEntityTypeCrossReference_5_0.eContents().get(1);
 		private final Assignment cMultiplicityAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cMultiplicityDMultiplicityParserRuleCall_6_0 = (RuleCall)cMultiplicityAssignment_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_7 = (Assignment)cGroup.eContents().get(7);
@@ -892,12 +910,12 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		//DAssociation:
 		//	derived?='derived'? (kind=DAssociationKind | kind=DAssociationKindInverse "composite") name=ID ('alias' aliases+=ID)*
 		//	':'
-		//	type=[DRootType] multiplicity=DMultiplicity?
+		//	type=[DEntityType] multiplicity=DMultiplicity?
 		//	description=DRichText?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//derived?='derived'? (kind=DAssociationKind | kind=DAssociationKindInverse "composite") name=ID ('alias' aliases+=ID)*
-		//':' type=[DRootType] multiplicity=DMultiplicity? description=DRichText?
+		//':' type=[DEntityType] multiplicity=DMultiplicity? description=DRichText?
 		public Group getGroup() { return cGroup; }
 		
 		//derived?='derived'?
@@ -948,14 +966,14 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		//':'
 		public Keyword getColonKeyword_4() { return cColonKeyword_4; }
 		
-		//type=[DRootType]
+		//type=[DEntityType]
 		public Assignment getTypeAssignment_5() { return cTypeAssignment_5; }
 		
-		//[DRootType]
-		public CrossReference getTypeDRootTypeCrossReference_5_0() { return cTypeDRootTypeCrossReference_5_0; }
+		//[DEntityType]
+		public CrossReference getTypeDEntityTypeCrossReference_5_0() { return cTypeDEntityTypeCrossReference_5_0; }
 		
 		//ID
-		public RuleCall getTypeDRootTypeIDTerminalRuleCall_5_0_1() { return cTypeDRootTypeIDTerminalRuleCall_5_0_1; }
+		public RuleCall getTypeDEntityTypeIDTerminalRuleCall_5_0_1() { return cTypeDEntityTypeIDTerminalRuleCall_5_0_1; }
 		
 		//multiplicity=DMultiplicity?
 		public Assignment getMultiplicityAssignment_6() { return cMultiplicityAssignment_6; }
@@ -1691,7 +1709,7 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	private final DPrimitiveArchetypeElements pDPrimitiveArchetype;
 	private final DEnumerationElements pDEnumeration;
 	private final DLiteralElements pDLiteral;
-	private final DRootTypeElements pDRootType;
+	private final DEntityTypeElements pDEntityType;
 	private final DRelationshipElements pDRelationship;
 	private final DDetailTypeElements pDDetailType;
 	private final DComplexTypeElements pDComplexType;
@@ -1728,7 +1746,7 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDPrimitiveArchetype = new DPrimitiveArchetypeElements();
 		this.pDEnumeration = new DEnumerationElements();
 		this.pDLiteral = new DLiteralElements();
-		this.pDRootType = new DRootTypeElements();
+		this.pDEntityType = new DEntityTypeElements();
 		this.pDRelationship = new DRelationshipElements();
 		this.pDDetailType = new DDetailTypeElements();
 		this.pDComplexType = new DComplexTypeElements();
@@ -1831,7 +1849,7 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	///*
 	// * TYPES
 	// */ DType:
-	//	DPrimitive | DPrimitiveArchetype | DEnumeration | DRootType | DRelationship | DDetailType;
+	//	DPrimitive | DPrimitiveArchetype | DEnumeration | DEntityType | DRelationship | DDetailType;
 	public DTypeElements getDTypeAccess() {
 		return pDType;
 	}
@@ -1910,20 +1928,22 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		return getDLiteralAccess().getRule();
 	}
 	
-	//DRootType:
+	//DEntityType:
 	//	abstract?='abstract'?
-	//	'root'
+	//	root?='root'?
+	//	'entity'
 	//	DComplexType;
-	public DRootTypeElements getDRootTypeAccess() {
-		return pDRootType;
+	public DEntityTypeElements getDEntityTypeAccess() {
+		return pDEntityType;
 	}
 	
-	public ParserRule getDRootTypeRule() {
-		return getDRootTypeAccess().getRule();
+	public ParserRule getDEntityTypeRule() {
+		return getDEntityTypeAccess().getRule();
 	}
 	
 	//DRelationship:
 	//	abstract?='abstract'?
+	//	root?='root'?
 	//	'relationship'
 	//	DComplexType;
 	public DRelationshipElements getDRelationshipAccess() {
@@ -1972,7 +1992,7 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	//DAssociation:
 	//	derived?='derived'? (kind=DAssociationKind | kind=DAssociationKindInverse "composite") name=ID ('alias' aliases+=ID)*
 	//	':'
-	//	type=[DRootType] multiplicity=DMultiplicity?
+	//	type=[DEntityType] multiplicity=DMultiplicity?
 	//	description=DRichText?;
 	public DAssociationElements getDAssociationAccess() {
 		return pDAssociation;

@@ -6,6 +6,7 @@ import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DComplexType;
+import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DLiteral;
@@ -13,7 +14,6 @@ import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
-import com.mimacom.ddd.dm.base.DRootType;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.sm.sim.SAggregate;
 import com.mimacom.ddd.sm.sim.SComplexType;
@@ -143,8 +143,8 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
     SDeductionRule _deductionRule = sAggregate.getDeductionRule();
     if ((_deductionRule instanceof SGrabAggregateRule)) {
       EObject source = sAggregate.getDeductionRule().getSource();
-      if ((source instanceof DRootType)) {
-        source = ((DRootType)source).eContainer();
+      if ((source instanceof DEntityType)) {
+        source = ((DEntityType)source).eContainer();
       }
       if ((source instanceof DAggregate)) {
         current = this._simSyntheticModelElementsUtil.addSyntheticAggregate(model, ((DAggregate)source), sAggregate, context);

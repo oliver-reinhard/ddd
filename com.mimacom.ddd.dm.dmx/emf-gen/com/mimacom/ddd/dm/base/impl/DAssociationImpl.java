@@ -6,7 +6,7 @@ import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAssociationKind;
 import com.mimacom.ddd.dm.base.DComplexType;
-import com.mimacom.ddd.dm.base.DRootType;
+import com.mimacom.ddd.dm.base.DEntityType;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -165,7 +165,7 @@ public class DAssociationImpl extends DFeatureImpl implements DAssociation
 	 * @generated
 	 */
 	@Override
-	public DRootType getTargetType()
+	public DEntityType getTargetType()
 	{
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT

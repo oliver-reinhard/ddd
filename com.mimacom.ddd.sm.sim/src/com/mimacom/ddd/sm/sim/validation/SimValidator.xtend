@@ -7,8 +7,8 @@ import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DDetailType
+import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DQuery
-import com.mimacom.ddd.dm.base.DRootType
 import com.mimacom.ddd.sm.sim.SAggregate
 import com.mimacom.ddd.sm.sim.SAssociation
 import com.mimacom.ddd.sm.sim.SAttribute
@@ -17,6 +17,7 @@ import com.mimacom.ddd.sm.sim.SCondition
 import com.mimacom.ddd.sm.sim.SDeducibleElement
 import com.mimacom.ddd.sm.sim.SDetailType
 import com.mimacom.ddd.sm.sim.SDitchRule
+import com.mimacom.ddd.sm.sim.SEntityType
 import com.mimacom.ddd.sm.sim.SEnumeration
 import com.mimacom.ddd.sm.sim.SFeature
 import com.mimacom.ddd.sm.sim.SGrabRule
@@ -26,7 +27,6 @@ import com.mimacom.ddd.sm.sim.SMultiplicity
 import com.mimacom.ddd.sm.sim.SNamedElement
 import com.mimacom.ddd.sm.sim.SQuery
 import com.mimacom.ddd.sm.sim.SQueryParameter
-import com.mimacom.ddd.sm.sim.SRootType
 import com.mimacom.ddd.sm.sim.SSyntheticDeductionRule
 import com.mimacom.ddd.sm.sim.SType
 import com.mimacom.ddd.sm.sim.SValueType
@@ -52,7 +52,7 @@ class SimValidator extends AbstractSimValidator {
 
 	@Check
 	def checkAggregateHasSingleRoot(SAggregate a) {
-		val roots = a.types.filter(SRootType).filter[nature != DEDUCTION_RULE]
+		val roots = a.types.filter(SEntityType).filter[nature != DEDUCTION_RULE]
 		if(roots.size > 1) {
 			for (t : roots) {
 				error('Aggregate can only declare a single root or relationship', t, SimPackage.Literals.SNAMED_ELEMENT__NAME)
@@ -93,12 +93,19 @@ class SimValidator extends AbstractSimValidator {
 	}
 
 	@Check
-	def checkCorrespondingDRootType(SRootType t) {
+	def checkCorrespondingDEntityType(SEntityType t) {
 		if(t.nature == DEDUCTION_RULE) {
-			if(t.deductionRule.source !== null && ! (t.deductionRule.source instanceof DRootType)) {
-				error("Deduced RootType rule must have a domain-model RootType as its source", t.deductionRule,
-					SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
-			}
+			val source = t.deductionRule.source
+			if (source instanceof DEntityType) {
+				// TODO Check whether constaint should be less restrictive to allow mapping from root to non-root types between DIM and SIM
+				if (source.root !== t.root) {
+					error("Deduced entity rule must match domain-model root root property", t.deductionRule,
+						SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+				}
+			} else if (source !== null) {
+			error("Deduced entity rule must have a domain-model entity as its source", t.deductionRule,
+				SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+			}	
 		}
 	}
 
@@ -200,7 +207,7 @@ class SimValidator extends AbstractSimValidator {
 
 	@Check
 	def checkAssocitionToRootType(SAssociation a) {
-		if(a.nature == GENUINE && ! (a.type instanceof SRootType)) {
+		if (a.nature == GENUINE && (! (a.type instanceof SEntityType && (a.type as SEntityType).root)))  {
 			error('Referenced type is not a RootType', a, SimPackage.Literals.SFEATURE__TYPE)
 		} else if(a.nature == SYNTHETIC) {
 			if(a.type === null) {

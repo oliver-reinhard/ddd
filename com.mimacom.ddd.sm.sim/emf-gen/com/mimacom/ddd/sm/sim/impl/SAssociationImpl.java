@@ -5,7 +5,7 @@ package com.mimacom.ddd.sm.sim.impl;
 
 import com.mimacom.ddd.sm.sim.SAssociation;
 import com.mimacom.ddd.sm.sim.SAssociationKind;
-import com.mimacom.ddd.sm.sim.SRootType;
+import com.mimacom.ddd.sm.sim.SEntityType;
 import com.mimacom.ddd.sm.sim.SimPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -147,7 +147,7 @@ public class SAssociationImpl extends SFeatureImpl implements SAssociation
 	 * @generated
 	 */
 	@Override
-	public SRootType getTargetType()
+	public SEntityType getTargetType()
 	{
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT

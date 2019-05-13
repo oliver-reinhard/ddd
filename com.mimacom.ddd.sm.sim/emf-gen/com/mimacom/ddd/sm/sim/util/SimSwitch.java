@@ -217,16 +217,16 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SROOT_TYPE:
+			case SimPackage.SENTITY_TYPE:
 			{
-				SRootType sRootType = (SRootType)theEObject;
-				T result = caseSRootType(sRootType);
-				if (result == null) result = caseSComplexType(sRootType);
-				if (result == null) result = caseSIdentityType(sRootType);
-				if (result == null) result = caseSType(sRootType);
-				if (result == null) result = caseSNamedDeducibleElement(sRootType);
-				if (result == null) result = caseSNamedElement(sRootType);
-				if (result == null) result = caseSDeducibleElement(sRootType);
+				SEntityType sEntityType = (SEntityType)theEObject;
+				T result = caseSEntityType(sEntityType);
+				if (result == null) result = caseSComplexType(sEntityType);
+				if (result == null) result = caseSIdentityType(sEntityType);
+				if (result == null) result = caseSType(sEntityType);
+				if (result == null) result = caseSNamedDeducibleElement(sEntityType);
+				if (result == null) result = caseSNamedElement(sEntityType);
+				if (result == null) result = caseSDeducibleElement(sEntityType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -636,17 +636,17 @@ public class SimSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SRoot Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SEntity Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SRoot Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SEntity Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSRootType(SRootType object)
+	public T caseSEntityType(SEntityType object)
 	{
 		return null;
 	}

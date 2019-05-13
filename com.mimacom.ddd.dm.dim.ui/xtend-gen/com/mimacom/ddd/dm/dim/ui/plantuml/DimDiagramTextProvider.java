@@ -8,13 +8,13 @@ import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DDomain;
+import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DRelationship;
-import com.mimacom.ddd.dm.base.DRootType;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dim.ui.internal.DimActivator;
 import java.util.Arrays;
@@ -81,7 +81,7 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     final List<DAggregate> allAggregates = EcoreUtil2.<DAggregate>eAllOfType(domain, DAggregate.class);
     final Function1<DAssociation, Boolean> _function = (DAssociation it) -> {
       DType _type = it.getType();
-      return Boolean.valueOf((_type instanceof DRootType));
+      return Boolean.valueOf((_type instanceof DEntityType));
     };
     final Iterable<DAssociation> allAssociations = IterableExtensions.<DAssociation>filter(EcoreUtil2.<DAssociation>eAllOfType(domain, DAssociation.class), _function);
     final Function1<DAssociation, Boolean> _function_1 = (DAssociation it) -> {
@@ -153,33 +153,43 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
         }
       }
     }
-    _builder.append("\t            ");
+    _builder.append("            ");
     {
       for(final DAssociation a_1 : allAssociations) {
         CharSequence _generateAssociation = this.generateAssociation(a_1);
-        _builder.append(_generateAssociation, "\t            ");
+        _builder.append(_generateAssociation, "            ");
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("\t            ");
+    _builder.append("            ");
     {
       for(final DAttribute a_2 : allDetailAttributes) {
         CharSequence _generateLink = this.generateLink(a_2);
-        _builder.append(_generateLink, "\t            ");
+        _builder.append(_generateLink, "            ");
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("\t            ");
+    _builder.append("            ");
     {
       for(final DComplexType s : allSubtypes) {
         String _aggregateName_1 = this.aggregateName(s);
-        _builder.append(_aggregateName_1, "\t            ");
+        _builder.append(_aggregateName_1, "            ");
         _builder.append(".");
         String _name = s.getName();
-        _builder.append(_name, "\t            ");
+        _builder.append(_name, "            ");
         _builder.append(" --|> ");
         String _aggregateName_2 = this.aggregateName(s.getSuperType());
-        _builder.append(_aggregateName_2, "\t            ");
+        _builder.append(_aggregateName_2, "            ");
+        {
+          String _aggregateName_3 = this.aggregateName(s);
+          String _aggregateName_4 = this.aggregateName(s.getSuperType());
+          boolean _tripleEquals = (_aggregateName_3 == _aggregateName_4);
+          if (_tripleEquals) {
+            _builder.append(".");
+            String _name_1 = s.getSuperType().getName();
+            _builder.append(_name_1, "            ");
+          }
+        }
         _builder.newLineIfNotEmpty();
       }
     }
@@ -202,7 +212,7 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     final DAggregate a = EcoreUtil2.<DAggregate>getContainerOfType(obj, DAggregate.class);
     String _xifexpression = null;
     if ((a != null)) {
-      _xifexpression = a.getRootName();
+      _xifexpression = a.getDerivedName();
     } else {
       _xifexpression = "undefined";
     }
@@ -259,7 +269,10 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     _builder.append("enum ");
     String _name = e.getName();
     _builder.append(_name);
-    _builder.append(" << (E,green) >> {");
+    _builder.append(" ");
+    String _spot = this.getSpot(e);
+    _builder.append(_spot);
+    _builder.append(" {");
     _builder.newLineIfNotEmpty();
     {
       EList<DLiteral> _literals = e.getLiterals();
@@ -283,26 +296,39 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
   public String getSpot(final DType t) {
     String _switchResult = null;
     boolean _matched = false;
-    if (t instanceof DRootType) {
+    if (t instanceof DEntityType) {
       _matched=true;
-      _switchResult = "<< (R,crimson) >>";
+      String _xifexpression = null;
+      boolean _isRoot = ((DEntityType)t).isRoot();
+      if (_isRoot) {
+        _xifexpression = "<< (R,#FB3333) >>";
+      } else {
+        _xifexpression = "<< (E,#F78100) >>";
+      }
+      _switchResult = _xifexpression;
     }
     if (!_matched) {
       if (t instanceof DDetailType) {
         _matched=true;
-        _switchResult = "<< (D,grey) >>";
+        _switchResult = "<< (D,#FAE55F) >>";
       }
     }
     if (!_matched) {
       if (t instanceof DRelationship) {
         _matched=true;
-        _switchResult = "<< (R,navy) >>";
+        _switchResult = "<< (R,#FA78C8) >>";
+      }
+    }
+    if (!_matched) {
+      if (t instanceof DEnumeration) {
+        _matched=true;
+        _switchResult = "<< (e,#66B371) >>";
       }
     }
     if (!_matched) {
       if (t instanceof DPrimitive) {
         _matched=true;
-        _switchResult = "<< (P,teal) >>";
+        _switchResult = "<< (p,#9AF78F) >>";
       }
     }
     if (!_matched) {

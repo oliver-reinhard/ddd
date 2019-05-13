@@ -78,7 +78,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 			case SimPackage.SPRIMITIVE: return createSPrimitive();
 			case SimPackage.SENUMERATION: return createSEnumeration();
 			case SimPackage.SLITERAL: return createSLiteral();
-			case SimPackage.SROOT_TYPE: return createSRootType();
+			case SimPackage.SENTITY_TYPE: return createSEntityType();
 			case SimPackage.SDETAIL_TYPE: return createSDetailType();
 			case SimPackage.SFEATURE: return createSFeature();
 			case SimPackage.SASSOCIATION: return createSAssociation();
@@ -291,10 +291,10 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	@Override
-	public SRootType createSRootType()
+	public SEntityType createSEntityType()
 	{
-		SRootTypeImpl sRootType = new SRootTypeImpl();
-		return sRootType;
+		SEntityTypeImpl sEntityType = new SEntityTypeImpl();
+		return sEntityType;
 	}
 
 	/**
