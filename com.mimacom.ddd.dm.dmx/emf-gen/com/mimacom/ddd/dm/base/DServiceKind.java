@@ -42,10 +42,6 @@ public enum DServiceKind implements Enumerator
 	/**
 	 * The '<em><b>SYNCHRONOUS</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>SYNCHRONOUS</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #SYNCHRONOUS
 	 * @model
@@ -57,10 +53,6 @@ public enum DServiceKind implements Enumerator
 	/**
 	 * The '<em><b>ASYNCHRONOUS</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>ASYNCHRONOUS</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #ASYNCHRONOUS
 	 * @model

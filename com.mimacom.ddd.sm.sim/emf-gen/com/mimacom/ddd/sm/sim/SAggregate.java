@@ -29,10 +29,6 @@ public interface SAggregate extends SDeducibleElement
 	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.sm.sim.SType}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Types</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Types</em>' containment reference list.
 	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSAggregate_Types()
@@ -45,10 +41,6 @@ public interface SAggregate extends SDeducibleElement
 	 * Returns the value of the '<em><b>Roots</b></em>' reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.sm.sim.SEntityType}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Roots</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Roots</em>' reference list.
 	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSAggregate_Roots()
@@ -60,10 +52,6 @@ public interface SAggregate extends SDeducibleElement
 	/**
 	 * Returns the value of the '<em><b>Derived Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Derived Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Derived Name</em>' attribute.
 	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSAggregate_DerivedName()

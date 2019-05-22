@@ -16,12 +16,13 @@ Require-Bundle: com.mimacom.ddd.dm.dmx,
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.apache.log4j
-Export-Package: com.mimacom.ddd.dm.dim.scoping,
- com.mimacom.ddd.dm.dim,
- com.mimacom.ddd.dm.dim.parser.antlr,
+Export-Package: com.mimacom.ddd.dm.dim,
  com.mimacom.ddd.dm.dim.formatting2,
- com.mimacom.ddd.dm.dim.serializer,
- com.mimacom.ddd.dm.dim.parser.antlr.internal,
  com.mimacom.ddd.dm.dim.generator,
+ com.mimacom.ddd.dm.dim.parser.antlr,
+ com.mimacom.ddd.dm.dim.parser.antlr.internal,
+ com.mimacom.ddd.dm.dim.scoping,
+ com.mimacom.ddd.dm.dim.serializer,
  com.mimacom.ddd.dm.dim.services,
- com.mimacom.ddd.dm.dim.validation
+ com.mimacom.ddd.dm.dim.validation,
+ com.mimacom.ddd.dm.dms

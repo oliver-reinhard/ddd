@@ -35,6 +35,7 @@ import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.validation.Check
 
 import static com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider.*
+import com.mimacom.ddd.dm.base.DPrimitive
 
 /**
  * This class contains custom validation rules. 
@@ -120,6 +121,13 @@ class DimValidator extends AbstractDimValidator {
 		}
 		if(count < 2) {
 			error('A relationship must declare at least 2 associations', r, BasePackage.Literals.DNAMED_ELEMENT__NAME)
+		}
+	}
+
+	@Check
+	def checkPrimitiveDoesNotRedefineItself(DPrimitive p) {
+		if(p.redefines == p) {
+			error('Primitive cannot redefine itself', p, BasePackage.Literals.DPRIMITIVE__REDEFINES)
 		}
 	}
 

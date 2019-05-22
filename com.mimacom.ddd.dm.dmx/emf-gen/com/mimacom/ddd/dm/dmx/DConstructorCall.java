@@ -30,10 +30,6 @@ public interface DConstructorCall extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Constructor</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Constructor</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Constructor</em>' reference.
 	 * @see #setConstructor(DIdentityType)
@@ -56,10 +52,6 @@ public interface DConstructorCall extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Explicit Constructor Call</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Explicit Constructor Call</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Explicit Constructor Call</em>' attribute.
 	 * @see #setExplicitConstructorCall(boolean)
@@ -83,10 +75,6 @@ public interface DConstructorCall extends DExpression
 	 * Returns the value of the '<em><b>Arguments</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DExpression}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Arguments</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Arguments</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDConstructorCall_Arguments()

@@ -26,6 +26,7 @@ import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNotification;
+import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DRelationship;
 import com.mimacom.ddd.dm.base.DServiceParameter;
@@ -158,6 +159,15 @@ public class DimValidator extends AbstractDimValidator {
     }
     if ((count < 2)) {
       this.error("A relationship must declare at least 2 associations", r, BasePackage.Literals.DNAMED_ELEMENT__NAME);
+    }
+  }
+  
+  @Check
+  public void checkPrimitiveDoesNotRedefineItself(final DPrimitive p) {
+    DPrimitive _redefines = p.getRedefines();
+    boolean _equals = Objects.equal(_redefines, p);
+    if (_equals) {
+      this.error("Primitive cannot redefine itself", p, BasePackage.Literals.DPRIMITIVE__REDEFINES);
     }
   }
   

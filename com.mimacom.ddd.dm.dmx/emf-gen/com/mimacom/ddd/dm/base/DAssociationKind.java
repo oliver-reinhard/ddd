@@ -52,10 +52,6 @@ public enum DAssociationKind implements Enumerator
 	/**
 	 * The '<em><b>REFERENCE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>REFERENCE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #REFERENCE
 	 * @model
@@ -67,10 +63,6 @@ public enum DAssociationKind implements Enumerator
 	/**
 	 * The '<em><b>COMPOSITE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>COMPOSITE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #COMPOSITE
 	 * @model
@@ -82,10 +74,6 @@ public enum DAssociationKind implements Enumerator
 	/**
 	 * The '<em><b>INVERSE COMPOSITE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>INVERSE COMPOSITE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #INVERSE_COMPOSITE
 	 * @model

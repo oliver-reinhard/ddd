@@ -24,7 +24,13 @@ Require-Bundle: com.mimacom.ddd.dm.dim,
  net.sourceforge.plantuml.text;bundle-version="1.1.21"
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: com.mimacom.ddd.dm.dim.ui.internal,
+Export-Package: com.mimacom.ddd.dm.dim.ui,
+ com.mimacom.ddd.dm.dim.ui.contentassist,
+ com.mimacom.ddd.dm.dim.ui.internal,
+ com.mimacom.ddd.dm.dim.ui.labeling,
+ com.mimacom.ddd.dm.dim.ui.outline,
+ com.mimacom.ddd.dm.dim.ui.plantuml,
  com.mimacom.ddd.dm.dim.ui.quickfix,
- com.mimacom.ddd.dm.dim.ui.contentassist
+ com.mimacom.ddd.dm.dim.validation,
+ com.mimacom.ddd.dm.dms.ui.plantuml
 Bundle-Activator: com.mimacom.ddd.dm.dim.ui.internal.DimActivator

@@ -34,10 +34,6 @@ public interface SInformationModel extends EObject
 	/**
 	 * Returns the value of the '<em><b>Generate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Generate</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Generate</em>' attribute.
 	 * @see #setGenerate(boolean)
@@ -61,10 +57,6 @@ public interface SInformationModel extends EObject
 	 * Returns the value of the '<em><b>Kind</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.mimacom.ddd.sm.sim.SInformationModelKind}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Kind</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Kind</em>' attribute.
 	 * @see com.mimacom.ddd.sm.sim.SInformationModelKind
@@ -89,10 +81,6 @@ public interface SInformationModel extends EObject
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -116,10 +104,6 @@ public interface SInformationModel extends EObject
 	 * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.sm.sim.SImport}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Imports</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Imports</em>' containment reference list.
 	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSInformationModel_Imports()
@@ -132,10 +116,6 @@ public interface SInformationModel extends EObject
 	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.sm.sim.SType}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Types</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Types</em>' containment reference list.
 	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSInformationModel_Types()
@@ -148,10 +128,6 @@ public interface SInformationModel extends EObject
 	 * Returns the value of the '<em><b>Aggregates</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.sm.sim.SAggregate}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Aggregates</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Aggregates</em>' containment reference list.
 	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSInformationModel_Aggregates()
@@ -164,10 +140,6 @@ public interface SInformationModel extends EObject
 	 * Returns the value of the '<em><b>Domain Proxies</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.sm.sim.SDomainProxy}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Domain Proxies</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Domain Proxies</em>' containment reference list.
 	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSInformationModel_DomainProxies()

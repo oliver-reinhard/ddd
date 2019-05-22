@@ -27,10 +27,6 @@ public interface DForLoopExpression extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Declared Param</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Declared Param</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Declared Param</em>' attribute.
 	 * @see #setDeclaredParam(String)
@@ -53,10 +49,6 @@ public interface DForLoopExpression extends DExpression
 	/**
 	 * Returns the value of the '<em><b>For Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>For Expression</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>For Expression</em>' containment reference.
 	 * @see #setForExpression(DExpression)
@@ -79,10 +71,6 @@ public interface DForLoopExpression extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Each Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Each Expression</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Each Expression</em>' containment reference.
 	 * @see #setEachExpression(DExpression)

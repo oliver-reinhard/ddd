@@ -42,10 +42,6 @@ public enum DDirection implements Enumerator
 	/**
 	 * The '<em><b>INBOUND</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>INBOUND</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #INBOUND
 	 * @model
@@ -57,10 +53,6 @@ public enum DDirection implements Enumerator
 	/**
 	 * The '<em><b>OUTBOUND</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>OUTBOUND</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #OUTBOUND
 	 * @model

@@ -32,10 +32,6 @@ public interface DTypedMemberReference extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Member Container Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Member Container Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Member Container Reference</em>' containment reference.
 	 * @see #setMemberContainerReference(DExpression)
@@ -58,10 +54,6 @@ public interface DTypedMemberReference extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Member</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Member</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Member</em>' reference.
 	 * @see #setMember(DTypedMember)
@@ -84,10 +76,6 @@ public interface DTypedMemberReference extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Explicit Operation Call</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Explicit Operation Call</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Explicit Operation Call</em>' attribute.
 	 * @see #setExplicitOperationCall(boolean)
@@ -111,10 +99,6 @@ public interface DTypedMemberReference extends DExpression
 	 * Returns the value of the '<em><b>Member Call Arguments</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DExpression}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Member Call Arguments</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Member Call Arguments</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDTypedMemberReference_MemberCallArguments()
@@ -126,10 +110,6 @@ public interface DTypedMemberReference extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Before</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Before</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Before</em>' attribute.
 	 * @see #setBefore(boolean)

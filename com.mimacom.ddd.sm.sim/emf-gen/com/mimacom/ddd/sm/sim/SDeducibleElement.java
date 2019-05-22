@@ -28,10 +28,6 @@ public interface SDeducibleElement extends EObject
 	/**
 	 * Returns the value of the '<em><b>Deduction Rule</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Deduction Rule</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Deduction Rule</em>' containment reference.
 	 * @see #setDeductionRule(SDeductionRule)
@@ -55,10 +51,6 @@ public interface SDeducibleElement extends EObject
 	 * Returns the value of the '<em><b>Nature</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.mimacom.ddd.sm.sim.SElementNature}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Nature</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Nature</em>' attribute.
 	 * @see com.mimacom.ddd.sm.sim.SElementNature
@@ -83,10 +75,6 @@ public interface SDeducibleElement extends EObject
 	/**
 	 * Returns the value of the '<em><b>Synthetic</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Synthetic</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Synthetic</em>' attribute.
 	 * @see #setSynthetic(boolean)

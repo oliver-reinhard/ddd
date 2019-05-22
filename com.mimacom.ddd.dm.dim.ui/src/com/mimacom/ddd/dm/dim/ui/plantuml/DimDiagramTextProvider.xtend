@@ -56,7 +56,9 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	def domainTypes(DDomain domain) {
         val allAggregates = EcoreUtil2.eAllOfType(domain, DAggregate)
         val allAssociations = EcoreUtil2.eAllOfType(domain, DAssociation).filter[type instanceof DEntityType]
-        val allReferencedDomains = allAssociations.filter[targetType.domainName != domain.name].map[targetType.domainName]
+        val allReferencedAggregatesInsideDomain = allAssociations.filter[targetType.domainName == domain.name && targetType.eContainer instanceof DAggregate].map[targetType.eContainer]
+        val allReferencedEntitiesInsideDomain = allAssociations.filter[targetType.domainName == domain.name].map[targetType]
+        val allReferencedOtherDomains = allAssociations.filter[targetType.domainName != domain.name].map[targetType.domainName]
         val allDetailAttributes = EcoreUtil2.eAllOfType(domain, DAttribute).filter[type instanceof DDetailType]
         val allSubtypes = EcoreUtil2.eAllOfType(domain, DComplexType).filter[superType !== null]
         
@@ -70,9 +72,13 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
            	«FOR a:allAggregates»package «a.aggregateName» <<Rectangle>> {
 	    				«FOR t:a.types»«t.generateType»«ENDFOR»
            		}
-	           	«FOR d:allReferencedDomains»package «d» <<Frame>> { 
+           		«FOR ra:allReferencedAggregatesInsideDomain»package «ra.aggregateName» <<Rectangle>> {
+           		}
+           		«ENDFOR»
+	           	«FOR re:allReferencedEntitiesInsideDomain»«re.generateType»«ENDFOR»
+	           	«FOR rd:allReferencedOtherDomains»package «rd» <<Frame>> { 
 	           	}
-	           	«ENDFOR»
+	        	«ENDFOR»
     		«ENDFOR»
             «FOR a:allAssociations»«a.generateAssociation»
             «ENDFOR»
@@ -117,7 +123,7 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	
 	def getSpot(DType t) {
 		// Returns the "Spot Letter" to use next to the class name.
-		switch t {
+		return switch t {
 		DEntityType : if (t.root) "<< (R,#FB3333) >>" else "<< (E,#F78100) >>"
 		DDetailType : "<< (D,#FAE55F) >>"
 		DRelationship:  "<< (R,#FA78C8) >>"

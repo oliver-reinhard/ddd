@@ -30,10 +30,6 @@ public interface DDomainEvent extends DNamedElement, ITypedMemberContainer, IPri
 	 * Returns the value of the '<em><b>Before</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DCondition}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Before</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Before</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomainEvent_Before()
@@ -46,10 +42,6 @@ public interface DDomainEvent extends DNamedElement, ITypedMemberContainer, IPri
 	 * Returns the value of the '<em><b>After</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DCondition}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>After</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>After</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomainEvent_After()
@@ -61,10 +53,6 @@ public interface DDomainEvent extends DNamedElement, ITypedMemberContainer, IPri
 	/**
 	 * Returns the value of the '<em><b>Trigger</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Trigger</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Trigger</em>' reference.
 	 * @see #setTrigger(DActor)
@@ -88,10 +76,6 @@ public interface DDomainEvent extends DNamedElement, ITypedMemberContainer, IPri
 	 * Returns the value of the '<em><b>Notifications</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DNotification}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Notifications</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Notifications</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomainEvent_Notifications()
@@ -104,10 +88,6 @@ public interface DDomainEvent extends DNamedElement, ITypedMemberContainer, IPri
 	 * Returns the value of the '<em><b>Context</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DContext}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Context</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Context</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomainEvent_Context()

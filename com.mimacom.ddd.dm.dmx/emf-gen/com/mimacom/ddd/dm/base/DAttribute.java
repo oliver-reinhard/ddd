@@ -25,10 +25,6 @@ public interface DAttribute extends DFeature
 	/**
 	 * Returns the value of the '<em><b>Detail</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Detail</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Detail</em>' attribute.
 	 * @see #setDetail(boolean)
@@ -51,10 +47,6 @@ public interface DAttribute extends DFeature
 	/**
 	 * Returns the value of the '<em><b>Key</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Key</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Key</em>' attribute.
 	 * @see #setKey(boolean)

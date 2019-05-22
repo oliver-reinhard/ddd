@@ -26,10 +26,6 @@ public interface DFunction extends DTypedMember
 	 * Returns the value of the '<em><b>Parameter Names</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parameter Names</em>' attribute list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameter Names</em>' attribute list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDFunction_ParameterNames()

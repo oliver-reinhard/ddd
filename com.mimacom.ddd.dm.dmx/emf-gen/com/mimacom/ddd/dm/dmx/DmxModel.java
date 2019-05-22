@@ -32,10 +32,6 @@ public interface DmxModel extends EObject
 	 * Returns the value of the '<em><b>Texts</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DRichText}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Texts</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Texts</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxModel_Texts()
@@ -48,10 +44,6 @@ public interface DmxModel extends EObject
 	 * Returns the value of the '<em><b>Expressions</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DExpression}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Expressions</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Expressions</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxModel_Expressions()

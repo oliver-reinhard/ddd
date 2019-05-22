@@ -85,24 +85,40 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     };
     final Iterable<DAssociation> allAssociations = IterableExtensions.<DAssociation>filter(EcoreUtil2.<DAssociation>eAllOfType(domain, DAssociation.class), _function);
     final Function1<DAssociation, Boolean> _function_1 = (DAssociation it) -> {
+      return Boolean.valueOf((Objects.equal(this.domainName(it.getTargetType()), domain.getName()) && (it.getTargetType().eContainer() instanceof DAggregate)));
+    };
+    final Function1<DAssociation, EObject> _function_2 = (DAssociation it) -> {
+      return it.getTargetType().eContainer();
+    };
+    final Iterable<EObject> allReferencedAggregatesInsideDomain = IterableExtensions.<DAssociation, EObject>map(IterableExtensions.<DAssociation>filter(allAssociations, _function_1), _function_2);
+    final Function1<DAssociation, Boolean> _function_3 = (DAssociation it) -> {
+      String _domainName = this.domainName(it.getTargetType());
+      String _name = domain.getName();
+      return Boolean.valueOf(Objects.equal(_domainName, _name));
+    };
+    final Function1<DAssociation, DEntityType> _function_4 = (DAssociation it) -> {
+      return it.getTargetType();
+    };
+    final Iterable<DEntityType> allReferencedEntitiesInsideDomain = IterableExtensions.<DAssociation, DEntityType>map(IterableExtensions.<DAssociation>filter(allAssociations, _function_3), _function_4);
+    final Function1<DAssociation, Boolean> _function_5 = (DAssociation it) -> {
       String _domainName = this.domainName(it.getTargetType());
       String _name = domain.getName();
       return Boolean.valueOf((!Objects.equal(_domainName, _name)));
     };
-    final Function1<DAssociation, String> _function_2 = (DAssociation it) -> {
+    final Function1<DAssociation, String> _function_6 = (DAssociation it) -> {
       return this.domainName(it.getTargetType());
     };
-    final Iterable<String> allReferencedDomains = IterableExtensions.<DAssociation, String>map(IterableExtensions.<DAssociation>filter(allAssociations, _function_1), _function_2);
-    final Function1<DAttribute, Boolean> _function_3 = (DAttribute it) -> {
+    final Iterable<String> allReferencedOtherDomains = IterableExtensions.<DAssociation, String>map(IterableExtensions.<DAssociation>filter(allAssociations, _function_5), _function_6);
+    final Function1<DAttribute, Boolean> _function_7 = (DAttribute it) -> {
       DType _type = it.getType();
       return Boolean.valueOf((_type instanceof DDetailType));
     };
-    final Iterable<DAttribute> allDetailAttributes = IterableExtensions.<DAttribute>filter(EcoreUtil2.<DAttribute>eAllOfType(domain, DAttribute.class), _function_3);
-    final Function1<DComplexType, Boolean> _function_4 = (DComplexType it) -> {
+    final Iterable<DAttribute> allDetailAttributes = IterableExtensions.<DAttribute>filter(EcoreUtil2.<DAttribute>eAllOfType(domain, DAttribute.class), _function_7);
+    final Function1<DComplexType, Boolean> _function_8 = (DComplexType it) -> {
       DComplexType _superType = it.getSuperType();
       return Boolean.valueOf((_superType != null));
     };
-    final Iterable<DComplexType> allSubtypes = IterableExtensions.<DComplexType>filter(EcoreUtil2.<DComplexType>eAllOfType(domain, DComplexType.class), _function_4);
+    final Iterable<DComplexType> allSubtypes = IterableExtensions.<DComplexType>filter(EcoreUtil2.<DComplexType>eAllOfType(domain, DComplexType.class), _function_8);
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("hide empty members");
     _builder.newLine();
@@ -139,11 +155,34 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
         _builder.append("\t");
         _builder.append("}");
         _builder.newLine();
+        _builder.append("           \t");
+        _builder.append("\t");
+        {
+          for(final EObject ra : allReferencedAggregatesInsideDomain) {
+            _builder.append("package ");
+            String _aggregateName_1 = this.aggregateName(ra);
+            _builder.append(_aggregateName_1, "           \t\t");
+            _builder.append(" <<Rectangle>> {");
+            _builder.newLineIfNotEmpty();
+            _builder.append("           \t");
+            _builder.append("\t");
+            _builder.append("}");
+            _builder.newLine();
+          }
+        }
         _builder.append("\t           \t");
         {
-          for(final String d : allReferencedDomains) {
+          for(final DEntityType re : allReferencedEntitiesInsideDomain) {
+            CharSequence _generateType_1 = this.generateType(re);
+            _builder.append(_generateType_1, "\t           \t");
+          }
+        }
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t           \t");
+        {
+          for(final String rd : allReferencedOtherDomains) {
             _builder.append("package ");
-            _builder.append(d, "\t           \t");
+            _builder.append(rd, "\t           \t");
             _builder.append(" <<Frame>> { ");
             _builder.newLineIfNotEmpty();
             _builder.append("\t           \t");
@@ -172,18 +211,18 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     _builder.append("            ");
     {
       for(final DComplexType s : allSubtypes) {
-        String _aggregateName_1 = this.aggregateName(s);
-        _builder.append(_aggregateName_1, "            ");
+        String _aggregateName_2 = this.aggregateName(s);
+        _builder.append(_aggregateName_2, "            ");
         _builder.append(".");
         String _name = s.getName();
         _builder.append(_name, "            ");
         _builder.append(" --|> ");
-        String _aggregateName_2 = this.aggregateName(s.getSuperType());
-        _builder.append(_aggregateName_2, "            ");
+        String _aggregateName_3 = this.aggregateName(s.getSuperType());
+        _builder.append(_aggregateName_3, "            ");
         {
-          String _aggregateName_3 = this.aggregateName(s);
-          String _aggregateName_4 = this.aggregateName(s.getSuperType());
-          boolean _tripleEquals = (_aggregateName_3 == _aggregateName_4);
+          String _aggregateName_4 = this.aggregateName(s);
+          String _aggregateName_5 = this.aggregateName(s.getSuperType());
+          boolean _tripleEquals = (_aggregateName_4 == _aggregateName_5);
           if (_tripleEquals) {
             _builder.append(".");
             String _name_1 = s.getSuperType().getName();

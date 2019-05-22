@@ -29,10 +29,6 @@ public interface DFunctionCall extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Function</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Function</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Function</em>' reference.
 	 * @see #setFunction(DFunction)
@@ -56,10 +52,6 @@ public interface DFunctionCall extends DExpression
 	 * Returns the value of the '<em><b>Function Call Arguments</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DExpression}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Function Call Arguments</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Function Call Arguments</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDFunctionCall_FunctionCallArguments()

@@ -3,7 +3,6 @@
  */
 package com.mimacom.ddd.dm.dem.scoping
 
-import com.mimacom.ddd.dm.base.BasePackage
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 

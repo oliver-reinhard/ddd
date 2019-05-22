@@ -29,10 +29,6 @@ public interface SDeductionRule extends EObject
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Source</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(EObject)
@@ -55,10 +51,6 @@ public interface SDeductionRule extends EObject
 	/**
 	 * Returns the value of the '<em><b>Named Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Named Source</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Named Source</em>' reference.
 	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSDeductionRule_NamedSource()

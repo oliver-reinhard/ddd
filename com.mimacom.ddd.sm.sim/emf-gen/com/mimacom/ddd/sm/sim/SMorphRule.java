@@ -26,10 +26,6 @@ public interface SMorphRule extends SGrabRule
 	/**
 	 * Returns the value of the '<em><b>Retype To</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Retype To</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Retype To</em>' reference.
 	 * @see #setRetypeTo(SType)
@@ -52,10 +48,6 @@ public interface SMorphRule extends SGrabRule
 	/**
 	 * Returns the value of the '<em><b>Remultiply To</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Remultiply To</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Remultiply To</em>' containment reference.
 	 * @see #setRemultiplyTo(SMultiplicity)

@@ -32,7 +32,7 @@ import com.mimacom.ddd.dm.base.DEnumeration
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
  * on how and when to use it.
  */
-class DmxScopeProvider extends DmxImportedNamespaceAwareLocalScopeProvider {
+class DmxScopeProvider extends AbstractDmxScopeProvider {
 
 	static val bpackage = BasePackage.eINSTANCE
 	static val xpackage = DmxPackage.eINSTANCE

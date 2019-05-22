@@ -53,10 +53,6 @@ public enum SElementNature implements Enumerator
 	/**
 	 * The '<em><b>GENUINE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>GENUINE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #GENUINE
 	 * @model
@@ -68,10 +64,6 @@ public enum SElementNature implements Enumerator
 	/**
 	 * The '<em><b>DEDUCTION RULE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>DEDUCTION RULE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #DEDUCTION_RULE
 	 * @model
@@ -83,10 +75,6 @@ public enum SElementNature implements Enumerator
 	/**
 	 * The '<em><b>SYNTHETIC</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>SYNTHETIC</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #SYNTHETIC
 	 * @model

@@ -28,10 +28,6 @@ public interface DExistingApplication extends DNamedElement, INamespace, IPrimar
 	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DType}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Types</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Types</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDExistingApplication_Types()
@@ -44,10 +40,6 @@ public interface DExistingApplication extends DNamedElement, INamespace, IPrimar
 	 * Returns the value of the '<em><b>Services</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DService}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Services</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Services</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDExistingApplication_Services()
@@ -60,10 +52,6 @@ public interface DExistingApplication extends DNamedElement, INamespace, IPrimar
 	 * Returns the value of the '<em><b>Exceptions</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DException}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Exceptions</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Exceptions</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDExistingApplication_Exceptions()
