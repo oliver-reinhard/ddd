@@ -54,38 +54,63 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	}
 	
 	def domainTypes(DDomain domain) {
-        val allAggregates = EcoreUtil2.eAllOfType(domain, DAggregate)
-        val allAssociations = EcoreUtil2.eAllOfType(domain, DAssociation).filter[type instanceof DEntityType]
-        val allReferencedAggregatesInsideDomain = allAssociations.filter[targetType.domainName == domain.name && targetType.eContainer instanceof DAggregate].map[targetType.eContainer]
-        val allReferencedEntitiesInsideDomain = allAssociations.filter[targetType.domainName == domain.name].map[targetType]
-        val allReferencedOtherDomains = allAssociations.filter[targetType.domainName != domain.name].map[targetType.domainName]
-        val allDetailAttributes = EcoreUtil2.eAllOfType(domain, DAttribute).filter[type instanceof DDetailType]
-        val allSubtypes = EcoreUtil2.eAllOfType(domain, DComplexType).filter[superType !== null]
+		val allAggregates = EcoreUtil2.eAllOfType(domain, DAggregate)
+		val allAssociations = EcoreUtil2.eAllOfType(domain, DAssociation).filter[type instanceof DEntityType]
+//		val allEntitiesReferencedWithinAggregate = allAssociations.filter[targetType.eContainer == eContainer.eContainer].map[targetType]
+		val allEntitiesReferencedWithinDomain = allAssociations.filter[targetType.eContainer != eContainer.eContainer && targetType.domainName == domain.name].map[targetType]
+		val allAggregatesReferencedWithinDomain = allEntitiesReferencedWithinDomain.map[eContainer as DAggregate]
+		val allEntitiesReferencedOutsideDomain = allAssociations.filter[targetType.eContainer != eContainer.eContainer && targetType.domainName != domain.name].map[targetType]
+		val allDomainsReferencedOutsideDomain = allEntitiesReferencedOutsideDomain.map[domainName]
+		val allDetailAttributes = EcoreUtil2.eAllOfType(domain, DAttribute).filter[type instanceof DDetailType]
+		val allSubtypes = EcoreUtil2.eAllOfType(domain, DComplexType).filter[superType !== null]
         
        val result = '''
-       		hide empty members
-       		       		
-       		skinparam package {
-       			BorderColor FireBrick
-       			FontColor FireBrick
-       		}
-           	«FOR a:allAggregates»package «a.aggregateName» <<Rectangle>> {
-	    				«FOR t:a.types»«t.generateType»«ENDFOR»
-           		}
-           		«FOR ra:allReferencedAggregatesInsideDomain»package «ra.aggregateName» <<Rectangle>> {
-           		}
-           		«ENDFOR»
-	           	«FOR re:allReferencedEntitiesInsideDomain»«re.generateType»«ENDFOR»
-	           	«FOR rd:allReferencedOtherDomains»package «rd» <<Frame>> { 
-	           	}
-	        	«ENDFOR»
-    		«ENDFOR»
-            «FOR a:allAssociations»«a.generateAssociation»
-            «ENDFOR»
-            «FOR a:allDetailAttributes»«a.generateLink»
-            «ENDFOR»
-            «FOR s:allSubtypes»«s.aggregateName».«s.name» --|> «s.superType.aggregateName»«IF s.aggregateName === s.superType.aggregateName».«s.superType.name»«ENDIF»
-            «ENDFOR»
+			 hide empty members
+			
+			skinparam package {
+				BorderColor FireBrick
+				FontColor FireBrick
+			}
+			
+			' all aggregates
+			«FOR a:allAggregates»package «a.aggregateName» <<Rectangle>> {
+				«FOR t:a.types»
+					«t.generateType»
+				«ENDFOR»
+			}
+			«ENDFOR»
+			
+			' all aggregates referenced from within current domain
+			«FOR awa:allAggregatesReferencedWithinDomain»
+				package «awa.aggregateName» <<Rectangle>> {
+				}
+			«ENDFOR»
+			
+			' all entities referenced from within current domain
+			«FOR re:allEntitiesReferencedWithinDomain»
+				«re.generateType»
+			«ENDFOR»
+			
+			' all other referenced domains
+			«FOR rd:allDomainsReferencedOutsideDomain»
+				package «rd» <<Frame>> { 
+				}
+			«ENDFOR»
+			
+			' all associations
+			«FOR a:allAssociations»
+				«a.generateAssociation»
+			«ENDFOR»
+			
+			' all detail attributes
+			«FOR a:allDetailAttributes»
+				«a.generateLink»
+			«ENDFOR»
+			
+			' all subtypes
+			«FOR s:allSubtypes»
+				«s.aggregateName».«s.name» --|> «s.superType.aggregateName»«IF s.aggregateName === s.superType.aggregateName».«s.superType.name»«ENDIF»
+			«ENDFOR»
         '''
        return result
 	}
@@ -135,7 +160,7 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	
 	
 	def dispatch generateFeature(DAttribute a) '''
-	  	«IF ! (a?.type instanceof DDetailType)» «a.name» : «a.type.name»«ENDIF»
+		«IF ! (a?.type instanceof DDetailType)»«a.name» : «a.type.name»«ENDIF»
 	  '''
 
 	def dispatch generateFeature(DQuery q) '''
