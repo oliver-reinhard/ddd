@@ -16,7 +16,7 @@ public abstract class AbstractSimValidator extends AbstractDeclarativeValidator 
 	@Override
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>();
-		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/sm/sim/Sim"));
+		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/sm/sim"));
 		return result;
 	}
 }

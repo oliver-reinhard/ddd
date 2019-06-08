@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sim" nsURI="http://www.mimacom.com/ddd/sm/sim/Sim" nsPrefix="sim">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sim" nsURI="http://www.mimacom.com/ddd/sm/sim" nsPrefix="sim">
   <eClassifiers xsi:type="ecore:EClass" name="SIdentityType" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="SValueType" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="SInformationModel">
@@ -122,7 +122,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SDeductionRule" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="namedSource" eType="ecore:EClass ../../com.mimacom.ddd.dm.dmx/model/base.ecore#//DNamedElement"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namedSource" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DNamedElement"
         changeable="false" transient="true" derived="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SGrabRule" eSuperTypes="#//SDeductionRule">
@@ -136,15 +136,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="SDitchRule" eSuperTypes="#//SDeductionRule"/>
   <eClassifiers xsi:type="ecore:EClass" name="SFuseRule" eSuperTypes="#//SGrabRule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="otherSources" upperBound="-1"
-        eType="ecore:EClass ../../com.mimacom.ddd.dm.dmx/model/base.ecore#//DNamedElement"/>
+        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DNamedElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extendFrom" eType="#//SType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SGrabAggregateRule" eSuperTypes="#//SDeductionRule">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregate" eType="ecore:EClass ../../com.mimacom.ddd.dm.dmx/model/base.ecore#//DAggregate"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregate" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DAggregate"
         changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SGrabDomainRule" eSuperTypes="#//SDeductionRule">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="domain" eType="ecore:EClass ../../com.mimacom.ddd.dm.dmx/model/base.ecore#//DDomain"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domain" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DDomain"
         changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SSyntheticDeductionRule" eSuperTypes="#//SDeductionRule">
