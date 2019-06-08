@@ -10,6 +10,8 @@ import com.mimacom.ddd.dm.base.DQuery
 import java.util.LinkedHashSet
 import java.util.List
 import java.util.Set
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.EcoreUtil2
 
 class SimUtil {
 	
@@ -27,6 +29,15 @@ class SimUtil {
 			SAssociation : BasePackage.eINSTANCE.DAssociation
 			SQuery : BasePackage.eINSTANCE.DQuery
 		}
+	}
+	
+	def SAggregate aggregate(EObject obj) {
+			return EcoreUtil2.getContainerOfType(obj, SAggregate)// global types are not owned by a domain => null
+	}
+	
+	def String aggregateName(EObject obj) {
+			val a = obj.aggregate
+			return if (a !== null) a.derivedName else "NO AGGREGATE" 
 	}
 	
 	/*

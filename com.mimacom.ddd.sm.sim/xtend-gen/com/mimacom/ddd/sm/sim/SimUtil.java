@@ -34,6 +34,8 @@ import java.util.List;
 import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 
@@ -81,6 +83,21 @@ public class SimUtil {
       }
     }
     return _switchResult;
+  }
+  
+  public SAggregate aggregate(final EObject obj) {
+    return EcoreUtil2.<SAggregate>getContainerOfType(obj, SAggregate.class);
+  }
+  
+  public String aggregateName(final EObject obj) {
+    final SAggregate a = this.aggregate(obj);
+    String _xifexpression = null;
+    if ((a != null)) {
+      _xifexpression = a.getDerivedName();
+    } else {
+      _xifexpression = "NO AGGREGATE";
+    }
+    return _xifexpression;
   }
   
   /**

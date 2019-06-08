@@ -29,6 +29,7 @@ import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SLiteral;
 import com.mimacom.ddd.sm.sim.SMultiplicity;
 import com.mimacom.ddd.sm.sim.SNamedElement;
+import com.mimacom.ddd.sm.sim.SPrimitive;
 import com.mimacom.ddd.sm.sim.SQuery;
 import com.mimacom.ddd.sm.sim.SQueryParameter;
 import com.mimacom.ddd.sm.sim.SSyntheticDeductionRule;
@@ -64,17 +65,21 @@ public class SimValidator extends AbstractSimValidator {
   private IQualifiedNameProvider qualifiedNameProvider;
   
   @Check
-  public void checkAggregateHasSingleRoot(final SAggregate a) {
+  public void checkAggregateHasSingleRootOrRootHiearchy(final SAggregate a) {
     final Function1<SEntityType, Boolean> _function = (SEntityType it) -> {
-      SElementNature _nature = it.getNature();
-      return Boolean.valueOf((!Objects.equal(_nature, SElementNature.DEDUCTION_RULE)));
+      return Boolean.valueOf(((!Objects.equal(it.getNature(), SElementNature.DEDUCTION_RULE)) && it.isRoot()));
     };
     final Iterable<SEntityType> roots = IterableExtensions.<SEntityType>filter(Iterables.<SEntityType>filter(a.getTypes(), SEntityType.class), _function);
-    int _size = IterableExtensions.size(roots);
+    final Function1<SEntityType, Boolean> _function_1 = (SEntityType it) -> {
+      SAggregate _aggregate = this._simUtil.aggregate(it.getSuperType());
+      return Boolean.valueOf((!Objects.equal(_aggregate, a)));
+    };
+    final Iterable<SEntityType> topLevelRoots = IterableExtensions.<SEntityType>filter(roots, _function_1);
+    int _size = IterableExtensions.size(topLevelRoots);
     boolean _greaterThan = (_size > 1);
     if (_greaterThan) {
-      for (final SEntityType t : roots) {
-        this.error("Aggregate can only declare a single root or relationship", t, SimPackage.Literals.SNAMED_ELEMENT__NAME);
+      for (final SEntityType r : roots) {
+        this.error("Aggregate can only declare a single root or relationship or a a single hierarchy thereof", r, SimPackage.Literals.SNAMED_ELEMENT__NAME);
       }
     }
   }
@@ -243,6 +248,15 @@ public class SimValidator extends AbstractSimValidator {
         this.error("Literals can only have a deduction rule if the containing enumeration also has a deduction rule.", 
           literal.getDeductionRule(), SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
+    }
+  }
+  
+  @Check
+  public void checkPrimitiveDoesNotRedefineItself(final SPrimitive p) {
+    SPrimitive _redefines = p.getRedefines();
+    boolean _equals = Objects.equal(_redefines, p);
+    if (_equals) {
+      this.error("Primitive cannot redefine itself", p, SimPackage.Literals.SPRIMITIVE__REDEFINES);
     }
   }
   

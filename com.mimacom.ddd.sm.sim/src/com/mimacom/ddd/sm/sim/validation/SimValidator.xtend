@@ -25,6 +25,7 @@ import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.SLiteral
 import com.mimacom.ddd.sm.sim.SMultiplicity
 import com.mimacom.ddd.sm.sim.SNamedElement
+import com.mimacom.ddd.sm.sim.SPrimitive
 import com.mimacom.ddd.sm.sim.SQuery
 import com.mimacom.ddd.sm.sim.SQueryParameter
 import com.mimacom.ddd.sm.sim.SSyntheticDeductionRule
@@ -51,11 +52,13 @@ class SimValidator extends AbstractSimValidator {
 	@Inject IQualifiedNameProvider qualifiedNameProvider
 
 	@Check
-	def checkAggregateHasSingleRoot(SAggregate a) {
-		val roots = a.types.filter(SEntityType).filter[nature != DEDUCTION_RULE]
-		if(roots.size > 1) {
-			for (t : roots) {
-				error('Aggregate can only declare a single root or relationship', t, SimPackage.Literals.SNAMED_ELEMENT__NAME)
+	def checkAggregateHasSingleRootOrRootHiearchy(SAggregate a) {
+		val roots = a.types.filter(SEntityType).filter[nature != DEDUCTION_RULE && isRoot]
+		// only one root hierarchy is allowed => top level is in same aggregate (superType == null) or in another aggregate
+		val topLevelRoots =roots.filter[superType.aggregate != a]
+		if(topLevelRoots.size > 1) {
+			for (r: roots) {
+				error('Aggregate can only declare a single root or relationship or a a single hierarchy thereof', r, SimPackage.Literals.SNAMED_ELEMENT__NAME)
 			}
 		}
 	}
@@ -182,6 +185,13 @@ class SimValidator extends AbstractSimValidator {
 				error("Literals can only have a deduction rule if the containing enumeration also has a deduction rule.",
 					literal.deductionRule, SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
+		}
+	}
+
+	@Check
+	def checkPrimitiveDoesNotRedefineItself(SPrimitive p) {
+		if(p.redefines == p) {
+			error('Primitive cannot redefine itself', p, SimPackage.Literals.SPRIMITIVE__REDEFINES)
 		}
 	}
 

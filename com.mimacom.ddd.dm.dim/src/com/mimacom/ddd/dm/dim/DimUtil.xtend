@@ -61,6 +61,7 @@ class DimUtil {
 			val a = obj.aggregate
 			return if (a !== null) a.derivedName else "NO AGGREGATE" 
 	}
+	
 	/*
 	 * Precondition: d is the domain owning the association
 	 */
