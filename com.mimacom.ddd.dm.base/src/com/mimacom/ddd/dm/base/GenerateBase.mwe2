@@ -1,0 +1,26 @@
+module com.mimacom.ddd.dm.base.GenerateBase
+
+var rootPath = ".."
+var project="com.mimacom.ddd.dm.base"
+var genModel="platform:/resource/${project}/model/base.genmodel"
+
+Workflow {
+	
+	// Generate EMF Models
+	bean = org.eclipse.emf.mwe.utils.StandaloneSetup {
+		scanClassPath = true
+	}
+	component = org.eclipse.emf.mwe.utils.DirectoryCleaner {
+		directory = "${rootPath}/${project}/emf-gen"
+	}
+	component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
+		genModel = "${genModel}"
+		srcPath = "platform:/resource/${project}/src"
+	}
+	bean =  org.eclipse.emf.mwe.utils.StandaloneSetup {
+	    platformUri = "${rootPath}"
+	    scanClassPath = true
+	    registerGeneratedEPackage = "com.mimacom.ddd.dm.base.BasePackage"
+	    registerGenModelFile = "${genModel}"
+	}
+}

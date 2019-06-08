@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.mimacom.ddd.dm.base/emf-gen" editDirectory="/com.mimacom.ddd.dm.base.edit/src"
+    editorDirectory="/com.mimacom.ddd.dm.base.editor/emf-gen" modelPluginID="com.mimacom.ddd.dm.base"
+    modelName="Base" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    editPluginID="com.mimacom.ddd.dm.base.edit" editorPluginID="com.mimacom.ddd.dm.base.editor"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>base.ecore</foreignModel>
+  <genPackages prefix="Base" basePackage="com.mimacom.ddd.dm" disposableProviderFactory="true"
+      ecorePackage="base.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="base.ecore#//DAssociationKind">
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DAssociationKind/REFERENCE"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DAssociationKind/COMPOSITE"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DAssociationKind/INVERSE_COMPOSITE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="base.ecore#//DDirection">
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DDirection/INBOUND"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DDirection/OUTBOUND"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="base.ecore#//DServiceKind">
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DServiceKind/SYNCHRONOUS"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DServiceKind/ASYNCHRONOUS"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="base.ecore#//IIdentityType"/>
+    <genClasses image="false" ecoreClass="base.ecore#//IValueType"/>
+    <genClasses image="false" ecoreClass="base.ecore#//INamespace"/>
+    <genClasses image="false" ecoreClass="base.ecore#//DNamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DNamedElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DNamedElement/aliases"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DNamedElement/description"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="base.ecore#//DTypedMember">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference base.ecore#//DTypedMember/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DTypedMember/multiplicity"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DTypedMember/optional"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DTypedMember/collection"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="base.ecore#//ITypedMemberContainer"/>
+    <genClasses image="false" ecoreClass="base.ecore#//IPrimaryNavigationTarget"/>
+    <genClasses image="false" ecoreClass="base.ecore#//IRichTextSegment"/>
+    <genClasses ecoreClass="base.ecore#//DTextSegment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DTextSegment/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="base.ecore#//DExpression"/>
+    <genClasses ecoreClass="base.ecore#//DRichText">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DRichText/segments"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//DDomain">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DDomain/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DDomain/types"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DDomain/functions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DDomain/aggregates"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DDomain/applications"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DDomain/events"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DDomain/actors"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//DImport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DImport/importedNamespace"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//DFunction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DFunction/parameterNames"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//DAggregate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DAggregate/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DAggregate/types"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference base.ecore#//DAggregate/roots"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DAggregate/derivedName"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="base.ecore#//DType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DType/constraints"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DType/primitive"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//DCondition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DCondition/condition"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="base.ecore#//DSimpleType"/>
+    <genClasses ecoreClass="base.ecore#//DPrimitive">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference base.ecore#//DPrimitive/redefines"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DPrimitive/archetype"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//DEnumeration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DEnumeration/literals"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//DLiteral"/>
+    <genClasses image="false" ecoreClass="base.ecore#//DComplexType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DComplexType/abstract"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DComplexType/features"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference base.ecore#//DComplexType/superType"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="base.ecore#//DIdentityType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DIdentityType/root"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//DDetailType"/>
+    <genClasses ecoreClass="base.ecore#//DEntityType"/>
+    <genClasses ecoreClass="base.ecore#//DRelationship"/>
+    <genClasses image="false" ecoreClass="base.ecore#//DFeature"/>
+    <genClasses ecoreClass="base.ecore#//DAssociation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DAssociation/kind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DAssociation/derived"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference base.ecore#//DAssociation/sourceType"/>
+      <genOperations ecoreOperation="base.ecore#//DAssociation/getTargetType"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//DMultiplicity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DMultiplicity/minOccurs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DMultiplicity/maxOccurs"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//DAttribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DAttribute/detail"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DAttribute/key"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//DQuery">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DQuery/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DQuery/returns"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//DQueryParameter"/>
+    <genClasses ecoreClass="base.ecore#//DDomainEvent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DDomainEvent/before"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DDomainEvent/after"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DDomainEvent/trigger"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DDomainEvent/notifications"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DDomainEvent/context"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//DContext"/>
+    <genClasses ecoreClass="base.ecore#//DNotification">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference base.ecore#//DNotification/notified"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="base.ecore#//DActor"/>
+    <genClasses ecoreClass="base.ecore#//DHuman"/>
+    <genClasses ecoreClass="base.ecore#//DService">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DService/kind"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DService/parameters"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference base.ecore#//DService/raises"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DService/precondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DService/postcondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DService/types"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//DServiceParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DServiceParameter/direction"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//DTime"/>
+    <genClasses ecoreClass="base.ecore#//DExistingApplication">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DExistingApplication/types"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DExistingApplication/services"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//DExistingApplication/exceptions"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//DException"/>
+  </genPackages>
+</genmodel:GenModel>

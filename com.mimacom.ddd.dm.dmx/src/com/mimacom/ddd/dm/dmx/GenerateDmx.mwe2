@@ -24,12 +24,6 @@ Workflow {
 	bean =  org.eclipse.emf.mwe.utils.StandaloneSetup {
 	    platformUri = "${rootPath}"
 	    scanClassPath = true
-	    registerGeneratedEPackage = "com.mimacom.ddd.dm.base.BasePackage"
-	    registerGenModelFile = "${genModel}"
-	}
-	bean =  org.eclipse.emf.mwe.utils.StandaloneSetup {
-	    platformUri = "${rootPath}"
-	    scanClassPath = true
 	    registerGeneratedEPackage = "${project}.DmxPackage"
 	    registerGenModelFile = "${genModel}"
 	}

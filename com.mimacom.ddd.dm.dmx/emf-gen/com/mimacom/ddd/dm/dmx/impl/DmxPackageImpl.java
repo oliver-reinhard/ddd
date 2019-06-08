@@ -4,8 +4,6 @@ package com.mimacom.ddd.dm.dmx.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
 
-import com.mimacom.ddd.dm.base.impl.BasePackageImpl;
-
 import com.mimacom.ddd.dm.dmx.DAssignment;
 import com.mimacom.ddd.dm.dmx.DBinaryOperation;
 import com.mimacom.ddd.dm.dmx.DBinaryOperator;
@@ -258,17 +256,14 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 
 		isInited = true;
 
-		// Obtain or create and register interdependencies
-		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(BasePackage.eNS_URI);
-		BasePackageImpl theBasePackage = (BasePackageImpl)(registeredPackage instanceof BasePackageImpl ? registeredPackage : BasePackage.eINSTANCE);
+		// Initialize simple dependencies
+		BasePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theDmxPackage.createPackageContents();
-		theBasePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theDmxPackage.initializePackageContents();
-		theBasePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theDmxPackage.freeze();

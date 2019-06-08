@@ -50,10 +50,6 @@ import com.mimacom.ddd.dm.base.IRichTextSegment;
 import com.mimacom.ddd.dm.base.ITypedMemberContainer;
 import com.mimacom.ddd.dm.base.IValueType;
 
-import com.mimacom.ddd.dm.dmx.DmxPackage;
-
-import com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -435,17 +431,11 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		isInited = true;
 
-		// Obtain or create and register interdependencies
-		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DmxPackage.eNS_URI);
-		DmxPackageImpl theDmxPackage = (DmxPackageImpl)(registeredPackage instanceof DmxPackageImpl ? registeredPackage : DmxPackage.eINSTANCE);
-
 		// Create package meta-data objects
 		theBasePackage.createPackageContents();
-		theDmxPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theBasePackage.initializePackageContents();
-		theDmxPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theBasePackage.freeze();
