@@ -221,15 +221,6 @@ public interface SimFactory extends EFactory
 	SGrabRule createSGrabRule();
 
 	/**
-	 * Returns a new object of class '<em>SMorph Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SMorph Rule</em>'.
-	 * @generated
-	 */
-	SMorphRule createSMorphRule();
-
-	/**
 	 * Returns a new object of class '<em>SDitch Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -237,6 +228,15 @@ public interface SimFactory extends EFactory
 	 * @generated
 	 */
 	SDitchRule createSDitchRule();
+
+	/**
+	 * Returns a new object of class '<em>SMorph Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>SMorph Rule</em>'.
+	 * @generated
+	 */
+	SMorphRule createSMorphRule();
 
 	/**
 	 * Returns a new object of class '<em>SFuse Rule</em>'.

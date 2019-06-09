@@ -53,14 +53,20 @@ SDitchComplexTypeRule returns SDitchRule:
 	
 SMorphComplexTypeRule returns SMorphRule:
 	source=[DComplexType|SQualifiedName]
-	('as' renameTo=ID)?
-	('extends' '=' retypeTo=[SComplexType|ID])?;
+	ChangeComplexType;
 	
 SFuseComplexTypeRule returns SFuseRule:
 	source=[DComplexType|SQualifiedName]
 	('and' otherSources+=[DComplexType|SQualifiedName])+
-	('as' renameTo=ID)?
-	('extends' extendFrom=[SComplexType|ID])?;
+	ChangeComplexType;
+
+fragment ChangeComplexType returns SStructureChangingRule:
+	'to' 
+	(abstract=SAbstractType)?
+	(rootEntity=SRootEntity)?
+	(renameTo=ID)?
+	('extends' extendFrom=[SComplexType|ID])?
+;
 
 SGrabFeatureRule returns SGrabRule:
 	source=[DFeature|ID]
@@ -68,12 +74,19 @@ SGrabFeatureRule returns SGrabRule:
 	
 SMorphFeatureRule returns SMorphRule:
 	source=[DFeature|ID]
-	('as' renameTo=ID)? 
-	(':' retypeTo=[SType|ID] (remultiplyTo=SMultiplicity)?)?;	
+	'to'
+	(renameTo=ID ':')? 
+	retypeTo=[SType|ID] (remultiplyTo=SMultiplicity)?;	
 
 SDitchFeatureRule returns SDitchRule:
 	source=[DFeature|ID];
 
+enum SAbstractType returns STristate:
+	FALSE='nonabstract' | TRUE='abstract';
+	
+enum SRootEntity returns STristate:
+	FALSE='nonroot' | TRUE='root';
+	
 SDomainProxy:
 	{SDomainProxy}
 	'grab' 'domain' deductionRule=SGrabDomainRule
@@ -135,10 +148,10 @@ SLiteral:
 	//	(description=DRichText)?;
 
 SEntityType:
-	(	{SEntityType} 'grab' (abstract?='abstract')? (root?='root')? 'entity' deductionRule=SGrabComplexTypeRule
-	|	{SEntityType} 'ditch' (abstract?='abstract')? (root?='root')? 'entity' deductionRule=SDitchComplexTypeRule
-	|	{SEntityType} 'morph' (abstract?='abstract')? (root?='root')? 'entity' deductionRule=SMorphComplexTypeRule
-	|	{SEntityType} 'fuse' (abstract?='abstract')? (root?='root')? 'entity' deductionRule=SFuseComplexTypeRule
+	(	{SEntityType} 'grab'(root?='root')? 'entity' deductionRule=SGrabComplexTypeRule
+	|	{SEntityType} 'ditch' (root?='root')? 'entity' deductionRule=SDitchComplexTypeRule
+	|	{SEntityType} 'morph' (root?='root')? 'entity' deductionRule=SMorphComplexTypeRule
+	|	{SEntityType} 'fuse'(root?='root')?  'entity' deductionRule=SFuseComplexTypeRule
 	|	(abstract?='abstract')? (root?='root')? 'entity'
 		name=ID
 		SComplexTypeExtends
@@ -146,10 +159,10 @@ SEntityType:
 	SComplexTypeFeatures;
 
 SDetailType:
-	(	{SDetailType} 'grab' (abstract?='abstract')? 'detail' deductionRule=SGrabComplexTypeRule
-	|	{SDetailType} 'ditch' (abstract?='abstract')? 'detail' deductionRule=SDitchComplexTypeRule
-	|	{SDetailType} 'morph' (abstract?='abstract')? 'detail' deductionRule=SMorphComplexTypeRule
-	|	{SDetailType} 'fuse' (abstract?='abstract')? 'detail' deductionRule=SFuseComplexTypeRule
+	(	{SDetailType} 'grab' 'detail' deductionRule=SGrabComplexTypeRule
+	|	{SDetailType} 'ditch' 'detail' deductionRule=SDitchComplexTypeRule
+	|	{SDetailType} 'morph' 'detail' deductionRule=SMorphComplexTypeRule
+	|	{SDetailType} 'fuse' 'detail' deductionRule=SFuseComplexTypeRule
 	|	(abstract?='abstract')? 'detail'
 		name=ID
 		SComplexTypeExtends

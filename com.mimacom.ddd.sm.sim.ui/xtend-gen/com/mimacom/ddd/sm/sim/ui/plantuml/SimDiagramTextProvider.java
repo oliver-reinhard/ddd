@@ -15,6 +15,7 @@ import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SLiteral;
 import com.mimacom.ddd.sm.sim.SPrimitive;
 import com.mimacom.ddd.sm.sim.SQuery;
+import com.mimacom.ddd.sm.sim.SQueryParameter;
 import com.mimacom.ddd.sm.sim.SType;
 import com.mimacom.ddd.sm.sim.ui.internal.SimActivator;
 import java.util.Arrays;
@@ -363,7 +364,6 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
       }
       boolean _not = (!(_type instanceof SDetailType));
       if (_not) {
-        _builder.append(" ");
         String _name = a.getName();
         _builder.append(_name);
         _builder.append(" : ");
@@ -387,7 +387,10 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
       if (_tripleNotEquals) {
         String _name = q.getName();
         _builder.append(_name);
-        _builder.append("() : ");
+        _builder.append("(");
+        CharSequence _generateQueryParameters = this.generateQueryParameters(q);
+        _builder.append(_generateQueryParameters);
+        _builder.append(") : ");
         String _name_1 = q.getType().getName();
         _builder.append(_name_1);
         _builder.append(" ");
@@ -399,6 +402,27 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
   
   protected CharSequence _generateFeature(final SAssociation a) {
     StringConcatenation _builder = new StringConcatenation();
+    return _builder;
+  }
+  
+  public CharSequence generateQueryParameters(final SQuery q) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<SQueryParameter> _parameters = q.getParameters();
+      boolean _hasElements = false;
+      for(final SQueryParameter p : _parameters) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(", ", "");
+        }
+        String _name = p.getName();
+        _builder.append(_name);
+        _builder.append(":");
+        String _name_1 = p.getType().getName();
+        _builder.append(_name_1);
+      }
+    }
     return _builder;
   }
   

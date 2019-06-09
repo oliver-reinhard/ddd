@@ -210,14 +210,19 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createSGrabRuleAdapter();
 			}
 			@Override
-			public Adapter caseSMorphRule(SMorphRule object)
-			{
-				return createSMorphRuleAdapter();
-			}
-			@Override
 			public Adapter caseSDitchRule(SDitchRule object)
 			{
 				return createSDitchRuleAdapter();
+			}
+			@Override
+			public Adapter caseSStructureChangingRule(SStructureChangingRule object)
+			{
+				return createSStructureChangingRuleAdapter();
+			}
+			@Override
+			public Adapter caseSMorphRule(SMorphRule object)
+			{
+				return createSMorphRuleAdapter();
 			}
 			@Override
 			public Adapter caseSFuseRule(SFuseRule object)
@@ -667,21 +672,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SMorphRule <em>SMorph Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SMorphRule
-	 * @generated
-	 */
-	public Adapter createSMorphRuleAdapter()
-	{
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SDitchRule <em>SDitch Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -692,6 +682,36 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createSDitchRuleAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SStructureChangingRule <em>SStructure Changing Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.sm.sim.SStructureChangingRule
+	 * @generated
+	 */
+	public Adapter createSStructureChangingRuleAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SMorphRule <em>SMorph Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.sm.sim.SMorphRule
+	 * @generated
+	 */
+	public Adapter createSMorphRuleAdapter()
 	{
 		return null;
 	}

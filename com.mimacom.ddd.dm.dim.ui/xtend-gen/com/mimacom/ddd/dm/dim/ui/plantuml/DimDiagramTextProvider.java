@@ -14,6 +14,7 @@ import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
+import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DRelationship;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dim.ui.internal.DimActivator;
@@ -410,7 +411,10 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
       if (_tripleNotEquals) {
         String _name = q.getName();
         _builder.append(_name);
-        _builder.append("() : ");
+        _builder.append("(");
+        CharSequence _generateQueryParameters = this.generateQueryParameters(q);
+        _builder.append(_generateQueryParameters);
+        _builder.append(") : ");
         String _name_1 = q.getType().getName();
         _builder.append(_name_1);
         _builder.append(" ");
@@ -422,6 +426,27 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
   
   protected CharSequence _generateFeature(final DAssociation a) {
     StringConcatenation _builder = new StringConcatenation();
+    return _builder;
+  }
+  
+  public CharSequence generateQueryParameters(final DQuery q) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<DQueryParameter> _parameters = q.getParameters();
+      boolean _hasElements = false;
+      for(final DQueryParameter p : _parameters) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(", ", "");
+        }
+        String _name = p.getName();
+        _builder.append(_name);
+        _builder.append(":");
+        String _name_1 = p.getType().getName();
+        _builder.append(_name_1);
+      }
+    }
     return _builder;
   }
   

@@ -27,6 +27,7 @@ import com.mimacom.ddd.sm.sim.SGrabRule;
 import com.mimacom.ddd.sm.sim.SMorphRule;
 import com.mimacom.ddd.sm.sim.SPrimitive;
 import com.mimacom.ddd.sm.sim.SQuery;
+import com.mimacom.ddd.sm.sim.SQueryParameter;
 import com.mimacom.ddd.sm.sim.SType;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -95,7 +96,7 @@ public class SimUtil {
     if ((a != null)) {
       _xifexpression = a.getDerivedName();
     } else {
-      _xifexpression = "NO AGGREGATE";
+      _xifexpression = "NO_AGGREGATE";
     }
     return _xifexpression;
   }
@@ -228,14 +229,22 @@ public class SimUtil {
       }
     }
     if (!_matched) {
-      _switchResult = type.getClass().getSimpleName();
+      String _simpleName = type.getClass().getSimpleName();
+      _switchResult = (_simpleName + " ");
     }
     final String typeLabel = _switchResult;
+    String _xifexpression = null;
     String _name = null;
     if (type!=null) {
       _name=type.getName();
     }
-    return (typeLabel + _name);
+    boolean _tripleNotEquals = (_name != null);
+    if (_tripleNotEquals) {
+      _xifexpression = type.getName();
+    } else {
+      _xifexpression = "NO_NAME";
+    }
+    return (typeLabel + _xifexpression);
   }
   
   public String label(final SFeature f) {
@@ -245,6 +254,20 @@ public class SimUtil {
     }
     String _plus = (_name + " : ");
     SType _type = f.getType();
+    String _label = null;
+    if (_type!=null) {
+      _label=this.label(_type);
+    }
+    return (_plus + _label);
+  }
+  
+  public String label(final SQueryParameter p) {
+    String _name = null;
+    if (p!=null) {
+      _name=p.getName();
+    }
+    String _plus = (_name + " : ");
+    SType _type = p.getType();
     String _label = null;
     if (_type!=null) {
       _label=this.label(_type);

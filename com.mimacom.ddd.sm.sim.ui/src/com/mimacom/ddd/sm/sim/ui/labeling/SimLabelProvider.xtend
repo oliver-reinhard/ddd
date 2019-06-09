@@ -8,6 +8,7 @@ import com.mimacom.ddd.sm.sim.SAggregate
 import com.mimacom.ddd.sm.sim.SCondition
 import com.mimacom.ddd.sm.sim.SFeature
 import com.mimacom.ddd.sm.sim.SLiteral
+import com.mimacom.ddd.sm.sim.SQueryParameter
 import com.mimacom.ddd.sm.sim.SType
 import com.mimacom.ddd.sm.sim.SimUtil
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
@@ -47,6 +48,13 @@ class SimLabelProvider extends DefaultEObjectLabelProvider {
 		return f.label
 	}
 	
+	def text(SQueryParameter p) {
+		if (p.deductionRule !== null && ! p.synthetic) {
+			return ">" + p.deductionRule.label
+		}
+		return p.label
+	}
+	
 	def text(SCondition c) {
 		return c.label
 	}
@@ -57,8 +65,4 @@ class SimLabelProvider extends DefaultEObjectLabelProvider {
 		}
 		return literal.name
 	}
-//
-//	def image(Greeting ele) {
-//		'Greeting.gif'
-//	}
 }

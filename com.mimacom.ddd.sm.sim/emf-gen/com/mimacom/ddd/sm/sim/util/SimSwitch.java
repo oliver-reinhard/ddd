@@ -324,15 +324,6 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SMORPH_RULE:
-			{
-				SMorphRule sMorphRule = (SMorphRule)theEObject;
-				T result = caseSMorphRule(sMorphRule);
-				if (result == null) result = caseSGrabRule(sMorphRule);
-				if (result == null) result = caseSDeductionRule(sMorphRule);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SimPackage.SDITCH_RULE:
 			{
 				SDitchRule sDitchRule = (SDitchRule)theEObject;
@@ -341,10 +332,30 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SimPackage.SSTRUCTURE_CHANGING_RULE:
+			{
+				SStructureChangingRule sStructureChangingRule = (SStructureChangingRule)theEObject;
+				T result = caseSStructureChangingRule(sStructureChangingRule);
+				if (result == null) result = caseSGrabRule(sStructureChangingRule);
+				if (result == null) result = caseSDeductionRule(sStructureChangingRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SimPackage.SMORPH_RULE:
+			{
+				SMorphRule sMorphRule = (SMorphRule)theEObject;
+				T result = caseSMorphRule(sMorphRule);
+				if (result == null) result = caseSStructureChangingRule(sMorphRule);
+				if (result == null) result = caseSGrabRule(sMorphRule);
+				if (result == null) result = caseSDeductionRule(sMorphRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SimPackage.SFUSE_RULE:
 			{
 				SFuseRule sFuseRule = (SFuseRule)theEObject;
 				T result = caseSFuseRule(sFuseRule);
+				if (result == null) result = caseSStructureChangingRule(sFuseRule);
 				if (result == null) result = caseSGrabRule(sFuseRule);
 				if (result == null) result = caseSDeductionRule(sFuseRule);
 				if (result == null) result = defaultCase(theEObject);
@@ -811,22 +822,6 @@ public class SimSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SMorph Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SMorph Rule</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSMorphRule(SMorphRule object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>SDitch Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -838,6 +833,38 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseSDitchRule(SDitchRule object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>SStructure Changing Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>SStructure Changing Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSStructureChangingRule(SStructureChangingRule object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>SMorph Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>SMorph Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSMorphRule(SMorphRule object)
 	{
 		return null;
 	}

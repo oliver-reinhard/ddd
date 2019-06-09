@@ -99,7 +99,7 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_SExpression(context, (SExpression) semanticObject); 
 				return; 
 			case SimPackage.SFUSE_RULE:
-				sequence_SFuseComplexTypeRule(context, (SFuseRule) semanticObject); 
+				sequence_ChangeComplexType_SFuseComplexTypeRule(context, (SFuseRule) semanticObject); 
 				return; 
 			case SimPackage.SGRAB_AGGREGATE_RULE:
 				sequence_SGrabAggregateRule(context, (SGrabAggregateRule) semanticObject); 
@@ -140,7 +140,7 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case SimPackage.SMORPH_RULE:
 				if (rule == grammarAccess.getSMorphComplexTypeRuleRule()) {
-					sequence_SMorphComplexTypeRule(context, (SMorphRule) semanticObject); 
+					sequence_ChangeComplexType_SMorphComplexTypeRule(context, (SMorphRule) semanticObject); 
 					return; 
 				}
 				else if (rule == grammarAccess.getSMorphFeatureRuleRule()) {
@@ -164,6 +164,37 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     SFuseComplexTypeRule returns SFuseRule
+	 *
+	 * Constraint:
+	 *     (
+	 *         source=[DComplexType|SQualifiedName] 
+	 *         otherSources+=[DComplexType|SQualifiedName]+ 
+	 *         abstract=SAbstractType? 
+	 *         rootEntity=SRootEntity? 
+	 *         renameTo=ID? 
+	 *         extendFrom=[SComplexType|ID]?
+	 *     )
+	 */
+	protected void sequence_ChangeComplexType_SFuseComplexTypeRule(ISerializationContext context, SFuseRule semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SMorphComplexTypeRule returns SMorphRule
+	 *
+	 * Constraint:
+	 *     (source=[DComplexType|SQualifiedName] abstract=SAbstractType? rootEntity=SRootEntity? renameTo=ID? extendFrom=[SComplexType|ID]?)
+	 */
+	protected void sequence_ChangeComplexType_SMorphComplexTypeRule(ISerializationContext context, SMorphRule semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -221,13 +252,14 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         (
-	 *             (abstract?='abstract'? deductionRule=SGrabComplexTypeRule) | 
-	 *             (abstract?='abstract'? deductionRule=SDitchComplexTypeRule) | 
-	 *             (abstract?='abstract'? deductionRule=SMorphComplexTypeRule) | 
-	 *             (abstract?='abstract'? deductionRule=SFuseComplexTypeRule) | 
+	 *             deductionRule=SGrabComplexTypeRule | 
+	 *             deductionRule=SDitchComplexTypeRule | 
+	 *             deductionRule=SMorphComplexTypeRule | 
+	 *             deductionRule=SFuseComplexTypeRule | 
 	 *             (abstract?='abstract'? name=ID superType=[SComplexType|ID]?)
 	 *         ) 
-	 *         (features+=SFeature | constraints+=SConstraint)*
+	 *         features+=SFeature? 
+	 *         (constraints+=SConstraint? features+=SFeature?)*
 	 *     )
 	 */
 	protected void sequence_SComplexTypeExtends_SComplexTypeFeatures_SDetailType(ISerializationContext context, SDetailType semanticObject) {
@@ -243,10 +275,10 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         (
-	 *             (abstract?='abstract'? root?='root'? deductionRule=SGrabComplexTypeRule) | 
-	 *             (abstract?='abstract'? root?='root'? deductionRule=SDitchComplexTypeRule) | 
-	 *             (abstract?='abstract'? root?='root'? deductionRule=SMorphComplexTypeRule) | 
-	 *             (abstract?='abstract'? root?='root'? deductionRule=SFuseComplexTypeRule) | 
+	 *             (root?='root'? deductionRule=SGrabComplexTypeRule) | 
+	 *             (root?='root'? deductionRule=SDitchComplexTypeRule) | 
+	 *             (root?='root'? deductionRule=SMorphComplexTypeRule) | 
+	 *             (root?='root'? deductionRule=SFuseComplexTypeRule) | 
 	 *             (abstract?='abstract'? root?='root'? name=ID superType=[SComplexType|ID]?)
 	 *         ) 
 	 *         (features+=SFeature | constraints+=SConstraint)*
@@ -405,18 +437,6 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     SFuseComplexTypeRule returns SFuseRule
-	 *
-	 * Constraint:
-	 *     (source=[DComplexType|SQualifiedName] otherSources+=[DComplexType|SQualifiedName]+ renameTo=ID? extendFrom=[SComplexType|ID]?)
-	 */
-	protected void sequence_SFuseComplexTypeRule(ISerializationContext context, SFuseRule semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     SGrabAggregateRule returns SGrabAggregateRule
 	 *
 	 * Constraint:
@@ -561,22 +581,10 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     SMorphComplexTypeRule returns SMorphRule
-	 *
-	 * Constraint:
-	 *     (source=[DComplexType|SQualifiedName] renameTo=ID? retypeTo=[SComplexType|ID]?)
-	 */
-	protected void sequence_SMorphComplexTypeRule(ISerializationContext context, SMorphRule semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     SMorphFeatureRule returns SMorphRule
 	 *
 	 * Constraint:
-	 *     (source=[DFeature|ID] renameTo=ID? (retypeTo=[SType|ID] remultiplyTo=SMultiplicity?)?)
+	 *     (source=[DFeature|ID] renameTo=ID? retypeTo=[SType|ID] remultiplyTo=SMultiplicity?)
 	 */
 	protected void sequence_SMorphFeatureRule(ISerializationContext context, SMorphRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

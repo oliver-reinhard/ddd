@@ -12,6 +12,7 @@ import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DPrimitive;
+import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DType;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -62,7 +63,7 @@ public class DimUtil {
     if ((d != null)) {
       _xifexpression = d.getName();
     } else {
-      _xifexpression = "NO DOMAIN";
+      _xifexpression = "NO_DOMAIN";
     }
     return _xifexpression;
   }
@@ -77,7 +78,7 @@ public class DimUtil {
     if ((a != null)) {
       _xifexpression = a.getDerivedName();
     } else {
-      _xifexpression = "NO AGGREGATE";
+      _xifexpression = "NO_AGGREGATE";
     }
     return _xifexpression;
   }
@@ -209,6 +210,17 @@ public class DimUtil {
     String _name = f.getName();
     String _plus = (_name + " : ");
     DType _type = f.getType();
+    String _label = null;
+    if (_type!=null) {
+      _label=this.label(_type);
+    }
+    return (_plus + _label);
+  }
+  
+  public String label(final DQueryParameter p) {
+    String _name = p.getName();
+    String _plus = (_name + " : ");
+    DType _type = p.getType();
     String _label = null;
     if (_type!=null) {
       _label=this.label(_type);

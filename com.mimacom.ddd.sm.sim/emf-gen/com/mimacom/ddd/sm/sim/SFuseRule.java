@@ -16,14 +16,13 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.sm.sim.SFuseRule#getOtherSources <em>Other Sources</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sim.SFuseRule#getExtendFrom <em>Extend From</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.sm.sim.SimPackage#getSFuseRule()
  * @model
  * @generated
  */
-public interface SFuseRule extends SGrabRule
+public interface SFuseRule extends SStructureChangingRule
 {
 	/**
 	 * Returns the value of the '<em><b>Other Sources</b></em>' reference list.
@@ -36,27 +35,5 @@ public interface SFuseRule extends SGrabRule
 	 * @generated
 	 */
 	EList<DNamedElement> getOtherSources();
-
-	/**
-	 * Returns the value of the '<em><b>Extend From</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Extend From</em>' reference.
-	 * @see #setExtendFrom(SType)
-	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSFuseRule_ExtendFrom()
-	 * @model
-	 * @generated
-	 */
-	SType getExtendFrom();
-
-	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.sm.sim.SFuseRule#getExtendFrom <em>Extend From</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Extend From</em>' reference.
-	 * @see #getExtendFrom()
-	 * @generated
-	 */
-	void setExtendFrom(SType value);
 
 } // SFuseRule

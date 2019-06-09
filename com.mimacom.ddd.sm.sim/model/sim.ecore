@@ -128,16 +128,21 @@
   <eClassifiers xsi:type="ecore:EClass" name="SGrabRule" eSuperTypes="#//SDeductionRule">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="renameTo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SMorphRule" eSuperTypes="#//SGrabRule">
+  <eClassifiers xsi:type="ecore:EClass" name="SDitchRule" eSuperTypes="#//SDeductionRule"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SStructureChangingRule" abstract="true"
+      eSuperTypes="#//SGrabRule">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" eType="#//STristate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootEntity" eType="#//STristate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extendFrom" eType="#//SType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SMorphRule" eSuperTypes="#//SStructureChangingRule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="retypeTo" eType="#//SType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="remultiplyTo" eType="#//SMultiplicity"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SDitchRule" eSuperTypes="#//SDeductionRule"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SFuseRule" eSuperTypes="#//SGrabRule">
+  <eClassifiers xsi:type="ecore:EClass" name="SFuseRule" eSuperTypes="#//SStructureChangingRule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="otherSources" upperBound="-1"
         eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DNamedElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="extendFrom" eType="#//SType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SGrabAggregateRule" eSuperTypes="#//SDeductionRule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregate" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DAggregate"
@@ -150,5 +155,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="SSyntheticDeductionRule" eSuperTypes="#//SDeductionRule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elementWithRule" eType="#//SDeducibleElement"
         transient="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="STristate">
+    <eLiterals name="DONT_CARE"/>
+    <eLiterals name="FALSE" value="1"/>
+    <eLiterals name="TRUE" value="2"/>
   </eClassifiers>
 </ecore:EPackage>

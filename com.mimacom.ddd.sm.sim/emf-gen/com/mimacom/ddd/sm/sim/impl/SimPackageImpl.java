@@ -37,7 +37,9 @@ import com.mimacom.ddd.sm.sim.SPrimitive;
 import com.mimacom.ddd.sm.sim.SQuery;
 import com.mimacom.ddd.sm.sim.SQueryParameter;
 import com.mimacom.ddd.sm.sim.SSimpleType;
+import com.mimacom.ddd.sm.sim.SStructureChangingRule;
 import com.mimacom.ddd.sm.sim.SSyntheticDeductionRule;
+import com.mimacom.ddd.sm.sim.STristate;
 import com.mimacom.ddd.sm.sim.SType;
 import com.mimacom.ddd.sm.sim.SValueType;
 import com.mimacom.ddd.sm.sim.SimFactory;
@@ -254,14 +256,21 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sMorphRuleEClass = null;
+	private EClass sDitchRuleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sDitchRuleEClass = null;
+	private EClass sStructureChangingRuleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sMorphRuleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -311,6 +320,13 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	private EEnum sAssociationKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum sTristateEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -1143,6 +1159,61 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
+	public EClass getSDitchRule()
+	{
+		return sDitchRuleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSStructureChangingRule()
+	{
+		return sStructureChangingRuleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSStructureChangingRule_Abstract()
+	{
+		return (EAttribute)sStructureChangingRuleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSStructureChangingRule_RootEntity()
+	{
+		return (EAttribute)sStructureChangingRuleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSStructureChangingRule_ExtendFrom()
+	{
+		return (EReference)sStructureChangingRuleEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getSMorphRule()
 	{
 		return sMorphRuleEClass;
@@ -1176,17 +1247,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSDitchRule()
-	{
-		return sDitchRuleEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getSFuseRule()
 	{
 		return sFuseRuleEClass;
@@ -1201,17 +1261,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	public EReference getSFuseRule_OtherSources()
 	{
 		return (EReference)sFuseRuleEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSFuseRule_ExtendFrom()
-	{
-		return (EReference)sFuseRuleEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1311,6 +1360,17 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	public EEnum getSAssociationKind()
 	{
 		return sAssociationKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getSTristate()
+	{
+		return sTristateEEnum;
 	}
 
 	/**
@@ -1440,15 +1500,19 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		sGrabRuleEClass = createEClass(SGRAB_RULE);
 		createEAttribute(sGrabRuleEClass, SGRAB_RULE__RENAME_TO);
 
+		sDitchRuleEClass = createEClass(SDITCH_RULE);
+
+		sStructureChangingRuleEClass = createEClass(SSTRUCTURE_CHANGING_RULE);
+		createEAttribute(sStructureChangingRuleEClass, SSTRUCTURE_CHANGING_RULE__ABSTRACT);
+		createEAttribute(sStructureChangingRuleEClass, SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY);
+		createEReference(sStructureChangingRuleEClass, SSTRUCTURE_CHANGING_RULE__EXTEND_FROM);
+
 		sMorphRuleEClass = createEClass(SMORPH_RULE);
 		createEReference(sMorphRuleEClass, SMORPH_RULE__RETYPE_TO);
 		createEReference(sMorphRuleEClass, SMORPH_RULE__REMULTIPLY_TO);
 
-		sDitchRuleEClass = createEClass(SDITCH_RULE);
-
 		sFuseRuleEClass = createEClass(SFUSE_RULE);
 		createEReference(sFuseRuleEClass, SFUSE_RULE__OTHER_SOURCES);
-		createEReference(sFuseRuleEClass, SFUSE_RULE__EXTEND_FROM);
 
 		sGrabAggregateRuleEClass = createEClass(SGRAB_AGGREGATE_RULE);
 		createEReference(sGrabAggregateRuleEClass, SGRAB_AGGREGATE_RULE__AGGREGATE);
@@ -1463,6 +1527,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		sInformationModelKindEEnum = createEEnum(SINFORMATION_MODEL_KIND);
 		sElementNatureEEnum = createEEnum(SELEMENT_NATURE);
 		sAssociationKindEEnum = createEEnum(SASSOCIATION_KIND);
+		sTristateEEnum = createEEnum(STRISTATE);
 	}
 
 	/**
@@ -1519,9 +1584,10 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		sQueryEClass.getESuperTypes().add(this.getSFeature());
 		sQueryParameterEClass.getESuperTypes().add(this.getSNamedDeducibleElement());
 		sGrabRuleEClass.getESuperTypes().add(this.getSDeductionRule());
-		sMorphRuleEClass.getESuperTypes().add(this.getSGrabRule());
 		sDitchRuleEClass.getESuperTypes().add(this.getSDeductionRule());
-		sFuseRuleEClass.getESuperTypes().add(this.getSGrabRule());
+		sStructureChangingRuleEClass.getESuperTypes().add(this.getSGrabRule());
+		sMorphRuleEClass.getESuperTypes().add(this.getSStructureChangingRule());
+		sFuseRuleEClass.getESuperTypes().add(this.getSStructureChangingRule());
 		sGrabAggregateRuleEClass.getESuperTypes().add(this.getSDeductionRule());
 		sGrabDomainRuleEClass.getESuperTypes().add(this.getSDeductionRule());
 		sSyntheticDeductionRuleEClass.getESuperTypes().add(this.getSDeductionRule());
@@ -1624,15 +1690,19 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		initEClass(sGrabRuleEClass, SGrabRule.class, "SGrabRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSGrabRule_RenameTo(), ecorePackage.getEString(), "renameTo", null, 0, 1, SGrabRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(sDitchRuleEClass, SDitchRule.class, "SDitchRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(sStructureChangingRuleEClass, SStructureChangingRule.class, "SStructureChangingRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSStructureChangingRule_Abstract(), this.getSTristate(), "abstract", null, 0, 1, SStructureChangingRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSStructureChangingRule_RootEntity(), this.getSTristate(), "rootEntity", null, 0, 1, SStructureChangingRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSStructureChangingRule_ExtendFrom(), this.getSType(), null, "extendFrom", null, 0, 1, SStructureChangingRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(sMorphRuleEClass, SMorphRule.class, "SMorphRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSMorphRule_RetypeTo(), this.getSType(), null, "retypeTo", null, 0, 1, SMorphRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSMorphRule_RemultiplyTo(), this.getSMultiplicity(), null, "remultiplyTo", null, 0, 1, SMorphRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sDitchRuleEClass, SDitchRule.class, "SDitchRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(sFuseRuleEClass, SFuseRule.class, "SFuseRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSFuseRule_OtherSources(), theBasePackage.getDNamedElement(), null, "otherSources", null, 0, -1, SFuseRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSFuseRule_ExtendFrom(), this.getSType(), null, "extendFrom", null, 0, 1, SFuseRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sGrabAggregateRuleEClass, SGrabAggregateRule.class, "SGrabAggregateRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSGrabAggregateRule_Aggregate(), theBasePackage.getDAggregate(), null, "aggregate", null, 0, 1, SGrabAggregateRule.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1658,6 +1728,11 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		addEEnumLiteral(sAssociationKindEEnum, SAssociationKind.REFERENCE);
 		addEEnumLiteral(sAssociationKindEEnum, SAssociationKind.COMPOSITE);
 		addEEnumLiteral(sAssociationKindEEnum, SAssociationKind.INVERSE_COMPOSITE);
+
+		initEEnum(sTristateEEnum, STristate.class, "STristate");
+		addEEnumLiteral(sTristateEEnum, STristate.DONT_CARE);
+		addEEnumLiteral(sTristateEEnum, STristate.FALSE);
+		addEEnumLiteral(sTristateEEnum, STristate.TRUE);
 
 		// Create resource
 		createResource(eNS_URI);

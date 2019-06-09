@@ -11,6 +11,7 @@ import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.dim.DimUtil
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+import com.mimacom.ddd.dm.base.DQueryParameter
 
 /**
  * Provides labels for EObjects.
@@ -37,11 +38,11 @@ class DimLabelProvider extends DefaultEObjectLabelProvider {
 		return f.label
 	}
 	
+	def text(DQueryParameter p) {
+		return p.label
+	}
+	
 	def text(DCondition c) {
 		return c.label
 	}
-//
-//	def image(Greeting ele) {
-//		'Greeting.gif'
-//	}
 }

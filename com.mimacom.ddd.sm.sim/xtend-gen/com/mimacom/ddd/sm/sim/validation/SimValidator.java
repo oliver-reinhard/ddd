@@ -24,6 +24,7 @@ import com.mimacom.ddd.sm.sim.SElementNature;
 import com.mimacom.ddd.sm.sim.SEntityType;
 import com.mimacom.ddd.sm.sim.SEnumeration;
 import com.mimacom.ddd.sm.sim.SFeature;
+import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SLiteral;
@@ -32,7 +33,9 @@ import com.mimacom.ddd.sm.sim.SNamedElement;
 import com.mimacom.ddd.sm.sim.SPrimitive;
 import com.mimacom.ddd.sm.sim.SQuery;
 import com.mimacom.ddd.sm.sim.SQueryParameter;
+import com.mimacom.ddd.sm.sim.SStructureChangingRule;
 import com.mimacom.ddd.sm.sim.SSyntheticDeductionRule;
+import com.mimacom.ddd.sm.sim.STristate;
 import com.mimacom.ddd.sm.sim.SType;
 import com.mimacom.ddd.sm.sim.SValueType;
 import com.mimacom.ddd.sm.sim.SimPackage;
@@ -79,7 +82,7 @@ public class SimValidator extends AbstractSimValidator {
     boolean _greaterThan = (_size > 1);
     if (_greaterThan) {
       for (final SEntityType r : roots) {
-        this.error("Aggregate can only declare a single root or relationship or a a single hierarchy thereof", r, SimPackage.Literals.SNAMED_ELEMENT__NAME);
+        this.error("Aggregate can only declare a single root or relationship or a single hierarchy thereof", r, SimPackage.Literals.SNAMED_ELEMENT__NAME);
       }
     }
   }
@@ -134,7 +137,7 @@ public class SimValidator extends AbstractSimValidator {
         boolean _isRoot_1 = t.isRoot();
         boolean _tripleNotEquals = (Boolean.valueOf(_isRoot) != Boolean.valueOf(_isRoot_1));
         if (_tripleNotEquals) {
-          this.error("Deduced entity rule must match domain-model root root property", t.getDeductionRule(), 
+          this.error("Deduced entity rule must match domain-model root property", t.getDeductionRule(), 
             SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
         }
       } else {
@@ -159,24 +162,41 @@ public class SimValidator extends AbstractSimValidator {
   }
   
   @Check
-  public void checkDeducedFeaturesCombination(final SComplexType type) {
-    SElementNature _nature = type.getNature();
+  public void checkRootPropertyForDetailType(final SDetailType t) {
+    SElementNature _nature = t.getNature();
     boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
     if (_equals) {
-      SDeductionRule _deductionRule = type.getDeductionRule();
+      final SDeductionRule rule = t.getDeductionRule();
+      if ((rule instanceof SStructureChangingRule)) {
+        STristate _rootEntity = ((SStructureChangingRule)rule).getRootEntity();
+        final boolean setsRootProperty = (!Objects.equal(_rootEntity, STristate.DONT_CARE));
+        if (setsRootProperty) {
+          this.warning("Setting the root property for DetailTypes does not have any effect.", rule, 
+            SimPackage.Literals.SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY);
+        }
+      }
+    }
+  }
+  
+  @Check
+  public void checkDeducedFeaturesCombination(final SComplexType t) {
+    SElementNature _nature = t.getNature();
+    boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
+    if (_equals) {
+      SDeductionRule _deductionRule = t.getDeductionRule();
       if ((_deductionRule instanceof SGrabRule)) {
         final Function1<SFeature, Boolean> _function = (SFeature it) -> {
           SDeductionRule _deductionRule_1 = it.getDeductionRule();
           return Boolean.valueOf((_deductionRule_1 instanceof SDitchRule));
         };
-        final boolean hasDitchElements = IterableExtensions.<SFeature>exists(type.getFeatures(), _function);
+        final boolean hasDitchElements = IterableExtensions.<SFeature>exists(t.getFeatures(), _function);
         final Function1<SFeature, Boolean> _function_1 = (SFeature it) -> {
           SDeductionRule _deductionRule_1 = it.getDeductionRule();
           return Boolean.valueOf((_deductionRule_1 instanceof SGrabRule));
         };
-        final boolean hasGrabElements = IterableExtensions.<SFeature>exists(type.getFeatures(), _function_1);
+        final boolean hasGrabElements = IterableExtensions.<SFeature>exists(t.getFeatures(), _function_1);
         if ((hasDitchElements && hasGrabElements)) {
-          this.error("Cannot use both grab rule and ditch rules together.", type.getDeductionRule(), 
+          this.error("Cannot use both grab rule and ditch rules together.", t.getDeductionRule(), 
             SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
         }
       }
@@ -184,16 +204,42 @@ public class SimValidator extends AbstractSimValidator {
   }
   
   @Check
-  public void checkHasDeducedContainer(final SFeature feature) {
-    SElementNature _nature = feature.getNature();
+  public void checkComplexTypeExtensionChange(final SStructureChangingRule r) {
+    SType _extendFrom = r.getExtendFrom();
+    boolean _tripleNotEquals = (_extendFrom != null);
+    if (_tripleNotEquals) {
+      final EObject container = r.eContainer();
+      if ((container instanceof SComplexType)) {
+        Class<? extends SComplexType> _class = ((SComplexType)container).getClass();
+        Class<? extends SType> _class_1 = r.getExtendFrom().getClass();
+        boolean _notEquals = (!Objects.equal(_class, _class_1));
+        if (_notEquals) {
+          this.error("New super type is not compatible with the subject of this rule", r, SimPackage.Literals.SSTRUCTURE_CHANGING_RULE__EXTEND_FROM);
+        }
+      }
+    }
+  }
+  
+  @Check
+  public void checkComplexTypeExtensionChange(final SFuseRule r) {
+    boolean _isEmpty = r.getOtherSources().isEmpty();
+    boolean _not = (!_isEmpty);
+    if (_not) {
+      this.error("Feature not implemented yet", r, SimPackage.Literals.SFUSE_RULE__OTHER_SOURCES);
+    }
+  }
+  
+  @Check
+  public void checkHasDeducedContainer(final SFeature f) {
+    SElementNature _nature = f.getNature();
     boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
     if (_equals) {
-      EObject _eContainer = feature.eContainer();
+      EObject _eContainer = f.eContainer();
       final SComplexType container = ((SComplexType) _eContainer);
       SElementNature _nature_1 = container.getNature();
       boolean _notEquals = (!Objects.equal(_nature_1, SElementNature.DEDUCTION_RULE));
       if (_notEquals) {
-        this.error("Features can only have a deduction rule if the containing type also has a deduction rule.", feature.getDeductionRule(), 
+        this.error("Features can only have a deduction rule if the containing type also has a deduction rule.", f.getDeductionRule(), 
           SimPackage.Literals.SDEDUCTION_RULE__SOURCE);
       }
     }

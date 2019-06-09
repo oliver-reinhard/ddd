@@ -1923,79 +1923,6 @@ public interface SimPackage extends EPackage
 	int SGRAB_RULE_OPERATION_COUNT = SDEDUCTION_RULE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SMorphRuleImpl <em>SMorph Rule</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sim.impl.SMorphRuleImpl
-	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSMorphRule()
-	 * @generated
-	 */
-	int SMORPH_RULE = 27;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SMORPH_RULE__SOURCE = SGRAB_RULE__SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Named Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SMORPH_RULE__NAMED_SOURCE = SGRAB_RULE__NAMED_SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Rename To</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SMORPH_RULE__RENAME_TO = SGRAB_RULE__RENAME_TO;
-
-	/**
-	 * The feature id for the '<em><b>Retype To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SMORPH_RULE__RETYPE_TO = SGRAB_RULE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Remultiply To</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SMORPH_RULE__REMULTIPLY_TO = SGRAB_RULE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>SMorph Rule</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SMORPH_RULE_FEATURE_COUNT = SGRAB_RULE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>SMorph Rule</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SMORPH_RULE_OPERATION_COUNT = SGRAB_RULE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SDitchRuleImpl <em>SDitch Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2003,7 +1930,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDitchRule()
 	 * @generated
 	 */
-	int SDITCH_RULE = 28;
+	int SDITCH_RULE = 27;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2042,14 +1969,14 @@ public interface SimPackage extends EPackage
 	int SDITCH_RULE_OPERATION_COUNT = SDEDUCTION_RULE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SFuseRuleImpl <em>SFuse Rule</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SStructureChangingRuleImpl <em>SStructure Changing Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sim.impl.SFuseRuleImpl
-	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSFuseRule()
+	 * @see com.mimacom.ddd.sm.sim.impl.SStructureChangingRuleImpl
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSStructureChangingRule()
 	 * @generated
 	 */
-	int SFUSE_RULE = 29;
+	int SSTRUCTURE_CHANGING_RULE = 28;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2058,7 +1985,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SFUSE_RULE__SOURCE = SGRAB_RULE__SOURCE;
+	int SSTRUCTURE_CHANGING_RULE__SOURCE = SGRAB_RULE__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Named Source</b></em>' reference.
@@ -2067,7 +1994,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SFUSE_RULE__NAMED_SOURCE = SGRAB_RULE__NAMED_SOURCE;
+	int SSTRUCTURE_CHANGING_RULE__NAMED_SOURCE = SGRAB_RULE__NAMED_SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Rename To</b></em>' attribute.
@@ -2076,16 +2003,25 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SFUSE_RULE__RENAME_TO = SGRAB_RULE__RENAME_TO;
+	int SSTRUCTURE_CHANGING_RULE__RENAME_TO = SGRAB_RULE__RENAME_TO;
 
 	/**
-	 * The feature id for the '<em><b>Other Sources</b></em>' reference list.
+	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SFUSE_RULE__OTHER_SOURCES = SGRAB_RULE_FEATURE_COUNT + 0;
+	int SSTRUCTURE_CHANGING_RULE__ABSTRACT = SGRAB_RULE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Root Entity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY = SGRAB_RULE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Extend From</b></em>' reference.
@@ -2094,7 +2030,198 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SFUSE_RULE__EXTEND_FROM = SGRAB_RULE_FEATURE_COUNT + 1;
+	int SSTRUCTURE_CHANGING_RULE__EXTEND_FROM = SGRAB_RULE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>SStructure Changing Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSTRUCTURE_CHANGING_RULE_FEATURE_COUNT = SGRAB_RULE_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>SStructure Changing Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSTRUCTURE_CHANGING_RULE_OPERATION_COUNT = SGRAB_RULE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SMorphRuleImpl <em>SMorph Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sim.impl.SMorphRuleImpl
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSMorphRule()
+	 * @generated
+	 */
+	int SMORPH_RULE = 29;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMORPH_RULE__SOURCE = SSTRUCTURE_CHANGING_RULE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Named Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMORPH_RULE__NAMED_SOURCE = SSTRUCTURE_CHANGING_RULE__NAMED_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Rename To</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMORPH_RULE__RENAME_TO = SSTRUCTURE_CHANGING_RULE__RENAME_TO;
+
+	/**
+	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMORPH_RULE__ABSTRACT = SSTRUCTURE_CHANGING_RULE__ABSTRACT;
+
+	/**
+	 * The feature id for the '<em><b>Root Entity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMORPH_RULE__ROOT_ENTITY = SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY;
+
+	/**
+	 * The feature id for the '<em><b>Extend From</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMORPH_RULE__EXTEND_FROM = SSTRUCTURE_CHANGING_RULE__EXTEND_FROM;
+
+	/**
+	 * The feature id for the '<em><b>Retype To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMORPH_RULE__RETYPE_TO = SSTRUCTURE_CHANGING_RULE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Remultiply To</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMORPH_RULE__REMULTIPLY_TO = SSTRUCTURE_CHANGING_RULE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>SMorph Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMORPH_RULE_FEATURE_COUNT = SSTRUCTURE_CHANGING_RULE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>SMorph Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMORPH_RULE_OPERATION_COUNT = SSTRUCTURE_CHANGING_RULE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SFuseRuleImpl <em>SFuse Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sim.impl.SFuseRuleImpl
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSFuseRule()
+	 * @generated
+	 */
+	int SFUSE_RULE = 30;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SFUSE_RULE__SOURCE = SSTRUCTURE_CHANGING_RULE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Named Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SFUSE_RULE__NAMED_SOURCE = SSTRUCTURE_CHANGING_RULE__NAMED_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Rename To</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SFUSE_RULE__RENAME_TO = SSTRUCTURE_CHANGING_RULE__RENAME_TO;
+
+	/**
+	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SFUSE_RULE__ABSTRACT = SSTRUCTURE_CHANGING_RULE__ABSTRACT;
+
+	/**
+	 * The feature id for the '<em><b>Root Entity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SFUSE_RULE__ROOT_ENTITY = SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY;
+
+	/**
+	 * The feature id for the '<em><b>Extend From</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SFUSE_RULE__EXTEND_FROM = SSTRUCTURE_CHANGING_RULE__EXTEND_FROM;
+
+	/**
+	 * The feature id for the '<em><b>Other Sources</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SFUSE_RULE__OTHER_SOURCES = SSTRUCTURE_CHANGING_RULE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>SFuse Rule</em>' class.
@@ -2103,7 +2230,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SFUSE_RULE_FEATURE_COUNT = SGRAB_RULE_FEATURE_COUNT + 2;
+	int SFUSE_RULE_FEATURE_COUNT = SSTRUCTURE_CHANGING_RULE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>SFuse Rule</em>' class.
@@ -2112,7 +2239,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SFUSE_RULE_OPERATION_COUNT = SGRAB_RULE_OPERATION_COUNT + 0;
+	int SFUSE_RULE_OPERATION_COUNT = SSTRUCTURE_CHANGING_RULE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SGrabAggregateRuleImpl <em>SGrab Aggregate Rule</em>}' class.
@@ -2122,7 +2249,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabAggregateRule()
 	 * @generated
 	 */
-	int SGRAB_AGGREGATE_RULE = 30;
+	int SGRAB_AGGREGATE_RULE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2177,7 +2304,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabDomainRule()
 	 * @generated
 	 */
-	int SGRAB_DOMAIN_RULE = 31;
+	int SGRAB_DOMAIN_RULE = 32;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2232,7 +2359,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSSyntheticDeductionRule()
 	 * @generated
 	 */
-	int SSYNTHETIC_DEDUCTION_RULE = 32;
+	int SSYNTHETIC_DEDUCTION_RULE = 33;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2287,7 +2414,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSInformationModelKind()
 	 * @generated
 	 */
-	int SINFORMATION_MODEL_KIND = 33;
+	int SINFORMATION_MODEL_KIND = 34;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.SElementNature <em>SElement Nature</em>}' enum.
@@ -2297,7 +2424,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSElementNature()
 	 * @generated
 	 */
-	int SELEMENT_NATURE = 34;
+	int SELEMENT_NATURE = 35;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.SAssociationKind <em>SAssociation Kind</em>}' enum.
@@ -2307,7 +2434,17 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAssociationKind()
 	 * @generated
 	 */
-	int SASSOCIATION_KIND = 35;
+	int SASSOCIATION_KIND = 36;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.STristate <em>STristate</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sim.STristate
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSTristate()
+	 * @generated
+	 */
+	int STRISTATE = 37;
 
 
 	/**
@@ -3042,6 +3179,59 @@ public interface SimPackage extends EPackage
 	EAttribute getSGrabRule_RenameTo();
 
 	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SDitchRule <em>SDitch Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SDitch Rule</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SDitchRule
+	 * @generated
+	 */
+	EClass getSDitchRule();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SStructureChangingRule <em>SStructure Changing Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SStructure Changing Rule</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SStructureChangingRule
+	 * @generated
+	 */
+	EClass getSStructureChangingRule();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SStructureChangingRule#getAbstract <em>Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Abstract</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SStructureChangingRule#getAbstract()
+	 * @see #getSStructureChangingRule()
+	 * @generated
+	 */
+	EAttribute getSStructureChangingRule_Abstract();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SStructureChangingRule#getRootEntity <em>Root Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Root Entity</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SStructureChangingRule#getRootEntity()
+	 * @see #getSStructureChangingRule()
+	 * @generated
+	 */
+	EAttribute getSStructureChangingRule_RootEntity();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SStructureChangingRule#getExtendFrom <em>Extend From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Extend From</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SStructureChangingRule#getExtendFrom()
+	 * @see #getSStructureChangingRule()
+	 * @generated
+	 */
+	EReference getSStructureChangingRule_ExtendFrom();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SMorphRule <em>SMorph Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3074,16 +3264,6 @@ public interface SimPackage extends EPackage
 	EReference getSMorphRule_RemultiplyTo();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SDitchRule <em>SDitch Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SDitch Rule</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SDitchRule
-	 * @generated
-	 */
-	EClass getSDitchRule();
-
-	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SFuseRule <em>SFuse Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3103,17 +3283,6 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 */
 	EReference getSFuseRule_OtherSources();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SFuseRule#getExtendFrom <em>Extend From</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Extend From</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SFuseRule#getExtendFrom()
-	 * @see #getSFuseRule()
-	 * @generated
-	 */
-	EReference getSFuseRule_ExtendFrom();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SGrabAggregateRule <em>SGrab Aggregate Rule</em>}'.
@@ -3207,6 +3376,16 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 */
 	EEnum getSAssociationKind();
+
+	/**
+	 * Returns the meta object for enum '{@link com.mimacom.ddd.sm.sim.STristate <em>STristate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>STristate</em>'.
+	 * @see com.mimacom.ddd.sm.sim.STristate
+	 * @generated
+	 */
+	EEnum getSTristate();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3839,6 +4018,50 @@ public interface SimPackage extends EPackage
 		EAttribute SGRAB_RULE__RENAME_TO = eINSTANCE.getSGrabRule_RenameTo();
 
 		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SDitchRuleImpl <em>SDitch Rule</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sim.impl.SDitchRuleImpl
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDitchRule()
+		 * @generated
+		 */
+		EClass SDITCH_RULE = eINSTANCE.getSDitchRule();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SStructureChangingRuleImpl <em>SStructure Changing Rule</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sim.impl.SStructureChangingRuleImpl
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSStructureChangingRule()
+		 * @generated
+		 */
+		EClass SSTRUCTURE_CHANGING_RULE = eINSTANCE.getSStructureChangingRule();
+
+		/**
+		 * The meta object literal for the '<em><b>Abstract</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SSTRUCTURE_CHANGING_RULE__ABSTRACT = eINSTANCE.getSStructureChangingRule_Abstract();
+
+		/**
+		 * The meta object literal for the '<em><b>Root Entity</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY = eINSTANCE.getSStructureChangingRule_RootEntity();
+
+		/**
+		 * The meta object literal for the '<em><b>Extend From</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SSTRUCTURE_CHANGING_RULE__EXTEND_FROM = eINSTANCE.getSStructureChangingRule_ExtendFrom();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SMorphRuleImpl <em>SMorph Rule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3865,16 +4088,6 @@ public interface SimPackage extends EPackage
 		EReference SMORPH_RULE__REMULTIPLY_TO = eINSTANCE.getSMorphRule_RemultiplyTo();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SDitchRuleImpl <em>SDitch Rule</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sim.impl.SDitchRuleImpl
-		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDitchRule()
-		 * @generated
-		 */
-		EClass SDITCH_RULE = eINSTANCE.getSDitchRule();
-
-		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SFuseRuleImpl <em>SFuse Rule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3891,14 +4104,6 @@ public interface SimPackage extends EPackage
 		 * @generated
 		 */
 		EReference SFUSE_RULE__OTHER_SOURCES = eINSTANCE.getSFuseRule_OtherSources();
-
-		/**
-		 * The meta object literal for the '<em><b>Extend From</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SFUSE_RULE__EXTEND_FROM = eINSTANCE.getSFuseRule_ExtendFrom();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SGrabAggregateRuleImpl <em>SGrab Aggregate Rule</em>}' class.
@@ -3983,6 +4188,16 @@ public interface SimPackage extends EPackage
 		 * @generated
 		 */
 		EEnum SASSOCIATION_KIND = eINSTANCE.getSAssociationKind();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.STristate <em>STristate</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sim.STristate
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSTristate()
+		 * @generated
+		 */
+		EEnum STRISTATE = eINSTANCE.getSTristate();
 
 	}
 

@@ -8,6 +8,7 @@ import com.mimacom.ddd.sm.sim.SAggregate;
 import com.mimacom.ddd.sm.sim.SCondition;
 import com.mimacom.ddd.sm.sim.SFeature;
 import com.mimacom.ddd.sm.sim.SLiteral;
+import com.mimacom.ddd.sm.sim.SQueryParameter;
 import com.mimacom.ddd.sm.sim.SType;
 import com.mimacom.ddd.sm.sim.SimUtil;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
@@ -52,6 +53,14 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
       return (">" + _label);
     }
     return this._simUtil.label(f);
+  }
+  
+  public String text(final SQueryParameter p) {
+    if (((p.getDeductionRule() != null) && (!p.isSynthetic()))) {
+      String _label = this._simUtil.label(p.getDeductionRule());
+      return (">" + _label);
+    }
+    return this._simUtil.label(p);
   }
   
   public String text(final SCondition c) {

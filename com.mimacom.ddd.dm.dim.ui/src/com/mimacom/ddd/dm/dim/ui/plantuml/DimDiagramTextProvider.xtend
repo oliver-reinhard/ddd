@@ -40,7 +40,7 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	}
 				
 	override protected getDiagramText(IEditorPart editorPart, IEditorInput editorInput, ISelection sel, Map<String, Object> obj) {
-        // Retrieve the "semantic" EMF from XtextEditor
+        // Retrieve  "semantic" EMF model from XtextEditor
         val document = (editorPart as XtextEditor).getDocumentProvider().getDocument(editorInput) as XtextDocument;
         val DDomain domain = document.readOnly[
             return if (contents.head instanceof DDomain) contents.head as DDomain else null
@@ -165,12 +165,15 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 
 	def dispatch generateFeature(DQuery q) '''
 	   «IF q.type !== null»
-	   		«q.name»() : «q.type.name» 
+	   		«q.name»(«q.generateQueryParameters») : «q.type.name» 
 	   	«ENDIF»
 	 '''
 	
 	def dispatch generateFeature(DAssociation a)  '''
 	'''
+	
+	def generateQueryParameters(DQuery q) 
+	'''«FOR p:q.parameters SEPARATOR ", "»«p.name»:«p.type.name»«ENDFOR»'''
 	
 	def generateAssociation(DAssociation a ) {
 		return switch a.kind {

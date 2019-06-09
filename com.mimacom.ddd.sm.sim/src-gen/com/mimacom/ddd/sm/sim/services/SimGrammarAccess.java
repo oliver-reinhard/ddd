@@ -393,22 +393,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cSourceDComplexTypeCrossReference_0_0 = (CrossReference)cSourceAssignment_0.eContents().get(0);
 		private final RuleCall cSourceDComplexTypeSQualifiedNameParserRuleCall_0_0_1 = (RuleCall)cSourceDComplexTypeCrossReference_0_0.eContents().get(1);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cAsKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cRenameToAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cRenameToIDTerminalRuleCall_1_1_0 = (RuleCall)cRenameToAssignment_1_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cExtendsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cRetypeToAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final CrossReference cRetypeToSComplexTypeCrossReference_2_2_0 = (CrossReference)cRetypeToAssignment_2_2.eContents().get(0);
-		private final RuleCall cRetypeToSComplexTypeIDTerminalRuleCall_2_2_0_1 = (RuleCall)cRetypeToSComplexTypeCrossReference_2_2_0.eContents().get(1);
+		private final RuleCall cChangeComplexTypeParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
 		//SMorphComplexTypeRule SMorphRule:
-		//	source=[DComplexType|SQualifiedName] ('as' renameTo=ID)? ('extends' '=' retypeTo=[SComplexType])?;
+		//	source=[DComplexType|SQualifiedName] ChangeComplexType;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//source=[DComplexType|SQualifiedName] ('as' renameTo=ID)? ('extends' '=' retypeTo=[SComplexType])?
+		//source=[DComplexType|SQualifiedName] ChangeComplexType
 		public Group getGroup() { return cGroup; }
 		
 		//source=[DComplexType|SQualifiedName]
@@ -420,35 +411,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//SQualifiedName
 		public RuleCall getSourceDComplexTypeSQualifiedNameParserRuleCall_0_0_1() { return cSourceDComplexTypeSQualifiedNameParserRuleCall_0_0_1; }
 		
-		//('as' renameTo=ID)?
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'as'
-		public Keyword getAsKeyword_1_0() { return cAsKeyword_1_0; }
-		
-		//renameTo=ID
-		public Assignment getRenameToAssignment_1_1() { return cRenameToAssignment_1_1; }
-		
-		//ID
-		public RuleCall getRenameToIDTerminalRuleCall_1_1_0() { return cRenameToIDTerminalRuleCall_1_1_0; }
-		
-		//('extends' '=' retypeTo=[SComplexType])?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'extends'
-		public Keyword getExtendsKeyword_2_0() { return cExtendsKeyword_2_0; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_2_1() { return cEqualsSignKeyword_2_1; }
-		
-		//retypeTo=[SComplexType]
-		public Assignment getRetypeToAssignment_2_2() { return cRetypeToAssignment_2_2; }
-		
-		//[SComplexType]
-		public CrossReference getRetypeToSComplexTypeCrossReference_2_2_0() { return cRetypeToSComplexTypeCrossReference_2_2_0; }
-		
-		//ID
-		public RuleCall getRetypeToSComplexTypeIDTerminalRuleCall_2_2_0_1() { return cRetypeToSComplexTypeIDTerminalRuleCall_2_2_0_1; }
+		//ChangeComplexType
+		public RuleCall getChangeComplexTypeParserRuleCall_1() { return cChangeComplexTypeParserRuleCall_1; }
 	}
 	public class SFuseComplexTypeRuleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SFuseComplexTypeRule");
@@ -461,23 +425,14 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cOtherSourcesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final CrossReference cOtherSourcesDComplexTypeCrossReference_1_1_0 = (CrossReference)cOtherSourcesAssignment_1_1.eContents().get(0);
 		private final RuleCall cOtherSourcesDComplexTypeSQualifiedNameParserRuleCall_1_1_0_1 = (RuleCall)cOtherSourcesDComplexTypeCrossReference_1_1_0.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cAsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cRenameToAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cRenameToIDTerminalRuleCall_2_1_0 = (RuleCall)cRenameToAssignment_2_1.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cExtendsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cExtendFromAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cExtendFromSComplexTypeCrossReference_3_1_0 = (CrossReference)cExtendFromAssignment_3_1.eContents().get(0);
-		private final RuleCall cExtendFromSComplexTypeIDTerminalRuleCall_3_1_0_1 = (RuleCall)cExtendFromSComplexTypeCrossReference_3_1_0.eContents().get(1);
+		private final RuleCall cChangeComplexTypeParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
 		//SFuseComplexTypeRule SFuseRule:
-		//	source=[DComplexType|SQualifiedName] ('and' otherSources+=[DComplexType|SQualifiedName])+ ('as' renameTo=ID)?
-		//	('extends' extendFrom=[SComplexType])?;
+		//	source=[DComplexType|SQualifiedName] ('and' otherSources+=[DComplexType|SQualifiedName])+
+		//	ChangeComplexType;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//source=[DComplexType|SQualifiedName] ('and' otherSources+=[DComplexType|SQualifiedName])+ ('as' renameTo=ID)? ('extends'
-		//extendFrom=[SComplexType])?
+		//source=[DComplexType|SQualifiedName] ('and' otherSources+=[DComplexType|SQualifiedName])+ ChangeComplexType
 		public Group getGroup() { return cGroup; }
 		
 		//source=[DComplexType|SQualifiedName]
@@ -504,32 +459,70 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//SQualifiedName
 		public RuleCall getOtherSourcesDComplexTypeSQualifiedNameParserRuleCall_1_1_0_1() { return cOtherSourcesDComplexTypeSQualifiedNameParserRuleCall_1_1_0_1; }
 		
-		//('as' renameTo=ID)?
-		public Group getGroup_2() { return cGroup_2; }
+		//ChangeComplexType
+		public RuleCall getChangeComplexTypeParserRuleCall_2() { return cChangeComplexTypeParserRuleCall_2; }
+	}
+	public class ChangeComplexTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.ChangeComplexType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cToKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cAbstractAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cAbstractSAbstractTypeEnumRuleCall_1_0 = (RuleCall)cAbstractAssignment_1.eContents().get(0);
+		private final Assignment cRootEntityAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cRootEntitySRootEntityEnumRuleCall_2_0 = (RuleCall)cRootEntityAssignment_2.eContents().get(0);
+		private final Assignment cRenameToAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cRenameToIDTerminalRuleCall_3_0 = (RuleCall)cRenameToAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cExtendsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cExtendFromAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cExtendFromSComplexTypeCrossReference_4_1_0 = (CrossReference)cExtendFromAssignment_4_1.eContents().get(0);
+		private final RuleCall cExtendFromSComplexTypeIDTerminalRuleCall_4_1_0_1 = (RuleCall)cExtendFromSComplexTypeCrossReference_4_1_0.eContents().get(1);
 		
-		//'as'
-		public Keyword getAsKeyword_2_0() { return cAsKeyword_2_0; }
+		//fragment ChangeComplexType returns SStructureChangingRule:
+		//	'to'
+		//	abstract=SAbstractType?
+		//	rootEntity=SRootEntity?
+		//	renameTo=ID? ('extends' extendFrom=[SComplexType])?;
+		@Override public ParserRule getRule() { return rule; }
 		
-		//renameTo=ID
-		public Assignment getRenameToAssignment_2_1() { return cRenameToAssignment_2_1; }
+		//'to' abstract=SAbstractType? rootEntity=SRootEntity? renameTo=ID? ('extends' extendFrom=[SComplexType])?
+		public Group getGroup() { return cGroup; }
+		
+		//'to'
+		public Keyword getToKeyword_0() { return cToKeyword_0; }
+		
+		//abstract=SAbstractType?
+		public Assignment getAbstractAssignment_1() { return cAbstractAssignment_1; }
+		
+		//SAbstractType
+		public RuleCall getAbstractSAbstractTypeEnumRuleCall_1_0() { return cAbstractSAbstractTypeEnumRuleCall_1_0; }
+		
+		//rootEntity=SRootEntity?
+		public Assignment getRootEntityAssignment_2() { return cRootEntityAssignment_2; }
+		
+		//SRootEntity
+		public RuleCall getRootEntitySRootEntityEnumRuleCall_2_0() { return cRootEntitySRootEntityEnumRuleCall_2_0; }
+		
+		//renameTo=ID?
+		public Assignment getRenameToAssignment_3() { return cRenameToAssignment_3; }
 		
 		//ID
-		public RuleCall getRenameToIDTerminalRuleCall_2_1_0() { return cRenameToIDTerminalRuleCall_2_1_0; }
+		public RuleCall getRenameToIDTerminalRuleCall_3_0() { return cRenameToIDTerminalRuleCall_3_0; }
 		
 		//('extends' extendFrom=[SComplexType])?
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_4() { return cGroup_4; }
 		
 		//'extends'
-		public Keyword getExtendsKeyword_3_0() { return cExtendsKeyword_3_0; }
+		public Keyword getExtendsKeyword_4_0() { return cExtendsKeyword_4_0; }
 		
 		//extendFrom=[SComplexType]
-		public Assignment getExtendFromAssignment_3_1() { return cExtendFromAssignment_3_1; }
+		public Assignment getExtendFromAssignment_4_1() { return cExtendFromAssignment_4_1; }
 		
 		//[SComplexType]
-		public CrossReference getExtendFromSComplexTypeCrossReference_3_1_0() { return cExtendFromSComplexTypeCrossReference_3_1_0; }
+		public CrossReference getExtendFromSComplexTypeCrossReference_4_1_0() { return cExtendFromSComplexTypeCrossReference_4_1_0; }
 		
 		//ID
-		public RuleCall getExtendFromSComplexTypeIDTerminalRuleCall_3_1_0_1() { return cExtendFromSComplexTypeIDTerminalRuleCall_3_1_0_1; }
+		public RuleCall getExtendFromSComplexTypeIDTerminalRuleCall_4_1_0_1() { return cExtendFromSComplexTypeIDTerminalRuleCall_4_1_0_1; }
 	}
 	public class SGrabFeatureRuleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SGrabFeatureRule");
@@ -576,23 +569,24 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cSourceDFeatureCrossReference_0_0 = (CrossReference)cSourceAssignment_0.eContents().get(0);
 		private final RuleCall cSourceDFeatureIDTerminalRuleCall_0_0_1 = (RuleCall)cSourceDFeatureCrossReference_0_0.eContents().get(1);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cAsKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cRenameToAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cRenameToIDTerminalRuleCall_1_1_0 = (RuleCall)cRenameToAssignment_1_1.eContents().get(0);
+		private final Keyword cToKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cColonKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cRetypeToAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cRetypeToSTypeCrossReference_2_1_0 = (CrossReference)cRetypeToAssignment_2_1.eContents().get(0);
-		private final RuleCall cRetypeToSTypeIDTerminalRuleCall_2_1_0_1 = (RuleCall)cRetypeToSTypeCrossReference_2_1_0.eContents().get(1);
-		private final Assignment cRemultiplyToAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cRemultiplyToSMultiplicityParserRuleCall_2_2_0 = (RuleCall)cRemultiplyToAssignment_2_2.eContents().get(0);
+		private final Assignment cRenameToAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cRenameToIDTerminalRuleCall_2_0_0 = (RuleCall)cRenameToAssignment_2_0.eContents().get(0);
+		private final Keyword cColonKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Assignment cRetypeToAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cRetypeToSTypeCrossReference_3_0 = (CrossReference)cRetypeToAssignment_3.eContents().get(0);
+		private final RuleCall cRetypeToSTypeIDTerminalRuleCall_3_0_1 = (RuleCall)cRetypeToSTypeCrossReference_3_0.eContents().get(1);
+		private final Assignment cRemultiplyToAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cRemultiplyToSMultiplicityParserRuleCall_4_0 = (RuleCall)cRemultiplyToAssignment_4.eContents().get(0);
 		
 		//SMorphFeatureRule SMorphRule:
-		//	source=[DFeature] ('as' renameTo=ID)? (':' retypeTo=[SType] remultiplyTo=SMultiplicity?)?;
+		//	source=[DFeature]
+		//	'to' (renameTo=ID ':')?
+		//	retypeTo=[SType] remultiplyTo=SMultiplicity?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//source=[DFeature] ('as' renameTo=ID)? (':' retypeTo=[SType] remultiplyTo=SMultiplicity?)?
+		//source=[DFeature] 'to' (renameTo=ID ':')? retypeTo=[SType] remultiplyTo=SMultiplicity?
 		public Group getGroup() { return cGroup; }
 		
 		//source=[DFeature]
@@ -604,38 +598,35 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getSourceDFeatureIDTerminalRuleCall_0_0_1() { return cSourceDFeatureIDTerminalRuleCall_0_0_1; }
 		
-		//('as' renameTo=ID)?
-		public Group getGroup_1() { return cGroup_1; }
+		//'to'
+		public Keyword getToKeyword_1() { return cToKeyword_1; }
 		
-		//'as'
-		public Keyword getAsKeyword_1_0() { return cAsKeyword_1_0; }
-		
-		//renameTo=ID
-		public Assignment getRenameToAssignment_1_1() { return cRenameToAssignment_1_1; }
-		
-		//ID
-		public RuleCall getRenameToIDTerminalRuleCall_1_1_0() { return cRenameToIDTerminalRuleCall_1_1_0; }
-		
-		//(':' retypeTo=[SType] remultiplyTo=SMultiplicity?)?
+		//(renameTo=ID ':')?
 		public Group getGroup_2() { return cGroup_2; }
 		
-		//':'
-		public Keyword getColonKeyword_2_0() { return cColonKeyword_2_0; }
-		
-		//retypeTo=[SType]
-		public Assignment getRetypeToAssignment_2_1() { return cRetypeToAssignment_2_1; }
-		
-		//[SType]
-		public CrossReference getRetypeToSTypeCrossReference_2_1_0() { return cRetypeToSTypeCrossReference_2_1_0; }
+		//renameTo=ID
+		public Assignment getRenameToAssignment_2_0() { return cRenameToAssignment_2_0; }
 		
 		//ID
-		public RuleCall getRetypeToSTypeIDTerminalRuleCall_2_1_0_1() { return cRetypeToSTypeIDTerminalRuleCall_2_1_0_1; }
+		public RuleCall getRenameToIDTerminalRuleCall_2_0_0() { return cRenameToIDTerminalRuleCall_2_0_0; }
+		
+		//':'
+		public Keyword getColonKeyword_2_1() { return cColonKeyword_2_1; }
+		
+		//retypeTo=[SType]
+		public Assignment getRetypeToAssignment_3() { return cRetypeToAssignment_3; }
+		
+		//[SType]
+		public CrossReference getRetypeToSTypeCrossReference_3_0() { return cRetypeToSTypeCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getRetypeToSTypeIDTerminalRuleCall_3_0_1() { return cRetypeToSTypeIDTerminalRuleCall_3_0_1; }
 		
 		//remultiplyTo=SMultiplicity?
-		public Assignment getRemultiplyToAssignment_2_2() { return cRemultiplyToAssignment_2_2; }
+		public Assignment getRemultiplyToAssignment_4() { return cRemultiplyToAssignment_4; }
 		
 		//SMultiplicity
-		public RuleCall getRemultiplyToSMultiplicityParserRuleCall_2_2_0() { return cRemultiplyToSMultiplicityParserRuleCall_2_2_0; }
+		public RuleCall getRemultiplyToSMultiplicityParserRuleCall_4_0() { return cRemultiplyToSMultiplicityParserRuleCall_4_0; }
 	}
 	public class SDitchFeatureRuleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SDitchFeatureRule");
@@ -1138,43 +1129,35 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_0_0 = (Group)cAlternatives_0.eContents().get(0);
 		private final Action cSEntityTypeAction_0_0_0 = (Action)cGroup_0_0.eContents().get(0);
 		private final Keyword cGrabKeyword_0_0_1 = (Keyword)cGroup_0_0.eContents().get(1);
-		private final Assignment cAbstractAssignment_0_0_2 = (Assignment)cGroup_0_0.eContents().get(2);
-		private final Keyword cAbstractAbstractKeyword_0_0_2_0 = (Keyword)cAbstractAssignment_0_0_2.eContents().get(0);
-		private final Assignment cRootAssignment_0_0_3 = (Assignment)cGroup_0_0.eContents().get(3);
-		private final Keyword cRootRootKeyword_0_0_3_0 = (Keyword)cRootAssignment_0_0_3.eContents().get(0);
-		private final Keyword cEntityKeyword_0_0_4 = (Keyword)cGroup_0_0.eContents().get(4);
-		private final Assignment cDeductionRuleAssignment_0_0_5 = (Assignment)cGroup_0_0.eContents().get(5);
-		private final RuleCall cDeductionRuleSGrabComplexTypeRuleParserRuleCall_0_0_5_0 = (RuleCall)cDeductionRuleAssignment_0_0_5.eContents().get(0);
+		private final Assignment cRootAssignment_0_0_2 = (Assignment)cGroup_0_0.eContents().get(2);
+		private final Keyword cRootRootKeyword_0_0_2_0 = (Keyword)cRootAssignment_0_0_2.eContents().get(0);
+		private final Keyword cEntityKeyword_0_0_3 = (Keyword)cGroup_0_0.eContents().get(3);
+		private final Assignment cDeductionRuleAssignment_0_0_4 = (Assignment)cGroup_0_0.eContents().get(4);
+		private final RuleCall cDeductionRuleSGrabComplexTypeRuleParserRuleCall_0_0_4_0 = (RuleCall)cDeductionRuleAssignment_0_0_4.eContents().get(0);
 		private final Group cGroup_0_1 = (Group)cAlternatives_0.eContents().get(1);
 		private final Action cSEntityTypeAction_0_1_0 = (Action)cGroup_0_1.eContents().get(0);
 		private final Keyword cDitchKeyword_0_1_1 = (Keyword)cGroup_0_1.eContents().get(1);
-		private final Assignment cAbstractAssignment_0_1_2 = (Assignment)cGroup_0_1.eContents().get(2);
-		private final Keyword cAbstractAbstractKeyword_0_1_2_0 = (Keyword)cAbstractAssignment_0_1_2.eContents().get(0);
-		private final Assignment cRootAssignment_0_1_3 = (Assignment)cGroup_0_1.eContents().get(3);
-		private final Keyword cRootRootKeyword_0_1_3_0 = (Keyword)cRootAssignment_0_1_3.eContents().get(0);
-		private final Keyword cEntityKeyword_0_1_4 = (Keyword)cGroup_0_1.eContents().get(4);
-		private final Assignment cDeductionRuleAssignment_0_1_5 = (Assignment)cGroup_0_1.eContents().get(5);
-		private final RuleCall cDeductionRuleSDitchComplexTypeRuleParserRuleCall_0_1_5_0 = (RuleCall)cDeductionRuleAssignment_0_1_5.eContents().get(0);
+		private final Assignment cRootAssignment_0_1_2 = (Assignment)cGroup_0_1.eContents().get(2);
+		private final Keyword cRootRootKeyword_0_1_2_0 = (Keyword)cRootAssignment_0_1_2.eContents().get(0);
+		private final Keyword cEntityKeyword_0_1_3 = (Keyword)cGroup_0_1.eContents().get(3);
+		private final Assignment cDeductionRuleAssignment_0_1_4 = (Assignment)cGroup_0_1.eContents().get(4);
+		private final RuleCall cDeductionRuleSDitchComplexTypeRuleParserRuleCall_0_1_4_0 = (RuleCall)cDeductionRuleAssignment_0_1_4.eContents().get(0);
 		private final Group cGroup_0_2 = (Group)cAlternatives_0.eContents().get(2);
 		private final Action cSEntityTypeAction_0_2_0 = (Action)cGroup_0_2.eContents().get(0);
 		private final Keyword cMorphKeyword_0_2_1 = (Keyword)cGroup_0_2.eContents().get(1);
-		private final Assignment cAbstractAssignment_0_2_2 = (Assignment)cGroup_0_2.eContents().get(2);
-		private final Keyword cAbstractAbstractKeyword_0_2_2_0 = (Keyword)cAbstractAssignment_0_2_2.eContents().get(0);
-		private final Assignment cRootAssignment_0_2_3 = (Assignment)cGroup_0_2.eContents().get(3);
-		private final Keyword cRootRootKeyword_0_2_3_0 = (Keyword)cRootAssignment_0_2_3.eContents().get(0);
-		private final Keyword cEntityKeyword_0_2_4 = (Keyword)cGroup_0_2.eContents().get(4);
-		private final Assignment cDeductionRuleAssignment_0_2_5 = (Assignment)cGroup_0_2.eContents().get(5);
-		private final RuleCall cDeductionRuleSMorphComplexTypeRuleParserRuleCall_0_2_5_0 = (RuleCall)cDeductionRuleAssignment_0_2_5.eContents().get(0);
+		private final Assignment cRootAssignment_0_2_2 = (Assignment)cGroup_0_2.eContents().get(2);
+		private final Keyword cRootRootKeyword_0_2_2_0 = (Keyword)cRootAssignment_0_2_2.eContents().get(0);
+		private final Keyword cEntityKeyword_0_2_3 = (Keyword)cGroup_0_2.eContents().get(3);
+		private final Assignment cDeductionRuleAssignment_0_2_4 = (Assignment)cGroup_0_2.eContents().get(4);
+		private final RuleCall cDeductionRuleSMorphComplexTypeRuleParserRuleCall_0_2_4_0 = (RuleCall)cDeductionRuleAssignment_0_2_4.eContents().get(0);
 		private final Group cGroup_0_3 = (Group)cAlternatives_0.eContents().get(3);
 		private final Action cSEntityTypeAction_0_3_0 = (Action)cGroup_0_3.eContents().get(0);
 		private final Keyword cFuseKeyword_0_3_1 = (Keyword)cGroup_0_3.eContents().get(1);
-		private final Assignment cAbstractAssignment_0_3_2 = (Assignment)cGroup_0_3.eContents().get(2);
-		private final Keyword cAbstractAbstractKeyword_0_3_2_0 = (Keyword)cAbstractAssignment_0_3_2.eContents().get(0);
-		private final Assignment cRootAssignment_0_3_3 = (Assignment)cGroup_0_3.eContents().get(3);
-		private final Keyword cRootRootKeyword_0_3_3_0 = (Keyword)cRootAssignment_0_3_3.eContents().get(0);
-		private final Keyword cEntityKeyword_0_3_4 = (Keyword)cGroup_0_3.eContents().get(4);
-		private final Assignment cDeductionRuleAssignment_0_3_5 = (Assignment)cGroup_0_3.eContents().get(5);
-		private final RuleCall cDeductionRuleSFuseComplexTypeRuleParserRuleCall_0_3_5_0 = (RuleCall)cDeductionRuleAssignment_0_3_5.eContents().get(0);
+		private final Assignment cRootAssignment_0_3_2 = (Assignment)cGroup_0_3.eContents().get(2);
+		private final Keyword cRootRootKeyword_0_3_2_0 = (Keyword)cRootAssignment_0_3_2.eContents().get(0);
+		private final Keyword cEntityKeyword_0_3_3 = (Keyword)cGroup_0_3.eContents().get(3);
+		private final Assignment cDeductionRuleAssignment_0_3_4 = (Assignment)cGroup_0_3.eContents().get(4);
+		private final RuleCall cDeductionRuleSFuseComplexTypeRuleParserRuleCall_0_3_4_0 = (RuleCall)cDeductionRuleAssignment_0_3_4.eContents().get(0);
 		private final Group cGroup_0_4 = (Group)cAlternatives_0.eContents().get(4);
 		private final Assignment cAbstractAssignment_0_4_0 = (Assignment)cGroup_0_4.eContents().get(0);
 		private final Keyword cAbstractAbstractKeyword_0_4_0_0 = (Keyword)cAbstractAssignment_0_4_0.eContents().get(0);
@@ -1188,30 +1171,28 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		
 		////	(description=DRichText)?;
 		//SEntityType:
-		//	({SEntityType} 'grab' abstract?='abstract'? root?='root'? 'entity' deductionRule=SGrabComplexTypeRule
-		//	| {SEntityType} 'ditch' abstract?='abstract'? root?='root'? 'entity' deductionRule=SDitchComplexTypeRule
-		//	| {SEntityType} 'morph' abstract?='abstract'? root?='root'? 'entity' deductionRule=SMorphComplexTypeRule
-		//	| {SEntityType} 'fuse' abstract?='abstract'? root?='root'? 'entity' deductionRule=SFuseComplexTypeRule
+		//	({SEntityType} 'grab' root?='root'? 'entity' deductionRule=SGrabComplexTypeRule
+		//	| {SEntityType} 'ditch' root?='root'? 'entity' deductionRule=SDitchComplexTypeRule
+		//	| {SEntityType} 'morph' root?='root'? 'entity' deductionRule=SMorphComplexTypeRule
+		//	| {SEntityType} 'fuse' root?='root'? 'entity' deductionRule=SFuseComplexTypeRule
 		//	| abstract?='abstract'? root?='root'? 'entity'
 		//	name=ID
 		//	SComplexTypeExtends) SComplexTypeFeatures;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//({SEntityType} 'grab' abstract?='abstract'? root?='root'? 'entity' deductionRule=SGrabComplexTypeRule | {SEntityType}
-		//'ditch' abstract?='abstract'? root?='root'? 'entity' deductionRule=SDitchComplexTypeRule | {SEntityType} 'morph'
-		//abstract?='abstract'? root?='root'? 'entity' deductionRule=SMorphComplexTypeRule | {SEntityType} 'fuse'
-		//abstract?='abstract'? root?='root'? 'entity' deductionRule=SFuseComplexTypeRule | abstract?='abstract'? root?='root'?
-		//'entity' name=ID SComplexTypeExtends) SComplexTypeFeatures
+		//({SEntityType} 'grab' root?='root'? 'entity' deductionRule=SGrabComplexTypeRule | {SEntityType} 'ditch' root?='root'?
+		//'entity' deductionRule=SDitchComplexTypeRule | {SEntityType} 'morph' root?='root'? 'entity'
+		//deductionRule=SMorphComplexTypeRule | {SEntityType} 'fuse' root?='root'? 'entity' deductionRule=SFuseComplexTypeRule |
+		//abstract?='abstract'? root?='root'? 'entity' name=ID SComplexTypeExtends) SComplexTypeFeatures
 		public Group getGroup() { return cGroup; }
 		
-		//{SEntityType} 'grab' abstract?='abstract'? root?='root'? 'entity' deductionRule=SGrabComplexTypeRule | {SEntityType}
-		//'ditch' abstract?='abstract'? root?='root'? 'entity' deductionRule=SDitchComplexTypeRule | {SEntityType} 'morph'
-		//abstract?='abstract'? root?='root'? 'entity' deductionRule=SMorphComplexTypeRule | {SEntityType} 'fuse'
-		//abstract?='abstract'? root?='root'? 'entity' deductionRule=SFuseComplexTypeRule | abstract?='abstract'? root?='root'?
-		//'entity' name=ID SComplexTypeExtends
+		//{SEntityType} 'grab' root?='root'? 'entity' deductionRule=SGrabComplexTypeRule | {SEntityType} 'ditch' root?='root'?
+		//'entity' deductionRule=SDitchComplexTypeRule | {SEntityType} 'morph' root?='root'? 'entity'
+		//deductionRule=SMorphComplexTypeRule | {SEntityType} 'fuse' root?='root'? 'entity' deductionRule=SFuseComplexTypeRule |
+		//abstract?='abstract'? root?='root'? 'entity' name=ID SComplexTypeExtends
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
-		//{SEntityType} 'grab' abstract?='abstract'? root?='root'? 'entity' deductionRule=SGrabComplexTypeRule
+		//{SEntityType} 'grab' root?='root'? 'entity' deductionRule=SGrabComplexTypeRule
 		public Group getGroup_0_0() { return cGroup_0_0; }
 		
 		//{SEntityType}
@@ -1220,28 +1201,22 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'grab'
 		public Keyword getGrabKeyword_0_0_1() { return cGrabKeyword_0_0_1; }
 		
-		//abstract?='abstract'?
-		public Assignment getAbstractAssignment_0_0_2() { return cAbstractAssignment_0_0_2; }
-		
-		//'abstract'
-		public Keyword getAbstractAbstractKeyword_0_0_2_0() { return cAbstractAbstractKeyword_0_0_2_0; }
-		
 		//root?='root'?
-		public Assignment getRootAssignment_0_0_3() { return cRootAssignment_0_0_3; }
+		public Assignment getRootAssignment_0_0_2() { return cRootAssignment_0_0_2; }
 		
 		//'root'
-		public Keyword getRootRootKeyword_0_0_3_0() { return cRootRootKeyword_0_0_3_0; }
+		public Keyword getRootRootKeyword_0_0_2_0() { return cRootRootKeyword_0_0_2_0; }
 		
 		//'entity'
-		public Keyword getEntityKeyword_0_0_4() { return cEntityKeyword_0_0_4; }
+		public Keyword getEntityKeyword_0_0_3() { return cEntityKeyword_0_0_3; }
 		
 		//deductionRule=SGrabComplexTypeRule
-		public Assignment getDeductionRuleAssignment_0_0_5() { return cDeductionRuleAssignment_0_0_5; }
+		public Assignment getDeductionRuleAssignment_0_0_4() { return cDeductionRuleAssignment_0_0_4; }
 		
 		//SGrabComplexTypeRule
-		public RuleCall getDeductionRuleSGrabComplexTypeRuleParserRuleCall_0_0_5_0() { return cDeductionRuleSGrabComplexTypeRuleParserRuleCall_0_0_5_0; }
+		public RuleCall getDeductionRuleSGrabComplexTypeRuleParserRuleCall_0_0_4_0() { return cDeductionRuleSGrabComplexTypeRuleParserRuleCall_0_0_4_0; }
 		
-		//{SEntityType} 'ditch' abstract?='abstract'? root?='root'? 'entity' deductionRule=SDitchComplexTypeRule
+		//{SEntityType} 'ditch' root?='root'? 'entity' deductionRule=SDitchComplexTypeRule
 		public Group getGroup_0_1() { return cGroup_0_1; }
 		
 		//{SEntityType}
@@ -1250,28 +1225,22 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'ditch'
 		public Keyword getDitchKeyword_0_1_1() { return cDitchKeyword_0_1_1; }
 		
-		//abstract?='abstract'?
-		public Assignment getAbstractAssignment_0_1_2() { return cAbstractAssignment_0_1_2; }
-		
-		//'abstract'
-		public Keyword getAbstractAbstractKeyword_0_1_2_0() { return cAbstractAbstractKeyword_0_1_2_0; }
-		
 		//root?='root'?
-		public Assignment getRootAssignment_0_1_3() { return cRootAssignment_0_1_3; }
+		public Assignment getRootAssignment_0_1_2() { return cRootAssignment_0_1_2; }
 		
 		//'root'
-		public Keyword getRootRootKeyword_0_1_3_0() { return cRootRootKeyword_0_1_3_0; }
+		public Keyword getRootRootKeyword_0_1_2_0() { return cRootRootKeyword_0_1_2_0; }
 		
 		//'entity'
-		public Keyword getEntityKeyword_0_1_4() { return cEntityKeyword_0_1_4; }
+		public Keyword getEntityKeyword_0_1_3() { return cEntityKeyword_0_1_3; }
 		
 		//deductionRule=SDitchComplexTypeRule
-		public Assignment getDeductionRuleAssignment_0_1_5() { return cDeductionRuleAssignment_0_1_5; }
+		public Assignment getDeductionRuleAssignment_0_1_4() { return cDeductionRuleAssignment_0_1_4; }
 		
 		//SDitchComplexTypeRule
-		public RuleCall getDeductionRuleSDitchComplexTypeRuleParserRuleCall_0_1_5_0() { return cDeductionRuleSDitchComplexTypeRuleParserRuleCall_0_1_5_0; }
+		public RuleCall getDeductionRuleSDitchComplexTypeRuleParserRuleCall_0_1_4_0() { return cDeductionRuleSDitchComplexTypeRuleParserRuleCall_0_1_4_0; }
 		
-		//{SEntityType} 'morph' abstract?='abstract'? root?='root'? 'entity' deductionRule=SMorphComplexTypeRule
+		//{SEntityType} 'morph' root?='root'? 'entity' deductionRule=SMorphComplexTypeRule
 		public Group getGroup_0_2() { return cGroup_0_2; }
 		
 		//{SEntityType}
@@ -1280,28 +1249,22 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'morph'
 		public Keyword getMorphKeyword_0_2_1() { return cMorphKeyword_0_2_1; }
 		
-		//abstract?='abstract'?
-		public Assignment getAbstractAssignment_0_2_2() { return cAbstractAssignment_0_2_2; }
-		
-		//'abstract'
-		public Keyword getAbstractAbstractKeyword_0_2_2_0() { return cAbstractAbstractKeyword_0_2_2_0; }
-		
 		//root?='root'?
-		public Assignment getRootAssignment_0_2_3() { return cRootAssignment_0_2_3; }
+		public Assignment getRootAssignment_0_2_2() { return cRootAssignment_0_2_2; }
 		
 		//'root'
-		public Keyword getRootRootKeyword_0_2_3_0() { return cRootRootKeyword_0_2_3_0; }
+		public Keyword getRootRootKeyword_0_2_2_0() { return cRootRootKeyword_0_2_2_0; }
 		
 		//'entity'
-		public Keyword getEntityKeyword_0_2_4() { return cEntityKeyword_0_2_4; }
+		public Keyword getEntityKeyword_0_2_3() { return cEntityKeyword_0_2_3; }
 		
 		//deductionRule=SMorphComplexTypeRule
-		public Assignment getDeductionRuleAssignment_0_2_5() { return cDeductionRuleAssignment_0_2_5; }
+		public Assignment getDeductionRuleAssignment_0_2_4() { return cDeductionRuleAssignment_0_2_4; }
 		
 		//SMorphComplexTypeRule
-		public RuleCall getDeductionRuleSMorphComplexTypeRuleParserRuleCall_0_2_5_0() { return cDeductionRuleSMorphComplexTypeRuleParserRuleCall_0_2_5_0; }
+		public RuleCall getDeductionRuleSMorphComplexTypeRuleParserRuleCall_0_2_4_0() { return cDeductionRuleSMorphComplexTypeRuleParserRuleCall_0_2_4_0; }
 		
-		//{SEntityType} 'fuse' abstract?='abstract'? root?='root'? 'entity' deductionRule=SFuseComplexTypeRule
+		//{SEntityType} 'fuse' root?='root'? 'entity' deductionRule=SFuseComplexTypeRule
 		public Group getGroup_0_3() { return cGroup_0_3; }
 		
 		//{SEntityType}
@@ -1310,26 +1273,20 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'fuse'
 		public Keyword getFuseKeyword_0_3_1() { return cFuseKeyword_0_3_1; }
 		
-		//abstract?='abstract'?
-		public Assignment getAbstractAssignment_0_3_2() { return cAbstractAssignment_0_3_2; }
-		
-		//'abstract'
-		public Keyword getAbstractAbstractKeyword_0_3_2_0() { return cAbstractAbstractKeyword_0_3_2_0; }
-		
 		//root?='root'?
-		public Assignment getRootAssignment_0_3_3() { return cRootAssignment_0_3_3; }
+		public Assignment getRootAssignment_0_3_2() { return cRootAssignment_0_3_2; }
 		
 		//'root'
-		public Keyword getRootRootKeyword_0_3_3_0() { return cRootRootKeyword_0_3_3_0; }
+		public Keyword getRootRootKeyword_0_3_2_0() { return cRootRootKeyword_0_3_2_0; }
 		
 		//'entity'
-		public Keyword getEntityKeyword_0_3_4() { return cEntityKeyword_0_3_4; }
+		public Keyword getEntityKeyword_0_3_3() { return cEntityKeyword_0_3_3; }
 		
 		//deductionRule=SFuseComplexTypeRule
-		public Assignment getDeductionRuleAssignment_0_3_5() { return cDeductionRuleAssignment_0_3_5; }
+		public Assignment getDeductionRuleAssignment_0_3_4() { return cDeductionRuleAssignment_0_3_4; }
 		
 		//SFuseComplexTypeRule
-		public RuleCall getDeductionRuleSFuseComplexTypeRuleParserRuleCall_0_3_5_0() { return cDeductionRuleSFuseComplexTypeRuleParserRuleCall_0_3_5_0; }
+		public RuleCall getDeductionRuleSFuseComplexTypeRuleParserRuleCall_0_3_4_0() { return cDeductionRuleSFuseComplexTypeRuleParserRuleCall_0_3_4_0; }
 		
 		//abstract?='abstract'? root?='root'? 'entity' name=ID SComplexTypeExtends
 		public Group getGroup_0_4() { return cGroup_0_4; }
@@ -1368,35 +1325,27 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_0_0 = (Group)cAlternatives_0.eContents().get(0);
 		private final Action cSDetailTypeAction_0_0_0 = (Action)cGroup_0_0.eContents().get(0);
 		private final Keyword cGrabKeyword_0_0_1 = (Keyword)cGroup_0_0.eContents().get(1);
-		private final Assignment cAbstractAssignment_0_0_2 = (Assignment)cGroup_0_0.eContents().get(2);
-		private final Keyword cAbstractAbstractKeyword_0_0_2_0 = (Keyword)cAbstractAssignment_0_0_2.eContents().get(0);
-		private final Keyword cDetailKeyword_0_0_3 = (Keyword)cGroup_0_0.eContents().get(3);
-		private final Assignment cDeductionRuleAssignment_0_0_4 = (Assignment)cGroup_0_0.eContents().get(4);
-		private final RuleCall cDeductionRuleSGrabComplexTypeRuleParserRuleCall_0_0_4_0 = (RuleCall)cDeductionRuleAssignment_0_0_4.eContents().get(0);
+		private final Keyword cDetailKeyword_0_0_2 = (Keyword)cGroup_0_0.eContents().get(2);
+		private final Assignment cDeductionRuleAssignment_0_0_3 = (Assignment)cGroup_0_0.eContents().get(3);
+		private final RuleCall cDeductionRuleSGrabComplexTypeRuleParserRuleCall_0_0_3_0 = (RuleCall)cDeductionRuleAssignment_0_0_3.eContents().get(0);
 		private final Group cGroup_0_1 = (Group)cAlternatives_0.eContents().get(1);
 		private final Action cSDetailTypeAction_0_1_0 = (Action)cGroup_0_1.eContents().get(0);
 		private final Keyword cDitchKeyword_0_1_1 = (Keyword)cGroup_0_1.eContents().get(1);
-		private final Assignment cAbstractAssignment_0_1_2 = (Assignment)cGroup_0_1.eContents().get(2);
-		private final Keyword cAbstractAbstractKeyword_0_1_2_0 = (Keyword)cAbstractAssignment_0_1_2.eContents().get(0);
-		private final Keyword cDetailKeyword_0_1_3 = (Keyword)cGroup_0_1.eContents().get(3);
-		private final Assignment cDeductionRuleAssignment_0_1_4 = (Assignment)cGroup_0_1.eContents().get(4);
-		private final RuleCall cDeductionRuleSDitchComplexTypeRuleParserRuleCall_0_1_4_0 = (RuleCall)cDeductionRuleAssignment_0_1_4.eContents().get(0);
+		private final Keyword cDetailKeyword_0_1_2 = (Keyword)cGroup_0_1.eContents().get(2);
+		private final Assignment cDeductionRuleAssignment_0_1_3 = (Assignment)cGroup_0_1.eContents().get(3);
+		private final RuleCall cDeductionRuleSDitchComplexTypeRuleParserRuleCall_0_1_3_0 = (RuleCall)cDeductionRuleAssignment_0_1_3.eContents().get(0);
 		private final Group cGroup_0_2 = (Group)cAlternatives_0.eContents().get(2);
 		private final Action cSDetailTypeAction_0_2_0 = (Action)cGroup_0_2.eContents().get(0);
 		private final Keyword cMorphKeyword_0_2_1 = (Keyword)cGroup_0_2.eContents().get(1);
-		private final Assignment cAbstractAssignment_0_2_2 = (Assignment)cGroup_0_2.eContents().get(2);
-		private final Keyword cAbstractAbstractKeyword_0_2_2_0 = (Keyword)cAbstractAssignment_0_2_2.eContents().get(0);
-		private final Keyword cDetailKeyword_0_2_3 = (Keyword)cGroup_0_2.eContents().get(3);
-		private final Assignment cDeductionRuleAssignment_0_2_4 = (Assignment)cGroup_0_2.eContents().get(4);
-		private final RuleCall cDeductionRuleSMorphComplexTypeRuleParserRuleCall_0_2_4_0 = (RuleCall)cDeductionRuleAssignment_0_2_4.eContents().get(0);
+		private final Keyword cDetailKeyword_0_2_2 = (Keyword)cGroup_0_2.eContents().get(2);
+		private final Assignment cDeductionRuleAssignment_0_2_3 = (Assignment)cGroup_0_2.eContents().get(3);
+		private final RuleCall cDeductionRuleSMorphComplexTypeRuleParserRuleCall_0_2_3_0 = (RuleCall)cDeductionRuleAssignment_0_2_3.eContents().get(0);
 		private final Group cGroup_0_3 = (Group)cAlternatives_0.eContents().get(3);
 		private final Action cSDetailTypeAction_0_3_0 = (Action)cGroup_0_3.eContents().get(0);
 		private final Keyword cFuseKeyword_0_3_1 = (Keyword)cGroup_0_3.eContents().get(1);
-		private final Assignment cAbstractAssignment_0_3_2 = (Assignment)cGroup_0_3.eContents().get(2);
-		private final Keyword cAbstractAbstractKeyword_0_3_2_0 = (Keyword)cAbstractAssignment_0_3_2.eContents().get(0);
-		private final Keyword cDetailKeyword_0_3_3 = (Keyword)cGroup_0_3.eContents().get(3);
-		private final Assignment cDeductionRuleAssignment_0_3_4 = (Assignment)cGroup_0_3.eContents().get(4);
-		private final RuleCall cDeductionRuleSFuseComplexTypeRuleParserRuleCall_0_3_4_0 = (RuleCall)cDeductionRuleAssignment_0_3_4.eContents().get(0);
+		private final Keyword cDetailKeyword_0_3_2 = (Keyword)cGroup_0_3.eContents().get(2);
+		private final Assignment cDeductionRuleAssignment_0_3_3 = (Assignment)cGroup_0_3.eContents().get(3);
+		private final RuleCall cDeductionRuleSFuseComplexTypeRuleParserRuleCall_0_3_3_0 = (RuleCall)cDeductionRuleAssignment_0_3_3.eContents().get(0);
 		private final Group cGroup_0_4 = (Group)cAlternatives_0.eContents().get(4);
 		private final Assignment cAbstractAssignment_0_4_0 = (Assignment)cGroup_0_4.eContents().get(0);
 		private final Keyword cAbstractAbstractKeyword_0_4_0_0 = (Keyword)cAbstractAssignment_0_4_0.eContents().get(0);
@@ -1407,28 +1356,28 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSComplexTypeFeaturesParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
 		//SDetailType:
-		//	({SDetailType} 'grab' abstract?='abstract'? 'detail' deductionRule=SGrabComplexTypeRule
-		//	| {SDetailType} 'ditch' abstract?='abstract'? 'detail' deductionRule=SDitchComplexTypeRule
-		//	| {SDetailType} 'morph' abstract?='abstract'? 'detail' deductionRule=SMorphComplexTypeRule
-		//	| {SDetailType} 'fuse' abstract?='abstract'? 'detail' deductionRule=SFuseComplexTypeRule
+		//	({SDetailType} 'grab' 'detail' deductionRule=SGrabComplexTypeRule
+		//	| {SDetailType} 'ditch' 'detail' deductionRule=SDitchComplexTypeRule
+		//	| {SDetailType} 'morph' 'detail' deductionRule=SMorphComplexTypeRule
+		//	| {SDetailType} 'fuse' 'detail' deductionRule=SFuseComplexTypeRule
 		//	| abstract?='abstract'? 'detail'
 		//	name=ID
 		//	SComplexTypeExtends) SComplexTypeFeatures;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//({SDetailType} 'grab' abstract?='abstract'? 'detail' deductionRule=SGrabComplexTypeRule | {SDetailType} 'ditch'
-		//abstract?='abstract'? 'detail' deductionRule=SDitchComplexTypeRule | {SDetailType} 'morph' abstract?='abstract'?
-		//'detail' deductionRule=SMorphComplexTypeRule | {SDetailType} 'fuse' abstract?='abstract'? 'detail'
-		//deductionRule=SFuseComplexTypeRule | abstract?='abstract'? 'detail' name=ID SComplexTypeExtends) SComplexTypeFeatures
+		//({SDetailType} 'grab' 'detail' deductionRule=SGrabComplexTypeRule | {SDetailType} 'ditch' 'detail'
+		//deductionRule=SDitchComplexTypeRule | {SDetailType} 'morph' 'detail' deductionRule=SMorphComplexTypeRule |
+		//{SDetailType} 'fuse' 'detail' deductionRule=SFuseComplexTypeRule | abstract?='abstract'? 'detail' name=ID
+		//SComplexTypeExtends) SComplexTypeFeatures
 		public Group getGroup() { return cGroup; }
 		
-		//{SDetailType} 'grab' abstract?='abstract'? 'detail' deductionRule=SGrabComplexTypeRule | {SDetailType} 'ditch'
-		//abstract?='abstract'? 'detail' deductionRule=SDitchComplexTypeRule | {SDetailType} 'morph' abstract?='abstract'?
-		//'detail' deductionRule=SMorphComplexTypeRule | {SDetailType} 'fuse' abstract?='abstract'? 'detail'
-		//deductionRule=SFuseComplexTypeRule | abstract?='abstract'? 'detail' name=ID SComplexTypeExtends
+		//{SDetailType} 'grab' 'detail' deductionRule=SGrabComplexTypeRule | {SDetailType} 'ditch' 'detail'
+		//deductionRule=SDitchComplexTypeRule | {SDetailType} 'morph' 'detail' deductionRule=SMorphComplexTypeRule |
+		//{SDetailType} 'fuse' 'detail' deductionRule=SFuseComplexTypeRule | abstract?='abstract'? 'detail' name=ID
+		//SComplexTypeExtends
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
-		//{SDetailType} 'grab' abstract?='abstract'? 'detail' deductionRule=SGrabComplexTypeRule
+		//{SDetailType} 'grab' 'detail' deductionRule=SGrabComplexTypeRule
 		public Group getGroup_0_0() { return cGroup_0_0; }
 		
 		//{SDetailType}
@@ -1437,22 +1386,16 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'grab'
 		public Keyword getGrabKeyword_0_0_1() { return cGrabKeyword_0_0_1; }
 		
-		//abstract?='abstract'?
-		public Assignment getAbstractAssignment_0_0_2() { return cAbstractAssignment_0_0_2; }
-		
-		//'abstract'
-		public Keyword getAbstractAbstractKeyword_0_0_2_0() { return cAbstractAbstractKeyword_0_0_2_0; }
-		
 		//'detail'
-		public Keyword getDetailKeyword_0_0_3() { return cDetailKeyword_0_0_3; }
+		public Keyword getDetailKeyword_0_0_2() { return cDetailKeyword_0_0_2; }
 		
 		//deductionRule=SGrabComplexTypeRule
-		public Assignment getDeductionRuleAssignment_0_0_4() { return cDeductionRuleAssignment_0_0_4; }
+		public Assignment getDeductionRuleAssignment_0_0_3() { return cDeductionRuleAssignment_0_0_3; }
 		
 		//SGrabComplexTypeRule
-		public RuleCall getDeductionRuleSGrabComplexTypeRuleParserRuleCall_0_0_4_0() { return cDeductionRuleSGrabComplexTypeRuleParserRuleCall_0_0_4_0; }
+		public RuleCall getDeductionRuleSGrabComplexTypeRuleParserRuleCall_0_0_3_0() { return cDeductionRuleSGrabComplexTypeRuleParserRuleCall_0_0_3_0; }
 		
-		//{SDetailType} 'ditch' abstract?='abstract'? 'detail' deductionRule=SDitchComplexTypeRule
+		//{SDetailType} 'ditch' 'detail' deductionRule=SDitchComplexTypeRule
 		public Group getGroup_0_1() { return cGroup_0_1; }
 		
 		//{SDetailType}
@@ -1461,22 +1404,16 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'ditch'
 		public Keyword getDitchKeyword_0_1_1() { return cDitchKeyword_0_1_1; }
 		
-		//abstract?='abstract'?
-		public Assignment getAbstractAssignment_0_1_2() { return cAbstractAssignment_0_1_2; }
-		
-		//'abstract'
-		public Keyword getAbstractAbstractKeyword_0_1_2_0() { return cAbstractAbstractKeyword_0_1_2_0; }
-		
 		//'detail'
-		public Keyword getDetailKeyword_0_1_3() { return cDetailKeyword_0_1_3; }
+		public Keyword getDetailKeyword_0_1_2() { return cDetailKeyword_0_1_2; }
 		
 		//deductionRule=SDitchComplexTypeRule
-		public Assignment getDeductionRuleAssignment_0_1_4() { return cDeductionRuleAssignment_0_1_4; }
+		public Assignment getDeductionRuleAssignment_0_1_3() { return cDeductionRuleAssignment_0_1_3; }
 		
 		//SDitchComplexTypeRule
-		public RuleCall getDeductionRuleSDitchComplexTypeRuleParserRuleCall_0_1_4_0() { return cDeductionRuleSDitchComplexTypeRuleParserRuleCall_0_1_4_0; }
+		public RuleCall getDeductionRuleSDitchComplexTypeRuleParserRuleCall_0_1_3_0() { return cDeductionRuleSDitchComplexTypeRuleParserRuleCall_0_1_3_0; }
 		
-		//{SDetailType} 'morph' abstract?='abstract'? 'detail' deductionRule=SMorphComplexTypeRule
+		//{SDetailType} 'morph' 'detail' deductionRule=SMorphComplexTypeRule
 		public Group getGroup_0_2() { return cGroup_0_2; }
 		
 		//{SDetailType}
@@ -1485,22 +1422,16 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'morph'
 		public Keyword getMorphKeyword_0_2_1() { return cMorphKeyword_0_2_1; }
 		
-		//abstract?='abstract'?
-		public Assignment getAbstractAssignment_0_2_2() { return cAbstractAssignment_0_2_2; }
-		
-		//'abstract'
-		public Keyword getAbstractAbstractKeyword_0_2_2_0() { return cAbstractAbstractKeyword_0_2_2_0; }
-		
 		//'detail'
-		public Keyword getDetailKeyword_0_2_3() { return cDetailKeyword_0_2_3; }
+		public Keyword getDetailKeyword_0_2_2() { return cDetailKeyword_0_2_2; }
 		
 		//deductionRule=SMorphComplexTypeRule
-		public Assignment getDeductionRuleAssignment_0_2_4() { return cDeductionRuleAssignment_0_2_4; }
+		public Assignment getDeductionRuleAssignment_0_2_3() { return cDeductionRuleAssignment_0_2_3; }
 		
 		//SMorphComplexTypeRule
-		public RuleCall getDeductionRuleSMorphComplexTypeRuleParserRuleCall_0_2_4_0() { return cDeductionRuleSMorphComplexTypeRuleParserRuleCall_0_2_4_0; }
+		public RuleCall getDeductionRuleSMorphComplexTypeRuleParserRuleCall_0_2_3_0() { return cDeductionRuleSMorphComplexTypeRuleParserRuleCall_0_2_3_0; }
 		
-		//{SDetailType} 'fuse' abstract?='abstract'? 'detail' deductionRule=SFuseComplexTypeRule
+		//{SDetailType} 'fuse' 'detail' deductionRule=SFuseComplexTypeRule
 		public Group getGroup_0_3() { return cGroup_0_3; }
 		
 		//{SDetailType}
@@ -1509,20 +1440,14 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'fuse'
 		public Keyword getFuseKeyword_0_3_1() { return cFuseKeyword_0_3_1; }
 		
-		//abstract?='abstract'?
-		public Assignment getAbstractAssignment_0_3_2() { return cAbstractAssignment_0_3_2; }
-		
-		//'abstract'
-		public Keyword getAbstractAbstractKeyword_0_3_2_0() { return cAbstractAbstractKeyword_0_3_2_0; }
-		
 		//'detail'
-		public Keyword getDetailKeyword_0_3_3() { return cDetailKeyword_0_3_3; }
+		public Keyword getDetailKeyword_0_3_2() { return cDetailKeyword_0_3_2; }
 		
 		//deductionRule=SFuseComplexTypeRule
-		public Assignment getDeductionRuleAssignment_0_3_4() { return cDeductionRuleAssignment_0_3_4; }
+		public Assignment getDeductionRuleAssignment_0_3_3() { return cDeductionRuleAssignment_0_3_3; }
 		
 		//SFuseComplexTypeRule
-		public RuleCall getDeductionRuleSFuseComplexTypeRuleParserRuleCall_0_3_4_0() { return cDeductionRuleSFuseComplexTypeRuleParserRuleCall_0_3_4_0; }
+		public RuleCall getDeductionRuleSFuseComplexTypeRuleParserRuleCall_0_3_3_0() { return cDeductionRuleSFuseComplexTypeRuleParserRuleCall_0_3_3_0; }
 		
 		//abstract?='abstract'? 'detail' name=ID SComplexTypeExtends
 		public Group getGroup_0_4() { return cGroup_0_4; }
@@ -2515,6 +2440,60 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'core'
 		public Keyword getCORECoreKeyword_2_0() { return cCORECoreKeyword_2_0; }
 	}
+	public class SAbstractTypeElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SAbstractType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cFALSEEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cFALSENonabstractKeyword_0_0 = (Keyword)cFALSEEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cTRUEEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cTRUEAbstractKeyword_1_0 = (Keyword)cTRUEEnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum SAbstractType returns STristate:
+		//	FALSE='nonabstract' | TRUE='abstract';
+		public EnumRule getRule() { return rule; }
+		
+		//FALSE='nonabstract' | TRUE='abstract'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//FALSE='nonabstract'
+		public EnumLiteralDeclaration getFALSEEnumLiteralDeclaration_0() { return cFALSEEnumLiteralDeclaration_0; }
+		
+		//'nonabstract'
+		public Keyword getFALSENonabstractKeyword_0_0() { return cFALSENonabstractKeyword_0_0; }
+		
+		//TRUE='abstract'
+		public EnumLiteralDeclaration getTRUEEnumLiteralDeclaration_1() { return cTRUEEnumLiteralDeclaration_1; }
+		
+		//'abstract'
+		public Keyword getTRUEAbstractKeyword_1_0() { return cTRUEAbstractKeyword_1_0; }
+	}
+	public class SRootEntityElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SRootEntity");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cFALSEEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cFALSENonrootKeyword_0_0 = (Keyword)cFALSEEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cTRUEEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cTRUERootKeyword_1_0 = (Keyword)cTRUEEnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum SRootEntity returns STristate:
+		//	FALSE='nonroot' | TRUE='root';
+		public EnumRule getRule() { return rule; }
+		
+		//FALSE='nonroot' | TRUE='root'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//FALSE='nonroot'
+		public EnumLiteralDeclaration getFALSEEnumLiteralDeclaration_0() { return cFALSEEnumLiteralDeclaration_0; }
+		
+		//'nonroot'
+		public Keyword getFALSENonrootKeyword_0_0() { return cFALSENonrootKeyword_0_0; }
+		
+		//TRUE='root'
+		public EnumLiteralDeclaration getTRUEEnumLiteralDeclaration_1() { return cTRUEEnumLiteralDeclaration_1; }
+		
+		//'root'
+		public Keyword getTRUERootKeyword_1_0() { return cTRUERootKeyword_1_0; }
+	}
 	public class SAssociationKindElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SAssociationKind");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -2572,9 +2551,12 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	private final SDitchComplexTypeRuleElements pSDitchComplexTypeRule;
 	private final SMorphComplexTypeRuleElements pSMorphComplexTypeRule;
 	private final SFuseComplexTypeRuleElements pSFuseComplexTypeRule;
+	private final ChangeComplexTypeElements pChangeComplexType;
 	private final SGrabFeatureRuleElements pSGrabFeatureRule;
 	private final SMorphFeatureRuleElements pSMorphFeatureRule;
 	private final SDitchFeatureRuleElements pSDitchFeatureRule;
+	private final SAbstractTypeElements eSAbstractType;
+	private final SRootEntityElements eSRootEntity;
 	private final SDomainProxyElements pSDomainProxy;
 	private final SAggregateElements pSAggregate;
 	private final STypeElements pSType;
@@ -2622,9 +2604,12 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSDitchComplexTypeRule = new SDitchComplexTypeRuleElements();
 		this.pSMorphComplexTypeRule = new SMorphComplexTypeRuleElements();
 		this.pSFuseComplexTypeRule = new SFuseComplexTypeRuleElements();
+		this.pChangeComplexType = new ChangeComplexTypeElements();
 		this.pSGrabFeatureRule = new SGrabFeatureRuleElements();
 		this.pSMorphFeatureRule = new SMorphFeatureRuleElements();
 		this.pSDitchFeatureRule = new SDitchFeatureRuleElements();
+		this.eSAbstractType = new SAbstractTypeElements();
+		this.eSRootEntity = new SRootEntityElements();
 		this.pSDomainProxy = new SDomainProxyElements();
 		this.pSAggregate = new SAggregateElements();
 		this.pSType = new STypeElements();
@@ -2803,7 +2788,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SMorphComplexTypeRule SMorphRule:
-	//	source=[DComplexType|SQualifiedName] ('as' renameTo=ID)? ('extends' '=' retypeTo=[SComplexType])?;
+	//	source=[DComplexType|SQualifiedName] ChangeComplexType;
 	public SMorphComplexTypeRuleElements getSMorphComplexTypeRuleAccess() {
 		return pSMorphComplexTypeRule;
 	}
@@ -2813,14 +2798,27 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SFuseComplexTypeRule SFuseRule:
-	//	source=[DComplexType|SQualifiedName] ('and' otherSources+=[DComplexType|SQualifiedName])+ ('as' renameTo=ID)?
-	//	('extends' extendFrom=[SComplexType])?;
+	//	source=[DComplexType|SQualifiedName] ('and' otherSources+=[DComplexType|SQualifiedName])+
+	//	ChangeComplexType;
 	public SFuseComplexTypeRuleElements getSFuseComplexTypeRuleAccess() {
 		return pSFuseComplexTypeRule;
 	}
 	
 	public ParserRule getSFuseComplexTypeRuleRule() {
 		return getSFuseComplexTypeRuleAccess().getRule();
+	}
+	
+	//fragment ChangeComplexType returns SStructureChangingRule:
+	//	'to'
+	//	abstract=SAbstractType?
+	//	rootEntity=SRootEntity?
+	//	renameTo=ID? ('extends' extendFrom=[SComplexType])?;
+	public ChangeComplexTypeElements getChangeComplexTypeAccess() {
+		return pChangeComplexType;
+	}
+	
+	public ParserRule getChangeComplexTypeRule() {
+		return getChangeComplexTypeAccess().getRule();
 	}
 	
 	//SGrabFeatureRule SGrabRule:
@@ -2834,7 +2832,9 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SMorphFeatureRule SMorphRule:
-	//	source=[DFeature] ('as' renameTo=ID)? (':' retypeTo=[SType] remultiplyTo=SMultiplicity?)?;
+	//	source=[DFeature]
+	//	'to' (renameTo=ID ':')?
+	//	retypeTo=[SType] remultiplyTo=SMultiplicity?;
 	public SMorphFeatureRuleElements getSMorphFeatureRuleAccess() {
 		return pSMorphFeatureRule;
 	}
@@ -2851,6 +2851,26 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getSDitchFeatureRuleRule() {
 		return getSDitchFeatureRuleAccess().getRule();
+	}
+	
+	//enum SAbstractType returns STristate:
+	//	FALSE='nonabstract' | TRUE='abstract';
+	public SAbstractTypeElements getSAbstractTypeAccess() {
+		return eSAbstractType;
+	}
+	
+	public EnumRule getSAbstractTypeRule() {
+		return getSAbstractTypeAccess().getRule();
+	}
+	
+	//enum SRootEntity returns STristate:
+	//	FALSE='nonroot' | TRUE='root';
+	public SRootEntityElements getSRootEntityAccess() {
+		return eSRootEntity;
+	}
+	
+	public EnumRule getSRootEntityRule() {
+		return getSRootEntityAccess().getRule();
 	}
 	
 	//SDomainProxy:
@@ -2955,10 +2975,10 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////	(description=DRichText)?;
 	//SEntityType:
-	//	({SEntityType} 'grab' abstract?='abstract'? root?='root'? 'entity' deductionRule=SGrabComplexTypeRule
-	//	| {SEntityType} 'ditch' abstract?='abstract'? root?='root'? 'entity' deductionRule=SDitchComplexTypeRule
-	//	| {SEntityType} 'morph' abstract?='abstract'? root?='root'? 'entity' deductionRule=SMorphComplexTypeRule
-	//	| {SEntityType} 'fuse' abstract?='abstract'? root?='root'? 'entity' deductionRule=SFuseComplexTypeRule
+	//	({SEntityType} 'grab' root?='root'? 'entity' deductionRule=SGrabComplexTypeRule
+	//	| {SEntityType} 'ditch' root?='root'? 'entity' deductionRule=SDitchComplexTypeRule
+	//	| {SEntityType} 'morph' root?='root'? 'entity' deductionRule=SMorphComplexTypeRule
+	//	| {SEntityType} 'fuse' root?='root'? 'entity' deductionRule=SFuseComplexTypeRule
 	//	| abstract?='abstract'? root?='root'? 'entity'
 	//	name=ID
 	//	SComplexTypeExtends) SComplexTypeFeatures;
@@ -2971,10 +2991,10 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SDetailType:
-	//	({SDetailType} 'grab' abstract?='abstract'? 'detail' deductionRule=SGrabComplexTypeRule
-	//	| {SDetailType} 'ditch' abstract?='abstract'? 'detail' deductionRule=SDitchComplexTypeRule
-	//	| {SDetailType} 'morph' abstract?='abstract'? 'detail' deductionRule=SMorphComplexTypeRule
-	//	| {SDetailType} 'fuse' abstract?='abstract'? 'detail' deductionRule=SFuseComplexTypeRule
+	//	({SDetailType} 'grab' 'detail' deductionRule=SGrabComplexTypeRule
+	//	| {SDetailType} 'ditch' 'detail' deductionRule=SDitchComplexTypeRule
+	//	| {SDetailType} 'morph' 'detail' deductionRule=SMorphComplexTypeRule
+	//	| {SDetailType} 'fuse' 'detail' deductionRule=SFuseComplexTypeRule
 	//	| abstract?='abstract'? 'detail'
 	//	name=ID
 	//	SComplexTypeExtends) SComplexTypeFeatures;

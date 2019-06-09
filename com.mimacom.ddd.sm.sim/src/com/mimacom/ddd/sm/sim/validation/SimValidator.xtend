@@ -20,6 +20,7 @@ import com.mimacom.ddd.sm.sim.SDitchRule
 import com.mimacom.ddd.sm.sim.SEntityType
 import com.mimacom.ddd.sm.sim.SEnumeration
 import com.mimacom.ddd.sm.sim.SFeature
+import com.mimacom.ddd.sm.sim.SFuseRule
 import com.mimacom.ddd.sm.sim.SGrabRule
 import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.SLiteral
@@ -28,7 +29,9 @@ import com.mimacom.ddd.sm.sim.SNamedElement
 import com.mimacom.ddd.sm.sim.SPrimitive
 import com.mimacom.ddd.sm.sim.SQuery
 import com.mimacom.ddd.sm.sim.SQueryParameter
+import com.mimacom.ddd.sm.sim.SStructureChangingRule
 import com.mimacom.ddd.sm.sim.SSyntheticDeductionRule
+import com.mimacom.ddd.sm.sim.STristate
 import com.mimacom.ddd.sm.sim.SType
 import com.mimacom.ddd.sm.sim.SValueType
 import com.mimacom.ddd.sm.sim.SimPackage
@@ -58,7 +61,7 @@ class SimValidator extends AbstractSimValidator {
 		val topLevelRoots =roots.filter[superType.aggregate != a]
 		if(topLevelRoots.size > 1) {
 			for (r: roots) {
-				error('Aggregate can only declare a single root or relationship or a a single hierarchy thereof', r, SimPackage.Literals.SNAMED_ELEMENT__NAME)
+				error('Aggregate can only declare a single root or relationship or a single hierarchy thereof', r, SimPackage.Literals.SNAMED_ELEMENT__NAME)
 			}
 		}
 	}
@@ -100,9 +103,8 @@ class SimValidator extends AbstractSimValidator {
 		if(t.nature == DEDUCTION_RULE) {
 			val source = t.deductionRule.source
 			if (source instanceof DEntityType) {
-				// TODO Check whether constaint should be less restrictive to allow mapping from root to non-root types between DIM and SIM
 				if (source.root !== t.root) {
-					error("Deduced entity rule must match domain-model root root property", t.deductionRule,
+					error("Deduced entity rule must match domain-model root property", t.deductionRule,
 						SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 				}
 			} else if (source !== null) {
@@ -123,25 +125,59 @@ class SimValidator extends AbstractSimValidator {
 	}
 
 	@Check
-	def void checkDeducedFeaturesCombination(SComplexType type) {
-		if(type.nature == DEDUCTION_RULE) {
-			if(type.deductionRule instanceof SGrabRule) {
-				val hasDitchElements = type.features.exists[deductionRule instanceof SDitchRule]
-				val hasGrabElements = type.features.exists[deductionRule instanceof SGrabRule]
-				if(hasDitchElements && hasGrabElements) {
-					error("Cannot use both grab rule and ditch rules together.", type.deductionRule,
-						SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+	def checkRootPropertyForDetailType(SDetailType t) {
+		if(t.nature == DEDUCTION_RULE) {
+			val rule = t.deductionRule
+			if(rule  instanceof SStructureChangingRule) {
+				val setsRootProperty = rule.rootEntity != STristate.DONT_CARE
+				if(setsRootProperty) {
+					warning("Setting the root property for DetailTypes does not have any effect.", rule,
+						SimPackage.Literals.SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY)
 				}
 			}
 		}
 	}
 
 	@Check
-	def void checkHasDeducedContainer(SFeature feature) {
-		if(feature.nature == DEDUCTION_RULE) {
-			val container = feature.eContainer as SComplexType
+	def void checkDeducedFeaturesCombination(SComplexType t) {
+		if(t.nature == DEDUCTION_RULE) {
+			if(t.deductionRule instanceof SGrabRule) {
+				val hasDitchElements = t.features.exists[deductionRule instanceof SDitchRule]
+				val hasGrabElements = t.features.exists[deductionRule instanceof SGrabRule]
+				if(hasDitchElements && hasGrabElements) {
+					error("Cannot use both grab rule and ditch rules together.", t.deductionRule,
+						SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
+				}
+			}
+		}
+	}
+	
+	@Check
+	def void checkComplexTypeExtensionChange(SStructureChangingRule r) {
+		if (r.extendFrom !== null) {
+			val container = r.eContainer
+			if (container instanceof SComplexType) {
+				if (container.class != r.extendFrom.class) {
+					error("New super type is not compatible with the subject of this rule", r, SimPackage.Literals.SSTRUCTURE_CHANGING_RULE__EXTEND_FROM)
+				}
+			}
+		}
+	}
+	
+	@Check
+	def void checkComplexTypeExtensionChange(SFuseRule r) {
+		// TODO remove check after feature has been implemented
+		if (! r.otherSources.empty) {
+			error("Feature not implemented yet", r, SimPackage.Literals.SFUSE_RULE__OTHER_SOURCES)
+		}
+	}
+
+	@Check
+	def void checkHasDeducedContainer(SFeature f) {
+		if(f.nature == DEDUCTION_RULE) {
+			val container = f.eContainer as SComplexType
 			if(container.nature != DEDUCTION_RULE) {
-				error("Features can only have a deduction rule if the containing type also has a deduction rule.", feature.deductionRule,
+				error("Features can only have a deduction rule if the containing type also has a deduction rule.", f.deductionRule,
 					SimPackage.Literals.SDEDUCTION_RULE__SOURCE)
 			}
 		}

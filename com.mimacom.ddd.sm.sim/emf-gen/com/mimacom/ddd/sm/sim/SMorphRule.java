@@ -20,7 +20,7 @@ package com.mimacom.ddd.sm.sim;
  * @model
  * @generated
  */
-public interface SMorphRule extends SGrabRule
+public interface SMorphRule extends SStructureChangingRule
 {
 	/**
 	 * Returns the value of the '<em><b>Retype To</b></em>' reference.

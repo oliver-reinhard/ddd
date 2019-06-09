@@ -14,7 +14,7 @@ import java.util.Comparator;
  * 4 – SComplexTypes
  */
 @SuppressWarnings("all")
-public class SimSTypeSorter implements Comparator<SType> {
+public class STypeSorter implements Comparator<SType> {
   @Override
   public int compare(final SType t1, final SType t2) {
     final int s1 = this.score(t1);

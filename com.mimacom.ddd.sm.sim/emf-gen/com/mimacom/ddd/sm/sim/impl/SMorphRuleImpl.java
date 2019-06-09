@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SMorphRuleImpl extends SGrabRuleImpl implements SMorphRule
+public class SMorphRuleImpl extends SStructureChangingRuleImpl implements SMorphRule
 {
 	/**
 	 * The cached value of the '{@link #getRetypeTo() <em>Retype To</em>}' reference.

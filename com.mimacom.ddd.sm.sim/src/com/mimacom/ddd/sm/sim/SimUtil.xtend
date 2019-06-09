@@ -37,7 +37,7 @@ class SimUtil {
 	
 	def String aggregateName(EObject obj) {
 			val a = obj.aggregate
-			return if (a !== null) a.derivedName else "NO AGGREGATE" 
+			return if (a !== null) a.derivedName else "NO_AGGREGATE" 
 	}
 	
 	/*
@@ -106,13 +106,17 @@ class SimUtil {
 				case INVERSE_COMPOSITE: "Inverse Composite "
 				default: type.kind.toString
 			}
-			default: type.class.simpleName
+			default: type.class.simpleName + " "
 		}
-		return typeLabel + type?.name
+		return typeLabel + if (type?.name !== null) type.name else "NO_NAME"
 	}
 	
 	def String label(SFeature f) {
 		return f?.name + " : " + f.type?.label
+	}
+	
+	def String label(SQueryParameter p) {
+		return p?.name + " : " + p.type?.label
 	}
 	
 	def String label(SCondition c) {

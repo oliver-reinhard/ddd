@@ -15,6 +15,7 @@ import java.util.Set
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
 import com.mimacom.ddd.dm.base.DCondition
+import com.mimacom.ddd.dm.base.DQueryParameter
 
 class DimUtil {
 	
@@ -50,7 +51,7 @@ class DimUtil {
 	
 	def String domainName(EObject obj) {
 			val d = obj.domain
-			return if (d !== null) d.name else "NO DOMAIN" 
+			return if (d !== null) d.name else "NO_DOMAIN" 
 	}
 	
 	def DAggregate aggregate(EObject obj) {
@@ -59,7 +60,7 @@ class DimUtil {
 	
 	def String aggregateName(EObject obj) {
 			val a = obj.aggregate
-			return if (a !== null) a.derivedName else "NO AGGREGATE" 
+			return if (a !== null) a.derivedName else "NO_AGGREGATE" 
 	}
 	
 	/*
@@ -121,6 +122,10 @@ class DimUtil {
 	
 	def String label(DFeature f) {
 		return f.name + " : " + f.type?.label
+	}
+	
+	def String label(DQueryParameter p) {
+		return p.name + " : " + p.type?.label
 	}
 	
 	def String label(DCondition c) {

@@ -7,6 +7,7 @@ import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DCondition;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dim.DimUtil;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
@@ -39,6 +40,10 @@ public class DimLabelProvider extends DefaultEObjectLabelProvider {
   
   public String text(final DFeature f) {
     return this._dimUtil.label(f);
+  }
+  
+  public String text(final DQueryParameter p) {
+    return this._dimUtil.label(p);
   }
   
   public String text(final DCondition c) {

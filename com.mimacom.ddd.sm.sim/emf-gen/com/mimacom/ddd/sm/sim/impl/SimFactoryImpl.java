@@ -87,8 +87,8 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 			case SimPackage.SEXPRESSION: return createSExpression();
 			case SimPackage.SMULTIPLICITY: return createSMultiplicity();
 			case SimPackage.SGRAB_RULE: return createSGrabRule();
-			case SimPackage.SMORPH_RULE: return createSMorphRule();
 			case SimPackage.SDITCH_RULE: return createSDitchRule();
+			case SimPackage.SMORPH_RULE: return createSMorphRule();
 			case SimPackage.SFUSE_RULE: return createSFuseRule();
 			case SimPackage.SGRAB_AGGREGATE_RULE: return createSGrabAggregateRule();
 			case SimPackage.SGRAB_DOMAIN_RULE: return createSGrabDomainRule();
@@ -114,6 +114,8 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 				return createSElementNatureFromString(eDataType, initialValue);
 			case SimPackage.SASSOCIATION_KIND:
 				return createSAssociationKindFromString(eDataType, initialValue);
+			case SimPackage.STRISTATE:
+				return createSTristateFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -135,6 +137,8 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 				return convertSElementNatureToString(eDataType, instanceValue);
 			case SimPackage.SASSOCIATION_KIND:
 				return convertSAssociationKindToString(eDataType, instanceValue);
+			case SimPackage.STRISTATE:
+				return convertSTristateToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -410,10 +414,10 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	@Override
-	public SMorphRule createSMorphRule()
+	public SDitchRule createSDitchRule()
 	{
-		SMorphRuleImpl sMorphRule = new SMorphRuleImpl();
-		return sMorphRule;
+		SDitchRuleImpl sDitchRule = new SDitchRuleImpl();
+		return sDitchRule;
 	}
 
 	/**
@@ -422,10 +426,10 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	@Override
-	public SDitchRule createSDitchRule()
+	public SMorphRule createSMorphRule()
 	{
-		SDitchRuleImpl sDitchRule = new SDitchRuleImpl();
-		return sDitchRule;
+		SMorphRuleImpl sMorphRule = new SMorphRuleImpl();
+		return sMorphRule;
 	}
 
 	/**
@@ -538,6 +542,28 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	public String convertSAssociationKindToString(EDataType eDataType, Object instanceValue)
+	{
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public STristate createSTristateFromString(EDataType eDataType, String initialValue)
+	{
+		STristate result = STristate.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSTristateToString(EDataType eDataType, Object instanceValue)
 	{
 		return instanceValue == null ? null : instanceValue.toString();
 	}

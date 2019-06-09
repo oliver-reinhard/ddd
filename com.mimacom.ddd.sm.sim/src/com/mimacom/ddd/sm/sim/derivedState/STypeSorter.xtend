@@ -12,7 +12,7 @@ import com.mimacom.ddd.sm.sim.SEnumeration
  * 3 – SEnumerations
  * 4 – SComplexTypes
  */
-class SimSTypeSorter implements Comparator<SType> {
+class STypeSorter implements Comparator<SType> {
 	
 	override compare(SType t1, SType t2) {
 		val s1 = t1.score

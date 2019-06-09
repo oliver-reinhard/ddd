@@ -41,7 +41,7 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 	}
 				
 	override protected getDiagramText(IEditorPart editorPart, IEditorInput editorInput, ISelection sel, Map<String, Object> obj) {
-        // Retrieve the "semantic" EMF from XtextEditor
+        // Retrieve "semantic" EMF model from XtextEditor
         val document = (editorPart as XtextEditor).getDocumentProvider().getDocument(editorInput) as XtextDocument;
         val SInformationModel model = document.readOnly[
             return if (contents.head instanceof SInformationModel) contents.head as SInformationModel else null
@@ -136,17 +136,20 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 	
 	
 	def dispatch generateFeature(SAttribute a) '''
-	  	«IF ! (a?.type instanceof SDetailType)» «a.name» : «a.type?.name»«ENDIF»
+	  	«IF ! (a?.type instanceof SDetailType)»«a.name» : «a.type?.name»«ENDIF»
 	  '''
 
 	def dispatch generateFeature(SQuery q) '''
 	   «IF q.type !== null»
-	   		«q.name»() : «q.type.name» 
+	   		«q.name»(«q.generateQueryParameters») : «q.type.name» 
 	   	«ENDIF»
 	 '''
 	
 	def dispatch generateFeature(SAssociation a)  '''
 	'''
+	
+	def generateQueryParameters(SQuery q) 
+	'''«FOR p:q.parameters SEPARATOR ", "»«p.name»:«p.type.name»«ENDFOR»'''
 	
 	def generateAssociation(SAssociation a ) {
 		return switch a.kind {
