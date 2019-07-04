@@ -1,0 +1,63 @@
+grammar com.mimacom.ddd.sm.asm.Asm with org.eclipse.xtext.common.Terminals
+
+import "http://www.mimacom.com/ddd/sm/sim"
+//import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+import "http://www.mimacom.com/ddd/sm/asm"
+
+Model:
+	SApplication | SServiceInterface
+//	(description=DRichText)?
+	;
+
+SApplication:
+	'application'
+	name= SQualifiedName
+	(imports+=SImport)*
+	'information' 'model' model=[SInformationModel]
+	(actors+=SActor)*
+	;
+
+SServiceInterface:
+	'service' 'interface'
+	name=SQualifiedName
+	(imports+=SImport)*
+	'information' 'model' model=[SInformationModel]
+	operations+=SServiceOperation
+	;
+
+SImport:
+	'import' importedNamespace=SQualifiedNameWithWildcard;
+
+SActor:
+	SWatchdog | SHuman;
+
+SWatchdog:
+	'watchdog'
+	name=ID;
+
+SHuman:
+	'human'
+	name=ID;
+
+SServiceOperation:
+	'operation'
+	name=ID
+	'('
+	(parameters+=SOperationParameter)*
+	')'
+	('raises' (exceptions+=SException)+)?
+;
+
+SOperationParameter:
+	name=ID
+;
+
+SException:
+	name=ID
+;
+	
+SQualifiedNameWithWildcard: 
+	SQualifiedName '.*'?;
+
+SQualifiedName:
+	ID ('.' ID)*;

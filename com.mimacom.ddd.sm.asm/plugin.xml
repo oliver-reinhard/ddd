@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Asm -->
+      <package
+            uri="http://www.mimacom.com/ddd/sm/asm"
+            class="com.mimacom.ddd.sm.asm.AsmPackage"
+            genModel="model/asm.genmodel"/>
+   </extension>
+
+</plugin>
