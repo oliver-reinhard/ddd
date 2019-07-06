@@ -14,8 +14,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.DComplexType#isAbstract <em>Abstract</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.DComplexType#getFeatures <em>Features</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DComplexType#getSuperType <em>Super Type</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DComplexType#getFeatures <em>Features</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.base.BasePackage#getDComplexType()
@@ -47,18 +47,6 @@ public interface DComplexType extends DType, ITypedMemberContainer
 	void setAbstract(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Features</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DFeature}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Features</em>' containment reference list.
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDComplexType_Features()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<DFeature> getFeatures();
-
-	/**
 	 * Returns the value of the '<em><b>Super Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -79,5 +67,17 @@ public interface DComplexType extends DType, ITypedMemberContainer
 	 * @generated
 	 */
 	void setSuperType(DComplexType value);
+
+	/**
+	 * Returns the value of the '<em><b>Features</b></em>' containment reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DFeature}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Features</em>' containment reference list.
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getDComplexType_Features()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DFeature> getFeatures();
 
 } // DComplexType

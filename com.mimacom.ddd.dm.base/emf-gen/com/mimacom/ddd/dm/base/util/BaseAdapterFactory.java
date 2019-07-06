@@ -185,14 +185,14 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createDComplexTypeAdapter();
 			}
 			@Override
-			public Adapter caseDIdentityType(DIdentityType object)
-			{
-				return createDIdentityTypeAdapter();
-			}
-			@Override
 			public Adapter caseDDetailType(DDetailType object)
 			{
 				return createDDetailTypeAdapter();
+			}
+			@Override
+			public Adapter caseDIdentityType(DIdentityType object)
+			{
+				return createDIdentityTypeAdapter();
 			}
 			@Override
 			public Adapter caseDEntityType(DEntityType object)
@@ -637,21 +637,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DIdentityType <em>DIdentity Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DIdentityType
-	 * @generated
-	 */
-	public Adapter createDIdentityTypeAdapter()
-	{
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DDetailType <em>DDetail Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -662,6 +647,21 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDDetailTypeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DIdentityType <em>DIdentity Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DIdentityType
+	 * @generated
+	 */
+	public Adapter createDIdentityTypeAdapter()
 	{
 		return null;
 	}

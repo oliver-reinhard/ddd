@@ -41,6 +41,15 @@ public interface SimFactory extends EFactory
 	SNamedElement createSNamedElement();
 
 	/**
+	 * Returns a new object of class '<em>SExpression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>SExpression</em>'.
+	 * @generated
+	 */
+	SExpression createSExpression();
+
+	/**
 	 * Returns a new object of class '<em>SImport</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,24 +86,6 @@ public interface SimFactory extends EFactory
 	SType createSType();
 
 	/**
-	 * Returns a new object of class '<em>SSimple Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SSimple Type</em>'.
-	 * @generated
-	 */
-	SSimpleType createSSimpleType();
-
-	/**
-	 * Returns a new object of class '<em>SComplex Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SComplex Type</em>'.
-	 * @generated
-	 */
-	SComplexType createSComplexType();
-
-	/**
 	 * Returns a new object of class '<em>SCondition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -102,6 +93,15 @@ public interface SimFactory extends EFactory
 	 * @generated
 	 */
 	SCondition createSCondition();
+
+	/**
+	 * Returns a new object of class '<em>SSimple Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>SSimple Type</em>'.
+	 * @generated
+	 */
+	SSimpleType createSSimpleType();
 
 	/**
 	 * Returns a new object of class '<em>SPrimitive</em>'.
@@ -131,13 +131,13 @@ public interface SimFactory extends EFactory
 	SLiteral createSLiteral();
 
 	/**
-	 * Returns a new object of class '<em>SEntity Type</em>'.
+	 * Returns a new object of class '<em>SComplex Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SEntity Type</em>'.
+	 * @return a new object of class '<em>SComplex Type</em>'.
 	 * @generated
 	 */
-	SEntityType createSEntityType();
+	SComplexType createSComplexType();
 
 	/**
 	 * Returns a new object of class '<em>SDetail Type</em>'.
@@ -147,6 +147,15 @@ public interface SimFactory extends EFactory
 	 * @generated
 	 */
 	SDetailType createSDetailType();
+
+	/**
+	 * Returns a new object of class '<em>SEntity Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>SEntity Type</em>'.
+	 * @generated
+	 */
+	SEntityType createSEntityType();
 
 	/**
 	 * Returns a new object of class '<em>SFeature</em>'.
@@ -165,6 +174,15 @@ public interface SimFactory extends EFactory
 	 * @generated
 	 */
 	SAssociation createSAssociation();
+
+	/**
+	 * Returns a new object of class '<em>SMultiplicity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>SMultiplicity</em>'.
+	 * @generated
+	 */
+	SMultiplicity createSMultiplicity();
 
 	/**
 	 * Returns a new object of class '<em>SAttribute</em>'.
@@ -192,24 +210,6 @@ public interface SimFactory extends EFactory
 	 * @generated
 	 */
 	SQueryParameter createSQueryParameter();
-
-	/**
-	 * Returns a new object of class '<em>SExpression</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SExpression</em>'.
-	 * @generated
-	 */
-	SExpression createSExpression();
-
-	/**
-	 * Returns a new object of class '<em>SMultiplicity</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SMultiplicity</em>'.
-	 * @generated
-	 */
-	SMultiplicity createSMultiplicity();
 
 	/**
 	 * Returns a new object of class '<em>SGrab Rule</em>'.

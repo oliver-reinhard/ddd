@@ -105,6 +105,11 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createSNamedDeducibleElementAdapter();
 			}
 			@Override
+			public Adapter caseSExpression(SExpression object)
+			{
+				return createSExpressionAdapter();
+			}
+			@Override
 			public Adapter caseSImport(SImport object)
 			{
 				return createSImportAdapter();
@@ -125,19 +130,14 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createSTypeAdapter();
 			}
 			@Override
-			public Adapter caseSSimpleType(SSimpleType object)
-			{
-				return createSSimpleTypeAdapter();
-			}
-			@Override
-			public Adapter caseSComplexType(SComplexType object)
-			{
-				return createSComplexTypeAdapter();
-			}
-			@Override
 			public Adapter caseSCondition(SCondition object)
 			{
 				return createSConditionAdapter();
+			}
+			@Override
+			public Adapter caseSSimpleType(SSimpleType object)
+			{
+				return createSSimpleTypeAdapter();
 			}
 			@Override
 			public Adapter caseSPrimitive(SPrimitive object)
@@ -155,14 +155,19 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createSLiteralAdapter();
 			}
 			@Override
-			public Adapter caseSEntityType(SEntityType object)
+			public Adapter caseSComplexType(SComplexType object)
 			{
-				return createSEntityTypeAdapter();
+				return createSComplexTypeAdapter();
 			}
 			@Override
 			public Adapter caseSDetailType(SDetailType object)
 			{
 				return createSDetailTypeAdapter();
+			}
+			@Override
+			public Adapter caseSEntityType(SEntityType object)
+			{
+				return createSEntityTypeAdapter();
 			}
 			@Override
 			public Adapter caseSFeature(SFeature object)
@@ -173,6 +178,11 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseSAssociation(SAssociation object)
 			{
 				return createSAssociationAdapter();
+			}
+			@Override
+			public Adapter caseSMultiplicity(SMultiplicity object)
+			{
+				return createSMultiplicityAdapter();
 			}
 			@Override
 			public Adapter caseSAttribute(SAttribute object)
@@ -188,16 +198,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseSQueryParameter(SQueryParameter object)
 			{
 				return createSQueryParameterAdapter();
-			}
-			@Override
-			public Adapter caseSExpression(SExpression object)
-			{
-				return createSExpressionAdapter();
-			}
-			@Override
-			public Adapter caseSMultiplicity(SMultiplicity object)
-			{
-				return createSMultiplicityAdapter();
 			}
 			@Override
 			public Adapter caseSDeductionRule(SDeductionRule object)
@@ -357,6 +357,21 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SExpression <em>SExpression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.sm.sim.SExpression
+	 * @generated
+	 */
+	public Adapter createSExpressionAdapter()
+	{
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SImport <em>SImport</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -417,36 +432,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SSimpleType <em>SSimple Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SSimpleType
-	 * @generated
-	 */
-	public Adapter createSSimpleTypeAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SComplexType <em>SComplex Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SComplexType
-	 * @generated
-	 */
-	public Adapter createSComplexTypeAdapter()
-	{
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SCondition <em>SCondition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -457,6 +442,21 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createSConditionAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SSimpleType <em>SSimple Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.sm.sim.SSimpleType
+	 * @generated
+	 */
+	public Adapter createSSimpleTypeAdapter()
 	{
 		return null;
 	}
@@ -507,16 +507,16 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SEntityType <em>SEntity Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SComplexType <em>SComplex Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SEntityType
+	 * @see com.mimacom.ddd.sm.sim.SComplexType
 	 * @generated
 	 */
-	public Adapter createSEntityTypeAdapter()
+	public Adapter createSComplexTypeAdapter()
 	{
 		return null;
 	}
@@ -532,6 +532,21 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createSDetailTypeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SEntityType <em>SEntity Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.sm.sim.SEntityType
+	 * @generated
+	 */
+	public Adapter createSEntityTypeAdapter()
 	{
 		return null;
 	}
@@ -562,6 +577,21 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createSAssociationAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SMultiplicity <em>SMultiplicity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.sm.sim.SMultiplicity
+	 * @generated
+	 */
+	public Adapter createSMultiplicityAdapter()
 	{
 		return null;
 	}
@@ -607,36 +637,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createSQueryParameterAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SExpression <em>SExpression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SExpression
-	 * @generated
-	 */
-	public Adapter createSExpressionAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SMultiplicity <em>SMultiplicity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SMultiplicity
-	 * @generated
-	 */
-	public Adapter createSMultiplicityAdapter()
 	{
 		return null;
 	}

@@ -30,8 +30,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DComplexTypeImpl#isAbstract <em>Abstract</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DComplexTypeImpl#getFeatures <em>Features</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DComplexTypeImpl#getSuperType <em>Super Type</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DComplexTypeImpl#getFeatures <em>Features</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,16 +59,6 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	protected boolean abstract_ = ABSTRACT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFeatures()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DFeature> features;
-
-	/**
 	 * The cached value of the '{@link #getSuperType() <em>Super Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,6 +67,16 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	 * @ordered
 	 */
 	protected DComplexType superType;
+
+	/**
+	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFeatures()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DFeature> features;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -130,21 +130,6 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	 * @generated
 	 */
 	@Override
-	public EList<DFeature> getFeatures()
-	{
-		if (features == null)
-		{
-			features = new EObjectContainmentEList<DFeature>(DFeature.class, this, BasePackage.DCOMPLEX_TYPE__FEATURES);
-		}
-		return features;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public DComplexType getSuperType()
 	{
 		if (superType != null && superType.eIsProxy())
@@ -190,6 +175,21 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	 * @generated
 	 */
 	@Override
+	public EList<DFeature> getFeatures()
+	{
+		if (features == null)
+		{
+			features = new EObjectContainmentEList<DFeature>(DFeature.class, this, BasePackage.DCOMPLEX_TYPE__FEATURES);
+		}
+		return features;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
 		switch (featureID)
@@ -212,11 +212,11 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 		{
 			case BasePackage.DCOMPLEX_TYPE__ABSTRACT:
 				return isAbstract();
-			case BasePackage.DCOMPLEX_TYPE__FEATURES:
-				return getFeatures();
 			case BasePackage.DCOMPLEX_TYPE__SUPER_TYPE:
 				if (resolve) return getSuperType();
 				return basicGetSuperType();
+			case BasePackage.DCOMPLEX_TYPE__FEATURES:
+				return getFeatures();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -235,12 +235,12 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 			case BasePackage.DCOMPLEX_TYPE__ABSTRACT:
 				setAbstract((Boolean)newValue);
 				return;
+			case BasePackage.DCOMPLEX_TYPE__SUPER_TYPE:
+				setSuperType((DComplexType)newValue);
+				return;
 			case BasePackage.DCOMPLEX_TYPE__FEATURES:
 				getFeatures().clear();
 				getFeatures().addAll((Collection<? extends DFeature>)newValue);
-				return;
-			case BasePackage.DCOMPLEX_TYPE__SUPER_TYPE:
-				setSuperType((DComplexType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -259,11 +259,11 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 			case BasePackage.DCOMPLEX_TYPE__ABSTRACT:
 				setAbstract(ABSTRACT_EDEFAULT);
 				return;
-			case BasePackage.DCOMPLEX_TYPE__FEATURES:
-				getFeatures().clear();
-				return;
 			case BasePackage.DCOMPLEX_TYPE__SUPER_TYPE:
 				setSuperType((DComplexType)null);
+				return;
+			case BasePackage.DCOMPLEX_TYPE__FEATURES:
+				getFeatures().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -281,10 +281,10 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 		{
 			case BasePackage.DCOMPLEX_TYPE__ABSTRACT:
 				return abstract_ != ABSTRACT_EDEFAULT;
-			case BasePackage.DCOMPLEX_TYPE__FEATURES:
-				return features != null && !features.isEmpty();
 			case BasePackage.DCOMPLEX_TYPE__SUPER_TYPE:
 				return superType != null;
+			case BasePackage.DCOMPLEX_TYPE__FEATURES:
+				return features != null && !features.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

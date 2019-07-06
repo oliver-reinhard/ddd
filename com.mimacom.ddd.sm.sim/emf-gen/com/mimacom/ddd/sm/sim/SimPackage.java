@@ -363,6 +363,43 @@ public interface SimPackage extends EPackage
 	int SNAMED_DEDUCIBLE_ELEMENT_OPERATION_COUNT = SNAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SExpressionImpl <em>SExpression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sim.impl.SExpressionImpl
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSExpression()
+	 * @generated
+	 */
+	int SEXPRESSION = 6;
+
+	/**
+	 * The feature id for the '<em><b>Expr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEXPRESSION__EXPR = 0;
+
+	/**
+	 * The number of structural features of the '<em>SExpression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEXPRESSION_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>SExpression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEXPRESSION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SImportImpl <em>SImport</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -370,7 +407,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSImport()
 	 * @generated
 	 */
-	int SIMPORT = 6;
+	int SIMPORT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
@@ -407,7 +444,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDomainProxy()
 	 * @generated
 	 */
-	int SDOMAIN_PROXY = 7;
+	int SDOMAIN_PROXY = 8;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -462,7 +499,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAggregate()
 	 * @generated
 	 */
-	int SAGGREGATE = 8;
+	int SAGGREGATE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -544,7 +581,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSType()
 	 * @generated
 	 */
-	int STYPE = 9;
+	int STYPE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -583,13 +620,22 @@ public interface SimPackage extends EPackage
 	int STYPE__SYNTHETIC = SNAMED_DEDUCIBLE_ELEMENT__SYNTHETIC;
 
 	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYPE__CONSTRAINTS = SNAMED_DEDUCIBLE_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>SType</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STYPE_FEATURE_COUNT = SNAMED_DEDUCIBLE_ELEMENT_FEATURE_COUNT + 0;
+	int STYPE_FEATURE_COUNT = SNAMED_DEDUCIBLE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>SType</em>' class.
@@ -601,6 +647,52 @@ public interface SimPackage extends EPackage
 	int STYPE_OPERATION_COUNT = SNAMED_DEDUCIBLE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SConditionImpl <em>SCondition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sim.impl.SConditionImpl
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSCondition()
+	 * @generated
+	 */
+	int SCONDITION = 11;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCONDITION__NAME = SNAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCONDITION__CONDITION = SNAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>SCondition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCONDITION_FEATURE_COUNT = SNAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>SCondition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCONDITION_OPERATION_COUNT = SNAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SSimpleTypeImpl <em>SSimple Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -608,7 +700,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSSimpleType()
 	 * @generated
 	 */
-	int SSIMPLE_TYPE = 10;
+	int SSIMPLE_TYPE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -653,7 +745,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSIMPLE_TYPE__CONSTRAINTS = STYPE_FEATURE_COUNT + 0;
+	int SSIMPLE_TYPE__CONSTRAINTS = STYPE__CONSTRAINTS;
 
 	/**
 	 * The number of structural features of the '<em>SSimple Type</em>' class.
@@ -662,7 +754,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSIMPLE_TYPE_FEATURE_COUNT = STYPE_FEATURE_COUNT + 1;
+	int SSIMPLE_TYPE_FEATURE_COUNT = STYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>SSimple Type</em>' class.
@@ -672,152 +764,6 @@ public interface SimPackage extends EPackage
 	 * @ordered
 	 */
 	int SSIMPLE_TYPE_OPERATION_COUNT = STYPE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SComplexTypeImpl <em>SComplex Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sim.impl.SComplexTypeImpl
-	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSComplexType()
-	 * @generated
-	 */
-	int SCOMPLEX_TYPE = 11;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCOMPLEX_TYPE__NAME = STYPE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCOMPLEX_TYPE__DEDUCTION_RULE = STYPE__DEDUCTION_RULE;
-
-	/**
-	 * The feature id for the '<em><b>Nature</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCOMPLEX_TYPE__NATURE = STYPE__NATURE;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCOMPLEX_TYPE__SYNTHETIC = STYPE__SYNTHETIC;
-
-	/**
-	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCOMPLEX_TYPE__ABSTRACT = STYPE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Super Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCOMPLEX_TYPE__SUPER_TYPE = STYPE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCOMPLEX_TYPE__FEATURES = STYPE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCOMPLEX_TYPE__CONSTRAINTS = STYPE_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>SComplex Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCOMPLEX_TYPE_FEATURE_COUNT = STYPE_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of operations of the '<em>SComplex Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCOMPLEX_TYPE_OPERATION_COUNT = STYPE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SConditionImpl <em>SCondition</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sim.impl.SConditionImpl
-	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSCondition()
-	 * @generated
-	 */
-	int SCONDITION = 12;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCONDITION__NAME = SNAMED_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCONDITION__CONDITION = SNAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>SCondition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCONDITION_FEATURE_COUNT = SNAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>SCondition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCONDITION_OPERATION_COUNT = SNAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SPrimitiveImpl <em>SPrimitive</em>}' class.
@@ -1057,14 +1003,14 @@ public interface SimPackage extends EPackage
 	int SLITERAL_OPERATION_COUNT = SNAMED_DEDUCIBLE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SEntityTypeImpl <em>SEntity Type</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SComplexTypeImpl <em>SComplex Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sim.impl.SEntityTypeImpl
-	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSEntityType()
+	 * @see com.mimacom.ddd.sm.sim.impl.SComplexTypeImpl
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSComplexType()
 	 * @generated
 	 */
-	int SENTITY_TYPE = 16;
+	int SCOMPLEX_TYPE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1073,7 +1019,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SENTITY_TYPE__NAME = SCOMPLEX_TYPE__NAME;
+	int SCOMPLEX_TYPE__NAME = STYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -1082,7 +1028,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SENTITY_TYPE__DEDUCTION_RULE = SCOMPLEX_TYPE__DEDUCTION_RULE;
+	int SCOMPLEX_TYPE__DEDUCTION_RULE = STYPE__DEDUCTION_RULE;
 
 	/**
 	 * The feature id for the '<em><b>Nature</b></em>' attribute.
@@ -1091,7 +1037,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SENTITY_TYPE__NATURE = SCOMPLEX_TYPE__NATURE;
+	int SCOMPLEX_TYPE__NATURE = STYPE__NATURE;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -1100,34 +1046,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SENTITY_TYPE__SYNTHETIC = SCOMPLEX_TYPE__SYNTHETIC;
-
-	/**
-	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SENTITY_TYPE__ABSTRACT = SCOMPLEX_TYPE__ABSTRACT;
-
-	/**
-	 * The feature id for the '<em><b>Super Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SENTITY_TYPE__SUPER_TYPE = SCOMPLEX_TYPE__SUPER_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SENTITY_TYPE__FEATURES = SCOMPLEX_TYPE__FEATURES;
+	int SCOMPLEX_TYPE__SYNTHETIC = STYPE__SYNTHETIC;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -1136,34 +1055,52 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SENTITY_TYPE__CONSTRAINTS = SCOMPLEX_TYPE__CONSTRAINTS;
+	int SCOMPLEX_TYPE__CONSTRAINTS = STYPE__CONSTRAINTS;
 
 	/**
-	 * The feature id for the '<em><b>Root</b></em>' attribute.
+	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENTITY_TYPE__ROOT = SCOMPLEX_TYPE_FEATURE_COUNT + 0;
+	int SCOMPLEX_TYPE__ABSTRACT = STYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>SEntity Type</em>' class.
+	 * The feature id for the '<em><b>Super Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENTITY_TYPE_FEATURE_COUNT = SCOMPLEX_TYPE_FEATURE_COUNT + 1;
+	int SCOMPLEX_TYPE__SUPER_TYPE = STYPE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>SEntity Type</em>' class.
+	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENTITY_TYPE_OPERATION_COUNT = SCOMPLEX_TYPE_OPERATION_COUNT + 0;
+	int SCOMPLEX_TYPE__FEATURES = STYPE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>SComplex Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCOMPLEX_TYPE_FEATURE_COUNT = STYPE_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>SComplex Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCOMPLEX_TYPE_OPERATION_COUNT = STYPE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SDetailTypeImpl <em>SDetail Type</em>}' class.
@@ -1212,6 +1149,15 @@ public interface SimPackage extends EPackage
 	int SDETAIL_TYPE__SYNTHETIC = SCOMPLEX_TYPE__SYNTHETIC;
 
 	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SDETAIL_TYPE__CONSTRAINTS = SCOMPLEX_TYPE__CONSTRAINTS;
+
+	/**
 	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1239,15 +1185,6 @@ public interface SimPackage extends EPackage
 	int SDETAIL_TYPE__FEATURES = SCOMPLEX_TYPE__FEATURES;
 
 	/**
-	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SDETAIL_TYPE__CONSTRAINTS = SCOMPLEX_TYPE__CONSTRAINTS;
-
-	/**
 	 * The number of structural features of the '<em>SDetail Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1266,6 +1203,115 @@ public interface SimPackage extends EPackage
 	int SDETAIL_TYPE_OPERATION_COUNT = SCOMPLEX_TYPE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SEntityTypeImpl <em>SEntity Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sim.impl.SEntityTypeImpl
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSEntityType()
+	 * @generated
+	 */
+	int SENTITY_TYPE = 18;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTITY_TYPE__NAME = SCOMPLEX_TYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTITY_TYPE__DEDUCTION_RULE = SCOMPLEX_TYPE__DEDUCTION_RULE;
+
+	/**
+	 * The feature id for the '<em><b>Nature</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTITY_TYPE__NATURE = SCOMPLEX_TYPE__NATURE;
+
+	/**
+	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTITY_TYPE__SYNTHETIC = SCOMPLEX_TYPE__SYNTHETIC;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTITY_TYPE__CONSTRAINTS = SCOMPLEX_TYPE__CONSTRAINTS;
+
+	/**
+	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTITY_TYPE__ABSTRACT = SCOMPLEX_TYPE__ABSTRACT;
+
+	/**
+	 * The feature id for the '<em><b>Super Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTITY_TYPE__SUPER_TYPE = SCOMPLEX_TYPE__SUPER_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTITY_TYPE__FEATURES = SCOMPLEX_TYPE__FEATURES;
+
+	/**
+	 * The feature id for the '<em><b>Root</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTITY_TYPE__ROOT = SCOMPLEX_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>SEntity Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTITY_TYPE_FEATURE_COUNT = SCOMPLEX_TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>SEntity Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTITY_TYPE_OPERATION_COUNT = SCOMPLEX_TYPE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SFeatureImpl <em>SFeature</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1273,7 +1319,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSFeature()
 	 * @generated
 	 */
-	int SFEATURE = 18;
+	int SFEATURE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1355,7 +1401,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAssociation()
 	 * @generated
 	 */
-	int SASSOCIATION = 19;
+	int SASSOCIATION = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1412,22 +1458,22 @@ public interface SimPackage extends EPackage
 	int SASSOCIATION__MULTIPLICITY = SFEATURE__MULTIPLICITY;
 
 	/**
-	 * The feature id for the '<em><b>Derived</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SASSOCIATION__DERIVED = SFEATURE_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SASSOCIATION__KIND = SFEATURE_FEATURE_COUNT + 1;
+	int SASSOCIATION__KIND = SFEATURE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Derived</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SASSOCIATION__DERIVED = SFEATURE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>SAssociation</em>' class.
@@ -1457,6 +1503,52 @@ public interface SimPackage extends EPackage
 	int SASSOCIATION_OPERATION_COUNT = SFEATURE_OPERATION_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SMultiplicityImpl <em>SMultiplicity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sim.impl.SMultiplicityImpl
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSMultiplicity()
+	 * @generated
+	 */
+	int SMULTIPLICITY = 21;
+
+	/**
+	 * The feature id for the '<em><b>Min Occurs</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMULTIPLICITY__MIN_OCCURS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Max Occurs</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMULTIPLICITY__MAX_OCCURS = 1;
+
+	/**
+	 * The number of structural features of the '<em>SMultiplicity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMULTIPLICITY_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>SMultiplicity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMULTIPLICITY_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SAttributeImpl <em>SAttribute</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1464,7 +1556,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAttribute()
 	 * @generated
 	 */
-	int SATTRIBUTE = 20;
+	int SATTRIBUTE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1564,7 +1656,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSQuery()
 	 * @generated
 	 */
-	int SQUERY = 21;
+	int SQUERY = 23;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1664,7 +1756,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSQueryParameter()
 	 * @generated
 	 */
-	int SQUERY_PARAMETER = 22;
+	int SQUERY_PARAMETER = 24;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1737,89 +1829,6 @@ public interface SimPackage extends EPackage
 	 * @ordered
 	 */
 	int SQUERY_PARAMETER_OPERATION_COUNT = SNAMED_DEDUCIBLE_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SExpressionImpl <em>SExpression</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sim.impl.SExpressionImpl
-	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSExpression()
-	 * @generated
-	 */
-	int SEXPRESSION = 23;
-
-	/**
-	 * The feature id for the '<em><b>Expr</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEXPRESSION__EXPR = 0;
-
-	/**
-	 * The number of structural features of the '<em>SExpression</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEXPRESSION_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>SExpression</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEXPRESSION_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SMultiplicityImpl <em>SMultiplicity</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sim.impl.SMultiplicityImpl
-	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSMultiplicity()
-	 * @generated
-	 */
-	int SMULTIPLICITY = 24;
-
-	/**
-	 * The feature id for the '<em><b>Min Occurs</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SMULTIPLICITY__MIN_OCCURS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Max Occurs</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SMULTIPLICITY__MAX_OCCURS = 1;
-
-	/**
-	 * The number of structural features of the '<em>SMultiplicity</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SMULTIPLICITY_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>SMultiplicity</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SMULTIPLICITY_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SDeductionRuleImpl <em>SDeduction Rule</em>}' class.
@@ -2629,6 +2638,27 @@ public interface SimPackage extends EPackage
 	EClass getSNamedDeducibleElement();
 
 	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SExpression <em>SExpression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SExpression</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SExpression
+	 * @generated
+	 */
+	EClass getSExpression();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SExpression#getExpr <em>Expr</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Expr</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SExpression#getExpr()
+	 * @see #getSExpression()
+	 * @generated
+	 */
+	EAttribute getSExpression_Expr();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SImport <em>SImport</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2713,79 +2743,15 @@ public interface SimPackage extends EPackage
 	EClass getSType();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SSimpleType <em>SSimple Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SSimple Type</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SSimpleType
-	 * @generated
-	 */
-	EClass getSSimpleType();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sim.SSimpleType#getConstraints <em>Constraints</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sim.SType#getConstraints <em>Constraints</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Constraints</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SSimpleType#getConstraints()
-	 * @see #getSSimpleType()
+	 * @see com.mimacom.ddd.sm.sim.SType#getConstraints()
+	 * @see #getSType()
 	 * @generated
 	 */
-	EReference getSSimpleType_Constraints();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SComplexType <em>SComplex Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SComplex Type</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SComplexType
-	 * @generated
-	 */
-	EClass getSComplexType();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SComplexType#isAbstract <em>Abstract</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Abstract</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SComplexType#isAbstract()
-	 * @see #getSComplexType()
-	 * @generated
-	 */
-	EAttribute getSComplexType_Abstract();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SComplexType#getSuperType <em>Super Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Super Type</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SComplexType#getSuperType()
-	 * @see #getSComplexType()
-	 * @generated
-	 */
-	EReference getSComplexType_SuperType();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sim.SComplexType#getFeatures <em>Features</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Features</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SComplexType#getFeatures()
-	 * @see #getSComplexType()
-	 * @generated
-	 */
-	EReference getSComplexType_Features();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sim.SComplexType#getConstraints <em>Constraints</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Constraints</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SComplexType#getConstraints()
-	 * @see #getSComplexType()
-	 * @generated
-	 */
-	EReference getSComplexType_Constraints();
+	EReference getSType_Constraints();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SCondition <em>SCondition</em>}'.
@@ -2807,6 +2773,16 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 */
 	EReference getSCondition_Condition();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SSimpleType <em>SSimple Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SSimple Type</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SSimpleType
+	 * @generated
+	 */
+	EClass getSSimpleType();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SPrimitive <em>SPrimitive</em>}'.
@@ -2872,6 +2848,59 @@ public interface SimPackage extends EPackage
 	EClass getSLiteral();
 
 	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SComplexType <em>SComplex Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SComplex Type</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SComplexType
+	 * @generated
+	 */
+	EClass getSComplexType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SComplexType#isAbstract <em>Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Abstract</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SComplexType#isAbstract()
+	 * @see #getSComplexType()
+	 * @generated
+	 */
+	EAttribute getSComplexType_Abstract();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SComplexType#getSuperType <em>Super Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Super Type</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SComplexType#getSuperType()
+	 * @see #getSComplexType()
+	 * @generated
+	 */
+	EReference getSComplexType_SuperType();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sim.SComplexType#getFeatures <em>Features</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Features</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SComplexType#getFeatures()
+	 * @see #getSComplexType()
+	 * @generated
+	 */
+	EReference getSComplexType_Features();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SDetailType <em>SDetail Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SDetail Type</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SDetailType
+	 * @generated
+	 */
+	EClass getSDetailType();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SEntityType <em>SEntity Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2891,16 +2920,6 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 */
 	EAttribute getSEntityType_Root();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SDetailType <em>SDetail Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SDetail Type</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SDetailType
-	 * @generated
-	 */
-	EClass getSDetailType();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SFeature <em>SFeature</em>}'.
@@ -2945,17 +2964,6 @@ public interface SimPackage extends EPackage
 	EClass getSAssociation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SAssociation#isDerived <em>Derived</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Derived</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SAssociation#isDerived()
-	 * @see #getSAssociation()
-	 * @generated
-	 */
-	EAttribute getSAssociation_Derived();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SAssociation#getKind <em>Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2967,6 +2975,17 @@ public interface SimPackage extends EPackage
 	EAttribute getSAssociation_Kind();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SAssociation#isDerived <em>Derived</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Derived</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SAssociation#isDerived()
+	 * @see #getSAssociation()
+	 * @generated
+	 */
+	EAttribute getSAssociation_Derived();
+
+	/**
 	 * Returns the meta object for the '{@link com.mimacom.ddd.sm.sim.SAssociation#getTargetType() <em>Get Target Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2975,6 +2994,38 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 */
 	EOperation getSAssociation__GetTargetType();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SMultiplicity <em>SMultiplicity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SMultiplicity</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SMultiplicity
+	 * @generated
+	 */
+	EClass getSMultiplicity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SMultiplicity#getMinOccurs <em>Min Occurs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Min Occurs</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SMultiplicity#getMinOccurs()
+	 * @see #getSMultiplicity()
+	 * @generated
+	 */
+	EAttribute getSMultiplicity_MinOccurs();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SMultiplicity#getMaxOccurs <em>Max Occurs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Occurs</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SMultiplicity#getMaxOccurs()
+	 * @see #getSMultiplicity()
+	 * @generated
+	 */
+	EAttribute getSMultiplicity_MaxOccurs();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SAttribute <em>SAttribute</em>}'.
@@ -3071,59 +3122,6 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 */
 	EReference getSQueryParameter_Multiplicity();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SExpression <em>SExpression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SExpression</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SExpression
-	 * @generated
-	 */
-	EClass getSExpression();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SExpression#getExpr <em>Expr</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Expr</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SExpression#getExpr()
-	 * @see #getSExpression()
-	 * @generated
-	 */
-	EAttribute getSExpression_Expr();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SMultiplicity <em>SMultiplicity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SMultiplicity</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SMultiplicity
-	 * @generated
-	 */
-	EClass getSMultiplicity();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SMultiplicity#getMinOccurs <em>Min Occurs</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Min Occurs</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SMultiplicity#getMinOccurs()
-	 * @see #getSMultiplicity()
-	 * @generated
-	 */
-	EAttribute getSMultiplicity_MinOccurs();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SMultiplicity#getMaxOccurs <em>Max Occurs</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max Occurs</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SMultiplicity#getMaxOccurs()
-	 * @see #getSMultiplicity()
-	 * @generated
-	 */
-	EAttribute getSMultiplicity_MaxOccurs();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SDeductionRule <em>SDeduction Rule</em>}'.
@@ -3560,6 +3558,24 @@ public interface SimPackage extends EPackage
 		EClass SNAMED_DEDUCIBLE_ELEMENT = eINSTANCE.getSNamedDeducibleElement();
 
 		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SExpressionImpl <em>SExpression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sim.impl.SExpressionImpl
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSExpression()
+		 * @generated
+		 */
+		EClass SEXPRESSION = eINSTANCE.getSExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Expr</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEXPRESSION__EXPR = eINSTANCE.getSExpression_Expr();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SImportImpl <em>SImport</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3632,64 +3648,12 @@ public interface SimPackage extends EPackage
 		EClass STYPE = eINSTANCE.getSType();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SSimpleTypeImpl <em>SSimple Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sim.impl.SSimpleTypeImpl
-		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSSimpleType()
-		 * @generated
-		 */
-		EClass SSIMPLE_TYPE = eINSTANCE.getSSimpleType();
-
-		/**
 		 * The meta object literal for the '<em><b>Constraints</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SSIMPLE_TYPE__CONSTRAINTS = eINSTANCE.getSSimpleType_Constraints();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SComplexTypeImpl <em>SComplex Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sim.impl.SComplexTypeImpl
-		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSComplexType()
-		 * @generated
-		 */
-		EClass SCOMPLEX_TYPE = eINSTANCE.getSComplexType();
-
-		/**
-		 * The meta object literal for the '<em><b>Abstract</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCOMPLEX_TYPE__ABSTRACT = eINSTANCE.getSComplexType_Abstract();
-
-		/**
-		 * The meta object literal for the '<em><b>Super Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SCOMPLEX_TYPE__SUPER_TYPE = eINSTANCE.getSComplexType_SuperType();
-
-		/**
-		 * The meta object literal for the '<em><b>Features</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SCOMPLEX_TYPE__FEATURES = eINSTANCE.getSComplexType_Features();
-
-		/**
-		 * The meta object literal for the '<em><b>Constraints</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SCOMPLEX_TYPE__CONSTRAINTS = eINSTANCE.getSComplexType_Constraints();
+		EReference STYPE__CONSTRAINTS = eINSTANCE.getSType_Constraints();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SConditionImpl <em>SCondition</em>}' class.
@@ -3708,6 +3672,16 @@ public interface SimPackage extends EPackage
 		 * @generated
 		 */
 		EReference SCONDITION__CONDITION = eINSTANCE.getSCondition_Condition();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SSimpleTypeImpl <em>SSimple Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sim.impl.SSimpleTypeImpl
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSSimpleType()
+		 * @generated
+		 */
+		EClass SSIMPLE_TYPE = eINSTANCE.getSSimpleType();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SPrimitiveImpl <em>SPrimitive</em>}' class.
@@ -3764,6 +3738,50 @@ public interface SimPackage extends EPackage
 		EClass SLITERAL = eINSTANCE.getSLiteral();
 
 		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SComplexTypeImpl <em>SComplex Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sim.impl.SComplexTypeImpl
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSComplexType()
+		 * @generated
+		 */
+		EClass SCOMPLEX_TYPE = eINSTANCE.getSComplexType();
+
+		/**
+		 * The meta object literal for the '<em><b>Abstract</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCOMPLEX_TYPE__ABSTRACT = eINSTANCE.getSComplexType_Abstract();
+
+		/**
+		 * The meta object literal for the '<em><b>Super Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCOMPLEX_TYPE__SUPER_TYPE = eINSTANCE.getSComplexType_SuperType();
+
+		/**
+		 * The meta object literal for the '<em><b>Features</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCOMPLEX_TYPE__FEATURES = eINSTANCE.getSComplexType_Features();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SDetailTypeImpl <em>SDetail Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sim.impl.SDetailTypeImpl
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDetailType()
+		 * @generated
+		 */
+		EClass SDETAIL_TYPE = eINSTANCE.getSDetailType();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SEntityTypeImpl <em>SEntity Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3780,16 +3798,6 @@ public interface SimPackage extends EPackage
 		 * @generated
 		 */
 		EAttribute SENTITY_TYPE__ROOT = eINSTANCE.getSEntityType_Root();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SDetailTypeImpl <em>SDetail Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sim.impl.SDetailTypeImpl
-		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDetailType()
-		 * @generated
-		 */
-		EClass SDETAIL_TYPE = eINSTANCE.getSDetailType();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SFeatureImpl <em>SFeature</em>}' class.
@@ -3828,14 +3836,6 @@ public interface SimPackage extends EPackage
 		EClass SASSOCIATION = eINSTANCE.getSAssociation();
 
 		/**
-		 * The meta object literal for the '<em><b>Derived</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SASSOCIATION__DERIVED = eINSTANCE.getSAssociation_Derived();
-
-		/**
 		 * The meta object literal for the '<em><b>Kind</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3844,12 +3844,46 @@ public interface SimPackage extends EPackage
 		EAttribute SASSOCIATION__KIND = eINSTANCE.getSAssociation_Kind();
 
 		/**
+		 * The meta object literal for the '<em><b>Derived</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SASSOCIATION__DERIVED = eINSTANCE.getSAssociation_Derived();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Target Type</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation SASSOCIATION___GET_TARGET_TYPE = eINSTANCE.getSAssociation__GetTargetType();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SMultiplicityImpl <em>SMultiplicity</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sim.impl.SMultiplicityImpl
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSMultiplicity()
+		 * @generated
+		 */
+		EClass SMULTIPLICITY = eINSTANCE.getSMultiplicity();
+
+		/**
+		 * The meta object literal for the '<em><b>Min Occurs</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SMULTIPLICITY__MIN_OCCURS = eINSTANCE.getSMultiplicity_MinOccurs();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Occurs</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SMULTIPLICITY__MAX_OCCURS = eINSTANCE.getSMultiplicity_MaxOccurs();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SAttributeImpl <em>SAttribute</em>}' class.
@@ -3928,50 +3962,6 @@ public interface SimPackage extends EPackage
 		 * @generated
 		 */
 		EReference SQUERY_PARAMETER__MULTIPLICITY = eINSTANCE.getSQueryParameter_Multiplicity();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SExpressionImpl <em>SExpression</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sim.impl.SExpressionImpl
-		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSExpression()
-		 * @generated
-		 */
-		EClass SEXPRESSION = eINSTANCE.getSExpression();
-
-		/**
-		 * The meta object literal for the '<em><b>Expr</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SEXPRESSION__EXPR = eINSTANCE.getSExpression_Expr();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SMultiplicityImpl <em>SMultiplicity</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.sim.impl.SMultiplicityImpl
-		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSMultiplicity()
-		 * @generated
-		 */
-		EClass SMULTIPLICITY = eINSTANCE.getSMultiplicity();
-
-		/**
-		 * The meta object literal for the '<em><b>Min Occurs</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SMULTIPLICITY__MIN_OCCURS = eINSTANCE.getSMultiplicity_MinOccurs();
-
-		/**
-		 * The meta object literal for the '<em><b>Max Occurs</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SMULTIPLICITY__MAX_OCCURS = eINSTANCE.getSMultiplicity_MaxOccurs();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SDeductionRuleImpl <em>SDeduction Rule</em>}' class.

@@ -1360,22 +1360,22 @@ public interface BasePackage extends EPackage
 	int DCOMPLEX_TYPE__ABSTRACT = DTYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DCOMPLEX_TYPE__FEATURES = DTYPE_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Super Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DCOMPLEX_TYPE__SUPER_TYPE = DTYPE_FEATURE_COUNT + 2;
+	int DCOMPLEX_TYPE__SUPER_TYPE = DTYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCOMPLEX_TYPE__FEATURES = DTYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>DComplex Type</em>' class.
@@ -1396,115 +1396,6 @@ public interface BasePackage extends EPackage
 	int DCOMPLEX_TYPE_OPERATION_COUNT = DTYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DIdentityTypeImpl <em>DIdentity Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.impl.DIdentityTypeImpl
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDIdentityType()
-	 * @generated
-	 */
-	int DIDENTITY_TYPE = 22;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__NAME = DCOMPLEX_TYPE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__ALIASES = DCOMPLEX_TYPE__ALIASES;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__DESCRIPTION = DCOMPLEX_TYPE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__CONSTRAINTS = DCOMPLEX_TYPE__CONSTRAINTS;
-
-	/**
-	 * The feature id for the '<em><b>Primitive</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__PRIMITIVE = DCOMPLEX_TYPE__PRIMITIVE;
-
-	/**
-	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__ABSTRACT = DCOMPLEX_TYPE__ABSTRACT;
-
-	/**
-	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__FEATURES = DCOMPLEX_TYPE__FEATURES;
-
-	/**
-	 * The feature id for the '<em><b>Super Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__SUPER_TYPE = DCOMPLEX_TYPE__SUPER_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Root</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__ROOT = DCOMPLEX_TYPE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>DIdentity Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE_FEATURE_COUNT = DCOMPLEX_TYPE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>DIdentity Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE_OPERATION_COUNT = DCOMPLEX_TYPE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DDetailTypeImpl <em>DDetail Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1512,7 +1403,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDetailType()
 	 * @generated
 	 */
-	int DDETAIL_TYPE = 23;
+	int DDETAIL_TYPE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1569,15 +1460,6 @@ public interface BasePackage extends EPackage
 	int DDETAIL_TYPE__ABSTRACT = DCOMPLEX_TYPE__ABSTRACT;
 
 	/**
-	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DDETAIL_TYPE__FEATURES = DCOMPLEX_TYPE__FEATURES;
-
-	/**
 	 * The feature id for the '<em><b>Super Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1585,6 +1467,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DDETAIL_TYPE__SUPER_TYPE = DCOMPLEX_TYPE__SUPER_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DDETAIL_TYPE__FEATURES = DCOMPLEX_TYPE__FEATURES;
 
 	/**
 	 * The number of structural features of the '<em>DDetail Type</em>' class.
@@ -1603,6 +1494,115 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DDETAIL_TYPE_OPERATION_COUNT = DCOMPLEX_TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DIdentityTypeImpl <em>DIdentity Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.impl.DIdentityTypeImpl
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDIdentityType()
+	 * @generated
+	 */
+	int DIDENTITY_TYPE = 23;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIDENTITY_TYPE__NAME = DCOMPLEX_TYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIDENTITY_TYPE__ALIASES = DCOMPLEX_TYPE__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIDENTITY_TYPE__DESCRIPTION = DCOMPLEX_TYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIDENTITY_TYPE__CONSTRAINTS = DCOMPLEX_TYPE__CONSTRAINTS;
+
+	/**
+	 * The feature id for the '<em><b>Primitive</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIDENTITY_TYPE__PRIMITIVE = DCOMPLEX_TYPE__PRIMITIVE;
+
+	/**
+	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIDENTITY_TYPE__ABSTRACT = DCOMPLEX_TYPE__ABSTRACT;
+
+	/**
+	 * The feature id for the '<em><b>Super Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIDENTITY_TYPE__SUPER_TYPE = DCOMPLEX_TYPE__SUPER_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIDENTITY_TYPE__FEATURES = DCOMPLEX_TYPE__FEATURES;
+
+	/**
+	 * The feature id for the '<em><b>Root</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIDENTITY_TYPE__ROOT = DCOMPLEX_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>DIdentity Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIDENTITY_TYPE_FEATURE_COUNT = DCOMPLEX_TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>DIdentity Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIDENTITY_TYPE_OPERATION_COUNT = DCOMPLEX_TYPE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DEntityTypeImpl <em>DEntity Type</em>}' class.
@@ -1669,15 +1669,6 @@ public interface BasePackage extends EPackage
 	int DENTITY_TYPE__ABSTRACT = DIDENTITY_TYPE__ABSTRACT;
 
 	/**
-	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DENTITY_TYPE__FEATURES = DIDENTITY_TYPE__FEATURES;
-
-	/**
 	 * The feature id for the '<em><b>Super Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1685,6 +1676,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DENTITY_TYPE__SUPER_TYPE = DIDENTITY_TYPE__SUPER_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DENTITY_TYPE__FEATURES = DIDENTITY_TYPE__FEATURES;
 
 	/**
 	 * The feature id for the '<em><b>Root</b></em>' attribute.
@@ -1778,15 +1778,6 @@ public interface BasePackage extends EPackage
 	int DRELATIONSHIP__ABSTRACT = DIDENTITY_TYPE__ABSTRACT;
 
 	/**
-	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DRELATIONSHIP__FEATURES = DIDENTITY_TYPE__FEATURES;
-
-	/**
 	 * The feature id for the '<em><b>Super Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1794,6 +1785,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DRELATIONSHIP__SUPER_TYPE = DIDENTITY_TYPE__SUPER_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DRELATIONSHIP__FEATURES = DIDENTITY_TYPE__FEATURES;
 
 	/**
 	 * The feature id for the '<em><b>Root</b></em>' attribute.
@@ -3768,6 +3768,17 @@ public interface BasePackage extends EPackage
 	EAttribute getDComplexType_Abstract();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.DComplexType#getSuperType <em>Super Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Super Type</em>'.
+	 * @see com.mimacom.ddd.dm.base.DComplexType#getSuperType()
+	 * @see #getDComplexType()
+	 * @generated
+	 */
+	EReference getDComplexType_SuperType();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DComplexType#getFeatures <em>Features</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3779,15 +3790,14 @@ public interface BasePackage extends EPackage
 	EReference getDComplexType_Features();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.DComplexType#getSuperType <em>Super Type</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DDetailType <em>DDetail Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Super Type</em>'.
-	 * @see com.mimacom.ddd.dm.base.DComplexType#getSuperType()
-	 * @see #getDComplexType()
+	 * @return the meta object for class '<em>DDetail Type</em>'.
+	 * @see com.mimacom.ddd.dm.base.DDetailType
 	 * @generated
 	 */
-	EReference getDComplexType_SuperType();
+	EClass getDDetailType();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DIdentityType <em>DIdentity Type</em>}'.
@@ -3809,16 +3819,6 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EAttribute getDIdentityType_Root();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DDetailType <em>DDetail Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DDetail Type</em>'.
-	 * @see com.mimacom.ddd.dm.base.DDetailType
-	 * @generated
-	 */
-	EClass getDDetailType();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DEntityType <em>DEntity Type</em>}'.
@@ -4792,6 +4792,14 @@ public interface BasePackage extends EPackage
 		EAttribute DCOMPLEX_TYPE__ABSTRACT = eINSTANCE.getDComplexType_Abstract();
 
 		/**
+		 * The meta object literal for the '<em><b>Super Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DCOMPLEX_TYPE__SUPER_TYPE = eINSTANCE.getDComplexType_SuperType();
+
+		/**
 		 * The meta object literal for the '<em><b>Features</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4800,12 +4808,14 @@ public interface BasePackage extends EPackage
 		EReference DCOMPLEX_TYPE__FEATURES = eINSTANCE.getDComplexType_Features();
 
 		/**
-		 * The meta object literal for the '<em><b>Super Type</b></em>' reference feature.
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DDetailTypeImpl <em>DDetail Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.impl.DDetailTypeImpl
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDetailType()
 		 * @generated
 		 */
-		EReference DCOMPLEX_TYPE__SUPER_TYPE = eINSTANCE.getDComplexType_SuperType();
+		EClass DDETAIL_TYPE = eINSTANCE.getDDetailType();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DIdentityTypeImpl <em>DIdentity Type</em>}' class.
@@ -4824,16 +4834,6 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EAttribute DIDENTITY_TYPE__ROOT = eINSTANCE.getDIdentityType_Root();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DDetailTypeImpl <em>DDetail Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.impl.DDetailTypeImpl
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDetailType()
-		 * @generated
-		 */
-		EClass DDETAIL_TYPE = eINSTANCE.getDDetailType();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DEntityTypeImpl <em>DEntity Type</em>}' class.

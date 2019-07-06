@@ -76,7 +76,7 @@ public interface DAssociation extends DFeature
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source Type</em>' reference.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDAssociation_SourceType()
-	 * @model resolveProxies="false" required="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false"
+	 * @model resolveProxies="false" required="true" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	DComplexType getSourceType();

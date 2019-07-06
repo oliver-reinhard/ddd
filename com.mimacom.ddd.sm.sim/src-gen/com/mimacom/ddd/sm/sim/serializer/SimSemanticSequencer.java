@@ -258,8 +258,8 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *             deductionRule=SFuseComplexTypeRule | 
 	 *             (abstract?='abstract'? name=ID superType=[SComplexType|ID]?)
 	 *         ) 
-	 *         features+=SFeature? 
-	 *         (constraints+=SConstraint? features+=SFeature?)*
+	 *         constraints+=SConstraint? 
+	 *         (features+=SFeature? constraints+=SConstraint?)*
 	 *     )
 	 */
 	protected void sequence_SComplexTypeExtends_SComplexTypeFeatures_SDetailType(ISerializationContext context, SDetailType semanticObject) {

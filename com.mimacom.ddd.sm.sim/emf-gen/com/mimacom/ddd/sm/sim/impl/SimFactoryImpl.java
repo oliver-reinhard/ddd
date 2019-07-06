@@ -67,25 +67,25 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 		{
 			case SimPackage.SINFORMATION_MODEL: return createSInformationModel();
 			case SimPackage.SNAMED_ELEMENT: return createSNamedElement();
+			case SimPackage.SEXPRESSION: return createSExpression();
 			case SimPackage.SIMPORT: return createSImport();
 			case SimPackage.SDOMAIN_PROXY: return createSDomainProxy();
 			case SimPackage.SAGGREGATE: return createSAggregate();
 			case SimPackage.STYPE: return createSType();
-			case SimPackage.SSIMPLE_TYPE: return createSSimpleType();
-			case SimPackage.SCOMPLEX_TYPE: return createSComplexType();
 			case SimPackage.SCONDITION: return createSCondition();
+			case SimPackage.SSIMPLE_TYPE: return createSSimpleType();
 			case SimPackage.SPRIMITIVE: return createSPrimitive();
 			case SimPackage.SENUMERATION: return createSEnumeration();
 			case SimPackage.SLITERAL: return createSLiteral();
-			case SimPackage.SENTITY_TYPE: return createSEntityType();
+			case SimPackage.SCOMPLEX_TYPE: return createSComplexType();
 			case SimPackage.SDETAIL_TYPE: return createSDetailType();
+			case SimPackage.SENTITY_TYPE: return createSEntityType();
 			case SimPackage.SFEATURE: return createSFeature();
 			case SimPackage.SASSOCIATION: return createSAssociation();
+			case SimPackage.SMULTIPLICITY: return createSMultiplicity();
 			case SimPackage.SATTRIBUTE: return createSAttribute();
 			case SimPackage.SQUERY: return createSQuery();
 			case SimPackage.SQUERY_PARAMETER: return createSQueryParameter();
-			case SimPackage.SEXPRESSION: return createSExpression();
-			case SimPackage.SMULTIPLICITY: return createSMultiplicity();
 			case SimPackage.SGRAB_RULE: return createSGrabRule();
 			case SimPackage.SDITCH_RULE: return createSDitchRule();
 			case SimPackage.SMORPH_RULE: return createSMorphRule();
@@ -174,6 +174,18 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	@Override
+	public SExpression createSExpression()
+	{
+		SExpressionImpl sExpression = new SExpressionImpl();
+		return sExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public SImport createSImport()
 	{
 		SImportImpl sImport = new SImportImpl();
@@ -222,34 +234,22 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	@Override
-	public SSimpleType createSSimpleType()
-	{
-		SSimpleTypeImpl sSimpleType = new SSimpleTypeImpl();
-		return sSimpleType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SComplexType createSComplexType()
-	{
-		SComplexTypeImpl sComplexType = new SComplexTypeImpl();
-		return sComplexType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public SCondition createSCondition()
 	{
 		SConditionImpl sCondition = new SConditionImpl();
 		return sCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SSimpleType createSSimpleType()
+	{
+		SSimpleTypeImpl sSimpleType = new SSimpleTypeImpl();
+		return sSimpleType;
 	}
 
 	/**
@@ -294,10 +294,10 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	@Override
-	public SEntityType createSEntityType()
+	public SComplexType createSComplexType()
 	{
-		SEntityTypeImpl sEntityType = new SEntityTypeImpl();
-		return sEntityType;
+		SComplexTypeImpl sComplexType = new SComplexTypeImpl();
+		return sComplexType;
 	}
 
 	/**
@@ -310,6 +310,18 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	{
 		SDetailTypeImpl sDetailType = new SDetailTypeImpl();
 		return sDetailType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SEntityType createSEntityType()
+	{
+		SEntityTypeImpl sEntityType = new SEntityTypeImpl();
+		return sEntityType;
 	}
 
 	/**
@@ -334,6 +346,18 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	{
 		SAssociationImplCustom sAssociation = new SAssociationImplCustom();
 		return sAssociation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SMultiplicity createSMultiplicity()
+	{
+		SMultiplicityImpl sMultiplicity = new SMultiplicityImpl();
+		return sMultiplicity;
 	}
 
 	/**
@@ -370,30 +394,6 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	{
 		SQueryParameterImpl sQueryParameter = new SQueryParameterImpl();
 		return sQueryParameter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SExpression createSExpression()
-	{
-		SExpressionImpl sExpression = new SExpressionImpl();
-		return sExpression;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SMultiplicity createSMultiplicity()
-	{
-		SMultiplicityImpl sMultiplicity = new SMultiplicityImpl();
-		return sMultiplicity;
 	}
 
 	/**

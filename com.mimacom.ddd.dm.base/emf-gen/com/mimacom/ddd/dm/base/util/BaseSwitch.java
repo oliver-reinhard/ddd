@@ -264,20 +264,6 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BasePackage.DIDENTITY_TYPE:
-			{
-				DIdentityType dIdentityType = (DIdentityType)theEObject;
-				T result = caseDIdentityType(dIdentityType);
-				if (result == null) result = caseDComplexType(dIdentityType);
-				if (result == null) result = caseIIdentityType(dIdentityType);
-				if (result == null) result = caseDType(dIdentityType);
-				if (result == null) result = caseITypedMemberContainer(dIdentityType);
-				if (result == null) result = caseIPrimaryNavigationTarget(dIdentityType);
-				if (result == null) result = caseINamespace(dIdentityType);
-				if (result == null) result = caseDNamedElement(dIdentityType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case BasePackage.DDETAIL_TYPE:
 			{
 				DDetailType dDetailType = (DDetailType)theEObject;
@@ -289,6 +275,20 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = caseIPrimaryNavigationTarget(dDetailType);
 				if (result == null) result = caseINamespace(dDetailType);
 				if (result == null) result = caseDNamedElement(dDetailType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.DIDENTITY_TYPE:
+			{
+				DIdentityType dIdentityType = (DIdentityType)theEObject;
+				T result = caseDIdentityType(dIdentityType);
+				if (result == null) result = caseDComplexType(dIdentityType);
+				if (result == null) result = caseIIdentityType(dIdentityType);
+				if (result == null) result = caseDType(dIdentityType);
+				if (result == null) result = caseITypedMemberContainer(dIdentityType);
+				if (result == null) result = caseIPrimaryNavigationTarget(dIdentityType);
+				if (result == null) result = caseINamespace(dIdentityType);
+				if (result == null) result = caseDNamedElement(dIdentityType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -833,22 +833,6 @@ public class BaseSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DIdentity Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DIdentity Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDIdentityType(DIdentityType object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>DDetail Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -860,6 +844,22 @@ public class BaseSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDDetailType(DDetailType object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DIdentity Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DIdentity Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDIdentityType(DIdentityType object)
 	{
 		return null;
 	}

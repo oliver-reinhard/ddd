@@ -116,6 +116,13 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SimPackage.SEXPRESSION:
+			{
+				SExpression sExpression = (SExpression)theEObject;
+				T result = caseSExpression(sExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SimPackage.SIMPORT:
 			{
 				SImport sImport = (SImport)theEObject;
@@ -149,6 +156,14 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SimPackage.SCONDITION:
+			{
+				SCondition sCondition = (SCondition)theEObject;
+				T result = caseSCondition(sCondition);
+				if (result == null) result = caseSNamedElement(sCondition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SimPackage.SSIMPLE_TYPE:
 			{
 				SSimpleType sSimpleType = (SSimpleType)theEObject;
@@ -158,25 +173,6 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = caseSNamedDeducibleElement(sSimpleType);
 				if (result == null) result = caseSNamedElement(sSimpleType);
 				if (result == null) result = caseSDeducibleElement(sSimpleType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SimPackage.SCOMPLEX_TYPE:
-			{
-				SComplexType sComplexType = (SComplexType)theEObject;
-				T result = caseSComplexType(sComplexType);
-				if (result == null) result = caseSType(sComplexType);
-				if (result == null) result = caseSNamedDeducibleElement(sComplexType);
-				if (result == null) result = caseSNamedElement(sComplexType);
-				if (result == null) result = caseSDeducibleElement(sComplexType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SimPackage.SCONDITION:
-			{
-				SCondition sCondition = (SCondition)theEObject;
-				T result = caseSCondition(sCondition);
-				if (result == null) result = caseSNamedElement(sCondition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -216,16 +212,14 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SENTITY_TYPE:
+			case SimPackage.SCOMPLEX_TYPE:
 			{
-				SEntityType sEntityType = (SEntityType)theEObject;
-				T result = caseSEntityType(sEntityType);
-				if (result == null) result = caseSComplexType(sEntityType);
-				if (result == null) result = caseSIdentityType(sEntityType);
-				if (result == null) result = caseSType(sEntityType);
-				if (result == null) result = caseSNamedDeducibleElement(sEntityType);
-				if (result == null) result = caseSNamedElement(sEntityType);
-				if (result == null) result = caseSDeducibleElement(sEntityType);
+				SComplexType sComplexType = (SComplexType)theEObject;
+				T result = caseSComplexType(sComplexType);
+				if (result == null) result = caseSType(sComplexType);
+				if (result == null) result = caseSNamedDeducibleElement(sComplexType);
+				if (result == null) result = caseSNamedElement(sComplexType);
+				if (result == null) result = caseSDeducibleElement(sComplexType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -239,6 +233,19 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = caseSNamedDeducibleElement(sDetailType);
 				if (result == null) result = caseSNamedElement(sDetailType);
 				if (result == null) result = caseSDeducibleElement(sDetailType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SimPackage.SENTITY_TYPE:
+			{
+				SEntityType sEntityType = (SEntityType)theEObject;
+				T result = caseSEntityType(sEntityType);
+				if (result == null) result = caseSComplexType(sEntityType);
+				if (result == null) result = caseSIdentityType(sEntityType);
+				if (result == null) result = caseSType(sEntityType);
+				if (result == null) result = caseSNamedDeducibleElement(sEntityType);
+				if (result == null) result = caseSNamedElement(sEntityType);
+				if (result == null) result = caseSDeducibleElement(sEntityType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -260,6 +267,13 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = caseSNamedDeducibleElement(sAssociation);
 				if (result == null) result = caseSNamedElement(sAssociation);
 				if (result == null) result = caseSDeducibleElement(sAssociation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SimPackage.SMULTIPLICITY:
+			{
+				SMultiplicity sMultiplicity = (SMultiplicity)theEObject;
+				T result = caseSMultiplicity(sMultiplicity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -292,20 +306,6 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = caseSNamedDeducibleElement(sQueryParameter);
 				if (result == null) result = caseSNamedElement(sQueryParameter);
 				if (result == null) result = caseSDeducibleElement(sQueryParameter);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SimPackage.SEXPRESSION:
-			{
-				SExpression sExpression = (SExpression)theEObject;
-				T result = caseSExpression(sExpression);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SimPackage.SMULTIPLICITY:
-			{
-				SMultiplicity sMultiplicity = (SMultiplicity)theEObject;
-				T result = caseSMultiplicity(sMultiplicity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -486,6 +486,22 @@ public class SimSwitch<T> extends Switch<T>
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>SExpression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>SExpression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSExpression(SExpression object)
+	{
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>SImport</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -550,38 +566,6 @@ public class SimSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SSimple Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SSimple Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSSimpleType(SSimpleType object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SComplex Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SComplex Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSComplexType(SComplexType object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>SCondition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -593,6 +577,22 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseSCondition(SCondition object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>SSimple Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>SSimple Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSSimpleType(SSimpleType object)
 	{
 		return null;
 	}
@@ -646,17 +646,17 @@ public class SimSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SEntity Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SComplex Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SEntity Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SComplex Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSEntityType(SEntityType object)
+	public T caseSComplexType(SComplexType object)
 	{
 		return null;
 	}
@@ -673,6 +673,22 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseSDetailType(SDetailType object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>SEntity Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>SEntity Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSEntityType(SEntityType object)
 	{
 		return null;
 	}
@@ -705,6 +721,22 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseSAssociation(SAssociation object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>SMultiplicity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>SMultiplicity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSMultiplicity(SMultiplicity object)
 	{
 		return null;
 	}
@@ -753,38 +785,6 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseSQueryParameter(SQueryParameter object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SExpression</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SExpression</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSExpression(SExpression object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SMultiplicity</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SMultiplicity</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSMultiplicity(SMultiplicity object)
 	{
 		return null;
 	}

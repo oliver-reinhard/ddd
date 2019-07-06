@@ -3,7 +3,6 @@
 package com.mimacom.ddd.sm.sim.impl;
 
 import com.mimacom.ddd.sm.sim.SComplexType;
-import com.mimacom.ddd.sm.sim.SCondition;
 import com.mimacom.ddd.sm.sim.SFeature;
 import com.mimacom.ddd.sm.sim.SimPackage;
 
@@ -33,7 +32,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SComplexTypeImpl#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SComplexTypeImpl#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SComplexTypeImpl#getFeatures <em>Features</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sim.impl.SComplexTypeImpl#getConstraints <em>Constraints</em>}</li>
  * </ul>
  *
  * @generated
@@ -79,16 +77,6 @@ public class SComplexTypeImpl extends STypeImpl implements SComplexType
 	 * @ordered
 	 */
 	protected EList<SFeature> features;
-
-	/**
-	 * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getConstraints()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SCondition> constraints;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -202,29 +190,12 @@ public class SComplexTypeImpl extends STypeImpl implements SComplexType
 	 * @generated
 	 */
 	@Override
-	public EList<SCondition> getConstraints()
-	{
-		if (constraints == null)
-		{
-			constraints = new EObjectContainmentEList<SCondition>(SCondition.class, this, SimPackage.SCOMPLEX_TYPE__CONSTRAINTS);
-		}
-		return constraints;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
 		switch (featureID)
 		{
 			case SimPackage.SCOMPLEX_TYPE__FEATURES:
 				return ((InternalEList<?>)getFeatures()).basicRemove(otherEnd, msgs);
-			case SimPackage.SCOMPLEX_TYPE__CONSTRAINTS:
-				return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -246,8 +217,6 @@ public class SComplexTypeImpl extends STypeImpl implements SComplexType
 				return basicGetSuperType();
 			case SimPackage.SCOMPLEX_TYPE__FEATURES:
 				return getFeatures();
-			case SimPackage.SCOMPLEX_TYPE__CONSTRAINTS:
-				return getConstraints();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -273,10 +242,6 @@ public class SComplexTypeImpl extends STypeImpl implements SComplexType
 				getFeatures().clear();
 				getFeatures().addAll((Collection<? extends SFeature>)newValue);
 				return;
-			case SimPackage.SCOMPLEX_TYPE__CONSTRAINTS:
-				getConstraints().clear();
-				getConstraints().addAll((Collection<? extends SCondition>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -300,9 +265,6 @@ public class SComplexTypeImpl extends STypeImpl implements SComplexType
 			case SimPackage.SCOMPLEX_TYPE__FEATURES:
 				getFeatures().clear();
 				return;
-			case SimPackage.SCOMPLEX_TYPE__CONSTRAINTS:
-				getConstraints().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -323,8 +285,6 @@ public class SComplexTypeImpl extends STypeImpl implements SComplexType
 				return superType != null;
 			case SimPackage.SCOMPLEX_TYPE__FEATURES:
 				return features != null && !features.isEmpty();
-			case SimPackage.SCOMPLEX_TYPE__CONSTRAINTS:
-				return constraints != null && !constraints.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -25,34 +25,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.sim.impl.SAssociationImpl#isDerived <em>Derived</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SAssociationImpl#getKind <em>Kind</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SAssociationImpl#isDerived <em>Derived</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class SAssociationImpl extends SFeatureImpl implements SAssociation
 {
-	/**
-	 * The default value of the '{@link #isDerived() <em>Derived</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isDerived()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean DERIVED_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isDerived() <em>Derived</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isDerived()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean derived = DERIVED_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -74,6 +54,26 @@ public class SAssociationImpl extends SFeatureImpl implements SAssociation
 	protected SAssociationKind kind = KIND_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isDerived() <em>Derived</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDerived()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DERIVED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isDerived() <em>Derived</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDerived()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean derived = DERIVED_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -92,31 +92,6 @@ public class SAssociationImpl extends SFeatureImpl implements SAssociation
 	protected EClass eStaticClass()
 	{
 		return SimPackage.Literals.SASSOCIATION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isDerived()
-	{
-		return derived;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setDerived(boolean newDerived)
-	{
-		boolean oldDerived = derived;
-		derived = newDerived;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SASSOCIATION__DERIVED, oldDerived, derived));
 	}
 
 	/**
@@ -150,6 +125,31 @@ public class SAssociationImpl extends SFeatureImpl implements SAssociation
 	 * @generated
 	 */
 	@Override
+	public boolean isDerived()
+	{
+		return derived;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDerived(boolean newDerived)
+	{
+		boolean oldDerived = derived;
+		derived = newDerived;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SASSOCIATION__DERIVED, oldDerived, derived));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public SEntityType getTargetType()
 	{
 		// TODO: implement this method
@@ -167,10 +167,10 @@ public class SAssociationImpl extends SFeatureImpl implements SAssociation
 	{
 		switch (featureID)
 		{
-			case SimPackage.SASSOCIATION__DERIVED:
-				return isDerived();
 			case SimPackage.SASSOCIATION__KIND:
 				return getKind();
+			case SimPackage.SASSOCIATION__DERIVED:
+				return isDerived();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -185,11 +185,11 @@ public class SAssociationImpl extends SFeatureImpl implements SAssociation
 	{
 		switch (featureID)
 		{
-			case SimPackage.SASSOCIATION__DERIVED:
-				setDerived((Boolean)newValue);
-				return;
 			case SimPackage.SASSOCIATION__KIND:
 				setKind((SAssociationKind)newValue);
+				return;
+			case SimPackage.SASSOCIATION__DERIVED:
+				setDerived((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -205,11 +205,11 @@ public class SAssociationImpl extends SFeatureImpl implements SAssociation
 	{
 		switch (featureID)
 		{
-			case SimPackage.SASSOCIATION__DERIVED:
-				setDerived(DERIVED_EDEFAULT);
-				return;
 			case SimPackage.SASSOCIATION__KIND:
 				setKind(KIND_EDEFAULT);
+				return;
+			case SimPackage.SASSOCIATION__DERIVED:
+				setDerived(DERIVED_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -225,10 +225,10 @@ public class SAssociationImpl extends SFeatureImpl implements SAssociation
 	{
 		switch (featureID)
 		{
-			case SimPackage.SASSOCIATION__DERIVED:
-				return derived != DERIVED_EDEFAULT;
 			case SimPackage.SASSOCIATION__KIND:
 				return kind != KIND_EDEFAULT;
+			case SimPackage.SASSOCIATION__DERIVED:
+				return derived != DERIVED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -260,10 +260,10 @@ public class SAssociationImpl extends SFeatureImpl implements SAssociation
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (derived: ");
-		result.append(derived);
-		result.append(", kind: ");
+		result.append(" (kind: ");
 		result.append(kind);
+		result.append(", derived: ");
+		result.append(derived);
 		result.append(')');
 		return result.toString();
 	}

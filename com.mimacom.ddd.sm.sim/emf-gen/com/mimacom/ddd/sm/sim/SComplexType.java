@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.mimacom.ddd.sm.sim.SComplexType#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SComplexType#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SComplexType#getFeatures <em>Features</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sim.SComplexType#getConstraints <em>Constraints</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.sm.sim.SimPackage#getSComplexType()
@@ -80,17 +79,5 @@ public interface SComplexType extends SType
 	 * @generated
 	 */
 	EList<SFeature> getFeatures();
-
-	/**
-	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.sm.sim.SCondition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Constraints</em>' containment reference list.
-	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSComplexType_Constraints()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<SCondition> getConstraints();
 
 } // SComplexType
