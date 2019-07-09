@@ -3,7 +3,6 @@ package com.mimacom.ddd.sm.sim.derivedState;
 import com.google.common.collect.Maps;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.sm.sim.SType;
 import com.mimacom.ddd.sm.sim.indexing.SimIndex;
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy;
 import java.util.Map;
@@ -18,16 +17,16 @@ public class TransformationContext {
   @Inject
   private SimIndex index;
   
-  private Map<DType, SType> localDTypeToSTypeMap;
+  private Map<DType, DType> localDomainToSystemTypeMap;
   
-  private Map<DType, SType> importedDTypeToSTypeMap;
+  private Map<DType, DType> importedDomainToSystemTypeMap;
   
   private DerivedStateAwareResource resource;
   
   public void init(final DerivedStateAwareResource resource) {
     this.resource = resource;
-    this.localDTypeToSTypeMap = Maps.<DType, SType>newHashMap();
-    this.importedDTypeToSTypeMap = Maps.<DType, SType>newHashMap();
+    this.localDomainToSystemTypeMap = Maps.<DType, DType>newHashMap();
+    this.importedDomainToSystemTypeMap = Maps.<DType, DType>newHashMap();
     this.initializeImportedMappedDTypesFromIndex();
   }
   
@@ -43,7 +42,7 @@ public class TransformationContext {
         if ((dTypeDesc != null)) {
           EObject dType = dTypeDesc.getEObjectOrProxy();
           EObject sType = sTypeDesc.getEObjectOrProxy();
-          if (((dType instanceof DType) && (sType instanceof SType))) {
+          if (((dType instanceof DType) && (sType instanceof DType))) {
             boolean _eIsProxy = dType.eIsProxy();
             if (_eIsProxy) {
               dType = this.resource.getResourceSet().getEObject(dTypeDesc.getEObjectURI(), true);
@@ -52,7 +51,7 @@ public class TransformationContext {
             if (_eIsProxy_1) {
               sType = this.resource.getResourceSet().getEObject(sTypeDesc.getEObjectURI(), true);
             }
-            this.importedDTypeToSTypeMap.put(((DType) dType), ((SType) sType));
+            this.importedDomainToSystemTypeMap.put(((DType) dType), ((DType) sType));
           }
         }
       }
@@ -65,13 +64,13 @@ public class TransformationContext {
   public void initializeLocallyMappedDTypes() {
   }
   
-  public void putSType(final DType dType, final SType sType) {
-    final SType previousS = this.localDTypeToSTypeMap.put(dType, sType);
+  public void putSystemType(final DType domainType, final DType systemType) {
+    final DType previousS = this.localDomainToSystemTypeMap.put(domainType, systemType);
     if ((previousS != null)) {
-      String _name = dType.getName();
+      String _name = domainType.getName();
       String _plus = ("There are two STypes realizing DType \"" + _name);
       String _plus_1 = (_plus + "\" as \"");
-      String _name_1 = sType.getName();
+      String _name_1 = systemType.getName();
       String _plus_2 = (_plus_1 + _name_1);
       String _plus_3 = (_plus_2 + "\" and as \"");
       String _plus_4 = (_plus_3 + previousS);
@@ -81,13 +80,13 @@ public class TransformationContext {
   }
   
   /**
-   * @return  null if no SType is found for DType.
+   * @return  null if no system type is found for the given domain type.
    */
-  public SType getSType(final DType dType) {
-    SType sPrimitive = this.localDTypeToSTypeMap.get(dType);
-    if ((sPrimitive == null)) {
-      sPrimitive = this.importedDTypeToSTypeMap.get(dType);
+  public DType getSystemType(final DType domainType) {
+    DType systemType = this.localDomainToSystemTypeMap.get(domainType);
+    if ((systemType == null)) {
+      systemType = this.importedDomainToSystemTypeMap.get(domainType);
     }
-    return sPrimitive;
+    return systemType;
   }
 }

@@ -4,6 +4,8 @@
 package com.mimacom.ddd.sm.asm.serializer;
 
 import com.google.inject.Inject;
+import com.mimacom.ddd.dm.base.BasePackage;
+import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.sm.asm.AsmPackage;
 import com.mimacom.ddd.sm.asm.SApplication;
 import com.mimacom.ddd.sm.asm.SException;
@@ -13,8 +15,6 @@ import com.mimacom.ddd.sm.asm.SServiceInterface;
 import com.mimacom.ddd.sm.asm.SServiceOperation;
 import com.mimacom.ddd.sm.asm.SWatchdog;
 import com.mimacom.ddd.sm.asm.services.AsmGrammarAccess;
-import com.mimacom.ddd.sm.sim.SImport;
-import com.mimacom.ddd.sm.sim.SimPackage;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -62,10 +62,10 @@ public class AsmSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_SWatchdog(context, (SWatchdog) semanticObject); 
 				return; 
 			}
-		else if (epackage == SimPackage.eINSTANCE)
+		else if (epackage == BasePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case SimPackage.SIMPORT:
-				sequence_SImport(context, (SImport) semanticObject); 
+			case BasePackage.DIMPORT:
+				sequence_DImport(context, (DImport) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -74,11 +74,29 @@ public class AsmSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     DImport returns DImport
+	 *
+	 * Constraint:
+	 *     importedNamespace=SQualifiedNameWithWildcard
+	 */
+	protected void sequence_DImport(ISerializationContext context, DImport semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DIMPORT__IMPORTED_NAMESPACE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DIMPORT__IMPORTED_NAMESPACE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDImportAccess().getImportedNamespaceSQualifiedNameWithWildcardParserRuleCall_1_0(), semanticObject.getImportedNamespace());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Model returns SApplication
 	 *     SApplication returns SApplication
 	 *
 	 * Constraint:
-	 *     (name=SQualifiedName imports+=SImport* model=[SInformationModel|ID] actors+=SActor*)
+	 *     (name=SQualifiedName imports+=DImport* model=[SInformationModel|ID] actors+=SActor*)
 	 */
 	protected void sequence_SApplication(ISerializationContext context, SApplication semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -124,24 +142,6 @@ public class AsmSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     SImport returns SImport
-	 *
-	 * Constraint:
-	 *     importedNamespace=SQualifiedNameWithWildcard
-	 */
-	protected void sequence_SImport(ISerializationContext context, SImport semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SimPackage.Literals.SIMPORT__IMPORTED_NAMESPACE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SIMPORT__IMPORTED_NAMESPACE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSImportAccess().getImportedNamespaceSQualifiedNameWithWildcardParserRuleCall_1_0(), semanticObject.getImportedNamespace());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     SOperationParameter returns SOperationParameter
 	 *
 	 * Constraint:
@@ -164,7 +164,7 @@ public class AsmSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SServiceInterface returns SServiceInterface
 	 *
 	 * Constraint:
-	 *     (name=SQualifiedName imports+=SImport* model=[SInformationModel|ID] operations+=SServiceOperation)
+	 *     (name=SQualifiedName imports+=DImport* model=[SInformationModel|ID] operations+=SServiceOperation)
 	 */
 	protected void sequence_SServiceInterface(ISerializationContext context, SServiceInterface semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -32,184 +32,103 @@ public interface SimFactory extends EFactory
 	SInformationModel createSInformationModel();
 
 	/**
-	 * Returns a new object of class '<em>SNamed Element</em>'.
+	 * Returns a new object of class '<em>SDomain Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SNamed Element</em>'.
+	 * @return a new object of class '<em>SDomain Deduction</em>'.
 	 * @generated
 	 */
-	SNamedElement createSNamedElement();
+	SDomainDeduction createSDomainDeduction();
 
 	/**
-	 * Returns a new object of class '<em>SExpression</em>'.
+	 * Returns a new object of class '<em>SAggregate Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SExpression</em>'.
+	 * @return a new object of class '<em>SAggregate Deduction</em>'.
 	 * @generated
 	 */
-	SExpression createSExpression();
+	SAggregateDeduction createSAggregateDeduction();
 
 	/**
-	 * Returns a new object of class '<em>SImport</em>'.
+	 * Returns a new object of class '<em>SPrimitive Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SImport</em>'.
+	 * @return a new object of class '<em>SPrimitive Deduction</em>'.
 	 * @generated
 	 */
-	SImport createSImport();
+	SPrimitiveDeduction createSPrimitiveDeduction();
 
 	/**
-	 * Returns a new object of class '<em>SDomain Proxy</em>'.
+	 * Returns a new object of class '<em>SEnumeration Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SDomain Proxy</em>'.
+	 * @return a new object of class '<em>SEnumeration Deduction</em>'.
 	 * @generated
 	 */
-	SDomainProxy createSDomainProxy();
+	SEnumerationDeduction createSEnumerationDeduction();
 
 	/**
-	 * Returns a new object of class '<em>SAggregate</em>'.
+	 * Returns a new object of class '<em>SLiteral Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SAggregate</em>'.
+	 * @return a new object of class '<em>SLiteral Deduction</em>'.
 	 * @generated
 	 */
-	SAggregate createSAggregate();
+	SLiteralDeduction createSLiteralDeduction();
 
 	/**
-	 * Returns a new object of class '<em>SType</em>'.
+	 * Returns a new object of class '<em>SDetail Type Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SType</em>'.
+	 * @return a new object of class '<em>SDetail Type Deduction</em>'.
 	 * @generated
 	 */
-	SType createSType();
+	SDetailTypeDeduction createSDetailTypeDeduction();
 
 	/**
-	 * Returns a new object of class '<em>SCondition</em>'.
+	 * Returns a new object of class '<em>SEntity Type Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SCondition</em>'.
+	 * @return a new object of class '<em>SEntity Type Deduction</em>'.
 	 * @generated
 	 */
-	SCondition createSCondition();
+	SEntityTypeDeduction createSEntityTypeDeduction();
 
 	/**
-	 * Returns a new object of class '<em>SSimple Type</em>'.
+	 * Returns a new object of class '<em>SAssociation Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SSimple Type</em>'.
+	 * @return a new object of class '<em>SAssociation Deduction</em>'.
 	 * @generated
 	 */
-	SSimpleType createSSimpleType();
+	SAssociationDeduction createSAssociationDeduction();
 
 	/**
-	 * Returns a new object of class '<em>SPrimitive</em>'.
+	 * Returns a new object of class '<em>SAttribute Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SPrimitive</em>'.
+	 * @return a new object of class '<em>SAttribute Deduction</em>'.
 	 * @generated
 	 */
-	SPrimitive createSPrimitive();
+	SAttributeDeduction createSAttributeDeduction();
 
 	/**
-	 * Returns a new object of class '<em>SEnumeration</em>'.
+	 * Returns a new object of class '<em>SQuery Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SEnumeration</em>'.
+	 * @return a new object of class '<em>SQuery Deduction</em>'.
 	 * @generated
 	 */
-	SEnumeration createSEnumeration();
+	SQueryDeduction createSQueryDeduction();
 
 	/**
-	 * Returns a new object of class '<em>SLiteral</em>'.
+	 * Returns a new object of class '<em>SQuery Parameter Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SLiteral</em>'.
+	 * @return a new object of class '<em>SQuery Parameter Deduction</em>'.
 	 * @generated
 	 */
-	SLiteral createSLiteral();
-
-	/**
-	 * Returns a new object of class '<em>SComplex Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SComplex Type</em>'.
-	 * @generated
-	 */
-	SComplexType createSComplexType();
-
-	/**
-	 * Returns a new object of class '<em>SDetail Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SDetail Type</em>'.
-	 * @generated
-	 */
-	SDetailType createSDetailType();
-
-	/**
-	 * Returns a new object of class '<em>SEntity Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SEntity Type</em>'.
-	 * @generated
-	 */
-	SEntityType createSEntityType();
-
-	/**
-	 * Returns a new object of class '<em>SFeature</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SFeature</em>'.
-	 * @generated
-	 */
-	SFeature createSFeature();
-
-	/**
-	 * Returns a new object of class '<em>SAssociation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SAssociation</em>'.
-	 * @generated
-	 */
-	SAssociation createSAssociation();
-
-	/**
-	 * Returns a new object of class '<em>SMultiplicity</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SMultiplicity</em>'.
-	 * @generated
-	 */
-	SMultiplicity createSMultiplicity();
-
-	/**
-	 * Returns a new object of class '<em>SAttribute</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SAttribute</em>'.
-	 * @generated
-	 */
-	SAttribute createSAttribute();
-
-	/**
-	 * Returns a new object of class '<em>SQuery</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SQuery</em>'.
-	 * @generated
-	 */
-	SQuery createSQuery();
-
-	/**
-	 * Returns a new object of class '<em>SQuery Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SQuery Parameter</em>'.
-	 * @generated
-	 */
-	SQueryParameter createSQueryParameter();
+	SQueryParameterDeduction createSQueryParameterDeduction();
 
 	/**
 	 * Returns a new object of class '<em>SGrab Rule</em>'.
@@ -264,15 +183,6 @@ public interface SimFactory extends EFactory
 	 * @generated
 	 */
 	SGrabDomainRule createSGrabDomainRule();
-
-	/**
-	 * Returns a new object of class '<em>SSynthetic Deduction Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SSynthetic Deduction Rule</em>'.
-	 * @generated
-	 */
-	SSyntheticDeductionRule createSSyntheticDeductionRule();
 
 	/**
 	 * Returns the package supported by this factory.

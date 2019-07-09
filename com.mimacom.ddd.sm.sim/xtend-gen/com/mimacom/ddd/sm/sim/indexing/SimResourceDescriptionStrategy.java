@@ -1,12 +1,10 @@
 package com.mimacom.ddd.sm.sim.indexing;
 
-import com.google.common.base.Objects;
 import com.google.common.collect.Maps;
 import com.google.inject.Singleton;
 import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.sm.sim.SDeducibleElement;
-import com.mimacom.ddd.sm.sim.SElementNature;
-import com.mimacom.ddd.sm.sim.SType;
+import com.mimacom.ddd.dm.base.IDeducibleElement;
+import com.mimacom.ddd.dm.base.IDeductionDefinition;
 import java.util.HashMap;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.EObject;
@@ -26,43 +24,41 @@ public class SimResourceDescriptionStrategy extends DefaultResourceDescriptionSt
   public static final String KEY_DEDUCED_FROM = "deducedFrom";
   
   /**
-   * Prevents indexing of deduction rules and of information models with attribute deduced = true
+   * Prevents indexing of deduction rules and creates custom index entries for synthetic types
    */
   @Override
   public boolean createEObjectDescriptions(final EObject obj, final IAcceptor<IEObjectDescription> acceptor) {
-    if ((obj instanceof SType)) {
-      if ((Objects.equal(((SType)obj).getNature(), SElementNature.SYNTHETIC) && (((SType)obj).getDeductionRule() != null))) {
-        final EObject source = ((SType)obj).getDeductionRule().getSource();
-        if ((source instanceof DType)) {
-          return this.createSTypeDescription(((SType)obj), ((DType)source), acceptor);
-        }
-      }
+    if ((obj instanceof IDeductionDefinition)) {
+      return false;
     }
-    if ((obj instanceof SDeducibleElement)) {
-      SElementNature _nature = ((SDeducibleElement)obj).getNature();
-      boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
-      if (_equals) {
-        return false;
+    if ((obj instanceof DType)) {
+      boolean _isSynthetic = ((DType)obj).isSynthetic();
+      if (_isSynthetic) {
+        final DType typeToIndex = ((DType)obj);
+        final IDeducibleElement source = typeToIndex.getDeductionDefinition().getDeductionRule().getSource();
+        if ((source instanceof DType)) {
+          return this.createDTypeDescription(typeToIndex, ((DType)source), acceptor);
+        }
       }
     }
     return super.createEObjectDescriptions(obj, acceptor);
   }
   
-  public boolean createSTypeDescription(final SType type, final DType source, final IAcceptor<IEObjectDescription> acceptor) {
+  public boolean createDTypeDescription(final DType typeToIndex, final DType source, final IAcceptor<IEObjectDescription> acceptor) {
     final IQualifiedNameProvider qnp = this.getQualifiedNameProvider();
     if ((qnp == null)) {
       return false;
     }
     try {
-      final QualifiedName sQualifiedName = qnp.getFullyQualifiedName(type);
-      final QualifiedName dQualifiedName = qnp.getFullyQualifiedName(source);
-      if ((sQualifiedName != null)) {
-        if ((dQualifiedName != null)) {
+      final QualifiedName tQualifiedName = qnp.getFullyQualifiedName(typeToIndex);
+      if ((tQualifiedName != null)) {
+        final QualifiedName sQualifiedName = qnp.getFullyQualifiedName(source);
+        if ((sQualifiedName != null)) {
           final HashMap<String, String> userData = Maps.<String, String>newHashMap();
-          userData.put(SimResourceDescriptionStrategy.KEY_DEDUCED_FROM, dQualifiedName.toString());
-          acceptor.accept(EObjectDescription.create(sQualifiedName, type, userData));
+          userData.put(SimResourceDescriptionStrategy.KEY_DEDUCED_FROM, sQualifiedName.toString());
+          acceptor.accept(EObjectDescription.create(tQualifiedName, typeToIndex, userData));
         } else {
-          acceptor.accept(EObjectDescription.create(sQualifiedName, type));
+          acceptor.accept(EObjectDescription.create(tQualifiedName, typeToIndex));
         }
       }
     } catch (final Throwable _t) {

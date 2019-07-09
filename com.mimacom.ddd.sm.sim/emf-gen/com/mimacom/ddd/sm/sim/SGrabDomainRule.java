@@ -2,6 +2,7 @@
  */
 package com.mimacom.ddd.sm.sim;
 
+import com.mimacom.ddd.dm.base.DDeductionRule;
 import com.mimacom.ddd.dm.base.DDomain;
 
 /**
@@ -20,7 +21,7 @@ import com.mimacom.ddd.dm.base.DDomain;
  * @model
  * @generated
  */
-public interface SGrabDomainRule extends SDeductionRule
+public interface SGrabDomainRule extends DDeductionRule
 {
 	/**
 	 * Returns the value of the '<em><b>Domain</b></em>' reference.

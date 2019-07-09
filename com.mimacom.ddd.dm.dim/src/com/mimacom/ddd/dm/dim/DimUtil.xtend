@@ -1,21 +1,25 @@
 package com.mimacom.ddd.dm.dim
 
+import com.google.common.collect.Lists
 import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DComplexType
+import com.mimacom.ddd.dm.base.DCondition
 import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DDomain
+import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DFeature
+import com.mimacom.ddd.dm.base.DLiteral
 import com.mimacom.ddd.dm.base.DPrimitive
-import com.mimacom.ddd.dm.base.DEntityType
+import com.mimacom.ddd.dm.base.DQueryParameter
 import com.mimacom.ddd.dm.base.DType
+import com.mimacom.ddd.dm.base.IDeducibleElement
 import java.util.LinkedHashSet
+import java.util.List
 import java.util.Set
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
-import com.mimacom.ddd.dm.base.DCondition
-import com.mimacom.ddd.dm.base.DQueryParameter
 
 class DimUtil {
 	
@@ -40,6 +44,17 @@ class DimUtil {
 		val features = new LinkedHashSet<String>()
 		for (t : supertypes) {
 			features.addAll(t.features.map[name])
+		}
+		return features
+	}
+	
+	/*
+	 * Returns the names of all the features of the given type: its own as well as the inherited ones.
+	 */
+	def List<DFeature> allFeatures(DComplexType type) {
+		val features = Lists.newArrayList(type.features)
+		for (t : type.typeHierarchy) {
+			features.addAll(t.features)
 		}
 		return features
 	}
@@ -132,4 +147,14 @@ class DimUtil {
 		return "Constraint " + c.name
 	}
 	
+	def String label(IDeducibleElement e) {
+		switch e {
+			DAggregate: e.label
+			DType: e.label
+			DFeature: e.label
+			DQueryParameter: e.label
+			DLiteral: e.name
+			default: e.toString
+		}
+	}
 }

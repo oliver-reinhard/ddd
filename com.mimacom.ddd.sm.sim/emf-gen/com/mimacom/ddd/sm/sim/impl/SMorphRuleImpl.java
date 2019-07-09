@@ -2,9 +2,10 @@
  */
 package com.mimacom.ddd.sm.sim.impl;
 
+import com.mimacom.ddd.dm.base.DMultiplicity;
+import com.mimacom.ddd.dm.base.DType;
+
 import com.mimacom.ddd.sm.sim.SMorphRule;
-import com.mimacom.ddd.sm.sim.SMultiplicity;
-import com.mimacom.ddd.sm.sim.SType;
 import com.mimacom.ddd.sm.sim.SimPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -39,7 +40,7 @@ public class SMorphRuleImpl extends SStructureChangingRuleImpl implements SMorph
 	 * @generated
 	 * @ordered
 	 */
-	protected SType retypeTo;
+	protected DType retypeTo;
 
 	/**
 	 * The cached value of the '{@link #getRemultiplyTo() <em>Remultiply To</em>}' containment reference.
@@ -49,7 +50,7 @@ public class SMorphRuleImpl extends SStructureChangingRuleImpl implements SMorph
 	 * @generated
 	 * @ordered
 	 */
-	protected SMultiplicity remultiplyTo;
+	protected DMultiplicity remultiplyTo;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,12 +79,12 @@ public class SMorphRuleImpl extends SStructureChangingRuleImpl implements SMorph
 	 * @generated
 	 */
 	@Override
-	public SType getRetypeTo()
+	public DType getRetypeTo()
 	{
 		if (retypeTo != null && retypeTo.eIsProxy())
 		{
 			InternalEObject oldRetypeTo = (InternalEObject)retypeTo;
-			retypeTo = (SType)eResolveProxy(oldRetypeTo);
+			retypeTo = (DType)eResolveProxy(oldRetypeTo);
 			if (retypeTo != oldRetypeTo)
 			{
 				if (eNotificationRequired())
@@ -98,7 +99,7 @@ public class SMorphRuleImpl extends SStructureChangingRuleImpl implements SMorph
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SType basicGetRetypeTo()
+	public DType basicGetRetypeTo()
 	{
 		return retypeTo;
 	}
@@ -109,9 +110,9 @@ public class SMorphRuleImpl extends SStructureChangingRuleImpl implements SMorph
 	 * @generated
 	 */
 	@Override
-	public void setRetypeTo(SType newRetypeTo)
+	public void setRetypeTo(DType newRetypeTo)
 	{
-		SType oldRetypeTo = retypeTo;
+		DType oldRetypeTo = retypeTo;
 		retypeTo = newRetypeTo;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SMORPH_RULE__RETYPE_TO, oldRetypeTo, retypeTo));
@@ -123,7 +124,7 @@ public class SMorphRuleImpl extends SStructureChangingRuleImpl implements SMorph
 	 * @generated
 	 */
 	@Override
-	public SMultiplicity getRemultiplyTo()
+	public DMultiplicity getRemultiplyTo()
 	{
 		return remultiplyTo;
 	}
@@ -133,9 +134,9 @@ public class SMorphRuleImpl extends SStructureChangingRuleImpl implements SMorph
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRemultiplyTo(SMultiplicity newRemultiplyTo, NotificationChain msgs)
+	public NotificationChain basicSetRemultiplyTo(DMultiplicity newRemultiplyTo, NotificationChain msgs)
 	{
-		SMultiplicity oldRemultiplyTo = remultiplyTo;
+		DMultiplicity oldRemultiplyTo = remultiplyTo;
 		remultiplyTo = newRemultiplyTo;
 		if (eNotificationRequired())
 		{
@@ -151,7 +152,7 @@ public class SMorphRuleImpl extends SStructureChangingRuleImpl implements SMorph
 	 * @generated
 	 */
 	@Override
-	public void setRemultiplyTo(SMultiplicity newRemultiplyTo)
+	public void setRemultiplyTo(DMultiplicity newRemultiplyTo)
 	{
 		if (newRemultiplyTo != remultiplyTo)
 		{
@@ -213,10 +214,10 @@ public class SMorphRuleImpl extends SStructureChangingRuleImpl implements SMorph
 		switch (featureID)
 		{
 			case SimPackage.SMORPH_RULE__RETYPE_TO:
-				setRetypeTo((SType)newValue);
+				setRetypeTo((DType)newValue);
 				return;
 			case SimPackage.SMORPH_RULE__REMULTIPLY_TO:
-				setRemultiplyTo((SMultiplicity)newValue);
+				setRemultiplyTo((DMultiplicity)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -233,10 +234,10 @@ public class SMorphRuleImpl extends SStructureChangingRuleImpl implements SMorph
 		switch (featureID)
 		{
 			case SimPackage.SMORPH_RULE__RETYPE_TO:
-				setRetypeTo((SType)null);
+				setRetypeTo((DType)null);
 				return;
 			case SimPackage.SMORPH_RULE__REMULTIPLY_TO:
-				setRemultiplyTo((SMultiplicity)null);
+				setRemultiplyTo((DMultiplicity)null);
 				return;
 		}
 		super.eUnset(featureID);

@@ -1,9 +1,11 @@
 package com.mimacom.ddd.sm.sim.derivedState
 
+import com.mimacom.ddd.dm.base.BaseFactory
 import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DComplexType
+import com.mimacom.ddd.dm.base.DDeductionRule
 import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
@@ -15,166 +17,156 @@ import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DQueryParameter
 import com.mimacom.ddd.dm.base.DRelationship
 import com.mimacom.ddd.dm.base.DType
-import com.mimacom.ddd.sm.sim.SAggregate
-import com.mimacom.ddd.sm.sim.SAssociation
-import com.mimacom.ddd.sm.sim.SAttribute
-import com.mimacom.ddd.sm.sim.SComplexType
-import com.mimacom.ddd.sm.sim.SDeducibleElement
-import com.mimacom.ddd.sm.sim.SDeductionRule
-import com.mimacom.ddd.sm.sim.SEntityType
-import com.mimacom.ddd.sm.sim.SEnumeration
-import com.mimacom.ddd.sm.sim.SFeature
+import com.mimacom.ddd.sm.sim.SAggregateDeduction
+import com.mimacom.ddd.sm.sim.SComplexTypeDeduction
+import com.mimacom.ddd.sm.sim.SEnumerationDeduction
+import com.mimacom.ddd.sm.sim.SFeatureDeduction
 import com.mimacom.ddd.sm.sim.SInformationModel
-import com.mimacom.ddd.sm.sim.SMultiplicity
-import com.mimacom.ddd.sm.sim.SPrimitive
-import com.mimacom.ddd.sm.sim.SQuery
-import com.mimacom.ddd.sm.sim.SQueryParameter
+import com.mimacom.ddd.sm.sim.SPrimitiveDeduction
+import com.mimacom.ddd.sm.sim.SQueryParameterDeduction
 import com.mimacom.ddd.sm.sim.SStructureChangingRule
-import com.mimacom.ddd.sm.sim.SSyntheticDeductionRule
 import com.mimacom.ddd.sm.sim.STristate
-import com.mimacom.ddd.sm.sim.SType
-import com.mimacom.ddd.sm.sim.SimFactory
+import com.mimacom.ddd.sm.sim.STypeDeduction
 import org.eclipse.emf.ecore.EObject
 
 class SyntheticModelElementsFactory {
 	
-	static val simFactory = SimFactory.eINSTANCE
+	static val baseFactory = BaseFactory.eINSTANCE
 	
-	def SAggregate addSyntheticAggregate(SInformationModel container, DAggregate source, SDeducibleElement elementWithRule, TransformationContext context)  {
-		val sAggregate = simFactory.createSAggregate
-		sAggregate.synthetic = true
-		sAggregate.deductionRule = createSyntheticDeductionRuleOrNull(source, elementWithRule)
-		container.aggregates.add(sAggregate)
-		return sAggregate
+	def DAggregate addSyntheticAggregate(SInformationModel container, SAggregateDeduction deductionDefinition, TransformationContext context)  {
+		val syntheticAggregate = baseFactory.createDAggregate
+		syntheticAggregate.deductionDefinition = deductionDefinition
+		container.aggregates.add(syntheticAggregate)
+		return syntheticAggregate
 	}
 	
-	def dispatch SPrimitive addSyntheticType(EObject container, String name, DPrimitive source, SDeducibleElement elementWithRule, TransformationContext context)  {
-		val sType = simFactory.createSPrimitive
-		sType.initSyntheticType(container, name, source, elementWithRule, context)
-		return sType
+	def dispatch DPrimitive addSyntheticType(EObject container, String name, DPrimitive source /*dispatch*/, SPrimitiveDeduction deductionDefinition, TransformationContext context)  {
+		val syntheticPrimitive = baseFactory.createDPrimitive
+		syntheticPrimitive.initSyntheticType(container, name, deductionDefinition, context)
+		return syntheticPrimitive
 	}
 	
-	def dispatch SEnumeration addSyntheticType(EObject container, String name, DEnumeration source, SDeducibleElement elementWithRule,  TransformationContext context)  {
-		val sType = simFactory.createSEnumeration
-		sType.initSyntheticType(container, name, source, elementWithRule, context)
-		return sType
+	def dispatch DEnumeration addSyntheticType(EObject container, String name, DEnumeration source /*dispatch*/, SEnumerationDeduction deductionDefinition,  TransformationContext context)  {
+		val syntheticEnumeration = baseFactory.createDEnumeration
+		syntheticEnumeration.initSyntheticType(container, name, deductionDefinition, context)
+		return syntheticEnumeration
 	}
 	
-	def dispatch SComplexType addSyntheticType(EObject container, String name, DComplexType source, SDeducibleElement elementWithRule, TransformationContext context)  {
-		val sType = switch source {
-			DEntityType: simFactory.createSEntityType
-			DRelationship: simFactory.createSEntityType
-			DDetailType: simFactory.createSDetailType
+	def dispatch DComplexType addSyntheticType(EObject container, String name, DComplexType source /*dispatch*/, SComplexTypeDeduction deductionDefinition, TransformationContext context)  {
+		val syntheticComplexType = switch source {
+			DEntityType: baseFactory.createDEntityType
+			DRelationship: baseFactory.createDEntityType
+			DDetailType: baseFactory.createDDetailType
 		}
-		sType.initSyntheticType(container, name, source, elementWithRule, context)
-		sType.abstract = elementWithRule.deductionRule.makeAbstract(source)
-		if (sType instanceof SEntityType) {
-			sType.root = elementWithRule.deductionRule.makeRoot (source as DIdentityType)
+		syntheticComplexType.initSyntheticType(container, name, deductionDefinition, context)
+		syntheticComplexType.abstract = deductionDefinition.deductionRule.makeAbstract(source)
+		if (syntheticComplexType instanceof DEntityType) {
+			syntheticComplexType.root = deductionDefinition.deductionRule.makeRoot (source as DIdentityType)
 		}
 		switch container {
-			SAggregate : container.types.add(sType)
-			SInformationModel : container.types.add(sType)
+			DAggregate : container.types.add(syntheticComplexType)
+			SInformationModel : container.types.add(syntheticComplexType)
 		}
-		return sType
+		return syntheticComplexType
 	}
 	
-	protected def void initSyntheticType(SType t, EObject container, String name, DType source, SDeducibleElement elementWithRule, TransformationContext context) {
-		t.name = name
-		t.synthetic = true
-		t.deductionRule= createSyntheticDeductionRuleOrNull(source, elementWithRule)
+	protected def void initSyntheticType(DType syntheticType, EObject container, String name, STypeDeduction deductionDefinition, TransformationContext context) {
+		syntheticType.name = name
+		syntheticType.synthetic = true
+		syntheticType.deductionDefinition = deductionDefinition
 		switch container {
-			SAggregate : container.types.add(t)
-			SInformationModel : container.types.add(t)
+			DAggregate : container.types.add(syntheticType)
+			SInformationModel : container.types.add(syntheticType)
 		}
-		context.putSType(source, t)
+		context.putSystemType(deductionDefinition.deductionRule.source as DType, syntheticType)
 	}
 	
-	protected def SSyntheticDeductionRule createSyntheticDeductionRuleOrNull(EObject source, SDeducibleElement elementWithRule) {
-		if (source === null || elementWithRule === null) {
-			return null
-		}
-		val rule = simFactory.createSSyntheticDeductionRule
-		rule.source = source
-		rule.elementWithRule = elementWithRule
-		return rule
-	}
+//	protected def SSyntheticDeductionRule createSyntheticDeductionRuleOrNull(EObject source, IDeductionDefinition deductionDefinition) {
+//		if (source === null || deductionDefinition === null) {
+//			return null
+//		}
+//		val rule = simFactory.createSSyntheticDeductionRule
+//		rule.source = source
+//		rule.deductionDefinition = deductionDefinition
+//		return rule
+//	}
 	
-	def SFeature addSyntheticFeature(SComplexType container, String name, DFeature source, SDeducibleElement elementWithRule, TransformationContext context)  {
-			val dFeatureType = source.type
-			if (dFeatureType === null) {  // the domain model is (temporarily incomplete => don't add sFeature now
+	def DFeature addSyntheticFeature(DComplexType container, String name, DFeature source, SFeatureDeduction deductionDefinition, TransformationContext context)  {
+			val sourceFeatureType = source.type
+			if (sourceFeatureType === null) {  // the domain model is (temporarily incomplete => don't add sFeature now
 				return null 
 			}
-			val sFeature = switch source {
-				DAttribute: simFactory.createSAttribute
-				DQuery: simFactory.createSQuery
-				DAssociation: simFactory.createSAssociation
+			val syntheticFeature = switch source {
+				DAttribute: baseFactory.createDAttribute
+				DQuery: baseFactory.createDQuery
+				DAssociation: baseFactory.createDAssociation
 			}
-			sFeature.name = name
-			sFeature.type = context.getSType(dFeatureType) // may be null
-			sFeature.multiplicity = grabMultiplicity(source.multiplicity)
-			sFeature.synthetic = true
-			sFeature.deductionRule = createSyntheticDeductionRuleOrNull(source, elementWithRule)
-			container.features.add(sFeature)
-			return sFeature
+			syntheticFeature.name = name
+			syntheticFeature.type = context.getSystemType(sourceFeatureType) // may be null
+			syntheticFeature.multiplicity = grabMultiplicity(source.multiplicity)
+			syntheticFeature.synthetic = true
+			syntheticFeature.deductionDefinition = deductionDefinition
+			container.features.add(syntheticFeature)
+			return syntheticFeature
 	}
 	
-	def SFeature addSyntheticFeatureAsCopy(SComplexType container, SFeature source, TransformationContext context)  {
-			val sFeature = switch source {
-				SAttribute: simFactory.createSAttribute
-				SQuery: simFactory.createSQuery
-				SAssociation: simFactory.createSAssociation
+	def DFeature addSyntheticFeatureAsCopy(DComplexType container, DFeature source, TransformationContext context)  {
+			val syntheticFeature = switch source {
+				DAttribute: baseFactory.createDAttribute
+				DQuery: baseFactory.createDQuery
+				DAssociation: baseFactory.createDAssociation
 			}
-			sFeature.name = source.name
-			sFeature.type = source.type
-			sFeature.multiplicity = source.multiplicity
-			sFeature.synthetic = true
-			sFeature.deductionRule = null
-			container.features.add(sFeature)
-			if (source instanceof SQuery) {
+			syntheticFeature.name = source.name
+			syntheticFeature.type = source.type
+			syntheticFeature.multiplicity = source.multiplicity
+			syntheticFeature.synthetic = true
+			syntheticFeature.deductionDefinition = null  /* NOTE null */
+			container.features.add(syntheticFeature)
+			if (source instanceof DQuery) {
 				for (p : source.parameters) {
-					(sFeature as SQuery).addSyntheticQueryParameterAsCopy(p, context)
+					(syntheticFeature as DQuery).addSyntheticQueryParameterAsCopy(p, context)
 				}
 			}
-			return sFeature
+			return syntheticFeature
 	}
 	
-	def SQueryParameter addSyntheticQueryParameter(SQuery container, String name, DQueryParameter source, SDeducibleElement elementWithRule,TransformationContext context)  {
-			val dParameterType = source.type
-			if (dParameterType === null) {  // the domain model is (temporarily incomplete => don't add sFeature now
+	def DQueryParameter addSyntheticQueryParameter(DQuery container, String name, DQueryParameter source, SQueryParameterDeduction deductionDefinition,TransformationContext context)  {
+			val sourceParameterType = source.type
+			if (sourceParameterType === null) {  // the domain model is (temporarily incomplete => don't add sFeature now
 				return null 
 			}
-			val sParameter = simFactory.createSQueryParameter
-			sParameter.name = name
-			sParameter.type = context.getSType(dParameterType)
-			sParameter.multiplicity = grabMultiplicity(source.multiplicity)
-			sParameter.synthetic = true
-			sParameter.deductionRule = createSyntheticDeductionRuleOrNull(source, elementWithRule)
-			container.parameters.add(sParameter)
-			return sParameter
+			val syntheticParameter = baseFactory.createDQueryParameter
+			syntheticParameter.name = name
+			syntheticParameter.type = context.getSystemType(sourceParameterType)
+			syntheticParameter.multiplicity = grabMultiplicity(source.multiplicity)
+			syntheticParameter.synthetic = true
+			syntheticParameter.deductionDefinition = deductionDefinition
+			container.parameters.add(syntheticParameter)
+			return syntheticParameter
 	}
 	
-	def SQueryParameter addSyntheticQueryParameterAsCopy(SQuery container, SQueryParameter source, TransformationContext context)  {
-			val sParameter = simFactory.createSQueryParameter
-			sParameter.name = source.name
-			sParameter.type = source.type
-			sParameter.multiplicity = source.multiplicity
-			sParameter.synthetic = true
-			sParameter.deductionRule = null
-			container.parameters.add(sParameter)
-			return sParameter
+	def DQueryParameter addSyntheticQueryParameterAsCopy(DQuery container, DQueryParameter source, TransformationContext context)  {
+			val syntheticParameter = baseFactory.createDQueryParameter
+			syntheticParameter.name = source.name
+			syntheticParameter.type = source.type
+			syntheticParameter.multiplicity = source.multiplicity
+			syntheticParameter.synthetic = true
+			syntheticParameter.deductionDefinition = null  /* NOTE null */
+			container.parameters.add(syntheticParameter)
+			return syntheticParameter
 	}
 	
-	def void addSyntheticLiteral(SEnumeration container, String name) {
-		val sLiteral = simFactory.createSLiteral
-		sLiteral.name = name
-		sLiteral.synthetic = true
-		container.literals.add(sLiteral)
+	def void addSyntheticLiteral(DEnumeration container, String name) {
+		val syntheticLiteral = baseFactory.createDLiteral
+		syntheticLiteral.name = name
+		syntheticLiteral.synthetic = true
+		container.literals.add(syntheticLiteral)
 	}
 	
-	protected def SMultiplicity grabMultiplicity(DMultiplicity source) {
-		var SMultiplicity result = null
+	protected def DMultiplicity grabMultiplicity(DMultiplicity source) {
+		var DMultiplicity result = null
 		if (source !== null) {
-			result = simFactory.createSMultiplicity
+			result = baseFactory.createDMultiplicity
 			result.minOccurs = source.minOccurs
 			result.maxOccurs = source.maxOccurs
 		}
@@ -186,7 +178,7 @@ class SyntheticModelElementsFactory {
 		return r.abstract == STristate.TRUE
 	}
 	
-	protected def dispatch boolean makeAbstract(SDeductionRule r, DComplexType source) {
+	protected def dispatch boolean makeAbstract(DDeductionRule r, DComplexType source) {
 		return source.abstract
 	}
 	
@@ -195,7 +187,7 @@ class SyntheticModelElementsFactory {
 		return r.rootEntity == STristate.TRUE
 	}
 	
-	protected def dispatch boolean makeRoot(SDeductionRule r, DIdentityType source) {
+	protected def dispatch boolean makeRoot(DDeductionRule r, DIdentityType source) {
 		return source.root
 	}
 }

@@ -3,16 +3,13 @@ package com.mimacom.ddd.sm.sim.indexing
 import com.google.common.collect.Maps
 import com.google.inject.Singleton
 import com.mimacom.ddd.dm.base.DType
-import com.mimacom.ddd.sm.sim.SDeducibleElement
-import com.mimacom.ddd.sm.sim.SType
+import com.mimacom.ddd.dm.base.IDeductionDefinition
 import org.apache.log4j.Logger
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.resource.EObjectDescription
 import org.eclipse.xtext.resource.IEObjectDescription
 import org.eclipse.xtext.resource.impl.DefaultResourceDescriptionStrategy
 import org.eclipse.xtext.util.IAcceptor
-
-import static com.mimacom.ddd.sm.sim.SElementNature.*
 
 @Singleton
 class SimResourceDescriptionStrategy extends DefaultResourceDescriptionStrategy {
@@ -21,20 +18,21 @@ class SimResourceDescriptionStrategy extends DefaultResourceDescriptionStrategy 
 	public static val KEY_DEDUCED_FROM = "deducedFrom"
 	
 	/*
-	 * Prevents indexing of deduction rules and of information models with attribute deduced = true
+	 * Prevents indexing of deduction rules and creates custom index entries for synthetic types
 	 */
 	override boolean createEObjectDescriptions(EObject obj, IAcceptor<IEObjectDescription> acceptor) {
-		if (obj instanceof SType) {
-			if (obj.nature == SYNTHETIC && obj.deductionRule !== null) {
-				val source = obj.deductionRule.source
-				if (source instanceof DType) {
-					return createSTypeDescription(obj, source, acceptor)
-				}
-			}
+		if (obj instanceof IDeductionDefinition) {
+			// Don't index
+			return false
 		}
-		if (obj instanceof SDeducibleElement) {
-			if (obj.nature == DEDUCTION_RULE) {
-				return false
+		if (obj instanceof DType) {
+			if (obj.synthetic) {
+				val typeToIndex = obj
+				val source = typeToIndex.deductionDefinition.deductionRule.source
+				if (source instanceof DType) {
+					// create custom index entry with reference to source
+					return createDTypeDescription(typeToIndex, source, acceptor)
+				}
 			}
 		}
 //		if (obj.eResource !== null) {
@@ -48,21 +46,21 @@ class SimResourceDescriptionStrategy extends DefaultResourceDescriptionStrategy 
 		return super.createEObjectDescriptions(obj, acceptor);
 	}
 	
-	// Adapted copy of DefaultResourceDescriptionStrategy.createSTypeDescription(obj, acceptor)
-   def boolean createSTypeDescription(SType type, DType source, IAcceptor<IEObjectDescription> acceptor) {
+	// Adapted copy of DefaultResourceDescriptionStrategy.createEObjectDescriptions(obj, acceptor)
+   def boolean createDTypeDescription(DType typeToIndex, DType source, IAcceptor<IEObjectDescription> acceptor) {
 		val qnp = getQualifiedNameProvider()
 		if (qnp === null)
 			return false;
 		try {
-			val sQualifiedName = qnp.getFullyQualifiedName(type);
-			val dQualifiedName = qnp.getFullyQualifiedName(source);
-			if (sQualifiedName !== null) {
-				if (dQualifiedName !== null) {
+			val tQualifiedName = qnp.getFullyQualifiedName(typeToIndex);
+			if (tQualifiedName !== null) {
+				val sQualifiedName = qnp.getFullyQualifiedName(source);
+				if (sQualifiedName !== null) {
 					val userData = Maps.newHashMap
-					userData.put(SimResourceDescriptionStrategy.KEY_DEDUCED_FROM, dQualifiedName.toString)
-					acceptor.accept(EObjectDescription.create(sQualifiedName, type, userData));
+					userData.put(SimResourceDescriptionStrategy.KEY_DEDUCED_FROM, sQualifiedName.toString)
+					acceptor.accept(EObjectDescription.create(tQualifiedName, typeToIndex, userData));
 				}  else {
-					acceptor.accept(EObjectDescription.create(sQualifiedName, type));
+					acceptor.accept(EObjectDescription.create(tQualifiedName, typeToIndex));
 				}
 			}
 		} catch (Exception exc) {

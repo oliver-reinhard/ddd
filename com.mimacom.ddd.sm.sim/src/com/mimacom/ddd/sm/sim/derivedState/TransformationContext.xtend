@@ -3,7 +3,6 @@ package com.mimacom.ddd.sm.sim.derivedState
 import com.google.common.collect.Maps
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DType
-import com.mimacom.ddd.sm.sim.SType
 import com.mimacom.ddd.sm.sim.indexing.SimIndex
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy
 import java.util.Map
@@ -14,14 +13,14 @@ class TransformationContext {
 
 	@Inject SimIndex index
 	
-	var Map<DType, SType> localDTypeToSTypeMap
-	var Map<DType, SType> importedDTypeToSTypeMap
+	var Map<DType, DType> localDomainToSystemTypeMap
+	var Map<DType, DType> importedDomainToSystemTypeMap
 	var DerivedStateAwareResource resource
 	
 	def void init(DerivedStateAwareResource resource) {
 		this.resource = resource
-		localDTypeToSTypeMap = Maps.newHashMap()
-		importedDTypeToSTypeMap = Maps.newHashMap()
+		localDomainToSystemTypeMap = Maps.newHashMap()
+		importedDomainToSystemTypeMap = Maps.newHashMap()
 //		initializeLocallyMappedDTypes()
 		initializeImportedMappedDTypesFromIndex() 
 	}
@@ -37,14 +36,14 @@ class TransformationContext {
 			if (dTypeDesc !== null) {
 				var dType = dTypeDesc.EObjectOrProxy
 				var sType = sTypeDesc.EObjectOrProxy
-				if (dType instanceof DType && sType instanceof SType) {
+				if (dType instanceof DType && sType instanceof DType) {
 					if (dType.eIsProxy) {
 						dType = resource.resourceSet.getEObject(dTypeDesc.EObjectURI, true)
 					}
 					if (sType.eIsProxy) {
 						sType = resource.resourceSet.getEObject(sTypeDesc.EObjectURI, true)
 					}
-					importedDTypeToSTypeMap.put(dType as DType, sType as SType)
+					importedDomainToSystemTypeMap.put(dType as DType, sType as DType)
 				}
 			}
 		}
@@ -63,24 +62,25 @@ class TransformationContext {
 //		}
 	}
 	
-	def putSType(DType dType, SType sType) {
-		val previousS = localDTypeToSTypeMap.put(dType, sType)
+	def putSystemType(DType domainType, DType systemType) {
+		val previousS = localDomainToSystemTypeMap.put(domainType, systemType)
 		if (previousS !== null) {
-			throw new IllegalStateException("There are two STypes realizing DType \"" + dType.name + "\" as \"" + sType.name + "\" and as \"" + previousS + "\"") // TODO remove => log  or create error marker
+			// TODO remove => log  or create error marker
+			throw new IllegalStateException("There are two STypes realizing DType \"" + domainType.name + "\" as \"" + systemType.name + "\" and as \"" + previousS + "\"") 
 		}
 	}
 	
 	/*
-	 * @return  null if no SType is found for DType.
+	 * @return  null if no system type is found for the given domain type.
 	 */
-	def SType getSType(DType dType)  {
-		var sPrimitive = localDTypeToSTypeMap.get(dType)
-		if (sPrimitive === null) {
-			sPrimitive = importedDTypeToSTypeMap.get(dType)
+	def DType getSystemType(DType domainType)  {
+		var systemType = localDomainToSystemTypeMap.get(domainType)
+		if (systemType === null) {
+			systemType = importedDomainToSystemTypeMap.get(domainType)
 //			if (sPrimitive === null) {
 //				sPrimitive = UNKNOWN_TYPE
 //			}
 		}
-		return sPrimitive
+		return systemType
 	}
 }

@@ -2,6 +2,8 @@
  */
 package com.mimacom.ddd.sm.sim.impl;
 
+import com.mimacom.ddd.dm.base.impl.DDeductionRuleImplCustom;
+
 import com.mimacom.ddd.sm.sim.SGrabRule;
 import com.mimacom.ddd.sm.sim.SimPackage;
 
@@ -24,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SGrabRuleImpl extends SDeductionRuleImplCustom implements SGrabRule
+public class SGrabRuleImpl extends DDeductionRuleImplCustom implements SGrabRule
 {
 	/**
 	 * The default value of the '{@link #getRenameTo() <em>Rename To</em>}' attribute.

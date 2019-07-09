@@ -5,9 +5,9 @@ package com.mimacom.ddd.sm.sim;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.mimacom.ddd.dm.dim.DimStandaloneSetup;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.ISetup;
-import org.eclipse.xtext.common.TerminalsStandaloneSetup;
 import org.eclipse.xtext.resource.IResourceFactory;
 import org.eclipse.xtext.resource.IResourceServiceProvider;
 
@@ -16,7 +16,7 @@ public class SimStandaloneSetupGenerated implements ISetup {
 
 	@Override
 	public Injector createInjectorAndDoEMFRegistration() {
-		TerminalsStandaloneSetup.doSetup();
+		DimStandaloneSetup.doSetup();
 
 		Injector injector = createInjector();
 		register(injector);

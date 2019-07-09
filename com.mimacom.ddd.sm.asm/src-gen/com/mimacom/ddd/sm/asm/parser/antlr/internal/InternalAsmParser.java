@@ -250,7 +250,7 @@ public class InternalAsmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSApplication"
-    // InternalAsm.g:107:1: ruleSApplication returns [EObject current=null] : (otherlv_0= 'application' ( (lv_name_1_0= ruleSQualifiedName ) ) ( (lv_imports_2_0= ruleSImport ) )* otherlv_3= 'information' otherlv_4= 'model' ( (otherlv_5= RULE_ID ) ) ( (lv_actors_6_0= ruleSActor ) )* ) ;
+    // InternalAsm.g:107:1: ruleSApplication returns [EObject current=null] : (otherlv_0= 'application' ( (lv_name_1_0= ruleSQualifiedName ) ) ( (lv_imports_2_0= ruleDImport ) )* otherlv_3= 'information' otherlv_4= 'model' ( (otherlv_5= RULE_ID ) ) ( (lv_actors_6_0= ruleSActor ) )* ) ;
     public final EObject ruleSApplication() throws RecognitionException {
         EObject current = null;
 
@@ -269,11 +269,11 @@ public class InternalAsmParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAsm.g:113:2: ( (otherlv_0= 'application' ( (lv_name_1_0= ruleSQualifiedName ) ) ( (lv_imports_2_0= ruleSImport ) )* otherlv_3= 'information' otherlv_4= 'model' ( (otherlv_5= RULE_ID ) ) ( (lv_actors_6_0= ruleSActor ) )* ) )
-            // InternalAsm.g:114:2: (otherlv_0= 'application' ( (lv_name_1_0= ruleSQualifiedName ) ) ( (lv_imports_2_0= ruleSImport ) )* otherlv_3= 'information' otherlv_4= 'model' ( (otherlv_5= RULE_ID ) ) ( (lv_actors_6_0= ruleSActor ) )* )
+            // InternalAsm.g:113:2: ( (otherlv_0= 'application' ( (lv_name_1_0= ruleSQualifiedName ) ) ( (lv_imports_2_0= ruleDImport ) )* otherlv_3= 'information' otherlv_4= 'model' ( (otherlv_5= RULE_ID ) ) ( (lv_actors_6_0= ruleSActor ) )* ) )
+            // InternalAsm.g:114:2: (otherlv_0= 'application' ( (lv_name_1_0= ruleSQualifiedName ) ) ( (lv_imports_2_0= ruleDImport ) )* otherlv_3= 'information' otherlv_4= 'model' ( (otherlv_5= RULE_ID ) ) ( (lv_actors_6_0= ruleSActor ) )* )
             {
-            // InternalAsm.g:114:2: (otherlv_0= 'application' ( (lv_name_1_0= ruleSQualifiedName ) ) ( (lv_imports_2_0= ruleSImport ) )* otherlv_3= 'information' otherlv_4= 'model' ( (otherlv_5= RULE_ID ) ) ( (lv_actors_6_0= ruleSActor ) )* )
-            // InternalAsm.g:115:3: otherlv_0= 'application' ( (lv_name_1_0= ruleSQualifiedName ) ) ( (lv_imports_2_0= ruleSImport ) )* otherlv_3= 'information' otherlv_4= 'model' ( (otherlv_5= RULE_ID ) ) ( (lv_actors_6_0= ruleSActor ) )*
+            // InternalAsm.g:114:2: (otherlv_0= 'application' ( (lv_name_1_0= ruleSQualifiedName ) ) ( (lv_imports_2_0= ruleDImport ) )* otherlv_3= 'information' otherlv_4= 'model' ( (otherlv_5= RULE_ID ) ) ( (lv_actors_6_0= ruleSActor ) )* )
+            // InternalAsm.g:115:3: otherlv_0= 'application' ( (lv_name_1_0= ruleSQualifiedName ) ) ( (lv_imports_2_0= ruleDImport ) )* otherlv_3= 'information' otherlv_4= 'model' ( (otherlv_5= RULE_ID ) ) ( (lv_actors_6_0= ruleSActor ) )*
             {
             otherlv_0=(Token)match(input,11,FOLLOW_3); 
 
@@ -310,7 +310,7 @@ public class InternalAsmParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalAsm.g:138:3: ( (lv_imports_2_0= ruleSImport ) )*
+            // InternalAsm.g:138:3: ( (lv_imports_2_0= ruleDImport ) )*
             loop2:
             do {
                 int alt2=2;
@@ -323,16 +323,16 @@ public class InternalAsmParser extends AbstractInternalAntlrParser {
 
                 switch (alt2) {
             	case 1 :
-            	    // InternalAsm.g:139:4: (lv_imports_2_0= ruleSImport )
+            	    // InternalAsm.g:139:4: (lv_imports_2_0= ruleDImport )
             	    {
-            	    // InternalAsm.g:139:4: (lv_imports_2_0= ruleSImport )
-            	    // InternalAsm.g:140:5: lv_imports_2_0= ruleSImport
+            	    // InternalAsm.g:139:4: (lv_imports_2_0= ruleDImport )
+            	    // InternalAsm.g:140:5: lv_imports_2_0= ruleDImport
             	    {
 
-            	    					newCompositeNode(grammarAccess.getSApplicationAccess().getImportsSImportParserRuleCall_2_0());
+            	    					newCompositeNode(grammarAccess.getSApplicationAccess().getImportsDImportParserRuleCall_2_0());
             	    				
             	    pushFollow(FOLLOW_4);
-            	    lv_imports_2_0=ruleSImport();
+            	    lv_imports_2_0=ruleDImport();
 
             	    state._fsp--;
 
@@ -344,7 +344,7 @@ public class InternalAsmParser extends AbstractInternalAntlrParser {
             	    						current,
             	    						"imports",
             	    						lv_imports_2_0,
-            	    						"com.mimacom.ddd.sm.asm.Asm.SImport");
+            	    						"com.mimacom.ddd.sm.asm.Asm.DImport");
             	    					afterParserOrEnumRuleCall();
             	    				
 
@@ -496,7 +496,7 @@ public class InternalAsmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSServiceInterface"
-    // InternalAsm.g:208:1: ruleSServiceInterface returns [EObject current=null] : (otherlv_0= 'service' otherlv_1= 'interface' ( (lv_name_2_0= ruleSQualifiedName ) ) ( (lv_imports_3_0= ruleSImport ) )* otherlv_4= 'information' otherlv_5= 'model' ( (otherlv_6= RULE_ID ) ) ( (lv_operations_7_0= ruleSServiceOperation ) ) ) ;
+    // InternalAsm.g:208:1: ruleSServiceInterface returns [EObject current=null] : (otherlv_0= 'service' otherlv_1= 'interface' ( (lv_name_2_0= ruleSQualifiedName ) ) ( (lv_imports_3_0= ruleDImport ) )* otherlv_4= 'information' otherlv_5= 'model' ( (otherlv_6= RULE_ID ) ) ( (lv_operations_7_0= ruleSServiceOperation ) ) ) ;
     public final EObject ruleSServiceInterface() throws RecognitionException {
         EObject current = null;
 
@@ -516,11 +516,11 @@ public class InternalAsmParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAsm.g:214:2: ( (otherlv_0= 'service' otherlv_1= 'interface' ( (lv_name_2_0= ruleSQualifiedName ) ) ( (lv_imports_3_0= ruleSImport ) )* otherlv_4= 'information' otherlv_5= 'model' ( (otherlv_6= RULE_ID ) ) ( (lv_operations_7_0= ruleSServiceOperation ) ) ) )
-            // InternalAsm.g:215:2: (otherlv_0= 'service' otherlv_1= 'interface' ( (lv_name_2_0= ruleSQualifiedName ) ) ( (lv_imports_3_0= ruleSImport ) )* otherlv_4= 'information' otherlv_5= 'model' ( (otherlv_6= RULE_ID ) ) ( (lv_operations_7_0= ruleSServiceOperation ) ) )
+            // InternalAsm.g:214:2: ( (otherlv_0= 'service' otherlv_1= 'interface' ( (lv_name_2_0= ruleSQualifiedName ) ) ( (lv_imports_3_0= ruleDImport ) )* otherlv_4= 'information' otherlv_5= 'model' ( (otherlv_6= RULE_ID ) ) ( (lv_operations_7_0= ruleSServiceOperation ) ) ) )
+            // InternalAsm.g:215:2: (otherlv_0= 'service' otherlv_1= 'interface' ( (lv_name_2_0= ruleSQualifiedName ) ) ( (lv_imports_3_0= ruleDImport ) )* otherlv_4= 'information' otherlv_5= 'model' ( (otherlv_6= RULE_ID ) ) ( (lv_operations_7_0= ruleSServiceOperation ) ) )
             {
-            // InternalAsm.g:215:2: (otherlv_0= 'service' otherlv_1= 'interface' ( (lv_name_2_0= ruleSQualifiedName ) ) ( (lv_imports_3_0= ruleSImport ) )* otherlv_4= 'information' otherlv_5= 'model' ( (otherlv_6= RULE_ID ) ) ( (lv_operations_7_0= ruleSServiceOperation ) ) )
-            // InternalAsm.g:216:3: otherlv_0= 'service' otherlv_1= 'interface' ( (lv_name_2_0= ruleSQualifiedName ) ) ( (lv_imports_3_0= ruleSImport ) )* otherlv_4= 'information' otherlv_5= 'model' ( (otherlv_6= RULE_ID ) ) ( (lv_operations_7_0= ruleSServiceOperation ) )
+            // InternalAsm.g:215:2: (otherlv_0= 'service' otherlv_1= 'interface' ( (lv_name_2_0= ruleSQualifiedName ) ) ( (lv_imports_3_0= ruleDImport ) )* otherlv_4= 'information' otherlv_5= 'model' ( (otherlv_6= RULE_ID ) ) ( (lv_operations_7_0= ruleSServiceOperation ) ) )
+            // InternalAsm.g:216:3: otherlv_0= 'service' otherlv_1= 'interface' ( (lv_name_2_0= ruleSQualifiedName ) ) ( (lv_imports_3_0= ruleDImport ) )* otherlv_4= 'information' otherlv_5= 'model' ( (otherlv_6= RULE_ID ) ) ( (lv_operations_7_0= ruleSServiceOperation ) )
             {
             otherlv_0=(Token)match(input,14,FOLLOW_7); 
 
@@ -561,7 +561,7 @@ public class InternalAsmParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalAsm.g:243:3: ( (lv_imports_3_0= ruleSImport ) )*
+            // InternalAsm.g:243:3: ( (lv_imports_3_0= ruleDImport ) )*
             loop4:
             do {
                 int alt4=2;
@@ -574,16 +574,16 @@ public class InternalAsmParser extends AbstractInternalAntlrParser {
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalAsm.g:244:4: (lv_imports_3_0= ruleSImport )
+            	    // InternalAsm.g:244:4: (lv_imports_3_0= ruleDImport )
             	    {
-            	    // InternalAsm.g:244:4: (lv_imports_3_0= ruleSImport )
-            	    // InternalAsm.g:245:5: lv_imports_3_0= ruleSImport
+            	    // InternalAsm.g:244:4: (lv_imports_3_0= ruleDImport )
+            	    // InternalAsm.g:245:5: lv_imports_3_0= ruleDImport
             	    {
 
-            	    					newCompositeNode(grammarAccess.getSServiceInterfaceAccess().getImportsSImportParserRuleCall_3_0());
+            	    					newCompositeNode(grammarAccess.getSServiceInterfaceAccess().getImportsDImportParserRuleCall_3_0());
             	    				
             	    pushFollow(FOLLOW_4);
-            	    lv_imports_3_0=ruleSImport();
+            	    lv_imports_3_0=ruleDImport();
 
             	    state._fsp--;
 
@@ -595,7 +595,7 @@ public class InternalAsmParser extends AbstractInternalAntlrParser {
             	    						current,
             	    						"imports",
             	    						lv_imports_3_0,
-            	    						"com.mimacom.ddd.sm.asm.Asm.SImport");
+            	    						"com.mimacom.ddd.sm.asm.Asm.DImport");
             	    					afterParserOrEnumRuleCall();
             	    				
 
@@ -692,25 +692,25 @@ public class InternalAsmParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleSServiceInterface"
 
 
-    // $ANTLR start "entryRuleSImport"
-    // InternalAsm.g:306:1: entryRuleSImport returns [EObject current=null] : iv_ruleSImport= ruleSImport EOF ;
-    public final EObject entryRuleSImport() throws RecognitionException {
+    // $ANTLR start "entryRuleDImport"
+    // InternalAsm.g:306:1: entryRuleDImport returns [EObject current=null] : iv_ruleDImport= ruleDImport EOF ;
+    public final EObject entryRuleDImport() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSImport = null;
+        EObject iv_ruleDImport = null;
 
 
         try {
-            // InternalAsm.g:306:48: (iv_ruleSImport= ruleSImport EOF )
-            // InternalAsm.g:307:2: iv_ruleSImport= ruleSImport EOF
+            // InternalAsm.g:306:48: (iv_ruleDImport= ruleDImport EOF )
+            // InternalAsm.g:307:2: iv_ruleDImport= ruleDImport EOF
             {
-             newCompositeNode(grammarAccess.getSImportRule()); 
+             newCompositeNode(grammarAccess.getDImportRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleSImport=ruleSImport();
+            iv_ruleDImport=ruleDImport();
 
             state._fsp--;
 
-             current =iv_ruleSImport; 
+             current =iv_ruleDImport; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -725,12 +725,12 @@ public class InternalAsmParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSImport"
+    // $ANTLR end "entryRuleDImport"
 
 
-    // $ANTLR start "ruleSImport"
-    // InternalAsm.g:313:1: ruleSImport returns [EObject current=null] : (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleSQualifiedNameWithWildcard ) ) ) ;
-    public final EObject ruleSImport() throws RecognitionException {
+    // $ANTLR start "ruleDImport"
+    // InternalAsm.g:313:1: ruleDImport returns [EObject current=null] : (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleSQualifiedNameWithWildcard ) ) ) ;
+    public final EObject ruleDImport() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -749,7 +749,7 @@ public class InternalAsmParser extends AbstractInternalAntlrParser {
             {
             otherlv_0=(Token)match(input,16,FOLLOW_3); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getSImportAccess().getImportKeyword_0());
+            			newLeafNode(otherlv_0, grammarAccess.getDImportAccess().getImportKeyword_0());
             		
             // InternalAsm.g:325:3: ( (lv_importedNamespace_1_0= ruleSQualifiedNameWithWildcard ) )
             // InternalAsm.g:326:4: (lv_importedNamespace_1_0= ruleSQualifiedNameWithWildcard )
@@ -758,7 +758,7 @@ public class InternalAsmParser extends AbstractInternalAntlrParser {
             // InternalAsm.g:327:5: lv_importedNamespace_1_0= ruleSQualifiedNameWithWildcard
             {
 
-            					newCompositeNode(grammarAccess.getSImportAccess().getImportedNamespaceSQualifiedNameWithWildcardParserRuleCall_1_0());
+            					newCompositeNode(grammarAccess.getDImportAccess().getImportedNamespaceSQualifiedNameWithWildcardParserRuleCall_1_0());
             				
             pushFollow(FOLLOW_2);
             lv_importedNamespace_1_0=ruleSQualifiedNameWithWildcard();
@@ -767,7 +767,7 @@ public class InternalAsmParser extends AbstractInternalAntlrParser {
 
 
             					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getSImportRule());
+            						current = createModelElementForParent(grammarAccess.getDImportRule());
             					}
             					set(
             						current,
@@ -801,7 +801,7 @@ public class InternalAsmParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSImport"
+    // $ANTLR end "ruleDImport"
 
 
     // $ANTLR start "entryRuleSActor"

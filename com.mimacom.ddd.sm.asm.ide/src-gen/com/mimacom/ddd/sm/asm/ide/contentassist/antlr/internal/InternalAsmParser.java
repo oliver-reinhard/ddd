@@ -313,20 +313,20 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleSServiceInterface"
 
 
-    // $ANTLR start "entryRuleSImport"
-    // InternalAsm.g:128:1: entryRuleSImport : ruleSImport EOF ;
-    public final void entryRuleSImport() throws RecognitionException {
+    // $ANTLR start "entryRuleDImport"
+    // InternalAsm.g:128:1: entryRuleDImport : ruleDImport EOF ;
+    public final void entryRuleDImport() throws RecognitionException {
         try {
-            // InternalAsm.g:129:1: ( ruleSImport EOF )
-            // InternalAsm.g:130:1: ruleSImport EOF
+            // InternalAsm.g:129:1: ( ruleDImport EOF )
+            // InternalAsm.g:130:1: ruleDImport EOF
             {
-             before(grammarAccess.getSImportRule()); 
+             before(grammarAccess.getDImportRule()); 
             pushFollow(FOLLOW_1);
-            ruleSImport();
+            ruleDImport();
 
             state._fsp--;
 
-             after(grammarAccess.getSImportRule()); 
+             after(grammarAccess.getDImportRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -340,35 +340,35 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleSImport"
+    // $ANTLR end "entryRuleDImport"
 
 
-    // $ANTLR start "ruleSImport"
-    // InternalAsm.g:137:1: ruleSImport : ( ( rule__SImport__Group__0 ) ) ;
-    public final void ruleSImport() throws RecognitionException {
+    // $ANTLR start "ruleDImport"
+    // InternalAsm.g:137:1: ruleDImport : ( ( rule__DImport__Group__0 ) ) ;
+    public final void ruleDImport() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:141:2: ( ( ( rule__SImport__Group__0 ) ) )
-            // InternalAsm.g:142:2: ( ( rule__SImport__Group__0 ) )
+            // InternalAsm.g:141:2: ( ( ( rule__DImport__Group__0 ) ) )
+            // InternalAsm.g:142:2: ( ( rule__DImport__Group__0 ) )
             {
-            // InternalAsm.g:142:2: ( ( rule__SImport__Group__0 ) )
-            // InternalAsm.g:143:3: ( rule__SImport__Group__0 )
+            // InternalAsm.g:142:2: ( ( rule__DImport__Group__0 ) )
+            // InternalAsm.g:143:3: ( rule__DImport__Group__0 )
             {
-             before(grammarAccess.getSImportAccess().getGroup()); 
-            // InternalAsm.g:144:3: ( rule__SImport__Group__0 )
-            // InternalAsm.g:144:4: rule__SImport__Group__0
+             before(grammarAccess.getDImportAccess().getGroup()); 
+            // InternalAsm.g:144:3: ( rule__DImport__Group__0 )
+            // InternalAsm.g:144:4: rule__DImport__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__SImport__Group__0();
+            rule__DImport__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getSImportAccess().getGroup()); 
+             after(grammarAccess.getDImportAccess().getGroup()); 
 
             }
 
@@ -387,7 +387,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleSImport"
+    // $ANTLR end "ruleDImport"
 
 
     // $ANTLR start "entryRuleSActor"
@@ -2413,23 +2413,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__SServiceInterface__Group__7__Impl"
 
 
-    // $ANTLR start "rule__SImport__Group__0"
-    // InternalAsm.g:799:1: rule__SImport__Group__0 : rule__SImport__Group__0__Impl rule__SImport__Group__1 ;
-    public final void rule__SImport__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__DImport__Group__0"
+    // InternalAsm.g:799:1: rule__DImport__Group__0 : rule__DImport__Group__0__Impl rule__DImport__Group__1 ;
+    public final void rule__DImport__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:803:1: ( rule__SImport__Group__0__Impl rule__SImport__Group__1 )
-            // InternalAsm.g:804:2: rule__SImport__Group__0__Impl rule__SImport__Group__1
+            // InternalAsm.g:803:1: ( rule__DImport__Group__0__Impl rule__DImport__Group__1 )
+            // InternalAsm.g:804:2: rule__DImport__Group__0__Impl rule__DImport__Group__1
             {
             pushFollow(FOLLOW_3);
-            rule__SImport__Group__0__Impl();
+            rule__DImport__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__SImport__Group__1();
+            rule__DImport__Group__1();
 
             state._fsp--;
 
@@ -2448,12 +2448,12 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SImport__Group__0"
+    // $ANTLR end "rule__DImport__Group__0"
 
 
-    // $ANTLR start "rule__SImport__Group__0__Impl"
-    // InternalAsm.g:811:1: rule__SImport__Group__0__Impl : ( 'import' ) ;
-    public final void rule__SImport__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DImport__Group__0__Impl"
+    // InternalAsm.g:811:1: rule__DImport__Group__0__Impl : ( 'import' ) ;
+    public final void rule__DImport__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -2464,9 +2464,9 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             // InternalAsm.g:816:1: ( 'import' )
             // InternalAsm.g:817:2: 'import'
             {
-             before(grammarAccess.getSImportAccess().getImportKeyword_0()); 
+             before(grammarAccess.getDImportAccess().getImportKeyword_0()); 
             match(input,16,FOLLOW_2); 
-             after(grammarAccess.getSImportAccess().getImportKeyword_0()); 
+             after(grammarAccess.getDImportAccess().getImportKeyword_0()); 
 
             }
 
@@ -2485,21 +2485,21 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SImport__Group__0__Impl"
+    // $ANTLR end "rule__DImport__Group__0__Impl"
 
 
-    // $ANTLR start "rule__SImport__Group__1"
-    // InternalAsm.g:826:1: rule__SImport__Group__1 : rule__SImport__Group__1__Impl ;
-    public final void rule__SImport__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__DImport__Group__1"
+    // InternalAsm.g:826:1: rule__DImport__Group__1 : rule__DImport__Group__1__Impl ;
+    public final void rule__DImport__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:830:1: ( rule__SImport__Group__1__Impl )
-            // InternalAsm.g:831:2: rule__SImport__Group__1__Impl
+            // InternalAsm.g:830:1: ( rule__DImport__Group__1__Impl )
+            // InternalAsm.g:831:2: rule__DImport__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__SImport__Group__1__Impl();
+            rule__DImport__Group__1__Impl();
 
             state._fsp--;
 
@@ -2518,35 +2518,35 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SImport__Group__1"
+    // $ANTLR end "rule__DImport__Group__1"
 
 
-    // $ANTLR start "rule__SImport__Group__1__Impl"
-    // InternalAsm.g:837:1: rule__SImport__Group__1__Impl : ( ( rule__SImport__ImportedNamespaceAssignment_1 ) ) ;
-    public final void rule__SImport__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DImport__Group__1__Impl"
+    // InternalAsm.g:837:1: rule__DImport__Group__1__Impl : ( ( rule__DImport__ImportedNamespaceAssignment_1 ) ) ;
+    public final void rule__DImport__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:841:1: ( ( ( rule__SImport__ImportedNamespaceAssignment_1 ) ) )
-            // InternalAsm.g:842:1: ( ( rule__SImport__ImportedNamespaceAssignment_1 ) )
+            // InternalAsm.g:841:1: ( ( ( rule__DImport__ImportedNamespaceAssignment_1 ) ) )
+            // InternalAsm.g:842:1: ( ( rule__DImport__ImportedNamespaceAssignment_1 ) )
             {
-            // InternalAsm.g:842:1: ( ( rule__SImport__ImportedNamespaceAssignment_1 ) )
-            // InternalAsm.g:843:2: ( rule__SImport__ImportedNamespaceAssignment_1 )
+            // InternalAsm.g:842:1: ( ( rule__DImport__ImportedNamespaceAssignment_1 ) )
+            // InternalAsm.g:843:2: ( rule__DImport__ImportedNamespaceAssignment_1 )
             {
-             before(grammarAccess.getSImportAccess().getImportedNamespaceAssignment_1()); 
-            // InternalAsm.g:844:2: ( rule__SImport__ImportedNamespaceAssignment_1 )
-            // InternalAsm.g:844:3: rule__SImport__ImportedNamespaceAssignment_1
+             before(grammarAccess.getDImportAccess().getImportedNamespaceAssignment_1()); 
+            // InternalAsm.g:844:2: ( rule__DImport__ImportedNamespaceAssignment_1 )
+            // InternalAsm.g:844:3: rule__DImport__ImportedNamespaceAssignment_1
             {
             pushFollow(FOLLOW_2);
-            rule__SImport__ImportedNamespaceAssignment_1();
+            rule__DImport__ImportedNamespaceAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getSImportAccess().getImportedNamespaceAssignment_1()); 
+             after(grammarAccess.getDImportAccess().getImportedNamespaceAssignment_1()); 
 
             }
 
@@ -2565,7 +2565,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SImport__Group__1__Impl"
+    // $ANTLR end "rule__DImport__Group__1__Impl"
 
 
     // $ANTLR start "rule__SWatchdog__Group__0"
@@ -4106,25 +4106,25 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SApplication__ImportsAssignment_2"
-    // InternalAsm.g:1361:1: rule__SApplication__ImportsAssignment_2 : ( ruleSImport ) ;
+    // InternalAsm.g:1361:1: rule__SApplication__ImportsAssignment_2 : ( ruleDImport ) ;
     public final void rule__SApplication__ImportsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:1365:1: ( ( ruleSImport ) )
-            // InternalAsm.g:1366:2: ( ruleSImport )
+            // InternalAsm.g:1365:1: ( ( ruleDImport ) )
+            // InternalAsm.g:1366:2: ( ruleDImport )
             {
-            // InternalAsm.g:1366:2: ( ruleSImport )
-            // InternalAsm.g:1367:3: ruleSImport
+            // InternalAsm.g:1366:2: ( ruleDImport )
+            // InternalAsm.g:1367:3: ruleDImport
             {
-             before(grammarAccess.getSApplicationAccess().getImportsSImportParserRuleCall_2_0()); 
+             before(grammarAccess.getSApplicationAccess().getImportsDImportParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
-            ruleSImport();
+            ruleDImport();
 
             state._fsp--;
 
-             after(grammarAccess.getSApplicationAccess().getImportsSImportParserRuleCall_2_0()); 
+             after(grammarAccess.getSApplicationAccess().getImportsDImportParserRuleCall_2_0()); 
 
             }
 
@@ -4274,25 +4274,25 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SServiceInterface__ImportsAssignment_3"
-    // InternalAsm.g:1425:1: rule__SServiceInterface__ImportsAssignment_3 : ( ruleSImport ) ;
+    // InternalAsm.g:1425:1: rule__SServiceInterface__ImportsAssignment_3 : ( ruleDImport ) ;
     public final void rule__SServiceInterface__ImportsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:1429:1: ( ( ruleSImport ) )
-            // InternalAsm.g:1430:2: ( ruleSImport )
+            // InternalAsm.g:1429:1: ( ( ruleDImport ) )
+            // InternalAsm.g:1430:2: ( ruleDImport )
             {
-            // InternalAsm.g:1430:2: ( ruleSImport )
-            // InternalAsm.g:1431:3: ruleSImport
+            // InternalAsm.g:1430:2: ( ruleDImport )
+            // InternalAsm.g:1431:3: ruleDImport
             {
-             before(grammarAccess.getSServiceInterfaceAccess().getImportsSImportParserRuleCall_3_0()); 
+             before(grammarAccess.getSServiceInterfaceAccess().getImportsDImportParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
-            ruleSImport();
+            ruleDImport();
 
             state._fsp--;
 
-             after(grammarAccess.getSServiceInterfaceAccess().getImportsSImportParserRuleCall_3_0()); 
+             after(grammarAccess.getSServiceInterfaceAccess().getImportsDImportParserRuleCall_3_0()); 
 
             }
 
@@ -4400,9 +4400,9 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__SServiceInterface__OperationsAssignment_7"
 
 
-    // $ANTLR start "rule__SImport__ImportedNamespaceAssignment_1"
-    // InternalAsm.g:1474:1: rule__SImport__ImportedNamespaceAssignment_1 : ( ruleSQualifiedNameWithWildcard ) ;
-    public final void rule__SImport__ImportedNamespaceAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__DImport__ImportedNamespaceAssignment_1"
+    // InternalAsm.g:1474:1: rule__DImport__ImportedNamespaceAssignment_1 : ( ruleSQualifiedNameWithWildcard ) ;
+    public final void rule__DImport__ImportedNamespaceAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -4413,13 +4413,13 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             // InternalAsm.g:1479:2: ( ruleSQualifiedNameWithWildcard )
             // InternalAsm.g:1480:3: ruleSQualifiedNameWithWildcard
             {
-             before(grammarAccess.getSImportAccess().getImportedNamespaceSQualifiedNameWithWildcardParserRuleCall_1_0()); 
+             before(grammarAccess.getDImportAccess().getImportedNamespaceSQualifiedNameWithWildcardParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
             ruleSQualifiedNameWithWildcard();
 
             state._fsp--;
 
-             after(grammarAccess.getSImportAccess().getImportedNamespaceSQualifiedNameWithWildcardParserRuleCall_1_0()); 
+             after(grammarAccess.getDImportAccess().getImportedNamespaceSQualifiedNameWithWildcardParserRuleCall_1_0()); 
 
             }
 
@@ -4438,7 +4438,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SImport__ImportedNamespaceAssignment_1"
+    // $ANTLR end "rule__DImport__ImportedNamespaceAssignment_1"
 
 
     // $ANTLR start "rule__SWatchdog__NameAssignment_1"

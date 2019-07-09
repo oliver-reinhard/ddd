@@ -3,7 +3,6 @@ package com.mimacom.ddd.sm.sim.indexing;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.sm.sim.SimPackage;
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy;
 import java.util.Collections;
 import java.util.List;
@@ -72,13 +71,13 @@ public class SimIndex {
       if ((rd == null)) {
         return Collections.EMPTY_LIST;
       }
-      _xblockexpression = rd.getExportedObjectsByType(SimPackage.eINSTANCE.getSType());
+      _xblockexpression = rd.getExportedObjectsByType(BasePackage.eINSTANCE.getDType());
     }
     return _xblockexpression;
   }
   
   public Iterable<IEObjectDescription> getVisibleSTypeDescriptions(final EObject context) {
-    return this.getVisibleEObjectDescriptions(context, SimPackage.eINSTANCE.getSType());
+    return this.getVisibleEObjectDescriptions(context, BasePackage.eINSTANCE.getDType());
   }
   
   public Map<QualifiedName, IEObjectDescription> getVisibleDTypeDescriptionsMap(final EObject context) {

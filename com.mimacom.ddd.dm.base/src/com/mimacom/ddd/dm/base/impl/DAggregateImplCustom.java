@@ -36,5 +36,4 @@ public class DAggregateImplCustom extends DAggregateImpl {
 		}
 		return NO_ROOT_DERIVED_NAME;
 	}
-
 }

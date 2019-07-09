@@ -1,22 +1,29 @@
 package com.mimacom.ddd.sm.sim.ui.plantuml;
 
 import com.google.common.base.Objects;
-import com.mimacom.ddd.sm.sim.SAggregate;
-import com.mimacom.ddd.sm.sim.SAssociation;
-import com.mimacom.ddd.sm.sim.SAssociationKind;
-import com.mimacom.ddd.sm.sim.SAttribute;
-import com.mimacom.ddd.sm.sim.SComplexType;
-import com.mimacom.ddd.sm.sim.SDetailType;
-import com.mimacom.ddd.sm.sim.SElementNature;
-import com.mimacom.ddd.sm.sim.SEntityType;
-import com.mimacom.ddd.sm.sim.SEnumeration;
-import com.mimacom.ddd.sm.sim.SFeature;
+import com.google.inject.Inject;
+import com.mimacom.ddd.dm.base.DAggregate;
+import com.mimacom.ddd.dm.base.DAssociation;
+import com.mimacom.ddd.dm.base.DAssociationKind;
+import com.mimacom.ddd.dm.base.DAttribute;
+import com.mimacom.ddd.dm.base.DComplexType;
+import com.mimacom.ddd.dm.base.DDetailType;
+import com.mimacom.ddd.dm.base.DEntityType;
+import com.mimacom.ddd.dm.base.DEnumeration;
+import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DLiteral;
+import com.mimacom.ddd.dm.base.DPrimitive;
+import com.mimacom.ddd.dm.base.DQuery;
+import com.mimacom.ddd.dm.base.DQueryParameter;
+import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.dim.DimUtil;
+import com.mimacom.ddd.sm.sim.SAggregateDeduction;
+import com.mimacom.ddd.sm.sim.SAssociationDeduction;
+import com.mimacom.ddd.sm.sim.SAttributeDeduction;
+import com.mimacom.ddd.sm.sim.SComplexTypeDeduction;
+import com.mimacom.ddd.sm.sim.SFeatureDeduction;
 import com.mimacom.ddd.sm.sim.SInformationModel;
-import com.mimacom.ddd.sm.sim.SLiteral;
-import com.mimacom.ddd.sm.sim.SPrimitive;
-import com.mimacom.ddd.sm.sim.SQuery;
-import com.mimacom.ddd.sm.sim.SQueryParameter;
-import com.mimacom.ddd.sm.sim.SType;
+import com.mimacom.ddd.sm.sim.STypeDeduction;
 import com.mimacom.ddd.sm.sim.ui.internal.SimActivator;
 import java.util.Arrays;
 import java.util.Map;
@@ -33,11 +40,16 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.model.XtextDocument;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
+import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
 public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
+  @Inject
+  @Extension
+  private DimUtil _dimUtil;
+  
   public void DmsDiagramTextProvider() {
     this.setEditorType(XtextEditor.class);
   }
@@ -78,33 +90,32 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
   }
   
   public String modelTypes(final SInformationModel model) {
-    final Function1<SAggregate, Boolean> _function = (SAggregate it) -> {
-      SElementNature _nature = it.getNature();
-      return Boolean.valueOf((!Objects.equal(_nature, SElementNature.DEDUCTION_RULE)));
+    final Function1<DAggregate, Boolean> _function = (DAggregate it) -> {
+      return Boolean.valueOf((!(it instanceof SAggregateDeduction)));
     };
-    final Iterable<SAggregate> allAggregates = IterableExtensions.<SAggregate>filter(EcoreUtil2.<SAggregate>eAllOfType(model, SAggregate.class), _function);
-    final Function1<SAssociation, Boolean> _function_1 = (SAssociation it) -> {
-      return Boolean.valueOf(((it.getType() instanceof SEntityType) && (!Objects.equal(it.getNature(), SElementNature.DEDUCTION_RULE))));
+    final Iterable<DAggregate> allAggregates = IterableExtensions.<DAggregate>filter(EcoreUtil2.<DAggregate>eAllOfType(model, DAggregate.class), _function);
+    final Function1<DAssociation, Boolean> _function_1 = (DAssociation it) -> {
+      return Boolean.valueOf((!(it instanceof SAssociationDeduction)));
     };
-    final Iterable<SAssociation> allAssociations = IterableExtensions.<SAssociation>filter(EcoreUtil2.<SAssociation>eAllOfType(model, SAssociation.class), _function_1);
-    final Function1<SAssociation, Boolean> _function_2 = (SAssociation it) -> {
+    final Iterable<DAssociation> allAssociations = IterableExtensions.<DAssociation>filter(EcoreUtil2.<DAssociation>eAllOfType(model, DAssociation.class), _function_1);
+    final Function1<DAssociation, Boolean> _function_2 = (DAssociation it) -> {
       String _modelName = this.modelName(it.getTargetType());
       String _name = model.getName();
       return Boolean.valueOf((!Objects.equal(_modelName, _name)));
     };
-    final Function1<SAssociation, String> _function_3 = (SAssociation it) -> {
+    final Function1<DAssociation, String> _function_3 = (DAssociation it) -> {
       return this.modelName(it.getTargetType());
     };
-    final Iterable<String> allReferencedDomains = IterableExtensions.<SAssociation, String>map(IterableExtensions.<SAssociation>filter(allAssociations, _function_2), _function_3);
-    final Function1<SAttribute, Boolean> _function_4 = (SAttribute it) -> {
-      return Boolean.valueOf(((it.getType() instanceof SDetailType) && (!Objects.equal(it.getNature(), SElementNature.DEDUCTION_RULE))));
+    final Iterable<String> allReferencedDomains = IterableExtensions.<DAssociation, String>map(IterableExtensions.<DAssociation>filter(allAssociations, _function_2), _function_3);
+    final Function1<DAttribute, Boolean> _function_4 = (DAttribute it) -> {
+      return Boolean.valueOf(((!(it instanceof SAttributeDeduction)) && (!(it.eContainer() instanceof SComplexTypeDeduction))));
     };
-    final Iterable<SAttribute> allDetailAttributes = IterableExtensions.<SAttribute>filter(EcoreUtil2.<SAttribute>eAllOfType(model, SAttribute.class), _function_4);
-    final Function1<SComplexType, Boolean> _function_5 = (SComplexType it) -> {
-      SComplexType _superType = it.getSuperType();
+    final Iterable<DAttribute> allComplexAttributes = IterableExtensions.<DAttribute>filter(EcoreUtil2.<DAttribute>eAllOfType(model, DAttribute.class), _function_4);
+    final Function1<DComplexType, Boolean> _function_5 = (DComplexType it) -> {
+      DComplexType _superType = it.getSuperType();
       return Boolean.valueOf((_superType != null));
     };
-    final Iterable<SComplexType> allSubtypes = IterableExtensions.<SComplexType>filter(EcoreUtil2.<SComplexType>eAllOfType(model, SComplexType.class), _function_5);
+    final Iterable<DComplexType> allSubtypes = IterableExtensions.<DComplexType>filter(EcoreUtil2.<DComplexType>eAllOfType(model, DComplexType.class), _function_5);
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("hide empty members");
     _builder.newLine();
@@ -136,20 +147,19 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     _builder.newLine();
     _builder.append("           \t");
     {
-      for(final SAggregate a : allAggregates) {
+      for(final DAggregate a : allAggregates) {
         _builder.append("package ");
-        String _aggregateName = this.aggregateName(a);
+        String _aggregateName = this._dimUtil.aggregateName(a);
         _builder.append(_aggregateName, "           \t");
         _builder.append(" <<Rectangle>> {");
         _builder.newLineIfNotEmpty();
         _builder.append("\t    \t\t\t\t");
         {
-          final Function1<SType, Boolean> _function_6 = (SType it) -> {
-            SElementNature _nature = it.getNature();
-            return Boolean.valueOf((!Objects.equal(_nature, SElementNature.DEDUCTION_RULE)));
+          final Function1<DType, Boolean> _function_6 = (DType it) -> {
+            return Boolean.valueOf((!(it instanceof STypeDeduction)));
           };
-          Iterable<SType> _filter = IterableExtensions.<SType>filter(a.getTypes(), _function_6);
-          for(final SType t : _filter) {
+          Iterable<DType> _filter = IterableExtensions.<DType>filter(a.getTypes(), _function_6);
+          for(final DType t : _filter) {
             CharSequence _generateType = this.generateType(t);
             _builder.append(_generateType, "\t    \t\t\t\t");
           }
@@ -175,7 +185,7 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     }
     _builder.append("            ");
     {
-      for(final SAssociation a_1 : allAssociations) {
+      for(final DAssociation a_1 : allAssociations) {
         CharSequence _generateAssociation = this.generateAssociation(a_1);
         _builder.append(_generateAssociation, "            ");
         _builder.newLineIfNotEmpty();
@@ -183,7 +193,12 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     }
     _builder.append("            ");
     {
-      for(final SAttribute a_2 : allDetailAttributes) {
+      final Function1<DAttribute, Boolean> _function_7 = (DAttribute it) -> {
+        DType _type = it.getType();
+        return Boolean.valueOf((_type instanceof DDetailType));
+      };
+      Iterable<DAttribute> _filter_1 = IterableExtensions.<DAttribute>filter(allComplexAttributes, _function_7);
+      for(final DAttribute a_2 : _filter_1) {
         CharSequence _generateLink = this.generateLink(a_2);
         _builder.append(_generateLink, "            ");
         _builder.newLineIfNotEmpty();
@@ -191,18 +206,18 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     }
     _builder.append("            ");
     {
-      for(final SComplexType s : allSubtypes) {
-        String _aggregateName_1 = this.aggregateName(s);
+      for(final DComplexType s : allSubtypes) {
+        String _aggregateName_1 = this._dimUtil.aggregateName(s);
         _builder.append(_aggregateName_1, "            ");
         _builder.append(".");
         String _name = s.getName();
         _builder.append(_name, "            ");
         _builder.append(" --|> ");
-        String _aggregateName_2 = this.aggregateName(s.getSuperType());
+        String _aggregateName_2 = this._dimUtil.aggregateName(s.getSuperType());
         _builder.append(_aggregateName_2, "            ");
         {
-          String _aggregateName_3 = this.aggregateName(s);
-          String _aggregateName_4 = this.aggregateName(s.getSuperType());
+          String _aggregateName_3 = this._dimUtil.aggregateName(s);
+          String _aggregateName_4 = this._dimUtil.aggregateName(s.getSuperType());
           boolean _tripleEquals = (_aggregateName_3 == _aggregateName_4);
           if (_tripleEquals) {
             _builder.append(".");
@@ -228,18 +243,7 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     return _xifexpression;
   }
   
-  public String aggregateName(final EObject obj) {
-    final SAggregate a = EcoreUtil2.<SAggregate>getContainerOfType(obj, SAggregate.class);
-    String _xifexpression = null;
-    if ((a != null)) {
-      _xifexpression = a.getDerivedName();
-    } else {
-      _xifexpression = "undefined";
-    }
-    return _xifexpression;
-  }
-  
-  protected CharSequence _generateType(final SComplexType c) {
+  protected CharSequence _generateType(final DComplexType c) {
     StringConcatenation _builder = new StringConcatenation();
     {
       boolean _isAbstract = c.isAbstract();
@@ -248,7 +252,7 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
       }
     }
     _builder.append("class ");
-    String _aggregateName = this.aggregateName(c);
+    String _aggregateName = this._dimUtil.aggregateName(c);
     _builder.append(_aggregateName);
     _builder.append(".");
     String _name = c.getName();
@@ -260,12 +264,11 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     {
-      final Function1<SFeature, Boolean> _function = (SFeature it) -> {
-        SElementNature _nature = it.getNature();
-        return Boolean.valueOf((!Objects.equal(_nature, SElementNature.DEDUCTION_RULE)));
+      final Function1<DFeature, Boolean> _function = (DFeature it) -> {
+        return Boolean.valueOf((!(it instanceof SFeatureDeduction)));
       };
-      Iterable<SFeature> _filter = IterableExtensions.<SFeature>filter(c.getFeatures(), _function);
-      for(final SFeature f : _filter) {
+      Iterable<DFeature> _filter = IterableExtensions.<DFeature>filter(c.getFeatures(), _function);
+      for(final DFeature f : _filter) {
         CharSequence _generateFeature = this.generateFeature(f);
         _builder.append(_generateFeature, "\t");
       }
@@ -276,7 +279,7 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     return _builder;
   }
   
-  protected CharSequence _generateType(final SPrimitive p) {
+  protected CharSequence _generateType(final DPrimitive p) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("class ");
     String _name = p.getName();
@@ -288,7 +291,7 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     return _builder;
   }
   
-  protected CharSequence _generateType(final SEnumeration e) {
+  protected CharSequence _generateType(final DEnumeration e) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("enum ");
     String _name = e.getName();
@@ -299,8 +302,8 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
     {
-      EList<SLiteral> _literals = e.getLiterals();
-      for(final SLiteral f : _literals) {
+      EList<DLiteral> _literals = e.getLiterals();
+      for(final DLiteral f : _literals) {
         _builder.append("\t");
         String _name_1 = f.getName();
         _builder.append(_name_1, "\t");
@@ -312,18 +315,18 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     return _builder;
   }
   
-  protected CharSequence _generateType(final SType t) {
+  protected CharSequence _generateType(final DType t) {
     StringConcatenation _builder = new StringConcatenation();
     return _builder;
   }
   
-  public String getSpot(final SType t) {
+  public String getSpot(final DType t) {
     String _switchResult = null;
     boolean _matched = false;
-    if (t instanceof SEntityType) {
+    if (t instanceof DEntityType) {
       _matched=true;
       String _xifexpression = null;
-      boolean _isRoot = ((SEntityType)t).isRoot();
+      boolean _isRoot = ((DEntityType)t).isRoot();
       if (_isRoot) {
         _xifexpression = "<< (R,#FB3333) >>";
       } else {
@@ -332,19 +335,19 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
       _switchResult = _xifexpression;
     }
     if (!_matched) {
-      if (t instanceof SDetailType) {
+      if (t instanceof DDetailType) {
         _matched=true;
         _switchResult = "<< (D,#FAE55F) >>";
       }
     }
     if (!_matched) {
-      if (t instanceof SEnumeration) {
+      if (t instanceof DEnumeration) {
         _matched=true;
         _switchResult = "<< (e,#66B371) >>";
       }
     }
     if (!_matched) {
-      if (t instanceof SPrimitive) {
+      if (t instanceof DPrimitive) {
         _matched=true;
         _switchResult = "<< (p,#9AF78F) >>";
       }
@@ -355,19 +358,19 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     return _switchResult;
   }
   
-  protected CharSequence _generateFeature(final SAttribute a) {
+  protected CharSequence _generateFeature(final DAttribute a) {
     StringConcatenation _builder = new StringConcatenation();
     {
-      SType _type = null;
+      DType _type = null;
       if (a!=null) {
         _type=a.getType();
       }
-      boolean _not = (!(_type instanceof SDetailType));
+      boolean _not = (!(_type instanceof DDetailType));
       if (_not) {
         String _name = a.getName();
         _builder.append(_name);
         _builder.append(" : ");
-        SType _type_1 = a.getType();
+        DType _type_1 = a.getType();
         String _name_1 = null;
         if (_type_1!=null) {
           _name_1=_type_1.getName();
@@ -379,10 +382,10 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     return _builder;
   }
   
-  protected CharSequence _generateFeature(final SQuery q) {
+  protected CharSequence _generateFeature(final DQuery q) {
     StringConcatenation _builder = new StringConcatenation();
     {
-      SType _type = q.getType();
+      DType _type = q.getType();
       boolean _tripleNotEquals = (_type != null);
       if (_tripleNotEquals) {
         String _name = q.getName();
@@ -400,17 +403,17 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     return _builder;
   }
   
-  protected CharSequence _generateFeature(final SAssociation a) {
+  protected CharSequence _generateFeature(final DAssociation a) {
     StringConcatenation _builder = new StringConcatenation();
     return _builder;
   }
   
-  public CharSequence generateQueryParameters(final SQuery q) {
+  public CharSequence generateQueryParameters(final DQuery q) {
     StringConcatenation _builder = new StringConcatenation();
     {
-      EList<SQueryParameter> _parameters = q.getParameters();
+      EList<DQueryParameter> _parameters = q.getParameters();
       boolean _hasElements = false;
-      for(final SQueryParameter p : _parameters) {
+      for(final DQueryParameter p : _parameters) {
         if (!_hasElements) {
           _hasElements = true;
         } else {
@@ -426,22 +429,22 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     return _builder;
   }
   
-  public CharSequence generateAssociation(final SAssociation a) {
+  public CharSequence generateAssociation(final DAssociation a) {
     CharSequence _switchResult = null;
-    SAssociationKind _kind = a.getKind();
+    DAssociationKind _kind = a.getKind();
     if (_kind != null) {
       switch (_kind) {
         case REFERENCE:
           EObject _eContainer = a.eContainer();
-          _switchResult = this.generateLink("", ((SType) _eContainer), a.getType(), a.getName(), ">");
+          _switchResult = this.generateLink("", ((DType) _eContainer), a.getType(), a.getName(), ">");
           break;
         case COMPOSITE:
           EObject _eContainer_1 = a.eContainer();
-          _switchResult = this.generateLink("*", ((SType) _eContainer_1), a.getType(), a.getName(), ">");
+          _switchResult = this.generateLink("*", ((DType) _eContainer_1), a.getType(), a.getName(), ">");
           break;
         case INVERSE_COMPOSITE:
           EObject _eContainer_2 = a.eContainer();
-          _switchResult = this.generateLink("}", ((SType) _eContainer_2), a.getType(), a.getName(), "*");
+          _switchResult = this.generateLink("}", ((DType) _eContainer_2), a.getType(), a.getName(), "*");
           break;
         default:
           break;
@@ -450,14 +453,14 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     return _switchResult;
   }
   
-  public CharSequence generateLink(final SAttribute a) {
+  public CharSequence generateLink(final DAttribute a) {
     EObject _eContainer = a.eContainer();
-    return this.generateLink("*", ((SType) _eContainer), a.getType(), a.getName(), "");
+    return this.generateLink("*", ((DType) _eContainer), a.getType(), a.getName(), "");
   }
   
-  public CharSequence generateLink(final String sourceArrowhead, final SType source, final SType target, final String targetRole, final String targetArrowhead) {
+  public CharSequence generateLink(final String sourceArrowhead, final DType source, final DType target, final String targetRole, final String targetArrowhead) {
     StringConcatenation _builder = new StringConcatenation();
-    String _aggregateName = this.aggregateName(source);
+    String _aggregateName = this._dimUtil.aggregateName(source);
     _builder.append(_aggregateName);
     _builder.append(".");
     String _name = source.getName();
@@ -475,32 +478,32 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     return _builder;
   }
   
-  public String getTargetName(final SType source, final SType target) {
+  public String getTargetName(final DType source, final DType target) {
     String _modelName = this.modelName(source);
     String _modelName_1 = this.modelName(target);
     boolean _equals = Objects.equal(_modelName, _modelName_1);
     if (_equals) {
-      String _aggregateName = this.aggregateName(source);
-      String _aggregateName_1 = this.aggregateName(target);
+      String _aggregateName = this._dimUtil.aggregateName(source);
+      String _aggregateName_1 = this._dimUtil.aggregateName(target);
       boolean _equals_1 = Objects.equal(_aggregateName, _aggregateName_1);
       if (_equals_1) {
-        String _aggregateName_2 = this.aggregateName(target);
+        String _aggregateName_2 = this._dimUtil.aggregateName(target);
         String _plus = (_aggregateName_2 + ".");
         String _name = target.getName();
         return (_plus + _name);
       }
-      return this.aggregateName(target);
+      return this._dimUtil.aggregateName(target);
     }
     return this.modelName(target);
   }
   
-  public CharSequence generateType(final SType e) {
-    if (e instanceof SEnumeration) {
-      return _generateType((SEnumeration)e);
-    } else if (e instanceof SPrimitive) {
-      return _generateType((SPrimitive)e);
-    } else if (e instanceof SComplexType) {
-      return _generateType((SComplexType)e);
+  public CharSequence generateType(final DType e) {
+    if (e instanceof DEnumeration) {
+      return _generateType((DEnumeration)e);
+    } else if (e instanceof DPrimitive) {
+      return _generateType((DPrimitive)e);
+    } else if (e instanceof DComplexType) {
+      return _generateType((DComplexType)e);
     } else if (e != null) {
       return _generateType(e);
     } else {
@@ -509,13 +512,13 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     }
   }
   
-  public CharSequence generateFeature(final SFeature a) {
-    if (a instanceof SAssociation) {
-      return _generateFeature((SAssociation)a);
-    } else if (a instanceof SAttribute) {
-      return _generateFeature((SAttribute)a);
-    } else if (a instanceof SQuery) {
-      return _generateFeature((SQuery)a);
+  public CharSequence generateFeature(final DFeature a) {
+    if (a instanceof DAssociation) {
+      return _generateFeature((DAssociation)a);
+    } else if (a instanceof DAttribute) {
+      return _generateFeature((DAttribute)a);
+    } else if (a instanceof DQuery) {
+      return _generateFeature((DQuery)a);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(a).toString());

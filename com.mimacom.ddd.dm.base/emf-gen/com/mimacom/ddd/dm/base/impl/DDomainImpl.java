@@ -11,15 +11,22 @@ import com.mimacom.ddd.dm.base.DExistingApplication;
 import com.mimacom.ddd.dm.base.DFunction;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.IDeducibleElement;
+import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.base.INamespace;
+import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -32,6 +39,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getDeductionDefinition <em>Deduction Definition</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#isSynthetic <em>Synthetic</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getFunctions <em>Functions</em>}</li>
@@ -45,6 +54,36 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class DDomainImpl extends DNamedElementImpl implements DDomain
 {
+	/**
+	 * The cached value of the '{@link #getDeductionDefinition() <em>Deduction Definition</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeductionDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected IDeductionDefinition deductionDefinition;
+
+	/**
+	 * The default value of the '{@link #isSynthetic() <em>Synthetic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSynthetic()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SYNTHETIC_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isSynthetic() <em>Synthetic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSynthetic()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean synthetic = SYNTHETIC_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -134,6 +173,76 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	protected EClass eStaticClass()
 	{
 		return BasePackage.Literals.DDOMAIN;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public IDeductionDefinition getDeductionDefinition()
+	{
+		if (deductionDefinition != null && deductionDefinition.eIsProxy())
+		{
+			InternalEObject oldDeductionDefinition = (InternalEObject)deductionDefinition;
+			deductionDefinition = (IDeductionDefinition)eResolveProxy(oldDeductionDefinition);
+			if (deductionDefinition != oldDeductionDefinition)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BasePackage.DDOMAIN__DEDUCTION_DEFINITION, oldDeductionDefinition, deductionDefinition));
+			}
+		}
+		return deductionDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IDeductionDefinition basicGetDeductionDefinition()
+	{
+		return deductionDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDeductionDefinition(IDeductionDefinition newDeductionDefinition)
+	{
+		IDeductionDefinition oldDeductionDefinition = deductionDefinition;
+		deductionDefinition = newDeductionDefinition;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DDOMAIN__DEDUCTION_DEFINITION, oldDeductionDefinition, deductionDefinition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isSynthetic()
+	{
+		return synthetic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSynthetic(boolean newSynthetic)
+	{
+		boolean oldSynthetic = synthetic;
+		synthetic = newSynthetic;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DDOMAIN__SYNTHETIC, oldSynthetic, synthetic));
 	}
 
 	/**
@@ -279,6 +388,11 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	{
 		switch (featureID)
 		{
+			case BasePackage.DDOMAIN__DEDUCTION_DEFINITION:
+				if (resolve) return getDeductionDefinition();
+				return basicGetDeductionDefinition();
+			case BasePackage.DDOMAIN__SYNTHETIC:
+				return isSynthetic();
 			case BasePackage.DDOMAIN__IMPORTS:
 				return getImports();
 			case BasePackage.DDOMAIN__TYPES:
@@ -308,6 +422,12 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	{
 		switch (featureID)
 		{
+			case BasePackage.DDOMAIN__DEDUCTION_DEFINITION:
+				setDeductionDefinition((IDeductionDefinition)newValue);
+				return;
+			case BasePackage.DDOMAIN__SYNTHETIC:
+				setSynthetic((Boolean)newValue);
+				return;
 			case BasePackage.DDOMAIN__IMPORTS:
 				getImports().clear();
 				getImports().addAll((Collection<? extends DImport>)newValue);
@@ -350,6 +470,12 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	{
 		switch (featureID)
 		{
+			case BasePackage.DDOMAIN__DEDUCTION_DEFINITION:
+				setDeductionDefinition((IDeductionDefinition)null);
+				return;
+			case BasePackage.DDOMAIN__SYNTHETIC:
+				setSynthetic(SYNTHETIC_EDEFAULT);
+				return;
 			case BasePackage.DDOMAIN__IMPORTS:
 				getImports().clear();
 				return;
@@ -385,6 +511,10 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	{
 		switch (featureID)
 		{
+			case BasePackage.DDOMAIN__DEDUCTION_DEFINITION:
+				return deductionDefinition != null;
+			case BasePackage.DDOMAIN__SYNTHETIC:
+				return synthetic != SYNTHETIC_EDEFAULT;
 			case BasePackage.DDOMAIN__IMPORTS:
 				return imports != null && !imports.isEmpty();
 			case BasePackage.DDOMAIN__TYPES:
@@ -401,6 +531,91 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 				return actors != null && !actors.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == INamespace.class)
+		{
+			switch (derivedFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		if (baseClass == IPrimaryNavigationTarget.class)
+		{
+			switch (derivedFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		if (baseClass == IDeducibleElement.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case BasePackage.DDOMAIN__DEDUCTION_DEFINITION: return BasePackage.IDEDUCIBLE_ELEMENT__DEDUCTION_DEFINITION;
+				case BasePackage.DDOMAIN__SYNTHETIC: return BasePackage.IDEDUCIBLE_ELEMENT__SYNTHETIC;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == INamespace.class)
+		{
+			switch (baseFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		if (baseClass == IPrimaryNavigationTarget.class)
+		{
+			switch (baseFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		if (baseClass == IDeducibleElement.class)
+		{
+			switch (baseFeatureID)
+			{
+				case BasePackage.IDEDUCIBLE_ELEMENT__DEDUCTION_DEFINITION: return BasePackage.DDOMAIN__DEDUCTION_DEFINITION;
+				case BasePackage.IDEDUCIBLE_ELEMENT__SYNTHETIC: return BasePackage.DDOMAIN__SYNTHETIC;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString()
+	{
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (synthetic: ");
+		result.append(synthetic);
+		result.append(')');
+		return result.toString();
 	}
 
 } //DDomainImpl

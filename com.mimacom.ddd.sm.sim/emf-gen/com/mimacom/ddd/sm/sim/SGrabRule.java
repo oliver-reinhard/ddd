@@ -2,6 +2,7 @@
  */
 package com.mimacom.ddd.sm.sim;
 
+import com.mimacom.ddd.dm.base.DDeductionRule;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +20,7 @@ package com.mimacom.ddd.sm.sim;
  * @model
  * @generated
  */
-public interface SGrabRule extends SDeductionRule
+public interface SGrabRule extends DDeductionRule
 {
 	/**
 	 * Returns the value of the '<em><b>Rename To</b></em>' attribute.

@@ -138,9 +138,9 @@ ruleSApplication returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSApplicationAccess().getImportsSImportParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getSApplicationAccess().getImportsDImportParserRuleCall_2_0());
 				}
-				lv_imports_2_0=ruleSImport
+				lv_imports_2_0=ruleDImport
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSApplicationRule());
@@ -149,7 +149,7 @@ ruleSApplication returns [EObject current=null]
 						$current,
 						"imports",
 						lv_imports_2_0,
-						"com.mimacom.ddd.sm.asm.Asm.SImport");
+						"com.mimacom.ddd.sm.asm.Asm.DImport");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -243,9 +243,9 @@ ruleSServiceInterface returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSServiceInterfaceAccess().getImportsSImportParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getSServiceInterfaceAccess().getImportsDImportParserRuleCall_3_0());
 				}
-				lv_imports_3_0=ruleSImport
+				lv_imports_3_0=ruleDImport
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSServiceInterfaceRule());
@@ -254,7 +254,7 @@ ruleSServiceInterface returns [EObject current=null]
 						$current,
 						"imports",
 						lv_imports_3_0,
-						"com.mimacom.ddd.sm.asm.Asm.SImport");
+						"com.mimacom.ddd.sm.asm.Asm.DImport");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -302,15 +302,15 @@ ruleSServiceInterface returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleSImport
-entryRuleSImport returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSImportRule()); }
-	iv_ruleSImport=ruleSImport
-	{ $current=$iv_ruleSImport.current; }
+// Entry rule entryRuleDImport
+entryRuleDImport returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDImportRule()); }
+	iv_ruleDImport=ruleDImport
+	{ $current=$iv_ruleDImport.current; }
 	EOF;
 
-// Rule SImport
-ruleSImport returns [EObject current=null]
+// Rule DImport
+ruleDImport returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -320,17 +320,17 @@ ruleSImport returns [EObject current=null]
 	(
 		otherlv_0='import'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getSImportAccess().getImportKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getDImportAccess().getImportKeyword_0());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSImportAccess().getImportedNamespaceSQualifiedNameWithWildcardParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getDImportAccess().getImportedNamespaceSQualifiedNameWithWildcardParserRuleCall_1_0());
 				}
 				lv_importedNamespace_1_0=ruleSQualifiedNameWithWildcard
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSImportRule());
+						$current = createModelElementForParent(grammarAccess.getDImportRule());
 					}
 					set(
 						$current,

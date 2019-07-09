@@ -8,6 +8,7 @@ Bundle-SymbolicName: com.mimacom.ddd.sm.sim.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.mimacom.ddd.sm.sim,
  com.mimacom.ddd.sm.sim.ide,
+ com.mimacom.ddd.dm.dim.ui,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.ui.codetemplates.ui,

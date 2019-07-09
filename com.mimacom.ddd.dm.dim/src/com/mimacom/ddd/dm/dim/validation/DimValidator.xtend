@@ -148,7 +148,7 @@ class DimValidator extends AbstractDimValidator {
 	@Check
 	def checkAssocitionToRootType(DAssociation a) {
 		if(! (a.type instanceof DEntityType)) {
-			error('Refererenced type is not an EntitytType', a, BasePackage.Literals.DTYPED_MEMBER__TYPE)
+			error('Refererenced type is not an EntityType', a, BasePackage.Literals.DTYPED_MEMBER__TYPE)
 		}
 	}
 

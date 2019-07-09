@@ -6,7 +6,7 @@ Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: com.mimacom.ddd.dm.dim; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: com.mimacom.ddd.dm.dmx,
+Require-Bundle: com.mimacom.ddd.dm.dmx;visibility:=reexport,
  org.eclipse.xtext,
  org.eclipse.xtext.xbase,
  org.eclipse.equinox.common;bundle-version="3.5.0",
@@ -24,5 +24,4 @@ Export-Package: com.mimacom.ddd.dm.dim,
  com.mimacom.ddd.dm.dim.scoping,
  com.mimacom.ddd.dm.dim.serializer,
  com.mimacom.ddd.dm.dim.services,
- com.mimacom.ddd.dm.dim.validation,
- com.mimacom.ddd.dm.dms
+ com.mimacom.ddd.dm.dim.validation

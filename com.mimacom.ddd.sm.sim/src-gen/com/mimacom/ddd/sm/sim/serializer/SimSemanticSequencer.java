@@ -4,28 +4,69 @@
 package com.mimacom.ddd.sm.sim.serializer;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.sm.sim.SAggregate;
-import com.mimacom.ddd.sm.sim.SAssociation;
-import com.mimacom.ddd.sm.sim.SAttribute;
-import com.mimacom.ddd.sm.sim.SCondition;
-import com.mimacom.ddd.sm.sim.SDetailType;
+import com.mimacom.ddd.dm.base.BasePackage;
+import com.mimacom.ddd.dm.base.DAggregate;
+import com.mimacom.ddd.dm.base.DAssociation;
+import com.mimacom.ddd.dm.base.DAttribute;
+import com.mimacom.ddd.dm.base.DCondition;
+import com.mimacom.ddd.dm.base.DDetailType;
+import com.mimacom.ddd.dm.base.DDomain;
+import com.mimacom.ddd.dm.base.DEntityType;
+import com.mimacom.ddd.dm.base.DEnumeration;
+import com.mimacom.ddd.dm.base.DException;
+import com.mimacom.ddd.dm.base.DExistingApplication;
+import com.mimacom.ddd.dm.base.DFunction;
+import com.mimacom.ddd.dm.base.DImport;
+import com.mimacom.ddd.dm.base.DLiteral;
+import com.mimacom.ddd.dm.base.DMultiplicity;
+import com.mimacom.ddd.dm.base.DPrimitive;
+import com.mimacom.ddd.dm.base.DQuery;
+import com.mimacom.ddd.dm.base.DQueryParameter;
+import com.mimacom.ddd.dm.base.DRelationship;
+import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.DService;
+import com.mimacom.ddd.dm.base.DServiceParameter;
+import com.mimacom.ddd.dm.base.DTextSegment;
+import com.mimacom.ddd.dm.dim.serializer.DimSemanticSequencer;
+import com.mimacom.ddd.dm.dmx.DAssignment;
+import com.mimacom.ddd.dm.dmx.DBinaryOperation;
+import com.mimacom.ddd.dm.dmx.DBooleanLiteral;
+import com.mimacom.ddd.dm.dmx.DCastExpression;
+import com.mimacom.ddd.dm.dmx.DConstructorCall;
+import com.mimacom.ddd.dm.dmx.DContextReference;
+import com.mimacom.ddd.dm.dmx.DDecimalLiteral;
+import com.mimacom.ddd.dm.dmx.DForLoopExpression;
+import com.mimacom.ddd.dm.dmx.DFunctionCall;
+import com.mimacom.ddd.dm.dmx.DIfExpression;
+import com.mimacom.ddd.dm.dmx.DInstanceOfExpression;
+import com.mimacom.ddd.dm.dmx.DNaturalLiteral;
+import com.mimacom.ddd.dm.dmx.DRaiseExpression;
+import com.mimacom.ddd.dm.dmx.DReturnExpression;
+import com.mimacom.ddd.dm.dmx.DSelfExpression;
+import com.mimacom.ddd.dm.dmx.DStringLiteral;
+import com.mimacom.ddd.dm.dmx.DTypedMemberReference;
+import com.mimacom.ddd.dm.dmx.DUnaryOperation;
+import com.mimacom.ddd.dm.dmx.DUndefinedLiteral;
+import com.mimacom.ddd.dm.dmx.DmxModel;
+import com.mimacom.ddd.dm.dmx.DmxPackage;
+import com.mimacom.ddd.sm.sim.SAggregateDeduction;
+import com.mimacom.ddd.sm.sim.SAssociationDeduction;
+import com.mimacom.ddd.sm.sim.SAttributeDeduction;
+import com.mimacom.ddd.sm.sim.SDetailTypeDeduction;
 import com.mimacom.ddd.sm.sim.SDitchRule;
-import com.mimacom.ddd.sm.sim.SDomainProxy;
-import com.mimacom.ddd.sm.sim.SEntityType;
-import com.mimacom.ddd.sm.sim.SEnumeration;
-import com.mimacom.ddd.sm.sim.SExpression;
+import com.mimacom.ddd.sm.sim.SDomainDeduction;
+import com.mimacom.ddd.sm.sim.SEntityTypeDeduction;
+import com.mimacom.ddd.sm.sim.SEnumerationDeduction;
 import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
 import com.mimacom.ddd.sm.sim.SGrabDomainRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
-import com.mimacom.ddd.sm.sim.SImport;
 import com.mimacom.ddd.sm.sim.SInformationModel;
-import com.mimacom.ddd.sm.sim.SLiteral;
+import com.mimacom.ddd.sm.sim.SLiteralDeduction;
 import com.mimacom.ddd.sm.sim.SMorphRule;
-import com.mimacom.ddd.sm.sim.SMultiplicity;
-import com.mimacom.ddd.sm.sim.SPrimitive;
-import com.mimacom.ddd.sm.sim.SQuery;
-import com.mimacom.ddd.sm.sim.SQueryParameter;
+import com.mimacom.ddd.sm.sim.SPrimitiveDeduction;
+import com.mimacom.ddd.sm.sim.SQueryDeduction;
+import com.mimacom.ddd.sm.sim.SQueryParameterDeduction;
 import com.mimacom.ddd.sm.sim.SimPackage;
 import com.mimacom.ddd.sm.sim.services.SimGrammarAccess;
 import java.util.Set;
@@ -36,11 +77,10 @@ import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
-import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
 @SuppressWarnings("all")
-public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
+public class SimSemanticSequencer extends DimSemanticSequencer {
 
 	@Inject
 	private SimGrammarAccess grammarAccess;
@@ -51,22 +91,178 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		ParserRule rule = context.getParserRule();
 		Action action = context.getAssignedAction();
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
-		if (epackage == SimPackage.eINSTANCE)
+		if (epackage == BasePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case SimPackage.SAGGREGATE:
-				sequence_SAggregate(context, (SAggregate) semanticObject); 
+			case BasePackage.DAGGREGATE:
+				sequence_DAggregate(context, (DAggregate) semanticObject); 
 				return; 
-			case SimPackage.SASSOCIATION:
-				sequence_SAssociation(context, (SAssociation) semanticObject); 
+			case BasePackage.DASSOCIATION:
+				sequence_DAssociation(context, (DAssociation) semanticObject); 
 				return; 
-			case SimPackage.SATTRIBUTE:
-				sequence_SAttribute(context, (SAttribute) semanticObject); 
+			case BasePackage.DATTRIBUTE:
+				sequence_DAttribute(context, (DAttribute) semanticObject); 
 				return; 
-			case SimPackage.SCONDITION:
-				sequence_SConstraint(context, (SCondition) semanticObject); 
+			case BasePackage.DCONDITION:
+				sequence_DConstraint(context, (DCondition) semanticObject); 
 				return; 
-			case SimPackage.SDETAIL_TYPE:
-				sequence_SComplexTypeExtends_SComplexTypeFeatures_SDetailType(context, (SDetailType) semanticObject); 
+			case BasePackage.DDETAIL_TYPE:
+				sequence_DComplexType_DDetailType(context, (DDetailType) semanticObject); 
+				return; 
+			case BasePackage.DDOMAIN:
+				sequence_DDomain(context, (DDomain) semanticObject); 
+				return; 
+			case BasePackage.DENTITY_TYPE:
+				sequence_DComplexType_DEntityType(context, (DEntityType) semanticObject); 
+				return; 
+			case BasePackage.DENUMERATION:
+				sequence_DEnumeration(context, (DEnumeration) semanticObject); 
+				return; 
+			case BasePackage.DEXCEPTION:
+				sequence_DException(context, (DException) semanticObject); 
+				return; 
+			case BasePackage.DEXISTING_APPLICATION:
+				sequence_DExistingApplication(context, (DExistingApplication) semanticObject); 
+				return; 
+			case BasePackage.DFUNCTION:
+				sequence_DFunction(context, (DFunction) semanticObject); 
+				return; 
+			case BasePackage.DIMPORT:
+				sequence_DImport(context, (DImport) semanticObject); 
+				return; 
+			case BasePackage.DLITERAL:
+				sequence_DLiteral(context, (DLiteral) semanticObject); 
+				return; 
+			case BasePackage.DMULTIPLICITY:
+				sequence_DMultiplicity(context, (DMultiplicity) semanticObject); 
+				return; 
+			case BasePackage.DPRIMITIVE:
+				if (rule == grammarAccess.getDPrimitiveArchetypeRule()) {
+					sequence_DPrimitiveArchetype(context, (DPrimitive) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getTypeRule()
+						|| rule == grammarAccess.getDPrimitiveRule()) {
+					sequence_DPrimitive(context, (DPrimitive) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getDTypeRule()) {
+					sequence_DPrimitive_DPrimitiveArchetype(context, (DPrimitive) semanticObject); 
+					return; 
+				}
+				else break;
+			case BasePackage.DQUERY:
+				sequence_DQuery(context, (DQuery) semanticObject); 
+				return; 
+			case BasePackage.DQUERY_PARAMETER:
+				sequence_DQueryParameter(context, (DQueryParameter) semanticObject); 
+				return; 
+			case BasePackage.DRELATIONSHIP:
+				sequence_DComplexType_DRelationship(context, (DRelationship) semanticObject); 
+				return; 
+			case BasePackage.DRICH_TEXT:
+				sequence_DRichText(context, (DRichText) semanticObject); 
+				return; 
+			case BasePackage.DSERVICE:
+				sequence_DService(context, (DService) semanticObject); 
+				return; 
+			case BasePackage.DSERVICE_PARAMETER:
+				sequence_DServiceParameter(context, (DServiceParameter) semanticObject); 
+				return; 
+			case BasePackage.DTEXT_SEGMENT:
+				if (rule == grammarAccess.getDTextEndRule()) {
+					sequence_DTextEnd(context, (DTextSegment) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getDTextMiddleRule()) {
+					sequence_DTextMiddle(context, (DTextSegment) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getDTextOnlyRule()) {
+					sequence_DTextOnly(context, (DTextSegment) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getDTextStartRule()) {
+					sequence_DTextStart(context, (DTextSegment) semanticObject); 
+					return; 
+				}
+				else break;
+			}
+		else if (epackage == DmxPackage.eINSTANCE)
+			switch (semanticObject.eClass().getClassifierID()) {
+			case DmxPackage.DASSIGNMENT:
+				sequence_DAssignment_DTypedMemberReference(context, (DAssignment) semanticObject); 
+				return; 
+			case DmxPackage.DBINARY_OPERATION:
+				sequence_DAdditiveExpression_DAndExpression_DEqualityExpression_DMultiplicativeExpression_DOrExpression_DOtherOperatorExpression_DRelationalExpression(context, (DBinaryOperation) semanticObject); 
+				return; 
+			case DmxPackage.DBOOLEAN_LITERAL:
+				sequence_DBooleanLiteral(context, (DBooleanLiteral) semanticObject); 
+				return; 
+			case DmxPackage.DCAST_EXPRESSION:
+				sequence_DCastExpression(context, (DCastExpression) semanticObject); 
+				return; 
+			case DmxPackage.DCONSTRUCTOR_CALL:
+				sequence_DConstructorCall(context, (DConstructorCall) semanticObject); 
+				return; 
+			case DmxPackage.DCONTEXT_REFERENCE:
+				sequence_DContextReference(context, (DContextReference) semanticObject); 
+				return; 
+			case DmxPackage.DDECIMAL_LITERAL:
+				sequence_DDecimalLiteral(context, (DDecimalLiteral) semanticObject); 
+				return; 
+			case DmxPackage.DFOR_LOOP_EXPRESSION:
+				sequence_DForLoopExpression(context, (DForLoopExpression) semanticObject); 
+				return; 
+			case DmxPackage.DFUNCTION_CALL:
+				sequence_DFunctionCall(context, (DFunctionCall) semanticObject); 
+				return; 
+			case DmxPackage.DIF_EXPRESSION:
+				sequence_DIfExpression(context, (DIfExpression) semanticObject); 
+				return; 
+			case DmxPackage.DINSTANCE_OF_EXPRESSION:
+				sequence_DRelationalExpression(context, (DInstanceOfExpression) semanticObject); 
+				return; 
+			case DmxPackage.DNATURAL_LITERAL:
+				sequence_DNaturalLiteral(context, (DNaturalLiteral) semanticObject); 
+				return; 
+			case DmxPackage.DRAISE_EXPRESSION:
+				sequence_DRaiseExpression(context, (DRaiseExpression) semanticObject); 
+				return; 
+			case DmxPackage.DRETURN_EXPRESSION:
+				sequence_DReturnExpression(context, (DReturnExpression) semanticObject); 
+				return; 
+			case DmxPackage.DSELF_EXPRESSION:
+				sequence_DSelfExpression(context, (DSelfExpression) semanticObject); 
+				return; 
+			case DmxPackage.DSTRING_LITERAL:
+				sequence_DStringLiteral(context, (DStringLiteral) semanticObject); 
+				return; 
+			case DmxPackage.DTYPED_MEMBER_REFERENCE:
+				sequence_DTypedMemberReference(context, (DTypedMemberReference) semanticObject); 
+				return; 
+			case DmxPackage.DUNARY_OPERATION:
+				sequence_DUnaryOperation(context, (DUnaryOperation) semanticObject); 
+				return; 
+			case DmxPackage.DUNDEFINED_LITERAL:
+				sequence_DNilLiteral(context, (DUndefinedLiteral) semanticObject); 
+				return; 
+			case DmxPackage.DMX_MODEL:
+				sequence_DmxModel(context, (DmxModel) semanticObject); 
+				return; 
+			}
+		else if (epackage == SimPackage.eINSTANCE)
+			switch (semanticObject.eClass().getClassifierID()) {
+			case SimPackage.SAGGREGATE_DEDUCTION:
+				sequence_SAggregateDeduction(context, (SAggregateDeduction) semanticObject); 
+				return; 
+			case SimPackage.SASSOCIATION_DEDUCTION:
+				sequence_SAssociationDeduction(context, (SAssociationDeduction) semanticObject); 
+				return; 
+			case SimPackage.SATTRIBUTE_DEDUCTION:
+				sequence_SAttributeDeduction(context, (SAttributeDeduction) semanticObject); 
+				return; 
+			case SimPackage.SDETAIL_TYPE_DEDUCTION:
+				sequence_SComplexTypeFeatures_SDetailTypeDeduction(context, (SDetailTypeDeduction) semanticObject); 
 				return; 
 			case SimPackage.SDITCH_RULE:
 				if (rule == grammarAccess.getSDitchComplexTypeRuleRule()) {
@@ -86,17 +282,14 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case SimPackage.SDOMAIN_PROXY:
-				sequence_SDomainProxy(context, (SDomainProxy) semanticObject); 
+			case SimPackage.SDOMAIN_DEDUCTION:
+				sequence_Domain(context, (SDomainDeduction) semanticObject); 
 				return; 
-			case SimPackage.SENTITY_TYPE:
-				sequence_SComplexTypeExtends_SComplexTypeFeatures_SEntityType(context, (SEntityType) semanticObject); 
+			case SimPackage.SENTITY_TYPE_DEDUCTION:
+				sequence_SComplexTypeFeatures_SEntityTypeDeduction(context, (SEntityTypeDeduction) semanticObject); 
 				return; 
-			case SimPackage.SENUMERATION:
-				sequence_SEnumeration(context, (SEnumeration) semanticObject); 
-				return; 
-			case SimPackage.SEXPRESSION:
-				sequence_SExpression(context, (SExpression) semanticObject); 
+			case SimPackage.SENUMERATION_DEDUCTION:
+				sequence_SEnumerationDeduction(context, (SEnumerationDeduction) semanticObject); 
 				return; 
 			case SimPackage.SFUSE_RULE:
 				sequence_ChangeComplexType_SFuseComplexTypeRule(context, (SFuseRule) semanticObject); 
@@ -129,14 +322,11 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case SimPackage.SIMPORT:
-				sequence_SImport(context, (SImport) semanticObject); 
-				return; 
 			case SimPackage.SINFORMATION_MODEL:
 				sequence_SInformationModel(context, (SInformationModel) semanticObject); 
 				return; 
-			case SimPackage.SLITERAL:
-				sequence_SLiteral(context, (SLiteral) semanticObject); 
+			case SimPackage.SLITERAL_DEDUCTION:
+				sequence_SLiteralDeduction(context, (SLiteralDeduction) semanticObject); 
 				return; 
 			case SimPackage.SMORPH_RULE:
 				if (rule == grammarAccess.getSMorphComplexTypeRuleRule()) {
@@ -148,17 +338,14 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case SimPackage.SMULTIPLICITY:
-				sequence_SMultiplicity(context, (SMultiplicity) semanticObject); 
+			case SimPackage.SPRIMITIVE_DEDUCTION:
+				sequence_SPrimitiveDeduction(context, (SPrimitiveDeduction) semanticObject); 
 				return; 
-			case SimPackage.SPRIMITIVE:
-				sequence_SPrimitive(context, (SPrimitive) semanticObject); 
+			case SimPackage.SQUERY_DEDUCTION:
+				sequence_SQueryDeduction(context, (SQueryDeduction) semanticObject); 
 				return; 
-			case SimPackage.SQUERY:
-				sequence_SQuery(context, (SQuery) semanticObject); 
-				return; 
-			case SimPackage.SQUERY_PARAMETER:
-				sequence_SQueryParameter(context, (SQueryParameter) semanticObject); 
+			case SimPackage.SQUERY_PARAMETER_DEDUCTION:
+				sequence_SQueryParameterDeduction(context, (SQueryParameterDeduction) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -171,12 +358,12 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         source=[DComplexType|SQualifiedName] 
-	 *         otherSources+=[DComplexType|SQualifiedName]+ 
+	 *         source=[DComplexType|DQualifiedName] 
+	 *         otherSources+=[DComplexType|DQualifiedName]+ 
 	 *         abstract=SAbstractType? 
 	 *         rootEntity=SRootEntity? 
 	 *         renameTo=ID? 
-	 *         extendFrom=[SComplexType|ID]?
+	 *         extendFrom=[DComplexType|ID]?
 	 *     )
 	 */
 	protected void sequence_ChangeComplexType_SFuseComplexTypeRule(ISerializationContext context, SFuseRule semanticObject) {
@@ -189,7 +376,7 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SMorphComplexTypeRule returns SMorphRule
 	 *
 	 * Constraint:
-	 *     (source=[DComplexType|SQualifiedName] abstract=SAbstractType? rootEntity=SRootEntity? renameTo=ID? extendFrom=[SComplexType|ID]?)
+	 *     (source=[DComplexType|DQualifiedName] abstract=SAbstractType? rootEntity=SRootEntity? renameTo=ID? extendFrom=[DComplexType|ID]?)
 	 */
 	protected void sequence_ChangeComplexType_SMorphComplexTypeRule(ISerializationContext context, SMorphRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -198,79 +385,203 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     SAggregate returns SAggregate
+	 *     Aggregate returns DAggregate
+	 *     DAggregate returns DAggregate
 	 *
 	 * Constraint:
-	 *     (deductionRule=SGrabAggregateRule? types+=SType*)
+	 *     (description=DRichText? types+=Type*)
 	 */
-	protected void sequence_SAggregate(ISerializationContext context, SAggregate semanticObject) {
+	protected void sequence_DAggregate(ISerializationContext context, DAggregate semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     SFeature returns SAssociation
-	 *     SAssociation returns SAssociation
-	 *
-	 * Constraint:
-	 *     (
-	 *         deductionRule=SGrabFeatureRule | 
-	 *         deductionRule=SMorphFeatureRule | 
-	 *         deductionRule=SDitchFeatureRule | 
-	 *         (derived?='derived'? (kind=SAssociationKind | kind=SAssociationKindInverse) name=ID type=[SEntityType|ID] multiplicity=SMultiplicity?)
-	 *     )
-	 */
-	protected void sequence_SAssociation(ISerializationContext context, SAssociation semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     SFeature returns SAttribute
-	 *     SAttribute returns SAttribute
+	 *     Type returns DDetailType
+	 *     DType returns DDetailType
+	 *     DDetailType returns DDetailType
 	 *
 	 * Constraint:
 	 *     (
-	 *         (detail?='detail'? deductionRule=SGrabFeatureRule) | 
-	 *         (detail?='detail'? deductionRule=SMorphFeatureRule) | 
-	 *         (detail?='detail'? deductionRule=SDitchFeatureRule) | 
-	 *         (detail?='detail'? name=ID type=[SSimpleType|ID] multiplicity=SMultiplicity? key?='key'?)
+	 *         abstract?='abstract'? 
+	 *         name=ID 
+	 *         aliases+=ID* 
+	 *         superType=[DComplexType|ID]? 
+	 *         description=DRichText? 
+	 *         (features+=Feature | constraints+=DConstraint)*
 	 *     )
 	 */
-	protected void sequence_SAttribute(ISerializationContext context, SAttribute semanticObject) {
+	protected void sequence_DComplexType_DDetailType(ISerializationContext context, DDetailType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     SType returns SDetailType
-	 *     SDetailType returns SDetailType
+	 *     Type returns DEntityType
+	 *     DType returns DEntityType
+	 *     DEntityType returns DEntityType
+	 *
+	 * Constraint:
+	 *     (
+	 *         abstract?='abstract'? 
+	 *         root?='root'? 
+	 *         name=ID 
+	 *         aliases+=ID* 
+	 *         superType=[DComplexType|ID]? 
+	 *         description=DRichText? 
+	 *         (features+=Feature | constraints+=DConstraint)*
+	 *     )
+	 */
+	protected void sequence_DComplexType_DEntityType(ISerializationContext context, DEntityType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DType returns DRelationship
+	 *     DRelationship returns DRelationship
+	 *
+	 * Constraint:
+	 *     (
+	 *         abstract?='abstract'? 
+	 *         root?='root'? 
+	 *         name=ID 
+	 *         aliases+=ID* 
+	 *         superType=[DComplexType|ID]? 
+	 *         description=DRichText? 
+	 *         (features+=Feature | constraints+=DConstraint)*
+	 *     )
+	 */
+	protected void sequence_DComplexType_DRelationship(ISerializationContext context, DRelationship semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Type returns DEnumeration
+	 *     DEnumeration returns DEnumeration
+	 *     DType returns DEnumeration
+	 *
+	 * Constraint:
+	 *     (name=ID aliases+=ID* description=DRichText? (literals+=Literal literals+=Literal*)? constraints+=DConstraint*)
+	 */
+	protected void sequence_DEnumeration(ISerializationContext context, DEnumeration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Feature returns DQuery
+	 *     DQuery returns DQuery
+	 *     DFeature returns DQuery
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=ID 
+	 *         aliases+=ID* 
+	 *         (parameters+=QueryParameter parameters+=QueryParameter*)? 
+	 *         type=[DType|ID] 
+	 *         multiplicity=DMultiplicity? 
+	 *         returns=DExpression? 
+	 *         description=DRichText?
+	 *     )
+	 */
+	protected void sequence_DQuery(ISerializationContext context, DQuery semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Domain returns SDomainDeduction
+	 *
+	 * Constraint:
+	 *     deductionRule=SGrabDomainRule
+	 */
+	protected void sequence_Domain(ISerializationContext context, SDomainDeduction semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.IDEDUCTION_DEFINITION__DEDUCTION_RULE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.IDEDUCTION_DEFINITION__DEDUCTION_RULE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDomainAccess().getDeductionRuleSGrabDomainRuleParserRuleCall_3_0(), semanticObject.getDeductionRule());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Aggregate returns SAggregateDeduction
+	 *     SAggregateDeduction returns SAggregateDeduction
+	 *
+	 * Constraint:
+	 *     (deductionRule=SGrabAggregateRule description=DRichText? types+=Type*)
+	 */
+	protected void sequence_SAggregateDeduction(ISerializationContext context, SAggregateDeduction semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Feature returns SAssociationDeduction
+	 *     SAssociationDeduction returns SAssociationDeduction
+	 *
+	 * Constraint:
+	 *     ((deductionRule=SGrabFeatureRule | deductionRule=SMorphFeatureRule | deductionRule=SDitchFeatureRule) description=DRichText?)
+	 */
+	protected void sequence_SAssociationDeduction(ISerializationContext context, SAssociationDeduction semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Feature returns SAttributeDeduction
+	 *     SAttributeDeduction returns SAttributeDeduction
 	 *
 	 * Constraint:
 	 *     (
 	 *         (
-	 *             deductionRule=SGrabComplexTypeRule | 
-	 *             deductionRule=SDitchComplexTypeRule | 
-	 *             deductionRule=SMorphComplexTypeRule | 
-	 *             deductionRule=SFuseComplexTypeRule | 
-	 *             (abstract?='abstract'? name=ID superType=[SComplexType|ID]?)
+	 *             (detail?='detail'? deductionRule=SGrabFeatureRule) | 
+	 *             (detail?='detail'? deductionRule=SMorphFeatureRule) | 
+	 *             (detail?='detail'? deductionRule=SDitchFeatureRule)
 	 *         ) 
-	 *         constraints+=SConstraint? 
-	 *         (features+=SFeature? constraints+=SConstraint?)*
+	 *         description=DRichText?
 	 *     )
 	 */
-	protected void sequence_SComplexTypeExtends_SComplexTypeFeatures_SDetailType(ISerializationContext context, SDetailType semanticObject) {
+	protected void sequence_SAttributeDeduction(ISerializationContext context, SAttributeDeduction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     SType returns SEntityType
-	 *     SEntityType returns SEntityType
+	 *     Type returns SDetailTypeDeduction
+	 *     SDetailTypeDeduction returns SDetailTypeDeduction
+	 *
+	 * Constraint:
+	 *     (
+	 *         (deductionRule=SGrabComplexTypeRule | deductionRule=SDitchComplexTypeRule | deductionRule=SMorphComplexTypeRule | deductionRule=SFuseComplexTypeRule) 
+	 *         description=DRichText? 
+	 *         features+=Feature? 
+	 *         (constraints+=DConstraint? features+=Feature?)*
+	 *     )
+	 */
+	protected void sequence_SComplexTypeFeatures_SDetailTypeDeduction(ISerializationContext context, SDetailTypeDeduction semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Type returns SEntityTypeDeduction
+	 *     SEntityTypeDeduction returns SEntityTypeDeduction
 	 *
 	 * Constraint:
 	 *     (
@@ -278,35 +589,14 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *             (root?='root'? deductionRule=SGrabComplexTypeRule) | 
 	 *             (root?='root'? deductionRule=SDitchComplexTypeRule) | 
 	 *             (root?='root'? deductionRule=SMorphComplexTypeRule) | 
-	 *             (root?='root'? deductionRule=SFuseComplexTypeRule) | 
-	 *             (abstract?='abstract'? root?='root'? name=ID superType=[SComplexType|ID]?)
+	 *             (root?='root'? deductionRule=SFuseComplexTypeRule)
 	 *         ) 
-	 *         (features+=SFeature | constraints+=SConstraint)*
+	 *         description=DRichText? 
+	 *         (features+=Feature | constraints+=DConstraint)*
 	 *     )
 	 */
-	protected void sequence_SComplexTypeExtends_SComplexTypeFeatures_SEntityType(ISerializationContext context, SEntityType semanticObject) {
+	protected void sequence_SComplexTypeFeatures_SEntityTypeDeduction(ISerializationContext context, SEntityTypeDeduction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     SConstraint returns SCondition
-	 *
-	 * Constraint:
-	 *     (name=ID condition=SExpression)
-	 */
-	protected void sequence_SConstraint(ISerializationContext context, SCondition semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SimPackage.Literals.SNAMED_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SNAMED_ELEMENT__NAME));
-			if (transientValues.isValueTransient(semanticObject, SimPackage.Literals.SCONDITION__CONDITION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SCONDITION__CONDITION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSConstraintAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getSConstraintAccess().getConditionSExpressionParserRuleCall_3_0(), semanticObject.getCondition());
-		feeder.finish();
 	}
 	
 	
@@ -319,11 +609,11 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_SDitchComplexTypeRule(ISerializationContext context, SDitchRule semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SimPackage.Literals.SDEDUCTION_RULE__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SDEDUCTION_RULE__SOURCE));
+			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSDitchComplexTypeRuleAccess().getSourceDEnumerationIDTerminalRuleCall_0_1(), semanticObject.eGet(SimPackage.Literals.SDEDUCTION_RULE__SOURCE, false));
+		feeder.accept(grammarAccess.getSDitchComplexTypeRuleAccess().getSourceDEnumerationIDTerminalRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.DDEDUCTION_RULE__SOURCE, false));
 		feeder.finish();
 	}
 	
@@ -337,11 +627,11 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_SDitchEnumerationLiteralRule(ISerializationContext context, SDitchRule semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SimPackage.Literals.SDEDUCTION_RULE__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SDEDUCTION_RULE__SOURCE));
+			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSDitchEnumerationLiteralRuleAccess().getSourceDLiteralIDTerminalRuleCall_0_1(), semanticObject.eGet(SimPackage.Literals.SDEDUCTION_RULE__SOURCE, false));
+		feeder.accept(grammarAccess.getSDitchEnumerationLiteralRuleAccess().getSourceDLiteralIDTerminalRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.DDEDUCTION_RULE__SOURCE, false));
 		feeder.finish();
 	}
 	
@@ -355,11 +645,11 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_SDitchEnumerationRule(ISerializationContext context, SDitchRule semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SimPackage.Literals.SDEDUCTION_RULE__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SDEDUCTION_RULE__SOURCE));
+			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSDitchEnumerationRuleAccess().getSourceDEnumerationIDTerminalRuleCall_0_1(), semanticObject.eGet(SimPackage.Literals.SDEDUCTION_RULE__SOURCE, false));
+		feeder.accept(grammarAccess.getSDitchEnumerationRuleAccess().getSourceDEnumerationIDTerminalRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.DDEDUCTION_RULE__SOURCE, false));
 		feeder.finish();
 	}
 	
@@ -373,65 +663,30 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_SDitchFeatureRule(ISerializationContext context, SDitchRule semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SimPackage.Literals.SDEDUCTION_RULE__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SDEDUCTION_RULE__SOURCE));
+			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSDitchFeatureRuleAccess().getSourceDFeatureIDTerminalRuleCall_0_1(), semanticObject.eGet(SimPackage.Literals.SDEDUCTION_RULE__SOURCE, false));
+		feeder.accept(grammarAccess.getSDitchFeatureRuleAccess().getSourceDFeatureIDTerminalRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.DDEDUCTION_RULE__SOURCE, false));
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     SDomainProxy returns SDomainProxy
-	 *
-	 * Constraint:
-	 *     deductionRule=SGrabDomainRule
-	 */
-	protected void sequence_SDomainProxy(ISerializationContext context, SDomainProxy semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SimPackage.Literals.SDEDUCIBLE_ELEMENT__DEDUCTION_RULE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SDEDUCIBLE_ELEMENT__DEDUCTION_RULE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSDomainProxyAccess().getDeductionRuleSGrabDomainRuleParserRuleCall_3_0(), semanticObject.getDeductionRule());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     SType returns SEnumeration
-	 *     SEnumeration returns SEnumeration
+	 *     Type returns SEnumerationDeduction
+	 *     SEnumerationDeduction returns SEnumerationDeduction
 	 *
 	 * Constraint:
 	 *     (
-	 *         (deductionRule=SGrabEnumerationRule | deductionRule=SDitchEnumerationRule | name=ID) 
-	 *         (literals+=SLiteral literals+=SLiteral*)? 
-	 *         constraints+=SConstraint*
+	 *         (deductionRule=SGrabEnumerationRule | deductionRule=SDitchEnumerationRule) 
+	 *         description=DRichText? 
+	 *         (literals+=Literal literals+=Literal*)? 
+	 *         constraints+=DConstraint*
 	 *     )
 	 */
-	protected void sequence_SEnumeration(ISerializationContext context, SEnumeration semanticObject) {
+	protected void sequence_SEnumerationDeduction(ISerializationContext context, SEnumerationDeduction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     SExpression returns SExpression
-	 *
-	 * Constraint:
-	 *     expr=STRING
-	 */
-	protected void sequence_SExpression(ISerializationContext context, SExpression semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SimPackage.Literals.SEXPRESSION__EXPR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SEXPRESSION__EXPR));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSExpressionAccess().getExprSTRINGTerminalRuleCall_0(), semanticObject.getExpr());
-		feeder.finish();
 	}
 	
 	
@@ -440,15 +695,15 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SGrabAggregateRule returns SGrabAggregateRule
 	 *
 	 * Constraint:
-	 *     source=[DAggregate|SQualifiedName]
+	 *     source=[DAggregate|DQualifiedName]
 	 */
 	protected void sequence_SGrabAggregateRule(ISerializationContext context, SGrabAggregateRule semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SimPackage.Literals.SDEDUCTION_RULE__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SDEDUCTION_RULE__SOURCE));
+			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSGrabAggregateRuleAccess().getSourceDAggregateSQualifiedNameParserRuleCall_0_1(), semanticObject.eGet(SimPackage.Literals.SDEDUCTION_RULE__SOURCE, false));
+		feeder.accept(grammarAccess.getSGrabAggregateRuleAccess().getSourceDAggregateDQualifiedNameParserRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.DDEDUCTION_RULE__SOURCE, false));
 		feeder.finish();
 	}
 	
@@ -458,7 +713,7 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SGrabComplexTypeRule returns SGrabRule
 	 *
 	 * Constraint:
-	 *     (source=[DComplexType|SQualifiedName] renameTo=ID?)
+	 *     (source=[DComplexType|DQualifiedName] renameTo=ID?)
 	 */
 	protected void sequence_SGrabComplexTypeRule(ISerializationContext context, SGrabRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -470,15 +725,15 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SGrabDomainRule returns SGrabDomainRule
 	 *
 	 * Constraint:
-	 *     source=[DDomain|SQualifiedName]
+	 *     source=[DDomain|DQualifiedName]
 	 */
 	protected void sequence_SGrabDomainRule(ISerializationContext context, SGrabDomainRule semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SimPackage.Literals.SDEDUCTION_RULE__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SDEDUCTION_RULE__SOURCE));
+			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSGrabDomainRuleAccess().getSourceDDomainSQualifiedNameParserRuleCall_0_1(), semanticObject.eGet(SimPackage.Literals.SDEDUCTION_RULE__SOURCE, false));
+		feeder.accept(grammarAccess.getSGrabDomainRuleAccess().getSourceDDomainDQualifiedNameParserRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.DDEDUCTION_RULE__SOURCE, false));
 		feeder.finish();
 	}
 	
@@ -500,7 +755,7 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SGrabEnumerationRule returns SGrabRule
 	 *
 	 * Constraint:
-	 *     (source=[DEnumeration|SQualifiedName] renameTo=ID?)
+	 *     (source=[DEnumeration|DQualifiedName] renameTo=ID?)
 	 */
 	protected void sequence_SGrabEnumerationRule(ISerializationContext context, SGrabRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -524,28 +779,10 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SGrabPrimitiveRule returns SGrabRule
 	 *
 	 * Constraint:
-	 *     (source=[DPrimitive|SQualifiedName] renameTo=ID?)
+	 *     (source=[DPrimitive|DQualifiedName] renameTo=ID?)
 	 */
 	protected void sequence_SGrabPrimitiveRule(ISerializationContext context, SGrabRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     SImport returns SImport
-	 *
-	 * Constraint:
-	 *     importedNamespace=SQualifiedNameWithWildcard
-	 */
-	protected void sequence_SImport(ISerializationContext context, SImport semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SimPackage.Literals.SIMPORT__IMPORTED_NAMESPACE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SIMPORT__IMPORTED_NAMESPACE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSImportAccess().getImportedNamespaceSQualifiedNameWithWildcardParserRuleCall_1_0(), semanticObject.getImportedNamespace());
-		feeder.finish();
 	}
 	
 	
@@ -556,10 +793,11 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         kind=SInformationModelKind 
-	 *         name=SQualifiedName 
+	 *         name=DQualifiedName 
 	 *         generate?='generate'? 
-	 *         imports+=SImport* 
-	 *         (types+=SType | aggregates+=SAggregate | domainProxies+=SDomainProxy)*
+	 *         description=DRichText? 
+	 *         imports+=DImport* 
+	 *         (types+=Type | aggregates+=Aggregate | domainProxies+=Domain)*
 	 *     )
 	 */
 	protected void sequence_SInformationModel(ISerializationContext context, SInformationModel semanticObject) {
@@ -569,12 +807,13 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     SLiteral returns SLiteral
+	 *     Literal returns SLiteralDeduction
+	 *     SLiteralDeduction returns SLiteralDeduction
 	 *
 	 * Constraint:
-	 *     (deductionRule=SGrabEnumerationLiteralRule | deductionRule=SDitchEnumerationLiteralRule | name=ID)
+	 *     ((deductionRule=SGrabEnumerationLiteralRule | deductionRule=SDitchEnumerationLiteralRule) description=DRichText?)
 	 */
-	protected void sequence_SLiteral(ISerializationContext context, SLiteral semanticObject) {
+	protected void sequence_SLiteralDeduction(ISerializationContext context, SLiteralDeduction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -584,7 +823,7 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SMorphFeatureRule returns SMorphRule
 	 *
 	 * Constraint:
-	 *     (source=[DFeature|ID] renameTo=ID? retypeTo=[SType|ID] remultiplyTo=SMultiplicity?)
+	 *     (source=[DFeature|ID] renameTo=ID? retypeTo=[DType|ID] remultiplyTo=DMultiplicity?)
 	 */
 	protected void sequence_SMorphFeatureRule(ISerializationContext context, SMorphRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -593,68 +832,45 @@ public class SimSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     SMultiplicity returns SMultiplicity
+	 *     Type returns SPrimitiveDeduction
+	 *     SPrimitiveDeduction returns SPrimitiveDeduction
 	 *
 	 * Constraint:
-	 *     (minOccurs=INT maxOccurs=MULTIPLICITY)
+	 *     (deductionRule=SGrabPrimitiveRule description=DRichText? constraints+=DConstraint*)
 	 */
-	protected void sequence_SMultiplicity(ISerializationContext context, SMultiplicity semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SimPackage.Literals.SMULTIPLICITY__MIN_OCCURS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SMULTIPLICITY__MIN_OCCURS));
-			if (transientValues.isValueTransient(semanticObject, SimPackage.Literals.SMULTIPLICITY__MAX_OCCURS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimPackage.Literals.SMULTIPLICITY__MAX_OCCURS));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSMultiplicityAccess().getMinOccursINTTerminalRuleCall_1_0(), semanticObject.getMinOccurs());
-		feeder.accept(grammarAccess.getSMultiplicityAccess().getMaxOccursMULTIPLICITYParserRuleCall_3_0(), semanticObject.getMaxOccurs());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     SType returns SPrimitive
-	 *     SPrimitive returns SPrimitive
-	 *
-	 * Constraint:
-	 *     ((deductionRule=SGrabPrimitiveRule | name=ID | (name=ID redefines=[SPrimitive|ID])) constraints+=SConstraint*)
-	 */
-	protected void sequence_SPrimitive(ISerializationContext context, SPrimitive semanticObject) {
+	protected void sequence_SPrimitiveDeduction(ISerializationContext context, SPrimitiveDeduction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     SQueryParameter returns SQueryParameter
+	 *     Feature returns SQueryDeduction
+	 *     SQueryDeduction returns SQueryDeduction
 	 *
 	 * Constraint:
 	 *     (
-	 *         deductionRule=SGrabFeatureRule | 
-	 *         deductionRule=SMorphFeatureRule | 
-	 *         deductionRule=SDitchFeatureRule | 
-	 *         (name=ID type=[SType|ID] multiplicity=SMultiplicity?)
+	 *         (
+	 *             ((deductionRule=SGrabFeatureRule | deductionRule=SMorphFeatureRule) (parameters+=QueryParameter parameters+=QueryParameter*)?) | 
+	 *             deductionRule=SDitchFeatureRule
+	 *         ) 
+	 *         description=DRichText?
 	 *     )
 	 */
-	protected void sequence_SQueryParameter(ISerializationContext context, SQueryParameter semanticObject) {
+	protected void sequence_SQueryDeduction(ISerializationContext context, SQueryDeduction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     SFeature returns SQuery
-	 *     SQuery returns SQuery
+	 *     QueryParameter returns SQueryParameterDeduction
+	 *     SQueryParameterDeduction returns SQueryParameterDeduction
 	 *
 	 * Constraint:
-	 *     (
-	 *         ((deductionRule=SGrabFeatureRule | deductionRule=SMorphFeatureRule) (parameters+=SQueryParameter parameters+=SQueryParameter*)?) | 
-	 *         deductionRule=SDitchFeatureRule | 
-	 *         (name=ID (parameters+=SQueryParameter parameters+=SQueryParameter*)? type=[SType|ID] multiplicity=SMultiplicity? returns=SExpression?)
-	 *     )
+	 *     ((deductionRule=SGrabFeatureRule | deductionRule=SMorphFeatureRule | deductionRule=SDitchFeatureRule) description=DRichText?)
 	 */
-	protected void sequence_SQuery(ISerializationContext context, SQuery semanticObject) {
+	protected void sequence_SQueryParameterDeduction(ISerializationContext context, SQueryParameterDeduction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

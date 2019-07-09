@@ -194,7 +194,7 @@ public class DimValidator extends AbstractDimValidator {
     DType _type = a.getType();
     boolean _not = (!(_type instanceof DEntityType));
     if (_not) {
-      this.error("Refererenced type is not an EntitytType", a, BasePackage.Literals.DTYPED_MEMBER__TYPE);
+      this.error("Refererenced type is not an EntityType", a, BasePackage.Literals.DTYPED_MEMBER__TYPE);
     }
   }
   

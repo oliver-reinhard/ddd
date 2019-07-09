@@ -2,9 +2,10 @@
  */
 package com.mimacom.ddd.sm.sim.impl;
 
+import com.mimacom.ddd.dm.base.DType;
+
 import com.mimacom.ddd.sm.sim.SStructureChangingRule;
 import com.mimacom.ddd.sm.sim.STristate;
-import com.mimacom.ddd.sm.sim.SType;
 import com.mimacom.ddd.sm.sim.SimPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -79,7 +80,7 @@ public abstract class SStructureChangingRuleImpl extends SGrabRuleImpl implement
 	 * @generated
 	 * @ordered
 	 */
-	protected SType extendFrom;
+	protected DType extendFrom;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,12 +159,12 @@ public abstract class SStructureChangingRuleImpl extends SGrabRuleImpl implement
 	 * @generated
 	 */
 	@Override
-	public SType getExtendFrom()
+	public DType getExtendFrom()
 	{
 		if (extendFrom != null && extendFrom.eIsProxy())
 		{
 			InternalEObject oldExtendFrom = (InternalEObject)extendFrom;
-			extendFrom = (SType)eResolveProxy(oldExtendFrom);
+			extendFrom = (DType)eResolveProxy(oldExtendFrom);
 			if (extendFrom != oldExtendFrom)
 			{
 				if (eNotificationRequired())
@@ -178,7 +179,7 @@ public abstract class SStructureChangingRuleImpl extends SGrabRuleImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SType basicGetExtendFrom()
+	public DType basicGetExtendFrom()
 	{
 		return extendFrom;
 	}
@@ -189,9 +190,9 @@ public abstract class SStructureChangingRuleImpl extends SGrabRuleImpl implement
 	 * @generated
 	 */
 	@Override
-	public void setExtendFrom(SType newExtendFrom)
+	public void setExtendFrom(DType newExtendFrom)
 	{
-		SType oldExtendFrom = extendFrom;
+		DType oldExtendFrom = extendFrom;
 		extendFrom = newExtendFrom;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SSTRUCTURE_CHANGING_RULE__EXTEND_FROM, oldExtendFrom, extendFrom));
@@ -235,7 +236,7 @@ public abstract class SStructureChangingRuleImpl extends SGrabRuleImpl implement
 				setRootEntity((STristate)newValue);
 				return;
 			case SimPackage.SSTRUCTURE_CHANGING_RULE__EXTEND_FROM:
-				setExtendFrom((SType)newValue);
+				setExtendFrom((DType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -258,7 +259,7 @@ public abstract class SStructureChangingRuleImpl extends SGrabRuleImpl implement
 				setRootEntity(ROOT_ENTITY_EDEFAULT);
 				return;
 			case SimPackage.SSTRUCTURE_CHANGING_RULE__EXTEND_FROM:
-				setExtendFrom((SType)null);
+				setExtendFrom((DType)null);
 				return;
 		}
 		super.eUnset(featureID);

@@ -9,21 +9,33 @@
   <genPackages prefix="Asm" basePackage="com.mimacom.ddd.sm" disposableProviderFactory="true"
       fileExtensions="asm" ecorePackage="asm.ecore#/">
     <genClasses ecoreClass="asm.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//Model/application"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//Model/serviceInterface"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//Model/watchdog"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asm.ecore#//Model/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//Model/imports"/>
     </genClasses>
     <genClasses ecoreClass="asm.ecore#//SApplication">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asm.ecore#//SApplication/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//SApplication/imports"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asm.ecore#//SApplication/model"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asm.ecore#//SApplication/services"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//SApplication/actors"/>
     </genClasses>
     <genClasses ecoreClass="asm.ecore#//SServiceInterface">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asm.ecore#//SServiceInterface/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//SServiceInterface/imports"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asm.ecore#//SServiceInterface/model"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//SServiceInterface/operations"/>
     </genClasses>
-    <genClasses ecoreClass="asm.ecore#//SWatchdog">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asm.ecore#//SWatchdog/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//SWatchdog/imports"/>
+    <genClasses image="false" ecoreClass="asm.ecore#//SActor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asm.ecore#//SActor/name"/>
+    </genClasses>
+    <genClasses ecoreClass="asm.ecore#//SWatchdog"/>
+    <genClasses ecoreClass="asm.ecore#//SHuman"/>
+    <genClasses ecoreClass="asm.ecore#//SServiceOperation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asm.ecore#//SServiceOperation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//SServiceOperation/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//SServiceOperation/exceptions"/>
+    </genClasses>
+    <genClasses ecoreClass="asm.ecore#//SOperationParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asm.ecore#//SOperationParameter/name"/>
+    </genClasses>
+    <genClasses ecoreClass="asm.ecore#//SException">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asm.ecore#//SException/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

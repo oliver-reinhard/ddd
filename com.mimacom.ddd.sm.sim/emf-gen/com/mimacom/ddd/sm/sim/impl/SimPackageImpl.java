@@ -4,44 +4,30 @@ package com.mimacom.ddd.sm.sim.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
 
-import com.mimacom.ddd.sm.sim.SAggregate;
-import com.mimacom.ddd.sm.sim.SAssociation;
-import com.mimacom.ddd.sm.sim.SAssociationKind;
-import com.mimacom.ddd.sm.sim.SAttribute;
-import com.mimacom.ddd.sm.sim.SComplexType;
-import com.mimacom.ddd.sm.sim.SCondition;
-import com.mimacom.ddd.sm.sim.SDeducibleElement;
-import com.mimacom.ddd.sm.sim.SDeductionRule;
-import com.mimacom.ddd.sm.sim.SDetailType;
+import com.mimacom.ddd.sm.sim.SAggregateDeduction;
+import com.mimacom.ddd.sm.sim.SAssociationDeduction;
+import com.mimacom.ddd.sm.sim.SAttributeDeduction;
+import com.mimacom.ddd.sm.sim.SComplexTypeDeduction;
+import com.mimacom.ddd.sm.sim.SDetailTypeDeduction;
 import com.mimacom.ddd.sm.sim.SDitchRule;
-import com.mimacom.ddd.sm.sim.SDomainProxy;
-import com.mimacom.ddd.sm.sim.SElementNature;
-import com.mimacom.ddd.sm.sim.SEntityType;
-import com.mimacom.ddd.sm.sim.SEnumeration;
-import com.mimacom.ddd.sm.sim.SExpression;
-import com.mimacom.ddd.sm.sim.SFeature;
+import com.mimacom.ddd.sm.sim.SDomainDeduction;
+import com.mimacom.ddd.sm.sim.SEntityTypeDeduction;
+import com.mimacom.ddd.sm.sim.SEnumerationDeduction;
+import com.mimacom.ddd.sm.sim.SFeatureDeduction;
 import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
 import com.mimacom.ddd.sm.sim.SGrabDomainRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
-import com.mimacom.ddd.sm.sim.SIdentityType;
-import com.mimacom.ddd.sm.sim.SImport;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SInformationModelKind;
-import com.mimacom.ddd.sm.sim.SLiteral;
+import com.mimacom.ddd.sm.sim.SLiteralDeduction;
 import com.mimacom.ddd.sm.sim.SMorphRule;
-import com.mimacom.ddd.sm.sim.SMultiplicity;
-import com.mimacom.ddd.sm.sim.SNamedDeducibleElement;
-import com.mimacom.ddd.sm.sim.SNamedElement;
-import com.mimacom.ddd.sm.sim.SPrimitive;
-import com.mimacom.ddd.sm.sim.SQuery;
-import com.mimacom.ddd.sm.sim.SQueryParameter;
-import com.mimacom.ddd.sm.sim.SSimpleType;
+import com.mimacom.ddd.sm.sim.SPrimitiveDeduction;
+import com.mimacom.ddd.sm.sim.SQueryDeduction;
+import com.mimacom.ddd.sm.sim.SQueryParameterDeduction;
 import com.mimacom.ddd.sm.sim.SStructureChangingRule;
-import com.mimacom.ddd.sm.sim.SSyntheticDeductionRule;
 import com.mimacom.ddd.sm.sim.STristate;
-import com.mimacom.ddd.sm.sim.SType;
-import com.mimacom.ddd.sm.sim.SValueType;
+import com.mimacom.ddd.sm.sim.STypeDeduction;
 import com.mimacom.ddd.sm.sim.SimFactory;
 import com.mimacom.ddd.sm.sim.SimPackage;
 
@@ -67,20 +53,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sIdentityTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass sValueTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass sInformationModelEClass = null;
 
 	/**
@@ -88,161 +60,98 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sNamedElementEClass = null;
+	private EClass sDomainDeductionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sDeducibleElementEClass = null;
+	private EClass sAggregateDeductionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sNamedDeducibleElementEClass = null;
+	private EClass sTypeDeductionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sExpressionEClass = null;
+	private EClass sPrimitiveDeductionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sImportEClass = null;
+	private EClass sEnumerationDeductionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sDomainProxyEClass = null;
+	private EClass sLiteralDeductionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sAggregateEClass = null;
+	private EClass sComplexTypeDeductionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sTypeEClass = null;
+	private EClass sDetailTypeDeductionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sConditionEClass = null;
+	private EClass sEntityTypeDeductionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sSimpleTypeEClass = null;
+	private EClass sFeatureDeductionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sPrimitiveEClass = null;
+	private EClass sAssociationDeductionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sEnumerationEClass = null;
+	private EClass sAttributeDeductionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sLiteralEClass = null;
+	private EClass sQueryDeductionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sComplexTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass sDetailTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass sEntityTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass sFeatureEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass sAssociationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass sMultiplicityEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass sAttributeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass sQueryEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass sQueryParameterEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass sDeductionRuleEClass = null;
+	private EClass sQueryParameterDeductionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -298,28 +207,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sSyntheticDeductionRuleEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EEnum sInformationModelKindEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum sElementNatureEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum sAssociationKindEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -400,28 +288,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSIdentityType()
-	{
-		return sIdentityTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSValueType()
-	{
-		return sValueTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getSInformationModel()
 	{
 		return sInformationModelEClass;
@@ -466,7 +332,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSInformationModel_Imports()
+	public EReference getSInformationModel_Description()
 	{
 		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(3);
 	}
@@ -477,7 +343,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSInformationModel_Types()
+	public EReference getSInformationModel_Imports()
 	{
 		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(4);
 	}
@@ -488,7 +354,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSInformationModel_Aggregates()
+	public EReference getSInformationModel_Types()
 	{
 		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(5);
 	}
@@ -499,7 +365,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSInformationModel_DomainProxies()
+	public EReference getSInformationModel_Aggregates()
 	{
 		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(6);
 	}
@@ -510,9 +376,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSNamedElement()
+	public EReference getSInformationModel_DomainProxies()
 	{
-		return sNamedElementEClass;
+		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -521,9 +387,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSNamedElement_Name()
+	public EClass getSDomainDeduction()
 	{
-		return (EAttribute)sNamedElementEClass.getEStructuralFeatures().get(0);
+		return sDomainDeductionEClass;
 	}
 
 	/**
@@ -532,9 +398,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSDeducibleElement()
+	public EClass getSAggregateDeduction()
 	{
-		return sDeducibleElementEClass;
+		return sAggregateDeductionEClass;
 	}
 
 	/**
@@ -543,9 +409,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSDeducibleElement_DeductionRule()
+	public EClass getSTypeDeduction()
 	{
-		return (EReference)sDeducibleElementEClass.getEStructuralFeatures().get(0);
+		return sTypeDeductionEClass;
 	}
 
 	/**
@@ -554,9 +420,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSDeducibleElement_Nature()
+	public EClass getSPrimitiveDeduction()
 	{
-		return (EAttribute)sDeducibleElementEClass.getEStructuralFeatures().get(1);
+		return sPrimitiveDeductionEClass;
 	}
 
 	/**
@@ -565,9 +431,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSDeducibleElement_Synthetic()
+	public EClass getSEnumerationDeduction()
 	{
-		return (EAttribute)sDeducibleElementEClass.getEStructuralFeatures().get(2);
+		return sEnumerationDeductionEClass;
 	}
 
 	/**
@@ -576,9 +442,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSNamedDeducibleElement()
+	public EClass getSLiteralDeduction()
 	{
-		return sNamedDeducibleElementEClass;
+		return sLiteralDeductionEClass;
 	}
 
 	/**
@@ -587,9 +453,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSExpression()
+	public EClass getSComplexTypeDeduction()
 	{
-		return sExpressionEClass;
+		return sComplexTypeDeductionEClass;
 	}
 
 	/**
@@ -598,9 +464,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSExpression_Expr()
+	public EClass getSDetailTypeDeduction()
 	{
-		return (EAttribute)sExpressionEClass.getEStructuralFeatures().get(0);
+		return sDetailTypeDeductionEClass;
 	}
 
 	/**
@@ -609,9 +475,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSImport()
+	public EClass getSEntityTypeDeduction()
 	{
-		return sImportEClass;
+		return sEntityTypeDeductionEClass;
 	}
 
 	/**
@@ -620,9 +486,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSImport_ImportedNamespace()
+	public EClass getSFeatureDeduction()
 	{
-		return (EAttribute)sImportEClass.getEStructuralFeatures().get(0);
+		return sFeatureDeductionEClass;
 	}
 
 	/**
@@ -631,9 +497,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSDomainProxy()
+	public EClass getSAssociationDeduction()
 	{
-		return sDomainProxyEClass;
+		return sAssociationDeductionEClass;
 	}
 
 	/**
@@ -642,9 +508,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSAggregate()
+	public EOperation getSAssociationDeduction__GetTargetType()
 	{
-		return sAggregateEClass;
+		return sAssociationDeductionEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -653,9 +519,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSAggregate_Types()
+	public EClass getSAttributeDeduction()
 	{
-		return (EReference)sAggregateEClass.getEStructuralFeatures().get(0);
+		return sAttributeDeductionEClass;
 	}
 
 	/**
@@ -664,9 +530,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSAggregate_Roots()
+	public EClass getSQueryDeduction()
 	{
-		return (EReference)sAggregateEClass.getEStructuralFeatures().get(1);
+		return sQueryDeductionEClass;
 	}
 
 	/**
@@ -675,449 +541,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSAggregate_DerivedName()
+	public EClass getSQueryParameterDeduction()
 	{
-		return (EAttribute)sAggregateEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSType()
-	{
-		return sTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSType_Constraints()
-	{
-		return (EReference)sTypeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSCondition()
-	{
-		return sConditionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSCondition_Condition()
-	{
-		return (EReference)sConditionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSSimpleType()
-	{
-		return sSimpleTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSPrimitive()
-	{
-		return sPrimitiveEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSPrimitive_Redefines()
-	{
-		return (EReference)sPrimitiveEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSPrimitive_Archetype()
-	{
-		return (EAttribute)sPrimitiveEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSEnumeration()
-	{
-		return sEnumerationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSEnumeration_Literals()
-	{
-		return (EReference)sEnumerationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSLiteral()
-	{
-		return sLiteralEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSComplexType()
-	{
-		return sComplexTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSComplexType_Abstract()
-	{
-		return (EAttribute)sComplexTypeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSComplexType_SuperType()
-	{
-		return (EReference)sComplexTypeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSComplexType_Features()
-	{
-		return (EReference)sComplexTypeEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSDetailType()
-	{
-		return sDetailTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSEntityType()
-	{
-		return sEntityTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSEntityType_Root()
-	{
-		return (EAttribute)sEntityTypeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSFeature()
-	{
-		return sFeatureEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSFeature_Type()
-	{
-		return (EReference)sFeatureEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSFeature_Multiplicity()
-	{
-		return (EReference)sFeatureEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSAssociation()
-	{
-		return sAssociationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSAssociation_Kind()
-	{
-		return (EAttribute)sAssociationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSAssociation_Derived()
-	{
-		return (EAttribute)sAssociationEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getSAssociation__GetTargetType()
-	{
-		return sAssociationEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSMultiplicity()
-	{
-		return sMultiplicityEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSMultiplicity_MinOccurs()
-	{
-		return (EAttribute)sMultiplicityEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSMultiplicity_MaxOccurs()
-	{
-		return (EAttribute)sMultiplicityEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSAttribute()
-	{
-		return sAttributeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSAttribute_Detail()
-	{
-		return (EAttribute)sAttributeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSAttribute_Key()
-	{
-		return (EAttribute)sAttributeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSQuery()
-	{
-		return sQueryEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSQuery_Parameters()
-	{
-		return (EReference)sQueryEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSQuery_Returns()
-	{
-		return (EReference)sQueryEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSQueryParameter()
-	{
-		return sQueryParameterEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSQueryParameter_Type()
-	{
-		return (EReference)sQueryParameterEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSQueryParameter_Multiplicity()
-	{
-		return (EReference)sQueryParameterEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSDeductionRule()
-	{
-		return sDeductionRuleEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSDeductionRule_Source()
-	{
-		return (EReference)sDeductionRuleEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSDeductionRule_NamedSource()
-	{
-		return (EReference)sDeductionRuleEClass.getEStructuralFeatures().get(1);
+		return sQueryParameterDeductionEClass;
 	}
 
 	/**
@@ -1302,53 +728,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSSyntheticDeductionRule()
-	{
-		return sSyntheticDeductionRuleEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSSyntheticDeductionRule_ElementWithRule()
-	{
-		return (EReference)sSyntheticDeductionRuleEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EEnum getSInformationModelKind()
 	{
 		return sInformationModelKindEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EEnum getSElementNature()
-	{
-		return sElementNatureEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EEnum getSAssociationKind()
-	{
-		return sAssociationKindEEnum;
 	}
 
 	/**
@@ -1393,97 +775,44 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		isCreated = true;
 
 		// Create classes and their features
-		sIdentityTypeEClass = createEClass(SIDENTITY_TYPE);
-
-		sValueTypeEClass = createEClass(SVALUE_TYPE);
-
 		sInformationModelEClass = createEClass(SINFORMATION_MODEL);
 		createEAttribute(sInformationModelEClass, SINFORMATION_MODEL__GENERATE);
 		createEAttribute(sInformationModelEClass, SINFORMATION_MODEL__KIND);
 		createEAttribute(sInformationModelEClass, SINFORMATION_MODEL__NAME);
+		createEReference(sInformationModelEClass, SINFORMATION_MODEL__DESCRIPTION);
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__IMPORTS);
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__TYPES);
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__AGGREGATES);
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__DOMAIN_PROXIES);
 
-		sNamedElementEClass = createEClass(SNAMED_ELEMENT);
-		createEAttribute(sNamedElementEClass, SNAMED_ELEMENT__NAME);
+		sDomainDeductionEClass = createEClass(SDOMAIN_DEDUCTION);
 
-		sDeducibleElementEClass = createEClass(SDEDUCIBLE_ELEMENT);
-		createEReference(sDeducibleElementEClass, SDEDUCIBLE_ELEMENT__DEDUCTION_RULE);
-		createEAttribute(sDeducibleElementEClass, SDEDUCIBLE_ELEMENT__NATURE);
-		createEAttribute(sDeducibleElementEClass, SDEDUCIBLE_ELEMENT__SYNTHETIC);
+		sAggregateDeductionEClass = createEClass(SAGGREGATE_DEDUCTION);
 
-		sNamedDeducibleElementEClass = createEClass(SNAMED_DEDUCIBLE_ELEMENT);
+		sTypeDeductionEClass = createEClass(STYPE_DEDUCTION);
 
-		sExpressionEClass = createEClass(SEXPRESSION);
-		createEAttribute(sExpressionEClass, SEXPRESSION__EXPR);
+		sPrimitiveDeductionEClass = createEClass(SPRIMITIVE_DEDUCTION);
 
-		sImportEClass = createEClass(SIMPORT);
-		createEAttribute(sImportEClass, SIMPORT__IMPORTED_NAMESPACE);
+		sEnumerationDeductionEClass = createEClass(SENUMERATION_DEDUCTION);
 
-		sDomainProxyEClass = createEClass(SDOMAIN_PROXY);
+		sLiteralDeductionEClass = createEClass(SLITERAL_DEDUCTION);
 
-		sAggregateEClass = createEClass(SAGGREGATE);
-		createEReference(sAggregateEClass, SAGGREGATE__TYPES);
-		createEReference(sAggregateEClass, SAGGREGATE__ROOTS);
-		createEAttribute(sAggregateEClass, SAGGREGATE__DERIVED_NAME);
+		sComplexTypeDeductionEClass = createEClass(SCOMPLEX_TYPE_DEDUCTION);
 
-		sTypeEClass = createEClass(STYPE);
-		createEReference(sTypeEClass, STYPE__CONSTRAINTS);
+		sDetailTypeDeductionEClass = createEClass(SDETAIL_TYPE_DEDUCTION);
 
-		sConditionEClass = createEClass(SCONDITION);
-		createEReference(sConditionEClass, SCONDITION__CONDITION);
+		sEntityTypeDeductionEClass = createEClass(SENTITY_TYPE_DEDUCTION);
 
-		sSimpleTypeEClass = createEClass(SSIMPLE_TYPE);
+		sFeatureDeductionEClass = createEClass(SFEATURE_DEDUCTION);
 
-		sPrimitiveEClass = createEClass(SPRIMITIVE);
-		createEReference(sPrimitiveEClass, SPRIMITIVE__REDEFINES);
-		createEAttribute(sPrimitiveEClass, SPRIMITIVE__ARCHETYPE);
+		sAssociationDeductionEClass = createEClass(SASSOCIATION_DEDUCTION);
+		createEOperation(sAssociationDeductionEClass, SASSOCIATION_DEDUCTION___GET_TARGET_TYPE);
 
-		sEnumerationEClass = createEClass(SENUMERATION);
-		createEReference(sEnumerationEClass, SENUMERATION__LITERALS);
+		sAttributeDeductionEClass = createEClass(SATTRIBUTE_DEDUCTION);
 
-		sLiteralEClass = createEClass(SLITERAL);
+		sQueryDeductionEClass = createEClass(SQUERY_DEDUCTION);
 
-		sComplexTypeEClass = createEClass(SCOMPLEX_TYPE);
-		createEAttribute(sComplexTypeEClass, SCOMPLEX_TYPE__ABSTRACT);
-		createEReference(sComplexTypeEClass, SCOMPLEX_TYPE__SUPER_TYPE);
-		createEReference(sComplexTypeEClass, SCOMPLEX_TYPE__FEATURES);
-
-		sDetailTypeEClass = createEClass(SDETAIL_TYPE);
-
-		sEntityTypeEClass = createEClass(SENTITY_TYPE);
-		createEAttribute(sEntityTypeEClass, SENTITY_TYPE__ROOT);
-
-		sFeatureEClass = createEClass(SFEATURE);
-		createEReference(sFeatureEClass, SFEATURE__TYPE);
-		createEReference(sFeatureEClass, SFEATURE__MULTIPLICITY);
-
-		sAssociationEClass = createEClass(SASSOCIATION);
-		createEAttribute(sAssociationEClass, SASSOCIATION__KIND);
-		createEAttribute(sAssociationEClass, SASSOCIATION__DERIVED);
-		createEOperation(sAssociationEClass, SASSOCIATION___GET_TARGET_TYPE);
-
-		sMultiplicityEClass = createEClass(SMULTIPLICITY);
-		createEAttribute(sMultiplicityEClass, SMULTIPLICITY__MIN_OCCURS);
-		createEAttribute(sMultiplicityEClass, SMULTIPLICITY__MAX_OCCURS);
-
-		sAttributeEClass = createEClass(SATTRIBUTE);
-		createEAttribute(sAttributeEClass, SATTRIBUTE__DETAIL);
-		createEAttribute(sAttributeEClass, SATTRIBUTE__KEY);
-
-		sQueryEClass = createEClass(SQUERY);
-		createEReference(sQueryEClass, SQUERY__PARAMETERS);
-		createEReference(sQueryEClass, SQUERY__RETURNS);
-
-		sQueryParameterEClass = createEClass(SQUERY_PARAMETER);
-		createEReference(sQueryParameterEClass, SQUERY_PARAMETER__TYPE);
-		createEReference(sQueryParameterEClass, SQUERY_PARAMETER__MULTIPLICITY);
-
-		sDeductionRuleEClass = createEClass(SDEDUCTION_RULE);
-		createEReference(sDeductionRuleEClass, SDEDUCTION_RULE__SOURCE);
-		createEReference(sDeductionRuleEClass, SDEDUCTION_RULE__NAMED_SOURCE);
+		sQueryParameterDeductionEClass = createEClass(SQUERY_PARAMETER_DEDUCTION);
 
 		sGrabRuleEClass = createEClass(SGRAB_RULE);
 		createEAttribute(sGrabRuleEClass, SGRAB_RULE__RENAME_TO);
@@ -1508,13 +837,8 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		sGrabDomainRuleEClass = createEClass(SGRAB_DOMAIN_RULE);
 		createEReference(sGrabDomainRuleEClass, SGRAB_DOMAIN_RULE__DOMAIN);
 
-		sSyntheticDeductionRuleEClass = createEClass(SSYNTHETIC_DEDUCTION_RULE);
-		createEReference(sSyntheticDeductionRuleEClass, SSYNTHETIC_DEDUCTION_RULE__ELEMENT_WITH_RULE);
-
 		// Create enums
 		sInformationModelKindEEnum = createEEnum(SINFORMATION_MODEL_KIND);
-		sElementNatureEEnum = createEEnum(SELEMENT_NATURE);
-		sAssociationKindEEnum = createEEnum(SASSOCIATION_KIND);
 		sTristateEEnum = createEEnum(STRISTATE);
 	}
 
@@ -1550,129 +874,79 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		sNamedDeducibleElementEClass.getESuperTypes().add(this.getSNamedElement());
-		sNamedDeducibleElementEClass.getESuperTypes().add(this.getSDeducibleElement());
-		sDomainProxyEClass.getESuperTypes().add(this.getSDeducibleElement());
-		sAggregateEClass.getESuperTypes().add(this.getSDeducibleElement());
-		sTypeEClass.getESuperTypes().add(this.getSNamedDeducibleElement());
-		sConditionEClass.getESuperTypes().add(this.getSNamedElement());
-		sSimpleTypeEClass.getESuperTypes().add(this.getSType());
-		sSimpleTypeEClass.getESuperTypes().add(this.getSValueType());
-		sPrimitiveEClass.getESuperTypes().add(this.getSSimpleType());
-		sEnumerationEClass.getESuperTypes().add(this.getSSimpleType());
-		sLiteralEClass.getESuperTypes().add(this.getSNamedDeducibleElement());
-		sComplexTypeEClass.getESuperTypes().add(this.getSType());
-		sDetailTypeEClass.getESuperTypes().add(this.getSComplexType());
-		sDetailTypeEClass.getESuperTypes().add(this.getSValueType());
-		sEntityTypeEClass.getESuperTypes().add(this.getSComplexType());
-		sEntityTypeEClass.getESuperTypes().add(this.getSIdentityType());
-		sFeatureEClass.getESuperTypes().add(this.getSNamedDeducibleElement());
-		sAssociationEClass.getESuperTypes().add(this.getSFeature());
-		sAttributeEClass.getESuperTypes().add(this.getSFeature());
-		sQueryEClass.getESuperTypes().add(this.getSFeature());
-		sQueryParameterEClass.getESuperTypes().add(this.getSNamedDeducibleElement());
-		sGrabRuleEClass.getESuperTypes().add(this.getSDeductionRule());
-		sDitchRuleEClass.getESuperTypes().add(this.getSDeductionRule());
+		sDomainDeductionEClass.getESuperTypes().add(theBasePackage.getIDeductionDefinition());
+		sAggregateDeductionEClass.getESuperTypes().add(theBasePackage.getDAggregate());
+		sAggregateDeductionEClass.getESuperTypes().add(theBasePackage.getIDeductionDefinition());
+		sTypeDeductionEClass.getESuperTypes().add(theBasePackage.getDNamedElement());
+		sTypeDeductionEClass.getESuperTypes().add(theBasePackage.getIDeductionDefinition());
+		sPrimitiveDeductionEClass.getESuperTypes().add(theBasePackage.getDPrimitive());
+		sPrimitiveDeductionEClass.getESuperTypes().add(this.getSTypeDeduction());
+		sEnumerationDeductionEClass.getESuperTypes().add(theBasePackage.getDEnumeration());
+		sEnumerationDeductionEClass.getESuperTypes().add(this.getSTypeDeduction());
+		sLiteralDeductionEClass.getESuperTypes().add(theBasePackage.getDLiteral());
+		sLiteralDeductionEClass.getESuperTypes().add(theBasePackage.getIDeductionDefinition());
+		sComplexTypeDeductionEClass.getESuperTypes().add(this.getSTypeDeduction());
+		sDetailTypeDeductionEClass.getESuperTypes().add(theBasePackage.getDDetailType());
+		sDetailTypeDeductionEClass.getESuperTypes().add(this.getSComplexTypeDeduction());
+		sEntityTypeDeductionEClass.getESuperTypes().add(theBasePackage.getDEntityType());
+		sEntityTypeDeductionEClass.getESuperTypes().add(this.getSComplexTypeDeduction());
+		sFeatureDeductionEClass.getESuperTypes().add(theBasePackage.getIDeductionDefinition());
+		sAssociationDeductionEClass.getESuperTypes().add(theBasePackage.getDAssociation());
+		sAssociationDeductionEClass.getESuperTypes().add(this.getSFeatureDeduction());
+		sAttributeDeductionEClass.getESuperTypes().add(theBasePackage.getDAttribute());
+		sAttributeDeductionEClass.getESuperTypes().add(this.getSFeatureDeduction());
+		sQueryDeductionEClass.getESuperTypes().add(theBasePackage.getDQuery());
+		sQueryDeductionEClass.getESuperTypes().add(this.getSFeatureDeduction());
+		sQueryParameterDeductionEClass.getESuperTypes().add(theBasePackage.getDQueryParameter());
+		sQueryParameterDeductionEClass.getESuperTypes().add(theBasePackage.getIDeductionDefinition());
+		sGrabRuleEClass.getESuperTypes().add(theBasePackage.getDDeductionRule());
+		sDitchRuleEClass.getESuperTypes().add(theBasePackage.getDDeductionRule());
 		sStructureChangingRuleEClass.getESuperTypes().add(this.getSGrabRule());
 		sMorphRuleEClass.getESuperTypes().add(this.getSStructureChangingRule());
 		sFuseRuleEClass.getESuperTypes().add(this.getSStructureChangingRule());
-		sGrabAggregateRuleEClass.getESuperTypes().add(this.getSDeductionRule());
-		sGrabDomainRuleEClass.getESuperTypes().add(this.getSDeductionRule());
-		sSyntheticDeductionRuleEClass.getESuperTypes().add(this.getSDeductionRule());
+		sGrabAggregateRuleEClass.getESuperTypes().add(theBasePackage.getDDeductionRule());
+		sGrabDomainRuleEClass.getESuperTypes().add(theBasePackage.getDDeductionRule());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(sIdentityTypeEClass, SIdentityType.class, "SIdentityType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(sValueTypeEClass, SValueType.class, "SValueType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(sInformationModelEClass, SInformationModel.class, "SInformationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSInformationModel_Generate(), ecorePackage.getEBoolean(), "generate", null, 0, 1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSInformationModel_Kind(), this.getSInformationModelKind(), "kind", null, 0, 1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSInformationModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSInformationModel_Imports(), this.getSImport(), null, "imports", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSInformationModel_Types(), this.getSType(), null, "types", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSInformationModel_Aggregates(), this.getSAggregate(), null, "aggregates", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSInformationModel_DomainProxies(), this.getSDomainProxy(), null, "domainProxies", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSInformationModel_Description(), theBasePackage.getDRichText(), null, "description", null, 0, 1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSInformationModel_Imports(), theBasePackage.getDImport(), null, "imports", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSInformationModel_Types(), theBasePackage.getDType(), null, "types", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSInformationModel_Aggregates(), theBasePackage.getDAggregate(), null, "aggregates", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSInformationModel_DomainProxies(), this.getSDomainDeduction(), null, "domainProxies", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sNamedElementEClass, SNamedElement.class, "SNamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, SNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(sDomainDeductionEClass, SDomainDeduction.class, "SDomainDeduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sDeducibleElementEClass, SDeducibleElement.class, "SDeducibleElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSDeducibleElement_DeductionRule(), this.getSDeductionRule(), null, "deductionRule", null, 0, 1, SDeducibleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSDeducibleElement_Nature(), this.getSElementNature(), "nature", null, 0, 1, SDeducibleElement.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSDeducibleElement_Synthetic(), ecorePackage.getEBoolean(), "synthetic", null, 0, 1, SDeducibleElement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(sAggregateDeductionEClass, SAggregateDeduction.class, "SAggregateDeduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sNamedDeducibleElementEClass, SNamedDeducibleElement.class, "SNamedDeducibleElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(sTypeDeductionEClass, STypeDeduction.class, "STypeDeduction", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sExpressionEClass, SExpression.class, "SExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSExpression_Expr(), ecorePackage.getEString(), "expr", null, 0, 1, SExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(sPrimitiveDeductionEClass, SPrimitiveDeduction.class, "SPrimitiveDeduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sImportEClass, SImport.class, "SImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, SImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(sEnumerationDeductionEClass, SEnumerationDeduction.class, "SEnumerationDeduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sDomainProxyEClass, SDomainProxy.class, "SDomainProxy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(sLiteralDeductionEClass, SLiteralDeduction.class, "SLiteralDeduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sAggregateEClass, SAggregate.class, "SAggregate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSAggregate_Types(), this.getSType(), null, "types", null, 0, -1, SAggregate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSAggregate_Roots(), this.getSEntityType(), null, "roots", null, 0, -1, SAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSAggregate_DerivedName(), ecorePackage.getEString(), "derivedName", null, 0, 1, SAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(sComplexTypeDeductionEClass, SComplexTypeDeduction.class, "SComplexTypeDeduction", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sTypeEClass, SType.class, "SType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSType_Constraints(), this.getSCondition(), null, "constraints", null, 0, -1, SType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(sDetailTypeDeductionEClass, SDetailTypeDeduction.class, "SDetailTypeDeduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sConditionEClass, SCondition.class, "SCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSCondition_Condition(), this.getSExpression(), null, "condition", null, 0, 1, SCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(sEntityTypeDeductionEClass, SEntityTypeDeduction.class, "SEntityTypeDeduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sSimpleTypeEClass, SSimpleType.class, "SSimpleType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(sFeatureDeductionEClass, SFeatureDeduction.class, "SFeatureDeduction", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sPrimitiveEClass, SPrimitive.class, "SPrimitive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSPrimitive_Redefines(), this.getSPrimitive(), null, "redefines", null, 0, 1, SPrimitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSPrimitive_Archetype(), ecorePackage.getEBoolean(), "archetype", null, 0, 1, SPrimitive.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(sAssociationDeductionEClass, SAssociationDeduction.class, "SAssociationDeduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sEnumerationEClass, SEnumeration.class, "SEnumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSEnumeration_Literals(), this.getSLiteral(), null, "literals", null, 0, -1, SEnumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEOperation(getSAssociationDeduction__GetTargetType(), this.getSEntityTypeDeduction(), "getTargetType", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(sLiteralEClass, SLiteral.class, "SLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(sAttributeDeductionEClass, SAttributeDeduction.class, "SAttributeDeduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sComplexTypeEClass, SComplexType.class, "SComplexType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSComplexType_Abstract(), ecorePackage.getEBoolean(), "abstract", null, 0, 1, SComplexType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSComplexType_SuperType(), this.getSComplexType(), null, "superType", null, 0, 1, SComplexType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSComplexType_Features(), this.getSFeature(), null, "features", null, 0, -1, SComplexType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(sQueryDeductionEClass, SQueryDeduction.class, "SQueryDeduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sDetailTypeEClass, SDetailType.class, "SDetailType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(sEntityTypeEClass, SEntityType.class, "SEntityType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSEntityType_Root(), ecorePackage.getEBoolean(), "root", null, 0, 1, SEntityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(sFeatureEClass, SFeature.class, "SFeature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSFeature_Type(), this.getSType(), null, "type", null, 0, 1, SFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSFeature_Multiplicity(), this.getSMultiplicity(), null, "multiplicity", null, 0, 1, SFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(sAssociationEClass, SAssociation.class, "SAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSAssociation_Kind(), this.getSAssociationKind(), "kind", null, 0, 1, SAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSAssociation_Derived(), ecorePackage.getEBoolean(), "derived", null, 0, 1, SAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getSAssociation__GetTargetType(), this.getSEntityType(), "getTargetType", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(sMultiplicityEClass, SMultiplicity.class, "SMultiplicity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSMultiplicity_MinOccurs(), ecorePackage.getEInt(), "minOccurs", null, 0, 1, SMultiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSMultiplicity_MaxOccurs(), ecorePackage.getEInt(), "maxOccurs", null, 0, 1, SMultiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(sAttributeEClass, SAttribute.class, "SAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSAttribute_Detail(), ecorePackage.getEBoolean(), "detail", null, 0, 1, SAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSAttribute_Key(), ecorePackage.getEBoolean(), "key", null, 0, 1, SAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(sQueryEClass, SQuery.class, "SQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSQuery_Parameters(), this.getSQueryParameter(), null, "parameters", null, 0, -1, SQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSQuery_Returns(), this.getSExpression(), null, "returns", null, 0, 1, SQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(sQueryParameterEClass, SQueryParameter.class, "SQueryParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSQueryParameter_Type(), this.getSType(), null, "type", null, 0, 1, SQueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSQueryParameter_Multiplicity(), this.getSMultiplicity(), null, "multiplicity", null, 0, 1, SQueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(sDeductionRuleEClass, SDeductionRule.class, "SDeductionRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSDeductionRule_Source(), ecorePackage.getEObject(), null, "source", null, 0, 1, SDeductionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSDeductionRule_NamedSource(), theBasePackage.getDNamedElement(), null, "namedSource", null, 0, 1, SDeductionRule.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(sQueryParameterDeductionEClass, SQueryParameterDeduction.class, "SQueryParameterDeduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(sGrabRuleEClass, SGrabRule.class, "SGrabRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSGrabRule_RenameTo(), ecorePackage.getEString(), "renameTo", null, 0, 1, SGrabRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1682,11 +956,11 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		initEClass(sStructureChangingRuleEClass, SStructureChangingRule.class, "SStructureChangingRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSStructureChangingRule_Abstract(), this.getSTristate(), "abstract", null, 0, 1, SStructureChangingRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSStructureChangingRule_RootEntity(), this.getSTristate(), "rootEntity", null, 0, 1, SStructureChangingRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSStructureChangingRule_ExtendFrom(), this.getSType(), null, "extendFrom", null, 0, 1, SStructureChangingRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSStructureChangingRule_ExtendFrom(), theBasePackage.getDType(), null, "extendFrom", null, 0, 1, SStructureChangingRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sMorphRuleEClass, SMorphRule.class, "SMorphRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSMorphRule_RetypeTo(), this.getSType(), null, "retypeTo", null, 0, 1, SMorphRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSMorphRule_RemultiplyTo(), this.getSMultiplicity(), null, "remultiplyTo", null, 0, 1, SMorphRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSMorphRule_RetypeTo(), theBasePackage.getDType(), null, "retypeTo", null, 0, 1, SMorphRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSMorphRule_RemultiplyTo(), theBasePackage.getDMultiplicity(), null, "remultiplyTo", null, 0, 1, SMorphRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sFuseRuleEClass, SFuseRule.class, "SFuseRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSFuseRule_OtherSources(), theBasePackage.getDNamedElement(), null, "otherSources", null, 0, -1, SFuseRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1697,24 +971,11 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		initEClass(sGrabDomainRuleEClass, SGrabDomainRule.class, "SGrabDomainRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSGrabDomainRule_Domain(), theBasePackage.getDDomain(), null, "domain", null, 0, 1, SGrabDomainRule.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(sSyntheticDeductionRuleEClass, SSyntheticDeductionRule.class, "SSyntheticDeductionRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSSyntheticDeductionRule_ElementWithRule(), this.getSDeducibleElement(), null, "elementWithRule", null, 0, 1, SSyntheticDeductionRule.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		// Initialize enums and add enum literals
 		initEEnum(sInformationModelKindEEnum, SInformationModelKind.class, "SInformationModelKind");
 		addEEnumLiteral(sInformationModelKindEEnum, SInformationModelKind.BASE);
 		addEEnumLiteral(sInformationModelKindEEnum, SInformationModelKind.INTERFACE);
 		addEEnumLiteral(sInformationModelKindEEnum, SInformationModelKind.CORE);
-
-		initEEnum(sElementNatureEEnum, SElementNature.class, "SElementNature");
-		addEEnumLiteral(sElementNatureEEnum, SElementNature.GENUINE);
-		addEEnumLiteral(sElementNatureEEnum, SElementNature.DEDUCTION_RULE);
-		addEEnumLiteral(sElementNatureEEnum, SElementNature.SYNTHETIC);
-
-		initEEnum(sAssociationKindEEnum, SAssociationKind.class, "SAssociationKind");
-		addEEnumLiteral(sAssociationKindEEnum, SAssociationKind.REFERENCE);
-		addEEnumLiteral(sAssociationKindEEnum, SAssociationKind.COMPOSITE);
-		addEEnumLiteral(sAssociationKindEEnum, SAssociationKind.INVERSE_COMPOSITE);
 
 		initEEnum(sTristateEEnum, STristate.class, "STristate");
 		addEEnumLiteral(sTristateEEnum, STristate.DONT_CARE);

@@ -3,20 +3,22 @@
  */
 package com.mimacom.ddd.sm.sim.validation;
 
+import com.mimacom.ddd.dm.dim.validation.DimValidator;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.xtext.validation.AbstractDeclarativeValidator;
 import org.eclipse.xtext.validation.ComposedChecks;
 import org.eclipse.xtext.validation.NamesAreUniqueValidator;
 
 @ComposedChecks(validators = {NamesAreUniqueValidator.class})
-public abstract class AbstractSimValidator extends AbstractDeclarativeValidator {
+public abstract class AbstractSimValidator extends DimValidator {
 	
 	@Override
 	protected List<EPackage> getEPackages() {
-		List<EPackage> result = new ArrayList<EPackage>();
+		List<EPackage> result = new ArrayList<EPackage>(super.getEPackages());
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/sm/sim"));
+		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/dm/base"));
+		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/dm/dmx"));
 		return result;
 	}
 }

@@ -66,33 +66,23 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 		switch (eClass.getClassifierID())
 		{
 			case SimPackage.SINFORMATION_MODEL: return createSInformationModel();
-			case SimPackage.SNAMED_ELEMENT: return createSNamedElement();
-			case SimPackage.SEXPRESSION: return createSExpression();
-			case SimPackage.SIMPORT: return createSImport();
-			case SimPackage.SDOMAIN_PROXY: return createSDomainProxy();
-			case SimPackage.SAGGREGATE: return createSAggregate();
-			case SimPackage.STYPE: return createSType();
-			case SimPackage.SCONDITION: return createSCondition();
-			case SimPackage.SSIMPLE_TYPE: return createSSimpleType();
-			case SimPackage.SPRIMITIVE: return createSPrimitive();
-			case SimPackage.SENUMERATION: return createSEnumeration();
-			case SimPackage.SLITERAL: return createSLiteral();
-			case SimPackage.SCOMPLEX_TYPE: return createSComplexType();
-			case SimPackage.SDETAIL_TYPE: return createSDetailType();
-			case SimPackage.SENTITY_TYPE: return createSEntityType();
-			case SimPackage.SFEATURE: return createSFeature();
-			case SimPackage.SASSOCIATION: return createSAssociation();
-			case SimPackage.SMULTIPLICITY: return createSMultiplicity();
-			case SimPackage.SATTRIBUTE: return createSAttribute();
-			case SimPackage.SQUERY: return createSQuery();
-			case SimPackage.SQUERY_PARAMETER: return createSQueryParameter();
+			case SimPackage.SDOMAIN_DEDUCTION: return createSDomainDeduction();
+			case SimPackage.SAGGREGATE_DEDUCTION: return createSAggregateDeduction();
+			case SimPackage.SPRIMITIVE_DEDUCTION: return createSPrimitiveDeduction();
+			case SimPackage.SENUMERATION_DEDUCTION: return createSEnumerationDeduction();
+			case SimPackage.SLITERAL_DEDUCTION: return createSLiteralDeduction();
+			case SimPackage.SDETAIL_TYPE_DEDUCTION: return createSDetailTypeDeduction();
+			case SimPackage.SENTITY_TYPE_DEDUCTION: return createSEntityTypeDeduction();
+			case SimPackage.SASSOCIATION_DEDUCTION: return createSAssociationDeduction();
+			case SimPackage.SATTRIBUTE_DEDUCTION: return createSAttributeDeduction();
+			case SimPackage.SQUERY_DEDUCTION: return createSQueryDeduction();
+			case SimPackage.SQUERY_PARAMETER_DEDUCTION: return createSQueryParameterDeduction();
 			case SimPackage.SGRAB_RULE: return createSGrabRule();
 			case SimPackage.SDITCH_RULE: return createSDitchRule();
 			case SimPackage.SMORPH_RULE: return createSMorphRule();
 			case SimPackage.SFUSE_RULE: return createSFuseRule();
 			case SimPackage.SGRAB_AGGREGATE_RULE: return createSGrabAggregateRule();
 			case SimPackage.SGRAB_DOMAIN_RULE: return createSGrabDomainRule();
-			case SimPackage.SSYNTHETIC_DEDUCTION_RULE: return createSSyntheticDeductionRule();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -110,10 +100,6 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 		{
 			case SimPackage.SINFORMATION_MODEL_KIND:
 				return createSInformationModelKindFromString(eDataType, initialValue);
-			case SimPackage.SELEMENT_NATURE:
-				return createSElementNatureFromString(eDataType, initialValue);
-			case SimPackage.SASSOCIATION_KIND:
-				return createSAssociationKindFromString(eDataType, initialValue);
 			case SimPackage.STRISTATE:
 				return createSTristateFromString(eDataType, initialValue);
 			default:
@@ -133,10 +119,6 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 		{
 			case SimPackage.SINFORMATION_MODEL_KIND:
 				return convertSInformationModelKindToString(eDataType, instanceValue);
-			case SimPackage.SELEMENT_NATURE:
-				return convertSElementNatureToString(eDataType, instanceValue);
-			case SimPackage.SASSOCIATION_KIND:
-				return convertSAssociationKindToString(eDataType, instanceValue);
 			case SimPackage.STRISTATE:
 				return convertSTristateToString(eDataType, instanceValue);
 			default:
@@ -162,10 +144,10 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	@Override
-	public SNamedElement createSNamedElement()
+	public SDomainDeduction createSDomainDeduction()
 	{
-		SNamedElementImpl sNamedElement = new SNamedElementImpl();
-		return sNamedElement;
+		SDomainDeductionImpl sDomainDeduction = new SDomainDeductionImpl();
+		return sDomainDeduction;
 	}
 
 	/**
@@ -174,10 +156,10 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	@Override
-	public SExpression createSExpression()
+	public SAggregateDeduction createSAggregateDeduction()
 	{
-		SExpressionImpl sExpression = new SExpressionImpl();
-		return sExpression;
+		SAggregateDeductionImpl sAggregateDeduction = new SAggregateDeductionImpl();
+		return sAggregateDeduction;
 	}
 
 	/**
@@ -186,10 +168,10 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	@Override
-	public SImport createSImport()
+	public SPrimitiveDeduction createSPrimitiveDeduction()
 	{
-		SImportImpl sImport = new SImportImpl();
-		return sImport;
+		SPrimitiveDeductionImplCustom sPrimitiveDeduction = new SPrimitiveDeductionImplCustom();
+		return sPrimitiveDeduction;
 	}
 
 	/**
@@ -198,10 +180,10 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	@Override
-	public SDomainProxy createSDomainProxy()
+	public SEnumerationDeduction createSEnumerationDeduction()
 	{
-		SDomainProxyImplCustom sDomainProxy = new SDomainProxyImplCustom();
-		return sDomainProxy;
+		SEnumerationDeductionImpl sEnumerationDeduction = new SEnumerationDeductionImpl();
+		return sEnumerationDeduction;
 	}
 
 	/**
@@ -210,10 +192,10 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	@Override
-	public SAggregate createSAggregate()
+	public SLiteralDeduction createSLiteralDeduction()
 	{
-		SAggregateImplCustom sAggregate = new SAggregateImplCustom();
-		return sAggregate;
+		SLiteralDeductionImpl sLiteralDeduction = new SLiteralDeductionImpl();
+		return sLiteralDeduction;
 	}
 
 	/**
@@ -222,10 +204,10 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	@Override
-	public SType createSType()
+	public SDetailTypeDeduction createSDetailTypeDeduction()
 	{
-		STypeImpl sType = new STypeImpl();
-		return sType;
+		SDetailTypeDeductionImpl sDetailTypeDeduction = new SDetailTypeDeductionImpl();
+		return sDetailTypeDeduction;
 	}
 
 	/**
@@ -234,10 +216,10 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	@Override
-	public SCondition createSCondition()
+	public SEntityTypeDeduction createSEntityTypeDeduction()
 	{
-		SConditionImpl sCondition = new SConditionImpl();
-		return sCondition;
+		SEntityTypeDeductionImpl sEntityTypeDeduction = new SEntityTypeDeductionImpl();
+		return sEntityTypeDeduction;
 	}
 
 	/**
@@ -246,10 +228,10 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	@Override
-	public SSimpleType createSSimpleType()
+	public SAssociationDeduction createSAssociationDeduction()
 	{
-		SSimpleTypeImpl sSimpleType = new SSimpleTypeImpl();
-		return sSimpleType;
+		SAssociationDeductionImplCustom sAssociationDeduction = new SAssociationDeductionImplCustom();
+		return sAssociationDeduction;
 	}
 
 	/**
@@ -258,10 +240,10 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	@Override
-	public SPrimitive createSPrimitive()
+	public SAttributeDeduction createSAttributeDeduction()
 	{
-		SPrimitiveImplCustom sPrimitive = new SPrimitiveImplCustom();
-		return sPrimitive;
+		SAttributeDeductionImpl sAttributeDeduction = new SAttributeDeductionImpl();
+		return sAttributeDeduction;
 	}
 
 	/**
@@ -270,10 +252,10 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	@Override
-	public SEnumeration createSEnumeration()
+	public SQueryDeduction createSQueryDeduction()
 	{
-		SEnumerationImpl sEnumeration = new SEnumerationImpl();
-		return sEnumeration;
+		SQueryDeductionImpl sQueryDeduction = new SQueryDeductionImpl();
+		return sQueryDeduction;
 	}
 
 	/**
@@ -282,118 +264,10 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	@Override
-	public SLiteral createSLiteral()
+	public SQueryParameterDeduction createSQueryParameterDeduction()
 	{
-		SLiteralImpl sLiteral = new SLiteralImpl();
-		return sLiteral;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SComplexType createSComplexType()
-	{
-		SComplexTypeImpl sComplexType = new SComplexTypeImpl();
-		return sComplexType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SDetailType createSDetailType()
-	{
-		SDetailTypeImpl sDetailType = new SDetailTypeImpl();
-		return sDetailType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SEntityType createSEntityType()
-	{
-		SEntityTypeImpl sEntityType = new SEntityTypeImpl();
-		return sEntityType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SFeature createSFeature()
-	{
-		SFeatureImpl sFeature = new SFeatureImpl();
-		return sFeature;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SAssociation createSAssociation()
-	{
-		SAssociationImplCustom sAssociation = new SAssociationImplCustom();
-		return sAssociation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SMultiplicity createSMultiplicity()
-	{
-		SMultiplicityImpl sMultiplicity = new SMultiplicityImpl();
-		return sMultiplicity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SAttribute createSAttribute()
-	{
-		SAttributeImpl sAttribute = new SAttributeImpl();
-		return sAttribute;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SQuery createSQuery()
-	{
-		SQueryImpl sQuery = new SQueryImpl();
-		return sQuery;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SQueryParameter createSQueryParameter()
-	{
-		SQueryParameterImpl sQueryParameter = new SQueryParameterImpl();
-		return sQueryParameter;
+		SQueryParameterDeductionImpl sQueryParameterDeduction = new SQueryParameterDeductionImpl();
+		return sQueryParameterDeduction;
 	}
 
 	/**
@@ -473,18 +347,6 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public SSyntheticDeductionRule createSSyntheticDeductionRule()
-	{
-		SSyntheticDeductionRuleImpl sSyntheticDeductionRule = new SSyntheticDeductionRuleImpl();
-		return sSyntheticDeductionRule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public SInformationModelKind createSInformationModelKindFromString(EDataType eDataType, String initialValue)
 	{
 		SInformationModelKind result = SInformationModelKind.get(initialValue);
@@ -498,50 +360,6 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	 * @generated
 	 */
 	public String convertSInformationModelKindToString(EDataType eDataType, Object instanceValue)
-	{
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SElementNature createSElementNatureFromString(EDataType eDataType, String initialValue)
-	{
-		SElementNature result = SElementNature.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertSElementNatureToString(EDataType eDataType, Object instanceValue)
-	{
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SAssociationKind createSAssociationKindFromString(EDataType eDataType, String initialValue)
-	{
-		SAssociationKind result = SAssociationKind.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertSAssociationKindToString(EDataType eDataType, Object instanceValue)
 	{
 		return instanceValue == null ? null : instanceValue.toString();
 	}

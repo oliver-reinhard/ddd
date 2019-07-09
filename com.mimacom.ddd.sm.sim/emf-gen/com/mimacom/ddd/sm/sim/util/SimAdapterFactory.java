@@ -2,6 +2,32 @@
  */
 package com.mimacom.ddd.sm.sim.util;
 
+import com.mimacom.ddd.dm.base.DAggregate;
+import com.mimacom.ddd.dm.base.DAssociation;
+import com.mimacom.ddd.dm.base.DAttribute;
+import com.mimacom.ddd.dm.base.DComplexType;
+import com.mimacom.ddd.dm.base.DDeductionRule;
+import com.mimacom.ddd.dm.base.DDetailType;
+import com.mimacom.ddd.dm.base.DEntityType;
+import com.mimacom.ddd.dm.base.DEnumeration;
+import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DIdentityType;
+import com.mimacom.ddd.dm.base.DLiteral;
+import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DPrimitive;
+import com.mimacom.ddd.dm.base.DQuery;
+import com.mimacom.ddd.dm.base.DQueryParameter;
+import com.mimacom.ddd.dm.base.DSimpleType;
+import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.DTypedMember;
+import com.mimacom.ddd.dm.base.IDeducibleElement;
+import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.base.IIdentityType;
+import com.mimacom.ddd.dm.base.INamespace;
+import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
+import com.mimacom.ddd.dm.base.ITypedMemberContainer;
+import com.mimacom.ddd.dm.base.IValueType;
+
 import com.mimacom.ddd.sm.sim.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -75,134 +101,79 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 		new SimSwitch<Adapter>()
 		{
 			@Override
-			public Adapter caseSIdentityType(SIdentityType object)
-			{
-				return createSIdentityTypeAdapter();
-			}
-			@Override
-			public Adapter caseSValueType(SValueType object)
-			{
-				return createSValueTypeAdapter();
-			}
-			@Override
 			public Adapter caseSInformationModel(SInformationModel object)
 			{
 				return createSInformationModelAdapter();
 			}
 			@Override
-			public Adapter caseSNamedElement(SNamedElement object)
+			public Adapter caseSDomainDeduction(SDomainDeduction object)
 			{
-				return createSNamedElementAdapter();
+				return createSDomainDeductionAdapter();
 			}
 			@Override
-			public Adapter caseSDeducibleElement(SDeducibleElement object)
+			public Adapter caseSAggregateDeduction(SAggregateDeduction object)
 			{
-				return createSDeducibleElementAdapter();
+				return createSAggregateDeductionAdapter();
 			}
 			@Override
-			public Adapter caseSNamedDeducibleElement(SNamedDeducibleElement object)
+			public Adapter caseSTypeDeduction(STypeDeduction object)
 			{
-				return createSNamedDeducibleElementAdapter();
+				return createSTypeDeductionAdapter();
 			}
 			@Override
-			public Adapter caseSExpression(SExpression object)
+			public Adapter caseSPrimitiveDeduction(SPrimitiveDeduction object)
 			{
-				return createSExpressionAdapter();
+				return createSPrimitiveDeductionAdapter();
 			}
 			@Override
-			public Adapter caseSImport(SImport object)
+			public Adapter caseSEnumerationDeduction(SEnumerationDeduction object)
 			{
-				return createSImportAdapter();
+				return createSEnumerationDeductionAdapter();
 			}
 			@Override
-			public Adapter caseSDomainProxy(SDomainProxy object)
+			public Adapter caseSLiteralDeduction(SLiteralDeduction object)
 			{
-				return createSDomainProxyAdapter();
+				return createSLiteralDeductionAdapter();
 			}
 			@Override
-			public Adapter caseSAggregate(SAggregate object)
+			public Adapter caseSComplexTypeDeduction(SComplexTypeDeduction object)
 			{
-				return createSAggregateAdapter();
+				return createSComplexTypeDeductionAdapter();
 			}
 			@Override
-			public Adapter caseSType(SType object)
+			public Adapter caseSDetailTypeDeduction(SDetailTypeDeduction object)
 			{
-				return createSTypeAdapter();
+				return createSDetailTypeDeductionAdapter();
 			}
 			@Override
-			public Adapter caseSCondition(SCondition object)
+			public Adapter caseSEntityTypeDeduction(SEntityTypeDeduction object)
 			{
-				return createSConditionAdapter();
+				return createSEntityTypeDeductionAdapter();
 			}
 			@Override
-			public Adapter caseSSimpleType(SSimpleType object)
+			public Adapter caseSFeatureDeduction(SFeatureDeduction object)
 			{
-				return createSSimpleTypeAdapter();
+				return createSFeatureDeductionAdapter();
 			}
 			@Override
-			public Adapter caseSPrimitive(SPrimitive object)
+			public Adapter caseSAssociationDeduction(SAssociationDeduction object)
 			{
-				return createSPrimitiveAdapter();
+				return createSAssociationDeductionAdapter();
 			}
 			@Override
-			public Adapter caseSEnumeration(SEnumeration object)
+			public Adapter caseSAttributeDeduction(SAttributeDeduction object)
 			{
-				return createSEnumerationAdapter();
+				return createSAttributeDeductionAdapter();
 			}
 			@Override
-			public Adapter caseSLiteral(SLiteral object)
+			public Adapter caseSQueryDeduction(SQueryDeduction object)
 			{
-				return createSLiteralAdapter();
+				return createSQueryDeductionAdapter();
 			}
 			@Override
-			public Adapter caseSComplexType(SComplexType object)
+			public Adapter caseSQueryParameterDeduction(SQueryParameterDeduction object)
 			{
-				return createSComplexTypeAdapter();
-			}
-			@Override
-			public Adapter caseSDetailType(SDetailType object)
-			{
-				return createSDetailTypeAdapter();
-			}
-			@Override
-			public Adapter caseSEntityType(SEntityType object)
-			{
-				return createSEntityTypeAdapter();
-			}
-			@Override
-			public Adapter caseSFeature(SFeature object)
-			{
-				return createSFeatureAdapter();
-			}
-			@Override
-			public Adapter caseSAssociation(SAssociation object)
-			{
-				return createSAssociationAdapter();
-			}
-			@Override
-			public Adapter caseSMultiplicity(SMultiplicity object)
-			{
-				return createSMultiplicityAdapter();
-			}
-			@Override
-			public Adapter caseSAttribute(SAttribute object)
-			{
-				return createSAttributeAdapter();
-			}
-			@Override
-			public Adapter caseSQuery(SQuery object)
-			{
-				return createSQueryAdapter();
-			}
-			@Override
-			public Adapter caseSQueryParameter(SQueryParameter object)
-			{
-				return createSQueryParameterAdapter();
-			}
-			@Override
-			public Adapter caseSDeductionRule(SDeductionRule object)
-			{
-				return createSDeductionRuleAdapter();
+				return createSQueryParameterDeductionAdapter();
 			}
 			@Override
 			public Adapter caseSGrabRule(SGrabRule object)
@@ -240,9 +211,129 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createSGrabDomainRuleAdapter();
 			}
 			@Override
-			public Adapter caseSSyntheticDeductionRule(SSyntheticDeductionRule object)
+			public Adapter caseIDeductionDefinition(IDeductionDefinition object)
 			{
-				return createSSyntheticDeductionRuleAdapter();
+				return createIDeductionDefinitionAdapter();
+			}
+			@Override
+			public Adapter caseIDeducibleElement(IDeducibleElement object)
+			{
+				return createIDeducibleElementAdapter();
+			}
+			@Override
+			public Adapter caseDAggregate(DAggregate object)
+			{
+				return createDAggregateAdapter();
+			}
+			@Override
+			public Adapter caseDNamedElement(DNamedElement object)
+			{
+				return createDNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseIPrimaryNavigationTarget(IPrimaryNavigationTarget object)
+			{
+				return createIPrimaryNavigationTargetAdapter();
+			}
+			@Override
+			public Adapter caseDType(DType object)
+			{
+				return createDTypeAdapter();
+			}
+			@Override
+			public Adapter caseIValueType(IValueType object)
+			{
+				return createIValueTypeAdapter();
+			}
+			@Override
+			public Adapter caseDSimpleType(DSimpleType object)
+			{
+				return createDSimpleTypeAdapter();
+			}
+			@Override
+			public Adapter caseDPrimitive(DPrimitive object)
+			{
+				return createDPrimitiveAdapter();
+			}
+			@Override
+			public Adapter caseINamespace(INamespace object)
+			{
+				return createINamespaceAdapter();
+			}
+			@Override
+			public Adapter caseITypedMemberContainer(ITypedMemberContainer object)
+			{
+				return createITypedMemberContainerAdapter();
+			}
+			@Override
+			public Adapter caseDEnumeration(DEnumeration object)
+			{
+				return createDEnumerationAdapter();
+			}
+			@Override
+			public Adapter caseDTypedMember(DTypedMember object)
+			{
+				return createDTypedMemberAdapter();
+			}
+			@Override
+			public Adapter caseDLiteral(DLiteral object)
+			{
+				return createDLiteralAdapter();
+			}
+			@Override
+			public Adapter caseDComplexType(DComplexType object)
+			{
+				return createDComplexTypeAdapter();
+			}
+			@Override
+			public Adapter caseDDetailType(DDetailType object)
+			{
+				return createDDetailTypeAdapter();
+			}
+			@Override
+			public Adapter caseIIdentityType(IIdentityType object)
+			{
+				return createIIdentityTypeAdapter();
+			}
+			@Override
+			public Adapter caseDIdentityType(DIdentityType object)
+			{
+				return createDIdentityTypeAdapter();
+			}
+			@Override
+			public Adapter caseDEntityType(DEntityType object)
+			{
+				return createDEntityTypeAdapter();
+			}
+			@Override
+			public Adapter caseDFeature(DFeature object)
+			{
+				return createDFeatureAdapter();
+			}
+			@Override
+			public Adapter caseDAssociation(DAssociation object)
+			{
+				return createDAssociationAdapter();
+			}
+			@Override
+			public Adapter caseDAttribute(DAttribute object)
+			{
+				return createDAttributeAdapter();
+			}
+			@Override
+			public Adapter caseDQuery(DQuery object)
+			{
+				return createDQueryAdapter();
+			}
+			@Override
+			public Adapter caseDQueryParameter(DQueryParameter object)
+			{
+				return createDQueryParameterAdapter();
+			}
+			@Override
+			public Adapter caseDDeductionRule(DDeductionRule object)
+			{
+				return createDDeductionRuleAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object)
@@ -267,36 +358,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SIdentityType <em>SIdentity Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SIdentityType
-	 * @generated
-	 */
-	public Adapter createSIdentityTypeAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SValueType <em>SValue Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SValueType
-	 * @generated
-	 */
-	public Adapter createSValueTypeAdapter()
-	{
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SInformationModel <em>SInformation Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -312,346 +373,211 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SNamedElement <em>SNamed Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SDomainDeduction <em>SDomain Deduction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SNamedElement
+	 * @see com.mimacom.ddd.sm.sim.SDomainDeduction
 	 * @generated
 	 */
-	public Adapter createSNamedElementAdapter()
+	public Adapter createSDomainDeductionAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SDeducibleElement <em>SDeducible Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SAggregateDeduction <em>SAggregate Deduction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SDeducibleElement
+	 * @see com.mimacom.ddd.sm.sim.SAggregateDeduction
 	 * @generated
 	 */
-	public Adapter createSDeducibleElementAdapter()
+	public Adapter createSAggregateDeductionAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SNamedDeducibleElement <em>SNamed Deducible Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.STypeDeduction <em>SType Deduction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SNamedDeducibleElement
+	 * @see com.mimacom.ddd.sm.sim.STypeDeduction
 	 * @generated
 	 */
-	public Adapter createSNamedDeducibleElementAdapter()
+	public Adapter createSTypeDeductionAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SExpression <em>SExpression</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SPrimitiveDeduction <em>SPrimitive Deduction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SExpression
+	 * @see com.mimacom.ddd.sm.sim.SPrimitiveDeduction
 	 * @generated
 	 */
-	public Adapter createSExpressionAdapter()
+	public Adapter createSPrimitiveDeductionAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SImport <em>SImport</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SEnumerationDeduction <em>SEnumeration Deduction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SImport
+	 * @see com.mimacom.ddd.sm.sim.SEnumerationDeduction
 	 * @generated
 	 */
-	public Adapter createSImportAdapter()
+	public Adapter createSEnumerationDeductionAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SDomainProxy <em>SDomain Proxy</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SLiteralDeduction <em>SLiteral Deduction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SDomainProxy
+	 * @see com.mimacom.ddd.sm.sim.SLiteralDeduction
 	 * @generated
 	 */
-	public Adapter createSDomainProxyAdapter()
+	public Adapter createSLiteralDeductionAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SAggregate <em>SAggregate</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SComplexTypeDeduction <em>SComplex Type Deduction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SAggregate
+	 * @see com.mimacom.ddd.sm.sim.SComplexTypeDeduction
 	 * @generated
 	 */
-	public Adapter createSAggregateAdapter()
+	public Adapter createSComplexTypeDeductionAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SType <em>SType</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SDetailTypeDeduction <em>SDetail Type Deduction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SType
+	 * @see com.mimacom.ddd.sm.sim.SDetailTypeDeduction
 	 * @generated
 	 */
-	public Adapter createSTypeAdapter()
+	public Adapter createSDetailTypeDeductionAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SCondition <em>SCondition</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SEntityTypeDeduction <em>SEntity Type Deduction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SCondition
+	 * @see com.mimacom.ddd.sm.sim.SEntityTypeDeduction
 	 * @generated
 	 */
-	public Adapter createSConditionAdapter()
+	public Adapter createSEntityTypeDeductionAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SSimpleType <em>SSimple Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SFeatureDeduction <em>SFeature Deduction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SSimpleType
+	 * @see com.mimacom.ddd.sm.sim.SFeatureDeduction
 	 * @generated
 	 */
-	public Adapter createSSimpleTypeAdapter()
+	public Adapter createSFeatureDeductionAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SPrimitive <em>SPrimitive</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SAssociationDeduction <em>SAssociation Deduction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SPrimitive
+	 * @see com.mimacom.ddd.sm.sim.SAssociationDeduction
 	 * @generated
 	 */
-	public Adapter createSPrimitiveAdapter()
+	public Adapter createSAssociationDeductionAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SEnumeration <em>SEnumeration</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SAttributeDeduction <em>SAttribute Deduction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SEnumeration
+	 * @see com.mimacom.ddd.sm.sim.SAttributeDeduction
 	 * @generated
 	 */
-	public Adapter createSEnumerationAdapter()
+	public Adapter createSAttributeDeductionAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SLiteral <em>SLiteral</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SQueryDeduction <em>SQuery Deduction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SLiteral
+	 * @see com.mimacom.ddd.sm.sim.SQueryDeduction
 	 * @generated
 	 */
-	public Adapter createSLiteralAdapter()
+	public Adapter createSQueryDeductionAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SComplexType <em>SComplex Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SQueryParameterDeduction <em>SQuery Parameter Deduction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SComplexType
+	 * @see com.mimacom.ddd.sm.sim.SQueryParameterDeduction
 	 * @generated
 	 */
-	public Adapter createSComplexTypeAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SDetailType <em>SDetail Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SDetailType
-	 * @generated
-	 */
-	public Adapter createSDetailTypeAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SEntityType <em>SEntity Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SEntityType
-	 * @generated
-	 */
-	public Adapter createSEntityTypeAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SFeature <em>SFeature</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SFeature
-	 * @generated
-	 */
-	public Adapter createSFeatureAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SAssociation <em>SAssociation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SAssociation
-	 * @generated
-	 */
-	public Adapter createSAssociationAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SMultiplicity <em>SMultiplicity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SMultiplicity
-	 * @generated
-	 */
-	public Adapter createSMultiplicityAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SAttribute <em>SAttribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SAttribute
-	 * @generated
-	 */
-	public Adapter createSAttributeAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SQuery <em>SQuery</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SQuery
-	 * @generated
-	 */
-	public Adapter createSQueryAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SQueryParameter <em>SQuery Parameter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SQueryParameter
-	 * @generated
-	 */
-	public Adapter createSQueryParameterAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SDeductionRule <em>SDeduction Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SDeductionRule
-	 * @generated
-	 */
-	public Adapter createSDeductionRuleAdapter()
+	public Adapter createSQueryParameterDeductionAdapter()
 	{
 		return null;
 	}
@@ -762,16 +688,376 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SSyntheticDeductionRule <em>SSynthetic Deduction Rule</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IDeductionDefinition <em>IDeduction Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SSyntheticDeductionRule
+	 * @see com.mimacom.ddd.dm.base.IDeductionDefinition
 	 * @generated
 	 */
-	public Adapter createSSyntheticDeductionRuleAdapter()
+	public Adapter createIDeductionDefinitionAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IDeducibleElement <em>IDeducible Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IDeducibleElement
+	 * @generated
+	 */
+	public Adapter createIDeducibleElementAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DAggregate <em>DAggregate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DAggregate
+	 * @generated
+	 */
+	public Adapter createDAggregateAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamedElement <em>DNamed Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DNamedElement
+	 * @generated
+	 */
+	public Adapter createDNamedElementAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IPrimaryNavigationTarget <em>IPrimary Navigation Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IPrimaryNavigationTarget
+	 * @generated
+	 */
+	public Adapter createIPrimaryNavigationTargetAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DType <em>DType</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DType
+	 * @generated
+	 */
+	public Adapter createDTypeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IValueType <em>IValue Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IValueType
+	 * @generated
+	 */
+	public Adapter createIValueTypeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DSimpleType <em>DSimple Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DSimpleType
+	 * @generated
+	 */
+	public Adapter createDSimpleTypeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DPrimitive <em>DPrimitive</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DPrimitive
+	 * @generated
+	 */
+	public Adapter createDPrimitiveAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INamespace <em>INamespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.INamespace
+	 * @generated
+	 */
+	public Adapter createINamespaceAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.ITypedMemberContainer <em>ITyped Member Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.ITypedMemberContainer
+	 * @generated
+	 */
+	public Adapter createITypedMemberContainerAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DEnumeration <em>DEnumeration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DEnumeration
+	 * @generated
+	 */
+	public Adapter createDEnumerationAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DTypedMember <em>DTyped Member</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DTypedMember
+	 * @generated
+	 */
+	public Adapter createDTypedMemberAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DLiteral <em>DLiteral</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DLiteral
+	 * @generated
+	 */
+	public Adapter createDLiteralAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DComplexType <em>DComplex Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DComplexType
+	 * @generated
+	 */
+	public Adapter createDComplexTypeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DDetailType <em>DDetail Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DDetailType
+	 * @generated
+	 */
+	public Adapter createDDetailTypeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IIdentityType <em>IIdentity Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IIdentityType
+	 * @generated
+	 */
+	public Adapter createIIdentityTypeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DIdentityType <em>DIdentity Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DIdentityType
+	 * @generated
+	 */
+	public Adapter createDIdentityTypeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DEntityType <em>DEntity Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DEntityType
+	 * @generated
+	 */
+	public Adapter createDEntityTypeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DFeature <em>DFeature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DFeature
+	 * @generated
+	 */
+	public Adapter createDFeatureAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DAssociation <em>DAssociation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DAssociation
+	 * @generated
+	 */
+	public Adapter createDAssociationAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DAttribute <em>DAttribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DAttribute
+	 * @generated
+	 */
+	public Adapter createDAttributeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DQuery <em>DQuery</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DQuery
+	 * @generated
+	 */
+	public Adapter createDQueryAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DQueryParameter <em>DQuery Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DQueryParameter
+	 * @generated
+	 */
+	public Adapter createDQueryParameterAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DDeductionRule <em>DDeduction Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DDeductionRule
+	 * @generated
+	 */
+	public Adapter createDDeductionRuleAdapter()
 	{
 		return null;
 	}

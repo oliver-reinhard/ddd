@@ -9,7 +9,7 @@ Bundle-ActivationPolicy: lazy
 Require-Bundle: com.mimacom.ddd.dm.dim,
  com.mimacom.ddd.dm.dim.ide,
  com.mimacom.ddd.dm.dmx,
- com.mimacom.ddd.dm.dmx.ui,
+ com.mimacom.ddd.dm.dmx.ui;visibility:=reexport,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.ui.codetemplates.ui,

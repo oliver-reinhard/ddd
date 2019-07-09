@@ -18,7 +18,7 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
-import com.mimacom.ddd.sm.sim.SType;
+import com.mimacom.ddd.dm.base.DType;
 
 public class SimCrossReferenceSerializer extends CrossReferenceSerializer {
 	
@@ -39,8 +39,8 @@ public class SimCrossReferenceSerializer extends CrossReferenceSerializer {
 //		for (IEObjectDescription desc : scope.getElements(target)) {  ==> getElements(target) always returns 0 descriptions
 //		---- BEGIN FIX ----
 		Iterable<IEObjectDescription> scopeElements = null;
-		if (target instanceof SType) {
-			String name = ((SType) target).getName();
+		if (target instanceof DType) {
+			String name = ((DType) target).getName();
 			scopeElements = scope.getAllElements();
 			scopeElements = Lists.newArrayList(Iterables.filter(scopeElements, new Predicate<IEObjectDescription>() {
 				@Override

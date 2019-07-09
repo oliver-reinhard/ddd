@@ -3,10 +3,10 @@
  */
 package com.mimacom.ddd.sm.asm.impl;
 
+import com.mimacom.ddd.dm.base.DImport;
+
 import com.mimacom.ddd.sm.asm.AsmPackage;
 import com.mimacom.ddd.sm.asm.Model;
-
-import com.mimacom.ddd.sm.sim.SImport;
 
 import java.util.Collection;
 
@@ -68,7 +68,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SImport> imports;
+	protected EList<DImport> imports;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -122,11 +122,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 	 * @generated
 	 */
 	@Override
-	public EList<SImport> getImports()
+	public EList<DImport> getImports()
 	{
 		if (imports == null)
 		{
-			imports = new EObjectContainmentEList<SImport>(SImport.class, this, AsmPackage.MODEL__IMPORTS);
+			imports = new EObjectContainmentEList<DImport>(DImport.class, this, AsmPackage.MODEL__IMPORTS);
 		}
 		return imports;
 	}
@@ -181,7 +181,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 				return;
 			case AsmPackage.MODEL__IMPORTS:
 				getImports().clear();
-				getImports().addAll((Collection<? extends SImport>)newValue);
+				getImports().addAll((Collection<? extends DImport>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

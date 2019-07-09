@@ -3,9 +3,9 @@
  */
 package com.mimacom.ddd.sm.sim.generator
 
-import com.google.common.collect.Lists
 import com.google.inject.Inject
-import com.mimacom.ddd.sm.sim.SDeducibleElement
+import com.mimacom.ddd.dm.base.IDeducibleElement
+import com.mimacom.ddd.dm.base.IDeductionDefinition
 import com.mimacom.ddd.sm.sim.SInformationModel
 import java.io.CharArrayWriter
 import org.eclipse.emf.ecore.resource.Resource
@@ -17,8 +17,6 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import org.eclipse.xtext.resource.SaveOptions
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.serializer.ISerializer
-
-import static com.mimacom.ddd.sm.sim.SElementNature.*
 
 /**
  * Generates code from your model files on save.
@@ -55,20 +53,18 @@ class SimGenerator extends AbstractGenerator {
 			model.generate = false
 			// change name space so index entries to avoid conflict with original Sim file:
 			model.name = model.name + ".generated"
-			val deducibles = resource.allContents.filter(SDeducibleElement)
-			val elementsToRemove = Lists.newArrayList
-			while (deducibles.hasNext) {
-				val e = deducibles.next
-				if (e.nature == DEDUCTION_RULE ) {
-					elementsToRemove.add(e)
-				} else {
-					e.deductionRule = null
-					hadSyntheticItems = hadSyntheticItems || (e.synthetic)
-					e.synthetic = false
-				}
+			
+			val deductionDefinitions = resource.allContents.filter(IDeductionDefinition).toList
+			for (d : deductionDefinitions) {
+				EcoreUtil.remove(d)
 			}
-			for (e : elementsToRemove) {
-				EcoreUtil.remove(e)
+			
+			val deducibleElements = resource.allContents.filter(IDeducibleElement)
+			while (deducibleElements.hasNext) {
+				val e = deducibleElements.next
+				e.deductionDefinition = null
+				hadSyntheticItems = hadSyntheticItems || (e.synthetic)
+				e.synthetic = false
 			}
 		}
 		return hadSyntheticItems

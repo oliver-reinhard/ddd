@@ -5,17 +5,20 @@ package com.mimacom.ddd.sm.sim.formatting2;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
-import com.mimacom.ddd.sm.sim.SAggregate;
-import com.mimacom.ddd.sm.sim.SComplexType;
-import com.mimacom.ddd.sm.sim.SCondition;
-import com.mimacom.ddd.sm.sim.SEnumeration;
-import com.mimacom.ddd.sm.sim.SFeature;
-import com.mimacom.ddd.sm.sim.SImport;
+import com.mimacom.ddd.dm.base.DAggregate;
+import com.mimacom.ddd.dm.base.DComplexType;
+import com.mimacom.ddd.dm.base.DCondition;
+import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DImport;
+import com.mimacom.ddd.dm.base.DLiteral;
+import com.mimacom.ddd.dm.base.DMultiplicity;
+import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.sm.sim.SAggregateDeduction;
+import com.mimacom.ddd.sm.sim.SComplexTypeDeduction;
+import com.mimacom.ddd.sm.sim.SEnumerationDeduction;
 import com.mimacom.ddd.sm.sim.SInformationModel;
-import com.mimacom.ddd.sm.sim.SLiteral;
 import com.mimacom.ddd.sm.sim.SMorphRule;
-import com.mimacom.ddd.sm.sim.SMultiplicity;
-import com.mimacom.ddd.sm.sim.SType;
+import com.mimacom.ddd.sm.sim.STypeDeduction;
 import com.mimacom.ddd.sm.sim.services.SimGrammarAccess;
 import java.util.Arrays;
 import java.util.List;
@@ -41,10 +44,10 @@ public class SimFormatter extends AbstractFormatter2 {
       it.setNewLines(2);
     };
     document.append(this.textRegionExtensions.regionFor(model).assignment(this._simGrammarAccess.getSInformationModelAccess().getNameAssignment_3()), _function);
-    EList<SImport> _imports = model.getImports();
-    for (final SImport i : _imports) {
+    EList<DImport> _imports = model.getImports();
+    for (final DImport i : _imports) {
       final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
-        SImport _last = IterableExtensions.<SImport>last(model.getImports());
+        DImport _last = IterableExtensions.<DImport>last(model.getImports());
         boolean _equals = Objects.equal(i, _last);
         if (_equals) {
           it.setNewLines(2);
@@ -52,36 +55,36 @@ public class SimFormatter extends AbstractFormatter2 {
           it.newLine();
         }
       };
-      document.<SImport>append(i, _function_1);
+      document.<DImport>append(i, _function_1);
     }
     final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.<SImport>append(IterableExtensions.<SImport>last(model.getImports()), _function_2);
-    EList<SType> _types = model.getTypes();
-    for (final SType type : _types) {
-      document.<SType>format(type);
+    document.<DImport>append(IterableExtensions.<DImport>last(model.getImports()), _function_2);
+    EList<DType> _types = model.getTypes();
+    for (final DType type : _types) {
+      document.<DType>format(type);
     }
-    EList<SAggregate> _aggregates = model.getAggregates();
-    for (final SAggregate aggregate : _aggregates) {
-      document.<SAggregate>format(aggregate);
+    EList<DAggregate> _aggregates = model.getAggregates();
+    for (final DAggregate aggregate : _aggregates) {
+      document.<DAggregate>format(aggregate);
     }
   }
   
-  protected void _format(final SImport imp, @Extension final IFormattableDocument document) {
+  protected void _format(final DImport imp, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
     };
-    document.<SImport>append(imp, _function);
+    document.<DImport>append(imp, _function);
   }
   
   protected void _format(final SMorphRule sMorphRule, @Extension final IFormattableDocument document) {
-    document.<SMultiplicity>format(sMorphRule.getRemultiplyTo());
+    document.<DMultiplicity>format(sMorphRule.getRemultiplyTo());
   }
   
-  protected void _format(final SAggregate aggregate, @Extension final IFormattableDocument document) {
-    final ISemanticRegion open = this.textRegionExtensions.regionFor(aggregate).keyword(this._simGrammarAccess.getSAggregateAccess().getLeftCurlyBracketKeyword_2());
-    final ISemanticRegion close = this.textRegionExtensions.regionFor(aggregate).keyword(this._simGrammarAccess.getSAggregateAccess().getRightCurlyBracketKeyword_4());
+  protected void _format(final SAggregateDeduction aggregate, @Extension final IFormattableDocument document) {
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(aggregate).keyword(this._simGrammarAccess.getSAggregateDeductionAccess().getLeftCurlyBracketKeyword_5());
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(aggregate).keyword(this._simGrammarAccess.getSAggregateDeductionAccess().getRightCurlyBracketKeyword_7());
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
@@ -90,18 +93,18 @@ public class SimFormatter extends AbstractFormatter2 {
       it.indent();
     };
     document.<ISemanticRegion, ISemanticRegion>interior(open, close, _function_1);
-    EList<SType> _types = aggregate.getTypes();
-    for (final SType type : _types) {
-      document.<SType>format(type);
+    EList<DType> _types = aggregate.getTypes();
+    for (final DType type : _types) {
+      document.<DType>format(type);
     }
   }
   
-  protected void _format(final SEnumeration en, @Extension final IFormattableDocument document) {
+  protected void _format(final SEnumerationDeduction en, @Extension final IFormattableDocument document) {
     int _size = en.getLiterals().size();
     boolean _greaterThan = (_size > 3);
     if (_greaterThan) {
-      final ISemanticRegion open = this.textRegionExtensions.regionFor(en).keyword(this._simGrammarAccess.getSEnumerationAccess().getLeftCurlyBracketKeyword_1());
-      final ISemanticRegion close = this.textRegionExtensions.regionFor(en).keyword(this._simGrammarAccess.getSEnumerationAccess().getRightCurlyBracketKeyword_4());
+      final ISemanticRegion open = this.textRegionExtensions.regionFor(en).keyword(this._simGrammarAccess.getSEnumerationDeductionAccess().getLeftCurlyBracketKeyword_3());
+      final ISemanticRegion close = this.textRegionExtensions.regionFor(en).keyword(this._simGrammarAccess.getSEnumerationDeductionAccess().getRightCurlyBracketKeyword_6());
       final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
         it.newLine();
       };
@@ -110,14 +113,14 @@ public class SimFormatter extends AbstractFormatter2 {
         it.indent();
       };
       document.<ISemanticRegion, ISemanticRegion>interior(open, close, _function_1);
-      EList<SLiteral> _literals = en.getLiterals();
-      for (final SLiteral literal : _literals) {
+      EList<DLiteral> _literals = en.getLiterals();
+      for (final DLiteral literal : _literals) {
         final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
           it.noSpace();
         };
-        document.surround(this.textRegionExtensions.regionFor(literal).assignment(this._simGrammarAccess.getSLiteralAccess().getNameAssignment_2()), _function_2);
+        document.surround(this.textRegionExtensions.regionFor(literal).assignment(this._simGrammarAccess.getSEnumerationDeductionAccess().getLiteralsAssignment_4_0()), _function_2);
       }
-      List<ISemanticRegion> _keywords = this.textRegionExtensions.regionFor(en).keywords(this._simGrammarAccess.getSEnumerationAccess().getCommaKeyword_2_1_0());
+      List<ISemanticRegion> _keywords = this.textRegionExtensions.regionFor(en).keywords(this._simGrammarAccess.getSEnumerationDeductionAccess().getCommaKeyword_4_1_0());
       for (final ISemanticRegion comma : _keywords) {
         final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
           it.newLine();
@@ -127,15 +130,15 @@ public class SimFormatter extends AbstractFormatter2 {
       final Procedure1<IHiddenRegionFormatter> _function_4 = (IHiddenRegionFormatter it) -> {
         it.newLine();
       };
-      document.<SLiteral>append(IterableExtensions.<SLiteral>last(en.getLiterals()), _function_4);
+      document.<DLiteral>append(IterableExtensions.<DLiteral>last(en.getLiterals()), _function_4);
     }
     final Procedure1<IHiddenRegionFormatter> _function_5 = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.<SEnumeration>append(en, _function_5);
+    document.<SEnumerationDeduction>append(en, _function_5);
   }
   
-  protected void _format(final SComplexType type, @Extension final IFormattableDocument document) {
+  protected void _format(final SComplexTypeDeduction type, @Extension final IFormattableDocument document) {
     final ISemanticRegion open = this.textRegionExtensions.regionFor(type).keyword(this._simGrammarAccess.getSComplexTypeFeaturesAccess().getLeftCurlyBracketKeyword_0());
     final ISemanticRegion close = this.textRegionExtensions.regionFor(type).keyword(this._simGrammarAccess.getSComplexTypeFeaturesAccess().getRightCurlyBracketKeyword_2());
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
@@ -150,50 +153,51 @@ public class SimFormatter extends AbstractFormatter2 {
       it.setNewLines(2);
     };
     document.append(close, _function_2);
-    EList<SFeature> _features = type.getFeatures();
-    for (final SFeature feature : _features) {
+    final DComplexType dType = ((DComplexType) type);
+    EList<DFeature> _features = dType.getFeatures();
+    for (final DFeature feature : _features) {
       final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
         it.newLine();
       };
-      document.<SFeature>append(feature, _function_3);
+      document.<DFeature>append(feature, _function_3);
     }
-    EList<SCondition> _constraints = type.getConstraints();
-    for (final SCondition constraint : _constraints) {
+    EList<DCondition> _constraints = dType.getConstraints();
+    for (final DCondition constraint : _constraints) {
       final Procedure1<IHiddenRegionFormatter> _function_4 = (IHiddenRegionFormatter it) -> {
         it.newLine();
       };
-      document.<SCondition>append(constraint, _function_4);
+      document.<DCondition>append(constraint, _function_4);
     }
   }
   
-  protected void _format(final SType type, @Extension final IFormattableDocument document) {
+  protected void _format(final STypeDeduction type, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.<SType>append(type, _function);
+    document.<STypeDeduction>append(type, _function);
   }
   
   public void format(final Object en, final IFormattableDocument document) {
-    if (en instanceof SEnumeration) {
-      _format((SEnumeration)en, document);
-      return;
-    } else if (en instanceof SComplexType) {
-      _format((SComplexType)en, document);
+    if (en instanceof SEnumerationDeduction) {
+      _format((SEnumerationDeduction)en, document);
       return;
     } else if (en instanceof SMorphRule) {
       _format((SMorphRule)en, document);
       return;
-    } else if (en instanceof SType) {
-      _format((SType)en, document);
+    } else if (en instanceof SAggregateDeduction) {
+      _format((SAggregateDeduction)en, document);
+      return;
+    } else if (en instanceof SComplexTypeDeduction) {
+      _format((SComplexTypeDeduction)en, document);
       return;
     } else if (en instanceof XtextResource) {
       _format((XtextResource)en, document);
       return;
-    } else if (en instanceof SAggregate) {
-      _format((SAggregate)en, document);
+    } else if (en instanceof STypeDeduction) {
+      _format((STypeDeduction)en, document);
       return;
-    } else if (en instanceof SImport) {
-      _format((SImport)en, document);
+    } else if (en instanceof DImport) {
+      _format((DImport)en, document);
       return;
     } else if (en instanceof SInformationModel) {
       _format((SInformationModel)en, document);

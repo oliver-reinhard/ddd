@@ -4,12 +4,18 @@
 package com.mimacom.ddd.sm.sim.ui.labeling;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.sm.sim.SAggregate;
-import com.mimacom.ddd.sm.sim.SCondition;
-import com.mimacom.ddd.sm.sim.SFeature;
-import com.mimacom.ddd.sm.sim.SLiteral;
-import com.mimacom.ddd.sm.sim.SQueryParameter;
-import com.mimacom.ddd.sm.sim.SType;
+import com.mimacom.ddd.dm.base.DAggregate;
+import com.mimacom.ddd.dm.base.DCondition;
+import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DLiteral;
+import com.mimacom.ddd.dm.base.DQueryParameter;
+import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.dim.DimUtil;
+import com.mimacom.ddd.sm.sim.SAggregateDeduction;
+import com.mimacom.ddd.sm.sim.SFeatureDeduction;
+import com.mimacom.ddd.sm.sim.SLiteralDeduction;
+import com.mimacom.ddd.sm.sim.SQueryParameterDeduction;
+import com.mimacom.ddd.sm.sim.STypeDeduction;
 import com.mimacom.ddd.sm.sim.SimUtil;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
@@ -24,6 +30,10 @@ import org.eclipse.xtext.xbase.lib.Extension;
 public class SimLabelProvider extends DefaultEObjectLabelProvider {
   @Inject
   @Extension
+  private DimUtil _dimUtil;
+  
+  @Inject
+  @Extension
   private SimUtil _simUtil;
   
   @Inject
@@ -31,45 +41,45 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
     super(delegate);
   }
   
-  public String text(final SAggregate a) {
-    if (((a.getDeductionRule() != null) && (!a.isSynthetic()))) {
-      String _label = this._simUtil.label(a.getDeductionRule());
+  public String text(final DAggregate a) {
+    if ((a instanceof SAggregateDeduction)) {
+      String _label = this._simUtil.label(((SAggregateDeduction)a).getDeductionRule());
       return (">" + _label);
     }
-    return this._simUtil.label(a);
+    return this._dimUtil.label(a);
   }
   
-  public String text(final SType t) {
-    if (((t.getDeductionRule() != null) && (!t.isSynthetic()))) {
-      String _label = this._simUtil.label(t.getDeductionRule());
+  public String text(final DType t) {
+    if ((t instanceof STypeDeduction)) {
+      String _label = this._simUtil.label(((STypeDeduction)t).getDeductionRule());
       return (">" + _label);
     }
-    return this._simUtil.label(t);
+    return this._dimUtil.label(t);
   }
   
-  public String text(final SFeature f) {
-    if (((f.getDeductionRule() != null) && (!f.isSynthetic()))) {
-      String _label = this._simUtil.label(f.getDeductionRule());
+  public String text(final DFeature f) {
+    if ((f instanceof SFeatureDeduction)) {
+      String _label = this._simUtil.label(((SFeatureDeduction)f).getDeductionRule());
       return (">" + _label);
     }
-    return this._simUtil.label(f);
+    return this._dimUtil.label(f);
   }
   
-  public String text(final SQueryParameter p) {
-    if (((p.getDeductionRule() != null) && (!p.isSynthetic()))) {
-      String _label = this._simUtil.label(p.getDeductionRule());
+  public String text(final DQueryParameter p) {
+    if ((p instanceof SQueryParameterDeduction)) {
+      String _label = this._simUtil.label(((SQueryParameterDeduction)p).getDeductionRule());
       return (">" + _label);
     }
-    return this._simUtil.label(p);
+    return this._dimUtil.label(p);
   }
   
-  public String text(final SCondition c) {
-    return this._simUtil.label(c);
+  public String text(final DCondition c) {
+    return this._dimUtil.label(c);
   }
   
-  public String text(final SLiteral literal) {
-    if (((literal.getDeductionRule() != null) && (!literal.isSynthetic()))) {
-      String _label = this._simUtil.label(literal.getDeductionRule());
+  public String text(final DLiteral literal) {
+    if ((literal instanceof SLiteralDeduction)) {
+      String _label = this._simUtil.label(((SLiteralDeduction)literal).getDeductionRule());
       return (">" + _label);
     }
     return literal.getName();

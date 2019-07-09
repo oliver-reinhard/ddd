@@ -51,7 +51,7 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameSQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cImportsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cImportsSImportParserRuleCall_2_0 = (RuleCall)cImportsAssignment_2.eContents().get(0);
+		private final RuleCall cImportsDImportParserRuleCall_2_0 = (RuleCall)cImportsAssignment_2.eContents().get(0);
 		private final Keyword cInformationKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cModelKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cModelAssignment_5 = (Assignment)cGroup.eContents().get(5);
@@ -63,11 +63,11 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		//SApplication:
 		//	'application'
 		//	name=SQualifiedName
-		//	imports+=SImport*
+		//	imports+=DImport*
 		//	'information' 'model' model=[SInformationModel] actors+=SActor*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'application' name=SQualifiedName imports+=SImport* 'information' 'model' model=[SInformationModel] actors+=SActor*
+		//'application' name=SQualifiedName imports+=DImport* 'information' 'model' model=[SInformationModel] actors+=SActor*
 		public Group getGroup() { return cGroup; }
 		
 		//'application'
@@ -79,11 +79,11 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		//SQualifiedName
 		public RuleCall getNameSQualifiedNameParserRuleCall_1_0() { return cNameSQualifiedNameParserRuleCall_1_0; }
 		
-		//imports+=SImport*
+		//imports+=DImport*
 		public Assignment getImportsAssignment_2() { return cImportsAssignment_2; }
 		
-		//SImport
-		public RuleCall getImportsSImportParserRuleCall_2_0() { return cImportsSImportParserRuleCall_2_0; }
+		//DImport
+		public RuleCall getImportsDImportParserRuleCall_2_0() { return cImportsDImportParserRuleCall_2_0; }
 		
 		//'information'
 		public Keyword getInformationKeyword_3() { return cInformationKeyword_3; }
@@ -114,7 +114,7 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameSQualifiedNameParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Assignment cImportsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cImportsSImportParserRuleCall_3_0 = (RuleCall)cImportsAssignment_3.eContents().get(0);
+		private final RuleCall cImportsDImportParserRuleCall_3_0 = (RuleCall)cImportsAssignment_3.eContents().get(0);
 		private final Keyword cInformationKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Keyword cModelKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cModelAssignment_6 = (Assignment)cGroup.eContents().get(6);
@@ -126,11 +126,11 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		//SServiceInterface:
 		//	'service' 'interface'
 		//	name=SQualifiedName
-		//	imports+=SImport*
+		//	imports+=DImport*
 		//	'information' 'model' model=[SInformationModel] operations+=SServiceOperation;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'service' 'interface' name=SQualifiedName imports+=SImport* 'information' 'model' model=[SInformationModel]
+		//'service' 'interface' name=SQualifiedName imports+=DImport* 'information' 'model' model=[SInformationModel]
 		//operations+=SServiceOperation
 		public Group getGroup() { return cGroup; }
 		
@@ -146,11 +146,11 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		//SQualifiedName
 		public RuleCall getNameSQualifiedNameParserRuleCall_2_0() { return cNameSQualifiedNameParserRuleCall_2_0; }
 		
-		//imports+=SImport*
+		//imports+=DImport*
 		public Assignment getImportsAssignment_3() { return cImportsAssignment_3; }
 		
-		//SImport
-		public RuleCall getImportsSImportParserRuleCall_3_0() { return cImportsSImportParserRuleCall_3_0; }
+		//DImport
+		public RuleCall getImportsDImportParserRuleCall_3_0() { return cImportsDImportParserRuleCall_3_0; }
 		
 		//'information'
 		public Keyword getInformationKeyword_4() { return cInformationKeyword_4; }
@@ -173,14 +173,14 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		//SServiceOperation
 		public RuleCall getOperationsSServiceOperationParserRuleCall_7_0() { return cOperationsSServiceOperationParserRuleCall_7_0; }
 	}
-	public class SImportElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.SImport");
+	public class DImportElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.DImport");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cImportKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cImportedNamespaceAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cImportedNamespaceSQualifiedNameWithWildcardParserRuleCall_1_0 = (RuleCall)cImportedNamespaceAssignment_1.eContents().get(0);
 		
-		//SImport:
+		//DImport:
 		//	'import' importedNamespace=SQualifiedNameWithWildcard;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -403,7 +403,7 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	private final ModelElements pModel;
 	private final SApplicationElements pSApplication;
 	private final SServiceInterfaceElements pSServiceInterface;
-	private final SImportElements pSImport;
+	private final DImportElements pDImport;
 	private final SActorElements pSActor;
 	private final SWatchdogElements pSWatchdog;
 	private final SHumanElements pSHuman;
@@ -425,7 +425,7 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		this.pModel = new ModelElements();
 		this.pSApplication = new SApplicationElements();
 		this.pSServiceInterface = new SServiceInterfaceElements();
-		this.pSImport = new SImportElements();
+		this.pDImport = new DImportElements();
 		this.pSActor = new SActorElements();
 		this.pSWatchdog = new SWatchdogElements();
 		this.pSHuman = new SHumanElements();
@@ -478,7 +478,7 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	//SApplication:
 	//	'application'
 	//	name=SQualifiedName
-	//	imports+=SImport*
+	//	imports+=DImport*
 	//	'information' 'model' model=[SInformationModel] actors+=SActor*;
 	public SApplicationElements getSApplicationAccess() {
 		return pSApplication;
@@ -491,7 +491,7 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	//SServiceInterface:
 	//	'service' 'interface'
 	//	name=SQualifiedName
-	//	imports+=SImport*
+	//	imports+=DImport*
 	//	'information' 'model' model=[SInformationModel] operations+=SServiceOperation;
 	public SServiceInterfaceElements getSServiceInterfaceAccess() {
 		return pSServiceInterface;
@@ -501,14 +501,14 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		return getSServiceInterfaceAccess().getRule();
 	}
 	
-	//SImport:
+	//DImport:
 	//	'import' importedNamespace=SQualifiedNameWithWildcard;
-	public SImportElements getSImportAccess() {
-		return pSImport;
+	public DImportElements getDImportAccess() {
+		return pDImport;
 	}
 	
-	public ParserRule getSImportRule() {
-		return getSImportAccess().getRule();
+	public ParserRule getDImportRule() {
+		return getDImportAccess().getRule();
 	}
 	
 	//SActor:

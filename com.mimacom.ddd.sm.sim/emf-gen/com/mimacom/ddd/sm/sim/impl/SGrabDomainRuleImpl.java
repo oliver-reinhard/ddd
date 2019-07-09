@@ -4,6 +4,8 @@ package com.mimacom.ddd.sm.sim.impl;
 
 import com.mimacom.ddd.dm.base.DDomain;
 
+import com.mimacom.ddd.dm.base.impl.DDeductionRuleImplCustom;
+
 import com.mimacom.ddd.sm.sim.SGrabDomainRule;
 import com.mimacom.ddd.sm.sim.SimPackage;
 
@@ -22,7 +24,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class SGrabDomainRuleImpl extends SDeductionRuleImplCustom implements SGrabDomainRule
+public class SGrabDomainRuleImpl extends DDeductionRuleImplCustom implements SGrabDomainRule
 {
 	/**
 	 * <!-- begin-user-doc -->

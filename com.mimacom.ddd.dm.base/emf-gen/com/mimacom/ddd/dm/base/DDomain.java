@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DDomain extends DNamedElement, INamespace, IPrimaryNavigationTarget
+public interface DDomain extends DNamedElement, INamespace, IPrimaryNavigationTarget, IDeducibleElement
 {
 	/**
 	 * Returns the value of the '<em><b>Imports</b></em>' containment reference list.

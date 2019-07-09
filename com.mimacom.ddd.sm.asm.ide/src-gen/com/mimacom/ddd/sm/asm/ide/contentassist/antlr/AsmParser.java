@@ -35,7 +35,7 @@ public class AsmParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSActorAccess().getAlternatives(), "rule__SActor__Alternatives");
 			builder.put(grammarAccess.getSApplicationAccess().getGroup(), "rule__SApplication__Group__0");
 			builder.put(grammarAccess.getSServiceInterfaceAccess().getGroup(), "rule__SServiceInterface__Group__0");
-			builder.put(grammarAccess.getSImportAccess().getGroup(), "rule__SImport__Group__0");
+			builder.put(grammarAccess.getDImportAccess().getGroup(), "rule__DImport__Group__0");
 			builder.put(grammarAccess.getSWatchdogAccess().getGroup(), "rule__SWatchdog__Group__0");
 			builder.put(grammarAccess.getSHumanAccess().getGroup(), "rule__SHuman__Group__0");
 			builder.put(grammarAccess.getSServiceOperationAccess().getGroup(), "rule__SServiceOperation__Group__0");
@@ -51,7 +51,7 @@ public class AsmParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSServiceInterfaceAccess().getImportsAssignment_3(), "rule__SServiceInterface__ImportsAssignment_3");
 			builder.put(grammarAccess.getSServiceInterfaceAccess().getModelAssignment_6(), "rule__SServiceInterface__ModelAssignment_6");
 			builder.put(grammarAccess.getSServiceInterfaceAccess().getOperationsAssignment_7(), "rule__SServiceInterface__OperationsAssignment_7");
-			builder.put(grammarAccess.getSImportAccess().getImportedNamespaceAssignment_1(), "rule__SImport__ImportedNamespaceAssignment_1");
+			builder.put(grammarAccess.getDImportAccess().getImportedNamespaceAssignment_1(), "rule__DImport__ImportedNamespaceAssignment_1");
 			builder.put(grammarAccess.getSWatchdogAccess().getNameAssignment_1(), "rule__SWatchdog__NameAssignment_1");
 			builder.put(grammarAccess.getSHumanAccess().getNameAssignment_1(), "rule__SHuman__NameAssignment_1");
 			builder.put(grammarAccess.getSServiceOperationAccess().getNameAssignment_1(), "rule__SServiceOperation__NameAssignment_1");

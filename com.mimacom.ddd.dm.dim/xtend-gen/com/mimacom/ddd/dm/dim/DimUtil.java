@@ -1,6 +1,7 @@
 package com.mimacom.ddd.dm.dim;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.Lists;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAssociationKind;
@@ -11,10 +12,14 @@ import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.IDeducibleElement;
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
@@ -49,6 +54,18 @@ public class DimUtil {
         return it.getName();
       };
       features.addAll(ListExtensions.<DFeature, String>map(t.getFeatures(), _function));
+    }
+    return features;
+  }
+  
+  /**
+   * Returns the names of all the features of the given type: its own as well as the inherited ones.
+   */
+  public List<DFeature> allFeatures(final DComplexType type) {
+    final ArrayList<DFeature> features = Lists.<DFeature>newArrayList(type.getFeatures());
+    Set<DComplexType> _typeHierarchy = this.typeHierarchy(type);
+    for (final DComplexType t : _typeHierarchy) {
+      features.addAll(t.getFeatures());
     }
     return features;
   }
@@ -231,5 +248,42 @@ public class DimUtil {
   public String label(final DCondition c) {
     String _name = c.getName();
     return ("Constraint " + _name);
+  }
+  
+  public String label(final IDeducibleElement e) {
+    String _switchResult = null;
+    boolean _matched = false;
+    if (e instanceof DAggregate) {
+      _matched=true;
+      _switchResult = this.label(((DAggregate)e));
+    }
+    if (!_matched) {
+      if (e instanceof DType) {
+        _matched=true;
+        _switchResult = this.label(((DType)e));
+      }
+    }
+    if (!_matched) {
+      if (e instanceof DFeature) {
+        _matched=true;
+        _switchResult = this.label(((DFeature)e));
+      }
+    }
+    if (!_matched) {
+      if (e instanceof DQueryParameter) {
+        _matched=true;
+        _switchResult = this.label(((DQueryParameter)e));
+      }
+    }
+    if (!_matched) {
+      if (e instanceof DLiteral) {
+        _matched=true;
+        _switchResult = ((DLiteral)e).getName();
+      }
+    }
+    if (!_matched) {
+      _switchResult = e.toString();
+    }
+    return _switchResult;
   }
 }

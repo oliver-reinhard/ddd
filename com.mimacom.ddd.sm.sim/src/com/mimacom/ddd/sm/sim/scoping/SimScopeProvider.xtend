@@ -8,13 +8,12 @@ import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DQuery
-import com.mimacom.ddd.sm.sim.SComplexType
-import com.mimacom.ddd.sm.sim.SEnumeration
-import com.mimacom.ddd.sm.sim.SFeature
-import com.mimacom.ddd.sm.sim.SLiteral
-import com.mimacom.ddd.sm.sim.SQuery
-import com.mimacom.ddd.sm.sim.SQueryParameter
-import com.mimacom.ddd.sm.sim.SimPackage
+import com.mimacom.ddd.sm.sim.SComplexTypeDeduction
+import com.mimacom.ddd.sm.sim.SEnumerationDeduction
+import com.mimacom.ddd.sm.sim.SFeatureDeduction
+import com.mimacom.ddd.sm.sim.SLiteralDeduction
+import com.mimacom.ddd.sm.sim.SQueryDeduction
+import com.mimacom.ddd.sm.sim.SQueryParameterDeduction
 import com.mimacom.ddd.sm.sim.SimUtil
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EObject
@@ -25,7 +24,9 @@ import org.eclipse.xtext.scoping.Scopes
 import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider
 
 /**
- * This class contains custom scoping description.
+ * Timport com.mimacom.ddd.sm.sim.SFeatureDeduction
+
+is class contains custom scoping description.
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
  * on how and when to use it.
@@ -34,22 +35,22 @@ class SimScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
 	
 	@Inject extension SimUtil
 	
-	static val epackage = SimPackage.eINSTANCE
+	static val epackage = BasePackage.eINSTANCE
 	
 	override getScope(EObject context, EReference reference) {
 		
-		if (reference == epackage.SDeductionRule_Source) {
+		if (reference == epackage.DDeductionRule_Source) {
 			val container = context.eContainer
-			if (context instanceof SLiteral) {
-				if (container instanceof 	SEnumeration) {
+			if (context instanceof SLiteralDeduction) {
+				if (container instanceof 	SEnumerationDeduction) {
 					val sourceType = container.deductionRule?.source
 					if (sourceType instanceof DEnumeration) {
 						return Scopes.scopeFor(sourceType.literals)
 					}
 				}
 				return getDefaultScopeForType(context, BasePackage.eINSTANCE.DLiteral)
-			} else if (context instanceof SFeature) {
-				if (container instanceof 	SComplexType) {
+			} else if (context instanceof SFeatureDeduction) {
+				if (container instanceof 	SComplexTypeDeduction) {
 					val sourceType = container.deductionRule?.source
 					if (sourceType instanceof DComplexType) {
 						val requiredFeatureType = context.baseClass
@@ -58,8 +59,8 @@ class SimScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
 				}
 				val requiredFeatureType = context.baseEClass
 				return getDefaultScopeForType(context, requiredFeatureType)
-			} else if (context instanceof SQueryParameter) {
-				if (container instanceof 	SQuery) {
+			} else if (context instanceof SQueryParameterDeduction) {
+				if (container instanceof 	SQueryDeduction) {
 					val sourceType = container.deductionRule?.source
 					if (sourceType instanceof DQuery) {
 						return Scopes.scopeFor(sourceType.parameters)

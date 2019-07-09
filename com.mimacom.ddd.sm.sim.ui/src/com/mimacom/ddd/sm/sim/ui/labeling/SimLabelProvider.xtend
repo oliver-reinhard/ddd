@@ -4,12 +4,18 @@
 package com.mimacom.ddd.sm.sim.ui.labeling
 
 import com.google.inject.Inject
-import com.mimacom.ddd.sm.sim.SAggregate
-import com.mimacom.ddd.sm.sim.SCondition
-import com.mimacom.ddd.sm.sim.SFeature
-import com.mimacom.ddd.sm.sim.SLiteral
-import com.mimacom.ddd.sm.sim.SQueryParameter
-import com.mimacom.ddd.sm.sim.SType
+import com.mimacom.ddd.dm.base.DAggregate
+import com.mimacom.ddd.dm.base.DCondition
+import com.mimacom.ddd.dm.base.DFeature
+import com.mimacom.ddd.dm.base.DLiteral
+import com.mimacom.ddd.dm.base.DQueryParameter
+import com.mimacom.ddd.dm.base.DType
+import com.mimacom.ddd.dm.dim.DimUtil
+import com.mimacom.ddd.sm.sim.SAggregateDeduction
+import com.mimacom.ddd.sm.sim.SFeatureDeduction
+import com.mimacom.ddd.sm.sim.SLiteralDeduction
+import com.mimacom.ddd.sm.sim.SQueryParameterDeduction
+import com.mimacom.ddd.sm.sim.STypeDeduction
 import com.mimacom.ddd.sm.sim.SimUtil
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
@@ -21,46 +27,47 @@ import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
  */
 class SimLabelProvider extends DefaultEObjectLabelProvider {
 
+	@Inject extension DimUtil
 	@Inject extension SimUtil
 	@Inject
 	new(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
 	
-	def text(SAggregate a) {
-		if (a.deductionRule !== null && ! a.synthetic) {
+	def text(DAggregate a) {
+		if (a instanceof SAggregateDeduction) {
 			return ">" + a.deductionRule.label
 		}
 		return a.label
 	}
 	
-	def text(SType t) {
-		if (t.deductionRule !== null && ! t.synthetic) {
+	def text(DType t) {
+		if (t instanceof STypeDeduction) {
 			return ">" + t.deductionRule.label
 		}
 		return t.label
 	}
 	
-	def text(SFeature f) {
-		if (f.deductionRule !== null && ! f.synthetic) {
+	def text(DFeature f) {
+		if (f instanceof SFeatureDeduction) {
 			return ">" + f.deductionRule.label
 		}
 		return f.label
 	}
 	
-	def text(SQueryParameter p) {
-		if (p.deductionRule !== null && ! p.synthetic) {
+	def text(DQueryParameter p) {
+		if (p instanceof SQueryParameterDeduction) {
 			return ">" + p.deductionRule.label
 		}
 		return p.label
 	}
 	
-	def text(SCondition c) {
+	def text(DCondition c) {
 		return c.label
 	}
 	
-	def text(SLiteral literal) {
-		if (literal.deductionRule !== null && ! literal.synthetic) {
+	def text(DLiteral literal) {
+		if (literal instanceof SLiteralDeduction) {
 			return ">" + literal.deductionRule.label
 		}
 		return literal.name

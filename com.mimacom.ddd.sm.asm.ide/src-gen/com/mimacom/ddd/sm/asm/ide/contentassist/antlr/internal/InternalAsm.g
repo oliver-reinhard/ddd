@@ -124,25 +124,25 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleSImport
-entryRuleSImport
+// Entry rule entryRuleDImport
+entryRuleDImport
 :
-{ before(grammarAccess.getSImportRule()); }
-	 ruleSImport
-{ after(grammarAccess.getSImportRule()); } 
+{ before(grammarAccess.getDImportRule()); }
+	 ruleDImport
+{ after(grammarAccess.getDImportRule()); } 
 	 EOF 
 ;
 
-// Rule SImport
-ruleSImport 
+// Rule DImport
+ruleDImport 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getSImportAccess().getGroup()); }
-		(rule__SImport__Group__0)
-		{ after(grammarAccess.getSImportAccess().getGroup()); }
+		{ before(grammarAccess.getDImportAccess().getGroup()); }
+		(rule__DImport__Group__0)
+		{ after(grammarAccess.getDImportAccess().getGroup()); }
 	)
 ;
 finally {
@@ -796,53 +796,53 @@ finally {
 }
 
 
-rule__SImport__Group__0
+rule__DImport__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SImport__Group__0__Impl
-	rule__SImport__Group__1
+	rule__DImport__Group__0__Impl
+	rule__DImport__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SImport__Group__0__Impl
+rule__DImport__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSImportAccess().getImportKeyword_0()); }
+	{ before(grammarAccess.getDImportAccess().getImportKeyword_0()); }
 	'import'
-	{ after(grammarAccess.getSImportAccess().getImportKeyword_0()); }
+	{ after(grammarAccess.getDImportAccess().getImportKeyword_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SImport__Group__1
+rule__DImport__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__SImport__Group__1__Impl
+	rule__DImport__Group__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SImport__Group__1__Impl
+rule__DImport__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSImportAccess().getImportedNamespaceAssignment_1()); }
-	(rule__SImport__ImportedNamespaceAssignment_1)
-	{ after(grammarAccess.getSImportAccess().getImportedNamespaceAssignment_1()); }
+	{ before(grammarAccess.getDImportAccess().getImportedNamespaceAssignment_1()); }
+	(rule__DImport__ImportedNamespaceAssignment_1)
+	{ after(grammarAccess.getDImportAccess().getImportedNamespaceAssignment_1()); }
 )
 ;
 finally {
@@ -1364,9 +1364,9 @@ rule__SApplication__ImportsAssignment_2
 	}
 :
 	(
-		{ before(grammarAccess.getSApplicationAccess().getImportsSImportParserRuleCall_2_0()); }
-		ruleSImport
-		{ after(grammarAccess.getSApplicationAccess().getImportsSImportParserRuleCall_2_0()); }
+		{ before(grammarAccess.getSApplicationAccess().getImportsDImportParserRuleCall_2_0()); }
+		ruleDImport
+		{ after(grammarAccess.getSApplicationAccess().getImportsDImportParserRuleCall_2_0()); }
 	)
 ;
 finally {
@@ -1428,9 +1428,9 @@ rule__SServiceInterface__ImportsAssignment_3
 	}
 :
 	(
-		{ before(grammarAccess.getSServiceInterfaceAccess().getImportsSImportParserRuleCall_3_0()); }
-		ruleSImport
-		{ after(grammarAccess.getSServiceInterfaceAccess().getImportsSImportParserRuleCall_3_0()); }
+		{ before(grammarAccess.getSServiceInterfaceAccess().getImportsDImportParserRuleCall_3_0()); }
+		ruleDImport
+		{ after(grammarAccess.getSServiceInterfaceAccess().getImportsDImportParserRuleCall_3_0()); }
 	)
 ;
 finally {
@@ -1471,15 +1471,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SImport__ImportedNamespaceAssignment_1
+rule__DImport__ImportedNamespaceAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSImportAccess().getImportedNamespaceSQualifiedNameWithWildcardParserRuleCall_1_0()); }
+		{ before(grammarAccess.getDImportAccess().getImportedNamespaceSQualifiedNameWithWildcardParserRuleCall_1_0()); }
 		ruleSQualifiedNameWithWildcard
-		{ after(grammarAccess.getSImportAccess().getImportedNamespaceSQualifiedNameWithWildcardParserRuleCall_1_0()); }
+		{ after(grammarAccess.getDImportAccess().getImportedNamespaceSQualifiedNameWithWildcardParserRuleCall_1_0()); }
 	)
 ;
 finally {

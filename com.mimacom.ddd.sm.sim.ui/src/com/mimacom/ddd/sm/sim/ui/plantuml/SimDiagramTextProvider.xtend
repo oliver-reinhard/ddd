@@ -1,16 +1,24 @@
 package com.mimacom.ddd.sm.sim.ui.plantuml
 
-import com.mimacom.ddd.sm.sim.SAggregate
-import com.mimacom.ddd.sm.sim.SAssociation
-import com.mimacom.ddd.sm.sim.SAttribute
-import com.mimacom.ddd.sm.sim.SComplexType
-import com.mimacom.ddd.sm.sim.SDetailType
-import com.mimacom.ddd.sm.sim.SEntityType
-import com.mimacom.ddd.sm.sim.SEnumeration
+import com.google.inject.Inject
+import com.mimacom.ddd.dm.base.DAggregate
+import com.mimacom.ddd.dm.base.DAssociation
+import com.mimacom.ddd.dm.base.DAttribute
+import com.mimacom.ddd.dm.base.DComplexType
+import com.mimacom.ddd.dm.base.DDetailType
+import com.mimacom.ddd.dm.base.DEntityType
+import com.mimacom.ddd.dm.base.DEnumeration
+import com.mimacom.ddd.dm.base.DPrimitive
+import com.mimacom.ddd.dm.base.DQuery
+import com.mimacom.ddd.dm.base.DType
+import com.mimacom.ddd.dm.dim.DimUtil
+import com.mimacom.ddd.sm.sim.SAggregateDeduction
+import com.mimacom.ddd.sm.sim.SAssociationDeduction
+import com.mimacom.ddd.sm.sim.SAttributeDeduction
+import com.mimacom.ddd.sm.sim.SComplexTypeDeduction
+import com.mimacom.ddd.sm.sim.SFeatureDeduction
 import com.mimacom.ddd.sm.sim.SInformationModel
-import com.mimacom.ddd.sm.sim.SPrimitive
-import com.mimacom.ddd.sm.sim.SQuery
-import com.mimacom.ddd.sm.sim.SType
+import com.mimacom.ddd.sm.sim.STypeDeduction
 import com.mimacom.ddd.sm.sim.ui.internal.SimActivator
 import java.util.Map
 import net.sourceforge.plantuml.text.AbstractDiagramTextProvider
@@ -22,11 +30,9 @@ import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.ui.editor.XtextEditor
 import org.eclipse.xtext.ui.editor.model.XtextDocument
 
-import static com.mimacom.ddd.sm.sim.SElementNature.*
-
 class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 	
-	// @Inject extension DmsUtil // TODO injector not working, bundle setup seems ok => ?
+	@Inject extension DimUtil
 	
 	def DmsDiagramTextProvider() {
         editorType = typeof(XtextEditor)
@@ -55,11 +61,11 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 	}
 	
 	def modelTypes(SInformationModel model) {
-        val allAggregates = EcoreUtil2.eAllOfType(model, SAggregate).filter[nature != DEDUCTION_RULE]
-        val allAssociations = EcoreUtil2.eAllOfType(model, SAssociation).filter[type instanceof SEntityType && nature != DEDUCTION_RULE]
+        val allAggregates = EcoreUtil2.eAllOfType(model, DAggregate).filter[!(it instanceof SAggregateDeduction)]
+        val allAssociations = EcoreUtil2.eAllOfType(model, DAssociation).filter[!(it instanceof SAssociationDeduction)]
         val allReferencedDomains = allAssociations.filter[targetType.modelName != model.name].map[targetType.modelName]
-        val allDetailAttributes = EcoreUtil2.eAllOfType(model, SAttribute).filter[type instanceof SDetailType && nature != DEDUCTION_RULE]
-        val allSubtypes = EcoreUtil2.eAllOfType(model, SComplexType).filter[superType !== null]
+        val allComplexAttributes = EcoreUtil2.eAllOfType(model, DAttribute).filter[!(it instanceof SAttributeDeduction) && !(eContainer instanceof SComplexTypeDeduction)]
+        val allSubtypes = EcoreUtil2.eAllOfType(model, DComplexType).filter[superType !== null]
         
        val result = '''
        		hide empty members
@@ -76,7 +82,7 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
        		}
        		
            	«FOR a:allAggregates»package «a.aggregateName» <<Rectangle>> {
-	    				«FOR t:a.types.filter[nature != DEDUCTION_RULE]»«t.generateType»«ENDFOR»
+	    				«FOR t:a.types.filter[!(it instanceof STypeDeduction)]»«t.generateType»«ENDFOR»
            		}
 	           	«FOR d:allReferencedDomains»package «d» <<Frame>> { 
 	           	}
@@ -84,7 +90,7 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     		«ENDFOR»
             «FOR a:allAssociations»«a.generateAssociation»
             «ENDFOR»
-            «FOR a:allDetailAttributes»«a.generateLink»
+            «FOR a:allComplexAttributes.filter[type instanceof DDetailType]»«a.generateLink»
             «ENDFOR»
             «FOR s:allSubtypes»«s.aggregateName».«s.name» --|> «s.superType.aggregateName»«IF s.aggregateName === s.superType.aggregateName».«s.superType.name»«ENDIF»
             «ENDFOR»
@@ -96,23 +102,23 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 			val d = EcoreUtil2.getContainerOfType(obj, SInformationModel)
 			return if (d !== null) d.name else "undefined" 
 	}
+//	
+//	def String aggregateName(EObject obj) {
+//			val a = EcoreUtil2.getContainerOfType(obj, DAggregate)// global types are not owned by a domain => null
+//			return if (a !== null) a.derivedName else "undefined" 
+//	}
 	
-	def String aggregateName(EObject obj) {
-			val a = EcoreUtil2.getContainerOfType(obj, SAggregate)// global types are not owned by a domain => null
-			return if (a !== null) a.derivedName else "undefined" 
-	}
-	
-	def dispatch  generateType(SComplexType c) '''	
+	def dispatch  generateType(DComplexType c) '''	
 		«IF c.abstract»abstract «ENDIF»class «c.aggregateName».«c.name» «c.getSpot» {
-			«FOR f:c.features.filter[nature != DEDUCTION_RULE]»«f.generateFeature»«ENDFOR»
+			«FOR f:c.features.filter[!(it instanceof SFeatureDeduction)]»«f.generateFeature»«ENDFOR»
 		}
 	'''
 	
-	def dispatch  generateType(SPrimitive p) '''	
+	def dispatch  generateType(DPrimitive p) '''	
 		class «p.name» «p.getSpot»
 	'''
 	
-	def dispatch  generateType(SEnumeration e)  '''
+	def dispatch  generateType(DEnumeration e)  '''
 		enum «e.name» «e.getSpot» {
 			«FOR f:e.literals»
 				«f.name»
@@ -120,54 +126,54 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 		}
 	'''
 	
-	def dispatch generateType(SType t)  '''
+	def dispatch generateType(DType t)  '''
 	'''
 	
-	def getSpot(SType t) {
+	def getSpot(DType t) {
 		// Returns the "Spot Letter" to use next to the class name.
 		switch t {
-		SEntityType : if (t.root) "<< (R,#FB3333) >>" else "<< (E,#F78100) >>"
-		SDetailType : "<< (D,#FAE55F) >>"
-		SEnumeration: "<< (e,#66B371) >>"
-		SPrimitive:  "<< (p,#9AF78F) >>"
+		DEntityType : if (t.root) "<< (R,#FB3333) >>" else "<< (E,#F78100) >>"
+		DDetailType : "<< (D,#FAE55F) >>"
+		DEnumeration: "<< (e,#66B371) >>"
+		DPrimitive:  "<< (p,#9AF78F) >>"
 		default:""
 		}
 	}
 	
 	
-	def dispatch generateFeature(SAttribute a) '''
-	  	«IF ! (a?.type instanceof SDetailType)»«a.name» : «a.type?.name»«ENDIF»
+	def dispatch generateFeature(DAttribute a) '''
+	  	«IF ! (a?.type instanceof DDetailType)»«a.name» : «a.type?.name»«ENDIF»
 	  '''
 
-	def dispatch generateFeature(SQuery q) '''
+	def dispatch generateFeature(DQuery q) '''
 	   «IF q.type !== null»
 	   		«q.name»(«q.generateQueryParameters») : «q.type.name» 
 	   	«ENDIF»
 	 '''
 	
-	def dispatch generateFeature(SAssociation a)  '''
+	def dispatch generateFeature(DAssociation a)  '''
 	'''
 	
-	def generateQueryParameters(SQuery q) 
+	def generateQueryParameters(DQuery q) 
 	'''«FOR p:q.parameters SEPARATOR ", "»«p.name»:«p.type.name»«ENDFOR»'''
 	
-	def generateAssociation(SAssociation a ) {
+	def generateAssociation(DAssociation a ) {
 		return switch a.kind {
-			case REFERENCE: generateLink('', a.eContainer as SType, a.type, a.name, '>')
-			case COMPOSITE:  generateLink('*', a.eContainer as SType, a.type, a.name, '>')
-			case INVERSE_COMPOSITE: generateLink('}', a.eContainer as SType, a.type, a.name, '*')
+			case REFERENCE: generateLink('', a.eContainer as DType, a.type, a.name, '>')
+			case COMPOSITE:  generateLink('*', a.eContainer as DType, a.type, a.name, '>')
+			case INVERSE_COMPOSITE: generateLink('}', a.eContainer as DType, a.type, a.name, '*')
 		}
 	}
 	
-	def generateLink(SAttribute a) {
-		return generateLink('*', a.eContainer as SType, a.type, a.name, "")
+	def generateLink(DAttribute a) {
+		return generateLink('*', a.eContainer as DType, a.type, a.name, "")
 	}
 	
-	def generateLink(String sourceArrowhead, SType source, SType target, String targetRole, String targetArrowhead) '''
+	def generateLink(String sourceArrowhead, DType source, DType target, String targetRole, String targetArrowhead) '''
 		«source.aggregateName».«source.name» «sourceArrowhead»--«targetArrowhead» «getTargetName(source,target)» : «targetRole»
 	'''
 	
-	def String getTargetName(SType source, SType target) {
+	def String getTargetName(DType source, DType target) {
 		if (source.modelName == target.modelName) {
 			if (source.aggregateName == target.aggregateName) return target.aggregateName + "." + target.name
 			return  target.aggregateName

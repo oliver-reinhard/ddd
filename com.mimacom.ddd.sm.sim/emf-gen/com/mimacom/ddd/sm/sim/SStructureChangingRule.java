@@ -2,6 +2,7 @@
  */
 package com.mimacom.ddd.sm.sim;
 
+import com.mimacom.ddd.dm.base.DType;
 
 /**
  * <!-- begin-user-doc -->
@@ -78,12 +79,12 @@ public interface SStructureChangingRule extends SGrabRule
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Extend From</em>' reference.
-	 * @see #setExtendFrom(SType)
+	 * @see #setExtendFrom(DType)
 	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSStructureChangingRule_ExtendFrom()
 	 * @model
 	 * @generated
 	 */
-	SType getExtendFrom();
+	DType getExtendFrom();
 
 	/**
 	 * Sets the value of the '{@link com.mimacom.ddd.sm.sim.SStructureChangingRule#getExtendFrom <em>Extend From</em>}' reference.
@@ -93,6 +94,6 @@ public interface SStructureChangingRule extends SGrabRule
 	 * @see #getExtendFrom()
 	 * @generated
 	 */
-	void setExtendFrom(SType value);
+	void setExtendFrom(DType value);
 
 } // SStructureChangingRule

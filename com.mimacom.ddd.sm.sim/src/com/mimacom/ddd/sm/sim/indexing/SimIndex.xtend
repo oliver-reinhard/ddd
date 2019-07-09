@@ -2,7 +2,6 @@ package com.mimacom.ddd.sm.sim.indexing
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.BasePackage
-import com.mimacom.ddd.sm.sim.SimPackage
 import java.util.Collections
 import java.util.List
 import java.util.Map
@@ -50,11 +49,11 @@ class SimIndex {
 		if (rd === null) {
 			return Collections.EMPTY_LIST
 		}
-		rd.getExportedObjectsByType(SimPackage.eINSTANCE.SType)
+		rd.getExportedObjectsByType(BasePackage.eINSTANCE.DType)
 	}
 
 	def Iterable<IEObjectDescription> getVisibleSTypeDescriptions(EObject context) {
-		context.getVisibleEObjectDescriptions(SimPackage.eINSTANCE.SType)
+		context.getVisibleEObjectDescriptions(BasePackage.eINSTANCE.DType)
 	}
 
 	def Map<QualifiedName, IEObjectDescription> getVisibleDTypeDescriptionsMap(EObject context) {

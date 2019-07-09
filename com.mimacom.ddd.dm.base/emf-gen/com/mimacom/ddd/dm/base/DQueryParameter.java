@@ -13,6 +13,6 @@ package com.mimacom.ddd.dm.base;
  * @model
  * @generated
  */
-public interface DQueryParameter extends DTypedMember
+public interface DQueryParameter extends DTypedMember, IDeducibleElement
 {
 } // DQueryParameter

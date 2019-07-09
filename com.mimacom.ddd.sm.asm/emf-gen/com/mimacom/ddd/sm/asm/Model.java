@@ -3,7 +3,7 @@
  */
 package com.mimacom.ddd.sm.asm;
 
-import com.mimacom.ddd.sm.sim.SImport;
+import com.mimacom.ddd.dm.base.DImport;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -52,7 +52,7 @@ public interface Model extends EObject
 
 	/**
 	 * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.sm.sim.SImport}.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DImport}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Imports</em>' containment reference list.
@@ -60,6 +60,6 @@ public interface Model extends EObject
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SImport> getImports();
+	EList<DImport> getImports();
 
 } // Model

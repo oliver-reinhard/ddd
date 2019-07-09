@@ -13,6 +13,6 @@ package com.mimacom.ddd.dm.base;
  * @model
  * @generated
  */
-public interface DLiteral extends DTypedMember
+public interface DLiteral extends DTypedMember, IDeducibleElement
 {
 } // DLiteral

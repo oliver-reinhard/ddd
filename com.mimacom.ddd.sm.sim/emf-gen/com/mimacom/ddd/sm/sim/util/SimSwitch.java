@@ -2,6 +2,32 @@
  */
 package com.mimacom.ddd.sm.sim.util;
 
+import com.mimacom.ddd.dm.base.DAggregate;
+import com.mimacom.ddd.dm.base.DAssociation;
+import com.mimacom.ddd.dm.base.DAttribute;
+import com.mimacom.ddd.dm.base.DComplexType;
+import com.mimacom.ddd.dm.base.DDeductionRule;
+import com.mimacom.ddd.dm.base.DDetailType;
+import com.mimacom.ddd.dm.base.DEntityType;
+import com.mimacom.ddd.dm.base.DEnumeration;
+import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DIdentityType;
+import com.mimacom.ddd.dm.base.DLiteral;
+import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DPrimitive;
+import com.mimacom.ddd.dm.base.DQuery;
+import com.mimacom.ddd.dm.base.DQueryParameter;
+import com.mimacom.ddd.dm.base.DSimpleType;
+import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.DTypedMember;
+import com.mimacom.ddd.dm.base.IDeducibleElement;
+import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.base.IIdentityType;
+import com.mimacom.ddd.dm.base.INamespace;
+import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
+import com.mimacom.ddd.dm.base.ITypedMemberContainer;
+import com.mimacom.ddd.dm.base.IValueType;
+
 import com.mimacom.ddd.sm.sim.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -72,20 +98,6 @@ public class SimSwitch<T> extends Switch<T>
 	{
 		switch (classifierID)
 		{
-			case SimPackage.SIDENTITY_TYPE:
-			{
-				SIdentityType sIdentityType = (SIdentityType)theEObject;
-				T result = caseSIdentityType(sIdentityType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SimPackage.SVALUE_TYPE:
-			{
-				SValueType sValueType = (SValueType)theEObject;
-				T result = caseSValueType(sValueType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SimPackage.SINFORMATION_MODEL:
 			{
 				SInformationModel sInformationModel = (SInformationModel)theEObject;
@@ -93,226 +105,189 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SNAMED_ELEMENT:
+			case SimPackage.SDOMAIN_DEDUCTION:
 			{
-				SNamedElement sNamedElement = (SNamedElement)theEObject;
-				T result = caseSNamedElement(sNamedElement);
+				SDomainDeduction sDomainDeduction = (SDomainDeduction)theEObject;
+				T result = caseSDomainDeduction(sDomainDeduction);
+				if (result == null) result = caseIDeductionDefinition(sDomainDeduction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SDEDUCIBLE_ELEMENT:
+			case SimPackage.SAGGREGATE_DEDUCTION:
 			{
-				SDeducibleElement sDeducibleElement = (SDeducibleElement)theEObject;
-				T result = caseSDeducibleElement(sDeducibleElement);
+				SAggregateDeduction sAggregateDeduction = (SAggregateDeduction)theEObject;
+				T result = caseSAggregateDeduction(sAggregateDeduction);
+				if (result == null) result = caseDAggregate(sAggregateDeduction);
+				if (result == null) result = caseIDeductionDefinition(sAggregateDeduction);
+				if (result == null) result = caseIDeducibleElement(sAggregateDeduction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SNAMED_DEDUCIBLE_ELEMENT:
+			case SimPackage.STYPE_DEDUCTION:
 			{
-				SNamedDeducibleElement sNamedDeducibleElement = (SNamedDeducibleElement)theEObject;
-				T result = caseSNamedDeducibleElement(sNamedDeducibleElement);
-				if (result == null) result = caseSNamedElement(sNamedDeducibleElement);
-				if (result == null) result = caseSDeducibleElement(sNamedDeducibleElement);
+				STypeDeduction sTypeDeduction = (STypeDeduction)theEObject;
+				T result = caseSTypeDeduction(sTypeDeduction);
+				if (result == null) result = caseDNamedElement(sTypeDeduction);
+				if (result == null) result = caseIDeductionDefinition(sTypeDeduction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SEXPRESSION:
+			case SimPackage.SPRIMITIVE_DEDUCTION:
 			{
-				SExpression sExpression = (SExpression)theEObject;
-				T result = caseSExpression(sExpression);
+				SPrimitiveDeduction sPrimitiveDeduction = (SPrimitiveDeduction)theEObject;
+				T result = caseSPrimitiveDeduction(sPrimitiveDeduction);
+				if (result == null) result = caseDPrimitive(sPrimitiveDeduction);
+				if (result == null) result = caseSTypeDeduction(sPrimitiveDeduction);
+				if (result == null) result = caseDSimpleType(sPrimitiveDeduction);
+				if (result == null) result = caseIDeductionDefinition(sPrimitiveDeduction);
+				if (result == null) result = caseDType(sPrimitiveDeduction);
+				if (result == null) result = caseIValueType(sPrimitiveDeduction);
+				if (result == null) result = caseIDeducibleElement(sPrimitiveDeduction);
+				if (result == null) result = caseIPrimaryNavigationTarget(sPrimitiveDeduction);
+				if (result == null) result = caseDNamedElement(sPrimitiveDeduction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SIMPORT:
+			case SimPackage.SENUMERATION_DEDUCTION:
 			{
-				SImport sImport = (SImport)theEObject;
-				T result = caseSImport(sImport);
+				SEnumerationDeduction sEnumerationDeduction = (SEnumerationDeduction)theEObject;
+				T result = caseSEnumerationDeduction(sEnumerationDeduction);
+				if (result == null) result = caseDEnumeration(sEnumerationDeduction);
+				if (result == null) result = caseSTypeDeduction(sEnumerationDeduction);
+				if (result == null) result = caseDSimpleType(sEnumerationDeduction);
+				if (result == null) result = caseITypedMemberContainer(sEnumerationDeduction);
+				if (result == null) result = caseIDeductionDefinition(sEnumerationDeduction);
+				if (result == null) result = caseDType(sEnumerationDeduction);
+				if (result == null) result = caseIValueType(sEnumerationDeduction);
+				if (result == null) result = caseINamespace(sEnumerationDeduction);
+				if (result == null) result = caseIDeducibleElement(sEnumerationDeduction);
+				if (result == null) result = caseIPrimaryNavigationTarget(sEnumerationDeduction);
+				if (result == null) result = caseDNamedElement(sEnumerationDeduction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SDOMAIN_PROXY:
+			case SimPackage.SLITERAL_DEDUCTION:
 			{
-				SDomainProxy sDomainProxy = (SDomainProxy)theEObject;
-				T result = caseSDomainProxy(sDomainProxy);
-				if (result == null) result = caseSDeducibleElement(sDomainProxy);
+				SLiteralDeduction sLiteralDeduction = (SLiteralDeduction)theEObject;
+				T result = caseSLiteralDeduction(sLiteralDeduction);
+				if (result == null) result = caseDLiteral(sLiteralDeduction);
+				if (result == null) result = caseIDeductionDefinition(sLiteralDeduction);
+				if (result == null) result = caseDTypedMember(sLiteralDeduction);
+				if (result == null) result = caseIDeducibleElement(sLiteralDeduction);
+				if (result == null) result = caseDNamedElement(sLiteralDeduction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SAGGREGATE:
+			case SimPackage.SCOMPLEX_TYPE_DEDUCTION:
 			{
-				SAggregate sAggregate = (SAggregate)theEObject;
-				T result = caseSAggregate(sAggregate);
-				if (result == null) result = caseSDeducibleElement(sAggregate);
+				SComplexTypeDeduction sComplexTypeDeduction = (SComplexTypeDeduction)theEObject;
+				T result = caseSComplexTypeDeduction(sComplexTypeDeduction);
+				if (result == null) result = caseSTypeDeduction(sComplexTypeDeduction);
+				if (result == null) result = caseDNamedElement(sComplexTypeDeduction);
+				if (result == null) result = caseIDeductionDefinition(sComplexTypeDeduction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.STYPE:
+			case SimPackage.SDETAIL_TYPE_DEDUCTION:
 			{
-				SType sType = (SType)theEObject;
-				T result = caseSType(sType);
-				if (result == null) result = caseSNamedDeducibleElement(sType);
-				if (result == null) result = caseSNamedElement(sType);
-				if (result == null) result = caseSDeducibleElement(sType);
+				SDetailTypeDeduction sDetailTypeDeduction = (SDetailTypeDeduction)theEObject;
+				T result = caseSDetailTypeDeduction(sDetailTypeDeduction);
+				if (result == null) result = caseDDetailType(sDetailTypeDeduction);
+				if (result == null) result = caseSComplexTypeDeduction(sDetailTypeDeduction);
+				if (result == null) result = caseDComplexType(sDetailTypeDeduction);
+				if (result == null) result = caseIValueType(sDetailTypeDeduction);
+				if (result == null) result = caseSTypeDeduction(sDetailTypeDeduction);
+				if (result == null) result = caseDType(sDetailTypeDeduction);
+				if (result == null) result = caseITypedMemberContainer(sDetailTypeDeduction);
+				if (result == null) result = caseIDeductionDefinition(sDetailTypeDeduction);
+				if (result == null) result = caseIDeducibleElement(sDetailTypeDeduction);
+				if (result == null) result = caseIPrimaryNavigationTarget(sDetailTypeDeduction);
+				if (result == null) result = caseINamespace(sDetailTypeDeduction);
+				if (result == null) result = caseDNamedElement(sDetailTypeDeduction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SCONDITION:
+			case SimPackage.SENTITY_TYPE_DEDUCTION:
 			{
-				SCondition sCondition = (SCondition)theEObject;
-				T result = caseSCondition(sCondition);
-				if (result == null) result = caseSNamedElement(sCondition);
+				SEntityTypeDeduction sEntityTypeDeduction = (SEntityTypeDeduction)theEObject;
+				T result = caseSEntityTypeDeduction(sEntityTypeDeduction);
+				if (result == null) result = caseDEntityType(sEntityTypeDeduction);
+				if (result == null) result = caseSComplexTypeDeduction(sEntityTypeDeduction);
+				if (result == null) result = caseDIdentityType(sEntityTypeDeduction);
+				if (result == null) result = caseSTypeDeduction(sEntityTypeDeduction);
+				if (result == null) result = caseDComplexType(sEntityTypeDeduction);
+				if (result == null) result = caseIIdentityType(sEntityTypeDeduction);
+				if (result == null) result = caseIDeductionDefinition(sEntityTypeDeduction);
+				if (result == null) result = caseDType(sEntityTypeDeduction);
+				if (result == null) result = caseITypedMemberContainer(sEntityTypeDeduction);
+				if (result == null) result = caseIDeducibleElement(sEntityTypeDeduction);
+				if (result == null) result = caseIPrimaryNavigationTarget(sEntityTypeDeduction);
+				if (result == null) result = caseINamespace(sEntityTypeDeduction);
+				if (result == null) result = caseDNamedElement(sEntityTypeDeduction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SSIMPLE_TYPE:
+			case SimPackage.SFEATURE_DEDUCTION:
 			{
-				SSimpleType sSimpleType = (SSimpleType)theEObject;
-				T result = caseSSimpleType(sSimpleType);
-				if (result == null) result = caseSType(sSimpleType);
-				if (result == null) result = caseSValueType(sSimpleType);
-				if (result == null) result = caseSNamedDeducibleElement(sSimpleType);
-				if (result == null) result = caseSNamedElement(sSimpleType);
-				if (result == null) result = caseSDeducibleElement(sSimpleType);
+				SFeatureDeduction sFeatureDeduction = (SFeatureDeduction)theEObject;
+				T result = caseSFeatureDeduction(sFeatureDeduction);
+				if (result == null) result = caseIDeductionDefinition(sFeatureDeduction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SPRIMITIVE:
+			case SimPackage.SASSOCIATION_DEDUCTION:
 			{
-				SPrimitive sPrimitive = (SPrimitive)theEObject;
-				T result = caseSPrimitive(sPrimitive);
-				if (result == null) result = caseSSimpleType(sPrimitive);
-				if (result == null) result = caseSType(sPrimitive);
-				if (result == null) result = caseSValueType(sPrimitive);
-				if (result == null) result = caseSNamedDeducibleElement(sPrimitive);
-				if (result == null) result = caseSNamedElement(sPrimitive);
-				if (result == null) result = caseSDeducibleElement(sPrimitive);
+				SAssociationDeduction sAssociationDeduction = (SAssociationDeduction)theEObject;
+				T result = caseSAssociationDeduction(sAssociationDeduction);
+				if (result == null) result = caseDAssociation(sAssociationDeduction);
+				if (result == null) result = caseSFeatureDeduction(sAssociationDeduction);
+				if (result == null) result = caseDFeature(sAssociationDeduction);
+				if (result == null) result = caseIDeductionDefinition(sAssociationDeduction);
+				if (result == null) result = caseDTypedMember(sAssociationDeduction);
+				if (result == null) result = caseIDeducibleElement(sAssociationDeduction);
+				if (result == null) result = caseDNamedElement(sAssociationDeduction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SENUMERATION:
+			case SimPackage.SATTRIBUTE_DEDUCTION:
 			{
-				SEnumeration sEnumeration = (SEnumeration)theEObject;
-				T result = caseSEnumeration(sEnumeration);
-				if (result == null) result = caseSSimpleType(sEnumeration);
-				if (result == null) result = caseSType(sEnumeration);
-				if (result == null) result = caseSValueType(sEnumeration);
-				if (result == null) result = caseSNamedDeducibleElement(sEnumeration);
-				if (result == null) result = caseSNamedElement(sEnumeration);
-				if (result == null) result = caseSDeducibleElement(sEnumeration);
+				SAttributeDeduction sAttributeDeduction = (SAttributeDeduction)theEObject;
+				T result = caseSAttributeDeduction(sAttributeDeduction);
+				if (result == null) result = caseDAttribute(sAttributeDeduction);
+				if (result == null) result = caseSFeatureDeduction(sAttributeDeduction);
+				if (result == null) result = caseDFeature(sAttributeDeduction);
+				if (result == null) result = caseIDeductionDefinition(sAttributeDeduction);
+				if (result == null) result = caseDTypedMember(sAttributeDeduction);
+				if (result == null) result = caseIDeducibleElement(sAttributeDeduction);
+				if (result == null) result = caseDNamedElement(sAttributeDeduction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SLITERAL:
+			case SimPackage.SQUERY_DEDUCTION:
 			{
-				SLiteral sLiteral = (SLiteral)theEObject;
-				T result = caseSLiteral(sLiteral);
-				if (result == null) result = caseSNamedDeducibleElement(sLiteral);
-				if (result == null) result = caseSNamedElement(sLiteral);
-				if (result == null) result = caseSDeducibleElement(sLiteral);
+				SQueryDeduction sQueryDeduction = (SQueryDeduction)theEObject;
+				T result = caseSQueryDeduction(sQueryDeduction);
+				if (result == null) result = caseDQuery(sQueryDeduction);
+				if (result == null) result = caseSFeatureDeduction(sQueryDeduction);
+				if (result == null) result = caseDFeature(sQueryDeduction);
+				if (result == null) result = caseITypedMemberContainer(sQueryDeduction);
+				if (result == null) result = caseIDeductionDefinition(sQueryDeduction);
+				if (result == null) result = caseDTypedMember(sQueryDeduction);
+				if (result == null) result = caseIDeducibleElement(sQueryDeduction);
+				if (result == null) result = caseINamespace(sQueryDeduction);
+				if (result == null) result = caseDNamedElement(sQueryDeduction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimPackage.SCOMPLEX_TYPE:
+			case SimPackage.SQUERY_PARAMETER_DEDUCTION:
 			{
-				SComplexType sComplexType = (SComplexType)theEObject;
-				T result = caseSComplexType(sComplexType);
-				if (result == null) result = caseSType(sComplexType);
-				if (result == null) result = caseSNamedDeducibleElement(sComplexType);
-				if (result == null) result = caseSNamedElement(sComplexType);
-				if (result == null) result = caseSDeducibleElement(sComplexType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SimPackage.SDETAIL_TYPE:
-			{
-				SDetailType sDetailType = (SDetailType)theEObject;
-				T result = caseSDetailType(sDetailType);
-				if (result == null) result = caseSComplexType(sDetailType);
-				if (result == null) result = caseSValueType(sDetailType);
-				if (result == null) result = caseSType(sDetailType);
-				if (result == null) result = caseSNamedDeducibleElement(sDetailType);
-				if (result == null) result = caseSNamedElement(sDetailType);
-				if (result == null) result = caseSDeducibleElement(sDetailType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SimPackage.SENTITY_TYPE:
-			{
-				SEntityType sEntityType = (SEntityType)theEObject;
-				T result = caseSEntityType(sEntityType);
-				if (result == null) result = caseSComplexType(sEntityType);
-				if (result == null) result = caseSIdentityType(sEntityType);
-				if (result == null) result = caseSType(sEntityType);
-				if (result == null) result = caseSNamedDeducibleElement(sEntityType);
-				if (result == null) result = caseSNamedElement(sEntityType);
-				if (result == null) result = caseSDeducibleElement(sEntityType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SimPackage.SFEATURE:
-			{
-				SFeature sFeature = (SFeature)theEObject;
-				T result = caseSFeature(sFeature);
-				if (result == null) result = caseSNamedDeducibleElement(sFeature);
-				if (result == null) result = caseSNamedElement(sFeature);
-				if (result == null) result = caseSDeducibleElement(sFeature);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SimPackage.SASSOCIATION:
-			{
-				SAssociation sAssociation = (SAssociation)theEObject;
-				T result = caseSAssociation(sAssociation);
-				if (result == null) result = caseSFeature(sAssociation);
-				if (result == null) result = caseSNamedDeducibleElement(sAssociation);
-				if (result == null) result = caseSNamedElement(sAssociation);
-				if (result == null) result = caseSDeducibleElement(sAssociation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SimPackage.SMULTIPLICITY:
-			{
-				SMultiplicity sMultiplicity = (SMultiplicity)theEObject;
-				T result = caseSMultiplicity(sMultiplicity);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SimPackage.SATTRIBUTE:
-			{
-				SAttribute sAttribute = (SAttribute)theEObject;
-				T result = caseSAttribute(sAttribute);
-				if (result == null) result = caseSFeature(sAttribute);
-				if (result == null) result = caseSNamedDeducibleElement(sAttribute);
-				if (result == null) result = caseSNamedElement(sAttribute);
-				if (result == null) result = caseSDeducibleElement(sAttribute);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SimPackage.SQUERY:
-			{
-				SQuery sQuery = (SQuery)theEObject;
-				T result = caseSQuery(sQuery);
-				if (result == null) result = caseSFeature(sQuery);
-				if (result == null) result = caseSNamedDeducibleElement(sQuery);
-				if (result == null) result = caseSNamedElement(sQuery);
-				if (result == null) result = caseSDeducibleElement(sQuery);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SimPackage.SQUERY_PARAMETER:
-			{
-				SQueryParameter sQueryParameter = (SQueryParameter)theEObject;
-				T result = caseSQueryParameter(sQueryParameter);
-				if (result == null) result = caseSNamedDeducibleElement(sQueryParameter);
-				if (result == null) result = caseSNamedElement(sQueryParameter);
-				if (result == null) result = caseSDeducibleElement(sQueryParameter);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SimPackage.SDEDUCTION_RULE:
-			{
-				SDeductionRule sDeductionRule = (SDeductionRule)theEObject;
-				T result = caseSDeductionRule(sDeductionRule);
+				SQueryParameterDeduction sQueryParameterDeduction = (SQueryParameterDeduction)theEObject;
+				T result = caseSQueryParameterDeduction(sQueryParameterDeduction);
+				if (result == null) result = caseDQueryParameter(sQueryParameterDeduction);
+				if (result == null) result = caseIDeductionDefinition(sQueryParameterDeduction);
+				if (result == null) result = caseDTypedMember(sQueryParameterDeduction);
+				if (result == null) result = caseIDeducibleElement(sQueryParameterDeduction);
+				if (result == null) result = caseDNamedElement(sQueryParameterDeduction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -320,7 +295,7 @@ public class SimSwitch<T> extends Switch<T>
 			{
 				SGrabRule sGrabRule = (SGrabRule)theEObject;
 				T result = caseSGrabRule(sGrabRule);
-				if (result == null) result = caseSDeductionRule(sGrabRule);
+				if (result == null) result = caseDDeductionRule(sGrabRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -328,7 +303,7 @@ public class SimSwitch<T> extends Switch<T>
 			{
 				SDitchRule sDitchRule = (SDitchRule)theEObject;
 				T result = caseSDitchRule(sDitchRule);
-				if (result == null) result = caseSDeductionRule(sDitchRule);
+				if (result == null) result = caseDDeductionRule(sDitchRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -337,7 +312,7 @@ public class SimSwitch<T> extends Switch<T>
 				SStructureChangingRule sStructureChangingRule = (SStructureChangingRule)theEObject;
 				T result = caseSStructureChangingRule(sStructureChangingRule);
 				if (result == null) result = caseSGrabRule(sStructureChangingRule);
-				if (result == null) result = caseSDeductionRule(sStructureChangingRule);
+				if (result == null) result = caseDDeductionRule(sStructureChangingRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -347,7 +322,7 @@ public class SimSwitch<T> extends Switch<T>
 				T result = caseSMorphRule(sMorphRule);
 				if (result == null) result = caseSStructureChangingRule(sMorphRule);
 				if (result == null) result = caseSGrabRule(sMorphRule);
-				if (result == null) result = caseSDeductionRule(sMorphRule);
+				if (result == null) result = caseDDeductionRule(sMorphRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -357,7 +332,7 @@ public class SimSwitch<T> extends Switch<T>
 				T result = caseSFuseRule(sFuseRule);
 				if (result == null) result = caseSStructureChangingRule(sFuseRule);
 				if (result == null) result = caseSGrabRule(sFuseRule);
-				if (result == null) result = caseSDeductionRule(sFuseRule);
+				if (result == null) result = caseDDeductionRule(sFuseRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -365,7 +340,7 @@ public class SimSwitch<T> extends Switch<T>
 			{
 				SGrabAggregateRule sGrabAggregateRule = (SGrabAggregateRule)theEObject;
 				T result = caseSGrabAggregateRule(sGrabAggregateRule);
-				if (result == null) result = caseSDeductionRule(sGrabAggregateRule);
+				if (result == null) result = caseDDeductionRule(sGrabAggregateRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -373,52 +348,12 @@ public class SimSwitch<T> extends Switch<T>
 			{
 				SGrabDomainRule sGrabDomainRule = (SGrabDomainRule)theEObject;
 				T result = caseSGrabDomainRule(sGrabDomainRule);
-				if (result == null) result = caseSDeductionRule(sGrabDomainRule);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SimPackage.SSYNTHETIC_DEDUCTION_RULE:
-			{
-				SSyntheticDeductionRule sSyntheticDeductionRule = (SSyntheticDeductionRule)theEObject;
-				T result = caseSSyntheticDeductionRule(sSyntheticDeductionRule);
-				if (result == null) result = caseSDeductionRule(sSyntheticDeductionRule);
+				if (result == null) result = caseDDeductionRule(sGrabDomainRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			default: return defaultCase(theEObject);
 		}
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SIdentity Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SIdentity Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSIdentityType(SIdentityType object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SValue Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SValue Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSValueType(SValueType object)
-	{
-		return null;
 	}
 
 	/**
@@ -438,369 +373,225 @@ public class SimSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SNamed Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SDomain Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SNamed Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SDomain Deduction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSNamedElement(SNamedElement object)
+	public T caseSDomainDeduction(SDomainDeduction object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SDeducible Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SAggregate Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SDeducible Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SAggregate Deduction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSDeducibleElement(SDeducibleElement object)
+	public T caseSAggregateDeduction(SAggregateDeduction object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SNamed Deducible Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SType Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SNamed Deducible Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SType Deduction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSNamedDeducibleElement(SNamedDeducibleElement object)
+	public T caseSTypeDeduction(STypeDeduction object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SExpression</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SPrimitive Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SExpression</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SPrimitive Deduction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSExpression(SExpression object)
+	public T caseSPrimitiveDeduction(SPrimitiveDeduction object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SImport</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SEnumeration Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SImport</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SEnumeration Deduction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSImport(SImport object)
+	public T caseSEnumerationDeduction(SEnumerationDeduction object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SDomain Proxy</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SLiteral Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SDomain Proxy</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SLiteral Deduction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSDomainProxy(SDomainProxy object)
+	public T caseSLiteralDeduction(SLiteralDeduction object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SAggregate</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SComplex Type Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SAggregate</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SComplex Type Deduction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSAggregate(SAggregate object)
+	public T caseSComplexTypeDeduction(SComplexTypeDeduction object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SType</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SDetail Type Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SType</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SDetail Type Deduction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSType(SType object)
+	public T caseSDetailTypeDeduction(SDetailTypeDeduction object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SCondition</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SEntity Type Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SCondition</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SEntity Type Deduction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSCondition(SCondition object)
+	public T caseSEntityTypeDeduction(SEntityTypeDeduction object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SSimple Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SFeature Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SSimple Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SFeature Deduction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSSimpleType(SSimpleType object)
+	public T caseSFeatureDeduction(SFeatureDeduction object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SPrimitive</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SAssociation Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SPrimitive</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SAssociation Deduction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSPrimitive(SPrimitive object)
+	public T caseSAssociationDeduction(SAssociationDeduction object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SEnumeration</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SAttribute Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SEnumeration</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SAttribute Deduction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSEnumeration(SEnumeration object)
+	public T caseSAttributeDeduction(SAttributeDeduction object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SLiteral</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SQuery Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SLiteral</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SQuery Deduction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSLiteral(SLiteral object)
+	public T caseSQueryDeduction(SQueryDeduction object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SComplex Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>SQuery Parameter Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SComplex Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>SQuery Parameter Deduction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSComplexType(SComplexType object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SDetail Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SDetail Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSDetailType(SDetailType object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SEntity Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SEntity Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSEntityType(SEntityType object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SFeature</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SFeature</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSFeature(SFeature object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SAssociation</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SAssociation</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSAssociation(SAssociation object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SMultiplicity</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SMultiplicity</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSMultiplicity(SMultiplicity object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SAttribute</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SAttribute</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSAttribute(SAttribute object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SQuery</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SQuery</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSQuery(SQuery object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SQuery Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SQuery Parameter</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSQueryParameter(SQueryParameter object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SDeduction Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SDeduction Rule</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSDeductionRule(SDeductionRule object)
+	public T caseSQueryParameterDeduction(SQueryParameterDeduction object)
 	{
 		return null;
 	}
@@ -918,17 +709,401 @@ public class SimSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SSynthetic Deduction Rule</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>IDeduction Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SSynthetic Deduction Rule</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>IDeduction Definition</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSSyntheticDeductionRule(SSyntheticDeductionRule object)
+	public T caseIDeductionDefinition(IDeductionDefinition object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IDeducible Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IDeducible Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIDeducibleElement(IDeducibleElement object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DAggregate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DAggregate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDAggregate(DAggregate object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DNamed Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DNamed Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDNamedElement(DNamedElement object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IPrimary Navigation Target</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IPrimary Navigation Target</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIPrimaryNavigationTarget(IPrimaryNavigationTarget object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DType</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DType</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDType(DType object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IValue Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IValue Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIValueType(IValueType object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DSimple Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DSimple Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDSimpleType(DSimpleType object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DPrimitive</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DPrimitive</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDPrimitive(DPrimitive object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>INamespace</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>INamespace</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseINamespace(INamespace object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ITyped Member Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ITyped Member Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseITypedMemberContainer(ITypedMemberContainer object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DEnumeration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DEnumeration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDEnumeration(DEnumeration object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DTyped Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DTyped Member</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDTypedMember(DTypedMember object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DLiteral</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DLiteral</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDLiteral(DLiteral object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DComplex Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DComplex Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDComplexType(DComplexType object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DDetail Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DDetail Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDDetailType(DDetailType object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IIdentity Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IIdentity Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIIdentityType(IIdentityType object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DIdentity Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DIdentity Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDIdentityType(DIdentityType object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DEntity Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DEntity Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDEntityType(DEntityType object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DFeature</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DFeature</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDFeature(DFeature object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DAssociation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DAssociation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDAssociation(DAssociation object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DAttribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DAttribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDAttribute(DAttribute object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DQuery</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DQuery</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDQuery(DQuery object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DQuery Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DQuery Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDQueryParameter(DQueryParameter object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DDeduction Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DDeduction Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDDeductionRule(DDeductionRule object)
 	{
 		return null;
 	}

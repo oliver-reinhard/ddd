@@ -1,36 +1,37 @@
 package com.mimacom.ddd.sm.sim.derivedState;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DComplexType;
+import com.mimacom.ddd.dm.base.DDeductionRule;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.sm.sim.SAggregate;
-import com.mimacom.ddd.sm.sim.SComplexType;
-import com.mimacom.ddd.sm.sim.SDeductionRule;
-import com.mimacom.ddd.sm.sim.SElementNature;
-import com.mimacom.ddd.sm.sim.SEnumeration;
+import com.mimacom.ddd.dm.base.IDeducibleElement;
+import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.sm.sim.SAggregateDeduction;
+import com.mimacom.ddd.sm.sim.SComplexTypeDeduction;
+import com.mimacom.ddd.sm.sim.SEnumerationDeduction;
 import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
-import com.mimacom.ddd.sm.sim.SLiteral;
+import com.mimacom.ddd.sm.sim.SLiteralDeduction;
 import com.mimacom.ddd.sm.sim.SMorphRule;
-import com.mimacom.ddd.sm.sim.SPrimitive;
+import com.mimacom.ddd.sm.sim.SPrimitiveDeduction;
 import com.mimacom.ddd.sm.sim.SStructureChangingRule;
-import com.mimacom.ddd.sm.sim.SType;
-import com.mimacom.ddd.sm.sim.derivedState.STypeSorter;
+import com.mimacom.ddd.sm.sim.STypeDeduction;
 import com.mimacom.ddd.sm.sim.derivedState.SyntheticComplexTypeDescriptor;
 import com.mimacom.ddd.sm.sim.derivedState.SyntheticModelElementsFactory;
 import com.mimacom.ddd.sm.sim.derivedState.TransformationContext;
+import com.mimacom.ddd.sm.sim.derivedState.TypeSorter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.CollectionExtensions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
@@ -44,38 +45,34 @@ public class STypeDeductionRuleProcessor {
   
   private static final String UNDEFINED = "UNDEFINED";
   
-  protected void addImplicitSyntheticTypes(final SAggregate container, final SAggregate aggregateWithRule, final DAggregate source, final List<SyntheticComplexTypeDescriptor> acceptor, final TransformationContext context) {
-    final Function1<SType, Boolean> _function = (SType it) -> {
-      SElementNature _nature = it.getNature();
-      return Boolean.valueOf(Objects.equal(_nature, SElementNature.DEDUCTION_RULE));
-    };
-    final Iterable<SType> sTypesWithRule = IterableExtensions.<SType>filter(aggregateWithRule.getTypes(), _function);
-    final Function1<SType, Boolean> _function_1 = (SType it) -> {
-      SDeductionRule _deductionRule = it.getDeductionRule();
+  protected void addImplicitSyntheticTypes(final DAggregate container, final SAggregateDeduction deductionDefinition, final DAggregate source, final List<SyntheticComplexTypeDescriptor> acceptor, final TransformationContext context) {
+    final Iterable<IDeductionDefinition> typeDeductionDefinitions = Iterables.<IDeductionDefinition>filter(deductionDefinition.getTypes(), IDeductionDefinition.class);
+    final Function1<IDeductionDefinition, Boolean> _function = (IDeductionDefinition it) -> {
+      DDeductionRule _deductionRule = it.getDeductionRule();
       return Boolean.valueOf((_deductionRule instanceof SGrabRule));
     };
-    boolean _exists = IterableExtensions.<SType>exists(sTypesWithRule, _function_1);
+    boolean _exists = IterableExtensions.<IDeductionDefinition>exists(typeDeductionDefinitions, _function);
     boolean _not = (!_exists);
     if (_not) {
-      final ArrayList<DType> implicitlyGrabbedDTypes = Lists.<DType>newArrayList(source.getTypes());
-      final Function1<SType, Boolean> _function_2 = (SType it) -> {
-        EObject _source = it.getDeductionRule().getSource();
+      final ArrayList<DType> implicitlyGrabbedSourceTypes = Lists.<DType>newArrayList(source.getTypes());
+      final Function1<IDeductionDefinition, Boolean> _function_1 = (IDeductionDefinition it) -> {
+        IDeducibleElement _source = it.getDeductionRule().getSource();
         return Boolean.valueOf((_source instanceof DType));
       };
-      final Function1<SType, DType> _function_3 = (SType it) -> {
-        EObject _source = it.getDeductionRule().getSource();
+      final Function1<IDeductionDefinition, DType> _function_2 = (IDeductionDefinition it) -> {
+        IDeducibleElement _source = it.getDeductionRule().getSource();
         return ((DType) _source);
       };
-      final Iterable<DType> dTypesAffectedByRule = IterableExtensions.<SType, DType>map(IterableExtensions.<SType>filter(sTypesWithRule, _function_2), _function_3);
-      CollectionExtensions.<DType>removeAll(implicitlyGrabbedDTypes, dTypesAffectedByRule);
-      for (final DType dType : implicitlyGrabbedDTypes) {
+      final Iterable<DType> sourceTypesAffectedByRule = IterableExtensions.<IDeductionDefinition, DType>map(IterableExtensions.<IDeductionDefinition>filter(typeDeductionDefinitions, _function_1), _function_2);
+      CollectionExtensions.<DType>removeAll(implicitlyGrabbedSourceTypes, sourceTypesAffectedByRule);
+      for (final DType sourceType : implicitlyGrabbedSourceTypes) {
         {
-          final SType syntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, dType.getName(), dType, null, context);
-          if ((syntheticType instanceof SEnumeration)) {
-            this.addImplicitSyntheticLiterals(((SEnumeration)syntheticType), ((DEnumeration) dType), null);
+          final DType syntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, sourceType.getName(), sourceType, null, context);
+          if ((syntheticType instanceof DEnumeration)) {
+            this.addImplicitSyntheticLiterals(((DEnumeration)syntheticType), ((DEnumeration) sourceType), null);
           } else {
-            if ((syntheticType instanceof SComplexType)) {
-              SyntheticComplexTypeDescriptor _syntheticComplexTypeDescriptor = new SyntheticComplexTypeDescriptor(((SComplexType)syntheticType), ((DComplexType) dType));
+            if ((syntheticType instanceof DComplexType)) {
+              SyntheticComplexTypeDescriptor _syntheticComplexTypeDescriptor = new SyntheticComplexTypeDescriptor(((DComplexType)syntheticType), ((DComplexType) sourceType));
               acceptor.add(_syntheticComplexTypeDescriptor);
             }
           }
@@ -84,22 +81,18 @@ public class STypeDeductionRuleProcessor {
     }
   }
   
-  protected void addSyntheticTypes(final SAggregate container, final List<SyntheticComplexTypeDescriptor> acceptor, final TransformationContext context) {
-    final Function1<SType, Boolean> _function = (SType it) -> {
-      SElementNature _nature = it.getNature();
-      return Boolean.valueOf(Objects.equal(_nature, SElementNature.DEDUCTION_RULE));
-    };
-    final List<SType> sTypesWithRule = IterableExtensions.<SType>toList(IterableExtensions.<SType>filter(container.getTypes(), _function));
-    STypeSorter _sTypeSorter = new STypeSorter();
-    Collections.<SType>sort(sTypesWithRule, _sTypeSorter);
-    for (final SType sType : sTypesWithRule) {
+  protected void addSyntheticTypes(final DAggregate container, final List<SyntheticComplexTypeDescriptor> acceptor, final TransformationContext context) {
+    final List<STypeDeduction> typeDeductionDefinitions = IterableExtensions.<STypeDeduction>toList(Iterables.<STypeDeduction>filter(container.getTypes(), STypeDeduction.class));
+    TypeSorter _typeSorter = new TypeSorter();
+    Collections.<STypeDeduction>sort(typeDeductionDefinitions, _typeSorter);
+    for (final STypeDeduction definition : typeDeductionDefinitions) {
       {
-        final SDeductionRule rule = sType.getDeductionRule();
-        final EObject source = rule.getSource();
+        final DDeductionRule rule = definition.getDeductionRule();
+        final IDeducibleElement source = rule.getSource();
         if ((source instanceof DType)) {
-          final SType syntheticType = this.processTypeWithRule(sType, sType.getDeductionRule(), context);
-          if ((syntheticType instanceof SComplexType)) {
-            SyntheticComplexTypeDescriptor _syntheticComplexTypeDescriptor = new SyntheticComplexTypeDescriptor(((SComplexType)syntheticType), ((SComplexType) sType), ((DComplexType) source));
+          final DType syntheticType = this.processTypeDeduction(definition, rule, context);
+          if ((syntheticType instanceof DComplexType)) {
+            SyntheticComplexTypeDescriptor _syntheticComplexTypeDescriptor = new SyntheticComplexTypeDescriptor(((DComplexType)syntheticType), ((SComplexTypeDeduction) definition), ((DComplexType) source));
             acceptor.add(_syntheticComplexTypeDescriptor);
           }
         }
@@ -107,8 +100,8 @@ public class STypeDeductionRuleProcessor {
     }
   }
   
-  protected SPrimitive _processTypeWithRule(final SPrimitive typeWithRule, final SGrabRule rule, final TransformationContext context) {
-    final EObject source = rule.getSource();
+  protected DPrimitive _processTypeDeduction(final SPrimitiveDeduction deductionDefinition, final SGrabRule rule, final TransformationContext context) {
+    final IDeducibleElement source = rule.getSource();
     if ((source instanceof DPrimitive)) {
       String _xifexpression = null;
       String _renameTo = rule.getRenameTo();
@@ -119,15 +112,15 @@ public class STypeDeductionRuleProcessor {
         _xifexpression = ((DPrimitive)source).getName();
       }
       final String name = _xifexpression;
-      SType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(typeWithRule.eContainer(), name, ((DType)source), typeWithRule, context);
-      final SPrimitive syntheticType = ((SPrimitive) _addSyntheticType);
+      DType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(deductionDefinition.eContainer(), name, ((DType)source), deductionDefinition, context);
+      final DPrimitive syntheticType = ((DPrimitive) _addSyntheticType);
       return syntheticType;
     }
     return null;
   }
   
-  protected SEnumeration _processTypeWithRule(final SEnumeration typeWithRule, final SGrabRule rule, final TransformationContext context) {
-    final EObject source = rule.getSource();
+  protected DEnumeration _processTypeDeduction(final SEnumerationDeduction deductionDefinition, final SGrabRule rule, final TransformationContext context) {
+    final IDeducibleElement source = rule.getSource();
     if ((source instanceof DEnumeration)) {
       String _xifexpression = null;
       String _renameTo = rule.getRenameTo();
@@ -138,37 +131,37 @@ public class STypeDeductionRuleProcessor {
         _xifexpression = ((DEnumeration)source).getName();
       }
       final String name = _xifexpression;
-      SType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(typeWithRule.eContainer(), name, ((DType)source), typeWithRule, context);
-      final SEnumeration syntheticEnum = ((SEnumeration) _addSyntheticType);
-      this.addImplicitSyntheticLiterals(syntheticEnum, ((DEnumeration)source), typeWithRule);
-      this.addSyntheticLiterals(syntheticEnum, typeWithRule);
+      DType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(deductionDefinition.eContainer(), name, ((DType)source), deductionDefinition, context);
+      final DEnumeration syntheticEnum = ((DEnumeration) _addSyntheticType);
+      this.addImplicitSyntheticLiterals(syntheticEnum, ((DEnumeration)source), deductionDefinition);
+      this.addSyntheticLiterals(syntheticEnum, deductionDefinition);
       return syntheticEnum;
     }
     return null;
   }
   
-  protected SType _processTypeWithRule(final SType typeWithRule, final SDeductionRule rule, final TransformationContext context) {
+  protected DType _processTypeDeduction(final STypeDeduction deductionDefinition, final DDeductionRule rule, final TransformationContext context) {
     throw new UnsupportedOperationException();
   }
   
-  protected SComplexType _processTypeWithRule(final SComplexType typeWithRule, final SGrabRule rule, final TransformationContext context) {
-    return this.grabComplexType(typeWithRule, rule, context);
+  protected DComplexType _processTypeDeduction(final SComplexTypeDeduction deductionDefinition, final SGrabRule rule, final TransformationContext context) {
+    return this.grabComplexType(deductionDefinition, rule, context);
   }
   
-  protected SComplexType _processTypeWithRule(final SComplexType typeWithRule, final SMorphRule rule, final TransformationContext context) {
-    final SComplexType syntheticType = this.grabComplexType(typeWithRule, rule, context);
+  protected DComplexType _processTypeDeduction(final SComplexTypeDeduction deductionDefinition, final SMorphRule rule, final TransformationContext context) {
+    final DComplexType syntheticType = this.grabComplexType(deductionDefinition, rule, context);
     this.extendsComplexType(syntheticType, rule, context);
     return syntheticType;
   }
   
-  protected SComplexType _processTypeWithRule(final SComplexType typeWithRule, final SFuseRule rule, final TransformationContext context) {
-    final SComplexType syntheticType = this.grabComplexType(typeWithRule, rule, context);
+  protected DComplexType _processTypeDeduction(final SComplexTypeDeduction deductionDefinition, final SFuseRule rule, final TransformationContext context) {
+    final DComplexType syntheticType = this.grabComplexType(deductionDefinition, rule, context);
     this.extendsComplexType(syntheticType, rule, context);
     return syntheticType;
   }
   
-  public SComplexType grabComplexType(final SComplexType typeWithRule, final SGrabRule rule, final TransformationContext context) {
-    final EObject source = rule.getSource();
+  public DComplexType grabComplexType(final SComplexTypeDeduction deductionDefinition, final SGrabRule rule, final TransformationContext context) {
+    final IDeducibleElement source = rule.getSource();
     if ((source instanceof DComplexType)) {
       String _xifexpression = null;
       String _renameTo = rule.getRenameTo();
@@ -179,74 +172,66 @@ public class STypeDeductionRuleProcessor {
         _xifexpression = ((DComplexType)source).getName();
       }
       final String name = _xifexpression;
-      SType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(typeWithRule.eContainer(), name, ((DType)source), typeWithRule, context);
-      final SComplexType syntheticType = ((SComplexType) _addSyntheticType);
+      DType _addSyntheticType = this._syntheticModelElementsFactory.addSyntheticType(deductionDefinition.eContainer(), name, ((DType)source), deductionDefinition, context);
+      final DComplexType syntheticType = ((DComplexType) _addSyntheticType);
       return syntheticType;
     }
     return null;
   }
   
-  public void extendsComplexType(final SComplexType typeWithRule, final SStructureChangingRule rule, final TransformationContext context) {
-    if (((rule.getExtendFrom() instanceof SComplexType) && Objects.equal(typeWithRule.getClass(), rule.getExtendFrom().getClass()))) {
-      SType _extendFrom = rule.getExtendFrom();
-      typeWithRule.setSuperType(((SComplexType) _extendFrom));
+  public void extendsComplexType(final DComplexType syntheticType, final SStructureChangingRule rule, final TransformationContext context) {
+    if (((rule.getExtendFrom() instanceof DComplexType) && Objects.equal(syntheticType.getClass(), rule.getExtendFrom().getClass()))) {
+      DType _extendFrom = rule.getExtendFrom();
+      syntheticType.setSuperType(((DComplexType) _extendFrom));
     }
   }
   
-  public void addImplicitSyntheticLiterals(final SEnumeration syntheticEnum, final DEnumeration source, final SEnumeration sEnumWithRule) {
-    Iterable<SLiteral> sLiteralsWithRule = Lists.<SLiteral>newArrayList();
-    if ((sEnumWithRule != null)) {
-      final Function1<SLiteral, Boolean> _function = (SLiteral it) -> {
-        SElementNature _nature = it.getNature();
-        return Boolean.valueOf(Objects.equal(_nature, SElementNature.DEDUCTION_RULE));
-      };
-      sLiteralsWithRule = IterableExtensions.<SLiteral>filter(sEnumWithRule.getLiterals(), _function);
+  public void addImplicitSyntheticLiterals(final DEnumeration syntheticEnum, final DEnumeration source, final SEnumerationDeduction deductionDefinition) {
+    Iterable<SLiteralDeduction> literalDeductionDefinitions = Lists.<SLiteralDeduction>newArrayList();
+    if ((deductionDefinition != null)) {
+      literalDeductionDefinitions = Iterables.<SLiteralDeduction>filter(deductionDefinition.getLiterals(), SLiteralDeduction.class);
     }
-    final Function1<SLiteral, Boolean> _function_1 = (SLiteral it) -> {
-      SDeductionRule _deductionRule = it.getDeductionRule();
+    final Function1<SLiteralDeduction, Boolean> _function = (SLiteralDeduction it) -> {
+      DDeductionRule _deductionRule = it.getDeductionRule();
       return Boolean.valueOf((_deductionRule instanceof SGrabRule));
     };
-    boolean _exists = IterableExtensions.<SLiteral>exists(sLiteralsWithRule, _function_1);
+    boolean _exists = IterableExtensions.<SLiteralDeduction>exists(literalDeductionDefinitions, _function);
     boolean _not = (!_exists);
     if (_not) {
-      final ArrayList<DLiteral> implicitlyGrabbedDLiterals = Lists.<DLiteral>newArrayList(source.getLiterals());
-      final Function1<SLiteral, Boolean> _function_2 = (SLiteral it) -> {
-        EObject _source = it.getDeductionRule().getSource();
+      final ArrayList<DLiteral> implicitlyGrabbedSourceLiterals = Lists.<DLiteral>newArrayList(source.getLiterals());
+      final Function1<SLiteralDeduction, Boolean> _function_1 = (SLiteralDeduction it) -> {
+        IDeducibleElement _source = it.getDeductionRule().getSource();
         return Boolean.valueOf((_source instanceof DLiteral));
       };
-      final Function1<SLiteral, DLiteral> _function_3 = (SLiteral it) -> {
-        EObject _source = it.getDeductionRule().getSource();
+      final Function1<SLiteralDeduction, DLiteral> _function_2 = (SLiteralDeduction it) -> {
+        IDeducibleElement _source = it.getDeductionRule().getSource();
         return ((DLiteral) _source);
       };
-      final Iterable<DLiteral> dLiteralsAffectedByRule = IterableExtensions.<SLiteral, DLiteral>map(IterableExtensions.<SLiteral>filter(sLiteralsWithRule, _function_2), _function_3);
-      CollectionExtensions.<DLiteral>removeAll(implicitlyGrabbedDLiterals, dLiteralsAffectedByRule);
-      for (final DLiteral dLiteral : implicitlyGrabbedDLiterals) {
-        this._syntheticModelElementsFactory.addSyntheticLiteral(syntheticEnum, dLiteral.getName());
+      final Iterable<DLiteral> sourceLiteralsAffectedByRule = IterableExtensions.<SLiteralDeduction, DLiteral>map(IterableExtensions.<SLiteralDeduction>filter(literalDeductionDefinitions, _function_1), _function_2);
+      CollectionExtensions.<DLiteral>removeAll(implicitlyGrabbedSourceLiterals, sourceLiteralsAffectedByRule);
+      for (final DLiteral sourceLiteral : implicitlyGrabbedSourceLiterals) {
+        this._syntheticModelElementsFactory.addSyntheticLiteral(syntheticEnum, sourceLiteral.getName());
       }
     }
   }
   
-  public void addSyntheticLiterals(final SEnumeration syntheticEnum, final SEnumeration sEnumWithRule) {
-    final Function1<SLiteral, Boolean> _function = (SLiteral it) -> {
-      SElementNature _nature = it.getNature();
-      return Boolean.valueOf(Objects.equal(_nature, SElementNature.DEDUCTION_RULE));
-    };
-    final List<SLiteral> sLiteralsWithRule = IterableExtensions.<SLiteral>toList(IterableExtensions.<SLiteral>filter(sEnumWithRule.getLiterals(), _function));
-    for (final SLiteral sLiteral : sLiteralsWithRule) {
+  public void addSyntheticLiterals(final DEnumeration syntheticEnum, final SEnumerationDeduction deductionDefinition) {
+    final List<SLiteralDeduction> literalDeductionDefinitions = IterableExtensions.<SLiteralDeduction>toList(Iterables.<SLiteralDeduction>filter(deductionDefinition.getLiterals(), SLiteralDeduction.class));
+    for (final SLiteralDeduction definition : literalDeductionDefinitions) {
       {
-        final SDeductionRule literalRule = sLiteral.getDeductionRule();
-        if ((literalRule instanceof SGrabRule)) {
+        final DDeductionRule rule = definition.getDeductionRule();
+        if ((rule instanceof SGrabRule)) {
           String _xifexpression = null;
-          String _renameTo = ((SGrabRule)literalRule).getRenameTo();
+          String _renameTo = ((SGrabRule)rule).getRenameTo();
           boolean _tripleNotEquals = (_renameTo != null);
           if (_tripleNotEquals) {
-            _xifexpression = ((SGrabRule)literalRule).getRenameTo();
+            _xifexpression = ((SGrabRule)rule).getRenameTo();
           } else {
             String _xifexpression_1 = null;
-            DNamedElement _namedSource = ((SGrabRule)literalRule).getNamedSource();
+            DNamedElement _namedSource = ((SGrabRule)rule).getNamedSource();
             boolean _tripleNotEquals_1 = (_namedSource != null);
             if (_tripleNotEquals_1) {
-              _xifexpression_1 = ((SGrabRule)literalRule).getNamedSource().getName();
+              _xifexpression_1 = ((SGrabRule)rule).getNamedSource().getName();
             } else {
               _xifexpression_1 = STypeDeductionRuleProcessor.UNDEFINED;
             }
@@ -257,38 +242,37 @@ public class STypeDeductionRuleProcessor {
         }
       }
     }
-    final Function1<SLiteral, Boolean> _function_1 = (SLiteral it) -> {
-      SElementNature _nature = it.getNature();
-      return Boolean.valueOf(Objects.equal(_nature, SElementNature.GENUINE));
+    final Function1<DLiteral, Boolean> _function = (DLiteral it) -> {
+      return Boolean.valueOf((!((it instanceof SLiteralDeduction) || it.isSynthetic())));
     };
-    final Iterable<SLiteral> sLiteralsGenuine = IterableExtensions.<SLiteral>filter(sEnumWithRule.getLiterals(), _function_1);
-    for (final SLiteral sLiteral_1 : sLiteralsGenuine) {
-      this._syntheticModelElementsFactory.addSyntheticLiteral(syntheticEnum, sLiteral_1.getName());
+    final Iterable<DLiteral> genuineLiterals = IterableExtensions.<DLiteral>filter(deductionDefinition.getLiterals(), _function);
+    for (final DLiteral literal : genuineLiterals) {
+      this._syntheticModelElementsFactory.addSyntheticLiteral(syntheticEnum, literal.getName());
     }
   }
   
-  public SType processTypeWithRule(final SType typeWithRule, final SDeductionRule rule, final TransformationContext context) {
-    if (typeWithRule instanceof SEnumeration
+  public DType processTypeDeduction(final STypeDeduction deductionDefinition, final DDeductionRule rule, final TransformationContext context) {
+    if (deductionDefinition instanceof SEnumerationDeduction
          && rule instanceof SGrabRule) {
-      return _processTypeWithRule((SEnumeration)typeWithRule, (SGrabRule)rule, context);
-    } else if (typeWithRule instanceof SPrimitive
+      return _processTypeDeduction((SEnumerationDeduction)deductionDefinition, (SGrabRule)rule, context);
+    } else if (deductionDefinition instanceof SPrimitiveDeduction
          && rule instanceof SGrabRule) {
-      return _processTypeWithRule((SPrimitive)typeWithRule, (SGrabRule)rule, context);
-    } else if (typeWithRule instanceof SComplexType
+      return _processTypeDeduction((SPrimitiveDeduction)deductionDefinition, (SGrabRule)rule, context);
+    } else if (deductionDefinition instanceof SComplexTypeDeduction
          && rule instanceof SFuseRule) {
-      return _processTypeWithRule((SComplexType)typeWithRule, (SFuseRule)rule, context);
-    } else if (typeWithRule instanceof SComplexType
+      return _processTypeDeduction((SComplexTypeDeduction)deductionDefinition, (SFuseRule)rule, context);
+    } else if (deductionDefinition instanceof SComplexTypeDeduction
          && rule instanceof SMorphRule) {
-      return _processTypeWithRule((SComplexType)typeWithRule, (SMorphRule)rule, context);
-    } else if (typeWithRule instanceof SComplexType
+      return _processTypeDeduction((SComplexTypeDeduction)deductionDefinition, (SMorphRule)rule, context);
+    } else if (deductionDefinition instanceof SComplexTypeDeduction
          && rule instanceof SGrabRule) {
-      return _processTypeWithRule((SComplexType)typeWithRule, (SGrabRule)rule, context);
-    } else if (typeWithRule != null
+      return _processTypeDeduction((SComplexTypeDeduction)deductionDefinition, (SGrabRule)rule, context);
+    } else if (deductionDefinition != null
          && rule != null) {
-      return _processTypeWithRule(typeWithRule, rule, context);
+      return _processTypeDeduction(deductionDefinition, rule, context);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(typeWithRule, rule, context).toString());
+        Arrays.<Object>asList(deductionDefinition, rule, context).toString());
     }
   }
 }

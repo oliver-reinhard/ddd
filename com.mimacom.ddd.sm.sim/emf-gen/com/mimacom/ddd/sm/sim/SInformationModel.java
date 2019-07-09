@@ -2,6 +2,11 @@
  */
 package com.mimacom.ddd.sm.sim;
 
+import com.mimacom.ddd.dm.base.DAggregate;
+import com.mimacom.ddd.dm.base.DImport;
+import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.DType;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -18,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#isGenerate <em>Generate</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getKind <em>Kind</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getName <em>Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getDescription <em>Description</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getAggregates <em>Aggregates</em>}</li>
@@ -100,8 +106,30 @@ public interface SInformationModel extends EObject
 	void setName(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' containment reference.
+	 * @see #setDescription(DRichText)
+	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSInformationModel_Description()
+	 * @model containment="true"
+	 * @generated
+	 */
+	DRichText getDescription();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.sm.sim.SInformationModel#getDescription <em>Description</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' containment reference.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(DRichText value);
+
+	/**
 	 * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.sm.sim.SImport}.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DImport}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Imports</em>' containment reference list.
@@ -109,11 +137,11 @@ public interface SInformationModel extends EObject
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SImport> getImports();
+	EList<DImport> getImports();
 
 	/**
 	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.sm.sim.SType}.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Types</em>' containment reference list.
@@ -121,11 +149,11 @@ public interface SInformationModel extends EObject
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SType> getTypes();
+	EList<DType> getTypes();
 
 	/**
 	 * Returns the value of the '<em><b>Aggregates</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.sm.sim.SAggregate}.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DAggregate}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Aggregates</em>' containment reference list.
@@ -133,11 +161,11 @@ public interface SInformationModel extends EObject
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SAggregate> getAggregates();
+	EList<DAggregate> getAggregates();
 
 	/**
 	 * Returns the value of the '<em><b>Domain Proxies</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.sm.sim.SDomainProxy}.
+	 * The list contents are of type {@link com.mimacom.ddd.sm.sim.SDomainDeduction}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Domain Proxies</em>' containment reference list.
@@ -145,6 +173,6 @@ public interface SInformationModel extends EObject
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SDomainProxy> getDomainProxies();
+	EList<SDomainDeduction> getDomainProxies();
 
 } // SInformationModel

@@ -1,135 +1,136 @@
 package com.mimacom.ddd.sm.sim
 
-import com.google.common.collect.Lists
 import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DAttribute
-import com.mimacom.ddd.dm.base.DComplexType
+import com.mimacom.ddd.dm.base.DDeductionRule
 import com.mimacom.ddd.dm.base.DFeature
 import com.mimacom.ddd.dm.base.DQuery
-import java.util.LinkedHashSet
-import java.util.List
-import java.util.Set
-import org.eclipse.emf.ecore.EObject
-import org.eclipse.xtext.EcoreUtil2
+import com.mimacom.ddd.dm.base.DType
+import com.mimacom.ddd.dm.base.impl.DDetailTypeImpl
+import com.mimacom.ddd.dm.base.impl.DEntityTypeImpl
+import com.mimacom.ddd.dm.base.impl.DEnumerationImpl
+import com.mimacom.ddd.dm.base.impl.DPrimitiveImpl
+import com.mimacom.ddd.dm.dim.DimUtil
+import javax.inject.Inject
+import org.eclipse.emf.ecore.EClass
 
 class SimUtil {
 	
-	def baseClass(SFeature feature) {
+	@Inject extension DimUtil
+	
+	def Class<? extends DType> baseImplClass(STypeDeduction type) {
+		switch (type) {
+			SPrimitiveDeduction : DPrimitiveImpl
+			SEnumerationDeduction : DEnumerationImpl
+			SEntityTypeDeduction : DEntityTypeImpl
+			SDetailTypeDeduction : DDetailTypeImpl
+		}
+	}
+	def Class<? extends DFeature> baseClass(SFeatureDeduction feature) {
 		switch (feature) {
-			SAttribute : DAttribute
-			SAssociation : DAssociation
-			SQuery : DQuery
+			SAttributeDeduction : DAttribute
+			SAssociationDeduction : DAssociation
+			SQueryDeduction : DQuery
 		}
 	}
 	
-	def baseEClass(SFeature feature) {
+	def EClass baseEClass(SFeatureDeduction feature) {
 		switch (feature) {
-			SAttribute : BasePackage.eINSTANCE.DAttribute
-			SAssociation : BasePackage.eINSTANCE.DAssociation
-			SQuery : BasePackage.eINSTANCE.DQuery
+			SAttributeDeduction : BasePackage.eINSTANCE.DAttribute
+			SAssociationDeduction : BasePackage.eINSTANCE.DAssociation
+			SQueryDeduction : BasePackage.eINSTANCE.DQuery
 		}
 	}
 	
-	def SAggregate aggregate(EObject obj) {
-			return EcoreUtil2.getContainerOfType(obj, SAggregate)// global types are not owned by a domain => null
-	}
+//	def SAggregate aggregate(EObject obj) {
+//			return EcoreUtil2.getContainerOfType(obj, SAggregate)// global types are not owned by a domain => null
+//	}
+//	
+//	def String aggregateName(EObject obj) {
+//			val a = obj.aggregate
+//			return if (a !== null) a.derivedName else "NO_AGGREGATE" 
+//	}
+//	
+//	/*
+//	 * Returns all the supertypes of the given type.
+//	 */
+//	def Set<SComplexType> typeHierarchy(SComplexType type) {
+//		val hierarchy = new LinkedHashSet<SComplexType>()
+//		var current = type.superType
+//		while (current !== null && ! hierarchy.contains(current)) {
+//			hierarchy.add(current)
+//			current = current.superType
+//		}
+//		return hierarchy
+//	}
+//	
+//	/*
+//	 * Returns all the supertypes of the given type.
+//	 */
+//	def Set<DComplexType> typeHierarchy(DComplexType type) {
+//		val hierarchy = new LinkedHashSet<DComplexType>()
+//		var current = type.superType
+//		while (current !== null && ! hierarchy.contains(current)) {
+//			hierarchy.add(current)
+//			current = current.superType
+//		}
+//		return hierarchy
+//	}
 	
-	def String aggregateName(EObject obj) {
-			val a = obj.aggregate
-			return if (a !== null) a.derivedName else "NO_AGGREGATE" 
-	}
+//	/*
+//	 * Returns the names of all the inherited features of the given type.
+//	 */
+//	def Set<String> inheritedFeatureNames(SComplexType type) {
+//		val supertypes = type.typeHierarchy
+//		val features = new LinkedHashSet<String>()
+//		for (t : supertypes) {
+//			features.addAll(t.features.map[name])
+//		}
+//		return features
+//	}
+//	//// Labels
 	
-	/*
-	 * Returns all the supertypes of the given type.
-	 */
-	def Set<SComplexType> typeHierarchy(SComplexType type) {
-		val hierarchy = new LinkedHashSet<SComplexType>()
-		var current = type.superType
-		while (current !== null && ! hierarchy.contains(current)) {
-			hierarchy.add(current)
-			current = current.superType
-		}
-		return hierarchy
-	}
+//	def String label(SAggregate a) {
+//		return "Aggregate " + a.derivedName
+//	}
+//	
+//	def String label(SType type) {
+//		val typeLabel = switch type {
+//			SPrimitive: if (type.archetype) "Archetype " else  "Primitive "
+//			SEnumeration: "Enumeration "
+//			SEntityType: if (type.root) "Root " else "Entity "
+//			SDetailType: "Detail "
+//			SAssociation: switch type.kind {
+//				case REFERENCE: "Reference "
+//				case COMPOSITE: "Composite "
+//				case INVERSE_COMPOSITE: "Inverse Composite "
+//				default: type.kind.toString
+//			}
+//			default: type.class.simpleName + " "
+//		}
+//		return typeLabel + if (type?.name !== null) type.name else "NO_NAME"
+//	}
+//	
+//	def String label(SFeature f) {
+//		return f?.name + " : " + f.type?.label
+//	}
+//	
+//	def String label(SQueryParameter p) {
+//		return p?.name + " : " + p.type?.label
+//	}
+//	
+//	def String label(SCondition c) {
+//		return "Constraint " + c.name
+//	}
 	
-	/*
-	 * Returns all the supertypes of the given type.
-	 */
-	def Set<DComplexType> typeHierarchy(DComplexType type) {
-		val hierarchy = new LinkedHashSet<DComplexType>()
-		var current = type.superType
-		while (current !== null && ! hierarchy.contains(current)) {
-			hierarchy.add(current)
-			current = current.superType
-		}
-		return hierarchy
-	}
-	
-	/*
-	 * Returns the names of all the features of the given type: its own as well as the inherited ones.
-	 */
-	def List<DFeature> allFeatures(DComplexType type) {
-		val features = Lists.newArrayList(type.features)
-		for (t : type.typeHierarchy) {
-			features.addAll(t.features)
-		}
-		return features
-	}
-	
-	/*
-	 * Returns the names of all the inherited features of the given type.
-	 */
-	def Set<String> inheritedFeatureNames(SComplexType type) {
-		val supertypes = type.typeHierarchy
-		val features = new LinkedHashSet<String>()
-		for (t : supertypes) {
-			features.addAll(t.features.map[name])
-		}
-		return features
-	}
-	//// Labels
-	
-	def String label(SAggregate a) {
-		return "Aggregate " + a.derivedName
-	}
-	
-	def String label(SType type) {
-		val typeLabel = switch type {
-			SPrimitive: if (type.archetype) "Archetype " else  "Primitive "
-			SEnumeration: "Enumeration "
-			SEntityType: if (type.root) "Root " else "Entity "
-			SDetailType: "Detail "
-			SAssociation: switch type.kind {
-				case REFERENCE: "Reference "
-				case COMPOSITE: "Composite "
-				case INVERSE_COMPOSITE: "Inverse Composite "
-				default: type.kind.toString
-			}
-			default: type.class.simpleName + " "
-		}
-		return typeLabel + if (type?.name !== null) type.name else "NO_NAME"
-	}
-	
-	def String label(SFeature f) {
-		return f?.name + " : " + f.type?.label
-	}
-	
-	def String label(SQueryParameter p) {
-		return p?.name + " : " + p.type?.label
-	}
-	
-	def String label(SCondition c) {
-		return "Constraint " + c.name
-	}
-	
-	def String label(SDeductionRule rule) {
+	def String label(DDeductionRule rule) {
 		return switch rule {
-			SMorphRule : "Morph "  + rule.namedSource?.name
-			SFuseRule:  "Fuse "  + rule.label
-			SGrabRule : "Grab "  + rule.namedSource?.name
-			SDitchRule : "Ditch "  + rule.namedSource?.name
-			SGrabAggregateRule: "Grab aggregate " + rule.aggregate?.derivedName
+			SMorphRule : "Morph "  + rule.source.label + if (rule.renameTo !== null) " as " + rule.renameTo else ""
+			SFuseRule:  "Fuse "  + rule.source.label
+			SGrabRule : "Grab "  + rule.source.label + if (rule.renameTo !== null) " as " + rule.renameTo else ""
+			SDitchRule : "Ditch "  + rule.source.label
+			SGrabAggregateRule: "Grab aggregate " + rule.source.label
 			default: rule.class.simpleName
 		}
 	}

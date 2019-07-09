@@ -7,6 +7,7 @@ import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DIdentityType;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.IDeductionDefinition;
 
 import java.util.Collection;
 
@@ -32,6 +33,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getDeductionDefinition <em>Deduction Definition</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#isSynthetic <em>Synthetic</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getRoots <em>Roots</em>}</li>
@@ -42,6 +45,36 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAggregate
 {
+	/**
+	 * The cached value of the '{@link #getDeductionDefinition() <em>Deduction Definition</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeductionDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected IDeductionDefinition deductionDefinition;
+
+	/**
+	 * The default value of the '{@link #isSynthetic() <em>Synthetic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSynthetic()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SYNTHETIC_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isSynthetic() <em>Synthetic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSynthetic()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean synthetic = SYNTHETIC_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -91,6 +124,76 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	protected EClass eStaticClass()
 	{
 		return BasePackage.Literals.DAGGREGATE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public IDeductionDefinition getDeductionDefinition()
+	{
+		if (deductionDefinition != null && deductionDefinition.eIsProxy())
+		{
+			InternalEObject oldDeductionDefinition = (InternalEObject)deductionDefinition;
+			deductionDefinition = (IDeductionDefinition)eResolveProxy(oldDeductionDefinition);
+			if (deductionDefinition != oldDeductionDefinition)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BasePackage.DAGGREGATE__DEDUCTION_DEFINITION, oldDeductionDefinition, deductionDefinition));
+			}
+		}
+		return deductionDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IDeductionDefinition basicGetDeductionDefinition()
+	{
+		return deductionDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDeductionDefinition(IDeductionDefinition newDeductionDefinition)
+	{
+		IDeductionDefinition oldDeductionDefinition = deductionDefinition;
+		deductionDefinition = newDeductionDefinition;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DAGGREGATE__DEDUCTION_DEFINITION, oldDeductionDefinition, deductionDefinition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isSynthetic()
+	{
+		return synthetic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSynthetic(boolean newSynthetic)
+	{
+		boolean oldSynthetic = synthetic;
+		synthetic = newSynthetic;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DAGGREGATE__SYNTHETIC, oldSynthetic, synthetic));
 	}
 
 	/**
@@ -214,6 +317,11 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	{
 		switch (featureID)
 		{
+			case BasePackage.DAGGREGATE__DEDUCTION_DEFINITION:
+				if (resolve) return getDeductionDefinition();
+				return basicGetDeductionDefinition();
+			case BasePackage.DAGGREGATE__SYNTHETIC:
+				return isSynthetic();
 			case BasePackage.DAGGREGATE__DESCRIPTION:
 				return getDescription();
 			case BasePackage.DAGGREGATE__TYPES:
@@ -237,6 +345,12 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	{
 		switch (featureID)
 		{
+			case BasePackage.DAGGREGATE__DEDUCTION_DEFINITION:
+				setDeductionDefinition((IDeductionDefinition)newValue);
+				return;
+			case BasePackage.DAGGREGATE__SYNTHETIC:
+				setSynthetic((Boolean)newValue);
+				return;
 			case BasePackage.DAGGREGATE__DESCRIPTION:
 				setDescription((DRichText)newValue);
 				return;
@@ -258,6 +372,12 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	{
 		switch (featureID)
 		{
+			case BasePackage.DAGGREGATE__DEDUCTION_DEFINITION:
+				setDeductionDefinition((IDeductionDefinition)null);
+				return;
+			case BasePackage.DAGGREGATE__SYNTHETIC:
+				setSynthetic(SYNTHETIC_EDEFAULT);
+				return;
 			case BasePackage.DAGGREGATE__DESCRIPTION:
 				setDescription((DRichText)null);
 				return;
@@ -278,6 +398,10 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	{
 		switch (featureID)
 		{
+			case BasePackage.DAGGREGATE__DEDUCTION_DEFINITION:
+				return deductionDefinition != null;
+			case BasePackage.DAGGREGATE__SYNTHETIC:
+				return synthetic != SYNTHETIC_EDEFAULT;
 			case BasePackage.DAGGREGATE__DESCRIPTION:
 				return description != null;
 			case BasePackage.DAGGREGATE__TYPES:
@@ -288,6 +412,23 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 				return DERIVED_NAME_EDEFAULT == null ? getDerivedName() != null : !DERIVED_NAME_EDEFAULT.equals(getDerivedName());
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString()
+	{
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (synthetic: ");
+		result.append(synthetic);
+		result.append(')');
+		return result.toString();
 	}
 
 } //DAggregateImpl

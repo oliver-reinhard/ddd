@@ -3,7 +3,7 @@
  */
 package com.mimacom.ddd.sm.sim.scoping;
 
-import org.eclipse.xtext.scoping.impl.DelegatingScopeProvider;
+import com.mimacom.ddd.dm.dim.scoping.DimScopeProvider;
 
-public abstract class AbstractSimScopeProvider extends DelegatingScopeProvider {
+public abstract class AbstractSimScopeProvider extends DimScopeProvider {
 }

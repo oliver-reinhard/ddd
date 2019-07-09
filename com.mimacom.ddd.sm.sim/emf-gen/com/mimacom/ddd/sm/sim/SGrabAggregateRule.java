@@ -3,6 +3,7 @@
 package com.mimacom.ddd.sm.sim;
 
 import com.mimacom.ddd.dm.base.DAggregate;
+import com.mimacom.ddd.dm.base.DDeductionRule;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ import com.mimacom.ddd.dm.base.DAggregate;
  * @model
  * @generated
  */
-public interface SGrabAggregateRule extends SDeductionRule
+public interface SGrabAggregateRule extends DDeductionRule
 {
 	/**
 	 * Returns the value of the '<em><b>Aggregate</b></em>' reference.

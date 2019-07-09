@@ -3,16 +3,14 @@
  */
 package com.mimacom.ddd.sm.sim.generator;
 
-import com.google.common.base.Objects;
 import com.google.common.collect.Iterators;
-import com.google.common.collect.Lists;
 import com.google.inject.Inject;
-import com.mimacom.ddd.sm.sim.SDeducibleElement;
-import com.mimacom.ddd.sm.sim.SElementNature;
+import com.mimacom.ddd.dm.base.IDeducibleElement;
+import com.mimacom.ddd.dm.base.IDeductionDefinition;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import java.io.CharArrayWriter;
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -25,6 +23,7 @@ import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 /**
@@ -72,24 +71,18 @@ public class SimGenerator extends AbstractGenerator {
       String _name = ((SInformationModel)model).getName();
       String _plus = (_name + ".generated");
       ((SInformationModel)model).setName(_plus);
-      final Iterator<SDeducibleElement> deducibles = Iterators.<SDeducibleElement>filter(resource.getAllContents(), SDeducibleElement.class);
-      final ArrayList<SDeducibleElement> elementsToRemove = Lists.<SDeducibleElement>newArrayList();
-      while (deducibles.hasNext()) {
-        {
-          final SDeducibleElement e = deducibles.next();
-          SElementNature _nature = e.getNature();
-          boolean _equals = Objects.equal(_nature, SElementNature.DEDUCTION_RULE);
-          if (_equals) {
-            elementsToRemove.add(e);
-          } else {
-            e.setDeductionRule(null);
-            hadSyntheticItems = (hadSyntheticItems || e.isSynthetic());
-            e.setSynthetic(false);
-          }
-        }
+      final List<IDeductionDefinition> deductionDefinitions = IteratorExtensions.<IDeductionDefinition>toList(Iterators.<IDeductionDefinition>filter(resource.getAllContents(), IDeductionDefinition.class));
+      for (final IDeductionDefinition d : deductionDefinitions) {
+        EcoreUtil.remove(d);
       }
-      for (final SDeducibleElement e : elementsToRemove) {
-        EcoreUtil.remove(e);
+      final Iterator<IDeducibleElement> deducibleElements = Iterators.<IDeducibleElement>filter(resource.getAllContents(), IDeducibleElement.class);
+      while (deducibleElements.hasNext()) {
+        {
+          final IDeducibleElement e = deducibleElements.next();
+          e.setDeductionDefinition(null);
+          hadSyntheticItems = (hadSyntheticItems || e.isSynthetic());
+          e.setSynthetic(false);
+        }
       }
     }
     return hadSyntheticItems;

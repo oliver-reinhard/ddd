@@ -2,6 +2,8 @@
  */
 package com.mimacom.ddd.sm.sim.impl;
 
+import com.mimacom.ddd.dm.base.impl.DDeductionRuleImplCustom;
+
 import com.mimacom.ddd.sm.sim.SDitchRule;
 import com.mimacom.ddd.sm.sim.SimPackage;
 
@@ -14,7 +16,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class SDitchRuleImpl extends SDeductionRuleImplCustom implements SDitchRule
+public class SDitchRuleImpl extends DDeductionRuleImplCustom implements SDitchRule
 {
 	/**
 	 * <!-- begin-user-doc -->

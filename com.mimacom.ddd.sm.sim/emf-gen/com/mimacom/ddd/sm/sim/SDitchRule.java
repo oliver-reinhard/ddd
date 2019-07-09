@@ -2,6 +2,7 @@
  */
 package com.mimacom.ddd.sm.sim;
 
+import com.mimacom.ddd.dm.base.DDeductionRule;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +14,6 @@ package com.mimacom.ddd.sm.sim;
  * @model
  * @generated
  */
-public interface SDitchRule extends SDeductionRule
+public interface SDitchRule extends DDeductionRule
 {
 } // SDitchRule

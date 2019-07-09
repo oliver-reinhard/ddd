@@ -4,6 +4,21 @@
   <eClassifiers xsi:type="ecore:EClass" name="IIdentityType" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="IValueType" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="INamespace" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IDeductionDefinition" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deductionRule" eType="#//DDeductionRule"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IDeducibleElement" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deductionDefinition" eType="#//IDeductionDefinition"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="synthetic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        transient="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DDeductionRule" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//IDeducibleElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namedSource" eType="#//DNamedElement"
+        changeable="false" transient="true" derived="true" resolveProxies="false"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DNamedElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="aliases" upperBound="-1"
@@ -33,7 +48,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="segments" upperBound="-1"
         eType="#//IRichTextSegment" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DDomain" eSuperTypes="#//DNamedElement #//INamespace #//IPrimaryNavigationTarget">
+  <eClassifiers xsi:type="ecore:EClass" name="DDomain" eSuperTypes="#//DNamedElement #//INamespace #//IPrimaryNavigationTarget #//IDeducibleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
         eType="#//DImport" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
@@ -56,7 +71,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterNames" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DAggregate">
+  <eClassifiers xsi:type="ecore:EClass" name="DAggregate" eSuperTypes="#//IDeducibleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//DRichText"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
@@ -67,7 +82,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="derivedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DType" abstract="true" eSuperTypes="#//DNamedElement #//IPrimaryNavigationTarget">
+  <eClassifiers xsi:type="ecore:EClass" name="DType" abstract="true" eSuperTypes="#//DNamedElement #//IDeducibleElement #//IPrimaryNavigationTarget">
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
         eType="#//DCondition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="primitive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -87,7 +102,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="literals" upperBound="-1"
         eType="#//DLiteral" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DLiteral" eSuperTypes="#//DTypedMember"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DLiteral" eSuperTypes="#//DTypedMember #//IDeducibleElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="DComplexType" abstract="true" eSuperTypes="#//DType #//ITypedMemberContainer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superType" eType="#//DComplexType"/>
@@ -100,7 +115,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DEntityType" eSuperTypes="#//DIdentityType"/>
   <eClassifiers xsi:type="ecore:EClass" name="DRelationship" eSuperTypes="#//DIdentityType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DFeature" abstract="true" eSuperTypes="#//DTypedMember"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DFeature" abstract="true" eSuperTypes="#//DTypedMember #//IDeducibleElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="DAssociation" eSuperTypes="#//DFeature">
     <eOperations name="getTargetType" eType="#//DEntityType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//DAssociationKind"/>
@@ -128,7 +143,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="returns" eType="#//DExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DQueryParameter" eSuperTypes="#//DTypedMember"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DQueryParameter" eSuperTypes="#//DTypedMember #//IDeducibleElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="DDomainEvent" eSuperTypes="#//DNamedElement #//ITypedMemberContainer #//IPrimaryNavigationTarget">
     <eStructuralFeatures xsi:type="ecore:EReference" name="before" upperBound="-1"
         eType="#//DCondition" containment="true"/>

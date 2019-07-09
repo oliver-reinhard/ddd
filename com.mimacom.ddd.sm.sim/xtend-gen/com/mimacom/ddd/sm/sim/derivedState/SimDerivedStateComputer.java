@@ -1,28 +1,27 @@
 package com.mimacom.ddd.sm.sim.derivedState;
 
-import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DComplexType;
+import com.mimacom.ddd.dm.base.DDeductionRule;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.sm.sim.SAggregate;
-import com.mimacom.ddd.sm.sim.SComplexType;
-import com.mimacom.ddd.sm.sim.SDeducibleElement;
-import com.mimacom.ddd.sm.sim.SDeductionRule;
-import com.mimacom.ddd.sm.sim.SDomainProxy;
-import com.mimacom.ddd.sm.sim.SElementNature;
+import com.mimacom.ddd.dm.base.IDeducibleElement;
+import com.mimacom.ddd.sm.sim.SAggregateDeduction;
+import com.mimacom.ddd.sm.sim.SComplexTypeDeduction;
+import com.mimacom.ddd.sm.sim.SDomainDeduction;
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
 import com.mimacom.ddd.sm.sim.SInformationModel;
-import com.mimacom.ddd.sm.sim.SType;
+import com.mimacom.ddd.sm.sim.STypeDeduction;
 import com.mimacom.ddd.sm.sim.derivedState.SFeatureDeductionRuleProcessor;
 import com.mimacom.ddd.sm.sim.derivedState.STypeDeductionRuleProcessor;
-import com.mimacom.ddd.sm.sim.derivedState.STypeSorter;
 import com.mimacom.ddd.sm.sim.derivedState.SyntheticComplexTypeDescriptor;
 import com.mimacom.ddd.sm.sim.derivedState.SyntheticModelElementsFactory;
 import com.mimacom.ddd.sm.sim.derivedState.TransformationContext;
+import com.mimacom.ddd.sm.sim.derivedState.TypeSorter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -66,42 +65,38 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
   
   @Override
   public void discardDerivedState(final DerivedStateAwareResource resource) {
-    final Function1<SDeducibleElement, Boolean> _function = (SDeducibleElement it) -> {
+    final Function1<IDeducibleElement, Boolean> _function = (IDeducibleElement it) -> {
       return Boolean.valueOf(it.isSynthetic());
     };
-    final Iterator<SDeducibleElement> syntheticElements = IteratorExtensions.<SDeducibleElement>filter(Iterators.<SDeducibleElement>filter(resource.getAllContents(), SDeducibleElement.class), _function);
-    final ArrayList<SDeducibleElement> list = Lists.<SDeducibleElement>newArrayList();
+    final Iterator<IDeducibleElement> syntheticElements = IteratorExtensions.<IDeducibleElement>filter(Iterators.<IDeducibleElement>filter(resource.getAllContents(), IDeducibleElement.class), _function);
+    final ArrayList<IDeducibleElement> list = Lists.<IDeducibleElement>newArrayList();
     while (syntheticElements.hasNext()) {
       list.add(syntheticElements.next());
     }
-    for (final SDeducibleElement e : list) {
+    for (final IDeducibleElement e : list) {
       EcoreUtil.remove(e);
     }
   }
   
   public void processInformationModel(final SInformationModel model, final TransformationContext context) {
-    final Function1<SType, Boolean> _function = (SType it) -> {
-      SElementNature _nature = it.getNature();
-      return Boolean.valueOf(Objects.equal(_nature, SElementNature.DEDUCTION_RULE));
-    };
-    Iterable<SType> _filter = IterableExtensions.<SType>filter(model.getTypes(), _function);
-    List<SType> _list = null;
+    Iterable<STypeDeduction> _filter = Iterables.<STypeDeduction>filter(model.getTypes(), STypeDeduction.class);
+    List<STypeDeduction> _list = null;
     if (_filter!=null) {
-      _list=IterableExtensions.<SType>toList(_filter);
+      _list=IterableExtensions.<STypeDeduction>toList(_filter);
     }
-    final List<SType> sTypesWithRule = _list;
-    if ((sTypesWithRule != null)) {
-      STypeSorter _sTypeSorter = new STypeSorter();
-      Collections.<SType>sort(sTypesWithRule, _sTypeSorter);
+    final List<STypeDeduction> typeDeductionDefinitions = _list;
+    if ((typeDeductionDefinitions != null)) {
+      TypeSorter _typeSorter = new TypeSorter();
+      Collections.<STypeDeduction>sort(typeDeductionDefinitions, _typeSorter);
       final ArrayList<SyntheticComplexTypeDescriptor> complexSyntheticTypes = Lists.<SyntheticComplexTypeDescriptor>newArrayList();
-      for (final SType type : sTypesWithRule) {
+      for (final STypeDeduction definition : typeDeductionDefinitions) {
         {
-          final SDeductionRule rule = type.getDeductionRule();
-          final EObject source = rule.getSource();
+          final DDeductionRule rule = definition.getDeductionRule();
+          final IDeducibleElement source = rule.getSource();
           if ((source instanceof DType)) {
-            final SType syntheticType = this._sTypeDeductionRuleProcessor.processTypeWithRule(type, rule, context);
-            if ((syntheticType instanceof SComplexType)) {
-              SyntheticComplexTypeDescriptor _syntheticComplexTypeDescriptor = new SyntheticComplexTypeDescriptor(((SComplexType)syntheticType), ((SComplexType) type), ((DComplexType) source));
+            final DType syntheticType = this._sTypeDeductionRuleProcessor.processTypeDeduction(definition, rule, context);
+            if ((definition instanceof SComplexTypeDeduction)) {
+              SyntheticComplexTypeDescriptor _syntheticComplexTypeDescriptor = new SyntheticComplexTypeDescriptor(((DComplexType) syntheticType), ((SComplexTypeDeduction)definition), ((DComplexType) source));
               complexSyntheticTypes.add(_syntheticComplexTypeDescriptor);
             }
           }
@@ -111,27 +106,31 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
         this._sFeatureDeductionRuleProcessor.addSyntheticFeatures(desc, context);
       }
     }
-    EList<SDomainProxy> _domainProxies = model.getDomainProxies();
-    for (final SDomainProxy domainWithRule : _domainProxies) {
+    EList<SDomainDeduction> _domainProxies = model.getDomainProxies();
+    for (final SDomainDeduction domainDeduction : _domainProxies) {
     }
-    final ArrayList<SAggregate> modelList = Lists.<SAggregate>newArrayList(model.getAggregates());
-    for (final SAggregate aggregate : modelList) {
+    final ArrayList<DAggregate> modelList = Lists.<DAggregate>newArrayList(model.getAggregates());
+    for (final DAggregate aggregate : modelList) {
       this.processAggregate(model, aggregate, null, context);
     }
   }
   
-  public void processAggregate(final SInformationModel model, final SAggregate sAggregate, final SDomainProxy elementWithRule, final TransformationContext context) {
-    SAggregate current = sAggregate;
+  public void processAggregate(final SInformationModel model, final DAggregate dAggregate, final SDomainDeduction elementWithRule, final TransformationContext context) {
+    DAggregate current = dAggregate;
     final ArrayList<SyntheticComplexTypeDescriptor> complexSyntheticTypes = Lists.<SyntheticComplexTypeDescriptor>newArrayList();
-    SDeductionRule _deductionRule = sAggregate.getDeductionRule();
-    if ((_deductionRule instanceof SGrabAggregateRule)) {
-      EObject source = sAggregate.getDeductionRule().getSource();
-      if ((source instanceof DEntityType)) {
-        source = ((DEntityType)source).eContainer();
-      }
-      if ((source instanceof DAggregate)) {
-        current = this._syntheticModelElementsFactory.addSyntheticAggregate(model, ((DAggregate)source), sAggregate, context);
-        this._sTypeDeductionRuleProcessor.addImplicitSyntheticTypes(current, sAggregate, ((DAggregate)source), complexSyntheticTypes, context);
+    if ((current instanceof SAggregateDeduction)) {
+      final SAggregateDeduction deductionDefinition = ((SAggregateDeduction)current);
+      DDeductionRule _deductionRule = deductionDefinition.getDeductionRule();
+      if ((_deductionRule instanceof SGrabAggregateRule)) {
+        IDeducibleElement _source = deductionDefinition.getDeductionRule().getSource();
+        EObject source = ((EObject) _source);
+        if ((source instanceof DEntityType)) {
+          source = ((DEntityType)source).eContainer();
+        }
+        if ((source instanceof DAggregate)) {
+          current = this._syntheticModelElementsFactory.addSyntheticAggregate(model, deductionDefinition, context);
+          this._sTypeDeductionRuleProcessor.addImplicitSyntheticTypes(current, deductionDefinition, ((DAggregate)source), complexSyntheticTypes, context);
+        }
       }
     }
     this._sTypeDeductionRuleProcessor.addSyntheticTypes(current, complexSyntheticTypes, context);

@@ -12,6 +12,7 @@ import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DCondition;
 import com.mimacom.ddd.dm.base.DContext;
+import com.mimacom.ddd.dm.base.DDeductionRule;
 import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DDirection;
 import com.mimacom.ddd.dm.base.DDomain;
@@ -43,6 +44,8 @@ import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.base.DTime;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.DTypedMember;
+import com.mimacom.ddd.dm.base.IDeducibleElement;
+import com.mimacom.ddd.dm.base.IDeductionDefinition;
 import com.mimacom.ddd.dm.base.IIdentityType;
 import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
@@ -87,6 +90,27 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	private EClass iNamespaceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iDeductionDefinitionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iDeducibleElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dDeductionRuleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -476,6 +500,94 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EClass getINamespace()
 	{
 		return iNamespaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getIDeductionDefinition()
+	{
+		return iDeductionDefinitionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getIDeductionDefinition_DeductionRule()
+	{
+		return (EReference)iDeductionDefinitionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getIDeducibleElement()
+	{
+		return iDeducibleElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getIDeducibleElement_DeductionDefinition()
+	{
+		return (EReference)iDeducibleElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getIDeducibleElement_Synthetic()
+	{
+		return (EAttribute)iDeducibleElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDDeductionRule()
+	{
+		return dDeductionRuleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDDeductionRule_Source()
+	{
+		return (EReference)dDeductionRuleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDDeductionRule_NamedSource()
+	{
+		return (EReference)dDeductionRuleEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1615,6 +1727,17 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		iNamespaceEClass = createEClass(INAMESPACE);
 
+		iDeductionDefinitionEClass = createEClass(IDEDUCTION_DEFINITION);
+		createEReference(iDeductionDefinitionEClass, IDEDUCTION_DEFINITION__DEDUCTION_RULE);
+
+		iDeducibleElementEClass = createEClass(IDEDUCIBLE_ELEMENT);
+		createEReference(iDeducibleElementEClass, IDEDUCIBLE_ELEMENT__DEDUCTION_DEFINITION);
+		createEAttribute(iDeducibleElementEClass, IDEDUCIBLE_ELEMENT__SYNTHETIC);
+
+		dDeductionRuleEClass = createEClass(DDEDUCTION_RULE);
+		createEReference(dDeductionRuleEClass, DDEDUCTION_RULE__SOURCE);
+		createEReference(dDeductionRuleEClass, DDEDUCTION_RULE__NAMED_SOURCE);
+
 		dNamedElementEClass = createEClass(DNAMED_ELEMENT);
 		createEAttribute(dNamedElementEClass, DNAMED_ELEMENT__NAME);
 		createEAttribute(dNamedElementEClass, DNAMED_ELEMENT__ALIASES);
@@ -1795,8 +1918,11 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dDomainEClass.getESuperTypes().add(this.getDNamedElement());
 		dDomainEClass.getESuperTypes().add(this.getINamespace());
 		dDomainEClass.getESuperTypes().add(this.getIPrimaryNavigationTarget());
+		dDomainEClass.getESuperTypes().add(this.getIDeducibleElement());
 		dFunctionEClass.getESuperTypes().add(this.getDTypedMember());
+		dAggregateEClass.getESuperTypes().add(this.getIDeducibleElement());
 		dTypeEClass.getESuperTypes().add(this.getDNamedElement());
+		dTypeEClass.getESuperTypes().add(this.getIDeducibleElement());
 		dTypeEClass.getESuperTypes().add(this.getIPrimaryNavigationTarget());
 		dConditionEClass.getESuperTypes().add(this.getDNamedElement());
 		dSimpleTypeEClass.getESuperTypes().add(this.getDType());
@@ -1805,6 +1931,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dEnumerationEClass.getESuperTypes().add(this.getDSimpleType());
 		dEnumerationEClass.getESuperTypes().add(this.getITypedMemberContainer());
 		dLiteralEClass.getESuperTypes().add(this.getDTypedMember());
+		dLiteralEClass.getESuperTypes().add(this.getIDeducibleElement());
 		dComplexTypeEClass.getESuperTypes().add(this.getDType());
 		dComplexTypeEClass.getESuperTypes().add(this.getITypedMemberContainer());
 		dDetailTypeEClass.getESuperTypes().add(this.getDComplexType());
@@ -1814,11 +1941,13 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dEntityTypeEClass.getESuperTypes().add(this.getDIdentityType());
 		dRelationshipEClass.getESuperTypes().add(this.getDIdentityType());
 		dFeatureEClass.getESuperTypes().add(this.getDTypedMember());
+		dFeatureEClass.getESuperTypes().add(this.getIDeducibleElement());
 		dAssociationEClass.getESuperTypes().add(this.getDFeature());
 		dAttributeEClass.getESuperTypes().add(this.getDFeature());
 		dQueryEClass.getESuperTypes().add(this.getDFeature());
 		dQueryEClass.getESuperTypes().add(this.getITypedMemberContainer());
 		dQueryParameterEClass.getESuperTypes().add(this.getDTypedMember());
+		dQueryParameterEClass.getESuperTypes().add(this.getIDeducibleElement());
 		dDomainEventEClass.getESuperTypes().add(this.getDNamedElement());
 		dDomainEventEClass.getESuperTypes().add(this.getITypedMemberContainer());
 		dDomainEventEClass.getESuperTypes().add(this.getIPrimaryNavigationTarget());
@@ -1843,6 +1972,17 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(iValueTypeEClass, IValueType.class, "IValueType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(iNamespaceEClass, INamespace.class, "INamespace", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(iDeductionDefinitionEClass, IDeductionDefinition.class, "IDeductionDefinition", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIDeductionDefinition_DeductionRule(), this.getDDeductionRule(), null, "deductionRule", null, 0, 1, IDeductionDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(iDeducibleElementEClass, IDeducibleElement.class, "IDeducibleElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIDeducibleElement_DeductionDefinition(), this.getIDeductionDefinition(), null, "deductionDefinition", null, 0, 1, IDeducibleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIDeducibleElement_Synthetic(), ecorePackage.getEBoolean(), "synthetic", null, 0, 1, IDeducibleElement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dDeductionRuleEClass, DDeductionRule.class, "DDeductionRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDDeductionRule_Source(), this.getIDeducibleElement(), null, "source", null, 0, 1, DDeductionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDDeductionRule_NamedSource(), this.getDNamedElement(), null, "namedSource", null, 0, 1, DDeductionRule.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(dNamedElementEClass, DNamedElement.class, "DNamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
