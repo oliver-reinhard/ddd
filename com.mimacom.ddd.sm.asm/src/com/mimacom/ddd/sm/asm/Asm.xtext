@@ -1,6 +1,7 @@
-grammar com.mimacom.ddd.sm.asm.Asm with org.eclipse.xtext.common.Terminals
+grammar com.mimacom.ddd.sm.asm.Asm with com.mimacom.ddd.dm.dmx.Dmx
 
 import "http://www.mimacom.com/ddd/dm/base"
+import "http://www.mimacom.com/ddd/dm/dmx" 
 import "http://www.mimacom.com/ddd/sm/sim"
 //import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://www.mimacom.com/ddd/sm/asm"
@@ -12,22 +13,22 @@ Model:
 
 SApplication:
 	'application'
-	name= SQualifiedName
+	name= DQualifiedName
 	(imports+=DImport)*
-	'information' 'model' model=[SInformationModel]
-	(actors+=SActor)*
-	;
+	'information' 'model' model=[SInformationModel|DQualifiedName]
+	(actors+=SActor)*;
 
 SServiceInterface:
 	'service' 'interface'
-	name=SQualifiedName
+	name=DQualifiedName
 	(imports+=DImport)*
-	'information' 'model' model=[SInformationModel]
-	operations+=SServiceOperation
-	;
+	'interface' 'model' interface=[SInformationModel|DQualifiedName]
+	'core' 'model' core=[SInformationModel|DQualifiedName]
+	(exceptions+=DException)*
+	operations+=SServiceOperation;
 
 DImport:
-	'import' importedNamespace=SQualifiedNameWithWildcard;
+	'import' importedNamespace=DQualifiedNameWithWildcard;
 
 SActor:
 	SWatchdog | SHuman;
@@ -43,22 +44,28 @@ SHuman:
 SServiceOperation:
 	'operation'
 	name=ID
-	'('
-	(parameters+=SOperationParameter)*
+	'(' 	(parameters+=DServiceParameter ( "," parameters+=DServiceParameter)*)?
 	')'
-	('raises' (exceptions+=SException)+)?
-;
+	('raises' raises+=[DException|ID]  ( "," raises+=[DException|ID])* )?
+	'{'
+	('guard' guards+=DExpression)*
+	('effect' effects+=DExpression)*
+	'}';
 
-SOperationParameter:
+DServiceParameter:
+	direction=DDirection
 	name=ID
-;
+	':'
+	type=[DType|ID]  (multiplicity=DMultiplicity)?
+	(description=DRichText)?;
 
-SException:
+DException:
+	'exception'
 	name=ID
-;
+	(description=DRichText)?;
 	
-SQualifiedNameWithWildcard: 
-	SQualifiedName '.*'?;
+enum DServiceKind:
+				SYNCHRONOUS = 'synchronous' | ASYNCHRONOUS = 'async';
 
-SQualifiedName:
-	ID ('.' ID)*;
+enum DDirection:
+				INBOUND = 'in' | OUTBOUND = 'out';

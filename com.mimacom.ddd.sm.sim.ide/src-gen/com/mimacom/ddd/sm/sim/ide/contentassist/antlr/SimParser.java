@@ -454,8 +454,8 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDServiceAccess().getRaisesAssignment_4_1(), "rule__DService__RaisesAssignment_4_1");
 			builder.put(grammarAccess.getDServiceAccess().getRaisesAssignment_4_2_1(), "rule__DService__RaisesAssignment_4_2_1");
 			builder.put(grammarAccess.getDServiceAccess().getDescriptionAssignment_5(), "rule__DService__DescriptionAssignment_5");
-			builder.put(grammarAccess.getDServiceAccess().getPreconditionAssignment_7_1(), "rule__DService__PreconditionAssignment_7_1");
-			builder.put(grammarAccess.getDServiceAccess().getPostconditionAssignment_8_1(), "rule__DService__PostconditionAssignment_8_1");
+			builder.put(grammarAccess.getDServiceAccess().getGuardsAssignment_7_1(), "rule__DService__GuardsAssignment_7_1");
+			builder.put(grammarAccess.getDServiceAccess().getEffectsAssignment_8_1(), "rule__DService__EffectsAssignment_8_1");
 			builder.put(grammarAccess.getDServiceAccess().getTypesAssignment_9(), "rule__DService__TypesAssignment_9");
 			builder.put(grammarAccess.getDServiceParameterAccess().getDirectionAssignment_0(), "rule__DServiceParameter__DirectionAssignment_0");
 			builder.put(grammarAccess.getDServiceParameterAccess().getNameAssignment_1(), "rule__DServiceParameter__NameAssignment_1");

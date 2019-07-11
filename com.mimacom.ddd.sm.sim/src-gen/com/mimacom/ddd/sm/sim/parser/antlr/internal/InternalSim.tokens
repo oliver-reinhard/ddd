@@ -58,6 +58,7 @@
 'do'=82
 'domain'=26
 'e'=91
+'effect'=61
 'else'=79
 'end'=80
 'entity'=36
@@ -70,6 +71,7 @@
 'fuse'=38
 'generate'=19
 'grab'=25
+'guard'=60
 'if'=77
 'import'=48
 'in'=103
@@ -86,8 +88,6 @@
 'not'=126
 'or'=106
 'out'=104
-'postcondition'=61
-'precondition'=60
 'primitive'=30
 'query'=43
 'raise'=74

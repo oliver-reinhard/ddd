@@ -84,7 +84,7 @@ class SFeatureDeductionRuleProcessor  {
 			implicitlyGrabbedSourceFeatures.removeAll(sourceFeaturesAffectedByRule)
 			// create synthetic DFeatures for implicit features:
 			for (sourceFeature : implicitlyGrabbedSourceFeatures) {
-				desc.syntheticType.addSyntheticFeature(sourceFeature.name, sourceFeature, null, context)
+				desc.syntheticType.addSyntheticFeature(sourceFeature.name, sourceFeature, createImplicitElementCopyDeduction(desc.deductionDefinition, desc.source), context)
 			}
 		}
 		

@@ -18,6 +18,7 @@ import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
 import com.mimacom.ddd.sm.sim.SGrabDomainRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
+import com.mimacom.ddd.sm.sim.SImplicitElementDeduction;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SInformationModelKind;
 import com.mimacom.ddd.sm.sim.SLiteralDeduction;
@@ -54,6 +55,13 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	private EClass sInformationModelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sImplicitElementDeductionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -379,6 +387,28 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	public EReference getSInformationModel_DomainProxies()
 	{
 		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSImplicitElementDeduction()
+	{
+		return sImplicitElementDeductionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSImplicitElementDeduction_OriginalDeductionDefinition()
+	{
+		return (EReference)sImplicitElementDeductionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -785,6 +815,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__AGGREGATES);
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__DOMAIN_PROXIES);
 
+		sImplicitElementDeductionEClass = createEClass(SIMPLICIT_ELEMENT_DEDUCTION);
+		createEReference(sImplicitElementDeductionEClass, SIMPLICIT_ELEMENT_DEDUCTION__ORIGINAL_DEDUCTION_DEFINITION);
+
 		sDomainDeductionEClass = createEClass(SDOMAIN_DEDUCTION);
 
 		sAggregateDeductionEClass = createEClass(SAGGREGATE_DEDUCTION);
@@ -874,6 +907,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		sImplicitElementDeductionEClass.getESuperTypes().add(theBasePackage.getIDeductionDefinition());
 		sDomainDeductionEClass.getESuperTypes().add(theBasePackage.getIDeductionDefinition());
 		sAggregateDeductionEClass.getESuperTypes().add(theBasePackage.getDAggregate());
 		sAggregateDeductionEClass.getESuperTypes().add(theBasePackage.getIDeductionDefinition());
@@ -917,6 +951,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		initEReference(getSInformationModel_Types(), theBasePackage.getDType(), null, "types", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSInformationModel_Aggregates(), theBasePackage.getDAggregate(), null, "aggregates", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSInformationModel_DomainProxies(), this.getSDomainDeduction(), null, "domainProxies", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(sImplicitElementDeductionEClass, SImplicitElementDeduction.class, "SImplicitElementDeduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSImplicitElementDeduction_OriginalDeductionDefinition(), theBasePackage.getIDeductionDefinition(), null, "originalDeductionDefinition", null, 0, 1, SImplicitElementDeduction.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sDomainDeductionEClass, SDomainDeduction.class, "SDomainDeduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

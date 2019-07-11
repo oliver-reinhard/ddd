@@ -28,7 +28,7 @@ DDomainEvent:
 		'context' (context+=DContext)+
 		'triggered' 'by' trigger=[DActor|ID]
 		('notifications' (notifications+=DNotification)+)?
-		('before'  'conditions' (before+=DCondition)+)?
+		('before' 'conditions' (before+=DCondition)+)?
 		('after' 'conditions' (after+=DCondition)+)?
 	'}';
 	

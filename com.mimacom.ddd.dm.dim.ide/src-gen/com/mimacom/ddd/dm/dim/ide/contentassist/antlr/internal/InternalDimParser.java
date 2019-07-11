@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalDimParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_PLAIN_TEXT_START", "RULE_PLAIN_TEXT_MIDDLE", "RULE_PLAIN_TEXT_END", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'inverse'", "'ISA'", "'isa'", "'AS'", "'as'", "'SELF'", "'self'", "'RETURN'", "'return'", "'RAISE'", "'raise'", "'NEW'", "'new'", "'*'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'reference'", "'composite'", "'synchronous'", "'async'", "'in'", "'out'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'domain'", "'alias'", "'import'", "'function'", "'('", "')'", "':'", "'aggregate'", "'{'", "'}'", "'constraint'", "'primitive'", "'redefines'", "'archetype'", "'enumeration'", "','", "'entity'", "'relationship'", "'detail'", "'extends'", "'returns'", "'application'", "'service'", "'raises'", "'precondition'", "'postcondition'", "'exception'", "'.'", "'if'", "'then'", "'end'", "'else'", "'do'", "'for'", "'.*'", "'abstract'", "'root'", "'derived'", "'key'", "'@before'", "'TRUE'", "'true'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_PLAIN_TEXT_START", "RULE_PLAIN_TEXT_MIDDLE", "RULE_PLAIN_TEXT_END", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'inverse'", "'ISA'", "'isa'", "'AS'", "'as'", "'SELF'", "'self'", "'RETURN'", "'return'", "'RAISE'", "'raise'", "'NEW'", "'new'", "'*'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'reference'", "'composite'", "'synchronous'", "'async'", "'in'", "'out'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'domain'", "'alias'", "'import'", "'function'", "'('", "')'", "':'", "'aggregate'", "'{'", "'}'", "'constraint'", "'primitive'", "'redefines'", "'archetype'", "'enumeration'", "','", "'entity'", "'relationship'", "'detail'", "'extends'", "'returns'", "'application'", "'service'", "'raises'", "'guard'", "'effect'", "'exception'", "'.'", "'if'", "'then'", "'end'", "'else'", "'do'", "'for'", "'.*'", "'abstract'", "'root'", "'derived'", "'key'", "'@before'", "'TRUE'", "'true'"
     };
     public static final int T__50=50;
     public static final int RULE_PLAIN_TEXT_ONLY=6;
@@ -6502,6 +6502,11 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             case 105:
                 {
                 switch ( input.LA(2) ) {
+                case 88:
+                    {
+                    alt2=6;
+                    }
+                    break;
                 case 106:
                     {
                     int LA2_5 = input.LA(3);
@@ -6529,11 +6534,6 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                 case 86:
                     {
                     alt2=4;
-                    }
-                    break;
-                case 88:
-                    {
-                    alt2=6;
                     }
                     break;
                 default:
@@ -7390,11 +7390,11 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             if ( (LA9_0==RULE_ID) ) {
                 int LA9_1 = input.LA(2);
 
-                if ( (LA9_1==17) ) {
-                    alt9=1;
-                }
-                else if ( (LA9_1==EOF||(LA9_1>=RULE_ID && LA9_1<=RULE_PLAIN_TEXT_END)||(LA9_1>=18 && LA9_1<=22)||LA9_1==31||(LA9_1>=38 && LA9_1<=41)||(LA9_1>=46 && LA9_1<=66)||(LA9_1>=74 && LA9_1<=75)||(LA9_1>=79 && LA9_1<=81)||(LA9_1>=83 && LA9_1<=88)||LA9_1==95||LA9_1==97||(LA9_1>=99 && LA9_1<=102)||(LA9_1>=105 && LA9_1<=107)||LA9_1==109) ) {
+                if ( (LA9_1==EOF||(LA9_1>=RULE_ID && LA9_1<=RULE_PLAIN_TEXT_END)||(LA9_1>=18 && LA9_1<=22)||LA9_1==31||(LA9_1>=38 && LA9_1<=41)||(LA9_1>=46 && LA9_1<=66)||(LA9_1>=74 && LA9_1<=75)||(LA9_1>=79 && LA9_1<=81)||(LA9_1>=83 && LA9_1<=88)||(LA9_1>=94 && LA9_1<=95)||LA9_1==97||(LA9_1>=99 && LA9_1<=102)||(LA9_1>=105 && LA9_1<=107)||LA9_1==109) ) {
                     alt9=2;
+                }
+                else if ( (LA9_1==17) ) {
+                    alt9=1;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -7855,11 +7855,11 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                 if ( (LA14_1==RULE_ID) ) {
                     int LA14_2 = input.LA(3);
 
-                    if ( (LA14_2==17) ) {
-                        alt14=1;
-                    }
-                    else if ( (LA14_2==EOF||(LA14_2>=RULE_ID && LA14_2<=RULE_PLAIN_TEXT_END)||(LA14_2>=18 && LA14_2<=22)||LA14_2==31||(LA14_2>=38 && LA14_2<=41)||(LA14_2>=46 && LA14_2<=66)||(LA14_2>=74 && LA14_2<=75)||(LA14_2>=79 && LA14_2<=81)||(LA14_2>=83 && LA14_2<=88)||LA14_2==95||LA14_2==97||(LA14_2>=99 && LA14_2<=102)||(LA14_2>=105 && LA14_2<=107)||LA14_2==109) ) {
+                    if ( (LA14_2==EOF||(LA14_2>=RULE_ID && LA14_2<=RULE_PLAIN_TEXT_END)||(LA14_2>=18 && LA14_2<=22)||LA14_2==31||(LA14_2>=38 && LA14_2<=41)||(LA14_2>=46 && LA14_2<=66)||(LA14_2>=74 && LA14_2<=75)||(LA14_2>=79 && LA14_2<=81)||(LA14_2>=83 && LA14_2<=88)||(LA14_2>=94 && LA14_2<=95)||LA14_2==97||(LA14_2>=99 && LA14_2<=102)||(LA14_2>=105 && LA14_2<=107)||LA14_2==109) ) {
                         alt14=2;
+                    }
+                    else if ( (LA14_2==17) ) {
+                        alt14=1;
                     }
                     else {
                         if (state.backtracking>0) {state.failed=true; return ;}
@@ -8351,25 +8351,25 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                 {
                 int LA17_3 = input.LA(2);
 
-                if ( (LA17_3==EOF||(LA17_3>=RULE_ID && LA17_3<=RULE_PLAIN_TEXT_END)||(LA17_3>=18 && LA17_3<=22)||LA17_3==31||(LA17_3>=38 && LA17_3<=41)||(LA17_3>=46 && LA17_3<=66)||LA17_3==75||(LA17_3>=79 && LA17_3<=81)||(LA17_3>=83 && LA17_3<=88)||LA17_3==95||(LA17_3>=99 && LA17_3<=102)||(LA17_3>=105 && LA17_3<=107)) ) {
-                    alt17=3;
-                }
-                else if ( (LA17_3==97) ) {
-                    int LA17_6 = input.LA(3);
+                if ( (LA17_3==97) ) {
+                    int LA17_5 = input.LA(3);
 
-                    if ( (LA17_6==RULE_ID) ) {
+                    if ( (LA17_5==RULE_ID) ) {
                         alt17=3;
                     }
-                    else if ( (LA17_6==RULE_NATURAL) ) {
+                    else if ( (LA17_5==RULE_NATURAL) ) {
                         alt17=4;
                     }
                     else {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         NoViableAltException nvae =
-                            new NoViableAltException("", 17, 6, input);
+                            new NoViableAltException("", 17, 5, input);
 
                         throw nvae;
                     }
+                }
+                else if ( (LA17_3==EOF||(LA17_3>=RULE_ID && LA17_3<=RULE_PLAIN_TEXT_END)||(LA17_3>=18 && LA17_3<=22)||LA17_3==31||(LA17_3>=38 && LA17_3<=41)||(LA17_3>=46 && LA17_3<=66)||LA17_3==75||(LA17_3>=79 && LA17_3<=81)||(LA17_3>=83 && LA17_3<=88)||(LA17_3>=94 && LA17_3<=95)||(LA17_3>=99 && LA17_3<=102)||(LA17_3>=105 && LA17_3<=107)) ) {
+                    alt17=3;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -24229,42 +24229,49 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DService__Group__7__Impl"
-    // InternalDim.g:6938:1: rule__DService__Group__7__Impl : ( ( rule__DService__Group_7__0 )? ) ;
+    // InternalDim.g:6938:1: rule__DService__Group__7__Impl : ( ( rule__DService__Group_7__0 )* ) ;
     public final void rule__DService__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:6942:1: ( ( ( rule__DService__Group_7__0 )? ) )
-            // InternalDim.g:6943:1: ( ( rule__DService__Group_7__0 )? )
+            // InternalDim.g:6942:1: ( ( ( rule__DService__Group_7__0 )* ) )
+            // InternalDim.g:6943:1: ( ( rule__DService__Group_7__0 )* )
             {
-            // InternalDim.g:6943:1: ( ( rule__DService__Group_7__0 )? )
-            // InternalDim.g:6944:2: ( rule__DService__Group_7__0 )?
+            // InternalDim.g:6943:1: ( ( rule__DService__Group_7__0 )* )
+            // InternalDim.g:6944:2: ( rule__DService__Group_7__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDServiceAccess().getGroup_7()); 
             }
-            // InternalDim.g:6945:2: ( rule__DService__Group_7__0 )?
-            int alt92=2;
-            int LA92_0 = input.LA(1);
+            // InternalDim.g:6945:2: ( rule__DService__Group_7__0 )*
+            loop92:
+            do {
+                int alt92=2;
+                int LA92_0 = input.LA(1);
 
-            if ( (LA92_0==94) ) {
-                alt92=1;
-            }
-            switch (alt92) {
-                case 1 :
-                    // InternalDim.g:6945:3: rule__DService__Group_7__0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__DService__Group_7__0();
+                if ( (LA92_0==94) ) {
+                    alt92=1;
+                }
 
-                    state._fsp--;
-                    if (state.failed) return ;
 
-                    }
-                    break;
+                switch (alt92) {
+            	case 1 :
+            	    // InternalDim.g:6945:3: rule__DService__Group_7__0
+            	    {
+            	    pushFollow(FOLLOW_45);
+            	    rule__DService__Group_7__0();
 
-            }
+            	    state._fsp--;
+            	    if (state.failed) return ;
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop92;
+                }
+            } while (true);
 
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDServiceAccess().getGroup_7()); 
@@ -24329,42 +24336,49 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DService__Group__8__Impl"
-    // InternalDim.g:6965:1: rule__DService__Group__8__Impl : ( ( rule__DService__Group_8__0 )? ) ;
+    // InternalDim.g:6965:1: rule__DService__Group__8__Impl : ( ( rule__DService__Group_8__0 )* ) ;
     public final void rule__DService__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:6969:1: ( ( ( rule__DService__Group_8__0 )? ) )
-            // InternalDim.g:6970:1: ( ( rule__DService__Group_8__0 )? )
+            // InternalDim.g:6969:1: ( ( ( rule__DService__Group_8__0 )* ) )
+            // InternalDim.g:6970:1: ( ( rule__DService__Group_8__0 )* )
             {
-            // InternalDim.g:6970:1: ( ( rule__DService__Group_8__0 )? )
-            // InternalDim.g:6971:2: ( rule__DService__Group_8__0 )?
+            // InternalDim.g:6970:1: ( ( rule__DService__Group_8__0 )* )
+            // InternalDim.g:6971:2: ( rule__DService__Group_8__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDServiceAccess().getGroup_8()); 
             }
-            // InternalDim.g:6972:2: ( rule__DService__Group_8__0 )?
-            int alt93=2;
-            int LA93_0 = input.LA(1);
+            // InternalDim.g:6972:2: ( rule__DService__Group_8__0 )*
+            loop93:
+            do {
+                int alt93=2;
+                int LA93_0 = input.LA(1);
 
-            if ( (LA93_0==95) ) {
-                alt93=1;
-            }
-            switch (alt93) {
-                case 1 :
-                    // InternalDim.g:6972:3: rule__DService__Group_8__0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__DService__Group_8__0();
+                if ( (LA93_0==95) ) {
+                    alt93=1;
+                }
 
-                    state._fsp--;
-                    if (state.failed) return ;
 
-                    }
-                    break;
+                switch (alt93) {
+            	case 1 :
+            	    // InternalDim.g:6972:3: rule__DService__Group_8__0
+            	    {
+            	    pushFollow(FOLLOW_46);
+            	    rule__DService__Group_8__0();
 
-            }
+            	    state._fsp--;
+            	    if (state.failed) return ;
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop93;
+                }
+            } while (true);
 
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDServiceAccess().getGroup_8()); 
@@ -24581,7 +24595,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:7038:1: ( rule__DService__Group_3__0__Impl rule__DService__Group_3__1 )
             // InternalDim.g:7039:2: rule__DService__Group_3__0__Impl rule__DService__Group_3__1
             {
-            pushFollow(FOLLOW_45);
+            pushFollow(FOLLOW_47);
             rule__DService__Group_3__0__Impl();
 
             state._fsp--;
@@ -24660,7 +24674,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:7065:1: ( rule__DService__Group_3__1__Impl rule__DService__Group_3__2 )
             // InternalDim.g:7066:2: rule__DService__Group_3__1__Impl rule__DService__Group_3__2
             {
-            pushFollow(FOLLOW_45);
+            pushFollow(FOLLOW_47);
             rule__DService__Group_3__1__Impl();
 
             state._fsp--;
@@ -25025,7 +25039,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:7173:1: ( rule__DService__Group_3_1_1__0__Impl rule__DService__Group_3_1_1__1 )
             // InternalDim.g:7174:2: rule__DService__Group_3_1_1__0__Impl rule__DService__Group_3_1_1__1
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_48);
             rule__DService__Group_3_1_1__0__Impl();
 
             state._fsp--;
@@ -25650,24 +25664,24 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DService__Group_7__0__Impl"
-    // InternalDim.g:7370:1: rule__DService__Group_7__0__Impl : ( 'precondition' ) ;
+    // InternalDim.g:7370:1: rule__DService__Group_7__0__Impl : ( 'guard' ) ;
     public final void rule__DService__Group_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7374:1: ( ( 'precondition' ) )
-            // InternalDim.g:7375:1: ( 'precondition' )
+            // InternalDim.g:7374:1: ( ( 'guard' ) )
+            // InternalDim.g:7375:1: ( 'guard' )
             {
-            // InternalDim.g:7375:1: ( 'precondition' )
-            // InternalDim.g:7376:2: 'precondition'
+            // InternalDim.g:7375:1: ( 'guard' )
+            // InternalDim.g:7376:2: 'guard'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDServiceAccess().getPreconditionKeyword_7_0()); 
+               before(grammarAccess.getDServiceAccess().getGuardKeyword_7_0()); 
             }
             match(input,94,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDServiceAccess().getPreconditionKeyword_7_0()); 
+               after(grammarAccess.getDServiceAccess().getGuardKeyword_7_0()); 
             }
 
             }
@@ -25724,26 +25738,26 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DService__Group_7__1__Impl"
-    // InternalDim.g:7396:1: rule__DService__Group_7__1__Impl : ( ( rule__DService__PreconditionAssignment_7_1 ) ) ;
+    // InternalDim.g:7396:1: rule__DService__Group_7__1__Impl : ( ( rule__DService__GuardsAssignment_7_1 ) ) ;
     public final void rule__DService__Group_7__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7400:1: ( ( ( rule__DService__PreconditionAssignment_7_1 ) ) )
-            // InternalDim.g:7401:1: ( ( rule__DService__PreconditionAssignment_7_1 ) )
+            // InternalDim.g:7400:1: ( ( ( rule__DService__GuardsAssignment_7_1 ) ) )
+            // InternalDim.g:7401:1: ( ( rule__DService__GuardsAssignment_7_1 ) )
             {
-            // InternalDim.g:7401:1: ( ( rule__DService__PreconditionAssignment_7_1 ) )
-            // InternalDim.g:7402:2: ( rule__DService__PreconditionAssignment_7_1 )
+            // InternalDim.g:7401:1: ( ( rule__DService__GuardsAssignment_7_1 ) )
+            // InternalDim.g:7402:2: ( rule__DService__GuardsAssignment_7_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDServiceAccess().getPreconditionAssignment_7_1()); 
+               before(grammarAccess.getDServiceAccess().getGuardsAssignment_7_1()); 
             }
-            // InternalDim.g:7403:2: ( rule__DService__PreconditionAssignment_7_1 )
-            // InternalDim.g:7403:3: rule__DService__PreconditionAssignment_7_1
+            // InternalDim.g:7403:2: ( rule__DService__GuardsAssignment_7_1 )
+            // InternalDim.g:7403:3: rule__DService__GuardsAssignment_7_1
             {
             pushFollow(FOLLOW_2);
-            rule__DService__PreconditionAssignment_7_1();
+            rule__DService__GuardsAssignment_7_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -25751,7 +25765,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDServiceAccess().getPreconditionAssignment_7_1()); 
+               after(grammarAccess.getDServiceAccess().getGuardsAssignment_7_1()); 
             }
 
             }
@@ -25813,24 +25827,24 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DService__Group_8__0__Impl"
-    // InternalDim.g:7424:1: rule__DService__Group_8__0__Impl : ( 'postcondition' ) ;
+    // InternalDim.g:7424:1: rule__DService__Group_8__0__Impl : ( 'effect' ) ;
     public final void rule__DService__Group_8__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7428:1: ( ( 'postcondition' ) )
-            // InternalDim.g:7429:1: ( 'postcondition' )
+            // InternalDim.g:7428:1: ( ( 'effect' ) )
+            // InternalDim.g:7429:1: ( 'effect' )
             {
-            // InternalDim.g:7429:1: ( 'postcondition' )
-            // InternalDim.g:7430:2: 'postcondition'
+            // InternalDim.g:7429:1: ( 'effect' )
+            // InternalDim.g:7430:2: 'effect'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDServiceAccess().getPostconditionKeyword_8_0()); 
+               before(grammarAccess.getDServiceAccess().getEffectKeyword_8_0()); 
             }
             match(input,95,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDServiceAccess().getPostconditionKeyword_8_0()); 
+               after(grammarAccess.getDServiceAccess().getEffectKeyword_8_0()); 
             }
 
             }
@@ -25887,26 +25901,26 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DService__Group_8__1__Impl"
-    // InternalDim.g:7450:1: rule__DService__Group_8__1__Impl : ( ( rule__DService__PostconditionAssignment_8_1 ) ) ;
+    // InternalDim.g:7450:1: rule__DService__Group_8__1__Impl : ( ( rule__DService__EffectsAssignment_8_1 ) ) ;
     public final void rule__DService__Group_8__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7454:1: ( ( ( rule__DService__PostconditionAssignment_8_1 ) ) )
-            // InternalDim.g:7455:1: ( ( rule__DService__PostconditionAssignment_8_1 ) )
+            // InternalDim.g:7454:1: ( ( ( rule__DService__EffectsAssignment_8_1 ) ) )
+            // InternalDim.g:7455:1: ( ( rule__DService__EffectsAssignment_8_1 ) )
             {
-            // InternalDim.g:7455:1: ( ( rule__DService__PostconditionAssignment_8_1 ) )
-            // InternalDim.g:7456:2: ( rule__DService__PostconditionAssignment_8_1 )
+            // InternalDim.g:7455:1: ( ( rule__DService__EffectsAssignment_8_1 ) )
+            // InternalDim.g:7456:2: ( rule__DService__EffectsAssignment_8_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDServiceAccess().getPostconditionAssignment_8_1()); 
+               before(grammarAccess.getDServiceAccess().getEffectsAssignment_8_1()); 
             }
-            // InternalDim.g:7457:2: ( rule__DService__PostconditionAssignment_8_1 )
-            // InternalDim.g:7457:3: rule__DService__PostconditionAssignment_8_1
+            // InternalDim.g:7457:2: ( rule__DService__EffectsAssignment_8_1 )
+            // InternalDim.g:7457:3: rule__DService__EffectsAssignment_8_1
             {
             pushFollow(FOLLOW_2);
-            rule__DService__PostconditionAssignment_8_1();
+            rule__DService__EffectsAssignment_8_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -25914,7 +25928,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDServiceAccess().getPostconditionAssignment_8_1()); 
+               after(grammarAccess.getDServiceAccess().getEffectsAssignment_8_1()); 
             }
 
             }
@@ -26840,7 +26854,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:7740:1: ( rule__DRichText__Group_1__1__Impl rule__DRichText__Group_1__2 )
             // InternalDim.g:7741:2: rule__DRichText__Group_1__1__Impl rule__DRichText__Group_1__2
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_49);
             rule__DRichText__Group_1__1__Impl();
 
             state._fsp--;
@@ -26929,7 +26943,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:7767:1: ( rule__DRichText__Group_1__2__Impl rule__DRichText__Group_1__3 )
             // InternalDim.g:7768:2: rule__DRichText__Group_1__2__Impl rule__DRichText__Group_1__3
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_49);
             rule__DRichText__Group_1__2__Impl();
 
             state._fsp--;
@@ -26988,7 +27002,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalDim.g:7782:3: rule__DRichText__Group_1_2__0
             	    {
-            	    pushFollow(FOLLOW_48);
+            	    pushFollow(FOLLOW_50);
             	    rule__DRichText__Group_1_2__0();
 
             	    state._fsp--;
@@ -27372,7 +27386,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:7902:1: ( rule__DAssignment__Group_0__1__Impl rule__DAssignment__Group_0__2 )
             // InternalDim.g:7903:2: rule__DAssignment__Group_0__1__Impl rule__DAssignment__Group_0__2
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_51);
             rule__DAssignment__Group_0__1__Impl();
 
             state._fsp--;
@@ -27461,7 +27475,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:7929:1: ( rule__DAssignment__Group_0__2__Impl rule__DAssignment__Group_0__3 )
             // InternalDim.g:7930:2: rule__DAssignment__Group_0__2__Impl rule__DAssignment__Group_0__3
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_52);
             rule__DAssignment__Group_0__2__Impl();
 
             state._fsp--;
@@ -27628,7 +27642,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:7983:1: ( rule__DOrExpression__Group__0__Impl rule__DOrExpression__Group__1 )
             // InternalDim.g:7984:2: rule__DOrExpression__Group__0__Impl rule__DOrExpression__Group__1
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_53);
             rule__DOrExpression__Group__0__Impl();
 
             state._fsp--;
@@ -27806,7 +27820,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalDim.g:8024:3: rule__DOrExpression__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_52);
+            	    pushFollow(FOLLOW_54);
             	    rule__DOrExpression__Group_1__0();
 
             	    state._fsp--;
@@ -27854,7 +27868,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:8037:1: ( rule__DOrExpression__Group_1__0__Impl rule__DOrExpression__Group_1__1 )
             // InternalDim.g:8038:2: rule__DOrExpression__Group_1__0__Impl rule__DOrExpression__Group_1__1
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_52);
             rule__DOrExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -28111,7 +28125,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:8118:1: ( rule__DOrExpression__Group_1_0_0__0__Impl rule__DOrExpression__Group_1_0_0__1 )
             // InternalDim.g:8119:2: rule__DOrExpression__Group_1_0_0__0__Impl rule__DOrExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_53);
             rule__DOrExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -28274,7 +28288,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:8172:1: ( rule__DAndExpression__Group__0__Impl rule__DAndExpression__Group__1 )
             // InternalDim.g:8173:2: rule__DAndExpression__Group__0__Impl rule__DAndExpression__Group__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_55);
             rule__DAndExpression__Group__0__Impl();
 
             state._fsp--;
@@ -28426,7 +28440,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalDim.g:8213:3: rule__DAndExpression__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_54);
+            	    pushFollow(FOLLOW_56);
             	    rule__DAndExpression__Group_1__0();
 
             	    state._fsp--;
@@ -28474,7 +28488,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:8226:1: ( rule__DAndExpression__Group_1__0__Impl rule__DAndExpression__Group_1__1 )
             // InternalDim.g:8227:2: rule__DAndExpression__Group_1__0__Impl rule__DAndExpression__Group_1__1
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_52);
             rule__DAndExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -28731,7 +28745,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:8307:1: ( rule__DAndExpression__Group_1_0_0__0__Impl rule__DAndExpression__Group_1_0_0__1 )
             // InternalDim.g:8308:2: rule__DAndExpression__Group_1_0_0__0__Impl rule__DAndExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_55);
             rule__DAndExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -28894,7 +28908,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:8361:1: ( rule__DEqualityExpression__Group__0__Impl rule__DEqualityExpression__Group__1 )
             // InternalDim.g:8362:2: rule__DEqualityExpression__Group__0__Impl rule__DEqualityExpression__Group__1
             {
-            pushFollow(FOLLOW_55);
+            pushFollow(FOLLOW_57);
             rule__DEqualityExpression__Group__0__Impl();
 
             state._fsp--;
@@ -29061,7 +29075,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalDim.g:8402:3: rule__DEqualityExpression__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_56);
+            	    pushFollow(FOLLOW_58);
             	    rule__DEqualityExpression__Group_1__0();
 
             	    state._fsp--;
@@ -29109,7 +29123,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:8415:1: ( rule__DEqualityExpression__Group_1__0__Impl rule__DEqualityExpression__Group_1__1 )
             // InternalDim.g:8416:2: rule__DEqualityExpression__Group_1__0__Impl rule__DEqualityExpression__Group_1__1
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_52);
             rule__DEqualityExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -29366,7 +29380,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:8496:1: ( rule__DEqualityExpression__Group_1_0_0__0__Impl rule__DEqualityExpression__Group_1_0_0__1 )
             // InternalDim.g:8497:2: rule__DEqualityExpression__Group_1_0_0__0__Impl rule__DEqualityExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_55);
+            pushFollow(FOLLOW_57);
             rule__DEqualityExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -29529,7 +29543,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:8550:1: ( rule__DRelationalExpression__Group__0__Impl rule__DRelationalExpression__Group__1 )
             // InternalDim.g:8551:2: rule__DRelationalExpression__Group__0__Impl rule__DRelationalExpression__Group__1
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_59);
             rule__DRelationalExpression__Group__0__Impl();
 
             state._fsp--;
@@ -29660,7 +29674,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalDim.g:8591:3: rule__DRelationalExpression__Alternatives_1
             	    {
-            	    pushFollow(FOLLOW_58);
+            	    pushFollow(FOLLOW_60);
             	    rule__DRelationalExpression__Alternatives_1();
 
             	    state._fsp--;
@@ -29965,7 +29979,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:8685:1: ( rule__DRelationalExpression__Group_1_0_0_0__0__Impl rule__DRelationalExpression__Group_1_0_0_0__1 )
             // InternalDim.g:8686:2: rule__DRelationalExpression__Group_1_0_0_0__0__Impl rule__DRelationalExpression__Group_1_0_0_0__1
             {
-            pushFollow(FOLLOW_59);
+            pushFollow(FOLLOW_61);
             rule__DRelationalExpression__Group_1_0_0_0__0__Impl();
 
             state._fsp--;
@@ -30122,7 +30136,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:8739:1: ( rule__DRelationalExpression__Group_1_1__0__Impl rule__DRelationalExpression__Group_1_1__1 )
             // InternalDim.g:8740:2: rule__DRelationalExpression__Group_1_1__0__Impl rule__DRelationalExpression__Group_1_1__1
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_52);
             rule__DRelationalExpression__Group_1_1__0__Impl();
 
             state._fsp--;
@@ -30379,7 +30393,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:8820:1: ( rule__DRelationalExpression__Group_1_1_0_0__0__Impl rule__DRelationalExpression__Group_1_1_0_0__1 )
             // InternalDim.g:8821:2: rule__DRelationalExpression__Group_1_1_0_0__0__Impl rule__DRelationalExpression__Group_1_1_0_0__1
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_59);
             rule__DRelationalExpression__Group_1_1_0_0__0__Impl();
 
             state._fsp--;
@@ -30542,7 +30556,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:8874:1: ( rule__DOtherOperatorExpression__Group__0__Impl rule__DOtherOperatorExpression__Group__1 )
             // InternalDim.g:8875:2: rule__DOtherOperatorExpression__Group__0__Impl rule__DOtherOperatorExpression__Group__1
             {
-            pushFollow(FOLLOW_60);
+            pushFollow(FOLLOW_62);
             rule__DOtherOperatorExpression__Group__0__Impl();
 
             state._fsp--;
@@ -30709,7 +30723,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalDim.g:8915:3: rule__DOtherOperatorExpression__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_61);
+            	    pushFollow(FOLLOW_63);
             	    rule__DOtherOperatorExpression__Group_1__0();
 
             	    state._fsp--;
@@ -30757,7 +30771,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:8928:1: ( rule__DOtherOperatorExpression__Group_1__0__Impl rule__DOtherOperatorExpression__Group_1__1 )
             // InternalDim.g:8929:2: rule__DOtherOperatorExpression__Group_1__0__Impl rule__DOtherOperatorExpression__Group_1__1
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_52);
             rule__DOtherOperatorExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -31014,7 +31028,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:9009:1: ( rule__DOtherOperatorExpression__Group_1_0_0__0__Impl rule__DOtherOperatorExpression__Group_1_0_0__1 )
             // InternalDim.g:9010:2: rule__DOtherOperatorExpression__Group_1_0_0__0__Impl rule__DOtherOperatorExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_60);
+            pushFollow(FOLLOW_62);
             rule__DOtherOperatorExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -31177,7 +31191,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:9063:1: ( rule__DAdditiveExpression__Group__0__Impl rule__DAdditiveExpression__Group__1 )
             // InternalDim.g:9064:2: rule__DAdditiveExpression__Group__0__Impl rule__DAdditiveExpression__Group__1
             {
-            pushFollow(FOLLOW_62);
+            pushFollow(FOLLOW_64);
             rule__DAdditiveExpression__Group__0__Impl();
 
             state._fsp--;
@@ -31329,7 +31343,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalDim.g:9104:3: rule__DAdditiveExpression__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_63);
+            	    pushFollow(FOLLOW_65);
             	    rule__DAdditiveExpression__Group_1__0();
 
             	    state._fsp--;
@@ -31377,7 +31391,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:9117:1: ( rule__DAdditiveExpression__Group_1__0__Impl rule__DAdditiveExpression__Group_1__1 )
             // InternalDim.g:9118:2: rule__DAdditiveExpression__Group_1__0__Impl rule__DAdditiveExpression__Group_1__1
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_52);
             rule__DAdditiveExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -31634,7 +31648,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:9198:1: ( rule__DAdditiveExpression__Group_1_0_0__0__Impl rule__DAdditiveExpression__Group_1_0_0__1 )
             // InternalDim.g:9199:2: rule__DAdditiveExpression__Group_1_0_0__0__Impl rule__DAdditiveExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_62);
+            pushFollow(FOLLOW_64);
             rule__DAdditiveExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -31797,7 +31811,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:9252:1: ( rule__DMultiplicativeExpression__Group__0__Impl rule__DMultiplicativeExpression__Group__1 )
             // InternalDim.g:9253:2: rule__DMultiplicativeExpression__Group__0__Impl rule__DMultiplicativeExpression__Group__1
             {
-            pushFollow(FOLLOW_64);
+            pushFollow(FOLLOW_66);
             rule__DMultiplicativeExpression__Group__0__Impl();
 
             state._fsp--;
@@ -31975,7 +31989,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalDim.g:9293:3: rule__DMultiplicativeExpression__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_65);
+            	    pushFollow(FOLLOW_67);
             	    rule__DMultiplicativeExpression__Group_1__0();
 
             	    state._fsp--;
@@ -32023,7 +32037,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:9306:1: ( rule__DMultiplicativeExpression__Group_1__0__Impl rule__DMultiplicativeExpression__Group_1__1 )
             // InternalDim.g:9307:2: rule__DMultiplicativeExpression__Group_1__0__Impl rule__DMultiplicativeExpression__Group_1__1
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_52);
             rule__DMultiplicativeExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -32280,7 +32294,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:9387:1: ( rule__DMultiplicativeExpression__Group_1_0_0__0__Impl rule__DMultiplicativeExpression__Group_1_0_0__1 )
             // InternalDim.g:9388:2: rule__DMultiplicativeExpression__Group_1_0_0__0__Impl rule__DMultiplicativeExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_64);
+            pushFollow(FOLLOW_66);
             rule__DMultiplicativeExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -32443,7 +32457,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:9441:1: ( rule__DUnaryOperation__Group_0__0__Impl rule__DUnaryOperation__Group_0__1 )
             // InternalDim.g:9442:2: rule__DUnaryOperation__Group_0__0__Impl rule__DUnaryOperation__Group_0__1
             {
-            pushFollow(FOLLOW_66);
+            pushFollow(FOLLOW_68);
             rule__DUnaryOperation__Group_0__0__Impl();
 
             state._fsp--;
@@ -32522,7 +32536,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:9468:1: ( rule__DUnaryOperation__Group_0__1__Impl rule__DUnaryOperation__Group_0__2 )
             // InternalDim.g:9469:2: rule__DUnaryOperation__Group_0__1__Impl rule__DUnaryOperation__Group_0__2
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_52);
             rule__DUnaryOperation__Group_0__1__Impl();
 
             state._fsp--;
@@ -32695,7 +32709,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:9522:1: ( rule__DCastExpression__Group__0__Impl rule__DCastExpression__Group__1 )
             // InternalDim.g:9523:2: rule__DCastExpression__Group__0__Impl rule__DCastExpression__Group__1
             {
-            pushFollow(FOLLOW_67);
+            pushFollow(FOLLOW_69);
             rule__DCastExpression__Group__0__Impl();
 
             state._fsp--;
@@ -33141,7 +33155,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:9657:1: ( rule__DCastExpression__Group_1_0_0__0__Impl rule__DCastExpression__Group_1_0_0__1 )
             // InternalDim.g:9658:2: rule__DCastExpression__Group_1_0_0__0__Impl rule__DCastExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_67);
+            pushFollow(FOLLOW_69);
             rule__DCastExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -33298,7 +33312,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:9711:1: ( rule__DTypedMemberReference__Group__0__Impl rule__DTypedMemberReference__Group__1 )
             // InternalDim.g:9712:2: rule__DTypedMemberReference__Group__0__Impl rule__DTypedMemberReference__Group__1
             {
-            pushFollow(FOLLOW_68);
+            pushFollow(FOLLOW_70);
             rule__DTypedMemberReference__Group__0__Impl();
 
             state._fsp--;
@@ -33441,7 +33455,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalDim.g:9752:3: rule__DTypedMemberReference__Alternatives_1
             	    {
-            	    pushFollow(FOLLOW_69);
+            	    pushFollow(FOLLOW_71);
             	    rule__DTypedMemberReference__Alternatives_1();
 
             	    state._fsp--;
@@ -33489,7 +33503,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:9765:1: ( rule__DTypedMemberReference__Group_1_0__0__Impl rule__DTypedMemberReference__Group_1_0__1 )
             // InternalDim.g:9766:2: rule__DTypedMemberReference__Group_1_0__0__Impl rule__DTypedMemberReference__Group_1_0__1
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_52);
             rule__DTypedMemberReference__Group_1_0__0__Impl();
 
             state._fsp--;
@@ -33746,7 +33760,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:9846:1: ( rule__DTypedMemberReference__Group_1_0_0_0__0__Impl rule__DTypedMemberReference__Group_1_0_0_0__1 )
             // InternalDim.g:9847:2: rule__DTypedMemberReference__Group_1_0_0_0__0__Impl rule__DTypedMemberReference__Group_1_0_0_0__1
             {
-            pushFollow(FOLLOW_68);
+            pushFollow(FOLLOW_70);
             rule__DTypedMemberReference__Group_1_0_0_0__0__Impl();
 
             state._fsp--;
@@ -33904,7 +33918,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:9900:1: ( rule__DTypedMemberReference__Group_1_0_0_0__2__Impl rule__DTypedMemberReference__Group_1_0_0_0__3 )
             // InternalDim.g:9901:2: rule__DTypedMemberReference__Group_1_0_0_0__2__Impl rule__DTypedMemberReference__Group_1_0_0_0__3
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_51);
             rule__DTypedMemberReference__Group_1_0_0_0__2__Impl();
 
             state._fsp--;
@@ -34160,7 +34174,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:9981:1: ( rule__DTypedMemberReference__Group_1_1__1__Impl rule__DTypedMemberReference__Group_1_1__2 )
             // InternalDim.g:9982:2: rule__DTypedMemberReference__Group_1_1__1__Impl rule__DTypedMemberReference__Group_1_1__2
             {
-            pushFollow(FOLLOW_70);
+            pushFollow(FOLLOW_72);
             rule__DTypedMemberReference__Group_1_1__1__Impl();
 
             state._fsp--;
@@ -34428,7 +34442,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:10062:1: ( rule__DTypedMemberReference__Group_1_1_0_0__0__Impl rule__DTypedMemberReference__Group_1_1_0_0__1 )
             // InternalDim.g:10063:2: rule__DTypedMemberReference__Group_1_1_0_0__0__Impl rule__DTypedMemberReference__Group_1_1_0_0__1
             {
-            pushFollow(FOLLOW_68);
+            pushFollow(FOLLOW_70);
             rule__DTypedMemberReference__Group_1_1_0_0__0__Impl();
 
             state._fsp--;
@@ -34581,7 +34595,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:10116:1: ( rule__DTypedMemberReference__Group_1_1_2_0__0__Impl rule__DTypedMemberReference__Group_1_1_2_0__1 )
             // InternalDim.g:10117:2: rule__DTypedMemberReference__Group_1_1_2_0__0__Impl rule__DTypedMemberReference__Group_1_1_2_0__1
             {
-            pushFollow(FOLLOW_71);
+            pushFollow(FOLLOW_73);
             rule__DTypedMemberReference__Group_1_1_2_0__0__Impl();
 
             state._fsp--;
@@ -34670,7 +34684,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:10143:1: ( rule__DTypedMemberReference__Group_1_1_2_0__1__Impl rule__DTypedMemberReference__Group_1_1_2_0__2 )
             // InternalDim.g:10144:2: rule__DTypedMemberReference__Group_1_1_2_0__1__Impl rule__DTypedMemberReference__Group_1_1_2_0__2
             {
-            pushFollow(FOLLOW_71);
+            pushFollow(FOLLOW_73);
             rule__DTypedMemberReference__Group_1_1_2_0__1__Impl();
 
             state._fsp--;
@@ -35198,7 +35212,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:10305:1: ( rule__DSelfExpression__Group__0__Impl rule__DSelfExpression__Group__1 )
             // InternalDim.g:10306:2: rule__DSelfExpression__Group__0__Impl rule__DSelfExpression__Group__1
             {
-            pushFollow(FOLLOW_72);
+            pushFollow(FOLLOW_74);
             rule__DSelfExpression__Group__0__Impl();
 
             state._fsp--;
@@ -35361,7 +35375,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:10359:1: ( rule__DReturnExpression__Group__0__Impl rule__DReturnExpression__Group__1 )
             // InternalDim.g:10360:2: rule__DReturnExpression__Group__0__Impl rule__DReturnExpression__Group__1
             {
-            pushFollow(FOLLOW_73);
+            pushFollow(FOLLOW_75);
             rule__DReturnExpression__Group__0__Impl();
 
             state._fsp--;
@@ -35620,7 +35634,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:10440:1: ( rule__DRaiseExpression__Group__0__Impl rule__DRaiseExpression__Group__1 )
             // InternalDim.g:10441:2: rule__DRaiseExpression__Group__0__Impl rule__DRaiseExpression__Group__1
             {
-            pushFollow(FOLLOW_74);
+            pushFollow(FOLLOW_76);
             rule__DRaiseExpression__Group__0__Impl();
 
             state._fsp--;
@@ -36276,7 +36290,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:10656:1: ( rule__DFunctionCall__Group__2__Impl rule__DFunctionCall__Group__3 )
             // InternalDim.g:10657:2: rule__DFunctionCall__Group__2__Impl rule__DFunctionCall__Group__3
             {
-            pushFollow(FOLLOW_71);
+            pushFollow(FOLLOW_73);
             rule__DFunctionCall__Group__2__Impl();
 
             state._fsp--;
@@ -36355,7 +36369,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:10683:1: ( rule__DFunctionCall__Group__3__Impl rule__DFunctionCall__Group__4 )
             // InternalDim.g:10684:2: rule__DFunctionCall__Group__3__Impl rule__DFunctionCall__Group__4
             {
-            pushFollow(FOLLOW_71);
+            pushFollow(FOLLOW_73);
             rule__DFunctionCall__Group__3__Impl();
 
             state._fsp--;
@@ -36883,7 +36897,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:10845:1: ( rule__DConstructorCall__Group__0__Impl rule__DConstructorCall__Group__1 )
             // InternalDim.g:10846:2: rule__DConstructorCall__Group__0__Impl rule__DConstructorCall__Group__1
             {
-            pushFollow(FOLLOW_75);
+            pushFollow(FOLLOW_77);
             rule__DConstructorCall__Group__0__Impl();
 
             state._fsp--;
@@ -37229,7 +37243,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:10953:1: ( rule__DConstructorCall__Group_3__0__Impl rule__DConstructorCall__Group_3__1 )
             // InternalDim.g:10954:2: rule__DConstructorCall__Group_3__0__Impl rule__DConstructorCall__Group_3__1
             {
-            pushFollow(FOLLOW_71);
+            pushFollow(FOLLOW_73);
             rule__DConstructorCall__Group_3__0__Impl();
 
             state._fsp--;
@@ -37318,7 +37332,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:10980:1: ( rule__DConstructorCall__Group_3__1__Impl rule__DConstructorCall__Group_3__2 )
             // InternalDim.g:10981:2: rule__DConstructorCall__Group_3__1__Impl rule__DConstructorCall__Group_3__2
             {
-            pushFollow(FOLLOW_71);
+            pushFollow(FOLLOW_73);
             rule__DConstructorCall__Group_3__1__Impl();
 
             state._fsp--;
@@ -37925,7 +37939,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:11169:1: ( rule__DContextReference__Group__1__Impl rule__DContextReference__Group__2 )
             // InternalDim.g:11170:2: rule__DContextReference__Group__1__Impl rule__DContextReference__Group__2
             {
-            pushFollow(FOLLOW_76);
+            pushFollow(FOLLOW_78);
             rule__DContextReference__Group__1__Impl();
 
             state._fsp--;
@@ -38109,7 +38123,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:11223:1: ( rule__DIfExpression__Group__0__Impl rule__DIfExpression__Group__1 )
             // InternalDim.g:11224:2: rule__DIfExpression__Group__0__Impl rule__DIfExpression__Group__1
             {
-            pushFollow(FOLLOW_77);
+            pushFollow(FOLLOW_79);
             rule__DIfExpression__Group__0__Impl();
 
             state._fsp--;
@@ -38267,7 +38281,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:11277:1: ( rule__DIfExpression__Group__2__Impl rule__DIfExpression__Group__3 )
             // InternalDim.g:11278:2: rule__DIfExpression__Group__2__Impl rule__DIfExpression__Group__3
             {
-            pushFollow(FOLLOW_78);
+            pushFollow(FOLLOW_80);
             rule__DIfExpression__Group__2__Impl();
 
             state._fsp--;
@@ -38435,7 +38449,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:11331:1: ( rule__DIfExpression__Group__4__Impl rule__DIfExpression__Group__5 )
             // InternalDim.g:11332:2: rule__DIfExpression__Group__4__Impl rule__DIfExpression__Group__5
             {
-            pushFollow(FOLLOW_79);
+            pushFollow(FOLLOW_81);
             rule__DIfExpression__Group__4__Impl();
 
             state._fsp--;
@@ -38524,7 +38538,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:11358:1: ( rule__DIfExpression__Group__5__Impl rule__DIfExpression__Group__6 )
             // InternalDim.g:11359:2: rule__DIfExpression__Group__5__Impl rule__DIfExpression__Group__6
             {
-            pushFollow(FOLLOW_79);
+            pushFollow(FOLLOW_81);
             rule__DIfExpression__Group__5__Impl();
 
             state._fsp--;
@@ -38956,7 +38970,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:11493:1: ( rule__DForLoopExpression__Group__1__Impl rule__DForLoopExpression__Group__2 )
             // InternalDim.g:11494:2: rule__DForLoopExpression__Group__1__Impl rule__DForLoopExpression__Group__2
             {
-            pushFollow(FOLLOW_80);
+            pushFollow(FOLLOW_82);
             rule__DForLoopExpression__Group__1__Impl();
 
             state._fsp--;
@@ -39124,7 +39138,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:11547:1: ( rule__DForLoopExpression__Group__3__Impl rule__DForLoopExpression__Group__4 )
             // InternalDim.g:11548:2: rule__DForLoopExpression__Group__3__Impl rule__DForLoopExpression__Group__4
             {
-            pushFollow(FOLLOW_81);
+            pushFollow(FOLLOW_83);
             rule__DForLoopExpression__Group__3__Impl();
 
             state._fsp--;
@@ -39371,7 +39385,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:11628:1: ( rule__DForLoopExpression__Group_0_0__0__Impl rule__DForLoopExpression__Group_0_0__1 )
             // InternalDim.g:11629:2: rule__DForLoopExpression__Group_0_0__0__Impl rule__DForLoopExpression__Group_0_0__1
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_52);
             rule__DForLoopExpression__Group_0_0__0__Impl();
 
             state._fsp--;
@@ -39692,7 +39706,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:11736:1: ( rule__DMultiplicity__Group__0__Impl rule__DMultiplicity__Group__1 )
             // InternalDim.g:11737:2: rule__DMultiplicity__Group__0__Impl rule__DMultiplicity__Group__1
             {
-            pushFollow(FOLLOW_82);
+            pushFollow(FOLLOW_84);
             rule__DMultiplicity__Group__0__Impl();
 
             state._fsp--;
@@ -39771,7 +39785,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:11763:1: ( rule__DMultiplicity__Group__1__Impl rule__DMultiplicity__Group__2 )
             // InternalDim.g:11764:2: rule__DMultiplicity__Group__1__Impl rule__DMultiplicity__Group__2
             {
-            pushFollow(FOLLOW_83);
+            pushFollow(FOLLOW_85);
             rule__DMultiplicity__Group__1__Impl();
 
             state._fsp--;
@@ -39860,7 +39874,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:11790:1: ( rule__DMultiplicity__Group__2__Impl rule__DMultiplicity__Group__3 )
             // InternalDim.g:11791:2: rule__DMultiplicity__Group__2__Impl rule__DMultiplicity__Group__3
             {
-            pushFollow(FOLLOW_84);
+            pushFollow(FOLLOW_86);
             rule__DMultiplicity__Group__2__Impl();
 
             state._fsp--;
@@ -40102,7 +40116,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:11871:1: ( rule__DBooleanLiteral__Group__0__Impl rule__DBooleanLiteral__Group__1 )
             // InternalDim.g:11872:2: rule__DBooleanLiteral__Group__0__Impl rule__DBooleanLiteral__Group__1
             {
-            pushFollow(FOLLOW_85);
+            pushFollow(FOLLOW_87);
             rule__DBooleanLiteral__Group__0__Impl();
 
             state._fsp--;
@@ -40265,7 +40279,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:11925:1: ( rule__DStringLiteral__Group__0__Impl rule__DStringLiteral__Group__1 )
             // InternalDim.g:11926:2: rule__DStringLiteral__Group__0__Impl rule__DStringLiteral__Group__1
             {
-            pushFollow(FOLLOW_86);
+            pushFollow(FOLLOW_88);
             rule__DStringLiteral__Group__0__Impl();
 
             state._fsp--;
@@ -40428,7 +40442,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:11979:1: ( rule__DNaturalLiteral__Group__0__Impl rule__DNaturalLiteral__Group__1 )
             // InternalDim.g:11980:2: rule__DNaturalLiteral__Group__0__Impl rule__DNaturalLiteral__Group__1
             {
-            pushFollow(FOLLOW_82);
+            pushFollow(FOLLOW_84);
             rule__DNaturalLiteral__Group__0__Impl();
 
             state._fsp--;
@@ -40591,7 +40605,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:12033:1: ( rule__DDecimalLiteral__Group__0__Impl rule__DDecimalLiteral__Group__1 )
             // InternalDim.g:12034:2: rule__DDecimalLiteral__Group__0__Impl rule__DDecimalLiteral__Group__1
             {
-            pushFollow(FOLLOW_82);
+            pushFollow(FOLLOW_84);
             rule__DDecimalLiteral__Group__0__Impl();
 
             state._fsp--;
@@ -40754,7 +40768,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:12087:1: ( rule__DNilLiteral__Group__0__Impl rule__DNilLiteral__Group__1 )
             // InternalDim.g:12088:2: rule__DNilLiteral__Group__0__Impl rule__DNilLiteral__Group__1
             {
-            pushFollow(FOLLOW_87);
+            pushFollow(FOLLOW_89);
             rule__DNilLiteral__Group__0__Impl();
 
             state._fsp--;
@@ -40917,7 +40931,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:12141:1: ( rule__DECIMAL__Group__0__Impl rule__DECIMAL__Group__1 )
             // InternalDim.g:12142:2: rule__DECIMAL__Group__0__Impl rule__DECIMAL__Group__1
             {
-            pushFollow(FOLLOW_68);
+            pushFollow(FOLLOW_70);
             rule__DECIMAL__Group__0__Impl();
 
             state._fsp--;
@@ -40996,7 +41010,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:12168:1: ( rule__DECIMAL__Group__1__Impl rule__DECIMAL__Group__2 )
             // InternalDim.g:12169:2: rule__DECIMAL__Group__1__Impl rule__DECIMAL__Group__2
             {
-            pushFollow(FOLLOW_82);
+            pushFollow(FOLLOW_84);
             rule__DECIMAL__Group__1__Impl();
 
             state._fsp--;
@@ -41075,7 +41089,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:12195:1: ( rule__DECIMAL__Group__2__Impl rule__DECIMAL__Group__3 )
             // InternalDim.g:12196:2: rule__DECIMAL__Group__2__Impl rule__DECIMAL__Group__3
             {
-            pushFollow(FOLLOW_88);
+            pushFollow(FOLLOW_90);
             rule__DECIMAL__Group__2__Impl();
 
             state._fsp--;
@@ -41249,7 +41263,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:12249:1: ( rule__DECIMAL__Group_3__0__Impl rule__DECIMAL__Group_3__1 )
             // InternalDim.g:12250:2: rule__DECIMAL__Group_3__0__Impl rule__DECIMAL__Group_3__1
             {
-            pushFollow(FOLLOW_89);
+            pushFollow(FOLLOW_91);
             rule__DECIMAL__Group_3__0__Impl();
 
             state._fsp--;
@@ -41338,7 +41352,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:12276:1: ( rule__DECIMAL__Group_3__1__Impl rule__DECIMAL__Group_3__2 )
             // InternalDim.g:12277:2: rule__DECIMAL__Group_3__1__Impl rule__DECIMAL__Group_3__2
             {
-            pushFollow(FOLLOW_89);
+            pushFollow(FOLLOW_91);
             rule__DECIMAL__Group_3__1__Impl();
 
             state._fsp--;
@@ -41512,7 +41526,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:12330:1: ( rule__DQualifiedNameWithWildcard__Group__0__Impl rule__DQualifiedNameWithWildcard__Group__1 )
             // InternalDim.g:12331:2: rule__DQualifiedNameWithWildcard__Group__0__Impl rule__DQualifiedNameWithWildcard__Group__1
             {
-            pushFollow(FOLLOW_90);
+            pushFollow(FOLLOW_92);
             rule__DQualifiedNameWithWildcard__Group__0__Impl();
 
             state._fsp--;
@@ -41686,7 +41700,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:12384:1: ( rule__DQualifiedName__Group__0__Impl rule__DQualifiedName__Group__1 )
             // InternalDim.g:12385:2: rule__DQualifiedName__Group__0__Impl rule__DQualifiedName__Group__1
             {
-            pushFollow(FOLLOW_68);
+            pushFollow(FOLLOW_70);
             rule__DQualifiedName__Group__0__Impl();
 
             state._fsp--;
@@ -41819,7 +41833,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalDim.g:12425:3: rule__DQualifiedName__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_69);
+            	    pushFollow(FOLLOW_71);
             	    rule__DQualifiedName__Group_1__0();
 
             	    state._fsp--;
@@ -45969,9 +45983,9 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DService__DescriptionAssignment_5"
 
 
-    // $ANTLR start "rule__DService__PreconditionAssignment_7_1"
-    // InternalDim.g:13861:1: rule__DService__PreconditionAssignment_7_1 : ( ruleDExpression ) ;
-    public final void rule__DService__PreconditionAssignment_7_1() throws RecognitionException {
+    // $ANTLR start "rule__DService__GuardsAssignment_7_1"
+    // InternalDim.g:13861:1: rule__DService__GuardsAssignment_7_1 : ( ruleDExpression ) ;
+    public final void rule__DService__GuardsAssignment_7_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -45983,7 +45997,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:13867:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDServiceAccess().getPreconditionDExpressionParserRuleCall_7_1_0()); 
+               before(grammarAccess.getDServiceAccess().getGuardsDExpressionParserRuleCall_7_1_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleDExpression();
@@ -45991,7 +46005,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDServiceAccess().getPreconditionDExpressionParserRuleCall_7_1_0()); 
+               after(grammarAccess.getDServiceAccess().getGuardsDExpressionParserRuleCall_7_1_0()); 
             }
 
             }
@@ -46011,12 +46025,12 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DService__PreconditionAssignment_7_1"
+    // $ANTLR end "rule__DService__GuardsAssignment_7_1"
 
 
-    // $ANTLR start "rule__DService__PostconditionAssignment_8_1"
-    // InternalDim.g:13876:1: rule__DService__PostconditionAssignment_8_1 : ( ruleDExpression ) ;
-    public final void rule__DService__PostconditionAssignment_8_1() throws RecognitionException {
+    // $ANTLR start "rule__DService__EffectsAssignment_8_1"
+    // InternalDim.g:13876:1: rule__DService__EffectsAssignment_8_1 : ( ruleDExpression ) ;
+    public final void rule__DService__EffectsAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -46028,7 +46042,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:13882:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDServiceAccess().getPostconditionDExpressionParserRuleCall_8_1_0()); 
+               before(grammarAccess.getDServiceAccess().getEffectsDExpressionParserRuleCall_8_1_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleDExpression();
@@ -46036,7 +46050,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDServiceAccess().getPostconditionDExpressionParserRuleCall_8_1_0()); 
+               after(grammarAccess.getDServiceAccess().getEffectsDExpressionParserRuleCall_8_1_0()); 
             }
 
             }
@@ -46056,7 +46070,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DService__PostconditionAssignment_8_1"
+    // $ANTLR end "rule__DService__EffectsAssignment_8_1"
 
 
     // $ANTLR start "rule__DService__TypesAssignment_9"
@@ -49581,10 +49595,10 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
     }
     static final String dfa_7s = "\14\uffff";
-    static final String dfa_8s = "\6\uffff\1\12\5\uffff";
+    static final String dfa_8s = "\6\uffff\1\13\5\uffff";
     static final String dfa_9s = "\1\4\5\uffff\1\5\5\uffff";
     static final String dfa_10s = "\1\157\5\uffff\1\155\5\uffff";
-    static final String dfa_11s = "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\uffff\1\7\1\11\1\12\1\10\1\6";
+    static final String dfa_11s = "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\uffff\1\7\1\11\1\12\1\6\1\10";
     static final String dfa_12s = "\14\uffff}>";
     static final String[] dfa_13s = {
             "\1\1\1\6\4\uffff\1\1\14\uffff\2\2\2\3\2\4\2\7\1\uffff\4\1\46\uffff\1\5\27\uffff\1\10\4\uffff\1\11\6\uffff\2\1",
@@ -49593,7 +49607,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             "",
             "",
             "",
-            "\5\12\10\uffff\5\12\10\uffff\1\12\6\uffff\4\12\4\uffff\25\12\7\uffff\1\13\1\12\3\uffff\3\12\1\uffff\6\12\6\uffff\1\12\1\uffff\1\12\1\uffff\4\12\2\uffff\3\12\1\uffff\1\12",
+            "\5\13\10\uffff\5\13\10\uffff\1\13\6\uffff\4\13\4\uffff\25\13\7\uffff\1\12\1\13\3\uffff\3\13\1\uffff\6\13\5\uffff\2\13\1\uffff\1\13\1\uffff\4\13\2\uffff\3\13\1\uffff\1\13",
             "",
             "",
             "",
@@ -49631,9 +49645,9 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     static final String dfa_16s = "\1\5\1\uffff\10\0\1\uffff";
     static final String dfa_17s = "\1\153\1\uffff\10\0\1\uffff";
     static final String dfa_18s = "\1\uffff\1\2\10\uffff\1\1";
-    static final String dfa_19s = "\2\uffff\1\7\1\4\1\0\1\6\1\5\1\3\1\1\1\2\1\uffff}>";
+    static final String dfa_19s = "\2\uffff\1\0\1\5\1\1\1\7\1\6\1\4\1\2\1\3\1\uffff}>";
     static final String[] dfa_20s = {
-            "\5\1\10\uffff\1\1\1\2\1\3\2\1\10\uffff\1\1\6\uffff\4\1\4\uffff\11\1\1\4\1\5\1\6\1\7\1\10\1\11\6\1\10\uffff\1\1\3\uffff\3\1\1\uffff\6\1\6\uffff\1\1\1\uffff\1\1\1\uffff\4\1\2\uffff\3\1",
+            "\5\1\10\uffff\1\1\1\2\1\3\2\1\10\uffff\1\1\6\uffff\4\1\4\uffff\11\1\1\4\1\5\1\6\1\7\1\10\1\11\6\1\10\uffff\1\1\3\uffff\3\1\1\uffff\6\1\5\uffff\2\1\1\uffff\1\1\1\uffff\4\1\2\uffff\3\1",
             "",
             "\1\uffff",
             "\1\uffff",
@@ -49675,111 +49689,6 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA105_4 = input.LA(1);
-
-                         
-                        int index105_4 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred140_InternalDim()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index105_4);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA105_8 = input.LA(1);
-
-                         
-                        int index105_8 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred140_InternalDim()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index105_8);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA105_9 = input.LA(1);
-
-                         
-                        int index105_9 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred140_InternalDim()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index105_9);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA105_7 = input.LA(1);
-
-                         
-                        int index105_7 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred140_InternalDim()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index105_7);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
-                        int LA105_3 = input.LA(1);
-
-                         
-                        int index105_3 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred140_InternalDim()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index105_3);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 5 : 
-                        int LA105_6 = input.LA(1);
-
-                         
-                        int index105_6 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred140_InternalDim()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index105_6);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
-                        int LA105_5 = input.LA(1);
-
-                         
-                        int index105_5 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred140_InternalDim()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index105_5);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 7 : 
                         int LA105_2 = input.LA(1);
 
                          
@@ -49794,6 +49703,111 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                         input.seek(index105_2);
                         if ( s>=0 ) return s;
                         break;
+                    case 1 : 
+                        int LA105_4 = input.LA(1);
+
+                         
+                        int index105_4 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred140_InternalDim()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index105_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA105_8 = input.LA(1);
+
+                         
+                        int index105_8 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred140_InternalDim()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index105_8);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA105_9 = input.LA(1);
+
+                         
+                        int index105_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred140_InternalDim()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index105_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
+                        int LA105_7 = input.LA(1);
+
+                         
+                        int index105_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred140_InternalDim()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index105_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA105_3 = input.LA(1);
+
+                         
+                        int index105_3 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred140_InternalDim()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index105_3);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA105_6 = input.LA(1);
+
+                         
+                        int index105_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred140_InternalDim()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index105_6);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA105_5 = input.LA(1);
+
+                         
+                        int index105_5 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred140_InternalDim()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index105_5);
+                        if ( s>=0 ) return s;
+                        break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
@@ -49802,14 +49816,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             throw nvae;
         }
     }
-    static final String dfa_21s = "\117\uffff";
-    static final String dfa_22s = "\1\34\116\uffff";
-    static final String dfa_23s = "\1\4\3\0\26\uffff\2\0\63\uffff";
-    static final String dfa_24s = "\1\157\3\0\26\uffff\2\0\63\uffff";
-    static final String dfa_25s = "\4\uffff\1\1\27\uffff\1\2\62\uffff";
-    static final String dfa_26s = "\1\uffff\1\0\1\1\1\2\26\uffff\1\3\1\4\63\uffff}>";
+    static final String dfa_21s = "\120\uffff";
+    static final String dfa_22s = "\1\34\117\uffff";
+    static final String dfa_23s = "\1\4\3\0\26\uffff\2\0\64\uffff";
+    static final String dfa_24s = "\1\157\3\0\26\uffff\2\0\64\uffff";
+    static final String dfa_25s = "\4\uffff\1\1\27\uffff\1\2\63\uffff";
+    static final String dfa_26s = "\1\uffff\1\0\1\1\1\2\26\uffff\1\3\1\4\64\uffff}>";
     static final String[] dfa_27s = {
-            "\1\4\1\1\1\32\1\33\2\34\1\4\7\uffff\5\34\10\4\1\34\4\4\2\uffff\1\2\1\3\2\34\4\uffff\25\34\3\4\4\uffff\1\4\1\34\3\uffff\3\34\1\uffff\6\34\6\uffff\1\34\1\uffff\1\34\1\4\4\34\1\4\1\uffff\3\34\2\uffff\2\4",
+            "\1\4\1\1\1\32\1\33\2\34\1\4\7\uffff\5\34\10\4\1\34\4\4\2\uffff\1\2\1\3\2\34\4\uffff\25\34\3\4\4\uffff\1\4\1\34\3\uffff\3\34\1\uffff\6\34\5\uffff\2\34\1\uffff\1\34\1\4\4\34\1\4\1\uffff\3\34\2\uffff\2\4",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
@@ -49837,6 +49851,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             "",
             "\1\uffff",
             "\1\uffff",
+            "",
             "",
             "",
             "",
@@ -50047,51 +50062,53 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x00000C0000000000L,0x0000060019DA2200L});
     public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x00000000000000C0L,0x0000000020004400L});
     public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000000000000L,0x00000600C1DA8000L});
-    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000300000000000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000300000000000L});
-    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000000000000300L});
-    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000000000000102L});
-    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x000000CF7F800430L,0x0000C08400000438L});
-    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0003C00000000000L});
-    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0003C00000000002L});
-    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x000C000000000000L});
-    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x000C000000000002L});
-    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0070000000000000L});
-    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0070000000000002L});
-    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x1F80000000180000L});
-    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x1F80000000180002L});
-    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000000180000L});
-    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0xE000000000000000L});
-    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0xE000000000000002L});
-    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x000000C000000000L});
-    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x000000C000000002L});
-    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0000000080000000L,0x0000000000000007L});
-    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0000000080000002L,0x0000000000000007L});
-    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x000000C000000000L,0x0000000000000038L});
-    public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x0000000000600000L});
-    public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x0000000000000000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x0000000000000002L,0x0000000200000000L});
-    public static final BitSet FOLLOW_70 = new BitSet(new long[]{0x0000000000000000L,0x0000200000000400L});
-    public static final BitSet FOLLOW_71 = new BitSet(new long[]{0x000000CF7F8004F0L,0x0000C08400000C38L});
-    public static final BitSet FOLLOW_72 = new BitSet(new long[]{0x0000000001800000L});
-    public static final BitSet FOLLOW_73 = new BitSet(new long[]{0x0000000006000000L});
-    public static final BitSet FOLLOW_74 = new BitSet(new long[]{0x0000000018000000L});
-    public static final BitSet FOLLOW_75 = new BitSet(new long[]{0x0000000060000000L});
-    public static final BitSet FOLLOW_76 = new BitSet(new long[]{0x0000000000000000L,0x0000200000000000L});
-    public static final BitSet FOLLOW_77 = new BitSet(new long[]{0x0000000000000000L,0x0000000400000000L});
-    public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x0000000000000000L,0x0000000800000000L});
-    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x0000000000000000L,0x0000003000000000L});
-    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L});
-    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_82 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_83 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_84 = new BitSet(new long[]{0x0000000080000010L});
-    public static final BitSet FOLLOW_85 = new BitSet(new long[]{0x0000000300000000L,0x0000C00000000000L});
-    public static final BitSet FOLLOW_86 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_87 = new BitSet(new long[]{0x0000000F00000410L,0x0000C00000000000L});
-    public static final BitSet FOLLOW_88 = new BitSet(new long[]{0x0000003000000000L});
-    public static final BitSet FOLLOW_89 = new BitSet(new long[]{0x000000C000000010L});
-    public static final BitSet FOLLOW_90 = new BitSet(new long[]{0x0000000000000000L,0x0000010000000000L});
+    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000000000002L,0x0000000040000000L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000000000000002L,0x0000000080000000L});
+    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000300000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000300000000000L});
+    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000000000000300L});
+    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0000000000000102L});
+    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x000000CF7F800430L,0x0000C08400000438L});
+    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0003C00000000000L});
+    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0003C00000000002L});
+    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x000C000000000000L});
+    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x000C000000000002L});
+    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0070000000000000L});
+    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0070000000000002L});
+    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x1F80000000180000L});
+    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x1F80000000180002L});
+    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0000000000180000L});
+    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0xE000000000000000L});
+    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0xE000000000000002L});
+    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x000000C000000000L});
+    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x000000C000000002L});
+    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0000000080000000L,0x0000000000000007L});
+    public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x0000000080000002L,0x0000000000000007L});
+    public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x000000C000000000L,0x0000000000000038L});
+    public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x0000000000600000L});
+    public static final BitSet FOLLOW_70 = new BitSet(new long[]{0x0000000000000000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_71 = new BitSet(new long[]{0x0000000000000002L,0x0000000200000000L});
+    public static final BitSet FOLLOW_72 = new BitSet(new long[]{0x0000000000000000L,0x0000200000000400L});
+    public static final BitSet FOLLOW_73 = new BitSet(new long[]{0x000000CF7F8004F0L,0x0000C08400000C38L});
+    public static final BitSet FOLLOW_74 = new BitSet(new long[]{0x0000000001800000L});
+    public static final BitSet FOLLOW_75 = new BitSet(new long[]{0x0000000006000000L});
+    public static final BitSet FOLLOW_76 = new BitSet(new long[]{0x0000000018000000L});
+    public static final BitSet FOLLOW_77 = new BitSet(new long[]{0x0000000060000000L});
+    public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x0000000000000000L,0x0000200000000000L});
+    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x0000000000000000L,0x0000000400000000L});
+    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0000000000000000L,0x0000000800000000L});
+    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0000000000000000L,0x0000003000000000L});
+    public static final BitSet FOLLOW_82 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L});
+    public static final BitSet FOLLOW_83 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_84 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_85 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_86 = new BitSet(new long[]{0x0000000080000010L});
+    public static final BitSet FOLLOW_87 = new BitSet(new long[]{0x0000000300000000L,0x0000C00000000000L});
+    public static final BitSet FOLLOW_88 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_89 = new BitSet(new long[]{0x0000000F00000410L,0x0000C00000000000L});
+    public static final BitSet FOLLOW_90 = new BitSet(new long[]{0x0000003000000000L});
+    public static final BitSet FOLLOW_91 = new BitSet(new long[]{0x000000C000000010L});
+    public static final BitSet FOLLOW_92 = new BitSet(new long[]{0x0000000000000000L,0x0000010000000000L});
 
 }

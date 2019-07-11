@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.IDeducibleElement#getDeductionDefinition <em>Deduction Definition</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.IDeducibleElement#getDeducedFrom <em>Deduced From</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.IDeducibleElement#isSynthetic <em>Synthetic</em>}</li>
  * </ul>
  *
@@ -24,26 +24,26 @@ import org.eclipse.emf.ecore.EObject;
 public interface IDeducibleElement extends EObject
 {
 	/**
-	 * Returns the value of the '<em><b>Deduction Definition</b></em>' reference.
+	 * Returns the value of the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Deduction Definition</em>' reference.
-	 * @see #setDeductionDefinition(IDeductionDefinition)
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getIDeducibleElement_DeductionDefinition()
-	 * @model
+	 * @return the value of the '<em>Deduced From</em>' reference.
+	 * @see #setDeducedFrom(IDeductionDefinition)
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getIDeducibleElement_DeducedFrom()
+	 * @model transient="true"
 	 * @generated
 	 */
-	IDeductionDefinition getDeductionDefinition();
+	IDeductionDefinition getDeducedFrom();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.IDeducibleElement#getDeductionDefinition <em>Deduction Definition</em>}' reference.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.IDeducibleElement#getDeducedFrom <em>Deduced From</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Deduction Definition</em>' reference.
-	 * @see #getDeductionDefinition()
+	 * @param value the new value of the '<em>Deduced From</em>' reference.
+	 * @see #getDeducedFrom()
 	 * @generated
 	 */
-	void setDeductionDefinition(IDeductionDefinition value);
+	void setDeducedFrom(IDeductionDefinition value);
 
 	/**
 	 * Returns the value of the '<em><b>Synthetic</b></em>' attribute.

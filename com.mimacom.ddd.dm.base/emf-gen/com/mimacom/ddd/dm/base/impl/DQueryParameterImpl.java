@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DQueryParameterImpl#getDeductionDefinition <em>Deduction Definition</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DQueryParameterImpl#getDeducedFrom <em>Deduced From</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DQueryParameterImpl#isSynthetic <em>Synthetic</em>}</li>
  * </ul>
  *
@@ -31,14 +31,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class DQueryParameterImpl extends DTypedMemberImplCustom implements DQueryParameter
 {
 	/**
-	 * The cached value of the '{@link #getDeductionDefinition() <em>Deduction Definition</em>}' reference.
+	 * The cached value of the '{@link #getDeducedFrom() <em>Deduced From</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDeductionDefinition()
+	 * @see #getDeducedFrom()
 	 * @generated
 	 * @ordered
 	 */
-	protected IDeductionDefinition deductionDefinition;
+	protected IDeductionDefinition deducedFrom;
 
 	/**
 	 * The default value of the '{@link #isSynthetic() <em>Synthetic</em>}' attribute.
@@ -87,19 +87,19 @@ public class DQueryParameterImpl extends DTypedMemberImplCustom implements DQuer
 	 * @generated
 	 */
 	@Override
-	public IDeductionDefinition getDeductionDefinition()
+	public IDeductionDefinition getDeducedFrom()
 	{
-		if (deductionDefinition != null && deductionDefinition.eIsProxy())
+		if (deducedFrom != null && deducedFrom.eIsProxy())
 		{
-			InternalEObject oldDeductionDefinition = (InternalEObject)deductionDefinition;
-			deductionDefinition = (IDeductionDefinition)eResolveProxy(oldDeductionDefinition);
-			if (deductionDefinition != oldDeductionDefinition)
+			InternalEObject oldDeducedFrom = (InternalEObject)deducedFrom;
+			deducedFrom = (IDeductionDefinition)eResolveProxy(oldDeducedFrom);
+			if (deducedFrom != oldDeducedFrom)
 			{
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BasePackage.DQUERY_PARAMETER__DEDUCTION_DEFINITION, oldDeductionDefinition, deductionDefinition));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BasePackage.DQUERY_PARAMETER__DEDUCED_FROM, oldDeducedFrom, deducedFrom));
 			}
 		}
-		return deductionDefinition;
+		return deducedFrom;
 	}
 
 	/**
@@ -107,9 +107,9 @@ public class DQueryParameterImpl extends DTypedMemberImplCustom implements DQuer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IDeductionDefinition basicGetDeductionDefinition()
+	public IDeductionDefinition basicGetDeducedFrom()
 	{
-		return deductionDefinition;
+		return deducedFrom;
 	}
 
 	/**
@@ -118,12 +118,12 @@ public class DQueryParameterImpl extends DTypedMemberImplCustom implements DQuer
 	 * @generated
 	 */
 	@Override
-	public void setDeductionDefinition(IDeductionDefinition newDeductionDefinition)
+	public void setDeducedFrom(IDeductionDefinition newDeducedFrom)
 	{
-		IDeductionDefinition oldDeductionDefinition = deductionDefinition;
-		deductionDefinition = newDeductionDefinition;
+		IDeductionDefinition oldDeducedFrom = deducedFrom;
+		deducedFrom = newDeducedFrom;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DQUERY_PARAMETER__DEDUCTION_DEFINITION, oldDeductionDefinition, deductionDefinition));
+			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DQUERY_PARAMETER__DEDUCED_FROM, oldDeducedFrom, deducedFrom));
 	}
 
 	/**
@@ -161,9 +161,9 @@ public class DQueryParameterImpl extends DTypedMemberImplCustom implements DQuer
 	{
 		switch (featureID)
 		{
-			case BasePackage.DQUERY_PARAMETER__DEDUCTION_DEFINITION:
-				if (resolve) return getDeductionDefinition();
-				return basicGetDeductionDefinition();
+			case BasePackage.DQUERY_PARAMETER__DEDUCED_FROM:
+				if (resolve) return getDeducedFrom();
+				return basicGetDeducedFrom();
 			case BasePackage.DQUERY_PARAMETER__SYNTHETIC:
 				return isSynthetic();
 		}
@@ -180,8 +180,8 @@ public class DQueryParameterImpl extends DTypedMemberImplCustom implements DQuer
 	{
 		switch (featureID)
 		{
-			case BasePackage.DQUERY_PARAMETER__DEDUCTION_DEFINITION:
-				setDeductionDefinition((IDeductionDefinition)newValue);
+			case BasePackage.DQUERY_PARAMETER__DEDUCED_FROM:
+				setDeducedFrom((IDeductionDefinition)newValue);
 				return;
 			case BasePackage.DQUERY_PARAMETER__SYNTHETIC:
 				setSynthetic((Boolean)newValue);
@@ -200,8 +200,8 @@ public class DQueryParameterImpl extends DTypedMemberImplCustom implements DQuer
 	{
 		switch (featureID)
 		{
-			case BasePackage.DQUERY_PARAMETER__DEDUCTION_DEFINITION:
-				setDeductionDefinition((IDeductionDefinition)null);
+			case BasePackage.DQUERY_PARAMETER__DEDUCED_FROM:
+				setDeducedFrom((IDeductionDefinition)null);
 				return;
 			case BasePackage.DQUERY_PARAMETER__SYNTHETIC:
 				setSynthetic(SYNTHETIC_EDEFAULT);
@@ -220,8 +220,8 @@ public class DQueryParameterImpl extends DTypedMemberImplCustom implements DQuer
 	{
 		switch (featureID)
 		{
-			case BasePackage.DQUERY_PARAMETER__DEDUCTION_DEFINITION:
-				return deductionDefinition != null;
+			case BasePackage.DQUERY_PARAMETER__DEDUCED_FROM:
+				return deducedFrom != null;
 			case BasePackage.DQUERY_PARAMETER__SYNTHETIC:
 				return synthetic != SYNTHETIC_EDEFAULT;
 		}
@@ -240,7 +240,7 @@ public class DQueryParameterImpl extends DTypedMemberImplCustom implements DQuer
 		{
 			switch (derivedFeatureID)
 			{
-				case BasePackage.DQUERY_PARAMETER__DEDUCTION_DEFINITION: return BasePackage.IDEDUCIBLE_ELEMENT__DEDUCTION_DEFINITION;
+				case BasePackage.DQUERY_PARAMETER__DEDUCED_FROM: return BasePackage.IDEDUCIBLE_ELEMENT__DEDUCED_FROM;
 				case BasePackage.DQUERY_PARAMETER__SYNTHETIC: return BasePackage.IDEDUCIBLE_ELEMENT__SYNTHETIC;
 				default: return -1;
 			}
@@ -260,7 +260,7 @@ public class DQueryParameterImpl extends DTypedMemberImplCustom implements DQuer
 		{
 			switch (baseFeatureID)
 			{
-				case BasePackage.IDEDUCIBLE_ELEMENT__DEDUCTION_DEFINITION: return BasePackage.DQUERY_PARAMETER__DEDUCTION_DEFINITION;
+				case BasePackage.IDEDUCIBLE_ELEMENT__DEDUCED_FROM: return BasePackage.DQUERY_PARAMETER__DEDUCED_FROM;
 				case BasePackage.IDEDUCIBLE_ELEMENT__SYNTHETIC: return BasePackage.DQUERY_PARAMETER__SYNTHETIC;
 				default: return -1;
 			}

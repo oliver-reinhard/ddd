@@ -43,11 +43,11 @@ class DemDiagramTextProvider extends AbstractDiagramTextProvider {
        	«FOR e : events»
        		(«e.name») as (event)
        		actor «e.trigger.name»
-       		«FOR n : e.notifications»
+       		«FOR n : e.notifications.filter[notified!==null]»
        			actor «n.notified.name»
        		«ENDFOR»
        		«e.trigger.name» --> (event) : triggers
-       		«FOR n : e.notifications»
+       		«FOR n : e.notifications.filter[notified!==null]»
        			«n.notified.name» <-- (event) : «n.name»
        		«ENDFOR»
        	«ENDFOR»

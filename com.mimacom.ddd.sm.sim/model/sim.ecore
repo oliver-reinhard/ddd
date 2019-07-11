@@ -24,6 +24,11 @@
     <eLiterals name="INTERFACE" value="1"/>
     <eLiterals name="CORE" value="2"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SImplicitElementDeduction" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//IDeductionDefinition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="originalDeductionDefinition"
+        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//IDeductionDefinition"
+        transient="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SDomainDeduction" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//IDeductionDefinition"/>
   <eClassifiers xsi:type="ecore:EClass" name="SAggregateDeduction" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DAggregate ../../com.mimacom.ddd.dm.base/model/base.ecore#//IDeductionDefinition"/>
   <eClassifiers xsi:type="ecore:EClass" name="STypeDeduction" abstract="true" interface="true"

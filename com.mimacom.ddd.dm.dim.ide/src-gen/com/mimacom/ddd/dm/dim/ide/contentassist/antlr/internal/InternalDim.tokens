@@ -54,6 +54,7 @@
 'do'=102
 'domain'=70
 'e'=37
+'effect'=95
 'else'=101
 'end'=100
 'entity'=86
@@ -63,6 +64,7 @@
 'false'=33
 'for'=103
 'function'=73
+'guard'=94
 'if'=98
 'import'=72
 'in'=44
@@ -73,8 +75,6 @@
 'not'=69
 'or'=47
 'out'=45
-'postcondition'=95
-'precondition'=94
 'primitive'=81
 'raise'=28
 'raises'=93

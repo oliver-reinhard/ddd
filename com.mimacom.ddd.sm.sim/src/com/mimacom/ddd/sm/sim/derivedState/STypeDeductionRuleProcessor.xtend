@@ -27,7 +27,6 @@ class STypeDeductionRuleProcessor  {
 	
 	@Inject extension SyntheticModelElementsFactory
 	
-	
 	static val UNDEFINED = "UNDEFINED"
 	
 	protected def void addImplicitSyntheticTypes(DAggregate container, SAggregateDeduction deductionDefinition, DAggregate source, List<SyntheticComplexTypeDescriptor> acceptor, TransformationContext context) {
@@ -40,7 +39,7 @@ class STypeDeductionRuleProcessor  {
 			
 			// create synthetic STypes for implicit types (but not their features yet because they may depend on the mappings of those types ):
 			for (sourceType : implicitlyGrabbedSourceTypes) {
-				val syntheticType = container.addSyntheticType(sourceType.name, sourceType, null, context)
+				val syntheticType = container.addSyntheticType(sourceType.name, sourceType, createImplicitElementCopyDeduction(deductionDefinition, sourceType), context)
 				if (syntheticType instanceof DEnumeration) {
 					syntheticType.addImplicitSyntheticLiterals(sourceType as DEnumeration, null)
 				} else if (syntheticType instanceof DComplexType) {
@@ -164,5 +163,4 @@ class STypeDeductionRuleProcessor  {
 				syntheticEnum.addSyntheticLiteral(literal.name)
 		}
 	}
-	
 }

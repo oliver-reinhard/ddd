@@ -37,8 +37,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getRaises <em>Raises</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getPrecondition <em>Precondition</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getPostcondition <em>Postcondition</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getGuards <em>Guards</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getEffects <em>Effects</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getTypes <em>Types</em>}</li>
  * </ul>
  *
@@ -87,24 +87,24 @@ public class DServiceImpl extends DActorImpl implements DService
 	protected EList<DException> raises;
 
 	/**
-	 * The cached value of the '{@link #getPrecondition() <em>Precondition</em>}' containment reference.
+	 * The cached value of the '{@link #getGuards() <em>Guards</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPrecondition()
+	 * @see #getGuards()
 	 * @generated
 	 * @ordered
 	 */
-	protected DExpression precondition;
+	protected EList<DExpression> guards;
 
 	/**
-	 * The cached value of the '{@link #getPostcondition() <em>Postcondition</em>}' containment reference.
+	 * The cached value of the '{@link #getEffects() <em>Effects</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPostcondition()
+	 * @see #getEffects()
 	 * @generated
 	 * @ordered
 	 */
-	protected DExpression postcondition;
+	protected EList<DExpression> effects;
 
 	/**
 	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
@@ -198,26 +198,13 @@ public class DServiceImpl extends DActorImpl implements DService
 	 * @generated
 	 */
 	@Override
-	public DExpression getPrecondition()
+	public EList<DExpression> getGuards()
 	{
-		return precondition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPrecondition(DExpression newPrecondition, NotificationChain msgs)
-	{
-		DExpression oldPrecondition = precondition;
-		precondition = newPrecondition;
-		if (eNotificationRequired())
+		if (guards == null)
 		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasePackage.DSERVICE__PRECONDITION, oldPrecondition, newPrecondition);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			guards = new EObjectContainmentEList<DExpression>(DExpression.class, this, BasePackage.DSERVICE__GUARDS);
 		}
-		return msgs;
+		return guards;
 	}
 
 	/**
@@ -226,70 +213,13 @@ public class DServiceImpl extends DActorImpl implements DService
 	 * @generated
 	 */
 	@Override
-	public void setPrecondition(DExpression newPrecondition)
+	public EList<DExpression> getEffects()
 	{
-		if (newPrecondition != precondition)
+		if (effects == null)
 		{
-			NotificationChain msgs = null;
-			if (precondition != null)
-				msgs = ((InternalEObject)precondition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasePackage.DSERVICE__PRECONDITION, null, msgs);
-			if (newPrecondition != null)
-				msgs = ((InternalEObject)newPrecondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasePackage.DSERVICE__PRECONDITION, null, msgs);
-			msgs = basicSetPrecondition(newPrecondition, msgs);
-			if (msgs != null) msgs.dispatch();
+			effects = new EObjectContainmentEList<DExpression>(DExpression.class, this, BasePackage.DSERVICE__EFFECTS);
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DSERVICE__PRECONDITION, newPrecondition, newPrecondition));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DExpression getPostcondition()
-	{
-		return postcondition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPostcondition(DExpression newPostcondition, NotificationChain msgs)
-	{
-		DExpression oldPostcondition = postcondition;
-		postcondition = newPostcondition;
-		if (eNotificationRequired())
-		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasePackage.DSERVICE__POSTCONDITION, oldPostcondition, newPostcondition);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setPostcondition(DExpression newPostcondition)
-	{
-		if (newPostcondition != postcondition)
-		{
-			NotificationChain msgs = null;
-			if (postcondition != null)
-				msgs = ((InternalEObject)postcondition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasePackage.DSERVICE__POSTCONDITION, null, msgs);
-			if (newPostcondition != null)
-				msgs = ((InternalEObject)newPostcondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasePackage.DSERVICE__POSTCONDITION, null, msgs);
-			msgs = basicSetPostcondition(newPostcondition, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DSERVICE__POSTCONDITION, newPostcondition, newPostcondition));
+		return effects;
 	}
 
 	/**
@@ -319,10 +249,10 @@ public class DServiceImpl extends DActorImpl implements DService
 		{
 			case BasePackage.DSERVICE__PARAMETERS:
 				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
-			case BasePackage.DSERVICE__PRECONDITION:
-				return basicSetPrecondition(null, msgs);
-			case BasePackage.DSERVICE__POSTCONDITION:
-				return basicSetPostcondition(null, msgs);
+			case BasePackage.DSERVICE__GUARDS:
+				return ((InternalEList<?>)getGuards()).basicRemove(otherEnd, msgs);
+			case BasePackage.DSERVICE__EFFECTS:
+				return ((InternalEList<?>)getEffects()).basicRemove(otherEnd, msgs);
 			case BasePackage.DSERVICE__TYPES:
 				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
 		}
@@ -345,10 +275,10 @@ public class DServiceImpl extends DActorImpl implements DService
 				return getParameters();
 			case BasePackage.DSERVICE__RAISES:
 				return getRaises();
-			case BasePackage.DSERVICE__PRECONDITION:
-				return getPrecondition();
-			case BasePackage.DSERVICE__POSTCONDITION:
-				return getPostcondition();
+			case BasePackage.DSERVICE__GUARDS:
+				return getGuards();
+			case BasePackage.DSERVICE__EFFECTS:
+				return getEffects();
 			case BasePackage.DSERVICE__TYPES:
 				return getTypes();
 		}
@@ -377,11 +307,13 @@ public class DServiceImpl extends DActorImpl implements DService
 				getRaises().clear();
 				getRaises().addAll((Collection<? extends DException>)newValue);
 				return;
-			case BasePackage.DSERVICE__PRECONDITION:
-				setPrecondition((DExpression)newValue);
+			case BasePackage.DSERVICE__GUARDS:
+				getGuards().clear();
+				getGuards().addAll((Collection<? extends DExpression>)newValue);
 				return;
-			case BasePackage.DSERVICE__POSTCONDITION:
-				setPostcondition((DExpression)newValue);
+			case BasePackage.DSERVICE__EFFECTS:
+				getEffects().clear();
+				getEffects().addAll((Collection<? extends DExpression>)newValue);
 				return;
 			case BasePackage.DSERVICE__TYPES:
 				getTypes().clear();
@@ -410,11 +342,11 @@ public class DServiceImpl extends DActorImpl implements DService
 			case BasePackage.DSERVICE__RAISES:
 				getRaises().clear();
 				return;
-			case BasePackage.DSERVICE__PRECONDITION:
-				setPrecondition((DExpression)null);
+			case BasePackage.DSERVICE__GUARDS:
+				getGuards().clear();
 				return;
-			case BasePackage.DSERVICE__POSTCONDITION:
-				setPostcondition((DExpression)null);
+			case BasePackage.DSERVICE__EFFECTS:
+				getEffects().clear();
 				return;
 			case BasePackage.DSERVICE__TYPES:
 				getTypes().clear();
@@ -439,10 +371,10 @@ public class DServiceImpl extends DActorImpl implements DService
 				return parameters != null && !parameters.isEmpty();
 			case BasePackage.DSERVICE__RAISES:
 				return raises != null && !raises.isEmpty();
-			case BasePackage.DSERVICE__PRECONDITION:
-				return precondition != null;
-			case BasePackage.DSERVICE__POSTCONDITION:
-				return postcondition != null;
+			case BasePackage.DSERVICE__GUARDS:
+				return guards != null && !guards.isEmpty();
+			case BasePackage.DSERVICE__EFFECTS:
+				return effects != null && !effects.isEmpty();
 			case BasePackage.DSERVICE__TYPES:
 				return types != null && !types.isEmpty();
 		}

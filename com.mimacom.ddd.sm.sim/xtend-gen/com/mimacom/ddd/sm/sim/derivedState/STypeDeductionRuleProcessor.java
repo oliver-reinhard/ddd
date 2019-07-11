@@ -67,7 +67,7 @@ public class STypeDeductionRuleProcessor {
       CollectionExtensions.<DType>removeAll(implicitlyGrabbedSourceTypes, sourceTypesAffectedByRule);
       for (final DType sourceType : implicitlyGrabbedSourceTypes) {
         {
-          final DType syntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, sourceType.getName(), sourceType, null, context);
+          final DType syntheticType = this._syntheticModelElementsFactory.addSyntheticType(container, sourceType.getName(), sourceType, this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(deductionDefinition, sourceType), context);
           if ((syntheticType instanceof DEnumeration)) {
             this.addImplicitSyntheticLiterals(((DEnumeration)syntheticType), ((DEnumeration) sourceType), null);
           } else {

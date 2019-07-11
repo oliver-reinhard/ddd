@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DTypeImpl#getDeductionDefinition <em>Deduction Definition</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DTypeImpl#getDeducedFrom <em>Deduced From</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DTypeImpl#isSynthetic <em>Synthetic</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DTypeImpl#getConstraints <em>Constraints</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DTypeImpl#isPrimitive <em>Primitive</em>}</li>
@@ -43,14 +43,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public abstract class DTypeImpl extends DNamedElementImpl implements DType
 {
 	/**
-	 * The cached value of the '{@link #getDeductionDefinition() <em>Deduction Definition</em>}' reference.
+	 * The cached value of the '{@link #getDeducedFrom() <em>Deduced From</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDeductionDefinition()
+	 * @see #getDeducedFrom()
 	 * @generated
 	 * @ordered
 	 */
-	protected IDeductionDefinition deductionDefinition;
+	protected IDeductionDefinition deducedFrom;
 
 	/**
 	 * The default value of the '{@link #isSynthetic() <em>Synthetic</em>}' attribute.
@@ -129,19 +129,19 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	 * @generated
 	 */
 	@Override
-	public IDeductionDefinition getDeductionDefinition()
+	public IDeductionDefinition getDeducedFrom()
 	{
-		if (deductionDefinition != null && deductionDefinition.eIsProxy())
+		if (deducedFrom != null && deducedFrom.eIsProxy())
 		{
-			InternalEObject oldDeductionDefinition = (InternalEObject)deductionDefinition;
-			deductionDefinition = (IDeductionDefinition)eResolveProxy(oldDeductionDefinition);
-			if (deductionDefinition != oldDeductionDefinition)
+			InternalEObject oldDeducedFrom = (InternalEObject)deducedFrom;
+			deducedFrom = (IDeductionDefinition)eResolveProxy(oldDeducedFrom);
+			if (deducedFrom != oldDeducedFrom)
 			{
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BasePackage.DTYPE__DEDUCTION_DEFINITION, oldDeductionDefinition, deductionDefinition));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BasePackage.DTYPE__DEDUCED_FROM, oldDeducedFrom, deducedFrom));
 			}
 		}
-		return deductionDefinition;
+		return deducedFrom;
 	}
 
 	/**
@@ -149,9 +149,9 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IDeductionDefinition basicGetDeductionDefinition()
+	public IDeductionDefinition basicGetDeducedFrom()
 	{
-		return deductionDefinition;
+		return deducedFrom;
 	}
 
 	/**
@@ -160,12 +160,12 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	 * @generated
 	 */
 	@Override
-	public void setDeductionDefinition(IDeductionDefinition newDeductionDefinition)
+	public void setDeducedFrom(IDeductionDefinition newDeducedFrom)
 	{
-		IDeductionDefinition oldDeductionDefinition = deductionDefinition;
-		deductionDefinition = newDeductionDefinition;
+		IDeductionDefinition oldDeducedFrom = deducedFrom;
+		deducedFrom = newDeducedFrom;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DTYPE__DEDUCTION_DEFINITION, oldDeductionDefinition, deductionDefinition));
+			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DTYPE__DEDUCED_FROM, oldDeducedFrom, deducedFrom));
 	}
 
 	/**
@@ -259,9 +259,9 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	{
 		switch (featureID)
 		{
-			case BasePackage.DTYPE__DEDUCTION_DEFINITION:
-				if (resolve) return getDeductionDefinition();
-				return basicGetDeductionDefinition();
+			case BasePackage.DTYPE__DEDUCED_FROM:
+				if (resolve) return getDeducedFrom();
+				return basicGetDeducedFrom();
 			case BasePackage.DTYPE__SYNTHETIC:
 				return isSynthetic();
 			case BasePackage.DTYPE__CONSTRAINTS:
@@ -283,8 +283,8 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	{
 		switch (featureID)
 		{
-			case BasePackage.DTYPE__DEDUCTION_DEFINITION:
-				setDeductionDefinition((IDeductionDefinition)newValue);
+			case BasePackage.DTYPE__DEDUCED_FROM:
+				setDeducedFrom((IDeductionDefinition)newValue);
 				return;
 			case BasePackage.DTYPE__SYNTHETIC:
 				setSynthetic((Boolean)newValue);
@@ -310,8 +310,8 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	{
 		switch (featureID)
 		{
-			case BasePackage.DTYPE__DEDUCTION_DEFINITION:
-				setDeductionDefinition((IDeductionDefinition)null);
+			case BasePackage.DTYPE__DEDUCED_FROM:
+				setDeducedFrom((IDeductionDefinition)null);
 				return;
 			case BasePackage.DTYPE__SYNTHETIC:
 				setSynthetic(SYNTHETIC_EDEFAULT);
@@ -336,8 +336,8 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	{
 		switch (featureID)
 		{
-			case BasePackage.DTYPE__DEDUCTION_DEFINITION:
-				return deductionDefinition != null;
+			case BasePackage.DTYPE__DEDUCED_FROM:
+				return deducedFrom != null;
 			case BasePackage.DTYPE__SYNTHETIC:
 				return synthetic != SYNTHETIC_EDEFAULT;
 			case BasePackage.DTYPE__CONSTRAINTS:
@@ -360,7 +360,7 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 		{
 			switch (derivedFeatureID)
 			{
-				case BasePackage.DTYPE__DEDUCTION_DEFINITION: return BasePackage.IDEDUCIBLE_ELEMENT__DEDUCTION_DEFINITION;
+				case BasePackage.DTYPE__DEDUCED_FROM: return BasePackage.IDEDUCIBLE_ELEMENT__DEDUCED_FROM;
 				case BasePackage.DTYPE__SYNTHETIC: return BasePackage.IDEDUCIBLE_ELEMENT__SYNTHETIC;
 				default: return -1;
 			}
@@ -387,7 +387,7 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 		{
 			switch (baseFeatureID)
 			{
-				case BasePackage.IDEDUCIBLE_ELEMENT__DEDUCTION_DEFINITION: return BasePackage.DTYPE__DEDUCTION_DEFINITION;
+				case BasePackage.IDEDUCIBLE_ELEMENT__DEDUCED_FROM: return BasePackage.DTYPE__DEDUCED_FROM;
 				case BasePackage.IDEDUCIBLE_ELEMENT__SYNTHETIC: return BasePackage.DTYPE__SYNTHETIC;
 				default: return -1;
 			}

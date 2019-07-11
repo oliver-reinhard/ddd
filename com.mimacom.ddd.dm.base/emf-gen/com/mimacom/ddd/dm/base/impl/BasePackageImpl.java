@@ -541,7 +541,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getIDeducibleElement_DeductionDefinition()
+	public EReference getIDeducibleElement_DeducedFrom()
 	{
 		return (EReference)iDeducibleElementEClass.getEStructuralFeatures().get(0);
 	}
@@ -1542,7 +1542,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDService_Precondition()
+	public EReference getDService_Guards()
 	{
 		return (EReference)dServiceEClass.getEStructuralFeatures().get(3);
 	}
@@ -1553,7 +1553,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDService_Postcondition()
+	public EReference getDService_Effects()
 	{
 		return (EReference)dServiceEClass.getEStructuralFeatures().get(4);
 	}
@@ -1731,7 +1731,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		createEReference(iDeductionDefinitionEClass, IDEDUCTION_DEFINITION__DEDUCTION_RULE);
 
 		iDeducibleElementEClass = createEClass(IDEDUCIBLE_ELEMENT);
-		createEReference(iDeducibleElementEClass, IDEDUCIBLE_ELEMENT__DEDUCTION_DEFINITION);
+		createEReference(iDeducibleElementEClass, IDEDUCIBLE_ELEMENT__DEDUCED_FROM);
 		createEAttribute(iDeducibleElementEClass, IDEDUCIBLE_ELEMENT__SYNTHETIC);
 
 		dDeductionRuleEClass = createEClass(DDEDUCTION_RULE);
@@ -1858,8 +1858,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		createEAttribute(dServiceEClass, DSERVICE__KIND);
 		createEReference(dServiceEClass, DSERVICE__PARAMETERS);
 		createEReference(dServiceEClass, DSERVICE__RAISES);
-		createEReference(dServiceEClass, DSERVICE__PRECONDITION);
-		createEReference(dServiceEClass, DSERVICE__POSTCONDITION);
+		createEReference(dServiceEClass, DSERVICE__GUARDS);
+		createEReference(dServiceEClass, DSERVICE__EFFECTS);
 		createEReference(dServiceEClass, DSERVICE__TYPES);
 
 		dServiceParameterEClass = createEClass(DSERVICE_PARAMETER);
@@ -1977,7 +1977,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEReference(getIDeductionDefinition_DeductionRule(), this.getDDeductionRule(), null, "deductionRule", null, 0, 1, IDeductionDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iDeducibleElementEClass, IDeducibleElement.class, "IDeducibleElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIDeducibleElement_DeductionDefinition(), this.getIDeductionDefinition(), null, "deductionDefinition", null, 0, 1, IDeducibleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIDeducibleElement_DeducedFrom(), this.getIDeductionDefinition(), null, "deducedFrom", null, 0, 1, IDeducibleElement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIDeducibleElement_Synthetic(), ecorePackage.getEBoolean(), "synthetic", null, 0, 1, IDeducibleElement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dDeductionRuleEClass, DDeductionRule.class, "DDeductionRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2105,8 +2105,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEAttribute(getDService_Kind(), this.getDServiceKind(), "kind", null, 0, 1, DService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDService_Parameters(), this.getDServiceParameter(), null, "parameters", null, 0, -1, DService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDService_Raises(), this.getDException(), null, "raises", null, 0, -1, DService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDService_Precondition(), this.getDExpression(), null, "precondition", null, 0, 1, DService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDService_Postcondition(), this.getDExpression(), null, "postcondition", null, 0, 1, DService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDService_Guards(), this.getDExpression(), null, "guards", null, 0, -1, DService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDService_Effects(), this.getDExpression(), null, "effects", null, 0, -1, DService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDService_Types(), this.getDType(), null, "types", null, 0, -1, DService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dServiceParameterEClass, DServiceParameter.class, "DServiceParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

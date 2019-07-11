@@ -62,7 +62,7 @@ class SimGenerator extends AbstractGenerator {
 			val deducibleElements = resource.allContents.filter(IDeducibleElement)
 			while (deducibleElements.hasNext) {
 				val e = deducibleElements.next
-				e.deductionDefinition = null
+				e.deducedFrom = null
 				hadSyntheticItems = hadSyntheticItems || (e.synthetic)
 				e.synthetic = false
 			}

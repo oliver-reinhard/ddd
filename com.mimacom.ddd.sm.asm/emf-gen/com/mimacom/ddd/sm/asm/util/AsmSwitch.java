@@ -126,20 +126,6 @@ public class AsmSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AsmPackage.SOPERATION_PARAMETER:
-			{
-				SOperationParameter sOperationParameter = (SOperationParameter)theEObject;
-				T result = caseSOperationParameter(sOperationParameter);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case AsmPackage.SEXCEPTION:
-			{
-				SException sException = (SException)theEObject;
-				T result = caseSException(sException);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -252,38 +238,6 @@ public class AsmSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseSServiceOperation(SServiceOperation object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SOperation Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SOperation Parameter</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSOperationParameter(SOperationParameter object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SException</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SException</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSException(SException object)
 	{
 		return null;
 	}

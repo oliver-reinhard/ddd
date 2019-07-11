@@ -78,24 +78,6 @@ public interface AsmFactory extends EFactory
 	SServiceOperation createSServiceOperation();
 
 	/**
-	 * Returns a new object of class '<em>SOperation Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SOperation Parameter</em>'.
-	 * @generated
-	 */
-	SOperationParameter createSOperationParameter();
-
-	/**
-	 * Returns a new object of class '<em>SException</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SException</em>'.
-	 * @generated
-	 */
-	SException createSException();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

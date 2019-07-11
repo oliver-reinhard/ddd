@@ -3,6 +3,8 @@
  */
 package com.mimacom.ddd.sm.asm.impl;
 
+import com.mimacom.ddd.dm.base.DException;
+
 import com.mimacom.ddd.sm.asm.AsmPackage;
 import com.mimacom.ddd.sm.asm.SServiceInterface;
 import com.mimacom.ddd.sm.asm.SServiceOperation;
@@ -32,7 +34,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.asm.impl.SServiceInterfaceImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.impl.SServiceInterfaceImpl#getInterface <em>Interface</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.impl.SServiceInterfaceImpl#getCore <em>Core</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.impl.SServiceInterfaceImpl#getExceptions <em>Exceptions</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.asm.impl.SServiceInterfaceImpl#getOperations <em>Operations</em>}</li>
  * </ul>
  *
@@ -41,14 +45,34 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class SServiceInterfaceImpl extends ModelImpl implements SServiceInterface
 {
 	/**
-	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
+	 * The cached value of the '{@link #getInterface() <em>Interface</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModel()
+	 * @see #getInterface()
 	 * @generated
 	 * @ordered
 	 */
-	protected SInformationModel model;
+	protected SInformationModel interface_;
+
+	/**
+	 * The cached value of the '{@link #getCore() <em>Core</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCore()
+	 * @generated
+	 * @ordered
+	 */
+	protected SInformationModel core;
+
+	/**
+	 * The cached value of the '{@link #getExceptions() <em>Exceptions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExceptions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DException> exceptions;
 
 	/**
 	 * The cached value of the '{@link #getOperations() <em>Operations</em>}' containment reference list.
@@ -87,19 +111,19 @@ public class SServiceInterfaceImpl extends ModelImpl implements SServiceInterfac
 	 * @generated
 	 */
 	@Override
-	public SInformationModel getModel()
+	public SInformationModel getInterface()
 	{
-		if (model != null && model.eIsProxy())
+		if (interface_ != null && interface_.eIsProxy())
 		{
-			InternalEObject oldModel = (InternalEObject)model;
-			model = (SInformationModel)eResolveProxy(oldModel);
-			if (model != oldModel)
+			InternalEObject oldInterface = (InternalEObject)interface_;
+			interface_ = (SInformationModel)eResolveProxy(oldInterface);
+			if (interface_ != oldInterface)
 			{
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AsmPackage.SSERVICE_INTERFACE__MODEL, oldModel, model));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AsmPackage.SSERVICE_INTERFACE__INTERFACE, oldInterface, interface_));
 			}
 		}
-		return model;
+		return interface_;
 	}
 
 	/**
@@ -107,9 +131,9 @@ public class SServiceInterfaceImpl extends ModelImpl implements SServiceInterfac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SInformationModel basicGetModel()
+	public SInformationModel basicGetInterface()
 	{
-		return model;
+		return interface_;
 	}
 
 	/**
@@ -118,12 +142,72 @@ public class SServiceInterfaceImpl extends ModelImpl implements SServiceInterfac
 	 * @generated
 	 */
 	@Override
-	public void setModel(SInformationModel newModel)
+	public void setInterface(SInformationModel newInterface)
 	{
-		SInformationModel oldModel = model;
-		model = newModel;
+		SInformationModel oldInterface = interface_;
+		interface_ = newInterface;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AsmPackage.SSERVICE_INTERFACE__MODEL, oldModel, model));
+			eNotify(new ENotificationImpl(this, Notification.SET, AsmPackage.SSERVICE_INTERFACE__INTERFACE, oldInterface, interface_));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SInformationModel getCore()
+	{
+		if (core != null && core.eIsProxy())
+		{
+			InternalEObject oldCore = (InternalEObject)core;
+			core = (SInformationModel)eResolveProxy(oldCore);
+			if (core != oldCore)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AsmPackage.SSERVICE_INTERFACE__CORE, oldCore, core));
+			}
+		}
+		return core;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SInformationModel basicGetCore()
+	{
+		return core;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCore(SInformationModel newCore)
+	{
+		SInformationModel oldCore = core;
+		core = newCore;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AsmPackage.SSERVICE_INTERFACE__CORE, oldCore, core));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<DException> getExceptions()
+	{
+		if (exceptions == null)
+		{
+			exceptions = new EObjectContainmentEList<DException>(DException.class, this, AsmPackage.SSERVICE_INTERFACE__EXCEPTIONS);
+		}
+		return exceptions;
 	}
 
 	/**
@@ -151,6 +235,8 @@ public class SServiceInterfaceImpl extends ModelImpl implements SServiceInterfac
 	{
 		switch (featureID)
 		{
+			case AsmPackage.SSERVICE_INTERFACE__EXCEPTIONS:
+				return ((InternalEList<?>)getExceptions()).basicRemove(otherEnd, msgs);
 			case AsmPackage.SSERVICE_INTERFACE__OPERATIONS:
 				return ((InternalEList<?>)getOperations()).basicRemove(otherEnd, msgs);
 		}
@@ -167,9 +253,14 @@ public class SServiceInterfaceImpl extends ModelImpl implements SServiceInterfac
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SSERVICE_INTERFACE__MODEL:
-				if (resolve) return getModel();
-				return basicGetModel();
+			case AsmPackage.SSERVICE_INTERFACE__INTERFACE:
+				if (resolve) return getInterface();
+				return basicGetInterface();
+			case AsmPackage.SSERVICE_INTERFACE__CORE:
+				if (resolve) return getCore();
+				return basicGetCore();
+			case AsmPackage.SSERVICE_INTERFACE__EXCEPTIONS:
+				return getExceptions();
 			case AsmPackage.SSERVICE_INTERFACE__OPERATIONS:
 				return getOperations();
 		}
@@ -187,8 +278,15 @@ public class SServiceInterfaceImpl extends ModelImpl implements SServiceInterfac
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SSERVICE_INTERFACE__MODEL:
-				setModel((SInformationModel)newValue);
+			case AsmPackage.SSERVICE_INTERFACE__INTERFACE:
+				setInterface((SInformationModel)newValue);
+				return;
+			case AsmPackage.SSERVICE_INTERFACE__CORE:
+				setCore((SInformationModel)newValue);
+				return;
+			case AsmPackage.SSERVICE_INTERFACE__EXCEPTIONS:
+				getExceptions().clear();
+				getExceptions().addAll((Collection<? extends DException>)newValue);
 				return;
 			case AsmPackage.SSERVICE_INTERFACE__OPERATIONS:
 				getOperations().clear();
@@ -208,8 +306,14 @@ public class SServiceInterfaceImpl extends ModelImpl implements SServiceInterfac
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SSERVICE_INTERFACE__MODEL:
-				setModel((SInformationModel)null);
+			case AsmPackage.SSERVICE_INTERFACE__INTERFACE:
+				setInterface((SInformationModel)null);
+				return;
+			case AsmPackage.SSERVICE_INTERFACE__CORE:
+				setCore((SInformationModel)null);
+				return;
+			case AsmPackage.SSERVICE_INTERFACE__EXCEPTIONS:
+				getExceptions().clear();
 				return;
 			case AsmPackage.SSERVICE_INTERFACE__OPERATIONS:
 				getOperations().clear();
@@ -228,8 +332,12 @@ public class SServiceInterfaceImpl extends ModelImpl implements SServiceInterfac
 	{
 		switch (featureID)
 		{
-			case AsmPackage.SSERVICE_INTERFACE__MODEL:
-				return model != null;
+			case AsmPackage.SSERVICE_INTERFACE__INTERFACE:
+				return interface_ != null;
+			case AsmPackage.SSERVICE_INTERFACE__CORE:
+				return core != null;
+			case AsmPackage.SSERVICE_INTERFACE__EXCEPTIONS:
+				return exceptions != null && !exceptions.isEmpty();
 			case AsmPackage.SSERVICE_INTERFACE__OPERATIONS:
 				return operations != null && !operations.isEmpty();
 		}

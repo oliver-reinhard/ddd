@@ -138,7 +138,7 @@ public class SFeatureDeductionRuleProcessor {
       final Iterable<DFeature> sourceFeaturesAffectedByRule = IterableExtensions.<SFeatureDeduction, DFeature>map(IterableExtensions.<SFeatureDeduction>filter(featureDeductionDefinitions, _function_2), _function_3);
       CollectionExtensions.<DFeature>removeAll(implicitlyGrabbedSourceFeatures, sourceFeaturesAffectedByRule);
       for (final DFeature sourceFeature : implicitlyGrabbedSourceFeatures) {
-        this._syntheticModelElementsFactory.addSyntheticFeature(desc.syntheticType, sourceFeature.getName(), sourceFeature, null, context);
+        this._syntheticModelElementsFactory.addSyntheticFeature(desc.syntheticType, sourceFeature.getName(), sourceFeature, this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(desc.deductionDefinition, desc.source), context);
       }
     }
     final List<SFeatureDeduction> featureDeductionDefinitionsList = IterableExtensions.<SFeatureDeduction>toList(featureDeductionDefinitions);

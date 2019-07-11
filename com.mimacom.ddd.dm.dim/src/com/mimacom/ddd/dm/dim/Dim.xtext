@@ -1,4 +1,4 @@
-grammar com.mimacom.ddd.dm.dim.Dim with  com.mimacom.ddd.dm.dmx.Dmx
+grammar com.mimacom.ddd.dm.dim.Dim with com.mimacom.ddd.dm.dmx.Dmx
 
 import "http://www.mimacom.com/ddd/dm/dmx" 
 import "http://www.mimacom.com/ddd/dm/base" 
@@ -169,8 +169,8 @@ DService:
 	('raises' raises+=[DException|ID]  ( "," raises+=[DException|ID])* )?
 	(description=DRichText)? 
 	'{'
-	('precondition' precondition=DExpression)?
-	('postcondition' postcondition=DExpression)?
+	('guard' guards+=DExpression)*
+	('effect' effects+=DExpression)*
 	(types+=DType)*
 	'}';
 

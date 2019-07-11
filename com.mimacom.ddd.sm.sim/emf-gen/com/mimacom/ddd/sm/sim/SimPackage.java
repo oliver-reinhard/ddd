@@ -162,6 +162,52 @@ public interface SimPackage extends EPackage
 	int SINFORMATION_MODEL_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SImplicitElementDeductionImpl <em>SImplicit Element Deduction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sim.impl.SImplicitElementDeductionImpl
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSImplicitElementDeduction()
+	 * @generated
+	 */
+	int SIMPLICIT_ELEMENT_DEDUCTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLICIT_ELEMENT_DEDUCTION__DEDUCTION_RULE = BasePackage.IDEDUCTION_DEFINITION__DEDUCTION_RULE;
+
+	/**
+	 * The feature id for the '<em><b>Original Deduction Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLICIT_ELEMENT_DEDUCTION__ORIGINAL_DEDUCTION_DEFINITION = BasePackage.IDEDUCTION_DEFINITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>SImplicit Element Deduction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLICIT_ELEMENT_DEDUCTION_FEATURE_COUNT = BasePackage.IDEDUCTION_DEFINITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>SImplicit Element Deduction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLICIT_ELEMENT_DEDUCTION_OPERATION_COUNT = BasePackage.IDEDUCTION_DEFINITION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SDomainDeductionImpl <em>SDomain Deduction</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -169,7 +215,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDomainDeduction()
 	 * @generated
 	 */
-	int SDOMAIN_DEDUCTION = 1;
+	int SDOMAIN_DEDUCTION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -206,16 +252,16 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAggregateDeduction()
 	 * @generated
 	 */
-	int SAGGREGATE_DEDUCTION = 2;
+	int SAGGREGATE_DEDUCTION = 3;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SAGGREGATE_DEDUCTION__DEDUCTION_DEFINITION = BasePackage.DAGGREGATE__DEDUCTION_DEFINITION;
+	int SAGGREGATE_DEDUCTION__DEDUCED_FROM = BasePackage.DAGGREGATE__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -297,7 +343,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSTypeDeduction()
 	 * @generated
 	 */
-	int STYPE_DEDUCTION = 3;
+	int STYPE_DEDUCTION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -361,7 +407,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSPrimitiveDeduction()
 	 * @generated
 	 */
-	int SPRIMITIVE_DEDUCTION = 4;
+	int SPRIMITIVE_DEDUCTION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -391,13 +437,13 @@ public interface SimPackage extends EPackage
 	int SPRIMITIVE_DEDUCTION__DESCRIPTION = BasePackage.DPRIMITIVE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPRIMITIVE_DEDUCTION__DEDUCTION_DEFINITION = BasePackage.DPRIMITIVE__DEDUCTION_DEFINITION;
+	int SPRIMITIVE_DEDUCTION__DEDUCED_FROM = BasePackage.DPRIMITIVE__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -479,7 +525,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSEnumerationDeduction()
 	 * @generated
 	 */
-	int SENUMERATION_DEDUCTION = 5;
+	int SENUMERATION_DEDUCTION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -509,13 +555,13 @@ public interface SimPackage extends EPackage
 	int SENUMERATION_DEDUCTION__DESCRIPTION = BasePackage.DENUMERATION__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENUMERATION_DEDUCTION__DEDUCTION_DEFINITION = BasePackage.DENUMERATION__DEDUCTION_DEFINITION;
+	int SENUMERATION_DEDUCTION__DEDUCED_FROM = BasePackage.DENUMERATION__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -588,7 +634,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSLiteralDeduction()
 	 * @generated
 	 */
-	int SLITERAL_DEDUCTION = 6;
+	int SLITERAL_DEDUCTION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -654,13 +700,13 @@ public interface SimPackage extends EPackage
 	int SLITERAL_DEDUCTION__COLLECTION = BasePackage.DLITERAL__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLITERAL_DEDUCTION__DEDUCTION_DEFINITION = BasePackage.DLITERAL__DEDUCTION_DEFINITION;
+	int SLITERAL_DEDUCTION__DEDUCED_FROM = BasePackage.DLITERAL__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -706,7 +752,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSComplexTypeDeduction()
 	 * @generated
 	 */
-	int SCOMPLEX_TYPE_DEDUCTION = 7;
+	int SCOMPLEX_TYPE_DEDUCTION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -770,7 +816,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDetailTypeDeduction()
 	 * @generated
 	 */
-	int SDETAIL_TYPE_DEDUCTION = 8;
+	int SDETAIL_TYPE_DEDUCTION = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -800,13 +846,13 @@ public interface SimPackage extends EPackage
 	int SDETAIL_TYPE_DEDUCTION__DESCRIPTION = BasePackage.DDETAIL_TYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SDETAIL_TYPE_DEDUCTION__DEDUCTION_DEFINITION = BasePackage.DDETAIL_TYPE__DEDUCTION_DEFINITION;
+	int SDETAIL_TYPE_DEDUCTION__DEDUCED_FROM = BasePackage.DDETAIL_TYPE__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -897,7 +943,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSEntityTypeDeduction()
 	 * @generated
 	 */
-	int SENTITY_TYPE_DEDUCTION = 9;
+	int SENTITY_TYPE_DEDUCTION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -927,13 +973,13 @@ public interface SimPackage extends EPackage
 	int SENTITY_TYPE_DEDUCTION__DESCRIPTION = BasePackage.DENTITY_TYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENTITY_TYPE_DEDUCTION__DEDUCTION_DEFINITION = BasePackage.DENTITY_TYPE__DEDUCTION_DEFINITION;
+	int SENTITY_TYPE_DEDUCTION__DEDUCED_FROM = BasePackage.DENTITY_TYPE__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -1033,7 +1079,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSFeatureDeduction()
 	 * @generated
 	 */
-	int SFEATURE_DEDUCTION = 10;
+	int SFEATURE_DEDUCTION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -1070,7 +1116,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAssociationDeduction()
 	 * @generated
 	 */
-	int SASSOCIATION_DEDUCTION = 11;
+	int SASSOCIATION_DEDUCTION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1136,13 +1182,13 @@ public interface SimPackage extends EPackage
 	int SASSOCIATION_DEDUCTION__COLLECTION = BasePackage.DASSOCIATION__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SASSOCIATION_DEDUCTION__DEDUCTION_DEFINITION = BasePackage.DASSOCIATION__DEDUCTION_DEFINITION;
+	int SASSOCIATION_DEDUCTION__DEDUCED_FROM = BasePackage.DASSOCIATION__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -1224,7 +1270,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAttributeDeduction()
 	 * @generated
 	 */
-	int SATTRIBUTE_DEDUCTION = 12;
+	int SATTRIBUTE_DEDUCTION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1290,13 +1336,13 @@ public interface SimPackage extends EPackage
 	int SATTRIBUTE_DEDUCTION__COLLECTION = BasePackage.DATTRIBUTE__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SATTRIBUTE_DEDUCTION__DEDUCTION_DEFINITION = BasePackage.DATTRIBUTE__DEDUCTION_DEFINITION;
+	int SATTRIBUTE_DEDUCTION__DEDUCED_FROM = BasePackage.DATTRIBUTE__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -1360,7 +1406,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSQueryDeduction()
 	 * @generated
 	 */
-	int SQUERY_DEDUCTION = 13;
+	int SQUERY_DEDUCTION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1426,13 +1472,13 @@ public interface SimPackage extends EPackage
 	int SQUERY_DEDUCTION__COLLECTION = BasePackage.DQUERY__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SQUERY_DEDUCTION__DEDUCTION_DEFINITION = BasePackage.DQUERY__DEDUCTION_DEFINITION;
+	int SQUERY_DEDUCTION__DEDUCED_FROM = BasePackage.DQUERY__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -1496,7 +1542,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSQueryParameterDeduction()
 	 * @generated
 	 */
-	int SQUERY_PARAMETER_DEDUCTION = 14;
+	int SQUERY_PARAMETER_DEDUCTION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1562,13 +1608,13 @@ public interface SimPackage extends EPackage
 	int SQUERY_PARAMETER_DEDUCTION__COLLECTION = BasePackage.DQUERY_PARAMETER__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SQUERY_PARAMETER_DEDUCTION__DEDUCTION_DEFINITION = BasePackage.DQUERY_PARAMETER__DEDUCTION_DEFINITION;
+	int SQUERY_PARAMETER_DEDUCTION__DEDUCED_FROM = BasePackage.DQUERY_PARAMETER__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -1614,7 +1660,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabRule()
 	 * @generated
 	 */
-	int SGRAB_RULE = 15;
+	int SGRAB_RULE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1669,7 +1715,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDitchRule()
 	 * @generated
 	 */
-	int SDITCH_RULE = 16;
+	int SDITCH_RULE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1715,7 +1761,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSStructureChangingRule()
 	 * @generated
 	 */
-	int SSTRUCTURE_CHANGING_RULE = 17;
+	int SSTRUCTURE_CHANGING_RULE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1797,7 +1843,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSMorphRule()
 	 * @generated
 	 */
-	int SMORPH_RULE = 18;
+	int SMORPH_RULE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1897,7 +1943,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSFuseRule()
 	 * @generated
 	 */
-	int SFUSE_RULE = 19;
+	int SFUSE_RULE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1988,7 +2034,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabAggregateRule()
 	 * @generated
 	 */
-	int SGRAB_AGGREGATE_RULE = 20;
+	int SGRAB_AGGREGATE_RULE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2043,7 +2089,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabDomainRule()
 	 * @generated
 	 */
-	int SGRAB_DOMAIN_RULE = 21;
+	int SGRAB_DOMAIN_RULE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2098,7 +2144,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSInformationModelKind()
 	 * @generated
 	 */
-	int SINFORMATION_MODEL_KIND = 22;
+	int SINFORMATION_MODEL_KIND = 23;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.STristate <em>STristate</em>}' enum.
@@ -2108,7 +2154,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSTristate()
 	 * @generated
 	 */
-	int STRISTATE = 23;
+	int STRISTATE = 24;
 
 
 	/**
@@ -2208,6 +2254,27 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 */
 	EReference getSInformationModel_DomainProxies();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SImplicitElementDeduction <em>SImplicit Element Deduction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SImplicit Element Deduction</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SImplicitElementDeduction
+	 * @generated
+	 */
+	EClass getSImplicitElementDeduction();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SImplicitElementDeduction#getOriginalDeductionDefinition <em>Original Deduction Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Original Deduction Definition</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SImplicitElementDeduction#getOriginalDeductionDefinition()
+	 * @see #getSImplicitElementDeduction()
+	 * @generated
+	 */
+	EReference getSImplicitElementDeduction_OriginalDeductionDefinition();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SDomainDeduction <em>SDomain Deduction</em>}'.
@@ -2645,6 +2712,24 @@ public interface SimPackage extends EPackage
 		 * @generated
 		 */
 		EReference SINFORMATION_MODEL__DOMAIN_PROXIES = eINSTANCE.getSInformationModel_DomainProxies();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SImplicitElementDeductionImpl <em>SImplicit Element Deduction</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sim.impl.SImplicitElementDeductionImpl
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSImplicitElementDeduction()
+		 * @generated
+		 */
+		EClass SIMPLICIT_ELEMENT_DEDUCTION = eINSTANCE.getSImplicitElementDeduction();
+
+		/**
+		 * The meta object literal for the '<em><b>Original Deduction Definition</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SIMPLICIT_ELEMENT_DEDUCTION__ORIGINAL_DEDUCTION_DEFINITION = eINSTANCE.getSImplicitElementDeduction_OriginalDeductionDefinition();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SDomainDeductionImpl <em>SDomain Deduction</em>}' class.

@@ -1,6 +1,5 @@
 package com.mimacom.ddd.sm.sim.ui.plantuml
 
-import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DAttribute
@@ -11,7 +10,6 @@ import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DType
-import com.mimacom.ddd.dm.dim.DimUtil
 import com.mimacom.ddd.sm.sim.SAggregateDeduction
 import com.mimacom.ddd.sm.sim.SAssociationDeduction
 import com.mimacom.ddd.sm.sim.SAttributeDeduction
@@ -32,7 +30,7 @@ import org.eclipse.xtext.ui.editor.model.XtextDocument
 
 class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 	
-	@Inject extension DimUtil
+	// @Inject extension DimUtil // TODO injector not working, bundle setup seems ok => ?
 	
 	def DmsDiagramTextProvider() {
         editorType = typeof(XtextEditor)
@@ -52,8 +50,7 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
         val SInformationModel model = document.readOnly[
             return if (contents.head instanceof SInformationModel) contents.head as SInformationModel else null
         ]
-        
-        if (model !== null && ! model.aggregates.empty) {
+        if (model !== null && ! (model.types.empty && model.aggregates.empty)) {
         	return modelTypes(model)
         } else {
         	return '''note "No structures to show." as N1'''
@@ -81,12 +78,14 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
        			FontColor MediumBlue
        		}
        		
+       		«FOR t:model.types.filter[!(it instanceof STypeDeduction)]»«t.generateType»«ENDFOR»
+       		
            	«FOR a:allAggregates»package «a.aggregateName» <<Rectangle>> {
-	    				«FOR t:a.types.filter[!(it instanceof STypeDeduction)]»«t.generateType»«ENDFOR»
-           		}
-	           	«FOR d:allReferencedDomains»package «d» <<Frame>> { 
-	           	}
-	           	«ENDFOR»
+	    		«FOR t:a.types.filter[!(it instanceof STypeDeduction)]»«t.generateType»«ENDFOR»
+           	}
+           	«FOR d:allReferencedDomains»package «d» <<Frame>> { 
+           	}
+           	«ENDFOR»
     		«ENDFOR»
             «FOR a:allAssociations»«a.generateAssociation»
             «ENDFOR»
@@ -102,11 +101,14 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 			val d = EcoreUtil2.getContainerOfType(obj, SInformationModel)
 			return if (d !== null) d.name else "undefined" 
 	}
-//	
-//	def String aggregateName(EObject obj) {
-//			val a = EcoreUtil2.getContainerOfType(obj, DAggregate)// global types are not owned by a domain => null
-//			return if (a !== null) a.derivedName else "undefined" 
-//	}
+	
+	/* 
+	 * Copied from DimUtil due to flawed extension injection. TODO
+	 */
+	def String aggregateName(EObject obj) {
+			val a = EcoreUtil2.getContainerOfType(obj, DAggregate)// global types are not owned by a domain => null
+			return if (a !== null) a.derivedName else "undefined" 
+	}
 	
 	def dispatch  generateType(DComplexType c) '''	
 		«IF c.abstract»abstract «ENDIF»class «c.aggregateName».«c.name» «c.getSpot» {

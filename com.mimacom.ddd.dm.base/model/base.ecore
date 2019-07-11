@@ -10,7 +10,8 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IDeducibleElement" abstract="true" interface="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="deductionDefinition" eType="#//IDeductionDefinition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deducedFrom" eType="#//IDeductionDefinition"
+        transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="synthetic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         transient="true"/>
   </eClassifiers>
@@ -169,10 +170,10 @@
         eType="#//DServiceParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="raises" upperBound="-1"
         eType="#//DException"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="precondition" eType="#//DExpression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="postcondition" eType="#//DExpression"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guards" upperBound="-1"
+        eType="#//DExpression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="effects" upperBound="-1"
+        eType="#//DExpression" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
         eType="#//DType" containment="true"/>
   </eClassifiers>

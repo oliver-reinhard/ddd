@@ -106,6 +106,11 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createSInformationModelAdapter();
 			}
 			@Override
+			public Adapter caseSImplicitElementDeduction(SImplicitElementDeduction object)
+			{
+				return createSImplicitElementDeductionAdapter();
+			}
+			@Override
 			public Adapter caseSDomainDeduction(SDomainDeduction object)
 			{
 				return createSDomainDeductionAdapter();
@@ -368,6 +373,21 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createSInformationModelAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SImplicitElementDeduction <em>SImplicit Element Deduction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.sm.sim.SImplicitElementDeduction
+	 * @generated
+	 */
+	public Adapter createSImplicitElementDeductionAdapter()
 	{
 		return null;
 	}

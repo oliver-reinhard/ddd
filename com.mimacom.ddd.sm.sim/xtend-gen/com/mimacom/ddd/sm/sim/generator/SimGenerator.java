@@ -79,7 +79,7 @@ public class SimGenerator extends AbstractGenerator {
       while (deducibleElements.hasNext()) {
         {
           final IDeducibleElement e = deducibleElements.next();
-          e.setDeductionDefinition(null);
+          e.setDeducedFrom(null);
           hadSyntheticItems = (hadSyntheticItems || e.isSynthetic());
           e.setSynthetic(false);
         }

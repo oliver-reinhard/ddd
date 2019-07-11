@@ -554,8 +554,8 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *         (parameters+=DServiceParameter parameters+=DServiceParameter*)? 
 	 *         (raises+=[DException|ID] raises+=[DException|ID]*)? 
 	 *         description=DRichText? 
-	 *         precondition=DExpression? 
-	 *         postcondition=DExpression? 
+	 *         guards+=DExpression* 
+	 *         effects+=DExpression* 
 	 *         types+=DType*
 	 *     )
 	 */

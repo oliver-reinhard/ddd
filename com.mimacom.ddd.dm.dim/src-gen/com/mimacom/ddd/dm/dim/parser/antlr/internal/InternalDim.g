@@ -2397,55 +2397,55 @@ ruleDService returns [EObject current=null]
 			newLeafNode(otherlv_13, grammarAccess.getDServiceAccess().getLeftCurlyBracketKeyword_6());
 		}
 		(
-			otherlv_14='precondition'
+			otherlv_14='guard'
 			{
-				newLeafNode(otherlv_14, grammarAccess.getDServiceAccess().getPreconditionKeyword_7_0());
+				newLeafNode(otherlv_14, grammarAccess.getDServiceAccess().getGuardKeyword_7_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDServiceAccess().getPreconditionDExpressionParserRuleCall_7_1_0());
+						newCompositeNode(grammarAccess.getDServiceAccess().getGuardsDExpressionParserRuleCall_7_1_0());
 					}
-					lv_precondition_15_0=ruleDExpression
+					lv_guards_15_0=ruleDExpression
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDServiceRule());
 						}
-						set(
+						add(
 							$current,
-							"precondition",
-							lv_precondition_15_0,
+							"guards",
+							lv_guards_15_0,
 							"com.mimacom.ddd.dm.dmx.Dmx.DExpression");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-		)?
+		)*
 		(
-			otherlv_16='postcondition'
+			otherlv_16='effect'
 			{
-				newLeafNode(otherlv_16, grammarAccess.getDServiceAccess().getPostconditionKeyword_8_0());
+				newLeafNode(otherlv_16, grammarAccess.getDServiceAccess().getEffectKeyword_8_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDServiceAccess().getPostconditionDExpressionParserRuleCall_8_1_0());
+						newCompositeNode(grammarAccess.getDServiceAccess().getEffectsDExpressionParserRuleCall_8_1_0());
 					}
-					lv_postcondition_17_0=ruleDExpression
+					lv_effects_17_0=ruleDExpression
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDServiceRule());
 						}
-						set(
+						add(
 							$current,
-							"postcondition",
-							lv_postcondition_17_0,
+							"effects",
+							lv_effects_17_0,
 							"com.mimacom.ddd.dm.dmx.Dmx.DExpression");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-		)?
+		)*
 		(
 			(
 				{

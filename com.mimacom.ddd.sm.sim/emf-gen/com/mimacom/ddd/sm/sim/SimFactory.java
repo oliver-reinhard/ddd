@@ -32,6 +32,15 @@ public interface SimFactory extends EFactory
 	SInformationModel createSInformationModel();
 
 	/**
+	 * Returns a new object of class '<em>SImplicit Element Deduction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>SImplicit Element Deduction</em>'.
+	 * @generated
+	 */
+	SImplicitElementDeduction createSImplicitElementDeduction();
+
+	/**
 	 * Returns a new object of class '<em>SDomain Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

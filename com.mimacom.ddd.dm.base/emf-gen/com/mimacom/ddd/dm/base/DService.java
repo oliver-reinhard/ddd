@@ -16,8 +16,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.mimacom.ddd.dm.base.DService#getKind <em>Kind</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DService#getParameters <em>Parameters</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DService#getRaises <em>Raises</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.DService#getPrecondition <em>Precondition</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.DService#getPostcondition <em>Postcondition</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DService#getGuards <em>Guards</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DService#getEffects <em>Effects</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DService#getTypes <em>Types</em>}</li>
  * </ul>
  *
@@ -77,48 +77,28 @@ public interface DService extends DActor, ITypedMemberContainer, IPrimaryNavigat
 	EList<DException> getRaises();
 
 	/**
-	 * Returns the value of the '<em><b>Precondition</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Guards</b></em>' containment reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Precondition</em>' containment reference.
-	 * @see #setPrecondition(DExpression)
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDService_Precondition()
+	 * @return the value of the '<em>Guards</em>' containment reference list.
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getDService_Guards()
 	 * @model containment="true"
 	 * @generated
 	 */
-	DExpression getPrecondition();
+	EList<DExpression> getGuards();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.DService#getPrecondition <em>Precondition</em>}' containment reference.
+	 * Returns the value of the '<em><b>Effects</b></em>' containment reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DExpression}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Precondition</em>' containment reference.
-	 * @see #getPrecondition()
-	 * @generated
-	 */
-	void setPrecondition(DExpression value);
-
-	/**
-	 * Returns the value of the '<em><b>Postcondition</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Postcondition</em>' containment reference.
-	 * @see #setPostcondition(DExpression)
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDService_Postcondition()
+	 * @return the value of the '<em>Effects</em>' containment reference list.
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getDService_Effects()
 	 * @model containment="true"
 	 * @generated
 	 */
-	DExpression getPostcondition();
-
-	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.DService#getPostcondition <em>Postcondition</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Postcondition</em>' containment reference.
-	 * @see #getPostcondition()
-	 * @generated
-	 */
-	void setPostcondition(DExpression value);
+	EList<DExpression> getEffects();
 
 	/**
 	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.

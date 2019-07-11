@@ -7,6 +7,7 @@ import com.google.common.collect.Lists
 import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DDomainEvent
+import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DFunction
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DService
@@ -24,7 +25,6 @@ import org.eclipse.emf.ecore.EReference
 import org.eclipse.emf.ecore.EcoreFactory
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
-import com.mimacom.ddd.dm.base.DEnumeration
 
 /**
  * This class contains custom scoping for expressions and {@link DComplexType} feature inheritance.
@@ -130,12 +130,17 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 		}
 	}
 	
-	protected def IScope getExpressionContainerMemberScope(EObject context, IScope outerScope) {
+	/* Do not override this method, override the switch */
+	final protected def IScope getExpressionContainerMemberScope(EObject context, IScope outerScope) {
 		var container = context.eContainer
+		getExpressionContainerMemberSwitch(container, outerScope)
+	}
+	
+	protected def IScope getExpressionContainerMemberSwitch(EObject container, IScope outerScope) {
 		return switch container {
 			DEnumeration: Scopes.scopeFor(container.literals, outerScope)
 			DComplexType: getInheritedFeaturesScope(container, outerScope)
-			DQuery: Scopes.scopeFor(container.parameters, getExpressionContainerMemberScope(container, outerScope))
+			DQuery: Scopes.scopeFor(container.parameters, getExpressionContainerMemberScope(container, outerScope)) // recursion
 			DService: Scopes.scopeFor(container.parameters, outerScope)
 			DDomainEvent: getDomainEventMemberScope(container, outerScope)
 			case null: outerScope

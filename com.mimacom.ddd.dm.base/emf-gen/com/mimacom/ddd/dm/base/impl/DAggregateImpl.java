@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getDeductionDefinition <em>Deduction Definition</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getDeducedFrom <em>Deduced From</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#isSynthetic <em>Synthetic</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getTypes <em>Types</em>}</li>
@@ -46,14 +46,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAggregate
 {
 	/**
-	 * The cached value of the '{@link #getDeductionDefinition() <em>Deduction Definition</em>}' reference.
+	 * The cached value of the '{@link #getDeducedFrom() <em>Deduced From</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDeductionDefinition()
+	 * @see #getDeducedFrom()
 	 * @generated
 	 * @ordered
 	 */
-	protected IDeductionDefinition deductionDefinition;
+	protected IDeductionDefinition deducedFrom;
 
 	/**
 	 * The default value of the '{@link #isSynthetic() <em>Synthetic</em>}' attribute.
@@ -132,19 +132,19 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	 * @generated
 	 */
 	@Override
-	public IDeductionDefinition getDeductionDefinition()
+	public IDeductionDefinition getDeducedFrom()
 	{
-		if (deductionDefinition != null && deductionDefinition.eIsProxy())
+		if (deducedFrom != null && deducedFrom.eIsProxy())
 		{
-			InternalEObject oldDeductionDefinition = (InternalEObject)deductionDefinition;
-			deductionDefinition = (IDeductionDefinition)eResolveProxy(oldDeductionDefinition);
-			if (deductionDefinition != oldDeductionDefinition)
+			InternalEObject oldDeducedFrom = (InternalEObject)deducedFrom;
+			deducedFrom = (IDeductionDefinition)eResolveProxy(oldDeducedFrom);
+			if (deducedFrom != oldDeducedFrom)
 			{
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BasePackage.DAGGREGATE__DEDUCTION_DEFINITION, oldDeductionDefinition, deductionDefinition));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BasePackage.DAGGREGATE__DEDUCED_FROM, oldDeducedFrom, deducedFrom));
 			}
 		}
-		return deductionDefinition;
+		return deducedFrom;
 	}
 
 	/**
@@ -152,9 +152,9 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IDeductionDefinition basicGetDeductionDefinition()
+	public IDeductionDefinition basicGetDeducedFrom()
 	{
-		return deductionDefinition;
+		return deducedFrom;
 	}
 
 	/**
@@ -163,12 +163,12 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	 * @generated
 	 */
 	@Override
-	public void setDeductionDefinition(IDeductionDefinition newDeductionDefinition)
+	public void setDeducedFrom(IDeductionDefinition newDeducedFrom)
 	{
-		IDeductionDefinition oldDeductionDefinition = deductionDefinition;
-		deductionDefinition = newDeductionDefinition;
+		IDeductionDefinition oldDeducedFrom = deducedFrom;
+		deducedFrom = newDeducedFrom;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DAGGREGATE__DEDUCTION_DEFINITION, oldDeductionDefinition, deductionDefinition));
+			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DAGGREGATE__DEDUCED_FROM, oldDeducedFrom, deducedFrom));
 	}
 
 	/**
@@ -317,9 +317,9 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	{
 		switch (featureID)
 		{
-			case BasePackage.DAGGREGATE__DEDUCTION_DEFINITION:
-				if (resolve) return getDeductionDefinition();
-				return basicGetDeductionDefinition();
+			case BasePackage.DAGGREGATE__DEDUCED_FROM:
+				if (resolve) return getDeducedFrom();
+				return basicGetDeducedFrom();
 			case BasePackage.DAGGREGATE__SYNTHETIC:
 				return isSynthetic();
 			case BasePackage.DAGGREGATE__DESCRIPTION:
@@ -345,8 +345,8 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	{
 		switch (featureID)
 		{
-			case BasePackage.DAGGREGATE__DEDUCTION_DEFINITION:
-				setDeductionDefinition((IDeductionDefinition)newValue);
+			case BasePackage.DAGGREGATE__DEDUCED_FROM:
+				setDeducedFrom((IDeductionDefinition)newValue);
 				return;
 			case BasePackage.DAGGREGATE__SYNTHETIC:
 				setSynthetic((Boolean)newValue);
@@ -372,8 +372,8 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	{
 		switch (featureID)
 		{
-			case BasePackage.DAGGREGATE__DEDUCTION_DEFINITION:
-				setDeductionDefinition((IDeductionDefinition)null);
+			case BasePackage.DAGGREGATE__DEDUCED_FROM:
+				setDeducedFrom((IDeductionDefinition)null);
 				return;
 			case BasePackage.DAGGREGATE__SYNTHETIC:
 				setSynthetic(SYNTHETIC_EDEFAULT);
@@ -398,8 +398,8 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	{
 		switch (featureID)
 		{
-			case BasePackage.DAGGREGATE__DEDUCTION_DEFINITION:
-				return deductionDefinition != null;
+			case BasePackage.DAGGREGATE__DEDUCED_FROM:
+				return deducedFrom != null;
 			case BasePackage.DAGGREGATE__SYNTHETIC:
 				return synthetic != SYNTHETIC_EDEFAULT;
 			case BasePackage.DAGGREGATE__DESCRIPTION:

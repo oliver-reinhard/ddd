@@ -66,6 +66,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 		switch (eClass.getClassifierID())
 		{
 			case SimPackage.SINFORMATION_MODEL: return createSInformationModel();
+			case SimPackage.SIMPLICIT_ELEMENT_DEDUCTION: return createSImplicitElementDeduction();
 			case SimPackage.SDOMAIN_DEDUCTION: return createSDomainDeduction();
 			case SimPackage.SAGGREGATE_DEDUCTION: return createSAggregateDeduction();
 			case SimPackage.SPRIMITIVE_DEDUCTION: return createSPrimitiveDeduction();
@@ -136,6 +137,18 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	{
 		SInformationModelImpl sInformationModel = new SInformationModelImpl();
 		return sInformationModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SImplicitElementDeduction createSImplicitElementDeduction()
+	{
+		SImplicitElementDeductionImpl sImplicitElementDeduction = new SImplicitElementDeductionImpl();
+		return sImplicitElementDeduction;
 	}
 
 	/**

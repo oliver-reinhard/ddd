@@ -1362,13 +1362,13 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDescriptionDRichTextParserRuleCall_5_0 = (RuleCall)cDescriptionAssignment_5.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cPreconditionKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cPreconditionAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cPreconditionDExpressionParserRuleCall_7_1_0 = (RuleCall)cPreconditionAssignment_7_1.eContents().get(0);
+		private final Keyword cGuardKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cGuardsAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cGuardsDExpressionParserRuleCall_7_1_0 = (RuleCall)cGuardsAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cPostconditionKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cPostconditionAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cPostconditionDExpressionParserRuleCall_8_1_0 = (RuleCall)cPostconditionAssignment_8_1.eContents().get(0);
+		private final Keyword cEffectKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cEffectsAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cEffectsDExpressionParserRuleCall_8_1_0 = (RuleCall)cEffectsAssignment_8_1.eContents().get(0);
 		private final Assignment cTypesAssignment_9 = (Assignment)cGroup.eContents().get(9);
 		private final RuleCall cTypesDTypeParserRuleCall_9_0 = (RuleCall)cTypesAssignment_9.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
@@ -1378,14 +1378,14 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		//	name=ID ('(' (parameters+=DServiceParameter ("," parameters+=DServiceParameter)*)? ')')? ('raises'
 		//	raises+=[DException] ("," raises+=[DException])*)?
 		//	description=DRichText?
-		//	'{' ('precondition' precondition=DExpression)? ('postcondition' postcondition=DExpression)?
+		//	'{' ('guard' guards+=DExpression)* ('effect' effects+=DExpression)*
 		//	types+=DType*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//kind=DServiceKind? 'service' name=ID ('(' (parameters+=DServiceParameter ("," parameters+=DServiceParameter)*)? ')')?
-		//('raises' raises+=[DException] ("," raises+=[DException])*)? description=DRichText? '{' ('precondition'
-		//precondition=DExpression)? ('postcondition' postcondition=DExpression)? types+=DType* '}'
+		//('raises' raises+=[DException] ("," raises+=[DException])*)? description=DRichText? '{' ('guard' guards+=DExpression)*
+		//('effect' effects+=DExpression)* types+=DType* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//kind=DServiceKind?
@@ -1472,29 +1472,29 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_6() { return cLeftCurlyBracketKeyword_6; }
 		
-		//('precondition' precondition=DExpression)?
+		//('guard' guards+=DExpression)*
 		public Group getGroup_7() { return cGroup_7; }
 		
-		//'precondition'
-		public Keyword getPreconditionKeyword_7_0() { return cPreconditionKeyword_7_0; }
+		//'guard'
+		public Keyword getGuardKeyword_7_0() { return cGuardKeyword_7_0; }
 		
-		//precondition=DExpression
-		public Assignment getPreconditionAssignment_7_1() { return cPreconditionAssignment_7_1; }
+		//guards+=DExpression
+		public Assignment getGuardsAssignment_7_1() { return cGuardsAssignment_7_1; }
 		
 		//DExpression
-		public RuleCall getPreconditionDExpressionParserRuleCall_7_1_0() { return cPreconditionDExpressionParserRuleCall_7_1_0; }
+		public RuleCall getGuardsDExpressionParserRuleCall_7_1_0() { return cGuardsDExpressionParserRuleCall_7_1_0; }
 		
-		//('postcondition' postcondition=DExpression)?
+		//('effect' effects+=DExpression)*
 		public Group getGroup_8() { return cGroup_8; }
 		
-		//'postcondition'
-		public Keyword getPostconditionKeyword_8_0() { return cPostconditionKeyword_8_0; }
+		//'effect'
+		public Keyword getEffectKeyword_8_0() { return cEffectKeyword_8_0; }
 		
-		//postcondition=DExpression
-		public Assignment getPostconditionAssignment_8_1() { return cPostconditionAssignment_8_1; }
+		//effects+=DExpression
+		public Assignment getEffectsAssignment_8_1() { return cEffectsAssignment_8_1; }
 		
 		//DExpression
-		public RuleCall getPostconditionDExpressionParserRuleCall_8_1_0() { return cPostconditionDExpressionParserRuleCall_8_1_0; }
+		public RuleCall getEffectsDExpressionParserRuleCall_8_1_0() { return cEffectsDExpressionParserRuleCall_8_1_0; }
 		
 		//types+=DType*
 		public Assignment getTypesAssignment_9() { return cTypesAssignment_9; }
@@ -2084,7 +2084,7 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	//	name=ID ('(' (parameters+=DServiceParameter ("," parameters+=DServiceParameter)*)? ')')? ('raises'
 	//	raises+=[DException] ("," raises+=[DException])*)?
 	//	description=DRichText?
-	//	'{' ('precondition' precondition=DExpression)? ('postcondition' postcondition=DExpression)?
+	//	'{' ('guard' guards+=DExpression)* ('effect' effects+=DExpression)*
 	//	types+=DType*
 	//	'}';
 	public DServiceElements getDServiceAccess() {

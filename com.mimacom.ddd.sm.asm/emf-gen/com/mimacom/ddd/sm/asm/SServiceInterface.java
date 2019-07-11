@@ -3,6 +3,8 @@
  */
 package com.mimacom.ddd.sm.asm;
 
+import com.mimacom.ddd.dm.base.DException;
+
 import com.mimacom.ddd.sm.sim.SInformationModel;
 
 import org.eclipse.emf.common.util.EList;
@@ -16,7 +18,9 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.asm.SServiceInterface#getModel <em>Model</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.SServiceInterface#getInterface <em>Interface</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.SServiceInterface#getCore <em>Core</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.asm.SServiceInterface#getExceptions <em>Exceptions</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.asm.SServiceInterface#getOperations <em>Operations</em>}</li>
  * </ul>
  *
@@ -27,26 +31,60 @@ import org.eclipse.emf.common.util.EList;
 public interface SServiceInterface extends Model
 {
 	/**
-	 * Returns the value of the '<em><b>Model</b></em>' reference.
+	 * Returns the value of the '<em><b>Interface</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Model</em>' reference.
-	 * @see #setModel(SInformationModel)
-	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getSServiceInterface_Model()
+	 * @return the value of the '<em>Interface</em>' reference.
+	 * @see #setInterface(SInformationModel)
+	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getSServiceInterface_Interface()
 	 * @model
 	 * @generated
 	 */
-	SInformationModel getModel();
+	SInformationModel getInterface();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.sm.asm.SServiceInterface#getModel <em>Model</em>}' reference.
+	 * Sets the value of the '{@link com.mimacom.ddd.sm.asm.SServiceInterface#getInterface <em>Interface</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Model</em>' reference.
-	 * @see #getModel()
+	 * @param value the new value of the '<em>Interface</em>' reference.
+	 * @see #getInterface()
 	 * @generated
 	 */
-	void setModel(SInformationModel value);
+	void setInterface(SInformationModel value);
+
+	/**
+	 * Returns the value of the '<em><b>Core</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Core</em>' reference.
+	 * @see #setCore(SInformationModel)
+	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getSServiceInterface_Core()
+	 * @model
+	 * @generated
+	 */
+	SInformationModel getCore();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.sm.asm.SServiceInterface#getCore <em>Core</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Core</em>' reference.
+	 * @see #getCore()
+	 * @generated
+	 */
+	void setCore(SInformationModel value);
+
+	/**
+	 * Returns the value of the '<em><b>Exceptions</b></em>' containment reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DException}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Exceptions</em>' containment reference list.
+	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getSServiceInterface_Exceptions()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DException> getExceptions();
 
 	/**
 	 * Returns the value of the '<em><b>Operations</b></em>' containment reference list.

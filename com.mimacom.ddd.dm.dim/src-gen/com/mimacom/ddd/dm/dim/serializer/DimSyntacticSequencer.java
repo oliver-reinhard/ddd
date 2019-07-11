@@ -278,8 +278,8 @@ public class DimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     name=ID (ambiguity) 'raises' raises+=[DException|ID]
-	 *     name=ID (ambiguity) '{' 'postcondition' postcondition=DExpression
-	 *     name=ID (ambiguity) '{' 'precondition' precondition=DExpression
+	 *     name=ID (ambiguity) '{' 'effect' effects+=DExpression
+	 *     name=ID (ambiguity) '{' 'guard' guards+=DExpression
 	 *     name=ID (ambiguity) '{' '}' (rule end)
 	 *     name=ID (ambiguity) '{' types+=DType
 	 *     name=ID (ambiguity) description=DRichText

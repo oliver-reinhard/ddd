@@ -35,7 +35,7 @@ public class SimResourceDescriptionStrategy extends DefaultResourceDescriptionSt
       boolean _isSynthetic = ((DType)obj).isSynthetic();
       if (_isSynthetic) {
         final DType typeToIndex = ((DType)obj);
-        final IDeducibleElement source = typeToIndex.getDeductionDefinition().getDeductionRule().getSource();
+        final IDeducibleElement source = typeToIndex.getDeducedFrom().getDeductionRule().getSource();
         if ((source instanceof DType)) {
           return this.createDTypeDescription(typeToIndex, ((DType)source), acceptor);
         }

@@ -6942,7 +6942,7 @@ rule__DService__Group__7__Impl
 :
 (
 	{ before(grammarAccess.getDServiceAccess().getGroup_7()); }
-	(rule__DService__Group_7__0)?
+	(rule__DService__Group_7__0)*
 	{ after(grammarAccess.getDServiceAccess().getGroup_7()); }
 )
 ;
@@ -6969,7 +6969,7 @@ rule__DService__Group__8__Impl
 :
 (
 	{ before(grammarAccess.getDServiceAccess().getGroup_8()); }
-	(rule__DService__Group_8__0)?
+	(rule__DService__Group_8__0)*
 	{ after(grammarAccess.getDServiceAccess().getGroup_8()); }
 )
 ;
@@ -7373,9 +7373,9 @@ rule__DService__Group_7__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDServiceAccess().getPreconditionKeyword_7_0()); }
-	'precondition'
-	{ after(grammarAccess.getDServiceAccess().getPreconditionKeyword_7_0()); }
+	{ before(grammarAccess.getDServiceAccess().getGuardKeyword_7_0()); }
+	'guard'
+	{ after(grammarAccess.getDServiceAccess().getGuardKeyword_7_0()); }
 )
 ;
 finally {
@@ -7399,9 +7399,9 @@ rule__DService__Group_7__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDServiceAccess().getPreconditionAssignment_7_1()); }
-	(rule__DService__PreconditionAssignment_7_1)
-	{ after(grammarAccess.getDServiceAccess().getPreconditionAssignment_7_1()); }
+	{ before(grammarAccess.getDServiceAccess().getGuardsAssignment_7_1()); }
+	(rule__DService__GuardsAssignment_7_1)
+	{ after(grammarAccess.getDServiceAccess().getGuardsAssignment_7_1()); }
 )
 ;
 finally {
@@ -7427,9 +7427,9 @@ rule__DService__Group_8__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDServiceAccess().getPostconditionKeyword_8_0()); }
-	'postcondition'
-	{ after(grammarAccess.getDServiceAccess().getPostconditionKeyword_8_0()); }
+	{ before(grammarAccess.getDServiceAccess().getEffectKeyword_8_0()); }
+	'effect'
+	{ after(grammarAccess.getDServiceAccess().getEffectKeyword_8_0()); }
 )
 ;
 finally {
@@ -7453,9 +7453,9 @@ rule__DService__Group_8__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDServiceAccess().getPostconditionAssignment_8_1()); }
-	(rule__DService__PostconditionAssignment_8_1)
-	{ after(grammarAccess.getDServiceAccess().getPostconditionAssignment_8_1()); }
+	{ before(grammarAccess.getDServiceAccess().getEffectsAssignment_8_1()); }
+	(rule__DService__EffectsAssignment_8_1)
+	{ after(grammarAccess.getDServiceAccess().getEffectsAssignment_8_1()); }
 )
 ;
 finally {
@@ -13858,30 +13858,30 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DService__PreconditionAssignment_7_1
+rule__DService__GuardsAssignment_7_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getDServiceAccess().getPreconditionDExpressionParserRuleCall_7_1_0()); }
+		{ before(grammarAccess.getDServiceAccess().getGuardsDExpressionParserRuleCall_7_1_0()); }
 		ruleDExpression
-		{ after(grammarAccess.getDServiceAccess().getPreconditionDExpressionParserRuleCall_7_1_0()); }
+		{ after(grammarAccess.getDServiceAccess().getGuardsDExpressionParserRuleCall_7_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DService__PostconditionAssignment_8_1
+rule__DService__EffectsAssignment_8_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getDServiceAccess().getPostconditionDExpressionParserRuleCall_8_1_0()); }
+		{ before(grammarAccess.getDServiceAccess().getEffectsDExpressionParserRuleCall_8_1_0()); }
 		ruleDExpression
-		{ after(grammarAccess.getDServiceAccess().getPostconditionDExpressionParserRuleCall_8_1_0()); }
+		{ after(grammarAccess.getDServiceAccess().getEffectsDExpressionParserRuleCall_8_1_0()); }
 	)
 ;
 finally {

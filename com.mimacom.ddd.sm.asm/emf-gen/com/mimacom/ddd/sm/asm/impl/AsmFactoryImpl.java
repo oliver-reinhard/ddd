@@ -71,8 +71,6 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 			case AsmPackage.SWATCHDOG: return createSWatchdog();
 			case AsmPackage.SHUMAN: return createSHuman();
 			case AsmPackage.SSERVICE_OPERATION: return createSServiceOperation();
-			case AsmPackage.SOPERATION_PARAMETER: return createSOperationParameter();
-			case AsmPackage.SEXCEPTION: return createSException();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -148,30 +146,6 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	{
 		SServiceOperationImpl sServiceOperation = new SServiceOperationImpl();
 		return sServiceOperation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SOperationParameter createSOperationParameter()
-	{
-		SOperationParameterImpl sOperationParameter = new SOperationParameterImpl();
-		return sOperationParameter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SException createSException()
-	{
-		SExceptionImpl sException = new SExceptionImpl();
-		return sException;
 	}
 
 	/**

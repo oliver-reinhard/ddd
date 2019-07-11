@@ -1,5 +1,6 @@
 package com.mimacom.ddd.dm.dem.ui.plantuml;
 
+import com.mimacom.ddd.dm.base.DActor;
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DDomainEvent;
 import com.mimacom.ddd.dm.base.DNotification;
@@ -17,6 +18,7 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.model.XtextDocument;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
@@ -74,8 +76,12 @@ public class DemDiagramTextProvider extends AbstractDiagramTextProvider {
         _builder_1.append(_name_1);
         _builder_1.newLineIfNotEmpty();
         {
-          EList<DNotification> _notifications = e.getNotifications();
-          for(final DNotification n : _notifications) {
+          final Function1<DNotification, Boolean> _function_1 = (DNotification it) -> {
+            DActor _notified = it.getNotified();
+            return Boolean.valueOf((_notified != null));
+          };
+          Iterable<DNotification> _filter = IterableExtensions.<DNotification>filter(e.getNotifications(), _function_1);
+          for(final DNotification n : _filter) {
             _builder_1.append("actor ");
             String _name_2 = n.getNotified().getName();
             _builder_1.append(_name_2);
@@ -87,8 +93,12 @@ public class DemDiagramTextProvider extends AbstractDiagramTextProvider {
         _builder_1.append(" --> (event) : triggers");
         _builder_1.newLineIfNotEmpty();
         {
-          EList<DNotification> _notifications_1 = e.getNotifications();
-          for(final DNotification n_1 : _notifications_1) {
+          final Function1<DNotification, Boolean> _function_2 = (DNotification it) -> {
+            DActor _notified = it.getNotified();
+            return Boolean.valueOf((_notified != null));
+          };
+          Iterable<DNotification> _filter_1 = IterableExtensions.<DNotification>filter(e.getNotifications(), _function_2);
+          for(final DNotification n_1 : _filter_1) {
             String _name_4 = n_1.getNotified().getName();
             _builder_1.append(_name_4);
             _builder_1.append(" <-- (event) : ");

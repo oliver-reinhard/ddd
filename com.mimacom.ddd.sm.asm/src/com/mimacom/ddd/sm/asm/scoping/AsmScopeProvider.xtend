@@ -3,6 +3,16 @@
  */
 package com.mimacom.ddd.sm.asm.scoping
 
+import com.mimacom.ddd.dm.base.BasePackage
+import com.mimacom.ddd.dm.base.DServiceParameter
+import com.mimacom.ddd.dm.base.DType
+import com.mimacom.ddd.sm.asm.SServiceInterface
+import com.mimacom.ddd.sm.asm.SServiceOperation
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.xtext.scoping.IScope
+import org.eclipse.xtext.scoping.Scopes
 
 /**
  * This class contains custom scoping description.
@@ -12,4 +22,25 @@ package com.mimacom.ddd.sm.asm.scoping
  */
 class AsmScopeProvider extends AbstractAsmScopeProvider {
 
+	static val epackage = BasePackage.eINSTANCE
+
+	override getScope(EObject context, EReference reference) {
+
+		if(context instanceof DServiceParameter) {
+			if(reference == epackage.DTypedMember_Type) {
+				val service = EcoreUtil2.getContainerOfType(context, SServiceInterface)
+				return Scopes.scopeFor(EcoreUtil2.eAllOfType(service.interface, DType))
+			}
+		}
+		super.getScope(context, reference)
+	}
+	
+	protected override IScope getExpressionContainerMemberSwitch(EObject container, IScope outerScope) {
+		return switch container {
+			SServiceOperation: Scopes.scopeFor(container.parameters, getExpressionContainerMemberScope(container, outerScope))  // recursion
+			SServiceInterface: Scopes.scopeFor(EcoreUtil2.eAllOfType(container.core, DType), outerScope)
+			default: super.getExpressionContainerMemberSwitch(container, outerScope)
+		}
+		
+	}
 }

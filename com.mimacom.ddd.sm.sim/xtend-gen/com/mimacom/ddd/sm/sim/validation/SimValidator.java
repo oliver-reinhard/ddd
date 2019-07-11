@@ -14,9 +14,15 @@ import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DDeductionRule;
 import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DEntityType;
+import com.mimacom.ddd.dm.base.DEnumeration;
+import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DQuery;
+import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
+import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.base.IIdentityType;
+import com.mimacom.ddd.dm.base.IValueType;
 import com.mimacom.ddd.dm.dim.DimUtil;
 import com.mimacom.ddd.sm.sim.SAssociationDeduction;
 import com.mimacom.ddd.sm.sim.SAttributeDeduction;
@@ -28,6 +34,7 @@ import com.mimacom.ddd.sm.sim.SEnumerationDeduction;
 import com.mimacom.ddd.sm.sim.SFeatureDeduction;
 import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
+import com.mimacom.ddd.sm.sim.SImplicitElementDeduction;
 import com.mimacom.ddd.sm.sim.SLiteralDeduction;
 import com.mimacom.ddd.sm.sim.SQueryDeduction;
 import com.mimacom.ddd.sm.sim.SStructureChangingRule;
@@ -37,6 +44,8 @@ import com.mimacom.ddd.sm.sim.SimPackage;
 import com.mimacom.ddd.sm.sim.SimUtil;
 import com.mimacom.ddd.sm.sim.validation.AbstractSimValidator;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
@@ -56,6 +65,9 @@ public class SimValidator extends AbstractSimValidator {
   @Inject
   @Extension
   private SimUtil _simUtil;
+  
+  @Inject
+  private IQualifiedNameProvider qualifiedNameProvider;
   
   @Check
   @Override
@@ -205,6 +217,204 @@ public class SimValidator extends AbstractSimValidator {
     if ((!(container instanceof SEnumerationDeduction))) {
       this.error("Literals can only have a deduction rule if the containing enumeration also has a deduction rule.", 
         literal.getDeductionRule(), BasePackage.Literals.DDEDUCTION_RULE__SOURCE);
+    }
+  }
+  
+  @Check
+  @Override
+  public void checkEnumerationHasLiterals(final DEnumeration e) {
+    if ((e instanceof IDeductionDefinition)) {
+      return;
+    }
+    super.checkEnumerationHasLiterals(e);
+  }
+  
+  @Check
+  @Override
+  public void checkAttributeIsValueType(final DAttribute a) {
+    if ((a instanceof IDeductionDefinition)) {
+      return;
+    }
+    if (((!a.isSynthetic()) && (!(a.getType() instanceof IValueType)))) {
+      super.checkAttributeIsValueType(a);
+    } else {
+      boolean _isSynthetic = a.isSynthetic();
+      if (_isSynthetic) {
+        DType _type = a.getType();
+        boolean _tripleEquals = (_type == null);
+        if (_tripleEquals) {
+          String _description = this.getDescription(a);
+          String _plus = (_description + ": no mapping rule for type");
+          this.errorOnStructuralElement(a, _plus);
+        } else {
+          DType _type_1 = a.getType();
+          boolean _not = (!(_type_1 instanceof IValueType));
+          if (_not) {
+            String _description_1 = this.getDescription(a);
+            String _plus_1 = (_description_1 + ": referenced type is not a ValueType");
+            this.errorOnStructuralElement(a, _plus_1);
+          }
+        }
+      }
+    }
+  }
+  
+  @Check
+  @Override
+  public void checkAssocitionToRootType(final DAssociation a) {
+    if ((a instanceof IDeductionDefinition)) {
+      return;
+    }
+    if (((!a.isSynthetic()) && (!((a.getType() instanceof DEntityType) && ((DEntityType) a.getType()).isRoot())))) {
+      super.checkAssocitionToRootType(a);
+    } else {
+      boolean _isSynthetic = a.isSynthetic();
+      if (_isSynthetic) {
+        DType _type = a.getType();
+        boolean _tripleEquals = (_type == null);
+        if (_tripleEquals) {
+          String _description = this.getDescription(a);
+          String _plus = (_description + ": no mapping rule for type");
+          this.errorOnStructuralElement(a, _plus);
+        } else {
+          DType _type_1 = a.getType();
+          boolean _not = (!(_type_1 instanceof IIdentityType));
+          if (_not) {
+            String _description_1 = this.getDescription(a);
+            String _plus_1 = (_description_1 + ": referenced type is not an IdentityType");
+            this.errorOnStructuralElement(a, _plus_1);
+          }
+        }
+      }
+    }
+  }
+  
+  @Check
+  @Override
+  public void checkParameterIsValueType(final DQueryParameter p) {
+    if ((p instanceof IDeductionDefinition)) {
+      return;
+    }
+    boolean _isSynthetic = p.isSynthetic();
+    boolean _not = (!_isSynthetic);
+    if (_not) {
+      boolean _not_1 = (!((p.getType() instanceof IValueType) || Objects.equal(p.getType(), p.eContainer())));
+      if (_not_1) {
+        this.error("Refererenced query-parameter type is neither a ValueType nor the query\'s own container", p, 
+          BasePackage.Literals.DTYPED_MEMBER__TYPE);
+      }
+    } else {
+      DType _type = p.getType();
+      boolean _tripleEquals = (_type == null);
+      if (_tripleEquals) {
+        String _description = this.getDescription(p);
+        String _plus = (_description + ": no mapping rule for type");
+        this.errorOnStructuralElement(p, _plus);
+      } else {
+        boolean _not_2 = (!((p.getType() instanceof IValueType) || Objects.equal(p.getType(), p.eContainer())));
+        if (_not_2) {
+          String _description_1 = this.getDescription(p);
+          String _plus_1 = (_description_1 + ": type is neither a ValueType nor the query\'s own container");
+          this.errorOnStructuralElement(p, _plus_1);
+        }
+      }
+    }
+  }
+  
+  protected String getDescription(final EObject obj) {
+    String _xblockexpression = null;
+    {
+      String synthetic = "";
+      if ((obj instanceof IDeducibleElement)) {
+        boolean _isSynthetic = ((IDeducibleElement)obj).isSynthetic();
+        if (_isSynthetic) {
+          synthetic = "Synthetic ";
+        }
+      }
+      String _simpleName = obj.getClass().getSimpleName();
+      String _plus = (synthetic + _simpleName);
+      String _plus_1 = (_plus + " ");
+      QualifiedName _fullyQualifiedName = this.qualifiedNameProvider.getFullyQualifiedName(obj);
+      _xblockexpression = (_plus_1 + _fullyQualifiedName);
+    }
+    return _xblockexpression;
+  }
+  
+  protected void warningOnStructuralElement(final EObject e, final String warningMsg) {
+    if ((e instanceof IDeducibleElement)) {
+      boolean _isSynthetic = ((IDeducibleElement)e).isSynthetic();
+      if (_isSynthetic) {
+        final IDeductionDefinition definition = ((IDeducibleElement)e).getDeducedFrom();
+        if ((definition instanceof SImplicitElementDeduction)) {
+          this.warningOnStructuralElementImpl(((SImplicitElementDeduction)definition).getOriginalDeductionDefinition(), warningMsg);
+        } else {
+          final EObject container = ((IDeducibleElement)e).eContainer();
+          if ((container instanceof IDeducibleElement)) {
+            this.warningOnStructuralElement(container, warningMsg);
+          } else {
+            this.warningOnStructuralElementImpl(container, warningMsg);
+          }
+        }
+      } else {
+        if ((e instanceof IDeductionDefinition)) {
+          this.warning(warningMsg, e, BasePackage.Literals.IDEDUCTION_DEFINITION__DEDUCTION_RULE);
+        } else {
+          boolean _isSynthetic_1 = ((IDeducibleElement)e).isSynthetic();
+          boolean _not = (!_isSynthetic_1);
+          if (_not) {
+            this.warningOnStructuralElementImpl(e, warningMsg);
+          }
+        }
+      }
+    } else {
+      this.warningOnStructuralElementImpl(e, warningMsg);
+    }
+  }
+  
+  protected void warningOnStructuralElementImpl(final EObject obj, final String warningMsg) {
+    if ((obj instanceof DNamedElement)) {
+      this.warning(warningMsg, obj, BasePackage.Literals.DNAMED_ELEMENT__NAME);
+    } else {
+      this.warning(warningMsg, obj, null);
+    }
+  }
+  
+  protected void errorOnStructuralElement(final EObject e, final String errorMsg) {
+    if ((e instanceof IDeducibleElement)) {
+      boolean _isSynthetic = ((IDeducibleElement)e).isSynthetic();
+      if (_isSynthetic) {
+        final IDeductionDefinition definition = ((IDeducibleElement)e).getDeducedFrom();
+        if ((definition instanceof SImplicitElementDeduction)) {
+          this.errorOnStructuralElementImpl(((SImplicitElementDeduction)definition).getOriginalDeductionDefinition(), errorMsg);
+        } else {
+          final EObject container = ((IDeducibleElement)e).eContainer();
+          if ((container instanceof IDeducibleElement)) {
+            this.errorOnStructuralElement(container, errorMsg);
+          } else {
+            this.errorOnStructuralElementImpl(container, errorMsg);
+          }
+        }
+      } else {
+        if ((e instanceof IDeductionDefinition)) {
+          this.error(errorMsg, e, BasePackage.Literals.IDEDUCTION_DEFINITION__DEDUCTION_RULE);
+        } else {
+          boolean _isSynthetic_1 = ((IDeducibleElement)e).isSynthetic();
+          boolean _not = (!_isSynthetic_1);
+          if (_not) {
+            this.errorOnStructuralElementImpl(e, errorMsg);
+          }
+        }
+      }
+    } else {
+      this.errorOnStructuralElementImpl(e, errorMsg);
+    }
+  }
+  
+  protected void errorOnStructuralElementImpl(final EObject obj, final String errorMsg) {
+    if ((obj instanceof DNamedElement)) {
+      this.error(errorMsg, obj, BasePackage.Literals.DNAMED_ELEMENT__NAME);
+    } else {
+      this.error(errorMsg, obj, null);
     }
   }
 }

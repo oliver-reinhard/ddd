@@ -28,7 +28,7 @@ class SimResourceDescriptionStrategy extends DefaultResourceDescriptionStrategy 
 		if (obj instanceof DType) {
 			if (obj.synthetic) {
 				val typeToIndex = obj
-				val source = typeToIndex.deductionDefinition.deductionRule.source
+				val source = typeToIndex.deducedFrom.deductionRule.source
 				if (source instanceof DType) {
 					// create custom index entry with reference to source
 					return createDTypeDescription(typeToIndex, source, acceptor)

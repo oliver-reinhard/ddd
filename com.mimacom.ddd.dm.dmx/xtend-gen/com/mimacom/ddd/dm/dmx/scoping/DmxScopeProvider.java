@@ -185,8 +185,19 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
     }
   }
   
-  protected IScope getExpressionContainerMemberScope(final EObject context, final IScope outerScope) {
-    EObject container = context.eContainer();
+  /**
+   * Do not override this method, override the switch
+   */
+  protected final IScope getExpressionContainerMemberScope(final EObject context, final IScope outerScope) {
+    IScope _xblockexpression = null;
+    {
+      EObject container = context.eContainer();
+      _xblockexpression = this.getExpressionContainerMemberSwitch(container, outerScope);
+    }
+    return _xblockexpression;
+  }
+  
+  protected IScope getExpressionContainerMemberSwitch(final EObject container, final IScope outerScope) {
     IScope _switchResult = null;
     boolean _matched = false;
     if (container instanceof DEnumeration) {

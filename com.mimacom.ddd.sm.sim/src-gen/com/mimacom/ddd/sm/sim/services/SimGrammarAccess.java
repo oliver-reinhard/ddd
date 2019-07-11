@@ -3188,7 +3188,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	//	name=ID ('(' (parameters+=DServiceParameter ("," parameters+=DServiceParameter)*)? ')')? ('raises'
 	//	raises+=[DException] ("," raises+=[DException])*)?
 	//	description=DRichText?
-	//	'{' ('precondition' precondition=DExpression)? ('postcondition' postcondition=DExpression)?
+	//	'{' ('guard' guards+=DExpression)* ('effect' effects+=DExpression)*
 	//	types+=DType*
 	//	'}';
 	public DimGrammarAccess.DServiceElements getDServiceAccess() {

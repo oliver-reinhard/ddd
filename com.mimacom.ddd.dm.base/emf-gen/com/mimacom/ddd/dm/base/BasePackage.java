@@ -191,13 +191,13 @@ public interface BasePackage extends EPackage
 	int IDEDUCIBLE_ELEMENT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IDEDUCIBLE_ELEMENT__DEDUCTION_DEFINITION = 0;
+	int IDEDUCIBLE_ELEMENT__DEDUCED_FROM = 0;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -669,13 +669,13 @@ public interface BasePackage extends EPackage
 	int DDOMAIN__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN__DEDUCTION_DEFINITION = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int DDOMAIN__DEDUCED_FROM = DNAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -915,13 +915,13 @@ public interface BasePackage extends EPackage
 	int DAGGREGATE = 17;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE__DEDUCTION_DEFINITION = IDEDUCIBLE_ELEMENT__DEDUCTION_DEFINITION;
+	int DAGGREGATE__DEDUCED_FROM = IDEDUCIBLE_ELEMENT__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -1024,13 +1024,13 @@ public interface BasePackage extends EPackage
 	int DTYPE__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPE__DEDUCTION_DEFINITION = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int DTYPE__DEDUCED_FROM = DNAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -1179,13 +1179,13 @@ public interface BasePackage extends EPackage
 	int DSIMPLE_TYPE__DESCRIPTION = DTYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DSIMPLE_TYPE__DEDUCTION_DEFINITION = DTYPE__DEDUCTION_DEFINITION;
+	int DSIMPLE_TYPE__DEDUCED_FROM = DTYPE__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -1270,13 +1270,13 @@ public interface BasePackage extends EPackage
 	int DPRIMITIVE__DESCRIPTION = DSIMPLE_TYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DPRIMITIVE__DEDUCTION_DEFINITION = DSIMPLE_TYPE__DEDUCTION_DEFINITION;
+	int DPRIMITIVE__DEDUCED_FROM = DSIMPLE_TYPE__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -1379,13 +1379,13 @@ public interface BasePackage extends EPackage
 	int DENUMERATION__DESCRIPTION = DSIMPLE_TYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DENUMERATION__DEDUCTION_DEFINITION = DSIMPLE_TYPE__DEDUCTION_DEFINITION;
+	int DENUMERATION__DEDUCED_FROM = DSIMPLE_TYPE__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -1515,13 +1515,13 @@ public interface BasePackage extends EPackage
 	int DLITERAL__COLLECTION = DTYPED_MEMBER__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DLITERAL__DEDUCTION_DEFINITION = DTYPED_MEMBER_FEATURE_COUNT + 0;
+	int DLITERAL__DEDUCED_FROM = DTYPED_MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -1588,13 +1588,13 @@ public interface BasePackage extends EPackage
 	int DCOMPLEX_TYPE__DESCRIPTION = DTYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DCOMPLEX_TYPE__DEDUCTION_DEFINITION = DTYPE__DEDUCTION_DEFINITION;
+	int DCOMPLEX_TYPE__DEDUCED_FROM = DTYPE__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -1706,13 +1706,13 @@ public interface BasePackage extends EPackage
 	int DDETAIL_TYPE__DESCRIPTION = DCOMPLEX_TYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DDETAIL_TYPE__DEDUCTION_DEFINITION = DCOMPLEX_TYPE__DEDUCTION_DEFINITION;
+	int DDETAIL_TYPE__DEDUCED_FROM = DCOMPLEX_TYPE__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -1824,13 +1824,13 @@ public interface BasePackage extends EPackage
 	int DIDENTITY_TYPE__DESCRIPTION = DCOMPLEX_TYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIDENTITY_TYPE__DEDUCTION_DEFINITION = DCOMPLEX_TYPE__DEDUCTION_DEFINITION;
+	int DIDENTITY_TYPE__DEDUCED_FROM = DCOMPLEX_TYPE__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -1951,13 +1951,13 @@ public interface BasePackage extends EPackage
 	int DENTITY_TYPE__DESCRIPTION = DIDENTITY_TYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DENTITY_TYPE__DEDUCTION_DEFINITION = DIDENTITY_TYPE__DEDUCTION_DEFINITION;
+	int DENTITY_TYPE__DEDUCED_FROM = DIDENTITY_TYPE__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -2078,13 +2078,13 @@ public interface BasePackage extends EPackage
 	int DRELATIONSHIP__DESCRIPTION = DIDENTITY_TYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DRELATIONSHIP__DEDUCTION_DEFINITION = DIDENTITY_TYPE__DEDUCTION_DEFINITION;
+	int DRELATIONSHIP__DEDUCED_FROM = DIDENTITY_TYPE__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -2241,13 +2241,13 @@ public interface BasePackage extends EPackage
 	int DFEATURE__COLLECTION = DTYPED_MEMBER__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DFEATURE__DEDUCTION_DEFINITION = DTYPED_MEMBER_FEATURE_COUNT + 0;
+	int DFEATURE__DEDUCED_FROM = DTYPED_MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -2350,13 +2350,13 @@ public interface BasePackage extends EPackage
 	int DASSOCIATION__COLLECTION = DFEATURE__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DASSOCIATION__DEDUCTION_DEFINITION = DFEATURE__DEDUCTION_DEFINITION;
+	int DASSOCIATION__DEDUCED_FROM = DFEATURE__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -2541,13 +2541,13 @@ public interface BasePackage extends EPackage
 	int DATTRIBUTE__COLLECTION = DFEATURE__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATTRIBUTE__DEDUCTION_DEFINITION = DFEATURE__DEDUCTION_DEFINITION;
+	int DATTRIBUTE__DEDUCED_FROM = DFEATURE__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -2668,13 +2668,13 @@ public interface BasePackage extends EPackage
 	int DQUERY__COLLECTION = DFEATURE__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DQUERY__DEDUCTION_DEFINITION = DFEATURE__DEDUCTION_DEFINITION;
+	int DQUERY__DEDUCED_FROM = DFEATURE__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -2795,13 +2795,13 @@ public interface BasePackage extends EPackage
 	int DQUERY_PARAMETER__COLLECTION = DTYPED_MEMBER__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Deduction Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DQUERY_PARAMETER__DEDUCTION_DEFINITION = DTYPED_MEMBER_FEATURE_COUNT + 0;
+	int DQUERY_PARAMETER__DEDUCED_FROM = DTYPED_MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -3296,22 +3296,22 @@ public interface BasePackage extends EPackage
 	int DSERVICE__RAISES = DACTOR_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Precondition</b></em>' containment reference.
+	 * The feature id for the '<em><b>Guards</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE__PRECONDITION = DACTOR_FEATURE_COUNT + 3;
+	int DSERVICE__GUARDS = DACTOR_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Postcondition</b></em>' containment reference.
+	 * The feature id for the '<em><b>Effects</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE__POSTCONDITION = DACTOR_FEATURE_COUNT + 4;
+	int DSERVICE__EFFECTS = DACTOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -3725,15 +3725,15 @@ public interface BasePackage extends EPackage
 	EClass getIDeducibleElement();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.IDeducibleElement#getDeductionDefinition <em>Deduction Definition</em>}'.
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.IDeducibleElement#getDeducedFrom <em>Deduced From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Deduction Definition</em>'.
-	 * @see com.mimacom.ddd.dm.base.IDeducibleElement#getDeductionDefinition()
+	 * @return the meta object for the reference '<em>Deduced From</em>'.
+	 * @see com.mimacom.ddd.dm.base.IDeducibleElement#getDeducedFrom()
 	 * @see #getIDeducibleElement()
 	 * @generated
 	 */
-	EReference getIDeducibleElement_DeductionDefinition();
+	EReference getIDeducibleElement_DeducedFrom();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.IDeducibleElement#isSynthetic <em>Synthetic</em>}'.
@@ -4689,26 +4689,26 @@ public interface BasePackage extends EPackage
 	EReference getDService_Raises();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.DService#getPrecondition <em>Precondition</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DService#getGuards <em>Guards</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Precondition</em>'.
-	 * @see com.mimacom.ddd.dm.base.DService#getPrecondition()
+	 * @return the meta object for the containment reference list '<em>Guards</em>'.
+	 * @see com.mimacom.ddd.dm.base.DService#getGuards()
 	 * @see #getDService()
 	 * @generated
 	 */
-	EReference getDService_Precondition();
+	EReference getDService_Guards();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.DService#getPostcondition <em>Postcondition</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DService#getEffects <em>Effects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Postcondition</em>'.
-	 * @see com.mimacom.ddd.dm.base.DService#getPostcondition()
+	 * @return the meta object for the containment reference list '<em>Effects</em>'.
+	 * @see com.mimacom.ddd.dm.base.DService#getEffects()
 	 * @see #getDService()
 	 * @generated
 	 */
-	EReference getDService_Postcondition();
+	EReference getDService_Effects();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DService#getTypes <em>Types</em>}'.
@@ -4918,12 +4918,12 @@ public interface BasePackage extends EPackage
 		EClass IDEDUCIBLE_ELEMENT = eINSTANCE.getIDeducibleElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Deduction Definition</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Deduced From</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference IDEDUCIBLE_ELEMENT__DEDUCTION_DEFINITION = eINSTANCE.getIDeducibleElement_DeductionDefinition();
+		EReference IDEDUCIBLE_ELEMENT__DEDUCED_FROM = eINSTANCE.getIDeducibleElement_DeducedFrom();
 
 		/**
 		 * The meta object literal for the '<em><b>Synthetic</b></em>' attribute feature.
@@ -5718,20 +5718,20 @@ public interface BasePackage extends EPackage
 		EReference DSERVICE__RAISES = eINSTANCE.getDService_Raises();
 
 		/**
-		 * The meta object literal for the '<em><b>Precondition</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Guards</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DSERVICE__PRECONDITION = eINSTANCE.getDService_Precondition();
+		EReference DSERVICE__GUARDS = eINSTANCE.getDService_Guards();
 
 		/**
-		 * The meta object literal for the '<em><b>Postcondition</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Effects</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DSERVICE__POSTCONDITION = eINSTANCE.getDService_Postcondition();
+		EReference DSERVICE__EFFECTS = eINSTANCE.getDService_Effects();
 
 		/**
 		 * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.

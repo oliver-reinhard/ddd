@@ -206,13 +206,31 @@ public interface AsmPackage extends EPackage
 	int SSERVICE_INTERFACE__IMPORTS = MODEL__IMPORTS;
 
 	/**
-	 * The feature id for the '<em><b>Model</b></em>' reference.
+	 * The feature id for the '<em><b>Interface</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE__MODEL = MODEL_FEATURE_COUNT + 0;
+	int SSERVICE_INTERFACE__INTERFACE = MODEL_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Core</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSERVICE_INTERFACE__CORE = MODEL_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Exceptions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSERVICE_INTERFACE__EXCEPTIONS = MODEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Operations</b></em>' containment reference list.
@@ -221,7 +239,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE__OPERATIONS = MODEL_FEATURE_COUNT + 1;
+	int SSERVICE_INTERFACE__OPERATIONS = MODEL_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>SService Interface</em>' class.
@@ -230,7 +248,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_INTERFACE_FEATURE_COUNT = MODEL_FEATURE_COUNT + 2;
+	int SSERVICE_INTERFACE_FEATURE_COUNT = MODEL_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>SService Interface</em>' class.
@@ -381,13 +399,31 @@ public interface AsmPackage extends EPackage
 	int SSERVICE_OPERATION__PARAMETERS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Exceptions</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Raises</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_OPERATION__EXCEPTIONS = 2;
+	int SSERVICE_OPERATION__RAISES = 2;
+
+	/**
+	 * The feature id for the '<em><b>Guards</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSERVICE_OPERATION__GUARDS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Effects</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSERVICE_OPERATION__EFFECTS = 4;
 
 	/**
 	 * The number of structural features of the '<em>SService Operation</em>' class.
@@ -396,7 +432,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_OPERATION_FEATURE_COUNT = 3;
+	int SSERVICE_OPERATION_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>SService Operation</em>' class.
@@ -406,80 +442,6 @@ public interface AsmPackage extends EPackage
 	 * @ordered
 	 */
 	int SSERVICE_OPERATION_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.SOperationParameterImpl <em>SOperation Parameter</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.asm.impl.SOperationParameterImpl
-	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSOperationParameter()
-	 * @generated
-	 */
-	int SOPERATION_PARAMETER = 7;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOPERATION_PARAMETER__NAME = 0;
-
-	/**
-	 * The number of structural features of the '<em>SOperation Parameter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOPERATION_PARAMETER_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>SOperation Parameter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOPERATION_PARAMETER_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.SExceptionImpl <em>SException</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.asm.impl.SExceptionImpl
-	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSException()
-	 * @generated
-	 */
-	int SEXCEPTION = 8;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEXCEPTION__NAME = 0;
-
-	/**
-	 * The number of structural features of the '<em>SException</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEXCEPTION_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>SException</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEXCEPTION_OPERATION_COUNT = 0;
 
 
 	/**
@@ -568,15 +530,37 @@ public interface AsmPackage extends EPackage
 	EClass getSServiceInterface();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.asm.SServiceInterface#getModel <em>Model</em>}'.
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.asm.SServiceInterface#getInterface <em>Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Model</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SServiceInterface#getModel()
+	 * @return the meta object for the reference '<em>Interface</em>'.
+	 * @see com.mimacom.ddd.sm.asm.SServiceInterface#getInterface()
 	 * @see #getSServiceInterface()
 	 * @generated
 	 */
-	EReference getSServiceInterface_Model();
+	EReference getSServiceInterface_Interface();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.asm.SServiceInterface#getCore <em>Core</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Core</em>'.
+	 * @see com.mimacom.ddd.sm.asm.SServiceInterface#getCore()
+	 * @see #getSServiceInterface()
+	 * @generated
+	 */
+	EReference getSServiceInterface_Core();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.asm.SServiceInterface#getExceptions <em>Exceptions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Exceptions</em>'.
+	 * @see com.mimacom.ddd.sm.asm.SServiceInterface#getExceptions()
+	 * @see #getSServiceInterface()
+	 * @generated
+	 */
+	EReference getSServiceInterface_Exceptions();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.asm.SServiceInterface#getOperations <em>Operations</em>}'.
@@ -663,57 +647,37 @@ public interface AsmPackage extends EPackage
 	EReference getSServiceOperation_Parameters();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.asm.SServiceOperation#getExceptions <em>Exceptions</em>}'.
+	 * Returns the meta object for the reference list '{@link com.mimacom.ddd.sm.asm.SServiceOperation#getRaises <em>Raises</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Exceptions</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SServiceOperation#getExceptions()
+	 * @return the meta object for the reference list '<em>Raises</em>'.
+	 * @see com.mimacom.ddd.sm.asm.SServiceOperation#getRaises()
 	 * @see #getSServiceOperation()
 	 * @generated
 	 */
-	EReference getSServiceOperation_Exceptions();
+	EReference getSServiceOperation_Raises();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.SOperationParameter <em>SOperation Parameter</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.asm.SServiceOperation#getGuards <em>Guards</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SOperation Parameter</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SOperationParameter
+	 * @return the meta object for the containment reference list '<em>Guards</em>'.
+	 * @see com.mimacom.ddd.sm.asm.SServiceOperation#getGuards()
+	 * @see #getSServiceOperation()
 	 * @generated
 	 */
-	EClass getSOperationParameter();
+	EReference getSServiceOperation_Guards();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.asm.SOperationParameter#getName <em>Name</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.asm.SServiceOperation#getEffects <em>Effects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SOperationParameter#getName()
-	 * @see #getSOperationParameter()
+	 * @return the meta object for the containment reference list '<em>Effects</em>'.
+	 * @see com.mimacom.ddd.sm.asm.SServiceOperation#getEffects()
+	 * @see #getSServiceOperation()
 	 * @generated
 	 */
-	EAttribute getSOperationParameter_Name();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.SException <em>SException</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>SException</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SException
-	 * @generated
-	 */
-	EClass getSException();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.asm.SException#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.mimacom.ddd.sm.asm.SException#getName()
-	 * @see #getSException()
-	 * @generated
-	 */
-	EAttribute getSException_Name();
+	EReference getSServiceOperation_Effects();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -810,12 +774,28 @@ public interface AsmPackage extends EPackage
 		EClass SSERVICE_INTERFACE = eINSTANCE.getSServiceInterface();
 
 		/**
-		 * The meta object literal for the '<em><b>Model</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Interface</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SSERVICE_INTERFACE__MODEL = eINSTANCE.getSServiceInterface_Model();
+		EReference SSERVICE_INTERFACE__INTERFACE = eINSTANCE.getSServiceInterface_Interface();
+
+		/**
+		 * The meta object literal for the '<em><b>Core</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SSERVICE_INTERFACE__CORE = eINSTANCE.getSServiceInterface_Core();
+
+		/**
+		 * The meta object literal for the '<em><b>Exceptions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SSERVICE_INTERFACE__EXCEPTIONS = eINSTANCE.getSServiceInterface_Exceptions();
 
 		/**
 		 * The meta object literal for the '<em><b>Operations</b></em>' containment reference list feature.
@@ -890,48 +870,28 @@ public interface AsmPackage extends EPackage
 		EReference SSERVICE_OPERATION__PARAMETERS = eINSTANCE.getSServiceOperation_Parameters();
 
 		/**
-		 * The meta object literal for the '<em><b>Exceptions</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Raises</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SSERVICE_OPERATION__EXCEPTIONS = eINSTANCE.getSServiceOperation_Exceptions();
+		EReference SSERVICE_OPERATION__RAISES = eINSTANCE.getSServiceOperation_Raises();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.SOperationParameterImpl <em>SOperation Parameter</em>}' class.
+		 * The meta object literal for the '<em><b>Guards</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.asm.impl.SOperationParameterImpl
-		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSOperationParameter()
 		 * @generated
 		 */
-		EClass SOPERATION_PARAMETER = eINSTANCE.getSOperationParameter();
+		EReference SSERVICE_OPERATION__GUARDS = eINSTANCE.getSServiceOperation_Guards();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Effects</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SOPERATION_PARAMETER__NAME = eINSTANCE.getSOperationParameter_Name();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.SExceptionImpl <em>SException</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.sm.asm.impl.SExceptionImpl
-		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSException()
-		 * @generated
-		 */
-		EClass SEXCEPTION = eINSTANCE.getSException();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SEXCEPTION__NAME = eINSTANCE.getSException_Name();
+		EReference SSERVICE_OPERATION__EFFECTS = eINSTANCE.getSServiceOperation_Effects();
 
 	}
 

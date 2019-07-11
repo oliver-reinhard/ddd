@@ -11,7 +11,14 @@ import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DEntityType
+import com.mimacom.ddd.dm.base.DEnumeration
+import com.mimacom.ddd.dm.base.DNamedElement
 import com.mimacom.ddd.dm.base.DQuery
+import com.mimacom.ddd.dm.base.DQueryParameter
+import com.mimacom.ddd.dm.base.IDeducibleElement
+import com.mimacom.ddd.dm.base.IDeductionDefinition
+import com.mimacom.ddd.dm.base.IIdentityType
+import com.mimacom.ddd.dm.base.IValueType
 import com.mimacom.ddd.dm.dim.DimUtil
 import com.mimacom.ddd.sm.sim.SAssociationDeduction
 import com.mimacom.ddd.sm.sim.SAttributeDeduction
@@ -23,12 +30,15 @@ import com.mimacom.ddd.sm.sim.SEnumerationDeduction
 import com.mimacom.ddd.sm.sim.SFeatureDeduction
 import com.mimacom.ddd.sm.sim.SFuseRule
 import com.mimacom.ddd.sm.sim.SGrabRule
+import com.mimacom.ddd.sm.sim.SImplicitElementDeduction
 import com.mimacom.ddd.sm.sim.SLiteralDeduction
 import com.mimacom.ddd.sm.sim.SQueryDeduction
 import com.mimacom.ddd.sm.sim.SStructureChangingRule
 import com.mimacom.ddd.sm.sim.STristate
 import com.mimacom.ddd.sm.sim.SimPackage
 import com.mimacom.ddd.sm.sim.SimUtil
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.validation.Check
 
 /**
@@ -41,7 +51,7 @@ class SimValidator extends AbstractSimValidator {
 	@Inject extension DimUtil
 	@Inject extension SimUtil
 	
-//	@Inject IQualifiedNameProvider qualifiedNameProvider
+	@Inject IQualifiedNameProvider qualifiedNameProvider
 
 	@Check
 	override checkAggregateHasSingleRootOrRootHiearchy(DAggregate a) {
@@ -164,46 +174,63 @@ class SimValidator extends AbstractSimValidator {
 					literal.deductionRule, BasePackage.Literals.DDEDUCTION_RULE__SOURCE)
 			}
 	}
-
-/*
+	
 	@Check
-	def checkAttributeIsValueType(SAttributeDeduction a) {
-		if(a.nature == GENUINE && ! (a.type instanceof IValueType)) {
-			error('Referenced type is not a ValueType', a, SimPackage.Literals.SFEATURE__TYPE)
-		} else if(a.nature == SYNTHETIC) {
+	override checkEnumerationHasLiterals(DEnumeration e) {
+		if (e instanceof IDeductionDefinition) {
+			return
+		}
+		super.checkEnumerationHasLiterals(e)
+	}
+
+	@Check
+	override checkAttributeIsValueType(DAttribute a) {
+		if (a instanceof IDeductionDefinition) {
+			return
+		}
+		if(! a.synthetic && ! (a.type instanceof IValueType)) {
+			super.checkAttributeIsValueType(a)
+		} else if(a.synthetic) {
 			if(a.type === null) {
 				errorOnStructuralElement(a,  getDescription(a) + ": no mapping rule for type")
-			} else if(! (a.type instanceof SValueType)) {
+			} else if(! (a.type instanceof IValueType)) {
 				errorOnStructuralElement(a, getDescription(a) + ": referenced type is not a ValueType")
 			}
 		}
 	}
-
+	
 	@Check
-	def checkAssocitionToRootType(SAssociationDeduction a) {
-		if (a.nature == GENUINE && (! (a.type instanceof SEntityTypeDeduction && (a.type as SEntityTypeDeduction).root)))  {
-			error('Referenced type is not a RootType', a, SimPackage.Literals.SFEATURE__TYPE)
-		} else if(a.nature == SYNTHETIC) {
+	override checkAssocitionToRootType(DAssociation a) {
+		if (a instanceof IDeductionDefinition) {
+			return
+		}
+		if (! a.synthetic && (! (a.type instanceof DEntityType && (a.type as DEntityType).root)))  {
+			super.checkAssocitionToRootType(a)
+		} else if(a.synthetic) {
 			if(a.type === null) {
 				errorOnStructuralElement(a,  getDescription(a) + ": no mapping rule for type")
-			} else if(! (a.type instanceof SValueType)) {
-				errorOnStructuralElement(a,  getDescription(a) + ": referenced type is not a RootType")
+			} else if(! (a.type instanceof IIdentityType)) {
+				errorOnStructuralElement(a,  getDescription(a) + ": referenced type is not an IdentityType")
 			}
 		}
 	}
 
 // // Parameters: restrictions on their types
+	
 	@Check
-	def checkParameterIsValueType(SQueryParameterDeduction p) {
-		if(p.nature == GENUINE) {
-			if(! (p.type instanceof SValueType || p.type == p.eContainer)) {
+	override checkParameterIsValueType(DQueryParameter p) {
+		if (p instanceof IDeductionDefinition) {
+			return
+		}
+		if(! p.synthetic) {
+			if(! (p.type instanceof IValueType || p.type == p.eContainer)) {
 				error('Refererenced query-parameter type is neither a ValueType nor the query\'s own container', p,
-					SimPackage.Literals.SQUERY_PARAMETER__TYPE)
+					BasePackage.Literals.DTYPED_MEMBER__TYPE)
 			}
-		} else if(p.nature == SYNTHETIC) {
+		} else {
 			if(p.type === null) {
 				errorOnStructuralElement(p,  getDescription(p) + ": no mapping rule for type")
-			} else if(! (p.type instanceof SValueType || p.type == p.eContainer)) {
+			} else if(! (p.type instanceof IValueType || p.type == p.eContainer)) {
 				errorOnStructuralElement(p, getDescription(p) + ": type is neither a ValueType nor the query\'s own container")
 			}
 		}
@@ -237,9 +264,9 @@ class SimValidator extends AbstractSimValidator {
 	protected def void warningOnStructuralElement(EObject e, String warningMsg) {
 		if(e instanceof IDeducibleElement) {
 			if(e.synthetic) {
-				val rule = e.deductionDefinition.deductionRule
-				if(rule instanceof SSyntheticDeductionRule) {
-					warningOnStructuralElementImpl(rule.elementWithRule, warningMsg)
+				val definition = e.deducedFrom
+				if(definition instanceof SImplicitElementDeduction) {
+					warningOnStructuralElementImpl(definition.originalDeductionDefinition, warningMsg)
 				} else {
 					val container = e.eContainer
 					if(container instanceof IDeducibleElement) {
@@ -249,10 +276,10 @@ class SimValidator extends AbstractSimValidator {
 					}
 				}
 
-			} else if(e.nature == DEDUCTION_RULE) {
-				warning(warningMsg, e, SimPackage.Literals.SDEDUCIBLE_ELEMENT__DEDUCTION_RULE)
+			} else if(e instanceof IDeductionDefinition) {
+				warning(warningMsg, e, BasePackage.Literals.IDEDUCTION_DEFINITION__DEDUCTION_RULE)
 
-			} else if(e.nature == GENUINE) {
+			} else if(! e.synthetic) {
 				warningOnStructuralElementImpl(e, warningMsg)
 			}
 		} else {
@@ -271,9 +298,9 @@ class SimValidator extends AbstractSimValidator {
 	protected def void errorOnStructuralElement(EObject e, String errorMsg) {
 		if(e instanceof IDeducibleElement) {
 			if(e.synthetic) {
-				val rule = e.deductionDefinition.deductionRule
-				if(rule instanceof SSyntheticDeductionRule) {
-					errorOnStructuralElementImpl(rule.elementWithRule, errorMsg)
+				val definition = e.deducedFrom
+				if(definition instanceof SImplicitElementDeduction) {
+					errorOnStructuralElementImpl(definition.originalDeductionDefinition, errorMsg)
 				} else {
 					val container = e.eContainer
 					if(container instanceof IDeducibleElement) {
@@ -283,10 +310,10 @@ class SimValidator extends AbstractSimValidator {
 					}
 				}
 
-			} else if(e.nature == DEDUCTION_RULE) {
-				error(errorMsg, e, SimPackage.Literals.SDEDUCIBLE_ELEMENT__DEDUCTION_RULE)
+			} else if(e instanceof IDeductionDefinition) {
+				error(errorMsg, e, BasePackage.Literals.IDEDUCTION_DEFINITION__DEDUCTION_RULE)
 
-			} else if(e.nature == GENUINE) {
+			} else if(! e.synthetic) {
 				errorOnStructuralElementImpl(e, errorMsg)
 			}
 		} else {
@@ -301,5 +328,4 @@ class SimValidator extends AbstractSimValidator {
 			error(errorMsg, obj, null)
 		}
 	}
-	*/
 }

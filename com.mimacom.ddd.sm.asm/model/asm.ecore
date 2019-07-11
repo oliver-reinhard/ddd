@@ -15,7 +15,11 @@
         eType="#//SActor" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SServiceInterface" eSuperTypes="#//Model">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="ecore:EClass ../../com.mimacom.ddd.sm.sim/model/sim.ecore#//SInformationModel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" eType="ecore:EClass ../../com.mimacom.ddd.sm.sim/model/sim.ecore#//SInformationModel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="core" eType="ecore:EClass ../../com.mimacom.ddd.sm.sim/model/sim.ecore#//SInformationModel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exceptions" upperBound="-1"
+        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DException"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
         eType="#//SServiceOperation" containment="true"/>
   </eClassifiers>
@@ -27,14 +31,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="SServiceOperation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//SOperationParameter" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="exceptions" upperBound="-1"
-        eType="#//SException" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SOperationParameter">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SException">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DServiceParameter"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="raises" upperBound="-1"
+        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DException"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guards" upperBound="-1"
+        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="effects" upperBound="-1"
+        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
