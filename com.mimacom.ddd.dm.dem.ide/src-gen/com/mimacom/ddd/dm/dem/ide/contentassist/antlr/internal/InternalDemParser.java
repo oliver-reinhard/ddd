@@ -2524,23 +2524,23 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleOpCast"
 
 
-    // $ANTLR start "entryRuleDTypedMemberReference"
-    // InternalDem.g:754:1: entryRuleDTypedMemberReference : ruleDTypedMemberReference EOF ;
-    public final void entryRuleDTypedMemberReference() throws RecognitionException {
+    // $ANTLR start "entryRuleDNavigableMemberReference"
+    // InternalDem.g:754:1: entryRuleDNavigableMemberReference : ruleDNavigableMemberReference EOF ;
+    public final void entryRuleDNavigableMemberReference() throws RecognitionException {
         try {
-            // InternalDem.g:755:1: ( ruleDTypedMemberReference EOF )
-            // InternalDem.g:756:1: ruleDTypedMemberReference EOF
+            // InternalDem.g:755:1: ( ruleDNavigableMemberReference EOF )
+            // InternalDem.g:756:1: ruleDNavigableMemberReference EOF
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceRule()); 
+               before(grammarAccess.getDNavigableMemberReferenceRule()); 
             }
             pushFollow(FOLLOW_1);
-            ruleDTypedMemberReference();
+            ruleDNavigableMemberReference();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceRule()); 
+               after(grammarAccess.getDNavigableMemberReferenceRule()); 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return ;
 
@@ -2555,30 +2555,30 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleDTypedMemberReference"
+    // $ANTLR end "entryRuleDNavigableMemberReference"
 
 
-    // $ANTLR start "ruleDTypedMemberReference"
-    // InternalDem.g:763:1: ruleDTypedMemberReference : ( ( rule__DTypedMemberReference__Group__0 ) ) ;
-    public final void ruleDTypedMemberReference() throws RecognitionException {
+    // $ANTLR start "ruleDNavigableMemberReference"
+    // InternalDem.g:763:1: ruleDNavigableMemberReference : ( ( rule__DNavigableMemberReference__Group__0 ) ) ;
+    public final void ruleDNavigableMemberReference() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:767:2: ( ( ( rule__DTypedMemberReference__Group__0 ) ) )
-            // InternalDem.g:768:2: ( ( rule__DTypedMemberReference__Group__0 ) )
+            // InternalDem.g:767:2: ( ( ( rule__DNavigableMemberReference__Group__0 ) ) )
+            // InternalDem.g:768:2: ( ( rule__DNavigableMemberReference__Group__0 ) )
             {
-            // InternalDem.g:768:2: ( ( rule__DTypedMemberReference__Group__0 ) )
-            // InternalDem.g:769:3: ( rule__DTypedMemberReference__Group__0 )
+            // InternalDem.g:768:2: ( ( rule__DNavigableMemberReference__Group__0 ) )
+            // InternalDem.g:769:3: ( rule__DNavigableMemberReference__Group__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getGroup()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getGroup()); 
             }
-            // InternalDem.g:770:3: ( rule__DTypedMemberReference__Group__0 )
-            // InternalDem.g:770:4: rule__DTypedMemberReference__Group__0
+            // InternalDem.g:770:3: ( rule__DNavigableMemberReference__Group__0 )
+            // InternalDem.g:770:4: rule__DNavigableMemberReference__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group__0();
+            rule__DNavigableMemberReference__Group__0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -2586,7 +2586,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getGroup()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getGroup()); 
             }
 
             }
@@ -2606,7 +2606,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleDTypedMemberReference"
+    // $ANTLR end "ruleDNavigableMemberReference"
 
 
     // $ANTLR start "entryRuleDPrimaryExpression"
@@ -5725,14 +5725,14 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__OpCast__Alternatives"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Alternatives_1"
-    // InternalDem.g:1645:1: rule__DTypedMemberReference__Alternatives_1 : ( ( ( rule__DTypedMemberReference__Group_1_0__0 ) ) | ( ( rule__DTypedMemberReference__Group_1_1__0 ) ) );
-    public final void rule__DTypedMemberReference__Alternatives_1() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Alternatives_1"
+    // InternalDem.g:1645:1: rule__DNavigableMemberReference__Alternatives_1 : ( ( ( rule__DNavigableMemberReference__Group_1_0__0 ) ) | ( ( rule__DNavigableMemberReference__Group_1_1__0 ) ) );
+    public final void rule__DNavigableMemberReference__Alternatives_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:1649:1: ( ( ( rule__DTypedMemberReference__Group_1_0__0 ) ) | ( ( rule__DTypedMemberReference__Group_1_1__0 ) ) )
+            // InternalDem.g:1649:1: ( ( ( rule__DNavigableMemberReference__Group_1_0__0 ) ) | ( ( rule__DNavigableMemberReference__Group_1_1__0 ) ) )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -5773,19 +5773,19 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalDem.g:1650:2: ( ( rule__DTypedMemberReference__Group_1_0__0 ) )
+                    // InternalDem.g:1650:2: ( ( rule__DNavigableMemberReference__Group_1_0__0 ) )
                     {
-                    // InternalDem.g:1650:2: ( ( rule__DTypedMemberReference__Group_1_0__0 ) )
-                    // InternalDem.g:1651:3: ( rule__DTypedMemberReference__Group_1_0__0 )
+                    // InternalDem.g:1650:2: ( ( rule__DNavigableMemberReference__Group_1_0__0 ) )
+                    // InternalDem.g:1651:3: ( rule__DNavigableMemberReference__Group_1_0__0 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getDTypedMemberReferenceAccess().getGroup_1_0()); 
+                       before(grammarAccess.getDNavigableMemberReferenceAccess().getGroup_1_0()); 
                     }
-                    // InternalDem.g:1652:3: ( rule__DTypedMemberReference__Group_1_0__0 )
-                    // InternalDem.g:1652:4: rule__DTypedMemberReference__Group_1_0__0
+                    // InternalDem.g:1652:3: ( rule__DNavigableMemberReference__Group_1_0__0 )
+                    // InternalDem.g:1652:4: rule__DNavigableMemberReference__Group_1_0__0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__DTypedMemberReference__Group_1_0__0();
+                    rule__DNavigableMemberReference__Group_1_0__0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -5793,7 +5793,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getDTypedMemberReferenceAccess().getGroup_1_0()); 
+                       after(grammarAccess.getDNavigableMemberReferenceAccess().getGroup_1_0()); 
                     }
 
                     }
@@ -5802,19 +5802,19 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalDem.g:1656:2: ( ( rule__DTypedMemberReference__Group_1_1__0 ) )
+                    // InternalDem.g:1656:2: ( ( rule__DNavigableMemberReference__Group_1_1__0 ) )
                     {
-                    // InternalDem.g:1656:2: ( ( rule__DTypedMemberReference__Group_1_1__0 ) )
-                    // InternalDem.g:1657:3: ( rule__DTypedMemberReference__Group_1_1__0 )
+                    // InternalDem.g:1656:2: ( ( rule__DNavigableMemberReference__Group_1_1__0 ) )
+                    // InternalDem.g:1657:3: ( rule__DNavigableMemberReference__Group_1_1__0 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getDTypedMemberReferenceAccess().getGroup_1_1()); 
+                       before(grammarAccess.getDNavigableMemberReferenceAccess().getGroup_1_1()); 
                     }
-                    // InternalDem.g:1658:3: ( rule__DTypedMemberReference__Group_1_1__0 )
-                    // InternalDem.g:1658:4: rule__DTypedMemberReference__Group_1_1__0
+                    // InternalDem.g:1658:3: ( rule__DNavigableMemberReference__Group_1_1__0 )
+                    // InternalDem.g:1658:4: rule__DNavigableMemberReference__Group_1_1__0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__DTypedMemberReference__Group_1_1__0();
+                    rule__DNavigableMemberReference__Group_1_1__0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -5822,7 +5822,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getDTypedMemberReferenceAccess().getGroup_1_1()); 
+                       after(grammarAccess.getDNavigableMemberReferenceAccess().getGroup_1_1()); 
                     }
 
                     }
@@ -5844,17 +5844,17 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Alternatives_1"
+    // $ANTLR end "rule__DNavigableMemberReference__Alternatives_1"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Alternatives_1_1_2"
-    // InternalDem.g:1666:1: rule__DTypedMemberReference__Alternatives_1_1_2 : ( ( ( rule__DTypedMemberReference__Group_1_1_2_0__0 ) ) | ( ( rule__DTypedMemberReference__BeforeAssignment_1_1_2_1 ) ) );
-    public final void rule__DTypedMemberReference__Alternatives_1_1_2() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Alternatives_1_1_2"
+    // InternalDem.g:1666:1: rule__DNavigableMemberReference__Alternatives_1_1_2 : ( ( ( rule__DNavigableMemberReference__Group_1_1_2_0__0 ) ) | ( ( rule__DNavigableMemberReference__BeforeAssignment_1_1_2_1 ) ) );
+    public final void rule__DNavigableMemberReference__Alternatives_1_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:1670:1: ( ( ( rule__DTypedMemberReference__Group_1_1_2_0__0 ) ) | ( ( rule__DTypedMemberReference__BeforeAssignment_1_1_2_1 ) ) )
+            // InternalDem.g:1670:1: ( ( ( rule__DNavigableMemberReference__Group_1_1_2_0__0 ) ) | ( ( rule__DNavigableMemberReference__BeforeAssignment_1_1_2_1 ) ) )
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -5873,19 +5873,19 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             }
             switch (alt11) {
                 case 1 :
-                    // InternalDem.g:1671:2: ( ( rule__DTypedMemberReference__Group_1_1_2_0__0 ) )
+                    // InternalDem.g:1671:2: ( ( rule__DNavigableMemberReference__Group_1_1_2_0__0 ) )
                     {
-                    // InternalDem.g:1671:2: ( ( rule__DTypedMemberReference__Group_1_1_2_0__0 ) )
-                    // InternalDem.g:1672:3: ( rule__DTypedMemberReference__Group_1_1_2_0__0 )
+                    // InternalDem.g:1671:2: ( ( rule__DNavigableMemberReference__Group_1_1_2_0__0 ) )
+                    // InternalDem.g:1672:3: ( rule__DNavigableMemberReference__Group_1_1_2_0__0 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getDTypedMemberReferenceAccess().getGroup_1_1_2_0()); 
+                       before(grammarAccess.getDNavigableMemberReferenceAccess().getGroup_1_1_2_0()); 
                     }
-                    // InternalDem.g:1673:3: ( rule__DTypedMemberReference__Group_1_1_2_0__0 )
-                    // InternalDem.g:1673:4: rule__DTypedMemberReference__Group_1_1_2_0__0
+                    // InternalDem.g:1673:3: ( rule__DNavigableMemberReference__Group_1_1_2_0__0 )
+                    // InternalDem.g:1673:4: rule__DNavigableMemberReference__Group_1_1_2_0__0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__DTypedMemberReference__Group_1_1_2_0__0();
+                    rule__DNavigableMemberReference__Group_1_1_2_0__0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -5893,7 +5893,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getDTypedMemberReferenceAccess().getGroup_1_1_2_0()); 
+                       after(grammarAccess.getDNavigableMemberReferenceAccess().getGroup_1_1_2_0()); 
                     }
 
                     }
@@ -5902,19 +5902,19 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalDem.g:1677:2: ( ( rule__DTypedMemberReference__BeforeAssignment_1_1_2_1 ) )
+                    // InternalDem.g:1677:2: ( ( rule__DNavigableMemberReference__BeforeAssignment_1_1_2_1 ) )
                     {
-                    // InternalDem.g:1677:2: ( ( rule__DTypedMemberReference__BeforeAssignment_1_1_2_1 ) )
-                    // InternalDem.g:1678:3: ( rule__DTypedMemberReference__BeforeAssignment_1_1_2_1 )
+                    // InternalDem.g:1677:2: ( ( rule__DNavigableMemberReference__BeforeAssignment_1_1_2_1 ) )
+                    // InternalDem.g:1678:3: ( rule__DNavigableMemberReference__BeforeAssignment_1_1_2_1 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getDTypedMemberReferenceAccess().getBeforeAssignment_1_1_2_1()); 
+                       before(grammarAccess.getDNavigableMemberReferenceAccess().getBeforeAssignment_1_1_2_1()); 
                     }
-                    // InternalDem.g:1679:3: ( rule__DTypedMemberReference__BeforeAssignment_1_1_2_1 )
-                    // InternalDem.g:1679:4: rule__DTypedMemberReference__BeforeAssignment_1_1_2_1
+                    // InternalDem.g:1679:3: ( rule__DNavigableMemberReference__BeforeAssignment_1_1_2_1 )
+                    // InternalDem.g:1679:4: rule__DNavigableMemberReference__BeforeAssignment_1_1_2_1
                     {
                     pushFollow(FOLLOW_2);
-                    rule__DTypedMemberReference__BeforeAssignment_1_1_2_1();
+                    rule__DNavigableMemberReference__BeforeAssignment_1_1_2_1();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -5922,7 +5922,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getDTypedMemberReferenceAccess().getBeforeAssignment_1_1_2_1()); 
+                       after(grammarAccess.getDNavigableMemberReferenceAccess().getBeforeAssignment_1_1_2_1()); 
                     }
 
                     }
@@ -5944,7 +5944,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Alternatives_1_1_2"
+    // $ANTLR end "rule__DNavigableMemberReference__Alternatives_1_1_2"
 
 
     // $ANTLR start "rule__DPrimaryExpression__Alternatives"
@@ -21027,28 +21027,28 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DCastExpression__Group__0__Impl"
-    // InternalDem.g:6089:1: rule__DCastExpression__Group__0__Impl : ( ruleDTypedMemberReference ) ;
+    // InternalDem.g:6089:1: rule__DCastExpression__Group__0__Impl : ( ruleDNavigableMemberReference ) ;
     public final void rule__DCastExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6093:1: ( ( ruleDTypedMemberReference ) )
-            // InternalDem.g:6094:1: ( ruleDTypedMemberReference )
+            // InternalDem.g:6093:1: ( ( ruleDNavigableMemberReference ) )
+            // InternalDem.g:6094:1: ( ruleDNavigableMemberReference )
             {
-            // InternalDem.g:6094:1: ( ruleDTypedMemberReference )
-            // InternalDem.g:6095:2: ruleDTypedMemberReference
+            // InternalDem.g:6094:1: ( ruleDNavigableMemberReference )
+            // InternalDem.g:6095:2: ruleDNavigableMemberReference
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDCastExpressionAccess().getDTypedMemberReferenceParserRuleCall_0()); 
+               before(grammarAccess.getDCastExpressionAccess().getDNavigableMemberReferenceParserRuleCall_0()); 
             }
             pushFollow(FOLLOW_2);
-            ruleDTypedMemberReference();
+            ruleDNavigableMemberReference();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDCastExpressionAccess().getDTypedMemberReferenceParserRuleCall_0()); 
+               after(grammarAccess.getDCastExpressionAccess().getDNavigableMemberReferenceParserRuleCall_0()); 
             }
 
             }
@@ -21591,23 +21591,23 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DCastExpression__Group_1_0_0__1__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group__0"
-    // InternalDem.g:6266:1: rule__DTypedMemberReference__Group__0 : rule__DTypedMemberReference__Group__0__Impl rule__DTypedMemberReference__Group__1 ;
-    public final void rule__DTypedMemberReference__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group__0"
+    // InternalDem.g:6266:1: rule__DNavigableMemberReference__Group__0 : rule__DNavigableMemberReference__Group__0__Impl rule__DNavigableMemberReference__Group__1 ;
+    public final void rule__DNavigableMemberReference__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6270:1: ( rule__DTypedMemberReference__Group__0__Impl rule__DTypedMemberReference__Group__1 )
-            // InternalDem.g:6271:2: rule__DTypedMemberReference__Group__0__Impl rule__DTypedMemberReference__Group__1
+            // InternalDem.g:6270:1: ( rule__DNavigableMemberReference__Group__0__Impl rule__DNavigableMemberReference__Group__1 )
+            // InternalDem.g:6271:2: rule__DNavigableMemberReference__Group__0__Impl rule__DNavigableMemberReference__Group__1
             {
             pushFollow(FOLLOW_44);
-            rule__DTypedMemberReference__Group__0__Impl();
+            rule__DNavigableMemberReference__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group__1();
+            rule__DNavigableMemberReference__Group__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -21626,12 +21626,12 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group__0"
+    // $ANTLR end "rule__DNavigableMemberReference__Group__0"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group__0__Impl"
-    // InternalDem.g:6278:1: rule__DTypedMemberReference__Group__0__Impl : ( ruleDPrimaryExpression ) ;
-    public final void rule__DTypedMemberReference__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group__0__Impl"
+    // InternalDem.g:6278:1: rule__DNavigableMemberReference__Group__0__Impl : ( ruleDPrimaryExpression ) ;
+    public final void rule__DNavigableMemberReference__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -21643,7 +21643,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             // InternalDem.g:6284:2: ruleDPrimaryExpression
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getDPrimaryExpressionParserRuleCall_0()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getDPrimaryExpressionParserRuleCall_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleDPrimaryExpression();
@@ -21651,7 +21651,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getDPrimaryExpressionParserRuleCall_0()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getDPrimaryExpressionParserRuleCall_0()); 
             }
 
             }
@@ -21671,21 +21671,21 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group__0__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group__0__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group__1"
-    // InternalDem.g:6293:1: rule__DTypedMemberReference__Group__1 : rule__DTypedMemberReference__Group__1__Impl ;
-    public final void rule__DTypedMemberReference__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group__1"
+    // InternalDem.g:6293:1: rule__DNavigableMemberReference__Group__1 : rule__DNavigableMemberReference__Group__1__Impl ;
+    public final void rule__DNavigableMemberReference__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6297:1: ( rule__DTypedMemberReference__Group__1__Impl )
-            // InternalDem.g:6298:2: rule__DTypedMemberReference__Group__1__Impl
+            // InternalDem.g:6297:1: ( rule__DNavigableMemberReference__Group__1__Impl )
+            // InternalDem.g:6298:2: rule__DNavigableMemberReference__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group__1__Impl();
+            rule__DNavigableMemberReference__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -21704,26 +21704,26 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group__1"
+    // $ANTLR end "rule__DNavigableMemberReference__Group__1"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group__1__Impl"
-    // InternalDem.g:6304:1: rule__DTypedMemberReference__Group__1__Impl : ( ( rule__DTypedMemberReference__Alternatives_1 )* ) ;
-    public final void rule__DTypedMemberReference__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group__1__Impl"
+    // InternalDem.g:6304:1: rule__DNavigableMemberReference__Group__1__Impl : ( ( rule__DNavigableMemberReference__Alternatives_1 )* ) ;
+    public final void rule__DNavigableMemberReference__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6308:1: ( ( ( rule__DTypedMemberReference__Alternatives_1 )* ) )
-            // InternalDem.g:6309:1: ( ( rule__DTypedMemberReference__Alternatives_1 )* )
+            // InternalDem.g:6308:1: ( ( ( rule__DNavigableMemberReference__Alternatives_1 )* ) )
+            // InternalDem.g:6309:1: ( ( rule__DNavigableMemberReference__Alternatives_1 )* )
             {
-            // InternalDem.g:6309:1: ( ( rule__DTypedMemberReference__Alternatives_1 )* )
-            // InternalDem.g:6310:2: ( rule__DTypedMemberReference__Alternatives_1 )*
+            // InternalDem.g:6309:1: ( ( rule__DNavigableMemberReference__Alternatives_1 )* )
+            // InternalDem.g:6310:2: ( rule__DNavigableMemberReference__Alternatives_1 )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getAlternatives_1()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getAlternatives_1()); 
             }
-            // InternalDem.g:6311:2: ( rule__DTypedMemberReference__Alternatives_1 )*
+            // InternalDem.g:6311:2: ( rule__DNavigableMemberReference__Alternatives_1 )*
             loop65:
             do {
                 int alt65=2;
@@ -21742,10 +21742,10 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
 
                 switch (alt65) {
             	case 1 :
-            	    // InternalDem.g:6311:3: rule__DTypedMemberReference__Alternatives_1
+            	    // InternalDem.g:6311:3: rule__DNavigableMemberReference__Alternatives_1
             	    {
             	    pushFollow(FOLLOW_45);
-            	    rule__DTypedMemberReference__Alternatives_1();
+            	    rule__DNavigableMemberReference__Alternatives_1();
 
             	    state._fsp--;
             	    if (state.failed) return ;
@@ -21759,7 +21759,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getAlternatives_1()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getAlternatives_1()); 
             }
 
             }
@@ -21779,26 +21779,26 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group__1__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group__1__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_0__0"
-    // InternalDem.g:6320:1: rule__DTypedMemberReference__Group_1_0__0 : rule__DTypedMemberReference__Group_1_0__0__Impl rule__DTypedMemberReference__Group_1_0__1 ;
-    public final void rule__DTypedMemberReference__Group_1_0__0() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_0__0"
+    // InternalDem.g:6320:1: rule__DNavigableMemberReference__Group_1_0__0 : rule__DNavigableMemberReference__Group_1_0__0__Impl rule__DNavigableMemberReference__Group_1_0__1 ;
+    public final void rule__DNavigableMemberReference__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6324:1: ( rule__DTypedMemberReference__Group_1_0__0__Impl rule__DTypedMemberReference__Group_1_0__1 )
-            // InternalDem.g:6325:2: rule__DTypedMemberReference__Group_1_0__0__Impl rule__DTypedMemberReference__Group_1_0__1
+            // InternalDem.g:6324:1: ( rule__DNavigableMemberReference__Group_1_0__0__Impl rule__DNavigableMemberReference__Group_1_0__1 )
+            // InternalDem.g:6325:2: rule__DNavigableMemberReference__Group_1_0__0__Impl rule__DNavigableMemberReference__Group_1_0__1
             {
             pushFollow(FOLLOW_26);
-            rule__DTypedMemberReference__Group_1_0__0__Impl();
+            rule__DNavigableMemberReference__Group_1_0__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_0__1();
+            rule__DNavigableMemberReference__Group_1_0__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -21817,30 +21817,30 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_0__0"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_0__0"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_0__0__Impl"
-    // InternalDem.g:6332:1: rule__DTypedMemberReference__Group_1_0__0__Impl : ( ( rule__DTypedMemberReference__Group_1_0_0__0 ) ) ;
-    public final void rule__DTypedMemberReference__Group_1_0__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_0__0__Impl"
+    // InternalDem.g:6332:1: rule__DNavigableMemberReference__Group_1_0__0__Impl : ( ( rule__DNavigableMemberReference__Group_1_0_0__0 ) ) ;
+    public final void rule__DNavigableMemberReference__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6336:1: ( ( ( rule__DTypedMemberReference__Group_1_0_0__0 ) ) )
-            // InternalDem.g:6337:1: ( ( rule__DTypedMemberReference__Group_1_0_0__0 ) )
+            // InternalDem.g:6336:1: ( ( ( rule__DNavigableMemberReference__Group_1_0_0__0 ) ) )
+            // InternalDem.g:6337:1: ( ( rule__DNavigableMemberReference__Group_1_0_0__0 ) )
             {
-            // InternalDem.g:6337:1: ( ( rule__DTypedMemberReference__Group_1_0_0__0 ) )
-            // InternalDem.g:6338:2: ( rule__DTypedMemberReference__Group_1_0_0__0 )
+            // InternalDem.g:6337:1: ( ( rule__DNavigableMemberReference__Group_1_0_0__0 ) )
+            // InternalDem.g:6338:2: ( rule__DNavigableMemberReference__Group_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getGroup_1_0_0()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getGroup_1_0_0()); 
             }
-            // InternalDem.g:6339:2: ( rule__DTypedMemberReference__Group_1_0_0__0 )
-            // InternalDem.g:6339:3: rule__DTypedMemberReference__Group_1_0_0__0
+            // InternalDem.g:6339:2: ( rule__DNavigableMemberReference__Group_1_0_0__0 )
+            // InternalDem.g:6339:3: rule__DNavigableMemberReference__Group_1_0_0__0
             {
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_0_0__0();
+            rule__DNavigableMemberReference__Group_1_0_0__0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -21848,91 +21848,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getGroup_1_0_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_0__0__Impl"
-
-
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_0__1"
-    // InternalDem.g:6347:1: rule__DTypedMemberReference__Group_1_0__1 : rule__DTypedMemberReference__Group_1_0__1__Impl ;
-    public final void rule__DTypedMemberReference__Group_1_0__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDem.g:6351:1: ( rule__DTypedMemberReference__Group_1_0__1__Impl )
-            // InternalDem.g:6352:2: rule__DTypedMemberReference__Group_1_0__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_0__1__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_0__1"
-
-
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_0__1__Impl"
-    // InternalDem.g:6358:1: rule__DTypedMemberReference__Group_1_0__1__Impl : ( ( rule__DTypedMemberReference__ValueAssignment_1_0_1 ) ) ;
-    public final void rule__DTypedMemberReference__Group_1_0__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDem.g:6362:1: ( ( ( rule__DTypedMemberReference__ValueAssignment_1_0_1 ) ) )
-            // InternalDem.g:6363:1: ( ( rule__DTypedMemberReference__ValueAssignment_1_0_1 ) )
-            {
-            // InternalDem.g:6363:1: ( ( rule__DTypedMemberReference__ValueAssignment_1_0_1 ) )
-            // InternalDem.g:6364:2: ( rule__DTypedMemberReference__ValueAssignment_1_0_1 )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getValueAssignment_1_0_1()); 
-            }
-            // InternalDem.g:6365:2: ( rule__DTypedMemberReference__ValueAssignment_1_0_1 )
-            // InternalDem.g:6365:3: rule__DTypedMemberReference__ValueAssignment_1_0_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__ValueAssignment_1_0_1();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getValueAssignment_1_0_1()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getGroup_1_0_0()); 
             }
 
             }
@@ -21952,21 +21868,21 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_0__1__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_0__0__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_0_0__0"
-    // InternalDem.g:6374:1: rule__DTypedMemberReference__Group_1_0_0__0 : rule__DTypedMemberReference__Group_1_0_0__0__Impl ;
-    public final void rule__DTypedMemberReference__Group_1_0_0__0() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_0__1"
+    // InternalDem.g:6347:1: rule__DNavigableMemberReference__Group_1_0__1 : rule__DNavigableMemberReference__Group_1_0__1__Impl ;
+    public final void rule__DNavigableMemberReference__Group_1_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6378:1: ( rule__DTypedMemberReference__Group_1_0_0__0__Impl )
-            // InternalDem.g:6379:2: rule__DTypedMemberReference__Group_1_0_0__0__Impl
+            // InternalDem.g:6351:1: ( rule__DNavigableMemberReference__Group_1_0__1__Impl )
+            // InternalDem.g:6352:2: rule__DNavigableMemberReference__Group_1_0__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_0_0__0__Impl();
+            rule__DNavigableMemberReference__Group_1_0__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -21985,30 +21901,30 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_0_0__0"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_0__1"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_0_0__0__Impl"
-    // InternalDem.g:6385:1: rule__DTypedMemberReference__Group_1_0_0__0__Impl : ( ( rule__DTypedMemberReference__Group_1_0_0_0__0 ) ) ;
-    public final void rule__DTypedMemberReference__Group_1_0_0__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_0__1__Impl"
+    // InternalDem.g:6358:1: rule__DNavigableMemberReference__Group_1_0__1__Impl : ( ( rule__DNavigableMemberReference__ValueAssignment_1_0_1 ) ) ;
+    public final void rule__DNavigableMemberReference__Group_1_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6389:1: ( ( ( rule__DTypedMemberReference__Group_1_0_0_0__0 ) ) )
-            // InternalDem.g:6390:1: ( ( rule__DTypedMemberReference__Group_1_0_0_0__0 ) )
+            // InternalDem.g:6362:1: ( ( ( rule__DNavigableMemberReference__ValueAssignment_1_0_1 ) ) )
+            // InternalDem.g:6363:1: ( ( rule__DNavigableMemberReference__ValueAssignment_1_0_1 ) )
             {
-            // InternalDem.g:6390:1: ( ( rule__DTypedMemberReference__Group_1_0_0_0__0 ) )
-            // InternalDem.g:6391:2: ( rule__DTypedMemberReference__Group_1_0_0_0__0 )
+            // InternalDem.g:6363:1: ( ( rule__DNavigableMemberReference__ValueAssignment_1_0_1 ) )
+            // InternalDem.g:6364:2: ( rule__DNavigableMemberReference__ValueAssignment_1_0_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getGroup_1_0_0_0()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getValueAssignment_1_0_1()); 
             }
-            // InternalDem.g:6392:2: ( rule__DTypedMemberReference__Group_1_0_0_0__0 )
-            // InternalDem.g:6392:3: rule__DTypedMemberReference__Group_1_0_0_0__0
+            // InternalDem.g:6365:2: ( rule__DNavigableMemberReference__ValueAssignment_1_0_1 )
+            // InternalDem.g:6365:3: rule__DNavigableMemberReference__ValueAssignment_1_0_1
             {
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_0_0_0__0();
+            rule__DNavigableMemberReference__ValueAssignment_1_0_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22016,7 +21932,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getGroup_1_0_0_0()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getValueAssignment_1_0_1()); 
             }
 
             }
@@ -22036,26 +21952,110 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_0_0__0__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_0__1__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_0_0_0__0"
-    // InternalDem.g:6401:1: rule__DTypedMemberReference__Group_1_0_0_0__0 : rule__DTypedMemberReference__Group_1_0_0_0__0__Impl rule__DTypedMemberReference__Group_1_0_0_0__1 ;
-    public final void rule__DTypedMemberReference__Group_1_0_0_0__0() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_0_0__0"
+    // InternalDem.g:6374:1: rule__DNavigableMemberReference__Group_1_0_0__0 : rule__DNavigableMemberReference__Group_1_0_0__0__Impl ;
+    public final void rule__DNavigableMemberReference__Group_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6405:1: ( rule__DTypedMemberReference__Group_1_0_0_0__0__Impl rule__DTypedMemberReference__Group_1_0_0_0__1 )
-            // InternalDem.g:6406:2: rule__DTypedMemberReference__Group_1_0_0_0__0__Impl rule__DTypedMemberReference__Group_1_0_0_0__1
+            // InternalDem.g:6378:1: ( rule__DNavigableMemberReference__Group_1_0_0__0__Impl )
+            // InternalDem.g:6379:2: rule__DNavigableMemberReference__Group_1_0_0__0__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__DNavigableMemberReference__Group_1_0_0__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_0_0__0"
+
+
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_0_0__0__Impl"
+    // InternalDem.g:6385:1: rule__DNavigableMemberReference__Group_1_0_0__0__Impl : ( ( rule__DNavigableMemberReference__Group_1_0_0_0__0 ) ) ;
+    public final void rule__DNavigableMemberReference__Group_1_0_0__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDem.g:6389:1: ( ( ( rule__DNavigableMemberReference__Group_1_0_0_0__0 ) ) )
+            // InternalDem.g:6390:1: ( ( rule__DNavigableMemberReference__Group_1_0_0_0__0 ) )
+            {
+            // InternalDem.g:6390:1: ( ( rule__DNavigableMemberReference__Group_1_0_0_0__0 ) )
+            // InternalDem.g:6391:2: ( rule__DNavigableMemberReference__Group_1_0_0_0__0 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getGroup_1_0_0_0()); 
+            }
+            // InternalDem.g:6392:2: ( rule__DNavigableMemberReference__Group_1_0_0_0__0 )
+            // InternalDem.g:6392:3: rule__DNavigableMemberReference__Group_1_0_0_0__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__DNavigableMemberReference__Group_1_0_0_0__0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getGroup_1_0_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_0_0__0__Impl"
+
+
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_0_0_0__0"
+    // InternalDem.g:6401:1: rule__DNavigableMemberReference__Group_1_0_0_0__0 : rule__DNavigableMemberReference__Group_1_0_0_0__0__Impl rule__DNavigableMemberReference__Group_1_0_0_0__1 ;
+    public final void rule__DNavigableMemberReference__Group_1_0_0_0__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDem.g:6405:1: ( rule__DNavigableMemberReference__Group_1_0_0_0__0__Impl rule__DNavigableMemberReference__Group_1_0_0_0__1 )
+            // InternalDem.g:6406:2: rule__DNavigableMemberReference__Group_1_0_0_0__0__Impl rule__DNavigableMemberReference__Group_1_0_0_0__1
             {
             pushFollow(FOLLOW_44);
-            rule__DTypedMemberReference__Group_1_0_0_0__0__Impl();
+            rule__DNavigableMemberReference__Group_1_0_0_0__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_0_0_0__1();
+            rule__DNavigableMemberReference__Group_1_0_0_0__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22074,12 +22074,12 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_0_0_0__0"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_0_0_0__0"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_0_0_0__0__Impl"
-    // InternalDem.g:6413:1: rule__DTypedMemberReference__Group_1_0_0_0__0__Impl : ( () ) ;
-    public final void rule__DTypedMemberReference__Group_1_0_0_0__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_0_0_0__0__Impl"
+    // InternalDem.g:6413:1: rule__DNavigableMemberReference__Group_1_0_0_0__0__Impl : ( () ) ;
+    public final void rule__DNavigableMemberReference__Group_1_0_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -22091,7 +22091,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             // InternalDem.g:6419:2: ()
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getDAssignmentMemberContainerAction_1_0_0_0_0()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getDAssignmentMemberContainerAction_1_0_0_0_0()); 
             }
             // InternalDem.g:6420:2: ()
             // InternalDem.g:6420:3: 
@@ -22099,7 +22099,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getDAssignmentMemberContainerAction_1_0_0_0_0()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getDAssignmentMemberContainerAction_1_0_0_0_0()); 
             }
 
             }
@@ -22115,26 +22115,26 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_0_0_0__0__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_0_0_0__0__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_0_0_0__1"
-    // InternalDem.g:6428:1: rule__DTypedMemberReference__Group_1_0_0_0__1 : rule__DTypedMemberReference__Group_1_0_0_0__1__Impl rule__DTypedMemberReference__Group_1_0_0_0__2 ;
-    public final void rule__DTypedMemberReference__Group_1_0_0_0__1() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_0_0_0__1"
+    // InternalDem.g:6428:1: rule__DNavigableMemberReference__Group_1_0_0_0__1 : rule__DNavigableMemberReference__Group_1_0_0_0__1__Impl rule__DNavigableMemberReference__Group_1_0_0_0__2 ;
+    public final void rule__DNavigableMemberReference__Group_1_0_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6432:1: ( rule__DTypedMemberReference__Group_1_0_0_0__1__Impl rule__DTypedMemberReference__Group_1_0_0_0__2 )
-            // InternalDem.g:6433:2: rule__DTypedMemberReference__Group_1_0_0_0__1__Impl rule__DTypedMemberReference__Group_1_0_0_0__2
+            // InternalDem.g:6432:1: ( rule__DNavigableMemberReference__Group_1_0_0_0__1__Impl rule__DNavigableMemberReference__Group_1_0_0_0__2 )
+            // InternalDem.g:6433:2: rule__DNavigableMemberReference__Group_1_0_0_0__1__Impl rule__DNavigableMemberReference__Group_1_0_0_0__2
             {
             pushFollow(FOLLOW_3);
-            rule__DTypedMemberReference__Group_1_0_0_0__1__Impl();
+            rule__DNavigableMemberReference__Group_1_0_0_0__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_0_0_0__2();
+            rule__DNavigableMemberReference__Group_1_0_0_0__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22153,12 +22153,12 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_0_0_0__1"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_0_0_0__1"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_0_0_0__1__Impl"
-    // InternalDem.g:6440:1: rule__DTypedMemberReference__Group_1_0_0_0__1__Impl : ( '.' ) ;
-    public final void rule__DTypedMemberReference__Group_1_0_0_0__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_0_0_0__1__Impl"
+    // InternalDem.g:6440:1: rule__DNavigableMemberReference__Group_1_0_0_0__1__Impl : ( '.' ) ;
+    public final void rule__DNavigableMemberReference__Group_1_0_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -22170,11 +22170,11 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             // InternalDem.g:6446:2: '.'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getFullStopKeyword_1_0_0_0_1()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getFullStopKeyword_1_0_0_0_1()); 
             }
             match(input,82,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getFullStopKeyword_1_0_0_0_1()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getFullStopKeyword_1_0_0_0_1()); 
             }
 
             }
@@ -22194,26 +22194,26 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_0_0_0__1__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_0_0_0__1__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_0_0_0__2"
-    // InternalDem.g:6455:1: rule__DTypedMemberReference__Group_1_0_0_0__2 : rule__DTypedMemberReference__Group_1_0_0_0__2__Impl rule__DTypedMemberReference__Group_1_0_0_0__3 ;
-    public final void rule__DTypedMemberReference__Group_1_0_0_0__2() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_0_0_0__2"
+    // InternalDem.g:6455:1: rule__DNavigableMemberReference__Group_1_0_0_0__2 : rule__DNavigableMemberReference__Group_1_0_0_0__2__Impl rule__DNavigableMemberReference__Group_1_0_0_0__3 ;
+    public final void rule__DNavigableMemberReference__Group_1_0_0_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6459:1: ( rule__DTypedMemberReference__Group_1_0_0_0__2__Impl rule__DTypedMemberReference__Group_1_0_0_0__3 )
-            // InternalDem.g:6460:2: rule__DTypedMemberReference__Group_1_0_0_0__2__Impl rule__DTypedMemberReference__Group_1_0_0_0__3
+            // InternalDem.g:6459:1: ( rule__DNavigableMemberReference__Group_1_0_0_0__2__Impl rule__DNavigableMemberReference__Group_1_0_0_0__3 )
+            // InternalDem.g:6460:2: rule__DNavigableMemberReference__Group_1_0_0_0__2__Impl rule__DNavigableMemberReference__Group_1_0_0_0__3
             {
             pushFollow(FOLLOW_25);
-            rule__DTypedMemberReference__Group_1_0_0_0__2__Impl();
+            rule__DNavigableMemberReference__Group_1_0_0_0__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_0_0_0__3();
+            rule__DNavigableMemberReference__Group_1_0_0_0__3();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22232,30 +22232,30 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_0_0_0__2"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_0_0_0__2"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_0_0_0__2__Impl"
-    // InternalDem.g:6467:1: rule__DTypedMemberReference__Group_1_0_0_0__2__Impl : ( ( rule__DTypedMemberReference__MemberAssignment_1_0_0_0_2 ) ) ;
-    public final void rule__DTypedMemberReference__Group_1_0_0_0__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_0_0_0__2__Impl"
+    // InternalDem.g:6467:1: rule__DNavigableMemberReference__Group_1_0_0_0__2__Impl : ( ( rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2 ) ) ;
+    public final void rule__DNavigableMemberReference__Group_1_0_0_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6471:1: ( ( ( rule__DTypedMemberReference__MemberAssignment_1_0_0_0_2 ) ) )
-            // InternalDem.g:6472:1: ( ( rule__DTypedMemberReference__MemberAssignment_1_0_0_0_2 ) )
+            // InternalDem.g:6471:1: ( ( ( rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2 ) ) )
+            // InternalDem.g:6472:1: ( ( rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2 ) )
             {
-            // InternalDem.g:6472:1: ( ( rule__DTypedMemberReference__MemberAssignment_1_0_0_0_2 ) )
-            // InternalDem.g:6473:2: ( rule__DTypedMemberReference__MemberAssignment_1_0_0_0_2 )
+            // InternalDem.g:6472:1: ( ( rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2 ) )
+            // InternalDem.g:6473:2: ( rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getMemberAssignment_1_0_0_0_2()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getMemberAssignment_1_0_0_0_2()); 
             }
-            // InternalDem.g:6474:2: ( rule__DTypedMemberReference__MemberAssignment_1_0_0_0_2 )
-            // InternalDem.g:6474:3: rule__DTypedMemberReference__MemberAssignment_1_0_0_0_2
+            // InternalDem.g:6474:2: ( rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2 )
+            // InternalDem.g:6474:3: rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2
             {
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__MemberAssignment_1_0_0_0_2();
+            rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22263,7 +22263,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getMemberAssignment_1_0_0_0_2()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getMemberAssignment_1_0_0_0_2()); 
             }
 
             }
@@ -22283,21 +22283,21 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_0_0_0__2__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_0_0_0__2__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_0_0_0__3"
-    // InternalDem.g:6482:1: rule__DTypedMemberReference__Group_1_0_0_0__3 : rule__DTypedMemberReference__Group_1_0_0_0__3__Impl ;
-    public final void rule__DTypedMemberReference__Group_1_0_0_0__3() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_0_0_0__3"
+    // InternalDem.g:6482:1: rule__DNavigableMemberReference__Group_1_0_0_0__3 : rule__DNavigableMemberReference__Group_1_0_0_0__3__Impl ;
+    public final void rule__DNavigableMemberReference__Group_1_0_0_0__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6486:1: ( rule__DTypedMemberReference__Group_1_0_0_0__3__Impl )
-            // InternalDem.g:6487:2: rule__DTypedMemberReference__Group_1_0_0_0__3__Impl
+            // InternalDem.g:6486:1: ( rule__DNavigableMemberReference__Group_1_0_0_0__3__Impl )
+            // InternalDem.g:6487:2: rule__DNavigableMemberReference__Group_1_0_0_0__3__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_0_0_0__3__Impl();
+            rule__DNavigableMemberReference__Group_1_0_0_0__3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22316,12 +22316,12 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_0_0_0__3"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_0_0_0__3"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_0_0_0__3__Impl"
-    // InternalDem.g:6493:1: rule__DTypedMemberReference__Group_1_0_0_0__3__Impl : ( ruleOpSingleAssign ) ;
-    public final void rule__DTypedMemberReference__Group_1_0_0_0__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_0_0_0__3__Impl"
+    // InternalDem.g:6493:1: rule__DNavigableMemberReference__Group_1_0_0_0__3__Impl : ( ruleOpSingleAssign ) ;
+    public final void rule__DNavigableMemberReference__Group_1_0_0_0__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -22333,7 +22333,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             // InternalDem.g:6499:2: ruleOpSingleAssign
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getOpSingleAssignParserRuleCall_1_0_0_0_3()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getOpSingleAssignParserRuleCall_1_0_0_0_3()); 
             }
             pushFollow(FOLLOW_2);
             ruleOpSingleAssign();
@@ -22341,7 +22341,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getOpSingleAssignParserRuleCall_1_0_0_0_3()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getOpSingleAssignParserRuleCall_1_0_0_0_3()); 
             }
 
             }
@@ -22361,26 +22361,26 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_0_0_0__3__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_0_0_0__3__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1__0"
-    // InternalDem.g:6509:1: rule__DTypedMemberReference__Group_1_1__0 : rule__DTypedMemberReference__Group_1_1__0__Impl rule__DTypedMemberReference__Group_1_1__1 ;
-    public final void rule__DTypedMemberReference__Group_1_1__0() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1__0"
+    // InternalDem.g:6509:1: rule__DNavigableMemberReference__Group_1_1__0 : rule__DNavigableMemberReference__Group_1_1__0__Impl rule__DNavigableMemberReference__Group_1_1__1 ;
+    public final void rule__DNavigableMemberReference__Group_1_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6513:1: ( rule__DTypedMemberReference__Group_1_1__0__Impl rule__DTypedMemberReference__Group_1_1__1 )
-            // InternalDem.g:6514:2: rule__DTypedMemberReference__Group_1_1__0__Impl rule__DTypedMemberReference__Group_1_1__1
+            // InternalDem.g:6513:1: ( rule__DNavigableMemberReference__Group_1_1__0__Impl rule__DNavigableMemberReference__Group_1_1__1 )
+            // InternalDem.g:6514:2: rule__DNavigableMemberReference__Group_1_1__0__Impl rule__DNavigableMemberReference__Group_1_1__1
             {
             pushFollow(FOLLOW_3);
-            rule__DTypedMemberReference__Group_1_1__0__Impl();
+            rule__DNavigableMemberReference__Group_1_1__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_1__1();
+            rule__DNavigableMemberReference__Group_1_1__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22399,30 +22399,30 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1__0"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1__0"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1__0__Impl"
-    // InternalDem.g:6521:1: rule__DTypedMemberReference__Group_1_1__0__Impl : ( ( rule__DTypedMemberReference__Group_1_1_0__0 ) ) ;
-    public final void rule__DTypedMemberReference__Group_1_1__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1__0__Impl"
+    // InternalDem.g:6521:1: rule__DNavigableMemberReference__Group_1_1__0__Impl : ( ( rule__DNavigableMemberReference__Group_1_1_0__0 ) ) ;
+    public final void rule__DNavigableMemberReference__Group_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6525:1: ( ( ( rule__DTypedMemberReference__Group_1_1_0__0 ) ) )
-            // InternalDem.g:6526:1: ( ( rule__DTypedMemberReference__Group_1_1_0__0 ) )
+            // InternalDem.g:6525:1: ( ( ( rule__DNavigableMemberReference__Group_1_1_0__0 ) ) )
+            // InternalDem.g:6526:1: ( ( rule__DNavigableMemberReference__Group_1_1_0__0 ) )
             {
-            // InternalDem.g:6526:1: ( ( rule__DTypedMemberReference__Group_1_1_0__0 ) )
-            // InternalDem.g:6527:2: ( rule__DTypedMemberReference__Group_1_1_0__0 )
+            // InternalDem.g:6526:1: ( ( rule__DNavigableMemberReference__Group_1_1_0__0 ) )
+            // InternalDem.g:6527:2: ( rule__DNavigableMemberReference__Group_1_1_0__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getGroup_1_1_0()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getGroup_1_1_0()); 
             }
-            // InternalDem.g:6528:2: ( rule__DTypedMemberReference__Group_1_1_0__0 )
-            // InternalDem.g:6528:3: rule__DTypedMemberReference__Group_1_1_0__0
+            // InternalDem.g:6528:2: ( rule__DNavigableMemberReference__Group_1_1_0__0 )
+            // InternalDem.g:6528:3: rule__DNavigableMemberReference__Group_1_1_0__0
             {
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_1_0__0();
+            rule__DNavigableMemberReference__Group_1_1_0__0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22430,7 +22430,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getGroup_1_1_0()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getGroup_1_1_0()); 
             }
 
             }
@@ -22450,26 +22450,26 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1__0__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1__0__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1__1"
-    // InternalDem.g:6536:1: rule__DTypedMemberReference__Group_1_1__1 : rule__DTypedMemberReference__Group_1_1__1__Impl rule__DTypedMemberReference__Group_1_1__2 ;
-    public final void rule__DTypedMemberReference__Group_1_1__1() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1__1"
+    // InternalDem.g:6536:1: rule__DNavigableMemberReference__Group_1_1__1 : rule__DNavigableMemberReference__Group_1_1__1__Impl rule__DNavigableMemberReference__Group_1_1__2 ;
+    public final void rule__DNavigableMemberReference__Group_1_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6540:1: ( rule__DTypedMemberReference__Group_1_1__1__Impl rule__DTypedMemberReference__Group_1_1__2 )
-            // InternalDem.g:6541:2: rule__DTypedMemberReference__Group_1_1__1__Impl rule__DTypedMemberReference__Group_1_1__2
+            // InternalDem.g:6540:1: ( rule__DNavigableMemberReference__Group_1_1__1__Impl rule__DNavigableMemberReference__Group_1_1__2 )
+            // InternalDem.g:6541:2: rule__DNavigableMemberReference__Group_1_1__1__Impl rule__DNavigableMemberReference__Group_1_1__2
             {
             pushFollow(FOLLOW_46);
-            rule__DTypedMemberReference__Group_1_1__1__Impl();
+            rule__DNavigableMemberReference__Group_1_1__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_1__2();
+            rule__DNavigableMemberReference__Group_1_1__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22488,30 +22488,30 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1__1"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1__1"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1__1__Impl"
-    // InternalDem.g:6548:1: rule__DTypedMemberReference__Group_1_1__1__Impl : ( ( rule__DTypedMemberReference__MemberAssignment_1_1_1 ) ) ;
-    public final void rule__DTypedMemberReference__Group_1_1__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1__1__Impl"
+    // InternalDem.g:6548:1: rule__DNavigableMemberReference__Group_1_1__1__Impl : ( ( rule__DNavigableMemberReference__MemberAssignment_1_1_1 ) ) ;
+    public final void rule__DNavigableMemberReference__Group_1_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6552:1: ( ( ( rule__DTypedMemberReference__MemberAssignment_1_1_1 ) ) )
-            // InternalDem.g:6553:1: ( ( rule__DTypedMemberReference__MemberAssignment_1_1_1 ) )
+            // InternalDem.g:6552:1: ( ( ( rule__DNavigableMemberReference__MemberAssignment_1_1_1 ) ) )
+            // InternalDem.g:6553:1: ( ( rule__DNavigableMemberReference__MemberAssignment_1_1_1 ) )
             {
-            // InternalDem.g:6553:1: ( ( rule__DTypedMemberReference__MemberAssignment_1_1_1 ) )
-            // InternalDem.g:6554:2: ( rule__DTypedMemberReference__MemberAssignment_1_1_1 )
+            // InternalDem.g:6553:1: ( ( rule__DNavigableMemberReference__MemberAssignment_1_1_1 ) )
+            // InternalDem.g:6554:2: ( rule__DNavigableMemberReference__MemberAssignment_1_1_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getMemberAssignment_1_1_1()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getMemberAssignment_1_1_1()); 
             }
-            // InternalDem.g:6555:2: ( rule__DTypedMemberReference__MemberAssignment_1_1_1 )
-            // InternalDem.g:6555:3: rule__DTypedMemberReference__MemberAssignment_1_1_1
+            // InternalDem.g:6555:2: ( rule__DNavigableMemberReference__MemberAssignment_1_1_1 )
+            // InternalDem.g:6555:3: rule__DNavigableMemberReference__MemberAssignment_1_1_1
             {
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__MemberAssignment_1_1_1();
+            rule__DNavigableMemberReference__MemberAssignment_1_1_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22519,7 +22519,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getMemberAssignment_1_1_1()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getMemberAssignment_1_1_1()); 
             }
 
             }
@@ -22539,21 +22539,21 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1__1__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1__1__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1__2"
-    // InternalDem.g:6563:1: rule__DTypedMemberReference__Group_1_1__2 : rule__DTypedMemberReference__Group_1_1__2__Impl ;
-    public final void rule__DTypedMemberReference__Group_1_1__2() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1__2"
+    // InternalDem.g:6563:1: rule__DNavigableMemberReference__Group_1_1__2 : rule__DNavigableMemberReference__Group_1_1__2__Impl ;
+    public final void rule__DNavigableMemberReference__Group_1_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6567:1: ( rule__DTypedMemberReference__Group_1_1__2__Impl )
-            // InternalDem.g:6568:2: rule__DTypedMemberReference__Group_1_1__2__Impl
+            // InternalDem.g:6567:1: ( rule__DNavigableMemberReference__Group_1_1__2__Impl )
+            // InternalDem.g:6568:2: rule__DNavigableMemberReference__Group_1_1__2__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_1__2__Impl();
+            rule__DNavigableMemberReference__Group_1_1__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22572,26 +22572,26 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1__2"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1__2"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1__2__Impl"
-    // InternalDem.g:6574:1: rule__DTypedMemberReference__Group_1_1__2__Impl : ( ( rule__DTypedMemberReference__Alternatives_1_1_2 )? ) ;
-    public final void rule__DTypedMemberReference__Group_1_1__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1__2__Impl"
+    // InternalDem.g:6574:1: rule__DNavigableMemberReference__Group_1_1__2__Impl : ( ( rule__DNavigableMemberReference__Alternatives_1_1_2 )? ) ;
+    public final void rule__DNavigableMemberReference__Group_1_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6578:1: ( ( ( rule__DTypedMemberReference__Alternatives_1_1_2 )? ) )
-            // InternalDem.g:6579:1: ( ( rule__DTypedMemberReference__Alternatives_1_1_2 )? )
+            // InternalDem.g:6578:1: ( ( ( rule__DNavigableMemberReference__Alternatives_1_1_2 )? ) )
+            // InternalDem.g:6579:1: ( ( rule__DNavigableMemberReference__Alternatives_1_1_2 )? )
             {
-            // InternalDem.g:6579:1: ( ( rule__DTypedMemberReference__Alternatives_1_1_2 )? )
-            // InternalDem.g:6580:2: ( rule__DTypedMemberReference__Alternatives_1_1_2 )?
+            // InternalDem.g:6579:1: ( ( rule__DNavigableMemberReference__Alternatives_1_1_2 )? )
+            // InternalDem.g:6580:2: ( rule__DNavigableMemberReference__Alternatives_1_1_2 )?
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getAlternatives_1_1_2()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getAlternatives_1_1_2()); 
             }
-            // InternalDem.g:6581:2: ( rule__DTypedMemberReference__Alternatives_1_1_2 )?
+            // InternalDem.g:6581:2: ( rule__DNavigableMemberReference__Alternatives_1_1_2 )?
             int alt66=2;
             int LA66_0 = input.LA(1);
 
@@ -22600,10 +22600,10 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             }
             switch (alt66) {
                 case 1 :
-                    // InternalDem.g:6581:3: rule__DTypedMemberReference__Alternatives_1_1_2
+                    // InternalDem.g:6581:3: rule__DNavigableMemberReference__Alternatives_1_1_2
                     {
                     pushFollow(FOLLOW_2);
-                    rule__DTypedMemberReference__Alternatives_1_1_2();
+                    rule__DNavigableMemberReference__Alternatives_1_1_2();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -22614,7 +22614,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getAlternatives_1_1_2()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getAlternatives_1_1_2()); 
             }
 
             }
@@ -22634,21 +22634,21 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1__2__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1__2__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1_0__0"
-    // InternalDem.g:6590:1: rule__DTypedMemberReference__Group_1_1_0__0 : rule__DTypedMemberReference__Group_1_1_0__0__Impl ;
-    public final void rule__DTypedMemberReference__Group_1_1_0__0() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1_0__0"
+    // InternalDem.g:6590:1: rule__DNavigableMemberReference__Group_1_1_0__0 : rule__DNavigableMemberReference__Group_1_1_0__0__Impl ;
+    public final void rule__DNavigableMemberReference__Group_1_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6594:1: ( rule__DTypedMemberReference__Group_1_1_0__0__Impl )
-            // InternalDem.g:6595:2: rule__DTypedMemberReference__Group_1_1_0__0__Impl
+            // InternalDem.g:6594:1: ( rule__DNavigableMemberReference__Group_1_1_0__0__Impl )
+            // InternalDem.g:6595:2: rule__DNavigableMemberReference__Group_1_1_0__0__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_1_0__0__Impl();
+            rule__DNavigableMemberReference__Group_1_1_0__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22667,30 +22667,30 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1_0__0"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1_0__0"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1_0__0__Impl"
-    // InternalDem.g:6601:1: rule__DTypedMemberReference__Group_1_1_0__0__Impl : ( ( rule__DTypedMemberReference__Group_1_1_0_0__0 ) ) ;
-    public final void rule__DTypedMemberReference__Group_1_1_0__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1_0__0__Impl"
+    // InternalDem.g:6601:1: rule__DNavigableMemberReference__Group_1_1_0__0__Impl : ( ( rule__DNavigableMemberReference__Group_1_1_0_0__0 ) ) ;
+    public final void rule__DNavigableMemberReference__Group_1_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6605:1: ( ( ( rule__DTypedMemberReference__Group_1_1_0_0__0 ) ) )
-            // InternalDem.g:6606:1: ( ( rule__DTypedMemberReference__Group_1_1_0_0__0 ) )
+            // InternalDem.g:6605:1: ( ( ( rule__DNavigableMemberReference__Group_1_1_0_0__0 ) ) )
+            // InternalDem.g:6606:1: ( ( rule__DNavigableMemberReference__Group_1_1_0_0__0 ) )
             {
-            // InternalDem.g:6606:1: ( ( rule__DTypedMemberReference__Group_1_1_0_0__0 ) )
-            // InternalDem.g:6607:2: ( rule__DTypedMemberReference__Group_1_1_0_0__0 )
+            // InternalDem.g:6606:1: ( ( rule__DNavigableMemberReference__Group_1_1_0_0__0 ) )
+            // InternalDem.g:6607:2: ( rule__DNavigableMemberReference__Group_1_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getGroup_1_1_0_0()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getGroup_1_1_0_0()); 
             }
-            // InternalDem.g:6608:2: ( rule__DTypedMemberReference__Group_1_1_0_0__0 )
-            // InternalDem.g:6608:3: rule__DTypedMemberReference__Group_1_1_0_0__0
+            // InternalDem.g:6608:2: ( rule__DNavigableMemberReference__Group_1_1_0_0__0 )
+            // InternalDem.g:6608:3: rule__DNavigableMemberReference__Group_1_1_0_0__0
             {
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_1_0_0__0();
+            rule__DNavigableMemberReference__Group_1_1_0_0__0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22698,7 +22698,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getGroup_1_1_0_0()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getGroup_1_1_0_0()); 
             }
 
             }
@@ -22718,26 +22718,26 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1_0__0__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1_0__0__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1_0_0__0"
-    // InternalDem.g:6617:1: rule__DTypedMemberReference__Group_1_1_0_0__0 : rule__DTypedMemberReference__Group_1_1_0_0__0__Impl rule__DTypedMemberReference__Group_1_1_0_0__1 ;
-    public final void rule__DTypedMemberReference__Group_1_1_0_0__0() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1_0_0__0"
+    // InternalDem.g:6617:1: rule__DNavigableMemberReference__Group_1_1_0_0__0 : rule__DNavigableMemberReference__Group_1_1_0_0__0__Impl rule__DNavigableMemberReference__Group_1_1_0_0__1 ;
+    public final void rule__DNavigableMemberReference__Group_1_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6621:1: ( rule__DTypedMemberReference__Group_1_1_0_0__0__Impl rule__DTypedMemberReference__Group_1_1_0_0__1 )
-            // InternalDem.g:6622:2: rule__DTypedMemberReference__Group_1_1_0_0__0__Impl rule__DTypedMemberReference__Group_1_1_0_0__1
+            // InternalDem.g:6621:1: ( rule__DNavigableMemberReference__Group_1_1_0_0__0__Impl rule__DNavigableMemberReference__Group_1_1_0_0__1 )
+            // InternalDem.g:6622:2: rule__DNavigableMemberReference__Group_1_1_0_0__0__Impl rule__DNavigableMemberReference__Group_1_1_0_0__1
             {
             pushFollow(FOLLOW_44);
-            rule__DTypedMemberReference__Group_1_1_0_0__0__Impl();
+            rule__DNavigableMemberReference__Group_1_1_0_0__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_1_0_0__1();
+            rule__DNavigableMemberReference__Group_1_1_0_0__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22756,12 +22756,12 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1_0_0__0"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1_0_0__0"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1_0_0__0__Impl"
-    // InternalDem.g:6629:1: rule__DTypedMemberReference__Group_1_1_0_0__0__Impl : ( () ) ;
-    public final void rule__DTypedMemberReference__Group_1_1_0_0__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1_0_0__0__Impl"
+    // InternalDem.g:6629:1: rule__DNavigableMemberReference__Group_1_1_0_0__0__Impl : ( () ) ;
+    public final void rule__DNavigableMemberReference__Group_1_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -22773,7 +22773,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             // InternalDem.g:6635:2: ()
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getDTypedMemberReferenceMemberContainerReferenceAction_1_1_0_0_0()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getDNavigableMemberReferenceMemberContainerReferenceAction_1_1_0_0_0()); 
             }
             // InternalDem.g:6636:2: ()
             // InternalDem.g:6636:3: 
@@ -22781,7 +22781,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getDTypedMemberReferenceMemberContainerReferenceAction_1_1_0_0_0()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getDNavigableMemberReferenceMemberContainerReferenceAction_1_1_0_0_0()); 
             }
 
             }
@@ -22797,21 +22797,21 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1_0_0__0__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1_0_0__0__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1_0_0__1"
-    // InternalDem.g:6644:1: rule__DTypedMemberReference__Group_1_1_0_0__1 : rule__DTypedMemberReference__Group_1_1_0_0__1__Impl ;
-    public final void rule__DTypedMemberReference__Group_1_1_0_0__1() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1_0_0__1"
+    // InternalDem.g:6644:1: rule__DNavigableMemberReference__Group_1_1_0_0__1 : rule__DNavigableMemberReference__Group_1_1_0_0__1__Impl ;
+    public final void rule__DNavigableMemberReference__Group_1_1_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6648:1: ( rule__DTypedMemberReference__Group_1_1_0_0__1__Impl )
-            // InternalDem.g:6649:2: rule__DTypedMemberReference__Group_1_1_0_0__1__Impl
+            // InternalDem.g:6648:1: ( rule__DNavigableMemberReference__Group_1_1_0_0__1__Impl )
+            // InternalDem.g:6649:2: rule__DNavigableMemberReference__Group_1_1_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_1_0_0__1__Impl();
+            rule__DNavigableMemberReference__Group_1_1_0_0__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22830,12 +22830,12 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1_0_0__1"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1_0_0__1"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1_0_0__1__Impl"
-    // InternalDem.g:6655:1: rule__DTypedMemberReference__Group_1_1_0_0__1__Impl : ( '.' ) ;
-    public final void rule__DTypedMemberReference__Group_1_1_0_0__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1_0_0__1__Impl"
+    // InternalDem.g:6655:1: rule__DNavigableMemberReference__Group_1_1_0_0__1__Impl : ( '.' ) ;
+    public final void rule__DNavigableMemberReference__Group_1_1_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -22847,11 +22847,11 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             // InternalDem.g:6661:2: '.'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getFullStopKeyword_1_1_0_0_1()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getFullStopKeyword_1_1_0_0_1()); 
             }
             match(input,82,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getFullStopKeyword_1_1_0_0_1()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getFullStopKeyword_1_1_0_0_1()); 
             }
 
             }
@@ -22871,26 +22871,26 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1_0_0__1__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1_0_0__1__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1_2_0__0"
-    // InternalDem.g:6671:1: rule__DTypedMemberReference__Group_1_1_2_0__0 : rule__DTypedMemberReference__Group_1_1_2_0__0__Impl rule__DTypedMemberReference__Group_1_1_2_0__1 ;
-    public final void rule__DTypedMemberReference__Group_1_1_2_0__0() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1_2_0__0"
+    // InternalDem.g:6671:1: rule__DNavigableMemberReference__Group_1_1_2_0__0 : rule__DNavigableMemberReference__Group_1_1_2_0__0__Impl rule__DNavigableMemberReference__Group_1_1_2_0__1 ;
+    public final void rule__DNavigableMemberReference__Group_1_1_2_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6675:1: ( rule__DTypedMemberReference__Group_1_1_2_0__0__Impl rule__DTypedMemberReference__Group_1_1_2_0__1 )
-            // InternalDem.g:6676:2: rule__DTypedMemberReference__Group_1_1_2_0__0__Impl rule__DTypedMemberReference__Group_1_1_2_0__1
+            // InternalDem.g:6675:1: ( rule__DNavigableMemberReference__Group_1_1_2_0__0__Impl rule__DNavigableMemberReference__Group_1_1_2_0__1 )
+            // InternalDem.g:6676:2: rule__DNavigableMemberReference__Group_1_1_2_0__0__Impl rule__DNavigableMemberReference__Group_1_1_2_0__1
             {
             pushFollow(FOLLOW_47);
-            rule__DTypedMemberReference__Group_1_1_2_0__0__Impl();
+            rule__DNavigableMemberReference__Group_1_1_2_0__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_1_2_0__1();
+            rule__DNavigableMemberReference__Group_1_1_2_0__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22909,30 +22909,30 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1_2_0__0"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1_2_0__0"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1_2_0__0__Impl"
-    // InternalDem.g:6683:1: rule__DTypedMemberReference__Group_1_1_2_0__0__Impl : ( ( rule__DTypedMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) ) ;
-    public final void rule__DTypedMemberReference__Group_1_1_2_0__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1_2_0__0__Impl"
+    // InternalDem.g:6683:1: rule__DNavigableMemberReference__Group_1_1_2_0__0__Impl : ( ( rule__DNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) ) ;
+    public final void rule__DNavigableMemberReference__Group_1_1_2_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6687:1: ( ( ( rule__DTypedMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) ) )
-            // InternalDem.g:6688:1: ( ( rule__DTypedMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) )
+            // InternalDem.g:6687:1: ( ( ( rule__DNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) ) )
+            // InternalDem.g:6688:1: ( ( rule__DNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) )
             {
-            // InternalDem.g:6688:1: ( ( rule__DTypedMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) )
-            // InternalDem.g:6689:2: ( rule__DTypedMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 )
+            // InternalDem.g:6688:1: ( ( rule__DNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) )
+            // InternalDem.g:6689:2: ( rule__DNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getExplicitOperationCallAssignment_1_1_2_0_0()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getExplicitOperationCallAssignment_1_1_2_0_0()); 
             }
-            // InternalDem.g:6690:2: ( rule__DTypedMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 )
-            // InternalDem.g:6690:3: rule__DTypedMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0
+            // InternalDem.g:6690:2: ( rule__DNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 )
+            // InternalDem.g:6690:3: rule__DNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0
             {
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0();
+            rule__DNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22940,7 +22940,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getExplicitOperationCallAssignment_1_1_2_0_0()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getExplicitOperationCallAssignment_1_1_2_0_0()); 
             }
 
             }
@@ -22960,26 +22960,26 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1_2_0__0__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1_2_0__0__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1_2_0__1"
-    // InternalDem.g:6698:1: rule__DTypedMemberReference__Group_1_1_2_0__1 : rule__DTypedMemberReference__Group_1_1_2_0__1__Impl rule__DTypedMemberReference__Group_1_1_2_0__2 ;
-    public final void rule__DTypedMemberReference__Group_1_1_2_0__1() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1_2_0__1"
+    // InternalDem.g:6698:1: rule__DNavigableMemberReference__Group_1_1_2_0__1 : rule__DNavigableMemberReference__Group_1_1_2_0__1__Impl rule__DNavigableMemberReference__Group_1_1_2_0__2 ;
+    public final void rule__DNavigableMemberReference__Group_1_1_2_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6702:1: ( rule__DTypedMemberReference__Group_1_1_2_0__1__Impl rule__DTypedMemberReference__Group_1_1_2_0__2 )
-            // InternalDem.g:6703:2: rule__DTypedMemberReference__Group_1_1_2_0__1__Impl rule__DTypedMemberReference__Group_1_1_2_0__2
+            // InternalDem.g:6702:1: ( rule__DNavigableMemberReference__Group_1_1_2_0__1__Impl rule__DNavigableMemberReference__Group_1_1_2_0__2 )
+            // InternalDem.g:6703:2: rule__DNavigableMemberReference__Group_1_1_2_0__1__Impl rule__DNavigableMemberReference__Group_1_1_2_0__2
             {
             pushFollow(FOLLOW_47);
-            rule__DTypedMemberReference__Group_1_1_2_0__1__Impl();
+            rule__DNavigableMemberReference__Group_1_1_2_0__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_1_2_0__2();
+            rule__DNavigableMemberReference__Group_1_1_2_0__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -22998,26 +22998,26 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1_2_0__1"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1_2_0__1"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1_2_0__1__Impl"
-    // InternalDem.g:6710:1: rule__DTypedMemberReference__Group_1_1_2_0__1__Impl : ( ( rule__DTypedMemberReference__Group_1_1_2_0_1__0 )? ) ;
-    public final void rule__DTypedMemberReference__Group_1_1_2_0__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1_2_0__1__Impl"
+    // InternalDem.g:6710:1: rule__DNavigableMemberReference__Group_1_1_2_0__1__Impl : ( ( rule__DNavigableMemberReference__Group_1_1_2_0_1__0 )? ) ;
+    public final void rule__DNavigableMemberReference__Group_1_1_2_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6714:1: ( ( ( rule__DTypedMemberReference__Group_1_1_2_0_1__0 )? ) )
-            // InternalDem.g:6715:1: ( ( rule__DTypedMemberReference__Group_1_1_2_0_1__0 )? )
+            // InternalDem.g:6714:1: ( ( ( rule__DNavigableMemberReference__Group_1_1_2_0_1__0 )? ) )
+            // InternalDem.g:6715:1: ( ( rule__DNavigableMemberReference__Group_1_1_2_0_1__0 )? )
             {
-            // InternalDem.g:6715:1: ( ( rule__DTypedMemberReference__Group_1_1_2_0_1__0 )? )
-            // InternalDem.g:6716:2: ( rule__DTypedMemberReference__Group_1_1_2_0_1__0 )?
+            // InternalDem.g:6715:1: ( ( rule__DNavigableMemberReference__Group_1_1_2_0_1__0 )? )
+            // InternalDem.g:6716:2: ( rule__DNavigableMemberReference__Group_1_1_2_0_1__0 )?
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getGroup_1_1_2_0_1()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getGroup_1_1_2_0_1()); 
             }
-            // InternalDem.g:6717:2: ( rule__DTypedMemberReference__Group_1_1_2_0_1__0 )?
+            // InternalDem.g:6717:2: ( rule__DNavigableMemberReference__Group_1_1_2_0_1__0 )?
             int alt67=2;
             int LA67_0 = input.LA(1);
 
@@ -23026,10 +23026,10 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             }
             switch (alt67) {
                 case 1 :
-                    // InternalDem.g:6717:3: rule__DTypedMemberReference__Group_1_1_2_0_1__0
+                    // InternalDem.g:6717:3: rule__DNavigableMemberReference__Group_1_1_2_0_1__0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__DTypedMemberReference__Group_1_1_2_0_1__0();
+                    rule__DNavigableMemberReference__Group_1_1_2_0_1__0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -23040,7 +23040,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getGroup_1_1_2_0_1()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getGroup_1_1_2_0_1()); 
             }
 
             }
@@ -23060,21 +23060,21 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1_2_0__1__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1_2_0__1__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1_2_0__2"
-    // InternalDem.g:6725:1: rule__DTypedMemberReference__Group_1_1_2_0__2 : rule__DTypedMemberReference__Group_1_1_2_0__2__Impl ;
-    public final void rule__DTypedMemberReference__Group_1_1_2_0__2() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1_2_0__2"
+    // InternalDem.g:6725:1: rule__DNavigableMemberReference__Group_1_1_2_0__2 : rule__DNavigableMemberReference__Group_1_1_2_0__2__Impl ;
+    public final void rule__DNavigableMemberReference__Group_1_1_2_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6729:1: ( rule__DTypedMemberReference__Group_1_1_2_0__2__Impl )
-            // InternalDem.g:6730:2: rule__DTypedMemberReference__Group_1_1_2_0__2__Impl
+            // InternalDem.g:6729:1: ( rule__DNavigableMemberReference__Group_1_1_2_0__2__Impl )
+            // InternalDem.g:6730:2: rule__DNavigableMemberReference__Group_1_1_2_0__2__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_1_2_0__2__Impl();
+            rule__DNavigableMemberReference__Group_1_1_2_0__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -23093,12 +23093,12 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1_2_0__2"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1_2_0__2"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1_2_0__2__Impl"
-    // InternalDem.g:6736:1: rule__DTypedMemberReference__Group_1_1_2_0__2__Impl : ( ')' ) ;
-    public final void rule__DTypedMemberReference__Group_1_1_2_0__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1_2_0__2__Impl"
+    // InternalDem.g:6736:1: rule__DNavigableMemberReference__Group_1_1_2_0__2__Impl : ( ')' ) ;
+    public final void rule__DNavigableMemberReference__Group_1_1_2_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -23110,11 +23110,11 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             // InternalDem.g:6742:2: ')'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getRightParenthesisKeyword_1_1_2_0_2()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getRightParenthesisKeyword_1_1_2_0_2()); 
             }
             match(input,83,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getRightParenthesisKeyword_1_1_2_0_2()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getRightParenthesisKeyword_1_1_2_0_2()); 
             }
 
             }
@@ -23134,26 +23134,26 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1_2_0__2__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1_2_0__2__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1_2_0_1__0"
-    // InternalDem.g:6752:1: rule__DTypedMemberReference__Group_1_1_2_0_1__0 : rule__DTypedMemberReference__Group_1_1_2_0_1__0__Impl rule__DTypedMemberReference__Group_1_1_2_0_1__1 ;
-    public final void rule__DTypedMemberReference__Group_1_1_2_0_1__0() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1_2_0_1__0"
+    // InternalDem.g:6752:1: rule__DNavigableMemberReference__Group_1_1_2_0_1__0 : rule__DNavigableMemberReference__Group_1_1_2_0_1__0__Impl rule__DNavigableMemberReference__Group_1_1_2_0_1__1 ;
+    public final void rule__DNavigableMemberReference__Group_1_1_2_0_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6756:1: ( rule__DTypedMemberReference__Group_1_1_2_0_1__0__Impl rule__DTypedMemberReference__Group_1_1_2_0_1__1 )
-            // InternalDem.g:6757:2: rule__DTypedMemberReference__Group_1_1_2_0_1__0__Impl rule__DTypedMemberReference__Group_1_1_2_0_1__1
+            // InternalDem.g:6756:1: ( rule__DNavigableMemberReference__Group_1_1_2_0_1__0__Impl rule__DNavigableMemberReference__Group_1_1_2_0_1__1 )
+            // InternalDem.g:6757:2: rule__DNavigableMemberReference__Group_1_1_2_0_1__0__Impl rule__DNavigableMemberReference__Group_1_1_2_0_1__1
             {
             pushFollow(FOLLOW_48);
-            rule__DTypedMemberReference__Group_1_1_2_0_1__0__Impl();
+            rule__DNavigableMemberReference__Group_1_1_2_0_1__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_1_2_0_1__1();
+            rule__DNavigableMemberReference__Group_1_1_2_0_1__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -23172,30 +23172,30 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1_2_0_1__0"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1_2_0_1__0"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1_2_0_1__0__Impl"
-    // InternalDem.g:6764:1: rule__DTypedMemberReference__Group_1_1_2_0_1__0__Impl : ( ( rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) ) ;
-    public final void rule__DTypedMemberReference__Group_1_1_2_0_1__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1_2_0_1__0__Impl"
+    // InternalDem.g:6764:1: rule__DNavigableMemberReference__Group_1_1_2_0_1__0__Impl : ( ( rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) ) ;
+    public final void rule__DNavigableMemberReference__Group_1_1_2_0_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6768:1: ( ( ( rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) ) )
-            // InternalDem.g:6769:1: ( ( rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) )
+            // InternalDem.g:6768:1: ( ( ( rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) ) )
+            // InternalDem.g:6769:1: ( ( rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) )
             {
-            // InternalDem.g:6769:1: ( ( rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) )
-            // InternalDem.g:6770:2: ( rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 )
+            // InternalDem.g:6769:1: ( ( rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) )
+            // InternalDem.g:6770:2: ( rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getMemberCallArgumentsAssignment_1_1_2_0_1_0()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getMemberCallArgumentsAssignment_1_1_2_0_1_0()); 
             }
-            // InternalDem.g:6771:2: ( rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 )
-            // InternalDem.g:6771:3: rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0
+            // InternalDem.g:6771:2: ( rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 )
+            // InternalDem.g:6771:3: rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0
             {
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0();
+            rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -23203,7 +23203,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getMemberCallArgumentsAssignment_1_1_2_0_1_0()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getMemberCallArgumentsAssignment_1_1_2_0_1_0()); 
             }
 
             }
@@ -23223,21 +23223,21 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1_2_0_1__0__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1_2_0_1__0__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1_2_0_1__1"
-    // InternalDem.g:6779:1: rule__DTypedMemberReference__Group_1_1_2_0_1__1 : rule__DTypedMemberReference__Group_1_1_2_0_1__1__Impl ;
-    public final void rule__DTypedMemberReference__Group_1_1_2_0_1__1() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1_2_0_1__1"
+    // InternalDem.g:6779:1: rule__DNavigableMemberReference__Group_1_1_2_0_1__1 : rule__DNavigableMemberReference__Group_1_1_2_0_1__1__Impl ;
+    public final void rule__DNavigableMemberReference__Group_1_1_2_0_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6783:1: ( rule__DTypedMemberReference__Group_1_1_2_0_1__1__Impl )
-            // InternalDem.g:6784:2: rule__DTypedMemberReference__Group_1_1_2_0_1__1__Impl
+            // InternalDem.g:6783:1: ( rule__DNavigableMemberReference__Group_1_1_2_0_1__1__Impl )
+            // InternalDem.g:6784:2: rule__DNavigableMemberReference__Group_1_1_2_0_1__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_1_2_0_1__1__Impl();
+            rule__DNavigableMemberReference__Group_1_1_2_0_1__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -23256,26 +23256,26 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1_2_0_1__1"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1_2_0_1__1"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1_2_0_1__1__Impl"
-    // InternalDem.g:6790:1: rule__DTypedMemberReference__Group_1_1_2_0_1__1__Impl : ( ( rule__DTypedMemberReference__Group_1_1_2_0_1_1__0 )* ) ;
-    public final void rule__DTypedMemberReference__Group_1_1_2_0_1__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1_2_0_1__1__Impl"
+    // InternalDem.g:6790:1: rule__DNavigableMemberReference__Group_1_1_2_0_1__1__Impl : ( ( rule__DNavigableMemberReference__Group_1_1_2_0_1_1__0 )* ) ;
+    public final void rule__DNavigableMemberReference__Group_1_1_2_0_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6794:1: ( ( ( rule__DTypedMemberReference__Group_1_1_2_0_1_1__0 )* ) )
-            // InternalDem.g:6795:1: ( ( rule__DTypedMemberReference__Group_1_1_2_0_1_1__0 )* )
+            // InternalDem.g:6794:1: ( ( ( rule__DNavigableMemberReference__Group_1_1_2_0_1_1__0 )* ) )
+            // InternalDem.g:6795:1: ( ( rule__DNavigableMemberReference__Group_1_1_2_0_1_1__0 )* )
             {
-            // InternalDem.g:6795:1: ( ( rule__DTypedMemberReference__Group_1_1_2_0_1_1__0 )* )
-            // InternalDem.g:6796:2: ( rule__DTypedMemberReference__Group_1_1_2_0_1_1__0 )*
+            // InternalDem.g:6795:1: ( ( rule__DNavigableMemberReference__Group_1_1_2_0_1_1__0 )* )
+            // InternalDem.g:6796:2: ( rule__DNavigableMemberReference__Group_1_1_2_0_1_1__0 )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getGroup_1_1_2_0_1_1()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getGroup_1_1_2_0_1_1()); 
             }
-            // InternalDem.g:6797:2: ( rule__DTypedMemberReference__Group_1_1_2_0_1_1__0 )*
+            // InternalDem.g:6797:2: ( rule__DNavigableMemberReference__Group_1_1_2_0_1_1__0 )*
             loop68:
             do {
                 int alt68=2;
@@ -23288,10 +23288,10 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
 
                 switch (alt68) {
             	case 1 :
-            	    // InternalDem.g:6797:3: rule__DTypedMemberReference__Group_1_1_2_0_1_1__0
+            	    // InternalDem.g:6797:3: rule__DNavigableMemberReference__Group_1_1_2_0_1_1__0
             	    {
             	    pushFollow(FOLLOW_49);
-            	    rule__DTypedMemberReference__Group_1_1_2_0_1_1__0();
+            	    rule__DNavigableMemberReference__Group_1_1_2_0_1_1__0();
 
             	    state._fsp--;
             	    if (state.failed) return ;
@@ -23305,7 +23305,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getGroup_1_1_2_0_1_1()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getGroup_1_1_2_0_1_1()); 
             }
 
             }
@@ -23325,26 +23325,26 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1_2_0_1__1__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1_2_0_1__1__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1_2_0_1_1__0"
-    // InternalDem.g:6806:1: rule__DTypedMemberReference__Group_1_1_2_0_1_1__0 : rule__DTypedMemberReference__Group_1_1_2_0_1_1__0__Impl rule__DTypedMemberReference__Group_1_1_2_0_1_1__1 ;
-    public final void rule__DTypedMemberReference__Group_1_1_2_0_1_1__0() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1_2_0_1_1__0"
+    // InternalDem.g:6806:1: rule__DNavigableMemberReference__Group_1_1_2_0_1_1__0 : rule__DNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl rule__DNavigableMemberReference__Group_1_1_2_0_1_1__1 ;
+    public final void rule__DNavigableMemberReference__Group_1_1_2_0_1_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6810:1: ( rule__DTypedMemberReference__Group_1_1_2_0_1_1__0__Impl rule__DTypedMemberReference__Group_1_1_2_0_1_1__1 )
-            // InternalDem.g:6811:2: rule__DTypedMemberReference__Group_1_1_2_0_1_1__0__Impl rule__DTypedMemberReference__Group_1_1_2_0_1_1__1
+            // InternalDem.g:6810:1: ( rule__DNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl rule__DNavigableMemberReference__Group_1_1_2_0_1_1__1 )
+            // InternalDem.g:6811:2: rule__DNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl rule__DNavigableMemberReference__Group_1_1_2_0_1_1__1
             {
             pushFollow(FOLLOW_16);
-            rule__DTypedMemberReference__Group_1_1_2_0_1_1__0__Impl();
+            rule__DNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_1_2_0_1_1__1();
+            rule__DNavigableMemberReference__Group_1_1_2_0_1_1__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -23363,12 +23363,12 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1_2_0_1_1__0"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1_2_0_1_1__0"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1_2_0_1_1__0__Impl"
-    // InternalDem.g:6818:1: rule__DTypedMemberReference__Group_1_1_2_0_1_1__0__Impl : ( ',' ) ;
-    public final void rule__DTypedMemberReference__Group_1_1_2_0_1_1__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl"
+    // InternalDem.g:6818:1: rule__DNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl : ( ',' ) ;
+    public final void rule__DNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -23380,11 +23380,11 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             // InternalDem.g:6824:2: ','
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getCommaKeyword_1_1_2_0_1_1_0()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getCommaKeyword_1_1_2_0_1_1_0()); 
             }
             match(input,84,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getCommaKeyword_1_1_2_0_1_1_0()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getCommaKeyword_1_1_2_0_1_1_0()); 
             }
 
             }
@@ -23404,21 +23404,21 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1_2_0_1_1__0__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1_2_0_1_1__1"
-    // InternalDem.g:6833:1: rule__DTypedMemberReference__Group_1_1_2_0_1_1__1 : rule__DTypedMemberReference__Group_1_1_2_0_1_1__1__Impl ;
-    public final void rule__DTypedMemberReference__Group_1_1_2_0_1_1__1() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1_2_0_1_1__1"
+    // InternalDem.g:6833:1: rule__DNavigableMemberReference__Group_1_1_2_0_1_1__1 : rule__DNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl ;
+    public final void rule__DNavigableMemberReference__Group_1_1_2_0_1_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6837:1: ( rule__DTypedMemberReference__Group_1_1_2_0_1_1__1__Impl )
-            // InternalDem.g:6838:2: rule__DTypedMemberReference__Group_1_1_2_0_1_1__1__Impl
+            // InternalDem.g:6837:1: ( rule__DNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl )
+            // InternalDem.g:6838:2: rule__DNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__Group_1_1_2_0_1_1__1__Impl();
+            rule__DNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -23437,30 +23437,30 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1_2_0_1_1__1"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1_2_0_1_1__1"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__Group_1_1_2_0_1_1__1__Impl"
-    // InternalDem.g:6844:1: rule__DTypedMemberReference__Group_1_1_2_0_1_1__1__Impl : ( ( rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) ) ;
-    public final void rule__DTypedMemberReference__Group_1_1_2_0_1_1__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl"
+    // InternalDem.g:6844:1: rule__DNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl : ( ( rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) ) ;
+    public final void rule__DNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDem.g:6848:1: ( ( ( rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) ) )
-            // InternalDem.g:6849:1: ( ( rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) )
+            // InternalDem.g:6848:1: ( ( ( rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) ) )
+            // InternalDem.g:6849:1: ( ( rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) )
             {
-            // InternalDem.g:6849:1: ( ( rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) )
-            // InternalDem.g:6850:2: ( rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 )
+            // InternalDem.g:6849:1: ( ( rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) )
+            // InternalDem.g:6850:2: ( rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getMemberCallArgumentsAssignment_1_1_2_0_1_1_1()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getMemberCallArgumentsAssignment_1_1_2_0_1_1_1()); 
             }
-            // InternalDem.g:6851:2: ( rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 )
-            // InternalDem.g:6851:3: rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1
+            // InternalDem.g:6851:2: ( rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 )
+            // InternalDem.g:6851:3: rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1
             {
             pushFollow(FOLLOW_2);
-            rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1();
+            rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -23468,7 +23468,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getMemberCallArgumentsAssignment_1_1_2_0_1_1_1()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getMemberCallArgumentsAssignment_1_1_2_0_1_1_1()); 
             }
 
             }
@@ -23488,7 +23488,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__Group_1_1_2_0_1_1__1__Impl"
+    // $ANTLR end "rule__DNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl"
 
 
     // $ANTLR start "rule__DSelfExpression__Group__0"
@@ -32361,23 +32361,23 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             // InternalDem.g:9759:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDAssignmentAccess().getMemberDTypedMemberCrossReference_0_1_0()); 
+               before(grammarAccess.getDAssignmentAccess().getMemberDNavigableMemberCrossReference_0_1_0()); 
             }
             // InternalDem.g:9760:3: ( RULE_ID )
             // InternalDem.g:9761:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDAssignmentAccess().getMemberDTypedMemberIDTerminalRuleCall_0_1_0_1()); 
+               before(grammarAccess.getDAssignmentAccess().getMemberDNavigableMemberIDTerminalRuleCall_0_1_0_1()); 
             }
             match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDAssignmentAccess().getMemberDTypedMemberIDTerminalRuleCall_0_1_0_1()); 
+               after(grammarAccess.getDAssignmentAccess().getMemberDNavigableMemberIDTerminalRuleCall_0_1_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDAssignmentAccess().getMemberDTypedMemberCrossReference_0_1_0()); 
+               after(grammarAccess.getDAssignmentAccess().getMemberDNavigableMemberCrossReference_0_1_0()); 
             }
 
             }
@@ -33271,9 +33271,9 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DCastExpression__TypeAssignment_1_1"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__MemberAssignment_1_0_0_0_2"
-    // InternalDem.g:10065:1: rule__DTypedMemberReference__MemberAssignment_1_0_0_0_2 : ( ( RULE_ID ) ) ;
-    public final void rule__DTypedMemberReference__MemberAssignment_1_0_0_0_2() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2"
+    // InternalDem.g:10065:1: rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2 : ( ( RULE_ID ) ) ;
+    public final void rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -33285,23 +33285,23 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             // InternalDem.g:10071:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getMemberDTypedMemberCrossReference_1_0_0_0_2_0()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getMemberDNavigableMemberCrossReference_1_0_0_0_2_0()); 
             }
             // InternalDem.g:10072:3: ( RULE_ID )
             // InternalDem.g:10073:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getMemberDTypedMemberIDTerminalRuleCall_1_0_0_0_2_0_1()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getMemberDNavigableMemberIDTerminalRuleCall_1_0_0_0_2_0_1()); 
             }
             match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getMemberDTypedMemberIDTerminalRuleCall_1_0_0_0_2_0_1()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getMemberDNavigableMemberIDTerminalRuleCall_1_0_0_0_2_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getMemberDTypedMemberCrossReference_1_0_0_0_2_0()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getMemberDNavigableMemberCrossReference_1_0_0_0_2_0()); 
             }
 
             }
@@ -33321,12 +33321,12 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__MemberAssignment_1_0_0_0_2"
+    // $ANTLR end "rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__ValueAssignment_1_0_1"
-    // InternalDem.g:10084:1: rule__DTypedMemberReference__ValueAssignment_1_0_1 : ( ruleDAssignment ) ;
-    public final void rule__DTypedMemberReference__ValueAssignment_1_0_1() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__ValueAssignment_1_0_1"
+    // InternalDem.g:10084:1: rule__DNavigableMemberReference__ValueAssignment_1_0_1 : ( ruleDAssignment ) ;
+    public final void rule__DNavigableMemberReference__ValueAssignment_1_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -33338,7 +33338,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             // InternalDem.g:10090:3: ruleDAssignment
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getValueDAssignmentParserRuleCall_1_0_1_0()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getValueDAssignmentParserRuleCall_1_0_1_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleDAssignment();
@@ -33346,7 +33346,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getValueDAssignmentParserRuleCall_1_0_1_0()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getValueDAssignmentParserRuleCall_1_0_1_0()); 
             }
 
             }
@@ -33366,12 +33366,12 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__ValueAssignment_1_0_1"
+    // $ANTLR end "rule__DNavigableMemberReference__ValueAssignment_1_0_1"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__MemberAssignment_1_1_1"
-    // InternalDem.g:10099:1: rule__DTypedMemberReference__MemberAssignment_1_1_1 : ( ( RULE_ID ) ) ;
-    public final void rule__DTypedMemberReference__MemberAssignment_1_1_1() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__MemberAssignment_1_1_1"
+    // InternalDem.g:10099:1: rule__DNavigableMemberReference__MemberAssignment_1_1_1 : ( ( RULE_ID ) ) ;
+    public final void rule__DNavigableMemberReference__MemberAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -33383,23 +33383,23 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             // InternalDem.g:10105:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getMemberDTypedMemberCrossReference_1_1_1_0()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getMemberDNavigableMemberCrossReference_1_1_1_0()); 
             }
             // InternalDem.g:10106:3: ( RULE_ID )
             // InternalDem.g:10107:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getMemberDTypedMemberIDTerminalRuleCall_1_1_1_0_1()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getMemberDNavigableMemberIDTerminalRuleCall_1_1_1_0_1()); 
             }
             match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getMemberDTypedMemberIDTerminalRuleCall_1_1_1_0_1()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getMemberDNavigableMemberIDTerminalRuleCall_1_1_1_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getMemberDTypedMemberCrossReference_1_1_1_0()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getMemberDNavigableMemberCrossReference_1_1_1_0()); 
             }
 
             }
@@ -33419,12 +33419,12 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__MemberAssignment_1_1_1"
+    // $ANTLR end "rule__DNavigableMemberReference__MemberAssignment_1_1_1"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0"
-    // InternalDem.g:10118:1: rule__DTypedMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 : ( ( '(' ) ) ;
-    public final void rule__DTypedMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0"
+    // InternalDem.g:10118:1: rule__DNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 : ( ( '(' ) ) ;
+    public final void rule__DNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -33436,23 +33436,23 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             // InternalDem.g:10124:3: ( '(' )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0_0()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0_0()); 
             }
             // InternalDem.g:10125:3: ( '(' )
             // InternalDem.g:10126:4: '('
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0_0()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0_0()); 
             }
             match(input,85,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0_0()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0_0()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0_0()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0_0()); 
             }
 
             }
@@ -33472,12 +33472,12 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0"
+    // $ANTLR end "rule__DNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0"
-    // InternalDem.g:10137:1: rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 : ( ruleDExpression ) ;
-    public final void rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0"
+    // InternalDem.g:10137:1: rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 : ( ruleDExpression ) ;
+    public final void rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -33489,7 +33489,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             // InternalDem.g:10143:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getMemberCallArgumentsDExpressionParserRuleCall_1_1_2_0_1_0_0()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getMemberCallArgumentsDExpressionParserRuleCall_1_1_2_0_1_0_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleDExpression();
@@ -33497,7 +33497,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getMemberCallArgumentsDExpressionParserRuleCall_1_1_2_0_1_0_0()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getMemberCallArgumentsDExpressionParserRuleCall_1_1_2_0_1_0_0()); 
             }
 
             }
@@ -33517,12 +33517,12 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0"
+    // $ANTLR end "rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1"
-    // InternalDem.g:10152:1: rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 : ( ruleDExpression ) ;
-    public final void rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1"
+    // InternalDem.g:10152:1: rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 : ( ruleDExpression ) ;
+    public final void rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -33534,7 +33534,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             // InternalDem.g:10158:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getMemberCallArgumentsDExpressionParserRuleCall_1_1_2_0_1_1_1_0()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getMemberCallArgumentsDExpressionParserRuleCall_1_1_2_0_1_1_1_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleDExpression();
@@ -33542,7 +33542,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getMemberCallArgumentsDExpressionParserRuleCall_1_1_2_0_1_1_1_0()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getMemberCallArgumentsDExpressionParserRuleCall_1_1_2_0_1_1_1_0()); 
             }
 
             }
@@ -33562,12 +33562,12 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1"
+    // $ANTLR end "rule__DNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1"
 
 
-    // $ANTLR start "rule__DTypedMemberReference__BeforeAssignment_1_1_2_1"
-    // InternalDem.g:10167:1: rule__DTypedMemberReference__BeforeAssignment_1_1_2_1 : ( ( '@before' ) ) ;
-    public final void rule__DTypedMemberReference__BeforeAssignment_1_1_2_1() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__BeforeAssignment_1_1_2_1"
+    // InternalDem.g:10167:1: rule__DNavigableMemberReference__BeforeAssignment_1_1_2_1 : ( ( '@before' ) ) ;
+    public final void rule__DNavigableMemberReference__BeforeAssignment_1_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -33579,23 +33579,23 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             // InternalDem.g:10173:3: ( '@before' )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getBeforeBeforeKeyword_1_1_2_1_0()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getBeforeBeforeKeyword_1_1_2_1_0()); 
             }
             // InternalDem.g:10174:3: ( '@before' )
             // InternalDem.g:10175:4: '@before'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDTypedMemberReferenceAccess().getBeforeBeforeKeyword_1_1_2_1_0()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getBeforeBeforeKeyword_1_1_2_1_0()); 
             }
             match(input,93,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getBeforeBeforeKeyword_1_1_2_1_0()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getBeforeBeforeKeyword_1_1_2_1_0()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDTypedMemberReferenceAccess().getBeforeBeforeKeyword_1_1_2_1_0()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getBeforeBeforeKeyword_1_1_2_1_0()); 
             }
 
             }
@@ -33615,7 +33615,7 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DTypedMemberReference__BeforeAssignment_1_1_2_1"
+    // $ANTLR end "rule__DNavigableMemberReference__BeforeAssignment_1_1_2_1"
 
 
     // $ANTLR start "rule__DReturnExpression__ExpressionAssignment_2"
@@ -33865,23 +33865,23 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
             // InternalDem.g:10271:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDConstructorCallAccess().getConstructorDIdentityTypeCrossReference_2_0()); 
+               before(grammarAccess.getDConstructorCallAccess().getConstructorDComplexTypeCrossReference_2_0()); 
             }
             // InternalDem.g:10272:3: ( RULE_ID )
             // InternalDem.g:10273:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDConstructorCallAccess().getConstructorDIdentityTypeIDTerminalRuleCall_2_0_1()); 
+               before(grammarAccess.getDConstructorCallAccess().getConstructorDComplexTypeIDTerminalRuleCall_2_0_1()); 
             }
             match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDConstructorCallAccess().getConstructorDIdentityTypeIDTerminalRuleCall_2_0_1()); 
+               after(grammarAccess.getDConstructorCallAccess().getConstructorDComplexTypeIDTerminalRuleCall_2_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDConstructorCallAccess().getConstructorDIdentityTypeCrossReference_2_0()); 
+               after(grammarAccess.getDConstructorCallAccess().getConstructorDComplexTypeCrossReference_2_0()); 
             }
 
             }
@@ -34859,11 +34859,11 @@ public class InternalDemParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred91_InternalDem
     public final void synpred91_InternalDem_fragment() throws RecognitionException {   
-        // InternalDem.g:6311:3: ( rule__DTypedMemberReference__Alternatives_1 )
-        // InternalDem.g:6311:3: rule__DTypedMemberReference__Alternatives_1
+        // InternalDem.g:6311:3: ( rule__DNavigableMemberReference__Alternatives_1 )
+        // InternalDem.g:6311:3: rule__DNavigableMemberReference__Alternatives_1
         {
         pushFollow(FOLLOW_2);
-        rule__DTypedMemberReference__Alternatives_1();
+        rule__DNavigableMemberReference__Alternatives_1();
 
         state._fsp--;
         if (state.failed) return ;

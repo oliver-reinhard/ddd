@@ -3,6 +3,9 @@
  */
 package com.mimacom.ddd.sm.asm.util;
 
+import com.mimacom.ddd.dm.base.INamespace;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+
 import com.mimacom.ddd.sm.asm.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -109,6 +112,16 @@ public class AsmAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseSServiceOperation(SServiceOperation object)
 			{
 				return createSServiceOperationAdapter();
+			}
+			@Override
+			public Adapter caseINamespace(INamespace object)
+			{
+				return createINamespaceAdapter();
+			}
+			@Override
+			public Adapter caseINavigableMemberContainer(INavigableMemberContainer object)
+			{
+				return createINavigableMemberContainerAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object)
@@ -233,6 +246,36 @@ public class AsmAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createSServiceOperationAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INamespace <em>INamespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.INamespace
+	 * @generated
+	 */
+	public Adapter createINamespaceAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INavigableMemberContainer <em>INavigable Member Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.INavigableMemberContainer
+	 * @generated
+	 */
+	public Adapter createINavigableMemberContainerAdapter()
 	{
 		return null;
 	}

@@ -78,7 +78,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__GENERATE = 0;
+	int SINFORMATION_MODEL__GENERATE = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -87,7 +87,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__KIND = 1;
+	int SINFORMATION_MODEL__KIND = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -96,7 +96,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__NAME = 2;
+	int SINFORMATION_MODEL__NAME = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -105,7 +105,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__DESCRIPTION = 3;
+	int SINFORMATION_MODEL__DESCRIPTION = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
@@ -114,7 +114,16 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__IMPORTS = 4;
+	int SINFORMATION_MODEL__IMPORTS = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Queries</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINFORMATION_MODEL__QUERIES = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -123,7 +132,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__TYPES = 5;
+	int SINFORMATION_MODEL__TYPES = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Aggregates</b></em>' containment reference list.
@@ -132,7 +141,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__AGGREGATES = 6;
+	int SINFORMATION_MODEL__AGGREGATES = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Domain Proxies</b></em>' containment reference list.
@@ -141,7 +150,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__DOMAIN_PROXIES = 7;
+	int SINFORMATION_MODEL__DOMAIN_PROXIES = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>SInformation Model</em>' class.
@@ -150,7 +159,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL_FEATURE_COUNT = 8;
+	int SINFORMATION_MODEL_FEATURE_COUNT = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>SInformation Model</em>' class.
@@ -159,7 +168,116 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL_OPERATION_COUNT = 0;
+	int SINFORMATION_MODEL_OPERATION_COUNT = BasePackage.INAVIGABLE_MEMBER_CONTAINER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SCoreQueryImpl <em>SCore Query</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sim.impl.SCoreQueryImpl
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSCoreQuery()
+	 * @generated
+	 */
+	int SCORE_QUERY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCORE_QUERY__NAME = BasePackage.DNAVIGABLE_MEMBER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCORE_QUERY__ALIASES = BasePackage.DNAVIGABLE_MEMBER__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCORE_QUERY__DESCRIPTION = BasePackage.DNAVIGABLE_MEMBER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCORE_QUERY__TYPE = BasePackage.DNAVIGABLE_MEMBER__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCORE_QUERY__MULTIPLICITY = BasePackage.DNAVIGABLE_MEMBER__MULTIPLICITY;
+
+	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCORE_QUERY__OPTIONAL = BasePackage.DNAVIGABLE_MEMBER__OPTIONAL;
+
+	/**
+	 * The feature id for the '<em><b>Collection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCORE_QUERY__COLLECTION = BasePackage.DNAVIGABLE_MEMBER__COLLECTION;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCORE_QUERY__PARAMETERS = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Returns</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCORE_QUERY__RETURNS = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>SCore Query</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCORE_QUERY_FEATURE_COUNT = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>SCore Query</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCORE_QUERY_OPERATION_COUNT = BasePackage.DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SImplicitElementDeductionImpl <em>SImplicit Element Deduction</em>}' class.
@@ -169,7 +287,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSImplicitElementDeduction()
 	 * @generated
 	 */
-	int SIMPLICIT_ELEMENT_DEDUCTION = 1;
+	int SIMPLICIT_ELEMENT_DEDUCTION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -215,7 +333,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDomainDeduction()
 	 * @generated
 	 */
-	int SDOMAIN_DEDUCTION = 2;
+	int SDOMAIN_DEDUCTION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -252,7 +370,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAggregateDeduction()
 	 * @generated
 	 */
-	int SAGGREGATE_DEDUCTION = 3;
+	int SAGGREGATE_DEDUCTION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
@@ -343,7 +461,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSTypeDeduction()
 	 * @generated
 	 */
-	int STYPE_DEDUCTION = 4;
+	int STYPE_DEDUCTION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -407,7 +525,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSPrimitiveDeduction()
 	 * @generated
 	 */
-	int SPRIMITIVE_DEDUCTION = 5;
+	int SPRIMITIVE_DEDUCTION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -525,7 +643,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSEnumerationDeduction()
 	 * @generated
 	 */
-	int SENUMERATION_DEDUCTION = 6;
+	int SENUMERATION_DEDUCTION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -634,7 +752,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSLiteralDeduction()
 	 * @generated
 	 */
-	int SLITERAL_DEDUCTION = 7;
+	int SLITERAL_DEDUCTION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -752,7 +870,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSComplexTypeDeduction()
 	 * @generated
 	 */
-	int SCOMPLEX_TYPE_DEDUCTION = 8;
+	int SCOMPLEX_TYPE_DEDUCTION = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -816,7 +934,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDetailTypeDeduction()
 	 * @generated
 	 */
-	int SDETAIL_TYPE_DEDUCTION = 9;
+	int SDETAIL_TYPE_DEDUCTION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -943,7 +1061,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSEntityTypeDeduction()
 	 * @generated
 	 */
-	int SENTITY_TYPE_DEDUCTION = 10;
+	int SENTITY_TYPE_DEDUCTION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1079,7 +1197,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSFeatureDeduction()
 	 * @generated
 	 */
-	int SFEATURE_DEDUCTION = 11;
+	int SFEATURE_DEDUCTION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -1116,7 +1234,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAssociationDeduction()
 	 * @generated
 	 */
-	int SASSOCIATION_DEDUCTION = 12;
+	int SASSOCIATION_DEDUCTION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1270,7 +1388,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSAttributeDeduction()
 	 * @generated
 	 */
-	int SATTRIBUTE_DEDUCTION = 13;
+	int SATTRIBUTE_DEDUCTION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1406,7 +1524,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSQueryDeduction()
 	 * @generated
 	 */
-	int SQUERY_DEDUCTION = 14;
+	int SQUERY_DEDUCTION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1542,7 +1660,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSQueryParameterDeduction()
 	 * @generated
 	 */
-	int SQUERY_PARAMETER_DEDUCTION = 15;
+	int SQUERY_PARAMETER_DEDUCTION = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1660,7 +1778,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabRule()
 	 * @generated
 	 */
-	int SGRAB_RULE = 16;
+	int SGRAB_RULE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1715,7 +1833,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDitchRule()
 	 * @generated
 	 */
-	int SDITCH_RULE = 17;
+	int SDITCH_RULE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1761,7 +1879,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSStructureChangingRule()
 	 * @generated
 	 */
-	int SSTRUCTURE_CHANGING_RULE = 18;
+	int SSTRUCTURE_CHANGING_RULE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1843,7 +1961,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSMorphRule()
 	 * @generated
 	 */
-	int SMORPH_RULE = 19;
+	int SMORPH_RULE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1943,7 +2061,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSFuseRule()
 	 * @generated
 	 */
-	int SFUSE_RULE = 20;
+	int SFUSE_RULE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2034,7 +2152,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabAggregateRule()
 	 * @generated
 	 */
-	int SGRAB_AGGREGATE_RULE = 21;
+	int SGRAB_AGGREGATE_RULE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2089,7 +2207,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabDomainRule()
 	 * @generated
 	 */
-	int SGRAB_DOMAIN_RULE = 22;
+	int SGRAB_DOMAIN_RULE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2144,7 +2262,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSInformationModelKind()
 	 * @generated
 	 */
-	int SINFORMATION_MODEL_KIND = 23;
+	int SINFORMATION_MODEL_KIND = 24;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.STristate <em>STristate</em>}' enum.
@@ -2154,7 +2272,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSTristate()
 	 * @generated
 	 */
-	int STRISTATE = 24;
+	int STRISTATE = 25;
 
 
 	/**
@@ -2223,6 +2341,17 @@ public interface SimPackage extends EPackage
 	EReference getSInformationModel_Imports();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sim.SInformationModel#getQueries <em>Queries</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Queries</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SInformationModel#getQueries()
+	 * @see #getSInformationModel()
+	 * @generated
+	 */
+	EReference getSInformationModel_Queries();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sim.SInformationModel#getTypes <em>Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2254,6 +2383,38 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 */
 	EReference getSInformationModel_DomainProxies();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SCoreQuery <em>SCore Query</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SCore Query</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SCoreQuery
+	 * @generated
+	 */
+	EClass getSCoreQuery();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sim.SCoreQuery#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SCoreQuery#getParameters()
+	 * @see #getSCoreQuery()
+	 * @generated
+	 */
+	EReference getSCoreQuery_Parameters();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.sm.sim.SCoreQuery#getReturns <em>Returns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Returns</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SCoreQuery#getReturns()
+	 * @see #getSCoreQuery()
+	 * @generated
+	 */
+	EReference getSCoreQuery_Returns();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SImplicitElementDeduction <em>SImplicit Element Deduction</em>}'.
@@ -2690,6 +2851,14 @@ public interface SimPackage extends EPackage
 		EReference SINFORMATION_MODEL__IMPORTS = eINSTANCE.getSInformationModel_Imports();
 
 		/**
+		 * The meta object literal for the '<em><b>Queries</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINFORMATION_MODEL__QUERIES = eINSTANCE.getSInformationModel_Queries();
+
+		/**
 		 * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2712,6 +2881,32 @@ public interface SimPackage extends EPackage
 		 * @generated
 		 */
 		EReference SINFORMATION_MODEL__DOMAIN_PROXIES = eINSTANCE.getSInformationModel_DomainProxies();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SCoreQueryImpl <em>SCore Query</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sim.impl.SCoreQueryImpl
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSCoreQuery()
+		 * @generated
+		 */
+		EClass SCORE_QUERY = eINSTANCE.getSCoreQuery();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCORE_QUERY__PARAMETERS = eINSTANCE.getSCoreQuery_Parameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Returns</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCORE_QUERY__RETURNS = eINSTANCE.getSCoreQuery_Returns();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SImplicitElementDeductionImpl <em>SImplicit Element Deduction</em>}' class.

@@ -89,7 +89,7 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     		«ENDFOR»
             «FOR a:allAssociations»«a.generateAssociation»
             «ENDFOR»
-            «FOR a:allComplexAttributes.filter[type instanceof DDetailType]»«a.generateLink»
+            «FOR a:allComplexAttributes.filter[getType instanceof DDetailType]»«a.generateLink»
             «ENDFOR»
             «FOR s:allSubtypes»«s.aggregateName».«s.name» --|> «s.superType.aggregateName»«IF s.aggregateName === s.superType.aggregateName».«s.superType.name»«ENDIF»
             «ENDFOR»
@@ -144,12 +144,12 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 	
 	
 	def dispatch generateFeature(DAttribute a) '''
-	  	«IF ! (a?.type instanceof DDetailType)»«a.name» : «a.type?.name»«ENDIF»
+	  	«IF ! (a?.getType instanceof DDetailType)»«a.name» : «a.getType?.name»«ENDIF»
 	  '''
 
 	def dispatch generateFeature(DQuery q) '''
-	   «IF q.type !== null»
-	   		«q.name»(«q.generateQueryParameters») : «q.type.name» 
+	   «IF q.getType !== null»
+	   		«q.name»(«q.generateQueryParameters») : «q.getType.name» 
 	   	«ENDIF»
 	 '''
 	
@@ -157,18 +157,18 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 	'''
 	
 	def generateQueryParameters(DQuery q) 
-	'''«FOR p:q.parameters SEPARATOR ", "»«p.name»:«p.type.name»«ENDFOR»'''
+	'''«FOR p:q.parameters SEPARATOR ", "»«p.name»:«p.getType.name»«ENDFOR»'''
 	
 	def generateAssociation(DAssociation a ) {
 		return switch a.kind {
-			case REFERENCE: generateLink('', a.eContainer as DType, a.type, a.name, '>')
-			case COMPOSITE:  generateLink('*', a.eContainer as DType, a.type, a.name, '>')
-			case INVERSE_COMPOSITE: generateLink('}', a.eContainer as DType, a.type, a.name, '*')
+			case REFERENCE: generateLink('', a.eContainer as DType, a.getType, a.name, '>')
+			case COMPOSITE:  generateLink('*', a.eContainer as DType, a.getType, a.name, '>')
+			case INVERSE_COMPOSITE: generateLink('}', a.eContainer as DType, a.getType, a.name, '*')
 		}
 	}
 	
 	def generateLink(DAttribute a) {
-		return generateLink('*', a.eContainer as DType, a.type, a.name, "")
+		return generateLink('*', a.eContainer as DType, a.getType, a.name, "")
 	}
 	
 	def generateLink(String sourceArrowhead, DType source, DType target, String targetRole, String targetArrowhead) '''

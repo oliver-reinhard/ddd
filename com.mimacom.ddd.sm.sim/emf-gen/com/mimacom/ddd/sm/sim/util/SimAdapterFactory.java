@@ -14,18 +14,18 @@ import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DIdentityType;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DSimpleType;
 import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.base.DTypedMember;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
 import com.mimacom.ddd.dm.base.IIdentityType;
 import com.mimacom.ddd.dm.base.INamespace;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
-import com.mimacom.ddd.dm.base.ITypedMemberContainer;
 import com.mimacom.ddd.dm.base.IValueType;
 
 import com.mimacom.ddd.sm.sim.*;
@@ -104,6 +104,11 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseSInformationModel(SInformationModel object)
 			{
 				return createSInformationModelAdapter();
+			}
+			@Override
+			public Adapter caseSCoreQuery(SCoreQuery object)
+			{
+				return createSCoreQueryAdapter();
 			}
 			@Override
 			public Adapter caseSImplicitElementDeduction(SImplicitElementDeduction object)
@@ -216,6 +221,26 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createSGrabDomainRuleAdapter();
 			}
 			@Override
+			public Adapter caseINamespace(INamespace object)
+			{
+				return createINamespaceAdapter();
+			}
+			@Override
+			public Adapter caseINavigableMemberContainer(INavigableMemberContainer object)
+			{
+				return createINavigableMemberContainerAdapter();
+			}
+			@Override
+			public Adapter caseDNamedElement(DNamedElement object)
+			{
+				return createDNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseDNavigableMember(DNavigableMember object)
+			{
+				return createDNavigableMemberAdapter();
+			}
+			@Override
 			public Adapter caseIDeductionDefinition(IDeductionDefinition object)
 			{
 				return createIDeductionDefinitionAdapter();
@@ -229,11 +254,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseDAggregate(DAggregate object)
 			{
 				return createDAggregateAdapter();
-			}
-			@Override
-			public Adapter caseDNamedElement(DNamedElement object)
-			{
-				return createDNamedElementAdapter();
 			}
 			@Override
 			public Adapter caseIPrimaryNavigationTarget(IPrimaryNavigationTarget object)
@@ -261,24 +281,9 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createDPrimitiveAdapter();
 			}
 			@Override
-			public Adapter caseINamespace(INamespace object)
-			{
-				return createINamespaceAdapter();
-			}
-			@Override
-			public Adapter caseITypedMemberContainer(ITypedMemberContainer object)
-			{
-				return createITypedMemberContainerAdapter();
-			}
-			@Override
 			public Adapter caseDEnumeration(DEnumeration object)
 			{
 				return createDEnumerationAdapter();
-			}
-			@Override
-			public Adapter caseDTypedMember(DTypedMember object)
-			{
-				return createDTypedMemberAdapter();
 			}
 			@Override
 			public Adapter caseDLiteral(DLiteral object)
@@ -373,6 +378,21 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createSInformationModelAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SCoreQuery <em>SCore Query</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.sm.sim.SCoreQuery
+	 * @generated
+	 */
+	public Adapter createSCoreQueryAdapter()
 	{
 		return null;
 	}
@@ -708,6 +728,66 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INamespace <em>INamespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.INamespace
+	 * @generated
+	 */
+	public Adapter createINamespaceAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INavigableMemberContainer <em>INavigable Member Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.INavigableMemberContainer
+	 * @generated
+	 */
+	public Adapter createINavigableMemberContainerAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamedElement <em>DNamed Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DNamedElement
+	 * @generated
+	 */
+	public Adapter createDNamedElementAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNavigableMember <em>DNavigable Member</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DNavigableMember
+	 * @generated
+	 */
+	public Adapter createDNavigableMemberAdapter()
+	{
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IDeductionDefinition <em>IDeduction Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -748,21 +828,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDAggregateAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamedElement <em>DNamed Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DNamedElement
-	 * @generated
-	 */
-	public Adapter createDNamedElementAdapter()
 	{
 		return null;
 	}
@@ -843,36 +908,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INamespace <em>INamespace</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.INamespace
-	 * @generated
-	 */
-	public Adapter createINamespaceAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.ITypedMemberContainer <em>ITyped Member Container</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.ITypedMemberContainer
-	 * @generated
-	 */
-	public Adapter createITypedMemberContainerAdapter()
-	{
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DEnumeration <em>DEnumeration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -883,21 +918,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDEnumerationAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DTypedMember <em>DTyped Member</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DTypedMember
-	 * @generated
-	 */
-	public Adapter createDTypedMemberAdapter()
 	{
 		return null;
 	}

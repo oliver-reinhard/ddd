@@ -3,7 +3,7 @@
 package com.mimacom.ddd.dm.dmx.impl;
 
 import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DTypedMember;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 
 import com.mimacom.ddd.dm.base.impl.DExpressionImpl;
 
@@ -53,7 +53,7 @@ public class DAssignmentImpl extends DExpressionImpl implements DAssignment
 	 * @generated
 	 * @ordered
 	 */
-	protected DTypedMember member;
+	protected DNavigableMember member;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -142,12 +142,12 @@ public class DAssignmentImpl extends DExpressionImpl implements DAssignment
 	 * @generated
 	 */
 	@Override
-	public DTypedMember getMember()
+	public DNavigableMember getMember()
 	{
 		if (member != null && member.eIsProxy())
 		{
 			InternalEObject oldMember = (InternalEObject)member;
-			member = (DTypedMember)eResolveProxy(oldMember);
+			member = (DNavigableMember)eResolveProxy(oldMember);
 			if (member != oldMember)
 			{
 				if (eNotificationRequired())
@@ -162,7 +162,7 @@ public class DAssignmentImpl extends DExpressionImpl implements DAssignment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DTypedMember basicGetMember()
+	public DNavigableMember basicGetMember()
 	{
 		return member;
 	}
@@ -173,9 +173,9 @@ public class DAssignmentImpl extends DExpressionImpl implements DAssignment
 	 * @generated
 	 */
 	@Override
-	public void setMember(DTypedMember newMember)
+	public void setMember(DNavigableMember newMember)
 	{
-		DTypedMember oldMember = member;
+		DNavigableMember oldMember = member;
 		member = newMember;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DASSIGNMENT__MEMBER, oldMember, member));
@@ -284,7 +284,7 @@ public class DAssignmentImpl extends DExpressionImpl implements DAssignment
 				setMemberContainer((DExpression)newValue);
 				return;
 			case DmxPackage.DASSIGNMENT__MEMBER:
-				setMember((DTypedMember)newValue);
+				setMember((DNavigableMember)newValue);
 				return;
 			case DmxPackage.DASSIGNMENT__VALUE:
 				setValue((DExpression)newValue);
@@ -307,7 +307,7 @@ public class DAssignmentImpl extends DExpressionImpl implements DAssignment
 				setMemberContainer((DExpression)null);
 				return;
 			case DmxPackage.DASSIGNMENT__MEMBER:
-				setMember((DTypedMember)null);
+				setMember((DNavigableMember)null);
 				return;
 			case DmxPackage.DASSIGNMENT__VALUE:
 				setValue((DExpression)null);

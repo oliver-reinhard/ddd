@@ -24,6 +24,7 @@ import com.mimacom.ddd.dm.base.DLiteral
 import com.mimacom.ddd.dm.base.DMultiplicity
 import com.mimacom.ddd.dm.base.DNamedElement
 import com.mimacom.ddd.dm.base.DNotification
+import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQueryParameter
 import com.mimacom.ddd.dm.base.DRelationship
 import com.mimacom.ddd.dm.base.DServiceParameter
@@ -35,7 +36,6 @@ import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.validation.Check
 
 import static com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider.*
-import com.mimacom.ddd.dm.base.DPrimitive
 
 /**
  * This class contains custom validation rules. 
@@ -140,15 +140,15 @@ class DimValidator extends AbstractDimValidator {
 
 	@Check
 	def checkAttributeIsValueType(DAttribute a) {
-		if(! (a.type instanceof IValueType)) {
-			error('Refererenced type is not a ValueType', a, BasePackage.Literals.DTYPED_MEMBER__TYPE)
+		if(! (a.getType instanceof IValueType)) {
+			error('Refererenced type is not a ValueType', a, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE)
 		}
 	}
 
 	@Check
 	def checkAssocitionToRootType(DAssociation a) {
-		if(! (a.type instanceof DEntityType)) {
-			error('Refererenced type is not an EntityType', a, BasePackage.Literals.DTYPED_MEMBER__TYPE)
+		if(! (a.getType instanceof DEntityType)) {
+			error('Refererenced type is not an EntityType', a, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE)
 		}
 	}
 
@@ -162,15 +162,15 @@ class DimValidator extends AbstractDimValidator {
 // // Parameters: restrictions on their types
 	@Check
 	def checkParameterIsValueType(DQueryParameter p) {
-		if(! (p.type instanceof IValueType || p.type == p.eContainer)) {
-			error('Refererenced type is not a ValueType nor the query\'s own container', p, BasePackage.Literals.DTYPED_MEMBER__TYPE)
+		if(! (p.getType instanceof IValueType || p.getType == p.eContainer)) {
+			error('Refererenced type is not a ValueType nor the query\'s own container', p, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE)
 		}
 	}
 
 	@Check
 	def checkParameterIsValueType(DServiceParameter p) {
-		if(! (p.type instanceof IValueType)) {
-			error('Refererenced type is not a ValueType', p, BasePackage.Literals.DTYPED_MEMBER__TYPE)
+		if(! (p.getType instanceof IValueType)) {
+			error('Refererenced type is not a ValueType', p, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE)
 		}
 	}
 

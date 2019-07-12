@@ -2,8 +2,8 @@
  */
 package com.mimacom.ddd.dm.dmx.impl;
 
+import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DIdentityType;
 
 import com.mimacom.ddd.dm.base.impl.DExpressionImpl;
 
@@ -50,7 +50,7 @@ public class DConstructorCallImpl extends DExpressionImpl implements DConstructo
 	 * @generated
 	 * @ordered
 	 */
-	protected DIdentityType constructor;
+	protected DComplexType constructor;
 
 	/**
 	 * The default value of the '{@link #isExplicitConstructorCall() <em>Explicit Constructor Call</em>}' attribute.
@@ -109,12 +109,12 @@ public class DConstructorCallImpl extends DExpressionImpl implements DConstructo
 	 * @generated
 	 */
 	@Override
-	public DIdentityType getConstructor()
+	public DComplexType getConstructor()
 	{
 		if (constructor != null && constructor.eIsProxy())
 		{
 			InternalEObject oldConstructor = (InternalEObject)constructor;
-			constructor = (DIdentityType)eResolveProxy(oldConstructor);
+			constructor = (DComplexType)eResolveProxy(oldConstructor);
 			if (constructor != oldConstructor)
 			{
 				if (eNotificationRequired())
@@ -129,7 +129,7 @@ public class DConstructorCallImpl extends DExpressionImpl implements DConstructo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DIdentityType basicGetConstructor()
+	public DComplexType basicGetConstructor()
 	{
 		return constructor;
 	}
@@ -140,9 +140,9 @@ public class DConstructorCallImpl extends DExpressionImpl implements DConstructo
 	 * @generated
 	 */
 	@Override
-	public void setConstructor(DIdentityType newConstructor)
+	public void setConstructor(DComplexType newConstructor)
 	{
-		DIdentityType oldConstructor = constructor;
+		DComplexType oldConstructor = constructor;
 		constructor = newConstructor;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DCONSTRUCTOR_CALL__CONSTRUCTOR, oldConstructor, constructor));
@@ -237,7 +237,7 @@ public class DConstructorCallImpl extends DExpressionImpl implements DConstructo
 		switch (featureID)
 		{
 			case DmxPackage.DCONSTRUCTOR_CALL__CONSTRUCTOR:
-				setConstructor((DIdentityType)newValue);
+				setConstructor((DComplexType)newValue);
 				return;
 			case DmxPackage.DCONSTRUCTOR_CALL__EXPLICIT_CONSTRUCTOR_CALL:
 				setExplicitConstructorCall((Boolean)newValue);
@@ -261,7 +261,7 @@ public class DConstructorCallImpl extends DExpressionImpl implements DConstructo
 		switch (featureID)
 		{
 			case DmxPackage.DCONSTRUCTOR_CALL__CONSTRUCTOR:
-				setConstructor((DIdentityType)null);
+				setConstructor((DComplexType)null);
 				return;
 			case DmxPackage.DCONSTRUCTOR_CALL__EXPLICIT_CONSTRUCTOR_CALL:
 				setExplicitConstructorCall(EXPLICIT_CONSTRUCTOR_CALL_EDEFAULT);

@@ -91,7 +91,7 @@ class SyntheticModelElementsFactory {
 //	}
 	
 	def DFeature addSyntheticFeature(DComplexType container, String name, DFeature source, IDeductionDefinition deductionDefinition, TransformationContext context)  {
-			val sourceFeatureType = source.type
+			val sourceFeatureType = source.getType
 			if (sourceFeatureType === null) {  // the domain model is (temporarily incomplete => don't add sFeature now
 				return null 
 			}
@@ -102,7 +102,7 @@ class SyntheticModelElementsFactory {
 			}
 			syntheticFeature.name = name
 			syntheticFeature.type = context.getSystemType(sourceFeatureType) // may be null
-			syntheticFeature.multiplicity = grabMultiplicity(source.multiplicity)
+			syntheticFeature.multiplicity = grabMultiplicity(source.getMultiplicity)
 			syntheticFeature.synthetic = true
 			syntheticFeature.deducedFrom = deductionDefinition
 			container.features.add(syntheticFeature)
@@ -116,8 +116,8 @@ class SyntheticModelElementsFactory {
 				DAssociation: baseFactory.createDAssociation
 			}
 			syntheticFeature.name = source.name
-			syntheticFeature.type = source.type
-			syntheticFeature.multiplicity = source.multiplicity
+			syntheticFeature.type = source.getType
+			syntheticFeature.multiplicity = source.getMultiplicity
 			syntheticFeature.synthetic = true
 			syntheticFeature.deducedFrom = null  /* NOTE null */
 			container.features.add(syntheticFeature)
@@ -130,14 +130,14 @@ class SyntheticModelElementsFactory {
 	}
 	
 	def DQueryParameter addSyntheticQueryParameter(DQuery container, String name, DQueryParameter source, IDeductionDefinition deductionDefinition,TransformationContext context)  {
-			val sourceParameterType = source.type
+			val sourceParameterType = source.getType
 			if (sourceParameterType === null) {  // the domain model is (temporarily incomplete => don't add sFeature now
 				return null 
 			}
 			val syntheticParameter = baseFactory.createDQueryParameter
 			syntheticParameter.name = name
 			syntheticParameter.type = context.getSystemType(sourceParameterType)
-			syntheticParameter.multiplicity = grabMultiplicity(source.multiplicity)
+			syntheticParameter.multiplicity = grabMultiplicity(source.getMultiplicity)
 			syntheticParameter.synthetic = true
 			syntheticParameter.deducedFrom = deductionDefinition
 			container.parameters.add(syntheticParameter)
@@ -147,8 +147,8 @@ class SyntheticModelElementsFactory {
 	def DQueryParameter addSyntheticQueryParameterAsCopy(DQuery container, DQueryParameter source, TransformationContext context)  {
 			val syntheticParameter = baseFactory.createDQueryParameter
 			syntheticParameter.name = source.name
-			syntheticParameter.type = source.type
-			syntheticParameter.multiplicity = source.multiplicity
+			syntheticParameter.type = source.getType
+			syntheticParameter.multiplicity = source.getMultiplicity
 			syntheticParameter.synthetic = true
 			syntheticParameter.deducedFrom = null  /* NOTE null */
 			container.parameters.add(syntheticParameter)

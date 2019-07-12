@@ -5,24 +5,24 @@ package com.mimacom.ddd.dm.base;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>DTyped Member</b></em>'.
+ * A representation of the model object '<em><b>DNavigable Member</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.DTypedMember#getType <em>Type</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.DTypedMember#getMultiplicity <em>Multiplicity</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.DTypedMember#isOptional <em>Optional</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.DTypedMember#isCollection <em>Collection</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DNavigableMember#getType <em>Type</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DNavigableMember#getMultiplicity <em>Multiplicity</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DNavigableMember#isOptional <em>Optional</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DNavigableMember#isCollection <em>Collection</em>}</li>
  * </ul>
  *
- * @see com.mimacom.ddd.dm.base.BasePackage#getDTypedMember()
+ * @see com.mimacom.ddd.dm.base.BasePackage#getDNavigableMember()
  * @model abstract="true"
  * @generated
  */
-public interface DTypedMember extends DNamedElement
+public interface DNavigableMember extends DNamedElement
 {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' reference.
@@ -30,14 +30,14 @@ public interface DTypedMember extends DNamedElement
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' reference.
 	 * @see #setType(DType)
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDTypedMember_Type()
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getDNavigableMember_Type()
 	 * @model
 	 * @generated
 	 */
 	DType getType();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.DTypedMember#getType <em>Type</em>}' reference.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.DNavigableMember#getType <em>Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Type</em>' reference.
@@ -52,14 +52,14 @@ public interface DTypedMember extends DNamedElement
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Multiplicity</em>' containment reference.
 	 * @see #setMultiplicity(DMultiplicity)
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDTypedMember_Multiplicity()
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getDNavigableMember_Multiplicity()
 	 * @model containment="true"
 	 * @generated
 	 */
 	DMultiplicity getMultiplicity();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.DTypedMember#getMultiplicity <em>Multiplicity</em>}' containment reference.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.DNavigableMember#getMultiplicity <em>Multiplicity</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Multiplicity</em>' containment reference.
@@ -73,7 +73,7 @@ public interface DTypedMember extends DNamedElement
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Optional</em>' attribute.
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDTypedMember_Optional()
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getDNavigableMember_Optional()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
@@ -84,10 +84,10 @@ public interface DTypedMember extends DNamedElement
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Collection</em>' attribute.
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDTypedMember_Collection()
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getDNavigableMember_Collection()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	boolean isCollection();
 
-} // DTypedMember
+} // DNavigableMember

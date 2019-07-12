@@ -25,9 +25,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SInformationModel/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SInformationModel/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SInformationModel/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SInformationModel/queries"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SInformationModel/types"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SInformationModel/aggregates"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SInformationModel/domainProxies"/>
+    </genClasses>
+    <genClasses ecoreClass="sim.ecore#//SCoreQuery">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SCoreQuery/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SCoreQuery/returns"/>
     </genClasses>
     <genClasses ecoreClass="sim.ecore#//SImplicitElementDeduction">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sim.ecore#//SImplicitElementDeduction/originalDeductionDefinition"/>

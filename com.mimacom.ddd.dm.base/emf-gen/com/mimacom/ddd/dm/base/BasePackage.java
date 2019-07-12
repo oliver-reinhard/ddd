@@ -328,14 +328,14 @@ public interface BasePackage extends EPackage
 	int DNAMED_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DTypedMemberImpl <em>DTyped Member</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DNavigableMemberImpl <em>DNavigable Member</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.impl.DTypedMemberImpl
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDTypedMember()
+	 * @see com.mimacom.ddd.dm.base.impl.DNavigableMemberImpl
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDNavigableMember()
 	 * @generated
 	 */
-	int DTYPED_MEMBER = 7;
+	int DNAVIGABLE_MEMBER = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -344,7 +344,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPED_MEMBER__NAME = DNAMED_ELEMENT__NAME;
+	int DNAVIGABLE_MEMBER__NAME = DNAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -353,7 +353,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPED_MEMBER__ALIASES = DNAMED_ELEMENT__ALIASES;
+	int DNAVIGABLE_MEMBER__ALIASES = DNAMED_ELEMENT__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -362,7 +362,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPED_MEMBER__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
+	int DNAVIGABLE_MEMBER__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -371,7 +371,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPED_MEMBER__TYPE = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int DNAVIGABLE_MEMBER__TYPE = DNAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
@@ -380,7 +380,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPED_MEMBER__MULTIPLICITY = DNAMED_ELEMENT_FEATURE_COUNT + 1;
+	int DNAVIGABLE_MEMBER__MULTIPLICITY = DNAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Optional</b></em>' attribute.
@@ -389,7 +389,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPED_MEMBER__OPTIONAL = DNAMED_ELEMENT_FEATURE_COUNT + 2;
+	int DNAVIGABLE_MEMBER__OPTIONAL = DNAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Collection</b></em>' attribute.
@@ -398,53 +398,53 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPED_MEMBER__COLLECTION = DNAMED_ELEMENT_FEATURE_COUNT + 3;
+	int DNAVIGABLE_MEMBER__COLLECTION = DNAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of structural features of the '<em>DTyped Member</em>' class.
+	 * The number of structural features of the '<em>DNavigable Member</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPED_MEMBER_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 4;
+	int DNAVIGABLE_MEMBER_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of operations of the '<em>DTyped Member</em>' class.
+	 * The number of operations of the '<em>DNavigable Member</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPED_MEMBER_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
+	int DNAVIGABLE_MEMBER_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.ITypedMemberContainer <em>ITyped Member Container</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.INavigableMemberContainer <em>INavigable Member Container</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.ITypedMemberContainer
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getITypedMemberContainer()
+	 * @see com.mimacom.ddd.dm.base.INavigableMemberContainer
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getINavigableMemberContainer()
 	 * @generated
 	 */
-	int ITYPED_MEMBER_CONTAINER = 8;
+	int INAVIGABLE_MEMBER_CONTAINER = 8;
 
 	/**
-	 * The number of structural features of the '<em>ITyped Member Container</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITYPED_MEMBER_CONTAINER_FEATURE_COUNT = INAMESPACE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>ITyped Member Container</em>' class.
+	 * The number of structural features of the '<em>INavigable Member Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ITYPED_MEMBER_CONTAINER_OPERATION_COUNT = INAMESPACE_OPERATION_COUNT + 0;
+	int INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT = INAMESPACE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>INavigable Member Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INAVIGABLE_MEMBER_CONTAINER_OPERATION_COUNT = INAMESPACE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.IPrimaryNavigationTarget <em>IPrimary Navigation Target</em>}' class.
@@ -821,7 +821,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFUNCTION__NAME = DTYPED_MEMBER__NAME;
+	int DFUNCTION__NAME = DNAVIGABLE_MEMBER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -830,7 +830,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFUNCTION__ALIASES = DTYPED_MEMBER__ALIASES;
+	int DFUNCTION__ALIASES = DNAVIGABLE_MEMBER__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -839,7 +839,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFUNCTION__DESCRIPTION = DTYPED_MEMBER__DESCRIPTION;
+	int DFUNCTION__DESCRIPTION = DNAVIGABLE_MEMBER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -848,7 +848,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFUNCTION__TYPE = DTYPED_MEMBER__TYPE;
+	int DFUNCTION__TYPE = DNAVIGABLE_MEMBER__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
@@ -857,7 +857,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFUNCTION__MULTIPLICITY = DTYPED_MEMBER__MULTIPLICITY;
+	int DFUNCTION__MULTIPLICITY = DNAVIGABLE_MEMBER__MULTIPLICITY;
 
 	/**
 	 * The feature id for the '<em><b>Optional</b></em>' attribute.
@@ -866,7 +866,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFUNCTION__OPTIONAL = DTYPED_MEMBER__OPTIONAL;
+	int DFUNCTION__OPTIONAL = DNAVIGABLE_MEMBER__OPTIONAL;
 
 	/**
 	 * The feature id for the '<em><b>Collection</b></em>' attribute.
@@ -875,7 +875,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFUNCTION__COLLECTION = DTYPED_MEMBER__COLLECTION;
+	int DFUNCTION__COLLECTION = DNAVIGABLE_MEMBER__COLLECTION;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Names</b></em>' attribute list.
@@ -884,7 +884,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFUNCTION__PARAMETER_NAMES = DTYPED_MEMBER_FEATURE_COUNT + 0;
+	int DFUNCTION__PARAMETER_NAMES = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>DFunction</em>' class.
@@ -893,7 +893,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFUNCTION_FEATURE_COUNT = DTYPED_MEMBER_FEATURE_COUNT + 1;
+	int DFUNCTION_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>DFunction</em>' class.
@@ -902,7 +902,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFUNCTION_OPERATION_COUNT = DTYPED_MEMBER_OPERATION_COUNT + 0;
+	int DFUNCTION_OPERATION_COUNT = DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl <em>DAggregate</em>}' class.
@@ -1458,7 +1458,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DLITERAL__NAME = DTYPED_MEMBER__NAME;
+	int DLITERAL__NAME = DNAVIGABLE_MEMBER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -1467,7 +1467,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DLITERAL__ALIASES = DTYPED_MEMBER__ALIASES;
+	int DLITERAL__ALIASES = DNAVIGABLE_MEMBER__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1476,7 +1476,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DLITERAL__DESCRIPTION = DTYPED_MEMBER__DESCRIPTION;
+	int DLITERAL__DESCRIPTION = DNAVIGABLE_MEMBER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1485,7 +1485,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DLITERAL__TYPE = DTYPED_MEMBER__TYPE;
+	int DLITERAL__TYPE = DNAVIGABLE_MEMBER__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
@@ -1494,7 +1494,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DLITERAL__MULTIPLICITY = DTYPED_MEMBER__MULTIPLICITY;
+	int DLITERAL__MULTIPLICITY = DNAVIGABLE_MEMBER__MULTIPLICITY;
 
 	/**
 	 * The feature id for the '<em><b>Optional</b></em>' attribute.
@@ -1503,7 +1503,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DLITERAL__OPTIONAL = DTYPED_MEMBER__OPTIONAL;
+	int DLITERAL__OPTIONAL = DNAVIGABLE_MEMBER__OPTIONAL;
 
 	/**
 	 * The feature id for the '<em><b>Collection</b></em>' attribute.
@@ -1512,7 +1512,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DLITERAL__COLLECTION = DTYPED_MEMBER__COLLECTION;
+	int DLITERAL__COLLECTION = DNAVIGABLE_MEMBER__COLLECTION;
 
 	/**
 	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
@@ -1521,7 +1521,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DLITERAL__DEDUCED_FROM = DTYPED_MEMBER_FEATURE_COUNT + 0;
+	int DLITERAL__DEDUCED_FROM = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -1530,7 +1530,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DLITERAL__SYNTHETIC = DTYPED_MEMBER_FEATURE_COUNT + 1;
+	int DLITERAL__SYNTHETIC = DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>DLiteral</em>' class.
@@ -1539,7 +1539,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DLITERAL_FEATURE_COUNT = DTYPED_MEMBER_FEATURE_COUNT + 2;
+	int DLITERAL_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>DLiteral</em>' class.
@@ -1548,7 +1548,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DLITERAL_OPERATION_COUNT = DTYPED_MEMBER_OPERATION_COUNT + 0;
+	int DLITERAL_OPERATION_COUNT = DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DComplexTypeImpl <em>DComplex Type</em>}' class.
@@ -2184,7 +2184,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFEATURE__NAME = DTYPED_MEMBER__NAME;
+	int DFEATURE__NAME = DNAVIGABLE_MEMBER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -2193,7 +2193,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFEATURE__ALIASES = DTYPED_MEMBER__ALIASES;
+	int DFEATURE__ALIASES = DNAVIGABLE_MEMBER__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2202,7 +2202,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFEATURE__DESCRIPTION = DTYPED_MEMBER__DESCRIPTION;
+	int DFEATURE__DESCRIPTION = DNAVIGABLE_MEMBER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -2211,7 +2211,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFEATURE__TYPE = DTYPED_MEMBER__TYPE;
+	int DFEATURE__TYPE = DNAVIGABLE_MEMBER__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
@@ -2220,7 +2220,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFEATURE__MULTIPLICITY = DTYPED_MEMBER__MULTIPLICITY;
+	int DFEATURE__MULTIPLICITY = DNAVIGABLE_MEMBER__MULTIPLICITY;
 
 	/**
 	 * The feature id for the '<em><b>Optional</b></em>' attribute.
@@ -2229,7 +2229,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFEATURE__OPTIONAL = DTYPED_MEMBER__OPTIONAL;
+	int DFEATURE__OPTIONAL = DNAVIGABLE_MEMBER__OPTIONAL;
 
 	/**
 	 * The feature id for the '<em><b>Collection</b></em>' attribute.
@@ -2238,7 +2238,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFEATURE__COLLECTION = DTYPED_MEMBER__COLLECTION;
+	int DFEATURE__COLLECTION = DNAVIGABLE_MEMBER__COLLECTION;
 
 	/**
 	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
@@ -2247,7 +2247,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFEATURE__DEDUCED_FROM = DTYPED_MEMBER_FEATURE_COUNT + 0;
+	int DFEATURE__DEDUCED_FROM = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -2256,7 +2256,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFEATURE__SYNTHETIC = DTYPED_MEMBER_FEATURE_COUNT + 1;
+	int DFEATURE__SYNTHETIC = DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>DFeature</em>' class.
@@ -2265,7 +2265,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFEATURE_FEATURE_COUNT = DTYPED_MEMBER_FEATURE_COUNT + 2;
+	int DFEATURE_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>DFeature</em>' class.
@@ -2274,7 +2274,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DFEATURE_OPERATION_COUNT = DTYPED_MEMBER_OPERATION_COUNT + 0;
+	int DFEATURE_OPERATION_COUNT = DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DAssociationImpl <em>DAssociation</em>}' class.
@@ -2738,7 +2738,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DQUERY_PARAMETER__NAME = DTYPED_MEMBER__NAME;
+	int DQUERY_PARAMETER__NAME = DNAVIGABLE_MEMBER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -2747,7 +2747,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DQUERY_PARAMETER__ALIASES = DTYPED_MEMBER__ALIASES;
+	int DQUERY_PARAMETER__ALIASES = DNAVIGABLE_MEMBER__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2756,7 +2756,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DQUERY_PARAMETER__DESCRIPTION = DTYPED_MEMBER__DESCRIPTION;
+	int DQUERY_PARAMETER__DESCRIPTION = DNAVIGABLE_MEMBER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -2765,7 +2765,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DQUERY_PARAMETER__TYPE = DTYPED_MEMBER__TYPE;
+	int DQUERY_PARAMETER__TYPE = DNAVIGABLE_MEMBER__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
@@ -2774,7 +2774,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DQUERY_PARAMETER__MULTIPLICITY = DTYPED_MEMBER__MULTIPLICITY;
+	int DQUERY_PARAMETER__MULTIPLICITY = DNAVIGABLE_MEMBER__MULTIPLICITY;
 
 	/**
 	 * The feature id for the '<em><b>Optional</b></em>' attribute.
@@ -2783,7 +2783,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DQUERY_PARAMETER__OPTIONAL = DTYPED_MEMBER__OPTIONAL;
+	int DQUERY_PARAMETER__OPTIONAL = DNAVIGABLE_MEMBER__OPTIONAL;
 
 	/**
 	 * The feature id for the '<em><b>Collection</b></em>' attribute.
@@ -2792,7 +2792,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DQUERY_PARAMETER__COLLECTION = DTYPED_MEMBER__COLLECTION;
+	int DQUERY_PARAMETER__COLLECTION = DNAVIGABLE_MEMBER__COLLECTION;
 
 	/**
 	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
@@ -2801,7 +2801,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DQUERY_PARAMETER__DEDUCED_FROM = DTYPED_MEMBER_FEATURE_COUNT + 0;
+	int DQUERY_PARAMETER__DEDUCED_FROM = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -2810,7 +2810,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DQUERY_PARAMETER__SYNTHETIC = DTYPED_MEMBER_FEATURE_COUNT + 1;
+	int DQUERY_PARAMETER__SYNTHETIC = DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>DQuery Parameter</em>' class.
@@ -2819,7 +2819,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DQUERY_PARAMETER_FEATURE_COUNT = DTYPED_MEMBER_FEATURE_COUNT + 2;
+	int DQUERY_PARAMETER_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>DQuery Parameter</em>' class.
@@ -2828,7 +2828,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DQUERY_PARAMETER_OPERATION_COUNT = DTYPED_MEMBER_OPERATION_COUNT + 0;
+	int DQUERY_PARAMETER_OPERATION_COUNT = DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DDomainEventImpl <em>DDomain Event</em>}' class.
@@ -2947,7 +2947,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DCONTEXT__NAME = DTYPED_MEMBER__NAME;
+	int DCONTEXT__NAME = DNAVIGABLE_MEMBER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -2956,7 +2956,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DCONTEXT__ALIASES = DTYPED_MEMBER__ALIASES;
+	int DCONTEXT__ALIASES = DNAVIGABLE_MEMBER__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2965,7 +2965,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DCONTEXT__DESCRIPTION = DTYPED_MEMBER__DESCRIPTION;
+	int DCONTEXT__DESCRIPTION = DNAVIGABLE_MEMBER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -2974,7 +2974,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DCONTEXT__TYPE = DTYPED_MEMBER__TYPE;
+	int DCONTEXT__TYPE = DNAVIGABLE_MEMBER__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
@@ -2983,7 +2983,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DCONTEXT__MULTIPLICITY = DTYPED_MEMBER__MULTIPLICITY;
+	int DCONTEXT__MULTIPLICITY = DNAVIGABLE_MEMBER__MULTIPLICITY;
 
 	/**
 	 * The feature id for the '<em><b>Optional</b></em>' attribute.
@@ -2992,7 +2992,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DCONTEXT__OPTIONAL = DTYPED_MEMBER__OPTIONAL;
+	int DCONTEXT__OPTIONAL = DNAVIGABLE_MEMBER__OPTIONAL;
 
 	/**
 	 * The feature id for the '<em><b>Collection</b></em>' attribute.
@@ -3001,7 +3001,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DCONTEXT__COLLECTION = DTYPED_MEMBER__COLLECTION;
+	int DCONTEXT__COLLECTION = DNAVIGABLE_MEMBER__COLLECTION;
 
 	/**
 	 * The number of structural features of the '<em>DContext</em>' class.
@@ -3010,7 +3010,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DCONTEXT_FEATURE_COUNT = DTYPED_MEMBER_FEATURE_COUNT + 0;
+	int DCONTEXT_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>DContext</em>' class.
@@ -3019,7 +3019,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DCONTEXT_OPERATION_COUNT = DTYPED_MEMBER_OPERATION_COUNT + 0;
+	int DCONTEXT_OPERATION_COUNT = DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DNotificationImpl <em>DNotification</em>}' class.
@@ -3038,7 +3038,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNOTIFICATION__NAME = DTYPED_MEMBER__NAME;
+	int DNOTIFICATION__NAME = DNAVIGABLE_MEMBER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -3047,7 +3047,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNOTIFICATION__ALIASES = DTYPED_MEMBER__ALIASES;
+	int DNOTIFICATION__ALIASES = DNAVIGABLE_MEMBER__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -3056,7 +3056,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNOTIFICATION__DESCRIPTION = DTYPED_MEMBER__DESCRIPTION;
+	int DNOTIFICATION__DESCRIPTION = DNAVIGABLE_MEMBER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -3065,7 +3065,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNOTIFICATION__TYPE = DTYPED_MEMBER__TYPE;
+	int DNOTIFICATION__TYPE = DNAVIGABLE_MEMBER__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
@@ -3074,7 +3074,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNOTIFICATION__MULTIPLICITY = DTYPED_MEMBER__MULTIPLICITY;
+	int DNOTIFICATION__MULTIPLICITY = DNAVIGABLE_MEMBER__MULTIPLICITY;
 
 	/**
 	 * The feature id for the '<em><b>Optional</b></em>' attribute.
@@ -3083,7 +3083,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNOTIFICATION__OPTIONAL = DTYPED_MEMBER__OPTIONAL;
+	int DNOTIFICATION__OPTIONAL = DNAVIGABLE_MEMBER__OPTIONAL;
 
 	/**
 	 * The feature id for the '<em><b>Collection</b></em>' attribute.
@@ -3092,7 +3092,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNOTIFICATION__COLLECTION = DTYPED_MEMBER__COLLECTION;
+	int DNOTIFICATION__COLLECTION = DNAVIGABLE_MEMBER__COLLECTION;
 
 	/**
 	 * The feature id for the '<em><b>Notified</b></em>' reference.
@@ -3101,7 +3101,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNOTIFICATION__NOTIFIED = DTYPED_MEMBER_FEATURE_COUNT + 0;
+	int DNOTIFICATION__NOTIFIED = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>DNotification</em>' class.
@@ -3110,7 +3110,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNOTIFICATION_FEATURE_COUNT = DTYPED_MEMBER_FEATURE_COUNT + 1;
+	int DNOTIFICATION_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>DNotification</em>' class.
@@ -3119,7 +3119,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNOTIFICATION_OPERATION_COUNT = DTYPED_MEMBER_OPERATION_COUNT + 0;
+	int DNOTIFICATION_OPERATION_COUNT = DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DActorImpl <em>DActor</em>}' class.
@@ -3357,7 +3357,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE_PARAMETER__NAME = DTYPED_MEMBER__NAME;
+	int DSERVICE_PARAMETER__NAME = DNAVIGABLE_MEMBER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -3366,7 +3366,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE_PARAMETER__ALIASES = DTYPED_MEMBER__ALIASES;
+	int DSERVICE_PARAMETER__ALIASES = DNAVIGABLE_MEMBER__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -3375,7 +3375,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE_PARAMETER__DESCRIPTION = DTYPED_MEMBER__DESCRIPTION;
+	int DSERVICE_PARAMETER__DESCRIPTION = DNAVIGABLE_MEMBER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -3384,7 +3384,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE_PARAMETER__TYPE = DTYPED_MEMBER__TYPE;
+	int DSERVICE_PARAMETER__TYPE = DNAVIGABLE_MEMBER__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
@@ -3393,7 +3393,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE_PARAMETER__MULTIPLICITY = DTYPED_MEMBER__MULTIPLICITY;
+	int DSERVICE_PARAMETER__MULTIPLICITY = DNAVIGABLE_MEMBER__MULTIPLICITY;
 
 	/**
 	 * The feature id for the '<em><b>Optional</b></em>' attribute.
@@ -3402,7 +3402,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE_PARAMETER__OPTIONAL = DTYPED_MEMBER__OPTIONAL;
+	int DSERVICE_PARAMETER__OPTIONAL = DNAVIGABLE_MEMBER__OPTIONAL;
 
 	/**
 	 * The feature id for the '<em><b>Collection</b></em>' attribute.
@@ -3411,7 +3411,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE_PARAMETER__COLLECTION = DTYPED_MEMBER__COLLECTION;
+	int DSERVICE_PARAMETER__COLLECTION = DNAVIGABLE_MEMBER__COLLECTION;
 
 	/**
 	 * The feature id for the '<em><b>Direction</b></em>' attribute.
@@ -3420,7 +3420,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE_PARAMETER__DIRECTION = DTYPED_MEMBER_FEATURE_COUNT + 0;
+	int DSERVICE_PARAMETER__DIRECTION = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>DService Parameter</em>' class.
@@ -3429,7 +3429,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE_PARAMETER_FEATURE_COUNT = DTYPED_MEMBER_FEATURE_COUNT + 1;
+	int DSERVICE_PARAMETER_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>DService Parameter</em>' class.
@@ -3438,7 +3438,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE_PARAMETER_OPERATION_COUNT = DTYPED_MEMBER_OPERATION_COUNT + 0;
+	int DSERVICE_PARAMETER_OPERATION_COUNT = DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DTimeImpl <em>DTime</em>}' class.
@@ -3822,68 +3822,68 @@ public interface BasePackage extends EPackage
 	EReference getDNamedElement_Description();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DTypedMember <em>DTyped Member</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DNavigableMember <em>DNavigable Member</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DTyped Member</em>'.
-	 * @see com.mimacom.ddd.dm.base.DTypedMember
+	 * @return the meta object for class '<em>DNavigable Member</em>'.
+	 * @see com.mimacom.ddd.dm.base.DNavigableMember
 	 * @generated
 	 */
-	EClass getDTypedMember();
+	EClass getDNavigableMember();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.DTypedMember#getType <em>Type</em>}'.
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.DNavigableMember#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see com.mimacom.ddd.dm.base.DTypedMember#getType()
-	 * @see #getDTypedMember()
+	 * @see com.mimacom.ddd.dm.base.DNavigableMember#getType()
+	 * @see #getDNavigableMember()
 	 * @generated
 	 */
-	EReference getDTypedMember_Type();
+	EReference getDNavigableMember_Type();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.DTypedMember#getMultiplicity <em>Multiplicity</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.DNavigableMember#getMultiplicity <em>Multiplicity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Multiplicity</em>'.
-	 * @see com.mimacom.ddd.dm.base.DTypedMember#getMultiplicity()
-	 * @see #getDTypedMember()
+	 * @see com.mimacom.ddd.dm.base.DNavigableMember#getMultiplicity()
+	 * @see #getDNavigableMember()
 	 * @generated
 	 */
-	EReference getDTypedMember_Multiplicity();
+	EReference getDNavigableMember_Multiplicity();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DTypedMember#isOptional <em>Optional</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DNavigableMember#isOptional <em>Optional</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Optional</em>'.
-	 * @see com.mimacom.ddd.dm.base.DTypedMember#isOptional()
-	 * @see #getDTypedMember()
+	 * @see com.mimacom.ddd.dm.base.DNavigableMember#isOptional()
+	 * @see #getDNavigableMember()
 	 * @generated
 	 */
-	EAttribute getDTypedMember_Optional();
+	EAttribute getDNavigableMember_Optional();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DTypedMember#isCollection <em>Collection</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DNavigableMember#isCollection <em>Collection</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Collection</em>'.
-	 * @see com.mimacom.ddd.dm.base.DTypedMember#isCollection()
-	 * @see #getDTypedMember()
+	 * @see com.mimacom.ddd.dm.base.DNavigableMember#isCollection()
+	 * @see #getDNavigableMember()
 	 * @generated
 	 */
-	EAttribute getDTypedMember_Collection();
+	EAttribute getDNavigableMember_Collection();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.ITypedMemberContainer <em>ITyped Member Container</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.INavigableMemberContainer <em>INavigable Member Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>ITyped Member Container</em>'.
-	 * @see com.mimacom.ddd.dm.base.ITypedMemberContainer
+	 * @return the meta object for class '<em>INavigable Member Container</em>'.
+	 * @see com.mimacom.ddd.dm.base.INavigableMemberContainer
 	 * @generated
 	 */
-	EClass getITypedMemberContainer();
+	EClass getINavigableMemberContainer();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.IPrimaryNavigationTarget <em>IPrimary Navigation Target</em>}'.
@@ -4994,14 +4994,14 @@ public interface BasePackage extends EPackage
 		EReference DNAMED_ELEMENT__DESCRIPTION = eINSTANCE.getDNamedElement_Description();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DTypedMemberImpl <em>DTyped Member</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DNavigableMemberImpl <em>DNavigable Member</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.impl.DTypedMemberImpl
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDTypedMember()
+		 * @see com.mimacom.ddd.dm.base.impl.DNavigableMemberImpl
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDNavigableMember()
 		 * @generated
 		 */
-		EClass DTYPED_MEMBER = eINSTANCE.getDTypedMember();
+		EClass DNAVIGABLE_MEMBER = eINSTANCE.getDNavigableMember();
 
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
@@ -5009,7 +5009,7 @@ public interface BasePackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DTYPED_MEMBER__TYPE = eINSTANCE.getDTypedMember_Type();
+		EReference DNAVIGABLE_MEMBER__TYPE = eINSTANCE.getDNavigableMember_Type();
 
 		/**
 		 * The meta object literal for the '<em><b>Multiplicity</b></em>' containment reference feature.
@@ -5017,7 +5017,7 @@ public interface BasePackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DTYPED_MEMBER__MULTIPLICITY = eINSTANCE.getDTypedMember_Multiplicity();
+		EReference DNAVIGABLE_MEMBER__MULTIPLICITY = eINSTANCE.getDNavigableMember_Multiplicity();
 
 		/**
 		 * The meta object literal for the '<em><b>Optional</b></em>' attribute feature.
@@ -5025,7 +5025,7 @@ public interface BasePackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DTYPED_MEMBER__OPTIONAL = eINSTANCE.getDTypedMember_Optional();
+		EAttribute DNAVIGABLE_MEMBER__OPTIONAL = eINSTANCE.getDNavigableMember_Optional();
 
 		/**
 		 * The meta object literal for the '<em><b>Collection</b></em>' attribute feature.
@@ -5033,17 +5033,17 @@ public interface BasePackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DTYPED_MEMBER__COLLECTION = eINSTANCE.getDTypedMember_Collection();
+		EAttribute DNAVIGABLE_MEMBER__COLLECTION = eINSTANCE.getDNavigableMember_Collection();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.ITypedMemberContainer <em>ITyped Member Container</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.INavigableMemberContainer <em>INavigable Member Container</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.ITypedMemberContainer
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getITypedMemberContainer()
+		 * @see com.mimacom.ddd.dm.base.INavigableMemberContainer
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getINavigableMemberContainer()
 		 * @generated
 		 */
-		EClass ITYPED_MEMBER_CONTAINER = eINSTANCE.getITypedMemberContainer();
+		EClass INAVIGABLE_MEMBER_CONTAINER = eINSTANCE.getINavigableMemberContainer();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.IPrimaryNavigationTarget <em>IPrimary Navigation Target</em>}' class.

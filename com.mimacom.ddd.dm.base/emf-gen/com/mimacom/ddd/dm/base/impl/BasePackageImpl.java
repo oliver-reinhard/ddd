@@ -30,6 +30,7 @@ import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
@@ -43,14 +44,13 @@ import com.mimacom.ddd.dm.base.DSimpleType;
 import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.base.DTime;
 import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.base.DTypedMember;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
 import com.mimacom.ddd.dm.base.IIdentityType;
 import com.mimacom.ddd.dm.base.INamespace;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
 import com.mimacom.ddd.dm.base.IRichTextSegment;
-import com.mimacom.ddd.dm.base.ITypedMemberContainer;
 import com.mimacom.ddd.dm.base.IValueType;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -124,14 +124,14 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dTypedMemberEClass = null;
+	private EClass dNavigableMemberEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass iTypedMemberContainerEClass = null;
+	private EClass iNavigableMemberContainerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -640,9 +640,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDTypedMember()
+	public EClass getDNavigableMember()
 	{
-		return dTypedMemberEClass;
+		return dNavigableMemberEClass;
 	}
 
 	/**
@@ -651,9 +651,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDTypedMember_Type()
+	public EReference getDNavigableMember_Type()
 	{
-		return (EReference)dTypedMemberEClass.getEStructuralFeatures().get(0);
+		return (EReference)dNavigableMemberEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -662,9 +662,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDTypedMember_Multiplicity()
+	public EReference getDNavigableMember_Multiplicity()
 	{
-		return (EReference)dTypedMemberEClass.getEStructuralFeatures().get(1);
+		return (EReference)dNavigableMemberEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -673,9 +673,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDTypedMember_Optional()
+	public EAttribute getDNavigableMember_Optional()
 	{
-		return (EAttribute)dTypedMemberEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)dNavigableMemberEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -684,9 +684,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDTypedMember_Collection()
+	public EAttribute getDNavigableMember_Collection()
 	{
-		return (EAttribute)dTypedMemberEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)dNavigableMemberEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -695,9 +695,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getITypedMemberContainer()
+	public EClass getINavigableMemberContainer()
 	{
-		return iTypedMemberContainerEClass;
+		return iNavigableMemberContainerEClass;
 	}
 
 	/**
@@ -1743,13 +1743,13 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		createEAttribute(dNamedElementEClass, DNAMED_ELEMENT__ALIASES);
 		createEReference(dNamedElementEClass, DNAMED_ELEMENT__DESCRIPTION);
 
-		dTypedMemberEClass = createEClass(DTYPED_MEMBER);
-		createEReference(dTypedMemberEClass, DTYPED_MEMBER__TYPE);
-		createEReference(dTypedMemberEClass, DTYPED_MEMBER__MULTIPLICITY);
-		createEAttribute(dTypedMemberEClass, DTYPED_MEMBER__OPTIONAL);
-		createEAttribute(dTypedMemberEClass, DTYPED_MEMBER__COLLECTION);
+		dNavigableMemberEClass = createEClass(DNAVIGABLE_MEMBER);
+		createEReference(dNavigableMemberEClass, DNAVIGABLE_MEMBER__TYPE);
+		createEReference(dNavigableMemberEClass, DNAVIGABLE_MEMBER__MULTIPLICITY);
+		createEAttribute(dNavigableMemberEClass, DNAVIGABLE_MEMBER__OPTIONAL);
+		createEAttribute(dNavigableMemberEClass, DNAVIGABLE_MEMBER__COLLECTION);
 
-		iTypedMemberContainerEClass = createEClass(ITYPED_MEMBER_CONTAINER);
+		iNavigableMemberContainerEClass = createEClass(INAVIGABLE_MEMBER_CONTAINER);
 
 		iPrimaryNavigationTargetEClass = createEClass(IPRIMARY_NAVIGATION_TARGET);
 
@@ -1909,8 +1909,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		dTypedMemberEClass.getESuperTypes().add(this.getDNamedElement());
-		iTypedMemberContainerEClass.getESuperTypes().add(this.getINamespace());
+		dNavigableMemberEClass.getESuperTypes().add(this.getDNamedElement());
+		iNavigableMemberContainerEClass.getESuperTypes().add(this.getINamespace());
 		iPrimaryNavigationTargetEClass.getESuperTypes().add(this.getDNamedElement());
 		dTextSegmentEClass.getESuperTypes().add(this.getIRichTextSegment());
 		dExpressionEClass.getESuperTypes().add(this.getIRichTextSegment());
@@ -1919,7 +1919,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dDomainEClass.getESuperTypes().add(this.getINamespace());
 		dDomainEClass.getESuperTypes().add(this.getIPrimaryNavigationTarget());
 		dDomainEClass.getESuperTypes().add(this.getIDeducibleElement());
-		dFunctionEClass.getESuperTypes().add(this.getDTypedMember());
+		dFunctionEClass.getESuperTypes().add(this.getDNavigableMember());
 		dAggregateEClass.getESuperTypes().add(this.getIDeducibleElement());
 		dTypeEClass.getESuperTypes().add(this.getDNamedElement());
 		dTypeEClass.getESuperTypes().add(this.getIDeducibleElement());
@@ -1929,37 +1929,37 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dSimpleTypeEClass.getESuperTypes().add(this.getIValueType());
 		dPrimitiveEClass.getESuperTypes().add(this.getDSimpleType());
 		dEnumerationEClass.getESuperTypes().add(this.getDSimpleType());
-		dEnumerationEClass.getESuperTypes().add(this.getITypedMemberContainer());
-		dLiteralEClass.getESuperTypes().add(this.getDTypedMember());
+		dEnumerationEClass.getESuperTypes().add(this.getINavigableMemberContainer());
+		dLiteralEClass.getESuperTypes().add(this.getDNavigableMember());
 		dLiteralEClass.getESuperTypes().add(this.getIDeducibleElement());
 		dComplexTypeEClass.getESuperTypes().add(this.getDType());
-		dComplexTypeEClass.getESuperTypes().add(this.getITypedMemberContainer());
+		dComplexTypeEClass.getESuperTypes().add(this.getINavigableMemberContainer());
 		dDetailTypeEClass.getESuperTypes().add(this.getDComplexType());
 		dDetailTypeEClass.getESuperTypes().add(this.getIValueType());
 		dIdentityTypeEClass.getESuperTypes().add(this.getDComplexType());
 		dIdentityTypeEClass.getESuperTypes().add(this.getIIdentityType());
 		dEntityTypeEClass.getESuperTypes().add(this.getDIdentityType());
 		dRelationshipEClass.getESuperTypes().add(this.getDIdentityType());
-		dFeatureEClass.getESuperTypes().add(this.getDTypedMember());
+		dFeatureEClass.getESuperTypes().add(this.getDNavigableMember());
 		dFeatureEClass.getESuperTypes().add(this.getIDeducibleElement());
 		dAssociationEClass.getESuperTypes().add(this.getDFeature());
 		dAttributeEClass.getESuperTypes().add(this.getDFeature());
 		dQueryEClass.getESuperTypes().add(this.getDFeature());
-		dQueryEClass.getESuperTypes().add(this.getITypedMemberContainer());
-		dQueryParameterEClass.getESuperTypes().add(this.getDTypedMember());
+		dQueryEClass.getESuperTypes().add(this.getINavigableMemberContainer());
+		dQueryParameterEClass.getESuperTypes().add(this.getDNavigableMember());
 		dQueryParameterEClass.getESuperTypes().add(this.getIDeducibleElement());
 		dDomainEventEClass.getESuperTypes().add(this.getDNamedElement());
-		dDomainEventEClass.getESuperTypes().add(this.getITypedMemberContainer());
+		dDomainEventEClass.getESuperTypes().add(this.getINavigableMemberContainer());
 		dDomainEventEClass.getESuperTypes().add(this.getIPrimaryNavigationTarget());
-		dContextEClass.getESuperTypes().add(this.getDTypedMember());
-		dNotificationEClass.getESuperTypes().add(this.getDTypedMember());
+		dContextEClass.getESuperTypes().add(this.getDNavigableMember());
+		dNotificationEClass.getESuperTypes().add(this.getDNavigableMember());
 		dActorEClass.getESuperTypes().add(this.getDNamedElement());
 		dActorEClass.getESuperTypes().add(this.getIPrimaryNavigationTarget());
 		dHumanEClass.getESuperTypes().add(this.getDActor());
 		dServiceEClass.getESuperTypes().add(this.getDActor());
-		dServiceEClass.getESuperTypes().add(this.getITypedMemberContainer());
+		dServiceEClass.getESuperTypes().add(this.getINavigableMemberContainer());
 		dServiceEClass.getESuperTypes().add(this.getIPrimaryNavigationTarget());
-		dServiceParameterEClass.getESuperTypes().add(this.getDTypedMember());
+		dServiceParameterEClass.getESuperTypes().add(this.getDNavigableMember());
 		dTimeEClass.getESuperTypes().add(this.getDActor());
 		dExistingApplicationEClass.getESuperTypes().add(this.getDNamedElement());
 		dExistingApplicationEClass.getESuperTypes().add(this.getINamespace());
@@ -1989,13 +1989,13 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEAttribute(getDNamedElement_Aliases(), ecorePackage.getEString(), "aliases", null, 0, -1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDNamedElement_Description(), this.getDRichText(), null, "description", null, 0, 1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dTypedMemberEClass, DTypedMember.class, "DTypedMember", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDTypedMember_Type(), this.getDType(), null, "type", null, 0, 1, DTypedMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDTypedMember_Multiplicity(), this.getDMultiplicity(), null, "multiplicity", null, 0, 1, DTypedMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDTypedMember_Optional(), ecorePackage.getEBoolean(), "optional", null, 0, 1, DTypedMember.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDTypedMember_Collection(), ecorePackage.getEBoolean(), "collection", null, 0, 1, DTypedMember.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(dNavigableMemberEClass, DNavigableMember.class, "DNavigableMember", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDNavigableMember_Type(), this.getDType(), null, "type", null, 0, 1, DNavigableMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDNavigableMember_Multiplicity(), this.getDMultiplicity(), null, "multiplicity", null, 0, 1, DNavigableMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDNavigableMember_Optional(), ecorePackage.getEBoolean(), "optional", null, 0, 1, DNavigableMember.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDNavigableMember_Collection(), ecorePackage.getEBoolean(), "collection", null, 0, 1, DNavigableMember.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(iTypedMemberContainerEClass, ITypedMemberContainer.class, "ITypedMemberContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(iNavigableMemberContainerEClass, INavigableMemberContainer.class, "INavigableMemberContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(iPrimaryNavigationTargetEClass, IPrimaryNavigationTarget.class, "IPrimaryNavigationTarget", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

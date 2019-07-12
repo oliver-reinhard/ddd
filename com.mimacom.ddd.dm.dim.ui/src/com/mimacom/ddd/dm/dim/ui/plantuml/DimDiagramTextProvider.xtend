@@ -55,13 +55,13 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	
 	def domainTypes(DDomain domain) {
 		val allAggregates = EcoreUtil2.eAllOfType(domain, DAggregate)
-		val allAssociations = EcoreUtil2.eAllOfType(domain, DAssociation).filter[type instanceof DEntityType]
+		val allAssociations = EcoreUtil2.eAllOfType(domain, DAssociation).filter[getType instanceof DEntityType]
 //		val allEntitiesReferencedWithinAggregate = allAssociations.filter[targetType.eContainer == eContainer.eContainer].map[targetType]
 		val allEntitiesReferencedWithinDomain = allAssociations.filter[targetType.eContainer != eContainer.eContainer && targetType.domainName == domain.name].map[targetType]
 		val allAggregatesReferencedWithinDomain = allEntitiesReferencedWithinDomain.map[eContainer as DAggregate]
 		val allEntitiesReferencedOutsideDomain = allAssociations.filter[targetType.eContainer != eContainer.eContainer && targetType.domainName != domain.name].map[targetType]
 		val allDomainsReferencedOutsideDomain = allEntitiesReferencedOutsideDomain.map[domainName]
-		val allDetailAttributes = EcoreUtil2.eAllOfType(domain, DAttribute).filter[type instanceof DDetailType]
+		val allDetailAttributes = EcoreUtil2.eAllOfType(domain, DAttribute).filter[getType instanceof DDetailType]
 		val allSubtypes = EcoreUtil2.eAllOfType(domain, DComplexType).filter[superType !== null]
         
        val result = '''
@@ -160,12 +160,12 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	
 	
 	def dispatch generateFeature(DAttribute a) '''
-		«IF ! (a?.type instanceof DDetailType)»«a.name» : «a.type.name»«ENDIF»
+		«IF ! (a?.getType instanceof DDetailType)»«a.name» : «a.getType.name»«ENDIF»
 	  '''
 
 	def dispatch generateFeature(DQuery q) '''
-	   «IF q.type !== null»
-	   		«q.name»(«q.generateQueryParameters») : «q.type.name» 
+	   «IF q.getType !== null»
+	   		«q.name»(«q.generateQueryParameters») : «q.getType.name» 
 	   	«ENDIF»
 	 '''
 	
@@ -173,18 +173,18 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	'''
 	
 	def generateQueryParameters(DQuery q) 
-	'''«FOR p:q.parameters SEPARATOR ", "»«p.name»:«p.type.name»«ENDFOR»'''
+	'''«FOR p:q.parameters SEPARATOR ", "»«p.name»:«p.getType.name»«ENDFOR»'''
 	
 	def generateAssociation(DAssociation a ) {
 		return switch a.kind {
-			case REFERENCE: generateLink('', a.eContainer as DType, a.type, a.name, '>')
-			case COMPOSITE:  generateLink('*', a.eContainer as DType, a.type, a.name, '>')
-			case INVERSE_COMPOSITE: generateLink('}', a.eContainer as DType, a.type, a.name, '*')
+			case REFERENCE: generateLink('', a.eContainer as DType, a.getType, a.name, '>')
+			case COMPOSITE:  generateLink('*', a.eContainer as DType, a.getType, a.name, '>')
+			case INVERSE_COMPOSITE: generateLink('}', a.eContainer as DType, a.getType, a.name, '*')
 		}
 	}
 	
 	def generateLink(DAttribute a) {
-		return generateLink('*', a.eContainer as DType, a.type, a.name, "")
+		return generateLink('*', a.eContainer as DType, a.getType, a.name, "")
 	}
 	
 	def generateLink(String sourceArrowhead, DType source, DType target, String targetRole, String targetArrowhead) '''

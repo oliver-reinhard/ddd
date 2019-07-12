@@ -14,19 +14,19 @@ import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.sm.sim.SComplexTypeDeduction;
+import com.mimacom.ddd.sm.sim.SCoreQuery;
 import com.mimacom.ddd.sm.sim.SEnumerationDeduction;
 import com.mimacom.ddd.sm.sim.SFeatureDeduction;
 import com.mimacom.ddd.sm.sim.SLiteralDeduction;
 import com.mimacom.ddd.sm.sim.SQueryDeduction;
 import com.mimacom.ddd.sm.sim.SQueryParameterDeduction;
 import com.mimacom.ddd.sm.sim.SimUtil;
+import com.mimacom.ddd.sm.sim.scoping.AbstractSimScopeProvider;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
-import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider;
 import org.eclipse.xtext.xbase.lib.Extension;
 
 /**
@@ -38,7 +38,7 @@ import org.eclipse.xtext.xbase.lib.Extension;
  * on how and when to use it.
  */
 @SuppressWarnings("all")
-public class SimScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
+public class SimScopeProvider extends AbstractSimScopeProvider {
   @Inject
   @Extension
   private SimUtil _simUtil;
@@ -49,9 +49,24 @@ public class SimScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
   public IScope getScope(final EObject context, final EReference reference) {
     IScope _xblockexpression = null;
     {
-      EReference _dDeductionRule_Source = SimScopeProvider.epackage.getDDeductionRule_Source();
-      boolean _equals = Objects.equal(reference, _dDeductionRule_Source);
+      EReference _dNavigableMember_Type = SimScopeProvider.epackage.getDNavigableMember_Type();
+      boolean _equals = Objects.equal(reference, _dNavigableMember_Type);
       if (_equals) {
+        IScope _switchResult = null;
+        boolean _matched = false;
+        if (context instanceof SCoreQuery) {
+          _matched=true;
+          _switchResult = this.getDefaultScopeForType(context, SimScopeProvider.epackage.getDType());
+        }
+        if (!_matched) {
+          _switchResult = this.getDefaultScopeForType(context, SimScopeProvider.epackage.getIValueType());
+        }
+        final IScope scope = _switchResult;
+        return scope;
+      }
+      EReference _dDeductionRule_Source = SimScopeProvider.epackage.getDDeductionRule_Source();
+      boolean _equals_1 = Objects.equal(reference, _dDeductionRule_Source);
+      if (_equals_1) {
         final EObject container = context.eContainer();
         if ((context instanceof SLiteralDeduction)) {
           if ((container instanceof SEnumerationDeduction)) {
@@ -114,15 +129,5 @@ public class SimScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
     } else {
       return Scopes.scopeFor(features, outerScope);
     }
-  }
-  
-  /**
-   * Obtains the default scope for the given reference narrowed down to the given type.
-   */
-  public IScope getDefaultScopeForType(final EObject context, final EClass type) {
-    final EReference reference = EcoreFactory.eINSTANCE.createEReference();
-    reference.setEType(type);
-    final IScope scope = super.getScope(context, reference);
-    return scope;
   }
 }

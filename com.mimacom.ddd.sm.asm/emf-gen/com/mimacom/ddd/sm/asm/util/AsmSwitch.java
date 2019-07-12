@@ -3,6 +3,9 @@
  */
 package com.mimacom.ddd.sm.asm.util;
 
+import com.mimacom.ddd.dm.base.INamespace;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+
 import com.mimacom.ddd.sm.asm.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -93,6 +96,8 @@ public class AsmSwitch<T> extends Switch<T>
 				SServiceInterface sServiceInterface = (SServiceInterface)theEObject;
 				T result = caseSServiceInterface(sServiceInterface);
 				if (result == null) result = caseModel(sServiceInterface);
+				if (result == null) result = caseINavigableMemberContainer(sServiceInterface);
+				if (result == null) result = caseINamespace(sServiceInterface);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -123,6 +128,8 @@ public class AsmSwitch<T> extends Switch<T>
 			{
 				SServiceOperation sServiceOperation = (SServiceOperation)theEObject;
 				T result = caseSServiceOperation(sServiceOperation);
+				if (result == null) result = caseINavigableMemberContainer(sServiceOperation);
+				if (result == null) result = caseINamespace(sServiceOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -238,6 +245,38 @@ public class AsmSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseSServiceOperation(SServiceOperation object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>INamespace</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>INamespace</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseINamespace(INamespace object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>INavigable Member Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>INavigable Member Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseINavigableMemberContainer(INavigableMemberContainer object)
 	{
 		return null;
 	}

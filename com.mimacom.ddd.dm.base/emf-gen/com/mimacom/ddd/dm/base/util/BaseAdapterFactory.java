@@ -110,14 +110,14 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createDNamedElementAdapter();
 			}
 			@Override
-			public Adapter caseDTypedMember(DTypedMember object)
+			public Adapter caseDNavigableMember(DNavigableMember object)
 			{
-				return createDTypedMemberAdapter();
+				return createDNavigableMemberAdapter();
 			}
 			@Override
-			public Adapter caseITypedMemberContainer(ITypedMemberContainer object)
+			public Adapter caseINavigableMemberContainer(INavigableMemberContainer object)
 			{
-				return createITypedMemberContainerAdapter();
+				return createINavigableMemberContainerAdapter();
 			}
 			@Override
 			public Adapter caseIPrimaryNavigationTarget(IPrimaryNavigationTarget object)
@@ -427,31 +427,31 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DTypedMember <em>DTyped Member</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNavigableMember <em>DNavigable Member</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DTypedMember
+	 * @see com.mimacom.ddd.dm.base.DNavigableMember
 	 * @generated
 	 */
-	public Adapter createDTypedMemberAdapter()
+	public Adapter createDNavigableMemberAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.ITypedMemberContainer <em>ITyped Member Container</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INavigableMemberContainer <em>INavigable Member Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.ITypedMemberContainer
+	 * @see com.mimacom.ddd.dm.base.INavigableMemberContainer
 	 * @generated
 	 */
-	public Adapter createITypedMemberContainerAdapter()
+	public Adapter createINavigableMemberContainerAdapter()
 	{
 		return null;
 	}

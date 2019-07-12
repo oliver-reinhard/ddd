@@ -8,6 +8,7 @@ import com.mimacom.ddd.sm.sim.SAggregateDeduction;
 import com.mimacom.ddd.sm.sim.SAssociationDeduction;
 import com.mimacom.ddd.sm.sim.SAttributeDeduction;
 import com.mimacom.ddd.sm.sim.SComplexTypeDeduction;
+import com.mimacom.ddd.sm.sim.SCoreQuery;
 import com.mimacom.ddd.sm.sim.SDetailTypeDeduction;
 import com.mimacom.ddd.sm.sim.SDitchRule;
 import com.mimacom.ddd.sm.sim.SDomainDeduction;
@@ -55,6 +56,13 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	private EClass sInformationModelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sCoreQueryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -362,7 +370,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSInformationModel_Types()
+	public EReference getSInformationModel_Queries()
 	{
 		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(5);
 	}
@@ -373,7 +381,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSInformationModel_Aggregates()
+	public EReference getSInformationModel_Types()
 	{
 		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(6);
 	}
@@ -384,9 +392,53 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSInformationModel_DomainProxies()
+	public EReference getSInformationModel_Aggregates()
 	{
 		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSInformationModel_DomainProxies()
+	{
+		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSCoreQuery()
+	{
+		return sCoreQueryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSCoreQuery_Parameters()
+	{
+		return (EReference)sCoreQueryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSCoreQuery_Returns()
+	{
+		return (EReference)sCoreQueryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -811,9 +863,14 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		createEAttribute(sInformationModelEClass, SINFORMATION_MODEL__NAME);
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__DESCRIPTION);
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__IMPORTS);
+		createEReference(sInformationModelEClass, SINFORMATION_MODEL__QUERIES);
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__TYPES);
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__AGGREGATES);
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__DOMAIN_PROXIES);
+
+		sCoreQueryEClass = createEClass(SCORE_QUERY);
+		createEReference(sCoreQueryEClass, SCORE_QUERY__PARAMETERS);
+		createEReference(sCoreQueryEClass, SCORE_QUERY__RETURNS);
 
 		sImplicitElementDeductionEClass = createEClass(SIMPLICIT_ELEMENT_DEDUCTION);
 		createEReference(sImplicitElementDeductionEClass, SIMPLICIT_ELEMENT_DEDUCTION__ORIGINAL_DEDUCTION_DEFINITION);
@@ -907,6 +964,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		sInformationModelEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
+		sCoreQueryEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
+		sCoreQueryEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
 		sImplicitElementDeductionEClass.getESuperTypes().add(theBasePackage.getIDeductionDefinition());
 		sDomainDeductionEClass.getESuperTypes().add(theBasePackage.getIDeductionDefinition());
 		sAggregateDeductionEClass.getESuperTypes().add(theBasePackage.getDAggregate());
@@ -948,9 +1008,14 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		initEAttribute(getSInformationModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSInformationModel_Description(), theBasePackage.getDRichText(), null, "description", null, 0, 1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSInformationModel_Imports(), theBasePackage.getDImport(), null, "imports", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSInformationModel_Queries(), this.getSCoreQuery(), null, "queries", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSInformationModel_Types(), theBasePackage.getDType(), null, "types", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSInformationModel_Aggregates(), theBasePackage.getDAggregate(), null, "aggregates", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSInformationModel_DomainProxies(), this.getSDomainDeduction(), null, "domainProxies", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(sCoreQueryEClass, SCoreQuery.class, "SCoreQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSCoreQuery_Parameters(), theBasePackage.getDQueryParameter(), null, "parameters", null, 0, -1, SCoreQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSCoreQuery_Returns(), theBasePackage.getDExpression(), null, "returns", null, 0, 1, SCoreQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sImplicitElementDeductionEClass, SImplicitElementDeduction.class, "SImplicitElementDeduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSImplicitElementDeduction_OriginalDeductionDefinition(), theBasePackage.getIDeductionDefinition(), null, "originalDeductionDefinition", null, 0, 1, SImplicitElementDeduction.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

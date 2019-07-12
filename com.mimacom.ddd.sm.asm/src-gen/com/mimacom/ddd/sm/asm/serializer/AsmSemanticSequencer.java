@@ -23,11 +23,11 @@ import com.mimacom.ddd.dm.dmx.DFunctionCall;
 import com.mimacom.ddd.dm.dmx.DIfExpression;
 import com.mimacom.ddd.dm.dmx.DInstanceOfExpression;
 import com.mimacom.ddd.dm.dmx.DNaturalLiteral;
+import com.mimacom.ddd.dm.dmx.DNavigableMemberReference;
 import com.mimacom.ddd.dm.dmx.DRaiseExpression;
 import com.mimacom.ddd.dm.dmx.DReturnExpression;
 import com.mimacom.ddd.dm.dmx.DSelfExpression;
 import com.mimacom.ddd.dm.dmx.DStringLiteral;
-import com.mimacom.ddd.dm.dmx.DTypedMemberReference;
 import com.mimacom.ddd.dm.dmx.DUnaryOperation;
 import com.mimacom.ddd.dm.dmx.DUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.DmxModel;
@@ -119,7 +119,7 @@ public class AsmSemanticSequencer extends DmxSemanticSequencer {
 		else if (epackage == DmxPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
 			case DmxPackage.DASSIGNMENT:
-				sequence_DAssignment_DTypedMemberReference(context, (DAssignment) semanticObject); 
+				sequence_DAssignment_DNavigableMemberReference(context, (DAssignment) semanticObject); 
 				return; 
 			case DmxPackage.DBINARY_OPERATION:
 				sequence_DAdditiveExpression_DAndExpression_DEqualityExpression_DMultiplicativeExpression_DOrExpression_DOtherOperatorExpression_DRelationalExpression(context, (DBinaryOperation) semanticObject); 
@@ -154,6 +154,9 @@ public class AsmSemanticSequencer extends DmxSemanticSequencer {
 			case DmxPackage.DNATURAL_LITERAL:
 				sequence_DNaturalLiteral(context, (DNaturalLiteral) semanticObject); 
 				return; 
+			case DmxPackage.DNAVIGABLE_MEMBER_REFERENCE:
+				sequence_DNavigableMemberReference(context, (DNavigableMemberReference) semanticObject); 
+				return; 
 			case DmxPackage.DRAISE_EXPRESSION:
 				sequence_DRaiseExpression(context, (DRaiseExpression) semanticObject); 
 				return; 
@@ -165,9 +168,6 @@ public class AsmSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case DmxPackage.DSTRING_LITERAL:
 				sequence_DStringLiteral(context, (DStringLiteral) semanticObject); 
-				return; 
-			case DmxPackage.DTYPED_MEMBER_REFERENCE:
-				sequence_DTypedMemberReference(context, (DTypedMemberReference) semanticObject); 
 				return; 
 			case DmxPackage.DUNARY_OPERATION:
 				sequence_DUnaryOperation(context, (DUnaryOperation) semanticObject); 
@@ -269,7 +269,7 @@ public class AsmSemanticSequencer extends DmxSemanticSequencer {
 	 *         interface=[SInformationModel|DQualifiedName] 
 	 *         core=[SInformationModel|DQualifiedName] 
 	 *         exceptions+=DException* 
-	 *         operations+=SServiceOperation
+	 *         operations+=SServiceOperation*
 	 *     )
 	 */
 	protected void sequence_SServiceInterface(ISerializationContext context, SServiceInterface semanticObject) {

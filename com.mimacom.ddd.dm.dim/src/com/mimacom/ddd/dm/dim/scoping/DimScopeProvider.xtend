@@ -10,12 +10,12 @@ import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DDomain
+import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DIdentityType
+import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DQueryParameter
 import com.mimacom.ddd.dm.base.DRelationship
-import com.mimacom.ddd.dm.base.DEntityType
-import com.mimacom.ddd.dm.base.DTypedMember
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.EcoreUtil2
@@ -34,13 +34,13 @@ class DimScopeProvider extends AbstractDimScopeProvider {
 
 	override getScope(EObject context, EReference reference) {
 		
-		if (reference == epackage.DTypedMember_Type) {
+		if (reference == epackage.DNavigableMember_Type) {
 			
 			 val IScope scope = switch context {	
 			 	DAttribute: if (context.detail == true) getDefaultScopeForType(context, epackage.DDetailType) else getDefaultScopeForType(context,  epackage.IValueType)
-				DQuery: getLocalRootTypeScope(context, getDefaultScopeForType(context, epackage.IValueType))
+				DQuery: getLocalEntityTypeScope(context, getDefaultScopeForType(context, epackage.IValueType))
 				DAssociation: getDefaultScopeForType(context, epackage.DEntityType)
-				DQueryParameter: getLocalRootTypeScope(context, getDefaultScopeForType(context,  epackage.IValueType))
+				DQueryParameter: getLocalEntityTypeScope(context, getDefaultScopeForType(context,  epackage.IValueType))
 				default:  getDefaultScopeForType(context, epackage.IValueType)
 			}
 			return scope
@@ -57,9 +57,9 @@ class DimScopeProvider extends AbstractDimScopeProvider {
 		return super.getScope(context, reference)
 	}
 		
-	def IScope getLocalRootTypeScope(DTypedMember context, IScope outerScope) {
+	def IScope getLocalEntityTypeScope(DNavigableMember context, IScope outerScope) {
 		val aggregate = EcoreUtil2.getContainerOfType(context, DAggregate)
-		if (! aggregate.roots.empty) {
+		if (aggregate !== null && ! aggregate.roots.empty) {
 			return Scopes.scopeFor(aggregate.roots, outerScope)	
 		}
 		return outerScope

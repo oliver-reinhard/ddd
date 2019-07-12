@@ -10,6 +10,7 @@ SInformationModel:
 	 (^generate?='generate')?
 	(description=DRichText)?
 	(imports+=DImport)*
+	(queries+=SCoreQuery)*
 	(types+=Type | aggregates+=Aggregate | domainProxies+=Domain)*;
 
 enum SInformationModelKind:
@@ -28,6 +29,9 @@ SGrabAggregateRule:
 SGrabPrimitiveRule returns SGrabRule:
 	source=[DPrimitive|DQualifiedName]
 	('as' renameTo=ID)?;
+	
+SDitchPrimitiveRule returns SDitchRule:
+	source=[DPrimitive|DQualifiedName];
 	
 SGrabEnumerationRule returns SGrabRule:
 	source=[DEnumeration|DQualifiedName]
@@ -48,7 +52,7 @@ SGrabComplexTypeRule returns SGrabRule:
 	('as' renameTo=ID)?;
 	
 SDitchComplexTypeRule returns SDitchRule:
-	source=[DEnumeration|ID];
+	source=[DComplexType|DQualifiedName];
 	
 SMorphComplexTypeRule returns SMorphRule:
 	source=[DComplexType|DQualifiedName]
@@ -121,7 +125,9 @@ Type returns DType:
 
 SPrimitiveDeduction:
 	{SPrimitiveDeduction}
-	'grab' 'primitive' deductionRule=SGrabPrimitiveRule
+	(	'grab' 'primitive' deductionRule=SGrabPrimitiveRule
+	|	'ditch' 'primitive' deductionRule=SDitchPrimitiveRule
+	)
 	(description=DRichText)?
 	'{'
 		(constraints+=DConstraint)*
@@ -252,4 +258,13 @@ SQueryParameterDeduction:
 	|	'ditch' deductionRule=SDitchFeatureRule
 	)
 	(description=DRichText)?;
-
+	
+SCoreQuery:
+	'query'
+	name=ID
+	('alias' aliases+=ID)*
+	'(' (parameters+=DQueryParameter ( "," parameters+=DQueryParameter)*)? ')'
+	':' 
+	type=[DType|ID]  (multiplicity=DMultiplicity)?
+	('returns' ^returns=DExpression)?
+	(description=DRichText)?;

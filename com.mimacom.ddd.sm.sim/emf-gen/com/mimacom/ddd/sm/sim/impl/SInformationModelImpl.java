@@ -7,6 +7,7 @@ import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DType;
 
+import com.mimacom.ddd.sm.sim.SCoreQuery;
 import com.mimacom.ddd.sm.sim.SDomainDeduction;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.SInformationModelKind;
@@ -41,6 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getImports <em>Imports</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getQueries <em>Queries</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getAggregates <em>Aggregates</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getDomainProxies <em>Domain Proxies</em>}</li>
@@ -129,6 +131,16 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected EList<DImport> imports;
+
+	/**
+	 * The cached value of the '{@link #getQueries() <em>Queries</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQueries()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SCoreQuery> queries;
 
 	/**
 	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
@@ -327,6 +339,21 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
+	public EList<SCoreQuery> getQueries()
+	{
+		if (queries == null)
+		{
+			queries = new EObjectContainmentEList<SCoreQuery>(SCoreQuery.class, this, SimPackage.SINFORMATION_MODEL__QUERIES);
+		}
+		return queries;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<DType> getTypes()
 	{
 		if (types == null)
@@ -380,6 +407,8 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 				return basicSetDescription(null, msgs);
 			case SimPackage.SINFORMATION_MODEL__IMPORTS:
 				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
+			case SimPackage.SINFORMATION_MODEL__QUERIES:
+				return ((InternalEList<?>)getQueries()).basicRemove(otherEnd, msgs);
 			case SimPackage.SINFORMATION_MODEL__TYPES:
 				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
 			case SimPackage.SINFORMATION_MODEL__AGGREGATES:
@@ -410,6 +439,8 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 				return getDescription();
 			case SimPackage.SINFORMATION_MODEL__IMPORTS:
 				return getImports();
+			case SimPackage.SINFORMATION_MODEL__QUERIES:
+				return getQueries();
 			case SimPackage.SINFORMATION_MODEL__TYPES:
 				return getTypes();
 			case SimPackage.SINFORMATION_MODEL__AGGREGATES:
@@ -446,6 +477,10 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 			case SimPackage.SINFORMATION_MODEL__IMPORTS:
 				getImports().clear();
 				getImports().addAll((Collection<? extends DImport>)newValue);
+				return;
+			case SimPackage.SINFORMATION_MODEL__QUERIES:
+				getQueries().clear();
+				getQueries().addAll((Collection<? extends SCoreQuery>)newValue);
 				return;
 			case SimPackage.SINFORMATION_MODEL__TYPES:
 				getTypes().clear();
@@ -488,6 +523,9 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 			case SimPackage.SINFORMATION_MODEL__IMPORTS:
 				getImports().clear();
 				return;
+			case SimPackage.SINFORMATION_MODEL__QUERIES:
+				getQueries().clear();
+				return;
 			case SimPackage.SINFORMATION_MODEL__TYPES:
 				getTypes().clear();
 				return;
@@ -521,6 +559,8 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 				return description != null;
 			case SimPackage.SINFORMATION_MODEL__IMPORTS:
 				return imports != null && !imports.isEmpty();
+			case SimPackage.SINFORMATION_MODEL__QUERIES:
+				return queries != null && !queries.isEmpty();
 			case SimPackage.SINFORMATION_MODEL__TYPES:
 				return types != null && !types.isEmpty();
 			case SimPackage.SINFORMATION_MODEL__AGGREGATES:

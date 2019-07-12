@@ -36,7 +36,7 @@ class SFeatureDeductionRuleProcessor  {
 	}
 	
 	def  dispatch void processFeatureDeduction(DComplexType container, SFeatureDeduction deductionDefinition, SDitchRule rule /*dispatch*/, TransformationContext context) {
-		// do nothing (has been taken care of by SComplexType
+		// do nothing (has been taken care of by DComplexType
 	}
 	
 	def  DFeature grabFeature(DComplexType container, SFeatureDeduction deductionDefinition, SGrabRule rule, TransformationContext context) {

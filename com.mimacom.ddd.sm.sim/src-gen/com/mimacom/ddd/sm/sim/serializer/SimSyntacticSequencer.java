@@ -201,9 +201,9 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) ('RETURN' | 'return') expression=DExpression
 	 *     (rule start) (ambiguity) ('SELF' | 'self') (rule start)
 	 *     (rule start) (ambiguity) ('UNDEFINED' | 'undefined') (rule start)
-	 *     (rule start) (ambiguity) OpConstructor constructor=[DIdentityType|ID]
+	 *     (rule start) (ambiguity) OpConstructor constructor=[DComplexType|ID]
 	 *     (rule start) (ambiguity) function=[DFunction|ID]
-	 *     (rule start) (ambiguity) member=[DTypedMember|ID]
+	 *     (rule start) (ambiguity) member=[DNavigableMember|ID]
 	 *     (rule start) (ambiguity) operator=OpUnary
 	 *     (rule start) (ambiguity) segments+=DTextOnly
 	 *     (rule start) (ambiguity) segments+=DTextStart
@@ -217,7 +217,7 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) {DBinaryOperation.leftOperand=}
 	 *     (rule start) (ambiguity) {DCastExpression.target=}
 	 *     (rule start) (ambiguity) {DInstanceOfExpression.expression=}
-	 *     (rule start) (ambiguity) {DTypedMemberReference.memberContainerReference=}
+	 *     (rule start) (ambiguity) {DNavigableMemberReference.memberContainerReference=}
 	 */
 	protected void emit_DParenthesizedExpression_LeftParenthesisKeyword_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -236,9 +236,9 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) ('RETURN' | 'return') expression=DExpression
 	 *     (rule start) (ambiguity) ('SELF' | 'self') ')' (rule start)
 	 *     (rule start) (ambiguity) ('UNDEFINED' | 'undefined') ')' (rule start)
-	 *     (rule start) (ambiguity) OpConstructor constructor=[DIdentityType|ID]
+	 *     (rule start) (ambiguity) OpConstructor constructor=[DComplexType|ID]
 	 *     (rule start) (ambiguity) function=[DFunction|ID]
-	 *     (rule start) (ambiguity) member=[DTypedMember|ID]
+	 *     (rule start) (ambiguity) member=[DNavigableMember|ID]
 	 *     (rule start) (ambiguity) operator=OpUnary
 	 *     (rule start) (ambiguity) segments+=DTextOnly
 	 *     (rule start) (ambiguity) segments+=DTextStart
@@ -252,7 +252,7 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) {DBinaryOperation.leftOperand=}
 	 *     (rule start) (ambiguity) {DCastExpression.target=}
 	 *     (rule start) (ambiguity) {DInstanceOfExpression.expression=}
-	 *     (rule start) (ambiguity) {DTypedMemberReference.memberContainerReference=}
+	 *     (rule start) (ambiguity) {DNavigableMemberReference.memberContainerReference=}
 	 */
 	protected void emit_DParenthesizedExpression_LeftParenthesisKeyword_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

@@ -19,7 +19,7 @@ package com.mimacom.ddd.dm.base;
  * @model
  * @generated
  */
-public interface DNotification extends DTypedMember
+public interface DNotification extends DNavigableMember
 {
 	/**
 	 * Returns the value of the '<em><b>Notified</b></em>' reference.

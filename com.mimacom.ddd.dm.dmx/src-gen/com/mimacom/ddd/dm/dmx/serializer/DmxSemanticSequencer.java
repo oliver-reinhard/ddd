@@ -20,11 +20,11 @@ import com.mimacom.ddd.dm.dmx.DFunctionCall;
 import com.mimacom.ddd.dm.dmx.DIfExpression;
 import com.mimacom.ddd.dm.dmx.DInstanceOfExpression;
 import com.mimacom.ddd.dm.dmx.DNaturalLiteral;
+import com.mimacom.ddd.dm.dmx.DNavigableMemberReference;
 import com.mimacom.ddd.dm.dmx.DRaiseExpression;
 import com.mimacom.ddd.dm.dmx.DReturnExpression;
 import com.mimacom.ddd.dm.dmx.DSelfExpression;
 import com.mimacom.ddd.dm.dmx.DStringLiteral;
-import com.mimacom.ddd.dm.dmx.DTypedMemberReference;
 import com.mimacom.ddd.dm.dmx.DUnaryOperation;
 import com.mimacom.ddd.dm.dmx.DUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.DmxModel;
@@ -83,7 +83,7 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		else if (epackage == DmxPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
 			case DmxPackage.DASSIGNMENT:
-				sequence_DAssignment_DTypedMemberReference(context, (DAssignment) semanticObject); 
+				sequence_DAssignment_DNavigableMemberReference(context, (DAssignment) semanticObject); 
 				return; 
 			case DmxPackage.DBINARY_OPERATION:
 				sequence_DAdditiveExpression_DAndExpression_DEqualityExpression_DMultiplicativeExpression_DOrExpression_DOtherOperatorExpression_DRelationalExpression(context, (DBinaryOperation) semanticObject); 
@@ -118,6 +118,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DmxPackage.DNATURAL_LITERAL:
 				sequence_DNaturalLiteral(context, (DNaturalLiteral) semanticObject); 
 				return; 
+			case DmxPackage.DNAVIGABLE_MEMBER_REFERENCE:
+				sequence_DNavigableMemberReference(context, (DNavigableMemberReference) semanticObject); 
+				return; 
 			case DmxPackage.DRAISE_EXPRESSION:
 				sequence_DRaiseExpression(context, (DRaiseExpression) semanticObject); 
 				return; 
@@ -129,9 +132,6 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DmxPackage.DSTRING_LITERAL:
 				sequence_DStringLiteral(context, (DStringLiteral) semanticObject); 
-				return; 
-			case DmxPackage.DTYPED_MEMBER_REFERENCE:
-				sequence_DTypedMemberReference(context, (DTypedMemberReference) semanticObject); 
 				return; 
 			case DmxPackage.DUNARY_OPERATION:
 				sequence_DUnaryOperation(context, (DUnaryOperation) semanticObject); 
@@ -169,9 +169,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DUnaryOperation returns DBinaryOperation
 	 *     DCastExpression returns DBinaryOperation
 	 *     DCastExpression.DCastExpression_1_0_0_0 returns DBinaryOperation
-	 *     DTypedMemberReference returns DBinaryOperation
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DBinaryOperation
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DBinaryOperation
+	 *     DNavigableMemberReference returns DBinaryOperation
+	 *     DNavigableMemberReference.DAssignment_1_0_0_0_0 returns DBinaryOperation
+	 *     DNavigableMemberReference.DNavigableMemberReference_1_1_0_0_0 returns DBinaryOperation
 	 *     DPrimaryExpression returns DBinaryOperation
 	 *     DParenthesizedExpression returns DBinaryOperation
 	 *
@@ -213,19 +213,19 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DUnaryOperation returns DAssignment
 	 *     DCastExpression returns DAssignment
 	 *     DCastExpression.DCastExpression_1_0_0_0 returns DAssignment
-	 *     DTypedMemberReference returns DAssignment
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DAssignment
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DAssignment
+	 *     DNavigableMemberReference returns DAssignment
+	 *     DNavigableMemberReference.DAssignment_1_0_0_0_0 returns DAssignment
+	 *     DNavigableMemberReference.DNavigableMemberReference_1_1_0_0_0 returns DAssignment
 	 *     DPrimaryExpression returns DAssignment
 	 *     DParenthesizedExpression returns DAssignment
 	 *
 	 * Constraint:
 	 *     (
-	 *         (member=[DTypedMember|ID] value=DAssignment) | 
-	 *         (memberContainer=DTypedMemberReference_DAssignment_1_0_0_0_0 member=[DTypedMember|ID] value=DAssignment)
+	 *         (member=[DNavigableMember|ID] value=DAssignment) | 
+	 *         (memberContainer=DNavigableMemberReference_DAssignment_1_0_0_0_0 member=[DNavigableMember|ID] value=DAssignment)
 	 *     )
 	 */
-	protected void sequence_DAssignment_DTypedMemberReference(ISerializationContext context, DAssignment semanticObject) {
+	protected void sequence_DAssignment_DNavigableMemberReference(ISerializationContext context, DAssignment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -252,9 +252,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DUnaryOperation returns DBooleanLiteral
 	 *     DCastExpression returns DBooleanLiteral
 	 *     DCastExpression.DCastExpression_1_0_0_0 returns DBooleanLiteral
-	 *     DTypedMemberReference returns DBooleanLiteral
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DBooleanLiteral
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DBooleanLiteral
+	 *     DNavigableMemberReference returns DBooleanLiteral
+	 *     DNavigableMemberReference.DAssignment_1_0_0_0_0 returns DBooleanLiteral
+	 *     DNavigableMemberReference.DNavigableMemberReference_1_1_0_0_0 returns DBooleanLiteral
 	 *     DPrimaryExpression returns DBooleanLiteral
 	 *     DLiteralExpression returns DBooleanLiteral
 	 *     DParenthesizedExpression returns DBooleanLiteral
@@ -290,9 +290,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DUnaryOperation returns DCastExpression
 	 *     DCastExpression returns DCastExpression
 	 *     DCastExpression.DCastExpression_1_0_0_0 returns DCastExpression
-	 *     DTypedMemberReference returns DCastExpression
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DCastExpression
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DCastExpression
+	 *     DNavigableMemberReference returns DCastExpression
+	 *     DNavigableMemberReference.DAssignment_1_0_0_0_0 returns DCastExpression
+	 *     DNavigableMemberReference.DNavigableMemberReference_1_1_0_0_0 returns DCastExpression
 	 *     DPrimaryExpression returns DCastExpression
 	 *     DParenthesizedExpression returns DCastExpression
 	 *
@@ -335,15 +335,15 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DUnaryOperation returns DConstructorCall
 	 *     DCastExpression returns DConstructorCall
 	 *     DCastExpression.DCastExpression_1_0_0_0 returns DConstructorCall
-	 *     DTypedMemberReference returns DConstructorCall
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DConstructorCall
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DConstructorCall
+	 *     DNavigableMemberReference returns DConstructorCall
+	 *     DNavigableMemberReference.DAssignment_1_0_0_0_0 returns DConstructorCall
+	 *     DNavigableMemberReference.DNavigableMemberReference_1_1_0_0_0 returns DConstructorCall
 	 *     DPrimaryExpression returns DConstructorCall
 	 *     DParenthesizedExpression returns DConstructorCall
 	 *     DConstructorCall returns DConstructorCall
 	 *
 	 * Constraint:
-	 *     (constructor=[DIdentityType|ID] (explicitConstructorCall?='(' (arguments+=DExpression arguments+=DExpression*)?)?)
+	 *     (constructor=[DComplexType|ID] (explicitConstructorCall?='(' (arguments+=DExpression arguments+=DExpression*)?)?)
 	 */
 	protected void sequence_DConstructorCall(ISerializationContext context, DConstructorCall semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -372,9 +372,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DUnaryOperation returns DContextReference
 	 *     DCastExpression returns DContextReference
 	 *     DCastExpression.DCastExpression_1_0_0_0 returns DContextReference
-	 *     DTypedMemberReference returns DContextReference
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DContextReference
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DContextReference
+	 *     DNavigableMemberReference returns DContextReference
+	 *     DNavigableMemberReference.DAssignment_1_0_0_0_0 returns DContextReference
+	 *     DNavigableMemberReference.DNavigableMemberReference_1_1_0_0_0 returns DContextReference
 	 *     DPrimaryExpression returns DContextReference
 	 *     DParenthesizedExpression returns DContextReference
 	 *     DContextReference returns DContextReference
@@ -409,9 +409,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DUnaryOperation returns DDecimalLiteral
 	 *     DCastExpression returns DDecimalLiteral
 	 *     DCastExpression.DCastExpression_1_0_0_0 returns DDecimalLiteral
-	 *     DTypedMemberReference returns DDecimalLiteral
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DDecimalLiteral
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DDecimalLiteral
+	 *     DNavigableMemberReference returns DDecimalLiteral
+	 *     DNavigableMemberReference.DAssignment_1_0_0_0_0 returns DDecimalLiteral
+	 *     DNavigableMemberReference.DNavigableMemberReference_1_1_0_0_0 returns DDecimalLiteral
 	 *     DPrimaryExpression returns DDecimalLiteral
 	 *     DLiteralExpression returns DDecimalLiteral
 	 *     DParenthesizedExpression returns DDecimalLiteral
@@ -453,9 +453,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DUnaryOperation returns DForLoopExpression
 	 *     DCastExpression returns DForLoopExpression
 	 *     DCastExpression.DCastExpression_1_0_0_0 returns DForLoopExpression
-	 *     DTypedMemberReference returns DForLoopExpression
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DForLoopExpression
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DForLoopExpression
+	 *     DNavigableMemberReference returns DForLoopExpression
+	 *     DNavigableMemberReference.DAssignment_1_0_0_0_0 returns DForLoopExpression
+	 *     DNavigableMemberReference.DNavigableMemberReference_1_1_0_0_0 returns DForLoopExpression
 	 *     DPrimaryExpression returns DForLoopExpression
 	 *     DParenthesizedExpression returns DForLoopExpression
 	 *     DForLoopExpression returns DForLoopExpression
@@ -502,9 +502,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DUnaryOperation returns DFunctionCall
 	 *     DCastExpression returns DFunctionCall
 	 *     DCastExpression.DCastExpression_1_0_0_0 returns DFunctionCall
-	 *     DTypedMemberReference returns DFunctionCall
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DFunctionCall
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DFunctionCall
+	 *     DNavigableMemberReference returns DFunctionCall
+	 *     DNavigableMemberReference.DAssignment_1_0_0_0_0 returns DFunctionCall
+	 *     DNavigableMemberReference.DNavigableMemberReference_1_1_0_0_0 returns DFunctionCall
 	 *     DPrimaryExpression returns DFunctionCall
 	 *     DParenthesizedExpression returns DFunctionCall
 	 *     DFunctionCall returns DFunctionCall
@@ -539,9 +539,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DUnaryOperation returns DIfExpression
 	 *     DCastExpression returns DIfExpression
 	 *     DCastExpression.DCastExpression_1_0_0_0 returns DIfExpression
-	 *     DTypedMemberReference returns DIfExpression
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DIfExpression
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DIfExpression
+	 *     DNavigableMemberReference returns DIfExpression
+	 *     DNavigableMemberReference.DAssignment_1_0_0_0_0 returns DIfExpression
+	 *     DNavigableMemberReference.DNavigableMemberReference_1_1_0_0_0 returns DIfExpression
 	 *     DPrimaryExpression returns DIfExpression
 	 *     DParenthesizedExpression returns DIfExpression
 	 *     DIfExpression returns DIfExpression
@@ -597,9 +597,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DUnaryOperation returns DNaturalLiteral
 	 *     DCastExpression returns DNaturalLiteral
 	 *     DCastExpression.DCastExpression_1_0_0_0 returns DNaturalLiteral
-	 *     DTypedMemberReference returns DNaturalLiteral
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DNaturalLiteral
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DNaturalLiteral
+	 *     DNavigableMemberReference returns DNaturalLiteral
+	 *     DNavigableMemberReference.DAssignment_1_0_0_0_0 returns DNaturalLiteral
+	 *     DNavigableMemberReference.DNavigableMemberReference_1_1_0_0_0 returns DNaturalLiteral
 	 *     DPrimaryExpression returns DNaturalLiteral
 	 *     DLiteralExpression returns DNaturalLiteral
 	 *     DParenthesizedExpression returns DNaturalLiteral
@@ -616,6 +616,46 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDNaturalLiteralAccess().getValueNATURALTerminalRuleCall_1_0(), semanticObject.getValue());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DExpression returns DNavigableMemberReference
+	 *     DAssignment returns DNavigableMemberReference
+	 *     DOrExpression returns DNavigableMemberReference
+	 *     DOrExpression.DBinaryOperation_1_0_0_0 returns DNavigableMemberReference
+	 *     DAndExpression returns DNavigableMemberReference
+	 *     DAndExpression.DBinaryOperation_1_0_0_0 returns DNavigableMemberReference
+	 *     DEqualityExpression returns DNavigableMemberReference
+	 *     DEqualityExpression.DBinaryOperation_1_0_0_0 returns DNavigableMemberReference
+	 *     DRelationalExpression returns DNavigableMemberReference
+	 *     DRelationalExpression.DInstanceOfExpression_1_0_0_0_0 returns DNavigableMemberReference
+	 *     DRelationalExpression.DBinaryOperation_1_1_0_0_0 returns DNavigableMemberReference
+	 *     DOtherOperatorExpression returns DNavigableMemberReference
+	 *     DOtherOperatorExpression.DBinaryOperation_1_0_0_0 returns DNavigableMemberReference
+	 *     DAdditiveExpression returns DNavigableMemberReference
+	 *     DAdditiveExpression.DBinaryOperation_1_0_0_0 returns DNavigableMemberReference
+	 *     DMultiplicativeExpression returns DNavigableMemberReference
+	 *     DMultiplicativeExpression.DBinaryOperation_1_0_0_0 returns DNavigableMemberReference
+	 *     DUnaryOperation returns DNavigableMemberReference
+	 *     DCastExpression returns DNavigableMemberReference
+	 *     DCastExpression.DCastExpression_1_0_0_0 returns DNavigableMemberReference
+	 *     DNavigableMemberReference returns DNavigableMemberReference
+	 *     DNavigableMemberReference.DAssignment_1_0_0_0_0 returns DNavigableMemberReference
+	 *     DNavigableMemberReference.DNavigableMemberReference_1_1_0_0_0 returns DNavigableMemberReference
+	 *     DPrimaryExpression returns DNavigableMemberReference
+	 *     DParenthesizedExpression returns DNavigableMemberReference
+	 *
+	 * Constraint:
+	 *     (
+	 *         memberContainerReference=DNavigableMemberReference_DNavigableMemberReference_1_1_0_0_0 
+	 *         member=[DNavigableMember|ID] 
+	 *         ((explicitOperationCall?='(' (memberCallArguments+=DExpression memberCallArguments+=DExpression*)?) | before?='@before')?
+	 *     )
+	 */
+	protected void sequence_DNavigableMemberReference(ISerializationContext context, DNavigableMemberReference semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -641,9 +681,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DUnaryOperation returns DUndefinedLiteral
 	 *     DCastExpression returns DUndefinedLiteral
 	 *     DCastExpression.DCastExpression_1_0_0_0 returns DUndefinedLiteral
-	 *     DTypedMemberReference returns DUndefinedLiteral
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DUndefinedLiteral
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DUndefinedLiteral
+	 *     DNavigableMemberReference returns DUndefinedLiteral
+	 *     DNavigableMemberReference.DAssignment_1_0_0_0_0 returns DUndefinedLiteral
+	 *     DNavigableMemberReference.DNavigableMemberReference_1_1_0_0_0 returns DUndefinedLiteral
 	 *     DPrimaryExpression returns DUndefinedLiteral
 	 *     DLiteralExpression returns DUndefinedLiteral
 	 *     DParenthesizedExpression returns DUndefinedLiteral
@@ -679,9 +719,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DUnaryOperation returns DRaiseExpression
 	 *     DCastExpression returns DRaiseExpression
 	 *     DCastExpression.DCastExpression_1_0_0_0 returns DRaiseExpression
-	 *     DTypedMemberReference returns DRaiseExpression
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DRaiseExpression
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DRaiseExpression
+	 *     DNavigableMemberReference returns DRaiseExpression
+	 *     DNavigableMemberReference.DAssignment_1_0_0_0_0 returns DRaiseExpression
+	 *     DNavigableMemberReference.DNavigableMemberReference_1_1_0_0_0 returns DRaiseExpression
 	 *     DPrimaryExpression returns DRaiseExpression
 	 *     DRaiseExpression returns DRaiseExpression
 	 *     DParenthesizedExpression returns DRaiseExpression
@@ -722,9 +762,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DUnaryOperation returns DInstanceOfExpression
 	 *     DCastExpression returns DInstanceOfExpression
 	 *     DCastExpression.DCastExpression_1_0_0_0 returns DInstanceOfExpression
-	 *     DTypedMemberReference returns DInstanceOfExpression
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DInstanceOfExpression
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DInstanceOfExpression
+	 *     DNavigableMemberReference returns DInstanceOfExpression
+	 *     DNavigableMemberReference.DAssignment_1_0_0_0_0 returns DInstanceOfExpression
+	 *     DNavigableMemberReference.DNavigableMemberReference_1_1_0_0_0 returns DInstanceOfExpression
 	 *     DPrimaryExpression returns DInstanceOfExpression
 	 *     DParenthesizedExpression returns DInstanceOfExpression
 	 *
@@ -767,9 +807,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DUnaryOperation returns DReturnExpression
 	 *     DCastExpression returns DReturnExpression
 	 *     DCastExpression.DCastExpression_1_0_0_0 returns DReturnExpression
-	 *     DTypedMemberReference returns DReturnExpression
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DReturnExpression
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DReturnExpression
+	 *     DNavigableMemberReference returns DReturnExpression
+	 *     DNavigableMemberReference.DAssignment_1_0_0_0_0 returns DReturnExpression
+	 *     DNavigableMemberReference.DNavigableMemberReference_1_1_0_0_0 returns DReturnExpression
 	 *     DPrimaryExpression returns DReturnExpression
 	 *     DReturnExpression returns DReturnExpression
 	 *     DParenthesizedExpression returns DReturnExpression
@@ -805,9 +845,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DUnaryOperation returns DRichText
 	 *     DCastExpression returns DRichText
 	 *     DCastExpression.DCastExpression_1_0_0_0 returns DRichText
-	 *     DTypedMemberReference returns DRichText
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DRichText
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DRichText
+	 *     DNavigableMemberReference returns DRichText
+	 *     DNavigableMemberReference.DAssignment_1_0_0_0_0 returns DRichText
+	 *     DNavigableMemberReference.DNavigableMemberReference_1_1_0_0_0 returns DRichText
 	 *     DPrimaryExpression returns DRichText
 	 *     DParenthesizedExpression returns DRichText
 	 *
@@ -841,9 +881,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DUnaryOperation returns DSelfExpression
 	 *     DCastExpression returns DSelfExpression
 	 *     DCastExpression.DCastExpression_1_0_0_0 returns DSelfExpression
-	 *     DTypedMemberReference returns DSelfExpression
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DSelfExpression
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DSelfExpression
+	 *     DNavigableMemberReference returns DSelfExpression
+	 *     DNavigableMemberReference.DAssignment_1_0_0_0_0 returns DSelfExpression
+	 *     DNavigableMemberReference.DNavigableMemberReference_1_1_0_0_0 returns DSelfExpression
 	 *     DPrimaryExpression returns DSelfExpression
 	 *     DSelfExpression returns DSelfExpression
 	 *     DParenthesizedExpression returns DSelfExpression
@@ -878,9 +918,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DUnaryOperation returns DStringLiteral
 	 *     DCastExpression returns DStringLiteral
 	 *     DCastExpression.DCastExpression_1_0_0_0 returns DStringLiteral
-	 *     DTypedMemberReference returns DStringLiteral
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DStringLiteral
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DStringLiteral
+	 *     DNavigableMemberReference returns DStringLiteral
+	 *     DNavigableMemberReference.DAssignment_1_0_0_0_0 returns DStringLiteral
+	 *     DNavigableMemberReference.DNavigableMemberReference_1_1_0_0_0 returns DStringLiteral
 	 *     DPrimaryExpression returns DStringLiteral
 	 *     DLiteralExpression returns DStringLiteral
 	 *     DParenthesizedExpression returns DStringLiteral
@@ -974,46 +1014,6 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DExpression returns DTypedMemberReference
-	 *     DAssignment returns DTypedMemberReference
-	 *     DOrExpression returns DTypedMemberReference
-	 *     DOrExpression.DBinaryOperation_1_0_0_0 returns DTypedMemberReference
-	 *     DAndExpression returns DTypedMemberReference
-	 *     DAndExpression.DBinaryOperation_1_0_0_0 returns DTypedMemberReference
-	 *     DEqualityExpression returns DTypedMemberReference
-	 *     DEqualityExpression.DBinaryOperation_1_0_0_0 returns DTypedMemberReference
-	 *     DRelationalExpression returns DTypedMemberReference
-	 *     DRelationalExpression.DInstanceOfExpression_1_0_0_0_0 returns DTypedMemberReference
-	 *     DRelationalExpression.DBinaryOperation_1_1_0_0_0 returns DTypedMemberReference
-	 *     DOtherOperatorExpression returns DTypedMemberReference
-	 *     DOtherOperatorExpression.DBinaryOperation_1_0_0_0 returns DTypedMemberReference
-	 *     DAdditiveExpression returns DTypedMemberReference
-	 *     DAdditiveExpression.DBinaryOperation_1_0_0_0 returns DTypedMemberReference
-	 *     DMultiplicativeExpression returns DTypedMemberReference
-	 *     DMultiplicativeExpression.DBinaryOperation_1_0_0_0 returns DTypedMemberReference
-	 *     DUnaryOperation returns DTypedMemberReference
-	 *     DCastExpression returns DTypedMemberReference
-	 *     DCastExpression.DCastExpression_1_0_0_0 returns DTypedMemberReference
-	 *     DTypedMemberReference returns DTypedMemberReference
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DTypedMemberReference
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DTypedMemberReference
-	 *     DPrimaryExpression returns DTypedMemberReference
-	 *     DParenthesizedExpression returns DTypedMemberReference
-	 *
-	 * Constraint:
-	 *     (
-	 *         memberContainerReference=DTypedMemberReference_DTypedMemberReference_1_1_0_0_0 
-	 *         member=[DTypedMember|ID] 
-	 *         ((explicitOperationCall?='(' (memberCallArguments+=DExpression memberCallArguments+=DExpression*)?) | before?='@before')?
-	 *     )
-	 */
-	protected void sequence_DTypedMemberReference(ISerializationContext context, DTypedMemberReference semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     DExpression returns DUnaryOperation
 	 *     DAssignment returns DUnaryOperation
 	 *     DOrExpression returns DUnaryOperation
@@ -1034,9 +1034,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DUnaryOperation returns DUnaryOperation
 	 *     DCastExpression returns DUnaryOperation
 	 *     DCastExpression.DCastExpression_1_0_0_0 returns DUnaryOperation
-	 *     DTypedMemberReference returns DUnaryOperation
-	 *     DTypedMemberReference.DAssignment_1_0_0_0_0 returns DUnaryOperation
-	 *     DTypedMemberReference.DTypedMemberReference_1_1_0_0_0 returns DUnaryOperation
+	 *     DNavigableMemberReference returns DUnaryOperation
+	 *     DNavigableMemberReference.DAssignment_1_0_0_0_0 returns DUnaryOperation
+	 *     DNavigableMemberReference.DNavigableMemberReference_1_1_0_0_0 returns DUnaryOperation
 	 *     DPrimaryExpression returns DUnaryOperation
 	 *     DParenthesizedExpression returns DUnaryOperation
 	 *

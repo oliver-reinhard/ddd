@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public abstract class DFeatureImpl extends DTypedMemberImplCustom implements DFeature
+public abstract class DFeatureImpl extends DNavigableMemberImplCustom implements DFeature
 {
 	/**
 	 * The cached value of the '{@link #getDeducedFrom() <em>Deduced From</em>}' reference.

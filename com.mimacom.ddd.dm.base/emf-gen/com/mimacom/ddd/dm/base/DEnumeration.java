@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DEnumeration extends DSimpleType, ITypedMemberContainer
+public interface DEnumeration extends DSimpleType, INavigableMemberContainer
 {
 	/**
 	 * Returns the value of the '<em><b>Literals</b></em>' containment reference list.

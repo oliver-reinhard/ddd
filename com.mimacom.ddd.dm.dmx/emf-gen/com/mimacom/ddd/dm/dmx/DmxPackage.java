@@ -309,14 +309,14 @@ public interface DmxPackage extends EPackage
 	int DUNARY_OPERATION_OPERATION_COUNT = BasePackage.DEXPRESSION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DTypedMemberReferenceImpl <em>DTyped Member Reference</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DNavigableMemberReferenceImpl <em>DNavigable Member Reference</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.dmx.impl.DTypedMemberReferenceImpl
-	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDTypedMemberReference()
+	 * @see com.mimacom.ddd.dm.dmx.impl.DNavigableMemberReferenceImpl
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDNavigableMemberReference()
 	 * @generated
 	 */
-	int DTYPED_MEMBER_REFERENCE = 5;
+	int DNAVIGABLE_MEMBER_REFERENCE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Member Container Reference</b></em>' containment reference.
@@ -325,7 +325,7 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER_REFERENCE = BasePackage.DEXPRESSION_FEATURE_COUNT + 0;
+	int DNAVIGABLE_MEMBER_REFERENCE__MEMBER_CONTAINER_REFERENCE = BasePackage.DEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Member</b></em>' reference.
@@ -334,7 +334,7 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPED_MEMBER_REFERENCE__MEMBER = BasePackage.DEXPRESSION_FEATURE_COUNT + 1;
+	int DNAVIGABLE_MEMBER_REFERENCE__MEMBER = BasePackage.DEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Explicit Operation Call</b></em>' attribute.
@@ -343,7 +343,7 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPED_MEMBER_REFERENCE__EXPLICIT_OPERATION_CALL = BasePackage.DEXPRESSION_FEATURE_COUNT + 2;
+	int DNAVIGABLE_MEMBER_REFERENCE__EXPLICIT_OPERATION_CALL = BasePackage.DEXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Member Call Arguments</b></em>' containment reference list.
@@ -352,7 +352,7 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPED_MEMBER_REFERENCE__MEMBER_CALL_ARGUMENTS = BasePackage.DEXPRESSION_FEATURE_COUNT + 3;
+	int DNAVIGABLE_MEMBER_REFERENCE__MEMBER_CALL_ARGUMENTS = BasePackage.DEXPRESSION_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Before</b></em>' attribute.
@@ -361,25 +361,25 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPED_MEMBER_REFERENCE__BEFORE = BasePackage.DEXPRESSION_FEATURE_COUNT + 4;
+	int DNAVIGABLE_MEMBER_REFERENCE__BEFORE = BasePackage.DEXPRESSION_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of structural features of the '<em>DTyped Member Reference</em>' class.
+	 * The number of structural features of the '<em>DNavigable Member Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPED_MEMBER_REFERENCE_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 5;
+	int DNAVIGABLE_MEMBER_REFERENCE_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 5;
 
 	/**
-	 * The number of operations of the '<em>DTyped Member Reference</em>' class.
+	 * The number of operations of the '<em>DNavigable Member Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DTYPED_MEMBER_REFERENCE_OPERATION_COUNT = BasePackage.DEXPRESSION_OPERATION_COUNT + 0;
+	int DNAVIGABLE_MEMBER_REFERENCE_OPERATION_COUNT = BasePackage.DEXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DCastExpressionImpl <em>DCast Expression</em>}' class.
@@ -1203,69 +1203,69 @@ public interface DmxPackage extends EPackage
 	EAttribute getDUnaryOperation_Operator();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DTypedMemberReference <em>DTyped Member Reference</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DNavigableMemberReference <em>DNavigable Member Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DTyped Member Reference</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DTypedMemberReference
+	 * @return the meta object for class '<em>DNavigable Member Reference</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DNavigableMemberReference
 	 * @generated
 	 */
-	EClass getDTypedMemberReference();
+	EClass getDNavigableMemberReference();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.dmx.DTypedMemberReference#getMemberContainerReference <em>Member Container Reference</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.dmx.DNavigableMemberReference#getMemberContainerReference <em>Member Container Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Member Container Reference</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DTypedMemberReference#getMemberContainerReference()
-	 * @see #getDTypedMemberReference()
+	 * @see com.mimacom.ddd.dm.dmx.DNavigableMemberReference#getMemberContainerReference()
+	 * @see #getDNavigableMemberReference()
 	 * @generated
 	 */
-	EReference getDTypedMemberReference_MemberContainerReference();
+	EReference getDNavigableMemberReference_MemberContainerReference();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.dmx.DTypedMemberReference#getMember <em>Member</em>}'.
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.dmx.DNavigableMemberReference#getMember <em>Member</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Member</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DTypedMemberReference#getMember()
-	 * @see #getDTypedMemberReference()
+	 * @see com.mimacom.ddd.dm.dmx.DNavigableMemberReference#getMember()
+	 * @see #getDNavigableMemberReference()
 	 * @generated
 	 */
-	EReference getDTypedMemberReference_Member();
+	EReference getDNavigableMemberReference_Member();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DTypedMemberReference#isExplicitOperationCall <em>Explicit Operation Call</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DNavigableMemberReference#isExplicitOperationCall <em>Explicit Operation Call</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Explicit Operation Call</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DTypedMemberReference#isExplicitOperationCall()
-	 * @see #getDTypedMemberReference()
+	 * @see com.mimacom.ddd.dm.dmx.DNavigableMemberReference#isExplicitOperationCall()
+	 * @see #getDNavigableMemberReference()
 	 * @generated
 	 */
-	EAttribute getDTypedMemberReference_ExplicitOperationCall();
+	EAttribute getDNavigableMemberReference_ExplicitOperationCall();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.dmx.DTypedMemberReference#getMemberCallArguments <em>Member Call Arguments</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.dmx.DNavigableMemberReference#getMemberCallArguments <em>Member Call Arguments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Member Call Arguments</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DTypedMemberReference#getMemberCallArguments()
-	 * @see #getDTypedMemberReference()
+	 * @see com.mimacom.ddd.dm.dmx.DNavigableMemberReference#getMemberCallArguments()
+	 * @see #getDNavigableMemberReference()
 	 * @generated
 	 */
-	EReference getDTypedMemberReference_MemberCallArguments();
+	EReference getDNavigableMemberReference_MemberCallArguments();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DTypedMemberReference#isBefore <em>Before</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DNavigableMemberReference#isBefore <em>Before</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Before</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DTypedMemberReference#isBefore()
-	 * @see #getDTypedMemberReference()
+	 * @see com.mimacom.ddd.dm.dmx.DNavigableMemberReference#isBefore()
+	 * @see #getDNavigableMemberReference()
 	 * @generated
 	 */
-	EAttribute getDTypedMemberReference_Before();
+	EAttribute getDNavigableMemberReference_Before();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DCastExpression <em>DCast Expression</em>}'.
@@ -1850,14 +1850,14 @@ public interface DmxPackage extends EPackage
 		EAttribute DUNARY_OPERATION__OPERATOR = eINSTANCE.getDUnaryOperation_Operator();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DTypedMemberReferenceImpl <em>DTyped Member Reference</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DNavigableMemberReferenceImpl <em>DNavigable Member Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.dmx.impl.DTypedMemberReferenceImpl
-		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDTypedMemberReference()
+		 * @see com.mimacom.ddd.dm.dmx.impl.DNavigableMemberReferenceImpl
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDNavigableMemberReference()
 		 * @generated
 		 */
-		EClass DTYPED_MEMBER_REFERENCE = eINSTANCE.getDTypedMemberReference();
+		EClass DNAVIGABLE_MEMBER_REFERENCE = eINSTANCE.getDNavigableMemberReference();
 
 		/**
 		 * The meta object literal for the '<em><b>Member Container Reference</b></em>' containment reference feature.
@@ -1865,7 +1865,7 @@ public interface DmxPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DTYPED_MEMBER_REFERENCE__MEMBER_CONTAINER_REFERENCE = eINSTANCE.getDTypedMemberReference_MemberContainerReference();
+		EReference DNAVIGABLE_MEMBER_REFERENCE__MEMBER_CONTAINER_REFERENCE = eINSTANCE.getDNavigableMemberReference_MemberContainerReference();
 
 		/**
 		 * The meta object literal for the '<em><b>Member</b></em>' reference feature.
@@ -1873,7 +1873,7 @@ public interface DmxPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DTYPED_MEMBER_REFERENCE__MEMBER = eINSTANCE.getDTypedMemberReference_Member();
+		EReference DNAVIGABLE_MEMBER_REFERENCE__MEMBER = eINSTANCE.getDNavigableMemberReference_Member();
 
 		/**
 		 * The meta object literal for the '<em><b>Explicit Operation Call</b></em>' attribute feature.
@@ -1881,7 +1881,7 @@ public interface DmxPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DTYPED_MEMBER_REFERENCE__EXPLICIT_OPERATION_CALL = eINSTANCE.getDTypedMemberReference_ExplicitOperationCall();
+		EAttribute DNAVIGABLE_MEMBER_REFERENCE__EXPLICIT_OPERATION_CALL = eINSTANCE.getDNavigableMemberReference_ExplicitOperationCall();
 
 		/**
 		 * The meta object literal for the '<em><b>Member Call Arguments</b></em>' containment reference list feature.
@@ -1889,7 +1889,7 @@ public interface DmxPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DTYPED_MEMBER_REFERENCE__MEMBER_CALL_ARGUMENTS = eINSTANCE.getDTypedMemberReference_MemberCallArguments();
+		EReference DNAVIGABLE_MEMBER_REFERENCE__MEMBER_CALL_ARGUMENTS = eINSTANCE.getDNavigableMemberReference_MemberCallArguments();
 
 		/**
 		 * The meta object literal for the '<em><b>Before</b></em>' attribute feature.
@@ -1897,7 +1897,7 @@ public interface DmxPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DTYPED_MEMBER_REFERENCE__BEFORE = eINSTANCE.getDTypedMemberReference_Before();
+		EAttribute DNAVIGABLE_MEMBER_REFERENCE__BEFORE = eINSTANCE.getDNavigableMemberReference_Before();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DCastExpressionImpl <em>DCast Expression</em>}' class.

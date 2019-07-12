@@ -6,10 +6,9 @@ import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
 import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getDescription <em>Description</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getImports <em>Imports</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getQueries <em>Queries</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getAggregates <em>Aggregates</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getDomainProxies <em>Domain Proxies</em>}</li>
@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface SInformationModel extends EObject
+public interface SInformationModel extends INavigableMemberContainer
 {
 	/**
 	 * Returns the value of the '<em><b>Generate</b></em>' attribute.
@@ -138,6 +138,18 @@ public interface SInformationModel extends EObject
 	 * @generated
 	 */
 	EList<DImport> getImports();
+
+	/**
+	 * Returns the value of the '<em><b>Queries</b></em>' containment reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.sm.sim.SCoreQuery}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Queries</em>' containment reference list.
+	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSInformationModel_Queries()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<SCoreQuery> getQueries();
 
 	/**
 	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.

@@ -68,13 +68,13 @@ public interface DmxFactory extends EFactory
 	DUnaryOperation createDUnaryOperation();
 
 	/**
-	 * Returns a new object of class '<em>DTyped Member Reference</em>'.
+	 * Returns a new object of class '<em>DNavigable Member Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DTyped Member Reference</em>'.
+	 * @return a new object of class '<em>DNavigable Member Reference</em>'.
 	 * @generated
 	 */
-	DTypedMemberReference createDTypedMemberReference();
+	DNavigableMemberReference createDNavigableMemberReference();
 
 	/**
 	 * Returns a new object of class '<em>DCast Expression</em>'.

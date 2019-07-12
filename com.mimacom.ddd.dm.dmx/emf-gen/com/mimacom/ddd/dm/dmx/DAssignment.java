@@ -3,7 +3,7 @@
 package com.mimacom.ddd.dm.dmx;
 
 import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DTypedMember;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,12 +52,12 @@ public interface DAssignment extends DExpression
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Member</em>' reference.
-	 * @see #setMember(DTypedMember)
+	 * @see #setMember(DNavigableMember)
 	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDAssignment_Member()
 	 * @model
 	 * @generated
 	 */
-	DTypedMember getMember();
+	DNavigableMember getMember();
 
 	/**
 	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DAssignment#getMember <em>Member</em>}' reference.
@@ -67,7 +67,7 @@ public interface DAssignment extends DExpression
 	 * @see #getMember()
 	 * @generated
 	 */
-	void setMember(DTypedMember value);
+	void setMember(DNavigableMember value);
 
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' containment reference.

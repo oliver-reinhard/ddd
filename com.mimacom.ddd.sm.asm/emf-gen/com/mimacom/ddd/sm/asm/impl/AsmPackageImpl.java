@@ -486,8 +486,10 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 		// Add supertypes to classes
 		sApplicationEClass.getESuperTypes().add(this.getModel());
 		sServiceInterfaceEClass.getESuperTypes().add(this.getModel());
+		sServiceInterfaceEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
 		sWatchdogEClass.getESuperTypes().add(this.getSActor());
 		sHumanEClass.getESuperTypes().add(this.getSActor());
+		sServiceOperationEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

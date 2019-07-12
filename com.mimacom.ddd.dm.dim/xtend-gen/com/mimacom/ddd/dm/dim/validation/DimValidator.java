@@ -185,7 +185,7 @@ public class DimValidator extends AbstractDimValidator {
     DType _type = a.getType();
     boolean _not = (!(_type instanceof IValueType));
     if (_not) {
-      this.error("Refererenced type is not a ValueType", a, BasePackage.Literals.DTYPED_MEMBER__TYPE);
+      this.error("Refererenced type is not a ValueType", a, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE);
     }
   }
   
@@ -194,7 +194,7 @@ public class DimValidator extends AbstractDimValidator {
     DType _type = a.getType();
     boolean _not = (!(_type instanceof DEntityType));
     if (_not) {
-      this.error("Refererenced type is not an EntityType", a, BasePackage.Literals.DTYPED_MEMBER__TYPE);
+      this.error("Refererenced type is not an EntityType", a, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE);
     }
   }
   
@@ -211,7 +211,7 @@ public class DimValidator extends AbstractDimValidator {
   public void checkParameterIsValueType(final DQueryParameter p) {
     boolean _not = (!((p.getType() instanceof IValueType) || Objects.equal(p.getType(), p.eContainer())));
     if (_not) {
-      this.error("Refererenced type is not a ValueType nor the query\'s own container", p, BasePackage.Literals.DTYPED_MEMBER__TYPE);
+      this.error("Refererenced type is not a ValueType nor the query\'s own container", p, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE);
     }
   }
   
@@ -220,7 +220,7 @@ public class DimValidator extends AbstractDimValidator {
     DType _type = p.getType();
     boolean _not = (!(_type instanceof IValueType));
     if (_not) {
-      this.error("Refererenced type is not a ValueType", p, BasePackage.Literals.DTYPED_MEMBER__TYPE);
+      this.error("Refererenced type is not a ValueType", p, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE);
     }
   }
   

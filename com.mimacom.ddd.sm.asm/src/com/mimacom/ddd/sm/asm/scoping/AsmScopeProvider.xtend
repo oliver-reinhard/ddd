@@ -3,11 +3,17 @@
  */
 package com.mimacom.ddd.sm.asm.scoping
 
+import com.google.common.collect.Lists
 import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DServiceParameter
 import com.mimacom.ddd.dm.base.DType
+import com.mimacom.ddd.dm.base.IDeductionDefinition
+import com.mimacom.ddd.dm.base.INavigableMemberContainer
 import com.mimacom.ddd.sm.asm.SServiceInterface
 import com.mimacom.ddd.sm.asm.SServiceOperation
+import com.mimacom.ddd.sm.sim.SCoreQuery
+import com.mimacom.ddd.sm.sim.SInformationModel
+import java.util.List
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.EcoreUtil2
@@ -22,25 +28,36 @@ import org.eclipse.xtext.scoping.Scopes
  */
 class AsmScopeProvider extends AbstractAsmScopeProvider {
 
-	static val epackage = BasePackage.eINSTANCE
+	static val BASE = BasePackage.eINSTANCE
 
 	override getScope(EObject context, EReference reference) {
 
-		if(context instanceof DServiceParameter) {
-			if(reference == epackage.DTypedMember_Type) {
+		if (context instanceof DServiceParameter) {
+			if (reference == BASE.DNavigableMember_Type) {
 				val service = EcoreUtil2.getContainerOfType(context, SServiceInterface)
-				return Scopes.scopeFor(EcoreUtil2.eAllOfType(service.interface, DType))
+				return Scopes.scopeFor(EcoreUtil2.eAllOfType(service.interface, DType).filter[! (it instanceof IDeductionDefinition)])
 			}
 		}
 		super.getScope(context, reference)
 	}
-	
-	protected override IScope getExpressionContainerMemberSwitch(EObject container, IScope outerScope) {
-		return switch container {
-			SServiceOperation: Scopes.scopeFor(container.parameters, getExpressionContainerMemberScope(container, outerScope))  // recursion
-			SServiceInterface: Scopes.scopeFor(EcoreUtil2.eAllOfType(container.core, DType), outerScope)
-			default: super.getExpressionContainerMemberSwitch(container, outerScope)
+
+	protected override IScope getNavigableMembersScope(INavigableMemberContainer container, IScope outerScope) {
+		val scope = switch container {
+			SCoreQuery: Scopes.scopeFor(container.parameters, outerScope)
+			SServiceOperation: Scopes.scopeFor(container.parameters, getPrecedingNavigableMembersScope(container, outerScope)) // recursion
+			SServiceInterface: getServiceInterfaceCoreNavigableMembersScope(container.core, outerScope)
+			default: super.getNavigableMembersScope(container, outerScope)
 		}
-		
+		return scope	
+	}
+	
+	protected def IScope getServiceInterfaceCoreNavigableMembersScope(SInformationModel core, IScope outerScope) {
+		val List<EObject> list = Lists.newArrayList
+		//
+		// TODO The types are not NavigableMembers !!
+		//
+		list.addAll(EcoreUtil2.eAllOfType(core, DType).filter[! (it instanceof IDeductionDefinition)])
+		list.addAll(core.queries)
+		Scopes.scopeFor(list, outerScope)
 	}
 }

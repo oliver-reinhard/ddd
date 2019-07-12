@@ -90,7 +90,7 @@ public class DimScopingTest {
       final DAttribute attrX = ((DAttribute) _head);
       final DType ref = attrX.getType();
       final Procedure1<DType> _function = (DType it) -> {
-        this.assertScope(it, this.epackage.getDTypedMember_Type(), "GP, A, D.GP, D.A");
+        this.assertScope(it, this.epackage.getDNavigableMember_Type(), "GP, A, D.GP, D.A");
       };
       ObjectExtensions.<DType>operator_doubleArrow(ref, _function);
     } catch (Throwable _e) {

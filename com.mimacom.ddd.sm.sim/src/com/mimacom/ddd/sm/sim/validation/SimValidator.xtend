@@ -31,6 +31,7 @@ import com.mimacom.ddd.sm.sim.SFeatureDeduction
 import com.mimacom.ddd.sm.sim.SFuseRule
 import com.mimacom.ddd.sm.sim.SGrabRule
 import com.mimacom.ddd.sm.sim.SImplicitElementDeduction
+import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.SLiteralDeduction
 import com.mimacom.ddd.sm.sim.SQueryDeduction
 import com.mimacom.ddd.sm.sim.SStructureChangingRule
@@ -40,6 +41,7 @@ import com.mimacom.ddd.sm.sim.SimUtil
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.validation.Check
+import com.mimacom.ddd.sm.sim.SInformationModelKind
 
 /**
  * This class contains custom validation rules. 
@@ -188,12 +190,12 @@ class SimValidator extends AbstractSimValidator {
 		if (a instanceof IDeductionDefinition) {
 			return
 		}
-		if(! a.synthetic && ! (a.type instanceof IValueType)) {
+		if(! a.synthetic && ! (a.getType instanceof IValueType)) {
 			super.checkAttributeIsValueType(a)
 		} else if(a.synthetic) {
-			if(a.type === null) {
+			if(a.getType === null) {
 				errorOnStructuralElement(a,  getDescription(a) + ": no mapping rule for type")
-			} else if(! (a.type instanceof IValueType)) {
+			} else if(! (a.getType instanceof IValueType)) {
 				errorOnStructuralElement(a, getDescription(a) + ": referenced type is not a ValueType")
 			}
 		}
@@ -204,12 +206,12 @@ class SimValidator extends AbstractSimValidator {
 		if (a instanceof IDeductionDefinition) {
 			return
 		}
-		if (! a.synthetic && (! (a.type instanceof DEntityType && (a.type as DEntityType).root)))  {
+		if (! a.synthetic && (! (a.getType instanceof DEntityType && (a.getType as DEntityType).root)))  {
 			super.checkAssocitionToRootType(a)
 		} else if(a.synthetic) {
-			if(a.type === null) {
+			if(a.getType === null) {
 				errorOnStructuralElement(a,  getDescription(a) + ": no mapping rule for type")
-			} else if(! (a.type instanceof IIdentityType)) {
+			} else if(! (a.getType instanceof IIdentityType)) {
 				errorOnStructuralElement(a,  getDescription(a) + ": referenced type is not an IdentityType")
 			}
 		}
@@ -223,15 +225,25 @@ class SimValidator extends AbstractSimValidator {
 			return
 		}
 		if(! p.synthetic) {
-			if(! (p.type instanceof IValueType || p.type == p.eContainer)) {
+			if(! (p.getType instanceof IValueType || p.getType == p.eContainer)) {
 				error('Refererenced query-parameter type is neither a ValueType nor the query\'s own container', p,
-					BasePackage.Literals.DTYPED_MEMBER__TYPE)
+					BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE)
 			}
 		} else {
-			if(p.type === null) {
+			if(p.getType === null) {
 				errorOnStructuralElement(p,  getDescription(p) + ": no mapping rule for type")
-			} else if(! (p.type instanceof IValueType || p.type == p.eContainer)) {
+			} else if(! (p.getType instanceof IValueType || p.getType == p.eContainer)) {
 				errorOnStructuralElement(p, getDescription(p) + ": type is neither a ValueType nor the query\'s own container")
+			}
+		}
+	}
+	
+	@Check
+	def checkCoreQueryInCoreModel(DQuery q) {
+		val eContainer = q.eContainer
+		if (eContainer instanceof SInformationModel) {
+			if (eContainer.kind !== SInformationModelKind.CORE) {
+				error("Core queries can only be defined in core interface models", eContainer, SimPackage.Literals.SINFORMATION_MODEL__QUERIES)
 			}
 		}
 	}

@@ -3866,7 +3866,7 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
                     otherlv_1=(Token)match(input,RULE_ID,FOLLOW_27); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      						newLeafNode(otherlv_1, grammarAccess.getDAssignmentAccess().getMemberDTypedMemberCrossReference_0_1_0());
+                      						newLeafNode(otherlv_1, grammarAccess.getDAssignmentAccess().getMemberDNavigableMemberCrossReference_0_1_0());
                       					
                     }
 
@@ -6237,37 +6237,37 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDCastExpression"
-    // InternalDem.g:2221:1: ruleDCastExpression returns [EObject current=null] : (this_DTypedMemberReference_0= ruleDTypedMemberReference ( ( ( ( () ruleOpCast ) )=> ( () ruleOpCast ) ) ( (otherlv_3= RULE_ID ) ) )? ) ;
+    // InternalDem.g:2221:1: ruleDCastExpression returns [EObject current=null] : (this_DNavigableMemberReference_0= ruleDNavigableMemberReference ( ( ( ( () ruleOpCast ) )=> ( () ruleOpCast ) ) ( (otherlv_3= RULE_ID ) ) )? ) ;
     public final EObject ruleDCastExpression() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_3=null;
-        EObject this_DTypedMemberReference_0 = null;
+        EObject this_DNavigableMemberReference_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalDem.g:2227:2: ( (this_DTypedMemberReference_0= ruleDTypedMemberReference ( ( ( ( () ruleOpCast ) )=> ( () ruleOpCast ) ) ( (otherlv_3= RULE_ID ) ) )? ) )
-            // InternalDem.g:2228:2: (this_DTypedMemberReference_0= ruleDTypedMemberReference ( ( ( ( () ruleOpCast ) )=> ( () ruleOpCast ) ) ( (otherlv_3= RULE_ID ) ) )? )
+            // InternalDem.g:2227:2: ( (this_DNavigableMemberReference_0= ruleDNavigableMemberReference ( ( ( ( () ruleOpCast ) )=> ( () ruleOpCast ) ) ( (otherlv_3= RULE_ID ) ) )? ) )
+            // InternalDem.g:2228:2: (this_DNavigableMemberReference_0= ruleDNavigableMemberReference ( ( ( ( () ruleOpCast ) )=> ( () ruleOpCast ) ) ( (otherlv_3= RULE_ID ) ) )? )
             {
-            // InternalDem.g:2228:2: (this_DTypedMemberReference_0= ruleDTypedMemberReference ( ( ( ( () ruleOpCast ) )=> ( () ruleOpCast ) ) ( (otherlv_3= RULE_ID ) ) )? )
-            // InternalDem.g:2229:3: this_DTypedMemberReference_0= ruleDTypedMemberReference ( ( ( ( () ruleOpCast ) )=> ( () ruleOpCast ) ) ( (otherlv_3= RULE_ID ) ) )?
+            // InternalDem.g:2228:2: (this_DNavigableMemberReference_0= ruleDNavigableMemberReference ( ( ( ( () ruleOpCast ) )=> ( () ruleOpCast ) ) ( (otherlv_3= RULE_ID ) ) )? )
+            // InternalDem.g:2229:3: this_DNavigableMemberReference_0= ruleDNavigableMemberReference ( ( ( ( () ruleOpCast ) )=> ( () ruleOpCast ) ) ( (otherlv_3= RULE_ID ) ) )?
             {
             if ( state.backtracking==0 ) {
 
-              			newCompositeNode(grammarAccess.getDCastExpressionAccess().getDTypedMemberReferenceParserRuleCall_0());
+              			newCompositeNode(grammarAccess.getDCastExpressionAccess().getDNavigableMemberReferenceParserRuleCall_0());
               		
             }
             pushFollow(FOLLOW_36);
-            this_DTypedMemberReference_0=ruleDTypedMemberReference();
+            this_DNavigableMemberReference_0=ruleDNavigableMemberReference();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			current = this_DTypedMemberReference_0;
+              			current = this_DNavigableMemberReference_0;
               			afterParserOrEnumRuleCall();
               		
             }
@@ -6510,28 +6510,28 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleOpCast"
 
 
-    // $ANTLR start "entryRuleDTypedMemberReference"
-    // InternalDem.g:2310:1: entryRuleDTypedMemberReference returns [EObject current=null] : iv_ruleDTypedMemberReference= ruleDTypedMemberReference EOF ;
-    public final EObject entryRuleDTypedMemberReference() throws RecognitionException {
+    // $ANTLR start "entryRuleDNavigableMemberReference"
+    // InternalDem.g:2310:1: entryRuleDNavigableMemberReference returns [EObject current=null] : iv_ruleDNavigableMemberReference= ruleDNavigableMemberReference EOF ;
+    public final EObject entryRuleDNavigableMemberReference() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleDTypedMemberReference = null;
+        EObject iv_ruleDNavigableMemberReference = null;
 
 
         try {
-            // InternalDem.g:2310:62: (iv_ruleDTypedMemberReference= ruleDTypedMemberReference EOF )
-            // InternalDem.g:2311:2: iv_ruleDTypedMemberReference= ruleDTypedMemberReference EOF
+            // InternalDem.g:2310:66: (iv_ruleDNavigableMemberReference= ruleDNavigableMemberReference EOF )
+            // InternalDem.g:2311:2: iv_ruleDNavigableMemberReference= ruleDNavigableMemberReference EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getDTypedMemberReferenceRule()); 
+               newCompositeNode(grammarAccess.getDNavigableMemberReferenceRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleDTypedMemberReference=ruleDTypedMemberReference();
+            iv_ruleDNavigableMemberReference=ruleDNavigableMemberReference();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleDTypedMemberReference; 
+               current =iv_ruleDNavigableMemberReference; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -6547,12 +6547,12 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleDTypedMemberReference"
+    // $ANTLR end "entryRuleDNavigableMemberReference"
 
 
-    // $ANTLR start "ruleDTypedMemberReference"
-    // InternalDem.g:2317:1: ruleDTypedMemberReference returns [EObject current=null] : (this_DPrimaryExpression_0= ruleDPrimaryExpression ( ( ( ( ( () '.' ( ( RULE_ID ) ) ruleOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleOpSingleAssign ) ) ( (lv_value_5_0= ruleDAssignment ) ) ) | ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( (otherlv_8= RULE_ID ) ) ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( ( (lv_memberCallArguments_10_0= ruleDExpression ) ) (otherlv_11= ',' ( (lv_memberCallArguments_12_0= ruleDExpression ) ) )* )? otherlv_13= ')' ) | ( (lv_before_14_0= '@before' ) ) )? ) )* ) ;
-    public final EObject ruleDTypedMemberReference() throws RecognitionException {
+    // $ANTLR start "ruleDNavigableMemberReference"
+    // InternalDem.g:2317:1: ruleDNavigableMemberReference returns [EObject current=null] : (this_DPrimaryExpression_0= ruleDPrimaryExpression ( ( ( ( ( () '.' ( ( RULE_ID ) ) ruleOpSingleAssign ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ruleOpSingleAssign ) ) ( (lv_value_5_0= ruleDAssignment ) ) ) | ( ( ( ( () '.' ) )=> ( () otherlv_7= '.' ) ) ( (otherlv_8= RULE_ID ) ) ( ( ( ( ( '(' ) )=> (lv_explicitOperationCall_9_0= '(' ) ) ( ( (lv_memberCallArguments_10_0= ruleDExpression ) ) (otherlv_11= ',' ( (lv_memberCallArguments_12_0= ruleDExpression ) ) )* )? otherlv_13= ')' ) | ( (lv_before_14_0= '@before' ) ) )? ) )* ) ;
+    public final EObject ruleDNavigableMemberReference() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_2=null;
@@ -6584,7 +6584,7 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
             {
             if ( state.backtracking==0 ) {
 
-              			newCompositeNode(grammarAccess.getDTypedMemberReferenceAccess().getDPrimaryExpressionParserRuleCall_0());
+              			newCompositeNode(grammarAccess.getDNavigableMemberReferenceAccess().getDPrimaryExpressionParserRuleCall_0());
               		
             }
             pushFollow(FOLLOW_37);
@@ -6637,7 +6637,7 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
             	    if ( state.backtracking==0 ) {
 
             	      								current = forceCreateModelElementAndSet(
-            	      									grammarAccess.getDTypedMemberReferenceAccess().getDAssignmentMemberContainerAction_1_0_0_0_0(),
+            	      									grammarAccess.getDNavigableMemberReferenceAccess().getDAssignmentMemberContainerAction_1_0_0_0_0(),
             	      									current);
             	      							
             	    }
@@ -6647,7 +6647,7 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
             	    otherlv_2=(Token)match(input,41,FOLLOW_3); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      							newLeafNode(otherlv_2, grammarAccess.getDTypedMemberReferenceAccess().getFullStopKeyword_1_0_0_0_1());
+            	      							newLeafNode(otherlv_2, grammarAccess.getDNavigableMemberReferenceAccess().getFullStopKeyword_1_0_0_0_1());
             	      						
             	    }
             	    // InternalDem.g:2360:7: ( (otherlv_3= RULE_ID ) )
@@ -6659,14 +6659,14 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
             	    if ( state.backtracking==0 ) {
 
             	      									if (current==null) {
-            	      										current = createModelElement(grammarAccess.getDTypedMemberReferenceRule());
+            	      										current = createModelElement(grammarAccess.getDNavigableMemberReferenceRule());
             	      									}
             	      								
             	    }
             	    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_27); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      									newLeafNode(otherlv_3, grammarAccess.getDTypedMemberReferenceAccess().getMemberDTypedMemberCrossReference_1_0_0_0_2_0());
+            	      									newLeafNode(otherlv_3, grammarAccess.getDNavigableMemberReferenceAccess().getMemberDNavigableMemberCrossReference_1_0_0_0_2_0());
             	      								
             	    }
 
@@ -6677,7 +6677,7 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
 
             	    if ( state.backtracking==0 ) {
 
-            	      							newCompositeNode(grammarAccess.getDTypedMemberReferenceAccess().getOpSingleAssignParserRuleCall_1_0_0_0_3());
+            	      							newCompositeNode(grammarAccess.getDNavigableMemberReferenceAccess().getOpSingleAssignParserRuleCall_1_0_0_0_3());
             	      						
             	    }
             	    pushFollow(FOLLOW_28);
@@ -6704,7 +6704,7 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      							newCompositeNode(grammarAccess.getDTypedMemberReferenceAccess().getValueDAssignmentParserRuleCall_1_0_1_0());
+            	      							newCompositeNode(grammarAccess.getDNavigableMemberReferenceAccess().getValueDAssignmentParserRuleCall_1_0_1_0());
             	      						
             	    }
             	    pushFollow(FOLLOW_37);
@@ -6715,7 +6715,7 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
             	    if ( state.backtracking==0 ) {
 
             	      							if (current==null) {
-            	      								current = createModelElementForParent(grammarAccess.getDTypedMemberReferenceRule());
+            	      								current = createModelElementForParent(grammarAccess.getDNavigableMemberReferenceRule());
             	      							}
             	      							set(
             	      								current,
@@ -6755,7 +6755,7 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
             	    if ( state.backtracking==0 ) {
 
             	      								current = forceCreateModelElementAndSet(
-            	      									grammarAccess.getDTypedMemberReferenceAccess().getDTypedMemberReferenceMemberContainerReferenceAction_1_1_0_0_0(),
+            	      									grammarAccess.getDNavigableMemberReferenceAccess().getDNavigableMemberReferenceMemberContainerReferenceAction_1_1_0_0_0(),
             	      									current);
             	      							
             	    }
@@ -6765,7 +6765,7 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
             	    otherlv_7=(Token)match(input,41,FOLLOW_3); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      							newLeafNode(otherlv_7, grammarAccess.getDTypedMemberReferenceAccess().getFullStopKeyword_1_1_0_0_1());
+            	      							newLeafNode(otherlv_7, grammarAccess.getDNavigableMemberReferenceAccess().getFullStopKeyword_1_1_0_0_1());
             	      						
             	    }
 
@@ -6783,14 +6783,14 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
             	    if ( state.backtracking==0 ) {
 
             	      							if (current==null) {
-            	      								current = createModelElement(grammarAccess.getDTypedMemberReferenceRule());
+            	      								current = createModelElement(grammarAccess.getDNavigableMemberReferenceRule());
             	      							}
             	      						
             	    }
             	    otherlv_8=(Token)match(input,RULE_ID,FOLLOW_38); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      							newLeafNode(otherlv_8, grammarAccess.getDTypedMemberReferenceAccess().getMemberDTypedMemberCrossReference_1_1_1_0());
+            	      							newLeafNode(otherlv_8, grammarAccess.getDNavigableMemberReferenceAccess().getMemberDNavigableMemberCrossReference_1_1_1_0());
             	      						
             	    }
 
@@ -6825,13 +6825,13 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
             	            lv_explicitOperationCall_9_0=(Token)match(input,42,FOLLOW_39); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
-            	              									newLeafNode(lv_explicitOperationCall_9_0, grammarAccess.getDTypedMemberReferenceAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0_0());
+            	              									newLeafNode(lv_explicitOperationCall_9_0, grammarAccess.getDNavigableMemberReferenceAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0_0());
             	              								
             	            }
             	            if ( state.backtracking==0 ) {
 
             	              									if (current==null) {
-            	              										current = createModelElement(grammarAccess.getDTypedMemberReferenceRule());
+            	              										current = createModelElement(grammarAccess.getDNavigableMemberReferenceRule());
             	              									}
             	              									setWithLastConsumed(current, "explicitOperationCall", true, "(");
             	              								
@@ -6861,7 +6861,7 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
             	                    {
             	                    if ( state.backtracking==0 ) {
 
-            	                      										newCompositeNode(grammarAccess.getDTypedMemberReferenceAccess().getMemberCallArgumentsDExpressionParserRuleCall_1_1_2_0_1_0_0());
+            	                      										newCompositeNode(grammarAccess.getDNavigableMemberReferenceAccess().getMemberCallArgumentsDExpressionParserRuleCall_1_1_2_0_1_0_0());
             	                      									
             	                    }
             	                    pushFollow(FOLLOW_40);
@@ -6872,7 +6872,7 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
             	                    if ( state.backtracking==0 ) {
 
             	                      										if (current==null) {
-            	                      											current = createModelElementForParent(grammarAccess.getDTypedMemberReferenceRule());
+            	                      											current = createModelElementForParent(grammarAccess.getDNavigableMemberReferenceRule());
             	                      										}
             	                      										add(
             	                      											current,
@@ -6906,7 +6906,7 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
             	                    	    otherlv_11=(Token)match(input,43,FOLLOW_18); if (state.failed) return current;
             	                    	    if ( state.backtracking==0 ) {
 
-            	                    	      									newLeafNode(otherlv_11, grammarAccess.getDTypedMemberReferenceAccess().getCommaKeyword_1_1_2_0_1_1_0());
+            	                    	      									newLeafNode(otherlv_11, grammarAccess.getDNavigableMemberReferenceAccess().getCommaKeyword_1_1_2_0_1_1_0());
             	                    	      								
             	                    	    }
             	                    	    // InternalDem.g:2483:9: ( (lv_memberCallArguments_12_0= ruleDExpression ) )
@@ -6917,7 +6917,7 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
             	                    	    {
             	                    	    if ( state.backtracking==0 ) {
 
-            	                    	      											newCompositeNode(grammarAccess.getDTypedMemberReferenceAccess().getMemberCallArgumentsDExpressionParserRuleCall_1_1_2_0_1_1_1_0());
+            	                    	      											newCompositeNode(grammarAccess.getDNavigableMemberReferenceAccess().getMemberCallArgumentsDExpressionParserRuleCall_1_1_2_0_1_1_1_0());
             	                    	      										
             	                    	    }
             	                    	    pushFollow(FOLLOW_40);
@@ -6928,7 +6928,7 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
             	                    	    if ( state.backtracking==0 ) {
 
             	                    	      											if (current==null) {
-            	                    	      												current = createModelElementForParent(grammarAccess.getDTypedMemberReferenceRule());
+            	                    	      												current = createModelElementForParent(grammarAccess.getDNavigableMemberReferenceRule());
             	                    	      											}
             	                    	      											add(
             	                    	      												current,
@@ -6962,7 +6962,7 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
             	            otherlv_13=(Token)match(input,44,FOLLOW_37); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
-            	              							newLeafNode(otherlv_13, grammarAccess.getDTypedMemberReferenceAccess().getRightParenthesisKeyword_1_1_2_0_2());
+            	              							newLeafNode(otherlv_13, grammarAccess.getDNavigableMemberReferenceAccess().getRightParenthesisKeyword_1_1_2_0_2());
             	              						
             	            }
 
@@ -6983,13 +6983,13 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
             	            lv_before_14_0=(Token)match(input,45,FOLLOW_37); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
-            	              								newLeafNode(lv_before_14_0, grammarAccess.getDTypedMemberReferenceAccess().getBeforeBeforeKeyword_1_1_2_1_0());
+            	              								newLeafNode(lv_before_14_0, grammarAccess.getDNavigableMemberReferenceAccess().getBeforeBeforeKeyword_1_1_2_1_0());
             	              							
             	            }
             	            if ( state.backtracking==0 ) {
 
             	              								if (current==null) {
-            	              									current = createModelElement(grammarAccess.getDTypedMemberReferenceRule());
+            	              									current = createModelElement(grammarAccess.getDNavigableMemberReferenceRule());
             	              								}
             	              								setWithLastConsumed(current, "before", true, "@before");
             	              							
@@ -7039,7 +7039,7 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleDTypedMemberReference"
+    // $ANTLR end "ruleDNavigableMemberReference"
 
 
     // $ANTLR start "entryRuleDPrimaryExpression"
@@ -8606,7 +8606,7 @@ public class InternalDemParser extends AbstractInternalAntlrParser {
             otherlv_2=(Token)match(input,RULE_ID,FOLLOW_44); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(otherlv_2, grammarAccess.getDConstructorCallAccess().getConstructorDIdentityTypeCrossReference_2_0());
+              					newLeafNode(otherlv_2, grammarAccess.getDConstructorCallAccess().getConstructorDComplexTypeCrossReference_2_0());
               				
             }
 

@@ -15,8 +15,8 @@ import com.mimacom.ddd.dm.base.IRichTextSegment;
 import com.mimacom.ddd.dm.dim.tests.DimInjectorProvider;
 import com.mimacom.ddd.dm.dmx.DBinaryOperation;
 import com.mimacom.ddd.dm.dmx.DContextReference;
+import com.mimacom.ddd.dm.dmx.DNavigableMemberReference;
 import com.mimacom.ddd.dm.dmx.DSelfExpression;
-import com.mimacom.ddd.dm.dmx.DTypedMemberReference;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -188,12 +188,12 @@ public class DmxScopingTest {
     {
       Assert.assertTrue((e instanceof DBinaryOperation));
       final DExpression left = ((DBinaryOperation) e).getLeftOperand();
-      Assert.assertTrue((left instanceof DTypedMemberReference));
-      final DTypedMemberReference member = ((DTypedMemberReference) left);
-      final Procedure1<DTypedMemberReference> _function = (DTypedMemberReference it) -> {
-        this.assertScope(it, this.epackage.getDTypedMemberReference_Member(), expectedScopeStr1);
+      Assert.assertTrue((left instanceof DNavigableMemberReference));
+      final DNavigableMemberReference member = ((DNavigableMemberReference) left);
+      final Procedure1<DNavigableMemberReference> _function = (DNavigableMemberReference it) -> {
+        this.assertScope(it, this.epackage.getDNavigableMemberReference_Member(), expectedScopeStr1);
       };
-      ObjectExtensions.<DTypedMemberReference>operator_doubleArrow(member, _function);
+      ObjectExtensions.<DNavigableMemberReference>operator_doubleArrow(member, _function);
       DExpression _memberContainerReference = member.getMemberContainerReference();
       Assert.assertTrue((_memberContainerReference instanceof DContextReference));
       DExpression _memberContainerReference_1 = member.getMemberContainerReference();
@@ -311,12 +311,12 @@ public class DmxScopingTest {
   protected void checkExpression3(final DExpression e, final String expectedScopeStr) {
     Assert.assertTrue((e instanceof DBinaryOperation));
     final DExpression left = ((DBinaryOperation) e).getLeftOperand();
-    Assert.assertTrue((left instanceof DTypedMemberReference));
-    final DTypedMemberReference member = ((DTypedMemberReference) left);
-    final Procedure1<DTypedMemberReference> _function = (DTypedMemberReference it) -> {
-      this.assertScope(it, this.epackage.getDTypedMemberReference_Member(), expectedScopeStr);
+    Assert.assertTrue((left instanceof DNavigableMemberReference));
+    final DNavigableMemberReference member = ((DNavigableMemberReference) left);
+    final Procedure1<DNavigableMemberReference> _function = (DNavigableMemberReference it) -> {
+      this.assertScope(it, this.epackage.getDNavigableMemberReference_Member(), expectedScopeStr);
     };
-    ObjectExtensions.<DTypedMemberReference>operator_doubleArrow(member, _function);
+    ObjectExtensions.<DNavigableMemberReference>operator_doubleArrow(member, _function);
     DExpression _memberContainerReference = member.getMemberContainerReference();
     Assert.assertTrue((_memberContainerReference instanceof DSelfExpression));
   }
@@ -324,20 +324,20 @@ public class DmxScopingTest {
   protected void checkExpression4(final DExpression e, final String expectedScopeStr1, final String expectedScopeStr2) {
     Assert.assertTrue((e instanceof DBinaryOperation));
     final DExpression left = ((DBinaryOperation) e).getLeftOperand();
-    Assert.assertTrue((left instanceof DTypedMemberReference));
-    final DTypedMemberReference member1 = ((DTypedMemberReference) left);
-    final Procedure1<DTypedMemberReference> _function = (DTypedMemberReference it) -> {
-      this.assertScope(it, this.epackage.getDTypedMemberReference_Member(), expectedScopeStr1);
+    Assert.assertTrue((left instanceof DNavigableMemberReference));
+    final DNavigableMemberReference member1 = ((DNavigableMemberReference) left);
+    final Procedure1<DNavigableMemberReference> _function = (DNavigableMemberReference it) -> {
+      this.assertScope(it, this.epackage.getDNavigableMemberReference_Member(), expectedScopeStr1);
     };
-    ObjectExtensions.<DTypedMemberReference>operator_doubleArrow(member1, _function);
+    ObjectExtensions.<DNavigableMemberReference>operator_doubleArrow(member1, _function);
     DExpression _memberContainerReference = member1.getMemberContainerReference();
-    Assert.assertTrue((_memberContainerReference instanceof DTypedMemberReference));
+    Assert.assertTrue((_memberContainerReference instanceof DNavigableMemberReference));
     DExpression _memberContainerReference_1 = member1.getMemberContainerReference();
-    final DTypedMemberReference member2 = ((DTypedMemberReference) _memberContainerReference_1);
-    final Procedure1<DTypedMemberReference> _function_1 = (DTypedMemberReference it) -> {
-      this.assertScope(it, this.epackage.getDTypedMemberReference_Member(), expectedScopeStr2);
+    final DNavigableMemberReference member2 = ((DNavigableMemberReference) _memberContainerReference_1);
+    final Procedure1<DNavigableMemberReference> _function_1 = (DNavigableMemberReference it) -> {
+      this.assertScope(it, this.epackage.getDNavigableMemberReference_Member(), expectedScopeStr2);
     };
-    ObjectExtensions.<DTypedMemberReference>operator_doubleArrow(member2, _function_1);
+    ObjectExtensions.<DNavigableMemberReference>operator_doubleArrow(member2, _function_1);
     DExpression _memberContainerReference_2 = member2.getMemberContainerReference();
     Assert.assertTrue((_memberContainerReference_2 instanceof DSelfExpression));
   }

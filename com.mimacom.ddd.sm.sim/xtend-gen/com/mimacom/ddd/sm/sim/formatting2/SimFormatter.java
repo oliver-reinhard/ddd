@@ -190,6 +190,9 @@ public class SimFormatter extends AbstractFormatter2 {
     } else if (en instanceof SComplexTypeDeduction) {
       _format((SComplexTypeDeduction)en, document);
       return;
+    } else if (en instanceof SInformationModel) {
+      _format((SInformationModel)en, document);
+      return;
     } else if (en instanceof XtextResource) {
       _format((XtextResource)en, document);
       return;
@@ -198,9 +201,6 @@ public class SimFormatter extends AbstractFormatter2 {
       return;
     } else if (en instanceof DImport) {
       _format((DImport)en, document);
-      return;
-    } else if (en instanceof SInformationModel) {
-      _format((SInformationModel)en, document);
       return;
     } else if (en instanceof EObject) {
       _format((EObject)en, document);

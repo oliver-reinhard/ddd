@@ -35,6 +35,8 @@ import com.mimacom.ddd.sm.sim.SFeatureDeduction;
 import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
 import com.mimacom.ddd.sm.sim.SImplicitElementDeduction;
+import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SInformationModelKind;
 import com.mimacom.ddd.sm.sim.SLiteralDeduction;
 import com.mimacom.ddd.sm.sim.SQueryDeduction;
 import com.mimacom.ddd.sm.sim.SStructureChangingRule;
@@ -301,7 +303,7 @@ public class SimValidator extends AbstractSimValidator {
       boolean _not_1 = (!((p.getType() instanceof IValueType) || Objects.equal(p.getType(), p.eContainer())));
       if (_not_1) {
         this.error("Refererenced query-parameter type is neither a ValueType nor the query\'s own container", p, 
-          BasePackage.Literals.DTYPED_MEMBER__TYPE);
+          BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE);
       }
     } else {
       DType _type = p.getType();
@@ -317,6 +319,18 @@ public class SimValidator extends AbstractSimValidator {
           String _plus_1 = (_description_1 + ": type is neither a ValueType nor the query\'s own container");
           this.errorOnStructuralElement(p, _plus_1);
         }
+      }
+    }
+  }
+  
+  @Check
+  public void checkCoreQueryInCoreModel(final DQuery q) {
+    final EObject eContainer = q.eContainer();
+    if ((eContainer instanceof SInformationModel)) {
+      SInformationModelKind _kind = ((SInformationModel)eContainer).getKind();
+      boolean _tripleNotEquals = (_kind != SInformationModelKind.CORE);
+      if (_tripleNotEquals) {
+        this.error("Core queries can only be defined in core interface models", eContainer, SimPackage.Literals.SINFORMATION_MODEL__QUERIES);
       }
     }
   }

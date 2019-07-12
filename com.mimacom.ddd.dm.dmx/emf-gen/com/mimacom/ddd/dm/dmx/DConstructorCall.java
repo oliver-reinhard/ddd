@@ -2,8 +2,8 @@
  */
 package com.mimacom.ddd.dm.dmx;
 
+import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DIdentityType;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -32,12 +32,12 @@ public interface DConstructorCall extends DExpression
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Constructor</em>' reference.
-	 * @see #setConstructor(DIdentityType)
+	 * @see #setConstructor(DComplexType)
 	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDConstructorCall_Constructor()
 	 * @model
 	 * @generated
 	 */
-	DIdentityType getConstructor();
+	DComplexType getConstructor();
 
 	/**
 	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DConstructorCall#getConstructor <em>Constructor</em>}' reference.
@@ -47,7 +47,7 @@ public interface DConstructorCall extends DExpression
 	 * @see #getConstructor()
 	 * @generated
 	 */
-	void setConstructor(DIdentityType value);
+	void setConstructor(DComplexType value);
 
 	/**
 	 * Returns the value of the '<em><b>Explicit Constructor Call</b></em>' attribute.

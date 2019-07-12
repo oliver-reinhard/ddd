@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class DQueryParameterImpl extends DTypedMemberImplCustom implements DQueryParameter
+public class DQueryParameterImpl extends DNavigableMemberImplCustom implements DQueryParameter
 {
 	/**
 	 * The cached value of the '{@link #getDeducedFrom() <em>Deduced From</em>}' reference.

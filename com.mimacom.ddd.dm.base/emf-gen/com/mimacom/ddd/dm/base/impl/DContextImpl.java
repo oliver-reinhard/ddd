@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DContextImpl extends DTypedMemberImplCustom implements DContext
+public class DContextImpl extends DNavigableMemberImplCustom implements DContext
 {
 	/**
 	 * <!-- begin-user-doc -->

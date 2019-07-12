@@ -4,8 +4,8 @@ package com.mimacom.ddd.dm.base.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DMultiplicity;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.base.DTypedMember;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -17,21 +17,21 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>DTyped Member</b></em>'.
+ * An implementation of the model object '<em><b>DNavigable Member</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DTypedMemberImpl#getType <em>Type</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DTypedMemberImpl#getMultiplicity <em>Multiplicity</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DTypedMemberImpl#isOptional <em>Optional</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DTypedMemberImpl#isCollection <em>Collection</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DNavigableMemberImpl#getType <em>Type</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DNavigableMemberImpl#getMultiplicity <em>Multiplicity</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DNavigableMemberImpl#isOptional <em>Optional</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DNavigableMemberImpl#isCollection <em>Collection</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class DTypedMemberImpl extends DNamedElementImpl implements DTypedMember
+public abstract class DNavigableMemberImpl extends DNamedElementImpl implements DNavigableMember
 {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
@@ -78,7 +78,7 @@ public abstract class DTypedMemberImpl extends DNamedElementImpl implements DTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DTypedMemberImpl()
+	protected DNavigableMemberImpl()
 	{
 		super();
 	}
@@ -91,7 +91,7 @@ public abstract class DTypedMemberImpl extends DNamedElementImpl implements DTyp
 	@Override
 	protected EClass eStaticClass()
 	{
-		return BasePackage.Literals.DTYPED_MEMBER;
+		return BasePackage.Literals.DNAVIGABLE_MEMBER;
 	}
 
 	/**
@@ -109,7 +109,7 @@ public abstract class DTypedMemberImpl extends DNamedElementImpl implements DTyp
 			if (type != oldType)
 			{
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BasePackage.DTYPED_MEMBER__TYPE, oldType, type));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BasePackage.DNAVIGABLE_MEMBER__TYPE, oldType, type));
 			}
 		}
 		return type;
@@ -136,7 +136,7 @@ public abstract class DTypedMemberImpl extends DNamedElementImpl implements DTyp
 		DType oldType = type;
 		type = newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DTYPED_MEMBER__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DNAVIGABLE_MEMBER__TYPE, oldType, type));
 	}
 
 	/**
@@ -161,7 +161,7 @@ public abstract class DTypedMemberImpl extends DNamedElementImpl implements DTyp
 		multiplicity = newMultiplicity;
 		if (eNotificationRequired())
 		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasePackage.DTYPED_MEMBER__MULTIPLICITY, oldMultiplicity, newMultiplicity);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasePackage.DNAVIGABLE_MEMBER__MULTIPLICITY, oldMultiplicity, newMultiplicity);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -179,14 +179,14 @@ public abstract class DTypedMemberImpl extends DNamedElementImpl implements DTyp
 		{
 			NotificationChain msgs = null;
 			if (multiplicity != null)
-				msgs = ((InternalEObject)multiplicity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasePackage.DTYPED_MEMBER__MULTIPLICITY, null, msgs);
+				msgs = ((InternalEObject)multiplicity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasePackage.DNAVIGABLE_MEMBER__MULTIPLICITY, null, msgs);
 			if (newMultiplicity != null)
-				msgs = ((InternalEObject)newMultiplicity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasePackage.DTYPED_MEMBER__MULTIPLICITY, null, msgs);
+				msgs = ((InternalEObject)newMultiplicity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasePackage.DNAVIGABLE_MEMBER__MULTIPLICITY, null, msgs);
 			msgs = basicSetMultiplicity(newMultiplicity, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DTYPED_MEMBER__MULTIPLICITY, newMultiplicity, newMultiplicity));
+			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DNAVIGABLE_MEMBER__MULTIPLICITY, newMultiplicity, newMultiplicity));
 	}
 
 	/**
@@ -225,7 +225,7 @@ public abstract class DTypedMemberImpl extends DNamedElementImpl implements DTyp
 	{
 		switch (featureID)
 		{
-			case BasePackage.DTYPED_MEMBER__MULTIPLICITY:
+			case BasePackage.DNAVIGABLE_MEMBER__MULTIPLICITY:
 				return basicSetMultiplicity(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -241,14 +241,14 @@ public abstract class DTypedMemberImpl extends DNamedElementImpl implements DTyp
 	{
 		switch (featureID)
 		{
-			case BasePackage.DTYPED_MEMBER__TYPE:
+			case BasePackage.DNAVIGABLE_MEMBER__TYPE:
 				if (resolve) return getType();
 				return basicGetType();
-			case BasePackage.DTYPED_MEMBER__MULTIPLICITY:
+			case BasePackage.DNAVIGABLE_MEMBER__MULTIPLICITY:
 				return getMultiplicity();
-			case BasePackage.DTYPED_MEMBER__OPTIONAL:
+			case BasePackage.DNAVIGABLE_MEMBER__OPTIONAL:
 				return isOptional();
-			case BasePackage.DTYPED_MEMBER__COLLECTION:
+			case BasePackage.DNAVIGABLE_MEMBER__COLLECTION:
 				return isCollection();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -264,10 +264,10 @@ public abstract class DTypedMemberImpl extends DNamedElementImpl implements DTyp
 	{
 		switch (featureID)
 		{
-			case BasePackage.DTYPED_MEMBER__TYPE:
+			case BasePackage.DNAVIGABLE_MEMBER__TYPE:
 				setType((DType)newValue);
 				return;
-			case BasePackage.DTYPED_MEMBER__MULTIPLICITY:
+			case BasePackage.DNAVIGABLE_MEMBER__MULTIPLICITY:
 				setMultiplicity((DMultiplicity)newValue);
 				return;
 		}
@@ -284,10 +284,10 @@ public abstract class DTypedMemberImpl extends DNamedElementImpl implements DTyp
 	{
 		switch (featureID)
 		{
-			case BasePackage.DTYPED_MEMBER__TYPE:
+			case BasePackage.DNAVIGABLE_MEMBER__TYPE:
 				setType((DType)null);
 				return;
-			case BasePackage.DTYPED_MEMBER__MULTIPLICITY:
+			case BasePackage.DNAVIGABLE_MEMBER__MULTIPLICITY:
 				setMultiplicity((DMultiplicity)null);
 				return;
 		}
@@ -304,16 +304,16 @@ public abstract class DTypedMemberImpl extends DNamedElementImpl implements DTyp
 	{
 		switch (featureID)
 		{
-			case BasePackage.DTYPED_MEMBER__TYPE:
+			case BasePackage.DNAVIGABLE_MEMBER__TYPE:
 				return type != null;
-			case BasePackage.DTYPED_MEMBER__MULTIPLICITY:
+			case BasePackage.DNAVIGABLE_MEMBER__MULTIPLICITY:
 				return multiplicity != null;
-			case BasePackage.DTYPED_MEMBER__OPTIONAL:
+			case BasePackage.DNAVIGABLE_MEMBER__OPTIONAL:
 				return isOptional() != OPTIONAL_EDEFAULT;
-			case BasePackage.DTYPED_MEMBER__COLLECTION:
+			case BasePackage.DNAVIGABLE_MEMBER__COLLECTION:
 				return isCollection() != COLLECTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //DTypedMemberImpl
+} //DNavigableMemberImpl

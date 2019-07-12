@@ -2,7 +2,7 @@ package com.mimacom.ddd.dm.base.impl;
 
 import com.mimacom.ddd.dm.base.DMultiplicity;
 
-public class DTypedMemberImplCustom extends DTypedMemberImpl {
+public class DNavigableMemberImplCustom extends DNavigableMemberImpl {
 
 	@Override
 	public boolean isOptional() {

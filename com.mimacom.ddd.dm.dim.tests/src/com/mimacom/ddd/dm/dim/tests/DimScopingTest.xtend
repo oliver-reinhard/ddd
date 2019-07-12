@@ -49,8 +49,8 @@ class DimScopingTest {
 		
 		val detailA = domain.types.get(1) as DDetailType
 		val attrX = detailA.features.head as DAttribute
-		val ref = attrX.type
-		ref => [assertScope(epackage.DTypedMember_Type, "GP, A, D.GP, D.A")]
+		val ref = attrX.getType
+		ref => [assertScope(epackage.DNavigableMember_Type, "GP, A, D.GP, D.A")]
 		
 	}
 	

@@ -70,7 +70,7 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 			case DmxPackage.DBINARY_OPERATION: return createDBinaryOperation();
 			case DmxPackage.DINSTANCE_OF_EXPRESSION: return createDInstanceOfExpression();
 			case DmxPackage.DUNARY_OPERATION: return createDUnaryOperation();
-			case DmxPackage.DTYPED_MEMBER_REFERENCE: return createDTypedMemberReference();
+			case DmxPackage.DNAVIGABLE_MEMBER_REFERENCE: return createDNavigableMemberReference();
 			case DmxPackage.DCAST_EXPRESSION: return createDCastExpression();
 			case DmxPackage.DSELF_EXPRESSION: return createDSelfExpression();
 			case DmxPackage.DRETURN_EXPRESSION: return createDReturnExpression();
@@ -195,10 +195,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DTypedMemberReference createDTypedMemberReference()
+	public DNavigableMemberReference createDNavigableMemberReference()
 	{
-		DTypedMemberReferenceImpl dTypedMemberReference = new DTypedMemberReferenceImpl();
-		return dTypedMemberReference;
+		DNavigableMemberReferenceImpl dNavigableMemberReference = new DNavigableMemberReferenceImpl();
+		return dNavigableMemberReference;
 	}
 
 	/**

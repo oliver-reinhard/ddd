@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class DServiceParameterImpl extends DTypedMemberImplCustom implements DServiceParameter
+public class DServiceParameterImpl extends DNavigableMemberImplCustom implements DServiceParameter
 {
 	/**
 	 * The default value of the '{@link #getDirection() <em>Direction</em>}' attribute.

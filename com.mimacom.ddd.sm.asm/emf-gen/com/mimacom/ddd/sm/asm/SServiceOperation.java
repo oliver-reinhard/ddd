@@ -6,10 +6,9 @@ package com.mimacom.ddd.sm.asm;
 import com.mimacom.ddd.dm.base.DException;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DServiceParameter;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
 import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface SServiceOperation extends EObject
+public interface SServiceOperation extends INavigableMemberContainer
 {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

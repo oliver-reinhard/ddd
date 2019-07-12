@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class DLiteralImpl extends DTypedMemberImplCustom implements DLiteral
+public class DLiteralImpl extends DNavigableMemberImplCustom implements DLiteral
 {
 	/**
 	 * The cached value of the '{@link #getDeducedFrom() <em>Deduced From</em>}' reference.

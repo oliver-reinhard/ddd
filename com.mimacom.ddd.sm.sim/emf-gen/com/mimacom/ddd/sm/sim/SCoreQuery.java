@@ -1,27 +1,32 @@
 /**
  */
-package com.mimacom.ddd.dm.base;
+package com.mimacom.ddd.sm.sim;
+
+import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.DQueryParameter;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
 import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>DQuery</b></em>'.
+ * A representation of the model object '<em><b>SCore Query</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.DQuery#getParameters <em>Parameters</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.DQuery#getReturns <em>Returns</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.SCoreQuery#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.SCoreQuery#getReturns <em>Returns</em>}</li>
  * </ul>
  *
- * @see com.mimacom.ddd.dm.base.BasePackage#getDQuery()
+ * @see com.mimacom.ddd.sm.sim.SimPackage#getSCoreQuery()
  * @model
  * @generated
  */
-public interface DQuery extends DFeature, INavigableMemberContainer
+public interface SCoreQuery extends DNavigableMember, INavigableMemberContainer
 {
 	/**
 	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
@@ -29,7 +34,7 @@ public interface DQuery extends DFeature, INavigableMemberContainer
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameters</em>' containment reference list.
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDQuery_Parameters()
+	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSCoreQuery_Parameters()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -41,14 +46,14 @@ public interface DQuery extends DFeature, INavigableMemberContainer
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Returns</em>' containment reference.
 	 * @see #setReturns(DExpression)
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDQuery_Returns()
+	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSCoreQuery_Returns()
 	 * @model containment="true"
 	 * @generated
 	 */
 	DExpression getReturns();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.DQuery#getReturns <em>Returns</em>}' containment reference.
+	 * Sets the value of the '{@link com.mimacom.ddd.sm.sim.SCoreQuery#getReturns <em>Returns</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Returns</em>' containment reference.
@@ -57,4 +62,4 @@ public interface DQuery extends DFeature, INavigableMemberContainer
 	 */
 	void setReturns(DExpression value);
 
-} // DQuery
+} // SCoreQuery

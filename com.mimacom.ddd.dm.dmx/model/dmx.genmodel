@@ -55,12 +55,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DUnaryOperation/operand"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dmx.ecore#//DUnaryOperation/operator"/>
     </genClasses>
-    <genClasses ecoreClass="dmx.ecore#//DTypedMemberReference">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DTypedMemberReference/memberContainerReference"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dmx.ecore#//DTypedMemberReference/member"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dmx.ecore#//DTypedMemberReference/explicitOperationCall"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DTypedMemberReference/memberCallArguments"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dmx.ecore#//DTypedMemberReference/before"/>
+    <genClasses ecoreClass="dmx.ecore#//DNavigableMemberReference">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DNavigableMemberReference/memberContainerReference"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dmx.ecore#//DNavigableMemberReference/member"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dmx.ecore#//DNavigableMemberReference/explicitOperationCall"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DNavigableMemberReference/memberCallArguments"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dmx.ecore#//DNavigableMemberReference/before"/>
     </genClasses>
     <genClasses ecoreClass="dmx.ecore#//DCastExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dmx.ecore#//DCastExpression/target"/>

@@ -99,8 +99,8 @@ class DimUtil {
 	 * Precondition: d is the domain owning the feature
 	 */
 	def boolean isTypeInsideDomain(DFeature f, DDomain d) {
-		if (f.type !== null) {
-			val targetDomain = f.type.domain
+		if (f.getType !== null) {
+			val targetDomain = f.getType.domain
 			return d == targetDomain
 		}
 		return false
@@ -136,11 +136,11 @@ class DimUtil {
 	}
 	
 	def String label(DFeature f) {
-		return f.name + " : " + f.type?.label
+		return f.name + " : " + f.getType?.label
 	}
 	
 	def String label(DQueryParameter p) {
-		return p.name + " : " + p.type?.label
+		return p.name + " : " + p.getType?.label
 	}
 	
 	def String label(DCondition c) {

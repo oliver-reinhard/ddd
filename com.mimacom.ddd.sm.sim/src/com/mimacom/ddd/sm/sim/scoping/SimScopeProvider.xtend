@@ -9,19 +9,17 @@ import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.sm.sim.SComplexTypeDeduction
+import com.mimacom.ddd.sm.sim.SCoreQuery
 import com.mimacom.ddd.sm.sim.SEnumerationDeduction
 import com.mimacom.ddd.sm.sim.SFeatureDeduction
 import com.mimacom.ddd.sm.sim.SLiteralDeduction
 import com.mimacom.ddd.sm.sim.SQueryDeduction
 import com.mimacom.ddd.sm.sim.SQueryParameterDeduction
 import com.mimacom.ddd.sm.sim.SimUtil
-import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
-import org.eclipse.emf.ecore.EcoreFactory
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
-import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider
 
 /**
  * Timport com.mimacom.ddd.sm.sim.SFeatureDeduction
@@ -31,13 +29,22 @@ is class contains custom scoping description.
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
  * on how and when to use it.
  */
-class SimScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
+class SimScopeProvider extends AbstractSimScopeProvider {
 	
 	@Inject extension SimUtil
 	
 	static val epackage = BasePackage.eINSTANCE
 	
 	override getScope(EObject context, EReference reference) {
+		
+		if (reference == epackage.DNavigableMember_Type) {
+			
+			 val IScope scope = switch context {	
+				SCoreQuery: getDefaultScopeForType(context, epackage.DType)
+				default:  getDefaultScopeForType(context, epackage.IValueType)
+			}
+			return scope
+		}
 		
 		if (reference == epackage.DDeductionRule_Source) {
 			val container = context.eContainer
@@ -79,16 +86,5 @@ class SimScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
 		} else {
 			return Scopes.scopeFor(features, outerScope)
 		}
-	}
-	
-	/*
-	 * Obtains the default scope for the given reference narrowed down to the given type.
-	 */
-	def IScope getDefaultScopeForType(EObject context, EClass type) {
-		val reference = EcoreFactory.eINSTANCE.createEReference
-		// Default scoping only uses the EType field of the reference:
-		reference.EType = type
-		val scope = super.getScope(context, reference)
-		return scope
 	}
 }

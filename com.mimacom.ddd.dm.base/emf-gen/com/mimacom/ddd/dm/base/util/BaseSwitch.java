@@ -121,19 +121,19 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BasePackage.DTYPED_MEMBER:
+			case BasePackage.DNAVIGABLE_MEMBER:
 			{
-				DTypedMember dTypedMember = (DTypedMember)theEObject;
-				T result = caseDTypedMember(dTypedMember);
-				if (result == null) result = caseDNamedElement(dTypedMember);
+				DNavigableMember dNavigableMember = (DNavigableMember)theEObject;
+				T result = caseDNavigableMember(dNavigableMember);
+				if (result == null) result = caseDNamedElement(dNavigableMember);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BasePackage.ITYPED_MEMBER_CONTAINER:
+			case BasePackage.INAVIGABLE_MEMBER_CONTAINER:
 			{
-				ITypedMemberContainer iTypedMemberContainer = (ITypedMemberContainer)theEObject;
-				T result = caseITypedMemberContainer(iTypedMemberContainer);
-				if (result == null) result = caseINamespace(iTypedMemberContainer);
+				INavigableMemberContainer iNavigableMemberContainer = (INavigableMemberContainer)theEObject;
+				T result = caseINavigableMemberContainer(iNavigableMemberContainer);
+				if (result == null) result = caseINamespace(iNavigableMemberContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -199,7 +199,7 @@ public class BaseSwitch<T> extends Switch<T>
 			{
 				DFunction dFunction = (DFunction)theEObject;
 				T result = caseDFunction(dFunction);
-				if (result == null) result = caseDTypedMember(dFunction);
+				if (result == null) result = caseDNavigableMember(dFunction);
 				if (result == null) result = caseDNamedElement(dFunction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -260,7 +260,7 @@ public class BaseSwitch<T> extends Switch<T>
 				DEnumeration dEnumeration = (DEnumeration)theEObject;
 				T result = caseDEnumeration(dEnumeration);
 				if (result == null) result = caseDSimpleType(dEnumeration);
-				if (result == null) result = caseITypedMemberContainer(dEnumeration);
+				if (result == null) result = caseINavigableMemberContainer(dEnumeration);
 				if (result == null) result = caseDType(dEnumeration);
 				if (result == null) result = caseIValueType(dEnumeration);
 				if (result == null) result = caseINamespace(dEnumeration);
@@ -274,7 +274,7 @@ public class BaseSwitch<T> extends Switch<T>
 			{
 				DLiteral dLiteral = (DLiteral)theEObject;
 				T result = caseDLiteral(dLiteral);
-				if (result == null) result = caseDTypedMember(dLiteral);
+				if (result == null) result = caseDNavigableMember(dLiteral);
 				if (result == null) result = caseIDeducibleElement(dLiteral);
 				if (result == null) result = caseDNamedElement(dLiteral);
 				if (result == null) result = defaultCase(theEObject);
@@ -285,7 +285,7 @@ public class BaseSwitch<T> extends Switch<T>
 				DComplexType dComplexType = (DComplexType)theEObject;
 				T result = caseDComplexType(dComplexType);
 				if (result == null) result = caseDType(dComplexType);
-				if (result == null) result = caseITypedMemberContainer(dComplexType);
+				if (result == null) result = caseINavigableMemberContainer(dComplexType);
 				if (result == null) result = caseIDeducibleElement(dComplexType);
 				if (result == null) result = caseIPrimaryNavigationTarget(dComplexType);
 				if (result == null) result = caseINamespace(dComplexType);
@@ -300,7 +300,7 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = caseDComplexType(dDetailType);
 				if (result == null) result = caseIValueType(dDetailType);
 				if (result == null) result = caseDType(dDetailType);
-				if (result == null) result = caseITypedMemberContainer(dDetailType);
+				if (result == null) result = caseINavigableMemberContainer(dDetailType);
 				if (result == null) result = caseIDeducibleElement(dDetailType);
 				if (result == null) result = caseIPrimaryNavigationTarget(dDetailType);
 				if (result == null) result = caseINamespace(dDetailType);
@@ -315,7 +315,7 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = caseDComplexType(dIdentityType);
 				if (result == null) result = caseIIdentityType(dIdentityType);
 				if (result == null) result = caseDType(dIdentityType);
-				if (result == null) result = caseITypedMemberContainer(dIdentityType);
+				if (result == null) result = caseINavigableMemberContainer(dIdentityType);
 				if (result == null) result = caseIDeducibleElement(dIdentityType);
 				if (result == null) result = caseIPrimaryNavigationTarget(dIdentityType);
 				if (result == null) result = caseINamespace(dIdentityType);
@@ -331,7 +331,7 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = caseDComplexType(dEntityType);
 				if (result == null) result = caseIIdentityType(dEntityType);
 				if (result == null) result = caseDType(dEntityType);
-				if (result == null) result = caseITypedMemberContainer(dEntityType);
+				if (result == null) result = caseINavigableMemberContainer(dEntityType);
 				if (result == null) result = caseIDeducibleElement(dEntityType);
 				if (result == null) result = caseIPrimaryNavigationTarget(dEntityType);
 				if (result == null) result = caseINamespace(dEntityType);
@@ -347,7 +347,7 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = caseDComplexType(dRelationship);
 				if (result == null) result = caseIIdentityType(dRelationship);
 				if (result == null) result = caseDType(dRelationship);
-				if (result == null) result = caseITypedMemberContainer(dRelationship);
+				if (result == null) result = caseINavigableMemberContainer(dRelationship);
 				if (result == null) result = caseIDeducibleElement(dRelationship);
 				if (result == null) result = caseIPrimaryNavigationTarget(dRelationship);
 				if (result == null) result = caseINamespace(dRelationship);
@@ -359,7 +359,7 @@ public class BaseSwitch<T> extends Switch<T>
 			{
 				DFeature dFeature = (DFeature)theEObject;
 				T result = caseDFeature(dFeature);
-				if (result == null) result = caseDTypedMember(dFeature);
+				if (result == null) result = caseDNavigableMember(dFeature);
 				if (result == null) result = caseIDeducibleElement(dFeature);
 				if (result == null) result = caseDNamedElement(dFeature);
 				if (result == null) result = defaultCase(theEObject);
@@ -370,7 +370,7 @@ public class BaseSwitch<T> extends Switch<T>
 				DAssociation dAssociation = (DAssociation)theEObject;
 				T result = caseDAssociation(dAssociation);
 				if (result == null) result = caseDFeature(dAssociation);
-				if (result == null) result = caseDTypedMember(dAssociation);
+				if (result == null) result = caseDNavigableMember(dAssociation);
 				if (result == null) result = caseIDeducibleElement(dAssociation);
 				if (result == null) result = caseDNamedElement(dAssociation);
 				if (result == null) result = defaultCase(theEObject);
@@ -388,7 +388,7 @@ public class BaseSwitch<T> extends Switch<T>
 				DAttribute dAttribute = (DAttribute)theEObject;
 				T result = caseDAttribute(dAttribute);
 				if (result == null) result = caseDFeature(dAttribute);
-				if (result == null) result = caseDTypedMember(dAttribute);
+				if (result == null) result = caseDNavigableMember(dAttribute);
 				if (result == null) result = caseIDeducibleElement(dAttribute);
 				if (result == null) result = caseDNamedElement(dAttribute);
 				if (result == null) result = defaultCase(theEObject);
@@ -399,8 +399,8 @@ public class BaseSwitch<T> extends Switch<T>
 				DQuery dQuery = (DQuery)theEObject;
 				T result = caseDQuery(dQuery);
 				if (result == null) result = caseDFeature(dQuery);
-				if (result == null) result = caseITypedMemberContainer(dQuery);
-				if (result == null) result = caseDTypedMember(dQuery);
+				if (result == null) result = caseINavigableMemberContainer(dQuery);
+				if (result == null) result = caseDNavigableMember(dQuery);
 				if (result == null) result = caseIDeducibleElement(dQuery);
 				if (result == null) result = caseINamespace(dQuery);
 				if (result == null) result = caseDNamedElement(dQuery);
@@ -411,7 +411,7 @@ public class BaseSwitch<T> extends Switch<T>
 			{
 				DQueryParameter dQueryParameter = (DQueryParameter)theEObject;
 				T result = caseDQueryParameter(dQueryParameter);
-				if (result == null) result = caseDTypedMember(dQueryParameter);
+				if (result == null) result = caseDNavigableMember(dQueryParameter);
 				if (result == null) result = caseIDeducibleElement(dQueryParameter);
 				if (result == null) result = caseDNamedElement(dQueryParameter);
 				if (result == null) result = defaultCase(theEObject);
@@ -421,7 +421,7 @@ public class BaseSwitch<T> extends Switch<T>
 			{
 				DDomainEvent dDomainEvent = (DDomainEvent)theEObject;
 				T result = caseDDomainEvent(dDomainEvent);
-				if (result == null) result = caseITypedMemberContainer(dDomainEvent);
+				if (result == null) result = caseINavigableMemberContainer(dDomainEvent);
 				if (result == null) result = caseIPrimaryNavigationTarget(dDomainEvent);
 				if (result == null) result = caseDNamedElement(dDomainEvent);
 				if (result == null) result = caseINamespace(dDomainEvent);
@@ -432,7 +432,7 @@ public class BaseSwitch<T> extends Switch<T>
 			{
 				DContext dContext = (DContext)theEObject;
 				T result = caseDContext(dContext);
-				if (result == null) result = caseDTypedMember(dContext);
+				if (result == null) result = caseDNavigableMember(dContext);
 				if (result == null) result = caseDNamedElement(dContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -441,7 +441,7 @@ public class BaseSwitch<T> extends Switch<T>
 			{
 				DNotification dNotification = (DNotification)theEObject;
 				T result = caseDNotification(dNotification);
-				if (result == null) result = caseDTypedMember(dNotification);
+				if (result == null) result = caseDNavigableMember(dNotification);
 				if (result == null) result = caseDNamedElement(dNotification);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -470,7 +470,7 @@ public class BaseSwitch<T> extends Switch<T>
 				DService dService = (DService)theEObject;
 				T result = caseDService(dService);
 				if (result == null) result = caseDActor(dService);
-				if (result == null) result = caseITypedMemberContainer(dService);
+				if (result == null) result = caseINavigableMemberContainer(dService);
 				if (result == null) result = caseIPrimaryNavigationTarget(dService);
 				if (result == null) result = caseINamespace(dService);
 				if (result == null) result = caseDNamedElement(dService);
@@ -481,7 +481,7 @@ public class BaseSwitch<T> extends Switch<T>
 			{
 				DServiceParameter dServiceParameter = (DServiceParameter)theEObject;
 				T result = caseDServiceParameter(dServiceParameter);
-				if (result == null) result = caseDTypedMember(dServiceParameter);
+				if (result == null) result = caseDNavigableMember(dServiceParameter);
 				if (result == null) result = caseDNamedElement(dServiceParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -631,33 +631,33 @@ public class BaseSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DTyped Member</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>DNavigable Member</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DTyped Member</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>DNavigable Member</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDTypedMember(DTypedMember object)
+	public T caseDNavigableMember(DNavigableMember object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>ITyped Member Container</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>INavigable Member Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>ITyped Member Container</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>INavigable Member Container</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseITypedMemberContainer(ITypedMemberContainer object)
+	public T caseINavigableMemberContainer(INavigableMemberContainer object)
 	{
 		return null;
 	}

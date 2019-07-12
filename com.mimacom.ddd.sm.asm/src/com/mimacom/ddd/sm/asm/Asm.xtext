@@ -25,7 +25,7 @@ SServiceInterface:
 	'interface' 'model' interface=[SInformationModel|DQualifiedName]
 	'core' 'model' core=[SInformationModel|DQualifiedName]
 	(exceptions+=DException)*
-	operations+=SServiceOperation;
+	(operations+=SServiceOperation)*;
 
 DImport:
 	'import' importedNamespace=DQualifiedNameWithWildcard;

@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DFunction extends DTypedMember
+public interface DFunction extends DNavigableMember
 {
 	/**
 	 * Returns the value of the '<em><b>Parameter Names</b></em>' attribute list.

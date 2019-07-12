@@ -13,6 +13,6 @@ package com.mimacom.ddd.dm.base;
  * @model
  * @generated
  */
-public interface DContext extends DTypedMember
+public interface DContext extends DNavigableMember
 {
 } // DContext

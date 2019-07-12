@@ -14,18 +14,18 @@ import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DIdentityType;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DSimpleType;
 import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.base.DTypedMember;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
 import com.mimacom.ddd.dm.base.IIdentityType;
 import com.mimacom.ddd.dm.base.INamespace;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
-import com.mimacom.ddd.dm.base.ITypedMemberContainer;
 import com.mimacom.ddd.dm.base.IValueType;
 
 import com.mimacom.ddd.sm.sim.*;
@@ -102,6 +102,19 @@ public class SimSwitch<T> extends Switch<T>
 			{
 				SInformationModel sInformationModel = (SInformationModel)theEObject;
 				T result = caseSInformationModel(sInformationModel);
+				if (result == null) result = caseINavigableMemberContainer(sInformationModel);
+				if (result == null) result = caseINamespace(sInformationModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SimPackage.SCORE_QUERY:
+			{
+				SCoreQuery sCoreQuery = (SCoreQuery)theEObject;
+				T result = caseSCoreQuery(sCoreQuery);
+				if (result == null) result = caseDNavigableMember(sCoreQuery);
+				if (result == null) result = caseINavigableMemberContainer(sCoreQuery);
+				if (result == null) result = caseDNamedElement(sCoreQuery);
+				if (result == null) result = caseINamespace(sCoreQuery);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -163,7 +176,7 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = caseDEnumeration(sEnumerationDeduction);
 				if (result == null) result = caseSTypeDeduction(sEnumerationDeduction);
 				if (result == null) result = caseDSimpleType(sEnumerationDeduction);
-				if (result == null) result = caseITypedMemberContainer(sEnumerationDeduction);
+				if (result == null) result = caseINavigableMemberContainer(sEnumerationDeduction);
 				if (result == null) result = caseIDeductionDefinition(sEnumerationDeduction);
 				if (result == null) result = caseDType(sEnumerationDeduction);
 				if (result == null) result = caseIValueType(sEnumerationDeduction);
@@ -180,7 +193,7 @@ public class SimSwitch<T> extends Switch<T>
 				T result = caseSLiteralDeduction(sLiteralDeduction);
 				if (result == null) result = caseDLiteral(sLiteralDeduction);
 				if (result == null) result = caseIDeductionDefinition(sLiteralDeduction);
-				if (result == null) result = caseDTypedMember(sLiteralDeduction);
+				if (result == null) result = caseDNavigableMember(sLiteralDeduction);
 				if (result == null) result = caseIDeducibleElement(sLiteralDeduction);
 				if (result == null) result = caseDNamedElement(sLiteralDeduction);
 				if (result == null) result = defaultCase(theEObject);
@@ -206,7 +219,7 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = caseIValueType(sDetailTypeDeduction);
 				if (result == null) result = caseSTypeDeduction(sDetailTypeDeduction);
 				if (result == null) result = caseDType(sDetailTypeDeduction);
-				if (result == null) result = caseITypedMemberContainer(sDetailTypeDeduction);
+				if (result == null) result = caseINavigableMemberContainer(sDetailTypeDeduction);
 				if (result == null) result = caseIDeductionDefinition(sDetailTypeDeduction);
 				if (result == null) result = caseIDeducibleElement(sDetailTypeDeduction);
 				if (result == null) result = caseIPrimaryNavigationTarget(sDetailTypeDeduction);
@@ -227,7 +240,7 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = caseIIdentityType(sEntityTypeDeduction);
 				if (result == null) result = caseIDeductionDefinition(sEntityTypeDeduction);
 				if (result == null) result = caseDType(sEntityTypeDeduction);
-				if (result == null) result = caseITypedMemberContainer(sEntityTypeDeduction);
+				if (result == null) result = caseINavigableMemberContainer(sEntityTypeDeduction);
 				if (result == null) result = caseIDeducibleElement(sEntityTypeDeduction);
 				if (result == null) result = caseIPrimaryNavigationTarget(sEntityTypeDeduction);
 				if (result == null) result = caseINamespace(sEntityTypeDeduction);
@@ -251,7 +264,7 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = caseSFeatureDeduction(sAssociationDeduction);
 				if (result == null) result = caseDFeature(sAssociationDeduction);
 				if (result == null) result = caseIDeductionDefinition(sAssociationDeduction);
-				if (result == null) result = caseDTypedMember(sAssociationDeduction);
+				if (result == null) result = caseDNavigableMember(sAssociationDeduction);
 				if (result == null) result = caseIDeducibleElement(sAssociationDeduction);
 				if (result == null) result = caseDNamedElement(sAssociationDeduction);
 				if (result == null) result = defaultCase(theEObject);
@@ -265,7 +278,7 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = caseSFeatureDeduction(sAttributeDeduction);
 				if (result == null) result = caseDFeature(sAttributeDeduction);
 				if (result == null) result = caseIDeductionDefinition(sAttributeDeduction);
-				if (result == null) result = caseDTypedMember(sAttributeDeduction);
+				if (result == null) result = caseDNavigableMember(sAttributeDeduction);
 				if (result == null) result = caseIDeducibleElement(sAttributeDeduction);
 				if (result == null) result = caseDNamedElement(sAttributeDeduction);
 				if (result == null) result = defaultCase(theEObject);
@@ -278,9 +291,9 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = caseDQuery(sQueryDeduction);
 				if (result == null) result = caseSFeatureDeduction(sQueryDeduction);
 				if (result == null) result = caseDFeature(sQueryDeduction);
-				if (result == null) result = caseITypedMemberContainer(sQueryDeduction);
+				if (result == null) result = caseINavigableMemberContainer(sQueryDeduction);
 				if (result == null) result = caseIDeductionDefinition(sQueryDeduction);
-				if (result == null) result = caseDTypedMember(sQueryDeduction);
+				if (result == null) result = caseDNavigableMember(sQueryDeduction);
 				if (result == null) result = caseIDeducibleElement(sQueryDeduction);
 				if (result == null) result = caseINamespace(sQueryDeduction);
 				if (result == null) result = caseDNamedElement(sQueryDeduction);
@@ -293,7 +306,7 @@ public class SimSwitch<T> extends Switch<T>
 				T result = caseSQueryParameterDeduction(sQueryParameterDeduction);
 				if (result == null) result = caseDQueryParameter(sQueryParameterDeduction);
 				if (result == null) result = caseIDeductionDefinition(sQueryParameterDeduction);
-				if (result == null) result = caseDTypedMember(sQueryParameterDeduction);
+				if (result == null) result = caseDNavigableMember(sQueryParameterDeduction);
 				if (result == null) result = caseIDeducibleElement(sQueryParameterDeduction);
 				if (result == null) result = caseDNamedElement(sQueryParameterDeduction);
 				if (result == null) result = defaultCase(theEObject);
@@ -376,6 +389,22 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseSInformationModel(SInformationModel object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>SCore Query</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>SCore Query</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSCoreQuery(SCoreQuery object)
 	{
 		return null;
 	}
@@ -733,6 +762,70 @@ public class SimSwitch<T> extends Switch<T>
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>INamespace</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>INamespace</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseINamespace(INamespace object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>INavigable Member Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>INavigable Member Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseINavigableMemberContainer(INavigableMemberContainer object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DNamed Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DNamed Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDNamedElement(DNamedElement object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DNavigable Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DNavigable Member</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDNavigableMember(DNavigableMember object)
+	{
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IDeduction Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -776,22 +869,6 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDAggregate(DAggregate object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DNamed Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DNamed Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDNamedElement(DNamedElement object)
 	{
 		return null;
 	}
@@ -877,38 +954,6 @@ public class SimSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>INamespace</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>INamespace</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseINamespace(INamespace object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>ITyped Member Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>ITyped Member Container</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseITypedMemberContainer(ITypedMemberContainer object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>DEnumeration</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -920,22 +965,6 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDEnumeration(DEnumeration object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DTyped Member</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DTyped Member</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDTypedMember(DTypedMember object)
 	{
 		return null;
 	}

@@ -19,7 +19,7 @@ package com.mimacom.ddd.dm.base;
  * @model
  * @generated
  */
-public interface DServiceParameter extends DTypedMember
+public interface DServiceParameter extends DNavigableMember
 {
 	/**
 	 * Returns the value of the '<em><b>Direction</b></em>' attribute.

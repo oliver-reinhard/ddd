@@ -872,7 +872,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DAssignment DExpression:
-	//	{DAssignment} member=[DTypedMember] OpSingleAssign value=DAssignment
+	//	{DAssignment} member=[DNavigableMember] OpSingleAssign value=DAssignment
 	//	| DOrExpression;
 	public DmxGrammarAccess.DAssignmentElements getDAssignmentAccess() {
 		return gaDmx.getDAssignmentAccess();
@@ -1067,7 +1067,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DCastExpression DExpression:
-	//	DTypedMemberReference (=> ({DCastExpression.target=current} OpCast) type=[DType])?;
+	//	DNavigableMemberReference (=> ({DCastExpression.target=current} OpCast) type=[DType])?;
 	public DmxGrammarAccess.DCastExpressionElements getDCastExpressionAccess() {
 		return gaDmx.getDCastExpressionAccess();
 	}
@@ -1086,19 +1086,19 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		return getOpCastAccess().getRule();
 	}
 	
-	//DTypedMemberReference DExpression:
-	//	DPrimaryExpression (=> ({DAssignment.memberContainer=current} '.' member=[DTypedMember] OpSingleAssign)
+	//DNavigableMemberReference DExpression:
+	//	DPrimaryExpression (=> ({DAssignment.memberContainer=current} '.' member=[DNavigableMember] OpSingleAssign)
 	//	value=DAssignment
-	//	| => ({DTypedMemberReference.memberContainerReference=current} '.') member=[DTypedMember] (=>
+	//	| => ({DNavigableMemberReference.memberContainerReference=current} '.') member=[DNavigableMember] (=>
 	//	explicitOperationCall?='(' (memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)?
 	//	')'
 	//	| before?="@before")?)*;
-	public DmxGrammarAccess.DTypedMemberReferenceElements getDTypedMemberReferenceAccess() {
-		return gaDmx.getDTypedMemberReferenceAccess();
+	public DmxGrammarAccess.DNavigableMemberReferenceElements getDNavigableMemberReferenceAccess() {
+		return gaDmx.getDNavigableMemberReferenceAccess();
 	}
 	
-	public ParserRule getDTypedMemberReferenceRule() {
-		return getDTypedMemberReferenceAccess().getRule();
+	public ParserRule getDNavigableMemberReferenceRule() {
+		return getDNavigableMemberReferenceAccess().getRule();
 	}
 	
 	//DPrimaryExpression DExpression:
@@ -1175,7 +1175,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DConstructorCall DExpression:
-	//	{DConstructorCall} OpConstructor constructor=[DIdentityType] (=> explicitConstructorCall?='(' (arguments+=DExpression
+	//	{DConstructorCall} OpConstructor constructor=[DComplexType] (=> explicitConstructorCall?='(' (arguments+=DExpression
 	//	(',' arguments+=DExpression)*)?
 	//	')')?;
 	public DmxGrammarAccess.DConstructorCallElements getDConstructorCallAccess() {

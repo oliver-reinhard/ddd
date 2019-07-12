@@ -3,6 +3,8 @@
  */
 package com.mimacom.ddd.sm.asm;
 
+import com.mimacom.ddd.dm.base.BasePackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -387,7 +389,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_OPERATION__NAME = 0;
+	int SSERVICE_OPERATION__NAME = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -396,7 +398,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_OPERATION__PARAMETERS = 1;
+	int SSERVICE_OPERATION__PARAMETERS = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Raises</b></em>' reference list.
@@ -405,7 +407,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_OPERATION__RAISES = 2;
+	int SSERVICE_OPERATION__RAISES = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Guards</b></em>' containment reference list.
@@ -414,7 +416,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_OPERATION__GUARDS = 3;
+	int SSERVICE_OPERATION__GUARDS = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Effects</b></em>' containment reference list.
@@ -423,7 +425,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_OPERATION__EFFECTS = 4;
+	int SSERVICE_OPERATION__EFFECTS = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>SService Operation</em>' class.
@@ -432,7 +434,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_OPERATION_FEATURE_COUNT = 5;
+	int SSERVICE_OPERATION_FEATURE_COUNT = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>SService Operation</em>' class.
@@ -441,7 +443,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSERVICE_OPERATION_OPERATION_COUNT = 0;
+	int SSERVICE_OPERATION_OPERATION_COUNT = BasePackage.INAVIGABLE_MEMBER_CONTAINER_OPERATION_COUNT + 0;
 
 
 	/**

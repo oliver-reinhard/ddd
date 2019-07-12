@@ -118,12 +118,12 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DTYPED_MEMBER_REFERENCE:
+			case DmxPackage.DNAVIGABLE_MEMBER_REFERENCE:
 			{
-				DTypedMemberReference dTypedMemberReference = (DTypedMemberReference)theEObject;
-				T result = caseDTypedMemberReference(dTypedMemberReference);
-				if (result == null) result = caseDExpression(dTypedMemberReference);
-				if (result == null) result = caseIRichTextSegment(dTypedMemberReference);
+				DNavigableMemberReference dNavigableMemberReference = (DNavigableMemberReference)theEObject;
+				T result = caseDNavigableMemberReference(dNavigableMemberReference);
+				if (result == null) result = caseDExpression(dNavigableMemberReference);
+				if (result == null) result = caseIRichTextSegment(dNavigableMemberReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -347,17 +347,17 @@ public class DmxSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DTyped Member Reference</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>DNavigable Member Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DTyped Member Reference</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>DNavigable Member Reference</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDTypedMemberReference(DTypedMemberReference object)
+	public T caseDNavigableMemberReference(DNavigableMemberReference object)
 	{
 		return null;
 	}

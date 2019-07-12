@@ -103,9 +103,9 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 				return createDUnaryOperationAdapter();
 			}
 			@Override
-			public Adapter caseDTypedMemberReference(DTypedMemberReference object)
+			public Adapter caseDNavigableMemberReference(DNavigableMemberReference object)
 			{
-				return createDTypedMemberReferenceAdapter();
+				return createDNavigableMemberReferenceAdapter();
 			}
 			@Override
 			public Adapter caseDCastExpression(DCastExpression object)
@@ -290,16 +290,16 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DTypedMemberReference <em>DTyped Member Reference</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DNavigableMemberReference <em>DNavigable Member Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DTypedMemberReference
+	 * @see com.mimacom.ddd.dm.dmx.DNavigableMemberReference
 	 * @generated
 	 */
-	public Adapter createDTypedMemberReferenceAdapter()
+	public Adapter createDNavigableMemberReferenceAdapter()
 	{
 		return null;
 	}

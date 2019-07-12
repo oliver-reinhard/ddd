@@ -40,11 +40,11 @@ import com.mimacom.ddd.dm.dmx.DFunctionCall;
 import com.mimacom.ddd.dm.dmx.DIfExpression;
 import com.mimacom.ddd.dm.dmx.DInstanceOfExpression;
 import com.mimacom.ddd.dm.dmx.DNaturalLiteral;
+import com.mimacom.ddd.dm.dmx.DNavigableMemberReference;
 import com.mimacom.ddd.dm.dmx.DRaiseExpression;
 import com.mimacom.ddd.dm.dmx.DReturnExpression;
 import com.mimacom.ddd.dm.dmx.DSelfExpression;
 import com.mimacom.ddd.dm.dmx.DStringLiteral;
-import com.mimacom.ddd.dm.dmx.DTypedMemberReference;
 import com.mimacom.ddd.dm.dmx.DUnaryOperation;
 import com.mimacom.ddd.dm.dmx.DUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.DmxModel;
@@ -52,6 +52,7 @@ import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.sm.sim.SAggregateDeduction;
 import com.mimacom.ddd.sm.sim.SAssociationDeduction;
 import com.mimacom.ddd.sm.sim.SAttributeDeduction;
+import com.mimacom.ddd.sm.sim.SCoreQuery;
 import com.mimacom.ddd.sm.sim.SDetailTypeDeduction;
 import com.mimacom.ddd.sm.sim.SDitchRule;
 import com.mimacom.ddd.sm.sim.SDomainDeduction;
@@ -190,7 +191,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 		else if (epackage == DmxPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
 			case DmxPackage.DASSIGNMENT:
-				sequence_DAssignment_DTypedMemberReference(context, (DAssignment) semanticObject); 
+				sequence_DAssignment_DNavigableMemberReference(context, (DAssignment) semanticObject); 
 				return; 
 			case DmxPackage.DBINARY_OPERATION:
 				sequence_DAdditiveExpression_DAndExpression_DEqualityExpression_DMultiplicativeExpression_DOrExpression_DOtherOperatorExpression_DRelationalExpression(context, (DBinaryOperation) semanticObject); 
@@ -225,6 +226,9 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 			case DmxPackage.DNATURAL_LITERAL:
 				sequence_DNaturalLiteral(context, (DNaturalLiteral) semanticObject); 
 				return; 
+			case DmxPackage.DNAVIGABLE_MEMBER_REFERENCE:
+				sequence_DNavigableMemberReference(context, (DNavigableMemberReference) semanticObject); 
+				return; 
 			case DmxPackage.DRAISE_EXPRESSION:
 				sequence_DRaiseExpression(context, (DRaiseExpression) semanticObject); 
 				return; 
@@ -236,9 +240,6 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 				return; 
 			case DmxPackage.DSTRING_LITERAL:
 				sequence_DStringLiteral(context, (DStringLiteral) semanticObject); 
-				return; 
-			case DmxPackage.DTYPED_MEMBER_REFERENCE:
-				sequence_DTypedMemberReference(context, (DTypedMemberReference) semanticObject); 
 				return; 
 			case DmxPackage.DUNARY_OPERATION:
 				sequence_DUnaryOperation(context, (DUnaryOperation) semanticObject); 
@@ -261,6 +262,9 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 			case SimPackage.SATTRIBUTE_DEDUCTION:
 				sequence_SAttributeDeduction(context, (SAttributeDeduction) semanticObject); 
 				return; 
+			case SimPackage.SCORE_QUERY:
+				sequence_SCoreQuery(context, (SCoreQuery) semanticObject); 
+				return; 
 			case SimPackage.SDETAIL_TYPE_DEDUCTION:
 				sequence_SComplexTypeFeatures_SDetailTypeDeduction(context, (SDetailTypeDeduction) semanticObject); 
 				return; 
@@ -279,6 +283,10 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 				}
 				else if (rule == grammarAccess.getSDitchFeatureRuleRule()) {
 					sequence_SDitchFeatureRule(context, (SDitchRule) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getSDitchPrimitiveRuleRule()) {
+					sequence_SDitchPrimitiveRule(context, (SDitchRule) semanticObject); 
 					return; 
 				}
 				else break;
@@ -602,10 +610,30 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     SCoreQuery returns SCoreQuery
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=ID 
+	 *         aliases+=ID* 
+	 *         (parameters+=DQueryParameter parameters+=DQueryParameter*)? 
+	 *         type=[DType|ID] 
+	 *         multiplicity=DMultiplicity? 
+	 *         returns=DExpression? 
+	 *         description=DRichText?
+	 *     )
+	 */
+	protected void sequence_SCoreQuery(ISerializationContext context, SCoreQuery semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     SDitchComplexTypeRule returns SDitchRule
 	 *
 	 * Constraint:
-	 *     source=[DEnumeration|ID]
+	 *     source=[DComplexType|DQualifiedName]
 	 */
 	protected void sequence_SDitchComplexTypeRule(ISerializationContext context, SDitchRule semanticObject) {
 		if (errorAcceptor != null) {
@@ -613,7 +641,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSDitchComplexTypeRuleAccess().getSourceDEnumerationIDTerminalRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.DDEDUCTION_RULE__SOURCE, false));
+		feeder.accept(grammarAccess.getSDitchComplexTypeRuleAccess().getSourceDComplexTypeDQualifiedNameParserRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.DDEDUCTION_RULE__SOURCE, false));
 		feeder.finish();
 	}
 	
@@ -668,6 +696,24 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getSDitchFeatureRuleAccess().getSourceDFeatureIDTerminalRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.DDEDUCTION_RULE__SOURCE, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SDitchPrimitiveRule returns SDitchRule
+	 *
+	 * Constraint:
+	 *     source=[DPrimitive|DQualifiedName]
+	 */
+	protected void sequence_SDitchPrimitiveRule(ISerializationContext context, SDitchRule semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSDitchPrimitiveRuleAccess().getSourceDPrimitiveDQualifiedNameParserRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.DDEDUCTION_RULE__SOURCE, false));
 		feeder.finish();
 	}
 	
@@ -797,6 +843,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *         generate?='generate'? 
 	 *         description=DRichText? 
 	 *         imports+=DImport* 
+	 *         queries+=SCoreQuery* 
 	 *         (types+=Type | aggregates+=Aggregate | domainProxies+=Domain)*
 	 *     )
 	 */
@@ -836,7 +883,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SPrimitiveDeduction returns SPrimitiveDeduction
 	 *
 	 * Constraint:
-	 *     (deductionRule=SGrabPrimitiveRule description=DRichText? constraints+=DConstraint*)
+	 *     ((deductionRule=SGrabPrimitiveRule | deductionRule=SDitchPrimitiveRule) description=DRichText? constraints+=DConstraint*)
 	 */
 	protected void sequence_SPrimitiveDeduction(ISerializationContext context, SPrimitiveDeduction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

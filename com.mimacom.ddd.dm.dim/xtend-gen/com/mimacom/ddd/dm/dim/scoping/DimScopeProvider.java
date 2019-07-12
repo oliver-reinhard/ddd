@@ -14,10 +14,10 @@ import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DIdentityType;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DRelationship;
-import com.mimacom.ddd.dm.base.DTypedMember;
 import com.mimacom.ddd.dm.dim.scoping.AbstractDimScopeProvider;
 import java.util.ArrayList;
 import org.eclipse.emf.common.util.EList;
@@ -41,8 +41,8 @@ public class DimScopeProvider extends AbstractDimScopeProvider {
   
   @Override
   public IScope getScope(final EObject context, final EReference reference) {
-    EReference _dTypedMember_Type = this.epackage.getDTypedMember_Type();
-    boolean _equals = Objects.equal(reference, _dTypedMember_Type);
+    EReference _dNavigableMember_Type = this.epackage.getDNavigableMember_Type();
+    boolean _equals = Objects.equal(reference, _dNavigableMember_Type);
     if (_equals) {
       IScope _switchResult = null;
       boolean _matched = false;
@@ -61,7 +61,7 @@ public class DimScopeProvider extends AbstractDimScopeProvider {
       if (!_matched) {
         if (context instanceof DQuery) {
           _matched=true;
-          _switchResult = this.getLocalRootTypeScope(((DTypedMember)context), this.getDefaultScopeForType(context, this.epackage.getIValueType()));
+          _switchResult = this.getLocalEntityTypeScope(((DNavigableMember)context), this.getDefaultScopeForType(context, this.epackage.getIValueType()));
         }
       }
       if (!_matched) {
@@ -73,7 +73,7 @@ public class DimScopeProvider extends AbstractDimScopeProvider {
       if (!_matched) {
         if (context instanceof DQueryParameter) {
           _matched=true;
-          _switchResult = this.getLocalRootTypeScope(((DTypedMember)context), this.getDefaultScopeForType(context, this.epackage.getIValueType()));
+          _switchResult = this.getLocalEntityTypeScope(((DNavigableMember)context), this.getDefaultScopeForType(context, this.epackage.getIValueType()));
         }
       }
       if (!_matched) {
@@ -112,11 +112,9 @@ public class DimScopeProvider extends AbstractDimScopeProvider {
     return super.getScope(context, reference);
   }
   
-  public IScope getLocalRootTypeScope(final DTypedMember context, final IScope outerScope) {
+  public IScope getLocalEntityTypeScope(final DNavigableMember context, final IScope outerScope) {
     final DAggregate aggregate = EcoreUtil2.<DAggregate>getContainerOfType(context, DAggregate.class);
-    boolean _isEmpty = aggregate.getRoots().isEmpty();
-    boolean _not = (!_isEmpty);
-    if (_not) {
+    if (((aggregate != null) && (!aggregate.getRoots().isEmpty()))) {
       return Scopes.scopeFor(aggregate.getRoots(), outerScope);
     }
     return outerScope;

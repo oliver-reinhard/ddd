@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *
  * @generated
  */
-public class DFunctionImpl extends DTypedMemberImplCustom implements DFunction
+public class DFunctionImpl extends DNavigableMemberImplCustom implements DFunction
 {
 	/**
 	 * The cached value of the '{@link #getParameterNames() <em>Parameter Names</em>}' attribute list.

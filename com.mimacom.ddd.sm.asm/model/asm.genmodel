@@ -18,7 +18,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//SApplication/actors"/>
     </genClasses>
     <genClasses ecoreClass="asm.ecore#//SServiceInterface">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asm.ecore#//SServiceInterface/model"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asm.ecore#//SServiceInterface/interface"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asm.ecore#//SServiceInterface/core"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//SServiceInterface/exceptions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//SServiceInterface/operations"/>
     </genClasses>
     <genClasses image="false" ecoreClass="asm.ecore#//SActor">
@@ -29,13 +31,9 @@
     <genClasses ecoreClass="asm.ecore#//SServiceOperation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asm.ecore#//SServiceOperation/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//SServiceOperation/parameters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//SServiceOperation/exceptions"/>
-    </genClasses>
-    <genClasses ecoreClass="asm.ecore#//SOperationParameter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asm.ecore#//SOperationParameter/name"/>
-    </genClasses>
-    <genClasses ecoreClass="asm.ecore#//SException">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asm.ecore#//SException/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asm.ecore#//SServiceOperation/raises"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//SServiceOperation/guards"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//SServiceOperation/effects"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

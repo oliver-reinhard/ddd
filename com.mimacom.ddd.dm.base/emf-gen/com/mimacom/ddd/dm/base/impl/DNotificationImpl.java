@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class DNotificationImpl extends DTypedMemberImplCustom implements DNotification
+public class DNotificationImpl extends DNavigableMemberImplCustom implements DNotification
 {
 	/**
 	 * The cached value of the '{@link #getNotified() <em>Notified</em>}' reference.

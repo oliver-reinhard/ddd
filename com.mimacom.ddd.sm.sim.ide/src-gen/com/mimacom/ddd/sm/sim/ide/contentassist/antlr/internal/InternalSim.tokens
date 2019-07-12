@@ -54,7 +54,7 @@
 'core'=45
 'derived'=122
 'detail'=96
-'ditch'=90
+'ditch'=89
 'do'=118
 'domain'=84
 'e'=40
@@ -62,7 +62,7 @@
 'else'=117
 'end'=116
 'entity'=93
-'enumeration'=89
+'enumeration'=90
 'exception'=112
 'extends'=81
 'false'=36

@@ -3,6 +3,9 @@
  */
 package com.mimacom.ddd.sm.sim;
 
+import com.google.inject.Binder;
+import com.google.inject.name.Names;
+import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider;
 import com.mimacom.ddd.sm.sim.AbstractSimRuntimeModule;
 import com.mimacom.ddd.sm.sim.derivedState.SimDerivedStateComputer;
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy;
@@ -15,6 +18,8 @@ import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy;
 import org.eclipse.xtext.resource.IDerivedStateComputer;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.scoping.IScopeProvider;
+import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
 import org.eclipse.xtext.serializer.tokens.ICrossReferenceSerializer;
 
 /**
@@ -25,6 +30,11 @@ public class SimRuntimeModule extends AbstractSimRuntimeModule {
   @Override
   public Class<? extends IValueConverterService> bindIValueConverterService() {
     return SimValueConverters.class;
+  }
+  
+  @Override
+  public void configureIScopeProviderDelegate(final Binder binder) {
+    binder.<IScopeProvider>bind(IScopeProvider.class).annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(DmxImportedNamespaceAwareLocalScopeProvider.class);
   }
   
   @Override
