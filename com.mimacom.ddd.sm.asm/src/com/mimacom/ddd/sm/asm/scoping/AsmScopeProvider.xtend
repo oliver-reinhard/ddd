@@ -35,7 +35,7 @@ class AsmScopeProvider extends AbstractAsmScopeProvider {
 		if (context instanceof DServiceParameter) {
 			if (reference == BASE.DNavigableMember_Type) {
 				val service = EcoreUtil2.getContainerOfType(context, SServiceInterface)
-				return Scopes.scopeFor(EcoreUtil2.eAllOfType(service.interface, DType).filter[! (it instanceof IDeductionDefinition)])
+				return Scopes.scopeFor(EcoreUtil2.eAllOfType(service.interface, DType).filter[! (it instanceof IDeductionDefinition)], super.getScope(context, reference))
 			}
 		}
 		super.getScope(context, reference)

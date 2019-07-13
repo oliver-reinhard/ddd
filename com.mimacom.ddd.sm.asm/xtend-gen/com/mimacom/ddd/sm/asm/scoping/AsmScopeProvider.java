@@ -47,7 +47,7 @@ public class AsmScopeProvider extends AbstractAsmScopeProvider {
           final Function1<DType, Boolean> _function = (DType it) -> {
             return Boolean.valueOf((!(it instanceof IDeductionDefinition)));
           };
-          return Scopes.scopeFor(IterableExtensions.<DType>filter(EcoreUtil2.<DType>eAllOfType(service.getInterface(), DType.class), _function));
+          return Scopes.scopeFor(IterableExtensions.<DType>filter(EcoreUtil2.<DType>eAllOfType(service.getInterface(), DType.class), _function), super.getScope(context, reference));
         }
       }
       _xblockexpression = super.getScope(context, reference);
