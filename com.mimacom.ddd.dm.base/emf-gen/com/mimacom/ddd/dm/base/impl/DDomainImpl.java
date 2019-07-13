@@ -15,6 +15,7 @@ import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
 import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
+import com.mimacom.ddd.dm.base.ITypeContainer;
 
 import java.util.Collection;
 
@@ -39,10 +40,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getDeducedFrom <em>Deduced From</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#isSynthetic <em>Synthetic</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getImports <em>Imports</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getFunctions <em>Functions</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getAggregates <em>Aggregates</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getApplications <em>Applications</em>}</li>
@@ -54,6 +55,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class DDomainImpl extends DNamedElementImpl implements DDomain
 {
+	/**
+	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DType> types;
+
 	/**
 	 * The cached value of the '{@link #getDeducedFrom() <em>Deduced From</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -93,16 +104,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * @ordered
 	 */
 	protected EList<DImport> imports;
-
-	/**
-	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTypes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DType> types;
 
 	/**
 	 * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
@@ -173,6 +174,21 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	protected EClass eStaticClass()
 	{
 		return BasePackage.Literals.DDOMAIN;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<DType> getTypes()
+	{
+		if (types == null)
+		{
+			types = new EObjectContainmentEList<DType>(DType.class, this, BasePackage.DDOMAIN__TYPES);
+		}
+		return types;
 	}
 
 	/**
@@ -266,21 +282,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * @generated
 	 */
 	@Override
-	public EList<DType> getTypes()
-	{
-		if (types == null)
-		{
-			types = new EObjectContainmentEList<DType>(DType.class, this, BasePackage.DDOMAIN__TYPES);
-		}
-		return types;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<DFunction> getFunctions()
 	{
 		if (functions == null)
@@ -360,10 +361,10 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	{
 		switch (featureID)
 		{
-			case BasePackage.DDOMAIN__IMPORTS:
-				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
 			case BasePackage.DDOMAIN__TYPES:
 				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
+			case BasePackage.DDOMAIN__IMPORTS:
+				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
 			case BasePackage.DDOMAIN__FUNCTIONS:
 				return ((InternalEList<?>)getFunctions()).basicRemove(otherEnd, msgs);
 			case BasePackage.DDOMAIN__AGGREGATES:
@@ -388,6 +389,8 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	{
 		switch (featureID)
 		{
+			case BasePackage.DDOMAIN__TYPES:
+				return getTypes();
 			case BasePackage.DDOMAIN__DEDUCED_FROM:
 				if (resolve) return getDeducedFrom();
 				return basicGetDeducedFrom();
@@ -395,8 +398,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 				return isSynthetic();
 			case BasePackage.DDOMAIN__IMPORTS:
 				return getImports();
-			case BasePackage.DDOMAIN__TYPES:
-				return getTypes();
 			case BasePackage.DDOMAIN__FUNCTIONS:
 				return getFunctions();
 			case BasePackage.DDOMAIN__AGGREGATES:
@@ -422,6 +423,10 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	{
 		switch (featureID)
 		{
+			case BasePackage.DDOMAIN__TYPES:
+				getTypes().clear();
+				getTypes().addAll((Collection<? extends DType>)newValue);
+				return;
 			case BasePackage.DDOMAIN__DEDUCED_FROM:
 				setDeducedFrom((IDeductionDefinition)newValue);
 				return;
@@ -431,10 +436,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 			case BasePackage.DDOMAIN__IMPORTS:
 				getImports().clear();
 				getImports().addAll((Collection<? extends DImport>)newValue);
-				return;
-			case BasePackage.DDOMAIN__TYPES:
-				getTypes().clear();
-				getTypes().addAll((Collection<? extends DType>)newValue);
 				return;
 			case BasePackage.DDOMAIN__FUNCTIONS:
 				getFunctions().clear();
@@ -470,6 +471,9 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	{
 		switch (featureID)
 		{
+			case BasePackage.DDOMAIN__TYPES:
+				getTypes().clear();
+				return;
 			case BasePackage.DDOMAIN__DEDUCED_FROM:
 				setDeducedFrom((IDeductionDefinition)null);
 				return;
@@ -478,9 +482,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 				return;
 			case BasePackage.DDOMAIN__IMPORTS:
 				getImports().clear();
-				return;
-			case BasePackage.DDOMAIN__TYPES:
-				getTypes().clear();
 				return;
 			case BasePackage.DDOMAIN__FUNCTIONS:
 				getFunctions().clear();
@@ -511,14 +512,14 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	{
 		switch (featureID)
 		{
+			case BasePackage.DDOMAIN__TYPES:
+				return types != null && !types.isEmpty();
 			case BasePackage.DDOMAIN__DEDUCED_FROM:
 				return deducedFrom != null;
 			case BasePackage.DDOMAIN__SYNTHETIC:
 				return synthetic != SYNTHETIC_EDEFAULT;
 			case BasePackage.DDOMAIN__IMPORTS:
 				return imports != null && !imports.isEmpty();
-			case BasePackage.DDOMAIN__TYPES:
-				return types != null && !types.isEmpty();
 			case BasePackage.DDOMAIN__FUNCTIONS:
 				return functions != null && !functions.isEmpty();
 			case BasePackage.DDOMAIN__AGGREGATES:
@@ -545,6 +546,14 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 		{
 			switch (derivedFeatureID)
 			{
+				default: return -1;
+			}
+		}
+		if (baseClass == ITypeContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case BasePackage.DDOMAIN__TYPES: return BasePackage.ITYPE_CONTAINER__TYPES;
 				default: return -1;
 			}
 		}
@@ -579,6 +588,14 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 		{
 			switch (baseFeatureID)
 			{
+				default: return -1;
+			}
+		}
+		if (baseClass == ITypeContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				case BasePackage.ITYPE_CONTAINER__TYPES: return BasePackage.DDOMAIN__TYPES;
 				default: return -1;
 			}
 		}

@@ -18,14 +18,13 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.mimacom.ddd.dm.base.DService#getRaises <em>Raises</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DService#getGuards <em>Guards</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DService#getEffects <em>Effects</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.DService#getTypes <em>Types</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.base.BasePackage#getDService()
  * @model
  * @generated
  */
-public interface DService extends DActor, INavigableMemberContainer, IPrimaryNavigationTarget
+public interface DService extends DActor, ITypeContainer, INavigableMemberContainer, IPrimaryNavigationTarget
 {
 	/**
 	 * Returns the value of the '<em><b>Kind</b></em>' attribute.
@@ -99,17 +98,5 @@ public interface DService extends DActor, INavigableMemberContainer, IPrimaryNav
 	 * @generated
 	 */
 	EList<DExpression> getEffects();
-
-	/**
-	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Types</em>' containment reference list.
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDService_Types()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<DType> getTypes();
 
 } // DService

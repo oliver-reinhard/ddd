@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="base" nsURI="http://www.mimacom.com/ddd/dm/base" nsPrefix="base">
-  <eClassifiers xsi:type="ecore:EClass" name="IIdentityType" abstract="true" interface="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="IValueType" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="INamespace" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ITypeContainer" abstract="true" interface="true"
+      eSuperTypes="#//INamespace">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
+        eType="#//DType" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IDeductionDefinition" abstract="true"
       interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="deductionRule" eType="#//DDeductionRule"
@@ -49,11 +52,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="segments" upperBound="-1"
         eType="#//IRichTextSegment" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DDomain" eSuperTypes="#//DNamedElement #//INamespace #//IPrimaryNavigationTarget #//IDeducibleElement">
+  <eClassifiers xsi:type="ecore:EClass" name="DImport">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DDomain" eSuperTypes="#//DNamedElement #//ITypeContainer #//IPrimaryNavigationTarget #//IDeducibleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
         eType="#//DImport" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
-        eType="#//DType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="functions" upperBound="-1"
         eType="#//DFunction" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregates" upperBound="-1"
@@ -65,24 +69,21 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
         eType="#//DActor" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DImport">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DFunction" eSuperTypes="#//DNavigableMember">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterNames" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DAggregate" eSuperTypes="#//IDeducibleElement">
+  <eClassifiers xsi:type="ecore:EClass" name="DAggregate" eSuperTypes="#//ITypeContainer #//IDeducibleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//DRichText"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
-        eType="#//DType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="roots" unique="false" upperBound="-1"
         eType="#//DIdentityType" changeable="false" volatile="true" transient="true"
         derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="derivedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IIdentityType" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IValueType" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="DType" abstract="true" eSuperTypes="#//DNamedElement #//IDeducibleElement #//IPrimaryNavigationTarget">
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
         eType="#//DCondition" containment="true"/>
@@ -164,7 +165,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DActor" abstract="true" eSuperTypes="#//DNamedElement #//IPrimaryNavigationTarget"/>
   <eClassifiers xsi:type="ecore:EClass" name="DHuman" eSuperTypes="#//DActor"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DService" eSuperTypes="#//DActor #//INavigableMemberContainer #//IPrimaryNavigationTarget">
+  <eClassifiers xsi:type="ecore:EClass" name="DService" eSuperTypes="#//DActor #//ITypeContainer #//INavigableMemberContainer #//IPrimaryNavigationTarget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//DServiceKind"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//DServiceParameter" containment="true"/>
@@ -174,16 +175,12 @@
         eType="#//DExpression" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="effects" upperBound="-1"
         eType="#//DExpression" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
-        eType="#//DType" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DServiceParameter" eSuperTypes="#//DNavigableMember">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="#//DDirection"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DTime" eSuperTypes="#//DActor"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DExistingApplication" eSuperTypes="#//DNamedElement #//INamespace #//IPrimaryNavigationTarget">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
-        eType="#//DType" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DExistingApplication" eSuperTypes="#//DNamedElement #//ITypeContainer #//IPrimaryNavigationTarget">
     <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
         eType="#//DService" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exceptions" upperBound="-1"

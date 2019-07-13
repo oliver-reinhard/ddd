@@ -7,6 +7,9 @@ import com.mimacom.ddd.dm.base.DException;
 import com.mimacom.ddd.dm.base.DExistingApplication;
 import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.INamespace;
+import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
+import com.mimacom.ddd.dm.base.ITypeContainer;
 
 import java.util.Collection;
 
@@ -241,6 +244,72 @@ public class DExistingApplicationImpl extends DNamedElementImpl implements DExis
 				return exceptions != null && !exceptions.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == INamespace.class)
+		{
+			switch (derivedFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		if (baseClass == ITypeContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case BasePackage.DEXISTING_APPLICATION__TYPES: return BasePackage.ITYPE_CONTAINER__TYPES;
+				default: return -1;
+			}
+		}
+		if (baseClass == IPrimaryNavigationTarget.class)
+		{
+			switch (derivedFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == INamespace.class)
+		{
+			switch (baseFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		if (baseClass == ITypeContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				case BasePackage.ITYPE_CONTAINER__TYPES: return BasePackage.DEXISTING_APPLICATION__TYPES;
+				default: return -1;
+			}
+		}
+		if (baseClass == IPrimaryNavigationTarget.class)
+		{
+			switch (baseFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //DExistingApplicationImpl

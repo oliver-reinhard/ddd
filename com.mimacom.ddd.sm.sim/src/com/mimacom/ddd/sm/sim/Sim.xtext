@@ -38,7 +38,7 @@ SGrabEnumerationRule returns SGrabRule:
 	('as' renameTo=ID)?;
 	
 SDitchEnumerationRule returns SDitchRule:
-	source=[DEnumeration|ID];
+	source=[DEnumeration|DQualifiedName];
 
 SGrabEnumerationLiteralRule returns SGrabRule:
 	source=[DLiteral|ID]
@@ -66,7 +66,7 @@ SFuseComplexTypeRule returns SFuseRule:
 fragment ChangeComplexType returns SStructureChangingRule:
 	(	'to' 
 		(abstract=SAbstractType)?
-		(rootEntity=SRootEntity | entity=SEntityType)?
+		(rootEntity=SRootEntity | detail=SDetailType)?
 		(renameTo=ID)?
 		('extends' extendFrom=[DComplexType|ID])?
 	)?;
@@ -90,8 +90,8 @@ enum SAbstractType returns STristate:
 enum SRootEntity returns STristate:
 	FALSE='nonroot' | TRUE='root';
 	
-enum SEntityType returns STristate:
-	FALSE='detail' | TRUE='entity';
+enum SDetailType returns STristate:
+	FALSE='entity' | TRUE='detail';
 	
 Domain returns SDomainDeduction:
 	{SDomainDeduction}

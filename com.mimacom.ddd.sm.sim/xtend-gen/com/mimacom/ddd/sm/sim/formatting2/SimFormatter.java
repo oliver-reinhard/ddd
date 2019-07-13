@@ -181,11 +181,11 @@ public class SimFormatter extends AbstractFormatter2 {
     if (en instanceof SEnumerationDeduction) {
       _format((SEnumerationDeduction)en, document);
       return;
-    } else if (en instanceof SMorphRule) {
-      _format((SMorphRule)en, document);
-      return;
     } else if (en instanceof SAggregateDeduction) {
       _format((SAggregateDeduction)en, document);
+      return;
+    } else if (en instanceof SMorphRule) {
+      _format((SMorphRule)en, document);
       return;
     } else if (en instanceof SComplexTypeDeduction) {
       _format((SComplexTypeDeduction)en, document);

@@ -1,5 +1,6 @@
 package com.mimacom.ddd.sm.sim.derivedState;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
@@ -10,11 +11,13 @@ import com.mimacom.ddd.dm.base.DDeductionRule;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
+import com.mimacom.ddd.dm.base.ITypeContainer;
 import com.mimacom.ddd.sm.sim.SAggregateDeduction;
 import com.mimacom.ddd.sm.sim.SComplexTypeDeduction;
 import com.mimacom.ddd.sm.sim.SDomainDeduction;
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
 import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SInformationModelKind;
 import com.mimacom.ddd.sm.sim.STypeDeduction;
 import com.mimacom.ddd.sm.sim.derivedState.SFeatureDeductionRuleProcessor;
 import com.mimacom.ddd.sm.sim.derivedState.STypeDeductionRuleProcessor;
@@ -116,10 +119,18 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
   }
   
   public void processAggregate(final SInformationModel model, final DAggregate dAggregate, final TransformationContext context) {
-    DAggregate current = dAggregate;
+    ITypeContainer _xifexpression = null;
+    SInformationModelKind _kind = model.getKind();
+    boolean _equals = Objects.equal(_kind, SInformationModelKind.CORE);
+    if (_equals) {
+      _xifexpression = dAggregate;
+    } else {
+      _xifexpression = model;
+    }
+    ITypeContainer syntheticTypesContainer = _xifexpression;
     final ArrayList<SyntheticComplexTypeDescriptor> complexSyntheticTypesAcceptor = Lists.<SyntheticComplexTypeDescriptor>newArrayList();
-    if ((current instanceof SAggregateDeduction)) {
-      final SAggregateDeduction deductionDefinition = ((SAggregateDeduction)current);
+    if ((dAggregate instanceof SAggregateDeduction)) {
+      final SAggregateDeduction deductionDefinition = ((SAggregateDeduction)dAggregate);
       DDeductionRule _deductionRule = deductionDefinition.getDeductionRule();
       if ((_deductionRule instanceof SGrabAggregateRule)) {
         IDeducibleElement _source = deductionDefinition.getDeductionRule().getSource();
@@ -128,12 +139,16 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
           source = ((DEntityType)source).eContainer();
         }
         if ((source instanceof DAggregate)) {
-          current = this._syntheticModelElementsFactory.addSyntheticAggregate(model, deductionDefinition, context);
-          this._sTypeDeductionRuleProcessor.addImplicitSyntheticTypes(current, deductionDefinition, ((DAggregate)source), complexSyntheticTypesAcceptor, context);
+          SInformationModelKind _kind_1 = model.getKind();
+          boolean _equals_1 = Objects.equal(_kind_1, SInformationModelKind.CORE);
+          if (_equals_1) {
+            syntheticTypesContainer = this._syntheticModelElementsFactory.addSyntheticAggregate(model, deductionDefinition, context);
+          }
+          this._sTypeDeductionRuleProcessor.addImplicitSyntheticTypes(syntheticTypesContainer, deductionDefinition, ((DAggregate)source), complexSyntheticTypesAcceptor, context);
         }
       }
     }
-    this._sTypeDeductionRuleProcessor.addSyntheticTypes(current, dAggregate, complexSyntheticTypesAcceptor, context);
+    this._sTypeDeductionRuleProcessor.addSyntheticTypes(syntheticTypesContainer, dAggregate, complexSyntheticTypesAcceptor, context);
     for (final SyntheticComplexTypeDescriptor desc : complexSyntheticTypesAcceptor) {
       this._sFeatureDeductionRuleProcessor.addSyntheticFeatures(desc, context);
     }

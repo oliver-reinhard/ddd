@@ -90,6 +90,11 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createINamespaceAdapter();
 			}
 			@Override
+			public Adapter caseITypeContainer(ITypeContainer object)
+			{
+				return createITypeContainerAdapter();
+			}
+			@Override
 			public Adapter caseIDeductionDefinition(IDeductionDefinition object)
 			{
 				return createIDeductionDefinitionAdapter();
@@ -362,6 +367,21 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createINamespaceAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.ITypeContainer <em>IType Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.ITypeContainer
+	 * @generated
+	 */
+	public Adapter createITypeContainerAdapter()
 	{
 		return null;
 	}

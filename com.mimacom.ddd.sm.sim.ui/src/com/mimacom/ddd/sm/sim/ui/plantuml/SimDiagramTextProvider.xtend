@@ -27,6 +27,7 @@ import org.eclipse.ui.IEditorPart
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.ui.editor.XtextEditor
 import org.eclipse.xtext.ui.editor.model.XtextDocument
+import com.mimacom.ddd.dm.base.IDeductionDefinition
 
 class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 	
@@ -50,11 +51,10 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
         val SInformationModel model = document.readOnly[
             return if (contents.head instanceof SInformationModel) contents.head as SInformationModel else null
         ]
-        if (model !== null && ! (model.types.empty && model.aggregates.empty)) {
-        	return modelTypes(model)
-        } else {
+        if (model === null || model.types.filter[!(it instanceof IDeductionDefinition)].empty && model.aggregates.filter[!(it instanceof IDeductionDefinition)].empty) {
         	return '''note "No structures to show." as N1'''
         }
+        return modelTypes(model)
 	}
 	
 	def modelTypes(SInformationModel model) {
@@ -112,7 +112,7 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 	}
 	
 	def dispatch  generateType(DComplexType c) '''	
-		«IF c.abstract»abstract «ENDIF»class «c.aggregateName».«c.name» «c.getSpot» {
+		«IF c.abstract»abstract «ENDIF»class «c.qualifiedlName» «c.getSpot» {
 			«FOR f:c.features.filter[!(it instanceof SFeatureDeduction)]»«f.generateFeature»«ENDFOR»
 		}
 	'''
@@ -173,12 +173,16 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 	}
 	
 	def generateLink(String sourceArrowhead, DType source, DType target, String targetRole, String targetArrowhead) '''
-		«source.aggregateName».«source.name» «sourceArrowhead»--«targetArrowhead» «getTargetName(source,target)» : «targetRole»
+		«source.qualifiedlName» «sourceArrowhead»--«targetArrowhead» «targetName(source,target)» : «targetRole»
 	'''
+	def qualifiedlName(DType t) 
+	'''«if (t.eContainer instanceof DAggregate) t.aggregateName».«t.name»'''
 	
-	def String getTargetName(DType source, DType target) {
+	def targetName(DType source, DType target) {
 		if (source.modelName == target.modelName) {
-			if (source.aggregateName == target.aggregateName) return target.aggregateName + "." + target.name
+			if (source.aggregateName == target.aggregateName) {
+				return target.qualifiedlName
+			}
 			return  target.aggregateName
 		}
 		return target.modelName

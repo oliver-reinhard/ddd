@@ -144,6 +144,43 @@ public interface BasePackage extends EPackage
 	int INAMESPACE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.ITypeContainer <em>IType Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.ITypeContainer
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getITypeContainer()
+	 * @generated
+	 */
+	int ITYPE_CONTAINER = 3;
+
+	/**
+	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITYPE_CONTAINER__TYPES = INAMESPACE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>IType Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITYPE_CONTAINER_FEATURE_COUNT = INAMESPACE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>IType Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITYPE_CONTAINER_OPERATION_COUNT = INAMESPACE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.IDeductionDefinition <em>IDeduction Definition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -151,7 +188,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIDeductionDefinition()
 	 * @generated
 	 */
-	int IDEDUCTION_DEFINITION = 3;
+	int IDEDUCTION_DEFINITION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -188,7 +225,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIDeducibleElement()
 	 * @generated
 	 */
-	int IDEDUCIBLE_ELEMENT = 4;
+	int IDEDUCIBLE_ELEMENT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
@@ -234,7 +271,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDeductionRule()
 	 * @generated
 	 */
-	int DDEDUCTION_RULE = 5;
+	int DDEDUCTION_RULE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -280,7 +317,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDNamedElement()
 	 * @generated
 	 */
-	int DNAMED_ELEMENT = 6;
+	int DNAMED_ELEMENT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -335,7 +372,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDNavigableMember()
 	 * @generated
 	 */
-	int DNAVIGABLE_MEMBER = 7;
+	int DNAVIGABLE_MEMBER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -426,7 +463,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getINavigableMemberContainer()
 	 * @generated
 	 */
-	int INAVIGABLE_MEMBER_CONTAINER = 8;
+	int INAVIGABLE_MEMBER_CONTAINER = 9;
 
 	/**
 	 * The number of structural features of the '<em>INavigable Member Container</em>' class.
@@ -454,7 +491,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIPrimaryNavigationTarget()
 	 * @generated
 	 */
-	int IPRIMARY_NAVIGATION_TARGET = 9;
+	int IPRIMARY_NAVIGATION_TARGET = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -509,7 +546,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIRichTextSegment()
 	 * @generated
 	 */
-	int IRICH_TEXT_SEGMENT = 10;
+	int IRICH_TEXT_SEGMENT = 11;
 
 	/**
 	 * The number of structural features of the '<em>IRich Text Segment</em>' class.
@@ -537,7 +574,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDTextSegment()
 	 * @generated
 	 */
-	int DTEXT_SEGMENT = 11;
+	int DTEXT_SEGMENT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -574,7 +611,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDExpression()
 	 * @generated
 	 */
-	int DEXPRESSION = 12;
+	int DEXPRESSION = 13;
 
 	/**
 	 * The number of structural features of the '<em>DExpression</em>' class.
@@ -602,7 +639,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDRichText()
 	 * @generated
 	 */
-	int DRICH_TEXT = 13;
+	int DRICH_TEXT = 14;
 
 	/**
 	 * The feature id for the '<em><b>Segments</b></em>' containment reference list.
@@ -639,7 +676,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDomain()
 	 * @generated
 	 */
-	int DDOMAIN = 14;
+	int DDOMAIN = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -669,13 +706,22 @@ public interface BasePackage extends EPackage
 	int DDOMAIN__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DDOMAIN__TYPES = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN__DEDUCED_FROM = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int DDOMAIN__DEDUCED_FROM = DNAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -684,7 +730,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN__SYNTHETIC = DNAMED_ELEMENT_FEATURE_COUNT + 1;
+	int DDOMAIN__SYNTHETIC = DNAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
@@ -693,16 +739,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN__IMPORTS = DNAMED_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DDOMAIN__TYPES = DNAMED_ELEMENT_FEATURE_COUNT + 3;
+	int DDOMAIN__IMPORTS = DNAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
@@ -775,7 +812,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDImport()
 	 * @generated
 	 */
-	int DIMPORT = 15;
+	int DIMPORT = 16;
 
 	/**
 	 * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
@@ -812,7 +849,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDFunction()
 	 * @generated
 	 */
-	int DFUNCTION = 16;
+	int DFUNCTION = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -912,34 +949,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDAggregate()
 	 * @generated
 	 */
-	int DAGGREGATE = 17;
-
-	/**
-	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DAGGREGATE__DEDUCED_FROM = IDEDUCIBLE_ELEMENT__DEDUCED_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DAGGREGATE__SYNTHETIC = IDEDUCIBLE_ELEMENT__SYNTHETIC;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DAGGREGATE__DESCRIPTION = IDEDUCIBLE_ELEMENT_FEATURE_COUNT + 0;
+	int DAGGREGATE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -948,7 +958,34 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE__TYPES = IDEDUCIBLE_ELEMENT_FEATURE_COUNT + 1;
+	int DAGGREGATE__TYPES = ITYPE_CONTAINER__TYPES;
+
+	/**
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DAGGREGATE__DEDUCED_FROM = ITYPE_CONTAINER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DAGGREGATE__SYNTHETIC = ITYPE_CONTAINER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DAGGREGATE__DESCRIPTION = ITYPE_CONTAINER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Roots</b></em>' reference list.
@@ -957,7 +994,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE__ROOTS = IDEDUCIBLE_ELEMENT_FEATURE_COUNT + 2;
+	int DAGGREGATE__ROOTS = ITYPE_CONTAINER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Derived Name</b></em>' attribute.
@@ -966,7 +1003,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE__DERIVED_NAME = IDEDUCIBLE_ELEMENT_FEATURE_COUNT + 3;
+	int DAGGREGATE__DERIVED_NAME = ITYPE_CONTAINER_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>DAggregate</em>' class.
@@ -975,7 +1012,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE_FEATURE_COUNT = IDEDUCIBLE_ELEMENT_FEATURE_COUNT + 4;
+	int DAGGREGATE_FEATURE_COUNT = ITYPE_CONTAINER_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>DAggregate</em>' class.
@@ -984,7 +1021,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE_OPERATION_COUNT = IDEDUCIBLE_ELEMENT_OPERATION_COUNT + 0;
+	int DAGGREGATE_OPERATION_COUNT = ITYPE_CONTAINER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DTypeImpl <em>DType</em>}' class.
@@ -994,7 +1031,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDType()
 	 * @generated
 	 */
-	int DTYPE = 18;
+	int DTYPE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1085,7 +1122,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDCondition()
 	 * @generated
 	 */
-	int DCONDITION = 19;
+	int DCONDITION = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1149,7 +1186,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDSimpleType()
 	 * @generated
 	 */
-	int DSIMPLE_TYPE = 20;
+	int DSIMPLE_TYPE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1240,7 +1277,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDPrimitive()
 	 * @generated
 	 */
-	int DPRIMITIVE = 21;
+	int DPRIMITIVE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1349,7 +1386,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDEnumeration()
 	 * @generated
 	 */
-	int DENUMERATION = 22;
+	int DENUMERATION = 23;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1449,7 +1486,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDLiteral()
 	 * @generated
 	 */
-	int DLITERAL = 23;
+	int DLITERAL = 24;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1558,7 +1595,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDComplexType()
 	 * @generated
 	 */
-	int DCOMPLEX_TYPE = 24;
+	int DCOMPLEX_TYPE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1676,7 +1713,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDetailType()
 	 * @generated
 	 */
-	int DDETAIL_TYPE = 25;
+	int DDETAIL_TYPE = 26;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1794,7 +1831,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDIdentityType()
 	 * @generated
 	 */
-	int DIDENTITY_TYPE = 26;
+	int DIDENTITY_TYPE = 27;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1921,7 +1958,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDEntityType()
 	 * @generated
 	 */
-	int DENTITY_TYPE = 27;
+	int DENTITY_TYPE = 28;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2048,7 +2085,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDRelationship()
 	 * @generated
 	 */
-	int DRELATIONSHIP = 28;
+	int DRELATIONSHIP = 29;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2175,7 +2212,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDFeature()
 	 * @generated
 	 */
-	int DFEATURE = 29;
+	int DFEATURE = 30;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2284,7 +2321,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDAssociation()
 	 * @generated
 	 */
-	int DASSOCIATION = 30;
+	int DASSOCIATION = 31;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2429,7 +2466,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDMultiplicity()
 	 * @generated
 	 */
-	int DMULTIPLICITY = 31;
+	int DMULTIPLICITY = 32;
 
 	/**
 	 * The feature id for the '<em><b>Min Occurs</b></em>' attribute.
@@ -2475,7 +2512,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDAttribute()
 	 * @generated
 	 */
-	int DATTRIBUTE = 32;
+	int DATTRIBUTE = 33;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2602,7 +2639,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDQuery()
 	 * @generated
 	 */
-	int DQUERY = 33;
+	int DQUERY = 34;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2729,7 +2766,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDQueryParameter()
 	 * @generated
 	 */
-	int DQUERY_PARAMETER = 34;
+	int DQUERY_PARAMETER = 35;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2838,7 +2875,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDomainEvent()
 	 * @generated
 	 */
-	int DDOMAIN_EVENT = 35;
+	int DDOMAIN_EVENT = 36;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2938,7 +2975,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDContext()
 	 * @generated
 	 */
-	int DCONTEXT = 36;
+	int DCONTEXT = 37;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3029,7 +3066,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDNotification()
 	 * @generated
 	 */
-	int DNOTIFICATION = 37;
+	int DNOTIFICATION = 38;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3129,7 +3166,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDActor()
 	 * @generated
 	 */
-	int DACTOR = 38;
+	int DACTOR = 39;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3184,7 +3221,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDHuman()
 	 * @generated
 	 */
-	int DHUMAN = 39;
+	int DHUMAN = 40;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3239,7 +3276,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDService()
 	 * @generated
 	 */
-	int DSERVICE = 40;
+	int DSERVICE = 41;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3269,13 +3306,22 @@ public interface BasePackage extends EPackage
 	int DSERVICE__DESCRIPTION = DACTOR__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSERVICE__TYPES = DACTOR_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE__KIND = DACTOR_FEATURE_COUNT + 0;
+	int DSERVICE__KIND = DACTOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -3284,7 +3330,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE__PARAMETERS = DACTOR_FEATURE_COUNT + 1;
+	int DSERVICE__PARAMETERS = DACTOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Raises</b></em>' reference list.
@@ -3293,7 +3339,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE__RAISES = DACTOR_FEATURE_COUNT + 2;
+	int DSERVICE__RAISES = DACTOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Guards</b></em>' containment reference list.
@@ -3302,7 +3348,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE__GUARDS = DACTOR_FEATURE_COUNT + 3;
+	int DSERVICE__GUARDS = DACTOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Effects</b></em>' containment reference list.
@@ -3311,16 +3357,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE__EFFECTS = DACTOR_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DSERVICE__TYPES = DACTOR_FEATURE_COUNT + 5;
+	int DSERVICE__EFFECTS = DACTOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>DService</em>' class.
@@ -3348,7 +3385,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDServiceParameter()
 	 * @generated
 	 */
-	int DSERVICE_PARAMETER = 41;
+	int DSERVICE_PARAMETER = 42;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3448,7 +3485,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDTime()
 	 * @generated
 	 */
-	int DTIME = 42;
+	int DTIME = 43;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3503,7 +3540,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDExistingApplication()
 	 * @generated
 	 */
-	int DEXISTING_APPLICATION = 43;
+	int DEXISTING_APPLICATION = 44;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3585,7 +3622,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDException()
 	 * @generated
 	 */
-	int DEXCEPTION = 44;
+	int DEXCEPTION = 45;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3640,7 +3677,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDAssociationKind()
 	 * @generated
 	 */
-	int DASSOCIATION_KIND = 45;
+	int DASSOCIATION_KIND = 46;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DDirection <em>DDirection</em>}' enum.
@@ -3650,7 +3687,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDirection()
 	 * @generated
 	 */
-	int DDIRECTION = 46;
+	int DDIRECTION = 47;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DServiceKind <em>DService Kind</em>}' enum.
@@ -3660,7 +3697,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDServiceKind()
 	 * @generated
 	 */
-	int DSERVICE_KIND = 47;
+	int DSERVICE_KIND = 48;
 
 
 	/**
@@ -3692,6 +3729,27 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EClass getINamespace();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.ITypeContainer <em>IType Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IType Container</em>'.
+	 * @see com.mimacom.ddd.dm.base.ITypeContainer
+	 * @generated
+	 */
+	EClass getITypeContainer();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.ITypeContainer#getTypes <em>Types</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Types</em>'.
+	 * @see com.mimacom.ddd.dm.base.ITypeContainer#getTypes()
+	 * @see #getITypeContainer()
+	 * @generated
+	 */
+	EReference getITypeContainer_Types();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.IDeductionDefinition <em>IDeduction Definition</em>}'.
@@ -3979,17 +4037,6 @@ public interface BasePackage extends EPackage
 	EReference getDDomain_Imports();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DDomain#getTypes <em>Types</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Types</em>'.
-	 * @see com.mimacom.ddd.dm.base.DDomain#getTypes()
-	 * @see #getDDomain()
-	 * @generated
-	 */
-	EReference getDDomain_Types();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DDomain#getFunctions <em>Functions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4106,17 +4153,6 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EReference getDAggregate_Description();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DAggregate#getTypes <em>Types</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Types</em>'.
-	 * @see com.mimacom.ddd.dm.base.DAggregate#getTypes()
-	 * @see #getDAggregate()
-	 * @generated
-	 */
-	EReference getDAggregate_Types();
 
 	/**
 	 * Returns the meta object for the reference list '{@link com.mimacom.ddd.dm.base.DAggregate#getRoots <em>Roots</em>}'.
@@ -4711,17 +4747,6 @@ public interface BasePackage extends EPackage
 	EReference getDService_Effects();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DService#getTypes <em>Types</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Types</em>'.
-	 * @see com.mimacom.ddd.dm.base.DService#getTypes()
-	 * @see #getDService()
-	 * @generated
-	 */
-	EReference getDService_Types();
-
-	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DServiceParameter <em>DService Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4761,17 +4786,6 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EClass getDExistingApplication();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DExistingApplication#getTypes <em>Types</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Types</em>'.
-	 * @see com.mimacom.ddd.dm.base.DExistingApplication#getTypes()
-	 * @see #getDExistingApplication()
-	 * @generated
-	 */
-	EReference getDExistingApplication_Types();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DExistingApplication#getServices <em>Services</em>}'.
@@ -4888,6 +4902,24 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EClass INAMESPACE = eINSTANCE.getINamespace();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.ITypeContainer <em>IType Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.ITypeContainer
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getITypeContainer()
+		 * @generated
+		 */
+		EClass ITYPE_CONTAINER = eINSTANCE.getITypeContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ITYPE_CONTAINER__TYPES = eINSTANCE.getITypeContainer_Types();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.IDeductionDefinition <em>IDeduction Definition</em>}' class.
@@ -5130,14 +5162,6 @@ public interface BasePackage extends EPackage
 		EReference DDOMAIN__IMPORTS = eINSTANCE.getDDomain_Imports();
 
 		/**
-		 * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DDOMAIN__TYPES = eINSTANCE.getDDomain_Types();
-
-		/**
 		 * The meta object literal for the '<em><b>Functions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5230,14 +5254,6 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EReference DAGGREGATE__DESCRIPTION = eINSTANCE.getDAggregate_Description();
-
-		/**
-		 * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DAGGREGATE__TYPES = eINSTANCE.getDAggregate_Types();
 
 		/**
 		 * The meta object literal for the '<em><b>Roots</b></em>' reference list feature.
@@ -5734,14 +5750,6 @@ public interface BasePackage extends EPackage
 		EReference DSERVICE__EFFECTS = eINSTANCE.getDService_Effects();
 
 		/**
-		 * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DSERVICE__TYPES = eINSTANCE.getDService_Types();
-
-		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DServiceParameterImpl <em>DService Parameter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5778,14 +5786,6 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EClass DEXISTING_APPLICATION = eINSTANCE.getDExistingApplication();
-
-		/**
-		 * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DEXISTING_APPLICATION__TYPES = eINSTANCE.getDExistingApplication_Types();
 
 		/**
 		 * The meta object literal for the '<em><b>Services</b></em>' containment reference list feature.

@@ -497,9 +497,12 @@ ruleSDitchEnumerationRule returns [EObject current=null]
 					$current = createModelElement(grammarAccess.getSDitchEnumerationRuleRule());
 				}
 			}
-			otherlv_0=RULE_ID
 			{
-				newLeafNode(otherlv_0, grammarAccess.getSDitchEnumerationRuleAccess().getSourceDEnumerationCrossReference_0());
+				newCompositeNode(grammarAccess.getSDitchEnumerationRuleAccess().getSourceDEnumerationCrossReference_0());
+			}
+			ruleDQualifiedName
+			{
+				afterParserOrEnumRuleCall();
 			}
 		)
 	)
@@ -854,18 +857,18 @@ ruleChangeComplexType[EObject in_current]  returns [EObject current=in_current]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getChangeComplexTypeAccess().getEntitySEntityTypeEnumRuleCall_2_1_0());
+						newCompositeNode(grammarAccess.getChangeComplexTypeAccess().getDetailSDetailTypeEnumRuleCall_2_1_0());
 					}
-					lv_entity_3_0=ruleSEntityType
+					lv_detail_3_0=ruleSDetailType
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getChangeComplexTypeRule());
 						}
 						set(
 							$current,
-							"entity",
-							lv_entity_3_0,
-							"com.mimacom.ddd.sm.sim.Sim.SEntityType");
+							"detail",
+							lv_detail_3_0,
+							"com.mimacom.ddd.sm.sim.Sim.SDetailType");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -8540,8 +8543,8 @@ ruleSRootEntity returns [Enumerator current=null]
 	)
 ;
 
-// Rule SEntityType
-ruleSEntityType returns [Enumerator current=null]
+// Rule SDetailType
+ruleSDetailType returns [Enumerator current=null]
 @init {
 	enterRule();
 }
@@ -8550,18 +8553,18 @@ ruleSEntityType returns [Enumerator current=null]
 }:
 	(
 		(
-			enumLiteral_0='detail'
+			enumLiteral_0='entity'
 			{
-				$current = grammarAccess.getSEntityTypeAccess().getFALSEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getSEntityTypeAccess().getFALSEEnumLiteralDeclaration_0());
+				$current = grammarAccess.getSDetailTypeAccess().getFALSEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getSDetailTypeAccess().getFALSEEnumLiteralDeclaration_0());
 			}
 		)
 		    |
 		(
-			enumLiteral_1='entity'
+			enumLiteral_1='detail'
 			{
-				$current = grammarAccess.getSEntityTypeAccess().getTRUEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getSEntityTypeAccess().getTRUEEnumLiteralDeclaration_1());
+				$current = grammarAccess.getSDetailTypeAccess().getTRUEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getSDetailTypeAccess().getTRUEEnumLiteralDeclaration_1());
 			}
 		)
 	)

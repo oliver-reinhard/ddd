@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalSimParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_PLAIN_TEXT_START", "RULE_PLAIN_TEXT_MIDDLE", "RULE_PLAIN_TEXT_END", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'inverse'", "'reference'", "'composite'", "'attribute'", "'*'", "'ISA'", "'isa'", "'AS'", "'as'", "'SELF'", "'self'", "'RETURN'", "'return'", "'RAISE'", "'raise'", "'NEW'", "'new'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'base'", "'interface'", "'core'", "'nonabstract'", "'abstract'", "'nonroot'", "'root'", "'detail'", "'entity'", "'synchronous'", "'async'", "'in'", "'out'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'information'", "'model'", "'to'", "'extends'", "':'", "'grab'", "'domain'", "'aggregate'", "'{'", "'}'", "'primitive'", "'ditch'", "'enumeration'", "','", "'alias'", "'morph'", "'fuse'", "'('", "')'", "'query'", "'returns'", "'import'", "'function'", "'constraint'", "'redefines'", "'archetype'", "'relationship'", "'application'", "'service'", "'raises'", "'guard'", "'effect'", "'exception'", "'.'", "'if'", "'then'", "'end'", "'else'", "'do'", "'for'", "'.*'", "'generate'", "'derived'", "'key'", "'@before'", "'TRUE'", "'true'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_PLAIN_TEXT_START", "RULE_PLAIN_TEXT_MIDDLE", "RULE_PLAIN_TEXT_END", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'inverse'", "'reference'", "'composite'", "'attribute'", "'*'", "'ISA'", "'isa'", "'AS'", "'as'", "'SELF'", "'self'", "'RETURN'", "'return'", "'RAISE'", "'raise'", "'NEW'", "'new'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'base'", "'interface'", "'core'", "'nonabstract'", "'abstract'", "'nonroot'", "'root'", "'entity'", "'detail'", "'synchronous'", "'async'", "'in'", "'out'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'information'", "'model'", "'to'", "'extends'", "':'", "'grab'", "'domain'", "'aggregate'", "'{'", "'}'", "'primitive'", "'ditch'", "'enumeration'", "','", "'alias'", "'morph'", "'fuse'", "'('", "')'", "'query'", "'returns'", "'import'", "'function'", "'constraint'", "'redefines'", "'archetype'", "'relationship'", "'application'", "'service'", "'raises'", "'guard'", "'effect'", "'exception'", "'.'", "'if'", "'then'", "'end'", "'else'", "'do'", "'for'", "'.*'", "'generate'", "'derived'", "'key'", "'@before'", "'TRUE'", "'true'"
     };
     public static final int T__50=50;
     public static final int RULE_PLAIN_TEXT_ONLY=6;
@@ -8567,27 +8567,27 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleSRootEntity"
 
 
-    // $ANTLR start "ruleSEntityType"
-    // InternalSim.g:2528:1: ruleSEntityType : ( ( rule__SEntityType__Alternatives ) ) ;
-    public final void ruleSEntityType() throws RecognitionException {
+    // $ANTLR start "ruleSDetailType"
+    // InternalSim.g:2528:1: ruleSDetailType : ( ( rule__SDetailType__Alternatives ) ) ;
+    public final void ruleSDetailType() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:2532:1: ( ( ( rule__SEntityType__Alternatives ) ) )
-            // InternalSim.g:2533:2: ( ( rule__SEntityType__Alternatives ) )
+            // InternalSim.g:2532:1: ( ( ( rule__SDetailType__Alternatives ) ) )
+            // InternalSim.g:2533:2: ( ( rule__SDetailType__Alternatives ) )
             {
-            // InternalSim.g:2533:2: ( ( rule__SEntityType__Alternatives ) )
-            // InternalSim.g:2534:3: ( rule__SEntityType__Alternatives )
+            // InternalSim.g:2533:2: ( ( rule__SDetailType__Alternatives ) )
+            // InternalSim.g:2534:3: ( rule__SDetailType__Alternatives )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSEntityTypeAccess().getAlternatives()); 
+               before(grammarAccess.getSDetailTypeAccess().getAlternatives()); 
             }
-            // InternalSim.g:2535:3: ( rule__SEntityType__Alternatives )
-            // InternalSim.g:2535:4: rule__SEntityType__Alternatives
+            // InternalSim.g:2535:3: ( rule__SDetailType__Alternatives )
+            // InternalSim.g:2535:4: rule__SDetailType__Alternatives
             {
             pushFollow(FOLLOW_2);
-            rule__SEntityType__Alternatives();
+            rule__SDetailType__Alternatives();
 
             state._fsp--;
             if (state.failed) return ;
@@ -8595,7 +8595,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSEntityTypeAccess().getAlternatives()); 
+               after(grammarAccess.getSDetailTypeAccess().getAlternatives()); 
             }
 
             }
@@ -8615,7 +8615,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleSEntityType"
+    // $ANTLR end "ruleSDetailType"
 
 
     // $ANTLR start "ruleDAssociationKind"
@@ -9400,13 +9400,13 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ChangeComplexType__Alternatives_2"
-    // InternalSim.g:2762:1: rule__ChangeComplexType__Alternatives_2 : ( ( ( rule__ChangeComplexType__RootEntityAssignment_2_0 ) ) | ( ( rule__ChangeComplexType__EntityAssignment_2_1 ) ) );
+    // InternalSim.g:2762:1: rule__ChangeComplexType__Alternatives_2 : ( ( ( rule__ChangeComplexType__RootEntityAssignment_2_0 ) ) | ( ( rule__ChangeComplexType__DetailAssignment_2_1 ) ) );
     public final void rule__ChangeComplexType__Alternatives_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:2766:1: ( ( ( rule__ChangeComplexType__RootEntityAssignment_2_0 ) ) | ( ( rule__ChangeComplexType__EntityAssignment_2_1 ) ) )
+            // InternalSim.g:2766:1: ( ( ( rule__ChangeComplexType__RootEntityAssignment_2_0 ) ) | ( ( rule__ChangeComplexType__DetailAssignment_2_1 ) ) )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -9454,19 +9454,19 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalSim.g:2773:2: ( ( rule__ChangeComplexType__EntityAssignment_2_1 ) )
+                    // InternalSim.g:2773:2: ( ( rule__ChangeComplexType__DetailAssignment_2_1 ) )
                     {
-                    // InternalSim.g:2773:2: ( ( rule__ChangeComplexType__EntityAssignment_2_1 ) )
-                    // InternalSim.g:2774:3: ( rule__ChangeComplexType__EntityAssignment_2_1 )
+                    // InternalSim.g:2773:2: ( ( rule__ChangeComplexType__DetailAssignment_2_1 ) )
+                    // InternalSim.g:2774:3: ( rule__ChangeComplexType__DetailAssignment_2_1 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getChangeComplexTypeAccess().getEntityAssignment_2_1()); 
+                       before(grammarAccess.getChangeComplexTypeAccess().getDetailAssignment_2_1()); 
                     }
-                    // InternalSim.g:2775:3: ( rule__ChangeComplexType__EntityAssignment_2_1 )
-                    // InternalSim.g:2775:4: rule__ChangeComplexType__EntityAssignment_2_1
+                    // InternalSim.g:2775:3: ( rule__ChangeComplexType__DetailAssignment_2_1 )
+                    // InternalSim.g:2775:4: rule__ChangeComplexType__DetailAssignment_2_1
                     {
                     pushFollow(FOLLOW_2);
-                    rule__ChangeComplexType__EntityAssignment_2_1();
+                    rule__ChangeComplexType__DetailAssignment_2_1();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -9474,7 +9474,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getChangeComplexTypeAccess().getEntityAssignment_2_1()); 
+                       after(grammarAccess.getChangeComplexTypeAccess().getDetailAssignment_2_1()); 
                     }
 
                     }
@@ -10542,7 +10542,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             int alt12=2;
             int LA12_0 = input.LA(1);
 
-            if ( (LA12_0==RULE_ID||(LA12_0>=18 && LA12_0<=20)||LA12_0==50||LA12_0==85||LA12_0==91||LA12_0==95||LA12_0==122) ) {
+            if ( (LA12_0==RULE_ID||(LA12_0>=18 && LA12_0<=20)||LA12_0==51||LA12_0==85||LA12_0==91||LA12_0==95||LA12_0==122) ) {
                 alt12=1;
             }
             else if ( (LA12_0==103) ) {
@@ -10642,7 +10642,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             int alt13=2;
             int LA13_0 = input.LA(1);
 
-            if ( (LA13_0==RULE_ID||(LA13_0>=18 && LA13_0<=20)||LA13_0==50||LA13_0==85||LA13_0==91||LA13_0==95||LA13_0==122) ) {
+            if ( (LA13_0==RULE_ID||(LA13_0>=18 && LA13_0<=20)||LA13_0==51||LA13_0==85||LA13_0==91||LA13_0==95||LA13_0==122) ) {
                 alt13=1;
             }
             else if ( (LA13_0==103) ) {
@@ -11427,7 +11427,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             if ( (LA20_0==21) ) {
                 alt20=1;
             }
-            else if ( (LA20_0==50) ) {
+            else if ( (LA20_0==51) ) {
                 alt20=2;
             }
             else {
@@ -11517,7 +11517,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             if ( (LA21_0==21) ) {
                 alt21=1;
             }
-            else if ( (LA21_0==50) ) {
+            else if ( (LA21_0==51) ) {
                 alt21=2;
             }
             else {
@@ -11607,7 +11607,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             if ( (LA22_0==21) ) {
                 alt22=1;
             }
-            else if ( (LA22_0==50) ) {
+            else if ( (LA22_0==51) ) {
                 alt22=2;
             }
             else {
@@ -12238,7 +12238,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             case 47:
                 {
                 switch ( input.LA(2) ) {
-                case 50:
+                case 51:
                     {
                     alt29=6;
                     }
@@ -12250,7 +12250,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                     if ( (LA29_5==106) ) {
                         alt29=5;
                     }
-                    else if ( (LA29_5==51) ) {
+                    else if ( (LA29_5==50) ) {
                         alt29=4;
                     }
                     else {
@@ -12267,7 +12267,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                     alt29=5;
                     }
                     break;
-                case 51:
+                case 50:
                     {
                     alt29=4;
                     }
@@ -12289,7 +12289,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                 if ( (LA29_5==106) ) {
                     alt29=5;
                 }
-                else if ( (LA29_5==51) ) {
+                else if ( (LA29_5==50) ) {
                     alt29=4;
                 }
                 else {
@@ -12301,7 +12301,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                 }
                 }
                 break;
-            case 51:
+            case 50:
                 {
                 alt29=4;
                 }
@@ -12311,7 +12311,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                 alt29=5;
                 }
                 break;
-            case 50:
+            case 51:
                 {
                 alt29=6;
                 }
@@ -13890,25 +13890,25 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                 {
                 int LA42_3 = input.LA(2);
 
-                if ( (LA42_3==113) ) {
-                    int LA42_5 = input.LA(3);
+                if ( (LA42_3==EOF||(LA42_3>=RULE_ID && LA42_3<=RULE_PLAIN_TEXT_END)||(LA42_3>=18 && LA42_3<=20)||(LA42_3>=22 && LA42_3<=26)||(LA42_3>=41 && LA42_3<=42)||LA42_3==47||(LA42_3>=49 && LA42_3<=51)||(LA42_3>=56 && LA42_3<=76)||LA42_3==85||LA42_3==87||(LA42_3>=89 && LA42_3<=93)||(LA42_3>=95 && LA42_3<=96)||(LA42_3>=98 && LA42_3<=99)||LA42_3==103||(LA42_3>=105 && LA42_3<=106)||(LA42_3>=110 && LA42_3<=111)||(LA42_3>=115 && LA42_3<=118)||LA42_3==122) ) {
+                    alt42=3;
+                }
+                else if ( (LA42_3==113) ) {
+                    int LA42_6 = input.LA(3);
 
-                    if ( (LA42_5==RULE_ID) ) {
-                        alt42=3;
-                    }
-                    else if ( (LA42_5==RULE_NATURAL) ) {
+                    if ( (LA42_6==RULE_NATURAL) ) {
                         alt42=4;
+                    }
+                    else if ( (LA42_6==RULE_ID) ) {
+                        alt42=3;
                     }
                     else {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         NoViableAltException nvae =
-                            new NoViableAltException("", 42, 5, input);
+                            new NoViableAltException("", 42, 6, input);
 
                         throw nvae;
                     }
-                }
-                else if ( (LA42_3==EOF||(LA42_3>=RULE_ID && LA42_3<=RULE_PLAIN_TEXT_END)||(LA42_3>=18 && LA42_3<=20)||(LA42_3>=22 && LA42_3<=26)||(LA42_3>=41 && LA42_3<=42)||LA42_3==47||(LA42_3>=49 && LA42_3<=51)||(LA42_3>=56 && LA42_3<=76)||LA42_3==85||LA42_3==87||(LA42_3>=89 && LA42_3<=93)||(LA42_3>=95 && LA42_3<=96)||(LA42_3>=98 && LA42_3<=99)||LA42_3==103||(LA42_3>=105 && LA42_3<=106)||(LA42_3>=110 && LA42_3<=111)||(LA42_3>=115 && LA42_3<=118)||LA42_3==122) ) {
-                    alt42=3;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -15168,14 +15168,14 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__SRootEntity__Alternatives"
 
 
-    // $ANTLR start "rule__SEntityType__Alternatives"
-    // InternalSim.g:4049:1: rule__SEntityType__Alternatives : ( ( ( 'detail' ) ) | ( ( 'entity' ) ) );
-    public final void rule__SEntityType__Alternatives() throws RecognitionException {
+    // $ANTLR start "rule__SDetailType__Alternatives"
+    // InternalSim.g:4049:1: rule__SDetailType__Alternatives : ( ( ( 'entity' ) ) | ( ( 'detail' ) ) );
+    public final void rule__SDetailType__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:4053:1: ( ( ( 'detail' ) ) | ( ( 'entity' ) ) )
+            // InternalSim.g:4053:1: ( ( ( 'entity' ) ) | ( ( 'detail' ) ) )
             int alt55=2;
             int LA55_0 = input.LA(1);
 
@@ -15194,23 +15194,23 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             }
             switch (alt55) {
                 case 1 :
-                    // InternalSim.g:4054:2: ( ( 'detail' ) )
+                    // InternalSim.g:4054:2: ( ( 'entity' ) )
                     {
-                    // InternalSim.g:4054:2: ( ( 'detail' ) )
-                    // InternalSim.g:4055:3: ( 'detail' )
+                    // InternalSim.g:4054:2: ( ( 'entity' ) )
+                    // InternalSim.g:4055:3: ( 'entity' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getSEntityTypeAccess().getFALSEEnumLiteralDeclaration_0()); 
+                       before(grammarAccess.getSDetailTypeAccess().getFALSEEnumLiteralDeclaration_0()); 
                     }
-                    // InternalSim.g:4056:3: ( 'detail' )
-                    // InternalSim.g:4056:4: 'detail'
+                    // InternalSim.g:4056:3: ( 'entity' )
+                    // InternalSim.g:4056:4: 'entity'
                     {
                     match(input,50,FOLLOW_2); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getSEntityTypeAccess().getFALSEEnumLiteralDeclaration_0()); 
+                       after(grammarAccess.getSDetailTypeAccess().getFALSEEnumLiteralDeclaration_0()); 
                     }
 
                     }
@@ -15219,23 +15219,23 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalSim.g:4060:2: ( ( 'entity' ) )
+                    // InternalSim.g:4060:2: ( ( 'detail' ) )
                     {
-                    // InternalSim.g:4060:2: ( ( 'entity' ) )
-                    // InternalSim.g:4061:3: ( 'entity' )
+                    // InternalSim.g:4060:2: ( ( 'detail' ) )
+                    // InternalSim.g:4061:3: ( 'detail' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getSEntityTypeAccess().getTRUEEnumLiteralDeclaration_1()); 
+                       before(grammarAccess.getSDetailTypeAccess().getTRUEEnumLiteralDeclaration_1()); 
                     }
-                    // InternalSim.g:4062:3: ( 'entity' )
-                    // InternalSim.g:4062:4: 'entity'
+                    // InternalSim.g:4062:3: ( 'detail' )
+                    // InternalSim.g:4062:4: 'detail'
                     {
                     match(input,51,FOLLOW_2); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getSEntityTypeAccess().getTRUEEnumLiteralDeclaration_1()); 
+                       after(grammarAccess.getSDetailTypeAccess().getTRUEEnumLiteralDeclaration_1()); 
                     }
 
                     }
@@ -15257,7 +15257,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__SEntityType__Alternatives"
+    // $ANTLR end "rule__SDetailType__Alternatives"
 
 
     // $ANTLR start "rule__DAssociationKind__Alternatives"
@@ -27589,7 +27589,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSEntityTypeDeductionAccess().getEntityKeyword_1_0_2()); 
             }
-            match(input,51,FOLLOW_2); if (state.failed) return ;
+            match(input,50,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSEntityTypeDeductionAccess().getEntityKeyword_1_0_2()); 
             }
@@ -27931,7 +27931,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSEntityTypeDeductionAccess().getEntityKeyword_1_1_2()); 
             }
-            match(input,51,FOLLOW_2); if (state.failed) return ;
+            match(input,50,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSEntityTypeDeductionAccess().getEntityKeyword_1_1_2()); 
             }
@@ -28273,7 +28273,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSEntityTypeDeductionAccess().getEntityKeyword_1_2_2()); 
             }
-            match(input,51,FOLLOW_2); if (state.failed) return ;
+            match(input,50,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSEntityTypeDeductionAccess().getEntityKeyword_1_2_2()); 
             }
@@ -28615,7 +28615,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSEntityTypeDeductionAccess().getEntityKeyword_1_3_2()); 
             }
-            match(input,51,FOLLOW_2); if (state.failed) return ;
+            match(input,50,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSEntityTypeDeductionAccess().getEntityKeyword_1_3_2()); 
             }
@@ -29203,7 +29203,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSDetailTypeDeductionAccess().getDetailKeyword_1_0_1()); 
             }
-            match(input,50,FOLLOW_2); if (state.failed) return ;
+            match(input,51,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSDetailTypeDeductionAccess().getDetailKeyword_1_0_1()); 
             }
@@ -29445,7 +29445,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSDetailTypeDeductionAccess().getDetailKeyword_1_1_1()); 
             }
-            match(input,50,FOLLOW_2); if (state.failed) return ;
+            match(input,51,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSDetailTypeDeductionAccess().getDetailKeyword_1_1_1()); 
             }
@@ -29687,7 +29687,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSDetailTypeDeductionAccess().getDetailKeyword_1_2_1()); 
             }
-            match(input,50,FOLLOW_2); if (state.failed) return ;
+            match(input,51,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSDetailTypeDeductionAccess().getDetailKeyword_1_2_1()); 
             }
@@ -29929,7 +29929,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSDetailTypeDeductionAccess().getDetailKeyword_1_3_1()); 
             }
-            match(input,50,FOLLOW_2); if (state.failed) return ;
+            match(input,51,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSDetailTypeDeductionAccess().getDetailKeyword_1_3_1()); 
             }
@@ -30177,7 +30177,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                 int alt106=2;
                 int LA106_0 = input.LA(1);
 
-                if ( (LA106_0==RULE_ID||(LA106_0>=18 && LA106_0<=20)||LA106_0==50||LA106_0==85||LA106_0==91||LA106_0==95||LA106_0==103||LA106_0==122) ) {
+                if ( (LA106_0==RULE_ID||(LA106_0>=18 && LA106_0<=20)||LA106_0==51||LA106_0==85||LA106_0==91||LA106_0==95||LA106_0==103||LA106_0==122) ) {
                     alt106=1;
                 }
 
@@ -30833,7 +30833,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                 int alt110=2;
                 int LA110_0 = input.LA(1);
 
-                if ( (LA110_0==RULE_ID||(LA110_0>=18 && LA110_0<=20)||LA110_0==50||LA110_0==85||LA110_0==91||LA110_0==95||LA110_0==103||LA110_0==122) ) {
+                if ( (LA110_0==RULE_ID||(LA110_0>=18 && LA110_0<=20)||LA110_0==51||LA110_0==85||LA110_0==91||LA110_0==95||LA110_0==103||LA110_0==122) ) {
                     alt110=1;
                 }
 
@@ -32699,7 +32699,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             int alt113=2;
             int LA113_0 = input.LA(1);
 
-            if ( (LA113_0==21||LA113_0==50) ) {
+            if ( (LA113_0==21||LA113_0==51) ) {
                 alt113=1;
             }
             switch (alt113) {
@@ -32962,7 +32962,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             int alt114=2;
             int LA114_0 = input.LA(1);
 
-            if ( (LA114_0==21||LA114_0==50) ) {
+            if ( (LA114_0==21||LA114_0==51) ) {
                 alt114=1;
             }
             switch (alt114) {
@@ -33225,7 +33225,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             int alt115=2;
             int LA115_0 = input.LA(1);
 
-            if ( (LA115_0==21||LA115_0==50) ) {
+            if ( (LA115_0==21||LA115_0==51) ) {
                 alt115=1;
             }
             switch (alt115) {
@@ -42975,7 +42975,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDEntityTypeAccess().getEntityKeyword_2()); 
             }
-            match(input,51,FOLLOW_2); if (state.failed) return ;
+            match(input,50,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDEntityTypeAccess().getEntityKeyword_2()); 
             }
@@ -43589,7 +43589,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDDetailTypeAccess().getDetailKeyword_1()); 
             }
-            match(input,50,FOLLOW_2); if (state.failed) return ;
+            match(input,51,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDDetailTypeAccess().getDetailKeyword_1()); 
             }
@@ -44824,7 +44824,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             int alt151=2;
             int LA151_0 = input.LA(1);
 
-            if ( (LA151_0==50) ) {
+            if ( (LA151_0==51) ) {
                 alt151=1;
             }
             switch (alt151) {
@@ -66014,30 +66014,34 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SDitchEnumerationRule__SourceAssignment"
-    // InternalSim.g:19716:1: rule__SDitchEnumerationRule__SourceAssignment : ( ( RULE_ID ) ) ;
+    // InternalSim.g:19716:1: rule__SDitchEnumerationRule__SourceAssignment : ( ( ruleDQualifiedName ) ) ;
     public final void rule__SDitchEnumerationRule__SourceAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:19720:1: ( ( ( RULE_ID ) ) )
-            // InternalSim.g:19721:2: ( ( RULE_ID ) )
+            // InternalSim.g:19720:1: ( ( ( ruleDQualifiedName ) ) )
+            // InternalSim.g:19721:2: ( ( ruleDQualifiedName ) )
             {
-            // InternalSim.g:19721:2: ( ( RULE_ID ) )
-            // InternalSim.g:19722:3: ( RULE_ID )
+            // InternalSim.g:19721:2: ( ( ruleDQualifiedName ) )
+            // InternalSim.g:19722:3: ( ruleDQualifiedName )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSDitchEnumerationRuleAccess().getSourceDEnumerationCrossReference_0()); 
             }
-            // InternalSim.g:19723:3: ( RULE_ID )
-            // InternalSim.g:19724:4: RULE_ID
+            // InternalSim.g:19723:3: ( ruleDQualifiedName )
+            // InternalSim.g:19724:4: ruleDQualifiedName
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSDitchEnumerationRuleAccess().getSourceDEnumerationIDTerminalRuleCall_0_1()); 
+               before(grammarAccess.getSDitchEnumerationRuleAccess().getSourceDEnumerationDQualifiedNameParserRuleCall_0_1()); 
             }
-            match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            ruleDQualifiedName();
+
+            state._fsp--;
+            if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSDitchEnumerationRuleAccess().getSourceDEnumerationIDTerminalRuleCall_0_1()); 
+               after(grammarAccess.getSDitchEnumerationRuleAccess().getSourceDEnumerationDQualifiedNameParserRuleCall_0_1()); 
             }
 
             }
@@ -66629,29 +66633,29 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__ChangeComplexType__RootEntityAssignment_2_0"
 
 
-    // $ANTLR start "rule__ChangeComplexType__EntityAssignment_2_1"
-    // InternalSim.g:19928:1: rule__ChangeComplexType__EntityAssignment_2_1 : ( ruleSEntityType ) ;
-    public final void rule__ChangeComplexType__EntityAssignment_2_1() throws RecognitionException {
+    // $ANTLR start "rule__ChangeComplexType__DetailAssignment_2_1"
+    // InternalSim.g:19928:1: rule__ChangeComplexType__DetailAssignment_2_1 : ( ruleSDetailType ) ;
+    public final void rule__ChangeComplexType__DetailAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSim.g:19932:1: ( ( ruleSEntityType ) )
-            // InternalSim.g:19933:2: ( ruleSEntityType )
+            // InternalSim.g:19932:1: ( ( ruleSDetailType ) )
+            // InternalSim.g:19933:2: ( ruleSDetailType )
             {
-            // InternalSim.g:19933:2: ( ruleSEntityType )
-            // InternalSim.g:19934:3: ruleSEntityType
+            // InternalSim.g:19933:2: ( ruleSDetailType )
+            // InternalSim.g:19934:3: ruleSDetailType
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getChangeComplexTypeAccess().getEntitySEntityTypeEnumRuleCall_2_1_0()); 
+               before(grammarAccess.getChangeComplexTypeAccess().getDetailSDetailTypeEnumRuleCall_2_1_0()); 
             }
             pushFollow(FOLLOW_2);
-            ruleSEntityType();
+            ruleSDetailType();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getChangeComplexTypeAccess().getEntitySEntityTypeEnumRuleCall_2_1_0()); 
+               after(grammarAccess.getChangeComplexTypeAccess().getDetailSDetailTypeEnumRuleCall_2_1_0()); 
             }
 
             }
@@ -66671,7 +66675,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ChangeComplexType__EntityAssignment_2_1"
+    // $ANTLR end "rule__ChangeComplexType__DetailAssignment_2_1"
 
 
     // $ANTLR start "rule__ChangeComplexType__RenameToAssignment_3"
@@ -69448,7 +69452,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSAttributeDeductionAccess().getDetailDetailKeyword_1_0_1_1_0()); 
             }
-            match(input,50,FOLLOW_2); if (state.failed) return ;
+            match(input,51,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSAttributeDeductionAccess().getDetailDetailKeyword_1_0_1_1_0()); 
             }
@@ -69546,7 +69550,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSAttributeDeductionAccess().getDetailDetailKeyword_1_1_1_1_0()); 
             }
-            match(input,50,FOLLOW_2); if (state.failed) return ;
+            match(input,51,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSAttributeDeductionAccess().getDetailDetailKeyword_1_1_1_1_0()); 
             }
@@ -69644,7 +69648,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSAttributeDeductionAccess().getDetailDetailKeyword_1_2_1_1_0()); 
             }
-            match(input,50,FOLLOW_2); if (state.failed) return ;
+            match(input,51,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSAttributeDeductionAccess().getDetailDetailKeyword_1_2_1_1_0()); 
             }
@@ -72470,7 +72474,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAttributeAccess().getDetailDetailKeyword_0_0()); 
             }
-            match(input,50,FOLLOW_2); if (state.failed) return ;
+            match(input,51,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDAttributeAccess().getDetailDetailKeyword_0_0()); 
             }
@@ -77090,14 +77094,14 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
     static final String dfa_4s = "\3\uffff\1\2\1\4\3\uffff\1\6\1\10\1\3\1\5\1\7\1\1";
     static final String dfa_5s = "\16\uffff}>";
     static final String[] dfa_6s = {
-            "\1\7\1\uffff\1\10\1\11\1\10\41\uffff\1\1\4\uffff\1\3\1\2\1\4\2\uffff\1\5\1\6",
-            "\1\13\1\14\1\13\46\uffff\1\15\1\uffff\1\12",
-            "\1\13\1\14\1\13\46\uffff\1\15\1\uffff\1\12",
+            "\1\7\1\uffff\2\10\1\11\41\uffff\1\1\4\uffff\1\3\1\2\1\4\2\uffff\1\5\1\6",
+            "\2\13\1\14\46\uffff\1\15\1\uffff\1\12",
+            "\2\13\1\14\46\uffff\1\15\1\uffff\1\12",
             "",
             "",
-            "\1\13\1\14\1\13",
-            "\1\13\1\14\1\13",
-            "\1\10\1\11\1\10",
+            "\2\13\1\14",
+            "\2\13\1\14",
+            "\2\10\1\11",
             "",
             "",
             "",
@@ -77136,10 +77140,10 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
     static final String dfa_10s = "\4\uffff\1\2\1\4\1\uffff\1\1\1\5\1\3\1\uffff\1\6\1\uffff";
     static final String dfa_11s = "\15\uffff}>";
     static final String[] dfa_12s = {
-            "\1\6\14\uffff\3\4\35\uffff\1\5\42\uffff\1\1\5\uffff\1\3\3\uffff\1\2\32\uffff\1\4",
-            "\1\11\15\uffff\2\7\1\11\34\uffff\1\11\60\uffff\1\10",
-            "\1\11\15\uffff\2\7\1\11\34\uffff\1\11\60\uffff\1\10",
-            "\1\11\15\uffff\2\7\1\11\34\uffff\1\11\60\uffff\1\10",
+            "\1\6\14\uffff\3\4\36\uffff\1\5\41\uffff\1\1\5\uffff\1\3\3\uffff\1\2\32\uffff\1\4",
+            "\1\11\15\uffff\2\7\1\11\35\uffff\1\11\57\uffff\1\10",
+            "\1\11\15\uffff\2\7\1\11\35\uffff\1\11\57\uffff\1\10",
+            "\1\11\15\uffff\2\7\1\11\35\uffff\1\11\57\uffff\1\10",
             "",
             "",
             "\1\5\11\uffff\1\12\2\uffff\1\13",
@@ -77176,10 +77180,10 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         }
     }
     static final String dfa_13s = "\14\uffff";
-    static final String dfa_14s = "\6\uffff\1\13\5\uffff";
+    static final String dfa_14s = "\6\uffff\1\12\5\uffff";
     static final String dfa_15s = "\1\4\5\uffff\1\5\5\uffff";
     static final String dfa_16s = "\1\176\5\uffff\1\174\5\uffff";
-    static final String dfa_17s = "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\uffff\1\7\1\11\1\12\1\6\1\10";
+    static final String dfa_17s = "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\uffff\1\7\1\11\1\12\1\10\1\6";
     static final String dfa_18s = "\14\uffff}>";
     static final String[] dfa_19s = {
             "\1\1\1\6\4\uffff\1\1\20\uffff\2\2\2\3\2\4\2\7\4\1\72\uffff\1\5\20\uffff\1\10\4\uffff\1\11\5\uffff\2\1",
@@ -77188,7 +77192,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
             "",
             "",
             "",
-            "\5\13\10\uffff\3\13\1\uffff\5\13\16\uffff\2\13\4\uffff\1\13\1\uffff\3\13\4\uffff\25\13\10\uffff\1\13\1\uffff\1\13\1\uffff\5\13\1\uffff\2\13\1\12\2\13\3\uffff\1\13\1\uffff\2\13\3\uffff\2\13\1\uffff\1\13\1\uffff\4\13\3\uffff\1\13\1\uffff\1\13",
+            "\5\12\10\uffff\3\12\1\uffff\5\12\16\uffff\2\12\4\uffff\1\12\1\uffff\3\12\4\uffff\25\12\10\uffff\1\12\1\uffff\1\12\1\uffff\5\12\1\uffff\2\12\1\13\2\12\3\uffff\1\12\1\uffff\2\12\3\uffff\2\12\1\uffff\1\12\1\uffff\4\12\3\uffff\1\12\1\uffff\1\12",
             "",
             "",
             "",
@@ -77226,7 +77230,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
     static final String dfa_22s = "\1\5\1\uffff\10\0\1\uffff";
     static final String dfa_23s = "\1\172\1\uffff\10\0\1\uffff";
     static final String dfa_24s = "\1\uffff\1\2\10\uffff\1\1";
-    static final String dfa_25s = "\2\uffff\1\6\1\0\1\3\1\7\1\1\1\2\1\4\1\5\1\uffff}>";
+    static final String dfa_25s = "\2\uffff\1\6\1\1\1\2\1\5\1\7\1\0\1\3\1\4\1\uffff}>";
     static final String[] dfa_26s = {
             "\5\1\10\uffff\3\1\1\uffff\1\1\1\2\1\3\2\1\16\uffff\2\1\4\uffff\1\1\1\uffff\3\1\4\uffff\11\1\1\4\1\5\1\6\1\7\1\10\1\11\6\1\10\uffff\1\1\1\uffff\1\1\1\uffff\5\1\1\uffff\2\1\1\uffff\2\1\3\uffff\1\1\1\uffff\2\1\3\uffff\2\1\1\uffff\1\1\1\uffff\4\1\3\uffff\1\1",
             "",
@@ -77270,36 +77274,6 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA177_3 = input.LA(1);
-
-                         
-                        int index177_3 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred227_InternalSim()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index177_3);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA177_6 = input.LA(1);
-
-                         
-                        int index177_6 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred227_InternalSim()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index177_6);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
                         int LA177_7 = input.LA(1);
 
                          
@@ -77314,7 +77288,22 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                         input.seek(index177_7);
                         if ( s>=0 ) return s;
                         break;
-                    case 3 : 
+                    case 1 : 
+                        int LA177_3 = input.LA(1);
+
+                         
+                        int index177_3 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred227_InternalSim()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index177_3);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
                         int LA177_4 = input.LA(1);
 
                          
@@ -77329,7 +77318,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                         input.seek(index177_4);
                         if ( s>=0 ) return s;
                         break;
-                    case 4 : 
+                    case 3 : 
                         int LA177_8 = input.LA(1);
 
                          
@@ -77344,7 +77333,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                         input.seek(index177_8);
                         if ( s>=0 ) return s;
                         break;
-                    case 5 : 
+                    case 4 : 
                         int LA177_9 = input.LA(1);
 
                          
@@ -77357,6 +77346,21 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
 
                          
                         input.seek(index177_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA177_5 = input.LA(1);
+
+                         
+                        int index177_5 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred227_InternalSim()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index177_5);
                         if ( s>=0 ) return s;
                         break;
                     case 6 : 
@@ -77375,10 +77379,10 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                         if ( s>=0 ) return s;
                         break;
                     case 7 : 
-                        int LA177_5 = input.LA(1);
+                        int LA177_6 = input.LA(1);
 
                          
-                        int index177_5 = input.index();
+                        int index177_6 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred227_InternalSim()) ) {s = 10;}
@@ -77386,7 +77390,7 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index177_5);
+                        input.seek(index177_6);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -77642,14 +77646,14 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000000000002L,0x0000000040000000L});
     public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x00000000000000C0L});
     public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000000000000000L,0x0000000188200000L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x000A000000000000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x00040000001C0020L,0x040000808A200000L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x00040000001C0022L,0x0400008088200000L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0006000000000000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x00080000001C0020L,0x040000808A200000L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x00080000001C0022L,0x0400008088200000L});
     public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x00000000000000C0L,0x0000000041080000L});
     public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000000000000L,0x0000000088200000L});
     public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000000180000L});
-    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0004000000200020L});
+    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0008000000200020L});
     public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000000000400020L,0x0000000088200000L});
     public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000000000000000L,0x0000000400000000L});
     public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000000000000000L,0x0000000800000000L});
@@ -77661,13 +77665,13 @@ public class InternalSimParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0000000000000000L,0x0000000040100000L});
     public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000000000000000L,0x0000010040000000L});
     public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x00000000000000C0L,0x0000000040000000L});
-    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x000A800000000000L});
+    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0006800000000000L});
     public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0002000000000000L,0x0000040000000000L});
     public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x000E800000000000L,0x000000019C200000L});
     public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x00000000001C0000L,0x0400000000000000L});
     public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x00000000000000C0L,0x0000000200000000L});
     public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0004000000000020L});
+    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0008000000000020L});
     public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x00000000000000C0L,0x0800000200000000L});
     public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x003E800000000000L,0x000116019E200000L});
     public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x003E800000000002L,0x000116019C200000L});

@@ -14,6 +14,7 @@ import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.base.ITypeContainer;
 import com.mimacom.ddd.sm.sim.SAggregateDeduction;
 import com.mimacom.ddd.sm.sim.SComplexTypeDeduction;
 import com.mimacom.ddd.sm.sim.SDitchRule;
@@ -48,7 +49,7 @@ public class STypeDeductionRuleProcessor {
   
   private static final String UNDEFINED = "UNDEFINED";
   
-  protected void addImplicitSyntheticTypes(final DAggregate container, final SAggregateDeduction deductionDefinition, final DAggregate source, final List<SyntheticComplexTypeDescriptor> acceptor, final TransformationContext context) {
+  protected void addImplicitSyntheticTypes(final ITypeContainer container, final SAggregateDeduction deductionDefinition, final DAggregate source, final List<SyntheticComplexTypeDescriptor> acceptor, final TransformationContext context) {
     final Iterable<IDeductionDefinition> typeDeductionDefinitions = Iterables.<IDeductionDefinition>filter(deductionDefinition.getTypes(), IDeductionDefinition.class);
     final Function1<IDeductionDefinition, Boolean> _function = (IDeductionDefinition it) -> {
       DDeductionRule _deductionRule = it.getDeductionRule();
@@ -84,8 +85,8 @@ public class STypeDeductionRuleProcessor {
     }
   }
   
-  protected void addSyntheticTypes(final DAggregate container, final DAggregate dAggregate, final List<SyntheticComplexTypeDescriptor> acceptor, final TransformationContext context) {
-    final List<STypeDeduction> typeDeductionDefinitions = IterableExtensions.<STypeDeduction>toList(Iterables.<STypeDeduction>filter(dAggregate.getTypes(), STypeDeduction.class));
+  protected void addSyntheticTypes(final ITypeContainer container, final DAggregate origin, final List<SyntheticComplexTypeDescriptor> acceptor, final TransformationContext context) {
+    final List<STypeDeduction> typeDeductionDefinitions = IterableExtensions.<STypeDeduction>toList(Iterables.<STypeDeduction>filter(origin.getTypes(), STypeDeduction.class));
     TypeSorter _typeSorter = new TypeSorter();
     Collections.<STypeDeduction>sort(typeDeductionDefinitions, _typeSorter);
     for (final STypeDeduction definition : typeDeductionDefinitions) {
@@ -103,7 +104,7 @@ public class STypeDeductionRuleProcessor {
     }
   }
   
-  protected DPrimitive _processTypeDeduction(final EObject container, final SPrimitiveDeduction deductionDefinition, final SGrabRule rule, final TransformationContext context) {
+  protected DPrimitive _processTypeDeduction(final ITypeContainer container, final SPrimitiveDeduction deductionDefinition, final SGrabRule rule, final TransformationContext context) {
     final IDeducibleElement source = rule.getSource();
     if ((source instanceof DPrimitive)) {
       String _xifexpression = null;
@@ -122,7 +123,7 @@ public class STypeDeductionRuleProcessor {
     return null;
   }
   
-  protected DEnumeration _processTypeDeduction(final EObject container, final SEnumerationDeduction deductionDefinition, final SGrabRule rule, final TransformationContext context) {
+  protected DEnumeration _processTypeDeduction(final ITypeContainer container, final SEnumerationDeduction deductionDefinition, final SGrabRule rule, final TransformationContext context) {
     final IDeducibleElement source = rule.getSource();
     if ((source instanceof DEnumeration)) {
       String _xifexpression = null;
@@ -143,17 +144,17 @@ public class STypeDeductionRuleProcessor {
     return null;
   }
   
-  protected DComplexType _processTypeDeduction(final EObject container, final SComplexTypeDeduction deductionDefinition, final SGrabRule rule, final TransformationContext context) {
+  protected DComplexType _processTypeDeduction(final ITypeContainer container, final SComplexTypeDeduction deductionDefinition, final SGrabRule rule, final TransformationContext context) {
     return this.grabComplexType(container, deductionDefinition, rule, context);
   }
   
-  protected DComplexType _processTypeDeduction(final EObject container, final SComplexTypeDeduction deductionDefinition, final SMorphRule rule, final TransformationContext context) {
+  protected DComplexType _processTypeDeduction(final ITypeContainer container, final SComplexTypeDeduction deductionDefinition, final SMorphRule rule, final TransformationContext context) {
     final DComplexType syntheticType = this.grabComplexType(container, deductionDefinition, rule, context);
     this.extendsComplexType(syntheticType, rule, context);
     return syntheticType;
   }
   
-  protected DComplexType _processTypeDeduction(final EObject container, final SComplexTypeDeduction deductionDefinition, final SFuseRule rule, final TransformationContext context) {
+  protected DComplexType _processTypeDeduction(final ITypeContainer container, final SComplexTypeDeduction deductionDefinition, final SFuseRule rule, final TransformationContext context) {
     final DComplexType syntheticType = this.grabComplexType(container, deductionDefinition, rule, context);
     this.extendsComplexType(syntheticType, rule, context);
     return syntheticType;
@@ -167,7 +168,7 @@ public class STypeDeductionRuleProcessor {
     throw new UnsupportedOperationException();
   }
   
-  public DComplexType grabComplexType(final EObject container, final SComplexTypeDeduction deductionDefinition, final SRenameRule rule, final TransformationContext context) {
+  public DComplexType grabComplexType(final ITypeContainer container, final SComplexTypeDeduction deductionDefinition, final SRenameRule rule, final TransformationContext context) {
     final IDeducibleElement source = rule.getSource();
     if ((source instanceof DComplexType)) {
       String _xifexpression = null;
@@ -259,25 +260,32 @@ public class STypeDeductionRuleProcessor {
   }
   
   public DType processTypeDeduction(final EObject container, final STypeDeduction deductionDefinition, final DDeductionRule rule, final TransformationContext context) {
-    if (deductionDefinition instanceof SEnumerationDeduction
+    if (container instanceof ITypeContainer
+         && deductionDefinition instanceof SEnumerationDeduction
          && rule instanceof SGrabRule) {
-      return _processTypeDeduction(container, (SEnumerationDeduction)deductionDefinition, (SGrabRule)rule, context);
-    } else if (deductionDefinition instanceof SPrimitiveDeduction
+      return _processTypeDeduction((ITypeContainer)container, (SEnumerationDeduction)deductionDefinition, (SGrabRule)rule, context);
+    } else if (container instanceof ITypeContainer
+         && deductionDefinition instanceof SPrimitiveDeduction
          && rule instanceof SGrabRule) {
-      return _processTypeDeduction(container, (SPrimitiveDeduction)deductionDefinition, (SGrabRule)rule, context);
-    } else if (deductionDefinition instanceof SComplexTypeDeduction
+      return _processTypeDeduction((ITypeContainer)container, (SPrimitiveDeduction)deductionDefinition, (SGrabRule)rule, context);
+    } else if (container instanceof ITypeContainer
+         && deductionDefinition instanceof SComplexTypeDeduction
          && rule instanceof SFuseRule) {
-      return _processTypeDeduction(container, (SComplexTypeDeduction)deductionDefinition, (SFuseRule)rule, context);
-    } else if (deductionDefinition instanceof SComplexTypeDeduction
+      return _processTypeDeduction((ITypeContainer)container, (SComplexTypeDeduction)deductionDefinition, (SFuseRule)rule, context);
+    } else if (container instanceof ITypeContainer
+         && deductionDefinition instanceof SComplexTypeDeduction
          && rule instanceof SMorphRule) {
-      return _processTypeDeduction(container, (SComplexTypeDeduction)deductionDefinition, (SMorphRule)rule, context);
-    } else if (deductionDefinition instanceof SComplexTypeDeduction
+      return _processTypeDeduction((ITypeContainer)container, (SComplexTypeDeduction)deductionDefinition, (SMorphRule)rule, context);
+    } else if (container instanceof ITypeContainer
+         && deductionDefinition instanceof SComplexTypeDeduction
          && rule instanceof SGrabRule) {
-      return _processTypeDeduction(container, (SComplexTypeDeduction)deductionDefinition, (SGrabRule)rule, context);
-    } else if (deductionDefinition != null
+      return _processTypeDeduction((ITypeContainer)container, (SComplexTypeDeduction)deductionDefinition, (SGrabRule)rule, context);
+    } else if (container != null
+         && deductionDefinition != null
          && rule instanceof SDitchRule) {
       return _processTypeDeduction(container, deductionDefinition, (SDitchRule)rule, context);
-    } else if (deductionDefinition != null
+    } else if (container != null
+         && deductionDefinition != null
          && rule != null) {
       return _processTypeDeduction(container, deductionDefinition, rule, context);
     } else {

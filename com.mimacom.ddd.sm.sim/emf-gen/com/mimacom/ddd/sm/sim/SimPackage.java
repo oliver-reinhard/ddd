@@ -72,13 +72,22 @@ public interface SimPackage extends EPackage
 	int SINFORMATION_MODEL = 0;
 
 	/**
+	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINFORMATION_MODEL__TYPES = BasePackage.ITYPE_CONTAINER__TYPES;
+
+	/**
 	 * The feature id for the '<em><b>Generate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__GENERATE = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 0;
+	int SINFORMATION_MODEL__GENERATE = BasePackage.ITYPE_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -87,7 +96,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__KIND = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 1;
+	int SINFORMATION_MODEL__KIND = BasePackage.ITYPE_CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -96,7 +105,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__NAME = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 2;
+	int SINFORMATION_MODEL__NAME = BasePackage.ITYPE_CONTAINER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -105,7 +114,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__DESCRIPTION = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 3;
+	int SINFORMATION_MODEL__DESCRIPTION = BasePackage.ITYPE_CONTAINER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
@@ -114,7 +123,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__IMPORTS = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 4;
+	int SINFORMATION_MODEL__IMPORTS = BasePackage.ITYPE_CONTAINER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Queries</b></em>' containment reference list.
@@ -123,16 +132,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__QUERIES = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINFORMATION_MODEL__TYPES = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 6;
+	int SINFORMATION_MODEL__QUERIES = BasePackage.ITYPE_CONTAINER_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Aggregates</b></em>' containment reference list.
@@ -141,7 +141,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__AGGREGATES = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 7;
+	int SINFORMATION_MODEL__AGGREGATES = BasePackage.ITYPE_CONTAINER_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Domain Proxies</b></em>' containment reference list.
@@ -150,7 +150,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL__DOMAIN_PROXIES = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 8;
+	int SINFORMATION_MODEL__DOMAIN_PROXIES = BasePackage.ITYPE_CONTAINER_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>SInformation Model</em>' class.
@@ -159,7 +159,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL_FEATURE_COUNT = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 9;
+	int SINFORMATION_MODEL_FEATURE_COUNT = BasePackage.ITYPE_CONTAINER_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>SInformation Model</em>' class.
@@ -168,7 +168,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SINFORMATION_MODEL_OPERATION_COUNT = BasePackage.INAVIGABLE_MEMBER_CONTAINER_OPERATION_COUNT + 0;
+	int SINFORMATION_MODEL_OPERATION_COUNT = BasePackage.ITYPE_CONTAINER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SCoreQueryImpl <em>SCore Query</em>}' class.
@@ -373,6 +373,15 @@ public interface SimPackage extends EPackage
 	int SAGGREGATE_DEDUCTION = 4;
 
 	/**
+	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAGGREGATE_DEDUCTION__TYPES = BasePackage.DAGGREGATE__TYPES;
+
+	/**
 	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -398,15 +407,6 @@ public interface SimPackage extends EPackage
 	 * @ordered
 	 */
 	int SAGGREGATE_DEDUCTION__DESCRIPTION = BasePackage.DAGGREGATE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SAGGREGATE_DEDUCTION__TYPES = BasePackage.DAGGREGATE__TYPES;
 
 	/**
 	 * The feature id for the '<em><b>Roots</b></em>' reference list.
@@ -1982,13 +1982,13 @@ public interface SimPackage extends EPackage
 	int SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY = SRENAME_RULE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Entity</b></em>' attribute.
+	 * The feature id for the '<em><b>Detail</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SSTRUCTURE_CHANGING_RULE__ENTITY = SRENAME_RULE_FEATURE_COUNT + 2;
+	int SSTRUCTURE_CHANGING_RULE__DETAIL = SRENAME_RULE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Extend From</b></em>' reference.
@@ -2073,13 +2073,13 @@ public interface SimPackage extends EPackage
 	int SMORPH_RULE__ROOT_ENTITY = SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY;
 
 	/**
-	 * The feature id for the '<em><b>Entity</b></em>' attribute.
+	 * The feature id for the '<em><b>Detail</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SMORPH_RULE__ENTITY = SSTRUCTURE_CHANGING_RULE__ENTITY;
+	int SMORPH_RULE__DETAIL = SSTRUCTURE_CHANGING_RULE__DETAIL;
 
 	/**
 	 * The feature id for the '<em><b>Extend From</b></em>' reference.
@@ -2182,13 +2182,13 @@ public interface SimPackage extends EPackage
 	int SFUSE_RULE__ROOT_ENTITY = SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY;
 
 	/**
-	 * The feature id for the '<em><b>Entity</b></em>' attribute.
+	 * The feature id for the '<em><b>Detail</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SFUSE_RULE__ENTITY = SSTRUCTURE_CHANGING_RULE__ENTITY;
+	int SFUSE_RULE__DETAIL = SSTRUCTURE_CHANGING_RULE__DETAIL;
 
 	/**
 	 * The feature id for the '<em><b>Extend From</b></em>' reference.
@@ -2432,17 +2432,6 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 */
 	EReference getSInformationModel_Queries();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sim.SInformationModel#getTypes <em>Types</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Types</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SInformationModel#getTypes()
-	 * @see #getSInformationModel()
-	 * @generated
-	 */
-	EReference getSInformationModel_Types();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sim.SInformationModel#getAggregates <em>Aggregates</em>}'.
@@ -2743,15 +2732,15 @@ public interface SimPackage extends EPackage
 	EAttribute getSStructureChangingRule_RootEntity();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SStructureChangingRule#getEntity <em>Entity</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SStructureChangingRule#getDetail <em>Detail</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Entity</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SStructureChangingRule#getEntity()
+	 * @return the meta object for the attribute '<em>Detail</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SStructureChangingRule#getDetail()
 	 * @see #getSStructureChangingRule()
 	 * @generated
 	 */
-	EAttribute getSStructureChangingRule_Entity();
+	EAttribute getSStructureChangingRule_Detail();
 
 	/**
 	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SStructureChangingRule#getExtendFrom <em>Extend From</em>}'.
@@ -2960,14 +2949,6 @@ public interface SimPackage extends EPackage
 		 * @generated
 		 */
 		EReference SINFORMATION_MODEL__QUERIES = eINSTANCE.getSInformationModel_Queries();
-
-		/**
-		 * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SINFORMATION_MODEL__TYPES = eINSTANCE.getSInformationModel_Types();
 
 		/**
 		 * The meta object literal for the '<em><b>Aggregates</b></em>' containment reference list feature.
@@ -3242,12 +3223,12 @@ public interface SimPackage extends EPackage
 		EAttribute SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY = eINSTANCE.getSStructureChangingRule_RootEntity();
 
 		/**
-		 * The meta object literal for the '<em><b>Entity</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Detail</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SSTRUCTURE_CHANGING_RULE__ENTITY = eINSTANCE.getSStructureChangingRule_Entity();
+		EAttribute SSTRUCTURE_CHANGING_RULE__DETAIL = eINSTANCE.getSStructureChangingRule_Detail();
 
 		/**
 		 * The meta object literal for the '<em><b>Extend From</b></em>' reference feature.

@@ -14,7 +14,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.DAggregate#getDescription <em>Description</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.DAggregate#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DAggregate#getRoots <em>Roots</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DAggregate#getDerivedName <em>Derived Name</em>}</li>
  * </ul>
@@ -23,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DAggregate extends IDeducibleElement
+public interface DAggregate extends ITypeContainer, IDeducibleElement
 {
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
@@ -46,18 +45,6 @@ public interface DAggregate extends IDeducibleElement
 	 * @generated
 	 */
 	void setDescription(DRichText value);
-
-	/**
-	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Types</em>' containment reference list.
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDAggregate_Types()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<DType> getTypes();
 
 	/**
 	 * Returns the value of the '<em><b>Roots</b></em>' reference list.

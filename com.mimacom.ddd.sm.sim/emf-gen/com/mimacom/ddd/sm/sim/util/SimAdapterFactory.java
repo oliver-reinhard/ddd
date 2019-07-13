@@ -26,6 +26,7 @@ import com.mimacom.ddd.dm.base.IIdentityType;
 import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
+import com.mimacom.ddd.dm.base.ITypeContainer;
 import com.mimacom.ddd.dm.base.IValueType;
 
 import com.mimacom.ddd.sm.sim.*;
@@ -229,6 +230,11 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseINamespace(INamespace object)
 			{
 				return createINamespaceAdapter();
+			}
+			@Override
+			public Adapter caseITypeContainer(ITypeContainer object)
+			{
+				return createITypeContainerAdapter();
 			}
 			@Override
 			public Adapter caseINavigableMemberContainer(INavigableMemberContainer object)
@@ -758,6 +764,21 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createINamespaceAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.ITypeContainer <em>IType Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.ITypeContainer
+	 * @generated
+	 */
+	public Adapter createITypeContainerAdapter()
 	{
 		return null;
 	}

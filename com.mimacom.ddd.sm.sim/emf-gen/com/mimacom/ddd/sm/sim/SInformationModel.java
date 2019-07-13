@@ -5,8 +5,8 @@ package com.mimacom.ddd.sm.sim;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DRichText;
-import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.ITypeContainer;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -25,7 +25,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getDescription <em>Description</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getQueries <em>Queries</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getAggregates <em>Aggregates</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SInformationModel#getDomainProxies <em>Domain Proxies</em>}</li>
  * </ul>
@@ -34,7 +33,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface SInformationModel extends INavigableMemberContainer
+public interface SInformationModel extends ITypeContainer, INavigableMemberContainer
 {
 	/**
 	 * Returns the value of the '<em><b>Generate</b></em>' attribute.
@@ -150,18 +149,6 @@ public interface SInformationModel extends INavigableMemberContainer
 	 * @generated
 	 */
 	EList<SCoreQuery> getQueries();
-
-	/**
-	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Types</em>' containment reference list.
-	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSInformationModel_Types()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<DType> getTypes();
 
 	/**
 	 * Returns the value of the '<em><b>Aggregates</b></em>' containment reference list.

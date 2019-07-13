@@ -7,6 +7,7 @@ import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.base.IDeducibleElement
+import com.mimacom.ddd.dm.base.ITypeContainer
 import com.mimacom.ddd.sm.sim.SAggregateDeduction
 import com.mimacom.ddd.sm.sim.SComplexTypeDeduction
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule
@@ -17,6 +18,7 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.xtext.resource.DerivedStateAwareResource
 import org.eclipse.xtext.resource.IDerivedStateComputer
+import com.mimacom.ddd.sm.sim.SInformationModelKind
 
 class SimDerivedStateComputer implements IDerivedStateComputer {
 	
@@ -77,23 +79,25 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 	}
 	
 	def  void processAggregate(SInformationModel model, DAggregate dAggregate, TransformationContext context) {
-		var current = dAggregate
+		var ITypeContainer syntheticTypesContainer = if (model.kind == SInformationModelKind.CORE) dAggregate else model
 		val complexSyntheticTypesAcceptor = Lists.newArrayList
-		if (current instanceof SAggregateDeduction) {
-			val deductionDefinition = current
+		if (dAggregate instanceof SAggregateDeduction) {
+			val deductionDefinition = dAggregate
 			if (deductionDefinition.deductionRule instanceof SGrabAggregateRule) {
 				var source = deductionDefinition.deductionRule.source as EObject
 				if (source instanceof DEntityType) { // aggregates don't have a name and cannot be linked to => source = root
 					source = source.eContainer // => should be a DAggregate
 				}
 				if (source instanceof DAggregate) {
-					current = model.addSyntheticAggregate(deductionDefinition, context)
-					current.addImplicitSyntheticTypes(deductionDefinition, source, complexSyntheticTypesAcceptor, context) // adds types but not features of complex types
+					if (model.kind == SInformationModelKind.CORE) {
+						syntheticTypesContainer = model.addSyntheticAggregate(deductionDefinition, context)
+					}
+					syntheticTypesContainer.addImplicitSyntheticTypes(deductionDefinition, source, complexSyntheticTypesAcceptor, context) // adds types but not features of complex types
 				}
 			}
 		}
 			
-		current.addSyntheticTypes(dAggregate, complexSyntheticTypesAcceptor, context)
+		syntheticTypesContainer.addSyntheticTypes(dAggregate, complexSyntheticTypesAcceptor, context)
 		
 		// Now add the features to the new synthetic types:
 		for (desc : complexSyntheticTypesAcceptor) {

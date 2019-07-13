@@ -7,6 +7,7 @@ import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DDeductionRule;
+import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
@@ -20,9 +21,11 @@ import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
 import com.mimacom.ddd.dm.base.IIdentityType;
+import com.mimacom.ddd.dm.base.ITypeContainer;
 import com.mimacom.ddd.sm.sim.SGrabRule;
 import com.mimacom.ddd.sm.sim.SImplicitElementDeduction;
 import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SInformationModelKind;
 import com.mimacom.ddd.sm.sim.SMorphRule;
 import com.mimacom.ddd.sm.sim.SStructureChangingRule;
 import com.mimacom.ddd.sm.sim.STristate;
@@ -30,7 +33,7 @@ import com.mimacom.ddd.sm.sim.SimFactory;
 import com.mimacom.ddd.sm.sim.derivedState.TransformationContext;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.EcoreUtil2;
 
 @SuppressWarnings("all")
 public class SyntheticModelElementsFactory {
@@ -45,62 +48,43 @@ public class SyntheticModelElementsFactory {
     return syntheticAggregate;
   }
   
-  protected DPrimitive _addSyntheticType(final EObject container, final String name, final DPrimitive source, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
+  protected DPrimitive _addSyntheticType(final ITypeContainer container, final String name, final DPrimitive source, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
     final DPrimitive syntheticPrimitive = SyntheticModelElementsFactory.BASE.createDPrimitive();
     this.initSyntheticType(syntheticPrimitive, container, name, source, deductionDefinition, context);
     syntheticPrimitive.setRedefines(source.getRedefines());
     return syntheticPrimitive;
   }
   
-  protected DEnumeration _addSyntheticType(final EObject container, final String name, final DEnumeration source, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
+  protected DEnumeration _addSyntheticType(final ITypeContainer container, final String name, final DEnumeration source, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
     final DEnumeration syntheticEnumeration = SyntheticModelElementsFactory.BASE.createDEnumeration();
     this.initSyntheticType(syntheticEnumeration, container, name, source, deductionDefinition, context);
     return syntheticEnumeration;
   }
   
-  protected DComplexType _addSyntheticType(final EObject container, final String name, final DComplexType source, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
+  protected DComplexType _addSyntheticType(final ITypeContainer container, final String name, final DComplexType source, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
+    SInformationModelKind _kind = EcoreUtil2.<SInformationModel>getContainerOfType(container, SInformationModel.class).getKind();
+    final boolean isCoreModel = Objects.equal(_kind, SInformationModelKind.CORE);
     DComplexType _xifexpression = null;
-    boolean _makeEntity = this.makeEntity(deductionDefinition.getDeductionRule(), source);
-    if (_makeEntity) {
-      _xifexpression = SyntheticModelElementsFactory.BASE.createDEntityType();
-    } else {
+    if (((!isCoreModel) || this.makeDetailType(deductionDefinition.getDeductionRule(), source))) {
       _xifexpression = SyntheticModelElementsFactory.BASE.createDDetailType();
+    } else {
+      _xifexpression = SyntheticModelElementsFactory.BASE.createDEntityType();
     }
     final DComplexType syntheticComplexType = _xifexpression;
     this.initSyntheticType(syntheticComplexType, container, name, source, deductionDefinition, context);
     syntheticComplexType.setAbstract(this.makeAbstract(deductionDefinition.getDeductionRule(), source));
     if ((syntheticComplexType instanceof DEntityType)) {
-      ((DEntityType)syntheticComplexType).setRoot(this.makeRoot(deductionDefinition.getDeductionRule(), ((DIdentityType) source)));
+      ((DEntityType)syntheticComplexType).setRoot(this.makeRoot(deductionDefinition.getDeductionRule(), source));
     }
-    boolean _matched = false;
-    if (container instanceof DAggregate) {
-      _matched=true;
-      ((DAggregate)container).getTypes().add(syntheticComplexType);
-    }
-    if (!_matched) {
-      if (container instanceof SInformationModel) {
-        _matched=true;
-        ((SInformationModel)container).getTypes().add(syntheticComplexType);
-      }
-    }
+    container.getTypes().add(syntheticComplexType);
     return syntheticComplexType;
   }
   
-  protected void initSyntheticType(final DType syntheticType, final EObject container, final String name, final DType source, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
+  protected void initSyntheticType(final DType syntheticType, final ITypeContainer container, final String name, final DType source, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
     syntheticType.setName(name);
     syntheticType.setSynthetic(true);
     syntheticType.setDeducedFrom(deductionDefinition);
-    boolean _matched = false;
-    if (container instanceof DAggregate) {
-      _matched=true;
-      ((DAggregate)container).getTypes().add(syntheticType);
-    }
-    if (!_matched) {
-      if (container instanceof SInformationModel) {
-        _matched=true;
-        ((SInformationModel)container).getTypes().add(syntheticType);
-      }
-    }
+    container.getTypes().add(syntheticType);
     context.putSystemType(source, syntheticType);
   }
   
@@ -230,32 +214,32 @@ public class SyntheticModelElementsFactory {
     return source.isAbstract();
   }
   
-  protected boolean _makeRoot(final SStructureChangingRule r, final DIdentityType source) {
+  protected boolean _makeRoot(final SStructureChangingRule r, final DComplexType source) {
     STristate _rootEntity = r.getRootEntity();
     boolean _equals = Objects.equal(_rootEntity, STristate.DONT_CARE);
     if (_equals) {
-      return source.isRoot();
+      return ((source instanceof DIdentityType) && ((DIdentityType) source).isRoot());
     }
     STristate _rootEntity_1 = r.getRootEntity();
     return Objects.equal(_rootEntity_1, STristate.TRUE);
   }
   
-  protected boolean _makeRoot(final DDeductionRule r, final DIdentityType source) {
-    return source.isRoot();
+  protected boolean _makeRoot(final DDeductionRule r, final DComplexType source) {
+    return ((source instanceof DIdentityType) && ((DIdentityType) source).isRoot());
   }
   
-  protected boolean _makeEntity(final SMorphRule r, final DComplexType source) {
-    STristate _entity = r.getEntity();
-    boolean _equals = Objects.equal(_entity, STristate.DONT_CARE);
+  protected boolean _makeDetailType(final SMorphRule r, final DComplexType source) {
+    STristate _detail = r.getDetail();
+    boolean _equals = Objects.equal(_detail, STristate.DONT_CARE);
     if (_equals) {
       return (source instanceof DEntityType);
     }
-    STristate _entity_1 = r.getEntity();
-    return Objects.equal(_entity_1, STristate.TRUE);
+    STristate _detail_1 = r.getDetail();
+    return Objects.equal(_detail_1, STristate.TRUE);
   }
   
-  protected boolean _makeEntity(final DDeductionRule r, final DComplexType source) {
-    return (source instanceof DEntityType);
+  protected boolean _makeDetailType(final DDeductionRule r, final DComplexType source) {
+    return (source instanceof DDetailType);
   }
   
   public SImplicitElementDeduction createImplicitElementCopyDeduction(final IDeductionDefinition originalDeductionDefinition, final IDeducibleElement source) {
@@ -267,7 +251,7 @@ public class SyntheticModelElementsFactory {
     return implicitDeduction;
   }
   
-  public DType addSyntheticType(final EObject container, final String name, final DType source, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
+  public DType addSyntheticType(final ITypeContainer container, final String name, final DType source, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
     if (source instanceof DEnumeration) {
       return _addSyntheticType(container, name, (DEnumeration)source, deductionDefinition, context);
     } else if (source instanceof DPrimitive) {
@@ -291,7 +275,7 @@ public class SyntheticModelElementsFactory {
     }
   }
   
-  protected boolean makeRoot(final DDeductionRule r, final DIdentityType source) {
+  protected boolean makeRoot(final DDeductionRule r, final DComplexType source) {
     if (r instanceof SStructureChangingRule) {
       return _makeRoot((SStructureChangingRule)r, source);
     } else if (r != null) {
@@ -302,11 +286,11 @@ public class SyntheticModelElementsFactory {
     }
   }
   
-  protected boolean makeEntity(final DDeductionRule r, final DComplexType source) {
+  protected boolean makeDetailType(final DDeductionRule r, final DComplexType source) {
     if (r instanceof SMorphRule) {
-      return _makeEntity((SMorphRule)r, source);
+      return _makeDetailType((SMorphRule)r, source);
     } else if (r != null) {
-      return _makeEntity(r, source);
+      return _makeDetailType(r, source);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(r, source).toString());

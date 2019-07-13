@@ -37,13 +37,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#isGenerate <em>Generate</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getQueries <em>Queries</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getAggregates <em>Aggregates</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SInformationModelImpl#getDomainProxies <em>Domain Proxies</em>}</li>
  * </ul>
@@ -52,6 +52,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class SInformationModelImpl extends MinimalEObjectImpl.Container implements SInformationModel
 {
+	/**
+	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DType> types;
+
 	/**
 	 * The default value of the '{@link #isGenerate() <em>Generate</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -143,16 +153,6 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	protected EList<SCoreQuery> queries;
 
 	/**
-	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTypes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DType> types;
-
-	/**
 	 * The cached value of the '{@link #getAggregates() <em>Aggregates</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -191,6 +191,21 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	protected EClass eStaticClass()
 	{
 		return SimPackage.Literals.SINFORMATION_MODEL;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<DType> getTypes()
+	{
+		if (types == null)
+		{
+			types = new EObjectContainmentEList<DType>(DType.class, this, SimPackage.SINFORMATION_MODEL__TYPES);
+		}
+		return types;
 	}
 
 	/**
@@ -354,21 +369,6 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public EList<DType> getTypes()
-	{
-		if (types == null)
-		{
-			types = new EObjectContainmentEList<DType>(DType.class, this, SimPackage.SINFORMATION_MODEL__TYPES);
-		}
-		return types;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<DAggregate> getAggregates()
 	{
 		if (aggregates == null)
@@ -403,14 +403,14 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	{
 		switch (featureID)
 		{
+			case SimPackage.SINFORMATION_MODEL__TYPES:
+				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
 			case SimPackage.SINFORMATION_MODEL__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case SimPackage.SINFORMATION_MODEL__IMPORTS:
 				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
 			case SimPackage.SINFORMATION_MODEL__QUERIES:
 				return ((InternalEList<?>)getQueries()).basicRemove(otherEnd, msgs);
-			case SimPackage.SINFORMATION_MODEL__TYPES:
-				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
 			case SimPackage.SINFORMATION_MODEL__AGGREGATES:
 				return ((InternalEList<?>)getAggregates()).basicRemove(otherEnd, msgs);
 			case SimPackage.SINFORMATION_MODEL__DOMAIN_PROXIES:
@@ -429,6 +429,8 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	{
 		switch (featureID)
 		{
+			case SimPackage.SINFORMATION_MODEL__TYPES:
+				return getTypes();
 			case SimPackage.SINFORMATION_MODEL__GENERATE:
 				return isGenerate();
 			case SimPackage.SINFORMATION_MODEL__KIND:
@@ -441,8 +443,6 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 				return getImports();
 			case SimPackage.SINFORMATION_MODEL__QUERIES:
 				return getQueries();
-			case SimPackage.SINFORMATION_MODEL__TYPES:
-				return getTypes();
 			case SimPackage.SINFORMATION_MODEL__AGGREGATES:
 				return getAggregates();
 			case SimPackage.SINFORMATION_MODEL__DOMAIN_PROXIES:
@@ -462,6 +462,10 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	{
 		switch (featureID)
 		{
+			case SimPackage.SINFORMATION_MODEL__TYPES:
+				getTypes().clear();
+				getTypes().addAll((Collection<? extends DType>)newValue);
+				return;
 			case SimPackage.SINFORMATION_MODEL__GENERATE:
 				setGenerate((Boolean)newValue);
 				return;
@@ -481,10 +485,6 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 			case SimPackage.SINFORMATION_MODEL__QUERIES:
 				getQueries().clear();
 				getQueries().addAll((Collection<? extends SCoreQuery>)newValue);
-				return;
-			case SimPackage.SINFORMATION_MODEL__TYPES:
-				getTypes().clear();
-				getTypes().addAll((Collection<? extends DType>)newValue);
 				return;
 			case SimPackage.SINFORMATION_MODEL__AGGREGATES:
 				getAggregates().clear();
@@ -508,6 +508,9 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	{
 		switch (featureID)
 		{
+			case SimPackage.SINFORMATION_MODEL__TYPES:
+				getTypes().clear();
+				return;
 			case SimPackage.SINFORMATION_MODEL__GENERATE:
 				setGenerate(GENERATE_EDEFAULT);
 				return;
@@ -525,9 +528,6 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 				return;
 			case SimPackage.SINFORMATION_MODEL__QUERIES:
 				getQueries().clear();
-				return;
-			case SimPackage.SINFORMATION_MODEL__TYPES:
-				getTypes().clear();
 				return;
 			case SimPackage.SINFORMATION_MODEL__AGGREGATES:
 				getAggregates().clear();
@@ -549,6 +549,8 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 	{
 		switch (featureID)
 		{
+			case SimPackage.SINFORMATION_MODEL__TYPES:
+				return types != null && !types.isEmpty();
 			case SimPackage.SINFORMATION_MODEL__GENERATE:
 				return generate != GENERATE_EDEFAULT;
 			case SimPackage.SINFORMATION_MODEL__KIND:
@@ -561,8 +563,6 @@ public class SInformationModelImpl extends MinimalEObjectImpl.Container implemen
 				return imports != null && !imports.isEmpty();
 			case SimPackage.SINFORMATION_MODEL__QUERIES:
 				return queries != null && !queries.isEmpty();
-			case SimPackage.SINFORMATION_MODEL__TYPES:
-				return types != null && !types.isEmpty();
 			case SimPackage.SINFORMATION_MODEL__AGGREGATES:
 				return aggregates != null && !aggregates.isEmpty();
 			case SimPackage.SINFORMATION_MODEL__DOMAIN_PROXIES:

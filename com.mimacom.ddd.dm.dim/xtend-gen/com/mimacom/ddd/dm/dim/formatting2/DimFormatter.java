@@ -168,6 +168,9 @@ public class DimFormatter extends DmxFormatter {
     } else if (en instanceof DComplexType) {
       _format((DComplexType)en, document);
       return;
+    } else if (en instanceof DAggregate) {
+      _format((DAggregate)en, document);
+      return;
     } else if (en instanceof DDomain) {
       _format((DDomain)en, document);
       return;
@@ -179,9 +182,6 @@ public class DimFormatter extends DmxFormatter {
       return;
     } else if (en instanceof XtextResource) {
       _format((XtextResource)en, document);
-      return;
-    } else if (en instanceof DAggregate) {
-      _format((DAggregate)en, document);
       return;
     } else if (en instanceof DmxModel) {
       _format((DmxModel)en, document);

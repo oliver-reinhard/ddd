@@ -26,6 +26,7 @@ import com.mimacom.ddd.dm.base.IIdentityType;
 import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
+import com.mimacom.ddd.dm.base.ITypeContainer;
 import com.mimacom.ddd.dm.base.IValueType;
 
 import com.mimacom.ddd.sm.sim.*;
@@ -102,6 +103,7 @@ public class SimSwitch<T> extends Switch<T>
 			{
 				SInformationModel sInformationModel = (SInformationModel)theEObject;
 				T result = caseSInformationModel(sInformationModel);
+				if (result == null) result = caseITypeContainer(sInformationModel);
 				if (result == null) result = caseINavigableMemberContainer(sInformationModel);
 				if (result == null) result = caseINamespace(sInformationModel);
 				if (result == null) result = defaultCase(theEObject);
@@ -140,7 +142,9 @@ public class SimSwitch<T> extends Switch<T>
 				T result = caseSAggregateDeduction(sAggregateDeduction);
 				if (result == null) result = caseDAggregate(sAggregateDeduction);
 				if (result == null) result = caseIDeductionDefinition(sAggregateDeduction);
+				if (result == null) result = caseITypeContainer(sAggregateDeduction);
 				if (result == null) result = caseIDeducibleElement(sAggregateDeduction);
+				if (result == null) result = caseINamespace(sAggregateDeduction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -798,6 +802,22 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseINamespace(INamespace object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IType Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IType Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseITypeContainer(ITypeContainer object)
 	{
 		return null;
 	}

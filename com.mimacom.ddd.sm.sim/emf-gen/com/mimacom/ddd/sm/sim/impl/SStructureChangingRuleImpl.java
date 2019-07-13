@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SStructureChangingRuleImpl#getAbstract <em>Abstract</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SStructureChangingRuleImpl#getRootEntity <em>Root Entity</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sim.impl.SStructureChangingRuleImpl#getEntity <em>Entity</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SStructureChangingRuleImpl#getDetail <em>Detail</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SStructureChangingRuleImpl#getExtendFrom <em>Extend From</em>}</li>
  * </ul>
  *
@@ -74,24 +74,24 @@ public abstract class SStructureChangingRuleImpl extends SRenameRuleImpl impleme
 	protected STristate rootEntity = ROOT_ENTITY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getEntity() <em>Entity</em>}' attribute.
+	 * The default value of the '{@link #getDetail() <em>Detail</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEntity()
+	 * @see #getDetail()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final STristate ENTITY_EDEFAULT = STristate.DONT_CARE;
+	protected static final STristate DETAIL_EDEFAULT = STristate.DONT_CARE;
 
 	/**
-	 * The cached value of the '{@link #getEntity() <em>Entity</em>}' attribute.
+	 * The cached value of the '{@link #getDetail() <em>Detail</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEntity()
+	 * @see #getDetail()
 	 * @generated
 	 * @ordered
 	 */
-	protected STristate entity = ENTITY_EDEFAULT;
+	protected STristate detail = DETAIL_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getExtendFrom() <em>Extend From</em>}' reference.
@@ -180,9 +180,9 @@ public abstract class SStructureChangingRuleImpl extends SRenameRuleImpl impleme
 	 * @generated
 	 */
 	@Override
-	public STristate getEntity()
+	public STristate getDetail()
 	{
-		return entity;
+		return detail;
 	}
 
 	/**
@@ -191,12 +191,12 @@ public abstract class SStructureChangingRuleImpl extends SRenameRuleImpl impleme
 	 * @generated
 	 */
 	@Override
-	public void setEntity(STristate newEntity)
+	public void setDetail(STristate newDetail)
 	{
-		STristate oldEntity = entity;
-		entity = newEntity == null ? ENTITY_EDEFAULT : newEntity;
+		STristate oldDetail = detail;
+		detail = newDetail == null ? DETAIL_EDEFAULT : newDetail;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SSTRUCTURE_CHANGING_RULE__ENTITY, oldEntity, entity));
+			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SSTRUCTURE_CHANGING_RULE__DETAIL, oldDetail, detail));
 	}
 
 	/**
@@ -258,8 +258,8 @@ public abstract class SStructureChangingRuleImpl extends SRenameRuleImpl impleme
 				return getAbstract();
 			case SimPackage.SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY:
 				return getRootEntity();
-			case SimPackage.SSTRUCTURE_CHANGING_RULE__ENTITY:
-				return getEntity();
+			case SimPackage.SSTRUCTURE_CHANGING_RULE__DETAIL:
+				return getDetail();
 			case SimPackage.SSTRUCTURE_CHANGING_RULE__EXTEND_FROM:
 				if (resolve) return getExtendFrom();
 				return basicGetExtendFrom();
@@ -283,8 +283,8 @@ public abstract class SStructureChangingRuleImpl extends SRenameRuleImpl impleme
 			case SimPackage.SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY:
 				setRootEntity((STristate)newValue);
 				return;
-			case SimPackage.SSTRUCTURE_CHANGING_RULE__ENTITY:
-				setEntity((STristate)newValue);
+			case SimPackage.SSTRUCTURE_CHANGING_RULE__DETAIL:
+				setDetail((STristate)newValue);
 				return;
 			case SimPackage.SSTRUCTURE_CHANGING_RULE__EXTEND_FROM:
 				setExtendFrom((DType)newValue);
@@ -309,8 +309,8 @@ public abstract class SStructureChangingRuleImpl extends SRenameRuleImpl impleme
 			case SimPackage.SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY:
 				setRootEntity(ROOT_ENTITY_EDEFAULT);
 				return;
-			case SimPackage.SSTRUCTURE_CHANGING_RULE__ENTITY:
-				setEntity(ENTITY_EDEFAULT);
+			case SimPackage.SSTRUCTURE_CHANGING_RULE__DETAIL:
+				setDetail(DETAIL_EDEFAULT);
 				return;
 			case SimPackage.SSTRUCTURE_CHANGING_RULE__EXTEND_FROM:
 				setExtendFrom((DType)null);
@@ -333,8 +333,8 @@ public abstract class SStructureChangingRuleImpl extends SRenameRuleImpl impleme
 				return abstract_ != ABSTRACT_EDEFAULT;
 			case SimPackage.SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY:
 				return rootEntity != ROOT_ENTITY_EDEFAULT;
-			case SimPackage.SSTRUCTURE_CHANGING_RULE__ENTITY:
-				return entity != ENTITY_EDEFAULT;
+			case SimPackage.SSTRUCTURE_CHANGING_RULE__DETAIL:
+				return detail != DETAIL_EDEFAULT;
 			case SimPackage.SSTRUCTURE_CHANGING_RULE__EXTEND_FROM:
 				return extendFrom != null;
 		}
@@ -356,8 +356,8 @@ public abstract class SStructureChangingRuleImpl extends SRenameRuleImpl impleme
 		result.append(abstract_);
 		result.append(", rootEntity: ");
 		result.append(rootEntity);
-		result.append(", entity: ");
-		result.append(entity);
+		result.append(", detail: ");
+		result.append(detail);
 		result.append(')');
 		return result.toString();
 	}

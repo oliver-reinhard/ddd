@@ -15,6 +15,7 @@ import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.IDeductionDefinition;
 import com.mimacom.ddd.sm.sim.SAggregateDeduction;
 import com.mimacom.ddd.sm.sim.SAssociationDeduction;
 import com.mimacom.ddd.sm.sim.SAttributeDeduction;
@@ -73,13 +74,16 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
       return _xifexpression;
     };
     final SInformationModel model = document.<SInformationModel>readOnly(_function);
-    if (((model != null) && (!(model.getTypes().isEmpty() && model.getAggregates().isEmpty())))) {
-      return this.modelTypes(model);
-    } else {
+    if (((model == null) || (IterableExtensions.isEmpty(IterableExtensions.<DType>filter(model.getTypes(), ((Function1<DType, Boolean>) (DType it) -> {
+      return Boolean.valueOf((!(it instanceof IDeductionDefinition)));
+    }))) && IterableExtensions.isEmpty(IterableExtensions.<DAggregate>filter(model.getAggregates(), ((Function1<DAggregate, Boolean>) (DAggregate it) -> {
+      return Boolean.valueOf((!(it instanceof IDeductionDefinition)));
+    })))))) {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("note \"No structures to show.\" as N1");
       return _builder.toString();
     }
+    return this.modelTypes(model);
   }
   
   public String modelTypes(final SInformationModel model) {
@@ -265,11 +269,8 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
       }
     }
     _builder.append("class ");
-    String _aggregateName = this.aggregateName(c);
-    _builder.append(_aggregateName);
-    _builder.append(".");
-    String _name = c.getName();
-    _builder.append(_name);
+    CharSequence _qualifiedlName = this.qualifiedlName(c);
+    _builder.append(_qualifiedlName);
     _builder.append(" ");
     String _spot = this.getSpot(c);
     _builder.append(_spot);
@@ -473,17 +474,14 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
   
   public CharSequence generateLink(final String sourceArrowhead, final DType source, final DType target, final String targetRole, final String targetArrowhead) {
     StringConcatenation _builder = new StringConcatenation();
-    String _aggregateName = this.aggregateName(source);
-    _builder.append(_aggregateName);
-    _builder.append(".");
-    String _name = source.getName();
-    _builder.append(_name);
+    CharSequence _qualifiedlName = this.qualifiedlName(source);
+    _builder.append(_qualifiedlName);
     _builder.append(" ");
     _builder.append(sourceArrowhead);
     _builder.append("--");
     _builder.append(targetArrowhead);
     _builder.append(" ");
-    String _targetName = this.getTargetName(source, target);
+    CharSequence _targetName = this.targetName(source, target);
     _builder.append(_targetName);
     _builder.append(" : ");
     _builder.append(targetRole);
@@ -491,7 +489,21 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     return _builder;
   }
   
-  public String getTargetName(final DType source, final DType target) {
+  public CharSequence qualifiedlName(final DType t) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _xifexpression = null;
+    EObject _eContainer = t.eContainer();
+    if ((_eContainer instanceof DAggregate)) {
+      _xifexpression = this.aggregateName(t);
+    }
+    _builder.append(_xifexpression);
+    _builder.append(".");
+    String _name = t.getName();
+    _builder.append(_name);
+    return _builder;
+  }
+  
+  public CharSequence targetName(final DType source, final DType target) {
     String _modelName = this.modelName(source);
     String _modelName_1 = this.modelName(target);
     boolean _equals = Objects.equal(_modelName, _modelName_1);
@@ -500,10 +512,7 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
       String _aggregateName_1 = this.aggregateName(target);
       boolean _equals_1 = Objects.equal(_aggregateName, _aggregateName_1);
       if (_equals_1) {
-        String _aggregateName_2 = this.aggregateName(target);
-        String _plus = (_aggregateName_2 + ".");
-        String _name = target.getName();
-        return (_plus + _name);
+        return this.qualifiedlName(target);
       }
       return this.aggregateName(target);
     }

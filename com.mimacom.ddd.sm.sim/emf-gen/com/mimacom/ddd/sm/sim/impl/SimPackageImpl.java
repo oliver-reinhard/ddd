@@ -389,7 +389,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSInformationModel_Types()
+	public EReference getSInformationModel_Aggregates()
 	{
 		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(6);
 	}
@@ -400,20 +400,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSInformationModel_Aggregates()
-	{
-		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getSInformationModel_DomainProxies()
 	{
-		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(8);
+		return (EReference)sInformationModelEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -719,7 +708,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSStructureChangingRule_Entity()
+	public EAttribute getSStructureChangingRule_Detail()
 	{
 		return (EAttribute)sStructureChangingRuleEClass.getEStructuralFeatures().get(2);
 	}
@@ -894,7 +883,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__DESCRIPTION);
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__IMPORTS);
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__QUERIES);
-		createEReference(sInformationModelEClass, SINFORMATION_MODEL__TYPES);
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__AGGREGATES);
 		createEReference(sInformationModelEClass, SINFORMATION_MODEL__DOMAIN_PROXIES);
 
@@ -944,7 +932,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		sStructureChangingRuleEClass = createEClass(SSTRUCTURE_CHANGING_RULE);
 		createEAttribute(sStructureChangingRuleEClass, SSTRUCTURE_CHANGING_RULE__ABSTRACT);
 		createEAttribute(sStructureChangingRuleEClass, SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY);
-		createEAttribute(sStructureChangingRuleEClass, SSTRUCTURE_CHANGING_RULE__ENTITY);
+		createEAttribute(sStructureChangingRuleEClass, SSTRUCTURE_CHANGING_RULE__DETAIL);
 		createEReference(sStructureChangingRuleEClass, SSTRUCTURE_CHANGING_RULE__EXTEND_FROM);
 
 		sMorphRuleEClass = createEClass(SMORPH_RULE);
@@ -997,6 +985,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		sInformationModelEClass.getESuperTypes().add(theBasePackage.getITypeContainer());
 		sInformationModelEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
 		sCoreQueryEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
 		sCoreQueryEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
@@ -1043,7 +1032,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		initEReference(getSInformationModel_Description(), theBasePackage.getDRichText(), null, "description", null, 0, 1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSInformationModel_Imports(), theBasePackage.getDImport(), null, "imports", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSInformationModel_Queries(), this.getSCoreQuery(), null, "queries", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSInformationModel_Types(), theBasePackage.getDType(), null, "types", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSInformationModel_Aggregates(), theBasePackage.getDAggregate(), null, "aggregates", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSInformationModel_DomainProxies(), this.getSDomainDeduction(), null, "domainProxies", null, 0, -1, SInformationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1094,7 +1082,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		initEClass(sStructureChangingRuleEClass, SStructureChangingRule.class, "SStructureChangingRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSStructureChangingRule_Abstract(), this.getSTristate(), "abstract", null, 0, 1, SStructureChangingRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSStructureChangingRule_RootEntity(), this.getSTristate(), "rootEntity", null, 0, 1, SStructureChangingRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSStructureChangingRule_Entity(), this.getSTristate(), "entity", null, 0, 1, SStructureChangingRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSStructureChangingRule_Detail(), this.getSTristate(), "detail", null, 0, 1, SStructureChangingRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSStructureChangingRule_ExtendFrom(), theBasePackage.getDType(), null, "extendFrom", null, 0, 1, SStructureChangingRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sMorphRuleEClass, SMorphRule.class, "SMorphRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

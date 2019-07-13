@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sim" nsURI="http://www.mimacom.com/ddd/sm/sim" nsPrefix="sim">
-  <eClassifiers xsi:type="ecore:EClass" name="SInformationModel" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//INavigableMemberContainer">
+  <eClassifiers xsi:type="ecore:EClass" name="SInformationModel" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//ITypeContainer ../../com.mimacom.ddd.dm.base/model/base.ecore#//INavigableMemberContainer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="generate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//SInformationModelKind"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -12,9 +12,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="queries" upperBound="-1"
         eType="#//SCoreQuery" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
-        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DType"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregates" upperBound="-1"
         eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DAggregate"
         containment="true"/>
@@ -66,7 +63,7 @@
       eSuperTypes="#//SRenameRule">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" eType="#//STristate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootEntity" eType="#//STristate"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="entity" eType="#//STristate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="detail" eType="#//STristate"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extendFrom" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SMorphRule" eSuperTypes="#//SStructureChangingRule">

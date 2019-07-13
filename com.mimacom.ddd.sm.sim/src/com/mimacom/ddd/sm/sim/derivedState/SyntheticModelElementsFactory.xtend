@@ -6,6 +6,7 @@ import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DDeductionRule
+import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DFeature
@@ -18,13 +19,15 @@ import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.base.IDeducibleElement
 import com.mimacom.ddd.dm.base.IDeductionDefinition
 import com.mimacom.ddd.dm.base.IIdentityType
+import com.mimacom.ddd.dm.base.ITypeContainer
 import com.mimacom.ddd.sm.sim.SImplicitElementDeduction
 import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.SMorphRule
 import com.mimacom.ddd.sm.sim.SStructureChangingRule
 import com.mimacom.ddd.sm.sim.STristate
 import com.mimacom.ddd.sm.sim.SimFactory
-import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.EcoreUtil2
+import com.mimacom.ddd.sm.sim.SInformationModelKind
 
 class SyntheticModelElementsFactory {
 	
@@ -38,46 +41,40 @@ class SyntheticModelElementsFactory {
 		return syntheticAggregate
 	}
 	
-	def dispatch DPrimitive addSyntheticType(EObject container, String name, DPrimitive source /*dispatch*/, IDeductionDefinition deductionDefinition, TransformationContext context)  {
+	def dispatch DPrimitive addSyntheticType(ITypeContainer container, String name, DPrimitive source /*dispatch*/, IDeductionDefinition deductionDefinition, TransformationContext context)  {
 		val syntheticPrimitive = BASE.createDPrimitive
 		syntheticPrimitive.initSyntheticType(container, name, source, deductionDefinition, context)
 		syntheticPrimitive.redefines = source.redefines
 		return syntheticPrimitive
 	}
 	
-	def dispatch DEnumeration addSyntheticType(EObject container, String name, DEnumeration source /*dispatch*/, IDeductionDefinition deductionDefinition,  TransformationContext context)  {
+	def dispatch DEnumeration addSyntheticType(ITypeContainer container, String name, DEnumeration source /*dispatch*/, IDeductionDefinition deductionDefinition,  TransformationContext context)  {
 		val syntheticEnumeration = BASE.createDEnumeration
 		syntheticEnumeration.initSyntheticType(container, name, source, deductionDefinition, context)
 		return syntheticEnumeration
 	}
 	
-	def dispatch DComplexType addSyntheticType(EObject container, String name, DComplexType source /*dispatch*/, IDeductionDefinition deductionDefinition, TransformationContext context)  {
-		
-		val syntheticComplexType =  if (deductionDefinition.deductionRule.makeEntity(source)) {
-			BASE.createDEntityType
-		} else {
+	def dispatch DComplexType addSyntheticType(ITypeContainer container, String name, DComplexType source /*dispatch*/, IDeductionDefinition deductionDefinition, TransformationContext context)  {
+		val isCoreModel = EcoreUtil2.getContainerOfType(container, SInformationModel).kind == SInformationModelKind.CORE
+		val syntheticComplexType = if (!isCoreModel || deductionDefinition.deductionRule.makeDetailType(source)) {
 			BASE.createDDetailType
+		} else {
+			BASE.createDEntityType
 		}
 		syntheticComplexType.initSyntheticType(container, name, source, deductionDefinition, context)
 		syntheticComplexType.abstract = deductionDefinition.deductionRule.makeAbstract(source)
 		if (syntheticComplexType instanceof DEntityType) {
-			syntheticComplexType.root = deductionDefinition.deductionRule.makeRoot (source as DIdentityType)
+			syntheticComplexType.root = deductionDefinition.deductionRule.makeRoot (source)
 		}
-		switch container {
-			DAggregate : container.types.add(syntheticComplexType)
-			SInformationModel : container.types.add(syntheticComplexType)
-		}
+		container.types.add(syntheticComplexType)
 		return syntheticComplexType
 	}
 	
-	protected def void initSyntheticType(DType syntheticType, EObject container, String name, DType source, IDeductionDefinition deductionDefinition, TransformationContext context) {
+	protected def void initSyntheticType(DType syntheticType, ITypeContainer container, String name, DType source, IDeductionDefinition deductionDefinition, TransformationContext context) {
 		syntheticType.name = name
 		syntheticType.synthetic = true
 		syntheticType.deducedFrom = deductionDefinition
-		switch container {
-			DAggregate : container.types.add(syntheticType)
-			SInformationModel : container.types.add(syntheticType)
-		}
+		container.types.add(syntheticType)
 		context.putSystemType(source, syntheticType)
 	}
 	
@@ -172,22 +169,24 @@ class SyntheticModelElementsFactory {
 		return source.abstract
 	}
 	
-	protected def dispatch boolean makeRoot(SStructureChangingRule r, DIdentityType source) {
-		if (r.rootEntity == STristate.DONT_CARE) return source.root
+	protected def dispatch boolean makeRoot(SStructureChangingRule r, DComplexType source) {
+		if (r.rootEntity == STristate.DONT_CARE) {
+			return source instanceof DIdentityType && (source as DIdentityType).root
+		}
 		return r.rootEntity == STristate.TRUE
 	}
 	
-	protected def dispatch boolean makeRoot(DDeductionRule r, DIdentityType source) {
-		return source.root
+	protected def dispatch boolean makeRoot(DDeductionRule r, DComplexType source) {
+		return  source instanceof DIdentityType && (source as DIdentityType).root
 	}
 	
-	protected def dispatch boolean makeEntity(SMorphRule r, DComplexType source) {
-		if (r.entity == STristate.DONT_CARE) return source instanceof DEntityType
-		return r.entity == STristate.TRUE
+	protected def dispatch boolean makeDetailType(SMorphRule r, DComplexType source) {
+		if (r.detail == STristate.DONT_CARE) return source instanceof DEntityType
+		return r.detail == STristate.TRUE
 	}
 	
-	protected def dispatch boolean makeEntity(DDeductionRule r, DComplexType source) {
-		return source instanceof DEntityType
+	protected def dispatch boolean makeDetailType(DDeductionRule r, DComplexType source) {
+		return source instanceof DDetailType
 	}
 	
 	

@@ -85,7 +85,7 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSInformationModelKindAccess().getAlternatives(), "rule__SInformationModelKind__Alternatives");
 			builder.put(grammarAccess.getSAbstractTypeAccess().getAlternatives(), "rule__SAbstractType__Alternatives");
 			builder.put(grammarAccess.getSRootEntityAccess().getAlternatives(), "rule__SRootEntity__Alternatives");
-			builder.put(grammarAccess.getSEntityTypeAccess().getAlternatives(), "rule__SEntityType__Alternatives");
+			builder.put(grammarAccess.getSDetailTypeAccess().getAlternatives(), "rule__SDetailType__Alternatives");
 			builder.put(grammarAccess.getDAssociationKindAccess().getAlternatives(), "rule__DAssociationKind__Alternatives");
 			builder.put(grammarAccess.getDServiceKindAccess().getAlternatives(), "rule__DServiceKind__Alternatives");
 			builder.put(grammarAccess.getDDirectionAccess().getAlternatives(), "rule__DDirection__Alternatives");
@@ -317,7 +317,7 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSFuseComplexTypeRuleAccess().getOtherSourcesAssignment_1_1(), "rule__SFuseComplexTypeRule__OtherSourcesAssignment_1_1");
 			builder.put(grammarAccess.getChangeComplexTypeAccess().getAbstractAssignment_1(), "rule__ChangeComplexType__AbstractAssignment_1");
 			builder.put(grammarAccess.getChangeComplexTypeAccess().getRootEntityAssignment_2_0(), "rule__ChangeComplexType__RootEntityAssignment_2_0");
-			builder.put(grammarAccess.getChangeComplexTypeAccess().getEntityAssignment_2_1(), "rule__ChangeComplexType__EntityAssignment_2_1");
+			builder.put(grammarAccess.getChangeComplexTypeAccess().getDetailAssignment_2_1(), "rule__ChangeComplexType__DetailAssignment_2_1");
 			builder.put(grammarAccess.getChangeComplexTypeAccess().getRenameToAssignment_3(), "rule__ChangeComplexType__RenameToAssignment_3");
 			builder.put(grammarAccess.getChangeComplexTypeAccess().getExtendFromAssignment_4_1(), "rule__ChangeComplexType__ExtendFromAssignment_4_1");
 			builder.put(grammarAccess.getSGrabFeatureRuleAccess().getSourceAssignment_0(), "rule__SGrabFeatureRule__SourceAssignment_0");

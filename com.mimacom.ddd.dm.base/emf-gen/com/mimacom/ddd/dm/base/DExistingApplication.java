@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.DExistingApplication#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DExistingApplication#getServices <em>Services</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DExistingApplication#getExceptions <em>Exceptions</em>}</li>
  * </ul>
@@ -22,20 +21,8 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DExistingApplication extends DNamedElement, INamespace, IPrimaryNavigationTarget
+public interface DExistingApplication extends DNamedElement, ITypeContainer, IPrimaryNavigationTarget
 {
-	/**
-	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Types</em>' containment reference list.
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDExistingApplication_Types()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<DType> getTypes();
-
 	/**
 	 * Returns the value of the '<em><b>Services</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DService}.

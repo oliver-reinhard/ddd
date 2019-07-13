@@ -369,7 +369,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *         source=[DComplexType|DQualifiedName] 
 	 *         otherSources+=[DComplexType|DQualifiedName]+ 
 	 *         abstract=SAbstractType? 
-	 *         (rootEntity=SRootEntity | entity=SEntityType)? 
+	 *         (rootEntity=SRootEntity | detail=SDetailType)? 
 	 *         renameTo=ID? 
 	 *         extendFrom=[DComplexType|ID]?
 	 *     )
@@ -387,7 +387,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     (
 	 *         source=[DComplexType|DQualifiedName] 
 	 *         abstract=SAbstractType? 
-	 *         (rootEntity=SRootEntity | entity=SEntityType)? 
+	 *         (rootEntity=SRootEntity | detail=SDetailType)? 
 	 *         renameTo=ID? 
 	 *         extendFrom=[DComplexType|ID]?
 	 *     )
@@ -675,7 +675,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SDitchEnumerationRule returns SDitchRule
 	 *
 	 * Constraint:
-	 *     source=[DEnumeration|ID]
+	 *     source=[DEnumeration|DQualifiedName]
 	 */
 	protected void sequence_SDitchEnumerationRule(ISerializationContext context, SDitchRule semanticObject) {
 		if (errorAcceptor != null) {
@@ -683,7 +683,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSDitchEnumerationRuleAccess().getSourceDEnumerationIDTerminalRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.DDEDUCTION_RULE__SOURCE, false));
+		feeder.accept(grammarAccess.getSDitchEnumerationRuleAccess().getSourceDEnumerationDQualifiedNameParserRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.DDEDUCTION_RULE__SOURCE, false));
 		feeder.finish();
 	}
 	

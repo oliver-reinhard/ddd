@@ -9,6 +9,9 @@ import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DServiceKind;
 import com.mimacom.ddd.dm.base.DServiceParameter;
 import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.INamespace;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.ITypeContainer;
 
 import java.util.Collection;
 
@@ -34,18 +37,28 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getRaises <em>Raises</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getGuards <em>Guards</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getEffects <em>Effects</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DServiceImpl#getTypes <em>Types</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class DServiceImpl extends DActorImpl implements DService
 {
+	/**
+	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DType> types;
+
 	/**
 	 * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -107,16 +120,6 @@ public class DServiceImpl extends DActorImpl implements DService
 	protected EList<DExpression> effects;
 
 	/**
-	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTypes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DType> types;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -135,6 +138,21 @@ public class DServiceImpl extends DActorImpl implements DService
 	protected EClass eStaticClass()
 	{
 		return BasePackage.Literals.DSERVICE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<DType> getTypes()
+	{
+		if (types == null)
+		{
+			types = new EObjectContainmentEList<DType>(DType.class, this, BasePackage.DSERVICE__TYPES);
+		}
+		return types;
 	}
 
 	/**
@@ -228,33 +246,18 @@ public class DServiceImpl extends DActorImpl implements DService
 	 * @generated
 	 */
 	@Override
-	public EList<DType> getTypes()
-	{
-		if (types == null)
-		{
-			types = new EObjectContainmentEList<DType>(DType.class, this, BasePackage.DSERVICE__TYPES);
-		}
-		return types;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
 		switch (featureID)
 		{
+			case BasePackage.DSERVICE__TYPES:
+				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
 			case BasePackage.DSERVICE__PARAMETERS:
 				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
 			case BasePackage.DSERVICE__GUARDS:
 				return ((InternalEList<?>)getGuards()).basicRemove(otherEnd, msgs);
 			case BasePackage.DSERVICE__EFFECTS:
 				return ((InternalEList<?>)getEffects()).basicRemove(otherEnd, msgs);
-			case BasePackage.DSERVICE__TYPES:
-				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -269,6 +272,8 @@ public class DServiceImpl extends DActorImpl implements DService
 	{
 		switch (featureID)
 		{
+			case BasePackage.DSERVICE__TYPES:
+				return getTypes();
 			case BasePackage.DSERVICE__KIND:
 				return getKind();
 			case BasePackage.DSERVICE__PARAMETERS:
@@ -279,8 +284,6 @@ public class DServiceImpl extends DActorImpl implements DService
 				return getGuards();
 			case BasePackage.DSERVICE__EFFECTS:
 				return getEffects();
-			case BasePackage.DSERVICE__TYPES:
-				return getTypes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -296,6 +299,10 @@ public class DServiceImpl extends DActorImpl implements DService
 	{
 		switch (featureID)
 		{
+			case BasePackage.DSERVICE__TYPES:
+				getTypes().clear();
+				getTypes().addAll((Collection<? extends DType>)newValue);
+				return;
 			case BasePackage.DSERVICE__KIND:
 				setKind((DServiceKind)newValue);
 				return;
@@ -315,10 +322,6 @@ public class DServiceImpl extends DActorImpl implements DService
 				getEffects().clear();
 				getEffects().addAll((Collection<? extends DExpression>)newValue);
 				return;
-			case BasePackage.DSERVICE__TYPES:
-				getTypes().clear();
-				getTypes().addAll((Collection<? extends DType>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -333,6 +336,9 @@ public class DServiceImpl extends DActorImpl implements DService
 	{
 		switch (featureID)
 		{
+			case BasePackage.DSERVICE__TYPES:
+				getTypes().clear();
+				return;
 			case BasePackage.DSERVICE__KIND:
 				setKind(KIND_EDEFAULT);
 				return;
@@ -348,9 +354,6 @@ public class DServiceImpl extends DActorImpl implements DService
 			case BasePackage.DSERVICE__EFFECTS:
 				getEffects().clear();
 				return;
-			case BasePackage.DSERVICE__TYPES:
-				getTypes().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -365,6 +368,8 @@ public class DServiceImpl extends DActorImpl implements DService
 	{
 		switch (featureID)
 		{
+			case BasePackage.DSERVICE__TYPES:
+				return types != null && !types.isEmpty();
 			case BasePackage.DSERVICE__KIND:
 				return kind != KIND_EDEFAULT;
 			case BasePackage.DSERVICE__PARAMETERS:
@@ -375,10 +380,74 @@ public class DServiceImpl extends DActorImpl implements DService
 				return guards != null && !guards.isEmpty();
 			case BasePackage.DSERVICE__EFFECTS:
 				return effects != null && !effects.isEmpty();
-			case BasePackage.DSERVICE__TYPES:
-				return types != null && !types.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == INamespace.class)
+		{
+			switch (derivedFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		if (baseClass == ITypeContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case BasePackage.DSERVICE__TYPES: return BasePackage.ITYPE_CONTAINER__TYPES;
+				default: return -1;
+			}
+		}
+		if (baseClass == INavigableMemberContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == INamespace.class)
+		{
+			switch (baseFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		if (baseClass == ITypeContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				case BasePackage.ITYPE_CONTAINER__TYPES: return BasePackage.DSERVICE__TYPES;
+				default: return -1;
+			}
+		}
+		if (baseClass == INavigableMemberContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
