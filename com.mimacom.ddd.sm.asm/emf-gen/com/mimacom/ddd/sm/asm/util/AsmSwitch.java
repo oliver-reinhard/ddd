@@ -3,8 +3,10 @@
  */
 package com.mimacom.ddd.sm.asm.util;
 
+import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
 
 import com.mimacom.ddd.sm.asm.*;
 
@@ -80,6 +82,8 @@ public class AsmSwitch<T> extends Switch<T>
 			{
 				Model model = (Model)theEObject;
 				T result = caseModel(model);
+				if (result == null) result = caseIPrimaryNavigationTarget(model);
+				if (result == null) result = caseDNamedElement(model);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -88,6 +92,8 @@ public class AsmSwitch<T> extends Switch<T>
 				SApplication sApplication = (SApplication)theEObject;
 				T result = caseSApplication(sApplication);
 				if (result == null) result = caseModel(sApplication);
+				if (result == null) result = caseIPrimaryNavigationTarget(sApplication);
+				if (result == null) result = caseDNamedElement(sApplication);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -97,7 +103,9 @@ public class AsmSwitch<T> extends Switch<T>
 				T result = caseSServiceInterface(sServiceInterface);
 				if (result == null) result = caseModel(sServiceInterface);
 				if (result == null) result = caseINavigableMemberContainer(sServiceInterface);
+				if (result == null) result = caseIPrimaryNavigationTarget(sServiceInterface);
 				if (result == null) result = caseINamespace(sServiceInterface);
+				if (result == null) result = caseDNamedElement(sServiceInterface);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -245,6 +253,38 @@ public class AsmSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseSServiceOperation(SServiceOperation object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DNamed Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DNamed Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDNamedElement(DNamedElement object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IPrimary Navigation Target</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IPrimary Navigation Target</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIPrimaryNavigationTarget(IPrimaryNavigationTarget object)
 	{
 		return null;
 	}

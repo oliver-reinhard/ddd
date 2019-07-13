@@ -24,15 +24,6 @@ public interface AsmFactory extends EFactory
 	AsmFactory eINSTANCE = com.mimacom.ddd.sm.asm.impl.AsmFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Model</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Model</em>'.
-	 * @generated
-	 */
-	Model createModel();
-
-	/**
 	 * Returns a new object of class '<em>SApplication</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

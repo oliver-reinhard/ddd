@@ -5,21 +5,19 @@ package com.mimacom.ddd.sm.asm.impl;
 
 import com.mimacom.ddd.dm.base.DImport;
 
+import com.mimacom.ddd.dm.base.impl.DNamedElementImpl;
+
 import com.mimacom.ddd.sm.asm.AsmPackage;
 import com.mimacom.ddd.sm.asm.Model;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -32,34 +30,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.asm.impl.ModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.asm.impl.ModelImpl#getImports <em>Imports</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModelImpl extends MinimalEObjectImpl.Container implements Model
+public abstract class ModelImpl extends DNamedElementImpl implements Model
 {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -89,31 +66,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 	protected EClass eStaticClass()
 	{
 		return AsmPackage.Literals.MODEL;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getName()
-	{
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setName(String newName)
-	{
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AsmPackage.MODEL__NAME, oldName, name));
 	}
 
 	/**
@@ -157,8 +109,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 	{
 		switch (featureID)
 		{
-			case AsmPackage.MODEL__NAME:
-				return getName();
 			case AsmPackage.MODEL__IMPORTS:
 				return getImports();
 		}
@@ -176,9 +126,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 	{
 		switch (featureID)
 		{
-			case AsmPackage.MODEL__NAME:
-				setName((String)newValue);
-				return;
 			case AsmPackage.MODEL__IMPORTS:
 				getImports().clear();
 				getImports().addAll((Collection<? extends DImport>)newValue);
@@ -197,9 +144,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 	{
 		switch (featureID)
 		{
-			case AsmPackage.MODEL__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case AsmPackage.MODEL__IMPORTS:
 				getImports().clear();
 				return;
@@ -217,29 +161,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 	{
 		switch (featureID)
 		{
-			case AsmPackage.MODEL__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case AsmPackage.MODEL__IMPORTS:
 				return imports != null && !imports.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString()
-	{
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ModelImpl

@@ -77,7 +77,25 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__NAME = 0;
+	int MODEL__NAME = BasePackage.IPRIMARY_NAVIGATION_TARGET__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__ALIASES = BasePackage.IPRIMARY_NAVIGATION_TARGET__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__DESCRIPTION = BasePackage.IPRIMARY_NAVIGATION_TARGET__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
@@ -86,7 +104,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__IMPORTS = 1;
+	int MODEL__IMPORTS = BasePackage.IPRIMARY_NAVIGATION_TARGET_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -95,7 +113,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = 2;
+	int MODEL_FEATURE_COUNT = BasePackage.IPRIMARY_NAVIGATION_TARGET_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -104,7 +122,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_OPERATION_COUNT = 0;
+	int MODEL_OPERATION_COUNT = BasePackage.IPRIMARY_NAVIGATION_TARGET_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.SApplicationImpl <em>SApplication</em>}' class.
@@ -124,6 +142,24 @@ public interface AsmPackage extends EPackage
 	 * @ordered
 	 */
 	int SAPPLICATION__NAME = MODEL__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAPPLICATION__ALIASES = MODEL__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAPPLICATION__DESCRIPTION = MODEL__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
@@ -197,6 +233,24 @@ public interface AsmPackage extends EPackage
 	 * @ordered
 	 */
 	int SSERVICE_INTERFACE__NAME = MODEL__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSERVICE_INTERFACE__ALIASES = MODEL__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSERVICE_INTERFACE__DESCRIPTION = MODEL__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
@@ -457,17 +511,6 @@ public interface AsmPackage extends EPackage
 	EClass getModel();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.asm.Model#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.mimacom.ddd.sm.asm.Model#getName()
-	 * @see #getModel()
-	 * @generated
-	 */
-	EAttribute getModel_Name();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.asm.Model#getImports <em>Imports</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -714,14 +757,6 @@ public interface AsmPackage extends EPackage
 		 * @generated
 		 */
 		EClass MODEL = eINSTANCE.getModel();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MODEL__NAME = eINSTANCE.getModel_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.

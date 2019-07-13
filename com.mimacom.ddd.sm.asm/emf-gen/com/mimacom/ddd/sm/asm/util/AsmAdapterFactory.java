@@ -3,8 +3,10 @@
  */
 package com.mimacom.ddd.sm.asm.util;
 
+import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
 
 import com.mimacom.ddd.sm.asm.*;
 
@@ -112,6 +114,16 @@ public class AsmAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseSServiceOperation(SServiceOperation object)
 			{
 				return createSServiceOperationAdapter();
+			}
+			@Override
+			public Adapter caseDNamedElement(DNamedElement object)
+			{
+				return createDNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseIPrimaryNavigationTarget(IPrimaryNavigationTarget object)
+			{
+				return createIPrimaryNavigationTargetAdapter();
 			}
 			@Override
 			public Adapter caseINamespace(INamespace object)
@@ -246,6 +258,36 @@ public class AsmAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createSServiceOperationAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamedElement <em>DNamed Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DNamedElement
+	 * @generated
+	 */
+	public Adapter createDNamedElementAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IPrimaryNavigationTarget <em>IPrimary Navigation Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IPrimaryNavigationTarget
+	 * @generated
+	 */
+	public Adapter createIPrimaryNavigationTargetAdapter()
 	{
 		return null;
 	}

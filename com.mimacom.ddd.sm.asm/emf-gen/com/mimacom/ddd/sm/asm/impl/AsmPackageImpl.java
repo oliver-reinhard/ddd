@@ -165,20 +165,9 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getModel_Name()
-	{
-		return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getModel_Imports()
 	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(1);
+		return (EReference)modelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -422,7 +411,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 
 		// Create classes and their features
 		modelEClass = createEClass(MODEL);
-		createEAttribute(modelEClass, MODEL__NAME);
 		createEReference(modelEClass, MODEL__IMPORTS);
 
 		sApplicationEClass = createEClass(SAPPLICATION);
@@ -484,6 +472,7 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		modelEClass.getESuperTypes().add(theBasePackage.getIPrimaryNavigationTarget());
 		sApplicationEClass.getESuperTypes().add(this.getModel());
 		sServiceInterfaceEClass.getESuperTypes().add(this.getModel());
 		sServiceInterfaceEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
@@ -492,8 +481,7 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 		sServiceOperationEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(modelEClass, Model.class, "Model", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModel_Imports(), theBasePackage.getDImport(), null, "imports", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sApplicationEClass, SApplication.class, "SApplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

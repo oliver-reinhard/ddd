@@ -65,7 +65,6 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	{
 		switch (eClass.getClassifierID())
 		{
-			case AsmPackage.MODEL: return createModel();
 			case AsmPackage.SAPPLICATION: return createSApplication();
 			case AsmPackage.SSERVICE_INTERFACE: return createSServiceInterface();
 			case AsmPackage.SWATCHDOG: return createSWatchdog();
@@ -74,18 +73,6 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Model createModel()
-	{
-		ModelImpl model = new ModelImpl();
-		return model;
 	}
 
 	/**
