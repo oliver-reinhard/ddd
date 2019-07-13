@@ -25,12 +25,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SStructureChangingRuleImpl#getAbstract <em>Abstract</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SStructureChangingRuleImpl#getRootEntity <em>Root Entity</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.impl.SStructureChangingRuleImpl#getEntity <em>Entity</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.impl.SStructureChangingRuleImpl#getExtendFrom <em>Extend From</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class SStructureChangingRuleImpl extends SGrabRuleImpl implements SStructureChangingRule
+public abstract class SStructureChangingRuleImpl extends SRenameRuleImpl implements SStructureChangingRule
 {
 	/**
 	 * The default value of the '{@link #getAbstract() <em>Abstract</em>}' attribute.
@@ -71,6 +72,26 @@ public abstract class SStructureChangingRuleImpl extends SGrabRuleImpl implement
 	 * @ordered
 	 */
 	protected STristate rootEntity = ROOT_ENTITY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEntity() <em>Entity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEntity()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final STristate ENTITY_EDEFAULT = STristate.DONT_CARE;
+
+	/**
+	 * The cached value of the '{@link #getEntity() <em>Entity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEntity()
+	 * @generated
+	 * @ordered
+	 */
+	protected STristate entity = ENTITY_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getExtendFrom() <em>Extend From</em>}' reference.
@@ -159,6 +180,31 @@ public abstract class SStructureChangingRuleImpl extends SGrabRuleImpl implement
 	 * @generated
 	 */
 	@Override
+	public STristate getEntity()
+	{
+		return entity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setEntity(STristate newEntity)
+	{
+		STristate oldEntity = entity;
+		entity = newEntity == null ? ENTITY_EDEFAULT : newEntity;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SSTRUCTURE_CHANGING_RULE__ENTITY, oldEntity, entity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public DType getExtendFrom()
 	{
 		if (extendFrom != null && extendFrom.eIsProxy())
@@ -212,6 +258,8 @@ public abstract class SStructureChangingRuleImpl extends SGrabRuleImpl implement
 				return getAbstract();
 			case SimPackage.SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY:
 				return getRootEntity();
+			case SimPackage.SSTRUCTURE_CHANGING_RULE__ENTITY:
+				return getEntity();
 			case SimPackage.SSTRUCTURE_CHANGING_RULE__EXTEND_FROM:
 				if (resolve) return getExtendFrom();
 				return basicGetExtendFrom();
@@ -234,6 +282,9 @@ public abstract class SStructureChangingRuleImpl extends SGrabRuleImpl implement
 				return;
 			case SimPackage.SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY:
 				setRootEntity((STristate)newValue);
+				return;
+			case SimPackage.SSTRUCTURE_CHANGING_RULE__ENTITY:
+				setEntity((STristate)newValue);
 				return;
 			case SimPackage.SSTRUCTURE_CHANGING_RULE__EXTEND_FROM:
 				setExtendFrom((DType)newValue);
@@ -258,6 +309,9 @@ public abstract class SStructureChangingRuleImpl extends SGrabRuleImpl implement
 			case SimPackage.SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY:
 				setRootEntity(ROOT_ENTITY_EDEFAULT);
 				return;
+			case SimPackage.SSTRUCTURE_CHANGING_RULE__ENTITY:
+				setEntity(ENTITY_EDEFAULT);
+				return;
 			case SimPackage.SSTRUCTURE_CHANGING_RULE__EXTEND_FROM:
 				setExtendFrom((DType)null);
 				return;
@@ -279,6 +333,8 @@ public abstract class SStructureChangingRuleImpl extends SGrabRuleImpl implement
 				return abstract_ != ABSTRACT_EDEFAULT;
 			case SimPackage.SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY:
 				return rootEntity != ROOT_ENTITY_EDEFAULT;
+			case SimPackage.SSTRUCTURE_CHANGING_RULE__ENTITY:
+				return entity != ENTITY_EDEFAULT;
 			case SimPackage.SSTRUCTURE_CHANGING_RULE__EXTEND_FROM:
 				return extendFrom != null;
 		}
@@ -300,6 +356,8 @@ public abstract class SStructureChangingRuleImpl extends SGrabRuleImpl implement
 		result.append(abstract_);
 		result.append(", rootEntity: ");
 		result.append(rootEntity);
+		result.append(", entity: ");
+		result.append(entity);
 		result.append(')');
 		return result.toString();
 	}

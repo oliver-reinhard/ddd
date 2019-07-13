@@ -1771,14 +1771,14 @@ public interface SimPackage extends EPackage
 	int SQUERY_PARAMETER_DEDUCTION_OPERATION_COUNT = BasePackage.DQUERY_PARAMETER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SGrabRuleImpl <em>SGrab Rule</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SRenameRuleImpl <em>SRename Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.sm.sim.impl.SGrabRuleImpl
-	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabRule()
+	 * @see com.mimacom.ddd.sm.sim.impl.SRenameRuleImpl
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSRenameRule()
 	 * @generated
 	 */
-	int SGRAB_RULE = 17;
+	int SRENAME_RULE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1787,7 +1787,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SGRAB_RULE__SOURCE = BasePackage.DDEDUCTION_RULE__SOURCE;
+	int SRENAME_RULE__SOURCE = BasePackage.DDEDUCTION_RULE__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Named Source</b></em>' reference.
@@ -1796,7 +1796,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SGRAB_RULE__NAMED_SOURCE = BasePackage.DDEDUCTION_RULE__NAMED_SOURCE;
+	int SRENAME_RULE__NAMED_SOURCE = BasePackage.DDEDUCTION_RULE__NAMED_SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Rename To</b></em>' attribute.
@@ -1805,7 +1805,62 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SGRAB_RULE__RENAME_TO = BasePackage.DDEDUCTION_RULE_FEATURE_COUNT + 0;
+	int SRENAME_RULE__RENAME_TO = BasePackage.DDEDUCTION_RULE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>SRename Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SRENAME_RULE_FEATURE_COUNT = BasePackage.DDEDUCTION_RULE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>SRename Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SRENAME_RULE_OPERATION_COUNT = BasePackage.DDEDUCTION_RULE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SGrabRuleImpl <em>SGrab Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.sim.impl.SGrabRuleImpl
+	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabRule()
+	 * @generated
+	 */
+	int SGRAB_RULE = 18;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SGRAB_RULE__SOURCE = SRENAME_RULE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Named Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SGRAB_RULE__NAMED_SOURCE = SRENAME_RULE__NAMED_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Rename To</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SGRAB_RULE__RENAME_TO = SRENAME_RULE__RENAME_TO;
 
 	/**
 	 * The number of structural features of the '<em>SGrab Rule</em>' class.
@@ -1814,7 +1869,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SGRAB_RULE_FEATURE_COUNT = BasePackage.DDEDUCTION_RULE_FEATURE_COUNT + 1;
+	int SGRAB_RULE_FEATURE_COUNT = SRENAME_RULE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>SGrab Rule</em>' class.
@@ -1823,7 +1878,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SGRAB_RULE_OPERATION_COUNT = BasePackage.DDEDUCTION_RULE_OPERATION_COUNT + 0;
+	int SGRAB_RULE_OPERATION_COUNT = SRENAME_RULE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SDitchRuleImpl <em>SDitch Rule</em>}' class.
@@ -1833,7 +1888,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSDitchRule()
 	 * @generated
 	 */
-	int SDITCH_RULE = 18;
+	int SDITCH_RULE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1879,7 +1934,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSStructureChangingRule()
 	 * @generated
 	 */
-	int SSTRUCTURE_CHANGING_RULE = 19;
+	int SSTRUCTURE_CHANGING_RULE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1888,7 +1943,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSTRUCTURE_CHANGING_RULE__SOURCE = SGRAB_RULE__SOURCE;
+	int SSTRUCTURE_CHANGING_RULE__SOURCE = SRENAME_RULE__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Named Source</b></em>' reference.
@@ -1897,7 +1952,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSTRUCTURE_CHANGING_RULE__NAMED_SOURCE = SGRAB_RULE__NAMED_SOURCE;
+	int SSTRUCTURE_CHANGING_RULE__NAMED_SOURCE = SRENAME_RULE__NAMED_SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Rename To</b></em>' attribute.
@@ -1906,7 +1961,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSTRUCTURE_CHANGING_RULE__RENAME_TO = SGRAB_RULE__RENAME_TO;
+	int SSTRUCTURE_CHANGING_RULE__RENAME_TO = SRENAME_RULE__RENAME_TO;
 
 	/**
 	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
@@ -1915,7 +1970,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSTRUCTURE_CHANGING_RULE__ABSTRACT = SGRAB_RULE_FEATURE_COUNT + 0;
+	int SSTRUCTURE_CHANGING_RULE__ABSTRACT = SRENAME_RULE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Root Entity</b></em>' attribute.
@@ -1924,7 +1979,16 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY = SGRAB_RULE_FEATURE_COUNT + 1;
+	int SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY = SRENAME_RULE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Entity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSTRUCTURE_CHANGING_RULE__ENTITY = SRENAME_RULE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Extend From</b></em>' reference.
@@ -1933,7 +1997,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSTRUCTURE_CHANGING_RULE__EXTEND_FROM = SGRAB_RULE_FEATURE_COUNT + 2;
+	int SSTRUCTURE_CHANGING_RULE__EXTEND_FROM = SRENAME_RULE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>SStructure Changing Rule</em>' class.
@@ -1942,7 +2006,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSTRUCTURE_CHANGING_RULE_FEATURE_COUNT = SGRAB_RULE_FEATURE_COUNT + 3;
+	int SSTRUCTURE_CHANGING_RULE_FEATURE_COUNT = SRENAME_RULE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>SStructure Changing Rule</em>' class.
@@ -1951,7 +2015,7 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SSTRUCTURE_CHANGING_RULE_OPERATION_COUNT = SGRAB_RULE_OPERATION_COUNT + 0;
+	int SSTRUCTURE_CHANGING_RULE_OPERATION_COUNT = SRENAME_RULE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.impl.SMorphRuleImpl <em>SMorph Rule</em>}' class.
@@ -1961,7 +2025,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSMorphRule()
 	 * @generated
 	 */
-	int SMORPH_RULE = 20;
+	int SMORPH_RULE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2007,6 +2071,15 @@ public interface SimPackage extends EPackage
 	 * @ordered
 	 */
 	int SMORPH_RULE__ROOT_ENTITY = SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY;
+
+	/**
+	 * The feature id for the '<em><b>Entity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMORPH_RULE__ENTITY = SSTRUCTURE_CHANGING_RULE__ENTITY;
 
 	/**
 	 * The feature id for the '<em><b>Extend From</b></em>' reference.
@@ -2061,7 +2134,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSFuseRule()
 	 * @generated
 	 */
-	int SFUSE_RULE = 21;
+	int SFUSE_RULE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2109,6 +2182,15 @@ public interface SimPackage extends EPackage
 	int SFUSE_RULE__ROOT_ENTITY = SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY;
 
 	/**
+	 * The feature id for the '<em><b>Entity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SFUSE_RULE__ENTITY = SSTRUCTURE_CHANGING_RULE__ENTITY;
+
+	/**
 	 * The feature id for the '<em><b>Extend From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2152,7 +2234,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabAggregateRule()
 	 * @generated
 	 */
-	int SGRAB_AGGREGATE_RULE = 22;
+	int SGRAB_AGGREGATE_RULE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2207,7 +2289,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSGrabDomainRule()
 	 * @generated
 	 */
-	int SGRAB_DOMAIN_RULE = 23;
+	int SGRAB_DOMAIN_RULE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2262,7 +2344,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSInformationModelKind()
 	 * @generated
 	 */
-	int SINFORMATION_MODEL_KIND = 24;
+	int SINFORMATION_MODEL_KIND = 25;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sim.STristate <em>STristate</em>}' enum.
@@ -2272,7 +2354,7 @@ public interface SimPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSTristate()
 	 * @generated
 	 */
-	int STRISTATE = 25;
+	int STRISTATE = 26;
 
 
 	/**
@@ -2588,6 +2670,27 @@ public interface SimPackage extends EPackage
 	EClass getSQueryParameterDeduction();
 
 	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SRenameRule <em>SRename Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SRename Rule</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SRenameRule
+	 * @generated
+	 */
+	EClass getSRenameRule();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SRenameRule#getRenameTo <em>Rename To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rename To</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SRenameRule#getRenameTo()
+	 * @see #getSRenameRule()
+	 * @generated
+	 */
+	EAttribute getSRenameRule_RenameTo();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SGrabRule <em>SGrab Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2596,17 +2699,6 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 */
 	EClass getSGrabRule();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SGrabRule#getRenameTo <em>Rename To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Rename To</em>'.
-	 * @see com.mimacom.ddd.sm.sim.SGrabRule#getRenameTo()
-	 * @see #getSGrabRule()
-	 * @generated
-	 */
-	EAttribute getSGrabRule_RenameTo();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sim.SDitchRule <em>SDitch Rule</em>}'.
@@ -2649,6 +2741,17 @@ public interface SimPackage extends EPackage
 	 * @generated
 	 */
 	EAttribute getSStructureChangingRule_RootEntity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sim.SStructureChangingRule#getEntity <em>Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Entity</em>'.
+	 * @see com.mimacom.ddd.sm.sim.SStructureChangingRule#getEntity()
+	 * @see #getSStructureChangingRule()
+	 * @generated
+	 */
+	EAttribute getSStructureChangingRule_Entity();
 
 	/**
 	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sim.SStructureChangingRule#getExtendFrom <em>Extend From</em>}'.
@@ -3075,6 +3178,24 @@ public interface SimPackage extends EPackage
 		EClass SQUERY_PARAMETER_DEDUCTION = eINSTANCE.getSQueryParameterDeduction();
 
 		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SRenameRuleImpl <em>SRename Rule</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.sim.impl.SRenameRuleImpl
+		 * @see com.mimacom.ddd.sm.sim.impl.SimPackageImpl#getSRenameRule()
+		 * @generated
+		 */
+		EClass SRENAME_RULE = eINSTANCE.getSRenameRule();
+
+		/**
+		 * The meta object literal for the '<em><b>Rename To</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SRENAME_RULE__RENAME_TO = eINSTANCE.getSRenameRule_RenameTo();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SGrabRuleImpl <em>SGrab Rule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3083,14 +3204,6 @@ public interface SimPackage extends EPackage
 		 * @generated
 		 */
 		EClass SGRAB_RULE = eINSTANCE.getSGrabRule();
-
-		/**
-		 * The meta object literal for the '<em><b>Rename To</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SGRAB_RULE__RENAME_TO = eINSTANCE.getSGrabRule_RenameTo();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sim.impl.SDitchRuleImpl <em>SDitch Rule</em>}' class.
@@ -3127,6 +3240,14 @@ public interface SimPackage extends EPackage
 		 * @generated
 		 */
 		EAttribute SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY = eINSTANCE.getSStructureChangingRule_RootEntity();
+
+		/**
+		 * The meta object literal for the '<em><b>Entity</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SSTRUCTURE_CHANGING_RULE__ENTITY = eINSTANCE.getSStructureChangingRule_Entity();
 
 		/**
 		 * The meta object literal for the '<em><b>Extend From</b></em>' reference feature.

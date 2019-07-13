@@ -9,7 +9,6 @@ import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.base.IDeducibleElement
 import com.mimacom.ddd.sm.sim.SAggregateDeduction
 import com.mimacom.ddd.sm.sim.SComplexTypeDeduction
-import com.mimacom.ddd.sm.sim.SDomainDeduction
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule
 import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.STypeDeduction
@@ -54,7 +53,7 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 				val rule = definition.deductionRule
 				val source = rule.source
 				if (source instanceof DType) {
-					val syntheticType = definition.processTypeDeduction(rule, context) 
+					val syntheticType = model.processTypeDeduction(definition, rule, context) 
 					if (definition instanceof SComplexTypeDeduction) {
 						complexSyntheticTypes.add(new SyntheticComplexTypeDescriptor(syntheticType as DComplexType, definition, source as DComplexType))
 					}
@@ -73,16 +72,13 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 		
 		val modelList = Lists.newArrayList(model.aggregates) // cannot add to list while iterating it
 		for (aggregate : modelList) {
-			model.processAggregate(aggregate, null, context)
+			model.processAggregate(aggregate, context)
 		}
 	}
 	
-	//
-	// TODO parameter elementWithRule is NOT USED
-	//	
-	def  void processAggregate(SInformationModel model, DAggregate dAggregate, SDomainDeduction elementWithRule, TransformationContext context) {
+	def  void processAggregate(SInformationModel model, DAggregate dAggregate, TransformationContext context) {
 		var current = dAggregate
-		val complexSyntheticTypes = Lists.newArrayList
+		val complexSyntheticTypesAcceptor = Lists.newArrayList
 		if (current instanceof SAggregateDeduction) {
 			val deductionDefinition = current
 			if (deductionDefinition.deductionRule instanceof SGrabAggregateRule) {
@@ -92,14 +88,15 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 				}
 				if (source instanceof DAggregate) {
 					current = model.addSyntheticAggregate(deductionDefinition, context)
-					current.addImplicitSyntheticTypes(deductionDefinition, source, complexSyntheticTypes, context) // adds types but not features of complex types
+					current.addImplicitSyntheticTypes(deductionDefinition, source, complexSyntheticTypesAcceptor, context) // adds types but not features of complex types
 				}
 			}
 		}
 			
-		current.addSyntheticTypes(complexSyntheticTypes, context)
+		current.addSyntheticTypes(dAggregate, complexSyntheticTypesAcceptor, context)
 		
-		for (desc : complexSyntheticTypes) {
+		// Now add the features to the new synthetic types:
+		for (desc : complexSyntheticTypesAcceptor) {
 			desc.addSyntheticFeatures(context)
 		}
 	}

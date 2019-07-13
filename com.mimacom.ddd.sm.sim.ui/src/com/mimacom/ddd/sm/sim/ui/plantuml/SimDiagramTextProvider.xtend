@@ -65,26 +65,27 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
         val allSubtypes = EcoreUtil2.eAllOfType(model, DComplexType).filter[superType !== null]
         
        val result = '''
-       		hide empty members
-       		
-       		skinparam class {
-       			ArrowColor MediumBlue
-       			BorderColor MediumBlue
-       			BackgroundColor AliceBlue
-       		}
-       		
-       		skinparam package {
-       			BorderColor MediumBlue
-       			FontColor MediumBlue
-       		}
-       		
-       		«FOR t:model.types.filter[!(it instanceof STypeDeduction)]»«t.generateType»«ENDFOR»
-       		
-           	«FOR a:allAggregates»package «a.aggregateName» <<Rectangle>> {
-	    		«FOR t:a.types.filter[!(it instanceof STypeDeduction)]»«t.generateType»«ENDFOR»
-           	}
-           	«FOR d:allReferencedDomains»package «d» <<Frame>> { 
-           	}
+			hide empty members
+			
+			skinparam class {
+				ArrowColor MediumBlue
+				BorderColor MediumBlue
+				BackgroundColor AliceBlue
+			}
+			
+			skinparam package {
+				BorderColor MediumBlue
+				FontColor MediumBlue
+			}
+			
+			«FOR t:model.types.filter[!(it instanceof STypeDeduction)]»«t.generateType»«ENDFOR»
+			
+			«FOR a:allAggregates»
+				package «a.aggregateName» <<Rectangle>> {
+				«FOR t:a.types.filter[!(it instanceof STypeDeduction)]»«t.generateType»«ENDFOR»
+				}
+				«FOR d:allReferencedDomains»package «d» <<Frame>> { 
+				}
            	«ENDFOR»
     		«ENDFOR»
             «FOR a:allAssociations»«a.generateAssociation»

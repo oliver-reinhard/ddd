@@ -53,13 +53,15 @@
     <genClasses ecoreClass="sim.ecore#//SAttributeDeduction"/>
     <genClasses ecoreClass="sim.ecore#//SQueryDeduction"/>
     <genClasses ecoreClass="sim.ecore#//SQueryParameterDeduction"/>
-    <genClasses ecoreClass="sim.ecore#//SGrabRule">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SGrabRule/renameTo"/>
+    <genClasses image="false" ecoreClass="sim.ecore#//SRenameRule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SRenameRule/renameTo"/>
     </genClasses>
+    <genClasses ecoreClass="sim.ecore#//SGrabRule"/>
     <genClasses ecoreClass="sim.ecore#//SDitchRule"/>
     <genClasses image="false" ecoreClass="sim.ecore#//SStructureChangingRule">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SStructureChangingRule/abstract"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SStructureChangingRule/rootEntity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SStructureChangingRule/entity"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sim.ecore#//SStructureChangingRule/extendFrom"/>
     </genClasses>
     <genClasses ecoreClass="sim.ecore#//SMorphRule">

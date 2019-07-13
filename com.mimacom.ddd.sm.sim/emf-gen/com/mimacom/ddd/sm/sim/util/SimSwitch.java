@@ -312,10 +312,19 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SimPackage.SRENAME_RULE:
+			{
+				SRenameRule sRenameRule = (SRenameRule)theEObject;
+				T result = caseSRenameRule(sRenameRule);
+				if (result == null) result = caseDDeductionRule(sRenameRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SimPackage.SGRAB_RULE:
 			{
 				SGrabRule sGrabRule = (SGrabRule)theEObject;
 				T result = caseSGrabRule(sGrabRule);
+				if (result == null) result = caseSRenameRule(sGrabRule);
 				if (result == null) result = caseDDeductionRule(sGrabRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -332,7 +341,7 @@ public class SimSwitch<T> extends Switch<T>
 			{
 				SStructureChangingRule sStructureChangingRule = (SStructureChangingRule)theEObject;
 				T result = caseSStructureChangingRule(sStructureChangingRule);
-				if (result == null) result = caseSGrabRule(sStructureChangingRule);
+				if (result == null) result = caseSRenameRule(sStructureChangingRule);
 				if (result == null) result = caseDDeductionRule(sStructureChangingRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -342,7 +351,7 @@ public class SimSwitch<T> extends Switch<T>
 				SMorphRule sMorphRule = (SMorphRule)theEObject;
 				T result = caseSMorphRule(sMorphRule);
 				if (result == null) result = caseSStructureChangingRule(sMorphRule);
-				if (result == null) result = caseSGrabRule(sMorphRule);
+				if (result == null) result = caseSRenameRule(sMorphRule);
 				if (result == null) result = caseDDeductionRule(sMorphRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -352,7 +361,7 @@ public class SimSwitch<T> extends Switch<T>
 				SFuseRule sFuseRule = (SFuseRule)theEObject;
 				T result = caseSFuseRule(sFuseRule);
 				if (result == null) result = caseSStructureChangingRule(sFuseRule);
-				if (result == null) result = caseSGrabRule(sFuseRule);
+				if (result == null) result = caseSRenameRule(sFuseRule);
 				if (result == null) result = caseDDeductionRule(sFuseRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -645,6 +654,22 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseSQueryParameterDeduction(SQueryParameterDeduction object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>SRename Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>SRename Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSRenameRule(SRenameRule object)
 	{
 		return null;
 	}

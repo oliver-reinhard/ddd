@@ -64,12 +64,12 @@ SFuseComplexTypeRule returns SFuseRule:
 	ChangeComplexType;
 
 fragment ChangeComplexType returns SStructureChangingRule:
-	'to' 
-	(abstract=SAbstractType)?
-	(rootEntity=SRootEntity)?
-	(renameTo=ID)?
-	('extends' extendFrom=[DComplexType|ID])?
-;
+	(	'to' 
+		(abstract=SAbstractType)?
+		(rootEntity=SRootEntity | entity=SEntityType)?
+		(renameTo=ID)?
+		('extends' extendFrom=[DComplexType|ID])?
+	)?;
 
 SGrabFeatureRule returns SGrabRule:
 	source=[DFeature|ID]
@@ -89,6 +89,9 @@ enum SAbstractType returns STristate:
 	
 enum SRootEntity returns STristate:
 	FALSE='nonroot' | TRUE='root';
+	
+enum SEntityType returns STristate:
+	FALSE='detail' | TRUE='entity';
 	
 Domain returns SDomainDeduction:
 	{SDomainDeduction}

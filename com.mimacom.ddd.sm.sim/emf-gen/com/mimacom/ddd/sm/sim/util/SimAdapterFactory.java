@@ -186,6 +186,11 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createSQueryParameterDeductionAdapter();
 			}
 			@Override
+			public Adapter caseSRenameRule(SRenameRule object)
+			{
+				return createSRenameRuleAdapter();
+			}
+			@Override
 			public Adapter caseSGrabRule(SGrabRule object)
 			{
 				return createSGrabRuleAdapter();
@@ -618,6 +623,21 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createSQueryParameterDeductionAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SRenameRule <em>SRename Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.sm.sim.SRenameRule
+	 * @generated
+	 */
+	public Adapter createSRenameRuleAdapter()
 	{
 		return null;
 	}

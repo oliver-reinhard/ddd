@@ -832,28 +832,50 @@ ruleChangeComplexType[EObject in_current]  returns [EObject current=in_current]
 		)?
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getChangeComplexTypeAccess().getRootEntitySRootEntityEnumRuleCall_2_0());
-				}
-				lv_rootEntity_2_0=ruleSRootEntity
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getChangeComplexTypeRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getChangeComplexTypeAccess().getRootEntitySRootEntityEnumRuleCall_2_0_0());
 					}
-					set(
-						$current,
-						"rootEntity",
-						lv_rootEntity_2_0,
-						"com.mimacom.ddd.sm.sim.Sim.SRootEntity");
-					afterParserOrEnumRuleCall();
-				}
+					lv_rootEntity_2_0=ruleSRootEntity
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getChangeComplexTypeRule());
+						}
+						set(
+							$current,
+							"rootEntity",
+							lv_rootEntity_2_0,
+							"com.mimacom.ddd.sm.sim.Sim.SRootEntity");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			    |
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getChangeComplexTypeAccess().getEntitySEntityTypeEnumRuleCall_2_1_0());
+					}
+					lv_entity_3_0=ruleSEntityType
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getChangeComplexTypeRule());
+						}
+						set(
+							$current,
+							"entity",
+							lv_entity_3_0,
+							"com.mimacom.ddd.sm.sim.Sim.SEntityType");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)?
 		(
 			(
-				lv_renameTo_3_0=RULE_ID
+				lv_renameTo_4_0=RULE_ID
 				{
-					newLeafNode(lv_renameTo_3_0, grammarAccess.getChangeComplexTypeAccess().getRenameToIDTerminalRuleCall_3_0());
+					newLeafNode(lv_renameTo_4_0, grammarAccess.getChangeComplexTypeAccess().getRenameToIDTerminalRuleCall_3_0());
 				}
 				{
 					if ($current==null) {
@@ -862,15 +884,15 @@ ruleChangeComplexType[EObject in_current]  returns [EObject current=in_current]
 					setWithLastConsumed(
 						$current,
 						"renameTo",
-						lv_renameTo_3_0,
+						lv_renameTo_4_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.ID");
 				}
 			)
 		)?
 		(
-			otherlv_4='extends'
+			otherlv_5='extends'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getChangeComplexTypeAccess().getExtendsKeyword_4_0());
+				newLeafNode(otherlv_5, grammarAccess.getChangeComplexTypeAccess().getExtendsKeyword_4_0());
 			}
 			(
 				(
@@ -879,14 +901,14 @@ ruleChangeComplexType[EObject in_current]  returns [EObject current=in_current]
 							$current = createModelElement(grammarAccess.getChangeComplexTypeRule());
 						}
 					}
-					otherlv_5=RULE_ID
+					otherlv_6=RULE_ID
 					{
-						newLeafNode(otherlv_5, grammarAccess.getChangeComplexTypeAccess().getExtendFromDComplexTypeCrossReference_4_1_0());
+						newLeafNode(otherlv_6, grammarAccess.getChangeComplexTypeAccess().getExtendFromDComplexTypeCrossReference_4_1_0());
 					}
 				)
 			)
 		)?
-	)
+	)?
 ;
 
 // Entry rule entryRuleSGrabFeatureRule
@@ -8513,6 +8535,33 @@ ruleSRootEntity returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getSRootEntityAccess().getTRUEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_1, grammarAccess.getSRootEntityAccess().getTRUEEnumLiteralDeclaration_1());
+			}
+		)
+	)
+;
+
+// Rule SEntityType
+ruleSEntityType returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='detail'
+			{
+				$current = grammarAccess.getSEntityTypeAccess().getFALSEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getSEntityTypeAccess().getFALSEEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='entity'
+			{
+				$current = grammarAccess.getSEntityTypeAccess().getTRUEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getSEntityTypeAccess().getTRUEEnumLiteralDeclaration_1());
 			}
 		)
 	)

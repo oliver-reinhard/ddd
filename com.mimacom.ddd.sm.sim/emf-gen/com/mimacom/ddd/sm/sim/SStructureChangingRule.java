@@ -15,6 +15,7 @@ import com.mimacom.ddd.dm.base.DType;
  * <ul>
  *   <li>{@link com.mimacom.ddd.sm.sim.SStructureChangingRule#getAbstract <em>Abstract</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SStructureChangingRule#getRootEntity <em>Root Entity</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sim.SStructureChangingRule#getEntity <em>Entity</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sim.SStructureChangingRule#getExtendFrom <em>Extend From</em>}</li>
  * </ul>
  *
@@ -22,7 +23,7 @@ import com.mimacom.ddd.dm.base.DType;
  * @model abstract="true"
  * @generated
  */
-public interface SStructureChangingRule extends SGrabRule
+public interface SStructureChangingRule extends SRenameRule
 {
 	/**
 	 * Returns the value of the '<em><b>Abstract</b></em>' attribute.
@@ -73,6 +74,31 @@ public interface SStructureChangingRule extends SGrabRule
 	 * @generated
 	 */
 	void setRootEntity(STristate value);
+
+	/**
+	 * Returns the value of the '<em><b>Entity</b></em>' attribute.
+	 * The literals are from the enumeration {@link com.mimacom.ddd.sm.sim.STristate}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Entity</em>' attribute.
+	 * @see com.mimacom.ddd.sm.sim.STristate
+	 * @see #setEntity(STristate)
+	 * @see com.mimacom.ddd.sm.sim.SimPackage#getSStructureChangingRule_Entity()
+	 * @model
+	 * @generated
+	 */
+	STristate getEntity();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.sm.sim.SStructureChangingRule#getEntity <em>Entity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Entity</em>' attribute.
+	 * @see com.mimacom.ddd.sm.sim.STristate
+	 * @see #getEntity()
+	 * @generated
+	 */
+	void setEntity(STristate value);
 
 	/**
 	 * Returns the value of the '<em><b>Extend From</b></em>' reference.

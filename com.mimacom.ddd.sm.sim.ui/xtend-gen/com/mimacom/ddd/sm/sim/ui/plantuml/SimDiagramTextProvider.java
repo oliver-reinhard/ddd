@@ -150,15 +150,13 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     }
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("           \t");
     {
       for(final DAggregate a : allAggregates) {
         _builder.append("package ");
         String _aggregateName = this.aggregateName(a);
-        _builder.append(_aggregateName, "           \t");
+        _builder.append(_aggregateName);
         _builder.append(" <<Rectangle>> {");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t    \t\t");
         {
           final Function1<DType, Boolean> _function_7 = (DType it) -> {
             return Boolean.valueOf((!(it instanceof STypeDeduction)));
@@ -166,21 +164,18 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
           Iterable<DType> _filter_1 = IterableExtensions.<DType>filter(a.getTypes(), _function_7);
           for(final DType t_1 : _filter_1) {
             CharSequence _generateType_1 = this.generateType(t_1);
-            _builder.append(_generateType_1, "\t    \t\t");
+            _builder.append(_generateType_1);
           }
         }
         _builder.newLineIfNotEmpty();
-        _builder.append("           \t");
         _builder.append("}");
         _builder.newLine();
-        _builder.append("           \t");
         {
           for(final String d : allReferencedDomains) {
             _builder.append("package ");
-            _builder.append(d, "           \t");
+            _builder.append(d);
             _builder.append(" <<Frame>> { ");
             _builder.newLineIfNotEmpty();
-            _builder.append("           \t");
             _builder.append("}");
             _builder.newLine();
           }

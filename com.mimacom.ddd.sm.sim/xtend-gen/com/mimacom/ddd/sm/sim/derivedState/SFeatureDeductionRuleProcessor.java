@@ -18,6 +18,7 @@ import com.mimacom.ddd.sm.sim.SGrabRule;
 import com.mimacom.ddd.sm.sim.SMorphRule;
 import com.mimacom.ddd.sm.sim.SQueryDeduction;
 import com.mimacom.ddd.sm.sim.SQueryParameterDeduction;
+import com.mimacom.ddd.sm.sim.SRenameRule;
 import com.mimacom.ddd.sm.sim.derivedState.SyntheticComplexTypeDescriptor;
 import com.mimacom.ddd.sm.sim.derivedState.SyntheticModelElementsFactory;
 import com.mimacom.ddd.sm.sim.derivedState.TransformationContext;
@@ -62,7 +63,7 @@ public class SFeatureDeductionRuleProcessor {
   protected void _processFeatureDeduction(final DComplexType container, final SFeatureDeduction deductionDefinition, final SDitchRule rule, final TransformationContext context) {
   }
   
-  public DFeature grabFeature(final DComplexType container, final SFeatureDeduction deductionDefinition, final SGrabRule rule, final TransformationContext context) {
+  public DFeature grabFeature(final DComplexType container, final SFeatureDeduction deductionDefinition, final SRenameRule rule, final TransformationContext context) {
     final IDeducibleElement source = rule.getSource();
     if ((source instanceof DFeature)) {
       String _xifexpression = null;
@@ -170,7 +171,7 @@ public class SFeatureDeductionRuleProcessor {
     }
   }
   
-  public DQueryParameter grabQueryParameter(final DQuery container, final SQueryParameterDeduction deductionDefinition, final SGrabRule rule, final TransformationContext context) {
+  public DQueryParameter grabQueryParameter(final DQuery container, final SQueryParameterDeduction deductionDefinition, final SRenameRule rule, final TransformationContext context) {
     final IDeducibleElement source = rule.getSource();
     if ((source instanceof DQueryParameter)) {
       String _xifexpression = null;
@@ -194,11 +195,11 @@ public class SFeatureDeductionRuleProcessor {
     if (rule instanceof SMorphRule) {
       _processFeatureDeduction(container, deductionDefinition, (SMorphRule)rule, context);
       return;
-    } else if (rule instanceof SDitchRule) {
-      _processFeatureDeduction(container, deductionDefinition, (SDitchRule)rule, context);
-      return;
     } else if (rule instanceof SGrabRule) {
       _processFeatureDeduction(container, deductionDefinition, (SGrabRule)rule, context);
+      return;
+    } else if (rule instanceof SDitchRule) {
+      _processFeatureDeduction(container, deductionDefinition, (SDitchRule)rule, context);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +

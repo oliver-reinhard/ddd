@@ -27,6 +27,7 @@ import com.mimacom.ddd.sm.sim.SMorphRule;
 import com.mimacom.ddd.sm.sim.SPrimitiveDeduction;
 import com.mimacom.ddd.sm.sim.SQueryDeduction;
 import com.mimacom.ddd.sm.sim.SQueryParameterDeduction;
+import com.mimacom.ddd.sm.sim.SRenameRule;
 import com.mimacom.ddd.sm.sim.SStructureChangingRule;
 import com.mimacom.ddd.sm.sim.STristate;
 import com.mimacom.ddd.sm.sim.STypeDeduction;
@@ -168,6 +169,13 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	private EClass sQueryParameterDeductionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sRenameRuleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -634,9 +642,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSGrabRule()
+	public EClass getSRenameRule()
 	{
-		return sGrabRuleEClass;
+		return sRenameRuleEClass;
 	}
 
 	/**
@@ -645,9 +653,20 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSGrabRule_RenameTo()
+	public EAttribute getSRenameRule_RenameTo()
 	{
-		return (EAttribute)sGrabRuleEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)sRenameRuleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSGrabRule()
+	{
+		return sGrabRuleEClass;
 	}
 
 	/**
@@ -700,9 +719,20 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getSStructureChangingRule_Entity()
+	{
+		return (EAttribute)sStructureChangingRuleEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getSStructureChangingRule_ExtendFrom()
 	{
-		return (EReference)sStructureChangingRuleEClass.getEStructuralFeatures().get(2);
+		return (EReference)sStructureChangingRuleEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -904,14 +934,17 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 
 		sQueryParameterDeductionEClass = createEClass(SQUERY_PARAMETER_DEDUCTION);
 
+		sRenameRuleEClass = createEClass(SRENAME_RULE);
+		createEAttribute(sRenameRuleEClass, SRENAME_RULE__RENAME_TO);
+
 		sGrabRuleEClass = createEClass(SGRAB_RULE);
-		createEAttribute(sGrabRuleEClass, SGRAB_RULE__RENAME_TO);
 
 		sDitchRuleEClass = createEClass(SDITCH_RULE);
 
 		sStructureChangingRuleEClass = createEClass(SSTRUCTURE_CHANGING_RULE);
 		createEAttribute(sStructureChangingRuleEClass, SSTRUCTURE_CHANGING_RULE__ABSTRACT);
 		createEAttribute(sStructureChangingRuleEClass, SSTRUCTURE_CHANGING_RULE__ROOT_ENTITY);
+		createEAttribute(sStructureChangingRuleEClass, SSTRUCTURE_CHANGING_RULE__ENTITY);
 		createEReference(sStructureChangingRuleEClass, SSTRUCTURE_CHANGING_RULE__EXTEND_FROM);
 
 		sMorphRuleEClass = createEClass(SMORPH_RULE);
@@ -993,9 +1026,10 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 		sQueryDeductionEClass.getESuperTypes().add(this.getSFeatureDeduction());
 		sQueryParameterDeductionEClass.getESuperTypes().add(theBasePackage.getDQueryParameter());
 		sQueryParameterDeductionEClass.getESuperTypes().add(theBasePackage.getIDeductionDefinition());
-		sGrabRuleEClass.getESuperTypes().add(theBasePackage.getDDeductionRule());
+		sRenameRuleEClass.getESuperTypes().add(theBasePackage.getDDeductionRule());
+		sGrabRuleEClass.getESuperTypes().add(this.getSRenameRule());
 		sDitchRuleEClass.getESuperTypes().add(theBasePackage.getDDeductionRule());
-		sStructureChangingRuleEClass.getESuperTypes().add(this.getSGrabRule());
+		sStructureChangingRuleEClass.getESuperTypes().add(this.getSRenameRule());
 		sMorphRuleEClass.getESuperTypes().add(this.getSStructureChangingRule());
 		sFuseRuleEClass.getESuperTypes().add(this.getSStructureChangingRule());
 		sGrabAggregateRuleEClass.getESuperTypes().add(theBasePackage.getDDeductionRule());
@@ -1050,14 +1084,17 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage
 
 		initEClass(sQueryParameterDeductionEClass, SQueryParameterDeduction.class, "SQueryParameterDeduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(sRenameRuleEClass, SRenameRule.class, "SRenameRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSRenameRule_RenameTo(), ecorePackage.getEString(), "renameTo", null, 0, 1, SRenameRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(sGrabRuleEClass, SGrabRule.class, "SGrabRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSGrabRule_RenameTo(), ecorePackage.getEString(), "renameTo", null, 0, 1, SGrabRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sDitchRuleEClass, SDitchRule.class, "SDitchRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(sStructureChangingRuleEClass, SStructureChangingRule.class, "SStructureChangingRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSStructureChangingRule_Abstract(), this.getSTristate(), "abstract", null, 0, 1, SStructureChangingRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSStructureChangingRule_RootEntity(), this.getSTristate(), "rootEntity", null, 0, 1, SStructureChangingRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSStructureChangingRule_Entity(), this.getSTristate(), "entity", null, 0, 1, SStructureChangingRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSStructureChangingRule_ExtendFrom(), theBasePackage.getDType(), null, "extendFrom", null, 0, 1, SStructureChangingRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sMorphRuleEClass, SMorphRule.class, "SMorphRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

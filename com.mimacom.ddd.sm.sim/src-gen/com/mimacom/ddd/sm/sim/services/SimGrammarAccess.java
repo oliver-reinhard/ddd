@@ -482,8 +482,11 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cToKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cAbstractAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cAbstractSAbstractTypeEnumRuleCall_1_0 = (RuleCall)cAbstractAssignment_1.eContents().get(0);
-		private final Assignment cRootEntityAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cRootEntitySRootEntityEnumRuleCall_2_0 = (RuleCall)cRootEntityAssignment_2.eContents().get(0);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Assignment cRootEntityAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
+		private final RuleCall cRootEntitySRootEntityEnumRuleCall_2_0_0 = (RuleCall)cRootEntityAssignment_2_0.eContents().get(0);
+		private final Assignment cEntityAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
+		private final RuleCall cEntitySEntityTypeEnumRuleCall_2_1_0 = (RuleCall)cEntityAssignment_2_1.eContents().get(0);
 		private final Assignment cRenameToAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cRenameToIDTerminalRuleCall_3_0 = (RuleCall)cRenameToAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
@@ -493,13 +496,13 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExtendFromDComplexTypeIDTerminalRuleCall_4_1_0_1 = (RuleCall)cExtendFromDComplexTypeCrossReference_4_1_0.eContents().get(1);
 		
 		//fragment ChangeComplexType returns SStructureChangingRule:
-		//	'to'
-		//	abstract=SAbstractType?
-		//	rootEntity=SRootEntity?
-		//	renameTo=ID? ('extends' extendFrom=[DComplexType])?;
+		//	('to'
+		//	abstract=SAbstractType? (rootEntity=SRootEntity | entity=SEntityType)?
+		//	renameTo=ID? ('extends' extendFrom=[DComplexType])?)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'to' abstract=SAbstractType? rootEntity=SRootEntity? renameTo=ID? ('extends' extendFrom=[DComplexType])?
+		//('to' abstract=SAbstractType? (rootEntity=SRootEntity | entity=SEntityType)? renameTo=ID? ('extends'
+		//extendFrom=[DComplexType])?)?
 		public Group getGroup() { return cGroup; }
 		
 		//'to'
@@ -511,11 +514,20 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//SAbstractType
 		public RuleCall getAbstractSAbstractTypeEnumRuleCall_1_0() { return cAbstractSAbstractTypeEnumRuleCall_1_0; }
 		
-		//rootEntity=SRootEntity?
-		public Assignment getRootEntityAssignment_2() { return cRootEntityAssignment_2; }
+		//(rootEntity=SRootEntity | entity=SEntityType)?
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		
+		//rootEntity=SRootEntity
+		public Assignment getRootEntityAssignment_2_0() { return cRootEntityAssignment_2_0; }
 		
 		//SRootEntity
-		public RuleCall getRootEntitySRootEntityEnumRuleCall_2_0() { return cRootEntitySRootEntityEnumRuleCall_2_0; }
+		public RuleCall getRootEntitySRootEntityEnumRuleCall_2_0_0() { return cRootEntitySRootEntityEnumRuleCall_2_0_0; }
+		
+		//entity=SEntityType
+		public Assignment getEntityAssignment_2_1() { return cEntityAssignment_2_1; }
+		
+		//SEntityType
+		public RuleCall getEntitySEntityTypeEnumRuleCall_2_1_0() { return cEntitySEntityTypeEnumRuleCall_2_1_0; }
 		
 		//renameTo=ID?
 		public Assignment getRenameToAssignment_3() { return cRenameToAssignment_3; }
@@ -2531,6 +2543,33 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'root'
 		public Keyword getTRUERootKeyword_1_0() { return cTRUERootKeyword_1_0; }
 	}
+	public class SEntityTypeElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.SEntityType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cFALSEEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cFALSEDetailKeyword_0_0 = (Keyword)cFALSEEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cTRUEEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cTRUEEntityKeyword_1_0 = (Keyword)cTRUEEnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum SEntityType returns STristate:
+		//	FALSE='detail' | TRUE='entity';
+		public EnumRule getRule() { return rule; }
+		
+		//FALSE='detail' | TRUE='entity'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//FALSE='detail'
+		public EnumLiteralDeclaration getFALSEEnumLiteralDeclaration_0() { return cFALSEEnumLiteralDeclaration_0; }
+		
+		//'detail'
+		public Keyword getFALSEDetailKeyword_0_0() { return cFALSEDetailKeyword_0_0; }
+		
+		//TRUE='entity'
+		public EnumLiteralDeclaration getTRUEEnumLiteralDeclaration_1() { return cTRUEEnumLiteralDeclaration_1; }
+		
+		//'entity'
+		public Keyword getTRUEEntityKeyword_1_0() { return cTRUEEntityKeyword_1_0; }
+	}
 	
 	private final SInformationModelElements pSInformationModel;
 	private final SInformationModelKindElements eSInformationModelKind;
@@ -2552,6 +2591,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	private final SDitchFeatureRuleElements pSDitchFeatureRule;
 	private final SAbstractTypeElements eSAbstractType;
 	private final SRootEntityElements eSRootEntity;
+	private final SEntityTypeElements eSEntityType;
 	private final DomainElements pDomain;
 	private final AggregateElements pAggregate;
 	private final SAggregateDeductionElements pSAggregateDeduction;
@@ -2608,6 +2648,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSDitchFeatureRule = new SDitchFeatureRuleElements();
 		this.eSAbstractType = new SAbstractTypeElements();
 		this.eSRootEntity = new SRootEntityElements();
+		this.eSEntityType = new SEntityTypeElements();
 		this.pDomain = new DomainElements();
 		this.pAggregate = new AggregateElements();
 		this.pSAggregateDeduction = new SAggregateDeductionElements();
@@ -2812,10 +2853,9 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//fragment ChangeComplexType returns SStructureChangingRule:
-	//	'to'
-	//	abstract=SAbstractType?
-	//	rootEntity=SRootEntity?
-	//	renameTo=ID? ('extends' extendFrom=[DComplexType])?;
+	//	('to'
+	//	abstract=SAbstractType? (rootEntity=SRootEntity | entity=SEntityType)?
+	//	renameTo=ID? ('extends' extendFrom=[DComplexType])?)?;
 	public ChangeComplexTypeElements getChangeComplexTypeAccess() {
 		return pChangeComplexType;
 	}
@@ -2874,6 +2914,16 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public EnumRule getSRootEntityRule() {
 		return getSRootEntityAccess().getRule();
+	}
+	
+	//enum SEntityType returns STristate:
+	//	FALSE='detail' | TRUE='entity';
+	public SEntityTypeElements getSEntityTypeAccess() {
+		return eSEntityType;
+	}
+	
+	public EnumRule getSEntityTypeRule() {
+		return getSEntityTypeAccess().getRule();
 	}
 	
 	//Domain SDomainDeduction:

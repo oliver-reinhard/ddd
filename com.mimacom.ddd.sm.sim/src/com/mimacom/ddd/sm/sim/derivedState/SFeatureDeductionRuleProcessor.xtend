@@ -13,6 +13,7 @@ import com.mimacom.ddd.sm.sim.SGrabRule
 import com.mimacom.ddd.sm.sim.SMorphRule
 import com.mimacom.ddd.sm.sim.SQueryDeduction
 import com.mimacom.ddd.sm.sim.SQueryParameterDeduction
+import com.mimacom.ddd.sm.sim.SRenameRule
 
 class SFeatureDeductionRuleProcessor  {
 	
@@ -39,7 +40,7 @@ class SFeatureDeductionRuleProcessor  {
 		// do nothing (has been taken care of by DComplexType
 	}
 	
-	def  DFeature grabFeature(DComplexType container, SFeatureDeduction deductionDefinition, SGrabRule rule, TransformationContext context) {
+	def  DFeature grabFeature(DComplexType container, SFeatureDeduction deductionDefinition, SRenameRule rule, TransformationContext context) {
 		val source = rule.source
 		if (source instanceof DFeature) {
 			val syntheticFeature = container.addSyntheticFeature(if (rule.renameTo !== null) rule.renameTo else source.name, source, deductionDefinition, context)
@@ -117,7 +118,7 @@ class SFeatureDeductionRuleProcessor  {
 		}
 	}
 	
-	def  DQueryParameter grabQueryParameter(DQuery container, SQueryParameterDeduction deductionDefinition, SGrabRule rule, TransformationContext context) {
+	def  DQueryParameter grabQueryParameter(DQuery container, SQueryParameterDeduction deductionDefinition, SRenameRule rule, TransformationContext context) {
 		val source = rule.source
 		if (source instanceof DQueryParameter) {
 			val syntheticParameter = container.addSyntheticQueryParameter(if (rule.renameTo !== null) rule.renameTo else source.name, source, deductionDefinition, context)

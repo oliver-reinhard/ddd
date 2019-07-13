@@ -94,7 +94,7 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
           final DDeductionRule rule = definition.getDeductionRule();
           final IDeducibleElement source = rule.getSource();
           if ((source instanceof DType)) {
-            final DType syntheticType = this._sTypeDeductionRuleProcessor.processTypeDeduction(definition, rule, context);
+            final DType syntheticType = this._sTypeDeductionRuleProcessor.processTypeDeduction(model, definition, rule, context);
             if ((definition instanceof SComplexTypeDeduction)) {
               SyntheticComplexTypeDescriptor _syntheticComplexTypeDescriptor = new SyntheticComplexTypeDescriptor(((DComplexType) syntheticType), ((SComplexTypeDeduction)definition), ((DComplexType) source));
               complexSyntheticTypes.add(_syntheticComplexTypeDescriptor);
@@ -111,13 +111,13 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
     }
     final ArrayList<DAggregate> modelList = Lists.<DAggregate>newArrayList(model.getAggregates());
     for (final DAggregate aggregate : modelList) {
-      this.processAggregate(model, aggregate, null, context);
+      this.processAggregate(model, aggregate, context);
     }
   }
   
-  public void processAggregate(final SInformationModel model, final DAggregate dAggregate, final SDomainDeduction elementWithRule, final TransformationContext context) {
+  public void processAggregate(final SInformationModel model, final DAggregate dAggregate, final TransformationContext context) {
     DAggregate current = dAggregate;
-    final ArrayList<SyntheticComplexTypeDescriptor> complexSyntheticTypes = Lists.<SyntheticComplexTypeDescriptor>newArrayList();
+    final ArrayList<SyntheticComplexTypeDescriptor> complexSyntheticTypesAcceptor = Lists.<SyntheticComplexTypeDescriptor>newArrayList();
     if ((current instanceof SAggregateDeduction)) {
       final SAggregateDeduction deductionDefinition = ((SAggregateDeduction)current);
       DDeductionRule _deductionRule = deductionDefinition.getDeductionRule();
@@ -129,12 +129,12 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
         }
         if ((source instanceof DAggregate)) {
           current = this._syntheticModelElementsFactory.addSyntheticAggregate(model, deductionDefinition, context);
-          this._sTypeDeductionRuleProcessor.addImplicitSyntheticTypes(current, deductionDefinition, ((DAggregate)source), complexSyntheticTypes, context);
+          this._sTypeDeductionRuleProcessor.addImplicitSyntheticTypes(current, deductionDefinition, ((DAggregate)source), complexSyntheticTypesAcceptor, context);
         }
       }
     }
-    this._sTypeDeductionRuleProcessor.addSyntheticTypes(current, complexSyntheticTypes, context);
-    for (final SyntheticComplexTypeDescriptor desc : complexSyntheticTypes) {
+    this._sTypeDeductionRuleProcessor.addSyntheticTypes(current, dAggregate, complexSyntheticTypesAcceptor, context);
+    for (final SyntheticComplexTypeDescriptor desc : complexSyntheticTypesAcceptor) {
       this._sFeatureDeductionRuleProcessor.addSyntheticFeatures(desc, context);
     }
   }

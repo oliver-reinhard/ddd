@@ -22,6 +22,7 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected SimGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_ChangeComplexType_ToKeyword_0_q;
 	protected AbstractElementAlias match_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3;
 	protected AbstractElementAlias match_DNilLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1;
 	protected AbstractElementAlias match_DParenthesizedExpression_LeftParenthesisKeyword_0_a;
@@ -41,6 +42,7 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (SimGrammarAccess) access;
+		match_ChangeComplexType_ToKeyword_0_q = new TokenAlias(false, true, grammarAccess.getChangeComplexTypeAccess().getToKeyword_0());
 		match_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDBooleanLiteralAccess().getFALSEKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getDBooleanLiteralAccess().getFalseKeyword_1_3()));
 		match_DNilLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDNilLiteralAccess().getUNDEFINEDKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDNilLiteralAccess().getUndefinedKeyword_1_1()));
 		match_DParenthesizedExpression_LeftParenthesisKeyword_0_a = new TokenAlias(true, true, grammarAccess.getDParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
@@ -128,7 +130,9 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3.equals(syntax))
+			if (match_ChangeComplexType_ToKeyword_0_q.equals(syntax))
+				emit_ChangeComplexType_ToKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3.equals(syntax))
 				emit_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DNilLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1.equals(syntax))
 				emit_DNilLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -162,6 +166,18 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     'to'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     otherSources+=[DComplexType|DQualifiedName] (ambiguity) (rule end)
+	 *     source=[DComplexType|DQualifiedName] (ambiguity) (rule end)
+	 */
+	protected void emit_ChangeComplexType_ToKeyword_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * Ambiguous syntax:
 	 *     'FALSE' | 'false'

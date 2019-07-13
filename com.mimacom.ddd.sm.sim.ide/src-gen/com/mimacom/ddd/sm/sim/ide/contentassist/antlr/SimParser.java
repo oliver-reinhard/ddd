@@ -32,6 +32,7 @@ public class SimParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, SimGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getSInformationModelAccess().getAlternatives_8(), "rule__SInformationModel__Alternatives_8");
+			builder.put(grammarAccess.getChangeComplexTypeAccess().getAlternatives_2(), "rule__ChangeComplexType__Alternatives_2");
 			builder.put(grammarAccess.getAggregateAccess().getAlternatives(), "rule__Aggregate__Alternatives");
 			builder.put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 			builder.put(grammarAccess.getSPrimitiveDeductionAccess().getAlternatives_1(), "rule__SPrimitiveDeduction__Alternatives_1");
@@ -84,6 +85,7 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSInformationModelKindAccess().getAlternatives(), "rule__SInformationModelKind__Alternatives");
 			builder.put(grammarAccess.getSAbstractTypeAccess().getAlternatives(), "rule__SAbstractType__Alternatives");
 			builder.put(grammarAccess.getSRootEntityAccess().getAlternatives(), "rule__SRootEntity__Alternatives");
+			builder.put(grammarAccess.getSEntityTypeAccess().getAlternatives(), "rule__SEntityType__Alternatives");
 			builder.put(grammarAccess.getDAssociationKindAccess().getAlternatives(), "rule__DAssociationKind__Alternatives");
 			builder.put(grammarAccess.getDServiceKindAccess().getAlternatives(), "rule__DServiceKind__Alternatives");
 			builder.put(grammarAccess.getDDirectionAccess().getAlternatives(), "rule__DDirection__Alternatives");
@@ -314,7 +316,8 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSFuseComplexTypeRuleAccess().getSourceAssignment_0(), "rule__SFuseComplexTypeRule__SourceAssignment_0");
 			builder.put(grammarAccess.getSFuseComplexTypeRuleAccess().getOtherSourcesAssignment_1_1(), "rule__SFuseComplexTypeRule__OtherSourcesAssignment_1_1");
 			builder.put(grammarAccess.getChangeComplexTypeAccess().getAbstractAssignment_1(), "rule__ChangeComplexType__AbstractAssignment_1");
-			builder.put(grammarAccess.getChangeComplexTypeAccess().getRootEntityAssignment_2(), "rule__ChangeComplexType__RootEntityAssignment_2");
+			builder.put(grammarAccess.getChangeComplexTypeAccess().getRootEntityAssignment_2_0(), "rule__ChangeComplexType__RootEntityAssignment_2_0");
+			builder.put(grammarAccess.getChangeComplexTypeAccess().getEntityAssignment_2_1(), "rule__ChangeComplexType__EntityAssignment_2_1");
 			builder.put(grammarAccess.getChangeComplexTypeAccess().getRenameToAssignment_3(), "rule__ChangeComplexType__RenameToAssignment_3");
 			builder.put(grammarAccess.getChangeComplexTypeAccess().getExtendFromAssignment_4_1(), "rule__ChangeComplexType__ExtendFromAssignment_4_1");
 			builder.put(grammarAccess.getSGrabFeatureRuleAccess().getSourceAssignment_0(), "rule__SGrabFeatureRule__SourceAssignment_0");

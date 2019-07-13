@@ -369,7 +369,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *         source=[DComplexType|DQualifiedName] 
 	 *         otherSources+=[DComplexType|DQualifiedName]+ 
 	 *         abstract=SAbstractType? 
-	 *         rootEntity=SRootEntity? 
+	 *         (rootEntity=SRootEntity | entity=SEntityType)? 
 	 *         renameTo=ID? 
 	 *         extendFrom=[DComplexType|ID]?
 	 *     )
@@ -384,7 +384,13 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SMorphComplexTypeRule returns SMorphRule
 	 *
 	 * Constraint:
-	 *     (source=[DComplexType|DQualifiedName] abstract=SAbstractType? rootEntity=SRootEntity? renameTo=ID? extendFrom=[DComplexType|ID]?)
+	 *     (
+	 *         source=[DComplexType|DQualifiedName] 
+	 *         abstract=SAbstractType? 
+	 *         (rootEntity=SRootEntity | entity=SEntityType)? 
+	 *         renameTo=ID? 
+	 *         extendFrom=[DComplexType|ID]?
+	 *     )
 	 */
 	protected void sequence_ChangeComplexType_SMorphComplexTypeRule(ISerializationContext context, SMorphRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

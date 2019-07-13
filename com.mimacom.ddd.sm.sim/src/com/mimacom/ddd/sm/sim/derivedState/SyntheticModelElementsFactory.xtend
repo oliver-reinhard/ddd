@@ -80,16 +80,6 @@ class SyntheticModelElementsFactory {
 		context.putSystemType(source, syntheticType)
 	}
 	
-//	protected def SSyntheticDeductionRule createSyntheticDeductionRuleOrNull(EObject source, IDeductionDefinition deductionDefinition) {
-//		if (source === null || deductionDefinition === null) {
-//			return null
-//		}
-//		val rule = simFactory.createSSyntheticDeductionRule
-//		rule.source = source
-//		rule.deductionDefinition = deductionDefinition
-//		return rule
-//	}
-	
 	def DFeature addSyntheticFeature(DComplexType container, String name, DFeature source, IDeductionDefinition deductionDefinition, TransformationContext context)  {
 			val sourceFeatureType = source.getType
 			if (sourceFeatureType === null) {  // the domain model is (temporarily incomplete => don't add sFeature now
