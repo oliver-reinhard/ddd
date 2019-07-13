@@ -1,0 +1,25 @@
+grammar com.mimacom.ddd.sm.sus.Sus with com.mimacom.ddd.dm.dmx.Dmx
+
+import "http://www.mimacom.com/ddd/sm/sus"
+import "http://www.mimacom.com/ddd/dm/base" 
+import "http://www.mimacom.com/ddd/sm/sim"
+
+UserStory:
+	'user' 'story'
+	name=DQualifiedName
+	(description=DRichText)?
+	(imports+=DImport)*
+	(sections+=Section)*;
+
+DImport:
+	'import' importedNamespace=DQualifiedNameWithWildcard;
+	
+Section:
+	'section' name=ID
+	(paragraphs+=Paragraph)*;
+
+Paragraph:
+	text=DRichText;
+	
+	
+	

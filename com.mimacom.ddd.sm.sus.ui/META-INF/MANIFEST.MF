@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.mimacom.ddd.sm.sus.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: com.mimacom.ddd.sm.sus.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.mimacom.ddd.sm.sus.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.mimacom.ddd.dm.dmx.ui;visibility:=reexport,
+ com.mimacom.ddd.sm.sus,
+ com.mimacom.ddd.sm.sus.ide,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtend.lib;bundle-version="2.14.0";resolution:=optional,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.ui.forms
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.mimacom.ddd.sm.sus.ui.internal,
+ com.mimacom.ddd.sm.sus.ui.quickfix,
+ com.mimacom.ddd.sm.sus.ui.contentassist,
+ com.mimacom.ddd.sm.sus.ui.wizard
+Bundle-Activator: com.mimacom.ddd.sm.sus.ui.internal.SusActivator
