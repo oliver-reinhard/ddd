@@ -6,7 +6,6 @@ import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DDeductionRule
-import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DFeature
@@ -15,12 +14,13 @@ import com.mimacom.ddd.dm.base.DMultiplicity
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DQueryParameter
-import com.mimacom.ddd.dm.base.DRelationship
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.base.IDeducibleElement
 import com.mimacom.ddd.dm.base.IDeductionDefinition
+import com.mimacom.ddd.dm.base.IIdentityType
 import com.mimacom.ddd.sm.sim.SImplicitElementDeduction
 import com.mimacom.ddd.sm.sim.SInformationModel
+import com.mimacom.ddd.sm.sim.SMorphRule
 import com.mimacom.ddd.sm.sim.SStructureChangingRule
 import com.mimacom.ddd.sm.sim.STristate
 import com.mimacom.ddd.sm.sim.SimFactory
@@ -28,34 +28,35 @@ import org.eclipse.emf.ecore.EObject
 
 class SyntheticModelElementsFactory {
 	
-	static val baseFactory = BaseFactory.eINSTANCE
+	static val BASE = BaseFactory.eINSTANCE
 	static val simFactory = SimFactory.eINSTANCE
 	
 	def DAggregate addSyntheticAggregate(SInformationModel container, IDeductionDefinition deductionDefinition, TransformationContext context)  {
-		val syntheticAggregate = baseFactory.createDAggregate
+		val syntheticAggregate = BASE.createDAggregate
 		syntheticAggregate.deducedFrom = deductionDefinition
 		container.aggregates.add(syntheticAggregate)
 		return syntheticAggregate
 	}
 	
 	def dispatch DPrimitive addSyntheticType(EObject container, String name, DPrimitive source /*dispatch*/, IDeductionDefinition deductionDefinition, TransformationContext context)  {
-		val syntheticPrimitive = baseFactory.createDPrimitive
+		val syntheticPrimitive = BASE.createDPrimitive
 		syntheticPrimitive.initSyntheticType(container, name, source, deductionDefinition, context)
 		syntheticPrimitive.redefines = source.redefines
 		return syntheticPrimitive
 	}
 	
 	def dispatch DEnumeration addSyntheticType(EObject container, String name, DEnumeration source /*dispatch*/, IDeductionDefinition deductionDefinition,  TransformationContext context)  {
-		val syntheticEnumeration = baseFactory.createDEnumeration
+		val syntheticEnumeration = BASE.createDEnumeration
 		syntheticEnumeration.initSyntheticType(container, name, source, deductionDefinition, context)
 		return syntheticEnumeration
 	}
 	
 	def dispatch DComplexType addSyntheticType(EObject container, String name, DComplexType source /*dispatch*/, IDeductionDefinition deductionDefinition, TransformationContext context)  {
-		val syntheticComplexType = switch source {
-			DEntityType: baseFactory.createDEntityType
-			DRelationship: baseFactory.createDEntityType
-			DDetailType: baseFactory.createDDetailType
+		
+		val syntheticComplexType =  if (deductionDefinition.deductionRule.makeEntity(source)) {
+			BASE.createDEntityType
+		} else {
+			BASE.createDDetailType
 		}
 		syntheticComplexType.initSyntheticType(container, name, source, deductionDefinition, context)
 		syntheticComplexType.abstract = deductionDefinition.deductionRule.makeAbstract(source)
@@ -85,13 +86,13 @@ class SyntheticModelElementsFactory {
 			if (sourceFeatureType === null) {  // the domain model is (temporarily incomplete => don't add sFeature now
 				return null 
 			}
+			val featureType = context.getSystemType(sourceFeatureType) // may be null
 			val syntheticFeature = switch source {
-				DAttribute: baseFactory.createDAttribute
-				DQuery: baseFactory.createDQuery
-				DAssociation: baseFactory.createDAssociation
+				DAttribute | DAssociation: if (featureType instanceof IIdentityType) BASE.createDAssociation else BASE.createDAttribute
+				DQuery: BASE.createDQuery
 			}
 			syntheticFeature.name = name
-			syntheticFeature.type = context.getSystemType(sourceFeatureType) // may be null
+			syntheticFeature.type = featureType
 			syntheticFeature.multiplicity = grabMultiplicity(source.getMultiplicity)
 			syntheticFeature.synthetic = true
 			syntheticFeature.deducedFrom = deductionDefinition
@@ -101,9 +102,9 @@ class SyntheticModelElementsFactory {
 	
 	def DFeature addSyntheticFeatureAsCopy(DComplexType container, DFeature source, TransformationContext context)  {
 			val syntheticFeature = switch source {
-				DAttribute: baseFactory.createDAttribute
-				DQuery: baseFactory.createDQuery
-				DAssociation: baseFactory.createDAssociation
+				DAttribute: BASE.createDAttribute
+				DQuery: BASE.createDQuery
+				DAssociation: BASE.createDAssociation
 			}
 			syntheticFeature.name = source.name
 			syntheticFeature.type = source.getType
@@ -124,7 +125,7 @@ class SyntheticModelElementsFactory {
 			if (sourceParameterType === null) {  // the domain model is (temporarily incomplete => don't add sFeature now
 				return null 
 			}
-			val syntheticParameter = baseFactory.createDQueryParameter
+			val syntheticParameter = BASE.createDQueryParameter
 			syntheticParameter.name = name
 			syntheticParameter.type = context.getSystemType(sourceParameterType)
 			syntheticParameter.multiplicity = grabMultiplicity(source.getMultiplicity)
@@ -135,7 +136,7 @@ class SyntheticModelElementsFactory {
 	}
 	
 	def DQueryParameter addSyntheticQueryParameterAsCopy(DQuery container, DQueryParameter source, TransformationContext context)  {
-			val syntheticParameter = baseFactory.createDQueryParameter
+			val syntheticParameter = BASE.createDQueryParameter
 			syntheticParameter.name = source.name
 			syntheticParameter.type = source.getType
 			syntheticParameter.multiplicity = source.getMultiplicity
@@ -146,7 +147,7 @@ class SyntheticModelElementsFactory {
 	}
 	
 	def void addSyntheticLiteral(DEnumeration container, String name) {
-		val syntheticLiteral = baseFactory.createDLiteral
+		val syntheticLiteral = BASE.createDLiteral
 		syntheticLiteral.name = name
 		syntheticLiteral.synthetic = true
 		container.literals.add(syntheticLiteral)
@@ -155,7 +156,7 @@ class SyntheticModelElementsFactory {
 	protected def DMultiplicity grabMultiplicity(DMultiplicity source) {
 		var DMultiplicity result = null
 		if (source !== null) {
-			result = baseFactory.createDMultiplicity
+			result = BASE.createDMultiplicity
 			result.minOccurs = source.minOccurs
 			result.maxOccurs = source.maxOccurs
 		}
@@ -178,6 +179,15 @@ class SyntheticModelElementsFactory {
 	
 	protected def dispatch boolean makeRoot(DDeductionRule r, DIdentityType source) {
 		return source.root
+	}
+	
+	protected def dispatch boolean makeEntity(SMorphRule r, DComplexType source) {
+		if (r.entity == STristate.DONT_CARE) return source instanceof DEntityType
+		return r.entity == STristate.TRUE
+	}
+	
+	protected def dispatch boolean makeEntity(DDeductionRule r, DComplexType source) {
+		return source instanceof DEntityType
 	}
 	
 	

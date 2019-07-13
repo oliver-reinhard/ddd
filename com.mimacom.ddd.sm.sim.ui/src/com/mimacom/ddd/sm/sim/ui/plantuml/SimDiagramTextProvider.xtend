@@ -169,7 +169,7 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 	}
 	
 	def generateLink(DAttribute a) {
-		return generateLink('*', a.eContainer as DType, a.getType, a.name, "")
+		return generateLink('+', a.eContainer as DType, a.getType, a.name, "")
 	}
 	
 	def generateLink(String sourceArrowhead, DType source, DType target, String targetRole, String targetArrowhead) '''

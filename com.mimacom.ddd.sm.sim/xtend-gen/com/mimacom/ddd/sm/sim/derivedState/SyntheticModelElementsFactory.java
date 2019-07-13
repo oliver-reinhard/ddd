@@ -7,7 +7,6 @@ import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DDeductionRule;
-import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
@@ -17,13 +16,14 @@ import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
-import com.mimacom.ddd.dm.base.DRelationship;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.base.IIdentityType;
 import com.mimacom.ddd.sm.sim.SGrabRule;
 import com.mimacom.ddd.sm.sim.SImplicitElementDeduction;
 import com.mimacom.ddd.sm.sim.SInformationModel;
+import com.mimacom.ddd.sm.sim.SMorphRule;
 import com.mimacom.ddd.sm.sim.SStructureChangingRule;
 import com.mimacom.ddd.sm.sim.STristate;
 import com.mimacom.ddd.sm.sim.SimFactory;
@@ -34,63 +34,52 @@ import org.eclipse.emf.ecore.EObject;
 
 @SuppressWarnings("all")
 public class SyntheticModelElementsFactory {
-  private static final BaseFactory baseFactory = BaseFactory.eINSTANCE;
+  private static final BaseFactory BASE = BaseFactory.eINSTANCE;
   
   private static final SimFactory simFactory = SimFactory.eINSTANCE;
   
   public DAggregate addSyntheticAggregate(final SInformationModel container, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
-    final DAggregate syntheticAggregate = SyntheticModelElementsFactory.baseFactory.createDAggregate();
+    final DAggregate syntheticAggregate = SyntheticModelElementsFactory.BASE.createDAggregate();
     syntheticAggregate.setDeducedFrom(deductionDefinition);
     container.getAggregates().add(syntheticAggregate);
     return syntheticAggregate;
   }
   
   protected DPrimitive _addSyntheticType(final EObject container, final String name, final DPrimitive source, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
-    final DPrimitive syntheticPrimitive = SyntheticModelElementsFactory.baseFactory.createDPrimitive();
+    final DPrimitive syntheticPrimitive = SyntheticModelElementsFactory.BASE.createDPrimitive();
     this.initSyntheticType(syntheticPrimitive, container, name, source, deductionDefinition, context);
     syntheticPrimitive.setRedefines(source.getRedefines());
     return syntheticPrimitive;
   }
   
   protected DEnumeration _addSyntheticType(final EObject container, final String name, final DEnumeration source, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
-    final DEnumeration syntheticEnumeration = SyntheticModelElementsFactory.baseFactory.createDEnumeration();
+    final DEnumeration syntheticEnumeration = SyntheticModelElementsFactory.BASE.createDEnumeration();
     this.initSyntheticType(syntheticEnumeration, container, name, source, deductionDefinition, context);
     return syntheticEnumeration;
   }
   
   protected DComplexType _addSyntheticType(final EObject container, final String name, final DComplexType source, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
-    DComplexType _switchResult = null;
-    boolean _matched = false;
-    if (source instanceof DEntityType) {
-      _matched=true;
-      _switchResult = SyntheticModelElementsFactory.baseFactory.createDEntityType();
+    DComplexType _xifexpression = null;
+    boolean _makeEntity = this.makeEntity(deductionDefinition.getDeductionRule(), source);
+    if (_makeEntity) {
+      _xifexpression = SyntheticModelElementsFactory.BASE.createDEntityType();
+    } else {
+      _xifexpression = SyntheticModelElementsFactory.BASE.createDDetailType();
     }
-    if (!_matched) {
-      if (source instanceof DRelationship) {
-        _matched=true;
-        _switchResult = SyntheticModelElementsFactory.baseFactory.createDEntityType();
-      }
-    }
-    if (!_matched) {
-      if (source instanceof DDetailType) {
-        _matched=true;
-        _switchResult = SyntheticModelElementsFactory.baseFactory.createDDetailType();
-      }
-    }
-    final DComplexType syntheticComplexType = _switchResult;
+    final DComplexType syntheticComplexType = _xifexpression;
     this.initSyntheticType(syntheticComplexType, container, name, source, deductionDefinition, context);
     syntheticComplexType.setAbstract(this.makeAbstract(deductionDefinition.getDeductionRule(), source));
     if ((syntheticComplexType instanceof DEntityType)) {
       ((DEntityType)syntheticComplexType).setRoot(this.makeRoot(deductionDefinition.getDeductionRule(), ((DIdentityType) source)));
     }
-    boolean _matched_1 = false;
+    boolean _matched = false;
     if (container instanceof DAggregate) {
-      _matched_1=true;
+      _matched=true;
       ((DAggregate)container).getTypes().add(syntheticComplexType);
     }
-    if (!_matched_1) {
+    if (!_matched) {
       if (container instanceof SInformationModel) {
-        _matched_1=true;
+        _matched=true;
         ((SInformationModel)container).getTypes().add(syntheticComplexType);
       }
     }
@@ -120,27 +109,28 @@ public class SyntheticModelElementsFactory {
     if ((sourceFeatureType == null)) {
       return null;
     }
+    final DType featureType = context.getSystemType(sourceFeatureType);
     DFeature _switchResult = null;
     boolean _matched = false;
-    if (source instanceof DAttribute) {
+    if (source instanceof DAttribute || source instanceof DAssociation) {
       _matched=true;
-      _switchResult = SyntheticModelElementsFactory.baseFactory.createDAttribute();
+      DFeature _xifexpression = null;
+      if ((featureType instanceof IIdentityType)) {
+        _xifexpression = SyntheticModelElementsFactory.BASE.createDAssociation();
+      } else {
+        _xifexpression = SyntheticModelElementsFactory.BASE.createDAttribute();
+      }
+      _switchResult = _xifexpression;
     }
     if (!_matched) {
       if (source instanceof DQuery) {
         _matched=true;
-        _switchResult = SyntheticModelElementsFactory.baseFactory.createDQuery();
-      }
-    }
-    if (!_matched) {
-      if (source instanceof DAssociation) {
-        _matched=true;
-        _switchResult = SyntheticModelElementsFactory.baseFactory.createDAssociation();
+        _switchResult = SyntheticModelElementsFactory.BASE.createDQuery();
       }
     }
     final DFeature syntheticFeature = _switchResult;
     syntheticFeature.setName(name);
-    syntheticFeature.setType(context.getSystemType(sourceFeatureType));
+    syntheticFeature.setType(featureType);
     syntheticFeature.setMultiplicity(this.grabMultiplicity(source.getMultiplicity()));
     syntheticFeature.setSynthetic(true);
     syntheticFeature.setDeducedFrom(deductionDefinition);
@@ -153,18 +143,18 @@ public class SyntheticModelElementsFactory {
     boolean _matched = false;
     if (source instanceof DAttribute) {
       _matched=true;
-      _switchResult = SyntheticModelElementsFactory.baseFactory.createDAttribute();
+      _switchResult = SyntheticModelElementsFactory.BASE.createDAttribute();
     }
     if (!_matched) {
       if (source instanceof DQuery) {
         _matched=true;
-        _switchResult = SyntheticModelElementsFactory.baseFactory.createDQuery();
+        _switchResult = SyntheticModelElementsFactory.BASE.createDQuery();
       }
     }
     if (!_matched) {
       if (source instanceof DAssociation) {
         _matched=true;
-        _switchResult = SyntheticModelElementsFactory.baseFactory.createDAssociation();
+        _switchResult = SyntheticModelElementsFactory.BASE.createDAssociation();
       }
     }
     final DFeature syntheticFeature = _switchResult;
@@ -188,7 +178,7 @@ public class SyntheticModelElementsFactory {
     if ((sourceParameterType == null)) {
       return null;
     }
-    final DQueryParameter syntheticParameter = SyntheticModelElementsFactory.baseFactory.createDQueryParameter();
+    final DQueryParameter syntheticParameter = SyntheticModelElementsFactory.BASE.createDQueryParameter();
     syntheticParameter.setName(name);
     syntheticParameter.setType(context.getSystemType(sourceParameterType));
     syntheticParameter.setMultiplicity(this.grabMultiplicity(source.getMultiplicity()));
@@ -199,7 +189,7 @@ public class SyntheticModelElementsFactory {
   }
   
   public DQueryParameter addSyntheticQueryParameterAsCopy(final DQuery container, final DQueryParameter source, final TransformationContext context) {
-    final DQueryParameter syntheticParameter = SyntheticModelElementsFactory.baseFactory.createDQueryParameter();
+    final DQueryParameter syntheticParameter = SyntheticModelElementsFactory.BASE.createDQueryParameter();
     syntheticParameter.setName(source.getName());
     syntheticParameter.setType(source.getType());
     syntheticParameter.setMultiplicity(source.getMultiplicity());
@@ -210,7 +200,7 @@ public class SyntheticModelElementsFactory {
   }
   
   public void addSyntheticLiteral(final DEnumeration container, final String name) {
-    final DLiteral syntheticLiteral = SyntheticModelElementsFactory.baseFactory.createDLiteral();
+    final DLiteral syntheticLiteral = SyntheticModelElementsFactory.BASE.createDLiteral();
     syntheticLiteral.setName(name);
     syntheticLiteral.setSynthetic(true);
     container.getLiterals().add(syntheticLiteral);
@@ -219,7 +209,7 @@ public class SyntheticModelElementsFactory {
   protected DMultiplicity grabMultiplicity(final DMultiplicity source) {
     DMultiplicity result = null;
     if ((source != null)) {
-      result = SyntheticModelElementsFactory.baseFactory.createDMultiplicity();
+      result = SyntheticModelElementsFactory.BASE.createDMultiplicity();
       result.setMinOccurs(source.getMinOccurs());
       result.setMaxOccurs(source.getMaxOccurs());
     }
@@ -252,6 +242,20 @@ public class SyntheticModelElementsFactory {
   
   protected boolean _makeRoot(final DDeductionRule r, final DIdentityType source) {
     return source.isRoot();
+  }
+  
+  protected boolean _makeEntity(final SMorphRule r, final DComplexType source) {
+    STristate _entity = r.getEntity();
+    boolean _equals = Objects.equal(_entity, STristate.DONT_CARE);
+    if (_equals) {
+      return (source instanceof DEntityType);
+    }
+    STristate _entity_1 = r.getEntity();
+    return Objects.equal(_entity_1, STristate.TRUE);
+  }
+  
+  protected boolean _makeEntity(final DDeductionRule r, final DComplexType source) {
+    return (source instanceof DEntityType);
   }
   
   public SImplicitElementDeduction createImplicitElementCopyDeduction(final IDeductionDefinition originalDeductionDefinition, final IDeducibleElement source) {
@@ -292,6 +296,17 @@ public class SyntheticModelElementsFactory {
       return _makeRoot((SStructureChangingRule)r, source);
     } else if (r != null) {
       return _makeRoot(r, source);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(r, source).toString());
+    }
+  }
+  
+  protected boolean makeEntity(final DDeductionRule r, final DComplexType source) {
+    if (r instanceof SMorphRule) {
+      return _makeEntity((SMorphRule)r, source);
+    } else if (r != null) {
+      return _makeEntity(r, source);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(r, source).toString());

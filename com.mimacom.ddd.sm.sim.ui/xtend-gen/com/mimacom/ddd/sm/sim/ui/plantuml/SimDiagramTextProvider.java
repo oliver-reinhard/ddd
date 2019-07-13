@@ -468,7 +468,7 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
   
   public CharSequence generateLink(final DAttribute a) {
     EObject _eContainer = a.eContainer();
-    return this.generateLink("*", ((DType) _eContainer), a.getType(), a.getName(), "");
+    return this.generateLink("+", ((DType) _eContainer), a.getType(), a.getName(), "");
   }
   
   public CharSequence generateLink(final String sourceArrowhead, final DType source, final DType target, final String targetRole, final String targetArrowhead) {
