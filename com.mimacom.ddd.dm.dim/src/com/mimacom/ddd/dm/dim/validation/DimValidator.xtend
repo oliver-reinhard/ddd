@@ -183,16 +183,24 @@ class DimValidator extends AbstractDimValidator {
 	}
 
 	// // Naming: Elements whose names should start with a CAPITAL
-	def void checkNameStartsWithCapital(DNamedElement ne) {
-		val name = ne.name
-		if(name !== null && name.length > 0 && !Character::isUpperCase(name.charAt(0))) {
+	
+	protected def void checkNameStartsWithCapitalImpl(String name, DNamedElement ne) {
+		if (name !== null && name.length > 0 && !Character::isUpperCase(name.charAt(0))) {
 			warning("Name should start with a capital", ne, BasePackage.Literals::DNAMED_ELEMENT__NAME)
+			
 		}
+	}
+	
+	def void checkNameStartsWithCapital(DNamedElement ne) {
+		checkNameStartsWithCapitalImpl(ne.name, ne)
 	}
 
 	@Check
 	def void checkTypeNameStartsWithCapital(DDomain d) {
 		if(DEFAULT_IMPORT_TYPES == d.name || DEFAULT_IMPORT_FUNCTIONS == d.name) {
+			return
+		} else if (d.name.startsWith(PREFIX+".")) {
+			checkNameStartsWithCapitalImpl(d.name.substring(3), d)
 			return
 		}
 		checkNameStartsWithCapital(d)

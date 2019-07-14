@@ -41,15 +41,6 @@ public interface BaseFactory extends EFactory
 	DRichText createDRichText();
 
 	/**
-	 * Returns a new object of class '<em>DDomain</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DDomain</em>'.
-	 * @generated
-	 */
-	DDomain createDDomain();
-
-	/**
 	 * Returns a new object of class '<em>DImport</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -57,6 +48,15 @@ public interface BaseFactory extends EFactory
 	 * @generated
 	 */
 	DImport createDImport();
+
+	/**
+	 * Returns a new object of class '<em>DDomain</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DDomain</em>'.
+	 * @generated
+	 */
+	DDomain createDDomain();
 
 	/**
 	 * Returns a new object of class '<em>DFunction</em>'.

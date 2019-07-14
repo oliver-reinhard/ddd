@@ -2319,9 +2319,9 @@ rule__SApplication__Group__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSApplicationAccess().getApplicationKeyword_0()); }
-	'application'
-	{ after(grammarAccess.getSApplicationAccess().getApplicationKeyword_0()); }
+	{ before(grammarAccess.getSApplicationAccess().getImportsAssignment_0()); }
+	(rule__SApplication__ImportsAssignment_0)*
+	{ after(grammarAccess.getSApplicationAccess().getImportsAssignment_0()); }
 )
 ;
 finally {
@@ -2346,9 +2346,9 @@ rule__SApplication__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSApplicationAccess().getNameAssignment_1()); }
-	(rule__SApplication__NameAssignment_1)
-	{ after(grammarAccess.getSApplicationAccess().getNameAssignment_1()); }
+	{ before(grammarAccess.getSApplicationAccess().getApplicationKeyword_1()); }
+	'application'
+	{ after(grammarAccess.getSApplicationAccess().getApplicationKeyword_1()); }
 )
 ;
 finally {
@@ -2373,9 +2373,9 @@ rule__SApplication__Group__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSApplicationAccess().getImportsAssignment_2()); }
-	(rule__SApplication__ImportsAssignment_2)*
-	{ after(grammarAccess.getSApplicationAccess().getImportsAssignment_2()); }
+	{ before(grammarAccess.getSApplicationAccess().getNameAssignment_2()); }
+	(rule__SApplication__NameAssignment_2)
+	{ after(grammarAccess.getSApplicationAccess().getNameAssignment_2()); }
 )
 ;
 finally {
@@ -2508,9 +2508,9 @@ rule__SServiceInterface__Group__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSServiceInterfaceAccess().getServiceKeyword_0()); }
-	'service'
-	{ after(grammarAccess.getSServiceInterfaceAccess().getServiceKeyword_0()); }
+	{ before(grammarAccess.getSServiceInterfaceAccess().getImportsAssignment_0()); }
+	(rule__SServiceInterface__ImportsAssignment_0)*
+	{ after(grammarAccess.getSServiceInterfaceAccess().getImportsAssignment_0()); }
 )
 ;
 finally {
@@ -2535,9 +2535,9 @@ rule__SServiceInterface__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSServiceInterfaceAccess().getInterfaceKeyword_1()); }
-	'interface'
-	{ after(grammarAccess.getSServiceInterfaceAccess().getInterfaceKeyword_1()); }
+	{ before(grammarAccess.getSServiceInterfaceAccess().getServiceKeyword_1()); }
+	'service'
+	{ after(grammarAccess.getSServiceInterfaceAccess().getServiceKeyword_1()); }
 )
 ;
 finally {
@@ -2562,9 +2562,9 @@ rule__SServiceInterface__Group__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSServiceInterfaceAccess().getNameAssignment_2()); }
-	(rule__SServiceInterface__NameAssignment_2)
-	{ after(grammarAccess.getSServiceInterfaceAccess().getNameAssignment_2()); }
+	{ before(grammarAccess.getSServiceInterfaceAccess().getInterfaceKeyword_2()); }
+	'interface'
+	{ after(grammarAccess.getSServiceInterfaceAccess().getInterfaceKeyword_2()); }
 )
 ;
 finally {
@@ -2589,9 +2589,9 @@ rule__SServiceInterface__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSServiceInterfaceAccess().getImportsAssignment_3()); }
-	(rule__SServiceInterface__ImportsAssignment_3)*
-	{ after(grammarAccess.getSServiceInterfaceAccess().getImportsAssignment_3()); }
+	{ before(grammarAccess.getSServiceInterfaceAccess().getNameAssignment_3()); }
+	(rule__SServiceInterface__NameAssignment_3)
+	{ after(grammarAccess.getSServiceInterfaceAccess().getNameAssignment_3()); }
 )
 ;
 finally {
@@ -8619,30 +8619,30 @@ finally {
 }
 
 
-rule__SApplication__NameAssignment_1
+rule__SApplication__ImportsAssignment_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSApplicationAccess().getNameDQualifiedNameParserRuleCall_1_0()); }
-		ruleDQualifiedName
-		{ after(grammarAccess.getSApplicationAccess().getNameDQualifiedNameParserRuleCall_1_0()); }
+		{ before(grammarAccess.getSApplicationAccess().getImportsDImportParserRuleCall_0_0()); }
+		ruleDImport
+		{ after(grammarAccess.getSApplicationAccess().getImportsDImportParserRuleCall_0_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SApplication__ImportsAssignment_2
+rule__SApplication__NameAssignment_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSApplicationAccess().getImportsDImportParserRuleCall_2_0()); }
-		ruleDImport
-		{ after(grammarAccess.getSApplicationAccess().getImportsDImportParserRuleCall_2_0()); }
+		{ before(grammarAccess.getSApplicationAccess().getNameDQualifiedNameParserRuleCall_2_0()); }
+		ruleDQualifiedName
+		{ after(grammarAccess.getSApplicationAccess().getNameDQualifiedNameParserRuleCall_2_0()); }
 	)
 ;
 finally {
@@ -8683,30 +8683,30 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__NameAssignment_2
+rule__SServiceInterface__ImportsAssignment_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSServiceInterfaceAccess().getNameDQualifiedNameParserRuleCall_2_0()); }
-		ruleDQualifiedName
-		{ after(grammarAccess.getSServiceInterfaceAccess().getNameDQualifiedNameParserRuleCall_2_0()); }
+		{ before(grammarAccess.getSServiceInterfaceAccess().getImportsDImportParserRuleCall_0_0()); }
+		ruleDImport
+		{ after(grammarAccess.getSServiceInterfaceAccess().getImportsDImportParserRuleCall_0_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SServiceInterface__ImportsAssignment_3
+rule__SServiceInterface__NameAssignment_3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSServiceInterfaceAccess().getImportsDImportParserRuleCall_3_0()); }
-		ruleDImport
-		{ after(grammarAccess.getSServiceInterfaceAccess().getImportsDImportParserRuleCall_3_0()); }
+		{ before(grammarAccess.getSServiceInterfaceAccess().getNameDQualifiedNameParserRuleCall_3_0()); }
+		ruleDQualifiedName
+		{ after(grammarAccess.getSServiceInterfaceAccess().getNameDQualifiedNameParserRuleCall_3_0()); }
 	)
 ;
 finally {

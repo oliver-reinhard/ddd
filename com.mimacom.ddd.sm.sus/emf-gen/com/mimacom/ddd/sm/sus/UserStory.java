@@ -3,6 +3,7 @@
  */
 package com.mimacom.ddd.sm.sus;
 
+import com.mimacom.ddd.dm.base.DDomainEvent;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DRichText;
 
@@ -23,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.mimacom.ddd.sm.sus.UserStory#getDescription <em>Description</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sus.UserStory#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sus.UserStory#getSections <em>Sections</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sus.UserStory#getEvent <em>Event</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.sm.sus.SusPackage#getUserStory()
@@ -98,5 +100,27 @@ public interface UserStory extends EObject
 	 * @generated
 	 */
 	EList<Section> getSections();
+
+	/**
+	 * Returns the value of the '<em><b>Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Event</em>' reference.
+	 * @see #setEvent(DDomainEvent)
+	 * @see com.mimacom.ddd.sm.sus.SusPackage#getUserStory_Event()
+	 * @model
+	 * @generated
+	 */
+	DDomainEvent getEvent();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.sm.sus.UserStory#getEvent <em>Event</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Event</em>' reference.
+	 * @see #getEvent()
+	 * @generated
+	 */
+	void setEvent(DDomainEvent value);
 
 } // UserStory

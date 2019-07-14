@@ -230,20 +230,20 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSInformationModel"
-    // InternalSim.g:72:1: ruleSInformationModel returns [EObject current=null] : ( ( (lv_kind_0_0= ruleSInformationModelKind ) ) otherlv_1= 'information' otherlv_2= 'model' ( (lv_name_3_0= ruleDQualifiedName ) ) ( (lv_generate_4_0= 'generate' ) )? ( (lv_description_5_0= ruleDRichText ) )? ( (lv_imports_6_0= ruleDImport ) )* ( (lv_queries_7_0= ruleSCoreQuery ) )* ( ( (lv_types_8_0= ruleType ) ) | ( (lv_aggregates_9_0= ruleAggregate ) ) | ( (lv_domainProxies_10_0= ruleDomain ) ) )* ) ;
+    // InternalSim.g:72:1: ruleSInformationModel returns [EObject current=null] : ( ( (lv_imports_0_0= ruleDImport ) )* ( (lv_kind_1_0= ruleSInformationModelKind ) ) otherlv_2= 'information' otherlv_3= 'model' ( (lv_name_4_0= ruleDQualifiedName ) ) ( (lv_generate_5_0= 'generate' ) )? ( (lv_description_6_0= ruleDRichText ) )? ( (lv_queries_7_0= ruleSCoreQuery ) )* ( ( (lv_types_8_0= ruleType ) ) | ( (lv_aggregates_9_0= ruleAggregate ) ) | ( (lv_domainProxies_10_0= ruleDomain ) ) )* ) ;
     public final EObject ruleSInformationModel() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_1=null;
         Token otherlv_2=null;
-        Token lv_generate_4_0=null;
-        Enumerator lv_kind_0_0 = null;
+        Token otherlv_3=null;
+        Token lv_generate_5_0=null;
+        EObject lv_imports_0_0 = null;
 
-        AntlrDatatypeRuleToken lv_name_3_0 = null;
+        Enumerator lv_kind_1_0 = null;
 
-        EObject lv_description_5_0 = null;
+        AntlrDatatypeRuleToken lv_name_4_0 = null;
 
-        EObject lv_imports_6_0 = null;
+        EObject lv_description_6_0 = null;
 
         EObject lv_queries_7_0 = null;
 
@@ -258,25 +258,78 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:78:2: ( ( ( (lv_kind_0_0= ruleSInformationModelKind ) ) otherlv_1= 'information' otherlv_2= 'model' ( (lv_name_3_0= ruleDQualifiedName ) ) ( (lv_generate_4_0= 'generate' ) )? ( (lv_description_5_0= ruleDRichText ) )? ( (lv_imports_6_0= ruleDImport ) )* ( (lv_queries_7_0= ruleSCoreQuery ) )* ( ( (lv_types_8_0= ruleType ) ) | ( (lv_aggregates_9_0= ruleAggregate ) ) | ( (lv_domainProxies_10_0= ruleDomain ) ) )* ) )
-            // InternalSim.g:79:2: ( ( (lv_kind_0_0= ruleSInformationModelKind ) ) otherlv_1= 'information' otherlv_2= 'model' ( (lv_name_3_0= ruleDQualifiedName ) ) ( (lv_generate_4_0= 'generate' ) )? ( (lv_description_5_0= ruleDRichText ) )? ( (lv_imports_6_0= ruleDImport ) )* ( (lv_queries_7_0= ruleSCoreQuery ) )* ( ( (lv_types_8_0= ruleType ) ) | ( (lv_aggregates_9_0= ruleAggregate ) ) | ( (lv_domainProxies_10_0= ruleDomain ) ) )* )
+            // InternalSim.g:78:2: ( ( ( (lv_imports_0_0= ruleDImport ) )* ( (lv_kind_1_0= ruleSInformationModelKind ) ) otherlv_2= 'information' otherlv_3= 'model' ( (lv_name_4_0= ruleDQualifiedName ) ) ( (lv_generate_5_0= 'generate' ) )? ( (lv_description_6_0= ruleDRichText ) )? ( (lv_queries_7_0= ruleSCoreQuery ) )* ( ( (lv_types_8_0= ruleType ) ) | ( (lv_aggregates_9_0= ruleAggregate ) ) | ( (lv_domainProxies_10_0= ruleDomain ) ) )* ) )
+            // InternalSim.g:79:2: ( ( (lv_imports_0_0= ruleDImport ) )* ( (lv_kind_1_0= ruleSInformationModelKind ) ) otherlv_2= 'information' otherlv_3= 'model' ( (lv_name_4_0= ruleDQualifiedName ) ) ( (lv_generate_5_0= 'generate' ) )? ( (lv_description_6_0= ruleDRichText ) )? ( (lv_queries_7_0= ruleSCoreQuery ) )* ( ( (lv_types_8_0= ruleType ) ) | ( (lv_aggregates_9_0= ruleAggregate ) ) | ( (lv_domainProxies_10_0= ruleDomain ) ) )* )
             {
-            // InternalSim.g:79:2: ( ( (lv_kind_0_0= ruleSInformationModelKind ) ) otherlv_1= 'information' otherlv_2= 'model' ( (lv_name_3_0= ruleDQualifiedName ) ) ( (lv_generate_4_0= 'generate' ) )? ( (lv_description_5_0= ruleDRichText ) )? ( (lv_imports_6_0= ruleDImport ) )* ( (lv_queries_7_0= ruleSCoreQuery ) )* ( ( (lv_types_8_0= ruleType ) ) | ( (lv_aggregates_9_0= ruleAggregate ) ) | ( (lv_domainProxies_10_0= ruleDomain ) ) )* )
-            // InternalSim.g:80:3: ( (lv_kind_0_0= ruleSInformationModelKind ) ) otherlv_1= 'information' otherlv_2= 'model' ( (lv_name_3_0= ruleDQualifiedName ) ) ( (lv_generate_4_0= 'generate' ) )? ( (lv_description_5_0= ruleDRichText ) )? ( (lv_imports_6_0= ruleDImport ) )* ( (lv_queries_7_0= ruleSCoreQuery ) )* ( ( (lv_types_8_0= ruleType ) ) | ( (lv_aggregates_9_0= ruleAggregate ) ) | ( (lv_domainProxies_10_0= ruleDomain ) ) )*
+            // InternalSim.g:79:2: ( ( (lv_imports_0_0= ruleDImport ) )* ( (lv_kind_1_0= ruleSInformationModelKind ) ) otherlv_2= 'information' otherlv_3= 'model' ( (lv_name_4_0= ruleDQualifiedName ) ) ( (lv_generate_5_0= 'generate' ) )? ( (lv_description_6_0= ruleDRichText ) )? ( (lv_queries_7_0= ruleSCoreQuery ) )* ( ( (lv_types_8_0= ruleType ) ) | ( (lv_aggregates_9_0= ruleAggregate ) ) | ( (lv_domainProxies_10_0= ruleDomain ) ) )* )
+            // InternalSim.g:80:3: ( (lv_imports_0_0= ruleDImport ) )* ( (lv_kind_1_0= ruleSInformationModelKind ) ) otherlv_2= 'information' otherlv_3= 'model' ( (lv_name_4_0= ruleDQualifiedName ) ) ( (lv_generate_5_0= 'generate' ) )? ( (lv_description_6_0= ruleDRichText ) )? ( (lv_queries_7_0= ruleSCoreQuery ) )* ( ( (lv_types_8_0= ruleType ) ) | ( (lv_aggregates_9_0= ruleAggregate ) ) | ( (lv_domainProxies_10_0= ruleDomain ) ) )*
             {
-            // InternalSim.g:80:3: ( (lv_kind_0_0= ruleSInformationModelKind ) )
-            // InternalSim.g:81:4: (lv_kind_0_0= ruleSInformationModelKind )
+            // InternalSim.g:80:3: ( (lv_imports_0_0= ruleDImport ) )*
+            loop1:
+            do {
+                int alt1=2;
+                int LA1_0 = input.LA(1);
+
+                if ( (LA1_0==48) ) {
+                    alt1=1;
+                }
+
+
+                switch (alt1) {
+            	case 1 :
+            	    // InternalSim.g:81:4: (lv_imports_0_0= ruleDImport )
+            	    {
+            	    // InternalSim.g:81:4: (lv_imports_0_0= ruleDImport )
+            	    // InternalSim.g:82:5: lv_imports_0_0= ruleDImport
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      					newCompositeNode(grammarAccess.getSInformationModelAccess().getImportsDImportParserRuleCall_0_0());
+            	      				
+            	    }
+            	    pushFollow(FOLLOW_3);
+            	    lv_imports_0_0=ruleDImport();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      					if (current==null) {
+            	      						current = createModelElementForParent(grammarAccess.getSInformationModelRule());
+            	      					}
+            	      					add(
+            	      						current,
+            	      						"imports",
+            	      						lv_imports_0_0,
+            	      						"com.mimacom.ddd.dm.dim.Dim.DImport");
+            	      					afterParserOrEnumRuleCall();
+            	      				
+            	    }
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop1;
+                }
+            } while (true);
+
+            // InternalSim.g:99:3: ( (lv_kind_1_0= ruleSInformationModelKind ) )
+            // InternalSim.g:100:4: (lv_kind_1_0= ruleSInformationModelKind )
             {
-            // InternalSim.g:81:4: (lv_kind_0_0= ruleSInformationModelKind )
-            // InternalSim.g:82:5: lv_kind_0_0= ruleSInformationModelKind
+            // InternalSim.g:100:4: (lv_kind_1_0= ruleSInformationModelKind )
+            // InternalSim.g:101:5: lv_kind_1_0= ruleSInformationModelKind
             {
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getSInformationModelAccess().getKindSInformationModelKindEnumRuleCall_0_0());
+              					newCompositeNode(grammarAccess.getSInformationModelAccess().getKindSInformationModelKindEnumRuleCall_1_0());
               				
             }
-            pushFollow(FOLLOW_3);
-            lv_kind_0_0=ruleSInformationModelKind();
+            pushFollow(FOLLOW_4);
+            lv_kind_1_0=ruleSInformationModelKind();
 
             state._fsp--;
             if (state.failed) return current;
@@ -288,7 +341,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
               					set(
               						current,
               						"kind",
-              						lv_kind_0_0,
+              						lv_kind_1_0,
               						"com.mimacom.ddd.sm.sim.Sim.SInformationModelKind");
               					afterParserOrEnumRuleCall();
               				
@@ -299,31 +352,31 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,17,FOLLOW_4); if (state.failed) return current;
+            otherlv_2=(Token)match(input,17,FOLLOW_5); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_1, grammarAccess.getSInformationModelAccess().getInformationKeyword_1());
+              			newLeafNode(otherlv_2, grammarAccess.getSInformationModelAccess().getInformationKeyword_2());
               		
             }
-            otherlv_2=(Token)match(input,18,FOLLOW_5); if (state.failed) return current;
+            otherlv_3=(Token)match(input,18,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_2, grammarAccess.getSInformationModelAccess().getModelKeyword_2());
+              			newLeafNode(otherlv_3, grammarAccess.getSInformationModelAccess().getModelKeyword_3());
               		
             }
-            // InternalSim.g:107:3: ( (lv_name_3_0= ruleDQualifiedName ) )
-            // InternalSim.g:108:4: (lv_name_3_0= ruleDQualifiedName )
+            // InternalSim.g:126:3: ( (lv_name_4_0= ruleDQualifiedName ) )
+            // InternalSim.g:127:4: (lv_name_4_0= ruleDQualifiedName )
             {
-            // InternalSim.g:108:4: (lv_name_3_0= ruleDQualifiedName )
-            // InternalSim.g:109:5: lv_name_3_0= ruleDQualifiedName
+            // InternalSim.g:127:4: (lv_name_4_0= ruleDQualifiedName )
+            // InternalSim.g:128:5: lv_name_4_0= ruleDQualifiedName
             {
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getSInformationModelAccess().getNameDQualifiedNameParserRuleCall_3_0());
+              					newCompositeNode(grammarAccess.getSInformationModelAccess().getNameDQualifiedNameParserRuleCall_4_0());
               				
             }
-            pushFollow(FOLLOW_6);
-            lv_name_3_0=ruleDQualifiedName();
+            pushFollow(FOLLOW_7);
+            lv_name_4_0=ruleDQualifiedName();
 
             state._fsp--;
             if (state.failed) return current;
@@ -335,7 +388,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
               					set(
               						current,
               						"name",
-              						lv_name_3_0,
+              						lv_name_4_0,
               						"com.mimacom.ddd.dm.dmx.Dmx.DQualifiedName");
               					afterParserOrEnumRuleCall();
               				
@@ -346,24 +399,24 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalSim.g:126:3: ( (lv_generate_4_0= 'generate' ) )?
-            int alt1=2;
-            int LA1_0 = input.LA(1);
+            // InternalSim.g:145:3: ( (lv_generate_5_0= 'generate' ) )?
+            int alt2=2;
+            int LA2_0 = input.LA(1);
 
-            if ( (LA1_0==19) ) {
-                alt1=1;
+            if ( (LA2_0==19) ) {
+                alt2=1;
             }
-            switch (alt1) {
+            switch (alt2) {
                 case 1 :
-                    // InternalSim.g:127:4: (lv_generate_4_0= 'generate' )
+                    // InternalSim.g:146:4: (lv_generate_5_0= 'generate' )
                     {
-                    // InternalSim.g:127:4: (lv_generate_4_0= 'generate' )
-                    // InternalSim.g:128:5: lv_generate_4_0= 'generate'
+                    // InternalSim.g:146:4: (lv_generate_5_0= 'generate' )
+                    // InternalSim.g:147:5: lv_generate_5_0= 'generate'
                     {
-                    lv_generate_4_0=(Token)match(input,19,FOLLOW_7); if (state.failed) return current;
+                    lv_generate_5_0=(Token)match(input,19,FOLLOW_8); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(lv_generate_4_0, grammarAccess.getSInformationModelAccess().getGenerateGenerateKeyword_4_0());
+                      					newLeafNode(lv_generate_5_0, grammarAccess.getSInformationModelAccess().getGenerateGenerateKeyword_5_0());
                       				
                     }
                     if ( state.backtracking==0 ) {
@@ -383,27 +436,27 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalSim.g:140:3: ( (lv_description_5_0= ruleDRichText ) )?
-            int alt2=2;
-            int LA2_0 = input.LA(1);
+            // InternalSim.g:159:3: ( (lv_description_6_0= ruleDRichText ) )?
+            int alt3=2;
+            int LA3_0 = input.LA(1);
 
-            if ( ((LA2_0>=RULE_PLAIN_TEXT_ONLY && LA2_0<=RULE_PLAIN_TEXT_START)) ) {
-                alt2=1;
+            if ( ((LA3_0>=RULE_PLAIN_TEXT_ONLY && LA3_0<=RULE_PLAIN_TEXT_START)) ) {
+                alt3=1;
             }
-            switch (alt2) {
+            switch (alt3) {
                 case 1 :
-                    // InternalSim.g:141:4: (lv_description_5_0= ruleDRichText )
+                    // InternalSim.g:160:4: (lv_description_6_0= ruleDRichText )
                     {
-                    // InternalSim.g:141:4: (lv_description_5_0= ruleDRichText )
-                    // InternalSim.g:142:5: lv_description_5_0= ruleDRichText
+                    // InternalSim.g:160:4: (lv_description_6_0= ruleDRichText )
+                    // InternalSim.g:161:5: lv_description_6_0= ruleDRichText
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getSInformationModelAccess().getDescriptionDRichTextParserRuleCall_5_0());
+                      					newCompositeNode(grammarAccess.getSInformationModelAccess().getDescriptionDRichTextParserRuleCall_6_0());
                       				
                     }
-                    pushFollow(FOLLOW_8);
-                    lv_description_5_0=ruleDRichText();
+                    pushFollow(FOLLOW_9);
+                    lv_description_6_0=ruleDRichText();
 
                     state._fsp--;
                     if (state.failed) return current;
@@ -415,7 +468,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                       					set(
                       						current,
                       						"description",
-                      						lv_description_5_0,
+                      						lv_description_6_0,
                       						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
                       					afterParserOrEnumRuleCall();
                       				
@@ -428,59 +481,6 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     break;
 
             }
-
-            // InternalSim.g:159:3: ( (lv_imports_6_0= ruleDImport ) )*
-            loop3:
-            do {
-                int alt3=2;
-                int LA3_0 = input.LA(1);
-
-                if ( (LA3_0==48) ) {
-                    alt3=1;
-                }
-
-
-                switch (alt3) {
-            	case 1 :
-            	    // InternalSim.g:160:4: (lv_imports_6_0= ruleDImport )
-            	    {
-            	    // InternalSim.g:160:4: (lv_imports_6_0= ruleDImport )
-            	    // InternalSim.g:161:5: lv_imports_6_0= ruleDImport
-            	    {
-            	    if ( state.backtracking==0 ) {
-
-            	      					newCompositeNode(grammarAccess.getSInformationModelAccess().getImportsDImportParserRuleCall_6_0());
-            	      				
-            	    }
-            	    pushFollow(FOLLOW_8);
-            	    lv_imports_6_0=ruleDImport();
-
-            	    state._fsp--;
-            	    if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      					if (current==null) {
-            	      						current = createModelElementForParent(grammarAccess.getSInformationModelRule());
-            	      					}
-            	      					add(
-            	      						current,
-            	      						"imports",
-            	      						lv_imports_6_0,
-            	      						"com.mimacom.ddd.dm.dim.Dim.DImport");
-            	      					afterParserOrEnumRuleCall();
-            	      				
-            	    }
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop3;
-                }
-            } while (true);
 
             // InternalSim.g:178:3: ( (lv_queries_7_0= ruleSCoreQuery ) )*
             loop4:
@@ -1059,7 +1059,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalSim.g:360:4: otherlv_1= 'as' ( (lv_renameTo_2_0= RULE_ID ) )
                     {
-                    otherlv_1=(Token)match(input,20,FOLLOW_5); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,20,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_1, grammarAccess.getSGrabPrimitiveRuleAccess().getAsKeyword_1_0());
@@ -1335,7 +1335,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalSim.g:452:4: otherlv_1= 'as' ( (lv_renameTo_2_0= RULE_ID ) )
                     {
-                    otherlv_1=(Token)match(input,20,FOLLOW_5); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,20,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_1, grammarAccess.getSGrabEnumerationRuleAccess().getAsKeyword_1_0());
@@ -1603,7 +1603,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalSim.g:541:4: otherlv_1= 'as' ( (lv_renameTo_2_0= RULE_ID ) )
                     {
-                    otherlv_1=(Token)match(input,20,FOLLOW_5); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,20,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_1, grammarAccess.getSGrabEnumerationLiteralRuleAccess().getAsKeyword_1_0());
@@ -1872,7 +1872,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalSim.g:630:4: otherlv_1= 'as' ( (lv_renameTo_2_0= RULE_ID ) )
                     {
-                    otherlv_1=(Token)match(input,20,FOLLOW_5); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,20,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_1, grammarAccess.getSGrabComplexTypeRuleAccess().getAsKeyword_1_0());
@@ -2289,7 +2289,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // InternalSim.g:768:4: otherlv_1= 'and' ( ( ruleDQualifiedName ) )
             	    {
-            	    otherlv_1=(Token)match(input,21,FOLLOW_5); if (state.failed) return current;
+            	    otherlv_1=(Token)match(input,21,FOLLOW_6); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      				newLeafNode(otherlv_1, grammarAccess.getSFuseComplexTypeRuleAccess().getAndKeyword_1_0());
@@ -2620,7 +2620,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                         case 1 :
                             // InternalSim.g:896:4: otherlv_5= 'extends' ( (otherlv_6= RULE_ID ) )
                             {
-                            otherlv_5=(Token)match(input,23,FOLLOW_5); if (state.failed) return current;
+                            otherlv_5=(Token)match(input,23,FOLLOW_6); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               				newLeafNode(otherlv_5, grammarAccess.getChangeComplexTypeAccess().getExtendsKeyword_4_0());
@@ -2779,7 +2779,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalSim.g:947:4: otherlv_1= 'as' ( (lv_renameTo_2_0= RULE_ID ) )
                     {
-                    otherlv_1=(Token)match(input,20,FOLLOW_5); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,20,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_1, grammarAccess.getSGrabFeatureRuleAccess().getAsKeyword_1_0());
@@ -2933,7 +2933,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,22,FOLLOW_5); if (state.failed) return current;
+            otherlv_1=(Token)match(input,22,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getSMorphFeatureRuleAccess().getToKeyword_1());
@@ -2984,7 +2984,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_3=(Token)match(input,24,FOLLOW_5); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,24,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_3, grammarAccess.getSMorphFeatureRuleAccess().getColonKeyword_2_1());
@@ -3274,7 +3274,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_1, grammarAccess.getDomainAccess().getGrabKeyword_1());
               		
             }
-            otherlv_2=(Token)match(input,26,FOLLOW_5); if (state.failed) return current;
+            otherlv_2=(Token)match(input,26,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_2, grammarAccess.getDomainAccess().getDomainKeyword_2());
@@ -3567,7 +3567,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_1, grammarAccess.getSAggregateDeductionAccess().getGrabKeyword_1());
               		
             }
-            otherlv_2=(Token)match(input,27,FOLLOW_5); if (state.failed) return current;
+            otherlv_2=(Token)match(input,27,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_2, grammarAccess.getSAggregateDeductionAccess().getAggregateKeyword_2());
@@ -4346,7 +4346,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                       					newLeafNode(otherlv_1, grammarAccess.getSPrimitiveDeductionAccess().getGrabKeyword_1_0_0());
                       				
                     }
-                    otherlv_2=(Token)match(input,30,FOLLOW_5); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,30,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_2, grammarAccess.getSPrimitiveDeductionAccess().getPrimitiveKeyword_1_0_1());
@@ -4405,7 +4405,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                       					newLeafNode(otherlv_4, grammarAccess.getSPrimitiveDeductionAccess().getDitchKeyword_1_1_0());
                       				
                     }
-                    otherlv_5=(Token)match(input,30,FOLLOW_5); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,30,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_5, grammarAccess.getSPrimitiveDeductionAccess().getPrimitiveKeyword_1_1_1());
@@ -4708,7 +4708,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                       					newLeafNode(otherlv_1, grammarAccess.getSEnumerationDeductionAccess().getGrabKeyword_1_0_0());
                       				
                     }
-                    otherlv_2=(Token)match(input,32,FOLLOW_5); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,32,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_2, grammarAccess.getSEnumerationDeductionAccess().getEnumerationKeyword_1_0_1());
@@ -4767,7 +4767,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                       					newLeafNode(otherlv_4, grammarAccess.getSEnumerationDeductionAccess().getDitchKeyword_1_1_0());
                       				
                     }
-                    otherlv_5=(Token)match(input,32,FOLLOW_5); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,32,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_5, grammarAccess.getSEnumerationDeductionAccess().getEnumerationKeyword_1_1_1());
@@ -5140,7 +5140,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             // InternalSim.g:1776:2: (otherlv_0= 'enumeration' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* ( (lv_description_4_0= ruleDRichText ) )? otherlv_5= '{' ( ( (lv_literals_6_0= ruleLiteral ) ) (otherlv_7= ',' ( (lv_literals_8_0= ruleLiteral ) ) )* )? ( (lv_constraints_9_0= ruleDConstraint ) )* otherlv_10= '}' )
             // InternalSim.g:1777:3: otherlv_0= 'enumeration' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* ( (lv_description_4_0= ruleDRichText ) )? otherlv_5= '{' ( ( (lv_literals_6_0= ruleLiteral ) ) (otherlv_7= ',' ( (lv_literals_8_0= ruleLiteral ) ) )* )? ( (lv_constraints_9_0= ruleDConstraint ) )* otherlv_10= '}'
             {
-            otherlv_0=(Token)match(input,32,FOLLOW_5); if (state.failed) return current;
+            otherlv_0=(Token)match(input,32,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getDEnumerationAccess().getEnumerationKeyword_0());
@@ -5191,7 +5191,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // InternalSim.g:1800:4: otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) )
             	    {
-            	    otherlv_2=(Token)match(input,34,FOLLOW_5); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,34,FOLLOW_6); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      				newLeafNode(otherlv_2, grammarAccess.getDEnumerationAccess().getAliasKeyword_2_0());
@@ -5732,7 +5732,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     // InternalSim.g:1978:4: (otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabEnumerationLiteralRule ) ) )
                     // InternalSim.g:1979:5: otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabEnumerationLiteralRule ) )
                     {
-                    otherlv_1=(Token)match(input,25,FOLLOW_5); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,25,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_1, grammarAccess.getSLiteralDeductionAccess().getGrabKeyword_1_0_0());
@@ -5785,7 +5785,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     // InternalSim.g:2004:4: (otherlv_3= 'ditch' ( (lv_deductionRule_4_0= ruleSDitchEnumerationLiteralRule ) ) )
                     // InternalSim.g:2005:5: otherlv_3= 'ditch' ( (lv_deductionRule_4_0= ruleSDitchEnumerationLiteralRule ) )
                     {
-                    otherlv_3=(Token)match(input,31,FOLLOW_5); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,31,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_3, grammarAccess.getSLiteralDeductionAccess().getDitchKeyword_1_1_0());
@@ -6079,7 +6079,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_3=(Token)match(input,36,FOLLOW_5); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,36,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_3, grammarAccess.getSEntityTypeDeductionAccess().getEntityKeyword_1_0_2());
@@ -6175,7 +6175,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_7=(Token)match(input,36,FOLLOW_5); if (state.failed) return current;
+                    otherlv_7=(Token)match(input,36,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_7, grammarAccess.getSEntityTypeDeductionAccess().getEntityKeyword_1_1_2());
@@ -6271,7 +6271,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_11=(Token)match(input,36,FOLLOW_5); if (state.failed) return current;
+                    otherlv_11=(Token)match(input,36,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_11, grammarAccess.getSEntityTypeDeductionAccess().getEntityKeyword_1_2_2());
@@ -6367,7 +6367,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_15=(Token)match(input,36,FOLLOW_5); if (state.failed) return current;
+                    otherlv_15=(Token)match(input,36,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_15, grammarAccess.getSEntityTypeDeductionAccess().getEntityKeyword_1_3_2());
@@ -6639,7 +6639,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                       					newLeafNode(otherlv_1, grammarAccess.getSDetailTypeDeductionAccess().getGrabKeyword_1_0_0());
                       				
                     }
-                    otherlv_2=(Token)match(input,39,FOLLOW_5); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,39,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_2, grammarAccess.getSDetailTypeDeductionAccess().getDetailKeyword_1_0_1());
@@ -6698,7 +6698,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                       					newLeafNode(otherlv_4, grammarAccess.getSDetailTypeDeductionAccess().getDitchKeyword_1_1_0());
                       				
                     }
-                    otherlv_5=(Token)match(input,39,FOLLOW_5); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,39,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_5, grammarAccess.getSDetailTypeDeductionAccess().getDetailKeyword_1_1_1());
@@ -6757,7 +6757,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                       					newLeafNode(otherlv_7, grammarAccess.getSDetailTypeDeductionAccess().getMorphKeyword_1_2_0());
                       				
                     }
-                    otherlv_8=(Token)match(input,39,FOLLOW_5); if (state.failed) return current;
+                    otherlv_8=(Token)match(input,39,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_8, grammarAccess.getSDetailTypeDeductionAccess().getDetailKeyword_1_2_1());
@@ -6816,7 +6816,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                       					newLeafNode(otherlv_10, grammarAccess.getSDetailTypeDeductionAccess().getFuseKeyword_1_3_0());
                       				
                     }
-                    otherlv_11=(Token)match(input,39,FOLLOW_5); if (state.failed) return current;
+                    otherlv_11=(Token)match(input,39,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_11, grammarAccess.getSDetailTypeDeductionAccess().getDetailKeyword_1_3_1());
@@ -7190,7 +7190,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // InternalSim.g:2553:4: otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) )
             	    {
-            	    otherlv_1=(Token)match(input,34,FOLLOW_5); if (state.failed) return current;
+            	    otherlv_1=(Token)match(input,34,FOLLOW_6); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      				newLeafNode(otherlv_1, grammarAccess.getDComplexTypeAccess().getAliasKeyword_1_0());
@@ -7246,7 +7246,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalSim.g:2577:4: otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) )
                     {
-                    otherlv_3=(Token)match(input,23,FOLLOW_5); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,23,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_3, grammarAccess.getDComplexTypeAccess().getExtendsKeyword_2_0());
@@ -7839,7 +7839,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                         case 1 :
                             // InternalSim.g:2768:6: otherlv_2= 'reference'
                             {
-                            otherlv_2=(Token)match(input,40,FOLLOW_5); if (state.failed) return current;
+                            otherlv_2=(Token)match(input,40,FOLLOW_6); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               						newLeafNode(otherlv_2, grammarAccess.getSAssociationDeductionAccess().getReferenceKeyword_1_0_1_0());
@@ -7851,7 +7851,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                         case 2 :
                             // InternalSim.g:2773:6: otherlv_3= 'composite'
                             {
-                            otherlv_3=(Token)match(input,41,FOLLOW_5); if (state.failed) return current;
+                            otherlv_3=(Token)match(input,41,FOLLOW_6); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               						newLeafNode(otherlv_3, grammarAccess.getSAssociationDeductionAccess().getCompositeKeyword_1_0_1_1());
@@ -7937,7 +7937,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                         case 1 :
                             // InternalSim.g:2805:6: otherlv_6= 'reference'
                             {
-                            otherlv_6=(Token)match(input,40,FOLLOW_5); if (state.failed) return current;
+                            otherlv_6=(Token)match(input,40,FOLLOW_6); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               						newLeafNode(otherlv_6, grammarAccess.getSAssociationDeductionAccess().getReferenceKeyword_1_1_1_0());
@@ -7949,7 +7949,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                         case 2 :
                             // InternalSim.g:2810:6: otherlv_7= 'composite'
                             {
-                            otherlv_7=(Token)match(input,41,FOLLOW_5); if (state.failed) return current;
+                            otherlv_7=(Token)match(input,41,FOLLOW_6); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               						newLeafNode(otherlv_7, grammarAccess.getSAssociationDeductionAccess().getCompositeKeyword_1_1_1_1());
@@ -8035,7 +8035,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                         case 1 :
                             // InternalSim.g:2842:6: otherlv_10= 'reference'
                             {
-                            otherlv_10=(Token)match(input,40,FOLLOW_5); if (state.failed) return current;
+                            otherlv_10=(Token)match(input,40,FOLLOW_6); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               						newLeafNode(otherlv_10, grammarAccess.getSAssociationDeductionAccess().getReferenceKeyword_1_2_1_0());
@@ -8047,7 +8047,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                         case 2 :
                             // InternalSim.g:2847:6: otherlv_11= 'composite'
                             {
-                            otherlv_11=(Token)match(input,41,FOLLOW_5); if (state.failed) return current;
+                            otherlv_11=(Token)match(input,41,FOLLOW_6); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               						newLeafNode(otherlv_11, grammarAccess.getSAssociationDeductionAccess().getCompositeKeyword_1_2_1_1());
@@ -8312,7 +8312,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                         case 1 :
                             // InternalSim.g:2925:6: otherlv_2= 'attribute'
                             {
-                            otherlv_2=(Token)match(input,42,FOLLOW_5); if (state.failed) return current;
+                            otherlv_2=(Token)match(input,42,FOLLOW_6); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               						newLeafNode(otherlv_2, grammarAccess.getSAttributeDeductionAccess().getAttributeKeyword_1_0_1_0());
@@ -8330,7 +8330,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             // InternalSim.g:2931:7: (lv_detail_3_0= 'detail' )
                             // InternalSim.g:2932:8: lv_detail_3_0= 'detail'
                             {
-                            lv_detail_3_0=(Token)match(input,39,FOLLOW_5); if (state.failed) return current;
+                            lv_detail_3_0=(Token)match(input,39,FOLLOW_6); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               								newLeafNode(lv_detail_3_0, grammarAccess.getSAttributeDeductionAccess().getDetailDetailKeyword_1_0_1_1_0());
@@ -8423,7 +8423,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                         case 1 :
                             // InternalSim.g:2972:6: otherlv_6= 'attribute'
                             {
-                            otherlv_6=(Token)match(input,42,FOLLOW_5); if (state.failed) return current;
+                            otherlv_6=(Token)match(input,42,FOLLOW_6); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               						newLeafNode(otherlv_6, grammarAccess.getSAttributeDeductionAccess().getAttributeKeyword_1_1_1_0());
@@ -8441,7 +8441,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             // InternalSim.g:2978:7: (lv_detail_7_0= 'detail' )
                             // InternalSim.g:2979:8: lv_detail_7_0= 'detail'
                             {
-                            lv_detail_7_0=(Token)match(input,39,FOLLOW_5); if (state.failed) return current;
+                            lv_detail_7_0=(Token)match(input,39,FOLLOW_6); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               								newLeafNode(lv_detail_7_0, grammarAccess.getSAttributeDeductionAccess().getDetailDetailKeyword_1_1_1_1_0());
@@ -8534,7 +8534,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                         case 1 :
                             // InternalSim.g:3019:6: otherlv_10= 'attribute'
                             {
-                            otherlv_10=(Token)match(input,42,FOLLOW_5); if (state.failed) return current;
+                            otherlv_10=(Token)match(input,42,FOLLOW_6); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               						newLeafNode(otherlv_10, grammarAccess.getSAttributeDeductionAccess().getAttributeKeyword_1_2_1_0());
@@ -8552,7 +8552,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                             // InternalSim.g:3025:7: (lv_detail_11_0= 'detail' )
                             // InternalSim.g:3026:8: lv_detail_11_0= 'detail'
                             {
-                            lv_detail_11_0=(Token)match(input,39,FOLLOW_5); if (state.failed) return current;
+                            lv_detail_11_0=(Token)match(input,39,FOLLOW_6); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               								newLeafNode(lv_detail_11_0, grammarAccess.getSAttributeDeductionAccess().getDetailDetailKeyword_1_2_1_1_0());
@@ -8837,7 +8837,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                               							newLeafNode(otherlv_1, grammarAccess.getSQueryDeductionAccess().getGrabKeyword_1_0_0_0_0());
                               						
                             }
-                            otherlv_2=(Token)match(input,43,FOLLOW_5); if (state.failed) return current;
+                            otherlv_2=(Token)match(input,43,FOLLOW_6); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               							newLeafNode(otherlv_2, grammarAccess.getSQueryDeductionAccess().getQueryKeyword_1_0_0_0_1());
@@ -8896,7 +8896,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                               							newLeafNode(otherlv_4, grammarAccess.getSQueryDeductionAccess().getMorphKeyword_1_0_0_1_0());
                               						
                             }
-                            otherlv_5=(Token)match(input,43,FOLLOW_5); if (state.failed) return current;
+                            otherlv_5=(Token)match(input,43,FOLLOW_6); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                               							newLeafNode(otherlv_5, grammarAccess.getSQueryDeductionAccess().getQueryKeyword_1_0_0_1_1());
@@ -9132,7 +9132,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                       					newLeafNode(otherlv_13, grammarAccess.getSQueryDeductionAccess().getDitchKeyword_1_1_0());
                       				
                     }
-                    otherlv_14=(Token)match(input,43,FOLLOW_5); if (state.failed) return current;
+                    otherlv_14=(Token)match(input,43,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_14, grammarAccess.getSQueryDeductionAccess().getQueryKeyword_1_1_1());
@@ -9372,7 +9372,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // InternalSim.g:3318:4: otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) )
             	    {
-            	    otherlv_1=(Token)match(input,34,FOLLOW_5); if (state.failed) return current;
+            	    otherlv_1=(Token)match(input,34,FOLLOW_6); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      				newLeafNode(otherlv_1, grammarAccess.getDQueryAccess().getAliasKeyword_1_0());
@@ -9546,7 +9546,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_7, grammarAccess.getDQueryAccess().getRightParenthesisKeyword_4());
               		
             }
-            otherlv_8=(Token)match(input,24,FOLLOW_5); if (state.failed) return current;
+            otherlv_8=(Token)match(input,24,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_8, grammarAccess.getDQueryAccess().getColonKeyword_5());
@@ -10007,7 +10007,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     // InternalSim.g:3538:4: (otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabFeatureRule ) ) )
                     // InternalSim.g:3539:5: otherlv_1= 'grab' ( (lv_deductionRule_2_0= ruleSGrabFeatureRule ) )
                     {
-                    otherlv_1=(Token)match(input,25,FOLLOW_5); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,25,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_1, grammarAccess.getSQueryParameterDeductionAccess().getGrabKeyword_1_0_0());
@@ -10060,7 +10060,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     // InternalSim.g:3564:4: (otherlv_3= 'morph' ( (lv_deductionRule_4_0= ruleSMorphFeatureRule ) ) )
                     // InternalSim.g:3565:5: otherlv_3= 'morph' ( (lv_deductionRule_4_0= ruleSMorphFeatureRule ) )
                     {
-                    otherlv_3=(Token)match(input,37,FOLLOW_5); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,37,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_3, grammarAccess.getSQueryParameterDeductionAccess().getMorphKeyword_1_1_0());
@@ -10113,7 +10113,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     // InternalSim.g:3590:4: (otherlv_5= 'ditch' ( (lv_deductionRule_6_0= ruleSDitchFeatureRule ) ) )
                     // InternalSim.g:3591:5: otherlv_5= 'ditch' ( (lv_deductionRule_6_0= ruleSDitchFeatureRule ) )
                     {
-                    otherlv_5=(Token)match(input,31,FOLLOW_5); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,31,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_5, grammarAccess.getSQueryParameterDeductionAccess().getDitchKeyword_1_2_0());
@@ -10309,7 +10309,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             // InternalSim.g:3653:2: (otherlv_0= 'query' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= '(' ( ( (lv_parameters_5_0= ruleDQueryParameter ) ) (otherlv_6= ',' ( (lv_parameters_7_0= ruleDQueryParameter ) ) )* )? otherlv_8= ')' otherlv_9= ':' ( (otherlv_10= RULE_ID ) ) ( (lv_multiplicity_11_0= ruleDMultiplicity ) )? (otherlv_12= 'returns' ( (lv_returns_13_0= ruleDExpression ) ) )? ( (lv_description_14_0= ruleDRichText ) )? )
             // InternalSim.g:3654:3: otherlv_0= 'query' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= '(' ( ( (lv_parameters_5_0= ruleDQueryParameter ) ) (otherlv_6= ',' ( (lv_parameters_7_0= ruleDQueryParameter ) ) )* )? otherlv_8= ')' otherlv_9= ':' ( (otherlv_10= RULE_ID ) ) ( (lv_multiplicity_11_0= ruleDMultiplicity ) )? (otherlv_12= 'returns' ( (lv_returns_13_0= ruleDExpression ) ) )? ( (lv_description_14_0= ruleDRichText ) )?
             {
-            otherlv_0=(Token)match(input,43,FOLLOW_5); if (state.failed) return current;
+            otherlv_0=(Token)match(input,43,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getSCoreQueryAccess().getQueryKeyword_0());
@@ -10360,7 +10360,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // InternalSim.g:3677:4: otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) )
             	    {
-            	    otherlv_2=(Token)match(input,34,FOLLOW_5); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,34,FOLLOW_6); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      				newLeafNode(otherlv_2, grammarAccess.getSCoreQueryAccess().getAliasKeyword_2_0());
@@ -10534,7 +10534,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_8, grammarAccess.getSCoreQueryAccess().getRightParenthesisKeyword_5());
               		
             }
-            otherlv_9=(Token)match(input,24,FOLLOW_5); if (state.failed) return current;
+            otherlv_9=(Token)match(input,24,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_9, grammarAccess.getSCoreQueryAccess().getColonKeyword_6());
@@ -10798,7 +10798,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             // InternalSim.g:3852:2: (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleDQualifiedNameWithWildcard ) ) )
             // InternalSim.g:3853:3: otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleDQualifiedNameWithWildcard ) )
             {
-            otherlv_0=(Token)match(input,48,FOLLOW_5); if (state.failed) return current;
+            otherlv_0=(Token)match(input,48,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getDImportAccess().getImportKeyword_0());
@@ -10927,7 +10927,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             // InternalSim.g:3894:2: (otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' otherlv_3= ')' otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) ( (lv_multiplicity_6_0= ruleDMultiplicity ) )? )
             // InternalSim.g:3895:3: otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' otherlv_3= ')' otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) ( (lv_multiplicity_6_0= ruleDMultiplicity ) )?
             {
-            otherlv_0=(Token)match(input,49,FOLLOW_5); if (state.failed) return current;
+            otherlv_0=(Token)match(input,49,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getDFunctionAccess().getFunctionKeyword_0());
@@ -10975,7 +10975,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_3, grammarAccess.getDFunctionAccess().getRightParenthesisKeyword_3());
               		
             }
-            otherlv_4=(Token)match(input,24,FOLLOW_5); if (state.failed) return current;
+            otherlv_4=(Token)match(input,24,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_4, grammarAccess.getDFunctionAccess().getColonKeyword_4());
@@ -11470,7 +11470,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             // InternalSim.g:4051:2: (otherlv_0= 'constraint' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= ':' ( (lv_condition_5_0= ruleDExpression ) ) ( (lv_description_6_0= ruleDRichText ) )? )
             // InternalSim.g:4052:3: otherlv_0= 'constraint' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= ':' ( (lv_condition_5_0= ruleDExpression ) ) ( (lv_description_6_0= ruleDRichText ) )?
             {
-            otherlv_0=(Token)match(input,50,FOLLOW_5); if (state.failed) return current;
+            otherlv_0=(Token)match(input,50,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getDConstraintAccess().getConstraintKeyword_0());
@@ -11521,7 +11521,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // InternalSim.g:4075:4: otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) )
             	    {
-            	    otherlv_2=(Token)match(input,34,FOLLOW_5); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,34,FOLLOW_6); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      				newLeafNode(otherlv_2, grammarAccess.getDConstraintAccess().getAliasKeyword_2_0());
@@ -11745,7 +11745,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             // InternalSim.g:4158:2: (otherlv_0= 'primitive' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= 'redefines' ( (otherlv_5= RULE_ID ) ) ( (lv_description_6_0= ruleDRichText ) )? otherlv_7= '{' ( (lv_constraints_8_0= ruleDConstraint ) )* otherlv_9= '}' )
             // InternalSim.g:4159:3: otherlv_0= 'primitive' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* otherlv_4= 'redefines' ( (otherlv_5= RULE_ID ) ) ( (lv_description_6_0= ruleDRichText ) )? otherlv_7= '{' ( (lv_constraints_8_0= ruleDConstraint ) )* otherlv_9= '}'
             {
-            otherlv_0=(Token)match(input,30,FOLLOW_5); if (state.failed) return current;
+            otherlv_0=(Token)match(input,30,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getDPrimitiveAccess().getPrimitiveKeyword_0());
@@ -11796,7 +11796,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // InternalSim.g:4182:4: otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) )
             	    {
-            	    otherlv_2=(Token)match(input,34,FOLLOW_5); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,34,FOLLOW_6); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      				newLeafNode(otherlv_2, grammarAccess.getDPrimitiveAccess().getAliasKeyword_2_0());
@@ -11841,7 +11841,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_4=(Token)match(input,51,FOLLOW_5); if (state.failed) return current;
+            otherlv_4=(Token)match(input,51,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_4, grammarAccess.getDPrimitiveAccess().getRedefinesKeyword_3());
@@ -12073,7 +12073,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             // InternalSim.g:4286:2: (otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* ( (lv_description_4_0= ruleDRichText ) )? otherlv_5= '{' ( (lv_constraints_6_0= ruleDConstraint ) )* otherlv_7= '}' )
             // InternalSim.g:4287:3: otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) ) )* ( (lv_description_4_0= ruleDRichText ) )? otherlv_5= '{' ( (lv_constraints_6_0= ruleDConstraint ) )* otherlv_7= '}'
             {
-            otherlv_0=(Token)match(input,52,FOLLOW_5); if (state.failed) return current;
+            otherlv_0=(Token)match(input,52,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getDPrimitiveArchetypeAccess().getArchetypeKeyword_0());
@@ -12124,7 +12124,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // InternalSim.g:4310:4: otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) )
             	    {
-            	    otherlv_2=(Token)match(input,34,FOLLOW_5); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,34,FOLLOW_6); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      				newLeafNode(otherlv_2, grammarAccess.getDPrimitiveArchetypeAccess().getAliasKeyword_2_0());
@@ -12410,7 +12410,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // InternalSim.g:4417:4: otherlv_1= 'alias' ( (lv_aliases_2_0= RULE_ID ) )
             	    {
-            	    otherlv_1=(Token)match(input,34,FOLLOW_5); if (state.failed) return current;
+            	    otherlv_1=(Token)match(input,34,FOLLOW_6); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      				newLeafNode(otherlv_1, grammarAccess.getDLiteralAccess().getAliasKeyword_1_0());
@@ -12660,7 +12660,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,36,FOLLOW_5); if (state.failed) return current;
+            otherlv_2=(Token)match(input,36,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_2, grammarAccess.getDEntityTypeAccess().getEntityKeyword_2());
@@ -12844,7 +12844,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,54,FOLLOW_5); if (state.failed) return current;
+            otherlv_2=(Token)match(input,54,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_2, grammarAccess.getDRelationshipAccess().getRelationshipKeyword_2());
@@ -12990,7 +12990,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,39,FOLLOW_5); if (state.failed) return current;
+            otherlv_1=(Token)match(input,39,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getDDetailTypeAccess().getDetailKeyword_1());
@@ -13179,7 +13179,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                       						newCompositeNode(grammarAccess.getDAssociationAccess().getKindDAssociationKindEnumRuleCall_1_0_0());
                       					
                     }
-                    pushFollow(FOLLOW_5);
+                    pushFollow(FOLLOW_6);
                     lv_kind_1_0=ruleDAssociationKind();
 
                     state._fsp--;
@@ -13247,7 +13247,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_3=(Token)match(input,41,FOLLOW_5); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,41,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_3, grammarAccess.getDAssociationAccess().getCompositeKeyword_1_1_1());
@@ -13307,7 +13307,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // InternalSim.g:4730:4: otherlv_5= 'alias' ( (lv_aliases_6_0= RULE_ID ) )
             	    {
-            	    otherlv_5=(Token)match(input,34,FOLLOW_5); if (state.failed) return current;
+            	    otherlv_5=(Token)match(input,34,FOLLOW_6); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      				newLeafNode(otherlv_5, grammarAccess.getDAssociationAccess().getAliasKeyword_3_0());
@@ -13352,7 +13352,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_7=(Token)match(input,24,FOLLOW_5); if (state.failed) return current;
+            otherlv_7=(Token)match(input,24,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_7, grammarAccess.getDAssociationAccess().getColonKeyword_4());
@@ -13580,7 +13580,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     // InternalSim.g:4828:4: (lv_detail_0_0= 'detail' )
                     // InternalSim.g:4829:5: lv_detail_0_0= 'detail'
                     {
-                    lv_detail_0_0=(Token)match(input,39,FOLLOW_5); if (state.failed) return current;
+                    lv_detail_0_0=(Token)match(input,39,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(lv_detail_0_0, grammarAccess.getDAttributeAccess().getDetailDetailKeyword_0_0());
@@ -13651,7 +13651,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // InternalSim.g:4861:5: otherlv_2= 'alias' ( (lv_aliases_3_0= RULE_ID ) )
             	    {
-            	    otherlv_2=(Token)match(input,34,FOLLOW_5); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,34,FOLLOW_6); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      					newLeafNode(otherlv_2, grammarAccess.getDAttributeAccess().getAliasKeyword_1_1_0());
@@ -13696,7 +13696,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_4=(Token)match(input,24,FOLLOW_5); if (state.failed) return current;
+            otherlv_4=(Token)match(input,24,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               				newLeafNode(otherlv_4, grammarAccess.getDAttributeAccess().getColonKeyword_1_2());
@@ -13976,7 +13976,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,24,FOLLOW_5); if (state.failed) return current;
+            otherlv_1=(Token)match(input,24,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getDQueryParameterAccess().getColonKeyword_1());
@@ -14191,7 +14191,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             // InternalSim.g:5064:2: (otherlv_0= 'application' ( (lv_name_1_0= RULE_ID ) ) ( (lv_description_2_0= ruleDRichText ) )? otherlv_3= '{' ( ( (lv_services_4_0= ruleDService ) ) | ( (lv_exceptions_5_0= ruleDException ) ) | ( (lv_types_6_0= ruleDType ) ) )* otherlv_7= '}' )
             // InternalSim.g:5065:3: otherlv_0= 'application' ( (lv_name_1_0= RULE_ID ) ) ( (lv_description_2_0= ruleDRichText ) )? otherlv_3= '{' ( ( (lv_services_4_0= ruleDService ) ) | ( (lv_exceptions_5_0= ruleDException ) ) | ( (lv_types_6_0= ruleDType ) ) )* otherlv_7= '}'
             {
-            otherlv_0=(Token)match(input,57,FOLLOW_5); if (state.failed) return current;
+            otherlv_0=(Token)match(input,57,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getDExistingApplicationAccess().getApplicationKeyword_0());
@@ -14600,7 +14600,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,58,FOLLOW_5); if (state.failed) return current;
+            otherlv_1=(Token)match(input,58,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getDServiceAccess().getServiceKeyword_1());
@@ -14793,7 +14793,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalSim.g:5292:4: otherlv_8= 'raises' ( (otherlv_9= RULE_ID ) ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )*
                     {
-                    otherlv_8=(Token)match(input,59,FOLLOW_5); if (state.failed) return current;
+                    otherlv_8=(Token)match(input,59,FOLLOW_6); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_8, grammarAccess.getDServiceAccess().getRaisesKeyword_4_0());
@@ -14839,7 +14839,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // InternalSim.g:5310:5: otherlv_10= ',' ( (otherlv_11= RULE_ID ) )
                     	    {
-                    	    otherlv_10=(Token)match(input,33,FOLLOW_5); if (state.failed) return current;
+                    	    otherlv_10=(Token)match(input,33,FOLLOW_6); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	      					newLeafNode(otherlv_10, grammarAccess.getDServiceAccess().getCommaKeyword_4_2_0());
@@ -15226,7 +15226,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
               					newCompositeNode(grammarAccess.getDServiceParameterAccess().getDirectionDDirectionEnumRuleCall_0_0());
               				
             }
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             lv_direction_0_0=ruleDDirection();
 
             state._fsp--;
@@ -15280,7 +15280,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,24,FOLLOW_5); if (state.failed) return current;
+            otherlv_2=(Token)match(input,24,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_2, grammarAccess.getDServiceParameterAccess().getColonKeyword_2());
@@ -15487,7 +15487,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             // InternalSim.g:5554:2: (otherlv_0= 'exception' ( (lv_name_1_0= RULE_ID ) ) ( (lv_description_2_0= ruleDRichText ) )? )
             // InternalSim.g:5555:3: otherlv_0= 'exception' ( (lv_name_1_0= RULE_ID ) ) ( (lv_description_2_0= ruleDRichText ) )?
             {
-            otherlv_0=(Token)match(input,62,FOLLOW_5); if (state.failed) return current;
+            otherlv_0=(Token)match(input,62,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getDExceptionAccess().getExceptionKeyword_0());
@@ -17697,7 +17697,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	      							newCompositeNode(grammarAccess.getDRelationalExpressionAccess().getOpInstanceOfParserRuleCall_1_0_0_0_1());
             	      						
             	    }
-            	    pushFollow(FOLLOW_5);
+            	    pushFollow(FOLLOW_6);
             	    ruleOpInstanceOf();
 
             	    state._fsp--;
@@ -19091,7 +19091,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                       						newCompositeNode(grammarAccess.getDCastExpressionAccess().getOpCastParserRuleCall_1_0_0_1());
                       					
                     }
-                    pushFollow(FOLLOW_5);
+                    pushFollow(FOLLOW_6);
                     ruleOpCast();
 
                     state._fsp--;
@@ -19418,7 +19418,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_2=(Token)match(input,67,FOLLOW_5); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,67,FOLLOW_6); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      							newLeafNode(otherlv_2, grammarAccess.getDNavigableMemberReferenceAccess().getFullStopKeyword_1_0_0_0_1());
@@ -19536,7 +19536,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_7=(Token)match(input,67,FOLLOW_5); if (state.failed) return current;
+            	    otherlv_7=(Token)match(input,67,FOLLOW_6); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      							newLeafNode(otherlv_7, grammarAccess.getDNavigableMemberReferenceAccess().getFullStopKeyword_1_1_0_0_1());
@@ -21354,7 +21354,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
               			newCompositeNode(grammarAccess.getDConstructorCallAccess().getOpConstructorParserRuleCall_1());
               		
             }
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             ruleOpConstructor();
 
             state._fsp--;
@@ -22197,7 +22197,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,81,FOLLOW_5); if (state.failed) return current;
+            otherlv_1=(Token)match(input,81,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               					newLeafNode(otherlv_1, grammarAccess.getDForLoopExpressionAccess().getForKeyword_0_0_1());
@@ -23825,7 +23825,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // InternalSim.g:8441:4: kw= '.' this_ID_2= RULE_ID
             	    {
-            	    kw=(Token)match(input,67,FOLLOW_5); if (state.failed) return current;
+            	    kw=(Token)match(input,67,FOLLOW_6); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      				current.merge(kw);
@@ -26057,7 +26057,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         {
         }
 
-        match(input,67,FOLLOW_5); if (state.failed) return ;
+        match(input,67,FOLLOW_6); if (state.failed) return ;
         // InternalSim.g:6901:7: ( ( RULE_ID ) )
         // InternalSim.g:6902:8: ( RULE_ID )
         {
@@ -26136,7 +26136,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         {
         }
 
-        match(input,81,FOLLOW_5); if (state.failed) return ;
+        match(input,81,FOLLOW_6); if (state.failed) return ;
         // InternalSim.g:7193:5: ( ( RULE_ID ) )
         // InternalSim.g:7194:6: ( RULE_ID )
         {
@@ -27068,12 +27068,12 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x002108F9CA080062L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x002108F9CA000062L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x002108F9CA000002L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0001000000000000L,0x0000000380000000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x002008F9CA080062L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x002008F9CA000062L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x002008F9CA000002L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x002000F9CA000002L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000100002L});

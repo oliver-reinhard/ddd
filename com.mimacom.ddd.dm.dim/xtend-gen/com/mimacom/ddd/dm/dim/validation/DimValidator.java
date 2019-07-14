@@ -232,17 +232,26 @@ public class DimValidator extends AbstractDimValidator {
     }
   }
   
-  public void checkNameStartsWithCapital(final DNamedElement ne) {
-    final String name = ne.getName();
+  protected void checkNameStartsWithCapitalImpl(final String name, final DNamedElement ne) {
     if ((((name != null) && (name.length() > 0)) && (!Character.isUpperCase(name.charAt(0))))) {
       this.warning("Name should start with a capital", ne, BasePackage.Literals.DNAMED_ELEMENT__NAME);
     }
+  }
+  
+  public void checkNameStartsWithCapital(final DNamedElement ne) {
+    this.checkNameStartsWithCapitalImpl(ne.getName(), ne);
   }
   
   @Check
   public void checkTypeNameStartsWithCapital(final DDomain d) {
     if ((Objects.equal(DmxImportedNamespaceAwareLocalScopeProvider.DEFAULT_IMPORT_TYPES, d.getName()) || Objects.equal(DmxImportedNamespaceAwareLocalScopeProvider.DEFAULT_IMPORT_FUNCTIONS, d.getName()))) {
       return;
+    } else {
+      boolean _startsWith = d.getName().startsWith((DmxImportedNamespaceAwareLocalScopeProvider.PREFIX + "."));
+      if (_startsWith) {
+        this.checkNameStartsWithCapitalImpl(d.getName().substring(3), d);
+        return;
+      }
     }
     this.checkNameStartsWithCapital(d);
   }

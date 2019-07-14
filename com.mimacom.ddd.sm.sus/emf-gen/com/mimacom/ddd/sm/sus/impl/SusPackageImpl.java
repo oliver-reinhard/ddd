@@ -174,6 +174,17 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	 * @generated
 	 */
 	@Override
+	public EReference getUserStory_Event()
+	{
+		return (EReference)userStoryEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getSection()
 	{
 		return sectionEClass;
@@ -259,6 +270,7 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 		createEReference(userStoryEClass, USER_STORY__DESCRIPTION);
 		createEReference(userStoryEClass, USER_STORY__IMPORTS);
 		createEReference(userStoryEClass, USER_STORY__SECTIONS);
+		createEReference(userStoryEClass, USER_STORY__EVENT);
 
 		sectionEClass = createEClass(SECTION);
 		createEAttribute(sectionEClass, SECTION__NAME);
@@ -307,6 +319,7 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 		initEReference(getUserStory_Description(), theBasePackage.getDRichText(), null, "description", null, 0, 1, UserStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUserStory_Imports(), theBasePackage.getDImport(), null, "imports", null, 0, -1, UserStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUserStory_Sections(), this.getSection(), null, "sections", null, 0, -1, UserStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUserStory_Event(), theBasePackage.getDDomainEvent(), null, "event", null, 0, 1, UserStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sectionEClass, Section.class, "Section", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSection_Name(), ecorePackage.getEString(), "name", null, 0, 1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

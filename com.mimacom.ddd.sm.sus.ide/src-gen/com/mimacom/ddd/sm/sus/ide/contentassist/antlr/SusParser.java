@@ -31,6 +31,7 @@ public class SusParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, SusGrammarAccess grammarAccess) {
+			builder.put(grammarAccess.getUserStoryAccess().getAlternatives_4_0(), "rule__UserStory__Alternatives_4_0");
 			builder.put(grammarAccess.getDExpressionAccess().getAlternatives(), "rule__DExpression__Alternatives");
 			builder.put(grammarAccess.getDRichTextAccess().getAlternatives(), "rule__DRichText__Alternatives");
 			builder.put(grammarAccess.getDAssignmentAccess().getAlternatives(), "rule__DAssignment__Alternatives");
@@ -60,6 +61,7 @@ public class SusParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOpMultiAccess().getAlternatives(), "rule__OpMulti__Alternatives");
 			builder.put(grammarAccess.getOpUnaryAccess().getAlternatives(), "rule__OpUnary__Alternatives");
 			builder.put(grammarAccess.getUserStoryAccess().getGroup(), "rule__UserStory__Group__0");
+			builder.put(grammarAccess.getUserStoryAccess().getGroup_4(), "rule__UserStory__Group_4__0");
 			builder.put(grammarAccess.getDImportAccess().getGroup(), "rule__DImport__Group__0");
 			builder.put(grammarAccess.getSectionAccess().getGroup(), "rule__Section__Group__0");
 			builder.put(grammarAccess.getDmxModelAccess().getGroup(), "rule__DmxModel__Group__0");
@@ -142,10 +144,11 @@ public class SusParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDQualifiedNameWithWildcardAccess().getGroup(), "rule__DQualifiedNameWithWildcard__Group__0");
 			builder.put(grammarAccess.getDQualifiedNameAccess().getGroup(), "rule__DQualifiedName__Group__0");
 			builder.put(grammarAccess.getDQualifiedNameAccess().getGroup_1(), "rule__DQualifiedName__Group_1__0");
-			builder.put(grammarAccess.getUserStoryAccess().getNameAssignment_2(), "rule__UserStory__NameAssignment_2");
-			builder.put(grammarAccess.getUserStoryAccess().getDescriptionAssignment_3(), "rule__UserStory__DescriptionAssignment_3");
-			builder.put(grammarAccess.getUserStoryAccess().getImportsAssignment_4(), "rule__UserStory__ImportsAssignment_4");
-			builder.put(grammarAccess.getUserStoryAccess().getSectionsAssignment_5(), "rule__UserStory__SectionsAssignment_5");
+			builder.put(grammarAccess.getUserStoryAccess().getImportsAssignment_0(), "rule__UserStory__ImportsAssignment_0");
+			builder.put(grammarAccess.getUserStoryAccess().getNameAssignment_3(), "rule__UserStory__NameAssignment_3");
+			builder.put(grammarAccess.getUserStoryAccess().getEventAssignment_4_1(), "rule__UserStory__EventAssignment_4_1");
+			builder.put(grammarAccess.getUserStoryAccess().getDescriptionAssignment_5(), "rule__UserStory__DescriptionAssignment_5");
+			builder.put(grammarAccess.getUserStoryAccess().getSectionsAssignment_6(), "rule__UserStory__SectionsAssignment_6");
 			builder.put(grammarAccess.getDImportAccess().getImportedNamespaceAssignment_1(), "rule__DImport__ImportedNamespaceAssignment_1");
 			builder.put(grammarAccess.getSectionAccess().getNameAssignment_1(), "rule__Section__NameAssignment_1");
 			builder.put(grammarAccess.getSectionAccess().getParagraphsAssignment_2(), "rule__Section__ParagraphsAssignment_2");

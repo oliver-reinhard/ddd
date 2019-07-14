@@ -583,8 +583,8 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     (
 	 *         (deductionRule=SGrabComplexTypeRule | deductionRule=SDitchComplexTypeRule | deductionRule=SMorphComplexTypeRule | deductionRule=SFuseComplexTypeRule) 
 	 *         description=DRichText? 
-	 *         features+=Feature? 
-	 *         (constraints+=DConstraint? features+=Feature?)*
+	 *         constraints+=DConstraint? 
+	 *         (features+=Feature? constraints+=DConstraint?)*
 	 *     )
 	 */
 	protected void sequence_SComplexTypeFeatures_SDetailTypeDeduction(ISerializationContext context, SDetailTypeDeduction semanticObject) {
@@ -844,11 +844,11 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
+	 *         imports+=DImport* 
 	 *         kind=SInformationModelKind 
 	 *         name=DQualifiedName 
 	 *         generate?='generate'? 
 	 *         description=DRichText? 
-	 *         imports+=DImport* 
 	 *         queries+=SCoreQuery* 
 	 *         (types+=Type | aggregates+=Aggregate | domainProxies+=Domain)*
 	 *     )

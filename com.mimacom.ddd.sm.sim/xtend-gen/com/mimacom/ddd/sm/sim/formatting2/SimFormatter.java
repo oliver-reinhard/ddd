@@ -40,13 +40,9 @@ public class SimFormatter extends AbstractFormatter2 {
   private SimGrammarAccess _simGrammarAccess;
   
   protected void _format(final SInformationModel model, @Extension final IFormattableDocument document) {
-    final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
-      it.setNewLines(2);
-    };
-    document.append(this.textRegionExtensions.regionFor(model).assignment(this._simGrammarAccess.getSInformationModelAccess().getNameAssignment_3()), _function);
     EList<DImport> _imports = model.getImports();
     for (final DImport i : _imports) {
-      final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
+      final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
         DImport _last = IterableExtensions.<DImport>last(model.getImports());
         boolean _equals = Objects.equal(i, _last);
         if (_equals) {
@@ -55,8 +51,12 @@ public class SimFormatter extends AbstractFormatter2 {
           it.newLine();
         }
       };
-      document.<DImport>append(i, _function_1);
+      document.<DImport>append(i, _function);
     }
+    final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
+      it.setNewLines(2);
+    };
+    document.append(this.textRegionExtensions.regionFor(model).assignment(this._simGrammarAccess.getSInformationModelAccess().getNameAssignment_4()), _function_1);
     final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };

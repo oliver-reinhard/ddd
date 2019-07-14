@@ -5,10 +5,13 @@ import "http://www.mimacom.com/ddd/dm/base"
 import "http://www.mimacom.com/ddd/sm/sim"
 
 UserStory:
+	(imports+=DImport)*
 	'user' 'story'
 	name=DQualifiedName
+	(	('realises' | 'realizes')
+		event=[DDomainEvent|DQualifiedName]
+	)?
 	(description=DRichText)?
-	(imports+=DImport)*
 	(sections+=Section)*;
 
 DImport:

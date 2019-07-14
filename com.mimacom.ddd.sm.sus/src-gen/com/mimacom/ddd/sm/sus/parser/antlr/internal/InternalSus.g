@@ -77,20 +77,39 @@ ruleUserStory returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='user'
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getUserStoryAccess().getImportsDImportParserRuleCall_0_0());
+				}
+				lv_imports_0_0=ruleDImport
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getUserStoryRule());
+					}
+					add(
+						$current,
+						"imports",
+						lv_imports_0_0,
+						"com.mimacom.ddd.sm.sus.Sus.DImport");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_1='user'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getUserStoryAccess().getUserKeyword_0());
+			newLeafNode(otherlv_1, grammarAccess.getUserStoryAccess().getUserKeyword_1());
 		}
-		otherlv_1='story'
+		otherlv_2='story'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getUserStoryAccess().getStoryKeyword_1());
+			newLeafNode(otherlv_2, grammarAccess.getUserStoryAccess().getStoryKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getUserStoryAccess().getNameDQualifiedNameParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getUserStoryAccess().getNameDQualifiedNameParserRuleCall_3_0());
 				}
-				lv_name_2_0=ruleDQualifiedName
+				lv_name_3_0=ruleDQualifiedName
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUserStoryRule());
@@ -98,7 +117,7 @@ ruleUserStory returns [EObject current=null]
 					set(
 						$current,
 						"name",
-						lv_name_2_0,
+						lv_name_3_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DQualifiedName");
 					afterParserOrEnumRuleCall();
 				}
@@ -106,10 +125,39 @@ ruleUserStory returns [EObject current=null]
 		)
 		(
 			(
+				otherlv_4='realises'
 				{
-					newCompositeNode(grammarAccess.getUserStoryAccess().getDescriptionDRichTextParserRuleCall_3_0());
+					newLeafNode(otherlv_4, grammarAccess.getUserStoryAccess().getRealisesKeyword_4_0_0());
 				}
-				lv_description_3_0=ruleDRichText
+				    |
+				otherlv_5='realizes'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getUserStoryAccess().getRealizesKeyword_4_0_1());
+				}
+			)
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getUserStoryRule());
+						}
+					}
+					{
+						newCompositeNode(grammarAccess.getUserStoryAccess().getEventDDomainEventCrossReference_4_1_0());
+					}
+					ruleDQualifiedName
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getUserStoryAccess().getDescriptionDRichTextParserRuleCall_5_0());
+				}
+				lv_description_7_0=ruleDRichText
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUserStoryRule());
@@ -117,7 +165,7 @@ ruleUserStory returns [EObject current=null]
 					set(
 						$current,
 						"description",
-						lv_description_3_0,
+						lv_description_7_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
 					afterParserOrEnumRuleCall();
 				}
@@ -126,28 +174,9 @@ ruleUserStory returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getUserStoryAccess().getImportsDImportParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getUserStoryAccess().getSectionsSectionParserRuleCall_6_0());
 				}
-				lv_imports_4_0=ruleDImport
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getUserStoryRule());
-					}
-					add(
-						$current,
-						"imports",
-						lv_imports_4_0,
-						"com.mimacom.ddd.sm.sus.Sus.DImport");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getUserStoryAccess().getSectionsSectionParserRuleCall_5_0());
-				}
-				lv_sections_5_0=ruleSection
+				lv_sections_8_0=ruleSection
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUserStoryRule());
@@ -155,7 +184,7 @@ ruleUserStory returns [EObject current=null]
 					add(
 						$current,
 						"sections",
-						lv_sections_5_0,
+						lv_sections_8_0,
 						"com.mimacom.ddd.sm.sus.Sus.Section");
 					afterParserOrEnumRuleCall();
 				}

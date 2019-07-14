@@ -76,20 +76,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass iIdentityTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass iValueTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass iNamespaceEClass = null;
 
 	/**
@@ -181,14 +167,14 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dDomainEClass = null;
+	private EClass dImportEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dImportEClass = null;
+	private EClass dDomainEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -203,6 +189,20 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	private EClass dAggregateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iIdentityTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iValueTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -475,28 +475,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(BasePackage.eNS_URI, theBasePackage);
 		return theBasePackage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getIIdentityType()
-	{
-		return iIdentityTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getIValueType()
-	{
-		return iValueTypeEClass;
 	}
 
 	/**
@@ -813,6 +791,28 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
+	public EClass getDImport()
+	{
+		return dImportEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDImport_ImportedNamespace()
+	{
+		return (EAttribute)dImportEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDDomain()
 	{
 		return dDomainEClass;
@@ -890,28 +890,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDImport()
-	{
-		return dImportEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDImport_ImportedNamespace()
-	{
-		return (EAttribute)dImportEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getDFunction()
 	{
 		return dFunctionEClass;
@@ -970,6 +948,28 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EAttribute getDAggregate_DerivedName()
 	{
 		return (EAttribute)dAggregateEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getIIdentityType()
+	{
+		return iIdentityTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getIValueType()
+	{
+		return iValueTypeEClass;
 	}
 
 	/**
@@ -1707,10 +1707,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		isCreated = true;
 
 		// Create classes and their features
-		iIdentityTypeEClass = createEClass(IIDENTITY_TYPE);
-
-		iValueTypeEClass = createEClass(IVALUE_TYPE);
-
 		iNamespaceEClass = createEClass(INAMESPACE);
 
 		iTypeContainerEClass = createEClass(ITYPE_CONTAINER);
@@ -1752,6 +1748,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dRichTextEClass = createEClass(DRICH_TEXT);
 		createEReference(dRichTextEClass, DRICH_TEXT__SEGMENTS);
 
+		dImportEClass = createEClass(DIMPORT);
+		createEAttribute(dImportEClass, DIMPORT__IMPORTED_NAMESPACE);
+
 		dDomainEClass = createEClass(DDOMAIN);
 		createEReference(dDomainEClass, DDOMAIN__IMPORTS);
 		createEReference(dDomainEClass, DDOMAIN__FUNCTIONS);
@@ -1760,9 +1759,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		createEReference(dDomainEClass, DDOMAIN__EVENTS);
 		createEReference(dDomainEClass, DDOMAIN__ACTORS);
 
-		dImportEClass = createEClass(DIMPORT);
-		createEAttribute(dImportEClass, DIMPORT__IMPORTED_NAMESPACE);
-
 		dFunctionEClass = createEClass(DFUNCTION);
 		createEAttribute(dFunctionEClass, DFUNCTION__PARAMETER_NAMES);
 
@@ -1770,6 +1766,10 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		createEReference(dAggregateEClass, DAGGREGATE__DESCRIPTION);
 		createEReference(dAggregateEClass, DAGGREGATE__ROOTS);
 		createEAttribute(dAggregateEClass, DAGGREGATE__DERIVED_NAME);
+
+		iIdentityTypeEClass = createEClass(IIDENTITY_TYPE);
+
+		iValueTypeEClass = createEClass(IVALUE_TYPE);
 
 		dTypeEClass = createEClass(DTYPE);
 		createEReference(dTypeEClass, DTYPE__CONSTRAINTS);
@@ -1955,10 +1955,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dExceptionEClass.getESuperTypes().add(this.getDNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(iIdentityTypeEClass, IIdentityType.class, "IIdentityType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(iValueTypeEClass, IValueType.class, "IValueType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(iNamespaceEClass, INamespace.class, "INamespace", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(iTypeContainerEClass, ITypeContainer.class, "ITypeContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2000,6 +1996,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dRichTextEClass, DRichText.class, "DRichText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDRichText_Segments(), this.getIRichTextSegment(), null, "segments", null, 0, -1, DRichText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(dImportEClass, DImport.class, "DImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, DImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(dDomainEClass, DDomain.class, "DDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDDomain_Imports(), this.getDImport(), null, "imports", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDDomain_Functions(), this.getDFunction(), null, "functions", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2008,9 +2007,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEReference(getDDomain_Events(), this.getDDomainEvent(), null, "events", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDDomain_Actors(), this.getDActor(), null, "actors", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dImportEClass, DImport.class, "DImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, DImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(dFunctionEClass, DFunction.class, "DFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDFunction_ParameterNames(), ecorePackage.getEString(), "parameterNames", null, 0, -1, DFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2018,6 +2014,10 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEReference(getDAggregate_Description(), this.getDRichText(), null, "description", null, 0, 1, DAggregate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDAggregate_Roots(), this.getDIdentityType(), null, "roots", null, 0, -1, DAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDAggregate_DerivedName(), ecorePackage.getEString(), "derivedName", null, 0, 1, DAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(iIdentityTypeEClass, IIdentityType.class, "IIdentityType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(iValueTypeEClass, IValueType.class, "IValueType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dTypeEClass, DType.class, "DType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDType_Constraints(), this.getDCondition(), null, "constraints", null, 0, -1, DType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

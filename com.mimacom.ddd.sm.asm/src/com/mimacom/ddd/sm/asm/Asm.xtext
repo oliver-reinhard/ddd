@@ -12,16 +12,16 @@ Model:
 	;
 
 SApplication:
+	(imports+=DImport)*
 	'application'
 	name= DQualifiedName
-	(imports+=DImport)*
 	'information' 'model' model=[SInformationModel|DQualifiedName]
 	(actors+=SActor)*;
 
 SServiceInterface:
+	(imports+=DImport)*
 	'service' 'interface'
 	name=DQualifiedName
-	(imports+=DImport)*
 	'interface' 'model' interface=[SInformationModel|DQualifiedName]
 	'core' 'model' core=[SInformationModel|DQualifiedName]
 	(exceptions+=DException)*

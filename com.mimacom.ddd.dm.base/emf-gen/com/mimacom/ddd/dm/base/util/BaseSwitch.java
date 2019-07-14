@@ -72,20 +72,6 @@ public class BaseSwitch<T> extends Switch<T>
 	{
 		switch (classifierID)
 		{
-			case BasePackage.IIDENTITY_TYPE:
-			{
-				IIdentityType iIdentityType = (IIdentityType)theEObject;
-				T result = caseIIdentityType(iIdentityType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BasePackage.IVALUE_TYPE:
-			{
-				IValueType iValueType = (IValueType)theEObject;
-				T result = caseIValueType(iValueType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case BasePackage.INAMESPACE:
 			{
 				INamespace iNamespace = (INamespace)theEObject;
@@ -185,6 +171,13 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case BasePackage.DIMPORT:
+			{
+				DImport dImport = (DImport)theEObject;
+				T result = caseDImport(dImport);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case BasePackage.DDOMAIN:
 			{
 				DDomain dDomain = (DDomain)theEObject;
@@ -194,13 +187,6 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = caseIDeducibleElement(dDomain);
 				if (result == null) result = caseDNamedElement(dDomain);
 				if (result == null) result = caseINamespace(dDomain);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BasePackage.DIMPORT:
-			{
-				DImport dImport = (DImport)theEObject;
-				T result = caseDImport(dImport);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -220,6 +206,20 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = caseITypeContainer(dAggregate);
 				if (result == null) result = caseIDeducibleElement(dAggregate);
 				if (result == null) result = caseINamespace(dAggregate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.IIDENTITY_TYPE:
+			{
+				IIdentityType iIdentityType = (IIdentityType)theEObject;
+				T result = caseIIdentityType(iIdentityType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.IVALUE_TYPE:
+			{
+				IValueType iValueType = (IValueType)theEObject;
+				T result = caseIValueType(iValueType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -532,38 +532,6 @@ public class BaseSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IIdentity Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IIdentity Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIIdentityType(IIdentityType object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IValue Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IValue Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIValueType(IValueType object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>INamespace</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -772,22 +740,6 @@ public class BaseSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DDomain</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DDomain</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDDomain(DDomain object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>DImport</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -799,6 +751,22 @@ public class BaseSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDImport(DImport object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DDomain</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DDomain</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDDomain(DDomain object)
 	{
 		return null;
 	}
@@ -831,6 +799,38 @@ public class BaseSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDAggregate(DAggregate object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IIdentity Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IIdentity Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIIdentityType(IIdentityType object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IValue Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IValue Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIValueType(IValueType object)
 	{
 		return null;
 	}

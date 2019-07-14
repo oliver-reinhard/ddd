@@ -105,13 +105,22 @@ public interface SusPackage extends EPackage
 	int USER_STORY__SECTIONS = 3;
 
 	/**
+	 * The feature id for the '<em><b>Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER_STORY__EVENT = 4;
+
+	/**
 	 * The number of structural features of the '<em>User Story</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STORY_FEATURE_COUNT = 4;
+	int USER_STORY_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>User Story</em>' class.
@@ -261,6 +270,17 @@ public interface SusPackage extends EPackage
 	EReference getUserStory_Sections();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.sm.sus.UserStory#getEvent <em>Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Event</em>'.
+	 * @see com.mimacom.ddd.sm.sus.UserStory#getEvent()
+	 * @see #getUserStory()
+	 * @generated
+	 */
+	EReference getUserStory_Event();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.sus.Section <em>Section</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -378,6 +398,14 @@ public interface SusPackage extends EPackage
 		 * @generated
 		 */
 		EReference USER_STORY__SECTIONS = eINSTANCE.getUserStory_Sections();
+
+		/**
+		 * The meta object literal for the '<em><b>Event</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference USER_STORY__EVENT = eINSTANCE.getUserStory_Event();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.sus.impl.SectionImpl <em>Section</em>}' class.

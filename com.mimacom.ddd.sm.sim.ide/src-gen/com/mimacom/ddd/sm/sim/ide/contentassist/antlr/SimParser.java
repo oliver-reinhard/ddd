@@ -289,11 +289,11 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDQualifiedNameWithWildcardAccess().getGroup(), "rule__DQualifiedNameWithWildcard__Group__0");
 			builder.put(grammarAccess.getDQualifiedNameAccess().getGroup(), "rule__DQualifiedName__Group__0");
 			builder.put(grammarAccess.getDQualifiedNameAccess().getGroup_1(), "rule__DQualifiedName__Group_1__0");
-			builder.put(grammarAccess.getSInformationModelAccess().getKindAssignment_0(), "rule__SInformationModel__KindAssignment_0");
-			builder.put(grammarAccess.getSInformationModelAccess().getNameAssignment_3(), "rule__SInformationModel__NameAssignment_3");
-			builder.put(grammarAccess.getSInformationModelAccess().getGenerateAssignment_4(), "rule__SInformationModel__GenerateAssignment_4");
-			builder.put(grammarAccess.getSInformationModelAccess().getDescriptionAssignment_5(), "rule__SInformationModel__DescriptionAssignment_5");
-			builder.put(grammarAccess.getSInformationModelAccess().getImportsAssignment_6(), "rule__SInformationModel__ImportsAssignment_6");
+			builder.put(grammarAccess.getSInformationModelAccess().getImportsAssignment_0(), "rule__SInformationModel__ImportsAssignment_0");
+			builder.put(grammarAccess.getSInformationModelAccess().getKindAssignment_1(), "rule__SInformationModel__KindAssignment_1");
+			builder.put(grammarAccess.getSInformationModelAccess().getNameAssignment_4(), "rule__SInformationModel__NameAssignment_4");
+			builder.put(grammarAccess.getSInformationModelAccess().getGenerateAssignment_5(), "rule__SInformationModel__GenerateAssignment_5");
+			builder.put(grammarAccess.getSInformationModelAccess().getDescriptionAssignment_6(), "rule__SInformationModel__DescriptionAssignment_6");
 			builder.put(grammarAccess.getSInformationModelAccess().getQueriesAssignment_7(), "rule__SInformationModel__QueriesAssignment_7");
 			builder.put(grammarAccess.getSInformationModelAccess().getTypesAssignment_8_0(), "rule__SInformationModel__TypesAssignment_8_0");
 			builder.put(grammarAccess.getSInformationModelAccess().getAggregatesAssignment_8_1(), "rule__SInformationModel__AggregatesAssignment_8_1");

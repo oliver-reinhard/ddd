@@ -9,7 +9,7 @@ import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider
 
 class DmxImportedNamespaceAwareLocalScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
 	
-	static val PREFIX = "dm"
+	public static val PREFIX = "dm"
 	static val TYPES = "types"
 	static val FUNCTIONS = "functions"
 	

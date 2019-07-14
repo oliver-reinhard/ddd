@@ -113,35 +113,12 @@ ruleSApplication returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='application'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getSApplicationAccess().getApplicationKeyword_0());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSApplicationAccess().getNameDQualifiedNameParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getSApplicationAccess().getImportsDImportParserRuleCall_0_0());
 				}
-				lv_name_1_0=ruleDQualifiedName
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSApplicationRule());
-					}
-					set(
-						$current,
-						"name",
-						lv_name_1_0,
-						"com.mimacom.ddd.dm.dmx.Dmx.DQualifiedName");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getSApplicationAccess().getImportsDImportParserRuleCall_2_0());
-				}
-				lv_imports_2_0=ruleDImport
+				lv_imports_0_0=ruleDImport
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSApplicationRule());
@@ -149,12 +126,35 @@ ruleSApplication returns [EObject current=null]
 					add(
 						$current,
 						"imports",
-						lv_imports_2_0,
+						lv_imports_0_0,
 						"com.mimacom.ddd.sm.asm.Asm.DImport");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
+		otherlv_1='application'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getSApplicationAccess().getApplicationKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSApplicationAccess().getNameDQualifiedNameParserRuleCall_2_0());
+				}
+				lv_name_2_0=ruleDQualifiedName
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSApplicationRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_2_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DQualifiedName");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		otherlv_3='information'
 		{
 			newLeafNode(otherlv_3, grammarAccess.getSApplicationAccess().getInformationKeyword_3());
@@ -217,39 +217,12 @@ ruleSServiceInterface returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='service'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getSServiceInterfaceAccess().getServiceKeyword_0());
-		}
-		otherlv_1='interface'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getSServiceInterfaceAccess().getInterfaceKeyword_1());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSServiceInterfaceAccess().getNameDQualifiedNameParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getSServiceInterfaceAccess().getImportsDImportParserRuleCall_0_0());
 				}
-				lv_name_2_0=ruleDQualifiedName
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSServiceInterfaceRule());
-					}
-					set(
-						$current,
-						"name",
-						lv_name_2_0,
-						"com.mimacom.ddd.dm.dmx.Dmx.DQualifiedName");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getSServiceInterfaceAccess().getImportsDImportParserRuleCall_3_0());
-				}
-				lv_imports_3_0=ruleDImport
+				lv_imports_0_0=ruleDImport
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSServiceInterfaceRule());
@@ -257,12 +230,39 @@ ruleSServiceInterface returns [EObject current=null]
 					add(
 						$current,
 						"imports",
-						lv_imports_3_0,
+						lv_imports_0_0,
 						"com.mimacom.ddd.sm.asm.Asm.DImport");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
+		otherlv_1='service'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getSServiceInterfaceAccess().getServiceKeyword_1());
+		}
+		otherlv_2='interface'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getSServiceInterfaceAccess().getInterfaceKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSServiceInterfaceAccess().getNameDQualifiedNameParserRuleCall_3_0());
+				}
+				lv_name_3_0=ruleDQualifiedName
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSServiceInterfaceRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_3_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DQualifiedName");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		otherlv_4='interface'
 		{
 			newLeafNode(otherlv_4, grammarAccess.getSServiceInterfaceAccess().getInterfaceKeyword_4());

@@ -10,7 +10,7 @@ import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 
 @SuppressWarnings("all")
 public class DmxImportedNamespaceAwareLocalScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
-  private static final String PREFIX = "dm";
+  public static final String PREFIX = "dm";
   
   private static final String TYPES = "types";
   

@@ -157,12 +157,12 @@ public class AsmParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDQualifiedNameWithWildcardAccess().getGroup(), "rule__DQualifiedNameWithWildcard__Group__0");
 			builder.put(grammarAccess.getDQualifiedNameAccess().getGroup(), "rule__DQualifiedName__Group__0");
 			builder.put(grammarAccess.getDQualifiedNameAccess().getGroup_1(), "rule__DQualifiedName__Group_1__0");
-			builder.put(grammarAccess.getSApplicationAccess().getNameAssignment_1(), "rule__SApplication__NameAssignment_1");
-			builder.put(grammarAccess.getSApplicationAccess().getImportsAssignment_2(), "rule__SApplication__ImportsAssignment_2");
+			builder.put(grammarAccess.getSApplicationAccess().getImportsAssignment_0(), "rule__SApplication__ImportsAssignment_0");
+			builder.put(grammarAccess.getSApplicationAccess().getNameAssignment_2(), "rule__SApplication__NameAssignment_2");
 			builder.put(grammarAccess.getSApplicationAccess().getModelAssignment_5(), "rule__SApplication__ModelAssignment_5");
 			builder.put(grammarAccess.getSApplicationAccess().getActorsAssignment_6(), "rule__SApplication__ActorsAssignment_6");
-			builder.put(grammarAccess.getSServiceInterfaceAccess().getNameAssignment_2(), "rule__SServiceInterface__NameAssignment_2");
-			builder.put(grammarAccess.getSServiceInterfaceAccess().getImportsAssignment_3(), "rule__SServiceInterface__ImportsAssignment_3");
+			builder.put(grammarAccess.getSServiceInterfaceAccess().getImportsAssignment_0(), "rule__SServiceInterface__ImportsAssignment_0");
+			builder.put(grammarAccess.getSServiceInterfaceAccess().getNameAssignment_3(), "rule__SServiceInterface__NameAssignment_3");
 			builder.put(grammarAccess.getSServiceInterfaceAccess().getInterfaceAssignment_6(), "rule__SServiceInterface__InterfaceAssignment_6");
 			builder.put(grammarAccess.getSServiceInterfaceAccess().getCoreAssignment_9(), "rule__SServiceInterface__CoreAssignment_9");
 			builder.put(grammarAccess.getSServiceInterfaceAccess().getExceptionsAssignment_10(), "rule__SServiceInterface__ExceptionsAssignment_10");

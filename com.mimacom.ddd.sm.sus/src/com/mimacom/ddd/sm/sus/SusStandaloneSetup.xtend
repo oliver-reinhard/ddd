@@ -3,7 +3,6 @@
  */
 package com.mimacom.ddd.sm.sus
 
-
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
  */

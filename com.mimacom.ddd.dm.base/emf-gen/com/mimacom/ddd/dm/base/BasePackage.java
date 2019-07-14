@@ -60,62 +60,6 @@ public interface BasePackage extends EPackage
 	BasePackage eINSTANCE = com.mimacom.ddd.dm.base.impl.BasePackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.IIdentityType <em>IIdentity Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.IIdentityType
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIIdentityType()
-	 * @generated
-	 */
-	int IIDENTITY_TYPE = 0;
-
-	/**
-	 * The number of structural features of the '<em>IIdentity Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IIDENTITY_TYPE_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>IIdentity Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IIDENTITY_TYPE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.IValueType <em>IValue Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.IValueType
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIValueType()
-	 * @generated
-	 */
-	int IVALUE_TYPE = 1;
-
-	/**
-	 * The number of structural features of the '<em>IValue Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IVALUE_TYPE_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>IValue Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IVALUE_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.INamespace <em>INamespace</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -123,7 +67,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getINamespace()
 	 * @generated
 	 */
-	int INAMESPACE = 2;
+	int INAMESPACE = 0;
 
 	/**
 	 * The number of structural features of the '<em>INamespace</em>' class.
@@ -151,7 +95,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getITypeContainer()
 	 * @generated
 	 */
-	int ITYPE_CONTAINER = 3;
+	int ITYPE_CONTAINER = 1;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -188,7 +132,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIDeductionDefinition()
 	 * @generated
 	 */
-	int IDEDUCTION_DEFINITION = 4;
+	int IDEDUCTION_DEFINITION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
@@ -225,7 +169,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIDeducibleElement()
 	 * @generated
 	 */
-	int IDEDUCIBLE_ELEMENT = 5;
+	int IDEDUCIBLE_ELEMENT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
@@ -271,7 +215,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDeductionRule()
 	 * @generated
 	 */
-	int DDEDUCTION_RULE = 6;
+	int DDEDUCTION_RULE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -317,7 +261,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDNamedElement()
 	 * @generated
 	 */
-	int DNAMED_ELEMENT = 7;
+	int DNAMED_ELEMENT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -372,7 +316,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDNavigableMember()
 	 * @generated
 	 */
-	int DNAVIGABLE_MEMBER = 8;
+	int DNAVIGABLE_MEMBER = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -463,7 +407,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getINavigableMemberContainer()
 	 * @generated
 	 */
-	int INAVIGABLE_MEMBER_CONTAINER = 9;
+	int INAVIGABLE_MEMBER_CONTAINER = 7;
 
 	/**
 	 * The number of structural features of the '<em>INavigable Member Container</em>' class.
@@ -491,7 +435,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIPrimaryNavigationTarget()
 	 * @generated
 	 */
-	int IPRIMARY_NAVIGATION_TARGET = 10;
+	int IPRIMARY_NAVIGATION_TARGET = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -546,7 +490,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIRichTextSegment()
 	 * @generated
 	 */
-	int IRICH_TEXT_SEGMENT = 11;
+	int IRICH_TEXT_SEGMENT = 9;
 
 	/**
 	 * The number of structural features of the '<em>IRich Text Segment</em>' class.
@@ -574,7 +518,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDTextSegment()
 	 * @generated
 	 */
-	int DTEXT_SEGMENT = 12;
+	int DTEXT_SEGMENT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -611,7 +555,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDExpression()
 	 * @generated
 	 */
-	int DEXPRESSION = 13;
+	int DEXPRESSION = 11;
 
 	/**
 	 * The number of structural features of the '<em>DExpression</em>' class.
@@ -639,7 +583,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDRichText()
 	 * @generated
 	 */
-	int DRICH_TEXT = 14;
+	int DRICH_TEXT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Segments</b></em>' containment reference list.
@@ -669,6 +613,43 @@ public interface BasePackage extends EPackage
 	int DRICH_TEXT_OPERATION_COUNT = DEXPRESSION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DImportImpl <em>DImport</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.impl.DImportImpl
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDImport()
+	 * @generated
+	 */
+	int DIMPORT = 13;
+
+	/**
+	 * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIMPORT__IMPORTED_NAMESPACE = 0;
+
+	/**
+	 * The number of structural features of the '<em>DImport</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIMPORT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>DImport</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIMPORT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DDomainImpl <em>DDomain</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -676,7 +657,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDomain()
 	 * @generated
 	 */
-	int DDOMAIN = 15;
+	int DDOMAIN = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -805,43 +786,6 @@ public interface BasePackage extends EPackage
 	int DDOMAIN_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DImportImpl <em>DImport</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.impl.DImportImpl
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDImport()
-	 * @generated
-	 */
-	int DIMPORT = 16;
-
-	/**
-	 * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIMPORT__IMPORTED_NAMESPACE = 0;
-
-	/**
-	 * The number of structural features of the '<em>DImport</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIMPORT_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>DImport</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIMPORT_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DFunctionImpl <em>DFunction</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -849,7 +793,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDFunction()
 	 * @generated
 	 */
-	int DFUNCTION = 17;
+	int DFUNCTION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -949,7 +893,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDAggregate()
 	 * @generated
 	 */
-	int DAGGREGATE = 18;
+	int DAGGREGATE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -1022,6 +966,62 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DAGGREGATE_OPERATION_COUNT = ITYPE_CONTAINER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.IIdentityType <em>IIdentity Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.IIdentityType
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIIdentityType()
+	 * @generated
+	 */
+	int IIDENTITY_TYPE = 17;
+
+	/**
+	 * The number of structural features of the '<em>IIdentity Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IIDENTITY_TYPE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>IIdentity Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IIDENTITY_TYPE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.IValueType <em>IValue Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.IValueType
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIValueType()
+	 * @generated
+	 */
+	int IVALUE_TYPE = 18;
+
+	/**
+	 * The number of structural features of the '<em>IValue Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IVALUE_TYPE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>IValue Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IVALUE_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DTypeImpl <em>DType</em>}' class.
@@ -3701,26 +3701,6 @@ public interface BasePackage extends EPackage
 
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.IIdentityType <em>IIdentity Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>IIdentity Type</em>'.
-	 * @see com.mimacom.ddd.dm.base.IIdentityType
-	 * @generated
-	 */
-	EClass getIIdentityType();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.IValueType <em>IValue Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>IValue Type</em>'.
-	 * @see com.mimacom.ddd.dm.base.IValueType
-	 * @generated
-	 */
-	EClass getIValueType();
-
-	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.INamespace <em>INamespace</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4016,6 +3996,27 @@ public interface BasePackage extends EPackage
 	EReference getDRichText_Segments();
 
 	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DImport <em>DImport</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>DImport</em>'.
+	 * @see com.mimacom.ddd.dm.base.DImport
+	 * @generated
+	 */
+	EClass getDImport();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DImport#getImportedNamespace <em>Imported Namespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Imported Namespace</em>'.
+	 * @see com.mimacom.ddd.dm.base.DImport#getImportedNamespace()
+	 * @see #getDImport()
+	 * @generated
+	 */
+	EAttribute getDImport_ImportedNamespace();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DDomain <em>DDomain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4092,27 +4093,6 @@ public interface BasePackage extends EPackage
 	EReference getDDomain_Actors();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DImport <em>DImport</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DImport</em>'.
-	 * @see com.mimacom.ddd.dm.base.DImport
-	 * @generated
-	 */
-	EClass getDImport();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DImport#getImportedNamespace <em>Imported Namespace</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Imported Namespace</em>'.
-	 * @see com.mimacom.ddd.dm.base.DImport#getImportedNamespace()
-	 * @see #getDImport()
-	 * @generated
-	 */
-	EAttribute getDImport_ImportedNamespace();
-
-	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DFunction <em>DFunction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4175,6 +4155,26 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EAttribute getDAggregate_DerivedName();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.IIdentityType <em>IIdentity Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IIdentity Type</em>'.
+	 * @see com.mimacom.ddd.dm.base.IIdentityType
+	 * @generated
+	 */
+	EClass getIIdentityType();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.IValueType <em>IValue Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IValue Type</em>'.
+	 * @see com.mimacom.ddd.dm.base.IValueType
+	 * @generated
+	 */
+	EClass getIValueType();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DType <em>DType</em>}'.
@@ -4874,26 +4874,6 @@ public interface BasePackage extends EPackage
 	interface Literals
 	{
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.IIdentityType <em>IIdentity Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.IIdentityType
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIIdentityType()
-		 * @generated
-		 */
-		EClass IIDENTITY_TYPE = eINSTANCE.getIIdentityType();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.IValueType <em>IValue Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.IValueType
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIValueType()
-		 * @generated
-		 */
-		EClass IVALUE_TYPE = eINSTANCE.getIValueType();
-
-		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.INamespace <em>INamespace</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5144,6 +5124,24 @@ public interface BasePackage extends EPackage
 		EReference DRICH_TEXT__SEGMENTS = eINSTANCE.getDRichText_Segments();
 
 		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DImportImpl <em>DImport</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.impl.DImportImpl
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDImport()
+		 * @generated
+		 */
+		EClass DIMPORT = eINSTANCE.getDImport();
+
+		/**
+		 * The meta object literal for the '<em><b>Imported Namespace</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIMPORT__IMPORTED_NAMESPACE = eINSTANCE.getDImport_ImportedNamespace();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DDomainImpl <em>DDomain</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5202,24 +5200,6 @@ public interface BasePackage extends EPackage
 		EReference DDOMAIN__ACTORS = eINSTANCE.getDDomain_Actors();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DImportImpl <em>DImport</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.impl.DImportImpl
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDImport()
-		 * @generated
-		 */
-		EClass DIMPORT = eINSTANCE.getDImport();
-
-		/**
-		 * The meta object literal for the '<em><b>Imported Namespace</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DIMPORT__IMPORTED_NAMESPACE = eINSTANCE.getDImport_ImportedNamespace();
-
-		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DFunctionImpl <em>DFunction</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5270,6 +5250,26 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EAttribute DAGGREGATE__DERIVED_NAME = eINSTANCE.getDAggregate_DerivedName();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.IIdentityType <em>IIdentity Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.IIdentityType
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIIdentityType()
+		 * @generated
+		 */
+		EClass IIDENTITY_TYPE = eINSTANCE.getIIdentityType();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.IValueType <em>IValue Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.IValueType
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIValueType()
+		 * @generated
+		 */
+		EClass IVALUE_TYPE = eINSTANCE.getIValueType();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DTypeImpl <em>DType</em>}' class.

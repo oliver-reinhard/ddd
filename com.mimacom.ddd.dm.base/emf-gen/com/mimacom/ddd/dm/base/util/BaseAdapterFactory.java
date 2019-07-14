@@ -75,16 +75,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 		new BaseSwitch<Adapter>()
 		{
 			@Override
-			public Adapter caseIIdentityType(IIdentityType object)
-			{
-				return createIIdentityTypeAdapter();
-			}
-			@Override
-			public Adapter caseIValueType(IValueType object)
-			{
-				return createIValueTypeAdapter();
-			}
-			@Override
 			public Adapter caseINamespace(INamespace object)
 			{
 				return createINamespaceAdapter();
@@ -150,14 +140,14 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createDRichTextAdapter();
 			}
 			@Override
-			public Adapter caseDDomain(DDomain object)
-			{
-				return createDDomainAdapter();
-			}
-			@Override
 			public Adapter caseDImport(DImport object)
 			{
 				return createDImportAdapter();
+			}
+			@Override
+			public Adapter caseDDomain(DDomain object)
+			{
+				return createDDomainAdapter();
 			}
 			@Override
 			public Adapter caseDFunction(DFunction object)
@@ -168,6 +158,16 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseDAggregate(DAggregate object)
 			{
 				return createDAggregateAdapter();
+			}
+			@Override
+			public Adapter caseIIdentityType(IIdentityType object)
+			{
+				return createIIdentityTypeAdapter();
+			}
+			@Override
+			public Adapter caseIValueType(IValueType object)
+			{
+				return createIValueTypeAdapter();
 			}
 			@Override
 			public Adapter caseDType(DType object)
@@ -325,36 +325,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IIdentityType <em>IIdentity Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.IIdentityType
-	 * @generated
-	 */
-	public Adapter createIIdentityTypeAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IValueType <em>IValue Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.IValueType
-	 * @generated
-	 */
-	public Adapter createIValueTypeAdapter()
-	{
-		return null;
-	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INamespace <em>INamespace</em>}'.
@@ -552,21 +522,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DDomain <em>DDomain</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DDomain
-	 * @generated
-	 */
-	public Adapter createDDomainAdapter()
-	{
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DImport <em>DImport</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -577,6 +532,21 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDImportAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DDomain <em>DDomain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DDomain
+	 * @generated
+	 */
+	public Adapter createDDomainAdapter()
 	{
 		return null;
 	}
@@ -607,6 +577,36 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDAggregateAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IIdentityType <em>IIdentity Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IIdentityType
+	 * @generated
+	 */
+	public Adapter createIIdentityTypeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IValueType <em>IValue Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IValueType
+	 * @generated
+	 */
+	public Adapter createIValueTypeAdapter()
 	{
 		return null;
 	}

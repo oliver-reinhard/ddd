@@ -231,7 +231,7 @@ public class AsmSemanticSequencer extends DmxSemanticSequencer {
 	 *     SApplication returns SApplication
 	 *
 	 * Constraint:
-	 *     (name=DQualifiedName imports+=DImport* model=[SInformationModel|DQualifiedName] actors+=SActor*)
+	 *     (imports+=DImport* name=DQualifiedName model=[SInformationModel|DQualifiedName] actors+=SActor*)
 	 */
 	protected void sequence_SApplication(ISerializationContext context, SApplication semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -264,8 +264,8 @@ public class AsmSemanticSequencer extends DmxSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         name=DQualifiedName 
 	 *         imports+=DImport* 
+	 *         name=DQualifiedName 
 	 *         interface=[SInformationModel|DQualifiedName] 
 	 *         core=[SInformationModel|DQualifiedName] 
 	 *         exceptions+=DException* 

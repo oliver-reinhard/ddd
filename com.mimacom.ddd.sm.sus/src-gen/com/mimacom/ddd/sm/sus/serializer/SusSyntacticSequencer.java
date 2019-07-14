@@ -28,6 +28,7 @@ public class SusSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_DRaiseExpression_RAISEKeyword_1_0_or_RaiseKeyword_1_1;
 	protected AbstractElementAlias match_DReturnExpression_RETURNKeyword_1_0_or_ReturnKeyword_1_1;
 	protected AbstractElementAlias match_DSelfExpression_SELFKeyword_1_0_or_SelfKeyword_1_1;
+	protected AbstractElementAlias match_UserStory_RealisesKeyword_4_0_0_or_RealizesKeyword_4_0_1;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -39,6 +40,7 @@ public class SusSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_DRaiseExpression_RAISEKeyword_1_0_or_RaiseKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDRaiseExpressionAccess().getRAISEKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDRaiseExpressionAccess().getRaiseKeyword_1_1()));
 		match_DReturnExpression_RETURNKeyword_1_0_or_ReturnKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDReturnExpressionAccess().getRETURNKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDReturnExpressionAccess().getReturnKeyword_1_1()));
 		match_DSelfExpression_SELFKeyword_1_0_or_SelfKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDSelfExpressionAccess().getSELFKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDSelfExpressionAccess().getSelfKeyword_1_1()));
+		match_UserStory_RealisesKeyword_4_0_0_or_RealizesKeyword_4_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getUserStoryAccess().getRealisesKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getUserStoryAccess().getRealizesKeyword_4_0_1()));
 	}
 	
 	@Override
@@ -125,6 +127,8 @@ public class SusSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_DReturnExpression_RETURNKeyword_1_0_or_ReturnKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DSelfExpression_SELFKeyword_1_0_or_SelfKeyword_1_1.equals(syntax))
 				emit_DSelfExpression_SELFKeyword_1_0_or_SelfKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_UserStory_RealisesKeyword_4_0_0_or_RealizesKeyword_4_0_1.equals(syntax))
+				emit_UserStory_RealisesKeyword_4_0_0_or_RealizesKeyword_4_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -264,6 +268,17 @@ public class SusSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) (rule start)
 	 */
 	protected void emit_DSelfExpression_SELFKeyword_1_0_or_SelfKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'realises' | 'realizes'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=DQualifiedName (ambiguity) event=[DDomainEvent|DQualifiedName]
+	 */
+	protected void emit_UserStory_RealisesKeyword_4_0_0_or_RealizesKeyword_4_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

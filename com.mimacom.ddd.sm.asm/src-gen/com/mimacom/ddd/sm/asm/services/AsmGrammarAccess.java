@@ -50,11 +50,11 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	public class SApplicationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.SApplication");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cApplicationKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameDQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cImportsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cImportsDImportParserRuleCall_2_0 = (RuleCall)cImportsAssignment_2.eContents().get(0);
+		private final Assignment cImportsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cImportsDImportParserRuleCall_0_0 = (RuleCall)cImportsAssignment_0.eContents().get(0);
+		private final Keyword cApplicationKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameDQualifiedNameParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cInformationKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cModelKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cModelAssignment_5 = (Assignment)cGroup.eContents().get(5);
@@ -64,30 +64,30 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cActorsSActorParserRuleCall_6_0 = (RuleCall)cActorsAssignment_6.eContents().get(0);
 		
 		//SApplication:
+		//	imports+=DImport*
 		//	'application'
 		//	name=DQualifiedName
-		//	imports+=DImport*
 		//	'information' 'model' model=[SInformationModel|DQualifiedName] actors+=SActor*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'application' name=DQualifiedName imports+=DImport* 'information' 'model' model=[SInformationModel|DQualifiedName]
+		//imports+=DImport* 'application' name=DQualifiedName 'information' 'model' model=[SInformationModel|DQualifiedName]
 		//actors+=SActor*
 		public Group getGroup() { return cGroup; }
 		
-		//'application'
-		public Keyword getApplicationKeyword_0() { return cApplicationKeyword_0; }
-		
-		//name=DQualifiedName
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//DQualifiedName
-		public RuleCall getNameDQualifiedNameParserRuleCall_1_0() { return cNameDQualifiedNameParserRuleCall_1_0; }
-		
 		//imports+=DImport*
-		public Assignment getImportsAssignment_2() { return cImportsAssignment_2; }
+		public Assignment getImportsAssignment_0() { return cImportsAssignment_0; }
 		
 		//DImport
-		public RuleCall getImportsDImportParserRuleCall_2_0() { return cImportsDImportParserRuleCall_2_0; }
+		public RuleCall getImportsDImportParserRuleCall_0_0() { return cImportsDImportParserRuleCall_0_0; }
+		
+		//'application'
+		public Keyword getApplicationKeyword_1() { return cApplicationKeyword_1; }
+		
+		//name=DQualifiedName
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		
+		//DQualifiedName
+		public RuleCall getNameDQualifiedNameParserRuleCall_2_0() { return cNameDQualifiedNameParserRuleCall_2_0; }
 		
 		//'information'
 		public Keyword getInformationKeyword_3() { return cInformationKeyword_3; }
@@ -113,12 +113,12 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	public class SServiceInterfaceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.asm.Asm.SServiceInterface");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cServiceKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cInterfaceKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameDQualifiedNameParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Assignment cImportsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cImportsDImportParserRuleCall_3_0 = (RuleCall)cImportsAssignment_3.eContents().get(0);
+		private final Assignment cImportsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cImportsDImportParserRuleCall_0_0 = (RuleCall)cImportsAssignment_0.eContents().get(0);
+		private final Keyword cServiceKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cInterfaceKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameDQualifiedNameParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Keyword cInterfaceKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Keyword cModelKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cInterfaceAssignment_6 = (Assignment)cGroup.eContents().get(6);
@@ -135,36 +135,36 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cOperationsSServiceOperationParserRuleCall_11_0 = (RuleCall)cOperationsAssignment_11.eContents().get(0);
 		
 		//SServiceInterface:
+		//	imports+=DImport*
 		//	'service' 'interface'
 		//	name=DQualifiedName
-		//	imports+=DImport*
 		//	'interface' 'model' interface=[SInformationModel|DQualifiedName]
 		//	'core' 'model' core=[SInformationModel|DQualifiedName] exceptions+=DException*
 		//	operations+=SServiceOperation*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'service' 'interface' name=DQualifiedName imports+=DImport* 'interface' 'model'
+		//imports+=DImport* 'service' 'interface' name=DQualifiedName 'interface' 'model'
 		//interface=[SInformationModel|DQualifiedName] 'core' 'model' core=[SInformationModel|DQualifiedName]
 		//exceptions+=DException* operations+=SServiceOperation*
 		public Group getGroup() { return cGroup; }
 		
-		//'service'
-		public Keyword getServiceKeyword_0() { return cServiceKeyword_0; }
-		
-		//'interface'
-		public Keyword getInterfaceKeyword_1() { return cInterfaceKeyword_1; }
-		
-		//name=DQualifiedName
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
-		
-		//DQualifiedName
-		public RuleCall getNameDQualifiedNameParserRuleCall_2_0() { return cNameDQualifiedNameParserRuleCall_2_0; }
-		
 		//imports+=DImport*
-		public Assignment getImportsAssignment_3() { return cImportsAssignment_3; }
+		public Assignment getImportsAssignment_0() { return cImportsAssignment_0; }
 		
 		//DImport
-		public RuleCall getImportsDImportParserRuleCall_3_0() { return cImportsDImportParserRuleCall_3_0; }
+		public RuleCall getImportsDImportParserRuleCall_0_0() { return cImportsDImportParserRuleCall_0_0; }
+		
+		//'service'
+		public Keyword getServiceKeyword_1() { return cServiceKeyword_1; }
+		
+		//'interface'
+		public Keyword getInterfaceKeyword_2() { return cInterfaceKeyword_2; }
+		
+		//name=DQualifiedName
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		
+		//DQualifiedName
+		public RuleCall getNameDQualifiedNameParserRuleCall_3_0() { return cNameDQualifiedNameParserRuleCall_3_0; }
 		
 		//'interface'
 		public Keyword getInterfaceKeyword_4() { return cInterfaceKeyword_4; }
@@ -672,9 +672,9 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SApplication:
+	//	imports+=DImport*
 	//	'application'
 	//	name=DQualifiedName
-	//	imports+=DImport*
 	//	'information' 'model' model=[SInformationModel|DQualifiedName] actors+=SActor*;
 	public SApplicationElements getSApplicationAccess() {
 		return pSApplication;
@@ -685,9 +685,9 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SServiceInterface:
+	//	imports+=DImport*
 	//	'service' 'interface'
 	//	name=DQualifiedName
-	//	imports+=DImport*
 	//	'interface' 'model' interface=[SInformationModel|DQualifiedName]
 	//	'core' 'model' core=[SInformationModel|DQualifiedName] exceptions+=DException*
 	//	operations+=SServiceOperation*;

@@ -220,7 +220,7 @@ public class SusSemanticSequencer extends DmxSemanticSequencer {
 	 *     UserStory returns UserStory
 	 *
 	 * Constraint:
-	 *     (name=DQualifiedName description=DRichText? imports+=DImport* sections+=Section*)
+	 *     (imports+=DImport* name=DQualifiedName event=[DDomainEvent|DQualifiedName]? description=DRichText? sections+=Section*)
 	 */
 	protected void sequence_UserStory(ISerializationContext context, UserStory semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -3,6 +3,7 @@
  */
 package com.mimacom.ddd.sm.sus.impl;
 
+import com.mimacom.ddd.dm.base.DDomainEvent;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DRichText;
 
@@ -38,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.mimacom.ddd.sm.sus.impl.UserStoryImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sus.impl.UserStoryImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sus.impl.UserStoryImpl#getSections <em>Sections</em>}</li>
+ *   <li>{@link com.mimacom.ddd.sm.sus.impl.UserStoryImpl#getEvent <em>Event</em>}</li>
  * </ul>
  *
  * @generated
@@ -93,6 +95,16 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 	 * @ordered
 	 */
 	protected EList<Section> sections;
+
+	/**
+	 * The cached value of the '{@link #getEvent() <em>Event</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEvent()
+	 * @generated
+	 * @ordered
+	 */
+	protected DDomainEvent event;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -226,6 +238,51 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 	 * @generated
 	 */
 	@Override
+	public DDomainEvent getEvent()
+	{
+		if (event != null && event.eIsProxy())
+		{
+			InternalEObject oldEvent = (InternalEObject)event;
+			event = (DDomainEvent)eResolveProxy(oldEvent);
+			if (event != oldEvent)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SusPackage.USER_STORY__EVENT, oldEvent, event));
+			}
+		}
+		return event;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DDomainEvent basicGetEvent()
+	{
+		return event;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setEvent(DDomainEvent newEvent)
+	{
+		DDomainEvent oldEvent = event;
+		event = newEvent;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SusPackage.USER_STORY__EVENT, oldEvent, event));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
 		switch (featureID)
@@ -258,6 +315,9 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 				return getImports();
 			case SusPackage.USER_STORY__SECTIONS:
 				return getSections();
+			case SusPackage.USER_STORY__EVENT:
+				if (resolve) return getEvent();
+				return basicGetEvent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -287,6 +347,9 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 				getSections().clear();
 				getSections().addAll((Collection<? extends Section>)newValue);
 				return;
+			case SusPackage.USER_STORY__EVENT:
+				setEvent((DDomainEvent)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -313,6 +376,9 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 			case SusPackage.USER_STORY__SECTIONS:
 				getSections().clear();
 				return;
+			case SusPackage.USER_STORY__EVENT:
+				setEvent((DDomainEvent)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -335,6 +401,8 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 				return imports != null && !imports.isEmpty();
 			case SusPackage.USER_STORY__SECTIONS:
 				return sections != null && !sections.isEmpty();
+			case SusPackage.USER_STORY__EVENT:
+				return event != null;
 		}
 		return super.eIsSet(featureID);
 	}
