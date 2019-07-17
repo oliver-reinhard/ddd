@@ -368,10 +368,10 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
+	 *         imports+=DImport* 
 	 *         name=DQualifiedName 
 	 *         aliases+=ID* 
 	 *         description=DRichText? 
-	 *         imports+=DImport* 
 	 *         (types+=DType | functions+=DFunction | aggregates+=DAggregate | applications+=DExistingApplication | actors+=DService)*
 	 *     )
 	 */

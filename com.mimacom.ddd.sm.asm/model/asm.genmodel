@@ -9,7 +9,6 @@
   <genPackages prefix="Asm" basePackage="com.mimacom.ddd.sm" disposableProviderFactory="true"
       fileExtensions="asm" ecorePackage="asm.ecore#/">
     <genClasses ecoreClass="asm.ecore#//Model">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asm.ecore#//Model/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//Model/imports"/>
     </genClasses>
     <genClasses ecoreClass="asm.ecore#//SApplication">

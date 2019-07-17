@@ -2864,9 +2864,9 @@ rule__DDomain__Group__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDDomainAccess().getDomainKeyword_0()); }
-	'domain'
-	{ after(grammarAccess.getDDomainAccess().getDomainKeyword_0()); }
+	{ before(grammarAccess.getDDomainAccess().getImportsAssignment_0()); }
+	(rule__DDomain__ImportsAssignment_0)*
+	{ after(grammarAccess.getDDomainAccess().getImportsAssignment_0()); }
 )
 ;
 finally {
@@ -2891,9 +2891,9 @@ rule__DDomain__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDDomainAccess().getNameAssignment_1()); }
-	(rule__DDomain__NameAssignment_1)
-	{ after(grammarAccess.getDDomainAccess().getNameAssignment_1()); }
+	{ before(grammarAccess.getDDomainAccess().getDomainKeyword_1()); }
+	'domain'
+	{ after(grammarAccess.getDDomainAccess().getDomainKeyword_1()); }
 )
 ;
 finally {
@@ -2918,9 +2918,9 @@ rule__DDomain__Group__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDDomainAccess().getGroup_2()); }
-	(rule__DDomain__Group_2__0)*
-	{ after(grammarAccess.getDDomainAccess().getGroup_2()); }
+	{ before(grammarAccess.getDDomainAccess().getNameAssignment_2()); }
+	(rule__DDomain__NameAssignment_2)
+	{ after(grammarAccess.getDDomainAccess().getNameAssignment_2()); }
 )
 ;
 finally {
@@ -2945,9 +2945,9 @@ rule__DDomain__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDDomainAccess().getDescriptionAssignment_3()); }
-	(rule__DDomain__DescriptionAssignment_3)?
-	{ after(grammarAccess.getDDomainAccess().getDescriptionAssignment_3()); }
+	{ before(grammarAccess.getDDomainAccess().getGroup_3()); }
+	(rule__DDomain__Group_3__0)*
+	{ after(grammarAccess.getDDomainAccess().getGroup_3()); }
 )
 ;
 finally {
@@ -2972,9 +2972,9 @@ rule__DDomain__Group__4__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDDomainAccess().getImportsAssignment_4()); }
-	(rule__DDomain__ImportsAssignment_4)*
-	{ after(grammarAccess.getDDomainAccess().getImportsAssignment_4()); }
+	{ before(grammarAccess.getDDomainAccess().getDescriptionAssignment_4()); }
+	(rule__DDomain__DescriptionAssignment_4)?
+	{ after(grammarAccess.getDDomainAccess().getDescriptionAssignment_4()); }
 )
 ;
 finally {
@@ -3008,53 +3008,53 @@ finally {
 }
 
 
-rule__DDomain__Group_2__0
+rule__DDomain__Group_3__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__DDomain__Group_2__0__Impl
-	rule__DDomain__Group_2__1
+	rule__DDomain__Group_3__0__Impl
+	rule__DDomain__Group_3__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DDomain__Group_2__0__Impl
+rule__DDomain__Group_3__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getDDomainAccess().getAliasKeyword_2_0()); }
+	{ before(grammarAccess.getDDomainAccess().getAliasKeyword_3_0()); }
 	'alias'
-	{ after(grammarAccess.getDDomainAccess().getAliasKeyword_2_0()); }
+	{ after(grammarAccess.getDDomainAccess().getAliasKeyword_3_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DDomain__Group_2__1
+rule__DDomain__Group_3__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__DDomain__Group_2__1__Impl
+	rule__DDomain__Group_3__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DDomain__Group_2__1__Impl
+rule__DDomain__Group_3__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getDDomainAccess().getAliasesAssignment_2_1()); }
-	(rule__DDomain__AliasesAssignment_2_1)
-	{ after(grammarAccess.getDDomainAccess().getAliasesAssignment_2_1()); }
+	{ before(grammarAccess.getDDomainAccess().getAliasesAssignment_3_1()); }
+	(rule__DDomain__AliasesAssignment_3_1)
+	{ after(grammarAccess.getDDomainAccess().getAliasesAssignment_3_1()); }
 )
 ;
 finally {
@@ -12485,60 +12485,60 @@ finally {
 }
 
 
-rule__DDomain__NameAssignment_1
+rule__DDomain__ImportsAssignment_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getDDomainAccess().getNameDQualifiedNameParserRuleCall_1_0()); }
-		ruleDQualifiedName
-		{ after(grammarAccess.getDDomainAccess().getNameDQualifiedNameParserRuleCall_1_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DDomain__AliasesAssignment_2_1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getDDomainAccess().getAliasesIDTerminalRuleCall_2_1_0()); }
-		RULE_ID
-		{ after(grammarAccess.getDDomainAccess().getAliasesIDTerminalRuleCall_2_1_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DDomain__DescriptionAssignment_3
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getDDomainAccess().getDescriptionDRichTextParserRuleCall_3_0()); }
-		ruleDRichText
-		{ after(grammarAccess.getDDomainAccess().getDescriptionDRichTextParserRuleCall_3_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DDomain__ImportsAssignment_4
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getDDomainAccess().getImportsDImportParserRuleCall_4_0()); }
+		{ before(grammarAccess.getDDomainAccess().getImportsDImportParserRuleCall_0_0()); }
 		ruleDImport
-		{ after(grammarAccess.getDDomainAccess().getImportsDImportParserRuleCall_4_0()); }
+		{ after(grammarAccess.getDDomainAccess().getImportsDImportParserRuleCall_0_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DDomain__NameAssignment_2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getDDomainAccess().getNameDQualifiedNameParserRuleCall_2_0()); }
+		ruleDQualifiedName
+		{ after(grammarAccess.getDDomainAccess().getNameDQualifiedNameParserRuleCall_2_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DDomain__AliasesAssignment_3_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getDDomainAccess().getAliasesIDTerminalRuleCall_3_1_0()); }
+		RULE_ID
+		{ after(grammarAccess.getDDomainAccess().getAliasesIDTerminalRuleCall_3_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DDomain__DescriptionAssignment_4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getDDomainAccess().getDescriptionDRichTextParserRuleCall_4_0()); }
+		ruleDRichText
+		{ after(grammarAccess.getDDomainAccess().getDescriptionDRichTextParserRuleCall_4_0()); }
 	)
 ;
 finally {

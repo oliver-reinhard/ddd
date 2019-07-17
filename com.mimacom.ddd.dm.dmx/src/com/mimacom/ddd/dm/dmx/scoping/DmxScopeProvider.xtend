@@ -139,6 +139,11 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 		getNavigableMembersScope(preceding, outerScope)
 	}
 	
+	/**
+	 * Overriders must ensure, that each type used as a discriminator in the switch statement implements  @INavigableMemberContainer, 
+	 * otherwise this method will never be invoked.<p>
+	 * Also, the elements included in the scope must implement @DNavigableMember.
+	 */
 	protected def IScope getNavigableMembersScope(INavigableMemberContainer container, IScope outerScope) {
 		val scope = switch container {
 			DEnumeration: Scopes.scopeFor(container.literals, outerScope)

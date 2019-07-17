@@ -13,6 +13,7 @@ import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.base.IIdentityStateModel;
 import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
 import com.mimacom.ddd.dm.base.ITypeContainer;
@@ -46,6 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getFunctions <em>Functions</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getAggregates <em>Aggregates</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getStateModels <em>State Models</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getApplications <em>Applications</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getEvents <em>Events</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getActors <em>Actors</em>}</li>
@@ -124,6 +126,16 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * @ordered
 	 */
 	protected EList<DAggregate> aggregates;
+
+	/**
+	 * The cached value of the '{@link #getStateModels() <em>State Models</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStateModels()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<IIdentityStateModel> stateModels;
 
 	/**
 	 * The cached value of the '{@link #getApplications() <em>Applications</em>}' containment reference list.
@@ -312,6 +324,21 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * @generated
 	 */
 	@Override
+	public EList<IIdentityStateModel> getStateModels()
+	{
+		if (stateModels == null)
+		{
+			stateModels = new EObjectContainmentEList<IIdentityStateModel>(IIdentityStateModel.class, this, BasePackage.DDOMAIN__STATE_MODELS);
+		}
+		return stateModels;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<DExistingApplication> getApplications()
 	{
 		if (applications == null)
@@ -369,6 +396,8 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 				return ((InternalEList<?>)getFunctions()).basicRemove(otherEnd, msgs);
 			case BasePackage.DDOMAIN__AGGREGATES:
 				return ((InternalEList<?>)getAggregates()).basicRemove(otherEnd, msgs);
+			case BasePackage.DDOMAIN__STATE_MODELS:
+				return ((InternalEList<?>)getStateModels()).basicRemove(otherEnd, msgs);
 			case BasePackage.DDOMAIN__APPLICATIONS:
 				return ((InternalEList<?>)getApplications()).basicRemove(otherEnd, msgs);
 			case BasePackage.DDOMAIN__EVENTS:
@@ -402,6 +431,8 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 				return getFunctions();
 			case BasePackage.DDOMAIN__AGGREGATES:
 				return getAggregates();
+			case BasePackage.DDOMAIN__STATE_MODELS:
+				return getStateModels();
 			case BasePackage.DDOMAIN__APPLICATIONS:
 				return getApplications();
 			case BasePackage.DDOMAIN__EVENTS:
@@ -444,6 +475,10 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 			case BasePackage.DDOMAIN__AGGREGATES:
 				getAggregates().clear();
 				getAggregates().addAll((Collection<? extends DAggregate>)newValue);
+				return;
+			case BasePackage.DDOMAIN__STATE_MODELS:
+				getStateModels().clear();
+				getStateModels().addAll((Collection<? extends IIdentityStateModel>)newValue);
 				return;
 			case BasePackage.DDOMAIN__APPLICATIONS:
 				getApplications().clear();
@@ -489,6 +524,9 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 			case BasePackage.DDOMAIN__AGGREGATES:
 				getAggregates().clear();
 				return;
+			case BasePackage.DDOMAIN__STATE_MODELS:
+				getStateModels().clear();
+				return;
 			case BasePackage.DDOMAIN__APPLICATIONS:
 				getApplications().clear();
 				return;
@@ -524,6 +562,8 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 				return functions != null && !functions.isEmpty();
 			case BasePackage.DDOMAIN__AGGREGATES:
 				return aggregates != null && !aggregates.isEmpty();
+			case BasePackage.DDOMAIN__STATE_MODELS:
+				return stateModels != null && !stateModels.isEmpty();
 			case BasePackage.DDOMAIN__APPLICATIONS:
 				return applications != null && !applications.isEmpty();
 			case BasePackage.DDOMAIN__EVENTS:

@@ -77,16 +77,35 @@ ruleDDomain returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='domain'
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDDomainAccess().getImportsDImportParserRuleCall_0_0());
+				}
+				lv_imports_0_0=ruleDImport
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDDomainRule());
+					}
+					add(
+						$current,
+						"imports",
+						lv_imports_0_0,
+						"com.mimacom.ddd.dm.dim.Dim.DImport");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_1='domain'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getDDomainAccess().getDomainKeyword_0());
+			newLeafNode(otherlv_1, grammarAccess.getDDomainAccess().getDomainKeyword_1());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDDomainAccess().getNameDQualifiedNameParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getDDomainAccess().getNameDQualifiedNameParserRuleCall_2_0());
 				}
-				lv_name_1_0=ruleDQualifiedName
+				lv_name_2_0=ruleDQualifiedName
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDDomainRule());
@@ -94,22 +113,22 @@ ruleDDomain returns [EObject current=null]
 					set(
 						$current,
 						"name",
-						lv_name_1_0,
+						lv_name_2_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DQualifiedName");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_2='alias'
+			otherlv_3='alias'
 			{
-				newLeafNode(otherlv_2, grammarAccess.getDDomainAccess().getAliasKeyword_2_0());
+				newLeafNode(otherlv_3, grammarAccess.getDDomainAccess().getAliasKeyword_3_0());
 			}
 			(
 				(
-					lv_aliases_3_0=RULE_ID
+					lv_aliases_4_0=RULE_ID
 					{
-						newLeafNode(lv_aliases_3_0, grammarAccess.getDDomainAccess().getAliasesIDTerminalRuleCall_2_1_0());
+						newLeafNode(lv_aliases_4_0, grammarAccess.getDDomainAccess().getAliasesIDTerminalRuleCall_3_1_0());
 					}
 					{
 						if ($current==null) {
@@ -118,7 +137,7 @@ ruleDDomain returns [EObject current=null]
 						addWithLastConsumed(
 							$current,
 							"aliases",
-							lv_aliases_3_0,
+							lv_aliases_4_0,
 							"com.mimacom.ddd.dm.dmx.Dmx.ID");
 					}
 				)
@@ -127,9 +146,9 @@ ruleDDomain returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDDomainAccess().getDescriptionDRichTextParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getDDomainAccess().getDescriptionDRichTextParserRuleCall_4_0());
 				}
-				lv_description_4_0=ruleDRichText
+				lv_description_5_0=ruleDRichText
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDDomainRule());
@@ -137,31 +156,12 @@ ruleDDomain returns [EObject current=null]
 					set(
 						$current,
 						"description",
-						lv_description_4_0,
+						lv_description_5_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getDDomainAccess().getImportsDImportParserRuleCall_4_0());
-				}
-				lv_imports_5_0=ruleDImport
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDDomainRule());
-					}
-					add(
-						$current,
-						"imports",
-						lv_imports_5_0,
-						"com.mimacom.ddd.dm.dim.Dim.DImport");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
 		(
 			(
 				(

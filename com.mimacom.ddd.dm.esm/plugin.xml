@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Esm -->
+      <package
+            uri="http://www.mimacom.com/ddd/dm/esm"
+            class="com.mimacom.ddd.dm.esm.EsmPackage"
+            genModel="model/Esm.genmodel"/>
+   </extension>
+
+</plugin>

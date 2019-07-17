@@ -201,6 +201,11 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
     return _xblockexpression;
   }
   
+  /**
+   * Overriders must ensure, that each type used as a discriminator in the switch statement implements  @INavigableMemberContainer,
+   * otherwise this method will never be invoked.<p>
+   * Also, the elements included in the scope must implement @DNavigableMember.
+   */
   protected IScope getNavigableMembersScope(final INavigableMemberContainer container, final IScope outerScope) {
     IScope _switchResult = null;
     boolean _matched = false;

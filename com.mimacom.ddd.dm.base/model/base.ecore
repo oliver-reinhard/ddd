@@ -62,6 +62,8 @@
         eType="#//DFunction" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregates" upperBound="-1"
         eType="#//DAggregate" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stateModels" upperBound="-1"
+        eType="#//IIdentityStateModel" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="applications" upperBound="-1"
         eType="#//DExistingApplication" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
@@ -114,6 +116,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="DDetailType" eSuperTypes="#//DComplexType #//IValueType"/>
   <eClassifiers xsi:type="ecore:EClass" name="DIdentityType" abstract="true" eSuperTypes="#//DComplexType #//IIdentityType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="root" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IIdentityStateModel" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="forType" eType="#//DIdentityType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DEntityType" eSuperTypes="#//DIdentityType"/>
   <eClassifiers xsi:type="ecore:EClass" name="DRelationship" eSuperTypes="#//DIdentityType"/>

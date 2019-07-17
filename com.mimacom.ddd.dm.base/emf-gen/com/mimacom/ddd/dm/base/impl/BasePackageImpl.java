@@ -46,6 +46,7 @@ import com.mimacom.ddd.dm.base.DTime;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.base.IIdentityStateModel;
 import com.mimacom.ddd.dm.base.IIdentityType;
 import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
@@ -266,6 +267,13 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	private EClass dIdentityTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iIdentityStateModelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -857,7 +865,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDDomain_Applications()
+	public EReference getDDomain_StateModels()
 	{
 		return (EReference)dDomainEClass.getEStructuralFeatures().get(3);
 	}
@@ -868,7 +876,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDDomain_Events()
+	public EReference getDDomain_Applications()
 	{
 		return (EReference)dDomainEClass.getEStructuralFeatures().get(4);
 	}
@@ -879,9 +887,20 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDDomain_Actors()
+	public EReference getDDomain_Events()
 	{
 		return (EReference)dDomainEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDDomain_Actors()
+	{
+		return (EReference)dDomainEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1179,6 +1198,28 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EAttribute getDIdentityType_Root()
 	{
 		return (EAttribute)dIdentityTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getIIdentityStateModel()
+	{
+		return iIdentityStateModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getIIdentityStateModel_ForType()
+	{
+		return (EReference)iIdentityStateModelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1755,6 +1796,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		createEReference(dDomainEClass, DDOMAIN__IMPORTS);
 		createEReference(dDomainEClass, DDOMAIN__FUNCTIONS);
 		createEReference(dDomainEClass, DDOMAIN__AGGREGATES);
+		createEReference(dDomainEClass, DDOMAIN__STATE_MODELS);
 		createEReference(dDomainEClass, DDOMAIN__APPLICATIONS);
 		createEReference(dDomainEClass, DDOMAIN__EVENTS);
 		createEReference(dDomainEClass, DDOMAIN__ACTORS);
@@ -1798,6 +1840,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		dIdentityTypeEClass = createEClass(DIDENTITY_TYPE);
 		createEAttribute(dIdentityTypeEClass, DIDENTITY_TYPE__ROOT);
+
+		iIdentityStateModelEClass = createEClass(IIDENTITY_STATE_MODEL);
+		createEReference(iIdentityStateModelEClass, IIDENTITY_STATE_MODEL__FOR_TYPE);
 
 		dEntityTypeEClass = createEClass(DENTITY_TYPE);
 
@@ -2003,6 +2048,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEReference(getDDomain_Imports(), this.getDImport(), null, "imports", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDDomain_Functions(), this.getDFunction(), null, "functions", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDDomain_Aggregates(), this.getDAggregate(), null, "aggregates", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDDomain_StateModels(), this.getIIdentityStateModel(), null, "stateModels", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDDomain_Applications(), this.getDExistingApplication(), null, "applications", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDDomain_Events(), this.getDDomainEvent(), null, "events", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDDomain_Actors(), this.getDActor(), null, "actors", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2046,6 +2092,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		initEClass(dIdentityTypeEClass, DIdentityType.class, "DIdentityType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDIdentityType_Root(), ecorePackage.getEBoolean(), "root", null, 0, 1, DIdentityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(iIdentityStateModelEClass, IIdentityStateModel.class, "IIdentityStateModel", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIIdentityStateModel_ForType(), this.getDIdentityType(), null, "forType", null, 0, 1, IIdentityStateModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dEntityTypeEClass, DEntityType.class, "DEntityType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

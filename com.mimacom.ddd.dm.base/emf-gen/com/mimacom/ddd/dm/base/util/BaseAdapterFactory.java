@@ -215,6 +215,11 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createDIdentityTypeAdapter();
 			}
 			@Override
+			public Adapter caseIIdentityStateModel(IIdentityStateModel object)
+			{
+				return createIIdentityStateModelAdapter();
+			}
+			@Override
 			public Adapter caseDEntityType(DEntityType object)
 			{
 				return createDEntityTypeAdapter();
@@ -742,6 +747,21 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDIdentityTypeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IIdentityStateModel <em>IIdentity State Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IIdentityStateModel
+	 * @generated
+	 */
+	public Adapter createIIdentityStateModelAdapter()
 	{
 		return null;
 	}

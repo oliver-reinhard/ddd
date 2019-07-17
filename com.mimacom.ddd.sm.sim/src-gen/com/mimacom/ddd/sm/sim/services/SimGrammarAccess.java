@@ -3219,10 +3219,10 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	///*
 	// * MODEL STRUCTURE
 	// */ DDomain:
+	//	imports+=DImport*
 	//	'domain'
 	//	name=DQualifiedName ('alias' aliases+=ID)*
-	//	description=DRichText?
-	//	imports+=DImport* (types+=DType | functions+=DFunction | aggregates+=super::DAggregate |
+	//	description=DRichText? (types+=DType | functions+=DFunction | aggregates+=super::DAggregate |
 	//	applications+=DExistingApplication | actors+=DService)*;
 	public DimGrammarAccess.DDomainElements getDDomainAccess() {
 		return gaDim.getDDomainAccess();

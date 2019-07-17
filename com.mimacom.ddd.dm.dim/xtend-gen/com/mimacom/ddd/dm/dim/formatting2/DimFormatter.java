@@ -38,21 +38,21 @@ public class DimFormatter extends DmxFormatter {
   
   protected void _format(final DDomain domain, @Extension final IFormattableDocument document) {
     document.<DRichText>format(domain.getDescription());
-    final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
-      it.setNewLines(2);
-    };
-    document.append(this.textRegionExtensions.regionFor(domain).assignment(this._dimGrammarAccess.getDDomainAccess().getNameAssignment_1()), _function);
     EList<DImport> _imports = domain.getImports();
     for (final DImport i : _imports) {
-      final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
+      final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
         it.newLine();
       };
-      document.<DImport>append(i, _function_1);
+      document.<DImport>append(i, _function);
     }
+    final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
+      it.setNewLines(2);
+    };
+    document.<DImport>append(IterableExtensions.<DImport>last(domain.getImports()), _function_1);
     final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.<DImport>append(IterableExtensions.<DImport>last(domain.getImports()), _function_2);
+    document.append(this.textRegionExtensions.regionFor(domain).assignment(this._dimGrammarAccess.getDDomainAccess().getNameAssignment_2()), _function_2);
     EList<DType> _types = domain.getTypes();
     for (final DType type : _types) {
       document.<DType>format(type);

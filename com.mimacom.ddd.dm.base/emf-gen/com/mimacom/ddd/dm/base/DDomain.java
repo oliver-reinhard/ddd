@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getFunctions <em>Functions</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getAggregates <em>Aggregates</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getStateModels <em>State Models</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getApplications <em>Applications</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getEvents <em>Events</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getActors <em>Actors</em>}</li>
@@ -62,6 +63,18 @@ public interface DDomain extends DNamedElement, ITypeContainer, IPrimaryNavigati
 	 * @generated
 	 */
 	EList<DAggregate> getAggregates();
+
+	/**
+	 * Returns the value of the '<em><b>State Models</b></em>' containment reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.IIdentityStateModel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>State Models</em>' containment reference list.
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomain_StateModels()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<IIdentityStateModel> getStateModels();
 
 	/**
 	 * Returns the value of the '<em><b>Applications</b></em>' containment reference list.

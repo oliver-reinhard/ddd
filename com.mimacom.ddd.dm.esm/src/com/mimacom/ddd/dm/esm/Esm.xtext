@@ -1,0 +1,59 @@
+grammar com.mimacom.ddd.dm.esm.Esm with com.mimacom.ddd.dm.dmx.Dmx
+
+import "http://www.mimacom.com/ddd/dm/base"
+import "http://www.mimacom.com/ddd/dm/dmx" 
+import "http://www.mimacom.com/ddd/dm/esm"
+
+DDomain:
+	(imports+=DImport)*
+	'domain'
+	name=DQualifiedName
+	('alias' aliases+=ID)*
+	(description=DRichText)?
+	stateModels+=DEntityStateModel;
+	
+DEntityStateModel:
+	'state' 'model' 
+	name=DQualifiedName
+	'for'
+	 forType=[DIdentityType|ID]
+	(description=DRichText)?
+	'states' 
+	(states+=DState)+
+	'events'
+	(events+=DEvent)+
+	'transitions'
+	(transition+=DTransition)+;
+
+DImport:
+	'import' importedNamespace=DQualifiedNameWithWildcard;
+
+DState:
+	name=ID
+	('when' expression=DExpression)?;
+
+DEvent:
+	name=ID;
+
+DTransition:
+	from=[DState]
+	'to'
+	to=[DState]
+	'as' event=[DEvent]
+	(	'when'
+		guard=DExpression
+	)?;
+	
+	
+@Override 
+DExpression returns DExpression :
+	DOrExpression | DRichText;
+	
+@Override 
+DPrimaryExpression returns DExpression:
+	DLiteralExpression |
+	DSelfExpression |
+	DParenthesizedExpression |
+	DFunctionCall |
+	DContextReference |
+	DIfExpression;

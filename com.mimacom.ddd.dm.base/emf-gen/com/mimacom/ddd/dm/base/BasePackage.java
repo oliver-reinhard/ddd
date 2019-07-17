@@ -741,13 +741,22 @@ public interface BasePackage extends EPackage
 	int DDOMAIN__AGGREGATES = DNAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>State Models</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DDOMAIN__STATE_MODELS = DNAMED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The feature id for the '<em><b>Applications</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN__APPLICATIONS = DNAMED_ELEMENT_FEATURE_COUNT + 6;
+	int DDOMAIN__APPLICATIONS = DNAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Events</b></em>' containment reference list.
@@ -756,7 +765,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN__EVENTS = DNAMED_ELEMENT_FEATURE_COUNT + 7;
+	int DDOMAIN__EVENTS = DNAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Actors</b></em>' containment reference list.
@@ -765,7 +774,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN__ACTORS = DNAMED_ELEMENT_FEATURE_COUNT + 8;
+	int DDOMAIN__ACTORS = DNAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>DDomain</em>' class.
@@ -774,7 +783,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 9;
+	int DDOMAIN_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>DDomain</em>' class.
@@ -1951,6 +1960,43 @@ public interface BasePackage extends EPackage
 	int DIDENTITY_TYPE_OPERATION_COUNT = DCOMPLEX_TYPE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.IIdentityStateModel <em>IIdentity State Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.IIdentityStateModel
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIIdentityStateModel()
+	 * @generated
+	 */
+	int IIDENTITY_STATE_MODEL = 28;
+
+	/**
+	 * The feature id for the '<em><b>For Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IIDENTITY_STATE_MODEL__FOR_TYPE = 0;
+
+	/**
+	 * The number of structural features of the '<em>IIdentity State Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IIDENTITY_STATE_MODEL_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>IIdentity State Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IIDENTITY_STATE_MODEL_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DEntityTypeImpl <em>DEntity Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1958,7 +2004,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDEntityType()
 	 * @generated
 	 */
-	int DENTITY_TYPE = 28;
+	int DENTITY_TYPE = 29;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2085,7 +2131,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDRelationship()
 	 * @generated
 	 */
-	int DRELATIONSHIP = 29;
+	int DRELATIONSHIP = 30;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2212,7 +2258,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDFeature()
 	 * @generated
 	 */
-	int DFEATURE = 30;
+	int DFEATURE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2321,7 +2367,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDAssociation()
 	 * @generated
 	 */
-	int DASSOCIATION = 31;
+	int DASSOCIATION = 32;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2466,7 +2512,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDMultiplicity()
 	 * @generated
 	 */
-	int DMULTIPLICITY = 32;
+	int DMULTIPLICITY = 33;
 
 	/**
 	 * The feature id for the '<em><b>Min Occurs</b></em>' attribute.
@@ -2512,7 +2558,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDAttribute()
 	 * @generated
 	 */
-	int DATTRIBUTE = 33;
+	int DATTRIBUTE = 34;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2639,7 +2685,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDQuery()
 	 * @generated
 	 */
-	int DQUERY = 34;
+	int DQUERY = 35;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2766,7 +2812,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDQueryParameter()
 	 * @generated
 	 */
-	int DQUERY_PARAMETER = 35;
+	int DQUERY_PARAMETER = 36;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2875,7 +2921,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDomainEvent()
 	 * @generated
 	 */
-	int DDOMAIN_EVENT = 36;
+	int DDOMAIN_EVENT = 37;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2975,7 +3021,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDContext()
 	 * @generated
 	 */
-	int DCONTEXT = 37;
+	int DCONTEXT = 38;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3066,7 +3112,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDNotification()
 	 * @generated
 	 */
-	int DNOTIFICATION = 38;
+	int DNOTIFICATION = 39;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3166,7 +3212,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDActor()
 	 * @generated
 	 */
-	int DACTOR = 39;
+	int DACTOR = 40;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3221,7 +3267,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDHuman()
 	 * @generated
 	 */
-	int DHUMAN = 40;
+	int DHUMAN = 41;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3276,7 +3322,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDService()
 	 * @generated
 	 */
-	int DSERVICE = 41;
+	int DSERVICE = 42;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3385,7 +3431,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDServiceParameter()
 	 * @generated
 	 */
-	int DSERVICE_PARAMETER = 42;
+	int DSERVICE_PARAMETER = 43;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3485,7 +3531,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDTime()
 	 * @generated
 	 */
-	int DTIME = 43;
+	int DTIME = 44;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3540,7 +3586,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDExistingApplication()
 	 * @generated
 	 */
-	int DEXISTING_APPLICATION = 44;
+	int DEXISTING_APPLICATION = 45;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3622,7 +3668,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDException()
 	 * @generated
 	 */
-	int DEXCEPTION = 45;
+	int DEXCEPTION = 46;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3677,7 +3723,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDAssociationKind()
 	 * @generated
 	 */
-	int DASSOCIATION_KIND = 46;
+	int DASSOCIATION_KIND = 47;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DDirection <em>DDirection</em>}' enum.
@@ -3687,7 +3733,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDirection()
 	 * @generated
 	 */
-	int DDIRECTION = 47;
+	int DDIRECTION = 48;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DServiceKind <em>DService Kind</em>}' enum.
@@ -3697,7 +3743,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDServiceKind()
 	 * @generated
 	 */
-	int DSERVICE_KIND = 48;
+	int DSERVICE_KIND = 49;
 
 
 	/**
@@ -4060,6 +4106,17 @@ public interface BasePackage extends EPackage
 	EReference getDDomain_Aggregates();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DDomain#getStateModels <em>State Models</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>State Models</em>'.
+	 * @see com.mimacom.ddd.dm.base.DDomain#getStateModels()
+	 * @see #getDDomain()
+	 * @generated
+	 */
+	EReference getDDomain_StateModels();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DDomain#getApplications <em>Applications</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4375,6 +4432,27 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EAttribute getDIdentityType_Root();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.IIdentityStateModel <em>IIdentity State Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IIdentity State Model</em>'.
+	 * @see com.mimacom.ddd.dm.base.IIdentityStateModel
+	 * @generated
+	 */
+	EClass getIIdentityStateModel();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.IIdentityStateModel#getForType <em>For Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>For Type</em>'.
+	 * @see com.mimacom.ddd.dm.base.IIdentityStateModel#getForType()
+	 * @see #getIIdentityStateModel()
+	 * @generated
+	 */
+	EReference getIIdentityStateModel_ForType();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DEntityType <em>DEntity Type</em>}'.
@@ -5176,6 +5254,14 @@ public interface BasePackage extends EPackage
 		EReference DDOMAIN__AGGREGATES = eINSTANCE.getDDomain_Aggregates();
 
 		/**
+		 * The meta object literal for the '<em><b>State Models</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DDOMAIN__STATE_MODELS = eINSTANCE.getDDomain_StateModels();
+
+		/**
 		 * The meta object literal for the '<em><b>Applications</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5440,6 +5526,24 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EAttribute DIDENTITY_TYPE__ROOT = eINSTANCE.getDIdentityType_Root();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.IIdentityStateModel <em>IIdentity State Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.IIdentityStateModel
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIIdentityStateModel()
+		 * @generated
+		 */
+		EClass IIDENTITY_STATE_MODEL = eINSTANCE.getIIdentityStateModel();
+
+		/**
+		 * The meta object literal for the '<em><b>For Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IIDENTITY_STATE_MODEL__FOR_TYPE = eINSTANCE.getIIdentityStateModel_ForType();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DEntityTypeImpl <em>DEntity Type</em>}' class.
