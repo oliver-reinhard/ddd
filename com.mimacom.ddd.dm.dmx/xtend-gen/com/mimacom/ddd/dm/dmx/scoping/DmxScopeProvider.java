@@ -18,7 +18,6 @@ import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
-import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
 import com.mimacom.ddd.dm.dmx.DAssignment;
 import com.mimacom.ddd.dm.dmx.DContextReference;
 import com.mimacom.ddd.dm.dmx.DFunctionCall;
@@ -60,7 +59,7 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
           _xifexpression = this.getDefaultScopeForType(context, DmxScopeProvider.BASE.getDFunction());
         } else {
           IScope _xifexpression_1 = null;
-          if (((ref instanceof DContextReference) && (((DContextReference) ref).getTarget() instanceof IPrimaryNavigationTarget))) {
+          if (((ref instanceof DContextReference) && (((DContextReference) ref).getTarget() instanceof DComplexType))) {
             _xifexpression_1 = this.getDefaultScopeForType(context, DmxScopeProvider.BASE.getDFunction());
           } else {
             _xifexpression_1 = this.getNavigableMemberReferencesScope(ref);

@@ -48,8 +48,8 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 				val scope = if (context.isExplicitOperationCall) {
 					getDefaultScopeForType(context, BASE.DFunction)
 					
-				} else if (ref instanceof DContextReference && (ref as DContextReference).target instanceof IPrimaryNavigationTarget) {
-					// do not support member navigaton from a STATIC DContextReference (such as from a DComplexType)
+				} else if (ref instanceof DContextReference && (ref as DContextReference).target instanceof DComplexType) {
+					// do not support feature navigaton from a STATIC DContextReference to complex types (ok for e.g. enumerations):
 					getDefaultScopeForType(context, BASE.DFunction)
 					
 				} else {
