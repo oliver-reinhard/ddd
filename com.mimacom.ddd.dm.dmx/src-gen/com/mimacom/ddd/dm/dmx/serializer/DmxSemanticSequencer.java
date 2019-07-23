@@ -380,7 +380,10 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DContextReference returns DContextReference
 	 *
 	 * Constraint:
-	 *     (target=[DNamedElement|ID] before?='@before'?)
+	 *     (
+	 *         (target=[DNamedElement|ID] before?='@before'?) | 
+	 *         (target=[IPrimaryNavigationTarget|DQualifiedName] member=[DNavigableMember|ID]? (displayName=ID | plural?='*')?)
+	 *     )
 	 */
 	protected void sequence_DContextReference(ISerializationContext context, DContextReference semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

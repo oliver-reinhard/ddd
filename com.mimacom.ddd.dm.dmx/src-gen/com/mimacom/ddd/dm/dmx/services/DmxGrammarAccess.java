@@ -1339,36 +1339,123 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DContextReference");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cDContextReferenceAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cTargetAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cTargetDNamedElementCrossReference_1_0 = (CrossReference)cTargetAssignment_1.eContents().get(0);
-		private final RuleCall cTargetDNamedElementIDTerminalRuleCall_1_0_1 = (RuleCall)cTargetDNamedElementCrossReference_1_0.eContents().get(1);
-		private final Assignment cBeforeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final Keyword cBeforeBeforeKeyword_2_0 = (Keyword)cBeforeAssignment_2.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Assignment cTargetAssignment_1_0_0 = (Assignment)cGroup_1_0.eContents().get(0);
+		private final CrossReference cTargetDNamedElementCrossReference_1_0_0_0 = (CrossReference)cTargetAssignment_1_0_0.eContents().get(0);
+		private final RuleCall cTargetDNamedElementIDTerminalRuleCall_1_0_0_0_1 = (RuleCall)cTargetDNamedElementCrossReference_1_0_0_0.eContents().get(1);
+		private final Assignment cBeforeAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
+		private final Keyword cBeforeBeforeKeyword_1_0_1_0 = (Keyword)cBeforeAssignment_1_0_1.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Assignment cTargetAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final CrossReference cTargetIPrimaryNavigationTargetCrossReference_1_1_1_0 = (CrossReference)cTargetAssignment_1_1_1.eContents().get(0);
+		private final RuleCall cTargetIPrimaryNavigationTargetDQualifiedNameParserRuleCall_1_1_1_0_1 = (RuleCall)cTargetIPrimaryNavigationTargetCrossReference_1_1_1_0.eContents().get(1);
+		private final Group cGroup_1_1_2 = (Group)cGroup_1_1.eContents().get(2);
+		private final Keyword cNumberSignKeyword_1_1_2_0 = (Keyword)cGroup_1_1_2.eContents().get(0);
+		private final Assignment cMemberAssignment_1_1_2_1 = (Assignment)cGroup_1_1_2.eContents().get(1);
+		private final CrossReference cMemberDNavigableMemberCrossReference_1_1_2_1_0 = (CrossReference)cMemberAssignment_1_1_2_1.eContents().get(0);
+		private final RuleCall cMemberDNavigableMemberIDTerminalRuleCall_1_1_2_1_0_1 = (RuleCall)cMemberDNavigableMemberCrossReference_1_1_2_1_0.eContents().get(1);
+		private final Group cGroup_1_1_3 = (Group)cGroup_1_1.eContents().get(3);
+		private final Keyword cVerticalLineKeyword_1_1_3_0 = (Keyword)cGroup_1_1_3.eContents().get(0);
+		private final Alternatives cAlternatives_1_1_3_1 = (Alternatives)cGroup_1_1_3.eContents().get(1);
+		private final Assignment cDisplayNameAssignment_1_1_3_1_0 = (Assignment)cAlternatives_1_1_3_1.eContents().get(0);
+		private final RuleCall cDisplayNameIDTerminalRuleCall_1_1_3_1_0_0 = (RuleCall)cDisplayNameAssignment_1_1_3_1_0.eContents().get(0);
+		private final Assignment cPluralAssignment_1_1_3_1_1 = (Assignment)cAlternatives_1_1_3_1.eContents().get(1);
+		private final Keyword cPluralAsteriskKeyword_1_1_3_1_1_0 = (Keyword)cPluralAssignment_1_1_3_1_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_1_1_4 = (Keyword)cGroup_1_1.eContents().get(4);
 		
 		//DContextReference DExpression:
-		//	{DContextReference} target=[DNamedElement] before?="@before"?;
+		//	{DContextReference} (target=[DNamedElement] before?="@before"?
+		//	| '['
+		//	target=[IPrimaryNavigationTarget|DQualifiedName] ('#' member=[DNavigableMember])? ("|" (displayName=ID |
+		//	plural?="*"))?
+		//	-> ']');
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DContextReference} target=[DNamedElement] before?="@before"?
+		//{DContextReference} (target=[DNamedElement] before?="@before"? | '[' target=[IPrimaryNavigationTarget|DQualifiedName]
+		//('#' member=[DNavigableMember])? ("|" (displayName=ID | plural?="*"))? -> ']')
 		public Group getGroup() { return cGroup; }
 		
 		//{DContextReference}
 		public Action getDContextReferenceAction_0() { return cDContextReferenceAction_0; }
 		
+		//target=[DNamedElement] before?="@before"? | '[' target=[IPrimaryNavigationTarget|DQualifiedName] ('#'
+		//member=[DNavigableMember])? ("|" (displayName=ID | plural?="*"))? -> ']'
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//target=[DNamedElement] before?="@before"?
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
 		//target=[DNamedElement]
-		public Assignment getTargetAssignment_1() { return cTargetAssignment_1; }
+		public Assignment getTargetAssignment_1_0_0() { return cTargetAssignment_1_0_0; }
 		
 		//[DNamedElement]
-		public CrossReference getTargetDNamedElementCrossReference_1_0() { return cTargetDNamedElementCrossReference_1_0; }
+		public CrossReference getTargetDNamedElementCrossReference_1_0_0_0() { return cTargetDNamedElementCrossReference_1_0_0_0; }
 		
 		//ID
-		public RuleCall getTargetDNamedElementIDTerminalRuleCall_1_0_1() { return cTargetDNamedElementIDTerminalRuleCall_1_0_1; }
+		public RuleCall getTargetDNamedElementIDTerminalRuleCall_1_0_0_0_1() { return cTargetDNamedElementIDTerminalRuleCall_1_0_0_0_1; }
 		
 		//before?="@before"?
-		public Assignment getBeforeAssignment_2() { return cBeforeAssignment_2; }
+		public Assignment getBeforeAssignment_1_0_1() { return cBeforeAssignment_1_0_1; }
 		
 		//"@before"
-		public Keyword getBeforeBeforeKeyword_2_0() { return cBeforeBeforeKeyword_2_0; }
+		public Keyword getBeforeBeforeKeyword_1_0_1_0() { return cBeforeBeforeKeyword_1_0_1_0; }
+		
+		//'[' target=[IPrimaryNavigationTarget|DQualifiedName] ('#' member=[DNavigableMember])? ("|" (displayName=ID |
+		//plural?="*"))? -> ']'
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_1_1_0() { return cLeftSquareBracketKeyword_1_1_0; }
+		
+		//target=[IPrimaryNavigationTarget|DQualifiedName]
+		public Assignment getTargetAssignment_1_1_1() { return cTargetAssignment_1_1_1; }
+		
+		//[IPrimaryNavigationTarget|DQualifiedName]
+		public CrossReference getTargetIPrimaryNavigationTargetCrossReference_1_1_1_0() { return cTargetIPrimaryNavigationTargetCrossReference_1_1_1_0; }
+		
+		//DQualifiedName
+		public RuleCall getTargetIPrimaryNavigationTargetDQualifiedNameParserRuleCall_1_1_1_0_1() { return cTargetIPrimaryNavigationTargetDQualifiedNameParserRuleCall_1_1_1_0_1; }
+		
+		//('#' member=[DNavigableMember])?
+		public Group getGroup_1_1_2() { return cGroup_1_1_2; }
+		
+		//'#'
+		public Keyword getNumberSignKeyword_1_1_2_0() { return cNumberSignKeyword_1_1_2_0; }
+		
+		//member=[DNavigableMember]
+		public Assignment getMemberAssignment_1_1_2_1() { return cMemberAssignment_1_1_2_1; }
+		
+		//[DNavigableMember]
+		public CrossReference getMemberDNavigableMemberCrossReference_1_1_2_1_0() { return cMemberDNavigableMemberCrossReference_1_1_2_1_0; }
+		
+		//ID
+		public RuleCall getMemberDNavigableMemberIDTerminalRuleCall_1_1_2_1_0_1() { return cMemberDNavigableMemberIDTerminalRuleCall_1_1_2_1_0_1; }
+		
+		//("|" (displayName=ID | plural?="*"))?
+		public Group getGroup_1_1_3() { return cGroup_1_1_3; }
+		
+		//"|"
+		public Keyword getVerticalLineKeyword_1_1_3_0() { return cVerticalLineKeyword_1_1_3_0; }
+		
+		//displayName=ID | plural?="*"
+		public Alternatives getAlternatives_1_1_3_1() { return cAlternatives_1_1_3_1; }
+		
+		//displayName=ID
+		public Assignment getDisplayNameAssignment_1_1_3_1_0() { return cDisplayNameAssignment_1_1_3_1_0; }
+		
+		//ID
+		public RuleCall getDisplayNameIDTerminalRuleCall_1_1_3_1_0_0() { return cDisplayNameIDTerminalRuleCall_1_1_3_1_0_0; }
+		
+		//plural?="*"
+		public Assignment getPluralAssignment_1_1_3_1_1() { return cPluralAssignment_1_1_3_1_1; }
+		
+		//"*"
+		public Keyword getPluralAsteriskKeyword_1_1_3_1_1_0() { return cPluralAsteriskKeyword_1_1_3_1_1_0; }
+		
+		//-> ']'
+		public Keyword getRightSquareBracketKeyword_1_1_4() { return cRightSquareBracketKeyword_1_1_4; }
 	}
 	public class DIfExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DIfExpression");
@@ -2676,7 +2763,11 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DContextReference DExpression:
-	//	{DContextReference} target=[DNamedElement] before?="@before"?;
+	//	{DContextReference} (target=[DNamedElement] before?="@before"?
+	//	| '['
+	//	target=[IPrimaryNavigationTarget|DQualifiedName] ('#' member=[DNavigableMember])? ("|" (displayName=ID |
+	//	plural?="*"))?
+	//	-> ']');
 	public DContextReferenceElements getDContextReferenceAccess() {
 		return pDContextReference;
 	}
@@ -2836,7 +2927,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal fragment PLAIN_TEXT:
-	//	!('»' | '[');
+	//	!('»' | ']' | '[');
 	public TerminalRule getPLAIN_TEXTRule() {
 		return tPLAIN_TEXT;
 	}

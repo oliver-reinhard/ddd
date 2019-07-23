@@ -101,6 +101,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="DContextReference" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DNamedElement"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="before" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="member" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="displayName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="plural" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DIfExpression" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="if" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"

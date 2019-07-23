@@ -13,6 +13,7 @@ import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DService
 import com.mimacom.ddd.dm.base.INavigableMemberContainer
+import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget
 import com.mimacom.ddd.dm.dmx.DAssignment
 import com.mimacom.ddd.dm.dmx.DContextReference
 import com.mimacom.ddd.dm.dmx.DFunctionCall
@@ -40,23 +41,41 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 
 	override IScope getScope(EObject context, EReference reference) {
 
-		if (reference == DMX.DContextReference_Target) {
-			val outer = getDefaultScopeForType(context, BASE.IPrimaryNavigationTarget)
-			val scope = getPrecedingNavigableMembersScope(context, outer)
-			return scope
-
-		} else if (reference == DMX.DNavigableMemberReference_Member) {
+		if (reference == DMX.DNavigableMemberReference_Member) {
 			if (context instanceof DNavigableMemberReference) {
-				if (context.isExplicitOperationCall) {
+				val ref = context.getMemberContainerReference
+				
+				val scope = if (context.isExplicitOperationCall) {
 					getDefaultScopeForType(context, BASE.DFunction)
+					
+				} else if (ref instanceof DContextReference && (ref as DContextReference).target instanceof IPrimaryNavigationTarget) {
+					// do not support member navigaton from a STATIC DContextReference (such as from a DComplexType)
+					getDefaultScopeForType(context, BASE.DFunction)
+					
 				} else {
-					return getNavigableMemberReferencesScope(context.getMemberContainerReference)
+					getNavigableMemberReferencesScope(ref)
 				}
+				return scope
 			}
 
 		} else if (reference == DMX.DAssignment_Member) {
 			if (context instanceof DAssignment) {
-				return getAssignmentMemberScope(context, reference)
+				val scope = getAssignmentMemberScope(context, reference)
+				return scope
+			}
+			
+		} else if (reference == DMX.DContextReference_Target) {
+			val outer = getDefaultScopeForType(context, BASE.IPrimaryNavigationTarget)
+			val scope = getPrecedingNavigableMembersScope(context, outer)
+			return scope
+
+		} else if (reference == DMX.DContextReference_Member) {
+			if (context instanceof DContextReference) {
+				val target = context.target
+				if (target instanceof INavigableMemberContainer ) {
+					val scope = getNavigableMembersScope(target, IScope.NULLSCOPE)
+					return scope
+				}
 			}
 		}
 

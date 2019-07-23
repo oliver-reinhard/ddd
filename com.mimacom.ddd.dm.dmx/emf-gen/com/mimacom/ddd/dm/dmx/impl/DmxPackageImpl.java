@@ -730,6 +730,39 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
+	public EReference getDContextReference_Member()
+	{
+		return (EReference)dContextReferenceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDContextReference_DisplayName()
+	{
+		return (EAttribute)dContextReferenceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDContextReference_Plural()
+	{
+		return (EAttribute)dContextReferenceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDIfExpression()
 	{
 		return dIfExpressionEClass;
@@ -1039,6 +1072,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		dContextReferenceEClass = createEClass(DCONTEXT_REFERENCE);
 		createEReference(dContextReferenceEClass, DCONTEXT_REFERENCE__TARGET);
 		createEAttribute(dContextReferenceEClass, DCONTEXT_REFERENCE__BEFORE);
+		createEReference(dContextReferenceEClass, DCONTEXT_REFERENCE__MEMBER);
+		createEAttribute(dContextReferenceEClass, DCONTEXT_REFERENCE__DISPLAY_NAME);
+		createEAttribute(dContextReferenceEClass, DCONTEXT_REFERENCE__PLURAL);
 
 		dIfExpressionEClass = createEClass(DIF_EXPRESSION);
 		createEReference(dIfExpressionEClass, DIF_EXPRESSION__IF);
@@ -1179,6 +1215,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		initEClass(dContextReferenceEClass, DContextReference.class, "DContextReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDContextReference_Target(), theBasePackage.getDNamedElement(), null, "target", null, 0, 1, DContextReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDContextReference_Before(), ecorePackage.getEBoolean(), "before", null, 0, 1, DContextReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDContextReference_Member(), theBasePackage.getDNavigableMember(), null, "member", null, 0, 1, DContextReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDContextReference_DisplayName(), ecorePackage.getEString(), "displayName", null, 0, 1, DContextReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDContextReference_Plural(), ecorePackage.getEBoolean(), "plural", null, 0, 1, DContextReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dIfExpressionEClass, DIfExpression.class, "DIfExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDIfExpression_If(), theBasePackage.getDExpression(), null, "if", null, 0, 1, DIfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

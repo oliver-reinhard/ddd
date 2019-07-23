@@ -659,13 +659,40 @@ public interface DmxPackage extends EPackage
 	int DCONTEXT_REFERENCE__BEFORE = BasePackage.DEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Member</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCONTEXT_REFERENCE__MEMBER = BasePackage.DEXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Display Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCONTEXT_REFERENCE__DISPLAY_NAME = BasePackage.DEXPRESSION_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Plural</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCONTEXT_REFERENCE__PLURAL = BasePackage.DEXPRESSION_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>DContext Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DCONTEXT_REFERENCE_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 2;
+	int DCONTEXT_REFERENCE_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>DContext Reference</em>' class.
@@ -1459,6 +1486,39 @@ public interface DmxPackage extends EPackage
 	EAttribute getDContextReference_Before();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.dmx.DContextReference#getMember <em>Member</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Member</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DContextReference#getMember()
+	 * @see #getDContextReference()
+	 * @generated
+	 */
+	EReference getDContextReference_Member();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DContextReference#getDisplayName <em>Display Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Display Name</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DContextReference#getDisplayName()
+	 * @see #getDContextReference()
+	 * @generated
+	 */
+	EAttribute getDContextReference_DisplayName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DContextReference#isPlural <em>Plural</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Plural</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DContextReference#isPlural()
+	 * @see #getDContextReference()
+	 * @generated
+	 */
+	EAttribute getDContextReference_Plural();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DIfExpression <em>DIf Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2056,6 +2116,30 @@ public interface DmxPackage extends EPackage
 		 * @generated
 		 */
 		EAttribute DCONTEXT_REFERENCE__BEFORE = eINSTANCE.getDContextReference_Before();
+
+		/**
+		 * The meta object literal for the '<em><b>Member</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DCONTEXT_REFERENCE__MEMBER = eINSTANCE.getDContextReference_Member();
+
+		/**
+		 * The meta object literal for the '<em><b>Display Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DCONTEXT_REFERENCE__DISPLAY_NAME = eINSTANCE.getDContextReference_DisplayName();
+
+		/**
+		 * The meta object literal for the '<em><b>Plural</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DCONTEXT_REFERENCE__PLURAL = eINSTANCE.getDContextReference_Plural();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DIfExpressionImpl <em>DIf Expression</em>}' class.

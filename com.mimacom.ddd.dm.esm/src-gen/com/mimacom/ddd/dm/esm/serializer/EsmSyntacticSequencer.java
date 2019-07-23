@@ -160,6 +160,7 @@ public class EsmSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('*
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) '[' target=[IPrimaryNavigationTarget|DQualifiedName]
 	 *     (rule start) (ambiguity) 'if' if=DExpression
 	 *     (rule start) (ambiguity) ('FALSE' | 'false') (rule start)
 	 *     (rule start) (ambiguity) ('SELF' | 'self') (rule start)
@@ -189,6 +190,7 @@ public class EsmSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('+
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) '[' target=[IPrimaryNavigationTarget|DQualifiedName]
 	 *     (rule start) (ambiguity) 'if' if=DExpression
 	 *     (rule start) (ambiguity) ('FALSE' | 'false') ')' (rule start)
 	 *     (rule start) (ambiguity) ('SELF' | 'self') ')' (rule start)

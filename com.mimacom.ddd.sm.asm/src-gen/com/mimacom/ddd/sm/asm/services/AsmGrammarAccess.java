@@ -1201,7 +1201,11 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DContextReference DExpression:
-	//	{DContextReference} target=[DNamedElement] before?="@before"?;
+	//	{DContextReference} (target=[DNamedElement] before?="@before"?
+	//	| '['
+	//	target=[IPrimaryNavigationTarget|DQualifiedName] ('#' member=[DNavigableMember])? ("|" (displayName=ID |
+	//	plural?="*"))?
+	//	-> ']');
 	public DmxGrammarAccess.DContextReferenceElements getDContextReferenceAccess() {
 		return gaDmx.getDContextReferenceAccess();
 	}
@@ -1361,7 +1365,7 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal fragment PLAIN_TEXT:
-	//	!('»' | '[');
+	//	!('»' | ']' | '[');
 	public TerminalRule getPLAIN_TEXTRule() {
 		return gaDmx.getPLAIN_TEXTRule();
 	}

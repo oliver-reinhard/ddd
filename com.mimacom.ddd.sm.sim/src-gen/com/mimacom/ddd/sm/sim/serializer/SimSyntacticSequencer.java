@@ -209,6 +209,7 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('*
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) '[' target=[IPrimaryNavigationTarget|DQualifiedName]
 	 *     (rule start) (ambiguity) 'for' declaredParam=ID
 	 *     (rule start) (ambiguity) 'if' if=DExpression
 	 *     (rule start) (ambiguity) ('FALSE' | 'false') (rule start)
@@ -244,6 +245,7 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('+
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) '[' target=[IPrimaryNavigationTarget|DQualifiedName]
 	 *     (rule start) (ambiguity) 'for' declaredParam=ID
 	 *     (rule start) (ambiguity) 'if' if=DExpression
 	 *     (rule start) (ambiguity) ('FALSE' | 'false') ')' (rule start)

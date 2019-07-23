@@ -18,6 +18,7 @@ import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
 import com.mimacom.ddd.dm.dmx.DAssignment;
 import com.mimacom.ddd.dm.dmx.DContextReference;
 import com.mimacom.ddd.dm.dmx.DFunctionCall;
@@ -48,30 +49,53 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
   
   @Override
   public IScope getScope(final EObject context, final EReference reference) {
-    EReference _dContextReference_Target = DmxScopeProvider.DMX.getDContextReference_Target();
-    boolean _equals = Objects.equal(reference, _dContextReference_Target);
+    EReference _dNavigableMemberReference_Member = DmxScopeProvider.DMX.getDNavigableMemberReference_Member();
+    boolean _equals = Objects.equal(reference, _dNavigableMemberReference_Member);
     if (_equals) {
-      final IScope outer = this.getDefaultScopeForType(context, DmxScopeProvider.BASE.getIPrimaryNavigationTarget());
-      final IScope scope = this.getPrecedingNavigableMembersScope(context, outer);
-      return scope;
-    } else {
-      EReference _dNavigableMemberReference_Member = DmxScopeProvider.DMX.getDNavigableMemberReference_Member();
-      boolean _equals_1 = Objects.equal(reference, _dNavigableMemberReference_Member);
-      if (_equals_1) {
-        if ((context instanceof DNavigableMemberReference)) {
-          boolean _isExplicitOperationCall = ((DNavigableMemberReference)context).isExplicitOperationCall();
-          if (_isExplicitOperationCall) {
-            this.getDefaultScopeForType(context, DmxScopeProvider.BASE.getDFunction());
+      if ((context instanceof DNavigableMemberReference)) {
+        final DExpression ref = ((DNavigableMemberReference)context).getMemberContainerReference();
+        IScope _xifexpression = null;
+        boolean _isExplicitOperationCall = ((DNavigableMemberReference)context).isExplicitOperationCall();
+        if (_isExplicitOperationCall) {
+          _xifexpression = this.getDefaultScopeForType(context, DmxScopeProvider.BASE.getDFunction());
+        } else {
+          IScope _xifexpression_1 = null;
+          if (((ref instanceof DContextReference) && (((DContextReference) ref).getTarget() instanceof IPrimaryNavigationTarget))) {
+            _xifexpression_1 = this.getDefaultScopeForType(context, DmxScopeProvider.BASE.getDFunction());
           } else {
-            return this.getNavigableMemberReferencesScope(((DNavigableMemberReference)context).getMemberContainerReference());
+            _xifexpression_1 = this.getNavigableMemberReferencesScope(ref);
           }
+          _xifexpression = _xifexpression_1;
+        }
+        final IScope scope = _xifexpression;
+        return scope;
+      }
+    } else {
+      EReference _dAssignment_Member = DmxScopeProvider.DMX.getDAssignment_Member();
+      boolean _equals_1 = Objects.equal(reference, _dAssignment_Member);
+      if (_equals_1) {
+        if ((context instanceof DAssignment)) {
+          final IScope scope_1 = this.getAssignmentMemberScope(((DAssignment)context), reference);
+          return scope_1;
         }
       } else {
-        EReference _dAssignment_Member = DmxScopeProvider.DMX.getDAssignment_Member();
-        boolean _equals_2 = Objects.equal(reference, _dAssignment_Member);
+        EReference _dContextReference_Target = DmxScopeProvider.DMX.getDContextReference_Target();
+        boolean _equals_2 = Objects.equal(reference, _dContextReference_Target);
         if (_equals_2) {
-          if ((context instanceof DAssignment)) {
-            return this.getAssignmentMemberScope(((DAssignment)context), reference);
+          final IScope outer = this.getDefaultScopeForType(context, DmxScopeProvider.BASE.getIPrimaryNavigationTarget());
+          final IScope scope_2 = this.getPrecedingNavigableMembersScope(context, outer);
+          return scope_2;
+        } else {
+          EReference _dContextReference_Member = DmxScopeProvider.DMX.getDContextReference_Member();
+          boolean _equals_3 = Objects.equal(reference, _dContextReference_Member);
+          if (_equals_3) {
+            if ((context instanceof DContextReference)) {
+              final DNamedElement target = ((DContextReference)context).getTarget();
+              if ((target instanceof INavigableMemberContainer)) {
+                final IScope scope_3 = this.getNavigableMembersScope(((INavigableMemberContainer)target), IScope.NULLSCOPE);
+                return scope_3;
+              }
+            }
           }
         }
       }
