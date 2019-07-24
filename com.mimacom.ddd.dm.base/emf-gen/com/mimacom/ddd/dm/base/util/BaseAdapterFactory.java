@@ -155,6 +155,11 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createDFunctionAdapter();
 			}
 			@Override
+			public Adapter caseDFunctionParameter(DFunctionParameter object)
+			{
+				return createDFunctionParameterAdapter();
+			}
+			@Override
 			public Adapter caseDAggregate(DAggregate object)
 			{
 				return createDAggregateAdapter();
@@ -567,6 +572,21 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDFunctionAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DFunctionParameter <em>DFunction Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DFunctionParameter
+	 * @generated
+	 */
+	public Adapter createDFunctionParameterAdapter()
 	{
 		return null;
 	}

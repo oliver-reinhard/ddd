@@ -71,9 +71,30 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
         eType="#//DActor" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DSystemType">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="VOID" value="1"/>
+    <eLiterals name="BOOLEAN" value="2" literal="BOOLEAN"/>
+    <eLiterals name="NUMBER" value="3"/>
+    <eLiterals name="TEXT" value="4"/>
+    <eLiterals name="ID" value="5"/>
+    <eLiterals name="TIMEPOINT" value="6"/>
+    <eLiterals name="TYPE" value="10"/>
+    <eLiterals name="OBJECT" value="11"/>
+    <eLiterals name="ACTOR" value="12"/>
+    <eLiterals name="OPERATION" value="13"/>
+    <eLiterals name="LAMBDA" value="14"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DFunction" eSuperTypes="#//DNavigableMember">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterNames" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//DFunctionParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemType" eType="#//DSystemType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemTypeMany" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DFunctionParameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemType" eType="#//DSystemType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemTypeMany" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DAggregate" eSuperTypes="#//ITypeContainer #//IDeducibleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//DRichText"
@@ -99,6 +120,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="DSimpleType" abstract="true" eSuperTypes="#//DType #//IValueType"/>
   <eClassifiers xsi:type="ecore:EClass" name="DPrimitive" eSuperTypes="#//DSimpleType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="redefines" eType="#//DPrimitive"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemType" eType="#//DSystemType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="archetype" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>

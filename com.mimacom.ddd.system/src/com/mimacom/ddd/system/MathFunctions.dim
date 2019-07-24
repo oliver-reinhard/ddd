@@ -1,0 +1,27 @@
+domain dm.Math
+
+function abs(arg : NUMBER): NUMBER 
+function acos(arg : NUMBER): NUMBER 
+function asin(arg : NUMBER): NUMBER 
+function atan(arg : NUMBER): NUMBER 
+function ceil(arg : NUMBER): NUMBER 
+function cos(arg : NUMBER): NUMBER 
+function cosh(arg : NUMBER): NUMBER 
+function dec(arg : NUMBER): NUMBER  
+function exp(arg : NUMBER): NUMBER 
+function floor(arg : NUMBER): NUMBER 
+function inc(arg : NUMBER): NUMBER  
+function log(arg : NUMBER): NUMBER 
+function log10(arg : NUMBER): NUMBER 
+function max(arg : NUMBER*): NUMBER 
+function min(arg : NUMBER*): NUMBER 
+function power(base : NUMBER, exp : NUMBER): NUMBER
+function random(): NUMBER
+function round(arg : NUMBER, decimals : NUMBER): NUMBER
+function sign(arg : NUMBER): NUMBER
+function sin(arg : NUMBER): NUMBER
+function sinh(arg : NUMBER): NUMBER
+function sqrt(arg : NUMBER): NUMBER
+function sum(arg : NUMBER): NUMBER
+function tan(arg : NUMBER): NUMBER
+function tanh(arg : NUMBER): NUMBER

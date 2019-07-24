@@ -70,6 +70,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 			case BasePackage.DIMPORT: return createDImport();
 			case BasePackage.DDOMAIN: return createDDomain();
 			case BasePackage.DFUNCTION: return createDFunction();
+			case BasePackage.DFUNCTION_PARAMETER: return createDFunctionParameter();
 			case BasePackage.DAGGREGATE: return createDAggregate();
 			case BasePackage.DCONDITION: return createDCondition();
 			case BasePackage.DPRIMITIVE: return createDPrimitive();
@@ -107,6 +108,8 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		switch (eDataType.getClassifierID())
 		{
+			case BasePackage.DSYSTEM_TYPE:
+				return createDSystemTypeFromString(eDataType, initialValue);
 			case BasePackage.DASSOCIATION_KIND:
 				return createDAssociationKindFromString(eDataType, initialValue);
 			case BasePackage.DDIRECTION:
@@ -128,6 +131,8 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		switch (eDataType.getClassifierID())
 		{
+			case BasePackage.DSYSTEM_TYPE:
+				return convertDSystemTypeToString(eDataType, instanceValue);
 			case BasePackage.DASSOCIATION_KIND:
 				return convertDAssociationKindToString(eDataType, instanceValue);
 			case BasePackage.DDIRECTION:
@@ -197,6 +202,18 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		DFunctionImpl dFunction = new DFunctionImpl();
 		return dFunction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DFunctionParameter createDFunctionParameter()
+	{
+		DFunctionParameterImpl dFunctionParameter = new DFunctionParameterImpl();
+		return dFunctionParameter;
 	}
 
 	/**
@@ -461,6 +478,28 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		DExceptionImpl dException = new DExceptionImpl();
 		return dException;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DSystemType createDSystemTypeFromString(EDataType eDataType, String initialValue)
+	{
+		DSystemType result = DSystemType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDSystemTypeToString(EDataType eDataType, Object instanceValue)
+	{
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

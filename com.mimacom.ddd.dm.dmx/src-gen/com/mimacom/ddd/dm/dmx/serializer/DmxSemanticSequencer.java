@@ -221,8 +221,8 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         (member=[DNavigableMember|ID] value=DAssignment) | 
-	 *         (memberContainer=DNavigableMemberReference_DAssignment_1_0_0_0_0 member=[DNavigableMember|ID] value=DAssignment)
+	 *         (assignToMember=[DNavigableMember|ID] value=DAssignment) | 
+	 *         (memberContainer=DNavigableMemberReference_DAssignment_1_0_0_0_0 assignToMember=[DNavigableMember|ID] value=DAssignment)
 	 *     )
 	 */
 	protected void sequence_DAssignment_DNavigableMemberReference(ISerializationContext context, DAssignment semanticObject) {

@@ -1221,7 +1221,7 @@ ruleDAssignment returns [EObject current=null]
 					}
 					otherlv_1=RULE_ID
 					{
-						newLeafNode(otherlv_1, grammarAccess.getDAssignmentAccess().getMemberDNavigableMemberCrossReference_0_1_0());
+						newLeafNode(otherlv_1, grammarAccess.getDAssignmentAccess().getAssignToMemberDNavigableMemberCrossReference_0_1_0());
 					}
 				)
 			)
@@ -2205,7 +2205,7 @@ ruleDNavigableMemberReference returns [EObject current=null]
 								}
 								otherlv_3=RULE_ID
 								{
-									newLeafNode(otherlv_3, grammarAccess.getDNavigableMemberReferenceAccess().getMemberDNavigableMemberCrossReference_1_0_0_0_2_0());
+									newLeafNode(otherlv_3, grammarAccess.getDNavigableMemberReferenceAccess().getAssignToMemberDNavigableMemberCrossReference_1_0_0_0_2_0());
 								}
 							)
 						)

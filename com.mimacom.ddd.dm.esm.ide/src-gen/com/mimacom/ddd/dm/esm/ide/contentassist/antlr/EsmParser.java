@@ -184,7 +184,7 @@ public class EsmParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDTextStartAccess().getValueAssignment(), "rule__DTextStart__ValueAssignment");
 			builder.put(grammarAccess.getDTextMiddleAccess().getValueAssignment(), "rule__DTextMiddle__ValueAssignment");
 			builder.put(grammarAccess.getDTextEndAccess().getValueAssignment(), "rule__DTextEnd__ValueAssignment");
-			builder.put(grammarAccess.getDAssignmentAccess().getMemberAssignment_0_1(), "rule__DAssignment__MemberAssignment_0_1");
+			builder.put(grammarAccess.getDAssignmentAccess().getAssignToMemberAssignment_0_1(), "rule__DAssignment__AssignToMemberAssignment_0_1");
 			builder.put(grammarAccess.getDAssignmentAccess().getValueAssignment_0_3(), "rule__DAssignment__ValueAssignment_0_3");
 			builder.put(grammarAccess.getDOrExpressionAccess().getOperatorAssignment_1_0_0_1(), "rule__DOrExpression__OperatorAssignment_1_0_0_1");
 			builder.put(grammarAccess.getDOrExpressionAccess().getRightOperandAssignment_1_1(), "rule__DOrExpression__RightOperandAssignment_1_1");
@@ -204,7 +204,7 @@ public class EsmParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDUnaryOperationAccess().getOperatorAssignment_0_1(), "rule__DUnaryOperation__OperatorAssignment_0_1");
 			builder.put(grammarAccess.getDUnaryOperationAccess().getOperandAssignment_0_2(), "rule__DUnaryOperation__OperandAssignment_0_2");
 			builder.put(grammarAccess.getDCastExpressionAccess().getTypeAssignment_1_1(), "rule__DCastExpression__TypeAssignment_1_1");
-			builder.put(grammarAccess.getDNavigableMemberReferenceAccess().getMemberAssignment_1_0_0_0_2(), "rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2");
+			builder.put(grammarAccess.getDNavigableMemberReferenceAccess().getAssignToMemberAssignment_1_0_0_0_2(), "rule__DNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2");
 			builder.put(grammarAccess.getDNavigableMemberReferenceAccess().getValueAssignment_1_0_1(), "rule__DNavigableMemberReference__ValueAssignment_1_0_1");
 			builder.put(grammarAccess.getDNavigableMemberReferenceAccess().getMemberAssignment_1_1_1(), "rule__DNavigableMemberReference__MemberAssignment_1_1_1");
 			builder.put(grammarAccess.getDNavigableMemberReferenceAccess().getExplicitOperationCallAssignment_1_1_2_0_0(), "rule__DNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0");

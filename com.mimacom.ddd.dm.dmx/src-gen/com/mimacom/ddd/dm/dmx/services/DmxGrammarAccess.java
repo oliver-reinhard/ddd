@@ -252,36 +252,36 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Action cDAssignmentAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final Assignment cMemberAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final CrossReference cMemberDNavigableMemberCrossReference_0_1_0 = (CrossReference)cMemberAssignment_0_1.eContents().get(0);
-		private final RuleCall cMemberDNavigableMemberIDTerminalRuleCall_0_1_0_1 = (RuleCall)cMemberDNavigableMemberCrossReference_0_1_0.eContents().get(1);
+		private final Assignment cAssignToMemberAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final CrossReference cAssignToMemberDNavigableMemberCrossReference_0_1_0 = (CrossReference)cAssignToMemberAssignment_0_1.eContents().get(0);
+		private final RuleCall cAssignToMemberDNavigableMemberIDTerminalRuleCall_0_1_0_1 = (RuleCall)cAssignToMemberDNavigableMemberCrossReference_0_1_0.eContents().get(1);
 		private final RuleCall cOpSingleAssignParserRuleCall_0_2 = (RuleCall)cGroup_0.eContents().get(2);
 		private final Assignment cValueAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
 		private final RuleCall cValueDAssignmentParserRuleCall_0_3_0 = (RuleCall)cValueAssignment_0_3.eContents().get(0);
 		private final RuleCall cDOrExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//DAssignment DExpression:
-		//	{DAssignment} member=[DNavigableMember] OpSingleAssign value=DAssignment
+		//	{DAssignment} assignToMember=[DNavigableMember] OpSingleAssign value=DAssignment
 		//	| DOrExpression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DAssignment} member=[DNavigableMember] OpSingleAssign value=DAssignment | DOrExpression
+		//{DAssignment} assignToMember=[DNavigableMember] OpSingleAssign value=DAssignment | DOrExpression
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{DAssignment} member=[DNavigableMember] OpSingleAssign value=DAssignment
+		//{DAssignment} assignToMember=[DNavigableMember] OpSingleAssign value=DAssignment
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//{DAssignment}
 		public Action getDAssignmentAction_0_0() { return cDAssignmentAction_0_0; }
 		
-		//member=[DNavigableMember]
-		public Assignment getMemberAssignment_0_1() { return cMemberAssignment_0_1; }
+		//assignToMember=[DNavigableMember]
+		public Assignment getAssignToMemberAssignment_0_1() { return cAssignToMemberAssignment_0_1; }
 		
 		//[DNavigableMember]
-		public CrossReference getMemberDNavigableMemberCrossReference_0_1_0() { return cMemberDNavigableMemberCrossReference_0_1_0; }
+		public CrossReference getAssignToMemberDNavigableMemberCrossReference_0_1_0() { return cAssignToMemberDNavigableMemberCrossReference_0_1_0; }
 		
 		//ID
-		public RuleCall getMemberDNavigableMemberIDTerminalRuleCall_0_1_0_1() { return cMemberDNavigableMemberIDTerminalRuleCall_0_1_0_1; }
+		public RuleCall getAssignToMemberDNavigableMemberIDTerminalRuleCall_0_1_0_1() { return cAssignToMemberDNavigableMemberIDTerminalRuleCall_0_1_0_1; }
 		
 		//OpSingleAssign
 		public RuleCall getOpSingleAssignParserRuleCall_0_2() { return cOpSingleAssignParserRuleCall_0_2; }
@@ -813,9 +813,9 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1_0_0_0 = (Group)cGroup_1_0_0.eContents().get(0);
 		private final Action cDAssignmentMemberContainerAction_1_0_0_0_0 = (Action)cGroup_1_0_0_0.eContents().get(0);
 		private final Keyword cFullStopKeyword_1_0_0_0_1 = (Keyword)cGroup_1_0_0_0.eContents().get(1);
-		private final Assignment cMemberAssignment_1_0_0_0_2 = (Assignment)cGroup_1_0_0_0.eContents().get(2);
-		private final CrossReference cMemberDNavigableMemberCrossReference_1_0_0_0_2_0 = (CrossReference)cMemberAssignment_1_0_0_0_2.eContents().get(0);
-		private final RuleCall cMemberDNavigableMemberIDTerminalRuleCall_1_0_0_0_2_0_1 = (RuleCall)cMemberDNavigableMemberCrossReference_1_0_0_0_2_0.eContents().get(1);
+		private final Assignment cAssignToMemberAssignment_1_0_0_0_2 = (Assignment)cGroup_1_0_0_0.eContents().get(2);
+		private final CrossReference cAssignToMemberDNavigableMemberCrossReference_1_0_0_0_2_0 = (CrossReference)cAssignToMemberAssignment_1_0_0_0_2.eContents().get(0);
+		private final RuleCall cAssignToMemberDNavigableMemberIDTerminalRuleCall_1_0_0_0_2_0_1 = (RuleCall)cAssignToMemberDNavigableMemberCrossReference_1_0_0_0_2_0.eContents().get(1);
 		private final RuleCall cOpSingleAssignParserRuleCall_1_0_0_0_3 = (RuleCall)cGroup_1_0_0_0.eContents().get(3);
 		private final Assignment cValueAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
 		private final RuleCall cValueDAssignmentParserRuleCall_1_0_1_0 = (RuleCall)cValueAssignment_1_0_1.eContents().get(0);
@@ -843,7 +843,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cBeforeBeforeKeyword_1_1_2_1_0 = (Keyword)cBeforeAssignment_1_1_2_1.eContents().get(0);
 		
 		//DNavigableMemberReference DExpression:
-		//	DPrimaryExpression (=> ({DAssignment.memberContainer=current} '.' member=[DNavigableMember] OpSingleAssign)
+		//	DPrimaryExpression (=> ({DAssignment.memberContainer=current} '.' assignToMember=[DNavigableMember] OpSingleAssign)
 		//	value=DAssignment
 		//	| => ({DNavigableMemberReference.memberContainerReference=current} '.') member=[DNavigableMember] (=>
 		//	explicitOperationCall?='(' (memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)?
@@ -851,7 +851,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		//	| before?="@before")?)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//DPrimaryExpression (=> ({DAssignment.memberContainer=current} '.' member=[DNavigableMember] OpSingleAssign)
+		//DPrimaryExpression (=> ({DAssignment.memberContainer=current} '.' assignToMember=[DNavigableMember] OpSingleAssign)
 		//value=DAssignment | => ({DNavigableMemberReference.memberContainerReference=current} '.') member=[DNavigableMember] (=>
 		//explicitOperationCall?='(' (memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)? ')' |
 		//before?="@before")?)*
@@ -860,19 +860,19 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		//DPrimaryExpression
 		public RuleCall getDPrimaryExpressionParserRuleCall_0() { return cDPrimaryExpressionParserRuleCall_0; }
 		
-		//(=> ({DAssignment.memberContainer=current} '.' member=[DNavigableMember] OpSingleAssign) value=DAssignment | =>
+		//(=> ({DAssignment.memberContainer=current} '.' assignToMember=[DNavigableMember] OpSingleAssign) value=DAssignment | =>
 		//({DNavigableMemberReference.memberContainerReference=current} '.') member=[DNavigableMember] (=>
 		//explicitOperationCall?='(' (memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)? ')' |
 		//before?="@before")?)*
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//=> ({DAssignment.memberContainer=current} '.' member=[DNavigableMember] OpSingleAssign) value=DAssignment
+		//=> ({DAssignment.memberContainer=current} '.' assignToMember=[DNavigableMember] OpSingleAssign) value=DAssignment
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
-		//=> ({DAssignment.memberContainer=current} '.' member=[DNavigableMember] OpSingleAssign)
+		//=> ({DAssignment.memberContainer=current} '.' assignToMember=[DNavigableMember] OpSingleAssign)
 		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
 		
-		//{DAssignment.memberContainer=current} '.' member=[DNavigableMember] OpSingleAssign
+		//{DAssignment.memberContainer=current} '.' assignToMember=[DNavigableMember] OpSingleAssign
 		public Group getGroup_1_0_0_0() { return cGroup_1_0_0_0; }
 		
 		//{DAssignment.memberContainer=current}
@@ -881,14 +881,14 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		//'.'
 		public Keyword getFullStopKeyword_1_0_0_0_1() { return cFullStopKeyword_1_0_0_0_1; }
 		
-		//member=[DNavigableMember]
-		public Assignment getMemberAssignment_1_0_0_0_2() { return cMemberAssignment_1_0_0_0_2; }
+		//assignToMember=[DNavigableMember]
+		public Assignment getAssignToMemberAssignment_1_0_0_0_2() { return cAssignToMemberAssignment_1_0_0_0_2; }
 		
 		//[DNavigableMember]
-		public CrossReference getMemberDNavigableMemberCrossReference_1_0_0_0_2_0() { return cMemberDNavigableMemberCrossReference_1_0_0_0_2_0; }
+		public CrossReference getAssignToMemberDNavigableMemberCrossReference_1_0_0_0_2_0() { return cAssignToMemberDNavigableMemberCrossReference_1_0_0_0_2_0; }
 		
 		//ID
-		public RuleCall getMemberDNavigableMemberIDTerminalRuleCall_1_0_0_0_2_0_1() { return cMemberDNavigableMemberIDTerminalRuleCall_1_0_0_0_2_0_1; }
+		public RuleCall getAssignToMemberDNavigableMemberIDTerminalRuleCall_1_0_0_0_2_0_1() { return cAssignToMemberDNavigableMemberIDTerminalRuleCall_1_0_0_0_2_0_1; }
 		
 		//OpSingleAssign
 		public RuleCall getOpSingleAssignParserRuleCall_1_0_0_0_3() { return cOpSingleAssignParserRuleCall_1_0_0_0_3; }
@@ -2438,7 +2438,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DAssignment DExpression:
-	//	{DAssignment} member=[DNavigableMember] OpSingleAssign value=DAssignment
+	//	{DAssignment} assignToMember=[DNavigableMember] OpSingleAssign value=DAssignment
 	//	| DOrExpression;
 	public DAssignmentElements getDAssignmentAccess() {
 		return pDAssignment;
@@ -2653,7 +2653,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DNavigableMemberReference DExpression:
-	//	DPrimaryExpression (=> ({DAssignment.memberContainer=current} '.' member=[DNavigableMember] OpSingleAssign)
+	//	DPrimaryExpression (=> ({DAssignment.memberContainer=current} '.' assignToMember=[DNavigableMember] OpSingleAssign)
 	//	value=DAssignment
 	//	| => ({DNavigableMemberReference.memberContainerReference=current} '.') member=[DNavigableMember] (=>
 	//	explicitOperationCall?='(' (memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)?

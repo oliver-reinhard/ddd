@@ -872,7 +872,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DAssignment DExpression:
-	//	{DAssignment} member=[DNavigableMember] OpSingleAssign value=DAssignment
+	//	{DAssignment} assignToMember=[DNavigableMember] OpSingleAssign value=DAssignment
 	//	| DOrExpression;
 	public DmxGrammarAccess.DAssignmentElements getDAssignmentAccess() {
 		return gaDmx.getDAssignmentAccess();
@@ -1087,7 +1087,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DNavigableMemberReference DExpression:
-	//	DPrimaryExpression (=> ({DAssignment.memberContainer=current} '.' member=[DNavigableMember] OpSingleAssign)
+	//	DPrimaryExpression (=> ({DAssignment.memberContainer=current} '.' assignToMember=[DNavigableMember] OpSingleAssign)
 	//	value=DAssignment
 	//	| => ({DNavigableMemberReference.memberContainerReference=current} '.') member=[DNavigableMember] (=>
 	//	explicitOperationCall?='(' (memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)?

@@ -1464,7 +1464,7 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
                     otherlv_1=(Token)match(input,RULE_ID,FOLLOW_11); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      						newLeafNode(otherlv_1, grammarAccess.getDAssignmentAccess().getMemberDNavigableMemberCrossReference_0_1_0());
+                      						newLeafNode(otherlv_1, grammarAccess.getDAssignmentAccess().getAssignToMemberDNavigableMemberCrossReference_0_1_0());
                       					
                     }
 
@@ -4264,7 +4264,7 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
             	    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_11); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      									newLeafNode(otherlv_3, grammarAccess.getDNavigableMemberReferenceAccess().getMemberDNavigableMemberCrossReference_1_0_0_0_2_0());
+            	      									newLeafNode(otherlv_3, grammarAccess.getDNavigableMemberReferenceAccess().getAssignToMemberDNavigableMemberCrossReference_1_0_0_0_2_0());
             	      								
             	    }
 

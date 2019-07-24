@@ -613,7 +613,7 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DAssignment DExpression:
-	//	{DAssignment} member=[DNavigableMember] OpSingleAssign value=DAssignment
+	//	{DAssignment} assignToMember=[DNavigableMember] OpSingleAssign value=DAssignment
 	//	| DOrExpression;
 	public DmxGrammarAccess.DAssignmentElements getDAssignmentAccess() {
 		return gaDmx.getDAssignmentAccess();
@@ -828,8 +828,8 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DNavigableMemberReference DExpression:
-	//	super::DPrimaryExpression (=> ({DAssignment.memberContainer=current} '.' member=[DNavigableMember] OpSingleAssign)
-	//	value=DAssignment
+	//	super::DPrimaryExpression (=> ({DAssignment.memberContainer=current} '.' assignToMember=[DNavigableMember]
+	//	OpSingleAssign) value=DAssignment
 	//	| => ({DNavigableMemberReference.memberContainerReference=current} '.') member=[DNavigableMember] (=>
 	//	explicitOperationCall?='(' (memberCallArguments+=super::DExpression (',' memberCallArguments+=super::DExpression)*)?
 	//	')'

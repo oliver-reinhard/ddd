@@ -126,13 +126,13 @@ public interface DmxPackage extends EPackage
 	int DASSIGNMENT__MEMBER_CONTAINER = BasePackage.DEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Member</b></em>' reference.
+	 * The feature id for the '<em><b>Assign To Member</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DASSIGNMENT__MEMBER = BasePackage.DEXPRESSION_FEATURE_COUNT + 1;
+	int DASSIGNMENT__ASSIGN_TO_MEMBER = BasePackage.DEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1101,15 +1101,15 @@ public interface DmxPackage extends EPackage
 	EReference getDAssignment_MemberContainer();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.dmx.DAssignment#getMember <em>Member</em>}'.
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.dmx.DAssignment#getAssignToMember <em>Assign To Member</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Member</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DAssignment#getMember()
+	 * @return the meta object for the reference '<em>Assign To Member</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DAssignment#getAssignToMember()
 	 * @see #getDAssignment()
 	 * @generated
 	 */
-	EReference getDAssignment_Member();
+	EReference getDAssignment_AssignToMember();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.dmx.DAssignment#getValue <em>Value</em>}'.
@@ -1808,12 +1808,12 @@ public interface DmxPackage extends EPackage
 		EReference DASSIGNMENT__MEMBER_CONTAINER = eINSTANCE.getDAssignment_MemberContainer();
 
 		/**
-		 * The meta object literal for the '<em><b>Member</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Assign To Member</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DASSIGNMENT__MEMBER = eINSTANCE.getDAssignment_Member();
+		EReference DASSIGNMENT__ASSIGN_TO_MEMBER = eINSTANCE.getDAssignment_AssignToMember();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.

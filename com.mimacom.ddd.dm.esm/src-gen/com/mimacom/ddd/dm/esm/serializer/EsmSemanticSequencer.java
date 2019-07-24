@@ -300,20 +300,20 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 	 *     DParenthesizedExpression returns DAssignment
 	 *
 	 * Constraint:
-	 *     (memberContainer=DNavigableMemberReference_DAssignment_1_0_0_0_0 member=[DNavigableMember|ID] value=DAssignment)
+	 *     (memberContainer=DNavigableMemberReference_DAssignment_1_0_0_0_0 assignToMember=[DNavigableMember|ID] value=DAssignment)
 	 */
 	protected void sequence_DNavigableMemberReference(ISerializationContext context, DAssignment semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, DmxPackage.Literals.DASSIGNMENT__MEMBER_CONTAINER) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmxPackage.Literals.DASSIGNMENT__MEMBER_CONTAINER));
-			if (transientValues.isValueTransient(semanticObject, DmxPackage.Literals.DASSIGNMENT__MEMBER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmxPackage.Literals.DASSIGNMENT__MEMBER));
+			if (transientValues.isValueTransient(semanticObject, DmxPackage.Literals.DASSIGNMENT__ASSIGN_TO_MEMBER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmxPackage.Literals.DASSIGNMENT__ASSIGN_TO_MEMBER));
 			if (transientValues.isValueTransient(semanticObject, DmxPackage.Literals.DASSIGNMENT__VALUE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmxPackage.Literals.DASSIGNMENT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDNavigableMemberReferenceAccess().getDAssignmentMemberContainerAction_1_0_0_0_0(), semanticObject.getMemberContainer());
-		feeder.accept(grammarAccess.getDNavigableMemberReferenceAccess().getMemberDNavigableMemberIDTerminalRuleCall_1_0_0_0_2_0_1(), semanticObject.eGet(DmxPackage.Literals.DASSIGNMENT__MEMBER, false));
+		feeder.accept(grammarAccess.getDNavigableMemberReferenceAccess().getAssignToMemberDNavigableMemberIDTerminalRuleCall_1_0_0_0_2_0_1(), semanticObject.eGet(DmxPackage.Literals.DASSIGNMENT__ASSIGN_TO_MEMBER, false));
 		feeder.accept(grammarAccess.getDNavigableMemberReferenceAccess().getValueDAssignmentParserRuleCall_1_0_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}

@@ -12,7 +12,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="DAssignment" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="memberContainer" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="member" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignToMember" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
   </eClassifiers>

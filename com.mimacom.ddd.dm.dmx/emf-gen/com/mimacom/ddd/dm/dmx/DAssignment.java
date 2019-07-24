@@ -15,7 +15,7 @@ import com.mimacom.ddd.dm.base.DNavigableMember;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.dmx.DAssignment#getMemberContainer <em>Member Container</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dmx.DAssignment#getMember <em>Member</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.DAssignment#getAssignToMember <em>Assign To Member</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.DAssignment#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -48,26 +48,26 @@ public interface DAssignment extends DExpression
 	void setMemberContainer(DExpression value);
 
 	/**
-	 * Returns the value of the '<em><b>Member</b></em>' reference.
+	 * Returns the value of the '<em><b>Assign To Member</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Member</em>' reference.
-	 * @see #setMember(DNavigableMember)
-	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDAssignment_Member()
+	 * @return the value of the '<em>Assign To Member</em>' reference.
+	 * @see #setAssignToMember(DNavigableMember)
+	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDAssignment_AssignToMember()
 	 * @model
 	 * @generated
 	 */
-	DNavigableMember getMember();
+	DNavigableMember getAssignToMember();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DAssignment#getMember <em>Member</em>}' reference.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DAssignment#getAssignToMember <em>Assign To Member</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Member</em>' reference.
-	 * @see #getMember()
+	 * @param value the new value of the '<em>Assign To Member</em>' reference.
+	 * @see #getAssignToMember()
 	 * @generated
 	 */
-	void setMember(DNavigableMember value);
+	void setAssignToMember(DNavigableMember value);
 
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' containment reference.

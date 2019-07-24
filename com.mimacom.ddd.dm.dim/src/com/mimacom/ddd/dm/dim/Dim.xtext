@@ -21,9 +21,17 @@ DImport:
 
 DFunction:
 	'function' name=ID 
-	'(' /*parameterNames+=STRING (','  parameterNames+=STRING)* */ ')'
+	'(' (parameters+=DFunctionParameter (','  parameters+=DFunctionParameter)*)? ')'
 	':'
-	type=[DType|ID]  (multiplicity=DMultiplicity)?;
+	systemType=DSystemType
+	(systemTypeMany?='*')?;
+
+
+DFunctionParameter:
+	name=ID
+	':'
+	systemType=DSystemType
+	(systemTypeMany?='*')?;
 	
 DAggregate:
 	{DAggregate}
@@ -53,18 +61,20 @@ DPrimitive:
 	('alias' aliases+=ID)*
 	'redefines' redefines=[DPrimitive]
 	(description=DRichText)?
-	'{'
-		(constraints+=DConstraint)*
-	'}';
+	(	'{'
+		(constraints+=DConstraint)+
+		'}'
+	)?;
 	
 DPrimitiveArchetype returns DPrimitive:
 	'archetype'
 	name=ID
-	('alias' aliases+=ID)*
-	(description=DRichText)?
-	'{'
-		(constraints+=DConstraint)*
-	'}';
+	'is'
+	systemType=DSystemType
+	(description=DRichText)?;
+
+enum DSystemType:
+	VOID | BOOLEAN | NUMBER | TEXT | ID | TIMEPOINT | TYPE | OBJECT | ACTOR | OPERATION | LAMBDA;
 
 DEnumeration:
 	'enumeration'

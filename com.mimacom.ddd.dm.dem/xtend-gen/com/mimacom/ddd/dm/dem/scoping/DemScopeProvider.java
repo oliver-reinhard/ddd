@@ -18,6 +18,7 @@ import org.eclipse.xtext.scoping.IScope;
 public class DemScopeProvider extends AbstractDemScopeProvider {
   @Override
   public IScope getScope(final EObject context, final EReference reference) {
-    return super.getScope(context, reference);
+    final IScope scope = super.getScope(context, reference);
+    return scope;
   }
 }

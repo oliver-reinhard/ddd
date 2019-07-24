@@ -600,6 +600,15 @@ public interface SimPackage extends EPackage
 	int SPRIMITIVE_DEDUCTION__REDEFINES = BasePackage.DPRIMITIVE__REDEFINES;
 
 	/**
+	 * The feature id for the '<em><b>System Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRIMITIVE_DEDUCTION__SYSTEM_TYPE = BasePackage.DPRIMITIVE__SYSTEM_TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Archetype</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

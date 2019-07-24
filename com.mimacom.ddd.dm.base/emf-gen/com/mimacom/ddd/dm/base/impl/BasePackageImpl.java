@@ -24,6 +24,7 @@ import com.mimacom.ddd.dm.base.DExistingApplication;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DFunction;
+import com.mimacom.ddd.dm.base.DFunctionParameter;
 import com.mimacom.ddd.dm.base.DHuman;
 import com.mimacom.ddd.dm.base.DIdentityType;
 import com.mimacom.ddd.dm.base.DImport;
@@ -41,6 +42,7 @@ import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DServiceKind;
 import com.mimacom.ddd.dm.base.DServiceParameter;
 import com.mimacom.ddd.dm.base.DSimpleType;
+import com.mimacom.ddd.dm.base.DSystemType;
 import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.base.DTime;
 import com.mimacom.ddd.dm.base.DType;
@@ -183,6 +185,13 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	private EClass dFunctionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dFunctionParameterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -400,6 +409,13 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	private EClass dExceptionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum dSystemTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -920,9 +936,75 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDFunction_ParameterNames()
+	public EReference getDFunction_Parameters()
 	{
-		return (EAttribute)dFunctionEClass.getEStructuralFeatures().get(0);
+		return (EReference)dFunctionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDFunction_SystemType()
+	{
+		return (EAttribute)dFunctionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDFunction_SystemTypeMany()
+	{
+		return (EAttribute)dFunctionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDFunctionParameter()
+	{
+		return dFunctionParameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDFunctionParameter_Name()
+	{
+		return (EAttribute)dFunctionParameterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDFunctionParameter_SystemType()
+	{
+		return (EAttribute)dFunctionParameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDFunctionParameter_SystemTypeMany()
+	{
+		return (EAttribute)dFunctionParameterEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1085,9 +1167,20 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDPrimitive_Archetype()
+	public EAttribute getDPrimitive_SystemType()
 	{
 		return (EAttribute)dPrimitiveEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDPrimitive_Archetype()
+	{
+		return (EAttribute)dPrimitiveEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1690,6 +1783,17 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
+	public EEnum getDSystemType()
+	{
+		return dSystemTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getDAssociationKind()
 	{
 		return dAssociationKindEEnum;
@@ -1802,7 +1906,14 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		createEReference(dDomainEClass, DDOMAIN__ACTORS);
 
 		dFunctionEClass = createEClass(DFUNCTION);
-		createEAttribute(dFunctionEClass, DFUNCTION__PARAMETER_NAMES);
+		createEReference(dFunctionEClass, DFUNCTION__PARAMETERS);
+		createEAttribute(dFunctionEClass, DFUNCTION__SYSTEM_TYPE);
+		createEAttribute(dFunctionEClass, DFUNCTION__SYSTEM_TYPE_MANY);
+
+		dFunctionParameterEClass = createEClass(DFUNCTION_PARAMETER);
+		createEAttribute(dFunctionParameterEClass, DFUNCTION_PARAMETER__NAME);
+		createEAttribute(dFunctionParameterEClass, DFUNCTION_PARAMETER__SYSTEM_TYPE);
+		createEAttribute(dFunctionParameterEClass, DFUNCTION_PARAMETER__SYSTEM_TYPE_MANY);
 
 		dAggregateEClass = createEClass(DAGGREGATE);
 		createEReference(dAggregateEClass, DAGGREGATE__DESCRIPTION);
@@ -1824,6 +1935,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		dPrimitiveEClass = createEClass(DPRIMITIVE);
 		createEReference(dPrimitiveEClass, DPRIMITIVE__REDEFINES);
+		createEAttribute(dPrimitiveEClass, DPRIMITIVE__SYSTEM_TYPE);
 		createEAttribute(dPrimitiveEClass, DPRIMITIVE__ARCHETYPE);
 
 		dEnumerationEClass = createEClass(DENUMERATION);
@@ -1905,6 +2017,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dExceptionEClass = createEClass(DEXCEPTION);
 
 		// Create enums
+		dSystemTypeEEnum = createEEnum(DSYSTEM_TYPE);
 		dAssociationKindEEnum = createEEnum(DASSOCIATION_KIND);
 		dDirectionEEnum = createEEnum(DDIRECTION);
 		dServiceKindEEnum = createEEnum(DSERVICE_KIND);
@@ -2054,7 +2167,14 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEReference(getDDomain_Actors(), this.getDActor(), null, "actors", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dFunctionEClass, DFunction.class, "DFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDFunction_ParameterNames(), ecorePackage.getEString(), "parameterNames", null, 0, -1, DFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDFunction_Parameters(), this.getDFunctionParameter(), null, "parameters", null, 0, -1, DFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDFunction_SystemType(), this.getDSystemType(), "systemType", null, 0, 1, DFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDFunction_SystemTypeMany(), ecorePackage.getEBoolean(), "systemTypeMany", null, 0, 1, DFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dFunctionParameterEClass, DFunctionParameter.class, "DFunctionParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDFunctionParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, DFunctionParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDFunctionParameter_SystemType(), this.getDSystemType(), "systemType", null, 0, 1, DFunctionParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDFunctionParameter_SystemTypeMany(), ecorePackage.getEBoolean(), "systemTypeMany", null, 0, 1, DFunctionParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dAggregateEClass, DAggregate.class, "DAggregate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDAggregate_Description(), this.getDRichText(), null, "description", null, 0, 1, DAggregate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2076,6 +2196,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		initEClass(dPrimitiveEClass, DPrimitive.class, "DPrimitive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDPrimitive_Redefines(), this.getDPrimitive(), null, "redefines", null, 0, 1, DPrimitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDPrimitive_SystemType(), this.getDSystemType(), "systemType", null, 0, 1, DPrimitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDPrimitive_Archetype(), ecorePackage.getEBoolean(), "archetype", null, 0, 1, DPrimitive.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(dEnumerationEClass, DEnumeration.class, "DEnumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2158,6 +2279,20 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dExceptionEClass, DException.class, "DException", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
+		initEEnum(dSystemTypeEEnum, DSystemType.class, "DSystemType");
+		addEEnumLiteral(dSystemTypeEEnum, DSystemType.UNDEFINED);
+		addEEnumLiteral(dSystemTypeEEnum, DSystemType.VOID);
+		addEEnumLiteral(dSystemTypeEEnum, DSystemType.BOOLEAN);
+		addEEnumLiteral(dSystemTypeEEnum, DSystemType.NUMBER);
+		addEEnumLiteral(dSystemTypeEEnum, DSystemType.TEXT);
+		addEEnumLiteral(dSystemTypeEEnum, DSystemType.ID);
+		addEEnumLiteral(dSystemTypeEEnum, DSystemType.TIMEPOINT);
+		addEEnumLiteral(dSystemTypeEEnum, DSystemType.TYPE);
+		addEEnumLiteral(dSystemTypeEEnum, DSystemType.OBJECT);
+		addEEnumLiteral(dSystemTypeEEnum, DSystemType.ACTOR);
+		addEEnumLiteral(dSystemTypeEEnum, DSystemType.OPERATION);
+		addEEnumLiteral(dSystemTypeEEnum, DSystemType.LAMBDA);
+
 		initEEnum(dAssociationKindEEnum, DAssociationKind.class, "DAssociationKind");
 		addEEnumLiteral(dAssociationKindEEnum, DAssociationKind.REFERENCE);
 		addEEnumLiteral(dAssociationKindEEnum, DAssociationKind.COMPOSITE);

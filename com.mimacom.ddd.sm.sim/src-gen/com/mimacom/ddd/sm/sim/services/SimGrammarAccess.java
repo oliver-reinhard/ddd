@@ -3244,15 +3244,29 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DFunction:
 	//	'function' name=ID
-	//	'(' /*parameterNames+=STRING (','  parameterNames+=STRING)* */ ')'
+	//	'(' (parameters+=DFunctionParameter (',' parameters+=DFunctionParameter)*)? ')'
 	//	':'
-	//	type=[DType] multiplicity=DMultiplicity?;
+	//	systemType=DSystemType
+	//	systemTypeMany?='*'?;
 	public DimGrammarAccess.DFunctionElements getDFunctionAccess() {
 		return gaDim.getDFunctionAccess();
 	}
 	
 	public ParserRule getDFunctionRule() {
 		return getDFunctionAccess().getRule();
+	}
+	
+	//DFunctionParameter:
+	//	name=ID
+	//	':'
+	//	systemType=DSystemType
+	//	systemTypeMany?='*'?;
+	public DimGrammarAccess.DFunctionParameterElements getDFunctionParameterAccess() {
+		return gaDim.getDFunctionParameterAccess();
+	}
+	
+	public ParserRule getDFunctionParameterRule() {
+		return getDFunctionParameterAccess().getRule();
 	}
 	
 	///*
@@ -3284,10 +3298,9 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	//DPrimitive:
 	//	'primitive'
 	//	name=ID ('alias' aliases+=ID)*
-	//	'redefines' redefines=[DPrimitive] description=DRichText?
-	//	'{'
-	//	constraints+=DConstraint*
-	//	'}';
+	//	'redefines' redefines=[DPrimitive] description=DRichText? ('{'
+	//	constraints+=DConstraint+
+	//	'}')?;
 	public DimGrammarAccess.DPrimitiveElements getDPrimitiveAccess() {
 		return gaDim.getDPrimitiveAccess();
 	}
@@ -3298,17 +3311,26 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DPrimitiveArchetype DPrimitive:
 	//	'archetype'
-	//	name=ID ('alias' aliases+=ID)*
-	//	description=DRichText?
-	//	'{'
-	//	constraints+=DConstraint*
-	//	'}';
+	//	name=ID
+	//	'is'
+	//	systemType=DSystemType
+	//	description=DRichText?;
 	public DimGrammarAccess.DPrimitiveArchetypeElements getDPrimitiveArchetypeAccess() {
 		return gaDim.getDPrimitiveArchetypeAccess();
 	}
 	
 	public ParserRule getDPrimitiveArchetypeRule() {
 		return getDPrimitiveArchetypeAccess().getRule();
+	}
+	
+	//enum DSystemType:
+	//	VOID | BOOLEAN | NUMBER | TEXT | ID | TIMEPOINT | TYPE | OBJECT | ACTOR | OPERATION | LAMBDA;
+	public DimGrammarAccess.DSystemTypeElements getDSystemTypeAccess() {
+		return gaDim.getDSystemTypeAccess();
+	}
+	
+	public EnumRule getDSystemTypeRule() {
+		return getDSystemTypeAccess().getRule();
 	}
 	
 	//DLiteral:
@@ -3582,7 +3604,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DAssignment DExpression:
-	//	{DAssignment} member=[DNavigableMember] OpSingleAssign value=DAssignment
+	//	{DAssignment} assignToMember=[DNavigableMember] OpSingleAssign value=DAssignment
 	//	| DOrExpression;
 	public DmxGrammarAccess.DAssignmentElements getDAssignmentAccess() {
 		return gaDmx.getDAssignmentAccess();
@@ -3797,7 +3819,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DNavigableMemberReference DExpression:
-	//	DPrimaryExpression (=> ({DAssignment.memberContainer=current} '.' member=[DNavigableMember] OpSingleAssign)
+	//	DPrimaryExpression (=> ({DAssignment.memberContainer=current} '.' assignToMember=[DNavigableMember] OpSingleAssign)
 	//	value=DAssignment
 	//	| => ({DNavigableMemberReference.memberContainerReference=current} '.') member=[DNavigableMember] (=>
 	//	explicitOperationCall?='(' (memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)?

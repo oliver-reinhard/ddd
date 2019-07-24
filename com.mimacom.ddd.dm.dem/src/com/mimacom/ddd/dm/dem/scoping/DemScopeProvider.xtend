@@ -17,8 +17,8 @@ class DemScopeProvider extends AbstractDemScopeProvider {
 //	val epackage = BasePackage.eINSTANCE
 
 	override getScope(EObject context, EReference reference) {
-		
-		return super.getScope(context, reference)
+		val scope = super.getScope(context, reference)
+		return scope
 	}
 
 }

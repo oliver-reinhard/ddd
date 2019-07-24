@@ -334,7 +334,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDAssignment_Member()
+	public EReference getDAssignment_AssignToMember()
 	{
 		return (EReference)dAssignmentEClass.getEStructuralFeatures().get(1);
 	}
@@ -1025,7 +1025,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 
 		dAssignmentEClass = createEClass(DASSIGNMENT);
 		createEReference(dAssignmentEClass, DASSIGNMENT__MEMBER_CONTAINER);
-		createEReference(dAssignmentEClass, DASSIGNMENT__MEMBER);
+		createEReference(dAssignmentEClass, DASSIGNMENT__ASSIGN_TO_MEMBER);
 		createEReference(dAssignmentEClass, DASSIGNMENT__VALUE);
 
 		dBinaryOperationEClass = createEClass(DBINARY_OPERATION);
@@ -1168,7 +1168,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 
 		initEClass(dAssignmentEClass, DAssignment.class, "DAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDAssignment_MemberContainer(), theBasePackage.getDExpression(), null, "memberContainer", null, 0, 1, DAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDAssignment_Member(), theBasePackage.getDNavigableMember(), null, "member", null, 0, 1, DAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDAssignment_AssignToMember(), theBasePackage.getDNavigableMember(), null, "assignToMember", null, 0, 1, DAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDAssignment_Value(), theBasePackage.getDExpression(), null, "value", null, 0, 1, DAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dBinaryOperationEClass, DBinaryOperation.class, "DBinaryOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

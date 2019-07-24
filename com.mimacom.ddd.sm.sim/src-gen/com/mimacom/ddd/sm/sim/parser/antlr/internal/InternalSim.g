@@ -3918,43 +3918,164 @@ ruleDFunction returns [EObject current=null]
 		{
 			newLeafNode(otherlv_2, grammarAccess.getDFunctionAccess().getLeftParenthesisKeyword_2());
 		}
-		otherlv_3=')'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getDFunctionAccess().getRightParenthesisKeyword_3());
-		}
-		otherlv_4=':'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getDFunctionAccess().getColonKeyword_4());
-		}
 		(
 			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDFunctionRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getDFunctionAccess().getParametersDFunctionParameterParserRuleCall_3_0_0());
 					}
-				}
-				otherlv_5=RULE_ID
-				{
-					newLeafNode(otherlv_5, grammarAccess.getDFunctionAccess().getTypeDTypeCrossReference_5_0());
-				}
+					lv_parameters_3_0=ruleDFunctionParameter
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDFunctionRule());
+						}
+						add(
+							$current,
+							"parameters",
+							lv_parameters_3_0,
+							"com.mimacom.ddd.dm.dim.Dim.DFunctionParameter");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
-		)
+			(
+				otherlv_4=','
+				{
+					newLeafNode(otherlv_4, grammarAccess.getDFunctionAccess().getCommaKeyword_3_1_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getDFunctionAccess().getParametersDFunctionParameterParserRuleCall_3_1_1_0());
+						}
+						lv_parameters_5_0=ruleDFunctionParameter
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getDFunctionRule());
+							}
+							add(
+								$current,
+								"parameters",
+								lv_parameters_5_0,
+								"com.mimacom.ddd.dm.dim.Dim.DFunctionParameter");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
+		otherlv_6=')'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getDFunctionAccess().getRightParenthesisKeyword_4());
+		}
+		otherlv_7=':'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getDFunctionAccess().getColonKeyword_5());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDFunctionAccess().getMultiplicityDMultiplicityParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getDFunctionAccess().getSystemTypeDSystemTypeEnumRuleCall_6_0());
 				}
-				lv_multiplicity_6_0=ruleDMultiplicity
+				lv_systemType_8_0=ruleDSystemType
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDFunctionRule());
 					}
 					set(
 						$current,
-						"multiplicity",
-						lv_multiplicity_6_0,
-						"com.mimacom.ddd.dm.dmx.Dmx.DMultiplicity");
+						"systemType",
+						lv_systemType_8_0,
+						"com.mimacom.ddd.dm.dim.Dim.DSystemType");
 					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				lv_systemTypeMany_9_0='*'
+				{
+					newLeafNode(lv_systemTypeMany_9_0, grammarAccess.getDFunctionAccess().getSystemTypeManyAsteriskKeyword_7_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDFunctionRule());
+					}
+					setWithLastConsumed($current, "systemTypeMany", true, "*");
+				}
+			)
+		)?
+	)
+;
+
+// Entry rule entryRuleDFunctionParameter
+entryRuleDFunctionParameter returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDFunctionParameterRule()); }
+	iv_ruleDFunctionParameter=ruleDFunctionParameter
+	{ $current=$iv_ruleDFunctionParameter.current; }
+	EOF;
+
+// Rule DFunctionParameter
+ruleDFunctionParameter returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_name_0_0=RULE_ID
+				{
+					newLeafNode(lv_name_0_0, grammarAccess.getDFunctionParameterAccess().getNameIDTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDFunctionParameterRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_0_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.ID");
+				}
+			)
+		)
+		otherlv_1=':'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getDFunctionParameterAccess().getColonKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDFunctionParameterAccess().getSystemTypeDSystemTypeEnumRuleCall_2_0());
+				}
+				lv_systemType_2_0=ruleDSystemType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDFunctionParameterRule());
+					}
+					set(
+						$current,
+						"systemType",
+						lv_systemType_2_0,
+						"com.mimacom.ddd.dm.dim.Dim.DSystemType");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				lv_systemTypeMany_3_0='*'
+				{
+					newLeafNode(lv_systemTypeMany_3_0, grammarAccess.getDFunctionParameterAccess().getSystemTypeManyAsteriskKeyword_3_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDFunctionParameterRule());
+					}
+					setWithLastConsumed($current, "systemTypeMany", true, "*");
 				}
 			)
 		)?
@@ -4238,33 +4359,35 @@ ruleDPrimitive returns [EObject current=null]
 				}
 			)
 		)?
-		otherlv_7='{'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getDPrimitiveAccess().getLeftCurlyBracketKeyword_6());
-		}
 		(
+			otherlv_7='{'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getDPrimitiveAccess().getLeftCurlyBracketKeyword_6_0());
+			}
 			(
-				{
-					newCompositeNode(grammarAccess.getDPrimitiveAccess().getConstraintsDConstraintParserRuleCall_7_0());
-				}
-				lv_constraints_8_0=ruleDConstraint
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDPrimitiveRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getDPrimitiveAccess().getConstraintsDConstraintParserRuleCall_6_1_0());
 					}
-					add(
-						$current,
-						"constraints",
-						lv_constraints_8_0,
-						"com.mimacom.ddd.dm.dim.Dim.DConstraint");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		otherlv_9='}'
-		{
-			newLeafNode(otherlv_9, grammarAccess.getDPrimitiveAccess().getRightCurlyBracketKeyword_8());
-		}
+					lv_constraints_8_0=ruleDConstraint
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDPrimitiveRule());
+						}
+						add(
+							$current,
+							"constraints",
+							lv_constraints_8_0,
+							"com.mimacom.ddd.dm.dim.Dim.DConstraint");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)+
+			otherlv_9='}'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getDPrimitiveAccess().getRightCurlyBracketKeyword_6_2());
+			}
+		)?
 	)
 ;
 
@@ -4306,34 +4429,33 @@ ruleDPrimitiveArchetype returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_2='alias'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getDPrimitiveArchetypeAccess().getAliasKeyword_2_0());
-			}
-			(
-				(
-					lv_aliases_3_0=RULE_ID
-					{
-						newLeafNode(lv_aliases_3_0, grammarAccess.getDPrimitiveArchetypeAccess().getAliasesIDTerminalRuleCall_2_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDPrimitiveArchetypeRule());
-						}
-						addWithLastConsumed(
-							$current,
-							"aliases",
-							lv_aliases_3_0,
-							"com.mimacom.ddd.dm.dmx.Dmx.ID");
-					}
-				)
-			)
-		)*
+		otherlv_2='is'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getDPrimitiveArchetypeAccess().getIsKeyword_2());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDPrimitiveArchetypeAccess().getDescriptionDRichTextParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getDPrimitiveArchetypeAccess().getSystemTypeDSystemTypeEnumRuleCall_3_0());
+				}
+				lv_systemType_3_0=ruleDSystemType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDPrimitiveArchetypeRule());
+					}
+					set(
+						$current,
+						"systemType",
+						lv_systemType_3_0,
+						"com.mimacom.ddd.dm.dim.Dim.DSystemType");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDPrimitiveArchetypeAccess().getDescriptionDRichTextParserRuleCall_4_0());
 				}
 				lv_description_4_0=ruleDRichText
 				{
@@ -4349,33 +4471,6 @@ ruleDPrimitiveArchetype returns [EObject current=null]
 				}
 			)
 		)?
-		otherlv_5='{'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getDPrimitiveArchetypeAccess().getLeftCurlyBracketKeyword_4());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getDPrimitiveArchetypeAccess().getConstraintsDConstraintParserRuleCall_5_0());
-				}
-				lv_constraints_6_0=ruleDConstraint
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDPrimitiveArchetypeRule());
-					}
-					add(
-						$current,
-						"constraints",
-						lv_constraints_6_0,
-						"com.mimacom.ddd.dm.dim.Dim.DConstraint");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		otherlv_7='}'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getDPrimitiveArchetypeAccess().getRightCurlyBracketKeyword_6());
-		}
 	)
 ;
 
@@ -5943,7 +6038,7 @@ ruleDAssignment returns [EObject current=null]
 					}
 					otherlv_1=RULE_ID
 					{
-						newLeafNode(otherlv_1, grammarAccess.getDAssignmentAccess().getMemberDNavigableMemberCrossReference_0_1_0());
+						newLeafNode(otherlv_1, grammarAccess.getDAssignmentAccess().getAssignToMemberDNavigableMemberCrossReference_0_1_0());
 					}
 				)
 			)
@@ -6927,7 +7022,7 @@ ruleDNavigableMemberReference returns [EObject current=null]
 								}
 								otherlv_3=RULE_ID
 								{
-									newLeafNode(otherlv_3, grammarAccess.getDNavigableMemberReferenceAccess().getMemberDNavigableMemberCrossReference_1_0_0_0_2_0());
+									newLeafNode(otherlv_3, grammarAccess.getDNavigableMemberReferenceAccess().getAssignToMemberDNavigableMemberCrossReference_1_0_0_0_2_0());
 								}
 							)
 						)
@@ -8659,6 +8754,105 @@ ruleSDetailType returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getSDetailTypeAccess().getTRUEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_1, grammarAccess.getSDetailTypeAccess().getTRUEEnumLiteralDeclaration_1());
+			}
+		)
+	)
+;
+
+// Rule DSystemType
+ruleDSystemType returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='VOID'
+			{
+				$current = grammarAccess.getDSystemTypeAccess().getVOIDEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getDSystemTypeAccess().getVOIDEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='BOOLEAN'
+			{
+				$current = grammarAccess.getDSystemTypeAccess().getBOOLEANEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getDSystemTypeAccess().getBOOLEANEnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='NUMBER'
+			{
+				$current = grammarAccess.getDSystemTypeAccess().getNUMBEREnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getDSystemTypeAccess().getNUMBEREnumLiteralDeclaration_2());
+			}
+		)
+		    |
+		(
+			enumLiteral_3='TEXT'
+			{
+				$current = grammarAccess.getDSystemTypeAccess().getTEXTEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getDSystemTypeAccess().getTEXTEnumLiteralDeclaration_3());
+			}
+		)
+		    |
+		(
+			enumLiteral_4='ID'
+			{
+				$current = grammarAccess.getDSystemTypeAccess().getIDEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_4, grammarAccess.getDSystemTypeAccess().getIDEnumLiteralDeclaration_4());
+			}
+		)
+		    |
+		(
+			enumLiteral_5='TIMEPOINT'
+			{
+				$current = grammarAccess.getDSystemTypeAccess().getTIMEPOINTEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_5, grammarAccess.getDSystemTypeAccess().getTIMEPOINTEnumLiteralDeclaration_5());
+			}
+		)
+		    |
+		(
+			enumLiteral_6='TYPE'
+			{
+				$current = grammarAccess.getDSystemTypeAccess().getTYPEEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_6, grammarAccess.getDSystemTypeAccess().getTYPEEnumLiteralDeclaration_6());
+			}
+		)
+		    |
+		(
+			enumLiteral_7='OBJECT'
+			{
+				$current = grammarAccess.getDSystemTypeAccess().getOBJECTEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_7, grammarAccess.getDSystemTypeAccess().getOBJECTEnumLiteralDeclaration_7());
+			}
+		)
+		    |
+		(
+			enumLiteral_8='ACTOR'
+			{
+				$current = grammarAccess.getDSystemTypeAccess().getACTOREnumLiteralDeclaration_8().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_8, grammarAccess.getDSystemTypeAccess().getACTOREnumLiteralDeclaration_8());
+			}
+		)
+		    |
+		(
+			enumLiteral_9='OPERATION'
+			{
+				$current = grammarAccess.getDSystemTypeAccess().getOPERATIONEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_9, grammarAccess.getDSystemTypeAccess().getOPERATIONEnumLiteralDeclaration_9());
+			}
+		)
+		    |
+		(
+			enumLiteral_10='LAMBDA'
+			{
+				$current = grammarAccess.getDSystemTypeAccess().getLAMBDAEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_10, grammarAccess.getDSystemTypeAccess().getLAMBDAEnumLiteralDeclaration_10());
 			}
 		)
 	)

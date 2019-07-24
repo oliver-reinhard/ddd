@@ -68,6 +68,15 @@ public interface BaseFactory extends EFactory
 	DFunction createDFunction();
 
 	/**
+	 * Returns a new object of class '<em>DFunction Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DFunction Parameter</em>'.
+	 * @generated
+	 */
+	DFunctionParameter createDFunctionParameter();
+
+	/**
 	 * Returns a new object of class '<em>DAggregate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

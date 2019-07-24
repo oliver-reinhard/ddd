@@ -16,6 +16,7 @@ import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DException;
 import com.mimacom.ddd.dm.base.DExistingApplication;
 import com.mimacom.ddd.dm.base.DFunction;
+import com.mimacom.ddd.dm.base.DFunctionParameter;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DMultiplicity;
@@ -106,6 +107,9 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case BasePackage.DFUNCTION:
 				sequence_DFunction(context, (DFunction) semanticObject); 
+				return; 
+			case BasePackage.DFUNCTION_PARAMETER:
+				sequence_DFunctionParameter(context, (DFunctionParameter) semanticObject); 
 				return; 
 			case BasePackage.DIMPORT:
 				sequence_DImport(context, (DImport) semanticObject); 
@@ -419,10 +423,22 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     DFunctionParameter returns DFunctionParameter
+	 *
+	 * Constraint:
+	 *     (name=ID systemType=DSystemType systemTypeMany?='*'?)
+	 */
+	protected void sequence_DFunctionParameter(ISerializationContext context, DFunctionParameter semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     DFunction returns DFunction
 	 *
 	 * Constraint:
-	 *     (name=ID type=[DType|ID] multiplicity=DMultiplicity?)
+	 *     (name=ID (parameters+=DFunctionParameter parameters+=DFunctionParameter*)? systemType=DSystemType systemTypeMany?='*'?)
 	 */
 	protected void sequence_DFunction(ISerializationContext context, DFunction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -464,7 +480,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *     DPrimitiveArchetype returns DPrimitive
 	 *
 	 * Constraint:
-	 *     (name=ID aliases+=ID* description=DRichText? constraints+=DConstraint*)
+	 *     (name=ID systemType=DSystemType description=DRichText?)
 	 */
 	protected void sequence_DPrimitiveArchetype(ISerializationContext context, DPrimitive semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -490,7 +506,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         (name=ID aliases+=ID* redefines=[DPrimitive|ID] description=DRichText? constraints+=DConstraint*) | 
-	 *         (name=ID aliases+=ID* description=DRichText? constraints+=DConstraint*)
+	 *         (name=ID systemType=DSystemType description=DRichText?)
 	 *     )
 	 */
 	protected void sequence_DPrimitive_DPrimitiveArchetype(ISerializationContext context, DPrimitive semanticObject) {

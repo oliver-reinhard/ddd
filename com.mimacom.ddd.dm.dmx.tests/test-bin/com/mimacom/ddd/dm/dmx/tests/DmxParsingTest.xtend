@@ -206,26 +206,26 @@ class DmxParsingTest {
 		val e0 = expr.get(0)
 		assertEquals(DAssignmentImpl, e0.class)
 		// actual value of 'e0.member' cross reference is a proxy that gets resolved upon access => Exception
-		assertTrue((e0 as DAssignmentImpl).basicGetMember.eIsProxy)
+		assertTrue((e0 as DAssignmentImpl).basicGetAssignToMember.eIsProxy)
 		assertNull((e0 as DAssignmentImpl).memberContainer)
 		assertEquals(DNaturalLiteralImpl, (e0 as DAssignmentImpl).value.class)
 		
 		val e1 = expr.get(1)
 		assertEquals(DAssignmentImpl, e1.class)
-		assertTrue((e1 as DAssignmentImpl).basicGetMember.eIsProxy)
+		assertTrue((e1 as DAssignmentImpl).basicGetAssignToMember.eIsProxy)
 		assertEquals(DSelfExpressionImpl, (e1 as DAssignmentImpl).memberContainer.class)
 		assertEquals(DNaturalLiteralImpl, (e1 as DAssignmentImpl).value.class)
 		
 		val e2 = expr.get(2)
 		assertEquals(DAssignmentImpl, e2.class)
-		assertTrue((e2 as DAssignmentImpl).basicGetMember.eIsProxy)
+		assertTrue((e2 as DAssignmentImpl).basicGetAssignToMember.eIsProxy)
 		assertEquals(DContextReferenceImpl, (e2 as DAssignmentImpl).memberContainer.class)
 		assertEquals(DNaturalLiteralImpl, (e2 as DAssignmentImpl).value.class)
 		
 		val e3 = expr.get(3)
 		// DMemberFeatureCall -- memberContainer --> DMemberFeatureCall -- memberContainer --> DContextReference
 		assertEquals(DAssignmentImpl, e3.class)
-		assertTrue((e3 as DAssignmentImpl).basicGetMember.eIsProxy)
+		assertTrue((e3 as DAssignmentImpl).basicGetAssignToMember.eIsProxy)
 		assertEquals(DNavigableMemberReferenceImpl, (e3 as DAssignmentImpl).memberContainer.class)
 		val e3_1 = (e3 as DAssignmentImpl).memberContainer as DNavigableMemberReferenceImpl
 		// actual value of 'e3.member' cross reference is a proxy that gets resolved upon access => Exception

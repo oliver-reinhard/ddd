@@ -1,0 +1,11 @@
+domain dm.functions
+
+function all	(arg : TYPE): OBJECT*
+function exists	(arg : OBJECT*, filter: LAMBDA): BOOLEAN 
+function select	(arg : OBJECT*, filter: LAMBDA): OBJECT* 
+function get	(array : OBJECT*, index : NUMBER): OBJECT 
+function first	(array : OBJECT*): OBJECT 
+function last	(array : OBJECT*): OBJECT 
+function now() : TIMEPOINT
+function invoked(arg : OPERATION): VOID
+function notified(arg : ACTOR): VOID

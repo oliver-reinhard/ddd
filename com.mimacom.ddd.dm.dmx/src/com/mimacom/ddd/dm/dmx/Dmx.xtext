@@ -30,7 +30,7 @@ DTextEnd returns DTextSegment:		value=PLAIN_TEXT_END;
 
 DAssignment returns DExpression :
 	{DAssignment}
-	member=[DNavigableMember|ID] OpSingleAssign value=DAssignment 
+	assignToMember=[DNavigableMember|ID] OpSingleAssign value=DAssignment 
 	| DOrExpression;
 
 OpSingleAssign:
@@ -106,7 +106,7 @@ OpCast:
 	
 DNavigableMemberReference returns DExpression:
 	DPrimaryExpression
-	(	=> ({DAssignment.memberContainer=current} '.' member=[DNavigableMember|ID] OpSingleAssign) value=DAssignment
+	(	=> ({DAssignment.memberContainer=current} '.' assignToMember=[DNavigableMember|ID] OpSingleAssign) value=DAssignment
 	| 	=> ({DNavigableMemberReference.memberContainerReference=current} '.')
 		member=[DNavigableMember|ID] 
 		(

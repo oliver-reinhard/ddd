@@ -170,8 +170,8 @@ public class DemSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) ('SELF' | 'self') (rule start)
 	 *     (rule start) (ambiguity) ('UNDEFINED' | 'undefined') (rule start)
 	 *     (rule start) (ambiguity) OpConstructor constructor=[DComplexType|ID]
+	 *     (rule start) (ambiguity) assignToMember=[DNavigableMember|ID]
 	 *     (rule start) (ambiguity) function=[DFunction|ID]
-	 *     (rule start) (ambiguity) member=[DNavigableMember|ID]
 	 *     (rule start) (ambiguity) operator=OpUnary
 	 *     (rule start) (ambiguity) segments+=DTextOnly
 	 *     (rule start) (ambiguity) segments+=DTextStart
@@ -206,8 +206,8 @@ public class DemSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) ('SELF' | 'self') ')' (rule start)
 	 *     (rule start) (ambiguity) ('UNDEFINED' | 'undefined') ')' (rule start)
 	 *     (rule start) (ambiguity) OpConstructor constructor=[DComplexType|ID]
+	 *     (rule start) (ambiguity) assignToMember=[DNavigableMember|ID]
 	 *     (rule start) (ambiguity) function=[DFunction|ID]
-	 *     (rule start) (ambiguity) member=[DNavigableMember|ID]
 	 *     (rule start) (ambiguity) operator=OpUnary
 	 *     (rule start) (ambiguity) segments+=DTextOnly
 	 *     (rule start) (ambiguity) segments+=DTextStart

@@ -13,7 +13,6 @@ import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DService
 import com.mimacom.ddd.dm.base.INavigableMemberContainer
-import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget
 import com.mimacom.ddd.dm.dmx.DAssignment
 import com.mimacom.ddd.dm.dmx.DContextReference
 import com.mimacom.ddd.dm.dmx.DFunctionCall
@@ -50,7 +49,7 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 					
 				} else if (ref instanceof DContextReference && (ref as DContextReference).target instanceof DComplexType) {
 					// do not support feature navigaton from a STATIC DContextReference to complex types (ok for e.g. enumerations):
-					getDefaultScopeForType(context, BASE.DFunction)
+					IScope.NULLSCOPE //getDefaultScopeForType(context, BASE.DFunction)
 					
 				} else {
 					getNavigableMemberReferencesScope(ref)
@@ -58,7 +57,7 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 				return scope
 			}
 
-		} else if (reference == DMX.DAssignment_Member) {
+		} else if (reference == DMX.DAssignment_AssignToMember) {
 			if (context instanceof DAssignment) {
 				val scope = getAssignmentMemberScope(context, reference)
 				return scope

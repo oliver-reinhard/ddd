@@ -60,7 +60,7 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
         } else {
           IScope _xifexpression_1 = null;
           if (((ref instanceof DContextReference) && (((DContextReference) ref).getTarget() instanceof DComplexType))) {
-            _xifexpression_1 = this.getDefaultScopeForType(context, DmxScopeProvider.BASE.getDFunction());
+            _xifexpression_1 = IScope.NULLSCOPE;
           } else {
             _xifexpression_1 = this.getNavigableMemberReferencesScope(ref);
           }
@@ -70,8 +70,8 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
         return scope;
       }
     } else {
-      EReference _dAssignment_Member = DmxScopeProvider.DMX.getDAssignment_Member();
-      boolean _equals_1 = Objects.equal(reference, _dAssignment_Member);
+      EReference _dAssignment_AssignToMember = DmxScopeProvider.DMX.getDAssignment_AssignToMember();
+      boolean _equals_1 = Objects.equal(reference, _dAssignment_AssignToMember);
       if (_equals_1) {
         if ((context instanceof DAssignment)) {
           final IScope scope_1 = this.getAssignmentMemberScope(((DAssignment)context), reference);

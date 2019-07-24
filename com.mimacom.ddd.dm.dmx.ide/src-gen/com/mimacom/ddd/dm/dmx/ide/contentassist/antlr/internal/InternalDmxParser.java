@@ -9254,26 +9254,26 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAssignment__Group_0__1__Impl"
-    // InternalDmx.g:2544:1: rule__DAssignment__Group_0__1__Impl : ( ( rule__DAssignment__MemberAssignment_0_1 ) ) ;
+    // InternalDmx.g:2544:1: rule__DAssignment__Group_0__1__Impl : ( ( rule__DAssignment__AssignToMemberAssignment_0_1 ) ) ;
     public final void rule__DAssignment__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDmx.g:2548:1: ( ( ( rule__DAssignment__MemberAssignment_0_1 ) ) )
-            // InternalDmx.g:2549:1: ( ( rule__DAssignment__MemberAssignment_0_1 ) )
+            // InternalDmx.g:2548:1: ( ( ( rule__DAssignment__AssignToMemberAssignment_0_1 ) ) )
+            // InternalDmx.g:2549:1: ( ( rule__DAssignment__AssignToMemberAssignment_0_1 ) )
             {
-            // InternalDmx.g:2549:1: ( ( rule__DAssignment__MemberAssignment_0_1 ) )
-            // InternalDmx.g:2550:2: ( rule__DAssignment__MemberAssignment_0_1 )
+            // InternalDmx.g:2549:1: ( ( rule__DAssignment__AssignToMemberAssignment_0_1 ) )
+            // InternalDmx.g:2550:2: ( rule__DAssignment__AssignToMemberAssignment_0_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDAssignmentAccess().getMemberAssignment_0_1()); 
+               before(grammarAccess.getDAssignmentAccess().getAssignToMemberAssignment_0_1()); 
             }
-            // InternalDmx.g:2551:2: ( rule__DAssignment__MemberAssignment_0_1 )
-            // InternalDmx.g:2551:3: rule__DAssignment__MemberAssignment_0_1
+            // InternalDmx.g:2551:2: ( rule__DAssignment__AssignToMemberAssignment_0_1 )
+            // InternalDmx.g:2551:3: rule__DAssignment__AssignToMemberAssignment_0_1
             {
             pushFollow(FOLLOW_2);
-            rule__DAssignment__MemberAssignment_0_1();
+            rule__DAssignment__AssignToMemberAssignment_0_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -9281,7 +9281,7 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDAssignmentAccess().getMemberAssignment_0_1()); 
+               after(grammarAccess.getDAssignmentAccess().getAssignToMemberAssignment_0_1()); 
             }
 
             }
@@ -15786,26 +15786,26 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DNavigableMemberReference__Group_1_0_0_0__2__Impl"
-    // InternalDmx.g:4542:1: rule__DNavigableMemberReference__Group_1_0_0_0__2__Impl : ( ( rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2 ) ) ;
+    // InternalDmx.g:4542:1: rule__DNavigableMemberReference__Group_1_0_0_0__2__Impl : ( ( rule__DNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 ) ) ;
     public final void rule__DNavigableMemberReference__Group_1_0_0_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDmx.g:4546:1: ( ( ( rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2 ) ) )
-            // InternalDmx.g:4547:1: ( ( rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2 ) )
+            // InternalDmx.g:4546:1: ( ( ( rule__DNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 ) ) )
+            // InternalDmx.g:4547:1: ( ( rule__DNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 ) )
             {
-            // InternalDmx.g:4547:1: ( ( rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2 ) )
-            // InternalDmx.g:4548:2: ( rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2 )
+            // InternalDmx.g:4547:1: ( ( rule__DNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 ) )
+            // InternalDmx.g:4548:2: ( rule__DNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDNavigableMemberReferenceAccess().getMemberAssignment_1_0_0_0_2()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getAssignToMemberAssignment_1_0_0_0_2()); 
             }
-            // InternalDmx.g:4549:2: ( rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2 )
-            // InternalDmx.g:4549:3: rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2
+            // InternalDmx.g:4549:2: ( rule__DNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 )
+            // InternalDmx.g:4549:3: rule__DNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2
             {
             pushFollow(FOLLOW_2);
-            rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2();
+            rule__DNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15813,7 +15813,7 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDNavigableMemberReferenceAccess().getMemberAssignment_1_0_0_0_2()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getAssignToMemberAssignment_1_0_0_0_2()); 
             }
 
             }
@@ -24661,9 +24661,9 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DTextEnd__ValueAssignment"
 
 
-    // $ANTLR start "rule__DAssignment__MemberAssignment_0_1"
-    // InternalDmx.g:7383:1: rule__DAssignment__MemberAssignment_0_1 : ( ( RULE_ID ) ) ;
-    public final void rule__DAssignment__MemberAssignment_0_1() throws RecognitionException {
+    // $ANTLR start "rule__DAssignment__AssignToMemberAssignment_0_1"
+    // InternalDmx.g:7383:1: rule__DAssignment__AssignToMemberAssignment_0_1 : ( ( RULE_ID ) ) ;
+    public final void rule__DAssignment__AssignToMemberAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -24675,23 +24675,23 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
             // InternalDmx.g:7389:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDAssignmentAccess().getMemberDNavigableMemberCrossReference_0_1_0()); 
+               before(grammarAccess.getDAssignmentAccess().getAssignToMemberDNavigableMemberCrossReference_0_1_0()); 
             }
             // InternalDmx.g:7390:3: ( RULE_ID )
             // InternalDmx.g:7391:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDAssignmentAccess().getMemberDNavigableMemberIDTerminalRuleCall_0_1_0_1()); 
+               before(grammarAccess.getDAssignmentAccess().getAssignToMemberDNavigableMemberIDTerminalRuleCall_0_1_0_1()); 
             }
             match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDAssignmentAccess().getMemberDNavigableMemberIDTerminalRuleCall_0_1_0_1()); 
+               after(grammarAccess.getDAssignmentAccess().getAssignToMemberDNavigableMemberIDTerminalRuleCall_0_1_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDAssignmentAccess().getMemberDNavigableMemberCrossReference_0_1_0()); 
+               after(grammarAccess.getDAssignmentAccess().getAssignToMemberDNavigableMemberCrossReference_0_1_0()); 
             }
 
             }
@@ -24711,7 +24711,7 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DAssignment__MemberAssignment_0_1"
+    // $ANTLR end "rule__DAssignment__AssignToMemberAssignment_0_1"
 
 
     // $ANTLR start "rule__DAssignment__ValueAssignment_0_3"
@@ -25585,9 +25585,9 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DCastExpression__TypeAssignment_1_1"
 
 
-    // $ANTLR start "rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2"
-    // InternalDmx.g:7695:1: rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2 : ( ( RULE_ID ) ) ;
-    public final void rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2() throws RecognitionException {
+    // $ANTLR start "rule__DNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2"
+    // InternalDmx.g:7695:1: rule__DNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 : ( ( RULE_ID ) ) ;
+    public final void rule__DNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -25599,23 +25599,23 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
             // InternalDmx.g:7701:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDNavigableMemberReferenceAccess().getMemberDNavigableMemberCrossReference_1_0_0_0_2_0()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getAssignToMemberDNavigableMemberCrossReference_1_0_0_0_2_0()); 
             }
             // InternalDmx.g:7702:3: ( RULE_ID )
             // InternalDmx.g:7703:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDNavigableMemberReferenceAccess().getMemberDNavigableMemberIDTerminalRuleCall_1_0_0_0_2_0_1()); 
+               before(grammarAccess.getDNavigableMemberReferenceAccess().getAssignToMemberDNavigableMemberIDTerminalRuleCall_1_0_0_0_2_0_1()); 
             }
             match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDNavigableMemberReferenceAccess().getMemberDNavigableMemberIDTerminalRuleCall_1_0_0_0_2_0_1()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getAssignToMemberDNavigableMemberIDTerminalRuleCall_1_0_0_0_2_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDNavigableMemberReferenceAccess().getMemberDNavigableMemberCrossReference_1_0_0_0_2_0()); 
+               after(grammarAccess.getDNavigableMemberReferenceAccess().getAssignToMemberDNavigableMemberCrossReference_1_0_0_0_2_0()); 
             }
 
             }
@@ -25635,7 +25635,7 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DNavigableMemberReference__MemberAssignment_1_0_0_0_2"
+    // $ANTLR end "rule__DNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2"
 
 
     // $ANTLR start "rule__DNavigableMemberReference__ValueAssignment_1_0_1"
