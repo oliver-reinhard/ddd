@@ -428,14 +428,14 @@ public interface BasePackage extends EPackage
 	int INAVIGABLE_MEMBER_CONTAINER_OPERATION_COUNT = INAMESPACE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.IPrimaryNavigationTarget <em>IPrimary Navigation Target</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.IPrimaryNavigationTarget
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIPrimaryNavigationTarget()
+	 * @see com.mimacom.ddd.dm.base.IStaticReferenceTarget
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIStaticReferenceTarget()
 	 * @generated
 	 */
-	int IPRIMARY_NAVIGATION_TARGET = 8;
+	int ISTATIC_REFERENCE_TARGET = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -444,7 +444,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int IPRIMARY_NAVIGATION_TARGET__NAME = DNAMED_ELEMENT__NAME;
+	int ISTATIC_REFERENCE_TARGET__NAME = DNAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -453,7 +453,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int IPRIMARY_NAVIGATION_TARGET__ALIASES = DNAMED_ELEMENT__ALIASES;
+	int ISTATIC_REFERENCE_TARGET__ALIASES = DNAMED_ELEMENT__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -462,25 +462,25 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int IPRIMARY_NAVIGATION_TARGET__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
+	int ISTATIC_REFERENCE_TARGET__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
 
 	/**
-	 * The number of structural features of the '<em>IPrimary Navigation Target</em>' class.
+	 * The number of structural features of the '<em>IStatic Reference Target</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IPRIMARY_NAVIGATION_TARGET_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int ISTATIC_REFERENCE_TARGET_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>IPrimary Navigation Target</em>' class.
+	 * The number of operations of the '<em>IStatic Reference Target</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IPRIMARY_NAVIGATION_TARGET_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
+	int ISTATIC_REFERENCE_TARGET_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.IRichTextSegment <em>IRich Text Segment</em>}' class.
@@ -723,22 +723,13 @@ public interface BasePackage extends EPackage
 	int DDOMAIN__IMPORTS = DNAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DDOMAIN__FUNCTIONS = DNAMED_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Aggregates</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN__AGGREGATES = DNAMED_ELEMENT_FEATURE_COUNT + 5;
+	int DDOMAIN__AGGREGATES = DNAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>State Models</b></em>' containment reference list.
@@ -747,7 +738,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN__STATE_MODELS = DNAMED_ELEMENT_FEATURE_COUNT + 6;
+	int DDOMAIN__STATE_MODELS = DNAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Applications</b></em>' containment reference list.
@@ -756,7 +747,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN__APPLICATIONS = DNAMED_ELEMENT_FEATURE_COUNT + 7;
+	int DDOMAIN__APPLICATIONS = DNAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Events</b></em>' containment reference list.
@@ -765,7 +756,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN__EVENTS = DNAMED_ELEMENT_FEATURE_COUNT + 8;
+	int DDOMAIN__EVENTS = DNAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Actors</b></em>' containment reference list.
@@ -774,7 +765,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN__ACTORS = DNAMED_ELEMENT_FEATURE_COUNT + 9;
+	int DDOMAIN__ACTORS = DNAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>DDomain</em>' class.
@@ -783,7 +774,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 10;
+	int DDOMAIN_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>DDomain</em>' class.
@@ -795,179 +786,6 @@ public interface BasePackage extends EPackage
 	int DDOMAIN_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DFunctionImpl <em>DFunction</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.impl.DFunctionImpl
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDFunction()
-	 * @generated
-	 */
-	int DFUNCTION = 15;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DFUNCTION__NAME = DNAVIGABLE_MEMBER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DFUNCTION__ALIASES = DNAVIGABLE_MEMBER__ALIASES;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DFUNCTION__DESCRIPTION = DNAVIGABLE_MEMBER__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DFUNCTION__TYPE = DNAVIGABLE_MEMBER__TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DFUNCTION__MULTIPLICITY = DNAVIGABLE_MEMBER__MULTIPLICITY;
-
-	/**
-	 * The feature id for the '<em><b>Optional</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DFUNCTION__OPTIONAL = DNAVIGABLE_MEMBER__OPTIONAL;
-
-	/**
-	 * The feature id for the '<em><b>Collection</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DFUNCTION__COLLECTION = DNAVIGABLE_MEMBER__COLLECTION;
-
-	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DFUNCTION__PARAMETERS = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>System Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DFUNCTION__SYSTEM_TYPE = DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>System Type Many</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DFUNCTION__SYSTEM_TYPE_MANY = DNAVIGABLE_MEMBER_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>DFunction</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DFUNCTION_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of operations of the '<em>DFunction</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DFUNCTION_OPERATION_COUNT = DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DFunctionParameterImpl <em>DFunction Parameter</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.impl.DFunctionParameterImpl
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDFunctionParameter()
-	 * @generated
-	 */
-	int DFUNCTION_PARAMETER = 16;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DFUNCTION_PARAMETER__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>System Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DFUNCTION_PARAMETER__SYSTEM_TYPE = 1;
-
-	/**
-	 * The feature id for the '<em><b>System Type Many</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DFUNCTION_PARAMETER__SYSTEM_TYPE_MANY = 2;
-
-	/**
-	 * The number of structural features of the '<em>DFunction Parameter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DFUNCTION_PARAMETER_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>DFunction Parameter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DFUNCTION_PARAMETER_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl <em>DAggregate</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -975,7 +793,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDAggregate()
 	 * @generated
 	 */
-	int DAGGREGATE = 17;
+	int DAGGREGATE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -1057,7 +875,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIIdentityType()
 	 * @generated
 	 */
-	int IIDENTITY_TYPE = 18;
+	int IIDENTITY_TYPE = 16;
 
 	/**
 	 * The number of structural features of the '<em>IIdentity Type</em>' class.
@@ -1085,7 +903,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIValueType()
 	 * @generated
 	 */
-	int IVALUE_TYPE = 19;
+	int IVALUE_TYPE = 17;
 
 	/**
 	 * The number of structural features of the '<em>IValue Type</em>' class.
@@ -1113,7 +931,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDType()
 	 * @generated
 	 */
-	int DTYPE = 20;
+	int DTYPE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1204,7 +1022,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDCondition()
 	 * @generated
 	 */
-	int DCONDITION = 21;
+	int DCONDITION = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1268,7 +1086,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDSimpleType()
 	 * @generated
 	 */
-	int DSIMPLE_TYPE = 22;
+	int DSIMPLE_TYPE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1359,7 +1177,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDPrimitive()
 	 * @generated
 	 */
-	int DPRIMITIVE = 23;
+	int DPRIMITIVE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1434,31 +1252,13 @@ public interface BasePackage extends EPackage
 	int DPRIMITIVE__REDEFINES = DSIMPLE_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>System Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DPRIMITIVE__SYSTEM_TYPE = DSIMPLE_TYPE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Archetype</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DPRIMITIVE__ARCHETYPE = DSIMPLE_TYPE_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>DPrimitive</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DPRIMITIVE_FEATURE_COUNT = DSIMPLE_TYPE_FEATURE_COUNT + 3;
+	int DPRIMITIVE_FEATURE_COUNT = DSIMPLE_TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>DPrimitive</em>' class.
@@ -1477,7 +1277,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDEnumeration()
 	 * @generated
 	 */
-	int DENUMERATION = 24;
+	int DENUMERATION = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1577,7 +1377,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDLiteral()
 	 * @generated
 	 */
-	int DLITERAL = 25;
+	int DLITERAL = 23;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1686,7 +1486,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDComplexType()
 	 * @generated
 	 */
-	int DCOMPLEX_TYPE = 26;
+	int DCOMPLEX_TYPE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1804,7 +1604,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDetailType()
 	 * @generated
 	 */
-	int DDETAIL_TYPE = 27;
+	int DDETAIL_TYPE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1922,7 +1722,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDIdentityType()
 	 * @generated
 	 */
-	int DIDENTITY_TYPE = 28;
+	int DIDENTITY_TYPE = 26;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2049,7 +1849,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIIdentityStateModel()
 	 * @generated
 	 */
-	int IIDENTITY_STATE_MODEL = 29;
+	int IIDENTITY_STATE_MODEL = 27;
 
 	/**
 	 * The feature id for the '<em><b>For Type</b></em>' reference.
@@ -2086,7 +1886,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDEntityType()
 	 * @generated
 	 */
-	int DENTITY_TYPE = 30;
+	int DENTITY_TYPE = 28;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2213,7 +2013,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDRelationship()
 	 * @generated
 	 */
-	int DRELATIONSHIP = 31;
+	int DRELATIONSHIP = 29;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2340,7 +2140,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDFeature()
 	 * @generated
 	 */
-	int DFEATURE = 32;
+	int DFEATURE = 30;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2449,7 +2249,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDAssociation()
 	 * @generated
 	 */
-	int DASSOCIATION = 33;
+	int DASSOCIATION = 31;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2594,7 +2394,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDMultiplicity()
 	 * @generated
 	 */
-	int DMULTIPLICITY = 34;
+	int DMULTIPLICITY = 32;
 
 	/**
 	 * The feature id for the '<em><b>Min Occurs</b></em>' attribute.
@@ -2640,7 +2440,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDAttribute()
 	 * @generated
 	 */
-	int DATTRIBUTE = 35;
+	int DATTRIBUTE = 33;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2767,7 +2567,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDQuery()
 	 * @generated
 	 */
-	int DQUERY = 36;
+	int DQUERY = 34;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2894,7 +2694,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDQueryParameter()
 	 * @generated
 	 */
-	int DQUERY_PARAMETER = 37;
+	int DQUERY_PARAMETER = 35;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3003,7 +2803,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDomainEvent()
 	 * @generated
 	 */
-	int DDOMAIN_EVENT = 38;
+	int DDOMAIN_EVENT = 36;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3103,7 +2903,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDContext()
 	 * @generated
 	 */
-	int DCONTEXT = 39;
+	int DCONTEXT = 37;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3194,7 +2994,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDNotification()
 	 * @generated
 	 */
-	int DNOTIFICATION = 40;
+	int DNOTIFICATION = 38;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3294,7 +3094,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDActor()
 	 * @generated
 	 */
-	int DACTOR = 41;
+	int DACTOR = 39;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3349,7 +3149,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDHuman()
 	 * @generated
 	 */
-	int DHUMAN = 42;
+	int DHUMAN = 40;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3404,7 +3204,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDService()
 	 * @generated
 	 */
-	int DSERVICE = 43;
+	int DSERVICE = 41;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3513,7 +3313,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDServiceParameter()
 	 * @generated
 	 */
-	int DSERVICE_PARAMETER = 44;
+	int DSERVICE_PARAMETER = 42;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3613,7 +3413,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDTime()
 	 * @generated
 	 */
-	int DTIME = 45;
+	int DTIME = 43;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3668,7 +3468,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDExistingApplication()
 	 * @generated
 	 */
-	int DEXISTING_APPLICATION = 46;
+	int DEXISTING_APPLICATION = 44;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3750,7 +3550,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDException()
 	 * @generated
 	 */
-	int DEXCEPTION = 47;
+	int DEXCEPTION = 45;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3798,16 +3598,6 @@ public interface BasePackage extends EPackage
 	int DEXCEPTION_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DSystemType <em>DSystem Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.DSystemType
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDSystemType()
-	 * @generated
-	 */
-	int DSYSTEM_TYPE = 48;
-
-	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DAssociationKind <em>DAssociation Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3815,7 +3605,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDAssociationKind()
 	 * @generated
 	 */
-	int DASSOCIATION_KIND = 49;
+	int DASSOCIATION_KIND = 46;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DDirection <em>DDirection</em>}' enum.
@@ -3825,7 +3615,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDirection()
 	 * @generated
 	 */
-	int DDIRECTION = 50;
+	int DDIRECTION = 47;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DServiceKind <em>DService Kind</em>}' enum.
@@ -3835,7 +3625,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDServiceKind()
 	 * @generated
 	 */
-	int DSERVICE_KIND = 51;
+	int DSERVICE_KIND = 48;
 
 
 	/**
@@ -4062,14 +3852,14 @@ public interface BasePackage extends EPackage
 	EClass getINavigableMemberContainer();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.IPrimaryNavigationTarget <em>IPrimary Navigation Target</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>IPrimary Navigation Target</em>'.
-	 * @see com.mimacom.ddd.dm.base.IPrimaryNavigationTarget
+	 * @return the meta object for class '<em>IStatic Reference Target</em>'.
+	 * @see com.mimacom.ddd.dm.base.IStaticReferenceTarget
 	 * @generated
 	 */
-	EClass getIPrimaryNavigationTarget();
+	EClass getIStaticReferenceTarget();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.IRichTextSegment <em>IRich Text Segment</em>}'.
@@ -4176,17 +3966,6 @@ public interface BasePackage extends EPackage
 	EReference getDDomain_Imports();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DDomain#getFunctions <em>Functions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Functions</em>'.
-	 * @see com.mimacom.ddd.dm.base.DDomain#getFunctions()
-	 * @see #getDDomain()
-	 * @generated
-	 */
-	EReference getDDomain_Functions();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DDomain#getAggregates <em>Aggregates</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4240,92 +4019,6 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EReference getDDomain_Actors();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DFunction <em>DFunction</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DFunction</em>'.
-	 * @see com.mimacom.ddd.dm.base.DFunction
-	 * @generated
-	 */
-	EClass getDFunction();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DFunction#getParameters <em>Parameters</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
-	 * @see com.mimacom.ddd.dm.base.DFunction#getParameters()
-	 * @see #getDFunction()
-	 * @generated
-	 */
-	EReference getDFunction_Parameters();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DFunction#getSystemType <em>System Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>System Type</em>'.
-	 * @see com.mimacom.ddd.dm.base.DFunction#getSystemType()
-	 * @see #getDFunction()
-	 * @generated
-	 */
-	EAttribute getDFunction_SystemType();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DFunction#isSystemTypeMany <em>System Type Many</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>System Type Many</em>'.
-	 * @see com.mimacom.ddd.dm.base.DFunction#isSystemTypeMany()
-	 * @see #getDFunction()
-	 * @generated
-	 */
-	EAttribute getDFunction_SystemTypeMany();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DFunctionParameter <em>DFunction Parameter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DFunction Parameter</em>'.
-	 * @see com.mimacom.ddd.dm.base.DFunctionParameter
-	 * @generated
-	 */
-	EClass getDFunctionParameter();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DFunctionParameter#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.mimacom.ddd.dm.base.DFunctionParameter#getName()
-	 * @see #getDFunctionParameter()
-	 * @generated
-	 */
-	EAttribute getDFunctionParameter_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DFunctionParameter#getSystemType <em>System Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>System Type</em>'.
-	 * @see com.mimacom.ddd.dm.base.DFunctionParameter#getSystemType()
-	 * @see #getDFunctionParameter()
-	 * @generated
-	 */
-	EAttribute getDFunctionParameter_SystemType();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DFunctionParameter#isSystemTypeMany <em>System Type Many</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>System Type Many</em>'.
-	 * @see com.mimacom.ddd.dm.base.DFunctionParameter#isSystemTypeMany()
-	 * @see #getDFunctionParameter()
-	 * @generated
-	 */
-	EAttribute getDFunctionParameter_SystemTypeMany();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DAggregate <em>DAggregate</em>}'.
@@ -4473,28 +4166,6 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EReference getDPrimitive_Redefines();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DPrimitive#getSystemType <em>System Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>System Type</em>'.
-	 * @see com.mimacom.ddd.dm.base.DPrimitive#getSystemType()
-	 * @see #getDPrimitive()
-	 * @generated
-	 */
-	EAttribute getDPrimitive_SystemType();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DPrimitive#isArchetype <em>Archetype</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Archetype</em>'.
-	 * @see com.mimacom.ddd.dm.base.DPrimitive#isArchetype()
-	 * @see #getDPrimitive()
-	 * @generated
-	 */
-	EAttribute getDPrimitive_Archetype();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DEnumeration <em>DEnumeration</em>}'.
@@ -5066,16 +4737,6 @@ public interface BasePackage extends EPackage
 	EClass getDException();
 
 	/**
-	 * Returns the meta object for enum '{@link com.mimacom.ddd.dm.base.DSystemType <em>DSystem Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>DSystem Type</em>'.
-	 * @see com.mimacom.ddd.dm.base.DSystemType
-	 * @generated
-	 */
-	EEnum getDSystemType();
-
-	/**
 	 * Returns the meta object for enum '{@link com.mimacom.ddd.dm.base.DAssociationKind <em>DAssociation Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5314,14 +4975,14 @@ public interface BasePackage extends EPackage
 		EClass INAVIGABLE_MEMBER_CONTAINER = eINSTANCE.getINavigableMemberContainer();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.IPrimaryNavigationTarget <em>IPrimary Navigation Target</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.IPrimaryNavigationTarget
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIPrimaryNavigationTarget()
+		 * @see com.mimacom.ddd.dm.base.IStaticReferenceTarget
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIStaticReferenceTarget()
 		 * @generated
 		 */
-		EClass IPRIMARY_NAVIGATION_TARGET = eINSTANCE.getIPrimaryNavigationTarget();
+		EClass ISTATIC_REFERENCE_TARGET = eINSTANCE.getIStaticReferenceTarget();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.IRichTextSegment <em>IRich Text Segment</em>}' class.
@@ -5416,14 +5077,6 @@ public interface BasePackage extends EPackage
 		EReference DDOMAIN__IMPORTS = eINSTANCE.getDDomain_Imports();
 
 		/**
-		 * The meta object literal for the '<em><b>Functions</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DDOMAIN__FUNCTIONS = eINSTANCE.getDDomain_Functions();
-
-		/**
 		 * The meta object literal for the '<em><b>Aggregates</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5462,74 +5115,6 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EReference DDOMAIN__ACTORS = eINSTANCE.getDDomain_Actors();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DFunctionImpl <em>DFunction</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.impl.DFunctionImpl
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDFunction()
-		 * @generated
-		 */
-		EClass DFUNCTION = eINSTANCE.getDFunction();
-
-		/**
-		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DFUNCTION__PARAMETERS = eINSTANCE.getDFunction_Parameters();
-
-		/**
-		 * The meta object literal for the '<em><b>System Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DFUNCTION__SYSTEM_TYPE = eINSTANCE.getDFunction_SystemType();
-
-		/**
-		 * The meta object literal for the '<em><b>System Type Many</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DFUNCTION__SYSTEM_TYPE_MANY = eINSTANCE.getDFunction_SystemTypeMany();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DFunctionParameterImpl <em>DFunction Parameter</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.impl.DFunctionParameterImpl
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDFunctionParameter()
-		 * @generated
-		 */
-		EClass DFUNCTION_PARAMETER = eINSTANCE.getDFunctionParameter();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DFUNCTION_PARAMETER__NAME = eINSTANCE.getDFunctionParameter_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>System Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DFUNCTION_PARAMETER__SYSTEM_TYPE = eINSTANCE.getDFunctionParameter_SystemType();
-
-		/**
-		 * The meta object literal for the '<em><b>System Type Many</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DFUNCTION_PARAMETER__SYSTEM_TYPE_MANY = eINSTANCE.getDFunctionParameter_SystemTypeMany();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl <em>DAggregate</em>}' class.
@@ -5656,22 +5241,6 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EReference DPRIMITIVE__REDEFINES = eINSTANCE.getDPrimitive_Redefines();
-
-		/**
-		 * The meta object literal for the '<em><b>System Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DPRIMITIVE__SYSTEM_TYPE = eINSTANCE.getDPrimitive_SystemType();
-
-		/**
-		 * The meta object literal for the '<em><b>Archetype</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DPRIMITIVE__ARCHETYPE = eINSTANCE.getDPrimitive_Archetype();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DEnumerationImpl <em>DEnumeration</em>}' class.
@@ -6152,16 +5721,6 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EClass DEXCEPTION = eINSTANCE.getDException();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.DSystemType <em>DSystem Type</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.DSystemType
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDSystemType()
-		 * @generated
-		 */
-		EEnum DSYSTEM_TYPE = eINSTANCE.getDSystemType();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.DAssociationKind <em>DAssociation Kind</em>}' enum.

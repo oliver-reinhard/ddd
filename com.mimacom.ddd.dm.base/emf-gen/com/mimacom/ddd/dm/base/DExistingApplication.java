@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DExistingApplication extends DNamedElement, ITypeContainer, IPrimaryNavigationTarget
+public interface DExistingApplication extends DNamedElement, ITypeContainer, IStaticReferenceTarget
 {
 	/**
 	 * Returns the value of the '<em><b>Services</b></em>' containment reference list.

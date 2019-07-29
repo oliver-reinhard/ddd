@@ -6,7 +6,7 @@ import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DDeductionRule;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
 
-import com.mimacom.ddd.dm.base.impl.DPrimitiveImplCustom;
+import com.mimacom.ddd.dm.base.impl.DPrimitiveImpl;
 
 import com.mimacom.ddd.sm.sim.SPrimitiveDeduction;
 import com.mimacom.ddd.sm.sim.STypeDeduction;
@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SPrimitiveDeductionImpl extends DPrimitiveImplCustom implements SPrimitiveDeduction
+public class SPrimitiveDeductionImpl extends DPrimitiveImpl implements SPrimitiveDeduction
 {
 	/**
 	 * The cached value of the '{@link #getDeductionRule() <em>Deduction Rule</em>}' containment reference.

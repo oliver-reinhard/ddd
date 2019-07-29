@@ -115,9 +115,9 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createINavigableMemberContainerAdapter();
 			}
 			@Override
-			public Adapter caseIPrimaryNavigationTarget(IPrimaryNavigationTarget object)
+			public Adapter caseIStaticReferenceTarget(IStaticReferenceTarget object)
 			{
-				return createIPrimaryNavigationTargetAdapter();
+				return createIStaticReferenceTargetAdapter();
 			}
 			@Override
 			public Adapter caseIRichTextSegment(IRichTextSegment object)
@@ -148,16 +148,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseDDomain(DDomain object)
 			{
 				return createDDomainAdapter();
-			}
-			@Override
-			public Adapter caseDFunction(DFunction object)
-			{
-				return createDFunctionAdapter();
-			}
-			@Override
-			public Adapter caseDFunctionParameter(DFunctionParameter object)
-			{
-				return createDFunctionParameterAdapter();
 			}
 			@Override
 			public Adapter caseDAggregate(DAggregate object)
@@ -457,16 +447,16 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IPrimaryNavigationTarget <em>IPrimary Navigation Target</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.IPrimaryNavigationTarget
+	 * @see com.mimacom.ddd.dm.base.IStaticReferenceTarget
 	 * @generated
 	 */
-	public Adapter createIPrimaryNavigationTargetAdapter()
+	public Adapter createIStaticReferenceTargetAdapter()
 	{
 		return null;
 	}
@@ -557,36 +547,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDDomainAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DFunction <em>DFunction</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DFunction
-	 * @generated
-	 */
-	public Adapter createDFunctionAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DFunctionParameter <em>DFunction Parameter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DFunctionParameter
-	 * @generated
-	 */
-	public Adapter createDFunctionParameterAdapter()
 	{
 		return null;
 	}

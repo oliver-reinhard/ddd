@@ -9,8 +9,9 @@ import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.dmx.DBinaryOperation
-import com.mimacom.ddd.dm.dmx.DContextReference
+import com.mimacom.ddd.dm.dmx.DNavigableMemberReference
 import com.mimacom.ddd.dm.dmx.DSelfExpression
+import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxPackage
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
@@ -23,7 +24,6 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 
 import static extension org.junit.Assert.*
-import com.mimacom.ddd.dm.dmx.DNavigableMemberReference
 
 @ExtendWith(InjectionExtension)
 @InjectWith(DimInjectorProvider)
@@ -101,9 +101,9 @@ class DmxScopingTest {
 	protected def checkExpression1(DExpression e, String expectedScopeStr) {
 		assertTrue(e instanceof DBinaryOperation);
 		val left = (e as DBinaryOperation).leftOperand
-		assertTrue(left instanceof DContextReference)
-		val ref = left as DContextReference
-		ref => [assertScope(epackage.DContextReference_Target, expectedScopeStr)]
+		assertTrue(left instanceof DmxContextReference)
+		val ref = left as DmxContextReference
+		ref => [assertScope(epackage.dmxContextReference_Target, expectedScopeStr)]
 	}
 	
 	protected def checkExpression2(DExpression e, String expectedScopeStr1, String expectedScopeStr2) {
@@ -112,9 +112,9 @@ class DmxScopingTest {
 		assertTrue(left instanceof DNavigableMemberReference)
 		val member = left as DNavigableMemberReference
 		member => [assertScope(epackage.DNavigableMemberReference_Member,expectedScopeStr1)]
-		assertTrue(member.getMemberContainerReference instanceof DContextReference)
-		val ref = member.getMemberContainerReference as DContextReference
-		ref => [assertScope(epackage.DContextReference_Target, expectedScopeStr2)]
+		assertTrue(member.getMemberContainerReference instanceof DmxContextReference)
+		val ref = member.getMemberContainerReference as DmxContextReference
+		ref => [assertScope(epackage.dmxContextReference_Target, expectedScopeStr2)]
 	}
 	
 	@Test

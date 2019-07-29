@@ -798,18 +798,129 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		return getDTimeAccess().getRule();
 	}
 	
-	//DmxModel:
-	//	{DmxModel} ('text' NATURAL ':' texts+=DRichText ';')* ('expr' NATURAL ':' expressions+=DExpression ';')*;
-	public DmxGrammarAccess.DmxModelElements getDmxModelAccess() {
-		return gaDmx.getDmxModelAccess();
+	//DmxNamespace:
+	//	imports+=super::DImport*
+	//	'namespace'
+	//	name=DQualifiedName
+	//	types+=DmxArchetype*
+	//	filters+=DmxFilter*
+	//	// For unit-testing purposes:
+	//	tests+=DmxTest*;
+	public DmxGrammarAccess.DmxNamespaceElements getDmxNamespaceAccess() {
+		return gaDmx.getDmxNamespaceAccess();
 	}
 	
-	public ParserRule getDmxModelRule() {
-		return getDmxModelAccess().getRule();
+	public ParserRule getDmxNamespaceRule() {
+		return getDmxNamespaceAccess().getRule();
 	}
 	
-	//DExpression:
-	//	DAssignment | DRichText;
+	///* 
+	// * Testing
+	// */ DmxTest:
+	//	'test'
+	//	name=ID ('context'
+	//	context+=DmxTestContext (',' context+=DmxTestContext)*)?
+	//	'{'
+	//	expr=DExpression
+	//	'}';
+	public DmxGrammarAccess.DmxTestElements getDmxTestAccess() {
+		return gaDmx.getDmxTestAccess();
+	}
+	
+	public ParserRule getDmxTestRule() {
+		return getDmxTestAccess().getRule();
+	}
+	
+	//DmxTestContext DContext:
+	//	name=ID
+	//	':'
+	//	type=[DType] multiplicity=DMultiplicity?;
+	public DmxGrammarAccess.DmxTestContextElements getDmxTestContextAccess() {
+		return gaDmx.getDmxTestContextAccess();
+	}
+	
+	public ParserRule getDmxTestContextRule() {
+		return getDmxTestContextAccess().getRule();
+	}
+	
+	//enum DmxBaseType:
+	//	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | OBJECT | ACTOR /*notified */ | OPERATION /*invoked* */;
+	public DmxGrammarAccess.DmxBaseTypeElements getDmxBaseTypeAccess() {
+		return gaDmx.getDmxBaseTypeAccess();
+	}
+	
+	public EnumRule getDmxBaseTypeRule() {
+		return getDmxBaseTypeAccess().getRule();
+	}
+	
+	//DmxArchetype:
+	//	'archetype'
+	//	name=ID
+	//	'is'
+	//	systemType=DmxBaseType
+	//	description=DRichText?;
+	public DmxGrammarAccess.DmxArchetypeElements getDmxArchetypeAccess() {
+		return gaDmx.getDmxArchetypeAccess();
+	}
+	
+	public ParserRule getDmxArchetypeRule() {
+		return getDmxArchetypeAccess().getRule();
+	}
+	
+	//DmxFilter:
+	//	DmxFunction | DmxIterator;
+	public DmxGrammarAccess.DmxFilterElements getDmxFilterAccess() {
+		return gaDmx.getDmxFilterAccess();
+	}
+	
+	public ParserRule getDmxFilterRule() {
+		return getDmxFilterAccess().getRule();
+	}
+	
+	//DmxFunction:
+	//	'function' name=ID
+	//	'(' (parameters+=DmxFunctionParameter (',' parameters+=DmxFunctionParameter)*)? ')'
+	//	':'
+	//	systemType=DmxBaseType
+	//	systemTypeMany?='*'?;
+	public DmxGrammarAccess.DmxFunctionElements getDmxFunctionAccess() {
+		return gaDmx.getDmxFunctionAccess();
+	}
+	
+	public ParserRule getDmxFunctionRule() {
+		return getDmxFunctionAccess().getRule();
+	}
+	
+	//DmxFunctionParameter:
+	//	name=ID
+	//	':'
+	//	systemType=DmxBaseType
+	//	systemTypeMany?='*'?;
+	public DmxGrammarAccess.DmxFunctionParameterElements getDmxFunctionParameterAccess() {
+		return gaDmx.getDmxFunctionParameterAccess();
+	}
+	
+	public ParserRule getDmxFunctionParameterRule() {
+		return getDmxFunctionParameterAccess().getRule();
+	}
+	
+	//DmxIterator:
+	//	'iterator' name=ID
+	//	':'
+	//	systemType=DmxBaseType
+	//	systemTypeMany?='*'?;
+	public DmxGrammarAccess.DmxIteratorElements getDmxIteratorAccess() {
+		return gaDmx.getDmxIteratorAccess();
+	}
+	
+	public ParserRule getDmxIteratorRule() {
+		return getDmxIteratorAccess().getRule();
+	}
+	
+	///*
+	// * Expressions
+	// */ DExpression:
+	//	DAssignment | DPredicate | DRichText;
 	public DmxGrammarAccess.DExpressionElements getDExpressionAccess() {
 		return gaDmx.getDExpressionAccess();
 	}
@@ -871,9 +982,23 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		return getDTextEndAccess().getRule();
 	}
 	
+	//DNavigableMemberReference DExpression:
+	//	DPrimaryExpression (=> ({DAssignment.memberContainer=current} '.' assignToMember=[DNavigableMember] OpSingleAssign)
+	//	value=DOrExpression
+	//	| => ({DNavigableMemberReference.memberContainerReference=current} '.') member=[DNavigableMember] (=>
+	//	explicitOperationCall?='(' (memberCallArguments+=DPredicate (',' memberCallArguments+=DPredicate)*)?
+	//	')'
+	//	| before?="@before")?)*;
+	public DmxGrammarAccess.DNavigableMemberReferenceElements getDNavigableMemberReferenceAccess() {
+		return gaDmx.getDNavigableMemberReferenceAccess();
+	}
+	
+	public ParserRule getDNavigableMemberReferenceRule() {
+		return getDNavigableMemberReferenceAccess().getRule();
+	}
+	
 	//DAssignment DExpression:
-	//	{DAssignment} assignToMember=[DNavigableMember] OpSingleAssign value=DAssignment
-	//	| DOrExpression;
+	//	{DAssignment} assignToMember=[DNavigableMember] OpSingleAssign value=DOrExpression;
 	public DmxGrammarAccess.DAssignmentElements getDAssignmentAccess() {
 		return gaDmx.getDAssignmentAccess();
 	}
@@ -890,6 +1015,28 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getOpSingleAssignRule() {
 		return getOpSingleAssignAccess().getRule();
+	}
+	
+	//DPredicate DExpression:
+	//	{DPredicate} var=DPredicateContext '|'
+	//	value=DOrExpression
+	//	| DOrExpression;
+	public DmxGrammarAccess.DPredicateElements getDPredicateAccess() {
+		return gaDmx.getDPredicateAccess();
+	}
+	
+	public ParserRule getDPredicateRule() {
+		return getDPredicateAccess().getRule();
+	}
+	
+	//DPredicateContext DContext:
+	//	name=ID (':' type=[DType])?;
+	public DmxGrammarAccess.DPredicateContextElements getDPredicateContextAccess() {
+		return gaDmx.getDPredicateContextAccess();
+	}
+	
+	public ParserRule getDPredicateContextRule() {
+		return getDPredicateContextAccess().getRule();
 	}
 	
 	//DOrExpression DExpression:
@@ -1086,24 +1233,9 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		return getOpCastAccess().getRule();
 	}
 	
-	//DNavigableMemberReference DExpression:
-	//	DPrimaryExpression (=> ({DAssignment.memberContainer=current} '.' assignToMember=[DNavigableMember] OpSingleAssign)
-	//	value=DAssignment
-	//	| => ({DNavigableMemberReference.memberContainerReference=current} '.') member=[DNavigableMember] (=>
-	//	explicitOperationCall?='(' (memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*)?
-	//	')'
-	//	| before?="@before")?)*;
-	public DmxGrammarAccess.DNavigableMemberReferenceElements getDNavigableMemberReferenceAccess() {
-		return gaDmx.getDNavigableMemberReferenceAccess();
-	}
-	
-	public ParserRule getDNavigableMemberReferenceRule() {
-		return getDNavigableMemberReferenceAccess().getRule();
-	}
-	
 	//DPrimaryExpression DExpression:
 	//	DLiteralExpression | DSelfExpression | DReturnExpression | DRaiseExpression | DParenthesizedExpression | DFunctionCall
-	//	| DConstructorCall | DContextReference | DIfExpression | DForLoopExpression;
+	//	| DConstructorCall | DmxStaticReference | DmxContextReference | DIfExpression | DForLoopExpression;
 	public DmxGrammarAccess.DPrimaryExpressionElements getDPrimaryExpressionAccess() {
 		return gaDmx.getDPrimaryExpressionAccess();
 	}
@@ -1113,7 +1245,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DLiteralExpression DExpression:
-	//	DBooleanLiteral | DStringLiteral | DNaturalLiteral | DDecimalLiteral | DNilLiteral;
+	//	DBooleanLiteral | DStringLiteral | DNaturalLiteral | DDecimalLiteral | DUndefinedLiteral;
 	public DmxGrammarAccess.DLiteralExpressionElements getDLiteralExpressionAccess() {
 		return gaDmx.getDLiteralExpressionAccess();
 	}
@@ -1162,8 +1294,11 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		return getDParenthesizedExpressionAccess().getRule();
 	}
 	
+	////
+	//// TODO remove or rename to DQueryCall and change reference
+	////
 	//DFunctionCall DExpression:
-	//	{DFunctionCall} function=[DFunction]
+	//	{DFunctionCall} function=[DmxFunction]
 	//	'(' (functionCallArguments+=DExpression (',' functionCallArguments+=DExpression)*)?
 	//	')';
 	public DmxGrammarAccess.DFunctionCallElements getDFunctionCallAccess() {
@@ -1196,18 +1331,29 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		return getOpConstructorAccess().getRule();
 	}
 	
-	//DContextReference DExpression:
-	//	{DContextReference} (target=[DNamedElement] before?="@before"?
-	//	| '['
-	//	target=[IPrimaryNavigationTarget|DQualifiedName] ('#' member=[DNavigableMember])? ("|" (displayName=ID |
-	//	plural?="*"))?
-	//	-> ']');
-	public DmxGrammarAccess.DContextReferenceElements getDContextReferenceAccess() {
-		return gaDmx.getDContextReferenceAccess();
+	//DmxStaticReference DExpression:
+	//	{DmxStaticReference}
+	//	'['
+	//	target=[IStaticReferenceTarget|DQualifiedName] ('#' member=[DNavigableMember])? ("|" (displayName=ID | plural?="*"))?
+	//	-> ']';
+	public DmxGrammarAccess.DmxStaticReferenceElements getDmxStaticReferenceAccess() {
+		return gaDmx.getDmxStaticReferenceAccess();
 	}
 	
-	public ParserRule getDContextReferenceRule() {
-		return getDContextReferenceAccess().getRule();
+	public ParserRule getDmxStaticReferenceRule() {
+		return getDmxStaticReferenceAccess().getRule();
+	}
+	
+	//// '->' gives precedence to this ']' over PLAIN_TEXT_MIDDLE ('=>' works too but generates more lookahead overhead)
+	//DmxContextReference DExpression:
+	//	{DmxContextReference} target=[DNamedElement] (before?="@before"
+	//	| '.' all?='all')?;
+	public DmxGrammarAccess.DmxContextReferenceElements getDmxContextReferenceAccess() {
+		return gaDmx.getDmxContextReferenceAccess();
+	}
+	
+	public ParserRule getDmxContextReferenceRule() {
+		return getDmxContextReferenceAccess().getRule();
 	}
 	
 	//DIfExpression DExpression:
@@ -1296,14 +1442,14 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		return getDDecimalLiteralAccess().getRule();
 	}
 	
-	//DNilLiteral DExpression:
+	//DUndefinedLiteral DExpression:
 	//	{DUndefinedLiteral} ('UNDEFINED' | 'undefined');
-	public DmxGrammarAccess.DNilLiteralElements getDNilLiteralAccess() {
-		return gaDmx.getDNilLiteralAccess();
+	public DmxGrammarAccess.DUndefinedLiteralElements getDUndefinedLiteralAccess() {
+		return gaDmx.getDUndefinedLiteralAccess();
 	}
 	
-	public ParserRule getDNilLiteralRule() {
-		return getDNilLiteralAccess().getRule();
+	public ParserRule getDUndefinedLiteralRule() {
+		return getDUndefinedLiteralAccess().getRule();
 	}
 	
 	//DECIMAL:

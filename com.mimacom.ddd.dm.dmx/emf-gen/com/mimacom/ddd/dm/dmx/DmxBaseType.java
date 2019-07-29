@@ -1,6 +1,6 @@
 /**
  */
-package com.mimacom.ddd.dm.base;
+package com.mimacom.ddd.dm.dmx;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -10,14 +10,14 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>DSystem Type</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Base Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see com.mimacom.ddd.dm.base.BasePackage#getDSystemType()
+ * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxBaseType()
  * @model
  * @generated
  */
-public enum DSystemType implements Enumerator
+public enum DmxBaseType implements Enumerator
 {
 	/**
 	 * The '<em><b>UNDEFINED</b></em>' literal object.
@@ -70,14 +70,14 @@ public enum DSystemType implements Enumerator
 	TEXT(4, "TEXT", "TEXT"),
 
 	/**
-	 * The '<em><b>ID</b></em>' literal object.
+	 * The '<em><b>IDENTIFIER</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ID_VALUE
+	 * @see #IDENTIFIER_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ID(5, "ID", "ID"),
+	IDENTIFIER(5, "IDENTIFIER", "IDENTIFIER"),
 
 	/**
 	 * The '<em><b>TIMEPOINT</b></em>' literal object.
@@ -90,16 +90,6 @@ public enum DSystemType implements Enumerator
 	TIMEPOINT(6, "TIMEPOINT", "TIMEPOINT"),
 
 	/**
-	 * The '<em><b>TYPE</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #TYPE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	TYPE(10, "TYPE", "TYPE"),
-
-	/**
 	 * The '<em><b>OBJECT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -107,7 +97,7 @@ public enum DSystemType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	OBJECT(11, "OBJECT", "OBJECT"),
+	OBJECT(10, "OBJECT", "OBJECT"),
 
 	/**
 	 * The '<em><b>ACTOR</b></em>' literal object.
@@ -117,7 +107,7 @@ public enum DSystemType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	ACTOR(12, "ACTOR", "ACTOR"),
+	ACTOR(11, "ACTOR", "ACTOR"),
 
 	/**
 	 * The '<em><b>OPERATION</b></em>' literal object.
@@ -127,17 +117,7 @@ public enum DSystemType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	OPERATION(13, "OPERATION", "OPERATION"),
-
-	/**
-	 * The '<em><b>LAMBDA</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #LAMBDA_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	LAMBDA(14, "LAMBDA", "LAMBDA");
+	OPERATION(12, "OPERATION", "OPERATION");
 
 	/**
 	 * The '<em><b>UNDEFINED</b></em>' literal value.
@@ -195,15 +175,15 @@ public enum DSystemType implements Enumerator
 	public static final int TEXT_VALUE = 4;
 
 	/**
-	 * The '<em><b>ID</b></em>' literal value.
+	 * The '<em><b>IDENTIFIER</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ID
+	 * @see #IDENTIFIER
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ID_VALUE = 5;
+	public static final int IDENTIFIER_VALUE = 5;
 
 	/**
 	 * The '<em><b>TIMEPOINT</b></em>' literal value.
@@ -217,17 +197,6 @@ public enum DSystemType implements Enumerator
 	public static final int TIMEPOINT_VALUE = 6;
 
 	/**
-	 * The '<em><b>TYPE</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #TYPE
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TYPE_VALUE = 10;
-
-	/**
 	 * The '<em><b>OBJECT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -236,7 +205,7 @@ public enum DSystemType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int OBJECT_VALUE = 11;
+	public static final int OBJECT_VALUE = 10;
 
 	/**
 	 * The '<em><b>ACTOR</b></em>' literal value.
@@ -247,7 +216,7 @@ public enum DSystemType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ACTOR_VALUE = 12;
+	public static final int ACTOR_VALUE = 11;
 
 	/**
 	 * The '<em><b>OPERATION</b></em>' literal value.
@@ -258,63 +227,50 @@ public enum DSystemType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int OPERATION_VALUE = 13;
+	public static final int OPERATION_VALUE = 12;
 
 	/**
-	 * The '<em><b>LAMBDA</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #LAMBDA
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int LAMBDA_VALUE = 14;
-
-	/**
-	 * An array of all the '<em><b>DSystem Type</b></em>' enumerators.
+	 * An array of all the '<em><b>Base Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final DSystemType[] VALUES_ARRAY =
-		new DSystemType[]
+	private static final DmxBaseType[] VALUES_ARRAY =
+		new DmxBaseType[]
 		{
 			UNDEFINED,
 			VOID,
 			BOOLEAN,
 			NUMBER,
 			TEXT,
-			ID,
+			IDENTIFIER,
 			TIMEPOINT,
-			TYPE,
 			OBJECT,
 			ACTOR,
 			OPERATION,
-			LAMBDA,
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>DSystem Type</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Base Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<DSystemType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<DmxBaseType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>DSystem Type</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Base Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static DSystemType get(String literal)
+	public static DmxBaseType get(String literal)
 	{
 		for (int i = 0; i < VALUES_ARRAY.length; ++i)
 		{
-			DSystemType result = VALUES_ARRAY[i];
+			DmxBaseType result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal))
 			{
 				return result;
@@ -324,18 +280,18 @@ public enum DSystemType implements Enumerator
 	}
 
 	/**
-	 * Returns the '<em><b>DSystem Type</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Base Type</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static DSystemType getByName(String name)
+	public static DmxBaseType getByName(String name)
 	{
 		for (int i = 0; i < VALUES_ARRAY.length; ++i)
 		{
-			DSystemType result = VALUES_ARRAY[i];
+			DmxBaseType result = VALUES_ARRAY[i];
 			if (result.getName().equals(name))
 			{
 				return result;
@@ -345,14 +301,14 @@ public enum DSystemType implements Enumerator
 	}
 
 	/**
-	 * Returns the '<em><b>DSystem Type</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Base Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static DSystemType get(int value)
+	public static DmxBaseType get(int value)
 	{
 		switch (value)
 		{
@@ -361,13 +317,11 @@ public enum DSystemType implements Enumerator
 			case BOOLEAN_VALUE: return BOOLEAN;
 			case NUMBER_VALUE: return NUMBER;
 			case TEXT_VALUE: return TEXT;
-			case ID_VALUE: return ID;
+			case IDENTIFIER_VALUE: return IDENTIFIER;
 			case TIMEPOINT_VALUE: return TIMEPOINT;
-			case TYPE_VALUE: return TYPE;
 			case OBJECT_VALUE: return OBJECT;
 			case ACTOR_VALUE: return ACTOR;
 			case OPERATION_VALUE: return OPERATION;
-			case LAMBDA_VALUE: return LAMBDA;
 		}
 		return null;
 	}
@@ -399,7 +353,7 @@ public enum DSystemType implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private DSystemType(int value, String name, String literal)
+	private DmxBaseType(int value, String name, String literal)
 	{
 		this.value = value;
 		this.name = name;
@@ -451,4 +405,4 @@ public enum DSystemType implements Enumerator
 		return literal;
 	}
 	
-} //DSystemType
+} //DmxBaseType

@@ -39,10 +39,6 @@ public class TypeSorter implements Comparator<STypeDeduction> {
   
   public int score(final STypeDeduction t) {
     if ((t instanceof SPrimitiveDeduction)) {
-      boolean _isArchetype = ((SPrimitiveDeduction)t).isArchetype();
-      if (_isArchetype) {
-        return 4;
-      }
       return 3;
     } else {
       if ((t instanceof SEnumerationDeduction)) {

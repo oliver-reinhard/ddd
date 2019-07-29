@@ -3,7 +3,18 @@
 package com.mimacom.ddd.dm.dmx.util;
 
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.DPrimitive;
+import com.mimacom.ddd.dm.base.DSimpleType;
+import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.IDeducibleElement;
+import com.mimacom.ddd.dm.base.INamespace;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IRichTextSegment;
+import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
+import com.mimacom.ddd.dm.base.ITypeContainer;
+import com.mimacom.ddd.dm.base.IValueType;
 
 import com.mimacom.ddd.dm.dmx.*;
 
@@ -78,14 +89,49 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 		new DmxSwitch<Adapter>()
 		{
 			@Override
-			public Adapter caseDmxModel(DmxModel object)
+			public Adapter caseDmxNamespace(DmxNamespace object)
 			{
-				return createDmxModelAdapter();
+				return createDmxNamespaceAdapter();
+			}
+			@Override
+			public Adapter caseDmxTest(DmxTest object)
+			{
+				return createDmxTestAdapter();
+			}
+			@Override
+			public Adapter caseDmxArchetype(DmxArchetype object)
+			{
+				return createDmxArchetypeAdapter();
+			}
+			@Override
+			public Adapter caseDmxFilter(DmxFilter object)
+			{
+				return createDmxFilterAdapter();
+			}
+			@Override
+			public Adapter caseDmxFunction(DmxFunction object)
+			{
+				return createDmxFunctionAdapter();
+			}
+			@Override
+			public Adapter caseDmxFunctionParameter(DmxFunctionParameter object)
+			{
+				return createDmxFunctionParameterAdapter();
+			}
+			@Override
+			public Adapter caseDmxIterator(DmxIterator object)
+			{
+				return createDmxIteratorAdapter();
 			}
 			@Override
 			public Adapter caseDAssignment(DAssignment object)
 			{
 				return createDAssignmentAdapter();
+			}
+			@Override
+			public Adapter caseDPredicate(DPredicate object)
+			{
+				return createDPredicateAdapter();
 			}
 			@Override
 			public Adapter caseDBinaryOperation(DBinaryOperation object)
@@ -138,9 +184,14 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 				return createDConstructorCallAdapter();
 			}
 			@Override
-			public Adapter caseDContextReference(DContextReference object)
+			public Adapter caseDmxStaticReference(DmxStaticReference object)
 			{
-				return createDContextReferenceAdapter();
+				return createDmxStaticReferenceAdapter();
+			}
+			@Override
+			public Adapter caseDmxContextReference(DmxContextReference object)
+			{
+				return createDmxContextReferenceAdapter();
 			}
 			@Override
 			public Adapter caseDIfExpression(DIfExpression object)
@@ -183,6 +234,61 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 				return createDUndefinedLiteralAdapter();
 			}
 			@Override
+			public Adapter caseDNamedElement(DNamedElement object)
+			{
+				return createDNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseINamespace(INamespace object)
+			{
+				return createINamespaceAdapter();
+			}
+			@Override
+			public Adapter caseITypeContainer(ITypeContainer object)
+			{
+				return createITypeContainerAdapter();
+			}
+			@Override
+			public Adapter caseINavigableMemberContainer(INavigableMemberContainer object)
+			{
+				return createINavigableMemberContainerAdapter();
+			}
+			@Override
+			public Adapter caseIDeducibleElement(IDeducibleElement object)
+			{
+				return createIDeducibleElementAdapter();
+			}
+			@Override
+			public Adapter caseIStaticReferenceTarget(IStaticReferenceTarget object)
+			{
+				return createIStaticReferenceTargetAdapter();
+			}
+			@Override
+			public Adapter caseDType(DType object)
+			{
+				return createDTypeAdapter();
+			}
+			@Override
+			public Adapter caseIValueType(IValueType object)
+			{
+				return createIValueTypeAdapter();
+			}
+			@Override
+			public Adapter caseDSimpleType(DSimpleType object)
+			{
+				return createDSimpleTypeAdapter();
+			}
+			@Override
+			public Adapter caseDPrimitive(DPrimitive object)
+			{
+				return createDPrimitiveAdapter();
+			}
+			@Override
+			public Adapter caseDNavigableMember(DNavigableMember object)
+			{
+				return createDNavigableMemberAdapter();
+			}
+			@Override
 			public Adapter caseIRichTextSegment(IRichTextSegment object)
 			{
 				return createIRichTextSegmentAdapter();
@@ -215,16 +321,106 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxModel <em>Model</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxNamespace <em>Namespace</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DmxModel
+	 * @see com.mimacom.ddd.dm.dmx.DmxNamespace
 	 * @generated
 	 */
-	public Adapter createDmxModelAdapter()
+	public Adapter createDmxNamespaceAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxTest <em>Test</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dmx.DmxTest
+	 * @generated
+	 */
+	public Adapter createDmxTestAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxArchetype <em>Archetype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dmx.DmxArchetype
+	 * @generated
+	 */
+	public Adapter createDmxArchetypeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxFilter <em>Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dmx.DmxFilter
+	 * @generated
+	 */
+	public Adapter createDmxFilterAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxFunction <em>Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dmx.DmxFunction
+	 * @generated
+	 */
+	public Adapter createDmxFunctionAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter <em>Function Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dmx.DmxFunctionParameter
+	 * @generated
+	 */
+	public Adapter createDmxFunctionParameterAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxIterator <em>Iterator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dmx.DmxIterator
+	 * @generated
+	 */
+	public Adapter createDmxIteratorAdapter()
 	{
 		return null;
 	}
@@ -240,6 +436,21 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDAssignmentAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DPredicate <em>DPredicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dmx.DPredicate
+	 * @generated
+	 */
+	public Adapter createDPredicateAdapter()
 	{
 		return null;
 	}
@@ -395,16 +606,31 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DContextReference <em>DContext Reference</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxStaticReference <em>Static Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DContextReference
+	 * @see com.mimacom.ddd.dm.dmx.DmxStaticReference
 	 * @generated
 	 */
-	public Adapter createDContextReferenceAdapter()
+	public Adapter createDmxStaticReferenceAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxContextReference <em>Context Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dmx.DmxContextReference
+	 * @generated
+	 */
+	public Adapter createDmxContextReferenceAdapter()
 	{
 		return null;
 	}
@@ -525,6 +751,171 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDUndefinedLiteralAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamedElement <em>DNamed Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DNamedElement
+	 * @generated
+	 */
+	public Adapter createDNamedElementAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INamespace <em>INamespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.INamespace
+	 * @generated
+	 */
+	public Adapter createINamespaceAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.ITypeContainer <em>IType Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.ITypeContainer
+	 * @generated
+	 */
+	public Adapter createITypeContainerAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INavigableMemberContainer <em>INavigable Member Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.INavigableMemberContainer
+	 * @generated
+	 */
+	public Adapter createINavigableMemberContainerAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IDeducibleElement <em>IDeducible Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IDeducibleElement
+	 * @generated
+	 */
+	public Adapter createIDeducibleElementAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IStaticReferenceTarget
+	 * @generated
+	 */
+	public Adapter createIStaticReferenceTargetAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DType <em>DType</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DType
+	 * @generated
+	 */
+	public Adapter createDTypeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IValueType <em>IValue Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IValueType
+	 * @generated
+	 */
+	public Adapter createIValueTypeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DSimpleType <em>DSimple Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DSimpleType
+	 * @generated
+	 */
+	public Adapter createDSimpleTypeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DPrimitive <em>DPrimitive</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DPrimitive
+	 * @generated
+	 */
+	public Adapter createDPrimitiveAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNavigableMember <em>DNavigable Member</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DNavigableMember
+	 * @generated
+	 */
+	public Adapter createDNavigableMemberAdapter()
 	{
 		return null;
 	}

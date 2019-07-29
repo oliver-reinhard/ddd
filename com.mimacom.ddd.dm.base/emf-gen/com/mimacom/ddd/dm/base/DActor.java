@@ -13,6 +13,6 @@ package com.mimacom.ddd.dm.base;
  * @model abstract="true"
  * @generated
  */
-public interface DActor extends DNamedElement, IPrimaryNavigationTarget
+public interface DActor extends DNamedElement, IStaticReferenceTarget
 {
 } // DActor

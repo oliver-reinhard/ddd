@@ -272,14 +272,92 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 		return getParagraphAccess().getRule();
 	}
 	
-	//DmxModel:
-	//	{DmxModel} ('text' NATURAL ':' texts+=DRichText ';')* ('expr' NATURAL ':' expressions+=DExpression ';')*;
-	public DmxGrammarAccess.DmxModelElements getDmxModelAccess() {
-		return gaDmx.getDmxModelAccess();
+	//DmxNamespace:
+	//	imports+=super::DImport*
+	//	'namespace'
+	//	name=DQualifiedName
+	//	types+=DArchetype*
+	//	filters+=DFilter* ('text' NATURAL ':' texts+=DRichText ';')* ('expr' NATURAL ':' expressions+=DExpression ';')*;
+	public DmxGrammarAccess.DmxNamespaceElements getDmxNamespaceAccess() {
+		return gaDmx.getDmxNamespaceAccess();
 	}
 	
-	public ParserRule getDmxModelRule() {
-		return getDmxModelAccess().getRule();
+	public ParserRule getDmxNamespaceRule() {
+		return getDmxNamespaceAccess().getRule();
+	}
+	
+	//enum DSystemType:
+	//	VOID | BOOLEAN | NUMBER | TEXT | ID | TIMEPOINT | TYPE | OBJECT | ACTOR | OPERATION | LAMBDA;
+	public DmxGrammarAccess.DSystemTypeElements getDSystemTypeAccess() {
+		return gaDmx.getDSystemTypeAccess();
+	}
+	
+	public EnumRule getDSystemTypeRule() {
+		return getDSystemTypeAccess().getRule();
+	}
+	
+	//DArchetype:
+	//	'archetype'
+	//	name=ID
+	//	'is'
+	//	systemType=DSystemType
+	//	description=DRichText?;
+	public DmxGrammarAccess.DArchetypeElements getDArchetypeAccess() {
+		return gaDmx.getDArchetypeAccess();
+	}
+	
+	public ParserRule getDArchetypeRule() {
+		return getDArchetypeAccess().getRule();
+	}
+	
+	//DFilter:
+	//	DFunction | DIterator;
+	public DmxGrammarAccess.DFilterElements getDFilterAccess() {
+		return gaDmx.getDFilterAccess();
+	}
+	
+	public ParserRule getDFilterRule() {
+		return getDFilterAccess().getRule();
+	}
+	
+	//DFunction:
+	//	'function' name=ID
+	//	'(' (parameters+=DFunctionParameter (',' parameters+=DFunctionParameter)*)? ')'
+	//	':'
+	//	systemType=DSystemType
+	//	systemTypeMany?='*'?;
+	public DmxGrammarAccess.DFunctionElements getDFunctionAccess() {
+		return gaDmx.getDFunctionAccess();
+	}
+	
+	public ParserRule getDFunctionRule() {
+		return getDFunctionAccess().getRule();
+	}
+	
+	//DFunctionParameter:
+	//	name=ID
+	//	':'
+	//	systemType=DSystemType
+	//	systemTypeMany?='*'?;
+	public DmxGrammarAccess.DFunctionParameterElements getDFunctionParameterAccess() {
+		return gaDmx.getDFunctionParameterAccess();
+	}
+	
+	public ParserRule getDFunctionParameterRule() {
+		return getDFunctionParameterAccess().getRule();
+	}
+	
+	//DIterator:
+	//	'iterator' name=ID
+	//	':'
+	//	systemType=DSystemType
+	//	systemTypeMany?='*'?;
+	public DmxGrammarAccess.DIteratorElements getDIteratorAccess() {
+		return gaDmx.getDIteratorAccess();
+	}
+	
+	public ParserRule getDIteratorRule() {
+		return getDIteratorAccess().getRule();
 	}
 	
 	//DExpression:

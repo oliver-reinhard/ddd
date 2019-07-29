@@ -3,6 +3,15 @@
  */
 package com.mimacom.ddd.dm.dmx.ui.outline
 
+import com.mimacom.ddd.dm.base.DContext
+import com.mimacom.ddd.dm.dmx.DAssignment
+import com.mimacom.ddd.dm.dmx.DNavigableMemberReference
+import com.mimacom.ddd.dm.dmx.DPredicate
+import com.mimacom.ddd.dm.dmx.DmxContextReference
+import com.mimacom.ddd.dm.dmx.DmxIterator
+import com.mimacom.ddd.dm.dmx.DmxPackage
+import org.eclipse.jface.resource.ImageDescriptor
+import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
 
 /**
@@ -11,5 +20,75 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
  * See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#outline
  */
 class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
+	
+	static val DMX = DmxPackage.eINSTANCE
+	static val NULL_IMAGE = null as ImageDescriptor
+	static val FEATURE_IMAGE = NULL_IMAGE
+	
+	
+	def _createNode(IOutlineNode parentNode, DContext context) {
+		// DmxContextReference has NO childeren => customise _createNode
+		val type = if (context.type !== null) {
+			" : " + context.type.name + if (context.multiplicity !== null) {
+					"(" + context.multiplicity. minOccurs + " .. " + context.multiplicity. maxOccurs + ")"
+				} else {
+				""
+				}
+		} else {
+			" : (no type)"
+		}
+		createEObjectNode(parentNode, context, imageDispatcher.invoke(context),	textDispatcher.invoke(context) + type , isLeafDispatcher.invoke(context));
+	}
+	
+	def _createNode(IOutlineNode parentNode, DmxIterator iterator) {
+		// DmxContextReference has NO childeren => customise _createNode
+		val node = createEObjectNode(parentNode, iterator, imageDispatcher.invoke(iterator),	textDispatcher.invoke(iterator), isLeafDispatcher.invoke(iterator));
+		createEStructuralFeatureNode(node, iterator, DMX.dmxFilter_SystemType, FEATURE_IMAGE, DMX.dmxFilter_SystemType.name + " " + iterator.systemType.literal +  if (iterator.systemTypeMany) "*" else "", true)
+	}
 
+	def _createChildren(IOutlineNode parentNode, DPredicate pred) {
+		if (pred.^var !== null) {
+			createEStructuralFeatureNode(parentNode, pred, DMX.DPredicate_Var, FEATURE_IMAGE, DMX.DPredicate_Var.name, false)
+		}
+		if (pred.value !== null) {
+			createEStructuralFeatureNode(parentNode, pred, DMX.DPredicate_Value, FEATURE_IMAGE, DMX.DPredicate_Value.name, false)
+		}
+//		createEObjectNode(parentNode, pred.value)
+	}
+	
+	def _createChildren(IOutlineNode parentNode, DNavigableMemberReference ref) {
+		if (ref.memberContainerReference !== null) {
+			createEStructuralFeatureNode(parentNode, ref, DMX.DNavigableMemberReference_MemberContainerReference, FEATURE_IMAGE, DMX.DNavigableMemberReference_MemberContainerReference.name, false)
+		}
+		if (ref.member !== null && ! (ref.member.eIsProxy)) {
+			createEStructuralFeatureNode(parentNode, ref, DMX.DNavigableMemberReference_Member, FEATURE_IMAGE, DMX.DNavigableMemberReference_Member.name, false)
+		}
+		if (ref.memberCallArguments.length > 0) {
+			createEStructuralFeatureNode(parentNode, ref, DMX.DNavigableMemberReference_MemberCallArguments, FEATURE_IMAGE, DMX.DNavigableMemberReference_MemberCallArguments.name, false)
+		}
+	}
+	
+	def _createChildren(IOutlineNode parentNode, DAssignment assign) {
+		if (assign.memberContainer !== null) {
+			createEStructuralFeatureNode(parentNode, assign, DMX.DAssignment_MemberContainer, FEATURE_IMAGE, DMX.DAssignment_MemberContainer.name, false)
+		}
+		if (assign.assignToMember !== null && ! (assign.assignToMember.eIsProxy)) {
+			createEStructuralFeatureNode(parentNode, assign, DMX.DAssignment_AssignToMember, FEATURE_IMAGE, DMX.DAssignment_AssignToMember.name, false)
+		}
+		if (assign.value !== null && ! (assign.assignToMember.eIsProxy)) {
+			createEStructuralFeatureNode(parentNode, assign, DMX.DAssignment_Value, FEATURE_IMAGE, DMX.DAssignment_Value.name, false)
+		}
+	}
+	
+	def _createNode(IOutlineNode parentNode, DmxContextReference ref) {
+		// DmxContextReference has NO childeren => customise _createNode
+		val node = createEObjectNode(parentNode, ref, imageDispatcher.invoke(ref),	textDispatcher.invoke(ref), isLeafDispatcher.invoke(ref));
+		if (ref.target !== null) {
+			createEStructuralFeatureNode(node, ref, DMX.dmxContextReference_Target, FEATURE_IMAGE, DMX.dmxContextReference_Target.name + ": " + ref.target.name, false)
+		}
+		if (ref.all) {
+			createEStructuralFeatureNode(node, ref, DMX.dmxContextReference_All, FEATURE_IMAGE, DMX.dmxContextReference_All.name, true)
+		}
+	}
+	
 }

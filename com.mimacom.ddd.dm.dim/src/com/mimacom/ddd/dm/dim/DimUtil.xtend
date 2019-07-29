@@ -120,7 +120,7 @@ class DimUtil {
 	
 	def String label(DType type) {
 		val typeLabel = switch type {
-			DPrimitive: if (type.archetype) "Archetype " else  "Primitive "
+			DPrimitive: "Primitive "
 			DEnumeration: "Enumeration "
 			DEntityType: if (type.root) "Root " else "Entity "
 			DDetailType: "Detail "

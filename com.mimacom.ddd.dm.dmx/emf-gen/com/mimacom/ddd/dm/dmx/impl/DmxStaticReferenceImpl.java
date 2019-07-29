@@ -2,13 +2,13 @@
  */
 package com.mimacom.ddd.dm.dmx.impl;
 
-import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 
 import com.mimacom.ddd.dm.base.impl.DExpressionImpl;
 
-import com.mimacom.ddd.dm.dmx.DContextReference;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
+import com.mimacom.ddd.dm.dmx.DmxStaticReference;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -19,22 +19,21 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>DContext Reference</b></em>'.
+ * An implementation of the model object '<em><b>Static Reference</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DContextReferenceImpl#getTarget <em>Target</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DContextReferenceImpl#isBefore <em>Before</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DContextReferenceImpl#getMember <em>Member</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DContextReferenceImpl#getDisplayName <em>Display Name</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DContextReferenceImpl#isPlural <em>Plural</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxStaticReferenceImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxStaticReferenceImpl#getMember <em>Member</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxStaticReferenceImpl#getDisplayName <em>Display Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxStaticReferenceImpl#isPlural <em>Plural</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DContextReferenceImpl extends DExpressionImpl implements DContextReference
+public class DmxStaticReferenceImpl extends DExpressionImpl implements DmxStaticReference
 {
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
@@ -44,27 +43,7 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 	 * @generated
 	 * @ordered
 	 */
-	protected DNamedElement target;
-
-	/**
-	 * The default value of the '{@link #isBefore() <em>Before</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isBefore()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean BEFORE_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isBefore() <em>Before</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isBefore()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean before = BEFORE_EDEFAULT;
+	protected IStaticReferenceTarget target;
 
 	/**
 	 * The cached value of the '{@link #getMember() <em>Member</em>}' reference.
@@ -121,7 +100,7 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DContextReferenceImpl()
+	protected DmxStaticReferenceImpl()
 	{
 		super();
 	}
@@ -134,7 +113,7 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 	@Override
 	protected EClass eStaticClass()
 	{
-		return DmxPackage.Literals.DCONTEXT_REFERENCE;
+		return DmxPackage.Literals.DMX_STATIC_REFERENCE;
 	}
 
 	/**
@@ -143,16 +122,16 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 	 * @generated
 	 */
 	@Override
-	public DNamedElement getTarget()
+	public IStaticReferenceTarget getTarget()
 	{
 		if (target != null && target.eIsProxy())
 		{
 			InternalEObject oldTarget = (InternalEObject)target;
-			target = (DNamedElement)eResolveProxy(oldTarget);
+			target = (IStaticReferenceTarget)eResolveProxy(oldTarget);
 			if (target != oldTarget)
 			{
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DmxPackage.DCONTEXT_REFERENCE__TARGET, oldTarget, target));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DmxPackage.DMX_STATIC_REFERENCE__TARGET, oldTarget, target));
 			}
 		}
 		return target;
@@ -163,7 +142,7 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DNamedElement basicGetTarget()
+	public IStaticReferenceTarget basicGetTarget()
 	{
 		return target;
 	}
@@ -174,37 +153,12 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 	 * @generated
 	 */
 	@Override
-	public void setTarget(DNamedElement newTarget)
+	public void setTarget(IStaticReferenceTarget newTarget)
 	{
-		DNamedElement oldTarget = target;
+		IStaticReferenceTarget oldTarget = target;
 		target = newTarget;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DCONTEXT_REFERENCE__TARGET, oldTarget, target));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isBefore()
-	{
-		return before;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setBefore(boolean newBefore)
-	{
-		boolean oldBefore = before;
-		before = newBefore;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DCONTEXT_REFERENCE__BEFORE, oldBefore, before));
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_STATIC_REFERENCE__TARGET, oldTarget, target));
 	}
 
 	/**
@@ -222,7 +176,7 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 			if (member != oldMember)
 			{
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DmxPackage.DCONTEXT_REFERENCE__MEMBER, oldMember, member));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DmxPackage.DMX_STATIC_REFERENCE__MEMBER, oldMember, member));
 			}
 		}
 		return member;
@@ -249,7 +203,7 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 		DNavigableMember oldMember = member;
 		member = newMember;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DCONTEXT_REFERENCE__MEMBER, oldMember, member));
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_STATIC_REFERENCE__MEMBER, oldMember, member));
 	}
 
 	/**
@@ -274,7 +228,7 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 		String oldDisplayName = displayName;
 		displayName = newDisplayName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DCONTEXT_REFERENCE__DISPLAY_NAME, oldDisplayName, displayName));
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_STATIC_REFERENCE__DISPLAY_NAME, oldDisplayName, displayName));
 	}
 
 	/**
@@ -299,7 +253,7 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 		boolean oldPlural = plural;
 		plural = newPlural;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DCONTEXT_REFERENCE__PLURAL, oldPlural, plural));
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_STATIC_REFERENCE__PLURAL, oldPlural, plural));
 	}
 
 	/**
@@ -312,17 +266,15 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DCONTEXT_REFERENCE__TARGET:
+			case DmxPackage.DMX_STATIC_REFERENCE__TARGET:
 				if (resolve) return getTarget();
 				return basicGetTarget();
-			case DmxPackage.DCONTEXT_REFERENCE__BEFORE:
-				return isBefore();
-			case DmxPackage.DCONTEXT_REFERENCE__MEMBER:
+			case DmxPackage.DMX_STATIC_REFERENCE__MEMBER:
 				if (resolve) return getMember();
 				return basicGetMember();
-			case DmxPackage.DCONTEXT_REFERENCE__DISPLAY_NAME:
+			case DmxPackage.DMX_STATIC_REFERENCE__DISPLAY_NAME:
 				return getDisplayName();
-			case DmxPackage.DCONTEXT_REFERENCE__PLURAL:
+			case DmxPackage.DMX_STATIC_REFERENCE__PLURAL:
 				return isPlural();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -338,19 +290,16 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DCONTEXT_REFERENCE__TARGET:
-				setTarget((DNamedElement)newValue);
+			case DmxPackage.DMX_STATIC_REFERENCE__TARGET:
+				setTarget((IStaticReferenceTarget)newValue);
 				return;
-			case DmxPackage.DCONTEXT_REFERENCE__BEFORE:
-				setBefore((Boolean)newValue);
-				return;
-			case DmxPackage.DCONTEXT_REFERENCE__MEMBER:
+			case DmxPackage.DMX_STATIC_REFERENCE__MEMBER:
 				setMember((DNavigableMember)newValue);
 				return;
-			case DmxPackage.DCONTEXT_REFERENCE__DISPLAY_NAME:
+			case DmxPackage.DMX_STATIC_REFERENCE__DISPLAY_NAME:
 				setDisplayName((String)newValue);
 				return;
-			case DmxPackage.DCONTEXT_REFERENCE__PLURAL:
+			case DmxPackage.DMX_STATIC_REFERENCE__PLURAL:
 				setPlural((Boolean)newValue);
 				return;
 		}
@@ -367,19 +316,16 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DCONTEXT_REFERENCE__TARGET:
-				setTarget((DNamedElement)null);
+			case DmxPackage.DMX_STATIC_REFERENCE__TARGET:
+				setTarget((IStaticReferenceTarget)null);
 				return;
-			case DmxPackage.DCONTEXT_REFERENCE__BEFORE:
-				setBefore(BEFORE_EDEFAULT);
-				return;
-			case DmxPackage.DCONTEXT_REFERENCE__MEMBER:
+			case DmxPackage.DMX_STATIC_REFERENCE__MEMBER:
 				setMember((DNavigableMember)null);
 				return;
-			case DmxPackage.DCONTEXT_REFERENCE__DISPLAY_NAME:
+			case DmxPackage.DMX_STATIC_REFERENCE__DISPLAY_NAME:
 				setDisplayName(DISPLAY_NAME_EDEFAULT);
 				return;
-			case DmxPackage.DCONTEXT_REFERENCE__PLURAL:
+			case DmxPackage.DMX_STATIC_REFERENCE__PLURAL:
 				setPlural(PLURAL_EDEFAULT);
 				return;
 		}
@@ -396,15 +342,13 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DCONTEXT_REFERENCE__TARGET:
+			case DmxPackage.DMX_STATIC_REFERENCE__TARGET:
 				return target != null;
-			case DmxPackage.DCONTEXT_REFERENCE__BEFORE:
-				return before != BEFORE_EDEFAULT;
-			case DmxPackage.DCONTEXT_REFERENCE__MEMBER:
+			case DmxPackage.DMX_STATIC_REFERENCE__MEMBER:
 				return member != null;
-			case DmxPackage.DCONTEXT_REFERENCE__DISPLAY_NAME:
+			case DmxPackage.DMX_STATIC_REFERENCE__DISPLAY_NAME:
 				return DISPLAY_NAME_EDEFAULT == null ? displayName != null : !DISPLAY_NAME_EDEFAULT.equals(displayName);
-			case DmxPackage.DCONTEXT_REFERENCE__PLURAL:
+			case DmxPackage.DMX_STATIC_REFERENCE__PLURAL:
 				return plural != PLURAL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -421,9 +365,7 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (before: ");
-		result.append(before);
-		result.append(", displayName: ");
+		result.append(" (displayName: ");
 		result.append(displayName);
 		result.append(", plural: ");
 		result.append(plural);
@@ -431,4 +373,4 @@ public class DContextReferenceImpl extends DExpressionImpl implements DContextRe
 		return result.toString();
 	}
 
-} //DContextReferenceImpl
+} //DmxStaticReferenceImpl

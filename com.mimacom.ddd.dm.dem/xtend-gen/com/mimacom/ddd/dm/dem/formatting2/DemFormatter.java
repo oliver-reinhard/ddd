@@ -15,7 +15,7 @@ import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.dem.services.DemGrammarAccess;
-import com.mimacom.ddd.dm.dmx.DmxModel;
+import com.mimacom.ddd.dm.dmx.DmxNamespace;
 import com.mimacom.ddd.dm.dmx.formatting2.DmxFormatter;
 import java.util.Arrays;
 import java.util.List;
@@ -187,11 +187,14 @@ public class DemFormatter extends DmxFormatter {
     } else if (context instanceof DRichText) {
       _format((DRichText)context, document);
       return;
+    } else if (context instanceof DmxNamespace) {
+      _format((DmxNamespace)context, document);
+      return;
     } else if (context instanceof XtextResource) {
       _format((XtextResource)context, document);
       return;
-    } else if (context instanceof DmxModel) {
-      _format((DmxModel)context, document);
+    } else if (context instanceof DExpression) {
+      _format((DExpression)context, document);
       return;
     } else if (context instanceof List) {
       _format((List<DCondition>)context, document);

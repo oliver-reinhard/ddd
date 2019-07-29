@@ -8,7 +8,7 @@ import com.mimacom.ddd.dm.base.DExistingApplication;
 import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.INamespace;
-import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
+import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.base.ITypeContainer;
 
 import java.util.Collection;
@@ -269,7 +269,7 @@ public class DExistingApplicationImpl extends DNamedElementImpl implements DExis
 				default: return -1;
 			}
 		}
-		if (baseClass == IPrimaryNavigationTarget.class)
+		if (baseClass == IStaticReferenceTarget.class)
 		{
 			switch (derivedFeatureID)
 			{
@@ -302,7 +302,7 @@ public class DExistingApplicationImpl extends DNamedElementImpl implements DExis
 				default: return -1;
 			}
 		}
-		if (baseClass == IPrimaryNavigationTarget.class)
+		if (baseClass == IStaticReferenceTarget.class)
 		{
 			switch (baseFeatureID)
 			{

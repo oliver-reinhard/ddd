@@ -22,7 +22,6 @@ import com.mimacom.ddd.dm.dmx.DBinaryOperation;
 import com.mimacom.ddd.dm.dmx.DBooleanLiteral;
 import com.mimacom.ddd.dm.dmx.DCastExpression;
 import com.mimacom.ddd.dm.dmx.DConstructorCall;
-import com.mimacom.ddd.dm.dmx.DContextReference;
 import com.mimacom.ddd.dm.dmx.DDecimalLiteral;
 import com.mimacom.ddd.dm.dmx.DForLoopExpression;
 import com.mimacom.ddd.dm.dmx.DFunctionCall;
@@ -30,14 +29,22 @@ import com.mimacom.ddd.dm.dmx.DIfExpression;
 import com.mimacom.ddd.dm.dmx.DInstanceOfExpression;
 import com.mimacom.ddd.dm.dmx.DNaturalLiteral;
 import com.mimacom.ddd.dm.dmx.DNavigableMemberReference;
+import com.mimacom.ddd.dm.dmx.DPredicate;
 import com.mimacom.ddd.dm.dmx.DRaiseExpression;
 import com.mimacom.ddd.dm.dmx.DReturnExpression;
 import com.mimacom.ddd.dm.dmx.DSelfExpression;
 import com.mimacom.ddd.dm.dmx.DStringLiteral;
 import com.mimacom.ddd.dm.dmx.DUnaryOperation;
 import com.mimacom.ddd.dm.dmx.DUndefinedLiteral;
-import com.mimacom.ddd.dm.dmx.DmxModel;
+import com.mimacom.ddd.dm.dmx.DmxArchetype;
+import com.mimacom.ddd.dm.dmx.DmxContextReference;
+import com.mimacom.ddd.dm.dmx.DmxFunction;
+import com.mimacom.ddd.dm.dmx.DmxFunctionParameter;
+import com.mimacom.ddd.dm.dmx.DmxIterator;
+import com.mimacom.ddd.dm.dmx.DmxNamespace;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
+import com.mimacom.ddd.dm.dmx.DmxStaticReference;
+import com.mimacom.ddd.dm.dmx.DmxTest;
 import com.mimacom.ddd.dm.dmx.serializer.DmxSemanticSequencer;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -67,8 +74,19 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 				sequence_DCondition(context, (DCondition) semanticObject); 
 				return; 
 			case BasePackage.DCONTEXT:
-				sequence_DContext(context, (DContext) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getDContextRule()) {
+					sequence_DContext(context, (DContext) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getDPredicateContextRule()) {
+					sequence_DPredicateContext(context, (DContext) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getDmxTestContextRule()) {
+					sequence_DmxTestContext(context, (DContext) semanticObject); 
+					return; 
+				}
+				else break;
 			case BasePackage.DDOMAIN:
 				sequence_DDomain(context, (DDomain) semanticObject); 
 				return; 
@@ -115,8 +133,39 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 		else if (epackage == DmxPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
 			case DmxPackage.DASSIGNMENT:
-				sequence_DAssignment_DNavigableMemberReference(context, (DAssignment) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getDAssignmentRule()) {
+					sequence_DAssignment(context, (DAssignment) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getDExpressionRule()
+						|| rule == grammarAccess.getDNavigableMemberReferenceRule()
+						|| action == grammarAccess.getDNavigableMemberReferenceAccess().getDAssignmentMemberContainerAction_1_0_0_0_0()
+						|| action == grammarAccess.getDNavigableMemberReferenceAccess().getDNavigableMemberReferenceMemberContainerReferenceAction_1_1_0_0_0()
+						|| rule == grammarAccess.getDPredicateRule()
+						|| rule == grammarAccess.getDOrExpressionRule()
+						|| action == grammarAccess.getDOrExpressionAccess().getDBinaryOperationLeftOperandAction_1_0_0_0()
+						|| rule == grammarAccess.getDAndExpressionRule()
+						|| action == grammarAccess.getDAndExpressionAccess().getDBinaryOperationLeftOperandAction_1_0_0_0()
+						|| rule == grammarAccess.getDEqualityExpressionRule()
+						|| action == grammarAccess.getDEqualityExpressionAccess().getDBinaryOperationLeftOperandAction_1_0_0_0()
+						|| rule == grammarAccess.getDRelationalExpressionRule()
+						|| action == grammarAccess.getDRelationalExpressionAccess().getDInstanceOfExpressionExpressionAction_1_0_0_0_0()
+						|| action == grammarAccess.getDRelationalExpressionAccess().getDBinaryOperationLeftOperandAction_1_1_0_0_0()
+						|| rule == grammarAccess.getDOtherOperatorExpressionRule()
+						|| action == grammarAccess.getDOtherOperatorExpressionAccess().getDBinaryOperationLeftOperandAction_1_0_0_0()
+						|| rule == grammarAccess.getDAdditiveExpressionRule()
+						|| action == grammarAccess.getDAdditiveExpressionAccess().getDBinaryOperationLeftOperandAction_1_0_0_0()
+						|| rule == grammarAccess.getDMultiplicativeExpressionRule()
+						|| action == grammarAccess.getDMultiplicativeExpressionAccess().getDBinaryOperationLeftOperandAction_1_0_0_0()
+						|| rule == grammarAccess.getDUnaryOperationRule()
+						|| rule == grammarAccess.getDCastExpressionRule()
+						|| action == grammarAccess.getDCastExpressionAccess().getDCastExpressionTargetAction_1_0_0_0()
+						|| rule == grammarAccess.getDPrimaryExpressionRule()
+						|| rule == grammarAccess.getDParenthesizedExpressionRule()) {
+					sequence_DAssignment_DNavigableMemberReference(context, (DAssignment) semanticObject); 
+					return; 
+				}
+				else break;
 			case DmxPackage.DBINARY_OPERATION:
 				sequence_DAdditiveExpression_DAndExpression_DEqualityExpression_DMultiplicativeExpression_DOrExpression_DOtherOperatorExpression_DRelationalExpression(context, (DBinaryOperation) semanticObject); 
 				return; 
@@ -128,9 +177,6 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case DmxPackage.DCONSTRUCTOR_CALL:
 				sequence_DConstructorCall(context, (DConstructorCall) semanticObject); 
-				return; 
-			case DmxPackage.DCONTEXT_REFERENCE:
-				sequence_DContextReference(context, (DContextReference) semanticObject); 
 				return; 
 			case DmxPackage.DDECIMAL_LITERAL:
 				sequence_DDecimalLiteral(context, (DDecimalLiteral) semanticObject); 
@@ -153,6 +199,9 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 			case DmxPackage.DNAVIGABLE_MEMBER_REFERENCE:
 				sequence_DNavigableMemberReference(context, (DNavigableMemberReference) semanticObject); 
 				return; 
+			case DmxPackage.DPREDICATE:
+				sequence_DPredicate(context, (DPredicate) semanticObject); 
+				return; 
 			case DmxPackage.DRAISE_EXPRESSION:
 				sequence_DRaiseExpression(context, (DRaiseExpression) semanticObject); 
 				return; 
@@ -169,10 +218,31 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 				sequence_DUnaryOperation(context, (DUnaryOperation) semanticObject); 
 				return; 
 			case DmxPackage.DUNDEFINED_LITERAL:
-				sequence_DNilLiteral(context, (DUndefinedLiteral) semanticObject); 
+				sequence_DUndefinedLiteral(context, (DUndefinedLiteral) semanticObject); 
 				return; 
-			case DmxPackage.DMX_MODEL:
-				sequence_DmxModel(context, (DmxModel) semanticObject); 
+			case DmxPackage.DMX_ARCHETYPE:
+				sequence_DmxArchetype(context, (DmxArchetype) semanticObject); 
+				return; 
+			case DmxPackage.DMX_CONTEXT_REFERENCE:
+				sequence_DmxContextReference(context, (DmxContextReference) semanticObject); 
+				return; 
+			case DmxPackage.DMX_FUNCTION:
+				sequence_DmxFunction(context, (DmxFunction) semanticObject); 
+				return; 
+			case DmxPackage.DMX_FUNCTION_PARAMETER:
+				sequence_DmxFunctionParameter(context, (DmxFunctionParameter) semanticObject); 
+				return; 
+			case DmxPackage.DMX_ITERATOR:
+				sequence_DmxIterator(context, (DmxIterator) semanticObject); 
+				return; 
+			case DmxPackage.DMX_NAMESPACE:
+				sequence_DmxNamespace(context, (DmxNamespace) semanticObject); 
+				return; 
+			case DmxPackage.DMX_STATIC_REFERENCE:
+				sequence_DmxStaticReference(context, (DmxStaticReference) semanticObject); 
+				return; 
+			case DmxPackage.DMX_TEST:
+				sequence_DmxTest(context, (DmxTest) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)

@@ -196,7 +196,7 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	@Override
 	public SPrimitiveDeduction createSPrimitiveDeduction()
 	{
-		SPrimitiveDeductionImplCustom sPrimitiveDeduction = new SPrimitiveDeductionImplCustom();
+		SPrimitiveDeductionImpl sPrimitiveDeduction = new SPrimitiveDeductionImpl();
 		return sPrimitiveDeduction;
 	}
 

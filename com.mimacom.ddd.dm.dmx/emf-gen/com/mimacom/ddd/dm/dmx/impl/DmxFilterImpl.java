@@ -1,54 +1,35 @@
 /**
  */
-package com.mimacom.ddd.dm.base.impl;
+package com.mimacom.ddd.dm.dmx.impl;
 
-import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DFunction;
-import com.mimacom.ddd.dm.base.DFunctionParameter;
-import com.mimacom.ddd.dm.base.DSystemType;
+import com.mimacom.ddd.dm.base.impl.DNavigableMemberImplCustom;
 
-import java.util.Collection;
+import com.mimacom.ddd.dm.dmx.DmxBaseType;
+import com.mimacom.ddd.dm.dmx.DmxFilter;
+import com.mimacom.ddd.dm.dmx.DmxPackage;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>DFunction</b></em>'.
+ * An implementation of the model object '<em><b>Filter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DFunctionImpl#getParameters <em>Parameters</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DFunctionImpl#getSystemType <em>System Type</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DFunctionImpl#isSystemTypeMany <em>System Type Many</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxFilterImpl#getSystemType <em>System Type</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxFilterImpl#isSystemTypeMany <em>System Type Many</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DFunctionImpl extends DNavigableMemberImplCustom implements DFunction
+public abstract class DmxFilterImpl extends DNavigableMemberImplCustom implements DmxFilter
 {
-	/**
-	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParameters()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DFunctionParameter> parameters;
-
 	/**
 	 * The default value of the '{@link #getSystemType() <em>System Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -57,7 +38,7 @@ public class DFunctionImpl extends DNavigableMemberImplCustom implements DFuncti
 	 * @generated
 	 * @ordered
 	 */
-	protected static final DSystemType SYSTEM_TYPE_EDEFAULT = DSystemType.UNDEFINED;
+	protected static final DmxBaseType SYSTEM_TYPE_EDEFAULT = DmxBaseType.UNDEFINED;
 
 	/**
 	 * The cached value of the '{@link #getSystemType() <em>System Type</em>}' attribute.
@@ -67,7 +48,7 @@ public class DFunctionImpl extends DNavigableMemberImplCustom implements DFuncti
 	 * @generated
 	 * @ordered
 	 */
-	protected DSystemType systemType = SYSTEM_TYPE_EDEFAULT;
+	protected DmxBaseType systemType = SYSTEM_TYPE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isSystemTypeMany() <em>System Type Many</em>}' attribute.
@@ -94,7 +75,7 @@ public class DFunctionImpl extends DNavigableMemberImplCustom implements DFuncti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DFunctionImpl()
+	protected DmxFilterImpl()
 	{
 		super();
 	}
@@ -107,7 +88,7 @@ public class DFunctionImpl extends DNavigableMemberImplCustom implements DFuncti
 	@Override
 	protected EClass eStaticClass()
 	{
-		return BasePackage.Literals.DFUNCTION;
+		return DmxPackage.Literals.DMX_FILTER;
 	}
 
 	/**
@@ -116,22 +97,7 @@ public class DFunctionImpl extends DNavigableMemberImplCustom implements DFuncti
 	 * @generated
 	 */
 	@Override
-	public EList<DFunctionParameter> getParameters()
-	{
-		if (parameters == null)
-		{
-			parameters = new EObjectContainmentEList<DFunctionParameter>(DFunctionParameter.class, this, BasePackage.DFUNCTION__PARAMETERS);
-		}
-		return parameters;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DSystemType getSystemType()
+	public DmxBaseType getSystemType()
 	{
 		return systemType;
 	}
@@ -142,12 +108,12 @@ public class DFunctionImpl extends DNavigableMemberImplCustom implements DFuncti
 	 * @generated
 	 */
 	@Override
-	public void setSystemType(DSystemType newSystemType)
+	public void setSystemType(DmxBaseType newSystemType)
 	{
-		DSystemType oldSystemType = systemType;
+		DmxBaseType oldSystemType = systemType;
 		systemType = newSystemType == null ? SYSTEM_TYPE_EDEFAULT : newSystemType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DFUNCTION__SYSTEM_TYPE, oldSystemType, systemType));
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_FILTER__SYSTEM_TYPE, oldSystemType, systemType));
 	}
 
 	/**
@@ -172,23 +138,7 @@ public class DFunctionImpl extends DNavigableMemberImplCustom implements DFuncti
 		boolean oldSystemTypeMany = systemTypeMany;
 		systemTypeMany = newSystemTypeMany;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DFUNCTION__SYSTEM_TYPE_MANY, oldSystemTypeMany, systemTypeMany));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch (featureID)
-		{
-			case BasePackage.DFUNCTION__PARAMETERS:
-				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_FILTER__SYSTEM_TYPE_MANY, oldSystemTypeMany, systemTypeMany));
 	}
 
 	/**
@@ -201,11 +151,9 @@ public class DFunctionImpl extends DNavigableMemberImplCustom implements DFuncti
 	{
 		switch (featureID)
 		{
-			case BasePackage.DFUNCTION__PARAMETERS:
-				return getParameters();
-			case BasePackage.DFUNCTION__SYSTEM_TYPE:
+			case DmxPackage.DMX_FILTER__SYSTEM_TYPE:
 				return getSystemType();
-			case BasePackage.DFUNCTION__SYSTEM_TYPE_MANY:
+			case DmxPackage.DMX_FILTER__SYSTEM_TYPE_MANY:
 				return isSystemTypeMany();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -216,20 +164,15 @@ public class DFunctionImpl extends DNavigableMemberImplCustom implements DFuncti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
 		switch (featureID)
 		{
-			case BasePackage.DFUNCTION__PARAMETERS:
-				getParameters().clear();
-				getParameters().addAll((Collection<? extends DFunctionParameter>)newValue);
+			case DmxPackage.DMX_FILTER__SYSTEM_TYPE:
+				setSystemType((DmxBaseType)newValue);
 				return;
-			case BasePackage.DFUNCTION__SYSTEM_TYPE:
-				setSystemType((DSystemType)newValue);
-				return;
-			case BasePackage.DFUNCTION__SYSTEM_TYPE_MANY:
+			case DmxPackage.DMX_FILTER__SYSTEM_TYPE_MANY:
 				setSystemTypeMany((Boolean)newValue);
 				return;
 		}
@@ -246,13 +189,10 @@ public class DFunctionImpl extends DNavigableMemberImplCustom implements DFuncti
 	{
 		switch (featureID)
 		{
-			case BasePackage.DFUNCTION__PARAMETERS:
-				getParameters().clear();
-				return;
-			case BasePackage.DFUNCTION__SYSTEM_TYPE:
+			case DmxPackage.DMX_FILTER__SYSTEM_TYPE:
 				setSystemType(SYSTEM_TYPE_EDEFAULT);
 				return;
-			case BasePackage.DFUNCTION__SYSTEM_TYPE_MANY:
+			case DmxPackage.DMX_FILTER__SYSTEM_TYPE_MANY:
 				setSystemTypeMany(SYSTEM_TYPE_MANY_EDEFAULT);
 				return;
 		}
@@ -269,11 +209,9 @@ public class DFunctionImpl extends DNavigableMemberImplCustom implements DFuncti
 	{
 		switch (featureID)
 		{
-			case BasePackage.DFUNCTION__PARAMETERS:
-				return parameters != null && !parameters.isEmpty();
-			case BasePackage.DFUNCTION__SYSTEM_TYPE:
+			case DmxPackage.DMX_FILTER__SYSTEM_TYPE:
 				return systemType != SYSTEM_TYPE_EDEFAULT;
-			case BasePackage.DFUNCTION__SYSTEM_TYPE_MANY:
+			case DmxPackage.DMX_FILTER__SYSTEM_TYPE_MANY:
 				return systemTypeMany != SYSTEM_TYPE_MANY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -298,4 +236,4 @@ public class DFunctionImpl extends DNavigableMemberImplCustom implements DFuncti
 		return result.toString();
 	}
 
-} //DFunctionImpl
+} //DmxFilterImpl

@@ -3,7 +3,18 @@
 package com.mimacom.ddd.dm.dmx.util;
 
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.DPrimitive;
+import com.mimacom.ddd.dm.base.DSimpleType;
+import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.IDeducibleElement;
+import com.mimacom.ddd.dm.base.INamespace;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IRichTextSegment;
+import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
+import com.mimacom.ddd.dm.base.ITypeContainer;
+import com.mimacom.ddd.dm.base.IValueType;
 
 import com.mimacom.ddd.dm.dmx.*;
 
@@ -75,10 +86,72 @@ public class DmxSwitch<T> extends Switch<T>
 	{
 		switch (classifierID)
 		{
-			case DmxPackage.DMX_MODEL:
+			case DmxPackage.DMX_NAMESPACE:
 			{
-				DmxModel dmxModel = (DmxModel)theEObject;
-				T result = caseDmxModel(dmxModel);
+				DmxNamespace dmxNamespace = (DmxNamespace)theEObject;
+				T result = caseDmxNamespace(dmxNamespace);
+				if (result == null) result = caseDNamedElement(dmxNamespace);
+				if (result == null) result = caseITypeContainer(dmxNamespace);
+				if (result == null) result = caseINamespace(dmxNamespace);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DmxPackage.DMX_TEST:
+			{
+				DmxTest dmxTest = (DmxTest)theEObject;
+				T result = caseDmxTest(dmxTest);
+				if (result == null) result = caseINavigableMemberContainer(dmxTest);
+				if (result == null) result = caseINamespace(dmxTest);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DmxPackage.DMX_ARCHETYPE:
+			{
+				DmxArchetype dmxArchetype = (DmxArchetype)theEObject;
+				T result = caseDmxArchetype(dmxArchetype);
+				if (result == null) result = caseDPrimitive(dmxArchetype);
+				if (result == null) result = caseDSimpleType(dmxArchetype);
+				if (result == null) result = caseDType(dmxArchetype);
+				if (result == null) result = caseIValueType(dmxArchetype);
+				if (result == null) result = caseIDeducibleElement(dmxArchetype);
+				if (result == null) result = caseIStaticReferenceTarget(dmxArchetype);
+				if (result == null) result = caseDNamedElement(dmxArchetype);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DmxPackage.DMX_FILTER:
+			{
+				DmxFilter dmxFilter = (DmxFilter)theEObject;
+				T result = caseDmxFilter(dmxFilter);
+				if (result == null) result = caseDNavigableMember(dmxFilter);
+				if (result == null) result = caseDNamedElement(dmxFilter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DmxPackage.DMX_FUNCTION:
+			{
+				DmxFunction dmxFunction = (DmxFunction)theEObject;
+				T result = caseDmxFunction(dmxFunction);
+				if (result == null) result = caseDmxFilter(dmxFunction);
+				if (result == null) result = caseDNavigableMember(dmxFunction);
+				if (result == null) result = caseDNamedElement(dmxFunction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DmxPackage.DMX_FUNCTION_PARAMETER:
+			{
+				DmxFunctionParameter dmxFunctionParameter = (DmxFunctionParameter)theEObject;
+				T result = caseDmxFunctionParameter(dmxFunctionParameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DmxPackage.DMX_ITERATOR:
+			{
+				DmxIterator dmxIterator = (DmxIterator)theEObject;
+				T result = caseDmxIterator(dmxIterator);
+				if (result == null) result = caseDmxFilter(dmxIterator);
+				if (result == null) result = caseDNavigableMember(dmxIterator);
+				if (result == null) result = caseDNamedElement(dmxIterator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -88,6 +161,17 @@ public class DmxSwitch<T> extends Switch<T>
 				T result = caseDAssignment(dAssignment);
 				if (result == null) result = caseDExpression(dAssignment);
 				if (result == null) result = caseIRichTextSegment(dAssignment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DmxPackage.DPREDICATE:
+			{
+				DPredicate dPredicate = (DPredicate)theEObject;
+				T result = caseDPredicate(dPredicate);
+				if (result == null) result = caseDExpression(dPredicate);
+				if (result == null) result = caseINavigableMemberContainer(dPredicate);
+				if (result == null) result = caseIRichTextSegment(dPredicate);
+				if (result == null) result = caseINamespace(dPredicate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -181,12 +265,21 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DCONTEXT_REFERENCE:
+			case DmxPackage.DMX_STATIC_REFERENCE:
 			{
-				DContextReference dContextReference = (DContextReference)theEObject;
-				T result = caseDContextReference(dContextReference);
-				if (result == null) result = caseDExpression(dContextReference);
-				if (result == null) result = caseIRichTextSegment(dContextReference);
+				DmxStaticReference dmxStaticReference = (DmxStaticReference)theEObject;
+				T result = caseDmxStaticReference(dmxStaticReference);
+				if (result == null) result = caseDExpression(dmxStaticReference);
+				if (result == null) result = caseIRichTextSegment(dmxStaticReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DmxPackage.DMX_CONTEXT_REFERENCE:
+			{
+				DmxContextReference dmxContextReference = (DmxContextReference)theEObject;
+				T result = caseDmxContextReference(dmxContextReference);
+				if (result == null) result = caseDExpression(dmxContextReference);
+				if (result == null) result = caseIRichTextSegment(dmxContextReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -267,17 +360,113 @@ public class DmxSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Namespace</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Namespace</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDmxModel(DmxModel object)
+	public T caseDmxNamespace(DmxNamespace object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Test</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Test</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxTest(DmxTest object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Archetype</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Archetype</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxArchetype(DmxArchetype object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Filter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Filter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxFilter(DmxFilter object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Function</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Function</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxFunction(DmxFunction object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Function Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Function Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxFunctionParameter(DmxFunctionParameter object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Iterator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Iterator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxIterator(DmxIterator object)
 	{
 		return null;
 	}
@@ -294,6 +483,22 @@ public class DmxSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDAssignment(DAssignment object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DPredicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DPredicate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDPredicate(DPredicate object)
 	{
 		return null;
 	}
@@ -459,17 +664,33 @@ public class DmxSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DContext Reference</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Static Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DContext Reference</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Static Reference</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDContextReference(DContextReference object)
+	public T caseDmxStaticReference(DmxStaticReference object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Context Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Context Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxContextReference(DmxContextReference object)
 	{
 		return null;
 	}
@@ -598,6 +819,182 @@ public class DmxSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDUndefinedLiteral(DUndefinedLiteral object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DNamed Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DNamed Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDNamedElement(DNamedElement object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>INamespace</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>INamespace</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseINamespace(INamespace object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IType Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IType Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseITypeContainer(ITypeContainer object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>INavigable Member Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>INavigable Member Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseINavigableMemberContainer(INavigableMemberContainer object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IDeducible Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IDeducible Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIDeducibleElement(IDeducibleElement object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IStatic Reference Target</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IStatic Reference Target</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIStaticReferenceTarget(IStaticReferenceTarget object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DType</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DType</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDType(DType object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IValue Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IValue Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIValueType(IValueType object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DSimple Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DSimple Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDSimpleType(DSimpleType object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DPrimitive</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DPrimitive</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDPrimitive(DPrimitive object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DNavigable Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DNavigable Member</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDNavigableMember(DNavigableMember object)
 	{
 		return null;
 	}

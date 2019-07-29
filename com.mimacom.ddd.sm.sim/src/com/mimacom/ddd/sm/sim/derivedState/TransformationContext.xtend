@@ -13,22 +13,22 @@ class TransformationContext {
 
 	@Inject SimIndex index
 	
-	var Map<DType, DType> localDomainToSystemTypeMap
-	var Map<DType, DType> importedDomainToSystemTypeMap
+	var Map<DType, DType> localDomainToSystemModelTypeMap
+	var Map<DType, DType> importedDomainToSystemModelTypeMap
 	var DerivedStateAwareResource resource
 	
 	def void init(DerivedStateAwareResource resource) {
 		this.resource = resource
-		localDomainToSystemTypeMap = Maps.newHashMap()
-		importedDomainToSystemTypeMap = Maps.newHashMap()
+		localDomainToSystemModelTypeMap = Maps.newHashMap()
+		importedDomainToSystemModelTypeMap = Maps.newHashMap()
 //		initializeLocallyMappedDTypes()
-		initializeImportedMappedDTypesFromIndex() 
+		initializeImportedMappedDomainTypesFromIndex() 
 	}
 	
-	def void initializeImportedMappedDTypesFromIndex() {
+	def void initializeImportedMappedDomainTypesFromIndex() {
 		val model = resource.contents.head
-		val deducedSTypeDescriptions = index.getVisibleExternalDeducedSTypes(model)
-		val dTypeDescriptionsMap = index.getVisibleDTypeDescriptionsMap(model)
+		val deducedSTypeDescriptions = index.getVisibleExternalDeducedSystemModelTypes(model)
+		val dTypeDescriptionsMap = index.getVisibleDomainTypeDescriptionsMap(model)
 		for (sTypeDesc : deducedSTypeDescriptions) {
 			val sourceNameStr = sTypeDesc.getUserData(SimResourceDescriptionStrategy::KEY_DEDUCED_FROM)
 			val sourceQN = QualifiedName.create(sourceNameStr.split("\\."))
@@ -43,7 +43,7 @@ class TransformationContext {
 					if (sType.eIsProxy) {
 						sType = resource.resourceSet.getEObject(sTypeDesc.EObjectURI, true)
 					}
-					importedDomainToSystemTypeMap.put(dType as DType, sType as DType)
+					importedDomainToSystemModelTypeMap.put(dType as DType, sType as DType)
 				}
 			}
 		}
@@ -63,7 +63,7 @@ class TransformationContext {
 	}
 	
 	def putSystemType(DType domainType, DType systemType) {
-		val previousS = localDomainToSystemTypeMap.put(domainType, systemType)
+		val previousS = localDomainToSystemModelTypeMap.put(domainType, systemType)
 		if (previousS !== null) {
 			// TODO remove => log  or create error marker
 			throw new IllegalStateException("There are two STypes realizing DType \"" + domainType.name + "\" as \"" + systemType.name + "\" and as \"" + previousS + "\"") 
@@ -74,9 +74,9 @@ class TransformationContext {
 	 * @return  null if no system type is found for the given domain type.
 	 */
 	def DType getSystemType(DType domainType)  {
-		var systemType = localDomainToSystemTypeMap.get(domainType)
+		var systemType = localDomainToSystemModelTypeMap.get(domainType)
 		if (systemType === null) {
-			systemType = importedDomainToSystemTypeMap.get(domainType)
+			systemType = importedDomainToSystemModelTypeMap.get(domainType)
 //			if (sPrimitive === null) {
 //				sPrimitive = UNKNOWN_TYPE
 //			}

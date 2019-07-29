@@ -29,7 +29,6 @@ class TypeSorter implements Comparator<STypeDeduction> {
 	
 	def int score(STypeDeduction t) {
 		if (t instanceof SPrimitiveDeduction) {
-			if (t.archetype) return 4
 			return 3
 		} else if (t instanceof SEnumerationDeduction) {
 			return 2

@@ -1,4 +1,4 @@
-domain dm.types
+namespace dm.types
 
 archetype Boolean 	is BOOLEAN
 
@@ -8,7 +8,7 @@ archetype Natural0 	is NUMBER		«Natural numbers, [0.."∞"]»
 
 archetype Integer 	is NUMBER		«Integer numbers, [-"∞"..+"∞"]»
 
-archetype Decimal 	is NUMBER		«decimal numbers with arbitrary precision, [-"∞"..+"∞"]»
+archetype Real	 	is NUMBER		«Real numbers with arbitrary precision, [-"∞"..+"∞"]»
 
 archetype Name		is TEXT			«Text of up to 32 characters in length»
 
@@ -20,13 +20,4 @@ archetype Timepoint is TIMEPOINT	«Point in time with arbitrary precision»
 
 archetype Duration  is NUMBER		«Time period with arbitrary precision and length»
 
-archetype IsoCurrency is ID			«ISO currency code»
-
-archetype ^ID		is ID 			«Unique identifier, format is opaque»
-
-
-detail Money {
-	currency : IsoCurrency
-	amount : Decimal
-}
-
+archetype ID		is IDENTITY 	«Unique identifier, format is opaque»

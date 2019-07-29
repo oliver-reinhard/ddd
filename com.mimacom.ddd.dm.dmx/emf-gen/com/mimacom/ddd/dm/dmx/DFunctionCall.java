@@ -3,7 +3,6 @@
 package com.mimacom.ddd.dm.dmx;
 
 import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DFunction;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -31,12 +30,12 @@ public interface DFunctionCall extends DExpression
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Function</em>' reference.
-	 * @see #setFunction(DFunction)
+	 * @see #setFunction(DmxFunction)
 	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDFunctionCall_Function()
 	 * @model
 	 * @generated
 	 */
-	DFunction getFunction();
+	DmxFunction getFunction();
 
 	/**
 	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DFunctionCall#getFunction <em>Function</em>}' reference.
@@ -46,7 +45,7 @@ public interface DFunctionCall extends DExpression
 	 * @see #getFunction()
 	 * @generated
 	 */
-	void setFunction(DFunction value);
+	void setFunction(DmxFunction value);
 
 	/**
 	 * Returns the value of the '<em><b>Function Call Arguments</b></em>' containment reference list.

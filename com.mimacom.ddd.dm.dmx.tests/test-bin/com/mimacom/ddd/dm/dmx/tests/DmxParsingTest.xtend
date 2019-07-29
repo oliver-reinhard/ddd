@@ -6,21 +6,21 @@ package com.mimacom.ddd.dm.dmx.tests
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DIdentityType
 import com.mimacom.ddd.dm.base.DNamedElement
-import com.mimacom.ddd.dm.base.impl.DFunctionImpl
-import com.mimacom.ddd.dm.dmx.DmxModel
+import com.mimacom.ddd.dm.dmx.DmxNamespace
 import com.mimacom.ddd.dm.dmx.impl.DAssignmentImpl
 import com.mimacom.ddd.dm.dmx.impl.DBooleanLiteralImpl
 import com.mimacom.ddd.dm.dmx.impl.DConstructorCallImpl
-import com.mimacom.ddd.dm.dmx.impl.DContextReferenceImpl
+import com.mimacom.ddd.dm.dmx.impl.DmxContextReferenceImpl
 import com.mimacom.ddd.dm.dmx.impl.DDecimalLiteralImpl
 import com.mimacom.ddd.dm.dmx.impl.DFunctionCallImpl
 import com.mimacom.ddd.dm.dmx.impl.DNaturalLiteralImpl
-import com.mimacom.ddd.dm.dmx.impl.DUndefinedLiteralImpl
+import com.mimacom.ddd.dm.dmx.impl.DNavigableMemberReferenceImpl
 import com.mimacom.ddd.dm.dmx.impl.DRaiseExpressionImpl
 import com.mimacom.ddd.dm.dmx.impl.DReturnExpressionImpl
 import com.mimacom.ddd.dm.dmx.impl.DSelfExpressionImpl
 import com.mimacom.ddd.dm.dmx.impl.DStringLiteralImpl
-import com.mimacom.ddd.dm.dmx.impl.DNavigableMemberReferenceImpl
+import com.mimacom.ddd.dm.dmx.impl.DUndefinedLiteralImpl
+import com.mimacom.ddd.dm.dmx.impl.DmxFunctionImpl
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
@@ -33,127 +33,127 @@ import static org.junit.Assert.*
 @ExtendWith(InjectionExtension)
 @InjectWith(DmxInjectorProvider)
 class DmxParsingTest {
-	@Inject extension ParseHelper<DmxModel> parseHelper
+	@Inject extension ParseHelper<DmxNamespace> parseHelper
 	
 	@Test
 	def void testLiterals() {
 		val result = parseHelper.parse('''
-			expr 0: true;
-			expr 1: "Domain Model";
-			expr 2: 2;
-			expr 3: 314.159E-2;
-			expr 4: nil;
-			expr 5: NIL;
+			test T0 { true }
+			test T1 { "Domain Model" }
+			test T2 { 2 }
+			test T3 { 314.159E-2 }
+			test T4 { nil }
+			test T5 { NIL }
 		''')
 		assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Literal errors: «errors.join("; ")»''')
-		val expr = result.expressions
+		val tests = result.tests
 		
-		val e0 = expr.get(0)
+		val e0 = tests.get(0).expr
 		assertEquals(DBooleanLiteralImpl, e0.class)
 		assertEquals(true, (e0 as DBooleanLiteralImpl).value)
-		val e1 = expr.get(1)
+		val e1 = tests.get(1).expr
 		assertEquals(DStringLiteralImpl, e1.class)
 		assertEquals("Domain Model", (e1 as DStringLiteralImpl).value)
-		val e2 = expr.get(2)
+		val e2 = tests.get(2).expr
 		assertEquals(e2.class, DNaturalLiteralImpl)
 		assertEquals(2, (e2 as DNaturalLiteralImpl).value)
-		val e3 = expr.get(3)
+		val e3 = tests.get(3).expr
 		assertEquals(e3.class, DDecimalLiteralImpl)
 		assertEquals("314.159E-2", (e3 as DDecimalLiteralImpl).value)
-		val e4 = expr.get(4)
+		val e4 = tests.get(4).expr
 		assertEquals(DUndefinedLiteralImpl, e4.class)
-		val e5 = expr.get(5)
+		val e5 = tests.get(5).expr
 		assertEquals(DUndefinedLiteralImpl, e5.class)
 	}
 	
 	@Test
 	def void testPrimaries() {
 		val result = parseHelper.parse('''
-			expr 0: self;
-			expr 1: return;
-			expr 2: return 2;
-			expr 3: raise "Expression";
-			expr 4: (4);
+			test T0 { self }
+			test T1 { return }
+			test T2 { return 2 }
+			test T3 { raise "Expression" }
+			test T4 { (4) }
 			
-			expr 5: f();
-			expr 6: f(6);
-			expr 7: new X;
-			expr 8: new X(9);
-			expr 9: A;
+			test T5 { f() }
+			test T6 { f(6) }
+			test T7 { new X }
+			test T8 { new X(9) }
+			test T9 { A }
 		''')
 		assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Primaries errors: «errors.join("; ")»''')
-		val expr = result.expressions
+		val tests = result.tests
 		
-		val e0 = expr.get(0)
+		val e0 = tests.get(0).expr
 		assertEquals(DSelfExpressionImpl, e0.class)
-		val e1 = expr.get(1)
+		val e1 = tests.get(1).expr
 		assertEquals(DReturnExpressionImpl, e1.class)
 		assertEquals(null, (e1 as DReturnExpressionImpl).expression)
-		val e2 = expr.get(2)
+		val e2 = tests.get(2).expr
 		assertEquals(DReturnExpressionImpl, e2.class)
 		assertEquals(DNaturalLiteralImpl, (e2 as DReturnExpressionImpl).expression.class)
-		val e3 = expr.get(3)
+		val e3 = tests.get(3).expr
 		assertEquals(DRaiseExpressionImpl, e3.class)
 		assertEquals(DStringLiteralImpl, (e3 as DRaiseExpressionImpl).expression.class)
-		val e4 = expr.get(4)
+		val e4 = tests.get(4).expr
 		assertEquals(DNaturalLiteralImpl, e4.class)
 		assertEquals(4, (e4 as DNaturalLiteralImpl).value)
 		
-		val e5 = expr.get(5)
+		val e5 = tests.get(5).expr
 		assertEquals(DFunctionCallImpl, e5.class)
 		// actual value of 'e5.function' cross reference is a proxy that gets resolved upon access => Exception => use basicGetFunction
 		assertTrue((e5 as DFunctionCallImpl).basicGetFunction.eIsProxy)
-		assertEquals(DFunctionImpl, (e5 as DFunctionCallImpl).basicGetFunction.class) 
+		assertEquals(DmxFunctionImpl, (e5 as DFunctionCallImpl).basicGetFunction.class) 
 		assertEquals(0, (e5 as DFunctionCallImpl).functionCallArguments.size)
-		val e6 = expr.get(6)
-		assertEquals(DFunctionImpl, (e6 as DFunctionCallImpl).basicGetFunction.class)
+		val e6 = tests.get(6).expr
+		assertEquals(DmxFunctionImpl, (e6 as DFunctionCallImpl).basicGetFunction.class)
 		assertEquals(1, (e6 as DFunctionCallImpl).functionCallArguments.size)
 		assertEquals(DNaturalLiteralImpl, (e6 as DFunctionCallImpl).functionCallArguments.get(0).class)
-		val e7 = expr.get(7)
+		val e7 = tests.get(7).expr
 		assertEquals(DConstructorCallImpl, e7.class)
 		// actual value of 'e7.constructor' cross reference is a proxy that gets resolved upon access => Exception
 		assertTrue((e7 as DConstructorCallImpl).basicGetConstructor.eIsProxy)
 		assertTrue((e7 as DConstructorCallImpl).basicGetConstructor instanceof DIdentityType) 
 		assertFalse((e7 as DConstructorCallImpl).explicitConstructorCall)
-		val e8 = expr.get(8)
+		val e8 = tests.get(8).expr
 		assertEquals(DConstructorCallImpl, e8.class)
 		assertTrue((e8 as DConstructorCallImpl).basicGetConstructor instanceof DIdentityType) 
 		assertTrue((e8 as DConstructorCallImpl).explicitConstructorCall)
 		assertEquals(1, (e8 as DConstructorCallImpl).arguments.size)
 		assertEquals(DNaturalLiteralImpl, (e8 as DConstructorCallImpl).arguments.get(0).class)
-		val e9 = expr.get(9)
-		assertEquals(DContextReferenceImpl, e9.class)
+		val e9 = tests.get(9).expr
+		assertEquals(DmxContextReferenceImpl, e9.class)
 		// actual value of 'e9.contextElement' cross reference is a proxy that gets resolved upon access => Exception
-		assertTrue((e9 as DContextReferenceImpl).basicGetTarget.eIsProxy)
-		assertTrue((e9 as DContextReferenceImpl).basicGetTarget instanceof DNamedElement)
+		assertTrue((e9 as DmxContextReferenceImpl).basicGetTarget.eIsProxy)
+		assertTrue((e9 as DmxContextReferenceImpl).basicGetTarget instanceof DNamedElement)
 		
 	}
 	
 	@Test
 	def void testMemberFeatureCalls() {
 		val result = parseHelper.parse('''
-			expr 0: self.a;
-			expr 1: self.a.b;
-			expr 2: A.b;
-			expr 3: A.b.c;
+			test T0 { self.a }
+			test T1 { self.a.b }
+			test T2 { A.b }
+			test T3 { A.b.c }
 		''')
 		assertNotNull(result)
 		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''MemberFeatureCalls errors: «errors.join("; ")»''')
-		val expr = result.expressions
+		Assertions.assertTrue(errors.isEmpty, '''MemberFeatureCalls errors: «errors.join(" } ")»''')
+		val tests = result.tests
 		
-		val e0 = expr.get(0)
+		val e0 = tests.get(0).expr
 		// DMemberFeatureCall -- memberContainer --> DSelfExpression
 		assertEquals(DNavigableMemberReferenceImpl, e0.class)
 		// actual value of 'e0.member' cross reference is a proxy that gets resolved upon access => Exception
 		assertTrue((e0 as DNavigableMemberReferenceImpl).basicGetMember.eIsProxy)
 		assertEquals(DSelfExpressionImpl, (e0 as DNavigableMemberReferenceImpl).memberContainerReference.class)
 		
-		val e1 = expr.get(1)
+		val e1 = tests.get(1).expr
 		// DMemberFeatureCall -- memberContainer --> DMemberFeatureCall -- memberContainer --> DSelfExpression
 		assertEquals(DNavigableMemberReferenceImpl, e1.class)
 		val e1_1 = e1 as DNavigableMemberReferenceImpl
@@ -163,19 +163,19 @@ class DmxParsingTest {
 		assertTrue(e1_2.basicGetMember.eIsProxy)
 		assertEquals(DSelfExpressionImpl, e1_2.memberContainerReference.class)
 		
-		val e2 = expr.get(2)
+		val e2 = tests.get(2).expr
 		// DMemberFeatureCall -- memberContainer --> DContextReference
 		assertEquals(DNavigableMemberReferenceImpl, e2.class)
 		val e2_1 = e2 as DNavigableMemberReferenceImpl
 		// actual value of 'e2.member' cross reference is a proxy that gets resolved upon access => Exception
 		assertTrue((e2_1 as DNavigableMemberReferenceImpl).basicGetMember.eIsProxy)
-		assertEquals(DContextReferenceImpl, e2_1.memberContainerReference.class)
-		val e2_2 = e2_1.memberContainerReference as DContextReferenceImpl
+		assertEquals(DmxContextReferenceImpl, e2_1.memberContainerReference.class)
+		val e2_2 = e2_1.memberContainerReference as DmxContextReferenceImpl
 		// actual value of 'e2.reference' cross reference is a proxy that gets resolved upon access => Exception
 		assertTrue(e2_2.basicGetTarget.eIsProxy)
 		assertTrue(e2_2.basicGetTarget instanceof DNamedElement)
 		
-		val e3 = expr.get(3)
+		val e3 = tests.get(3).expr
 		// DMemberFeatureCall -- memberContainer --> DMemberFeatureCall -- memberContainer --> DContextReference
 		assertEquals(DNavigableMemberReferenceImpl, e3.class)
 		val e3_1 = e3 as DNavigableMemberReferenceImpl
@@ -183,8 +183,8 @@ class DmxParsingTest {
 		assertEquals(DNavigableMemberReferenceImpl, e3_1.memberContainerReference.class)
 		val e3_2 = e3_1.memberContainerReference as DNavigableMemberReferenceImpl
 		assertTrue(e3_2.basicGetMember.eIsProxy)
-		assertEquals(DContextReferenceImpl, e3_2.memberContainerReference.class)
-		val e3_3 = e3_2.memberContainerReference as DContextReferenceImpl
+		assertEquals(DmxContextReferenceImpl, e3_2.memberContainerReference.class)
+		val e3_3 = e3_2.memberContainerReference as DmxContextReferenceImpl
 		// actual value of 'e3_2.reference' cross reference is a proxy that gets resolved upon access => Exception
 		assertTrue(e3_3.basicGetTarget.eIsProxy)
 		assertTrue(e3_3.basicGetTarget instanceof DNamedElement)
@@ -193,36 +193,36 @@ class DmxParsingTest {
 	@Test
 	def void testAssignment() {
 		val result = parseHelper.parse('''
-			expr 0: a := 0;
-			expr 1: self.a := 1;
-			expr 2: A.b := 2;
-			expr 3: A.b.c := 3;
+			test T0 { a := 0 }
+			test T1 { self.a := 1 }
+			test T2 { A.b := 2 }
+			test T3 { A.b.c := 3 }
 		''')
 		assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Assignment errors: «errors.join("; ")»''')
-		val expr = result.expressions
+		val tests = result.tests
 		
-		val e0 = expr.get(0)
+		val e0 = tests.get(0).expr
 		assertEquals(DAssignmentImpl, e0.class)
 		// actual value of 'e0.member' cross reference is a proxy that gets resolved upon access => Exception
 		assertTrue((e0 as DAssignmentImpl).basicGetAssignToMember.eIsProxy)
 		assertNull((e0 as DAssignmentImpl).memberContainer)
 		assertEquals(DNaturalLiteralImpl, (e0 as DAssignmentImpl).value.class)
 		
-		val e1 = expr.get(1)
+		val e1 = tests.get(1).expr
 		assertEquals(DAssignmentImpl, e1.class)
 		assertTrue((e1 as DAssignmentImpl).basicGetAssignToMember.eIsProxy)
 		assertEquals(DSelfExpressionImpl, (e1 as DAssignmentImpl).memberContainer.class)
 		assertEquals(DNaturalLiteralImpl, (e1 as DAssignmentImpl).value.class)
 		
-		val e2 = expr.get(2)
+		val e2 = tests.get(2).expr
 		assertEquals(DAssignmentImpl, e2.class)
 		assertTrue((e2 as DAssignmentImpl).basicGetAssignToMember.eIsProxy)
-		assertEquals(DContextReferenceImpl, (e2 as DAssignmentImpl).memberContainer.class)
+		assertEquals(DmxContextReferenceImpl, (e2 as DAssignmentImpl).memberContainer.class)
 		assertEquals(DNaturalLiteralImpl, (e2 as DAssignmentImpl).value.class)
 		
-		val e3 = expr.get(3)
+		val e3 = tests.get(3).expr
 		// DMemberFeatureCall -- memberContainer --> DMemberFeatureCall -- memberContainer --> DContextReference
 		assertEquals(DAssignmentImpl, e3.class)
 		assertTrue((e3 as DAssignmentImpl).basicGetAssignToMember.eIsProxy)
@@ -230,7 +230,7 @@ class DmxParsingTest {
 		val e3_1 = (e3 as DAssignmentImpl).memberContainer as DNavigableMemberReferenceImpl
 		// actual value of 'e3.member' cross reference is a proxy that gets resolved upon access => Exception
 		assertTrue(e3_1.basicGetMember.eIsProxy)
-		assertEquals(DContextReferenceImpl, e3_1.memberContainerReference.class)
+		assertEquals(DmxContextReferenceImpl, e3_1.memberContainerReference.class)
 		assertEquals(DNaturalLiteralImpl, (e3 as DAssignmentImpl).value.class)
 		}
 	

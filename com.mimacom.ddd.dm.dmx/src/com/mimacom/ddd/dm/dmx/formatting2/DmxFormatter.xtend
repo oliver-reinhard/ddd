@@ -3,8 +3,9 @@
  */
 package com.mimacom.ddd.dm.dmx.formatting2
 
+import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DRichText
-import com.mimacom.ddd.dm.dmx.DmxModel
+import com.mimacom.ddd.dm.dmx.DmxNamespace
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
 
@@ -12,13 +13,10 @@ class DmxFormatter extends AbstractFormatter2 {
 	
 //	@Inject extension DmxGrammarAccess
 
-	def dispatch void format(DmxModel dmxModel, extension IFormattableDocument document) {
+	def dispatch void format(DmxNamespace model, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (dRichText : dmxModel.texts) {
-			dRichText.format
-		}
-		for (dExpression : dmxModel.expressions) {
-			dExpression.format
+		for (test : model.tests) {
+			test.expr.format
 		}
 	}
 
@@ -27,6 +25,13 @@ class DmxFormatter extends AbstractFormatter2 {
 		for (iRichTextElement : dRichText.segments) {
 			iRichTextElement.format
 		}
+	}
+
+	def dispatch void format(DExpression expr, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+//		for (iRichTextElement : expr.segments) {
+//			iRichTextElement.format
+//		}
 	}
 	
 	// TODO: implement for DAssignment, DBinaryOperation, DUnaryOperation, DTypedMemberReference, DReturnExpression, DRaiseExpression, DFunctionCall, DConstructorCall, DIfExpression, DForLoopExpression, DInstanceOfExpression, DCastExpression

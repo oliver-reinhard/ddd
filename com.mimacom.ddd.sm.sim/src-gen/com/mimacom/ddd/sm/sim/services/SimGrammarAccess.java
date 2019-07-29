@@ -3222,8 +3222,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	//	imports+=DImport*
 	//	'domain'
 	//	name=DQualifiedName ('alias' aliases+=ID)*
-	//	description=DRichText? (types+=DType | functions+=DFunction | aggregates+=super::DAggregate |
-	//	applications+=DExistingApplication | actors+=DService)*;
+	//	description=DRichText? (types+=DType | aggregates+=super::DAggregate | applications+=DExistingApplication |
+	//	actors+=DService)*;
 	public DimGrammarAccess.DDomainElements getDDomainAccess() {
 		return gaDim.getDDomainAccess();
 	}
@@ -3232,47 +3232,10 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		return getDDomainAccess().getRule();
 	}
 	
-	//DImport:
-	//	'import' importedNamespace=DQualifiedNameWithWildcard;
-	public DimGrammarAccess.DImportElements getDImportAccess() {
-		return gaDim.getDImportAccess();
-	}
-	
-	public ParserRule getDImportRule() {
-		return getDImportAccess().getRule();
-	}
-	
-	//DFunction:
-	//	'function' name=ID
-	//	'(' (parameters+=DFunctionParameter (',' parameters+=DFunctionParameter)*)? ')'
-	//	':'
-	//	systemType=DSystemType
-	//	systemTypeMany?='*'?;
-	public DimGrammarAccess.DFunctionElements getDFunctionAccess() {
-		return gaDim.getDFunctionAccess();
-	}
-	
-	public ParserRule getDFunctionRule() {
-		return getDFunctionAccess().getRule();
-	}
-	
-	//DFunctionParameter:
-	//	name=ID
-	//	':'
-	//	systemType=DSystemType
-	//	systemTypeMany?='*'?;
-	public DimGrammarAccess.DFunctionParameterElements getDFunctionParameterAccess() {
-		return gaDim.getDFunctionParameterAccess();
-	}
-	
-	public ParserRule getDFunctionParameterRule() {
-		return getDFunctionParameterAccess().getRule();
-	}
-	
 	///*
 	// * TYPES
 	// */ DType:
-	//	DPrimitive | DPrimitiveArchetype | super::DEnumeration | DEntityType | DRelationship | DDetailType;
+	//	DPrimitive | super::DEnumeration | DEntityType | DRelationship | DDetailType;
 	public DimGrammarAccess.DTypeElements getDTypeAccess() {
 		return gaDim.getDTypeAccess();
 	}
@@ -3298,7 +3261,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	//DPrimitive:
 	//	'primitive'
 	//	name=ID ('alias' aliases+=ID)*
-	//	'redefines' redefines=[DPrimitive] description=DRichText? ('{'
+	//	'redefines' redefines=[DmxArchetype] description=DRichText? ('{'
 	//	constraints+=DConstraint+
 	//	'}')?;
 	public DimGrammarAccess.DPrimitiveElements getDPrimitiveAccess() {
@@ -3307,30 +3270,6 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDPrimitiveRule() {
 		return getDPrimitiveAccess().getRule();
-	}
-	
-	//DPrimitiveArchetype DPrimitive:
-	//	'archetype'
-	//	name=ID
-	//	'is'
-	//	systemType=DSystemType
-	//	description=DRichText?;
-	public DimGrammarAccess.DPrimitiveArchetypeElements getDPrimitiveArchetypeAccess() {
-		return gaDim.getDPrimitiveArchetypeAccess();
-	}
-	
-	public ParserRule getDPrimitiveArchetypeRule() {
-		return getDPrimitiveArchetypeAccess().getRule();
-	}
-	
-	//enum DSystemType:
-	//	VOID | BOOLEAN | NUMBER | TEXT | ID | TIMEPOINT | TYPE | OBJECT | ACTOR | OPERATION | LAMBDA;
-	public DimGrammarAccess.DSystemTypeElements getDSystemTypeAccess() {
-		return gaDim.getDSystemTypeAccess();
-	}
-	
-	public EnumRule getDSystemTypeRule() {
-		return getDSystemTypeAccess().getRule();
 	}
 	
 	//DLiteral:
@@ -3530,14 +3469,102 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		return getDDirectionAccess().getRule();
 	}
 	
-	//DmxModel:
-	//	{DmxModel} ('text' NATURAL ':' texts+=DRichText ';')* ('expr' NATURAL ':' expressions+=DExpression ';')*;
-	public DmxGrammarAccess.DmxModelElements getDmxModelAccess() {
-		return gaDmx.getDmxModelAccess();
+	//DmxNamespace:
+	//	imports+=DImport*
+	//	'namespace'
+	//	name=DQualifiedName
+	//	types+=DmxArchetype*
+	//	filters+=DmxFilter* ('text' NATURAL ':' texts+=DRichText ';')* ('expr' NATURAL ':' expressions+=DExpression ';')*;
+	public DmxGrammarAccess.DmxNamespaceElements getDmxNamespaceAccess() {
+		return gaDmx.getDmxNamespaceAccess();
 	}
 	
-	public ParserRule getDmxModelRule() {
-		return getDmxModelAccess().getRule();
+	public ParserRule getDmxNamespaceRule() {
+		return getDmxNamespaceAccess().getRule();
+	}
+	
+	//DImport:
+	//	'import' importedNamespace=DQualifiedNameWithWildcard;
+	public DmxGrammarAccess.DImportElements getDImportAccess() {
+		return gaDmx.getDImportAccess();
+	}
+	
+	public ParserRule getDImportRule() {
+		return getDImportAccess().getRule();
+	}
+	
+	//enum DmxBaseType:
+	//	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | OBJECT | ACTOR /*notified */ | OPERATION /*invoked* */;
+	public DmxGrammarAccess.DmxBaseTypeElements getDmxBaseTypeAccess() {
+		return gaDmx.getDmxBaseTypeAccess();
+	}
+	
+	public EnumRule getDmxBaseTypeRule() {
+		return getDmxBaseTypeAccess().getRule();
+	}
+	
+	//DmxArchetype:
+	//	'archetype'
+	//	name=ID
+	//	'is'
+	//	systemType=DmxBaseType
+	//	description=DRichText?;
+	public DmxGrammarAccess.DmxArchetypeElements getDmxArchetypeAccess() {
+		return gaDmx.getDmxArchetypeAccess();
+	}
+	
+	public ParserRule getDmxArchetypeRule() {
+		return getDmxArchetypeAccess().getRule();
+	}
+	
+	//DmxFilter:
+	//	DmxFunction | DmxIterator;
+	public DmxGrammarAccess.DmxFilterElements getDmxFilterAccess() {
+		return gaDmx.getDmxFilterAccess();
+	}
+	
+	public ParserRule getDmxFilterRule() {
+		return getDmxFilterAccess().getRule();
+	}
+	
+	//DmxFunction:
+	//	'function' name=ID
+	//	'(' (parameters+=DmxFunctionParameter (',' parameters+=DmxFunctionParameter)*)? ')'
+	//	':'
+	//	systemType=DmxBaseType
+	//	systemTypeMany?='*'?;
+	public DmxGrammarAccess.DmxFunctionElements getDmxFunctionAccess() {
+		return gaDmx.getDmxFunctionAccess();
+	}
+	
+	public ParserRule getDmxFunctionRule() {
+		return getDmxFunctionAccess().getRule();
+	}
+	
+	//DmxFunctionParameter:
+	//	name=ID
+	//	':'
+	//	systemType=DmxBaseType
+	//	systemTypeMany?='*'?;
+	public DmxGrammarAccess.DmxFunctionParameterElements getDmxFunctionParameterAccess() {
+		return gaDmx.getDmxFunctionParameterAccess();
+	}
+	
+	public ParserRule getDmxFunctionParameterRule() {
+		return getDmxFunctionParameterAccess().getRule();
+	}
+	
+	//DmxIterator:
+	//	'iterator' name=ID
+	//	':'
+	//	systemType=DmxBaseType
+	//	systemTypeMany?='*'?;
+	public DmxGrammarAccess.DmxIteratorElements getDmxIteratorAccess() {
+		return gaDmx.getDmxIteratorAccess();
+	}
+	
+	public ParserRule getDmxIteratorRule() {
+		return getDmxIteratorAccess().getRule();
 	}
 	
 	//DExpression:
@@ -3895,7 +3922,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DFunctionCall DExpression:
-	//	{DFunctionCall} function=[DFunction]
+	//	{DFunctionCall} function=[DmxFunction]
 	//	'(' (functionCallArguments+=DExpression (',' functionCallArguments+=DExpression)*)?
 	//	')';
 	public DmxGrammarAccess.DFunctionCallElements getDFunctionCallAccess() {
@@ -3929,7 +3956,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DContextReference DExpression:
-	//	{DContextReference} (target=[DNamedElement] before?="@before"?
+	//	{DContextReference} (target=[DNamedElement] (before?="@before"
+	//	| all?='.all')?
 	//	| '['
 	//	target=[IPrimaryNavigationTarget|DQualifiedName] ('#' member=[DNavigableMember])? ("|" (displayName=ID |
 	//	plural?="*"))?

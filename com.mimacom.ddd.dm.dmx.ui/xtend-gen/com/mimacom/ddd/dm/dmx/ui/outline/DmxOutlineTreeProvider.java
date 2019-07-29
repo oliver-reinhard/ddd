@@ -3,7 +3,26 @@
  */
 package com.mimacom.ddd.dm.dmx.ui.outline;
 
+import com.mimacom.ddd.dm.base.DContext;
+import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DMultiplicity;
+import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.dmx.DAssignment;
+import com.mimacom.ddd.dm.dmx.DNavigableMemberReference;
+import com.mimacom.ddd.dm.dmx.DPredicate;
+import com.mimacom.ddd.dm.dmx.DmxContextReference;
+import com.mimacom.ddd.dm.dmx.DmxIterator;
+import com.mimacom.ddd.dm.dmx.DmxPackage;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.xtext.ui.editor.outline.IOutlineNode;
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
+import org.eclipse.xtext.ui.editor.outline.impl.EObjectNode;
+import org.eclipse.xtext.ui.editor.outline.impl.EStructuralFeatureNode;
+import org.eclipse.xtext.xbase.lib.Conversions;
 
 /**
  * Customization of the default outline structure.
@@ -12,4 +31,151 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
  */
 @SuppressWarnings("all")
 public class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
+  private static final DmxPackage DMX = DmxPackage.eINSTANCE;
+  
+  private static final ImageDescriptor NULL_IMAGE = ((ImageDescriptor) null);
+  
+  private static final ImageDescriptor FEATURE_IMAGE = DmxOutlineTreeProvider.NULL_IMAGE;
+  
+  public EObjectNode _createNode(final IOutlineNode parentNode, final DContext context) {
+    EObjectNode _xblockexpression = null;
+    {
+      String _xifexpression = null;
+      DType _type = context.getType();
+      boolean _tripleNotEquals = (_type != null);
+      if (_tripleNotEquals) {
+        String _name = context.getType().getName();
+        String _plus = (" : " + _name);
+        String _xifexpression_1 = null;
+        DMultiplicity _multiplicity = context.getMultiplicity();
+        boolean _tripleNotEquals_1 = (_multiplicity != null);
+        if (_tripleNotEquals_1) {
+          int _minOccurs = context.getMultiplicity().getMinOccurs();
+          String _plus_1 = ("(" + Integer.valueOf(_minOccurs));
+          String _plus_2 = (_plus_1 + " .. ");
+          int _maxOccurs = context.getMultiplicity().getMaxOccurs();
+          String _plus_3 = (_plus_2 + Integer.valueOf(_maxOccurs));
+          _xifexpression_1 = (_plus_3 + ")");
+        } else {
+          _xifexpression_1 = "";
+        }
+        _xifexpression = (_plus + _xifexpression_1);
+      } else {
+        _xifexpression = " : (no type)";
+      }
+      final String type = _xifexpression;
+      Image _invoke = this.imageDispatcher.invoke(context);
+      Object _invoke_1 = this.textDispatcher.invoke(context);
+      String _plus_4 = (_invoke_1 + type);
+      _xblockexpression = this.createEObjectNode(parentNode, context, _invoke, _plus_4, (this.isLeafDispatcher.invoke(context)).booleanValue());
+    }
+    return _xblockexpression;
+  }
+  
+  public EStructuralFeatureNode _createNode(final IOutlineNode parentNode, final DmxIterator iterator) {
+    EStructuralFeatureNode _xblockexpression = null;
+    {
+      final EObjectNode node = this.createEObjectNode(parentNode, iterator, this.imageDispatcher.invoke(iterator), this.textDispatcher.invoke(iterator), (this.isLeafDispatcher.invoke(iterator)).booleanValue());
+      EAttribute _dmxFilter_SystemType = DmxOutlineTreeProvider.DMX.getDmxFilter_SystemType();
+      String _name = DmxOutlineTreeProvider.DMX.getDmxFilter_SystemType().getName();
+      String _plus = (_name + " ");
+      String _literal = iterator.getSystemType().getLiteral();
+      String _plus_1 = (_plus + _literal);
+      String _xifexpression = null;
+      boolean _isSystemTypeMany = iterator.isSystemTypeMany();
+      if (_isSystemTypeMany) {
+        _xifexpression = "*";
+      } else {
+        _xifexpression = "";
+      }
+      String _plus_2 = (_plus_1 + _xifexpression);
+      _xblockexpression = this.createEStructuralFeatureNode(node, iterator, _dmxFilter_SystemType, DmxOutlineTreeProvider.FEATURE_IMAGE, _plus_2, true);
+    }
+    return _xblockexpression;
+  }
+  
+  public EStructuralFeatureNode _createChildren(final IOutlineNode parentNode, final DPredicate pred) {
+    EStructuralFeatureNode _xblockexpression = null;
+    {
+      DContext _var = pred.getVar();
+      boolean _tripleNotEquals = (_var != null);
+      if (_tripleNotEquals) {
+        this.createEStructuralFeatureNode(parentNode, pred, DmxOutlineTreeProvider.DMX.getDPredicate_Var(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDPredicate_Var().getName(), false);
+      }
+      EStructuralFeatureNode _xifexpression = null;
+      DExpression _value = pred.getValue();
+      boolean _tripleNotEquals_1 = (_value != null);
+      if (_tripleNotEquals_1) {
+        _xifexpression = this.createEStructuralFeatureNode(parentNode, pred, DmxOutlineTreeProvider.DMX.getDPredicate_Value(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDPredicate_Value().getName(), false);
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
+  
+  public EStructuralFeatureNode _createChildren(final IOutlineNode parentNode, final DNavigableMemberReference ref) {
+    EStructuralFeatureNode _xblockexpression = null;
+    {
+      DExpression _memberContainerReference = ref.getMemberContainerReference();
+      boolean _tripleNotEquals = (_memberContainerReference != null);
+      if (_tripleNotEquals) {
+        this.createEStructuralFeatureNode(parentNode, ref, DmxOutlineTreeProvider.DMX.getDNavigableMemberReference_MemberContainerReference(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDNavigableMemberReference_MemberContainerReference().getName(), false);
+      }
+      if (((ref.getMember() != null) && (!ref.getMember().eIsProxy()))) {
+        this.createEStructuralFeatureNode(parentNode, ref, DmxOutlineTreeProvider.DMX.getDNavigableMemberReference_Member(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDNavigableMemberReference_Member().getName(), false);
+      }
+      EStructuralFeatureNode _xifexpression = null;
+      int _length = ((Object[])Conversions.unwrapArray(ref.getMemberCallArguments(), Object.class)).length;
+      boolean _greaterThan = (_length > 0);
+      if (_greaterThan) {
+        _xifexpression = this.createEStructuralFeatureNode(parentNode, ref, DmxOutlineTreeProvider.DMX.getDNavigableMemberReference_MemberCallArguments(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDNavigableMemberReference_MemberCallArguments().getName(), false);
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
+  
+  public EStructuralFeatureNode _createChildren(final IOutlineNode parentNode, final DAssignment assign) {
+    EStructuralFeatureNode _xblockexpression = null;
+    {
+      DExpression _memberContainer = assign.getMemberContainer();
+      boolean _tripleNotEquals = (_memberContainer != null);
+      if (_tripleNotEquals) {
+        this.createEStructuralFeatureNode(parentNode, assign, DmxOutlineTreeProvider.DMX.getDAssignment_MemberContainer(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDAssignment_MemberContainer().getName(), false);
+      }
+      if (((assign.getAssignToMember() != null) && (!assign.getAssignToMember().eIsProxy()))) {
+        this.createEStructuralFeatureNode(parentNode, assign, DmxOutlineTreeProvider.DMX.getDAssignment_AssignToMember(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDAssignment_AssignToMember().getName(), false);
+      }
+      EStructuralFeatureNode _xifexpression = null;
+      if (((assign.getValue() != null) && (!assign.getAssignToMember().eIsProxy()))) {
+        _xifexpression = this.createEStructuralFeatureNode(parentNode, assign, DmxOutlineTreeProvider.DMX.getDAssignment_Value(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDAssignment_Value().getName(), false);
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
+  
+  public EStructuralFeatureNode _createNode(final IOutlineNode parentNode, final DmxContextReference ref) {
+    EStructuralFeatureNode _xblockexpression = null;
+    {
+      final EObjectNode node = this.createEObjectNode(parentNode, ref, this.imageDispatcher.invoke(ref), this.textDispatcher.invoke(ref), (this.isLeafDispatcher.invoke(ref)).booleanValue());
+      DNamedElement _target = ref.getTarget();
+      boolean _tripleNotEquals = (_target != null);
+      if (_tripleNotEquals) {
+        EReference _dmxContextReference_Target = DmxOutlineTreeProvider.DMX.getDmxContextReference_Target();
+        String _name = DmxOutlineTreeProvider.DMX.getDmxContextReference_Target().getName();
+        String _plus = (_name + ": ");
+        String _name_1 = ref.getTarget().getName();
+        String _plus_1 = (_plus + _name_1);
+        this.createEStructuralFeatureNode(node, ref, _dmxContextReference_Target, DmxOutlineTreeProvider.FEATURE_IMAGE, _plus_1, false);
+      }
+      EStructuralFeatureNode _xifexpression = null;
+      boolean _isAll = ref.isAll();
+      if (_isAll) {
+        _xifexpression = this.createEStructuralFeatureNode(node, ref, DmxOutlineTreeProvider.DMX.getDmxContextReference_All(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDmxContextReference_All().getName(), true);
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
 }

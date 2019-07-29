@@ -4,8 +4,16 @@
 package com.mimacom.ddd.dm.dmx.ui.labeling
 
 import com.google.inject.Inject
+import com.mimacom.ddd.dm.base.DExpression
+import com.mimacom.ddd.dm.dmx.DBinaryOperation
+import com.mimacom.ddd.dm.dmx.DBooleanLiteral
+import com.mimacom.ddd.dm.dmx.DDecimalLiteral
+import com.mimacom.ddd.dm.dmx.DNaturalLiteral
+import com.mimacom.ddd.dm.dmx.DStringLiteral
+import com.mimacom.ddd.dm.dmx.DUndefinedLiteral
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+import com.mimacom.ddd.dm.base.DNamedElement
 
 /**
  * Provides labels for EObjects.
@@ -21,9 +29,42 @@ class DmxLabelProvider extends DefaultEObjectLabelProvider {
 
 	// Labels and icons can be computed like this:
 	
-//	def text(Greeting ele) {
-//		'A greeting to ' + ele.name
-//	}
+	def text(DNamedElement e) {
+		return e.simpleName + " " + e.name
+	}
+	
+	def text(DExpression e) {
+		return e.simpleName
+	}
+	
+	def text(DBinaryOperation e) {
+		return e.simpleName + " " + e.operator.getName
+	}
+	
+	def text(DBooleanLiteral e) {
+		return e.simpleName + " " + e.value
+	}
+	
+	def text(DStringLiteral e) {
+		return e.simpleName + " " + e.value
+	}
+	
+	def text(DNaturalLiteral e) {
+		return e.simpleName + " " + e.value
+	}
+	
+	def text(DDecimalLiteral e) {
+		return e.simpleName + " " + e.value
+	}
+	
+	def text(DUndefinedLiteral e) {
+		return e.simpleName
+	}
+	
+	protected def simpleName(Object obj) {
+		val name = obj.class.simpleName
+		return if (name.endsWith("Impl")) name.substring(0, name.length-4)
+	}
 //
 //	def image(Greeting ele) {
 //		'Greeting.gif'

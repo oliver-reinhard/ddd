@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DService extends DActor, ITypeContainer, INavigableMemberContainer, IPrimaryNavigationTarget
+public interface DService extends DActor, ITypeContainer, INavigableMemberContainer, IStaticReferenceTarget
 {
 	/**
 	 * Returns the value of the '<em><b>Kind</b></em>' attribute.

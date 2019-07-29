@@ -22,30 +22,28 @@ public class DemSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected DemGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3;
-	protected AbstractElementAlias match_DNilLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1;
 	protected AbstractElementAlias match_DParenthesizedExpression_LeftParenthesisKeyword_0_a;
 	protected AbstractElementAlias match_DParenthesizedExpression_LeftParenthesisKeyword_0_p;
 	protected AbstractElementAlias match_DRaiseExpression_RAISEKeyword_1_0_or_RaiseKeyword_1_1;
 	protected AbstractElementAlias match_DReturnExpression_RETURNKeyword_1_0_or_ReturnKeyword_1_1;
 	protected AbstractElementAlias match_DSelfExpression_SELFKeyword_1_0_or_SelfKeyword_1_1;
+	protected AbstractElementAlias match_DUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (DemGrammarAccess) access;
 		match_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDBooleanLiteralAccess().getFALSEKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getDBooleanLiteralAccess().getFalseKeyword_1_3()));
-		match_DNilLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDNilLiteralAccess().getUNDEFINEDKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDNilLiteralAccess().getUndefinedKeyword_1_1()));
 		match_DParenthesizedExpression_LeftParenthesisKeyword_0_a = new TokenAlias(true, true, grammarAccess.getDParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
 		match_DParenthesizedExpression_LeftParenthesisKeyword_0_p = new TokenAlias(true, false, grammarAccess.getDParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
 		match_DRaiseExpression_RAISEKeyword_1_0_or_RaiseKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDRaiseExpressionAccess().getRAISEKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDRaiseExpressionAccess().getRaiseKeyword_1_1()));
 		match_DReturnExpression_RETURNKeyword_1_0_or_ReturnKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDReturnExpressionAccess().getRETURNKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDReturnExpressionAccess().getReturnKeyword_1_1()));
 		match_DSelfExpression_SELFKeyword_1_0_or_SelfKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDSelfExpressionAccess().getSELFKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDSelfExpressionAccess().getSelfKeyword_1_1()));
+		match_DUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDUndefinedLiteralAccess().getUNDEFINEDKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDUndefinedLiteralAccess().getUndefinedKeyword_1_1()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getNATURALRule())
-			return getNATURALToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getOpCastRule())
+		if (ruleCall.getRule() == grammarAccess.getOpCastRule())
 			return getOpCastToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getOpConstructorRule())
 			return getOpConstructorToken(semanticObject, ruleCall, node);
@@ -53,15 +51,6 @@ public class DemSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getOpInstanceOfToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getOpSingleAssignRule())
 			return getOpSingleAssignToken(semanticObject, ruleCall, node);
-		return "";
-	}
-	
-	/**
-	 * terminal NATURAL returns ecore::EInt: '0'..'9'+;
-	 */
-	protected String getNATURALToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
 		return "";
 	}
 	
@@ -113,8 +102,6 @@ public class DemSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3.equals(syntax))
 				emit_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DNilLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1.equals(syntax))
-				emit_DNilLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DParenthesizedExpression_LeftParenthesisKeyword_0_a.equals(syntax))
 				emit_DParenthesizedExpression_LeftParenthesisKeyword_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DParenthesizedExpression_LeftParenthesisKeyword_0_p.equals(syntax))
@@ -125,6 +112,8 @@ public class DemSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_DReturnExpression_RETURNKeyword_1_0_or_ReturnKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DSelfExpression_SELFKeyword_1_0_or_SelfKeyword_1_1.equals(syntax))
 				emit_DSelfExpression_SELFKeyword_1_0_or_SelfKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_DUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1.equals(syntax))
+				emit_DUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -144,23 +133,10 @@ public class DemSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     'UNDEFINED' | 'undefined'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) '('* (ambiguity) (rule start)
-	 *     (rule start) '('+ (ambiguity) ')' (rule start)
-	 *     (rule start) (ambiguity) (rule start)
-	 */
-	protected void emit_DNilLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
 	 *     '('*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) '[' target=[IPrimaryNavigationTarget|DQualifiedName]
+	 *     (rule start) (ambiguity) '[' target=[IStaticReferenceTarget|DQualifiedName]
 	 *     (rule start) (ambiguity) 'for' declaredParam=ID
 	 *     (rule start) (ambiguity) 'if' if=DExpression
 	 *     (rule start) (ambiguity) ('FALSE' | 'false') (rule start)
@@ -171,7 +147,7 @@ public class DemSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) ('UNDEFINED' | 'undefined') (rule start)
 	 *     (rule start) (ambiguity) OpConstructor constructor=[DComplexType|ID]
 	 *     (rule start) (ambiguity) assignToMember=[DNavigableMember|ID]
-	 *     (rule start) (ambiguity) function=[DFunction|ID]
+	 *     (rule start) (ambiguity) function=[DmxFunction|ID]
 	 *     (rule start) (ambiguity) operator=OpUnary
 	 *     (rule start) (ambiguity) segments+=DTextOnly
 	 *     (rule start) (ambiguity) segments+=DTextStart
@@ -181,6 +157,7 @@ public class DemSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) value=STRING
 	 *     (rule start) (ambiguity) value?='TRUE'
 	 *     (rule start) (ambiguity) value?='true'
+	 *     (rule start) (ambiguity) var=DPredicateContext
 	 *     (rule start) (ambiguity) {DAssignment.memberContainer=}
 	 *     (rule start) (ambiguity) {DBinaryOperation.leftOperand=}
 	 *     (rule start) (ambiguity) {DCastExpression.target=}
@@ -196,7 +173,7 @@ public class DemSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) '[' target=[IPrimaryNavigationTarget|DQualifiedName]
+	 *     (rule start) (ambiguity) '[' target=[IStaticReferenceTarget|DQualifiedName]
 	 *     (rule start) (ambiguity) 'for' declaredParam=ID
 	 *     (rule start) (ambiguity) 'if' if=DExpression
 	 *     (rule start) (ambiguity) ('FALSE' | 'false') ')' (rule start)
@@ -207,7 +184,7 @@ public class DemSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) ('UNDEFINED' | 'undefined') ')' (rule start)
 	 *     (rule start) (ambiguity) OpConstructor constructor=[DComplexType|ID]
 	 *     (rule start) (ambiguity) assignToMember=[DNavigableMember|ID]
-	 *     (rule start) (ambiguity) function=[DFunction|ID]
+	 *     (rule start) (ambiguity) function=[DmxFunction|ID]
 	 *     (rule start) (ambiguity) operator=OpUnary
 	 *     (rule start) (ambiguity) segments+=DTextOnly
 	 *     (rule start) (ambiguity) segments+=DTextStart
@@ -217,6 +194,7 @@ public class DemSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) value=STRING
 	 *     (rule start) (ambiguity) value?='TRUE'
 	 *     (rule start) (ambiguity) value?='true'
+	 *     (rule start) (ambiguity) var=DPredicateContext
 	 *     (rule start) (ambiguity) {DAssignment.memberContainer=}
 	 *     (rule start) (ambiguity) {DBinaryOperation.leftOperand=}
 	 *     (rule start) (ambiguity) {DCastExpression.target=}
@@ -266,6 +244,19 @@ public class DemSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) (rule start)
 	 */
 	protected void emit_DSelfExpression_SELFKeyword_1_0_or_SelfKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'UNDEFINED' | 'undefined'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) '('* (ambiguity) (rule start)
+	 *     (rule start) '('+ (ambiguity) ')' (rule start)
+	 *     (rule start) (ambiguity) (rule start)
+	 */
+	protected void emit_DUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

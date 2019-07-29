@@ -1,10 +1,10 @@
 /**
  */
-package com.mimacom.ddd.dm.base.impl;
+package com.mimacom.ddd.dm.dmx.impl;
 
-import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DFunctionParameter;
-import com.mimacom.ddd.dm.base.DSystemType;
+import com.mimacom.ddd.dm.dmx.DmxBaseType;
+import com.mimacom.ddd.dm.dmx.DmxFunctionParameter;
+import com.mimacom.ddd.dm.dmx.DmxPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -15,20 +15,20 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>DFunction Parameter</b></em>'.
+ * An implementation of the model object '<em><b>Function Parameter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DFunctionParameterImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DFunctionParameterImpl#getSystemType <em>System Type</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DFunctionParameterImpl#isSystemTypeMany <em>System Type Many</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxFunctionParameterImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxFunctionParameterImpl#getSystemType <em>System Type</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxFunctionParameterImpl#isSystemTypeMany <em>System Type Many</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DFunctionParameterImpl extends MinimalEObjectImpl.Container implements DFunctionParameter
+public class DmxFunctionParameterImpl extends MinimalEObjectImpl.Container implements DmxFunctionParameter
 {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -58,7 +58,7 @@ public class DFunctionParameterImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected static final DSystemType SYSTEM_TYPE_EDEFAULT = DSystemType.UNDEFINED;
+	protected static final DmxBaseType SYSTEM_TYPE_EDEFAULT = DmxBaseType.UNDEFINED;
 
 	/**
 	 * The cached value of the '{@link #getSystemType() <em>System Type</em>}' attribute.
@@ -68,7 +68,7 @@ public class DFunctionParameterImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected DSystemType systemType = SYSTEM_TYPE_EDEFAULT;
+	protected DmxBaseType systemType = SYSTEM_TYPE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isSystemTypeMany() <em>System Type Many</em>}' attribute.
@@ -95,7 +95,7 @@ public class DFunctionParameterImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DFunctionParameterImpl()
+	protected DmxFunctionParameterImpl()
 	{
 		super();
 	}
@@ -108,7 +108,7 @@ public class DFunctionParameterImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	protected EClass eStaticClass()
 	{
-		return BasePackage.Literals.DFUNCTION_PARAMETER;
+		return DmxPackage.Literals.DMX_FUNCTION_PARAMETER;
 	}
 
 	/**
@@ -133,7 +133,7 @@ public class DFunctionParameterImpl extends MinimalEObjectImpl.Container impleme
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DFUNCTION_PARAMETER__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_FUNCTION_PARAMETER__NAME, oldName, name));
 	}
 
 	/**
@@ -142,7 +142,7 @@ public class DFunctionParameterImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 */
 	@Override
-	public DSystemType getSystemType()
+	public DmxBaseType getSystemType()
 	{
 		return systemType;
 	}
@@ -153,12 +153,12 @@ public class DFunctionParameterImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 */
 	@Override
-	public void setSystemType(DSystemType newSystemType)
+	public void setSystemType(DmxBaseType newSystemType)
 	{
-		DSystemType oldSystemType = systemType;
+		DmxBaseType oldSystemType = systemType;
 		systemType = newSystemType == null ? SYSTEM_TYPE_EDEFAULT : newSystemType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DFUNCTION_PARAMETER__SYSTEM_TYPE, oldSystemType, systemType));
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_FUNCTION_PARAMETER__SYSTEM_TYPE, oldSystemType, systemType));
 	}
 
 	/**
@@ -183,7 +183,7 @@ public class DFunctionParameterImpl extends MinimalEObjectImpl.Container impleme
 		boolean oldSystemTypeMany = systemTypeMany;
 		systemTypeMany = newSystemTypeMany;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DFUNCTION_PARAMETER__SYSTEM_TYPE_MANY, oldSystemTypeMany, systemTypeMany));
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_FUNCTION_PARAMETER__SYSTEM_TYPE_MANY, oldSystemTypeMany, systemTypeMany));
 	}
 
 	/**
@@ -196,11 +196,11 @@ public class DFunctionParameterImpl extends MinimalEObjectImpl.Container impleme
 	{
 		switch (featureID)
 		{
-			case BasePackage.DFUNCTION_PARAMETER__NAME:
+			case DmxPackage.DMX_FUNCTION_PARAMETER__NAME:
 				return getName();
-			case BasePackage.DFUNCTION_PARAMETER__SYSTEM_TYPE:
+			case DmxPackage.DMX_FUNCTION_PARAMETER__SYSTEM_TYPE:
 				return getSystemType();
-			case BasePackage.DFUNCTION_PARAMETER__SYSTEM_TYPE_MANY:
+			case DmxPackage.DMX_FUNCTION_PARAMETER__SYSTEM_TYPE_MANY:
 				return isSystemTypeMany();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -216,13 +216,13 @@ public class DFunctionParameterImpl extends MinimalEObjectImpl.Container impleme
 	{
 		switch (featureID)
 		{
-			case BasePackage.DFUNCTION_PARAMETER__NAME:
+			case DmxPackage.DMX_FUNCTION_PARAMETER__NAME:
 				setName((String)newValue);
 				return;
-			case BasePackage.DFUNCTION_PARAMETER__SYSTEM_TYPE:
-				setSystemType((DSystemType)newValue);
+			case DmxPackage.DMX_FUNCTION_PARAMETER__SYSTEM_TYPE:
+				setSystemType((DmxBaseType)newValue);
 				return;
-			case BasePackage.DFUNCTION_PARAMETER__SYSTEM_TYPE_MANY:
+			case DmxPackage.DMX_FUNCTION_PARAMETER__SYSTEM_TYPE_MANY:
 				setSystemTypeMany((Boolean)newValue);
 				return;
 		}
@@ -239,13 +239,13 @@ public class DFunctionParameterImpl extends MinimalEObjectImpl.Container impleme
 	{
 		switch (featureID)
 		{
-			case BasePackage.DFUNCTION_PARAMETER__NAME:
+			case DmxPackage.DMX_FUNCTION_PARAMETER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case BasePackage.DFUNCTION_PARAMETER__SYSTEM_TYPE:
+			case DmxPackage.DMX_FUNCTION_PARAMETER__SYSTEM_TYPE:
 				setSystemType(SYSTEM_TYPE_EDEFAULT);
 				return;
-			case BasePackage.DFUNCTION_PARAMETER__SYSTEM_TYPE_MANY:
+			case DmxPackage.DMX_FUNCTION_PARAMETER__SYSTEM_TYPE_MANY:
 				setSystemTypeMany(SYSTEM_TYPE_MANY_EDEFAULT);
 				return;
 		}
@@ -262,11 +262,11 @@ public class DFunctionParameterImpl extends MinimalEObjectImpl.Container impleme
 	{
 		switch (featureID)
 		{
-			case BasePackage.DFUNCTION_PARAMETER__NAME:
+			case DmxPackage.DMX_FUNCTION_PARAMETER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case BasePackage.DFUNCTION_PARAMETER__SYSTEM_TYPE:
+			case DmxPackage.DMX_FUNCTION_PARAMETER__SYSTEM_TYPE:
 				return systemType != SYSTEM_TYPE_EDEFAULT;
-			case BasePackage.DFUNCTION_PARAMETER__SYSTEM_TYPE_MANY:
+			case DmxPackage.DMX_FUNCTION_PARAMETER__SYSTEM_TYPE_MANY:
 				return systemTypeMany != SYSTEM_TYPE_MANY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -293,4 +293,4 @@ public class DFunctionParameterImpl extends MinimalEObjectImpl.Container impleme
 		return result.toString();
 	}
 
-} //DFunctionParameterImpl
+} //DmxFunctionParameterImpl

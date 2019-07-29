@@ -14,9 +14,9 @@ import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IRichTextSegment;
 import com.mimacom.ddd.dm.dim.tests.DimInjectorProvider;
 import com.mimacom.ddd.dm.dmx.DBinaryOperation;
-import com.mimacom.ddd.dm.dmx.DContextReference;
 import com.mimacom.ddd.dm.dmx.DNavigableMemberReference;
 import com.mimacom.ddd.dm.dmx.DSelfExpression;
+import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -168,23 +168,23 @@ public class DmxScopingTest {
     }
   }
   
-  protected DContextReference checkExpression1(final DExpression e, final String expectedScopeStr) {
-    DContextReference _xblockexpression = null;
+  protected DmxContextReference checkExpression1(final DExpression e, final String expectedScopeStr) {
+    DmxContextReference _xblockexpression = null;
     {
       Assert.assertTrue((e instanceof DBinaryOperation));
       final DExpression left = ((DBinaryOperation) e).getLeftOperand();
-      Assert.assertTrue((left instanceof DContextReference));
-      final DContextReference ref = ((DContextReference) left);
-      final Procedure1<DContextReference> _function = (DContextReference it) -> {
-        this.assertScope(it, this.epackage.getDContextReference_Target(), expectedScopeStr);
+      Assert.assertTrue((left instanceof DmxContextReference));
+      final DmxContextReference ref = ((DmxContextReference) left);
+      final Procedure1<DmxContextReference> _function = (DmxContextReference it) -> {
+        this.assertScope(it, this.epackage.getDmxContextReference_Target(), expectedScopeStr);
       };
-      _xblockexpression = ObjectExtensions.<DContextReference>operator_doubleArrow(ref, _function);
+      _xblockexpression = ObjectExtensions.<DmxContextReference>operator_doubleArrow(ref, _function);
     }
     return _xblockexpression;
   }
   
-  protected DContextReference checkExpression2(final DExpression e, final String expectedScopeStr1, final String expectedScopeStr2) {
-    DContextReference _xblockexpression = null;
+  protected DmxContextReference checkExpression2(final DExpression e, final String expectedScopeStr1, final String expectedScopeStr2) {
+    DmxContextReference _xblockexpression = null;
     {
       Assert.assertTrue((e instanceof DBinaryOperation));
       final DExpression left = ((DBinaryOperation) e).getLeftOperand();
@@ -195,13 +195,13 @@ public class DmxScopingTest {
       };
       ObjectExtensions.<DNavigableMemberReference>operator_doubleArrow(member, _function);
       DExpression _memberContainerReference = member.getMemberContainerReference();
-      Assert.assertTrue((_memberContainerReference instanceof DContextReference));
+      Assert.assertTrue((_memberContainerReference instanceof DmxContextReference));
       DExpression _memberContainerReference_1 = member.getMemberContainerReference();
-      final DContextReference ref = ((DContextReference) _memberContainerReference_1);
-      final Procedure1<DContextReference> _function_1 = (DContextReference it) -> {
-        this.assertScope(it, this.epackage.getDContextReference_Target(), expectedScopeStr2);
+      final DmxContextReference ref = ((DmxContextReference) _memberContainerReference_1);
+      final Procedure1<DmxContextReference> _function_1 = (DmxContextReference it) -> {
+        this.assertScope(it, this.epackage.getDmxContextReference_Target(), expectedScopeStr2);
       };
-      _xblockexpression = ObjectExtensions.<DContextReference>operator_doubleArrow(ref, _function_1);
+      _xblockexpression = ObjectExtensions.<DmxContextReference>operator_doubleArrow(ref, _function_1);
     }
     return _xblockexpression;
   }

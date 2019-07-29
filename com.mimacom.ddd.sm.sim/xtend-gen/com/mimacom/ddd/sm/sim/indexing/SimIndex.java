@@ -64,7 +64,7 @@ public class SimIndex {
     return Iterables.<IEObjectDescription>concat(ListExtensions.<IContainer, Iterable<IEObjectDescription>>map(this.getVisibleContainers(context), _function));
   }
   
-  public Iterable<IEObjectDescription> getExportedSTypeEObjectDescriptions(final EObject context) {
+  public Iterable<IEObjectDescription> getExportedSystemModelTypeEObjectDescriptions(final EObject context) {
     Iterable<IEObjectDescription> _xblockexpression = null;
     {
       final IResourceDescription rd = this.getResourceDescription(context);
@@ -76,28 +76,28 @@ public class SimIndex {
     return _xblockexpression;
   }
   
-  public Iterable<IEObjectDescription> getVisibleSTypeDescriptions(final EObject context) {
+  public Iterable<IEObjectDescription> getVisibleSystemModelTypeDescriptions(final EObject context) {
     return this.getVisibleEObjectDescriptions(context, BasePackage.eINSTANCE.getDType());
   }
   
-  public Map<QualifiedName, IEObjectDescription> getVisibleDTypeDescriptionsMap(final EObject context) {
+  public Map<QualifiedName, IEObjectDescription> getVisibleDomainTypeDescriptionsMap(final EObject context) {
     final Function1<IEObjectDescription, QualifiedName> _function = (IEObjectDescription it) -> {
       return it.getQualifiedName();
     };
     return IterableExtensions.<QualifiedName, IEObjectDescription>toMap(this.getVisibleEObjectDescriptions(context, BasePackage.eINSTANCE.getDType()), _function);
   }
   
-  public Iterable<IEObjectDescription> getVisibleExternalDeducedSTypes(final EObject context) {
+  public Iterable<IEObjectDescription> getVisibleExternalDeducedSystemModelTypes(final EObject context) {
     final Function1<IEObjectDescription, Boolean> _function = (IEObjectDescription it) -> {
       String _userData = it.getUserData(SimResourceDescriptionStrategy.KEY_DEDUCED_FROM);
       return Boolean.valueOf((_userData != null));
     };
-    final Iterable<IEObjectDescription> allVisibleTypes = IterableExtensions.<IEObjectDescription>filter(this.getVisibleSTypeDescriptions(context), _function);
+    final Iterable<IEObjectDescription> allVisibleTypes = IterableExtensions.<IEObjectDescription>filter(this.getVisibleSystemModelTypeDescriptions(context), _function);
     final Function1<IEObjectDescription, Boolean> _function_1 = (IEObjectDescription it) -> {
       String _userData = it.getUserData(SimResourceDescriptionStrategy.KEY_DEDUCED_FROM);
       return Boolean.valueOf((_userData != null));
     };
-    final Iterable<IEObjectDescription> allExportedTypes = IterableExtensions.<IEObjectDescription>filter(this.getExportedSTypeEObjectDescriptions(context), _function_1);
+    final Iterable<IEObjectDescription> allExportedTypes = IterableExtensions.<IEObjectDescription>filter(this.getExportedSystemModelTypeEObjectDescriptions(context), _function_1);
     final Set<IEObjectDescription> difference = IterableExtensions.<IEObjectDescription>toSet(allVisibleTypes);
     difference.removeAll(IterableExtensions.<IEObjectDescription>toSet(allExportedTypes));
     return difference;

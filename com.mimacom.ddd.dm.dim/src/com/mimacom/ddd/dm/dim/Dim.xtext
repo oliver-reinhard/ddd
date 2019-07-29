@@ -14,24 +14,8 @@ DDomain:
 	name=DQualifiedName
 	('alias' aliases+=ID)*
 	(description=DRichText)?
-	(types+=DType |	functions+=DFunction | aggregates+=DAggregate | applications+=DExistingApplication | actors+=DService)*;
+	(types+=DType | aggregates+=DAggregate | applications+=DExistingApplication | actors+=DService)*;
 
-DImport:
-	'import' importedNamespace=DQualifiedNameWithWildcard;
-
-DFunction:
-	'function' name=ID 
-	'(' (parameters+=DFunctionParameter (','  parameters+=DFunctionParameter)*)? ')'
-	':'
-	systemType=DSystemType
-	(systemTypeMany?='*')?;
-
-
-DFunctionParameter:
-	name=ID
-	':'
-	systemType=DSystemType
-	(systemTypeMany?='*')?;
 	
 DAggregate:
 	{DAggregate}
@@ -45,7 +29,7 @@ DAggregate:
  * TYPES
  */
 DType:
-	DPrimitive | DPrimitiveArchetype | DEnumeration | DEntityType | DRelationship | DDetailType;
+	DPrimitive | DEnumeration | DEntityType | DRelationship | DDetailType;
 	
 DConstraint returns DCondition:
 	'constraint'
@@ -59,22 +43,13 @@ DPrimitive:
 	'primitive'
 	name=ID
 	('alias' aliases+=ID)*
-	'redefines' redefines=[DPrimitive]
+	'redefines' redefines=[DmxArchetype]
 	(description=DRichText)?
 	(	'{'
 		(constraints+=DConstraint)+
 		'}'
 	)?;
-	
-DPrimitiveArchetype returns DPrimitive:
-	'archetype'
-	name=ID
-	'is'
-	systemType=DSystemType
-	(description=DRichText)?;
 
-enum DSystemType:
-	VOID | BOOLEAN | NUMBER | TEXT | ID | TIMEPOINT | TYPE | OBJECT | ACTOR | OPERATION | LAMBDA;
 
 DEnumeration:
 	'enumeration'

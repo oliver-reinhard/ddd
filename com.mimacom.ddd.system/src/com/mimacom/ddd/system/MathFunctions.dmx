@@ -1,4 +1,4 @@
-domain dm.Math
+namespace dm.Math
 
 function abs(arg : NUMBER): NUMBER 
 function acos(arg : NUMBER): NUMBER 

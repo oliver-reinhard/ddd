@@ -8,14 +8,13 @@ import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DDomainEvent;
 import com.mimacom.ddd.dm.base.DExistingApplication;
-import com.mimacom.ddd.dm.base.DFunction;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
 import com.mimacom.ddd.dm.base.IIdentityStateModel;
 import com.mimacom.ddd.dm.base.INamespace;
-import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
+import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.base.ITypeContainer;
 
 import java.util.Collection;
@@ -45,7 +44,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getDeducedFrom <em>Deduced From</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#isSynthetic <em>Synthetic</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getImports <em>Imports</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getFunctions <em>Functions</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getAggregates <em>Aggregates</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getStateModels <em>State Models</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainImpl#getApplications <em>Applications</em>}</li>
@@ -106,16 +104,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * @ordered
 	 */
 	protected EList<DImport> imports;
-
-	/**
-	 * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFunctions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DFunction> functions;
 
 	/**
 	 * The cached value of the '{@link #getAggregates() <em>Aggregates</em>}' containment reference list.
@@ -294,21 +282,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * @generated
 	 */
 	@Override
-	public EList<DFunction> getFunctions()
-	{
-		if (functions == null)
-		{
-			functions = new EObjectContainmentEList<DFunction>(DFunction.class, this, BasePackage.DDOMAIN__FUNCTIONS);
-		}
-		return functions;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<DAggregate> getAggregates()
 	{
 		if (aggregates == null)
@@ -392,8 +365,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
 			case BasePackage.DDOMAIN__IMPORTS:
 				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
-			case BasePackage.DDOMAIN__FUNCTIONS:
-				return ((InternalEList<?>)getFunctions()).basicRemove(otherEnd, msgs);
 			case BasePackage.DDOMAIN__AGGREGATES:
 				return ((InternalEList<?>)getAggregates()).basicRemove(otherEnd, msgs);
 			case BasePackage.DDOMAIN__STATE_MODELS:
@@ -427,8 +398,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 				return isSynthetic();
 			case BasePackage.DDOMAIN__IMPORTS:
 				return getImports();
-			case BasePackage.DDOMAIN__FUNCTIONS:
-				return getFunctions();
 			case BasePackage.DDOMAIN__AGGREGATES:
 				return getAggregates();
 			case BasePackage.DDOMAIN__STATE_MODELS:
@@ -467,10 +436,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 			case BasePackage.DDOMAIN__IMPORTS:
 				getImports().clear();
 				getImports().addAll((Collection<? extends DImport>)newValue);
-				return;
-			case BasePackage.DDOMAIN__FUNCTIONS:
-				getFunctions().clear();
-				getFunctions().addAll((Collection<? extends DFunction>)newValue);
 				return;
 			case BasePackage.DDOMAIN__AGGREGATES:
 				getAggregates().clear();
@@ -518,9 +483,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 			case BasePackage.DDOMAIN__IMPORTS:
 				getImports().clear();
 				return;
-			case BasePackage.DDOMAIN__FUNCTIONS:
-				getFunctions().clear();
-				return;
 			case BasePackage.DDOMAIN__AGGREGATES:
 				getAggregates().clear();
 				return;
@@ -558,8 +520,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 				return synthetic != SYNTHETIC_EDEFAULT;
 			case BasePackage.DDOMAIN__IMPORTS:
 				return imports != null && !imports.isEmpty();
-			case BasePackage.DDOMAIN__FUNCTIONS:
-				return functions != null && !functions.isEmpty();
 			case BasePackage.DDOMAIN__AGGREGATES:
 				return aggregates != null && !aggregates.isEmpty();
 			case BasePackage.DDOMAIN__STATE_MODELS:
@@ -597,7 +557,7 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 				default: return -1;
 			}
 		}
-		if (baseClass == IPrimaryNavigationTarget.class)
+		if (baseClass == IStaticReferenceTarget.class)
 		{
 			switch (derivedFeatureID)
 			{
@@ -639,7 +599,7 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 				default: return -1;
 			}
 		}
-		if (baseClass == IPrimaryNavigationTarget.class)
+		if (baseClass == IStaticReferenceTarget.class)
 		{
 			switch (baseFeatureID)
 			{

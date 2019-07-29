@@ -6,7 +6,8 @@ package com.mimacom.ddd.dm.dmx.formatting2;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.IRichTextSegment;
-import com.mimacom.ddd.dm.dmx.DmxModel;
+import com.mimacom.ddd.dm.dmx.DmxNamespace;
+import com.mimacom.ddd.dm.dmx.DmxTest;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -17,14 +18,10 @@ import org.eclipse.xtext.xbase.lib.Extension;
 
 @SuppressWarnings("all")
 public class DmxFormatter extends AbstractFormatter2 {
-  protected void _format(final DmxModel dmxModel, @Extension final IFormattableDocument document) {
-    EList<DRichText> _texts = dmxModel.getTexts();
-    for (final DRichText dRichText : _texts) {
-      document.<DRichText>format(dRichText);
-    }
-    EList<DExpression> _expressions = dmxModel.getExpressions();
-    for (final DExpression dExpression : _expressions) {
-      document.<DExpression>format(dExpression);
+  protected void _format(final DmxNamespace model, @Extension final IFormattableDocument document) {
+    EList<DmxTest> _tests = model.getTests();
+    for (final DmxTest test : _tests) {
+      document.<DExpression>format(test.getExpr());
     }
   }
   
@@ -35,15 +32,21 @@ public class DmxFormatter extends AbstractFormatter2 {
     }
   }
   
+  protected void _format(final DExpression expr, @Extension final IFormattableDocument document) {
+  }
+  
   public void format(final Object dRichText, final IFormattableDocument document) {
     if (dRichText instanceof DRichText) {
       _format((DRichText)dRichText, document);
       return;
+    } else if (dRichText instanceof DmxNamespace) {
+      _format((DmxNamespace)dRichText, document);
+      return;
     } else if (dRichText instanceof XtextResource) {
       _format((XtextResource)dRichText, document);
       return;
-    } else if (dRichText instanceof DmxModel) {
-      _format((DmxModel)dRichText, document);
+    } else if (dRichText instanceof DExpression) {
+      _format((DExpression)dRichText, document);
       return;
     } else if (dRichText instanceof EObject) {
       _format((EObject)dRichText, document);

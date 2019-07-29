@@ -1,0 +1,7 @@
+domain dm.types
+
+detail Money {
+	currency : IsoCurrency
+	amount : Decimal
+}
+

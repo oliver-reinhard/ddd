@@ -23,13 +23,58 @@ public interface DmxFactory extends EFactory
 	DmxFactory eINSTANCE = com.mimacom.ddd.dm.dmx.impl.DmxFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Model</em>'.
+	 * Returns a new object of class '<em>Namespace</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Model</em>'.
+	 * @return a new object of class '<em>Namespace</em>'.
 	 * @generated
 	 */
-	DmxModel createDmxModel();
+	DmxNamespace createDmxNamespace();
+
+	/**
+	 * Returns a new object of class '<em>Test</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Test</em>'.
+	 * @generated
+	 */
+	DmxTest createDmxTest();
+
+	/**
+	 * Returns a new object of class '<em>Archetype</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Archetype</em>'.
+	 * @generated
+	 */
+	DmxArchetype createDmxArchetype();
+
+	/**
+	 * Returns a new object of class '<em>Function</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Function</em>'.
+	 * @generated
+	 */
+	DmxFunction createDmxFunction();
+
+	/**
+	 * Returns a new object of class '<em>Function Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Function Parameter</em>'.
+	 * @generated
+	 */
+	DmxFunctionParameter createDmxFunctionParameter();
+
+	/**
+	 * Returns a new object of class '<em>Iterator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Iterator</em>'.
+	 * @generated
+	 */
+	DmxIterator createDmxIterator();
 
 	/**
 	 * Returns a new object of class '<em>DAssignment</em>'.
@@ -39,6 +84,15 @@ public interface DmxFactory extends EFactory
 	 * @generated
 	 */
 	DAssignment createDAssignment();
+
+	/**
+	 * Returns a new object of class '<em>DPredicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DPredicate</em>'.
+	 * @generated
+	 */
+	DPredicate createDPredicate();
 
 	/**
 	 * Returns a new object of class '<em>DBinary Operation</em>'.
@@ -131,13 +185,22 @@ public interface DmxFactory extends EFactory
 	DConstructorCall createDConstructorCall();
 
 	/**
-	 * Returns a new object of class '<em>DContext Reference</em>'.
+	 * Returns a new object of class '<em>Static Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DContext Reference</em>'.
+	 * @return a new object of class '<em>Static Reference</em>'.
 	 * @generated
 	 */
-	DContextReference createDContextReference();
+	DmxStaticReference createDmxStaticReference();
+
+	/**
+	 * Returns a new object of class '<em>Context Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Context Reference</em>'.
+	 * @generated
+	 */
+	DmxContextReference createDmxContextReference();
 
 	/**
 	 * Returns a new object of class '<em>DIf Expression</em>'.

@@ -17,23 +17,23 @@ public class TransformationContext {
   @Inject
   private SimIndex index;
   
-  private Map<DType, DType> localDomainToSystemTypeMap;
+  private Map<DType, DType> localDomainToSystemModelTypeMap;
   
-  private Map<DType, DType> importedDomainToSystemTypeMap;
+  private Map<DType, DType> importedDomainToSystemModelTypeMap;
   
   private DerivedStateAwareResource resource;
   
   public void init(final DerivedStateAwareResource resource) {
     this.resource = resource;
-    this.localDomainToSystemTypeMap = Maps.<DType, DType>newHashMap();
-    this.importedDomainToSystemTypeMap = Maps.<DType, DType>newHashMap();
-    this.initializeImportedMappedDTypesFromIndex();
+    this.localDomainToSystemModelTypeMap = Maps.<DType, DType>newHashMap();
+    this.importedDomainToSystemModelTypeMap = Maps.<DType, DType>newHashMap();
+    this.initializeImportedMappedDomainTypesFromIndex();
   }
   
-  public void initializeImportedMappedDTypesFromIndex() {
+  public void initializeImportedMappedDomainTypesFromIndex() {
     final EObject model = IterableExtensions.<EObject>head(this.resource.getContents());
-    final Iterable<IEObjectDescription> deducedSTypeDescriptions = this.index.getVisibleExternalDeducedSTypes(model);
-    final Map<QualifiedName, IEObjectDescription> dTypeDescriptionsMap = this.index.getVisibleDTypeDescriptionsMap(model);
+    final Iterable<IEObjectDescription> deducedSTypeDescriptions = this.index.getVisibleExternalDeducedSystemModelTypes(model);
+    final Map<QualifiedName, IEObjectDescription> dTypeDescriptionsMap = this.index.getVisibleDomainTypeDescriptionsMap(model);
     for (final IEObjectDescription sTypeDesc : deducedSTypeDescriptions) {
       {
         final String sourceNameStr = sTypeDesc.getUserData(SimResourceDescriptionStrategy.KEY_DEDUCED_FROM);
@@ -51,7 +51,7 @@ public class TransformationContext {
             if (_eIsProxy_1) {
               sType = this.resource.getResourceSet().getEObject(sTypeDesc.getEObjectURI(), true);
             }
-            this.importedDomainToSystemTypeMap.put(((DType) dType), ((DType) sType));
+            this.importedDomainToSystemModelTypeMap.put(((DType) dType), ((DType) sType));
           }
         }
       }
@@ -65,7 +65,7 @@ public class TransformationContext {
   }
   
   public void putSystemType(final DType domainType, final DType systemType) {
-    final DType previousS = this.localDomainToSystemTypeMap.put(domainType, systemType);
+    final DType previousS = this.localDomainToSystemModelTypeMap.put(domainType, systemType);
     if ((previousS != null)) {
       String _name = domainType.getName();
       String _plus = ("There are two STypes realizing DType \"" + _name);
@@ -83,9 +83,9 @@ public class TransformationContext {
    * @return  null if no system type is found for the given domain type.
    */
   public DType getSystemType(final DType domainType) {
-    DType systemType = this.localDomainToSystemTypeMap.get(domainType);
+    DType systemType = this.localDomainToSystemModelTypeMap.get(domainType);
     if ((systemType == null)) {
-      systemType = this.importedDomainToSystemTypeMap.get(domainType);
+      systemType = this.importedDomainToSystemModelTypeMap.get(domainType);
     }
     return systemType;
   }

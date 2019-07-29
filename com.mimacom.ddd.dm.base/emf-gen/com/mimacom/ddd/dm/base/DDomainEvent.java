@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DDomainEvent extends DNamedElement, INavigableMemberContainer, IPrimaryNavigationTarget
+public interface DDomainEvent extends DNamedElement, INavigableMemberContainer, IStaticReferenceTarget
 {
 	/**
 	 * Returns the value of the '<em><b>Before</b></em>' containment reference list.

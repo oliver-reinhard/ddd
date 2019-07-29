@@ -3,11 +3,11 @@
 package com.mimacom.ddd.dm.dmx.impl;
 
 import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DFunction;
 
 import com.mimacom.ddd.dm.base.impl.DExpressionImpl;
 
 import com.mimacom.ddd.dm.dmx.DFunctionCall;
+import com.mimacom.ddd.dm.dmx.DmxFunction;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 
 import java.util.Collection;
@@ -49,7 +49,7 @@ public class DFunctionCallImpl extends DExpressionImpl implements DFunctionCall
 	 * @generated
 	 * @ordered
 	 */
-	protected DFunction function;
+	protected DmxFunction function;
 
 	/**
 	 * The cached value of the '{@link #getFunctionCallArguments() <em>Function Call Arguments</em>}' containment reference list.
@@ -88,12 +88,12 @@ public class DFunctionCallImpl extends DExpressionImpl implements DFunctionCall
 	 * @generated
 	 */
 	@Override
-	public DFunction getFunction()
+	public DmxFunction getFunction()
 	{
 		if (function != null && function.eIsProxy())
 		{
 			InternalEObject oldFunction = (InternalEObject)function;
-			function = (DFunction)eResolveProxy(oldFunction);
+			function = (DmxFunction)eResolveProxy(oldFunction);
 			if (function != oldFunction)
 			{
 				if (eNotificationRequired())
@@ -108,7 +108,7 @@ public class DFunctionCallImpl extends DExpressionImpl implements DFunctionCall
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DFunction basicGetFunction()
+	public DmxFunction basicGetFunction()
 	{
 		return function;
 	}
@@ -119,9 +119,9 @@ public class DFunctionCallImpl extends DExpressionImpl implements DFunctionCall
 	 * @generated
 	 */
 	@Override
-	public void setFunction(DFunction newFunction)
+	public void setFunction(DmxFunction newFunction)
 	{
-		DFunction oldFunction = function;
+		DmxFunction oldFunction = function;
 		function = newFunction;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DFUNCTION_CALL__FUNCTION, oldFunction, function));
@@ -189,7 +189,7 @@ public class DFunctionCallImpl extends DExpressionImpl implements DFunctionCall
 		switch (featureID)
 		{
 			case DmxPackage.DFUNCTION_CALL__FUNCTION:
-				setFunction((DFunction)newValue);
+				setFunction((DmxFunction)newValue);
 				return;
 			case DmxPackage.DFUNCTION_CALL__FUNCTION_CALL_ARGUMENTS:
 				getFunctionCallArguments().clear();
@@ -210,7 +210,7 @@ public class DFunctionCallImpl extends DExpressionImpl implements DFunctionCall
 		switch (featureID)
 		{
 			case DmxPackage.DFUNCTION_CALL__FUNCTION:
-				setFunction((DFunction)null);
+				setFunction((DmxFunction)null);
 				return;
 			case DmxPackage.DFUNCTION_CALL__FUNCTION_CALL_ARGUMENTS:
 				getFunctionCallArguments().clear();

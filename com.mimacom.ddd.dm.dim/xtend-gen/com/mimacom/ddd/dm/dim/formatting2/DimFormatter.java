@@ -10,13 +10,14 @@ import com.mimacom.ddd.dm.base.DCondition;
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DExistingApplication;
+import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dim.services.DimGrammarAccess;
-import com.mimacom.ddd.dm.dmx.DmxModel;
+import com.mimacom.ddd.dm.dmx.DmxNamespace;
 import com.mimacom.ddd.dm.dmx.formatting2.DmxFormatter;
 import java.util.Arrays;
 import java.util.List;
@@ -180,11 +181,14 @@ public class DimFormatter extends DmxFormatter {
     } else if (en instanceof DType) {
       _format((DType)en, document);
       return;
+    } else if (en instanceof DmxNamespace) {
+      _format((DmxNamespace)en, document);
+      return;
     } else if (en instanceof XtextResource) {
       _format((XtextResource)en, document);
       return;
-    } else if (en instanceof DmxModel) {
-      _format((DmxModel)en, document);
+    } else if (en instanceof DExpression) {
+      _format((DExpression)en, document);
       return;
     } else if (en instanceof EObject) {
       _format((EObject)en, document);

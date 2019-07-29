@@ -9,6 +9,7 @@ import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DTextSegment;
+import com.mimacom.ddd.dm.dmx.DArchetype;
 import com.mimacom.ddd.dm.dmx.DAssignment;
 import com.mimacom.ddd.dm.dmx.DBinaryOperation;
 import com.mimacom.ddd.dm.dmx.DBooleanLiteral;
@@ -17,9 +18,12 @@ import com.mimacom.ddd.dm.dmx.DConstructorCall;
 import com.mimacom.ddd.dm.dmx.DContextReference;
 import com.mimacom.ddd.dm.dmx.DDecimalLiteral;
 import com.mimacom.ddd.dm.dmx.DForLoopExpression;
+import com.mimacom.ddd.dm.dmx.DFunction;
 import com.mimacom.ddd.dm.dmx.DFunctionCall;
+import com.mimacom.ddd.dm.dmx.DFunctionParameter;
 import com.mimacom.ddd.dm.dmx.DIfExpression;
 import com.mimacom.ddd.dm.dmx.DInstanceOfExpression;
+import com.mimacom.ddd.dm.dmx.DIterator;
 import com.mimacom.ddd.dm.dmx.DNaturalLiteral;
 import com.mimacom.ddd.dm.dmx.DNavigableMemberReference;
 import com.mimacom.ddd.dm.dmx.DRaiseExpression;
@@ -28,7 +32,7 @@ import com.mimacom.ddd.dm.dmx.DSelfExpression;
 import com.mimacom.ddd.dm.dmx.DStringLiteral;
 import com.mimacom.ddd.dm.dmx.DUnaryOperation;
 import com.mimacom.ddd.dm.dmx.DUndefinedLiteral;
-import com.mimacom.ddd.dm.dmx.DmxModel;
+import com.mimacom.ddd.dm.dmx.DmxNamespace;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.serializer.DmxSemanticSequencer;
 import com.mimacom.ddd.sm.sus.Paragraph;
@@ -90,6 +94,9 @@ public class SusSemanticSequencer extends DmxSemanticSequencer {
 			}
 		else if (epackage == DmxPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case DmxPackage.DARCHETYPE:
+				sequence_DArchetype(context, (DArchetype) semanticObject); 
+				return; 
 			case DmxPackage.DASSIGNMENT:
 				sequence_DAssignment_DNavigableMemberReference(context, (DAssignment) semanticObject); 
 				return; 
@@ -114,14 +121,23 @@ public class SusSemanticSequencer extends DmxSemanticSequencer {
 			case DmxPackage.DFOR_LOOP_EXPRESSION:
 				sequence_DForLoopExpression(context, (DForLoopExpression) semanticObject); 
 				return; 
+			case DmxPackage.DFUNCTION:
+				sequence_DFunction(context, (DFunction) semanticObject); 
+				return; 
 			case DmxPackage.DFUNCTION_CALL:
 				sequence_DFunctionCall(context, (DFunctionCall) semanticObject); 
+				return; 
+			case DmxPackage.DFUNCTION_PARAMETER:
+				sequence_DFunctionParameter(context, (DFunctionParameter) semanticObject); 
 				return; 
 			case DmxPackage.DIF_EXPRESSION:
 				sequence_DIfExpression(context, (DIfExpression) semanticObject); 
 				return; 
 			case DmxPackage.DINSTANCE_OF_EXPRESSION:
 				sequence_DRelationalExpression(context, (DInstanceOfExpression) semanticObject); 
+				return; 
+			case DmxPackage.DITERATOR:
+				sequence_DIterator(context, (DIterator) semanticObject); 
 				return; 
 			case DmxPackage.DNATURAL_LITERAL:
 				sequence_DNaturalLiteral(context, (DNaturalLiteral) semanticObject); 
@@ -147,8 +163,8 @@ public class SusSemanticSequencer extends DmxSemanticSequencer {
 			case DmxPackage.DUNDEFINED_LITERAL:
 				sequence_DNilLiteral(context, (DUndefinedLiteral) semanticObject); 
 				return; 
-			case DmxPackage.DMX_MODEL:
-				sequence_DmxModel(context, (DmxModel) semanticObject); 
+			case DmxPackage.DMX_NAMESPACE:
+				sequence_DmxNamespace(context, (DmxNamespace) semanticObject); 
 				return; 
 			}
 		else if (epackage == SusPackage.eINSTANCE)

@@ -44,7 +44,7 @@ class SimIndex {
 		].flatten
 	}
 
-	def Iterable<IEObjectDescription> getExportedSTypeEObjectDescriptions(EObject context) {
+	def Iterable<IEObjectDescription> getExportedSystemModelTypeEObjectDescriptions(EObject context) {
 		val rd = context.getResourceDescription
 		if (rd === null) {
 			return Collections.EMPTY_LIST
@@ -52,20 +52,20 @@ class SimIndex {
 		rd.getExportedObjectsByType(BasePackage.eINSTANCE.DType)
 	}
 
-	def Iterable<IEObjectDescription> getVisibleSTypeDescriptions(EObject context) {
+	def Iterable<IEObjectDescription> getVisibleSystemModelTypeDescriptions(EObject context) {
 		context.getVisibleEObjectDescriptions(BasePackage.eINSTANCE.DType)
 	}
 
-	def Map<QualifiedName, IEObjectDescription> getVisibleDTypeDescriptionsMap(EObject context) {
+	def Map<QualifiedName, IEObjectDescription> getVisibleDomainTypeDescriptionsMap(EObject context) {
 		context.getVisibleEObjectDescriptions(BasePackage.eINSTANCE.DType).toMap[ qualifiedName]
 	}
 
 	//
 	// This is an EXPENSIVE operation
 	//
-	def Iterable<IEObjectDescription> getVisibleExternalDeducedSTypes(EObject context) {
-		val allVisibleTypes = context.getVisibleSTypeDescriptions.filter[getUserData(SimResourceDescriptionStrategy::KEY_DEDUCED_FROM) !== null]
-		val allExportedTypes = context.getExportedSTypeEObjectDescriptions.filter[getUserData(SimResourceDescriptionStrategy::KEY_DEDUCED_FROM) !== null]
+	def Iterable<IEObjectDescription> getVisibleExternalDeducedSystemModelTypes(EObject context) {
+		val allVisibleTypes = context.getVisibleSystemModelTypeDescriptions.filter[getUserData(SimResourceDescriptionStrategy::KEY_DEDUCED_FROM) !== null]
+		val allExportedTypes = context.getExportedSystemModelTypeEObjectDescriptions.filter[getUserData(SimResourceDescriptionStrategy::KEY_DEDUCED_FROM) !== null]
 		val difference = allVisibleTypes.toSet
 		difference.removeAll(allExportedTypes.toSet)
 		return difference

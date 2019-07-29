@@ -131,11 +131,11 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BasePackage.IPRIMARY_NAVIGATION_TARGET:
+			case BasePackage.ISTATIC_REFERENCE_TARGET:
 			{
-				IPrimaryNavigationTarget iPrimaryNavigationTarget = (IPrimaryNavigationTarget)theEObject;
-				T result = caseIPrimaryNavigationTarget(iPrimaryNavigationTarget);
-				if (result == null) result = caseDNamedElement(iPrimaryNavigationTarget);
+				IStaticReferenceTarget iStaticReferenceTarget = (IStaticReferenceTarget)theEObject;
+				T result = caseIStaticReferenceTarget(iStaticReferenceTarget);
+				if (result == null) result = caseDNamedElement(iStaticReferenceTarget);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -183,26 +183,10 @@ public class BaseSwitch<T> extends Switch<T>
 				DDomain dDomain = (DDomain)theEObject;
 				T result = caseDDomain(dDomain);
 				if (result == null) result = caseITypeContainer(dDomain);
-				if (result == null) result = caseIPrimaryNavigationTarget(dDomain);
+				if (result == null) result = caseIStaticReferenceTarget(dDomain);
 				if (result == null) result = caseIDeducibleElement(dDomain);
 				if (result == null) result = caseDNamedElement(dDomain);
 				if (result == null) result = caseINamespace(dDomain);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BasePackage.DFUNCTION:
-			{
-				DFunction dFunction = (DFunction)theEObject;
-				T result = caseDFunction(dFunction);
-				if (result == null) result = caseDNavigableMember(dFunction);
-				if (result == null) result = caseDNamedElement(dFunction);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BasePackage.DFUNCTION_PARAMETER:
-			{
-				DFunctionParameter dFunctionParameter = (DFunctionParameter)theEObject;
-				T result = caseDFunctionParameter(dFunctionParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -235,7 +219,7 @@ public class BaseSwitch<T> extends Switch<T>
 				DType dType = (DType)theEObject;
 				T result = caseDType(dType);
 				if (result == null) result = caseIDeducibleElement(dType);
-				if (result == null) result = caseIPrimaryNavigationTarget(dType);
+				if (result == null) result = caseIStaticReferenceTarget(dType);
 				if (result == null) result = caseDNamedElement(dType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -255,7 +239,7 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = caseDType(dSimpleType);
 				if (result == null) result = caseIValueType(dSimpleType);
 				if (result == null) result = caseIDeducibleElement(dSimpleType);
-				if (result == null) result = caseIPrimaryNavigationTarget(dSimpleType);
+				if (result == null) result = caseIStaticReferenceTarget(dSimpleType);
 				if (result == null) result = caseDNamedElement(dSimpleType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -268,7 +252,7 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = caseDType(dPrimitive);
 				if (result == null) result = caseIValueType(dPrimitive);
 				if (result == null) result = caseIDeducibleElement(dPrimitive);
-				if (result == null) result = caseIPrimaryNavigationTarget(dPrimitive);
+				if (result == null) result = caseIStaticReferenceTarget(dPrimitive);
 				if (result == null) result = caseDNamedElement(dPrimitive);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -283,7 +267,7 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = caseIValueType(dEnumeration);
 				if (result == null) result = caseINamespace(dEnumeration);
 				if (result == null) result = caseIDeducibleElement(dEnumeration);
-				if (result == null) result = caseIPrimaryNavigationTarget(dEnumeration);
+				if (result == null) result = caseIStaticReferenceTarget(dEnumeration);
 				if (result == null) result = caseDNamedElement(dEnumeration);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -305,7 +289,7 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = caseDType(dComplexType);
 				if (result == null) result = caseINavigableMemberContainer(dComplexType);
 				if (result == null) result = caseIDeducibleElement(dComplexType);
-				if (result == null) result = caseIPrimaryNavigationTarget(dComplexType);
+				if (result == null) result = caseIStaticReferenceTarget(dComplexType);
 				if (result == null) result = caseINamespace(dComplexType);
 				if (result == null) result = caseDNamedElement(dComplexType);
 				if (result == null) result = defaultCase(theEObject);
@@ -320,7 +304,7 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = caseDType(dDetailType);
 				if (result == null) result = caseINavigableMemberContainer(dDetailType);
 				if (result == null) result = caseIDeducibleElement(dDetailType);
-				if (result == null) result = caseIPrimaryNavigationTarget(dDetailType);
+				if (result == null) result = caseIStaticReferenceTarget(dDetailType);
 				if (result == null) result = caseINamespace(dDetailType);
 				if (result == null) result = caseDNamedElement(dDetailType);
 				if (result == null) result = defaultCase(theEObject);
@@ -335,7 +319,7 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = caseDType(dIdentityType);
 				if (result == null) result = caseINavigableMemberContainer(dIdentityType);
 				if (result == null) result = caseIDeducibleElement(dIdentityType);
-				if (result == null) result = caseIPrimaryNavigationTarget(dIdentityType);
+				if (result == null) result = caseIStaticReferenceTarget(dIdentityType);
 				if (result == null) result = caseINamespace(dIdentityType);
 				if (result == null) result = caseDNamedElement(dIdentityType);
 				if (result == null) result = defaultCase(theEObject);
@@ -358,7 +342,7 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = caseDType(dEntityType);
 				if (result == null) result = caseINavigableMemberContainer(dEntityType);
 				if (result == null) result = caseIDeducibleElement(dEntityType);
-				if (result == null) result = caseIPrimaryNavigationTarget(dEntityType);
+				if (result == null) result = caseIStaticReferenceTarget(dEntityType);
 				if (result == null) result = caseINamespace(dEntityType);
 				if (result == null) result = caseDNamedElement(dEntityType);
 				if (result == null) result = defaultCase(theEObject);
@@ -374,7 +358,7 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = caseDType(dRelationship);
 				if (result == null) result = caseINavigableMemberContainer(dRelationship);
 				if (result == null) result = caseIDeducibleElement(dRelationship);
-				if (result == null) result = caseIPrimaryNavigationTarget(dRelationship);
+				if (result == null) result = caseIStaticReferenceTarget(dRelationship);
 				if (result == null) result = caseINamespace(dRelationship);
 				if (result == null) result = caseDNamedElement(dRelationship);
 				if (result == null) result = defaultCase(theEObject);
@@ -447,7 +431,7 @@ public class BaseSwitch<T> extends Switch<T>
 				DDomainEvent dDomainEvent = (DDomainEvent)theEObject;
 				T result = caseDDomainEvent(dDomainEvent);
 				if (result == null) result = caseINavigableMemberContainer(dDomainEvent);
-				if (result == null) result = caseIPrimaryNavigationTarget(dDomainEvent);
+				if (result == null) result = caseIStaticReferenceTarget(dDomainEvent);
 				if (result == null) result = caseDNamedElement(dDomainEvent);
 				if (result == null) result = caseINamespace(dDomainEvent);
 				if (result == null) result = defaultCase(theEObject);
@@ -475,7 +459,7 @@ public class BaseSwitch<T> extends Switch<T>
 			{
 				DActor dActor = (DActor)theEObject;
 				T result = caseDActor(dActor);
-				if (result == null) result = caseIPrimaryNavigationTarget(dActor);
+				if (result == null) result = caseIStaticReferenceTarget(dActor);
 				if (result == null) result = caseDNamedElement(dActor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -485,7 +469,7 @@ public class BaseSwitch<T> extends Switch<T>
 				DHuman dHuman = (DHuman)theEObject;
 				T result = caseDHuman(dHuman);
 				if (result == null) result = caseDActor(dHuman);
-				if (result == null) result = caseIPrimaryNavigationTarget(dHuman);
+				if (result == null) result = caseIStaticReferenceTarget(dHuman);
 				if (result == null) result = caseDNamedElement(dHuman);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -497,7 +481,7 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = caseDActor(dService);
 				if (result == null) result = caseITypeContainer(dService);
 				if (result == null) result = caseINavigableMemberContainer(dService);
-				if (result == null) result = caseIPrimaryNavigationTarget(dService);
+				if (result == null) result = caseIStaticReferenceTarget(dService);
 				if (result == null) result = caseINamespace(dService);
 				if (result == null) result = caseDNamedElement(dService);
 				if (result == null) result = defaultCase(theEObject);
@@ -517,7 +501,7 @@ public class BaseSwitch<T> extends Switch<T>
 				DTime dTime = (DTime)theEObject;
 				T result = caseDTime(dTime);
 				if (result == null) result = caseDActor(dTime);
-				if (result == null) result = caseIPrimaryNavigationTarget(dTime);
+				if (result == null) result = caseIStaticReferenceTarget(dTime);
 				if (result == null) result = caseDNamedElement(dTime);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -527,7 +511,7 @@ public class BaseSwitch<T> extends Switch<T>
 				DExistingApplication dExistingApplication = (DExistingApplication)theEObject;
 				T result = caseDExistingApplication(dExistingApplication);
 				if (result == null) result = caseITypeContainer(dExistingApplication);
-				if (result == null) result = caseIPrimaryNavigationTarget(dExistingApplication);
+				if (result == null) result = caseIStaticReferenceTarget(dExistingApplication);
 				if (result == null) result = caseDNamedElement(dExistingApplication);
 				if (result == null) result = caseINamespace(dExistingApplication);
 				if (result == null) result = defaultCase(theEObject);
@@ -674,17 +658,17 @@ public class BaseSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IPrimary Navigation Target</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>IStatic Reference Target</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IPrimary Navigation Target</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>IStatic Reference Target</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIPrimaryNavigationTarget(IPrimaryNavigationTarget object)
+	public T caseIStaticReferenceTarget(IStaticReferenceTarget object)
 	{
 		return null;
 	}
@@ -781,38 +765,6 @@ public class BaseSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDDomain(DDomain object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DFunction</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DFunction</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDFunction(DFunction object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DFunction Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DFunction Parameter</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDFunctionParameter(DFunctionParameter object)
 	{
 		return null;
 	}

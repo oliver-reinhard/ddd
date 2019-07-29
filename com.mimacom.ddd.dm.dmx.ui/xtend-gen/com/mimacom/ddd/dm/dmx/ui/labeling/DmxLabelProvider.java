@@ -4,6 +4,14 @@
 package com.mimacom.ddd.dm.dmx.ui.labeling;
 
 import com.google.inject.Inject;
+import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.dmx.DBinaryOperation;
+import com.mimacom.ddd.dm.dmx.DBooleanLiteral;
+import com.mimacom.ddd.dm.dmx.DDecimalLiteral;
+import com.mimacom.ddd.dm.dmx.DNaturalLiteral;
+import com.mimacom.ddd.dm.dmx.DStringLiteral;
+import com.mimacom.ddd.dm.dmx.DUndefinedLiteral;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 
@@ -17,5 +25,67 @@ public class DmxLabelProvider extends DefaultEObjectLabelProvider {
   @Inject
   public DmxLabelProvider(final AdapterFactoryLabelProvider delegate) {
     super(delegate);
+  }
+  
+  public String text(final DNamedElement e) {
+    String _simpleName = this.simpleName(e);
+    String _plus = (_simpleName + " ");
+    String _name = e.getName();
+    return (_plus + _name);
+  }
+  
+  public String text(final DExpression e) {
+    return this.simpleName(e);
+  }
+  
+  public String text(final DBinaryOperation e) {
+    String _simpleName = this.simpleName(e);
+    String _plus = (_simpleName + " ");
+    String _name = e.getOperator().getName();
+    return (_plus + _name);
+  }
+  
+  public String text(final DBooleanLiteral e) {
+    String _simpleName = this.simpleName(e);
+    String _plus = (_simpleName + " ");
+    boolean _isValue = e.isValue();
+    return (_plus + Boolean.valueOf(_isValue));
+  }
+  
+  public String text(final DStringLiteral e) {
+    String _simpleName = this.simpleName(e);
+    String _plus = (_simpleName + " ");
+    String _value = e.getValue();
+    return (_plus + _value);
+  }
+  
+  public String text(final DNaturalLiteral e) {
+    String _simpleName = this.simpleName(e);
+    String _plus = (_simpleName + " ");
+    int _value = e.getValue();
+    return (_plus + Integer.valueOf(_value));
+  }
+  
+  public String text(final DDecimalLiteral e) {
+    String _simpleName = this.simpleName(e);
+    String _plus = (_simpleName + " ");
+    String _value = e.getValue();
+    return (_plus + _value);
+  }
+  
+  public String text(final DUndefinedLiteral e) {
+    return this.simpleName(e);
+  }
+  
+  protected String simpleName(final Object obj) {
+    final String name = obj.getClass().getSimpleName();
+    String _xifexpression = null;
+    boolean _endsWith = name.endsWith("Impl");
+    if (_endsWith) {
+      int _length = name.length();
+      int _minus = (_length - 4);
+      _xifexpression = name.substring(0, _minus);
+    }
+    return _xifexpression;
   }
 }

@@ -1,0 +1,17 @@
+namespace dm.functions
+
+iterator exists	: BOOLEAN 
+iterator unique	: BOOLEAN  // like exists but returns true only if there is exactly 1 result
+iterator select	: OBJECT* 
+iterator one	: OBJECT  // like select but returns exactly 1 result
+iterator reject	: OBJECT* 
+iterator count	: NUMBER 
+iterator sum	: NUMBER 
+iterator avg	: NUMBER 
+function length	(arg : TEXT): NUMBER
+function get	(array : OBJECT*, index : NUMBER): OBJECT 
+function first	(array : OBJECT*): OBJECT 
+function last	(array : OBJECT*): OBJECT 
+function now()	: TIMEPOINT
+function invoked(arg : OPERATION): BOOLEAN  // always returns true
+function notified(arg : ACTOR): BOOLEAN  	// always returns true

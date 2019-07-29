@@ -7,7 +7,7 @@ import com.mimacom.ddd.dm.base.DCondition;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
-import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
+import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 
 import java.util.Collection;
 
@@ -365,7 +365,7 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 				default: return -1;
 			}
 		}
-		if (baseClass == IPrimaryNavigationTarget.class)
+		if (baseClass == IStaticReferenceTarget.class)
 		{
 			switch (derivedFeatureID)
 			{
@@ -392,7 +392,7 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 				default: return -1;
 			}
 		}
-		if (baseClass == IPrimaryNavigationTarget.class)
+		if (baseClass == IStaticReferenceTarget.class)
 		{
 			switch (baseFeatureID)
 			{

@@ -15,8 +15,6 @@ import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DException;
 import com.mimacom.ddd.dm.base.DExistingApplication;
-import com.mimacom.ddd.dm.base.DFunction;
-import com.mimacom.ddd.dm.base.DFunctionParameter;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DMultiplicity;
@@ -48,7 +46,11 @@ import com.mimacom.ddd.dm.dmx.DSelfExpression;
 import com.mimacom.ddd.dm.dmx.DStringLiteral;
 import com.mimacom.ddd.dm.dmx.DUnaryOperation;
 import com.mimacom.ddd.dm.dmx.DUndefinedLiteral;
-import com.mimacom.ddd.dm.dmx.DmxModel;
+import com.mimacom.ddd.dm.dmx.DmxArchetype;
+import com.mimacom.ddd.dm.dmx.DmxFunction;
+import com.mimacom.ddd.dm.dmx.DmxFunctionParameter;
+import com.mimacom.ddd.dm.dmx.DmxIterator;
+import com.mimacom.ddd.dm.dmx.DmxNamespace;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.sm.sim.SAggregateDeduction;
 import com.mimacom.ddd.sm.sim.SAssociationDeduction;
@@ -125,12 +127,6 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 			case BasePackage.DEXISTING_APPLICATION:
 				sequence_DExistingApplication(context, (DExistingApplication) semanticObject); 
 				return; 
-			case BasePackage.DFUNCTION:
-				sequence_DFunction(context, (DFunction) semanticObject); 
-				return; 
-			case BasePackage.DFUNCTION_PARAMETER:
-				sequence_DFunctionParameter(context, (DFunctionParameter) semanticObject); 
-				return; 
 			case BasePackage.DIMPORT:
 				sequence_DImport(context, (DImport) semanticObject); 
 				return; 
@@ -141,20 +137,8 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 				sequence_DMultiplicity(context, (DMultiplicity) semanticObject); 
 				return; 
 			case BasePackage.DPRIMITIVE:
-				if (rule == grammarAccess.getDPrimitiveArchetypeRule()) {
-					sequence_DPrimitiveArchetype(context, (DPrimitive) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getTypeRule()
-						|| rule == grammarAccess.getDPrimitiveRule()) {
-					sequence_DPrimitive(context, (DPrimitive) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getDTypeRule()) {
-					sequence_DPrimitive_DPrimitiveArchetype(context, (DPrimitive) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_DPrimitive(context, (DPrimitive) semanticObject); 
+				return; 
 			case BasePackage.DQUERY:
 				sequence_DQuery(context, (DQuery) semanticObject); 
 				return; 
@@ -251,8 +235,20 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 			case DmxPackage.DUNDEFINED_LITERAL:
 				sequence_DNilLiteral(context, (DUndefinedLiteral) semanticObject); 
 				return; 
-			case DmxPackage.DMX_MODEL:
-				sequence_DmxModel(context, (DmxModel) semanticObject); 
+			case DmxPackage.DMX_ARCHETYPE:
+				sequence_DmxArchetype(context, (DmxArchetype) semanticObject); 
+				return; 
+			case DmxPackage.DMX_FUNCTION:
+				sequence_DmxFunction(context, (DmxFunction) semanticObject); 
+				return; 
+			case DmxPackage.DMX_FUNCTION_PARAMETER:
+				sequence_DmxFunctionParameter(context, (DmxFunctionParameter) semanticObject); 
+				return; 
+			case DmxPackage.DMX_ITERATOR:
+				sequence_DmxIterator(context, (DmxIterator) semanticObject); 
+				return; 
+			case DmxPackage.DMX_NAMESPACE:
+				sequence_DmxNamespace(context, (DmxNamespace) semanticObject); 
 				return; 
 			}
 		else if (epackage == SimPackage.eINSTANCE)
@@ -587,8 +583,8 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     (
 	 *         (deductionRule=SGrabComplexTypeRule | deductionRule=SDitchComplexTypeRule | deductionRule=SMorphComplexTypeRule | deductionRule=SFuseComplexTypeRule) 
 	 *         description=DRichText? 
-	 *         constraints+=DConstraint? 
-	 *         (features+=Feature? constraints+=DConstraint?)*
+	 *         features+=Feature? 
+	 *         (constraints+=DConstraint? features+=Feature?)*
 	 *     )
 	 */
 	protected void sequence_SComplexTypeFeatures_SDetailTypeDeduction(ISerializationContext context, SDetailTypeDeduction semanticObject) {

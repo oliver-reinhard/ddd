@@ -27,7 +27,7 @@ public class DmxParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "DmxModel";
+		return "DmxNamespace";
 	}
 
 	public DmxGrammarAccess getGrammarAccess() {

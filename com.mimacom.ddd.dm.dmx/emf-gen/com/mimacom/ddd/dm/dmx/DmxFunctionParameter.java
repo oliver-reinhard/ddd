@@ -1,28 +1,28 @@
 /**
  */
-package com.mimacom.ddd.dm.base;
+package com.mimacom.ddd.dm.dmx;
 
 import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>DFunction Parameter</b></em>'.
+ * A representation of the model object '<em><b>Function Parameter</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.DFunctionParameter#getName <em>Name</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.DFunctionParameter#getSystemType <em>System Type</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.DFunctionParameter#isSystemTypeMany <em>System Type Many</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter#getName <em>Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter#getSystemType <em>System Type</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter#isSystemTypeMany <em>System Type Many</em>}</li>
  * </ul>
  *
- * @see com.mimacom.ddd.dm.base.BasePackage#getDFunctionParameter()
+ * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFunctionParameter()
  * @model
  * @generated
  */
-public interface DFunctionParameter extends EObject
+public interface DmxFunctionParameter extends EObject
 {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -30,14 +30,14 @@ public interface DFunctionParameter extends EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDFunctionParameter_Name()
+	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFunctionParameter_Name()
 	 * @model
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.DFunctionParameter#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -48,28 +48,28 @@ public interface DFunctionParameter extends EObject
 
 	/**
 	 * Returns the value of the '<em><b>System Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link com.mimacom.ddd.dm.base.DSystemType}.
+	 * The literals are from the enumeration {@link com.mimacom.ddd.dm.dmx.DmxBaseType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>System Type</em>' attribute.
-	 * @see com.mimacom.ddd.dm.base.DSystemType
-	 * @see #setSystemType(DSystemType)
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDFunctionParameter_SystemType()
+	 * @see com.mimacom.ddd.dm.dmx.DmxBaseType
+	 * @see #setSystemType(DmxBaseType)
+	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFunctionParameter_SystemType()
 	 * @model
 	 * @generated
 	 */
-	DSystemType getSystemType();
+	DmxBaseType getSystemType();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.DFunctionParameter#getSystemType <em>System Type</em>}' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter#getSystemType <em>System Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>System Type</em>' attribute.
-	 * @see com.mimacom.ddd.dm.base.DSystemType
+	 * @see com.mimacom.ddd.dm.dmx.DmxBaseType
 	 * @see #getSystemType()
 	 * @generated
 	 */
-	void setSystemType(DSystemType value);
+	void setSystemType(DmxBaseType value);
 
 	/**
 	 * Returns the value of the '<em><b>System Type Many</b></em>' attribute.
@@ -77,14 +77,14 @@ public interface DFunctionParameter extends EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>System Type Many</em>' attribute.
 	 * @see #setSystemTypeMany(boolean)
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDFunctionParameter_SystemTypeMany()
+	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFunctionParameter_SystemTypeMany()
 	 * @model
 	 * @generated
 	 */
 	boolean isSystemTypeMany();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.DFunctionParameter#isSystemTypeMany <em>System Type Many</em>}' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter#isSystemTypeMany <em>System Type Many</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>System Type Many</em>' attribute.
@@ -93,4 +93,4 @@ public interface DFunctionParameter extends EObject
 	 */
 	void setSystemTypeMany(boolean value);
 
-} // DFunctionParameter
+} // DmxFunctionParameter

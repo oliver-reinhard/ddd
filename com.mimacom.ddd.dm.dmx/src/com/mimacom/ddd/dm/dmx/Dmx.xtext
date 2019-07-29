@@ -4,14 +4,77 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://www.mimacom.com/ddd/dm/base"
 import "http://www.mimacom.com/ddd/dm/dmx" 
 
-DmxModel:
-	{DmxModel}
+DmxNamespace:
+	(imports+=DImport)*
+	'namespace'
+	name=DQualifiedName
+	(types+=DmxArchetype)*
+	(filters+=DmxFilter)* 
 	// For unit-testing purposes:
-	('text' NATURAL ':' texts+=DRichText ';')*
-	('expr' NATURAL ':' expressions+=DExpression ';')*;
+	(tests+=DmxTest)*;
+	
+DImport:
+	'import' importedNamespace=DQualifiedNameWithWildcard;	
+
+/* 
+ * Testing
+ */
+DmxTest:
+	'test'
+	name=ID
+	(	'context'	
+		context+=DmxTestContext (',' context+=DmxTestContext)*
+	)?
+	'{'
+	expr=DExpression
+	'}';
+
+DmxTestContext returns DContext:
+	name=ID
+	':'
+	type=[DType|ID] (multiplicity=DMultiplicity)?;	
+	
+/* 
+ * Language base: archetypes & filters
+ */
+enum DmxBaseType:
+	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | OBJECT | ACTOR /*notified */ | OPERATION /*invoked* */;
+	
+DmxArchetype:
+	'archetype'
+	name=ID
+	'is'
+	systemType=DmxBaseType
+	(description=DRichText)?;
+	
+DmxFilter:
+	DmxFunction | DmxIterator;
+
+DmxFunction:
+	'function' name=ID 
+	'(' (parameters+=DmxFunctionParameter (','  parameters+=DmxFunctionParameter)*)? ')'
+	':'
+	systemType=DmxBaseType
+	(systemTypeMany?='*')?;
+
+DmxFunctionParameter:
+	name=ID
+	':'
+	systemType=DmxBaseType
+	(systemTypeMany?='*')?;
+
+DmxIterator:
+	'iterator' name=ID
+	':'
+	systemType=DmxBaseType
+	(systemTypeMany?='*')?;
+
+/*
+ * Expressions
+ */
 
 DExpression returns DExpression :
-	DAssignment | DRichText;
+	DAssignment | DPredicate | DRichText;
 	
 DRichText:
 	segments+=DTextOnly
@@ -27,15 +90,42 @@ DTextStart returns DTextSegment:		value=PLAIN_TEXT_START;
 DTextMiddle returns DTextSegment:	value=PLAIN_TEXT_MIDDLE;
 DTextEnd returns DTextSegment:		value=PLAIN_TEXT_END;
 
+DNavigableMemberReference returns DExpression:
+	DPrimaryExpression
+	(	=> ({DAssignment.memberContainer=current} '.' assignToMember=[DNavigableMember|ID] OpSingleAssign) value=DOrExpression
+	| 	=> ({DNavigableMemberReference.memberContainerReference=current} '.')
+		member=[DNavigableMember|ID] 
+		(
+			(	=> explicitOperationCall?='(' // => boolean => has 0.n explicit arguments
+				(
+					memberCallArguments+=DPredicate (',' memberCallArguments+=DPredicate)*
+				)?
+				')'
+			)
+			|
+			before?="@before"
+		)?
+	)*;
 
 DAssignment returns DExpression :
 	{DAssignment}
-	assignToMember=[DNavigableMember|ID] OpSingleAssign value=DAssignment 
-	| DOrExpression;
+	assignToMember=[DNavigableMember|ID] OpSingleAssign value=DOrExpression;
 
 OpSingleAssign:
 	':=';
 
+DPredicate returns DExpression :
+	(	{DPredicate} 
+		var=DPredicateContext
+		'|'
+		value=DOrExpression
+	|	DOrExpression
+	);
+
+DPredicateContext returns DContext:
+	name=ID
+	(':' type=[DType])?;
+	
 DOrExpression returns DExpression:
 	DAndExpression
 	(=> ({DBinaryOperation.leftOperand=current} operator=OpOr) rightOperand=DAndExpression)*;
@@ -52,7 +142,7 @@ enum OpAnd returns DBinaryOperator:
 
 DEqualityExpression returns DExpression:
 	DRelationalExpression 
-	(=>({DBinaryOperation.leftOperand=current} operator=OpEquality)	rightOperand=DRelationalExpression)*;
+	(=> ({DBinaryOperation.leftOperand=current} operator=OpEquality)	rightOperand=DRelationalExpression)*;
 
 enum OpEquality returns DBinaryOperator:
 	EQUAL='=' | NOT_EQUAL='!=' | NOT_EQUAL='<>';
@@ -104,32 +194,16 @@ DCastExpression returns DExpression:
 OpCast:
 	'AS' | 'as';
 	
-DNavigableMemberReference returns DExpression:
-	DPrimaryExpression
-	(	=> ({DAssignment.memberContainer=current} '.' assignToMember=[DNavigableMember|ID] OpSingleAssign) value=DAssignment
-	| 	=> ({DNavigableMemberReference.memberContainerReference=current} '.')
-		member=[DNavigableMember|ID] 
-		(
-			(	=> explicitOperationCall?='(' // => boolean => has 0.n explicit arguments
-				(
-					memberCallArguments+=DExpression (',' memberCallArguments+=DExpression)*
-				)?
-				')'
-			)
-			|
-			before?="@before"
-		)?
-	)*;
-	
 DPrimaryExpression returns DExpression:
 	DLiteralExpression |
 	DSelfExpression |
 	DReturnExpression |
 	DRaiseExpression |
 	DParenthesizedExpression |
-	DFunctionCall |
+	DFunctionCall | // ****** Required? => DmxContextReference
 	DConstructorCall |
-	DContextReference |
+	DmxStaticReference |
+	DmxContextReference |
 	DIfExpression |
 	DForLoopExpression;
 	
@@ -138,7 +212,7 @@ DLiteralExpression returns DExpression:
 	DStringLiteral |
 	DNaturalLiteral |
 	DDecimalLiteral |
-	DNilLiteral;
+	DUndefinedLiteral;
 	
 DSelfExpression returns DExpression :
 	{DSelfExpression}
@@ -155,9 +229,12 @@ DRaiseExpression returns DExpression :
 DParenthesizedExpression returns DExpression:
 	'(' DExpression ')';
 
+//
+// TODO remove or rename to DQueryCall and change reference
+//
 DFunctionCall returns DExpression:
 	{DFunctionCall}
-	function=[DFunction|ID]
+	function=[DmxFunction|ID]
 	'('
 		(
 			functionCallArguments+=DExpression (',' functionCallArguments+=DExpression)*
@@ -176,16 +253,20 @@ DConstructorCall returns DExpression:
 OpConstructor:
 	'NEW' | 'new';
 		
-DContextReference returns DExpression:
-	{DContextReference}
-	(	target=[DNamedElement|ID] 
-		(before?="@before")?
-	|	'['
-		target=[IPrimaryNavigationTarget|DQualifiedName]
-		('#' member=[DNavigableMember|ID])?
-		("|" (displayName=ID | plural?="*"))?
-		(-> ']')  // '->' gives precedence to this ']' over PLAIN_TEXT_MIDDLE ('=>' works too but generates more lookahead overhead)
-	);
+DmxStaticReference returns DExpression:
+	{DmxStaticReference}
+	'['
+	target=[IStaticReferenceTarget|DQualifiedName]
+	('#' member=[DNavigableMember|ID])?
+	("|" (displayName=ID | plural?="*"))?
+	(-> ']') ; // '->' gives precedence to this ']' over PLAIN_TEXT_MIDDLE ('=>' works too but generates more lookahead overhead)
+		
+DmxContextReference returns DExpression:
+	{DmxContextReference}
+	target=[DNamedElement|ID] 
+	(	before?="@before"
+	|	'.' all?='all'
+	)?;
 	
 DIfExpression returns DExpression:
 	{DIfExpression}
@@ -207,10 +288,10 @@ MULTIPLICITY returns ecore::EInt:
 	NATURAL | '*';
 	
 DBooleanLiteral returns DExpression: {DBooleanLiteral} (value?='TRUE' | value?='true' | 'FALSE' | 'false');
-DStringLiteral returns DExpression: {DStringLiteral} value=STRING;
 DNaturalLiteral returns DExpression: {DNaturalLiteral} value=NATURAL;
 DDecimalLiteral returns DExpression: {DDecimalLiteral} value=DECIMAL;
-DNilLiteral returns DExpression: {DUndefinedLiteral} ('UNDEFINED' | 'undefined');
+DStringLiteral returns DExpression: {DStringLiteral} value=STRING;
+DUndefinedLiteral returns DExpression: {DUndefinedLiteral} ('UNDEFINED' | 'undefined');
 
 DECIMAL returns ecore::EString: NATURAL '.' NATURAL (('E'|'e')  ('+'|'-')? NATURAL)?;
 

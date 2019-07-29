@@ -152,14 +152,7 @@ public class DimUtil {
     boolean _matched = false;
     if (type instanceof DPrimitive) {
       _matched=true;
-      String _xifexpression = null;
-      boolean _isArchetype = ((DPrimitive)type).isArchetype();
-      if (_isArchetype) {
-        _xifexpression = "Archetype ";
-      } else {
-        _xifexpression = "Primitive ";
-      }
-      _switchResult = _xifexpression;
+      _switchResult = "Primitive ";
     }
     if (!_matched) {
       if (type instanceof DEnumeration) {
