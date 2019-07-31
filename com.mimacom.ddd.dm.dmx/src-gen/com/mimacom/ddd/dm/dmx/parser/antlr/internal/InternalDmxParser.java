@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalDmxParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_PLAIN_TEXT_START", "RULE_PLAIN_TEXT_MIDDLE", "RULE_PLAIN_TEXT_END", "RULE_NATURAL", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'namespace'", "'import'", "'test'", "'context'", "','", "'{'", "'}'", "':'", "'archetype'", "'is'", "'function'", "'('", "')'", "'*'", "'iterator'", "'.'", "'@before'", "':='", "'|'", "'ISA'", "'isa'", "'AS'", "'as'", "'SELF'", "'self'", "'RETURN'", "'return'", "'RAISE'", "'raise'", "'NEW'", "'new'", "'['", "'#'", "']'", "'all'", "'if'", "'then'", "'else'", "'end'", "'for'", "'do'", "'..'", "'TRUE'", "'true'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'.*'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'OBJECT'", "'ACTOR'", "'OPERATION'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_PLAIN_TEXT_START", "RULE_PLAIN_TEXT_MIDDLE", "RULE_PLAIN_TEXT_END", "RULE_NATURAL", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'namespace'", "'import'", "'test'", "'context'", "','", "'{'", "'}'", "':'", "'archetype'", "'is'", "'function'", "'('", "')'", "'*'", "'iterator'", "'.'", "'@before'", "':='", "'|'", "'ISA'", "'isa'", "'AS'", "'as'", "'SELF'", "'self'", "'RETURN'", "'return'", "'RAISE'", "'raise'", "'NEW'", "'new'", "'['", "'#'", "']'", "'all'", "'if'", "'then'", "'else'", "'end'", "'for'", "'do'", "'..'", "'TRUE'", "'true'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'.*'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'COMPLEX'", "'ACTOR'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'"
     };
     public static final int T__50=50;
     public static final int RULE_PLAIN_TEXT_ONLY=5;
@@ -1163,14 +1163,14 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxArchetype"
-    // InternalDmx.g:423:1: ruleDmxArchetype returns [EObject current=null] : (otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_systemType_3_0= ruleDmxBaseType ) ) ( (lv_description_4_0= ruleDRichText ) )? ) ;
+    // InternalDmx.g:423:1: ruleDmxArchetype returns [EObject current=null] : (otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_baseType_3_0= ruleDmxBaseType ) ) ( (lv_description_4_0= ruleDRichText ) )? ) ;
     public final EObject ruleDmxArchetype() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token lv_name_1_0=null;
         Token otherlv_2=null;
-        Enumerator lv_systemType_3_0 = null;
+        Enumerator lv_baseType_3_0 = null;
 
         EObject lv_description_4_0 = null;
 
@@ -1179,11 +1179,11 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDmx.g:429:2: ( (otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_systemType_3_0= ruleDmxBaseType ) ) ( (lv_description_4_0= ruleDRichText ) )? ) )
-            // InternalDmx.g:430:2: (otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_systemType_3_0= ruleDmxBaseType ) ) ( (lv_description_4_0= ruleDRichText ) )? )
+            // InternalDmx.g:429:2: ( (otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_baseType_3_0= ruleDmxBaseType ) ) ( (lv_description_4_0= ruleDRichText ) )? ) )
+            // InternalDmx.g:430:2: (otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_baseType_3_0= ruleDmxBaseType ) ) ( (lv_description_4_0= ruleDRichText ) )? )
             {
-            // InternalDmx.g:430:2: (otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_systemType_3_0= ruleDmxBaseType ) ) ( (lv_description_4_0= ruleDRichText ) )? )
-            // InternalDmx.g:431:3: otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_systemType_3_0= ruleDmxBaseType ) ) ( (lv_description_4_0= ruleDRichText ) )?
+            // InternalDmx.g:430:2: (otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_baseType_3_0= ruleDmxBaseType ) ) ( (lv_description_4_0= ruleDRichText ) )? )
+            // InternalDmx.g:431:3: otherlv_0= 'archetype' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_baseType_3_0= ruleDmxBaseType ) ) ( (lv_description_4_0= ruleDRichText ) )?
             {
             otherlv_0=(Token)match(input,25,FOLLOW_4); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -1227,19 +1227,19 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_2, grammarAccess.getDmxArchetypeAccess().getIsKeyword_2());
               		
             }
-            // InternalDmx.g:457:3: ( (lv_systemType_3_0= ruleDmxBaseType ) )
-            // InternalDmx.g:458:4: (lv_systemType_3_0= ruleDmxBaseType )
+            // InternalDmx.g:457:3: ( (lv_baseType_3_0= ruleDmxBaseType ) )
+            // InternalDmx.g:458:4: (lv_baseType_3_0= ruleDmxBaseType )
             {
-            // InternalDmx.g:458:4: (lv_systemType_3_0= ruleDmxBaseType )
-            // InternalDmx.g:459:5: lv_systemType_3_0= ruleDmxBaseType
+            // InternalDmx.g:458:4: (lv_baseType_3_0= ruleDmxBaseType )
+            // InternalDmx.g:459:5: lv_baseType_3_0= ruleDmxBaseType
             {
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getDmxArchetypeAccess().getSystemTypeDmxBaseTypeEnumRuleCall_3_0());
+              					newCompositeNode(grammarAccess.getDmxArchetypeAccess().getBaseTypeDmxBaseTypeEnumRuleCall_3_0());
               				
             }
             pushFollow(FOLLOW_16);
-            lv_systemType_3_0=ruleDmxBaseType();
+            lv_baseType_3_0=ruleDmxBaseType();
 
             state._fsp--;
             if (state.failed) return current;
@@ -1250,8 +1250,8 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
               					}
               					set(
               						current,
-              						"systemType",
-              						lv_systemType_3_0,
+              						"baseType",
+              						lv_baseType_3_0,
               						"com.mimacom.ddd.dm.dmx.Dmx.DmxBaseType");
               					afterParserOrEnumRuleCall();
               				
@@ -1516,7 +1516,7 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxFunction"
-    // InternalDmx.g:542:1: ruleDmxFunction returns [EObject current=null] : (otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleDmxFunctionParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFunctionParameter ) ) )* )? otherlv_6= ')' otherlv_7= ':' ( (lv_systemType_8_0= ruleDmxBaseType ) ) ( (lv_systemTypeMany_9_0= '*' ) )? ) ;
+    // InternalDmx.g:542:1: ruleDmxFunction returns [EObject current=null] : (otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleDmxFunctionParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFunctionParameter ) ) )* )? otherlv_6= ')' otherlv_7= ':' ( (lv_baseType_8_0= ruleDmxBaseType ) ) ( (lv_baseTypeCollection_9_0= '*' ) )? ) ;
     public final EObject ruleDmxFunction() throws RecognitionException {
         EObject current = null;
 
@@ -1526,23 +1526,23 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
         Token otherlv_4=null;
         Token otherlv_6=null;
         Token otherlv_7=null;
-        Token lv_systemTypeMany_9_0=null;
+        Token lv_baseTypeCollection_9_0=null;
         EObject lv_parameters_3_0 = null;
 
         EObject lv_parameters_5_0 = null;
 
-        Enumerator lv_systemType_8_0 = null;
+        Enumerator lv_baseType_8_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalDmx.g:548:2: ( (otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleDmxFunctionParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFunctionParameter ) ) )* )? otherlv_6= ')' otherlv_7= ':' ( (lv_systemType_8_0= ruleDmxBaseType ) ) ( (lv_systemTypeMany_9_0= '*' ) )? ) )
-            // InternalDmx.g:549:2: (otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleDmxFunctionParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFunctionParameter ) ) )* )? otherlv_6= ')' otherlv_7= ':' ( (lv_systemType_8_0= ruleDmxBaseType ) ) ( (lv_systemTypeMany_9_0= '*' ) )? )
+            // InternalDmx.g:548:2: ( (otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleDmxFunctionParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFunctionParameter ) ) )* )? otherlv_6= ')' otherlv_7= ':' ( (lv_baseType_8_0= ruleDmxBaseType ) ) ( (lv_baseTypeCollection_9_0= '*' ) )? ) )
+            // InternalDmx.g:549:2: (otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleDmxFunctionParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFunctionParameter ) ) )* )? otherlv_6= ')' otherlv_7= ':' ( (lv_baseType_8_0= ruleDmxBaseType ) ) ( (lv_baseTypeCollection_9_0= '*' ) )? )
             {
-            // InternalDmx.g:549:2: (otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleDmxFunctionParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFunctionParameter ) ) )* )? otherlv_6= ')' otherlv_7= ':' ( (lv_systemType_8_0= ruleDmxBaseType ) ) ( (lv_systemTypeMany_9_0= '*' ) )? )
-            // InternalDmx.g:550:3: otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleDmxFunctionParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFunctionParameter ) ) )* )? otherlv_6= ')' otherlv_7= ':' ( (lv_systemType_8_0= ruleDmxBaseType ) ) ( (lv_systemTypeMany_9_0= '*' ) )?
+            // InternalDmx.g:549:2: (otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleDmxFunctionParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFunctionParameter ) ) )* )? otherlv_6= ')' otherlv_7= ':' ( (lv_baseType_8_0= ruleDmxBaseType ) ) ( (lv_baseTypeCollection_9_0= '*' ) )? )
+            // InternalDmx.g:550:3: otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleDmxFunctionParameter ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleDmxFunctionParameter ) ) )* )? otherlv_6= ')' otherlv_7= ':' ( (lv_baseType_8_0= ruleDmxBaseType ) ) ( (lv_baseTypeCollection_9_0= '*' ) )?
             {
             otherlv_0=(Token)match(input,27,FOLLOW_4); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -1715,19 +1715,19 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_7, grammarAccess.getDmxFunctionAccess().getColonKeyword_5());
               		
             }
-            // InternalDmx.g:630:3: ( (lv_systemType_8_0= ruleDmxBaseType ) )
-            // InternalDmx.g:631:4: (lv_systemType_8_0= ruleDmxBaseType )
+            // InternalDmx.g:630:3: ( (lv_baseType_8_0= ruleDmxBaseType ) )
+            // InternalDmx.g:631:4: (lv_baseType_8_0= ruleDmxBaseType )
             {
-            // InternalDmx.g:631:4: (lv_systemType_8_0= ruleDmxBaseType )
-            // InternalDmx.g:632:5: lv_systemType_8_0= ruleDmxBaseType
+            // InternalDmx.g:631:4: (lv_baseType_8_0= ruleDmxBaseType )
+            // InternalDmx.g:632:5: lv_baseType_8_0= ruleDmxBaseType
             {
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getDmxFunctionAccess().getSystemTypeDmxBaseTypeEnumRuleCall_6_0());
+              					newCompositeNode(grammarAccess.getDmxFunctionAccess().getBaseTypeDmxBaseTypeEnumRuleCall_6_0());
               				
             }
             pushFollow(FOLLOW_20);
-            lv_systemType_8_0=ruleDmxBaseType();
+            lv_baseType_8_0=ruleDmxBaseType();
 
             state._fsp--;
             if (state.failed) return current;
@@ -1738,8 +1738,8 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
               					}
               					set(
               						current,
-              						"systemType",
-              						lv_systemType_8_0,
+              						"baseType",
+              						lv_baseType_8_0,
               						"com.mimacom.ddd.dm.dmx.Dmx.DmxBaseType");
               					afterParserOrEnumRuleCall();
               				
@@ -1750,7 +1750,7 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDmx.g:649:3: ( (lv_systemTypeMany_9_0= '*' ) )?
+            // InternalDmx.g:649:3: ( (lv_baseTypeCollection_9_0= '*' ) )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -1759,15 +1759,15 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
             }
             switch (alt12) {
                 case 1 :
-                    // InternalDmx.g:650:4: (lv_systemTypeMany_9_0= '*' )
+                    // InternalDmx.g:650:4: (lv_baseTypeCollection_9_0= '*' )
                     {
-                    // InternalDmx.g:650:4: (lv_systemTypeMany_9_0= '*' )
-                    // InternalDmx.g:651:5: lv_systemTypeMany_9_0= '*'
+                    // InternalDmx.g:650:4: (lv_baseTypeCollection_9_0= '*' )
+                    // InternalDmx.g:651:5: lv_baseTypeCollection_9_0= '*'
                     {
-                    lv_systemTypeMany_9_0=(Token)match(input,30,FOLLOW_2); if (state.failed) return current;
+                    lv_baseTypeCollection_9_0=(Token)match(input,30,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(lv_systemTypeMany_9_0, grammarAccess.getDmxFunctionAccess().getSystemTypeManyAsteriskKeyword_7_0());
+                      					newLeafNode(lv_baseTypeCollection_9_0, grammarAccess.getDmxFunctionAccess().getBaseTypeCollectionAsteriskKeyword_7_0());
                       				
                     }
                     if ( state.backtracking==0 ) {
@@ -1775,7 +1775,7 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
                       					if (current==null) {
                       						current = createModelElement(grammarAccess.getDmxFunctionRule());
                       					}
-                      					setWithLastConsumed(current, "systemTypeMany", true, "*");
+                      					setWithLastConsumed(current, "baseTypeCollection", true, "*");
                       				
                     }
 
@@ -1852,25 +1852,25 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxFunctionParameter"
-    // InternalDmx.g:674:1: ruleDmxFunctionParameter returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_systemType_2_0= ruleDmxBaseType ) ) ( (lv_systemTypeMany_3_0= '*' ) )? ) ;
+    // InternalDmx.g:674:1: ruleDmxFunctionParameter returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_baseType_2_0= ruleDmxBaseType ) ) ( (lv_baseTypeCollection_3_0= '*' ) )? ) ;
     public final EObject ruleDmxFunctionParameter() throws RecognitionException {
         EObject current = null;
 
         Token lv_name_0_0=null;
         Token otherlv_1=null;
-        Token lv_systemTypeMany_3_0=null;
-        Enumerator lv_systemType_2_0 = null;
+        Token lv_baseTypeCollection_3_0=null;
+        Enumerator lv_baseType_2_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalDmx.g:680:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_systemType_2_0= ruleDmxBaseType ) ) ( (lv_systemTypeMany_3_0= '*' ) )? ) )
-            // InternalDmx.g:681:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_systemType_2_0= ruleDmxBaseType ) ) ( (lv_systemTypeMany_3_0= '*' ) )? )
+            // InternalDmx.g:680:2: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_baseType_2_0= ruleDmxBaseType ) ) ( (lv_baseTypeCollection_3_0= '*' ) )? ) )
+            // InternalDmx.g:681:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_baseType_2_0= ruleDmxBaseType ) ) ( (lv_baseTypeCollection_3_0= '*' ) )? )
             {
-            // InternalDmx.g:681:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_systemType_2_0= ruleDmxBaseType ) ) ( (lv_systemTypeMany_3_0= '*' ) )? )
-            // InternalDmx.g:682:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_systemType_2_0= ruleDmxBaseType ) ) ( (lv_systemTypeMany_3_0= '*' ) )?
+            // InternalDmx.g:681:2: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_baseType_2_0= ruleDmxBaseType ) ) ( (lv_baseTypeCollection_3_0= '*' ) )? )
+            // InternalDmx.g:682:3: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_baseType_2_0= ruleDmxBaseType ) ) ( (lv_baseTypeCollection_3_0= '*' ) )?
             {
             // InternalDmx.g:682:3: ( (lv_name_0_0= RULE_ID ) )
             // InternalDmx.g:683:4: (lv_name_0_0= RULE_ID )
@@ -1908,19 +1908,19 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_1, grammarAccess.getDmxFunctionParameterAccess().getColonKeyword_1());
               		
             }
-            // InternalDmx.g:704:3: ( (lv_systemType_2_0= ruleDmxBaseType ) )
-            // InternalDmx.g:705:4: (lv_systemType_2_0= ruleDmxBaseType )
+            // InternalDmx.g:704:3: ( (lv_baseType_2_0= ruleDmxBaseType ) )
+            // InternalDmx.g:705:4: (lv_baseType_2_0= ruleDmxBaseType )
             {
-            // InternalDmx.g:705:4: (lv_systemType_2_0= ruleDmxBaseType )
-            // InternalDmx.g:706:5: lv_systemType_2_0= ruleDmxBaseType
+            // InternalDmx.g:705:4: (lv_baseType_2_0= ruleDmxBaseType )
+            // InternalDmx.g:706:5: lv_baseType_2_0= ruleDmxBaseType
             {
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getDmxFunctionParameterAccess().getSystemTypeDmxBaseTypeEnumRuleCall_2_0());
+              					newCompositeNode(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeDmxBaseTypeEnumRuleCall_2_0());
               				
             }
             pushFollow(FOLLOW_20);
-            lv_systemType_2_0=ruleDmxBaseType();
+            lv_baseType_2_0=ruleDmxBaseType();
 
             state._fsp--;
             if (state.failed) return current;
@@ -1931,8 +1931,8 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
               					}
               					set(
               						current,
-              						"systemType",
-              						lv_systemType_2_0,
+              						"baseType",
+              						lv_baseType_2_0,
               						"com.mimacom.ddd.dm.dmx.Dmx.DmxBaseType");
               					afterParserOrEnumRuleCall();
               				
@@ -1943,7 +1943,7 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDmx.g:723:3: ( (lv_systemTypeMany_3_0= '*' ) )?
+            // InternalDmx.g:723:3: ( (lv_baseTypeCollection_3_0= '*' ) )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -1952,15 +1952,15 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
             }
             switch (alt13) {
                 case 1 :
-                    // InternalDmx.g:724:4: (lv_systemTypeMany_3_0= '*' )
+                    // InternalDmx.g:724:4: (lv_baseTypeCollection_3_0= '*' )
                     {
-                    // InternalDmx.g:724:4: (lv_systemTypeMany_3_0= '*' )
-                    // InternalDmx.g:725:5: lv_systemTypeMany_3_0= '*'
+                    // InternalDmx.g:724:4: (lv_baseTypeCollection_3_0= '*' )
+                    // InternalDmx.g:725:5: lv_baseTypeCollection_3_0= '*'
                     {
-                    lv_systemTypeMany_3_0=(Token)match(input,30,FOLLOW_2); if (state.failed) return current;
+                    lv_baseTypeCollection_3_0=(Token)match(input,30,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(lv_systemTypeMany_3_0, grammarAccess.getDmxFunctionParameterAccess().getSystemTypeManyAsteriskKeyword_3_0());
+                      					newLeafNode(lv_baseTypeCollection_3_0, grammarAccess.getDmxFunctionParameterAccess().getBaseTypeCollectionAsteriskKeyword_3_0());
                       				
                     }
                     if ( state.backtracking==0 ) {
@@ -1968,7 +1968,7 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
                       					if (current==null) {
                       						current = createModelElement(grammarAccess.getDmxFunctionParameterRule());
                       					}
-                      					setWithLastConsumed(current, "systemTypeMany", true, "*");
+                      					setWithLastConsumed(current, "baseTypeCollection", true, "*");
                       				
                     }
 
@@ -2045,26 +2045,26 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxIterator"
-    // InternalDmx.g:748:1: ruleDmxIterator returns [EObject current=null] : (otherlv_0= 'iterator' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (lv_systemType_3_0= ruleDmxBaseType ) ) ( (lv_systemTypeMany_4_0= '*' ) )? ) ;
+    // InternalDmx.g:748:1: ruleDmxIterator returns [EObject current=null] : (otherlv_0= 'iterator' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (lv_baseType_3_0= ruleDmxBaseType ) ) ( (lv_baseTypeCollection_4_0= '*' ) )? ) ;
     public final EObject ruleDmxIterator() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token lv_name_1_0=null;
         Token otherlv_2=null;
-        Token lv_systemTypeMany_4_0=null;
-        Enumerator lv_systemType_3_0 = null;
+        Token lv_baseTypeCollection_4_0=null;
+        Enumerator lv_baseType_3_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalDmx.g:754:2: ( (otherlv_0= 'iterator' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (lv_systemType_3_0= ruleDmxBaseType ) ) ( (lv_systemTypeMany_4_0= '*' ) )? ) )
-            // InternalDmx.g:755:2: (otherlv_0= 'iterator' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (lv_systemType_3_0= ruleDmxBaseType ) ) ( (lv_systemTypeMany_4_0= '*' ) )? )
+            // InternalDmx.g:754:2: ( (otherlv_0= 'iterator' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (lv_baseType_3_0= ruleDmxBaseType ) ) ( (lv_baseTypeCollection_4_0= '*' ) )? ) )
+            // InternalDmx.g:755:2: (otherlv_0= 'iterator' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (lv_baseType_3_0= ruleDmxBaseType ) ) ( (lv_baseTypeCollection_4_0= '*' ) )? )
             {
-            // InternalDmx.g:755:2: (otherlv_0= 'iterator' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (lv_systemType_3_0= ruleDmxBaseType ) ) ( (lv_systemTypeMany_4_0= '*' ) )? )
-            // InternalDmx.g:756:3: otherlv_0= 'iterator' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (lv_systemType_3_0= ruleDmxBaseType ) ) ( (lv_systemTypeMany_4_0= '*' ) )?
+            // InternalDmx.g:755:2: (otherlv_0= 'iterator' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (lv_baseType_3_0= ruleDmxBaseType ) ) ( (lv_baseTypeCollection_4_0= '*' ) )? )
+            // InternalDmx.g:756:3: otherlv_0= 'iterator' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (lv_baseType_3_0= ruleDmxBaseType ) ) ( (lv_baseTypeCollection_4_0= '*' ) )?
             {
             otherlv_0=(Token)match(input,31,FOLLOW_4); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -2108,19 +2108,19 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_2, grammarAccess.getDmxIteratorAccess().getColonKeyword_2());
               		
             }
-            // InternalDmx.g:782:3: ( (lv_systemType_3_0= ruleDmxBaseType ) )
-            // InternalDmx.g:783:4: (lv_systemType_3_0= ruleDmxBaseType )
+            // InternalDmx.g:782:3: ( (lv_baseType_3_0= ruleDmxBaseType ) )
+            // InternalDmx.g:783:4: (lv_baseType_3_0= ruleDmxBaseType )
             {
-            // InternalDmx.g:783:4: (lv_systemType_3_0= ruleDmxBaseType )
-            // InternalDmx.g:784:5: lv_systemType_3_0= ruleDmxBaseType
+            // InternalDmx.g:783:4: (lv_baseType_3_0= ruleDmxBaseType )
+            // InternalDmx.g:784:5: lv_baseType_3_0= ruleDmxBaseType
             {
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getDmxIteratorAccess().getSystemTypeDmxBaseTypeEnumRuleCall_3_0());
+              					newCompositeNode(grammarAccess.getDmxIteratorAccess().getBaseTypeDmxBaseTypeEnumRuleCall_3_0());
               				
             }
             pushFollow(FOLLOW_20);
-            lv_systemType_3_0=ruleDmxBaseType();
+            lv_baseType_3_0=ruleDmxBaseType();
 
             state._fsp--;
             if (state.failed) return current;
@@ -2131,8 +2131,8 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
               					}
               					set(
               						current,
-              						"systemType",
-              						lv_systemType_3_0,
+              						"baseType",
+              						lv_baseType_3_0,
               						"com.mimacom.ddd.dm.dmx.Dmx.DmxBaseType");
               					afterParserOrEnumRuleCall();
               				
@@ -2143,7 +2143,7 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDmx.g:801:3: ( (lv_systemTypeMany_4_0= '*' ) )?
+            // InternalDmx.g:801:3: ( (lv_baseTypeCollection_4_0= '*' ) )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -2152,15 +2152,15 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
             }
             switch (alt14) {
                 case 1 :
-                    // InternalDmx.g:802:4: (lv_systemTypeMany_4_0= '*' )
+                    // InternalDmx.g:802:4: (lv_baseTypeCollection_4_0= '*' )
                     {
-                    // InternalDmx.g:802:4: (lv_systemTypeMany_4_0= '*' )
-                    // InternalDmx.g:803:5: lv_systemTypeMany_4_0= '*'
+                    // InternalDmx.g:802:4: (lv_baseTypeCollection_4_0= '*' )
+                    // InternalDmx.g:803:5: lv_baseTypeCollection_4_0= '*'
                     {
-                    lv_systemTypeMany_4_0=(Token)match(input,30,FOLLOW_2); if (state.failed) return current;
+                    lv_baseTypeCollection_4_0=(Token)match(input,30,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(lv_systemTypeMany_4_0, grammarAccess.getDmxIteratorAccess().getSystemTypeManyAsteriskKeyword_4_0());
+                      					newLeafNode(lv_baseTypeCollection_4_0, grammarAccess.getDmxIteratorAccess().getBaseTypeCollectionAsteriskKeyword_4_0());
                       				
                     }
                     if ( state.backtracking==0 ) {
@@ -2168,7 +2168,7 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
                       					if (current==null) {
                       						current = createModelElement(grammarAccess.getDmxIteratorRule());
                       					}
-                      					setWithLastConsumed(current, "systemTypeMany", true, "*");
+                      					setWithLastConsumed(current, "baseTypeCollection", true, "*");
                       				
                     }
 
@@ -3443,7 +3443,7 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
             	    if ( state.backtracking==0 ) {
 
             	      								current = forceCreateModelElementAndSet(
-            	      									grammarAccess.getDNavigableMemberReferenceAccess().getDNavigableMemberReferenceMemberContainerReferenceAction_1_1_0_0_0(),
+            	      									grammarAccess.getDNavigableMemberReferenceAccess().getDmxMemberNavigationPrecedingNavigationSegmentAction_1_1_0_0_0(),
             	      									current);
             	      							
             	    }
@@ -11290,7 +11290,7 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxBaseType"
-    // InternalDmx.g:3955:1: ruleDmxBaseType returns [Enumerator current=null] : ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'OBJECT' ) | (enumLiteral_7= 'ACTOR' ) | (enumLiteral_8= 'OPERATION' ) ) ;
+    // InternalDmx.g:3955:1: ruleDmxBaseType returns [Enumerator current=null] : ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'COMPLEX' ) | (enumLiteral_7= 'ACTOR' ) | (enumLiteral_8= 'SERVICE' ) ) ;
     public final Enumerator ruleDmxBaseType() throws RecognitionException {
         Enumerator current = null;
 
@@ -11308,10 +11308,10 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDmx.g:3961:2: ( ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'OBJECT' ) | (enumLiteral_7= 'ACTOR' ) | (enumLiteral_8= 'OPERATION' ) ) )
-            // InternalDmx.g:3962:2: ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'OBJECT' ) | (enumLiteral_7= 'ACTOR' ) | (enumLiteral_8= 'OPERATION' ) )
+            // InternalDmx.g:3961:2: ( ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'COMPLEX' ) | (enumLiteral_7= 'ACTOR' ) | (enumLiteral_8= 'SERVICE' ) ) )
+            // InternalDmx.g:3962:2: ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'COMPLEX' ) | (enumLiteral_7= 'ACTOR' ) | (enumLiteral_8= 'SERVICE' ) )
             {
-            // InternalDmx.g:3962:2: ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'OBJECT' ) | (enumLiteral_7= 'ACTOR' ) | (enumLiteral_8= 'OPERATION' ) )
+            // InternalDmx.g:3962:2: ( (enumLiteral_0= 'VOID' ) | (enumLiteral_1= 'BOOLEAN' ) | (enumLiteral_2= 'NUMBER' ) | (enumLiteral_3= 'TEXT' ) | (enumLiteral_4= 'IDENTIFIER' ) | (enumLiteral_5= 'TIMEPOINT' ) | (enumLiteral_6= 'COMPLEX' ) | (enumLiteral_7= 'ACTOR' ) | (enumLiteral_8= 'SERVICE' ) )
             int alt60=9;
             switch ( input.LA(1) ) {
             case 70:
@@ -11483,16 +11483,16 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalDmx.g:4011:3: (enumLiteral_6= 'OBJECT' )
+                    // InternalDmx.g:4011:3: (enumLiteral_6= 'COMPLEX' )
                     {
-                    // InternalDmx.g:4011:3: (enumLiteral_6= 'OBJECT' )
-                    // InternalDmx.g:4012:4: enumLiteral_6= 'OBJECT'
+                    // InternalDmx.g:4011:3: (enumLiteral_6= 'COMPLEX' )
+                    // InternalDmx.g:4012:4: enumLiteral_6= 'COMPLEX'
                     {
                     enumLiteral_6=(Token)match(input,76,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				current = grammarAccess.getDmxBaseTypeAccess().getOBJECTEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
-                      				newLeafNode(enumLiteral_6, grammarAccess.getDmxBaseTypeAccess().getOBJECTEnumLiteralDeclaration_6());
+                      				current = grammarAccess.getDmxBaseTypeAccess().getCOMPLEXEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_6, grammarAccess.getDmxBaseTypeAccess().getCOMPLEXEnumLiteralDeclaration_6());
                       			
                     }
 
@@ -11521,16 +11521,16 @@ public class InternalDmxParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // InternalDmx.g:4027:3: (enumLiteral_8= 'OPERATION' )
+                    // InternalDmx.g:4027:3: (enumLiteral_8= 'SERVICE' )
                     {
-                    // InternalDmx.g:4027:3: (enumLiteral_8= 'OPERATION' )
-                    // InternalDmx.g:4028:4: enumLiteral_8= 'OPERATION'
+                    // InternalDmx.g:4027:3: (enumLiteral_8= 'SERVICE' )
+                    // InternalDmx.g:4028:4: enumLiteral_8= 'SERVICE'
                     {
                     enumLiteral_8=(Token)match(input,78,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				current = grammarAccess.getDmxBaseTypeAccess().getOPERATIONEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
-                      				newLeafNode(enumLiteral_8, grammarAccess.getDmxBaseTypeAccess().getOPERATIONEnumLiteralDeclaration_8());
+                      				current = grammarAccess.getDmxBaseTypeAccess().getSERVICEEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_8, grammarAccess.getDmxBaseTypeAccess().getSERVICEEnumLiteralDeclaration_8());
                       			
                     }
 

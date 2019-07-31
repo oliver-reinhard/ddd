@@ -169,9 +169,9 @@ public class DemParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDForLoopExpressionAccess().getGroup_0_0(), "rule__DForLoopExpression__Group_0_0__0");
 			builder.put(grammarAccess.getDMultiplicityAccess().getGroup(), "rule__DMultiplicity__Group__0");
 			builder.put(grammarAccess.getDBooleanLiteralAccess().getGroup(), "rule__DBooleanLiteral__Group__0");
-			builder.put(grammarAccess.getDStringLiteralAccess().getGroup(), "rule__DStringLiteral__Group__0");
 			builder.put(grammarAccess.getDNaturalLiteralAccess().getGroup(), "rule__DNaturalLiteral__Group__0");
 			builder.put(grammarAccess.getDDecimalLiteralAccess().getGroup(), "rule__DDecimalLiteral__Group__0");
+			builder.put(grammarAccess.getDStringLiteralAccess().getGroup(), "rule__DStringLiteral__Group__0");
 			builder.put(grammarAccess.getDUndefinedLiteralAccess().getGroup(), "rule__DUndefinedLiteral__Group__0");
 			builder.put(grammarAccess.getDECIMALAccess().getGroup(), "rule__DECIMAL__Group__0");
 			builder.put(grammarAccess.getDECIMALAccess().getGroup_3(), "rule__DECIMAL__Group_3__0");
@@ -227,19 +227,19 @@ public class DemParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDmxTestContextAccess().getTypeAssignment_2(), "rule__DmxTestContext__TypeAssignment_2");
 			builder.put(grammarAccess.getDmxTestContextAccess().getMultiplicityAssignment_3(), "rule__DmxTestContext__MultiplicityAssignment_3");
 			builder.put(grammarAccess.getDmxArchetypeAccess().getNameAssignment_1(), "rule__DmxArchetype__NameAssignment_1");
-			builder.put(grammarAccess.getDmxArchetypeAccess().getSystemTypeAssignment_3(), "rule__DmxArchetype__SystemTypeAssignment_3");
+			builder.put(grammarAccess.getDmxArchetypeAccess().getBaseTypeAssignment_3(), "rule__DmxArchetype__BaseTypeAssignment_3");
 			builder.put(grammarAccess.getDmxArchetypeAccess().getDescriptionAssignment_4(), "rule__DmxArchetype__DescriptionAssignment_4");
 			builder.put(grammarAccess.getDmxFunctionAccess().getNameAssignment_1(), "rule__DmxFunction__NameAssignment_1");
 			builder.put(grammarAccess.getDmxFunctionAccess().getParametersAssignment_3_0(), "rule__DmxFunction__ParametersAssignment_3_0");
 			builder.put(grammarAccess.getDmxFunctionAccess().getParametersAssignment_3_1_1(), "rule__DmxFunction__ParametersAssignment_3_1_1");
-			builder.put(grammarAccess.getDmxFunctionAccess().getSystemTypeAssignment_6(), "rule__DmxFunction__SystemTypeAssignment_6");
-			builder.put(grammarAccess.getDmxFunctionAccess().getSystemTypeManyAssignment_7(), "rule__DmxFunction__SystemTypeManyAssignment_7");
+			builder.put(grammarAccess.getDmxFunctionAccess().getBaseTypeAssignment_6(), "rule__DmxFunction__BaseTypeAssignment_6");
+			builder.put(grammarAccess.getDmxFunctionAccess().getBaseTypeCollectionAssignment_7(), "rule__DmxFunction__BaseTypeCollectionAssignment_7");
 			builder.put(grammarAccess.getDmxFunctionParameterAccess().getNameAssignment_0(), "rule__DmxFunctionParameter__NameAssignment_0");
-			builder.put(grammarAccess.getDmxFunctionParameterAccess().getSystemTypeAssignment_2(), "rule__DmxFunctionParameter__SystemTypeAssignment_2");
-			builder.put(grammarAccess.getDmxFunctionParameterAccess().getSystemTypeManyAssignment_3(), "rule__DmxFunctionParameter__SystemTypeManyAssignment_3");
+			builder.put(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeAssignment_2(), "rule__DmxFunctionParameter__BaseTypeAssignment_2");
+			builder.put(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeCollectionAssignment_3(), "rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3");
 			builder.put(grammarAccess.getDmxIteratorAccess().getNameAssignment_1(), "rule__DmxIterator__NameAssignment_1");
-			builder.put(grammarAccess.getDmxIteratorAccess().getSystemTypeAssignment_3(), "rule__DmxIterator__SystemTypeAssignment_3");
-			builder.put(grammarAccess.getDmxIteratorAccess().getSystemTypeManyAssignment_4(), "rule__DmxIterator__SystemTypeManyAssignment_4");
+			builder.put(grammarAccess.getDmxIteratorAccess().getBaseTypeAssignment_3(), "rule__DmxIterator__BaseTypeAssignment_3");
+			builder.put(grammarAccess.getDmxIteratorAccess().getBaseTypeCollectionAssignment_4(), "rule__DmxIterator__BaseTypeCollectionAssignment_4");
 			builder.put(grammarAccess.getDRichTextAccess().getSegmentsAssignment_0(), "rule__DRichText__SegmentsAssignment_0");
 			builder.put(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_0(), "rule__DRichText__SegmentsAssignment_1_0");
 			builder.put(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_1(), "rule__DRichText__SegmentsAssignment_1_1");
@@ -307,9 +307,9 @@ public class DemParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDMultiplicityAccess().getMaxOccursAssignment_3(), "rule__DMultiplicity__MaxOccursAssignment_3");
 			builder.put(grammarAccess.getDBooleanLiteralAccess().getValueAssignment_1_0(), "rule__DBooleanLiteral__ValueAssignment_1_0");
 			builder.put(grammarAccess.getDBooleanLiteralAccess().getValueAssignment_1_1(), "rule__DBooleanLiteral__ValueAssignment_1_1");
-			builder.put(grammarAccess.getDStringLiteralAccess().getValueAssignment_1(), "rule__DStringLiteral__ValueAssignment_1");
 			builder.put(grammarAccess.getDNaturalLiteralAccess().getValueAssignment_1(), "rule__DNaturalLiteral__ValueAssignment_1");
 			builder.put(grammarAccess.getDDecimalLiteralAccess().getValueAssignment_1(), "rule__DDecimalLiteral__ValueAssignment_1");
+			builder.put(grammarAccess.getDStringLiteralAccess().getValueAssignment_1(), "rule__DStringLiteral__ValueAssignment_1");
 		}
 	}
 	

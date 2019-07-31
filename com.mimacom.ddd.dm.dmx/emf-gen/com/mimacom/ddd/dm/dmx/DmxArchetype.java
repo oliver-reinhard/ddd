@@ -13,7 +13,7 @@ import com.mimacom.ddd.dm.base.DPrimitive;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.dmx.DmxArchetype#getSystemType <em>System Type</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.DmxArchetype#getBaseType <em>Base Type</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxArchetype()
@@ -23,28 +23,28 @@ import com.mimacom.ddd.dm.base.DPrimitive;
 public interface DmxArchetype extends DPrimitive
 {
 	/**
-	 * Returns the value of the '<em><b>System Type</b></em>' attribute.
+	 * Returns the value of the '<em><b>Base Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.mimacom.ddd.dm.dmx.DmxBaseType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>System Type</em>' attribute.
+	 * @return the value of the '<em>Base Type</em>' attribute.
 	 * @see com.mimacom.ddd.dm.dmx.DmxBaseType
-	 * @see #setSystemType(DmxBaseType)
-	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxArchetype_SystemType()
+	 * @see #setBaseType(DmxBaseType)
+	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxArchetype_BaseType()
 	 * @model
 	 * @generated
 	 */
-	DmxBaseType getSystemType();
+	DmxBaseType getBaseType();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxArchetype#getSystemType <em>System Type</em>}' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxArchetype#getBaseType <em>Base Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>System Type</em>' attribute.
+	 * @param value the new value of the '<em>Base Type</em>' attribute.
 	 * @see com.mimacom.ddd.dm.dmx.DmxBaseType
-	 * @see #getSystemType()
+	 * @see #getBaseType()
 	 * @generated
 	 */
-	void setSystemType(DmxBaseType value);
+	void setBaseType(DmxBaseType value);
 
 } // DmxArchetype

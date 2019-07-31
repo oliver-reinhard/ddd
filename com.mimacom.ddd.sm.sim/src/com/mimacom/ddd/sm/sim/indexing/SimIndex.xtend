@@ -16,6 +16,8 @@ import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider
 class SimIndex {
 	@Inject ResourceDescriptionsProvider rdp
 	@Inject IContainer.Manager cm
+	
+	val BASE = BasePackage.eINSTANCE
 
 	def IResourceDescription getResourceDescription(EObject context) {
 		val index = rdp.getResourceDescriptions(context.eResource)
@@ -49,15 +51,15 @@ class SimIndex {
 		if (rd === null) {
 			return Collections.EMPTY_LIST
 		}
-		rd.getExportedObjectsByType(BasePackage.eINSTANCE.DType)
+		rd.getExportedObjectsByType(BASE.DType)
 	}
 
 	def Iterable<IEObjectDescription> getVisibleSystemModelTypeDescriptions(EObject context) {
-		context.getVisibleEObjectDescriptions(BasePackage.eINSTANCE.DType)
+		context.getVisibleEObjectDescriptions(BASE.DType)
 	}
 
 	def Map<QualifiedName, IEObjectDescription> getVisibleDomainTypeDescriptionsMap(EObject context) {
-		context.getVisibleEObjectDescriptions(BasePackage.eINSTANCE.DType).toMap[ qualifiedName]
+		context.getVisibleEObjectDescriptions(BASE.DType).toMap[ qualifiedName]
 	}
 
 	//

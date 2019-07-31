@@ -17,7 +17,6 @@ import com.mimacom.ddd.dm.dmx.DFunctionCall;
 import com.mimacom.ddd.dm.dmx.DIfExpression;
 import com.mimacom.ddd.dm.dmx.DInstanceOfExpression;
 import com.mimacom.ddd.dm.dmx.DNaturalLiteral;
-import com.mimacom.ddd.dm.dmx.DNavigableMemberReference;
 import com.mimacom.ddd.dm.dmx.DPredicate;
 import com.mimacom.ddd.dm.dmx.DRaiseExpression;
 import com.mimacom.ddd.dm.dmx.DReturnExpression;
@@ -34,6 +33,7 @@ import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxFunction;
 import com.mimacom.ddd.dm.dmx.DmxFunctionParameter;
 import com.mimacom.ddd.dm.dmx.DmxIterator;
+import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxNamespace;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
@@ -144,7 +144,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dNavigableMemberReferenceEClass = null;
+	private EClass dmxMemberNavigationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -450,7 +450,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDmxArchetype_SystemType()
+	public EAttribute getDmxArchetype_BaseType()
 	{
 		return (EAttribute)dmxArchetypeEClass.getEStructuralFeatures().get(0);
 	}
@@ -472,7 +472,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDmxFilter_SystemType()
+	public EAttribute getDmxFilter_BaseType()
 	{
 		return (EAttribute)dmxFilterEClass.getEStructuralFeatures().get(0);
 	}
@@ -483,7 +483,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDmxFilter_SystemTypeMany()
+	public EAttribute getDmxFilter_BaseTypeCollection()
 	{
 		return (EAttribute)dmxFilterEClass.getEStructuralFeatures().get(1);
 	}
@@ -538,7 +538,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDmxFunctionParameter_SystemType()
+	public EAttribute getDmxFunctionParameter_BaseType()
 	{
 		return (EAttribute)dmxFunctionParameterEClass.getEStructuralFeatures().get(1);
 	}
@@ -549,7 +549,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDmxFunctionParameter_SystemTypeMany()
+	public EAttribute getDmxFunctionParameter_BaseTypeCollection()
 	{
 		return (EAttribute)dmxFunctionParameterEClass.getEStructuralFeatures().get(2);
 	}
@@ -758,9 +758,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDNavigableMemberReference()
+	public EClass getDmxMemberNavigation()
 	{
-		return dNavigableMemberReferenceEClass;
+		return dmxMemberNavigationEClass;
 	}
 
 	/**
@@ -769,9 +769,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDNavigableMemberReference_MemberContainerReference()
+	public EReference getDmxMemberNavigation_Member()
 	{
-		return (EReference)dNavigableMemberReferenceEClass.getEStructuralFeatures().get(0);
+		return (EReference)dmxMemberNavigationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -780,9 +780,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDNavigableMemberReference_Member()
+	public EReference getDmxMemberNavigation_PrecedingNavigationSegment()
 	{
-		return (EReference)dNavigableMemberReferenceEClass.getEStructuralFeatures().get(1);
+		return (EReference)dmxMemberNavigationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -791,9 +791,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDNavigableMemberReference_ExplicitOperationCall()
+	public EAttribute getDmxMemberNavigation_ExplicitOperationCall()
 	{
-		return (EAttribute)dNavigableMemberReferenceEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)dmxMemberNavigationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -802,9 +802,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDNavigableMemberReference_MemberCallArguments()
+	public EReference getDmxMemberNavigation_MemberCallArguments()
 	{
-		return (EReference)dNavigableMemberReferenceEClass.getEStructuralFeatures().get(3);
+		return (EReference)dmxMemberNavigationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -813,9 +813,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDNavigableMemberReference_Before()
+	public EAttribute getDmxMemberNavigation_Before()
 	{
-		return (EAttribute)dNavigableMemberReferenceEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)dmxMemberNavigationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1366,19 +1366,19 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		createEReference(dmxTestEClass, DMX_TEST__EXPR);
 
 		dmxArchetypeEClass = createEClass(DMX_ARCHETYPE);
-		createEAttribute(dmxArchetypeEClass, DMX_ARCHETYPE__SYSTEM_TYPE);
+		createEAttribute(dmxArchetypeEClass, DMX_ARCHETYPE__BASE_TYPE);
 
 		dmxFilterEClass = createEClass(DMX_FILTER);
-		createEAttribute(dmxFilterEClass, DMX_FILTER__SYSTEM_TYPE);
-		createEAttribute(dmxFilterEClass, DMX_FILTER__SYSTEM_TYPE_MANY);
+		createEAttribute(dmxFilterEClass, DMX_FILTER__BASE_TYPE);
+		createEAttribute(dmxFilterEClass, DMX_FILTER__BASE_TYPE_COLLECTION);
 
 		dmxFunctionEClass = createEClass(DMX_FUNCTION);
 		createEReference(dmxFunctionEClass, DMX_FUNCTION__PARAMETERS);
 
 		dmxFunctionParameterEClass = createEClass(DMX_FUNCTION_PARAMETER);
 		createEAttribute(dmxFunctionParameterEClass, DMX_FUNCTION_PARAMETER__NAME);
-		createEAttribute(dmxFunctionParameterEClass, DMX_FUNCTION_PARAMETER__SYSTEM_TYPE);
-		createEAttribute(dmxFunctionParameterEClass, DMX_FUNCTION_PARAMETER__SYSTEM_TYPE_MANY);
+		createEAttribute(dmxFunctionParameterEClass, DMX_FUNCTION_PARAMETER__BASE_TYPE);
+		createEAttribute(dmxFunctionParameterEClass, DMX_FUNCTION_PARAMETER__BASE_TYPE_COLLECTION);
 
 		dmxIteratorEClass = createEClass(DMX_ITERATOR);
 
@@ -1404,12 +1404,12 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		createEReference(dUnaryOperationEClass, DUNARY_OPERATION__OPERAND);
 		createEAttribute(dUnaryOperationEClass, DUNARY_OPERATION__OPERATOR);
 
-		dNavigableMemberReferenceEClass = createEClass(DNAVIGABLE_MEMBER_REFERENCE);
-		createEReference(dNavigableMemberReferenceEClass, DNAVIGABLE_MEMBER_REFERENCE__MEMBER_CONTAINER_REFERENCE);
-		createEReference(dNavigableMemberReferenceEClass, DNAVIGABLE_MEMBER_REFERENCE__MEMBER);
-		createEAttribute(dNavigableMemberReferenceEClass, DNAVIGABLE_MEMBER_REFERENCE__EXPLICIT_OPERATION_CALL);
-		createEReference(dNavigableMemberReferenceEClass, DNAVIGABLE_MEMBER_REFERENCE__MEMBER_CALL_ARGUMENTS);
-		createEAttribute(dNavigableMemberReferenceEClass, DNAVIGABLE_MEMBER_REFERENCE__BEFORE);
+		dmxMemberNavigationEClass = createEClass(DMX_MEMBER_NAVIGATION);
+		createEReference(dmxMemberNavigationEClass, DMX_MEMBER_NAVIGATION__MEMBER);
+		createEReference(dmxMemberNavigationEClass, DMX_MEMBER_NAVIGATION__PRECEDING_NAVIGATION_SEGMENT);
+		createEAttribute(dmxMemberNavigationEClass, DMX_MEMBER_NAVIGATION__EXPLICIT_OPERATION_CALL);
+		createEReference(dmxMemberNavigationEClass, DMX_MEMBER_NAVIGATION__MEMBER_CALL_ARGUMENTS);
+		createEAttribute(dmxMemberNavigationEClass, DMX_MEMBER_NAVIGATION__BEFORE);
 
 		dCastExpressionEClass = createEClass(DCAST_EXPRESSION);
 		createEReference(dCastExpressionEClass, DCAST_EXPRESSION__TARGET);
@@ -1521,7 +1521,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		dBinaryOperationEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dInstanceOfExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dUnaryOperationEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dNavigableMemberReferenceEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxMemberNavigationEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dCastExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dSelfExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dReturnExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
@@ -1551,19 +1551,19 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		initEReference(getDmxTest_Expr(), theBasePackage.getDExpression(), null, "expr", null, 0, 1, DmxTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dmxArchetypeEClass, DmxArchetype.class, "DmxArchetype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDmxArchetype_SystemType(), this.getDmxBaseType(), "systemType", null, 0, 1, DmxArchetype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDmxArchetype_BaseType(), this.getDmxBaseType(), "baseType", null, 0, 1, DmxArchetype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dmxFilterEClass, DmxFilter.class, "DmxFilter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDmxFilter_SystemType(), this.getDmxBaseType(), "systemType", null, 0, 1, DmxFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDmxFilter_SystemTypeMany(), ecorePackage.getEBoolean(), "systemTypeMany", null, 0, 1, DmxFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDmxFilter_BaseType(), this.getDmxBaseType(), "baseType", null, 0, 1, DmxFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDmxFilter_BaseTypeCollection(), ecorePackage.getEBoolean(), "baseTypeCollection", null, 0, 1, DmxFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dmxFunctionEClass, DmxFunction.class, "DmxFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDmxFunction_Parameters(), this.getDmxFunctionParameter(), null, "parameters", null, 0, -1, DmxFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dmxFunctionParameterEClass, DmxFunctionParameter.class, "DmxFunctionParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDmxFunctionParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, DmxFunctionParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDmxFunctionParameter_SystemType(), this.getDmxBaseType(), "systemType", null, 0, 1, DmxFunctionParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDmxFunctionParameter_SystemTypeMany(), ecorePackage.getEBoolean(), "systemTypeMany", null, 0, 1, DmxFunctionParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDmxFunctionParameter_BaseType(), this.getDmxBaseType(), "baseType", null, 0, 1, DmxFunctionParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDmxFunctionParameter_BaseTypeCollection(), ecorePackage.getEBoolean(), "baseTypeCollection", null, 0, 1, DmxFunctionParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dmxIteratorEClass, DmxIterator.class, "DmxIterator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1589,12 +1589,12 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		initEReference(getDUnaryOperation_Operand(), theBasePackage.getDExpression(), null, "operand", null, 0, 1, DUnaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDUnaryOperation_Operator(), this.getDUnaryOperator(), "operator", null, 0, 1, DUnaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dNavigableMemberReferenceEClass, DNavigableMemberReference.class, "DNavigableMemberReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDNavigableMemberReference_MemberContainerReference(), theBasePackage.getDExpression(), null, "memberContainerReference", null, 0, 1, DNavigableMemberReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDNavigableMemberReference_Member(), theBasePackage.getDNavigableMember(), null, "member", null, 0, 1, DNavigableMemberReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDNavigableMemberReference_ExplicitOperationCall(), ecorePackage.getEBoolean(), "explicitOperationCall", null, 0, 1, DNavigableMemberReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDNavigableMemberReference_MemberCallArguments(), theBasePackage.getDExpression(), null, "memberCallArguments", null, 0, -1, DNavigableMemberReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDNavigableMemberReference_Before(), ecorePackage.getEBoolean(), "before", null, 0, 1, DNavigableMemberReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dmxMemberNavigationEClass, DmxMemberNavigation.class, "DmxMemberNavigation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDmxMemberNavigation_Member(), theBasePackage.getDNavigableMember(), null, "member", null, 0, 1, DmxMemberNavigation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDmxMemberNavigation_PrecedingNavigationSegment(), theBasePackage.getDExpression(), null, "precedingNavigationSegment", null, 0, 1, DmxMemberNavigation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDmxMemberNavigation_ExplicitOperationCall(), ecorePackage.getEBoolean(), "explicitOperationCall", null, 0, 1, DmxMemberNavigation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDmxMemberNavigation_MemberCallArguments(), theBasePackage.getDExpression(), null, "memberCallArguments", null, 0, -1, DmxMemberNavigation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDmxMemberNavigation_Before(), ecorePackage.getEBoolean(), "before", null, 0, 1, DmxMemberNavigation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dCastExpressionEClass, DCastExpression.class, "DCastExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDCastExpression_Target(), theBasePackage.getDExpression(), null, "target", null, 0, 1, DCastExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1664,9 +1664,10 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.TEXT);
 		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.IDENTIFIER);
 		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.TIMEPOINT);
-		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.OBJECT);
+		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.ENUM);
+		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.COMPLEX);
 		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.ACTOR);
-		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.OPERATION);
+		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.SERVICE);
 
 		initEEnum(dBinaryOperatorEEnum, DBinaryOperator.class, "DBinaryOperator");
 		addEEnumLiteral(dBinaryOperatorEEnum, DBinaryOperator.ADD);

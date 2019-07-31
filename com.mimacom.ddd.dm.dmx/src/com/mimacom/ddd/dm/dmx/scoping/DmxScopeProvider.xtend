@@ -4,24 +4,23 @@
 package com.mimacom.ddd.dm.dmx.scoping
 
 import com.google.common.collect.Lists
+import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DDomainEvent
 import com.mimacom.ddd.dm.base.DEnumeration
-import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DService
 import com.mimacom.ddd.dm.base.INavigableMemberContainer
 import com.mimacom.ddd.dm.dmx.DAssignment
-import com.mimacom.ddd.dm.dmx.DFunctionCall
-import com.mimacom.ddd.dm.dmx.DNavigableMemberReference
 import com.mimacom.ddd.dm.dmx.DPredicate
-import com.mimacom.ddd.dm.dmx.DSelfExpression
-import com.mimacom.ddd.dm.dmx.DmxContextReference
-import com.mimacom.ddd.dm.dmx.DmxFunction
+import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DmxPackage
 import com.mimacom.ddd.dm.dmx.DmxStaticReference
 import com.mimacom.ddd.dm.dmx.DmxTest
+import com.mimacom.ddd.dm.dmx.DmxUtil
+import com.mimacom.ddd.dm.dmx.indexing.DmxIndex
+import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
@@ -37,16 +36,28 @@ import org.eclipse.xtext.scoping.Scopes
  * on how and when to use it.
  */
 class DmxScopeProvider extends AbstractDmxScopeProvider {
+	
+	@Inject extension DmxUtil
+	@Inject extension DmxTypeComputer
+	@Inject DmxIndex index
 
 	static val BASE = BasePackage.eINSTANCE
 	static val DMX = DmxPackage.eINSTANCE
 
 	override IScope getScope(EObject context, EReference reference) {
 
-		if (reference == DMX.DNavigableMemberReference_Member) {
-			if (context instanceof DNavigableMemberReference) {
-				val ref = context.getMemberContainerReference
-				val scope = getNavigableMemberReferencesScope(ref)
+		 if (reference == DMX.dmxContextReference_Target) {
+		 	// This is classic scoping along the eContainer CONTAINMENT hiearchy:
+			val outer = getDefaultScopeForType(context, BASE.IStaticReferenceTarget)
+			val scope = getEContainersNavigableMembersScopes(context, outer)	
+			return scope
+		
+		} else if (reference == DMX.dmxMemberNavigation_Member) {
+			// This is a scoping along (the types of) a NAVIGATION expression tree:
+			if (context instanceof DmxMemberNavigation) {
+				val preceding = context.precedingNavigationSegment
+				val typeDescriptor = preceding.typeFor
+				val scope = typeDescriptor.getNavigableMembersAndIteratorsScope(context, index)
 				return scope
 			}
 
@@ -64,15 +75,10 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 			if (context instanceof DmxStaticReference) {
 				val target = context.target
 				if (target instanceof INavigableMemberContainer ) {
-					val scope = getEContainerNavigableMembersScope(target, IScope.NULLSCOPE)
+					val scope = getEContainerNavigableMembersScopeSwitch(target, IScope.NULLSCOPE)
 					return scope
 				}
 			}
-			
-		} else if (reference == DMX.dmxContextReference_Target) {
-			val outer = getDefaultScopeForType(context, BASE.IStaticReferenceTarget)
-			val scope = getEContainersNavigableMembersScopes(context, outer)
-			return scope
 		}
 
 		return super.getScope(context, reference)
@@ -88,80 +94,26 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 		val scope = super.getScope(context, reference)
 		return scope
 	}
-
-	protected def IScope getNavigableMemberReferencesScope(EObject memberContainerReference) {
-		// NOTE: memberContainerReference is the predecessor in a NAVIGATION, i.e. the object that OWNS the member that shall be
-		// nagivated in this step, NOT the eContainer that owns the expression!
-	
-		if (memberContainerReference instanceof DmxContextReference) {
-			if (memberContainerReference.all) {
-				return getDefaultScopeForType(memberContainerReference, DMX.dmxIterator)
-			}
-			val memberContainer = memberContainerReference.target
-			val targetType = switch memberContainer {
-				DNavigableMember: memberContainer.getType 
-				DEnumeration: memberContainer // memberContainer.type is always null !
-				default: null
-			}
-			val scope = switch targetType {
-				DEnumeration: Scopes.scopeFor(targetType.literals) // type is null
-				DComplexType: getOwnAndInheritedFeaturesScope(targetType)
-				DQuery: Scopes.scopeFor(targetType.parameters)
-				DService: Scopes.scopeFor(targetType.parameters)
-				DDomainEvent: getDomainEventNavigableMemberScope(targetType, IScope.NULLSCOPE)
-				default: IScope.NULLSCOPE
-			}
-			return scope
-
-		} else if (memberContainerReference instanceof DSelfExpression) {
-			return getEContainersNavigableMembersScopes(memberContainerReference, IScope.NULLSCOPE)
-
-		} else if (memberContainerReference instanceof DNavigableMemberReference) {
-			val member = memberContainerReference.getMember
-			if (member instanceof DNavigableMember) {
-				val type = member.getType
-				if (type instanceof DComplexType) {
-					return getOwnAndInheritedFeaturesScope(type)
-				}
-			}
-
-		//
-		// TODO still needed?
-		//
-		} else if (memberContainerReference instanceof DFunctionCall) {
-			val filter = memberContainerReference.function
-			if (filter instanceof DmxFunction) {
-				val type = filter.getType
-				if (type instanceof DComplexType) {
-					return getOwnAndInheritedFeaturesScope(type)
-				}
-			} 
-		}
-		return IScope.NULLSCOPE
-	}
-
-	protected def IScope getAssignmentMemberScope(DAssignment assignment, EReference reference) {
-		val memberContainer = assignment.memberContainer  // member container NOT eContainer
-		val scope = if (memberContainer !== null) {
-			// expression starts with "self", with a type name, etc.
-			getNavigableMemberReferencesScope(memberContainer)
-		} else {
-			IScope.NULLSCOPE
-			//
-			// TODO still required? DFunctionCall?
-			//
-//			// provide members found via the parent member container closest to the expression, i.e. provide the parameters of a DQuery
-//			val outerScope = getDefaultScopeForType(assignment, BASE.IStaticReferenceTarget)
-//			return getPrecedingNavigableMembersScope(assignment, outerScope)
-		}
-		return scope
-	}
 	
 	/* Returns all DNavigableMember elements of the given navigation member element along the MODEL eContainer hierarchy. */
-	final protected def IScope getEContainersNavigableMembersScopes(EObject member, IScope outerScope) {
-		val preceding = EcoreUtil2.getContainerOfType(member.eContainer, INavigableMemberContainer)
-		if (preceding === null) return outerScope
-		getEContainerNavigableMembersScope(preceding, outerScope)
+	final protected def IScope getEContainersNavigableMembersScopes(EObject context, IScope outerScope) {
+		var scope = outerScope
+		var container = context.eContainer
+		
+		if (container === null) {
+			return scope
+		
+		} else if (container instanceof INavigableMemberContainer) {
+			scope = getEContainerNavigableMembersScopeSwitch(container, outerScope)
+			
+		} else if (container instanceof DmxMemberNavigation) {
+			// a function or iterator call opens a new scope where the navigable members are in the precedingNavigationStep:
+			if (container.memberCallArguments.contains(context)) {
+				val typeDescriptor = container.precedingNavigationSegment.typeFor
+				scope = typeDescriptor.getNavigableMembersScope(outerScope)
+			}
+		}
+		return getEContainersNavigableMembersScopes(container, scope) // recursion
 	}
 	
 	/**
@@ -169,39 +121,98 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 	 * otherwise this method will never be invoked.<p>
 	 * Also, the elements included in the scope must implement @DNavigableMember.
 	 */
-	protected def IScope getEContainerNavigableMembersScope(INavigableMemberContainer container, IScope outerScope) {
+	protected def IScope getEContainerNavigableMembersScopeSwitch(INavigableMemberContainer container, IScope outerScope) {
 		val scope = switch container {
 			DEnumeration: Scopes.scopeFor(container.literals, outerScope)
-			DComplexType: getOwnAndInheritedFeaturesScope(container, outerScope)
-			DQuery: Scopes.scopeFor(container.parameters, getEContainersNavigableMembersScopes(container, outerScope)) // recursion
+			DComplexType: Scopes.scopeFor(container.allFeatures(), outerScope)
+			DQuery: Scopes.scopeFor(container.parameters, outerScope)
 			DService: Scopes.scopeFor(container.parameters, outerScope)
 			DDomainEvent: getDomainEventNavigableMemberScope(container, outerScope)
-			DPredicate: Scopes.scopeFor(Lists.newArrayList(container.^var), getEContainersNavigableMembersScopes(container, outerScope)) // recursion
-			DmxTest: Scopes.scopeFor(container.context, getEContainersNavigableMembersScopes(container, outerScope)) // recursion
-			default: getEContainersNavigableMembersScopes(container, outerScope) // recursion
+			DPredicate: Scopes.scopeFor(Lists.newArrayList(container.^var), outerScope)
+			DmxTest: Scopes.scopeFor(container.context,  outerScope)
+			default: outerScope
 		}
 		return scope
 	}
+
+	protected def IScope getAssignmentMemberScope(DAssignment assignment, EReference reference) {
+		IScope.NULLSCOPE
+//		val memberContainer = assignment.memberContainer  // member container NOT eContainer
+//		val scope = if (memberContainer !== null) {
+//			// expression starts with "self", with a type name, etc.
+//			getNavigableMemberReferencesScope(memberContainer)
+//		} else {
+//			IScope.NULLSCOPE
+//			//
+//			// TODO still required? DFunctionCall?
+//			//
+////			// provide members found via the parent member container closest to the expression, i.e. provide the parameters of a DQuery
+////			val outerScope = getDefaultScopeForType(assignment, BASE.IStaticReferenceTarget)
+////			return getPrecedingNavigableMembersScope(assignment, outerScope)
+//		}
+//		return scope
+	}
 	
+	/*
+	 * Obsolete?
+	 */
 	/* Returns all DNavigableMember elements of the given navigation member element along the semantic EXPRESSION eContainer hierarchy. */
 	final protected def IScope getPrecedingNavigableMembersScopes(EObject member, IScope outerScope) {
 		val preceding = EcoreUtil2.getContainerOfType(member.eContainer, INavigableMemberContainer)
 		if (preceding === null) return outerScope
-		getEContainerNavigableMembersScope(preceding, outerScope)
+		getEContainerNavigableMembersScopeSwitch(preceding, outerScope)
 	}
 
-	protected def IScope getOwnAndInheritedFeaturesScope(DComplexType type) {
-		getOwnAndInheritedFeaturesScope(type, IScope.NULLSCOPE)
-	}
-
-	protected def IScope getOwnAndInheritedFeaturesScope(DComplexType type, IScope outerScope) {
-		val scope = if (type.superType !== null) {
-			Scopes.scopeFor(type.features, getOwnAndInheritedFeaturesScope(type.superType, outerScope)) // recursion
-		} else {
-			Scopes.scopeFor(type.features, outerScope)
-		}
-		return scope
-	}
+//	protected def IScope getNavigableMemberReferencesScope(EObject precedingNavigationStep) {
+//		// NOTE: memberContainerReference is the predecessor in a NAVIGATION, i.e. the object that OWNS the member that shall be
+//		// nagivated in this step, NOT the eContainer that owns the expression!
+//	
+//		if (precedingNavigationStep instanceof DmxContextReference) {
+//			if (precedingNavigationStep.all) {
+//				return getDefaultScopeForType(precedingNavigationStep, DMX.dmxIterator)
+//			}
+//			val memberContainer = precedingNavigationStep.target
+//			val targetType = switch memberContainer {
+//				DNavigableMember: memberContainer.getType 
+//				DEnumeration: memberContainer // memberContainer.type is always null !
+//				default: null
+//			}
+//			val scope = switch targetType {
+//				DEnumeration: Scopes.scopeFor(targetType.literals) // type is null
+//				DComplexType: getOwnAndInheritedFeaturesScope(targetType)
+//				DQuery: Scopes.scopeFor(targetType.parameters)
+//				DService: Scopes.scopeFor(targetType.parameters)
+//				DDomainEvent: getDomainEventNavigableMemberScope(targetType, IScope.NULLSCOPE)
+//				default: IScope.NULLSCOPE
+//			}
+//			return scope
+//
+//		} else if (precedingNavigationStep instanceof DSelfExpression) {
+//			return getEContainersNavigableMembersScopes(precedingNavigationStep, IScope.NULLSCOPE)
+//
+//		} else if (precedingNavigationStep instanceof DmxMemberNavigation) {
+//			val member = precedingNavigationStep.getMember
+//			if (member instanceof DNavigableMember) {
+//				val type = member.getType
+//				if (type instanceof DComplexType) {
+//					return getOwnAndInheritedFeaturesScope(type)
+//				}
+//			}
+//
+//		//
+//		// TODO still needed?
+//		//
+//		} else if (precedingNavigationStep instanceof DFunctionCall) {
+//			val filter = precedingNavigationStep.function
+//			if (filter instanceof DmxFunction) {
+//				val type = filter.getType
+//				if (type instanceof DComplexType) {
+//					return getOwnAndInheritedFeaturesScope(type)
+//				}
+//			} 
+//		}
+//		return IScope.NULLSCOPE
+//	}
 
 	protected def IScope getDomainEventNavigableMemberScope(DDomainEvent event, IScope outerScope) {
 		val list = Lists.newArrayList()

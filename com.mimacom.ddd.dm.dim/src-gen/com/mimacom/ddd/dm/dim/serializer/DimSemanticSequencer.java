@@ -39,7 +39,6 @@ import com.mimacom.ddd.dm.dmx.DFunctionCall;
 import com.mimacom.ddd.dm.dmx.DIfExpression;
 import com.mimacom.ddd.dm.dmx.DInstanceOfExpression;
 import com.mimacom.ddd.dm.dmx.DNaturalLiteral;
-import com.mimacom.ddd.dm.dmx.DNavigableMemberReference;
 import com.mimacom.ddd.dm.dmx.DPredicate;
 import com.mimacom.ddd.dm.dmx.DRaiseExpression;
 import com.mimacom.ddd.dm.dmx.DReturnExpression;
@@ -52,6 +51,7 @@ import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxFunction;
 import com.mimacom.ddd.dm.dmx.DmxFunctionParameter;
 import com.mimacom.ddd.dm.dmx.DmxIterator;
+import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxNamespace;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
@@ -178,7 +178,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 				else if (rule == grammarAccess.getDExpressionRule()
 						|| rule == grammarAccess.getDNavigableMemberReferenceRule()
 						|| action == grammarAccess.getDNavigableMemberReferenceAccess().getDAssignmentMemberContainerAction_1_0_0_0_0()
-						|| action == grammarAccess.getDNavigableMemberReferenceAccess().getDNavigableMemberReferenceMemberContainerReferenceAction_1_1_0_0_0()
+						|| action == grammarAccess.getDNavigableMemberReferenceAccess().getDmxMemberNavigationPrecedingNavigationSegmentAction_1_1_0_0_0()
 						|| rule == grammarAccess.getDPredicateRule()
 						|| rule == grammarAccess.getDOrExpressionRule()
 						|| action == grammarAccess.getDOrExpressionAccess().getDBinaryOperationLeftOperandAction_1_0_0_0()
@@ -234,9 +234,6 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 			case DmxPackage.DNATURAL_LITERAL:
 				sequence_DNaturalLiteral(context, (DNaturalLiteral) semanticObject); 
 				return; 
-			case DmxPackage.DNAVIGABLE_MEMBER_REFERENCE:
-				sequence_DNavigableMemberReference(context, (DNavigableMemberReference) semanticObject); 
-				return; 
 			case DmxPackage.DPREDICATE:
 				sequence_DPredicate(context, (DPredicate) semanticObject); 
 				return; 
@@ -272,6 +269,9 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case DmxPackage.DMX_ITERATOR:
 				sequence_DmxIterator(context, (DmxIterator) semanticObject); 
+				return; 
+			case DmxPackage.DMX_MEMBER_NAVIGATION:
+				sequence_DNavigableMemberReference(context, (DmxMemberNavigation) semanticObject); 
 				return; 
 			case DmxPackage.DMX_NAMESPACE:
 				sequence_DmxNamespace(context, (DmxNamespace) semanticObject); 

@@ -167,7 +167,7 @@ public class DimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) {DBinaryOperation.leftOperand=}
 	 *     (rule start) (ambiguity) {DCastExpression.target=}
 	 *     (rule start) (ambiguity) {DInstanceOfExpression.expression=}
-	 *     (rule start) (ambiguity) {DNavigableMemberReference.memberContainerReference=}
+	 *     (rule start) (ambiguity) {DmxMemberNavigation.precedingNavigationSegment=}
 	 */
 	protected void emit_DParenthesizedExpression_LeftParenthesisKeyword_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -204,7 +204,7 @@ public class DimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) {DBinaryOperation.leftOperand=}
 	 *     (rule start) (ambiguity) {DCastExpression.target=}
 	 *     (rule start) (ambiguity) {DInstanceOfExpression.expression=}
-	 *     (rule start) (ambiguity) {DNavigableMemberReference.memberContainerReference=}
+	 *     (rule start) (ambiguity) {DmxMemberNavigation.precedingNavigationSegment=}
 	 */
 	protected void emit_DParenthesizedExpression_LeftParenthesisKeyword_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

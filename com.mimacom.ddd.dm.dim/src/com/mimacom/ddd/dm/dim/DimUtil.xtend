@@ -1,6 +1,5 @@
 package com.mimacom.ddd.dm.dim
 
-import com.google.common.collect.Lists
 import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DComplexType
@@ -15,26 +14,13 @@ import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQueryParameter
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.base.IDeducibleElement
+import com.mimacom.ddd.dm.dmx.DmxUtil
 import java.util.LinkedHashSet
-import java.util.List
 import java.util.Set
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
 
-class DimUtil {
-	
-	/*
-	 * Returns all the supertypes of the given type.
-	 */
-	def Set<DComplexType> typeHierarchy(DComplexType type) {
-		val hierarchy = new LinkedHashSet<DComplexType>()
-		var current = type.superType
-		while (current !== null && ! hierarchy.contains(current)) {
-			hierarchy.add(current)
-			current = current.superType
-		}
-		return hierarchy
-	}
+class DimUtil extends DmxUtil {
 	
 	/*
 	 * Returns the names of all the inherited features of the given type (but not its own features).
@@ -44,17 +30,6 @@ class DimUtil {
 		val features = new LinkedHashSet<String>()
 		for (t : supertypes) {
 			features.addAll(t.features.map[name])
-		}
-		return features
-	}
-	
-	/*
-	 * Returns the names of all the features of the given type: its own as well as the inherited ones.
-	 */
-	def List<DFeature> allFeatures(DComplexType type) {
-		val features = Lists.newArrayList(type.features)
-		for (t : type.typeHierarchy) {
-			features.addAll(t.features)
 		}
 		return features
 	}

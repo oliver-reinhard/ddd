@@ -26,16 +26,17 @@
     <eLiterals name="TEXT" value="4"/>
     <eLiterals name="IDENTIFIER" value="5"/>
     <eLiterals name="TIMEPOINT" value="6"/>
-    <eLiterals name="OBJECT" value="10"/>
-    <eLiterals name="ACTOR" value="11"/>
-    <eLiterals name="OPERATION" value="12"/>
+    <eLiterals name="ENUM" value="101"/>
+    <eLiterals name="COMPLEX" value="102"/>
+    <eLiterals name="ACTOR" value="103"/>
+    <eLiterals name="SERVICE" value="104"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DmxArchetype" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DPrimitive">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemType" eType="#//DmxBaseType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseType" eType="#//DmxBaseType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DmxFilter" abstract="true" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemType" eType="#//DmxBaseType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemTypeMany" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseType" eType="#//DmxBaseType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseTypeCollection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DmxFunction" eSuperTypes="#//DmxFilter">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
@@ -43,8 +44,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DmxFunctionParameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemType" eType="#//DmxBaseType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemTypeMany" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseType" eType="#//DmxBaseType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseTypeCollection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DmxIterator" eSuperTypes="#//DmxFilter"/>
   <eClassifiers xsi:type="ecore:EClass" name="DAssignment" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
@@ -102,11 +103,11 @@
     <eLiterals name="MINUS" value="1"/>
     <eLiterals name="NOT" value="2"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DNavigableMemberReference" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="memberContainerReference"
+  <eClassifiers xsi:type="ecore:EClass" name="DmxMemberNavigation" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="member" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="precedingNavigationSegment"
         eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="member" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="explicitOperationCall"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="memberCallArguments" upperBound="-1"

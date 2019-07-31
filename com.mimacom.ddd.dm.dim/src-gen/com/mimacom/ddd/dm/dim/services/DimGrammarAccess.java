@@ -1993,7 +1993,7 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum DmxBaseType:
-	//	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | OBJECT | ACTOR /*notified */ | OPERATION /*invoked* */;
+	//	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | COMPLEX | ACTOR /*notified */ | SERVICE /*invoked* */;
 	public DmxGrammarAccess.DmxBaseTypeElements getDmxBaseTypeAccess() {
 		return gaDmx.getDmxBaseTypeAccess();
 	}
@@ -2006,7 +2006,7 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	//	'archetype'
 	//	name=ID
 	//	'is'
-	//	systemType=DmxBaseType
+	//	baseType=DmxBaseType
 	//	description=DRichText?;
 	public DmxGrammarAccess.DmxArchetypeElements getDmxArchetypeAccess() {
 		return gaDmx.getDmxArchetypeAccess();
@@ -2030,8 +2030,8 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	//	'function' name=ID
 	//	'(' (parameters+=DmxFunctionParameter (',' parameters+=DmxFunctionParameter)*)? ')'
 	//	':'
-	//	systemType=DmxBaseType
-	//	systemTypeMany?='*'?;
+	//	baseType=DmxBaseType
+	//	baseTypeCollection?='*'?;
 	public DmxGrammarAccess.DmxFunctionElements getDmxFunctionAccess() {
 		return gaDmx.getDmxFunctionAccess();
 	}
@@ -2043,8 +2043,8 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	//DmxFunctionParameter:
 	//	name=ID
 	//	':'
-	//	systemType=DmxBaseType
-	//	systemTypeMany?='*'?;
+	//	baseType=DmxBaseType
+	//	baseTypeCollection?='*'?;
 	public DmxGrammarAccess.DmxFunctionParameterElements getDmxFunctionParameterAccess() {
 		return gaDmx.getDmxFunctionParameterAccess();
 	}
@@ -2056,8 +2056,8 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	//DmxIterator:
 	//	'iterator' name=ID
 	//	':'
-	//	systemType=DmxBaseType
-	//	systemTypeMany?='*'?;
+	//	baseType=DmxBaseType
+	//	baseTypeCollection?='*'?;
 	public DmxGrammarAccess.DmxIteratorElements getDmxIteratorAccess() {
 		return gaDmx.getDmxIteratorAccess();
 	}
@@ -2134,7 +2134,7 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	//DNavigableMemberReference DExpression:
 	//	DPrimaryExpression (=> ({DAssignment.memberContainer=current} '.' assignToMember=[DNavigableMember] OpSingleAssign)
 	//	value=DOrExpression
-	//	| => ({DNavigableMemberReference.memberContainerReference=current} '.') member=[DNavigableMember] (=>
+	//	| => ({DmxMemberNavigation.precedingNavigationSegment=current} '.') member=[DNavigableMember] (=>
 	//	explicitOperationCall?='(' (memberCallArguments+=DPredicate (',' memberCallArguments+=DPredicate)*)?
 	//	')'
 	//	| before?="@before")?)*;
@@ -2167,7 +2167,8 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DPredicate DExpression:
-	//	{DPredicate} var=DPredicateContext '|'
+	//	{DPredicate} var=DPredicateContext
+	//	'|'
 	//	value=DOrExpression
 	//	| DOrExpression;
 	public DmxGrammarAccess.DPredicateElements getDPredicateAccess() {
@@ -2561,16 +2562,6 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		return getDBooleanLiteralAccess().getRule();
 	}
 	
-	//DStringLiteral DExpression:
-	//	{DStringLiteral} value=STRING;
-	public DmxGrammarAccess.DStringLiteralElements getDStringLiteralAccess() {
-		return gaDmx.getDStringLiteralAccess();
-	}
-	
-	public ParserRule getDStringLiteralRule() {
-		return getDStringLiteralAccess().getRule();
-	}
-	
 	//DNaturalLiteral DExpression:
 	//	{DNaturalLiteral} value=NATURAL;
 	public DmxGrammarAccess.DNaturalLiteralElements getDNaturalLiteralAccess() {
@@ -2589,6 +2580,16 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDDecimalLiteralRule() {
 		return getDDecimalLiteralAccess().getRule();
+	}
+	
+	//DStringLiteral DExpression:
+	//	{DStringLiteral} value=STRING;
+	public DmxGrammarAccess.DStringLiteralElements getDStringLiteralAccess() {
+		return gaDmx.getDStringLiteralAccess();
+	}
+	
+	public ParserRule getDStringLiteralRule() {
+		return getDStringLiteralAccess().getRule();
 	}
 	
 	//DUndefinedLiteral DExpression:

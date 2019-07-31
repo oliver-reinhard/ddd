@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter#getName <em>Name</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter#getSystemType <em>System Type</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter#isSystemTypeMany <em>System Type Many</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter#getBaseType <em>Base Type</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter#isBaseTypeCollection <em>Base Type Collection</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFunctionParameter()
@@ -47,50 +47,50 @@ public interface DmxFunctionParameter extends EObject
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>System Type</b></em>' attribute.
+	 * Returns the value of the '<em><b>Base Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.mimacom.ddd.dm.dmx.DmxBaseType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>System Type</em>' attribute.
+	 * @return the value of the '<em>Base Type</em>' attribute.
 	 * @see com.mimacom.ddd.dm.dmx.DmxBaseType
-	 * @see #setSystemType(DmxBaseType)
-	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFunctionParameter_SystemType()
+	 * @see #setBaseType(DmxBaseType)
+	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFunctionParameter_BaseType()
 	 * @model
 	 * @generated
 	 */
-	DmxBaseType getSystemType();
+	DmxBaseType getBaseType();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter#getSystemType <em>System Type</em>}' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter#getBaseType <em>Base Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>System Type</em>' attribute.
+	 * @param value the new value of the '<em>Base Type</em>' attribute.
 	 * @see com.mimacom.ddd.dm.dmx.DmxBaseType
-	 * @see #getSystemType()
+	 * @see #getBaseType()
 	 * @generated
 	 */
-	void setSystemType(DmxBaseType value);
+	void setBaseType(DmxBaseType value);
 
 	/**
-	 * Returns the value of the '<em><b>System Type Many</b></em>' attribute.
+	 * Returns the value of the '<em><b>Base Type Collection</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>System Type Many</em>' attribute.
-	 * @see #setSystemTypeMany(boolean)
-	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFunctionParameter_SystemTypeMany()
+	 * @return the value of the '<em>Base Type Collection</em>' attribute.
+	 * @see #setBaseTypeCollection(boolean)
+	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFunctionParameter_BaseTypeCollection()
 	 * @model
 	 * @generated
 	 */
-	boolean isSystemTypeMany();
+	boolean isBaseTypeCollection();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter#isSystemTypeMany <em>System Type Many</em>}' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter#isBaseTypeCollection <em>Base Type Collection</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>System Type Many</em>' attribute.
-	 * @see #isSystemTypeMany()
+	 * @param value the new value of the '<em>Base Type Collection</em>' attribute.
+	 * @see #isBaseTypeCollection()
 	 * @generated
 	 */
-	void setSystemTypeMany(boolean value);
+	void setBaseTypeCollection(boolean value);
 
 } // DmxFunctionParameter

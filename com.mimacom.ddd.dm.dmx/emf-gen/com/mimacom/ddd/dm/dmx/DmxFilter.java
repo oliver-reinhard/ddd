@@ -13,8 +13,8 @@ import com.mimacom.ddd.dm.base.DNavigableMember;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.dmx.DmxFilter#getSystemType <em>System Type</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dmx.DmxFilter#isSystemTypeMany <em>System Type Many</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.DmxFilter#getBaseType <em>Base Type</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.DmxFilter#isBaseTypeCollection <em>Base Type Collection</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFilter()
@@ -24,50 +24,50 @@ import com.mimacom.ddd.dm.base.DNavigableMember;
 public interface DmxFilter extends DNavigableMember
 {
 	/**
-	 * Returns the value of the '<em><b>System Type</b></em>' attribute.
+	 * Returns the value of the '<em><b>Base Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.mimacom.ddd.dm.dmx.DmxBaseType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>System Type</em>' attribute.
+	 * @return the value of the '<em>Base Type</em>' attribute.
 	 * @see com.mimacom.ddd.dm.dmx.DmxBaseType
-	 * @see #setSystemType(DmxBaseType)
-	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFilter_SystemType()
+	 * @see #setBaseType(DmxBaseType)
+	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFilter_BaseType()
 	 * @model
 	 * @generated
 	 */
-	DmxBaseType getSystemType();
+	DmxBaseType getBaseType();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxFilter#getSystemType <em>System Type</em>}' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxFilter#getBaseType <em>Base Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>System Type</em>' attribute.
+	 * @param value the new value of the '<em>Base Type</em>' attribute.
 	 * @see com.mimacom.ddd.dm.dmx.DmxBaseType
-	 * @see #getSystemType()
+	 * @see #getBaseType()
 	 * @generated
 	 */
-	void setSystemType(DmxBaseType value);
+	void setBaseType(DmxBaseType value);
 
 	/**
-	 * Returns the value of the '<em><b>System Type Many</b></em>' attribute.
+	 * Returns the value of the '<em><b>Base Type Collection</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>System Type Many</em>' attribute.
-	 * @see #setSystemTypeMany(boolean)
-	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFilter_SystemTypeMany()
+	 * @return the value of the '<em>Base Type Collection</em>' attribute.
+	 * @see #setBaseTypeCollection(boolean)
+	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFilter_BaseTypeCollection()
 	 * @model
 	 * @generated
 	 */
-	boolean isSystemTypeMany();
+	boolean isBaseTypeCollection();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxFilter#isSystemTypeMany <em>System Type Many</em>}' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxFilter#isBaseTypeCollection <em>Base Type Collection</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>System Type Many</em>' attribute.
-	 * @see #isSystemTypeMany()
+	 * @param value the new value of the '<em>Base Type Collection</em>' attribute.
+	 * @see #isBaseTypeCollection()
 	 * @generated
 	 */
-	void setSystemTypeMany(boolean value);
+	void setBaseTypeCollection(boolean value);
 
 } // DmxFilter

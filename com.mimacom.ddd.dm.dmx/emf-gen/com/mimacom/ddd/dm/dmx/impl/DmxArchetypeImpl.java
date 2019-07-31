@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxArchetypeImpl#getSystemType <em>System Type</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxArchetypeImpl#getBaseType <em>Base Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -30,24 +30,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class DmxArchetypeImpl extends DPrimitiveImpl implements DmxArchetype
 {
 	/**
-	 * The default value of the '{@link #getSystemType() <em>System Type</em>}' attribute.
+	 * The default value of the '{@link #getBaseType() <em>Base Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSystemType()
+	 * @see #getBaseType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final DmxBaseType SYSTEM_TYPE_EDEFAULT = DmxBaseType.UNDEFINED;
+	protected static final DmxBaseType BASE_TYPE_EDEFAULT = DmxBaseType.UNDEFINED;
 
 	/**
-	 * The cached value of the '{@link #getSystemType() <em>System Type</em>}' attribute.
+	 * The cached value of the '{@link #getBaseType() <em>Base Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSystemType()
+	 * @see #getBaseType()
 	 * @generated
 	 * @ordered
 	 */
-	protected DmxBaseType systemType = SYSTEM_TYPE_EDEFAULT;
+	protected DmxBaseType baseType = BASE_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,9 +76,9 @@ public class DmxArchetypeImpl extends DPrimitiveImpl implements DmxArchetype
 	 * @generated
 	 */
 	@Override
-	public DmxBaseType getSystemType()
+	public DmxBaseType getBaseType()
 	{
-		return systemType;
+		return baseType;
 	}
 
 	/**
@@ -87,12 +87,12 @@ public class DmxArchetypeImpl extends DPrimitiveImpl implements DmxArchetype
 	 * @generated
 	 */
 	@Override
-	public void setSystemType(DmxBaseType newSystemType)
+	public void setBaseType(DmxBaseType newBaseType)
 	{
-		DmxBaseType oldSystemType = systemType;
-		systemType = newSystemType == null ? SYSTEM_TYPE_EDEFAULT : newSystemType;
+		DmxBaseType oldBaseType = baseType;
+		baseType = newBaseType == null ? BASE_TYPE_EDEFAULT : newBaseType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_ARCHETYPE__SYSTEM_TYPE, oldSystemType, systemType));
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_ARCHETYPE__BASE_TYPE, oldBaseType, baseType));
 	}
 
 	/**
@@ -105,8 +105,8 @@ public class DmxArchetypeImpl extends DPrimitiveImpl implements DmxArchetype
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DMX_ARCHETYPE__SYSTEM_TYPE:
-				return getSystemType();
+			case DmxPackage.DMX_ARCHETYPE__BASE_TYPE:
+				return getBaseType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -121,8 +121,8 @@ public class DmxArchetypeImpl extends DPrimitiveImpl implements DmxArchetype
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DMX_ARCHETYPE__SYSTEM_TYPE:
-				setSystemType((DmxBaseType)newValue);
+			case DmxPackage.DMX_ARCHETYPE__BASE_TYPE:
+				setBaseType((DmxBaseType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -138,8 +138,8 @@ public class DmxArchetypeImpl extends DPrimitiveImpl implements DmxArchetype
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DMX_ARCHETYPE__SYSTEM_TYPE:
-				setSystemType(SYSTEM_TYPE_EDEFAULT);
+			case DmxPackage.DMX_ARCHETYPE__BASE_TYPE:
+				setBaseType(BASE_TYPE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -155,8 +155,8 @@ public class DmxArchetypeImpl extends DPrimitiveImpl implements DmxArchetype
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DMX_ARCHETYPE__SYSTEM_TYPE:
-				return systemType != SYSTEM_TYPE_EDEFAULT;
+			case DmxPackage.DMX_ARCHETYPE__BASE_TYPE:
+				return baseType != BASE_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -172,8 +172,8 @@ public class DmxArchetypeImpl extends DPrimitiveImpl implements DmxArchetype
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (systemType: ");
-		result.append(systemType);
+		result.append(" (baseType: ");
+		result.append(baseType);
 		result.append(')');
 		return result.toString();
 	}

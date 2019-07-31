@@ -38,13 +38,13 @@ DmxTestContext returns DContext:
  * Language base: archetypes & filters
  */
 enum DmxBaseType:
-	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | OBJECT | ACTOR /*notified */ | OPERATION /*invoked* */;
+	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | COMPLEX | ACTOR /*notified */ | SERVICE /*invoked* */;
 	
 DmxArchetype:
 	'archetype'
 	name=ID
 	'is'
-	systemType=DmxBaseType
+	baseType=DmxBaseType
 	(description=DRichText)?;
 	
 DmxFilter:
@@ -54,20 +54,20 @@ DmxFunction:
 	'function' name=ID 
 	'(' (parameters+=DmxFunctionParameter (','  parameters+=DmxFunctionParameter)*)? ')'
 	':'
-	systemType=DmxBaseType
-	(systemTypeMany?='*')?;
+	baseType=DmxBaseType
+	(baseTypeCollection?='*')?;
 
 DmxFunctionParameter:
 	name=ID
 	':'
-	systemType=DmxBaseType
-	(systemTypeMany?='*')?;
+	baseType=DmxBaseType
+	(baseTypeCollection?='*')?;
 
 DmxIterator:
 	'iterator' name=ID
 	':'
-	systemType=DmxBaseType
-	(systemTypeMany?='*')?;
+	baseType=DmxBaseType
+	(baseTypeCollection?='*')?;
 
 /*
  * Expressions
@@ -93,7 +93,7 @@ DTextEnd returns DTextSegment:		value=PLAIN_TEXT_END;
 DNavigableMemberReference returns DExpression:
 	DPrimaryExpression
 	(	=> ({DAssignment.memberContainer=current} '.' assignToMember=[DNavigableMember|ID] OpSingleAssign) value=DOrExpression
-	| 	=> ({DNavigableMemberReference.memberContainerReference=current} '.')
+	| 	=> ({DmxMemberNavigation.precedingNavigationSegment=current} '.')
 		member=[DNavigableMember|ID] 
 		(
 			(	=> explicitOperationCall?='(' // => boolean => has 0.n explicit arguments
@@ -200,7 +200,7 @@ DPrimaryExpression returns DExpression:
 	DReturnExpression |
 	DRaiseExpression |
 	DParenthesizedExpression |
-	DFunctionCall | // ****** Required? => DmxContextReference
+	DFunctionCall |
 	DConstructorCall |
 	DmxStaticReference |
 	DmxContextReference |

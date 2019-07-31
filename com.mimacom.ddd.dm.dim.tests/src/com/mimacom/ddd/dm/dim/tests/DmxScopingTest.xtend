@@ -9,7 +9,7 @@ import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.dmx.DBinaryOperation
-import com.mimacom.ddd.dm.dmx.DNavigableMemberReference
+import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DSelfExpression
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxPackage
@@ -109,11 +109,11 @@ class DmxScopingTest {
 	protected def checkExpression2(DExpression e, String expectedScopeStr1, String expectedScopeStr2) {
 		assertTrue(e instanceof DBinaryOperation);
 		val left = (e as DBinaryOperation).leftOperand
-		assertTrue(left instanceof DNavigableMemberReference)
-		val member = left as DNavigableMemberReference
-		member => [assertScope(epackage.DNavigableMemberReference_Member,expectedScopeStr1)]
-		assertTrue(member.getMemberContainerReference instanceof DmxContextReference)
-		val ref = member.getMemberContainerReference as DmxContextReference
+		assertTrue(left instanceof DmxMemberNavigation)
+		val member = left as DmxMemberNavigation
+		member => [assertScope(epackage.dmxMemberNavigation_Member,expectedScopeStr1)]
+		assertTrue(member.precedingNavigationSegment instanceof DmxContextReference)
+		val ref = member.precedingNavigationSegment as DmxContextReference
 		ref => [assertScope(epackage.dmxContextReference_Target, expectedScopeStr2)]
 	}
 	
@@ -179,22 +179,22 @@ class DmxScopingTest {
 	protected def checkExpression3(DExpression e, String expectedScopeStr) {
 		assertTrue(e instanceof DBinaryOperation);
 		val left = (e as DBinaryOperation).leftOperand
-		assertTrue(left instanceof DNavigableMemberReference)
-		val member = left as DNavigableMemberReference
-		member => [assertScope(epackage.DNavigableMemberReference_Member, expectedScopeStr)]
-		assertTrue(member.getMemberContainerReference instanceof DSelfExpression)
+		assertTrue(left instanceof DmxMemberNavigation)
+		val member = left as DmxMemberNavigation
+		member => [assertScope(epackage.dmxMemberNavigation_Member, expectedScopeStr)]
+		assertTrue(member.precedingNavigationSegment instanceof DSelfExpression)
 	}
 	
 	protected def  checkExpression4(DExpression e, String expectedScopeStr1, String expectedScopeStr2) {
 		assertTrue(e instanceof DBinaryOperation);
 		val left = (e as DBinaryOperation).leftOperand
-		assertTrue(left instanceof DNavigableMemberReference)
-		val member1 = left as DNavigableMemberReference
-		member1 => [assertScope(epackage.DNavigableMemberReference_Member, expectedScopeStr1)]
-		assertTrue(member1.getMemberContainerReference instanceof DNavigableMemberReference)
-		val member2 = member1.getMemberContainerReference as DNavigableMemberReference
-		member2 => [assertScope(epackage.DNavigableMemberReference_Member, expectedScopeStr2)]
-		assertTrue(member2.getMemberContainerReference instanceof DSelfExpression)
+		assertTrue(left instanceof DmxMemberNavigation)
+		val member1 = left as DmxMemberNavigation
+		member1 => [assertScope(epackage.dmxMemberNavigation_Member, expectedScopeStr1)]
+		assertTrue(member1.precedingNavigationSegment instanceof DmxMemberNavigation)
+		val member2 = member1.precedingNavigationSegment as DmxMemberNavigation
+		member2 => [assertScope(epackage.dmxMemberNavigation_Member, expectedScopeStr2)]
+		assertTrue(member2.precedingNavigationSegment instanceof DSelfExpression)
 	}
 	
 	def private assertScope(EObject context, EReference reference, CharSequence expected) {

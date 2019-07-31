@@ -28,6 +28,8 @@ public class SimIndex {
   @Inject
   private IContainer.Manager cm;
   
+  private final BasePackage BASE = BasePackage.eINSTANCE;
+  
   public IResourceDescription getResourceDescription(final EObject context) {
     IResourceDescription _xblockexpression = null;
     {
@@ -71,20 +73,20 @@ public class SimIndex {
       if ((rd == null)) {
         return Collections.EMPTY_LIST;
       }
-      _xblockexpression = rd.getExportedObjectsByType(BasePackage.eINSTANCE.getDType());
+      _xblockexpression = rd.getExportedObjectsByType(this.BASE.getDType());
     }
     return _xblockexpression;
   }
   
   public Iterable<IEObjectDescription> getVisibleSystemModelTypeDescriptions(final EObject context) {
-    return this.getVisibleEObjectDescriptions(context, BasePackage.eINSTANCE.getDType());
+    return this.getVisibleEObjectDescriptions(context, this.BASE.getDType());
   }
   
   public Map<QualifiedName, IEObjectDescription> getVisibleDomainTypeDescriptionsMap(final EObject context) {
     final Function1<IEObjectDescription, QualifiedName> _function = (IEObjectDescription it) -> {
       return it.getQualifiedName();
     };
-    return IterableExtensions.<QualifiedName, IEObjectDescription>toMap(this.getVisibleEObjectDescriptions(context, BasePackage.eINSTANCE.getDType()), _function);
+    return IterableExtensions.<QualifiedName, IEObjectDescription>toMap(this.getVisibleEObjectDescriptions(context, this.BASE.getDType()), _function);
   }
   
   public Iterable<IEObjectDescription> getVisibleExternalDeducedSystemModelTypes(final EObject context) {

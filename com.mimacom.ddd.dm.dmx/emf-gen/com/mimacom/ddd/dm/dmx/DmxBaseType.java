@@ -90,14 +90,24 @@ public enum DmxBaseType implements Enumerator
 	TIMEPOINT(6, "TIMEPOINT", "TIMEPOINT"),
 
 	/**
-	 * The '<em><b>OBJECT</b></em>' literal object.
+	 * The '<em><b>ENUM</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #OBJECT_VALUE
+	 * @see #ENUM_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	OBJECT(10, "OBJECT", "OBJECT"),
+	ENUM(101, "ENUM", "ENUM"),
+
+	/**
+	 * The '<em><b>COMPLEX</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #COMPLEX_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	COMPLEX(102, "COMPLEX", "COMPLEX"),
 
 	/**
 	 * The '<em><b>ACTOR</b></em>' literal object.
@@ -107,17 +117,17 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	ACTOR(11, "ACTOR", "ACTOR"),
+	ACTOR(103, "ACTOR", "ACTOR"),
 
 	/**
-	 * The '<em><b>OPERATION</b></em>' literal object.
+	 * The '<em><b>SERVICE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #OPERATION_VALUE
+	 * @see #SERVICE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	OPERATION(12, "OPERATION", "OPERATION");
+	SERVICE(104, "SERVICE", "SERVICE");
 
 	/**
 	 * The '<em><b>UNDEFINED</b></em>' literal value.
@@ -197,15 +207,26 @@ public enum DmxBaseType implements Enumerator
 	public static final int TIMEPOINT_VALUE = 6;
 
 	/**
-	 * The '<em><b>OBJECT</b></em>' literal value.
+	 * The '<em><b>ENUM</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #OBJECT
+	 * @see #ENUM
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int OBJECT_VALUE = 10;
+	public static final int ENUM_VALUE = 101;
+
+	/**
+	 * The '<em><b>COMPLEX</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #COMPLEX
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int COMPLEX_VALUE = 102;
 
 	/**
 	 * The '<em><b>ACTOR</b></em>' literal value.
@@ -216,18 +237,18 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ACTOR_VALUE = 11;
+	public static final int ACTOR_VALUE = 103;
 
 	/**
-	 * The '<em><b>OPERATION</b></em>' literal value.
+	 * The '<em><b>SERVICE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #OPERATION
+	 * @see #SERVICE
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int OPERATION_VALUE = 12;
+	public static final int SERVICE_VALUE = 104;
 
 	/**
 	 * An array of all the '<em><b>Base Type</b></em>' enumerators.
@@ -245,9 +266,10 @@ public enum DmxBaseType implements Enumerator
 			TEXT,
 			IDENTIFIER,
 			TIMEPOINT,
-			OBJECT,
+			ENUM,
+			COMPLEX,
 			ACTOR,
-			OPERATION,
+			SERVICE,
 		};
 
 	/**
@@ -319,9 +341,10 @@ public enum DmxBaseType implements Enumerator
 			case TEXT_VALUE: return TEXT;
 			case IDENTIFIER_VALUE: return IDENTIFIER;
 			case TIMEPOINT_VALUE: return TIMEPOINT;
-			case OBJECT_VALUE: return OBJECT;
+			case ENUM_VALUE: return ENUM;
+			case COMPLEX_VALUE: return COMPLEX;
 			case ACTOR_VALUE: return ACTOR;
-			case OPERATION_VALUE: return OPERATION;
+			case SERVICE_VALUE: return SERVICE;
 		}
 		return null;
 	}

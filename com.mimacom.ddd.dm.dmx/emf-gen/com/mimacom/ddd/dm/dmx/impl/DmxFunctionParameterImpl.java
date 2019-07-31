@@ -22,8 +22,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxFunctionParameterImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxFunctionParameterImpl#getSystemType <em>System Type</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxFunctionParameterImpl#isSystemTypeMany <em>System Type Many</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxFunctionParameterImpl#getBaseType <em>Base Type</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxFunctionParameterImpl#isBaseTypeCollection <em>Base Type Collection</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,44 +51,44 @@ public class DmxFunctionParameterImpl extends MinimalEObjectImpl.Container imple
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSystemType() <em>System Type</em>}' attribute.
+	 * The default value of the '{@link #getBaseType() <em>Base Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSystemType()
+	 * @see #getBaseType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final DmxBaseType SYSTEM_TYPE_EDEFAULT = DmxBaseType.UNDEFINED;
+	protected static final DmxBaseType BASE_TYPE_EDEFAULT = DmxBaseType.UNDEFINED;
 
 	/**
-	 * The cached value of the '{@link #getSystemType() <em>System Type</em>}' attribute.
+	 * The cached value of the '{@link #getBaseType() <em>Base Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSystemType()
+	 * @see #getBaseType()
 	 * @generated
 	 * @ordered
 	 */
-	protected DmxBaseType systemType = SYSTEM_TYPE_EDEFAULT;
+	protected DmxBaseType baseType = BASE_TYPE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isSystemTypeMany() <em>System Type Many</em>}' attribute.
+	 * The default value of the '{@link #isBaseTypeCollection() <em>Base Type Collection</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isSystemTypeMany()
+	 * @see #isBaseTypeCollection()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean SYSTEM_TYPE_MANY_EDEFAULT = false;
+	protected static final boolean BASE_TYPE_COLLECTION_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isSystemTypeMany() <em>System Type Many</em>}' attribute.
+	 * The cached value of the '{@link #isBaseTypeCollection() <em>Base Type Collection</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isSystemTypeMany()
+	 * @see #isBaseTypeCollection()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean systemTypeMany = SYSTEM_TYPE_MANY_EDEFAULT;
+	protected boolean baseTypeCollection = BASE_TYPE_COLLECTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -142,9 +142,9 @@ public class DmxFunctionParameterImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 */
 	@Override
-	public DmxBaseType getSystemType()
+	public DmxBaseType getBaseType()
 	{
-		return systemType;
+		return baseType;
 	}
 
 	/**
@@ -153,12 +153,12 @@ public class DmxFunctionParameterImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 */
 	@Override
-	public void setSystemType(DmxBaseType newSystemType)
+	public void setBaseType(DmxBaseType newBaseType)
 	{
-		DmxBaseType oldSystemType = systemType;
-		systemType = newSystemType == null ? SYSTEM_TYPE_EDEFAULT : newSystemType;
+		DmxBaseType oldBaseType = baseType;
+		baseType = newBaseType == null ? BASE_TYPE_EDEFAULT : newBaseType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_FUNCTION_PARAMETER__SYSTEM_TYPE, oldSystemType, systemType));
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_FUNCTION_PARAMETER__BASE_TYPE, oldBaseType, baseType));
 	}
 
 	/**
@@ -167,9 +167,9 @@ public class DmxFunctionParameterImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 */
 	@Override
-	public boolean isSystemTypeMany()
+	public boolean isBaseTypeCollection()
 	{
-		return systemTypeMany;
+		return baseTypeCollection;
 	}
 
 	/**
@@ -178,12 +178,12 @@ public class DmxFunctionParameterImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 */
 	@Override
-	public void setSystemTypeMany(boolean newSystemTypeMany)
+	public void setBaseTypeCollection(boolean newBaseTypeCollection)
 	{
-		boolean oldSystemTypeMany = systemTypeMany;
-		systemTypeMany = newSystemTypeMany;
+		boolean oldBaseTypeCollection = baseTypeCollection;
+		baseTypeCollection = newBaseTypeCollection;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_FUNCTION_PARAMETER__SYSTEM_TYPE_MANY, oldSystemTypeMany, systemTypeMany));
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_FUNCTION_PARAMETER__BASE_TYPE_COLLECTION, oldBaseTypeCollection, baseTypeCollection));
 	}
 
 	/**
@@ -198,10 +198,10 @@ public class DmxFunctionParameterImpl extends MinimalEObjectImpl.Container imple
 		{
 			case DmxPackage.DMX_FUNCTION_PARAMETER__NAME:
 				return getName();
-			case DmxPackage.DMX_FUNCTION_PARAMETER__SYSTEM_TYPE:
-				return getSystemType();
-			case DmxPackage.DMX_FUNCTION_PARAMETER__SYSTEM_TYPE_MANY:
-				return isSystemTypeMany();
+			case DmxPackage.DMX_FUNCTION_PARAMETER__BASE_TYPE:
+				return getBaseType();
+			case DmxPackage.DMX_FUNCTION_PARAMETER__BASE_TYPE_COLLECTION:
+				return isBaseTypeCollection();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -219,11 +219,11 @@ public class DmxFunctionParameterImpl extends MinimalEObjectImpl.Container imple
 			case DmxPackage.DMX_FUNCTION_PARAMETER__NAME:
 				setName((String)newValue);
 				return;
-			case DmxPackage.DMX_FUNCTION_PARAMETER__SYSTEM_TYPE:
-				setSystemType((DmxBaseType)newValue);
+			case DmxPackage.DMX_FUNCTION_PARAMETER__BASE_TYPE:
+				setBaseType((DmxBaseType)newValue);
 				return;
-			case DmxPackage.DMX_FUNCTION_PARAMETER__SYSTEM_TYPE_MANY:
-				setSystemTypeMany((Boolean)newValue);
+			case DmxPackage.DMX_FUNCTION_PARAMETER__BASE_TYPE_COLLECTION:
+				setBaseTypeCollection((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -242,11 +242,11 @@ public class DmxFunctionParameterImpl extends MinimalEObjectImpl.Container imple
 			case DmxPackage.DMX_FUNCTION_PARAMETER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case DmxPackage.DMX_FUNCTION_PARAMETER__SYSTEM_TYPE:
-				setSystemType(SYSTEM_TYPE_EDEFAULT);
+			case DmxPackage.DMX_FUNCTION_PARAMETER__BASE_TYPE:
+				setBaseType(BASE_TYPE_EDEFAULT);
 				return;
-			case DmxPackage.DMX_FUNCTION_PARAMETER__SYSTEM_TYPE_MANY:
-				setSystemTypeMany(SYSTEM_TYPE_MANY_EDEFAULT);
+			case DmxPackage.DMX_FUNCTION_PARAMETER__BASE_TYPE_COLLECTION:
+				setBaseTypeCollection(BASE_TYPE_COLLECTION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -264,10 +264,10 @@ public class DmxFunctionParameterImpl extends MinimalEObjectImpl.Container imple
 		{
 			case DmxPackage.DMX_FUNCTION_PARAMETER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case DmxPackage.DMX_FUNCTION_PARAMETER__SYSTEM_TYPE:
-				return systemType != SYSTEM_TYPE_EDEFAULT;
-			case DmxPackage.DMX_FUNCTION_PARAMETER__SYSTEM_TYPE_MANY:
-				return systemTypeMany != SYSTEM_TYPE_MANY_EDEFAULT;
+			case DmxPackage.DMX_FUNCTION_PARAMETER__BASE_TYPE:
+				return baseType != BASE_TYPE_EDEFAULT;
+			case DmxPackage.DMX_FUNCTION_PARAMETER__BASE_TYPE_COLLECTION:
+				return baseTypeCollection != BASE_TYPE_COLLECTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -285,10 +285,10 @@ public class DmxFunctionParameterImpl extends MinimalEObjectImpl.Container imple
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", systemType: ");
-		result.append(systemType);
-		result.append(", systemTypeMany: ");
-		result.append(systemTypeMany);
+		result.append(", baseType: ");
+		result.append(baseType);
+		result.append(", baseTypeCollection: ");
+		result.append(baseTypeCollection);
 		result.append(')');
 		return result.toString();
 	}

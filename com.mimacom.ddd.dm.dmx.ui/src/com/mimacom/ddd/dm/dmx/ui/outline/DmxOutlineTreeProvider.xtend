@@ -5,10 +5,10 @@ package com.mimacom.ddd.dm.dmx.ui.outline
 
 import com.mimacom.ddd.dm.base.DContext
 import com.mimacom.ddd.dm.dmx.DAssignment
-import com.mimacom.ddd.dm.dmx.DNavigableMemberReference
 import com.mimacom.ddd.dm.dmx.DPredicate
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxIterator
+import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DmxPackage
 import org.eclipse.jface.resource.ImageDescriptor
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode
@@ -43,7 +43,7 @@ class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	def _createNode(IOutlineNode parentNode, DmxIterator iterator) {
 		// DmxContextReference has NO childeren => customise _createNode
 		val node = createEObjectNode(parentNode, iterator, imageDispatcher.invoke(iterator),	textDispatcher.invoke(iterator), isLeafDispatcher.invoke(iterator));
-		createEStructuralFeatureNode(node, iterator, DMX.dmxFilter_SystemType, FEATURE_IMAGE, DMX.dmxFilter_SystemType.name + " " + iterator.systemType.literal +  if (iterator.systemTypeMany) "*" else "", true)
+		createEStructuralFeatureNode(node, iterator, DMX.dmxFilter_BaseType, FEATURE_IMAGE, DMX.dmxFilter_BaseType.name + " " + iterator.baseType.literal +  if (iterator.baseTypeCollection) "*" else "", true)
 	}
 
 	def _createChildren(IOutlineNode parentNode, DPredicate pred) {
@@ -56,15 +56,15 @@ class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
 //		createEObjectNode(parentNode, pred.value)
 	}
 	
-	def _createChildren(IOutlineNode parentNode, DNavigableMemberReference ref) {
-		if (ref.memberContainerReference !== null) {
-			createEStructuralFeatureNode(parentNode, ref, DMX.DNavigableMemberReference_MemberContainerReference, FEATURE_IMAGE, DMX.DNavigableMemberReference_MemberContainerReference.name, false)
+	def _createChildren(IOutlineNode parentNode, DmxMemberNavigation nav) {
+		if (nav.member !== null && ! (nav.member.eIsProxy)) {
+			createEStructuralFeatureNode(parentNode, nav, DMX.dmxMemberNavigation_Member, FEATURE_IMAGE, DMX.dmxMemberNavigation_Member.name, false)
 		}
-		if (ref.member !== null && ! (ref.member.eIsProxy)) {
-			createEStructuralFeatureNode(parentNode, ref, DMX.DNavigableMemberReference_Member, FEATURE_IMAGE, DMX.DNavigableMemberReference_Member.name, false)
+		if (nav.precedingNavigationSegment !== null) {
+			createEStructuralFeatureNode(parentNode, nav, DMX.dmxMemberNavigation_PrecedingNavigationSegment, FEATURE_IMAGE, DMX.dmxMemberNavigation_PrecedingNavigationSegment.name, false)
 		}
-		if (ref.memberCallArguments.length > 0) {
-			createEStructuralFeatureNode(parentNode, ref, DMX.DNavigableMemberReference_MemberCallArguments, FEATURE_IMAGE, DMX.DNavigableMemberReference_MemberCallArguments.name, false)
+		if (nav.memberCallArguments.length > 0) {
+			createEStructuralFeatureNode(parentNode, nav, DMX.dmxMemberNavigation_MemberCallArguments, FEATURE_IMAGE, DMX.dmxMemberNavigation_MemberCallArguments.name, false)
 		}
 	}
 	
