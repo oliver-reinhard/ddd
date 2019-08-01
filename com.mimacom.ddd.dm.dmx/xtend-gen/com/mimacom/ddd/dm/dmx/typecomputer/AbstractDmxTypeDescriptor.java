@@ -50,7 +50,7 @@ public abstract class AbstractDmxTypeDescriptor<T extends DType> {
   }
   
   public List<DmxFilter> getSupportedIterators(final EObject context, final DmxIndex index) {
-    return Collections.EMPTY_LIST;
+    return index.supportedFilters(context, this.baseType, this.collection);
   }
   
   public IScope getNavigableMembersScope(final IScope outer) {

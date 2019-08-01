@@ -1,28 +1,28 @@
 package com.mimacom.ddd.dm.dmx.typecomputer
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DActor
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DContext
 import com.mimacom.ddd.dm.base.DEnumeration
-import com.mimacom.ddd.dm.base.DMultiplicity
 import com.mimacom.ddd.dm.base.DNamedElement
 import com.mimacom.ddd.dm.base.DNavigableMember
+import com.mimacom.ddd.dm.base.DNotification
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DService
+import com.mimacom.ddd.dm.dmx.DmxArchetype
+import com.mimacom.ddd.dm.dmx.DmxBaseType
 import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral
 import com.mimacom.ddd.dm.dmx.DmxCastExpression
 import com.mimacom.ddd.dm.dmx.DmxConstructorCall
+import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral
 import com.mimacom.ddd.dm.dmx.DmxFunctionCall
+import com.mimacom.ddd.dm.dmx.DmxIterator
+import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral
 import com.mimacom.ddd.dm.dmx.DmxSelfExpression
 import com.mimacom.ddd.dm.dmx.DmxStringLiteral
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral
-import com.mimacom.ddd.dm.dmx.DmxBaseType
-import com.mimacom.ddd.dm.dmx.DmxContextReference
-import com.mimacom.ddd.dm.dmx.DmxIterator
-import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DmxUtil
 import org.eclipse.emf.ecore.EObject
 
@@ -51,7 +51,7 @@ class DmxTypeComputer {
 				return getBaseTypeDescriptor(member.baseType)
 			}
 		}
-		return createDescriptor(member.type, member.collection)
+		return createDescriptor(member.type, member.isCollection)
 	}
 	
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxContextReference expr) {
@@ -59,7 +59,7 @@ class DmxTypeComputer {
 		
 		if (target instanceof DContext) {
 			if (target.type !== null) {
-				return createDescriptor(target.type, target.multiplicity.isCollection)
+				return createDescriptor(target.type, target.isCollection)
 			} else {
 				// this only occurs when the context is accessd from within the memberCallArguments of a DmxMemberNavigation 
 				// => find precedingNavigationSegment of "calling" DmxMemberNavigation that contains memberCallArguments
@@ -73,6 +73,12 @@ class DmxTypeComputer {
 					return container.precedingNavigationSegment.typeFor
 				}
 			}
+			
+		} else if (target instanceof DNotification) {
+			return createDescriptor(target, false)
+			
+		} else if (target instanceof DService) {
+			return createDescriptor(target, false)
 			
 		} else if (target instanceof DNavigableMember) {
 			return createDescriptor(target.type, expr.all)
@@ -121,11 +127,12 @@ class DmxTypeComputer {
 	
 	private def AbstractDmxTypeDescriptor<?> createDescriptor(DNamedElement e, boolean collection) {
 		switch e {
+			DmxArchetype: new DmxPrimitiveDescriptor(e, collection)
 			DPrimitive: new DmxPrimitiveDescriptor(e, collection)
 			DEnumeration: new DmxEnumerationDescriptor(e)
 			DComplexType: new DmxComplexTypeDescriptor(e, collection, util)
 			DService: new DmxServiceDescriptor(e)
-			DActor: new DmxActorDescriptor(e)
+			DNotification: new DmxNotificationDescriptor(e)
 			default: UNDEFINED
 		}
 	}
@@ -140,9 +147,5 @@ class DmxTypeComputer {
 			case DmxBaseType::TIMEPOINT: TIMEPOINT
 			default: throw new IllegalArgumentException(t.toString)
 		}
-	}
-	
-	private def boolean isCollection(DMultiplicity m) {
-		if (m === null) false else m.maxOccurs > 1
 	}
 }

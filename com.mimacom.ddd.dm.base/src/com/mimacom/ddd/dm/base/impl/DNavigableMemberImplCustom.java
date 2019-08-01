@@ -13,6 +13,6 @@ public class DNavigableMemberImplCustom extends DNavigableMemberImpl {
 	@Override
 	public boolean isCollection() {
 		final DMultiplicity multi = getMultiplicity();
-		return  multi != null && multi.getMaxOccurs() > 1;
+		return  multi != null && (multi.getMaxOccurs() > 1 || multi.getMaxOccurs() == -1);
 	}
 }

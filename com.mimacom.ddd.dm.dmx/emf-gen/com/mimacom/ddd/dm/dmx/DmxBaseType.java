@@ -110,14 +110,14 @@ public enum DmxBaseType implements Enumerator
 	COMPLEX(102, "COMPLEX", "COMPLEX"),
 
 	/**
-	 * The '<em><b>ACTOR</b></em>' literal object.
+	 * The '<em><b>NOTIFICATION</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ACTOR_VALUE
+	 * @see #NOTIFICATION_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ACTOR(103, "ACTOR", "ACTOR"),
+	NOTIFICATION(103, "NOTIFICATION", "NOTIFICATION"),
 
 	/**
 	 * The '<em><b>SERVICE</b></em>' literal object.
@@ -229,15 +229,15 @@ public enum DmxBaseType implements Enumerator
 	public static final int COMPLEX_VALUE = 102;
 
 	/**
-	 * The '<em><b>ACTOR</b></em>' literal value.
+	 * The '<em><b>NOTIFICATION</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ACTOR
+	 * @see #NOTIFICATION
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ACTOR_VALUE = 103;
+	public static final int NOTIFICATION_VALUE = 103;
 
 	/**
 	 * The '<em><b>SERVICE</b></em>' literal value.
@@ -268,7 +268,7 @@ public enum DmxBaseType implements Enumerator
 			TIMEPOINT,
 			ENUM,
 			COMPLEX,
-			ACTOR,
+			NOTIFICATION,
 			SERVICE,
 		};
 
@@ -343,7 +343,7 @@ public enum DmxBaseType implements Enumerator
 			case TIMEPOINT_VALUE: return TIMEPOINT;
 			case ENUM_VALUE: return ENUM;
 			case COMPLEX_VALUE: return COMPLEX;
-			case ACTOR_VALUE: return ACTOR;
+			case NOTIFICATION_VALUE: return NOTIFICATION;
 			case SERVICE_VALUE: return SERVICE;
 		}
 		return null;

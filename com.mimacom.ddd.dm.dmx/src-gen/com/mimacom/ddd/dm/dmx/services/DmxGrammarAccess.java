@@ -2370,16 +2370,16 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTIMEPOINTTIMEPOINTKeyword_5_0 = (Keyword)cTIMEPOINTEnumLiteralDeclaration_5.eContents().get(0);
 		private final EnumLiteralDeclaration cCOMPLEXEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
 		private final Keyword cCOMPLEXCOMPLEXKeyword_6_0 = (Keyword)cCOMPLEXEnumLiteralDeclaration_6.eContents().get(0);
-		private final EnumLiteralDeclaration cACTOREnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
-		private final Keyword cACTORACTORKeyword_7_0 = (Keyword)cACTOREnumLiteralDeclaration_7.eContents().get(0);
+		private final EnumLiteralDeclaration cNOTIFICATIONEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
+		private final Keyword cNOTIFICATIONNOTIFICATIONKeyword_7_0 = (Keyword)cNOTIFICATIONEnumLiteralDeclaration_7.eContents().get(0);
 		private final EnumLiteralDeclaration cSERVICEEnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
 		private final Keyword cSERVICESERVICEKeyword_8_0 = (Keyword)cSERVICEEnumLiteralDeclaration_8.eContents().get(0);
 		
 		//enum DmxBaseType:
-		//	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | COMPLEX | ACTOR /*notified */ | SERVICE /*invoked* */;
+		//	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | COMPLEX | NOTIFICATION /*sent* */ | SERVICE /*invoked* */;
 		public EnumRule getRule() { return rule; }
 		
-		//VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | COMPLEX | ACTOR /*notified */ | SERVICE
+		//VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | COMPLEX | NOTIFICATION /*sent* */ | SERVICE
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//VOID
@@ -2424,11 +2424,11 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		//"COMPLEX"
 		public Keyword getCOMPLEXCOMPLEXKeyword_6_0() { return cCOMPLEXCOMPLEXKeyword_6_0; }
 		
-		//ACTOR
-		public EnumLiteralDeclaration getACTOREnumLiteralDeclaration_7() { return cACTOREnumLiteralDeclaration_7; }
+		//NOTIFICATION
+		public EnumLiteralDeclaration getNOTIFICATIONEnumLiteralDeclaration_7() { return cNOTIFICATIONEnumLiteralDeclaration_7; }
 		
-		//"ACTOR"
-		public Keyword getACTORACTORKeyword_7_0() { return cACTORACTORKeyword_7_0; }
+		//"NOTIFICATION"
+		public Keyword getNOTIFICATIONNOTIFICATIONKeyword_7_0() { return cNOTIFICATIONNOTIFICATIONKeyword_7_0; }
 		
 		//SERVICE
 		public EnumLiteralDeclaration getSERVICEEnumLiteralDeclaration_8() { return cSERVICEEnumLiteralDeclaration_8; }
@@ -2996,7 +2996,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum DmxBaseType:
-	//	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | COMPLEX | ACTOR /*notified */ | SERVICE /*invoked* */;
+	//	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | COMPLEX | NOTIFICATION /*sent* */ | SERVICE /*invoked* */;
 	public DmxBaseTypeElements getDmxBaseTypeAccess() {
 		return eDmxBaseType;
 	}

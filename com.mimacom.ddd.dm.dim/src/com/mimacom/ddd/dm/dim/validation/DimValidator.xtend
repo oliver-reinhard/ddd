@@ -197,7 +197,7 @@ class DimValidator extends AbstractDimValidator {
 
 	@Check
 	def void checkTypeNameStartsWithCapital(DDomain d) {
-		if(DEFAULT_IMPORT_TYPES == d.name || DEFAULT_IMPORT_FUNCTIONS == d.name) {
+		if(DEFAULT_IMPORT_TYPES == d.name) {
 			return
 		} else if (d.name.startsWith(PREFIX+".")) {
 			checkNameStartsWithCapitalImpl(d.name.substring(3), d)

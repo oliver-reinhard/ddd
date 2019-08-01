@@ -2,17 +2,17 @@ package com.mimacom.ddd.dm.dmx.typecomputer;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DActor;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;
 import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral;
 import com.mimacom.ddd.dm.dmx.DmxCastExpression;
@@ -28,10 +28,10 @@ import com.mimacom.ddd.dm.dmx.DmxStringLiteral;
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.DmxUtil;
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
-import com.mimacom.ddd.dm.dmx.typecomputer.DmxActorDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxBaseTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxComplexTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxEnumerationDescriptor;
+import com.mimacom.ddd.dm.dmx.typecomputer.DmxNotificationDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxPrimitiveDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxServiceDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxUndefinedDescriptor;
@@ -80,7 +80,7 @@ public class DmxTypeComputer {
       DType _type = ((DContext)target).getType();
       boolean _tripleNotEquals = (_type != null);
       if (_tripleNotEquals) {
-        return this.createDescriptor(((DContext)target).getType(), this.isCollection(((DContext)target).getMultiplicity()));
+        return this.createDescriptor(((DContext)target).getType(), ((DContext)target).isCollection());
       } else {
         EObject prev = target;
         EObject container = prev.eContainer();
@@ -95,10 +95,18 @@ public class DmxTypeComputer {
         }
       }
     } else {
-      if ((target instanceof DNavigableMember)) {
-        return this.createDescriptor(((DNavigableMember)target).getType(), expr.isAll());
+      if ((target instanceof DNotification)) {
+        return this.createDescriptor(target, false);
       } else {
-        return this.createDescriptor(target, expr.isAll());
+        if ((target instanceof DService)) {
+          return this.createDescriptor(target, false);
+        } else {
+          if ((target instanceof DNavigableMember)) {
+            return this.createDescriptor(((DNavigableMember)target).getType(), expr.isAll());
+          } else {
+            return this.createDescriptor(target, expr.isAll());
+          }
+        }
       }
     }
     return DmxTypeComputer.UNDEFINED;
@@ -143,9 +151,15 @@ public class DmxTypeComputer {
   private AbstractDmxTypeDescriptor<?> createDescriptor(final DNamedElement e, final boolean collection) {
     AbstractDmxTypeDescriptor<? extends DType> _switchResult = null;
     boolean _matched = false;
-    if (e instanceof DPrimitive) {
+    if (e instanceof DmxArchetype) {
       _matched=true;
-      _switchResult = new DmxPrimitiveDescriptor(((DPrimitive)e), collection);
+      _switchResult = new DmxPrimitiveDescriptor(((DmxArchetype)e), collection);
+    }
+    if (!_matched) {
+      if (e instanceof DPrimitive) {
+        _matched=true;
+        _switchResult = new DmxPrimitiveDescriptor(((DPrimitive)e), collection);
+      }
     }
     if (!_matched) {
       if (e instanceof DEnumeration) {
@@ -166,9 +180,9 @@ public class DmxTypeComputer {
       }
     }
     if (!_matched) {
-      if (e instanceof DActor) {
+      if (e instanceof DNotification) {
         _matched=true;
-        _switchResult = new DmxActorDescriptor(((DActor)e));
+        _switchResult = new DmxNotificationDescriptor(((DNotification)e));
       }
     }
     if (!_matched) {
@@ -208,17 +222,6 @@ public class DmxTypeComputer {
       throw new IllegalArgumentException(_string);
     }
     return _switchResult;
-  }
-  
-  private boolean isCollection(final DMultiplicity m) {
-    boolean _xifexpression = false;
-    if ((m == null)) {
-      _xifexpression = false;
-    } else {
-      int _maxOccurs = m.getMaxOccurs();
-      _xifexpression = (_maxOccurs > 1);
-    }
-    return _xifexpression;
   }
   
   public AbstractDmxTypeDescriptor<?> typeFor(final DExpression expr) {

@@ -4,12 +4,9 @@ import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;
-import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxUtil;
-import com.mimacom.ddd.dm.dmx.indexing.DmxIndex;
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
 import java.util.List;
-import org.eclipse.emf.ecore.EObject;
 
 @SuppressWarnings("all")
 public class DmxComplexTypeDescriptor extends AbstractDmxTypeDescriptor<DComplexType> {
@@ -31,11 +28,6 @@ public class DmxComplexTypeDescriptor extends AbstractDmxTypeDescriptor<DComplex
       _xblockexpression = ((List<DNavigableMember>) ((Object) allFeatures));
     }
     return _xblockexpression;
-  }
-  
-  @Override
-  public List<DmxFilter> getSupportedIterators(final EObject context, final DmxIndex index) {
-    return index.supportedFilters(context, this.baseType, this.collection);
   }
   
   @Override

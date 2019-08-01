@@ -85,12 +85,15 @@ public class DmxIndex {
     for (final IEObjectDescription desc : functionDescriptions) {
       {
         EObject _eObjectOrProxy = desc.getEObjectOrProxy();
-        final DmxFunction func = ((DmxFunction) _eObjectOrProxy);
-        int _size = func.getParameters().size();
-        boolean _greaterThan = (_size > 0);
-        if (_greaterThan) {
+        DmxFunction func = ((DmxFunction) _eObjectOrProxy);
+        boolean _eIsProxy = func.eIsProxy();
+        if (_eIsProxy) {
+          EObject _eObject = context.eResource().getResourceSet().getEObject(desc.getEObjectURI(), true);
+          func = ((DmxFunction) _eObject);
+        }
+        if (((func != null) && (func.getParameters().size() > 0))) {
           final DmxFunctionParameter param = func.getParameters().get(0);
-          if (((!param.isBaseTypeCollection()) && Objects.equal(param.getBaseType(), baseType))) {
+          if ((Objects.equal(param.getBaseType(), baseType) && (!param.isBaseTypeCollection()))) {
             result.add(func);
           }
         }
@@ -104,12 +107,16 @@ public class DmxIndex {
     final ArrayList<DmxFilter> result = Lists.<DmxFilter>newArrayList();
     for (final IEObjectDescription desc : functionDescriptions) {
       {
-        EObject iterator = desc.getEObjectOrProxy();
+        EObject _eObjectOrProxy = desc.getEObjectOrProxy();
+        DmxIterator iterator = ((DmxIterator) _eObjectOrProxy);
         boolean _eIsProxy = iterator.eIsProxy();
         if (_eIsProxy) {
-          iterator = context.eResource().getResourceSet().getEObject(desc.getEObjectURI(), true);
+          EObject _eObject = context.eResource().getResourceSet().getEObject(desc.getEObjectURI(), true);
+          iterator = ((DmxIterator) _eObject);
         }
-        result.add(((DmxIterator) iterator));
+        if ((iterator != null)) {
+          result.add(iterator);
+        }
       }
     }
     return result;

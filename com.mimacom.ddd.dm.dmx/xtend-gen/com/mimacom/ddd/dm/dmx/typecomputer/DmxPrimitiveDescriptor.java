@@ -20,4 +20,8 @@ public class DmxPrimitiveDescriptor extends AbstractDmxTypeDescriptor<DPrimitive
       }
     }.apply(), type, Boolean.valueOf(collection));
   }
+  
+  public DmxPrimitiveDescriptor(final DmxArchetype type, final boolean collection) {
+    super(type.getBaseType(), type, Boolean.valueOf(collection));
+  }
 }

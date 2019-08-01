@@ -24,7 +24,6 @@
 '>'=62
 '>='=60
 '@before'=98
-'ACTOR'=46
 'AND'=52
 'AS'=20
 'BOOLEAN'=40
@@ -35,6 +34,7 @@
 'ISA'=18
 'NEW'=28
 'NOT'=70
+'NOTIFICATION'=46
 'NUMBER'=41
 'OR'=48
 'RAISE'=26

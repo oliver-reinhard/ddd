@@ -14,19 +14,13 @@ public class DmxImportedNamespaceAwareLocalScopeProvider extends ImportedNamespa
   
   private static final String TYPES = "types";
   
-  private static final String FUNCTIONS = "functions";
-  
   public static final String DEFAULT_IMPORT_TYPES = ((DmxImportedNamespaceAwareLocalScopeProvider.PREFIX + ".") + DmxImportedNamespaceAwareLocalScopeProvider.TYPES);
-  
-  public static final String DEFAULT_IMPORT_FUNCTIONS = ((DmxImportedNamespaceAwareLocalScopeProvider.PREFIX + ".") + DmxImportedNamespaceAwareLocalScopeProvider.FUNCTIONS);
   
   @Override
   public List<ImportNormalizer> getImplicitImports(final boolean ignoreCase) {
     QualifiedName _create = QualifiedName.create(DmxImportedNamespaceAwareLocalScopeProvider.PREFIX, DmxImportedNamespaceAwareLocalScopeProvider.TYPES);
     ImportNormalizer _importNormalizer = new ImportNormalizer(_create, true, ignoreCase);
-    QualifiedName _create_1 = QualifiedName.create(DmxImportedNamespaceAwareLocalScopeProvider.PREFIX, DmxImportedNamespaceAwareLocalScopeProvider.FUNCTIONS);
-    ImportNormalizer _importNormalizer_1 = new ImportNormalizer(_create_1, true, ignoreCase);
-    return CollectionLiterals.<ImportNormalizer>newArrayList(_importNormalizer, _importNormalizer_1);
+    return CollectionLiterals.<ImportNormalizer>newArrayList(_importNormalizer);
   }
   
   @Override

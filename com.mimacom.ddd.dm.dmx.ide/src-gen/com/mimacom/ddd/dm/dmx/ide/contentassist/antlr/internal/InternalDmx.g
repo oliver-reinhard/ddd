@@ -2165,9 +2165,9 @@ rule__DmxBaseType__Alternatives
 	)
 	|
 	(
-		{ before(grammarAccess.getDmxBaseTypeAccess().getACTOREnumLiteralDeclaration_7()); }
-		('ACTOR')
-		{ after(grammarAccess.getDmxBaseTypeAccess().getACTOREnumLiteralDeclaration_7()); }
+		{ before(grammarAccess.getDmxBaseTypeAccess().getNOTIFICATIONEnumLiteralDeclaration_7()); }
+		('NOTIFICATION')
+		{ after(grammarAccess.getDmxBaseTypeAccess().getNOTIFICATIONEnumLiteralDeclaration_7()); }
 	)
 	|
 	(

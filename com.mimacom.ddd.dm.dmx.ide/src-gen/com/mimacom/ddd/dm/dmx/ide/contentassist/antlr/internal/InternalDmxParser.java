@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalDmxParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_PLAIN_TEXT_START", "RULE_PLAIN_TEXT_MIDDLE", "RULE_PLAIN_TEXT_END", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'ISA'", "'isa'", "'AS'", "'as'", "'SELF'", "'self'", "'RETURN'", "'return'", "'RAISE'", "'raise'", "'NEW'", "'new'", "'*'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'COMPLEX'", "'ACTOR'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'namespace'", "'import'", "'test'", "'{'", "'}'", "'context'", "','", "':'", "'archetype'", "'is'", "'function'", "'('", "')'", "'iterator'", "'.'", "'|'", "'['", "']'", "'#'", "'if'", "'then'", "'end'", "'else'", "'do'", "'for'", "'.*'", "'@before'", "'all'", "'TRUE'", "'true'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_PLAIN_TEXT_START", "RULE_PLAIN_TEXT_MIDDLE", "RULE_PLAIN_TEXT_END", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'ISA'", "'isa'", "'AS'", "'as'", "'SELF'", "'self'", "'RETURN'", "'return'", "'RAISE'", "'raise'", "'NEW'", "'new'", "'*'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'namespace'", "'import'", "'test'", "'{'", "'}'", "'context'", "','", "':'", "'archetype'", "'is'", "'function'", "'('", "')'", "'iterator'", "'.'", "'|'", "'['", "']'", "'#'", "'if'", "'then'", "'end'", "'else'", "'do'", "'for'", "'.*'", "'@before'", "'all'", "'TRUE'", "'true'"
     };
     public static final int T__50=50;
     public static final int RULE_PLAIN_TEXT_ONLY=6;
@@ -7713,13 +7713,13 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxBaseType__Alternatives"
-    // InternalDmx.g:2120:1: rule__DmxBaseType__Alternatives : ( ( ( 'VOID' ) ) | ( ( 'BOOLEAN' ) ) | ( ( 'NUMBER' ) ) | ( ( 'TEXT' ) ) | ( ( 'IDENTIFIER' ) ) | ( ( 'TIMEPOINT' ) ) | ( ( 'COMPLEX' ) ) | ( ( 'ACTOR' ) ) | ( ( 'SERVICE' ) ) );
+    // InternalDmx.g:2120:1: rule__DmxBaseType__Alternatives : ( ( ( 'VOID' ) ) | ( ( 'BOOLEAN' ) ) | ( ( 'NUMBER' ) ) | ( ( 'TEXT' ) ) | ( ( 'IDENTIFIER' ) ) | ( ( 'TIMEPOINT' ) ) | ( ( 'COMPLEX' ) ) | ( ( 'NOTIFICATION' ) ) | ( ( 'SERVICE' ) ) );
     public final void rule__DmxBaseType__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDmx.g:2124:1: ( ( ( 'VOID' ) ) | ( ( 'BOOLEAN' ) ) | ( ( 'NUMBER' ) ) | ( ( 'TEXT' ) ) | ( ( 'IDENTIFIER' ) ) | ( ( 'TIMEPOINT' ) ) | ( ( 'COMPLEX' ) ) | ( ( 'ACTOR' ) ) | ( ( 'SERVICE' ) ) )
+            // InternalDmx.g:2124:1: ( ( ( 'VOID' ) ) | ( ( 'BOOLEAN' ) ) | ( ( 'NUMBER' ) ) | ( ( 'TEXT' ) ) | ( ( 'IDENTIFIER' ) ) | ( ( 'TIMEPOINT' ) ) | ( ( 'COMPLEX' ) ) | ( ( 'NOTIFICATION' ) ) | ( ( 'SERVICE' ) ) )
             int alt24=9;
             switch ( input.LA(1) ) {
             case 39:
@@ -7952,23 +7952,23 @@ public class InternalDmxParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 8 :
-                    // InternalDmx.g:2167:2: ( ( 'ACTOR' ) )
+                    // InternalDmx.g:2167:2: ( ( 'NOTIFICATION' ) )
                     {
-                    // InternalDmx.g:2167:2: ( ( 'ACTOR' ) )
-                    // InternalDmx.g:2168:3: ( 'ACTOR' )
+                    // InternalDmx.g:2167:2: ( ( 'NOTIFICATION' ) )
+                    // InternalDmx.g:2168:3: ( 'NOTIFICATION' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getDmxBaseTypeAccess().getACTOREnumLiteralDeclaration_7()); 
+                       before(grammarAccess.getDmxBaseTypeAccess().getNOTIFICATIONEnumLiteralDeclaration_7()); 
                     }
-                    // InternalDmx.g:2169:3: ( 'ACTOR' )
-                    // InternalDmx.g:2169:4: 'ACTOR'
+                    // InternalDmx.g:2169:3: ( 'NOTIFICATION' )
+                    // InternalDmx.g:2169:4: 'NOTIFICATION'
                     {
                     match(input,46,FOLLOW_2); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getDmxBaseTypeAccess().getACTOREnumLiteralDeclaration_7()); 
+                       after(grammarAccess.getDmxBaseTypeAccess().getNOTIFICATIONEnumLiteralDeclaration_7()); 
                     }
 
                     }

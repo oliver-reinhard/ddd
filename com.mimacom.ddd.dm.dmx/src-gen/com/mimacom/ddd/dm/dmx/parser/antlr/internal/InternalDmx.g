@@ -3996,10 +3996,10 @@ ruleDmxBaseType returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_7='ACTOR'
+			enumLiteral_7='NOTIFICATION'
 			{
-				$current = grammarAccess.getDmxBaseTypeAccess().getACTOREnumLiteralDeclaration_7().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_7, grammarAccess.getDmxBaseTypeAccess().getACTOREnumLiteralDeclaration_7());
+				$current = grammarAccess.getDmxBaseTypeAccess().getNOTIFICATIONEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_7, grammarAccess.getDmxBaseTypeAccess().getNOTIFICATIONEnumLiteralDeclaration_7());
 			}
 		)
 		    |

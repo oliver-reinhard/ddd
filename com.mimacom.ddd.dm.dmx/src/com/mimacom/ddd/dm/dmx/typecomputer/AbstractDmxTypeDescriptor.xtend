@@ -48,7 +48,7 @@ abstract class AbstractDmxTypeDescriptor<T extends DType> {
 	}
 
 	def List<DmxFilter> getSupportedIterators(EObject context, DmxIndex index) {
-		Collections.EMPTY_LIST
+		return index.supportedFilters(context, baseType, collection)
 	}
 
 	def IScope getNavigableMembersScope(IScope outer) {

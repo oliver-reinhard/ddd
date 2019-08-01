@@ -2,7 +2,7 @@ namespace dm.functions
 
 iterator exists	: BOOLEAN 
 iterator unique	: BOOLEAN  // like exists but returns true only if there is exactly 1 result
-iterator select	: COMPLEX* 
+iterator select	: COMPLEX*
 iterator one	: COMPLEX  // like select but returns exactly 1 result
 iterator reject	: COMPLEX* 
 iterator count	: NUMBER 
@@ -13,5 +13,5 @@ iterator last		: COMPLEX
 // iterator avg(array : NUMBER*) : NUMBER 
 function length	(arg : TEXT): NUMBER
 function now()	: TIMEPOINT
-function invoked(arg : OPERATION): BOOLEAN  // always returns true
-function notified(arg : ACTOR): BOOLEAN  	// always returns true
+function sent(arg : NOTIFICATION): BOOLEAN  // always returns true
+function invoked(arg : SERVICE): BOOLEAN  // always returns true

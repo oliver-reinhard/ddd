@@ -64,10 +64,14 @@ class DmxIndex {
 		val functionDescriptions = getVisibleEObjectDescriptions(context, DMX.dmxFunction)
 		val result = Lists.newArrayList
 		for(desc : functionDescriptions) {
-			val func = desc.EObjectOrProxy as DmxFunction
-			if (func.parameters.size > 0) {
+			var func = desc.EObjectOrProxy as DmxFunction
+			if (func.eIsProxy) {
+				func = context.eResource.resourceSet.getEObject(desc.EObjectURI, true)  as DmxFunction
+			}
+			// When working with an outdated index (e.g. after updating the system filters file), func can be null:
+			if (func !== null && func.parameters.size > 0) {
 				val param = func.parameters.get(0)
-				if (! param.baseTypeCollection && param.baseType == baseType) {
+				if (param.baseType == baseType && ! param.baseTypeCollection) {
 					result.add(func)
 				}
 			}
@@ -77,16 +81,17 @@ class DmxIndex {
 	
 	private def  List<DmxFilter> collectionFilters(EObject context, DmxBaseType baseType) {
 		val functionDescriptions = getVisibleEObjectDescriptions(context, DMX.dmxIterator)
-//		val result = functionDescriptions.map[EObjectOrProxy as DmxFilter]
-//		return result.toList
 
 		val result = Lists.newArrayList
 		for(desc : functionDescriptions) {
-			var iterator = desc.EObjectOrProxy
+			var iterator = desc.EObjectOrProxy as DmxIterator
 			if (iterator.eIsProxy) {
-				iterator = context.eResource.resourceSet.getEObject(desc.EObjectURI, true)
+				iterator = context.eResource.resourceSet.getEObject(desc.EObjectURI, true) as DmxIterator
 			}
-			result.add(iterator as DmxIterator)
+			// When working with an outdated index (e.g. after updating the system filters file), func can be null:
+			if (iterator !== null) {
+				result.add(iterator)
+			}
 		}
 		return result
 	}

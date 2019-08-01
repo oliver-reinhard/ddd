@@ -157,7 +157,7 @@ ruleDDomain returns [EObject current=null]
 						$current,
 						"imports",
 						lv_imports_5_0,
-						"com.mimacom.ddd.dm.dem.Dem.DImport");
+						"com.mimacom.ddd.dm.dmx.Dmx.DImport");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -203,48 +203,6 @@ ruleDDomain returns [EObject current=null]
 				)
 			)
 		)*
-	)
-;
-
-// Entry rule entryRuleDImport
-entryRuleDImport returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDImportRule()); }
-	iv_ruleDImport=ruleDImport
-	{ $current=$iv_ruleDImport.current; }
-	EOF;
-
-// Rule DImport
-ruleDImport returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='import'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getDImportAccess().getImportKeyword_0());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getDImportAccess().getImportedNamespaceDQualifiedNameWithWildcardParserRuleCall_1_0());
-				}
-				lv_importedNamespace_1_0=ruleDQualifiedNameWithWildcard
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDImportRule());
-					}
-					set(
-						$current,
-						"importedNamespace",
-						lv_importedNamespace_1_0,
-						"com.mimacom.ddd.dm.dmx.Dmx.DQualifiedNameWithWildcard");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
 	)
 ;
 
@@ -664,13 +622,9 @@ ruleDNotification returns [EObject current=null]
 				}
 			)
 		)?
-		otherlv_6='sent'
+		otherlv_6='to'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getDNotificationAccess().getSentKeyword_5());
-		}
-		otherlv_7='to'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getDNotificationAccess().getToKeyword_6());
+			newLeafNode(otherlv_6, grammarAccess.getDNotificationAccess().getToKeyword_5());
 		}
 		(
 			(
@@ -679,18 +633,18 @@ ruleDNotification returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getDNotificationRule());
 					}
 				}
-				otherlv_8=RULE_ID
+				otherlv_7=RULE_ID
 				{
-					newLeafNode(otherlv_8, grammarAccess.getDNotificationAccess().getNotifiedDActorCrossReference_7_0());
+					newLeafNode(otherlv_7, grammarAccess.getDNotificationAccess().getNotifiedDActorCrossReference_6_0());
 				}
 			)
 		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDNotificationAccess().getDescriptionDRichTextParserRuleCall_8_0());
+					newCompositeNode(grammarAccess.getDNotificationAccess().getDescriptionDRichTextParserRuleCall_7_0());
 				}
-				lv_description_9_0=ruleDRichText
+				lv_description_8_0=ruleDRichText
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDNotificationRule());
@@ -698,7 +652,7 @@ ruleDNotification returns [EObject current=null]
 					set(
 						$current,
 						"description",
-						lv_description_9_0,
+						lv_description_8_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
 					afterParserOrEnumRuleCall();
 				}
@@ -1032,6 +986,48 @@ ruleDTime returns [EObject current=null]
 				}
 			)
 		)?
+	)
+;
+
+// Entry rule entryRuleDImport
+entryRuleDImport returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDImportRule()); }
+	iv_ruleDImport=ruleDImport
+	{ $current=$iv_ruleDImport.current; }
+	EOF;
+
+// Rule DImport
+ruleDImport returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='import'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getDImportAccess().getImportKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDImportAccess().getImportedNamespaceDQualifiedNameWithWildcardParserRuleCall_1_0());
+				}
+				lv_importedNamespace_1_0=ruleDQualifiedNameWithWildcard
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDImportRule());
+					}
+					set(
+						$current,
+						"importedNamespace",
+						lv_importedNamespace_1_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DQualifiedNameWithWildcard");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 
@@ -4810,10 +4806,10 @@ ruleDmxBaseType returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_7='ACTOR'
+			enumLiteral_7='NOTIFICATION'
 			{
-				$current = grammarAccess.getDmxBaseTypeAccess().getACTOREnumLiteralDeclaration_7().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_7, grammarAccess.getDmxBaseTypeAccess().getACTOREnumLiteralDeclaration_7());
+				$current = grammarAccess.getDmxBaseTypeAccess().getNOTIFICATIONEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_7, grammarAccess.getDmxBaseTypeAccess().getNOTIFICATIONEnumLiteralDeclaration_7());
 			}
 		)
 		    |

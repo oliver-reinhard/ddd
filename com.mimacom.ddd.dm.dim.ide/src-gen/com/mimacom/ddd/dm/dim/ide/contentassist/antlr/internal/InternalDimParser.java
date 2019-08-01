@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalDimParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_PLAIN_TEXT_START", "RULE_PLAIN_TEXT_MIDDLE", "RULE_PLAIN_TEXT_END", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'inverse'", "'ISA'", "'isa'", "'AS'", "'as'", "'SELF'", "'self'", "'RETURN'", "'return'", "'RAISE'", "'raise'", "'NEW'", "'new'", "'*'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'reference'", "'composite'", "'synchronous'", "'async'", "'in'", "'out'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'COMPLEX'", "'ACTOR'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'domain'", "'alias'", "'aggregate'", "'{'", "'}'", "'constraint'", "':'", "'primitive'", "'redefines'", "'enumeration'", "','", "'entity'", "'relationship'", "'detail'", "'extends'", "'('", "')'", "'returns'", "'application'", "'service'", "'raises'", "'guard'", "'effect'", "'exception'", "'import'", "'test'", "'context'", "'archetype'", "'is'", "'function'", "'iterator'", "'.'", "'|'", "'['", "']'", "'#'", "'if'", "'then'", "'end'", "'else'", "'do'", "'for'", "'.*'", "'abstract'", "'root'", "'derived'", "'key'", "'@before'", "'all'", "'TRUE'", "'true'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_PLAIN_TEXT_START", "RULE_PLAIN_TEXT_MIDDLE", "RULE_PLAIN_TEXT_END", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'inverse'", "'ISA'", "'isa'", "'AS'", "'as'", "'SELF'", "'self'", "'RETURN'", "'return'", "'RAISE'", "'raise'", "'NEW'", "'new'", "'*'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'reference'", "'composite'", "'synchronous'", "'async'", "'in'", "'out'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'domain'", "'alias'", "'aggregate'", "'{'", "'}'", "'constraint'", "':'", "'primitive'", "'redefines'", "'enumeration'", "','", "'entity'", "'relationship'", "'detail'", "'extends'", "'('", "')'", "'returns'", "'application'", "'service'", "'raises'", "'guard'", "'effect'", "'exception'", "'import'", "'test'", "'context'", "'archetype'", "'is'", "'function'", "'iterator'", "'.'", "'|'", "'['", "']'", "'#'", "'if'", "'then'", "'end'", "'else'", "'do'", "'for'", "'.*'", "'abstract'", "'root'", "'derived'", "'key'", "'@before'", "'all'", "'TRUE'", "'true'"
     };
     public static final int T__50=50;
     public static final int RULE_PLAIN_TEXT_ONLY=6;
@@ -10663,13 +10663,13 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxBaseType__Alternatives"
-    // InternalDim.g:2882:1: rule__DmxBaseType__Alternatives : ( ( ( 'VOID' ) ) | ( ( 'BOOLEAN' ) ) | ( ( 'NUMBER' ) ) | ( ( 'TEXT' ) ) | ( ( 'IDENTIFIER' ) ) | ( ( 'TIMEPOINT' ) ) | ( ( 'COMPLEX' ) ) | ( ( 'ACTOR' ) ) | ( ( 'SERVICE' ) ) );
+    // InternalDim.g:2882:1: rule__DmxBaseType__Alternatives : ( ( ( 'VOID' ) ) | ( ( 'BOOLEAN' ) ) | ( ( 'NUMBER' ) ) | ( ( 'TEXT' ) ) | ( ( 'IDENTIFIER' ) ) | ( ( 'TIMEPOINT' ) ) | ( ( 'COMPLEX' ) ) | ( ( 'NOTIFICATION' ) ) | ( ( 'SERVICE' ) ) );
     public final void rule__DmxBaseType__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:2886:1: ( ( ( 'VOID' ) ) | ( ( 'BOOLEAN' ) ) | ( ( 'NUMBER' ) ) | ( ( 'TEXT' ) ) | ( ( 'IDENTIFIER' ) ) | ( ( 'TIMEPOINT' ) ) | ( ( 'COMPLEX' ) ) | ( ( 'ACTOR' ) ) | ( ( 'SERVICE' ) ) )
+            // InternalDim.g:2886:1: ( ( ( 'VOID' ) ) | ( ( 'BOOLEAN' ) ) | ( ( 'NUMBER' ) ) | ( ( 'TEXT' ) ) | ( ( 'IDENTIFIER' ) ) | ( ( 'TIMEPOINT' ) ) | ( ( 'COMPLEX' ) ) | ( ( 'NOTIFICATION' ) ) | ( ( 'SERVICE' ) ) )
             int alt33=9;
             switch ( input.LA(1) ) {
             case 46:
@@ -10902,23 +10902,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 8 :
-                    // InternalDim.g:2929:2: ( ( 'ACTOR' ) )
+                    // InternalDim.g:2929:2: ( ( 'NOTIFICATION' ) )
                     {
-                    // InternalDim.g:2929:2: ( ( 'ACTOR' ) )
-                    // InternalDim.g:2930:3: ( 'ACTOR' )
+                    // InternalDim.g:2929:2: ( ( 'NOTIFICATION' ) )
+                    // InternalDim.g:2930:3: ( 'NOTIFICATION' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getDmxBaseTypeAccess().getACTOREnumLiteralDeclaration_7()); 
+                       before(grammarAccess.getDmxBaseTypeAccess().getNOTIFICATIONEnumLiteralDeclaration_7()); 
                     }
-                    // InternalDim.g:2931:3: ( 'ACTOR' )
-                    // InternalDim.g:2931:4: 'ACTOR'
+                    // InternalDim.g:2931:3: ( 'NOTIFICATION' )
+                    // InternalDim.g:2931:4: 'NOTIFICATION'
                     {
                     match(input,53,FOLLOW_2); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getDmxBaseTypeAccess().getACTOREnumLiteralDeclaration_7()); 
+                       after(grammarAccess.getDmxBaseTypeAccess().getNOTIFICATIONEnumLiteralDeclaration_7()); 
                     }
 
                     }

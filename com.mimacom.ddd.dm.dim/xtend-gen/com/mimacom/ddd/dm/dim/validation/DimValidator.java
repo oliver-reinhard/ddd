@@ -244,7 +244,9 @@ public class DimValidator extends AbstractDimValidator {
   
   @Check
   public void checkTypeNameStartsWithCapital(final DDomain d) {
-    if ((Objects.equal(DmxImportedNamespaceAwareLocalScopeProvider.DEFAULT_IMPORT_TYPES, d.getName()) || Objects.equal(DmxImportedNamespaceAwareLocalScopeProvider.DEFAULT_IMPORT_FUNCTIONS, d.getName()))) {
+    String _name = d.getName();
+    boolean _equals = Objects.equal(DmxImportedNamespaceAwareLocalScopeProvider.DEFAULT_IMPORT_TYPES, _name);
+    if (_equals) {
       return;
     } else {
       boolean _startsWith = d.getName().startsWith((DmxImportedNamespaceAwareLocalScopeProvider.PREFIX + "."));

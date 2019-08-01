@@ -38,7 +38,7 @@ DmxTestContext returns DContext:
  * Language base: archetypes & filters
  */
 enum DmxBaseType:
-	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | COMPLEX | ACTOR /*notified */ | SERVICE /*invoked* */;
+	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | COMPLEX | NOTIFICATION /*sent* */ | SERVICE /*invoked* */;
 	
 DmxArchetype:
 	'archetype'
@@ -87,8 +87,8 @@ DRichText:
 
 DmxTextOnly returns DTextSegment:		value=PLAIN_TEXT_ONLY;
 DmxTextStart returns DTextSegment:		value=PLAIN_TEXT_START;
-DmxTextMiddle returns DTextSegment:	value=PLAIN_TEXT_MIDDLE;
-DmxTextEnd returns DTextSegment:		value=PLAIN_TEXT_END;
+DmxTextMiddle returns DTextSegment:		value=PLAIN_TEXT_MIDDLE;
+DmxTextEnd returns DTextSegment:			value=PLAIN_TEXT_END;
 
 DmxNavigableMemberReference returns DExpression:
 	DmxPrimaryExpression
