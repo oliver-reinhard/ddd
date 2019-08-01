@@ -13,19 +13,19 @@ import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.dmx.DBooleanLiteral;
-import com.mimacom.ddd.dm.dmx.DCastExpression;
-import com.mimacom.ddd.dm.dmx.DConstructorCall;
-import com.mimacom.ddd.dm.dmx.DDecimalLiteral;
-import com.mimacom.ddd.dm.dmx.DFunctionCall;
-import com.mimacom.ddd.dm.dmx.DNaturalLiteral;
-import com.mimacom.ddd.dm.dmx.DSelfExpression;
-import com.mimacom.ddd.dm.dmx.DStringLiteral;
-import com.mimacom.ddd.dm.dmx.DUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;
+import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral;
+import com.mimacom.ddd.dm.dmx.DmxCastExpression;
+import com.mimacom.ddd.dm.dmx.DmxConstructorCall;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
+import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral;
+import com.mimacom.ddd.dm.dmx.DmxFunctionCall;
 import com.mimacom.ddd.dm.dmx.DmxIterator;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
+import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
+import com.mimacom.ddd.dm.dmx.DmxSelfExpression;
+import com.mimacom.ddd.dm.dmx.DmxStringLiteral;
+import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.DmxUtil;
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxActorDescriptor;
@@ -104,39 +104,39 @@ public class DmxTypeComputer {
     return DmxTypeComputer.UNDEFINED;
   }
   
-  protected AbstractDmxTypeDescriptor<?> _typeFor(final DSelfExpression expr) {
+  protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxSelfExpression expr) {
     throw new UnsupportedOperationException();
   }
   
-  protected AbstractDmxTypeDescriptor<?> _typeFor(final DCastExpression expr) {
+  protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxCastExpression expr) {
     return this.createDescriptor(expr.getType(), false);
   }
   
-  protected AbstractDmxTypeDescriptor<?> _typeFor(final DFunctionCall expr) {
+  protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxFunctionCall expr) {
     throw new UnsupportedOperationException();
   }
   
-  protected AbstractDmxTypeDescriptor<?> _typeFor(final DConstructorCall expr) {
+  protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxConstructorCall expr) {
     return this.createDescriptor(expr.getConstructor(), false);
   }
   
-  protected AbstractDmxTypeDescriptor<?> _typeFor(final DBooleanLiteral expr) {
+  protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxBooleanLiteral expr) {
     return DmxTypeComputer.BOOLEAN;
   }
   
-  protected AbstractDmxTypeDescriptor<?> _typeFor(final DStringLiteral expr) {
+  protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxStringLiteral expr) {
     return DmxTypeComputer.TEXT;
   }
   
-  protected AbstractDmxTypeDescriptor<?> _typeFor(final DNaturalLiteral expr) {
+  protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxNaturalLiteral expr) {
     return DmxTypeComputer.NUMBER;
   }
   
-  protected AbstractDmxTypeDescriptor<?> _typeFor(final DDecimalLiteral expr) {
+  protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxDecimalLiteral expr) {
     return DmxTypeComputer.NUMBER;
   }
   
-  protected AbstractDmxTypeDescriptor<?> _typeFor(final DUndefinedLiteral expr) {
+  protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxUndefinedLiteral expr) {
     return DmxTypeComputer.UNDEFINED;
   }
   
@@ -222,28 +222,28 @@ public class DmxTypeComputer {
   }
   
   public AbstractDmxTypeDescriptor<?> typeFor(final DExpression expr) {
-    if (expr instanceof DBooleanLiteral) {
-      return _typeFor((DBooleanLiteral)expr);
-    } else if (expr instanceof DCastExpression) {
-      return _typeFor((DCastExpression)expr);
-    } else if (expr instanceof DConstructorCall) {
-      return _typeFor((DConstructorCall)expr);
-    } else if (expr instanceof DDecimalLiteral) {
-      return _typeFor((DDecimalLiteral)expr);
-    } else if (expr instanceof DFunctionCall) {
-      return _typeFor((DFunctionCall)expr);
-    } else if (expr instanceof DNaturalLiteral) {
-      return _typeFor((DNaturalLiteral)expr);
-    } else if (expr instanceof DSelfExpression) {
-      return _typeFor((DSelfExpression)expr);
-    } else if (expr instanceof DStringLiteral) {
-      return _typeFor((DStringLiteral)expr);
-    } else if (expr instanceof DUndefinedLiteral) {
-      return _typeFor((DUndefinedLiteral)expr);
+    if (expr instanceof DmxBooleanLiteral) {
+      return _typeFor((DmxBooleanLiteral)expr);
+    } else if (expr instanceof DmxCastExpression) {
+      return _typeFor((DmxCastExpression)expr);
+    } else if (expr instanceof DmxConstructorCall) {
+      return _typeFor((DmxConstructorCall)expr);
     } else if (expr instanceof DmxContextReference) {
       return _typeFor((DmxContextReference)expr);
+    } else if (expr instanceof DmxDecimalLiteral) {
+      return _typeFor((DmxDecimalLiteral)expr);
+    } else if (expr instanceof DmxFunctionCall) {
+      return _typeFor((DmxFunctionCall)expr);
     } else if (expr instanceof DmxMemberNavigation) {
       return _typeFor((DmxMemberNavigation)expr);
+    } else if (expr instanceof DmxNaturalLiteral) {
+      return _typeFor((DmxNaturalLiteral)expr);
+    } else if (expr instanceof DmxSelfExpression) {
+      return _typeFor((DmxSelfExpression)expr);
+    } else if (expr instanceof DmxStringLiteral) {
+      return _typeFor((DmxStringLiteral)expr);
+    } else if (expr instanceof DmxUndefinedLiteral) {
+      return _typeFor((DmxUndefinedLiteral)expr);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(expr).toString());

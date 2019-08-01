@@ -6,12 +6,12 @@ package com.mimacom.ddd.dm.dmx.ui.labeling;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.dmx.DBinaryOperation;
-import com.mimacom.ddd.dm.dmx.DBooleanLiteral;
-import com.mimacom.ddd.dm.dmx.DDecimalLiteral;
-import com.mimacom.ddd.dm.dmx.DNaturalLiteral;
-import com.mimacom.ddd.dm.dmx.DStringLiteral;
-import com.mimacom.ddd.dm.dmx.DUndefinedLiteral;
+import com.mimacom.ddd.dm.dmx.DmxBinaryOperation;
+import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral;
+import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral;
+import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
+import com.mimacom.ddd.dm.dmx.DmxStringLiteral;
+import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 
@@ -38,42 +38,42 @@ public class DmxLabelProvider extends DefaultEObjectLabelProvider {
     return this.simpleName(e);
   }
   
-  public String text(final DBinaryOperation e) {
+  public String text(final DmxBinaryOperation e) {
     String _simpleName = this.simpleName(e);
     String _plus = (_simpleName + " ");
     String _name = e.getOperator().getName();
     return (_plus + _name);
   }
   
-  public String text(final DBooleanLiteral e) {
+  public String text(final DmxBooleanLiteral e) {
     String _simpleName = this.simpleName(e);
     String _plus = (_simpleName + " ");
     boolean _isValue = e.isValue();
     return (_plus + Boolean.valueOf(_isValue));
   }
   
-  public String text(final DStringLiteral e) {
+  public String text(final DmxStringLiteral e) {
     String _simpleName = this.simpleName(e);
     String _plus = (_simpleName + " ");
     String _value = e.getValue();
     return (_plus + _value);
   }
   
-  public String text(final DNaturalLiteral e) {
+  public String text(final DmxNaturalLiteral e) {
     String _simpleName = this.simpleName(e);
     String _plus = (_simpleName + " ");
     int _value = e.getValue();
     return (_plus + Integer.valueOf(_value));
   }
   
-  public String text(final DDecimalLiteral e) {
+  public String text(final DmxDecimalLiteral e) {
     String _simpleName = this.simpleName(e);
     String _plus = (_simpleName + " ");
     String _value = e.getValue();
     return (_plus + _value);
   }
   
-  public String text(final DUndefinedLiteral e) {
+  public String text(final DmxUndefinedLiteral e) {
     return this.simpleName(e);
   }
   

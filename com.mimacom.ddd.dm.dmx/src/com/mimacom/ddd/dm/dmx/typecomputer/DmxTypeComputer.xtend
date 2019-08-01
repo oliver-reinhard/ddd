@@ -10,15 +10,15 @@ import com.mimacom.ddd.dm.base.DNamedElement
 import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DService
-import com.mimacom.ddd.dm.dmx.DBooleanLiteral
-import com.mimacom.ddd.dm.dmx.DCastExpression
-import com.mimacom.ddd.dm.dmx.DConstructorCall
-import com.mimacom.ddd.dm.dmx.DDecimalLiteral
-import com.mimacom.ddd.dm.dmx.DFunctionCall
-import com.mimacom.ddd.dm.dmx.DNaturalLiteral
-import com.mimacom.ddd.dm.dmx.DSelfExpression
-import com.mimacom.ddd.dm.dmx.DStringLiteral
-import com.mimacom.ddd.dm.dmx.DUndefinedLiteral
+import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral
+import com.mimacom.ddd.dm.dmx.DmxCastExpression
+import com.mimacom.ddd.dm.dmx.DmxConstructorCall
+import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral
+import com.mimacom.ddd.dm.dmx.DmxFunctionCall
+import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral
+import com.mimacom.ddd.dm.dmx.DmxSelfExpression
+import com.mimacom.ddd.dm.dmx.DmxStringLiteral
+import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral
 import com.mimacom.ddd.dm.dmx.DmxBaseType
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxIterator
@@ -62,7 +62,7 @@ class DmxTypeComputer {
 				return createDescriptor(target.type, target.multiplicity.isCollection)
 			} else {
 				// this only occurs when the context is accessd from within the memberCallArguments of a DmxMemberNavigation 
-				// => find member of "calling" DmxMemberNavigation that contains memberCallArguments
+				// => find precedingNavigationSegment of "calling" DmxMemberNavigation that contains memberCallArguments
 				var EObject prev = target
 				var container = prev.eContainer
 				while (! (container === null || container instanceof DmxMemberNavigation && (container as DmxMemberNavigation).memberCallArguments.contains(prev)))  {
@@ -83,39 +83,39 @@ class DmxTypeComputer {
 		return UNDEFINED
 	}
 	
-	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DSelfExpression expr) {
+	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxSelfExpression expr) {
 		throw new UnsupportedOperationException  // TODO
 	}
 	
-	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DCastExpression expr) {
+	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxCastExpression expr) {
 		createDescriptor(expr.type, false)
 	}
 	
-	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DFunctionCall expr) {
+	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxFunctionCall expr) {
 		throw new UnsupportedOperationException // TODO
 	}
 	
-	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DConstructorCall expr) {
+	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxConstructorCall expr) {
 		createDescriptor(expr.constructor, false)
 	}
 	
-	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DBooleanLiteral expr) {
+	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxBooleanLiteral expr) {
 		BOOLEAN
 	}
 	
-	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DStringLiteral expr) {
+	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxStringLiteral expr) {
 		TEXT
 	}
 	
-	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DNaturalLiteral expr) {
+	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxNaturalLiteral expr) {
 		NUMBER
 	}
 	
-	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DDecimalLiteral expr) {
+	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxDecimalLiteral expr) {
 		NUMBER
 	}
 	
-	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DUndefinedLiteral expr) {
+	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxUndefinedLiteral expr) {
 		UNDEFINED
 	}
 	

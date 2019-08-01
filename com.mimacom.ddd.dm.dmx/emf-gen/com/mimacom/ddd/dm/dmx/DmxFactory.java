@@ -77,49 +77,22 @@ public interface DmxFactory extends EFactory
 	DmxIterator createDmxIterator();
 
 	/**
-	 * Returns a new object of class '<em>DAssignment</em>'.
+	 * Returns a new object of class '<em>Assignment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DAssignment</em>'.
+	 * @return a new object of class '<em>Assignment</em>'.
 	 * @generated
 	 */
-	DAssignment createDAssignment();
+	DmxAssignment createDmxAssignment();
 
 	/**
-	 * Returns a new object of class '<em>DPredicate</em>'.
+	 * Returns a new object of class '<em>Predicate With Correlation Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DPredicate</em>'.
+	 * @return a new object of class '<em>Predicate With Correlation Variable</em>'.
 	 * @generated
 	 */
-	DPredicate createDPredicate();
-
-	/**
-	 * Returns a new object of class '<em>DBinary Operation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DBinary Operation</em>'.
-	 * @generated
-	 */
-	DBinaryOperation createDBinaryOperation();
-
-	/**
-	 * Returns a new object of class '<em>DInstance Of Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DInstance Of Expression</em>'.
-	 * @generated
-	 */
-	DInstanceOfExpression createDInstanceOfExpression();
-
-	/**
-	 * Returns a new object of class '<em>DUnary Operation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DUnary Operation</em>'.
-	 * @generated
-	 */
-	DUnaryOperation createDUnaryOperation();
+	DmxPredicateWithCorrelationVariable createDmxPredicateWithCorrelationVariable();
 
 	/**
 	 * Returns a new object of class '<em>Member Navigation</em>'.
@@ -131,58 +104,85 @@ public interface DmxFactory extends EFactory
 	DmxMemberNavigation createDmxMemberNavigation();
 
 	/**
-	 * Returns a new object of class '<em>DCast Expression</em>'.
+	 * Returns a new object of class '<em>Binary Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DCast Expression</em>'.
+	 * @return a new object of class '<em>Binary Operation</em>'.
 	 * @generated
 	 */
-	DCastExpression createDCastExpression();
+	DmxBinaryOperation createDmxBinaryOperation();
 
 	/**
-	 * Returns a new object of class '<em>DSelf Expression</em>'.
+	 * Returns a new object of class '<em>Instance Of Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DSelf Expression</em>'.
+	 * @return a new object of class '<em>Instance Of Expression</em>'.
 	 * @generated
 	 */
-	DSelfExpression createDSelfExpression();
+	DmxInstanceOfExpression createDmxInstanceOfExpression();
 
 	/**
-	 * Returns a new object of class '<em>DReturn Expression</em>'.
+	 * Returns a new object of class '<em>Unary Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DReturn Expression</em>'.
+	 * @return a new object of class '<em>Unary Operation</em>'.
 	 * @generated
 	 */
-	DReturnExpression createDReturnExpression();
+	DmxUnaryOperation createDmxUnaryOperation();
 
 	/**
-	 * Returns a new object of class '<em>DRaise Expression</em>'.
+	 * Returns a new object of class '<em>Cast Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DRaise Expression</em>'.
+	 * @return a new object of class '<em>Cast Expression</em>'.
 	 * @generated
 	 */
-	DRaiseExpression createDRaiseExpression();
+	DmxCastExpression createDmxCastExpression();
 
 	/**
-	 * Returns a new object of class '<em>DFunction Call</em>'.
+	 * Returns a new object of class '<em>Self Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DFunction Call</em>'.
+	 * @return a new object of class '<em>Self Expression</em>'.
 	 * @generated
 	 */
-	DFunctionCall createDFunctionCall();
+	DmxSelfExpression createDmxSelfExpression();
 
 	/**
-	 * Returns a new object of class '<em>DConstructor Call</em>'.
+	 * Returns a new object of class '<em>Return Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DConstructor Call</em>'.
+	 * @return a new object of class '<em>Return Expression</em>'.
 	 * @generated
 	 */
-	DConstructorCall createDConstructorCall();
+	DmxReturnExpression createDmxReturnExpression();
+
+	/**
+	 * Returns a new object of class '<em>Raise Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Raise Expression</em>'.
+	 * @generated
+	 */
+	DmxRaiseExpression createDmxRaiseExpression();
+
+	/**
+	 * Returns a new object of class '<em>Function Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Function Call</em>'.
+	 * @generated
+	 */
+	DmxFunctionCall createDmxFunctionCall();
+
+	/**
+	 * Returns a new object of class '<em>Constructor Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Constructor Call</em>'.
+	 * @generated
+	 */
+	DmxConstructorCall createDmxConstructorCall();
 
 	/**
 	 * Returns a new object of class '<em>Static Reference</em>'.
@@ -203,76 +203,76 @@ public interface DmxFactory extends EFactory
 	DmxContextReference createDmxContextReference();
 
 	/**
-	 * Returns a new object of class '<em>DIf Expression</em>'.
+	 * Returns a new object of class '<em>If Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DIf Expression</em>'.
+	 * @return a new object of class '<em>If Expression</em>'.
 	 * @generated
 	 */
-	DIfExpression createDIfExpression();
+	DmxIfExpression createDmxIfExpression();
 
 	/**
-	 * Returns a new object of class '<em>DFor Loop Expression</em>'.
+	 * Returns a new object of class '<em>For Loop Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DFor Loop Expression</em>'.
+	 * @return a new object of class '<em>For Loop Expression</em>'.
 	 * @generated
 	 */
-	DForLoopExpression createDForLoopExpression();
+	DmxForLoopExpression createDmxForLoopExpression();
 
 	/**
-	 * Returns a new object of class '<em>DBoolean Literal</em>'.
+	 * Returns a new object of class '<em>Boolean Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DBoolean Literal</em>'.
+	 * @return a new object of class '<em>Boolean Literal</em>'.
 	 * @generated
 	 */
-	DBooleanLiteral createDBooleanLiteral();
+	DmxBooleanLiteral createDmxBooleanLiteral();
 
 	/**
-	 * Returns a new object of class '<em>DString Literal</em>'.
+	 * Returns a new object of class '<em>String Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DString Literal</em>'.
+	 * @return a new object of class '<em>String Literal</em>'.
 	 * @generated
 	 */
-	DStringLiteral createDStringLiteral();
+	DmxStringLiteral createDmxStringLiteral();
 
 	/**
-	 * Returns a new object of class '<em>DNatural Literal</em>'.
+	 * Returns a new object of class '<em>Natural Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DNatural Literal</em>'.
+	 * @return a new object of class '<em>Natural Literal</em>'.
 	 * @generated
 	 */
-	DNaturalLiteral createDNaturalLiteral();
+	DmxNaturalLiteral createDmxNaturalLiteral();
 
 	/**
-	 * Returns a new object of class '<em>DDecimal Literal</em>'.
+	 * Returns a new object of class '<em>Decimal Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DDecimal Literal</em>'.
+	 * @return a new object of class '<em>Decimal Literal</em>'.
 	 * @generated
 	 */
-	DDecimalLiteral createDDecimalLiteral();
+	DmxDecimalLiteral createDmxDecimalLiteral();
 
 	/**
-	 * Returns a new object of class '<em>DDate Literal</em>'.
+	 * Returns a new object of class '<em>Date Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DDate Literal</em>'.
+	 * @return a new object of class '<em>Date Literal</em>'.
 	 * @generated
 	 */
-	DDateLiteral createDDateLiteral();
+	DmxDateLiteral createDmxDateLiteral();
 
 	/**
-	 * Returns a new object of class '<em>DUndefined Literal</em>'.
+	 * Returns a new object of class '<em>Undefined Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DUndefined Literal</em>'.
+	 * @return a new object of class '<em>Undefined Literal</em>'.
 	 * @generated
 	 */
-	DUndefinedLiteral createDUndefinedLiteral();
+	DmxUndefinedLiteral createDmxUndefinedLiteral();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -4,8 +4,8 @@
 package com.mimacom.ddd.dm.dmx.ui.outline
 
 import com.mimacom.ddd.dm.base.DContext
-import com.mimacom.ddd.dm.dmx.DAssignment
-import com.mimacom.ddd.dm.dmx.DPredicate
+import com.mimacom.ddd.dm.dmx.DmxAssignment
+import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxIterator
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
@@ -46,12 +46,12 @@ class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		createEStructuralFeatureNode(node, iterator, DMX.dmxFilter_BaseType, FEATURE_IMAGE, DMX.dmxFilter_BaseType.name + " " + iterator.baseType.literal +  if (iterator.baseTypeCollection) "*" else "", true)
 	}
 
-	def _createChildren(IOutlineNode parentNode, DPredicate pred) {
-		if (pred.^var !== null) {
-			createEStructuralFeatureNode(parentNode, pred, DMX.DPredicate_Var, FEATURE_IMAGE, DMX.DPredicate_Var.name, false)
+	def _createChildren(IOutlineNode parentNode, DmxPredicateWithCorrelationVariable pred) {
+		if (pred.correlationVariable !== null) {
+			createEStructuralFeatureNode(parentNode, pred, DMX.dmxPredicateWithCorrelationVariable_CorrelationVariable, FEATURE_IMAGE, DMX.dmxPredicateWithCorrelationVariable_CorrelationVariable.name, false)
 		}
 		if (pred.value !== null) {
-			createEStructuralFeatureNode(parentNode, pred, DMX.DPredicate_Value, FEATURE_IMAGE, DMX.DPredicate_Value.name, false)
+			createEStructuralFeatureNode(parentNode, pred, DMX.dmxPredicateWithCorrelationVariable_Value, FEATURE_IMAGE, DMX.dmxPredicateWithCorrelationVariable_Value.name, false)
 		}
 //		createEObjectNode(parentNode, pred.value)
 	}
@@ -68,15 +68,15 @@ class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		}
 	}
 	
-	def _createChildren(IOutlineNode parentNode, DAssignment assign) {
-		if (assign.memberContainer !== null) {
-			createEStructuralFeatureNode(parentNode, assign, DMX.DAssignment_MemberContainer, FEATURE_IMAGE, DMX.DAssignment_MemberContainer.name, false)
+	def _createChildren(IOutlineNode parentNode, DmxAssignment assign) {
+		if (assign.precedingNavigationSegment !== null) {
+			createEStructuralFeatureNode(parentNode, assign, DMX.dmxAssignment_PrecedingNavigationSegment, FEATURE_IMAGE, DMX.dmxAssignment_PrecedingNavigationSegment.name, false)
 		}
 		if (assign.assignToMember !== null && ! (assign.assignToMember.eIsProxy)) {
-			createEStructuralFeatureNode(parentNode, assign, DMX.DAssignment_AssignToMember, FEATURE_IMAGE, DMX.DAssignment_AssignToMember.name, false)
+			createEStructuralFeatureNode(parentNode, assign, DMX.dmxAssignment_AssignToMember, FEATURE_IMAGE, DMX.dmxAssignment_AssignToMember.name, false)
 		}
 		if (assign.value !== null && ! (assign.assignToMember.eIsProxy)) {
-			createEStructuralFeatureNode(parentNode, assign, DMX.DAssignment_Value, FEATURE_IMAGE, DMX.DAssignment_Value.name, false)
+			createEStructuralFeatureNode(parentNode, assign, DMX.dmxAssignment_Value, FEATURE_IMAGE, DMX.dmxAssignment_Value.name, false)
 		}
 	}
 	

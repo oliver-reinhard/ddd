@@ -48,27 +48,41 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseTypeCollection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DmxIterator" eSuperTypes="#//DmxFilter"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DAssignment" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="memberContainer" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
+  <eClassifiers xsi:type="ecore:EClass" name="DmxAssignment" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="precedingNavigationSegment"
+        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="assignToMember" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DPredicate" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression ../../com.mimacom.ddd.dm.base/model/base.ecore#//INavigableMemberContainer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DContext"
+  <eClassifiers xsi:type="ecore:EClass" name="DmxPredicateWithCorrelationVariable"
+      eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression ../../com.mimacom.ddd.dm.base/model/base.ecore#//INavigableMemberContainer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="correlationVariable" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DContext"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DBinaryOperation" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="DmxMemberNavigation" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="member" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="precedingNavigationSegment"
+        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="explicitOperationCall"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="memberCallArguments" upperBound="-1"
+        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="before" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DmxBinaryOperation" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="leftOperand" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//DBinaryOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//DmxBinaryOperator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightOperand" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="DBinaryOperator">
+  <eClassifiers xsi:type="ecore:EEnum" name="DmxBinaryOperator">
     <eLiterals name="ADD"/>
     <eLiterals name="SUBTRACT" value="1"/>
     <eLiterals name="MULTIPLY" value="2"/>
@@ -88,54 +102,42 @@
     <eLiterals name="SINGLE_ARROW" value="16"/>
     <eLiterals name="DOUBLE_ARROW" value="17"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DInstanceOfExpression" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="DmxInstanceOfExpression" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DUnaryOperation" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="DmxUnaryOperation" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="operand" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//DUnaryOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//DmxUnaryOperator"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="DUnaryOperator">
+  <eClassifiers xsi:type="ecore:EEnum" name="DmxUnaryOperator">
     <eLiterals name="PLUS"/>
     <eLiterals name="MINUS" value="1"/>
     <eLiterals name="NOT" value="2"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DmxMemberNavigation" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="member" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="precedingNavigationSegment"
-        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="explicitOperationCall"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="memberCallArguments" upperBound="-1"
-        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="before" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DCastExpression" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="DmxCastExpression" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DSelfExpression" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DReturnExpression" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="DmxSelfExpression" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DmxReturnExpression" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DRaiseExpression" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="DmxRaiseExpression" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DFunctionCall" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="DmxFunctionCall" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="function" eType="#//DmxFunction"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="functionCallArguments"
         upperBound="-1" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DConstructorCall" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="DmxConstructorCall" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="constructor" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DComplexType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="explicitConstructorCall"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -154,7 +156,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="all" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="before" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DIfExpression" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="DmxIfExpression" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="if" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="then" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
@@ -162,27 +164,27 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="else" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DForLoopExpression" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="DmxForLoopExpression" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="declaredParam" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="forExpression" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eachExpression" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DBooleanLiteral" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="DmxBooleanLiteral" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DStringLiteral" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="DmxStringLiteral" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DNaturalLiteral" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="DmxNaturalLiteral" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DDecimalLiteral" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="DmxDecimalLiteral" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DDateLiteral" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="DmxDateLiteral" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DUndefinedLiteral" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DmxUndefinedLiteral" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"/>
 </ecore:EPackage>

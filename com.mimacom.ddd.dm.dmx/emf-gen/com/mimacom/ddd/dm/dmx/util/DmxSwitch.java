@@ -155,50 +155,23 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DASSIGNMENT:
+			case DmxPackage.DMX_ASSIGNMENT:
 			{
-				DAssignment dAssignment = (DAssignment)theEObject;
-				T result = caseDAssignment(dAssignment);
-				if (result == null) result = caseDExpression(dAssignment);
-				if (result == null) result = caseIRichTextSegment(dAssignment);
+				DmxAssignment dmxAssignment = (DmxAssignment)theEObject;
+				T result = caseDmxAssignment(dmxAssignment);
+				if (result == null) result = caseDExpression(dmxAssignment);
+				if (result == null) result = caseIRichTextSegment(dmxAssignment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DPREDICATE:
+			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE:
 			{
-				DPredicate dPredicate = (DPredicate)theEObject;
-				T result = caseDPredicate(dPredicate);
-				if (result == null) result = caseDExpression(dPredicate);
-				if (result == null) result = caseINavigableMemberContainer(dPredicate);
-				if (result == null) result = caseIRichTextSegment(dPredicate);
-				if (result == null) result = caseINamespace(dPredicate);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DmxPackage.DBINARY_OPERATION:
-			{
-				DBinaryOperation dBinaryOperation = (DBinaryOperation)theEObject;
-				T result = caseDBinaryOperation(dBinaryOperation);
-				if (result == null) result = caseDExpression(dBinaryOperation);
-				if (result == null) result = caseIRichTextSegment(dBinaryOperation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DmxPackage.DINSTANCE_OF_EXPRESSION:
-			{
-				DInstanceOfExpression dInstanceOfExpression = (DInstanceOfExpression)theEObject;
-				T result = caseDInstanceOfExpression(dInstanceOfExpression);
-				if (result == null) result = caseDExpression(dInstanceOfExpression);
-				if (result == null) result = caseIRichTextSegment(dInstanceOfExpression);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DmxPackage.DUNARY_OPERATION:
-			{
-				DUnaryOperation dUnaryOperation = (DUnaryOperation)theEObject;
-				T result = caseDUnaryOperation(dUnaryOperation);
-				if (result == null) result = caseDExpression(dUnaryOperation);
-				if (result == null) result = caseIRichTextSegment(dUnaryOperation);
+				DmxPredicateWithCorrelationVariable dmxPredicateWithCorrelationVariable = (DmxPredicateWithCorrelationVariable)theEObject;
+				T result = caseDmxPredicateWithCorrelationVariable(dmxPredicateWithCorrelationVariable);
+				if (result == null) result = caseDExpression(dmxPredicateWithCorrelationVariable);
+				if (result == null) result = caseINavigableMemberContainer(dmxPredicateWithCorrelationVariable);
+				if (result == null) result = caseIRichTextSegment(dmxPredicateWithCorrelationVariable);
+				if (result == null) result = caseINamespace(dmxPredicateWithCorrelationVariable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -211,57 +184,84 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DCAST_EXPRESSION:
+			case DmxPackage.DMX_BINARY_OPERATION:
 			{
-				DCastExpression dCastExpression = (DCastExpression)theEObject;
-				T result = caseDCastExpression(dCastExpression);
-				if (result == null) result = caseDExpression(dCastExpression);
-				if (result == null) result = caseIRichTextSegment(dCastExpression);
+				DmxBinaryOperation dmxBinaryOperation = (DmxBinaryOperation)theEObject;
+				T result = caseDmxBinaryOperation(dmxBinaryOperation);
+				if (result == null) result = caseDExpression(dmxBinaryOperation);
+				if (result == null) result = caseIRichTextSegment(dmxBinaryOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DSELF_EXPRESSION:
+			case DmxPackage.DMX_INSTANCE_OF_EXPRESSION:
 			{
-				DSelfExpression dSelfExpression = (DSelfExpression)theEObject;
-				T result = caseDSelfExpression(dSelfExpression);
-				if (result == null) result = caseDExpression(dSelfExpression);
-				if (result == null) result = caseIRichTextSegment(dSelfExpression);
+				DmxInstanceOfExpression dmxInstanceOfExpression = (DmxInstanceOfExpression)theEObject;
+				T result = caseDmxInstanceOfExpression(dmxInstanceOfExpression);
+				if (result == null) result = caseDExpression(dmxInstanceOfExpression);
+				if (result == null) result = caseIRichTextSegment(dmxInstanceOfExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DRETURN_EXPRESSION:
+			case DmxPackage.DMX_UNARY_OPERATION:
 			{
-				DReturnExpression dReturnExpression = (DReturnExpression)theEObject;
-				T result = caseDReturnExpression(dReturnExpression);
-				if (result == null) result = caseDExpression(dReturnExpression);
-				if (result == null) result = caseIRichTextSegment(dReturnExpression);
+				DmxUnaryOperation dmxUnaryOperation = (DmxUnaryOperation)theEObject;
+				T result = caseDmxUnaryOperation(dmxUnaryOperation);
+				if (result == null) result = caseDExpression(dmxUnaryOperation);
+				if (result == null) result = caseIRichTextSegment(dmxUnaryOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DRAISE_EXPRESSION:
+			case DmxPackage.DMX_CAST_EXPRESSION:
 			{
-				DRaiseExpression dRaiseExpression = (DRaiseExpression)theEObject;
-				T result = caseDRaiseExpression(dRaiseExpression);
-				if (result == null) result = caseDExpression(dRaiseExpression);
-				if (result == null) result = caseIRichTextSegment(dRaiseExpression);
+				DmxCastExpression dmxCastExpression = (DmxCastExpression)theEObject;
+				T result = caseDmxCastExpression(dmxCastExpression);
+				if (result == null) result = caseDExpression(dmxCastExpression);
+				if (result == null) result = caseIRichTextSegment(dmxCastExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DFUNCTION_CALL:
+			case DmxPackage.DMX_SELF_EXPRESSION:
 			{
-				DFunctionCall dFunctionCall = (DFunctionCall)theEObject;
-				T result = caseDFunctionCall(dFunctionCall);
-				if (result == null) result = caseDExpression(dFunctionCall);
-				if (result == null) result = caseIRichTextSegment(dFunctionCall);
+				DmxSelfExpression dmxSelfExpression = (DmxSelfExpression)theEObject;
+				T result = caseDmxSelfExpression(dmxSelfExpression);
+				if (result == null) result = caseDExpression(dmxSelfExpression);
+				if (result == null) result = caseIRichTextSegment(dmxSelfExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DCONSTRUCTOR_CALL:
+			case DmxPackage.DMX_RETURN_EXPRESSION:
 			{
-				DConstructorCall dConstructorCall = (DConstructorCall)theEObject;
-				T result = caseDConstructorCall(dConstructorCall);
-				if (result == null) result = caseDExpression(dConstructorCall);
-				if (result == null) result = caseIRichTextSegment(dConstructorCall);
+				DmxReturnExpression dmxReturnExpression = (DmxReturnExpression)theEObject;
+				T result = caseDmxReturnExpression(dmxReturnExpression);
+				if (result == null) result = caseDExpression(dmxReturnExpression);
+				if (result == null) result = caseIRichTextSegment(dmxReturnExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DmxPackage.DMX_RAISE_EXPRESSION:
+			{
+				DmxRaiseExpression dmxRaiseExpression = (DmxRaiseExpression)theEObject;
+				T result = caseDmxRaiseExpression(dmxRaiseExpression);
+				if (result == null) result = caseDExpression(dmxRaiseExpression);
+				if (result == null) result = caseIRichTextSegment(dmxRaiseExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DmxPackage.DMX_FUNCTION_CALL:
+			{
+				DmxFunctionCall dmxFunctionCall = (DmxFunctionCall)theEObject;
+				T result = caseDmxFunctionCall(dmxFunctionCall);
+				if (result == null) result = caseDExpression(dmxFunctionCall);
+				if (result == null) result = caseIRichTextSegment(dmxFunctionCall);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DmxPackage.DMX_CONSTRUCTOR_CALL:
+			{
+				DmxConstructorCall dmxConstructorCall = (DmxConstructorCall)theEObject;
+				T result = caseDmxConstructorCall(dmxConstructorCall);
+				if (result == null) result = caseDExpression(dmxConstructorCall);
+				if (result == null) result = caseIRichTextSegment(dmxConstructorCall);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -283,75 +283,75 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DIF_EXPRESSION:
+			case DmxPackage.DMX_IF_EXPRESSION:
 			{
-				DIfExpression dIfExpression = (DIfExpression)theEObject;
-				T result = caseDIfExpression(dIfExpression);
-				if (result == null) result = caseDExpression(dIfExpression);
-				if (result == null) result = caseIRichTextSegment(dIfExpression);
+				DmxIfExpression dmxIfExpression = (DmxIfExpression)theEObject;
+				T result = caseDmxIfExpression(dmxIfExpression);
+				if (result == null) result = caseDExpression(dmxIfExpression);
+				if (result == null) result = caseIRichTextSegment(dmxIfExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DFOR_LOOP_EXPRESSION:
+			case DmxPackage.DMX_FOR_LOOP_EXPRESSION:
 			{
-				DForLoopExpression dForLoopExpression = (DForLoopExpression)theEObject;
-				T result = caseDForLoopExpression(dForLoopExpression);
-				if (result == null) result = caseDExpression(dForLoopExpression);
-				if (result == null) result = caseIRichTextSegment(dForLoopExpression);
+				DmxForLoopExpression dmxForLoopExpression = (DmxForLoopExpression)theEObject;
+				T result = caseDmxForLoopExpression(dmxForLoopExpression);
+				if (result == null) result = caseDExpression(dmxForLoopExpression);
+				if (result == null) result = caseIRichTextSegment(dmxForLoopExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DBOOLEAN_LITERAL:
+			case DmxPackage.DMX_BOOLEAN_LITERAL:
 			{
-				DBooleanLiteral dBooleanLiteral = (DBooleanLiteral)theEObject;
-				T result = caseDBooleanLiteral(dBooleanLiteral);
-				if (result == null) result = caseDExpression(dBooleanLiteral);
-				if (result == null) result = caseIRichTextSegment(dBooleanLiteral);
+				DmxBooleanLiteral dmxBooleanLiteral = (DmxBooleanLiteral)theEObject;
+				T result = caseDmxBooleanLiteral(dmxBooleanLiteral);
+				if (result == null) result = caseDExpression(dmxBooleanLiteral);
+				if (result == null) result = caseIRichTextSegment(dmxBooleanLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DSTRING_LITERAL:
+			case DmxPackage.DMX_STRING_LITERAL:
 			{
-				DStringLiteral dStringLiteral = (DStringLiteral)theEObject;
-				T result = caseDStringLiteral(dStringLiteral);
-				if (result == null) result = caseDExpression(dStringLiteral);
-				if (result == null) result = caseIRichTextSegment(dStringLiteral);
+				DmxStringLiteral dmxStringLiteral = (DmxStringLiteral)theEObject;
+				T result = caseDmxStringLiteral(dmxStringLiteral);
+				if (result == null) result = caseDExpression(dmxStringLiteral);
+				if (result == null) result = caseIRichTextSegment(dmxStringLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DNATURAL_LITERAL:
+			case DmxPackage.DMX_NATURAL_LITERAL:
 			{
-				DNaturalLiteral dNaturalLiteral = (DNaturalLiteral)theEObject;
-				T result = caseDNaturalLiteral(dNaturalLiteral);
-				if (result == null) result = caseDExpression(dNaturalLiteral);
-				if (result == null) result = caseIRichTextSegment(dNaturalLiteral);
+				DmxNaturalLiteral dmxNaturalLiteral = (DmxNaturalLiteral)theEObject;
+				T result = caseDmxNaturalLiteral(dmxNaturalLiteral);
+				if (result == null) result = caseDExpression(dmxNaturalLiteral);
+				if (result == null) result = caseIRichTextSegment(dmxNaturalLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DDECIMAL_LITERAL:
+			case DmxPackage.DMX_DECIMAL_LITERAL:
 			{
-				DDecimalLiteral dDecimalLiteral = (DDecimalLiteral)theEObject;
-				T result = caseDDecimalLiteral(dDecimalLiteral);
-				if (result == null) result = caseDExpression(dDecimalLiteral);
-				if (result == null) result = caseIRichTextSegment(dDecimalLiteral);
+				DmxDecimalLiteral dmxDecimalLiteral = (DmxDecimalLiteral)theEObject;
+				T result = caseDmxDecimalLiteral(dmxDecimalLiteral);
+				if (result == null) result = caseDExpression(dmxDecimalLiteral);
+				if (result == null) result = caseIRichTextSegment(dmxDecimalLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DDATE_LITERAL:
+			case DmxPackage.DMX_DATE_LITERAL:
 			{
-				DDateLiteral dDateLiteral = (DDateLiteral)theEObject;
-				T result = caseDDateLiteral(dDateLiteral);
-				if (result == null) result = caseDExpression(dDateLiteral);
-				if (result == null) result = caseIRichTextSegment(dDateLiteral);
+				DmxDateLiteral dmxDateLiteral = (DmxDateLiteral)theEObject;
+				T result = caseDmxDateLiteral(dmxDateLiteral);
+				if (result == null) result = caseDExpression(dmxDateLiteral);
+				if (result == null) result = caseIRichTextSegment(dmxDateLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DUNDEFINED_LITERAL:
+			case DmxPackage.DMX_UNDEFINED_LITERAL:
 			{
-				DUndefinedLiteral dUndefinedLiteral = (DUndefinedLiteral)theEObject;
-				T result = caseDUndefinedLiteral(dUndefinedLiteral);
-				if (result == null) result = caseDExpression(dUndefinedLiteral);
-				if (result == null) result = caseIRichTextSegment(dUndefinedLiteral);
+				DmxUndefinedLiteral dmxUndefinedLiteral = (DmxUndefinedLiteral)theEObject;
+				T result = caseDmxUndefinedLiteral(dmxUndefinedLiteral);
+				if (result == null) result = caseDExpression(dmxUndefinedLiteral);
+				if (result == null) result = caseIRichTextSegment(dmxUndefinedLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -472,81 +472,33 @@ public class DmxSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DAssignment</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Assignment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DAssignment</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Assignment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDAssignment(DAssignment object)
+	public T caseDmxAssignment(DmxAssignment object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DPredicate</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Predicate With Correlation Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DPredicate</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Predicate With Correlation Variable</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDPredicate(DPredicate object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DBinary Operation</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DBinary Operation</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDBinaryOperation(DBinaryOperation object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DInstance Of Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DInstance Of Expression</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDInstanceOfExpression(DInstanceOfExpression object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DUnary Operation</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DUnary Operation</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDUnaryOperation(DUnaryOperation object)
+	public T caseDmxPredicateWithCorrelationVariable(DmxPredicateWithCorrelationVariable object)
 	{
 		return null;
 	}
@@ -568,97 +520,145 @@ public class DmxSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DCast Expression</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Binary Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DCast Expression</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Binary Operation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDCastExpression(DCastExpression object)
+	public T caseDmxBinaryOperation(DmxBinaryOperation object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DSelf Expression</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Instance Of Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DSelf Expression</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Instance Of Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDSelfExpression(DSelfExpression object)
+	public T caseDmxInstanceOfExpression(DmxInstanceOfExpression object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DReturn Expression</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Unary Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DReturn Expression</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Unary Operation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDReturnExpression(DReturnExpression object)
+	public T caseDmxUnaryOperation(DmxUnaryOperation object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DRaise Expression</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Cast Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DRaise Expression</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Cast Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDRaiseExpression(DRaiseExpression object)
+	public T caseDmxCastExpression(DmxCastExpression object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DFunction Call</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Self Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DFunction Call</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Self Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDFunctionCall(DFunctionCall object)
+	public T caseDmxSelfExpression(DmxSelfExpression object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DConstructor Call</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Return Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DConstructor Call</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Return Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDConstructorCall(DConstructorCall object)
+	public T caseDmxReturnExpression(DmxReturnExpression object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Raise Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Raise Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxRaiseExpression(DmxRaiseExpression object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Function Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Function Call</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxFunctionCall(DmxFunctionCall object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Constructor Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Constructor Call</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxConstructorCall(DmxConstructorCall object)
 	{
 		return null;
 	}
@@ -696,129 +696,129 @@ public class DmxSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DIf Expression</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>If Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DIf Expression</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>If Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDIfExpression(DIfExpression object)
+	public T caseDmxIfExpression(DmxIfExpression object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DFor Loop Expression</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>For Loop Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DFor Loop Expression</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>For Loop Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDForLoopExpression(DForLoopExpression object)
+	public T caseDmxForLoopExpression(DmxForLoopExpression object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DBoolean Literal</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Boolean Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DBoolean Literal</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Boolean Literal</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDBooleanLiteral(DBooleanLiteral object)
+	public T caseDmxBooleanLiteral(DmxBooleanLiteral object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DString Literal</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>String Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DString Literal</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>String Literal</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDStringLiteral(DStringLiteral object)
+	public T caseDmxStringLiteral(DmxStringLiteral object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DNatural Literal</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Natural Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DNatural Literal</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Natural Literal</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDNaturalLiteral(DNaturalLiteral object)
+	public T caseDmxNaturalLiteral(DmxNaturalLiteral object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DDecimal Literal</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Decimal Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DDecimal Literal</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Decimal Literal</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDDecimalLiteral(DDecimalLiteral object)
+	public T caseDmxDecimalLiteral(DmxDecimalLiteral object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DDate Literal</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Date Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DDate Literal</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Date Literal</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDDateLiteral(DDateLiteral object)
+	public T caseDmxDateLiteral(DmxDateLiteral object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DUndefined Literal</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Undefined Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DUndefined Literal</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Undefined Literal</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDUndefinedLiteral(DUndefinedLiteral object)
+	public T caseDmxUndefinedLiteral(DmxUndefinedLiteral object)
 	{
 		return null;
 	}

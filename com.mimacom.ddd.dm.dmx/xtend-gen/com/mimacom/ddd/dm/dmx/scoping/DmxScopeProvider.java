@@ -18,10 +18,10 @@ import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
-import com.mimacom.ddd.dm.dmx.DAssignment;
-import com.mimacom.ddd.dm.dmx.DPredicate;
+import com.mimacom.ddd.dm.dmx.DmxAssignment;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
+import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
 import com.mimacom.ddd.dm.dmx.DmxTest;
 import com.mimacom.ddd.dm.dmx.DmxUtil;
@@ -34,7 +34,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcoreFactory;
-import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 import org.eclipse.xtext.xbase.lib.Extension;
@@ -81,11 +80,13 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
           return scope_1;
         }
       } else {
-        EReference _dAssignment_AssignToMember = DmxScopeProvider.DMX.getDAssignment_AssignToMember();
-        boolean _equals_2 = Objects.equal(reference, _dAssignment_AssignToMember);
+        EReference _dmxAssignment_AssignToMember = DmxScopeProvider.DMX.getDmxAssignment_AssignToMember();
+        boolean _equals_2 = Objects.equal(reference, _dmxAssignment_AssignToMember);
         if (_equals_2) {
-          if ((context instanceof DAssignment)) {
-            final IScope scope_2 = this.getAssignmentMemberScope(((DAssignment)context), reference);
+          if ((context instanceof DmxAssignment)) {
+            final DExpression preceding_1 = ((DmxAssignment)context).getPrecedingNavigationSegment();
+            final AbstractDmxTypeDescriptor<?> typeDescriptor_1 = this._dmxTypeComputer.typeFor(preceding_1);
+            final IScope scope_2 = typeDescriptor_1.getNavigableMembersScope();
             return scope_2;
           }
         } else {
@@ -184,9 +185,9 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
       }
     }
     if (!_matched) {
-      if (container instanceof DPredicate) {
+      if (container instanceof DmxPredicateWithCorrelationVariable) {
         _matched=true;
-        _switchResult = Scopes.scopeFor(Lists.<DContext>newArrayList(((DPredicate)container).getVar()), outerScope);
+        _switchResult = Scopes.scopeFor(Lists.<DContext>newArrayList(((DmxPredicateWithCorrelationVariable)container).getCorrelationVariable()), outerScope);
       }
     }
     if (!_matched) {
@@ -200,25 +201,6 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
     }
     final IScope scope = _switchResult;
     return scope;
-  }
-  
-  protected IScope getAssignmentMemberScope(final DAssignment assignment, final EReference reference) {
-    return IScope.NULLSCOPE;
-  }
-  
-  /**
-   * Returns all DNavigableMember elements of the given navigation member element along the semantic EXPRESSION eContainer hierarchy.
-   */
-  protected final IScope getPrecedingNavigableMembersScopes(final EObject member, final IScope outerScope) {
-    IScope _xblockexpression = null;
-    {
-      final INavigableMemberContainer preceding = EcoreUtil2.<INavigableMemberContainer>getContainerOfType(member.eContainer(), INavigableMemberContainer.class);
-      if ((preceding == null)) {
-        return outerScope;
-      }
-      _xblockexpression = this.getEContainerNavigableMembersScopeSwitch(preceding, outerScope);
-    }
-    return _xblockexpression;
   }
   
   protected IScope getDomainEventNavigableMemberScope(final DDomainEvent event, final IScope outerScope) {

@@ -5,12 +5,12 @@ package com.mimacom.ddd.dm.dmx.ui.labeling
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DExpression
-import com.mimacom.ddd.dm.dmx.DBinaryOperation
-import com.mimacom.ddd.dm.dmx.DBooleanLiteral
-import com.mimacom.ddd.dm.dmx.DDecimalLiteral
-import com.mimacom.ddd.dm.dmx.DNaturalLiteral
-import com.mimacom.ddd.dm.dmx.DStringLiteral
-import com.mimacom.ddd.dm.dmx.DUndefinedLiteral
+import com.mimacom.ddd.dm.dmx.DmxBinaryOperation
+import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral
+import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral
+import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral
+import com.mimacom.ddd.dm.dmx.DmxStringLiteral
+import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 import com.mimacom.ddd.dm.base.DNamedElement
@@ -37,27 +37,27 @@ class DmxLabelProvider extends DefaultEObjectLabelProvider {
 		return e.simpleName
 	}
 	
-	def text(DBinaryOperation e) {
+	def text(DmxBinaryOperation e) {
 		return e.simpleName + " " + e.operator.getName
 	}
 	
-	def text(DBooleanLiteral e) {
+	def text(DmxBooleanLiteral e) {
 		return e.simpleName + " " + e.value
 	}
 	
-	def text(DStringLiteral e) {
+	def text(DmxStringLiteral e) {
 		return e.simpleName + " " + e.value
 	}
 	
-	def text(DNaturalLiteral e) {
+	def text(DmxNaturalLiteral e) {
 		return e.simpleName + " " + e.value
 	}
 	
-	def text(DDecimalLiteral e) {
+	def text(DmxDecimalLiteral e) {
 		return e.simpleName + " " + e.value
 	}
 	
-	def text(DUndefinedLiteral e) {
+	def text(DmxUndefinedLiteral e) {
 		return e.simpleName
 	}
 	

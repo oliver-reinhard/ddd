@@ -4,40 +4,40 @@ package com.mimacom.ddd.dm.dmx.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
 
-import com.mimacom.ddd.dm.dmx.DAssignment;
-import com.mimacom.ddd.dm.dmx.DBinaryOperation;
-import com.mimacom.ddd.dm.dmx.DBinaryOperator;
-import com.mimacom.ddd.dm.dmx.DBooleanLiteral;
-import com.mimacom.ddd.dm.dmx.DCastExpression;
-import com.mimacom.ddd.dm.dmx.DConstructorCall;
-import com.mimacom.ddd.dm.dmx.DDateLiteral;
-import com.mimacom.ddd.dm.dmx.DDecimalLiteral;
-import com.mimacom.ddd.dm.dmx.DForLoopExpression;
-import com.mimacom.ddd.dm.dmx.DFunctionCall;
-import com.mimacom.ddd.dm.dmx.DIfExpression;
-import com.mimacom.ddd.dm.dmx.DInstanceOfExpression;
-import com.mimacom.ddd.dm.dmx.DNaturalLiteral;
-import com.mimacom.ddd.dm.dmx.DPredicate;
-import com.mimacom.ddd.dm.dmx.DRaiseExpression;
-import com.mimacom.ddd.dm.dmx.DReturnExpression;
-import com.mimacom.ddd.dm.dmx.DSelfExpression;
-import com.mimacom.ddd.dm.dmx.DStringLiteral;
-import com.mimacom.ddd.dm.dmx.DUnaryOperation;
-import com.mimacom.ddd.dm.dmx.DUnaryOperator;
-import com.mimacom.ddd.dm.dmx.DUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
+import com.mimacom.ddd.dm.dmx.DmxAssignment;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;
+import com.mimacom.ddd.dm.dmx.DmxBinaryOperation;
+import com.mimacom.ddd.dm.dmx.DmxBinaryOperator;
+import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral;
+import com.mimacom.ddd.dm.dmx.DmxCastExpression;
+import com.mimacom.ddd.dm.dmx.DmxConstructorCall;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
+import com.mimacom.ddd.dm.dmx.DmxDateLiteral;
+import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxFactory;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
+import com.mimacom.ddd.dm.dmx.DmxForLoopExpression;
 import com.mimacom.ddd.dm.dmx.DmxFunction;
+import com.mimacom.ddd.dm.dmx.DmxFunctionCall;
 import com.mimacom.ddd.dm.dmx.DmxFunctionParameter;
+import com.mimacom.ddd.dm.dmx.DmxIfExpression;
+import com.mimacom.ddd.dm.dmx.DmxInstanceOfExpression;
 import com.mimacom.ddd.dm.dmx.DmxIterator;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxNamespace;
+import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
+import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
+import com.mimacom.ddd.dm.dmx.DmxRaiseExpression;
+import com.mimacom.ddd.dm.dmx.DmxReturnExpression;
+import com.mimacom.ddd.dm.dmx.DmxSelfExpression;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
+import com.mimacom.ddd.dm.dmx.DmxStringLiteral;
 import com.mimacom.ddd.dm.dmx.DmxTest;
+import com.mimacom.ddd.dm.dmx.DmxUnaryOperation;
+import com.mimacom.ddd.dm.dmx.DmxUnaryOperator;
+import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -109,35 +109,14 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dAssignmentEClass = null;
+	private EClass dmxAssignmentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dPredicateEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dBinaryOperationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dInstanceOfExpressionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dUnaryOperationEClass = null;
+	private EClass dmxPredicateWithCorrelationVariableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -151,42 +130,63 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dCastExpressionEClass = null;
+	private EClass dmxBinaryOperationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dSelfExpressionEClass = null;
+	private EClass dmxInstanceOfExpressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dReturnExpressionEClass = null;
+	private EClass dmxUnaryOperationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dRaiseExpressionEClass = null;
+	private EClass dmxCastExpressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dFunctionCallEClass = null;
+	private EClass dmxSelfExpressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dConstructorCallEClass = null;
+	private EClass dmxReturnExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dmxRaiseExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dmxFunctionCallEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dmxConstructorCallEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -207,56 +207,56 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dIfExpressionEClass = null;
+	private EClass dmxIfExpressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dForLoopExpressionEClass = null;
+	private EClass dmxForLoopExpressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dBooleanLiteralEClass = null;
+	private EClass dmxBooleanLiteralEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dStringLiteralEClass = null;
+	private EClass dmxStringLiteralEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dNaturalLiteralEClass = null;
+	private EClass dmxNaturalLiteralEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dDecimalLiteralEClass = null;
+	private EClass dmxDecimalLiteralEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dDateLiteralEClass = null;
+	private EClass dmxDateLiteralEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dUndefinedLiteralEClass = null;
+	private EClass dmxUndefinedLiteralEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -270,14 +270,14 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum dBinaryOperatorEEnum = null;
+	private EEnum dmxBinaryOperatorEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum dUnaryOperatorEEnum = null;
+	private EEnum dmxUnaryOperatorEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -571,9 +571,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDAssignment()
+	public EClass getDmxAssignment()
 	{
-		return dAssignmentEClass;
+		return dmxAssignmentEClass;
 	}
 
 	/**
@@ -582,9 +582,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDAssignment_MemberContainer()
+	public EReference getDmxAssignment_PrecedingNavigationSegment()
 	{
-		return (EReference)dAssignmentEClass.getEStructuralFeatures().get(0);
+		return (EReference)dmxAssignmentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -593,9 +593,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDAssignment_AssignToMember()
+	public EReference getDmxAssignment_AssignToMember()
 	{
-		return (EReference)dAssignmentEClass.getEStructuralFeatures().get(1);
+		return (EReference)dmxAssignmentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -604,9 +604,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDAssignment_Value()
+	public EReference getDmxAssignment_Value()
 	{
-		return (EReference)dAssignmentEClass.getEStructuralFeatures().get(2);
+		return (EReference)dmxAssignmentEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -615,9 +615,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDPredicate()
+	public EClass getDmxPredicateWithCorrelationVariable()
 	{
-		return dPredicateEClass;
+		return dmxPredicateWithCorrelationVariableEClass;
 	}
 
 	/**
@@ -626,9 +626,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDPredicate_Var()
+	public EReference getDmxPredicateWithCorrelationVariable_CorrelationVariable()
 	{
-		return (EReference)dPredicateEClass.getEStructuralFeatures().get(0);
+		return (EReference)dmxPredicateWithCorrelationVariableEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -637,119 +637,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDPredicate_Value()
+	public EReference getDmxPredicateWithCorrelationVariable_Value()
 	{
-		return (EReference)dPredicateEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDBinaryOperation()
-	{
-		return dBinaryOperationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDBinaryOperation_LeftOperand()
-	{
-		return (EReference)dBinaryOperationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDBinaryOperation_Operator()
-	{
-		return (EAttribute)dBinaryOperationEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDBinaryOperation_RightOperand()
-	{
-		return (EReference)dBinaryOperationEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDInstanceOfExpression()
-	{
-		return dInstanceOfExpressionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDInstanceOfExpression_Expression()
-	{
-		return (EReference)dInstanceOfExpressionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDInstanceOfExpression_Type()
-	{
-		return (EReference)dInstanceOfExpressionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDUnaryOperation()
-	{
-		return dUnaryOperationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDUnaryOperation_Operand()
-	{
-		return (EReference)dUnaryOperationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDUnaryOperation_Operator()
-	{
-		return (EAttribute)dUnaryOperationEClass.getEStructuralFeatures().get(1);
+		return (EReference)dmxPredicateWithCorrelationVariableEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -824,9 +714,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDCastExpression()
+	public EClass getDmxBinaryOperation()
 	{
-		return dCastExpressionEClass;
+		return dmxBinaryOperationEClass;
 	}
 
 	/**
@@ -835,9 +725,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDCastExpression_Target()
+	public EReference getDmxBinaryOperation_LeftOperand()
 	{
-		return (EReference)dCastExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)dmxBinaryOperationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -846,9 +736,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDCastExpression_Type()
+	public EAttribute getDmxBinaryOperation_Operator()
 	{
-		return (EReference)dCastExpressionEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)dmxBinaryOperationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -857,9 +747,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDSelfExpression()
+	public EReference getDmxBinaryOperation_RightOperand()
 	{
-		return dSelfExpressionEClass;
+		return (EReference)dmxBinaryOperationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -868,9 +758,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDReturnExpression()
+	public EClass getDmxInstanceOfExpression()
 	{
-		return dReturnExpressionEClass;
+		return dmxInstanceOfExpressionEClass;
 	}
 
 	/**
@@ -879,9 +769,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDReturnExpression_Expression()
+	public EReference getDmxInstanceOfExpression_Expression()
 	{
-		return (EReference)dReturnExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)dmxInstanceOfExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -890,9 +780,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDRaiseExpression()
+	public EReference getDmxInstanceOfExpression_Type()
 	{
-		return dRaiseExpressionEClass;
+		return (EReference)dmxInstanceOfExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -901,9 +791,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDRaiseExpression_Expression()
+	public EClass getDmxUnaryOperation()
 	{
-		return (EReference)dRaiseExpressionEClass.getEStructuralFeatures().get(0);
+		return dmxUnaryOperationEClass;
 	}
 
 	/**
@@ -912,9 +802,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDFunctionCall()
+	public EReference getDmxUnaryOperation_Operand()
 	{
-		return dFunctionCallEClass;
+		return (EReference)dmxUnaryOperationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -923,9 +813,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDFunctionCall_Function()
+	public EAttribute getDmxUnaryOperation_Operator()
 	{
-		return (EReference)dFunctionCallEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)dmxUnaryOperationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -934,9 +824,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDFunctionCall_FunctionCallArguments()
+	public EClass getDmxCastExpression()
 	{
-		return (EReference)dFunctionCallEClass.getEStructuralFeatures().get(1);
+		return dmxCastExpressionEClass;
 	}
 
 	/**
@@ -945,9 +835,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDConstructorCall()
+	public EReference getDmxCastExpression_Target()
 	{
-		return dConstructorCallEClass;
+		return (EReference)dmxCastExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -956,9 +846,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDConstructorCall_Constructor()
+	public EReference getDmxCastExpression_Type()
 	{
-		return (EReference)dConstructorCallEClass.getEStructuralFeatures().get(0);
+		return (EReference)dmxCastExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -967,9 +857,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDConstructorCall_ExplicitConstructorCall()
+	public EClass getDmxSelfExpression()
 	{
-		return (EAttribute)dConstructorCallEClass.getEStructuralFeatures().get(1);
+		return dmxSelfExpressionEClass;
 	}
 
 	/**
@@ -978,9 +868,119 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDConstructorCall_Arguments()
+	public EClass getDmxReturnExpression()
 	{
-		return (EReference)dConstructorCallEClass.getEStructuralFeatures().get(2);
+		return dmxReturnExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDmxReturnExpression_Expression()
+	{
+		return (EReference)dmxReturnExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDmxRaiseExpression()
+	{
+		return dmxRaiseExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDmxRaiseExpression_Expression()
+	{
+		return (EReference)dmxRaiseExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDmxFunctionCall()
+	{
+		return dmxFunctionCallEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDmxFunctionCall_Function()
+	{
+		return (EReference)dmxFunctionCallEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDmxFunctionCall_FunctionCallArguments()
+	{
+		return (EReference)dmxFunctionCallEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDmxConstructorCall()
+	{
+		return dmxConstructorCallEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDmxConstructorCall_Constructor()
+	{
+		return (EReference)dmxConstructorCallEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDmxConstructorCall_ExplicitConstructorCall()
+	{
+		return (EAttribute)dmxConstructorCallEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDmxConstructorCall_Arguments()
+	{
+		return (EReference)dmxConstructorCallEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1088,9 +1088,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDIfExpression()
+	public EClass getDmxIfExpression()
 	{
-		return dIfExpressionEClass;
+		return dmxIfExpressionEClass;
 	}
 
 	/**
@@ -1099,9 +1099,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDIfExpression_If()
+	public EReference getDmxIfExpression_If()
 	{
-		return (EReference)dIfExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)dmxIfExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1110,9 +1110,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDIfExpression_Then()
+	public EReference getDmxIfExpression_Then()
 	{
-		return (EReference)dIfExpressionEClass.getEStructuralFeatures().get(1);
+		return (EReference)dmxIfExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1121,9 +1121,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDIfExpression_Else()
+	public EReference getDmxIfExpression_Else()
 	{
-		return (EReference)dIfExpressionEClass.getEStructuralFeatures().get(2);
+		return (EReference)dmxIfExpressionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1132,9 +1132,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDForLoopExpression()
+	public EClass getDmxForLoopExpression()
 	{
-		return dForLoopExpressionEClass;
+		return dmxForLoopExpressionEClass;
 	}
 
 	/**
@@ -1143,9 +1143,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDForLoopExpression_DeclaredParam()
+	public EAttribute getDmxForLoopExpression_DeclaredParam()
 	{
-		return (EAttribute)dForLoopExpressionEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)dmxForLoopExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1154,9 +1154,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDForLoopExpression_ForExpression()
+	public EReference getDmxForLoopExpression_ForExpression()
 	{
-		return (EReference)dForLoopExpressionEClass.getEStructuralFeatures().get(1);
+		return (EReference)dmxForLoopExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1165,9 +1165,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDForLoopExpression_EachExpression()
+	public EReference getDmxForLoopExpression_EachExpression()
 	{
-		return (EReference)dForLoopExpressionEClass.getEStructuralFeatures().get(2);
+		return (EReference)dmxForLoopExpressionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1176,9 +1176,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDBooleanLiteral()
+	public EClass getDmxBooleanLiteral()
 	{
-		return dBooleanLiteralEClass;
+		return dmxBooleanLiteralEClass;
 	}
 
 	/**
@@ -1187,9 +1187,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDBooleanLiteral_Value()
+	public EAttribute getDmxBooleanLiteral_Value()
 	{
-		return (EAttribute)dBooleanLiteralEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)dmxBooleanLiteralEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1198,9 +1198,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDStringLiteral()
+	public EClass getDmxStringLiteral()
 	{
-		return dStringLiteralEClass;
+		return dmxStringLiteralEClass;
 	}
 
 	/**
@@ -1209,9 +1209,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDStringLiteral_Value()
+	public EAttribute getDmxStringLiteral_Value()
 	{
-		return (EAttribute)dStringLiteralEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)dmxStringLiteralEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1220,9 +1220,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDNaturalLiteral()
+	public EClass getDmxNaturalLiteral()
 	{
-		return dNaturalLiteralEClass;
+		return dmxNaturalLiteralEClass;
 	}
 
 	/**
@@ -1231,9 +1231,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDNaturalLiteral_Value()
+	public EAttribute getDmxNaturalLiteral_Value()
 	{
-		return (EAttribute)dNaturalLiteralEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)dmxNaturalLiteralEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1242,9 +1242,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDDecimalLiteral()
+	public EClass getDmxDecimalLiteral()
 	{
-		return dDecimalLiteralEClass;
+		return dmxDecimalLiteralEClass;
 	}
 
 	/**
@@ -1253,9 +1253,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDDecimalLiteral_Value()
+	public EAttribute getDmxDecimalLiteral_Value()
 	{
-		return (EAttribute)dDecimalLiteralEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)dmxDecimalLiteralEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1264,9 +1264,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDDateLiteral()
+	public EClass getDmxDateLiteral()
 	{
-		return dDateLiteralEClass;
+		return dmxDateLiteralEClass;
 	}
 
 	/**
@@ -1275,9 +1275,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDDateLiteral_Value()
+	public EAttribute getDmxDateLiteral_Value()
 	{
-		return (EAttribute)dDateLiteralEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)dmxDateLiteralEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1286,9 +1286,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDUndefinedLiteral()
+	public EClass getDmxUndefinedLiteral()
 	{
-		return dUndefinedLiteralEClass;
+		return dmxUndefinedLiteralEClass;
 	}
 
 	/**
@@ -1308,9 +1308,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EEnum getDBinaryOperator()
+	public EEnum getDmxBinaryOperator()
 	{
-		return dBinaryOperatorEEnum;
+		return dmxBinaryOperatorEEnum;
 	}
 
 	/**
@@ -1319,9 +1319,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EEnum getDUnaryOperator()
+	public EEnum getDmxUnaryOperator()
 	{
-		return dUnaryOperatorEEnum;
+		return dmxUnaryOperatorEEnum;
 	}
 
 	/**
@@ -1382,27 +1382,14 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 
 		dmxIteratorEClass = createEClass(DMX_ITERATOR);
 
-		dAssignmentEClass = createEClass(DASSIGNMENT);
-		createEReference(dAssignmentEClass, DASSIGNMENT__MEMBER_CONTAINER);
-		createEReference(dAssignmentEClass, DASSIGNMENT__ASSIGN_TO_MEMBER);
-		createEReference(dAssignmentEClass, DASSIGNMENT__VALUE);
+		dmxAssignmentEClass = createEClass(DMX_ASSIGNMENT);
+		createEReference(dmxAssignmentEClass, DMX_ASSIGNMENT__PRECEDING_NAVIGATION_SEGMENT);
+		createEReference(dmxAssignmentEClass, DMX_ASSIGNMENT__ASSIGN_TO_MEMBER);
+		createEReference(dmxAssignmentEClass, DMX_ASSIGNMENT__VALUE);
 
-		dPredicateEClass = createEClass(DPREDICATE);
-		createEReference(dPredicateEClass, DPREDICATE__VAR);
-		createEReference(dPredicateEClass, DPREDICATE__VALUE);
-
-		dBinaryOperationEClass = createEClass(DBINARY_OPERATION);
-		createEReference(dBinaryOperationEClass, DBINARY_OPERATION__LEFT_OPERAND);
-		createEAttribute(dBinaryOperationEClass, DBINARY_OPERATION__OPERATOR);
-		createEReference(dBinaryOperationEClass, DBINARY_OPERATION__RIGHT_OPERAND);
-
-		dInstanceOfExpressionEClass = createEClass(DINSTANCE_OF_EXPRESSION);
-		createEReference(dInstanceOfExpressionEClass, DINSTANCE_OF_EXPRESSION__EXPRESSION);
-		createEReference(dInstanceOfExpressionEClass, DINSTANCE_OF_EXPRESSION__TYPE);
-
-		dUnaryOperationEClass = createEClass(DUNARY_OPERATION);
-		createEReference(dUnaryOperationEClass, DUNARY_OPERATION__OPERAND);
-		createEAttribute(dUnaryOperationEClass, DUNARY_OPERATION__OPERATOR);
+		dmxPredicateWithCorrelationVariableEClass = createEClass(DMX_PREDICATE_WITH_CORRELATION_VARIABLE);
+		createEReference(dmxPredicateWithCorrelationVariableEClass, DMX_PREDICATE_WITH_CORRELATION_VARIABLE__CORRELATION_VARIABLE);
+		createEReference(dmxPredicateWithCorrelationVariableEClass, DMX_PREDICATE_WITH_CORRELATION_VARIABLE__VALUE);
 
 		dmxMemberNavigationEClass = createEClass(DMX_MEMBER_NAVIGATION);
 		createEReference(dmxMemberNavigationEClass, DMX_MEMBER_NAVIGATION__MEMBER);
@@ -1411,26 +1398,39 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		createEReference(dmxMemberNavigationEClass, DMX_MEMBER_NAVIGATION__MEMBER_CALL_ARGUMENTS);
 		createEAttribute(dmxMemberNavigationEClass, DMX_MEMBER_NAVIGATION__BEFORE);
 
-		dCastExpressionEClass = createEClass(DCAST_EXPRESSION);
-		createEReference(dCastExpressionEClass, DCAST_EXPRESSION__TARGET);
-		createEReference(dCastExpressionEClass, DCAST_EXPRESSION__TYPE);
+		dmxBinaryOperationEClass = createEClass(DMX_BINARY_OPERATION);
+		createEReference(dmxBinaryOperationEClass, DMX_BINARY_OPERATION__LEFT_OPERAND);
+		createEAttribute(dmxBinaryOperationEClass, DMX_BINARY_OPERATION__OPERATOR);
+		createEReference(dmxBinaryOperationEClass, DMX_BINARY_OPERATION__RIGHT_OPERAND);
 
-		dSelfExpressionEClass = createEClass(DSELF_EXPRESSION);
+		dmxInstanceOfExpressionEClass = createEClass(DMX_INSTANCE_OF_EXPRESSION);
+		createEReference(dmxInstanceOfExpressionEClass, DMX_INSTANCE_OF_EXPRESSION__EXPRESSION);
+		createEReference(dmxInstanceOfExpressionEClass, DMX_INSTANCE_OF_EXPRESSION__TYPE);
 
-		dReturnExpressionEClass = createEClass(DRETURN_EXPRESSION);
-		createEReference(dReturnExpressionEClass, DRETURN_EXPRESSION__EXPRESSION);
+		dmxUnaryOperationEClass = createEClass(DMX_UNARY_OPERATION);
+		createEReference(dmxUnaryOperationEClass, DMX_UNARY_OPERATION__OPERAND);
+		createEAttribute(dmxUnaryOperationEClass, DMX_UNARY_OPERATION__OPERATOR);
 
-		dRaiseExpressionEClass = createEClass(DRAISE_EXPRESSION);
-		createEReference(dRaiseExpressionEClass, DRAISE_EXPRESSION__EXPRESSION);
+		dmxCastExpressionEClass = createEClass(DMX_CAST_EXPRESSION);
+		createEReference(dmxCastExpressionEClass, DMX_CAST_EXPRESSION__TARGET);
+		createEReference(dmxCastExpressionEClass, DMX_CAST_EXPRESSION__TYPE);
 
-		dFunctionCallEClass = createEClass(DFUNCTION_CALL);
-		createEReference(dFunctionCallEClass, DFUNCTION_CALL__FUNCTION);
-		createEReference(dFunctionCallEClass, DFUNCTION_CALL__FUNCTION_CALL_ARGUMENTS);
+		dmxSelfExpressionEClass = createEClass(DMX_SELF_EXPRESSION);
 
-		dConstructorCallEClass = createEClass(DCONSTRUCTOR_CALL);
-		createEReference(dConstructorCallEClass, DCONSTRUCTOR_CALL__CONSTRUCTOR);
-		createEAttribute(dConstructorCallEClass, DCONSTRUCTOR_CALL__EXPLICIT_CONSTRUCTOR_CALL);
-		createEReference(dConstructorCallEClass, DCONSTRUCTOR_CALL__ARGUMENTS);
+		dmxReturnExpressionEClass = createEClass(DMX_RETURN_EXPRESSION);
+		createEReference(dmxReturnExpressionEClass, DMX_RETURN_EXPRESSION__EXPRESSION);
+
+		dmxRaiseExpressionEClass = createEClass(DMX_RAISE_EXPRESSION);
+		createEReference(dmxRaiseExpressionEClass, DMX_RAISE_EXPRESSION__EXPRESSION);
+
+		dmxFunctionCallEClass = createEClass(DMX_FUNCTION_CALL);
+		createEReference(dmxFunctionCallEClass, DMX_FUNCTION_CALL__FUNCTION);
+		createEReference(dmxFunctionCallEClass, DMX_FUNCTION_CALL__FUNCTION_CALL_ARGUMENTS);
+
+		dmxConstructorCallEClass = createEClass(DMX_CONSTRUCTOR_CALL);
+		createEReference(dmxConstructorCallEClass, DMX_CONSTRUCTOR_CALL__CONSTRUCTOR);
+		createEAttribute(dmxConstructorCallEClass, DMX_CONSTRUCTOR_CALL__EXPLICIT_CONSTRUCTOR_CALL);
+		createEReference(dmxConstructorCallEClass, DMX_CONSTRUCTOR_CALL__ARGUMENTS);
 
 		dmxStaticReferenceEClass = createEClass(DMX_STATIC_REFERENCE);
 		createEReference(dmxStaticReferenceEClass, DMX_STATIC_REFERENCE__TARGET);
@@ -1443,37 +1443,37 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		createEAttribute(dmxContextReferenceEClass, DMX_CONTEXT_REFERENCE__ALL);
 		createEAttribute(dmxContextReferenceEClass, DMX_CONTEXT_REFERENCE__BEFORE);
 
-		dIfExpressionEClass = createEClass(DIF_EXPRESSION);
-		createEReference(dIfExpressionEClass, DIF_EXPRESSION__IF);
-		createEReference(dIfExpressionEClass, DIF_EXPRESSION__THEN);
-		createEReference(dIfExpressionEClass, DIF_EXPRESSION__ELSE);
+		dmxIfExpressionEClass = createEClass(DMX_IF_EXPRESSION);
+		createEReference(dmxIfExpressionEClass, DMX_IF_EXPRESSION__IF);
+		createEReference(dmxIfExpressionEClass, DMX_IF_EXPRESSION__THEN);
+		createEReference(dmxIfExpressionEClass, DMX_IF_EXPRESSION__ELSE);
 
-		dForLoopExpressionEClass = createEClass(DFOR_LOOP_EXPRESSION);
-		createEAttribute(dForLoopExpressionEClass, DFOR_LOOP_EXPRESSION__DECLARED_PARAM);
-		createEReference(dForLoopExpressionEClass, DFOR_LOOP_EXPRESSION__FOR_EXPRESSION);
-		createEReference(dForLoopExpressionEClass, DFOR_LOOP_EXPRESSION__EACH_EXPRESSION);
+		dmxForLoopExpressionEClass = createEClass(DMX_FOR_LOOP_EXPRESSION);
+		createEAttribute(dmxForLoopExpressionEClass, DMX_FOR_LOOP_EXPRESSION__DECLARED_PARAM);
+		createEReference(dmxForLoopExpressionEClass, DMX_FOR_LOOP_EXPRESSION__FOR_EXPRESSION);
+		createEReference(dmxForLoopExpressionEClass, DMX_FOR_LOOP_EXPRESSION__EACH_EXPRESSION);
 
-		dBooleanLiteralEClass = createEClass(DBOOLEAN_LITERAL);
-		createEAttribute(dBooleanLiteralEClass, DBOOLEAN_LITERAL__VALUE);
+		dmxBooleanLiteralEClass = createEClass(DMX_BOOLEAN_LITERAL);
+		createEAttribute(dmxBooleanLiteralEClass, DMX_BOOLEAN_LITERAL__VALUE);
 
-		dStringLiteralEClass = createEClass(DSTRING_LITERAL);
-		createEAttribute(dStringLiteralEClass, DSTRING_LITERAL__VALUE);
+		dmxStringLiteralEClass = createEClass(DMX_STRING_LITERAL);
+		createEAttribute(dmxStringLiteralEClass, DMX_STRING_LITERAL__VALUE);
 
-		dNaturalLiteralEClass = createEClass(DNATURAL_LITERAL);
-		createEAttribute(dNaturalLiteralEClass, DNATURAL_LITERAL__VALUE);
+		dmxNaturalLiteralEClass = createEClass(DMX_NATURAL_LITERAL);
+		createEAttribute(dmxNaturalLiteralEClass, DMX_NATURAL_LITERAL__VALUE);
 
-		dDecimalLiteralEClass = createEClass(DDECIMAL_LITERAL);
-		createEAttribute(dDecimalLiteralEClass, DDECIMAL_LITERAL__VALUE);
+		dmxDecimalLiteralEClass = createEClass(DMX_DECIMAL_LITERAL);
+		createEAttribute(dmxDecimalLiteralEClass, DMX_DECIMAL_LITERAL__VALUE);
 
-		dDateLiteralEClass = createEClass(DDATE_LITERAL);
-		createEAttribute(dDateLiteralEClass, DDATE_LITERAL__VALUE);
+		dmxDateLiteralEClass = createEClass(DMX_DATE_LITERAL);
+		createEAttribute(dmxDateLiteralEClass, DMX_DATE_LITERAL__VALUE);
 
-		dUndefinedLiteralEClass = createEClass(DUNDEFINED_LITERAL);
+		dmxUndefinedLiteralEClass = createEClass(DMX_UNDEFINED_LITERAL);
 
 		// Create enums
 		dmxBaseTypeEEnum = createEEnum(DMX_BASE_TYPE);
-		dBinaryOperatorEEnum = createEEnum(DBINARY_OPERATOR);
-		dUnaryOperatorEEnum = createEEnum(DUNARY_OPERATOR);
+		dmxBinaryOperatorEEnum = createEEnum(DMX_BINARY_OPERATOR);
+		dmxUnaryOperatorEEnum = createEEnum(DMX_UNARY_OPERATOR);
 	}
 
 	/**
@@ -1515,29 +1515,29 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		dmxFilterEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
 		dmxFunctionEClass.getESuperTypes().add(this.getDmxFilter());
 		dmxIteratorEClass.getESuperTypes().add(this.getDmxFilter());
-		dAssignmentEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dPredicateEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dPredicateEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
-		dBinaryOperationEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dInstanceOfExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dUnaryOperationEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxAssignmentEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxPredicateWithCorrelationVariableEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxPredicateWithCorrelationVariableEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
 		dmxMemberNavigationEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dCastExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dSelfExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dReturnExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dRaiseExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dFunctionCallEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dConstructorCallEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxBinaryOperationEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxInstanceOfExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxUnaryOperationEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxCastExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxSelfExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxReturnExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxRaiseExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxFunctionCallEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxConstructorCallEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxStaticReferenceEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxContextReferenceEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dIfExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dForLoopExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dBooleanLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dStringLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dNaturalLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dDecimalLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dDateLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dUndefinedLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxIfExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxForLoopExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxBooleanLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxStringLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxNaturalLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxDecimalLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxDateLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxUndefinedLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(dmxNamespaceEClass, DmxNamespace.class, "DmxNamespace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1567,27 +1567,14 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 
 		initEClass(dmxIteratorEClass, DmxIterator.class, "DmxIterator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(dAssignmentEClass, DAssignment.class, "DAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDAssignment_MemberContainer(), theBasePackage.getDExpression(), null, "memberContainer", null, 0, 1, DAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDAssignment_AssignToMember(), theBasePackage.getDNavigableMember(), null, "assignToMember", null, 0, 1, DAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDAssignment_Value(), theBasePackage.getDExpression(), null, "value", null, 0, 1, DAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dmxAssignmentEClass, DmxAssignment.class, "DmxAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDmxAssignment_PrecedingNavigationSegment(), theBasePackage.getDExpression(), null, "precedingNavigationSegment", null, 0, 1, DmxAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDmxAssignment_AssignToMember(), theBasePackage.getDNavigableMember(), null, "assignToMember", null, 0, 1, DmxAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDmxAssignment_Value(), theBasePackage.getDExpression(), null, "value", null, 0, 1, DmxAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dPredicateEClass, DPredicate.class, "DPredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDPredicate_Var(), theBasePackage.getDContext(), null, "var", null, 0, 1, DPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDPredicate_Value(), theBasePackage.getDExpression(), null, "value", null, 0, 1, DPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dBinaryOperationEClass, DBinaryOperation.class, "DBinaryOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDBinaryOperation_LeftOperand(), theBasePackage.getDExpression(), null, "leftOperand", null, 0, 1, DBinaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDBinaryOperation_Operator(), this.getDBinaryOperator(), "operator", null, 0, 1, DBinaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDBinaryOperation_RightOperand(), theBasePackage.getDExpression(), null, "rightOperand", null, 0, 1, DBinaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dInstanceOfExpressionEClass, DInstanceOfExpression.class, "DInstanceOfExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDInstanceOfExpression_Expression(), theBasePackage.getDExpression(), null, "expression", null, 0, 1, DInstanceOfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDInstanceOfExpression_Type(), theBasePackage.getDType(), null, "type", null, 0, 1, DInstanceOfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dUnaryOperationEClass, DUnaryOperation.class, "DUnaryOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDUnaryOperation_Operand(), theBasePackage.getDExpression(), null, "operand", null, 0, 1, DUnaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDUnaryOperation_Operator(), this.getDUnaryOperator(), "operator", null, 0, 1, DUnaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dmxPredicateWithCorrelationVariableEClass, DmxPredicateWithCorrelationVariable.class, "DmxPredicateWithCorrelationVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDmxPredicateWithCorrelationVariable_CorrelationVariable(), theBasePackage.getDContext(), null, "correlationVariable", null, 0, 1, DmxPredicateWithCorrelationVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDmxPredicateWithCorrelationVariable_Value(), theBasePackage.getDExpression(), null, "value", null, 0, 1, DmxPredicateWithCorrelationVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dmxMemberNavigationEClass, DmxMemberNavigation.class, "DmxMemberNavigation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDmxMemberNavigation_Member(), theBasePackage.getDNavigableMember(), null, "member", null, 0, 1, DmxMemberNavigation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1596,26 +1583,39 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		initEReference(getDmxMemberNavigation_MemberCallArguments(), theBasePackage.getDExpression(), null, "memberCallArguments", null, 0, -1, DmxMemberNavigation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDmxMemberNavigation_Before(), ecorePackage.getEBoolean(), "before", null, 0, 1, DmxMemberNavigation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dCastExpressionEClass, DCastExpression.class, "DCastExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDCastExpression_Target(), theBasePackage.getDExpression(), null, "target", null, 0, 1, DCastExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDCastExpression_Type(), theBasePackage.getDType(), null, "type", null, 0, 1, DCastExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dmxBinaryOperationEClass, DmxBinaryOperation.class, "DmxBinaryOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDmxBinaryOperation_LeftOperand(), theBasePackage.getDExpression(), null, "leftOperand", null, 0, 1, DmxBinaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDmxBinaryOperation_Operator(), this.getDmxBinaryOperator(), "operator", null, 0, 1, DmxBinaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDmxBinaryOperation_RightOperand(), theBasePackage.getDExpression(), null, "rightOperand", null, 0, 1, DmxBinaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dSelfExpressionEClass, DSelfExpression.class, "DSelfExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(dmxInstanceOfExpressionEClass, DmxInstanceOfExpression.class, "DmxInstanceOfExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDmxInstanceOfExpression_Expression(), theBasePackage.getDExpression(), null, "expression", null, 0, 1, DmxInstanceOfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDmxInstanceOfExpression_Type(), theBasePackage.getDType(), null, "type", null, 0, 1, DmxInstanceOfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dReturnExpressionEClass, DReturnExpression.class, "DReturnExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDReturnExpression_Expression(), theBasePackage.getDExpression(), null, "expression", null, 0, 1, DReturnExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dmxUnaryOperationEClass, DmxUnaryOperation.class, "DmxUnaryOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDmxUnaryOperation_Operand(), theBasePackage.getDExpression(), null, "operand", null, 0, 1, DmxUnaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDmxUnaryOperation_Operator(), this.getDmxUnaryOperator(), "operator", null, 0, 1, DmxUnaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dRaiseExpressionEClass, DRaiseExpression.class, "DRaiseExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDRaiseExpression_Expression(), theBasePackage.getDExpression(), null, "expression", null, 0, 1, DRaiseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dmxCastExpressionEClass, DmxCastExpression.class, "DmxCastExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDmxCastExpression_Target(), theBasePackage.getDExpression(), null, "target", null, 0, 1, DmxCastExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDmxCastExpression_Type(), theBasePackage.getDType(), null, "type", null, 0, 1, DmxCastExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dFunctionCallEClass, DFunctionCall.class, "DFunctionCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDFunctionCall_Function(), this.getDmxFunction(), null, "function", null, 0, 1, DFunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDFunctionCall_FunctionCallArguments(), theBasePackage.getDExpression(), null, "functionCallArguments", null, 0, -1, DFunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dmxSelfExpressionEClass, DmxSelfExpression.class, "DmxSelfExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(dConstructorCallEClass, DConstructorCall.class, "DConstructorCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDConstructorCall_Constructor(), theBasePackage.getDComplexType(), null, "constructor", null, 0, 1, DConstructorCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDConstructorCall_ExplicitConstructorCall(), ecorePackage.getEBoolean(), "explicitConstructorCall", null, 0, 1, DConstructorCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDConstructorCall_Arguments(), theBasePackage.getDExpression(), null, "arguments", null, 0, -1, DConstructorCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dmxReturnExpressionEClass, DmxReturnExpression.class, "DmxReturnExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDmxReturnExpression_Expression(), theBasePackage.getDExpression(), null, "expression", null, 0, 1, DmxReturnExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dmxRaiseExpressionEClass, DmxRaiseExpression.class, "DmxRaiseExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDmxRaiseExpression_Expression(), theBasePackage.getDExpression(), null, "expression", null, 0, 1, DmxRaiseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dmxFunctionCallEClass, DmxFunctionCall.class, "DmxFunctionCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDmxFunctionCall_Function(), this.getDmxFunction(), null, "function", null, 0, 1, DmxFunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDmxFunctionCall_FunctionCallArguments(), theBasePackage.getDExpression(), null, "functionCallArguments", null, 0, -1, DmxFunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dmxConstructorCallEClass, DmxConstructorCall.class, "DmxConstructorCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDmxConstructorCall_Constructor(), theBasePackage.getDComplexType(), null, "constructor", null, 0, 1, DmxConstructorCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDmxConstructorCall_ExplicitConstructorCall(), ecorePackage.getEBoolean(), "explicitConstructorCall", null, 0, 1, DmxConstructorCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDmxConstructorCall_Arguments(), theBasePackage.getDExpression(), null, "arguments", null, 0, -1, DmxConstructorCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dmxStaticReferenceEClass, DmxStaticReference.class, "DmxStaticReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDmxStaticReference_Target(), theBasePackage.getIStaticReferenceTarget(), null, "target", null, 0, 1, DmxStaticReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1628,32 +1628,32 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		initEAttribute(getDmxContextReference_All(), ecorePackage.getEBoolean(), "all", null, 0, 1, DmxContextReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDmxContextReference_Before(), ecorePackage.getEBoolean(), "before", null, 0, 1, DmxContextReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dIfExpressionEClass, DIfExpression.class, "DIfExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDIfExpression_If(), theBasePackage.getDExpression(), null, "if", null, 0, 1, DIfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDIfExpression_Then(), theBasePackage.getDExpression(), null, "then", null, 0, 1, DIfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDIfExpression_Else(), theBasePackage.getDExpression(), null, "else", null, 0, 1, DIfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dmxIfExpressionEClass, DmxIfExpression.class, "DmxIfExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDmxIfExpression_If(), theBasePackage.getDExpression(), null, "if", null, 0, 1, DmxIfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDmxIfExpression_Then(), theBasePackage.getDExpression(), null, "then", null, 0, 1, DmxIfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDmxIfExpression_Else(), theBasePackage.getDExpression(), null, "else", null, 0, 1, DmxIfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dForLoopExpressionEClass, DForLoopExpression.class, "DForLoopExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDForLoopExpression_DeclaredParam(), ecorePackage.getEString(), "declaredParam", null, 0, 1, DForLoopExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDForLoopExpression_ForExpression(), theBasePackage.getDExpression(), null, "forExpression", null, 0, 1, DForLoopExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDForLoopExpression_EachExpression(), theBasePackage.getDExpression(), null, "eachExpression", null, 0, 1, DForLoopExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dmxForLoopExpressionEClass, DmxForLoopExpression.class, "DmxForLoopExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDmxForLoopExpression_DeclaredParam(), ecorePackage.getEString(), "declaredParam", null, 0, 1, DmxForLoopExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDmxForLoopExpression_ForExpression(), theBasePackage.getDExpression(), null, "forExpression", null, 0, 1, DmxForLoopExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDmxForLoopExpression_EachExpression(), theBasePackage.getDExpression(), null, "eachExpression", null, 0, 1, DmxForLoopExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dBooleanLiteralEClass, DBooleanLiteral.class, "DBooleanLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDBooleanLiteral_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, DBooleanLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dmxBooleanLiteralEClass, DmxBooleanLiteral.class, "DmxBooleanLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDmxBooleanLiteral_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, DmxBooleanLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dStringLiteralEClass, DStringLiteral.class, "DStringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDStringLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, DStringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dmxStringLiteralEClass, DmxStringLiteral.class, "DmxStringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDmxStringLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, DmxStringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dNaturalLiteralEClass, DNaturalLiteral.class, "DNaturalLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDNaturalLiteral_Value(), ecorePackage.getEInt(), "value", null, 0, 1, DNaturalLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dmxNaturalLiteralEClass, DmxNaturalLiteral.class, "DmxNaturalLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDmxNaturalLiteral_Value(), ecorePackage.getEInt(), "value", null, 0, 1, DmxNaturalLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dDecimalLiteralEClass, DDecimalLiteral.class, "DDecimalLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDDecimalLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, DDecimalLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dmxDecimalLiteralEClass, DmxDecimalLiteral.class, "DmxDecimalLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDmxDecimalLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, DmxDecimalLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dDateLiteralEClass, DDateLiteral.class, "DDateLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDDateLiteral_Value(), ecorePackage.getEDate(), "value", null, 0, 1, DDateLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dmxDateLiteralEClass, DmxDateLiteral.class, "DmxDateLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDmxDateLiteral_Value(), ecorePackage.getEDate(), "value", null, 0, 1, DmxDateLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dUndefinedLiteralEClass, DUndefinedLiteral.class, "DUndefinedLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(dmxUndefinedLiteralEClass, DmxUndefinedLiteral.class, "DmxUndefinedLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(dmxBaseTypeEEnum, DmxBaseType.class, "DmxBaseType");
@@ -1669,30 +1669,30 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.ACTOR);
 		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.SERVICE);
 
-		initEEnum(dBinaryOperatorEEnum, DBinaryOperator.class, "DBinaryOperator");
-		addEEnumLiteral(dBinaryOperatorEEnum, DBinaryOperator.ADD);
-		addEEnumLiteral(dBinaryOperatorEEnum, DBinaryOperator.SUBTRACT);
-		addEEnumLiteral(dBinaryOperatorEEnum, DBinaryOperator.MULTIPLY);
-		addEEnumLiteral(dBinaryOperatorEEnum, DBinaryOperator.DIVIDE);
-		addEEnumLiteral(dBinaryOperatorEEnum, DBinaryOperator.POWER);
-		addEEnumLiteral(dBinaryOperatorEEnum, DBinaryOperator.MODULO);
-		addEEnumLiteral(dBinaryOperatorEEnum, DBinaryOperator.AND);
-		addEEnumLiteral(dBinaryOperatorEEnum, DBinaryOperator.OR);
-		addEEnumLiteral(dBinaryOperatorEEnum, DBinaryOperator.XOR);
-		addEEnumLiteral(dBinaryOperatorEEnum, DBinaryOperator.EQUAL);
-		addEEnumLiteral(dBinaryOperatorEEnum, DBinaryOperator.NOT_EQUAL);
-		addEEnumLiteral(dBinaryOperatorEEnum, DBinaryOperator.LESS);
-		addEEnumLiteral(dBinaryOperatorEEnum, DBinaryOperator.LESS_OR_EQUAL);
-		addEEnumLiteral(dBinaryOperatorEEnum, DBinaryOperator.GREATER_OR_EQUAL);
-		addEEnumLiteral(dBinaryOperatorEEnum, DBinaryOperator.GREATER);
-		addEEnumLiteral(dBinaryOperatorEEnum, DBinaryOperator.UNTIL);
-		addEEnumLiteral(dBinaryOperatorEEnum, DBinaryOperator.SINGLE_ARROW);
-		addEEnumLiteral(dBinaryOperatorEEnum, DBinaryOperator.DOUBLE_ARROW);
+		initEEnum(dmxBinaryOperatorEEnum, DmxBinaryOperator.class, "DmxBinaryOperator");
+		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.ADD);
+		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.SUBTRACT);
+		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.MULTIPLY);
+		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.DIVIDE);
+		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.POWER);
+		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.MODULO);
+		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.AND);
+		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.OR);
+		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.XOR);
+		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.EQUAL);
+		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.NOT_EQUAL);
+		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.LESS);
+		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.LESS_OR_EQUAL);
+		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.GREATER_OR_EQUAL);
+		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.GREATER);
+		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.UNTIL);
+		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.SINGLE_ARROW);
+		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.DOUBLE_ARROW);
 
-		initEEnum(dUnaryOperatorEEnum, DUnaryOperator.class, "DUnaryOperator");
-		addEEnumLiteral(dUnaryOperatorEEnum, DUnaryOperator.PLUS);
-		addEEnumLiteral(dUnaryOperatorEEnum, DUnaryOperator.MINUS);
-		addEEnumLiteral(dUnaryOperatorEEnum, DUnaryOperator.NOT);
+		initEEnum(dmxUnaryOperatorEEnum, DmxUnaryOperator.class, "DmxUnaryOperator");
+		addEEnumLiteral(dmxUnaryOperatorEEnum, DmxUnaryOperator.PLUS);
+		addEEnumLiteral(dmxUnaryOperatorEEnum, DmxUnaryOperator.MINUS);
+		addEEnumLiteral(dmxUnaryOperatorEEnum, DmxUnaryOperator.NOT);
 
 		// Create resource
 		createResource(eNS_URI);

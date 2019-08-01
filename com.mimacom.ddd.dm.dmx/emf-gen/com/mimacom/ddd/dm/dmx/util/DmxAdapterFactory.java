@@ -124,29 +124,14 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 				return createDmxIteratorAdapter();
 			}
 			@Override
-			public Adapter caseDAssignment(DAssignment object)
+			public Adapter caseDmxAssignment(DmxAssignment object)
 			{
-				return createDAssignmentAdapter();
+				return createDmxAssignmentAdapter();
 			}
 			@Override
-			public Adapter caseDPredicate(DPredicate object)
+			public Adapter caseDmxPredicateWithCorrelationVariable(DmxPredicateWithCorrelationVariable object)
 			{
-				return createDPredicateAdapter();
-			}
-			@Override
-			public Adapter caseDBinaryOperation(DBinaryOperation object)
-			{
-				return createDBinaryOperationAdapter();
-			}
-			@Override
-			public Adapter caseDInstanceOfExpression(DInstanceOfExpression object)
-			{
-				return createDInstanceOfExpressionAdapter();
-			}
-			@Override
-			public Adapter caseDUnaryOperation(DUnaryOperation object)
-			{
-				return createDUnaryOperationAdapter();
+				return createDmxPredicateWithCorrelationVariableAdapter();
 			}
 			@Override
 			public Adapter caseDmxMemberNavigation(DmxMemberNavigation object)
@@ -154,34 +139,49 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 				return createDmxMemberNavigationAdapter();
 			}
 			@Override
-			public Adapter caseDCastExpression(DCastExpression object)
+			public Adapter caseDmxBinaryOperation(DmxBinaryOperation object)
 			{
-				return createDCastExpressionAdapter();
+				return createDmxBinaryOperationAdapter();
 			}
 			@Override
-			public Adapter caseDSelfExpression(DSelfExpression object)
+			public Adapter caseDmxInstanceOfExpression(DmxInstanceOfExpression object)
 			{
-				return createDSelfExpressionAdapter();
+				return createDmxInstanceOfExpressionAdapter();
 			}
 			@Override
-			public Adapter caseDReturnExpression(DReturnExpression object)
+			public Adapter caseDmxUnaryOperation(DmxUnaryOperation object)
 			{
-				return createDReturnExpressionAdapter();
+				return createDmxUnaryOperationAdapter();
 			}
 			@Override
-			public Adapter caseDRaiseExpression(DRaiseExpression object)
+			public Adapter caseDmxCastExpression(DmxCastExpression object)
 			{
-				return createDRaiseExpressionAdapter();
+				return createDmxCastExpressionAdapter();
 			}
 			@Override
-			public Adapter caseDFunctionCall(DFunctionCall object)
+			public Adapter caseDmxSelfExpression(DmxSelfExpression object)
 			{
-				return createDFunctionCallAdapter();
+				return createDmxSelfExpressionAdapter();
 			}
 			@Override
-			public Adapter caseDConstructorCall(DConstructorCall object)
+			public Adapter caseDmxReturnExpression(DmxReturnExpression object)
 			{
-				return createDConstructorCallAdapter();
+				return createDmxReturnExpressionAdapter();
+			}
+			@Override
+			public Adapter caseDmxRaiseExpression(DmxRaiseExpression object)
+			{
+				return createDmxRaiseExpressionAdapter();
+			}
+			@Override
+			public Adapter caseDmxFunctionCall(DmxFunctionCall object)
+			{
+				return createDmxFunctionCallAdapter();
+			}
+			@Override
+			public Adapter caseDmxConstructorCall(DmxConstructorCall object)
+			{
+				return createDmxConstructorCallAdapter();
 			}
 			@Override
 			public Adapter caseDmxStaticReference(DmxStaticReference object)
@@ -194,44 +194,44 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 				return createDmxContextReferenceAdapter();
 			}
 			@Override
-			public Adapter caseDIfExpression(DIfExpression object)
+			public Adapter caseDmxIfExpression(DmxIfExpression object)
 			{
-				return createDIfExpressionAdapter();
+				return createDmxIfExpressionAdapter();
 			}
 			@Override
-			public Adapter caseDForLoopExpression(DForLoopExpression object)
+			public Adapter caseDmxForLoopExpression(DmxForLoopExpression object)
 			{
-				return createDForLoopExpressionAdapter();
+				return createDmxForLoopExpressionAdapter();
 			}
 			@Override
-			public Adapter caseDBooleanLiteral(DBooleanLiteral object)
+			public Adapter caseDmxBooleanLiteral(DmxBooleanLiteral object)
 			{
-				return createDBooleanLiteralAdapter();
+				return createDmxBooleanLiteralAdapter();
 			}
 			@Override
-			public Adapter caseDStringLiteral(DStringLiteral object)
+			public Adapter caseDmxStringLiteral(DmxStringLiteral object)
 			{
-				return createDStringLiteralAdapter();
+				return createDmxStringLiteralAdapter();
 			}
 			@Override
-			public Adapter caseDNaturalLiteral(DNaturalLiteral object)
+			public Adapter caseDmxNaturalLiteral(DmxNaturalLiteral object)
 			{
-				return createDNaturalLiteralAdapter();
+				return createDmxNaturalLiteralAdapter();
 			}
 			@Override
-			public Adapter caseDDecimalLiteral(DDecimalLiteral object)
+			public Adapter caseDmxDecimalLiteral(DmxDecimalLiteral object)
 			{
-				return createDDecimalLiteralAdapter();
+				return createDmxDecimalLiteralAdapter();
 			}
 			@Override
-			public Adapter caseDDateLiteral(DDateLiteral object)
+			public Adapter caseDmxDateLiteral(DmxDateLiteral object)
 			{
-				return createDDateLiteralAdapter();
+				return createDmxDateLiteralAdapter();
 			}
 			@Override
-			public Adapter caseDUndefinedLiteral(DUndefinedLiteral object)
+			public Adapter caseDmxUndefinedLiteral(DmxUndefinedLiteral object)
 			{
-				return createDUndefinedLiteralAdapter();
+				return createDmxUndefinedLiteralAdapter();
 			}
 			@Override
 			public Adapter caseDNamedElement(DNamedElement object)
@@ -426,76 +426,31 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DAssignment <em>DAssignment</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxAssignment <em>Assignment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DAssignment
+	 * @see com.mimacom.ddd.dm.dmx.DmxAssignment
 	 * @generated
 	 */
-	public Adapter createDAssignmentAdapter()
+	public Adapter createDmxAssignmentAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DPredicate <em>DPredicate</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable <em>Predicate With Correlation Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DPredicate
+	 * @see com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable
 	 * @generated
 	 */
-	public Adapter createDPredicateAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DBinaryOperation <em>DBinary Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DBinaryOperation
-	 * @generated
-	 */
-	public Adapter createDBinaryOperationAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DInstanceOfExpression <em>DInstance Of Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DInstanceOfExpression
-	 * @generated
-	 */
-	public Adapter createDInstanceOfExpressionAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DUnaryOperation <em>DUnary Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DUnaryOperation
-	 * @generated
-	 */
-	public Adapter createDUnaryOperationAdapter()
+	public Adapter createDmxPredicateWithCorrelationVariableAdapter()
 	{
 		return null;
 	}
@@ -516,91 +471,136 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DCastExpression <em>DCast Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxBinaryOperation <em>Binary Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DCastExpression
+	 * @see com.mimacom.ddd.dm.dmx.DmxBinaryOperation
 	 * @generated
 	 */
-	public Adapter createDCastExpressionAdapter()
+	public Adapter createDmxBinaryOperationAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DSelfExpression <em>DSelf Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxInstanceOfExpression <em>Instance Of Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DSelfExpression
+	 * @see com.mimacom.ddd.dm.dmx.DmxInstanceOfExpression
 	 * @generated
 	 */
-	public Adapter createDSelfExpressionAdapter()
+	public Adapter createDmxInstanceOfExpressionAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DReturnExpression <em>DReturn Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxUnaryOperation <em>Unary Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DReturnExpression
+	 * @see com.mimacom.ddd.dm.dmx.DmxUnaryOperation
 	 * @generated
 	 */
-	public Adapter createDReturnExpressionAdapter()
+	public Adapter createDmxUnaryOperationAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DRaiseExpression <em>DRaise Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxCastExpression <em>Cast Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DRaiseExpression
+	 * @see com.mimacom.ddd.dm.dmx.DmxCastExpression
 	 * @generated
 	 */
-	public Adapter createDRaiseExpressionAdapter()
+	public Adapter createDmxCastExpressionAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DFunctionCall <em>DFunction Call</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxSelfExpression <em>Self Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DFunctionCall
+	 * @see com.mimacom.ddd.dm.dmx.DmxSelfExpression
 	 * @generated
 	 */
-	public Adapter createDFunctionCallAdapter()
+	public Adapter createDmxSelfExpressionAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DConstructorCall <em>DConstructor Call</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxReturnExpression <em>Return Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DConstructorCall
+	 * @see com.mimacom.ddd.dm.dmx.DmxReturnExpression
 	 * @generated
 	 */
-	public Adapter createDConstructorCallAdapter()
+	public Adapter createDmxReturnExpressionAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxRaiseExpression <em>Raise Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dmx.DmxRaiseExpression
+	 * @generated
+	 */
+	public Adapter createDmxRaiseExpressionAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxFunctionCall <em>Function Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dmx.DmxFunctionCall
+	 * @generated
+	 */
+	public Adapter createDmxFunctionCallAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxConstructorCall <em>Constructor Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dmx.DmxConstructorCall
+	 * @generated
+	 */
+	public Adapter createDmxConstructorCallAdapter()
 	{
 		return null;
 	}
@@ -636,121 +636,121 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DIfExpression <em>DIf Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxIfExpression <em>If Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DIfExpression
+	 * @see com.mimacom.ddd.dm.dmx.DmxIfExpression
 	 * @generated
 	 */
-	public Adapter createDIfExpressionAdapter()
+	public Adapter createDmxIfExpressionAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DForLoopExpression <em>DFor Loop Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxForLoopExpression <em>For Loop Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DForLoopExpression
+	 * @see com.mimacom.ddd.dm.dmx.DmxForLoopExpression
 	 * @generated
 	 */
-	public Adapter createDForLoopExpressionAdapter()
+	public Adapter createDmxForLoopExpressionAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DBooleanLiteral <em>DBoolean Literal</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxBooleanLiteral <em>Boolean Literal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DBooleanLiteral
+	 * @see com.mimacom.ddd.dm.dmx.DmxBooleanLiteral
 	 * @generated
 	 */
-	public Adapter createDBooleanLiteralAdapter()
+	public Adapter createDmxBooleanLiteralAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DStringLiteral <em>DString Literal</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxStringLiteral <em>String Literal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DStringLiteral
+	 * @see com.mimacom.ddd.dm.dmx.DmxStringLiteral
 	 * @generated
 	 */
-	public Adapter createDStringLiteralAdapter()
+	public Adapter createDmxStringLiteralAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DNaturalLiteral <em>DNatural Literal</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxNaturalLiteral <em>Natural Literal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DNaturalLiteral
+	 * @see com.mimacom.ddd.dm.dmx.DmxNaturalLiteral
 	 * @generated
 	 */
-	public Adapter createDNaturalLiteralAdapter()
+	public Adapter createDmxNaturalLiteralAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DDecimalLiteral <em>DDecimal Literal</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxDecimalLiteral <em>Decimal Literal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DDecimalLiteral
+	 * @see com.mimacom.ddd.dm.dmx.DmxDecimalLiteral
 	 * @generated
 	 */
-	public Adapter createDDecimalLiteralAdapter()
+	public Adapter createDmxDecimalLiteralAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DDateLiteral <em>DDate Literal</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxDateLiteral <em>Date Literal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DDateLiteral
+	 * @see com.mimacom.ddd.dm.dmx.DmxDateLiteral
 	 * @generated
 	 */
-	public Adapter createDDateLiteralAdapter()
+	public Adapter createDmxDateLiteralAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DUndefinedLiteral <em>DUndefined Literal</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral <em>Undefined Literal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DUndefinedLiteral
+	 * @see com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral
 	 * @generated
 	 */
-	public Adapter createDUndefinedLiteralAdapter()
+	public Adapter createDmxUndefinedLiteralAdapter()
 	{
 		return null;
 	}

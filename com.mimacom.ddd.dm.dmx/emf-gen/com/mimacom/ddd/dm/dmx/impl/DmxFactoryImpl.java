@@ -71,28 +71,28 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 			case DmxPackage.DMX_FUNCTION: return createDmxFunction();
 			case DmxPackage.DMX_FUNCTION_PARAMETER: return createDmxFunctionParameter();
 			case DmxPackage.DMX_ITERATOR: return createDmxIterator();
-			case DmxPackage.DASSIGNMENT: return createDAssignment();
-			case DmxPackage.DPREDICATE: return createDPredicate();
-			case DmxPackage.DBINARY_OPERATION: return createDBinaryOperation();
-			case DmxPackage.DINSTANCE_OF_EXPRESSION: return createDInstanceOfExpression();
-			case DmxPackage.DUNARY_OPERATION: return createDUnaryOperation();
+			case DmxPackage.DMX_ASSIGNMENT: return createDmxAssignment();
+			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE: return createDmxPredicateWithCorrelationVariable();
 			case DmxPackage.DMX_MEMBER_NAVIGATION: return createDmxMemberNavigation();
-			case DmxPackage.DCAST_EXPRESSION: return createDCastExpression();
-			case DmxPackage.DSELF_EXPRESSION: return createDSelfExpression();
-			case DmxPackage.DRETURN_EXPRESSION: return createDReturnExpression();
-			case DmxPackage.DRAISE_EXPRESSION: return createDRaiseExpression();
-			case DmxPackage.DFUNCTION_CALL: return createDFunctionCall();
-			case DmxPackage.DCONSTRUCTOR_CALL: return createDConstructorCall();
+			case DmxPackage.DMX_BINARY_OPERATION: return createDmxBinaryOperation();
+			case DmxPackage.DMX_INSTANCE_OF_EXPRESSION: return createDmxInstanceOfExpression();
+			case DmxPackage.DMX_UNARY_OPERATION: return createDmxUnaryOperation();
+			case DmxPackage.DMX_CAST_EXPRESSION: return createDmxCastExpression();
+			case DmxPackage.DMX_SELF_EXPRESSION: return createDmxSelfExpression();
+			case DmxPackage.DMX_RETURN_EXPRESSION: return createDmxReturnExpression();
+			case DmxPackage.DMX_RAISE_EXPRESSION: return createDmxRaiseExpression();
+			case DmxPackage.DMX_FUNCTION_CALL: return createDmxFunctionCall();
+			case DmxPackage.DMX_CONSTRUCTOR_CALL: return createDmxConstructorCall();
 			case DmxPackage.DMX_STATIC_REFERENCE: return createDmxStaticReference();
 			case DmxPackage.DMX_CONTEXT_REFERENCE: return createDmxContextReference();
-			case DmxPackage.DIF_EXPRESSION: return createDIfExpression();
-			case DmxPackage.DFOR_LOOP_EXPRESSION: return createDForLoopExpression();
-			case DmxPackage.DBOOLEAN_LITERAL: return createDBooleanLiteral();
-			case DmxPackage.DSTRING_LITERAL: return createDStringLiteral();
-			case DmxPackage.DNATURAL_LITERAL: return createDNaturalLiteral();
-			case DmxPackage.DDECIMAL_LITERAL: return createDDecimalLiteral();
-			case DmxPackage.DDATE_LITERAL: return createDDateLiteral();
-			case DmxPackage.DUNDEFINED_LITERAL: return createDUndefinedLiteral();
+			case DmxPackage.DMX_IF_EXPRESSION: return createDmxIfExpression();
+			case DmxPackage.DMX_FOR_LOOP_EXPRESSION: return createDmxForLoopExpression();
+			case DmxPackage.DMX_BOOLEAN_LITERAL: return createDmxBooleanLiteral();
+			case DmxPackage.DMX_STRING_LITERAL: return createDmxStringLiteral();
+			case DmxPackage.DMX_NATURAL_LITERAL: return createDmxNaturalLiteral();
+			case DmxPackage.DMX_DECIMAL_LITERAL: return createDmxDecimalLiteral();
+			case DmxPackage.DMX_DATE_LITERAL: return createDmxDateLiteral();
+			case DmxPackage.DMX_UNDEFINED_LITERAL: return createDmxUndefinedLiteral();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -110,10 +110,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 		{
 			case DmxPackage.DMX_BASE_TYPE:
 				return createDmxBaseTypeFromString(eDataType, initialValue);
-			case DmxPackage.DBINARY_OPERATOR:
-				return createDBinaryOperatorFromString(eDataType, initialValue);
-			case DmxPackage.DUNARY_OPERATOR:
-				return createDUnaryOperatorFromString(eDataType, initialValue);
+			case DmxPackage.DMX_BINARY_OPERATOR:
+				return createDmxBinaryOperatorFromString(eDataType, initialValue);
+			case DmxPackage.DMX_UNARY_OPERATOR:
+				return createDmxUnaryOperatorFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -131,10 +131,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 		{
 			case DmxPackage.DMX_BASE_TYPE:
 				return convertDmxBaseTypeToString(eDataType, instanceValue);
-			case DmxPackage.DBINARY_OPERATOR:
-				return convertDBinaryOperatorToString(eDataType, instanceValue);
-			case DmxPackage.DUNARY_OPERATOR:
-				return convertDUnaryOperatorToString(eDataType, instanceValue);
+			case DmxPackage.DMX_BINARY_OPERATOR:
+				return convertDmxBinaryOperatorToString(eDataType, instanceValue);
+			case DmxPackage.DMX_UNARY_OPERATOR:
+				return convertDmxUnaryOperatorToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -218,10 +218,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DAssignment createDAssignment()
+	public DmxAssignment createDmxAssignment()
 	{
-		DAssignmentImpl dAssignment = new DAssignmentImpl();
-		return dAssignment;
+		DmxAssignmentImpl dmxAssignment = new DmxAssignmentImpl();
+		return dmxAssignment;
 	}
 
 	/**
@@ -230,46 +230,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DPredicate createDPredicate()
+	public DmxPredicateWithCorrelationVariable createDmxPredicateWithCorrelationVariable()
 	{
-		DPredicateImpl dPredicate = new DPredicateImpl();
-		return dPredicate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DBinaryOperation createDBinaryOperation()
-	{
-		DBinaryOperationImpl dBinaryOperation = new DBinaryOperationImpl();
-		return dBinaryOperation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DInstanceOfExpression createDInstanceOfExpression()
-	{
-		DInstanceOfExpressionImpl dInstanceOfExpression = new DInstanceOfExpressionImpl();
-		return dInstanceOfExpression;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DUnaryOperation createDUnaryOperation()
-	{
-		DUnaryOperationImpl dUnaryOperation = new DUnaryOperationImpl();
-		return dUnaryOperation;
+		DmxPredicateWithCorrelationVariableImpl dmxPredicateWithCorrelationVariable = new DmxPredicateWithCorrelationVariableImpl();
+		return dmxPredicateWithCorrelationVariable;
 	}
 
 	/**
@@ -290,10 +254,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DCastExpression createDCastExpression()
+	public DmxBinaryOperation createDmxBinaryOperation()
 	{
-		DCastExpressionImpl dCastExpression = new DCastExpressionImpl();
-		return dCastExpression;
+		DmxBinaryOperationImpl dmxBinaryOperation = new DmxBinaryOperationImpl();
+		return dmxBinaryOperation;
 	}
 
 	/**
@@ -302,10 +266,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DSelfExpression createDSelfExpression()
+	public DmxInstanceOfExpression createDmxInstanceOfExpression()
 	{
-		DSelfExpressionImpl dSelfExpression = new DSelfExpressionImpl();
-		return dSelfExpression;
+		DmxInstanceOfExpressionImpl dmxInstanceOfExpression = new DmxInstanceOfExpressionImpl();
+		return dmxInstanceOfExpression;
 	}
 
 	/**
@@ -314,10 +278,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DReturnExpression createDReturnExpression()
+	public DmxUnaryOperation createDmxUnaryOperation()
 	{
-		DReturnExpressionImpl dReturnExpression = new DReturnExpressionImpl();
-		return dReturnExpression;
+		DmxUnaryOperationImpl dmxUnaryOperation = new DmxUnaryOperationImpl();
+		return dmxUnaryOperation;
 	}
 
 	/**
@@ -326,10 +290,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DRaiseExpression createDRaiseExpression()
+	public DmxCastExpression createDmxCastExpression()
 	{
-		DRaiseExpressionImpl dRaiseExpression = new DRaiseExpressionImpl();
-		return dRaiseExpression;
+		DmxCastExpressionImpl dmxCastExpression = new DmxCastExpressionImpl();
+		return dmxCastExpression;
 	}
 
 	/**
@@ -338,10 +302,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DFunctionCall createDFunctionCall()
+	public DmxSelfExpression createDmxSelfExpression()
 	{
-		DFunctionCallImpl dFunctionCall = new DFunctionCallImpl();
-		return dFunctionCall;
+		DmxSelfExpressionImpl dmxSelfExpression = new DmxSelfExpressionImpl();
+		return dmxSelfExpression;
 	}
 
 	/**
@@ -350,10 +314,46 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DConstructorCall createDConstructorCall()
+	public DmxReturnExpression createDmxReturnExpression()
 	{
-		DConstructorCallImpl dConstructorCall = new DConstructorCallImpl();
-		return dConstructorCall;
+		DmxReturnExpressionImpl dmxReturnExpression = new DmxReturnExpressionImpl();
+		return dmxReturnExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DmxRaiseExpression createDmxRaiseExpression()
+	{
+		DmxRaiseExpressionImpl dmxRaiseExpression = new DmxRaiseExpressionImpl();
+		return dmxRaiseExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DmxFunctionCall createDmxFunctionCall()
+	{
+		DmxFunctionCallImpl dmxFunctionCall = new DmxFunctionCallImpl();
+		return dmxFunctionCall;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DmxConstructorCall createDmxConstructorCall()
+	{
+		DmxConstructorCallImpl dmxConstructorCall = new DmxConstructorCallImpl();
+		return dmxConstructorCall;
 	}
 
 	/**
@@ -386,10 +386,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DIfExpression createDIfExpression()
+	public DmxIfExpression createDmxIfExpression()
 	{
-		DIfExpressionImpl dIfExpression = new DIfExpressionImpl();
-		return dIfExpression;
+		DmxIfExpressionImpl dmxIfExpression = new DmxIfExpressionImpl();
+		return dmxIfExpression;
 	}
 
 	/**
@@ -398,10 +398,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DForLoopExpression createDForLoopExpression()
+	public DmxForLoopExpression createDmxForLoopExpression()
 	{
-		DForLoopExpressionImpl dForLoopExpression = new DForLoopExpressionImpl();
-		return dForLoopExpression;
+		DmxForLoopExpressionImpl dmxForLoopExpression = new DmxForLoopExpressionImpl();
+		return dmxForLoopExpression;
 	}
 
 	/**
@@ -410,10 +410,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DBooleanLiteral createDBooleanLiteral()
+	public DmxBooleanLiteral createDmxBooleanLiteral()
 	{
-		DBooleanLiteralImpl dBooleanLiteral = new DBooleanLiteralImpl();
-		return dBooleanLiteral;
+		DmxBooleanLiteralImpl dmxBooleanLiteral = new DmxBooleanLiteralImpl();
+		return dmxBooleanLiteral;
 	}
 
 	/**
@@ -422,10 +422,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DStringLiteral createDStringLiteral()
+	public DmxStringLiteral createDmxStringLiteral()
 	{
-		DStringLiteralImpl dStringLiteral = new DStringLiteralImpl();
-		return dStringLiteral;
+		DmxStringLiteralImpl dmxStringLiteral = new DmxStringLiteralImpl();
+		return dmxStringLiteral;
 	}
 
 	/**
@@ -434,10 +434,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DNaturalLiteral createDNaturalLiteral()
+	public DmxNaturalLiteral createDmxNaturalLiteral()
 	{
-		DNaturalLiteralImpl dNaturalLiteral = new DNaturalLiteralImpl();
-		return dNaturalLiteral;
+		DmxNaturalLiteralImpl dmxNaturalLiteral = new DmxNaturalLiteralImpl();
+		return dmxNaturalLiteral;
 	}
 
 	/**
@@ -446,10 +446,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DDecimalLiteral createDDecimalLiteral()
+	public DmxDecimalLiteral createDmxDecimalLiteral()
 	{
-		DDecimalLiteralImpl dDecimalLiteral = new DDecimalLiteralImpl();
-		return dDecimalLiteral;
+		DmxDecimalLiteralImpl dmxDecimalLiteral = new DmxDecimalLiteralImpl();
+		return dmxDecimalLiteral;
 	}
 
 	/**
@@ -458,10 +458,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DDateLiteral createDDateLiteral()
+	public DmxDateLiteral createDmxDateLiteral()
 	{
-		DDateLiteralImpl dDateLiteral = new DDateLiteralImpl();
-		return dDateLiteral;
+		DmxDateLiteralImpl dmxDateLiteral = new DmxDateLiteralImpl();
+		return dmxDateLiteral;
 	}
 
 	/**
@@ -470,10 +470,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DUndefinedLiteral createDUndefinedLiteral()
+	public DmxUndefinedLiteral createDmxUndefinedLiteral()
 	{
-		DUndefinedLiteralImpl dUndefinedLiteral = new DUndefinedLiteralImpl();
-		return dUndefinedLiteral;
+		DmxUndefinedLiteralImpl dmxUndefinedLiteral = new DmxUndefinedLiteralImpl();
+		return dmxUndefinedLiteral;
 	}
 
 	/**
@@ -503,9 +503,9 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DBinaryOperator createDBinaryOperatorFromString(EDataType eDataType, String initialValue)
+	public DmxBinaryOperator createDmxBinaryOperatorFromString(EDataType eDataType, String initialValue)
 	{
-		DBinaryOperator result = DBinaryOperator.get(initialValue);
+		DmxBinaryOperator result = DmxBinaryOperator.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -515,7 +515,7 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertDBinaryOperatorToString(EDataType eDataType, Object instanceValue)
+	public String convertDmxBinaryOperatorToString(EDataType eDataType, Object instanceValue)
 	{
 		return instanceValue == null ? null : instanceValue.toString();
 	}
@@ -525,9 +525,9 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DUnaryOperator createDUnaryOperatorFromString(EDataType eDataType, String initialValue)
+	public DmxUnaryOperator createDmxUnaryOperatorFromString(EDataType eDataType, String initialValue)
 	{
-		DUnaryOperator result = DUnaryOperator.get(initialValue);
+		DmxUnaryOperator result = DmxUnaryOperator.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -537,7 +537,7 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertDUnaryOperatorToString(EDataType eDataType, Object instanceValue)
+	public String convertDmxUnaryOperatorToString(EDataType eDataType, Object instanceValue)
 	{
 		return instanceValue == null ? null : instanceValue.toString();
 	}

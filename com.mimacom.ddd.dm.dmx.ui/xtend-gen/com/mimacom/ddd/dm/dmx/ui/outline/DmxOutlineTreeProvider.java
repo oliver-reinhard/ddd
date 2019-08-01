@@ -8,12 +8,12 @@ import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.dmx.DAssignment;
-import com.mimacom.ddd.dm.dmx.DPredicate;
+import com.mimacom.ddd.dm.dmx.DmxAssignment;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxIterator;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
+import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -94,19 +94,19 @@ public class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
     return _xblockexpression;
   }
   
-  public EStructuralFeatureNode _createChildren(final IOutlineNode parentNode, final DPredicate pred) {
+  public EStructuralFeatureNode _createChildren(final IOutlineNode parentNode, final DmxPredicateWithCorrelationVariable pred) {
     EStructuralFeatureNode _xblockexpression = null;
     {
-      DContext _var = pred.getVar();
-      boolean _tripleNotEquals = (_var != null);
+      DContext _correlationVariable = pred.getCorrelationVariable();
+      boolean _tripleNotEquals = (_correlationVariable != null);
       if (_tripleNotEquals) {
-        this.createEStructuralFeatureNode(parentNode, pred, DmxOutlineTreeProvider.DMX.getDPredicate_Var(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDPredicate_Var().getName(), false);
+        this.createEStructuralFeatureNode(parentNode, pred, DmxOutlineTreeProvider.DMX.getDmxPredicateWithCorrelationVariable_CorrelationVariable(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDmxPredicateWithCorrelationVariable_CorrelationVariable().getName(), false);
       }
       EStructuralFeatureNode _xifexpression = null;
       DExpression _value = pred.getValue();
       boolean _tripleNotEquals_1 = (_value != null);
       if (_tripleNotEquals_1) {
-        _xifexpression = this.createEStructuralFeatureNode(parentNode, pred, DmxOutlineTreeProvider.DMX.getDPredicate_Value(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDPredicate_Value().getName(), false);
+        _xifexpression = this.createEStructuralFeatureNode(parentNode, pred, DmxOutlineTreeProvider.DMX.getDmxPredicateWithCorrelationVariable_Value(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDmxPredicateWithCorrelationVariable_Value().getName(), false);
       }
       _xblockexpression = _xifexpression;
     }
@@ -135,20 +135,20 @@ public class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
     return _xblockexpression;
   }
   
-  public EStructuralFeatureNode _createChildren(final IOutlineNode parentNode, final DAssignment assign) {
+  public EStructuralFeatureNode _createChildren(final IOutlineNode parentNode, final DmxAssignment assign) {
     EStructuralFeatureNode _xblockexpression = null;
     {
-      DExpression _memberContainer = assign.getMemberContainer();
-      boolean _tripleNotEquals = (_memberContainer != null);
+      DExpression _precedingNavigationSegment = assign.getPrecedingNavigationSegment();
+      boolean _tripleNotEquals = (_precedingNavigationSegment != null);
       if (_tripleNotEquals) {
-        this.createEStructuralFeatureNode(parentNode, assign, DmxOutlineTreeProvider.DMX.getDAssignment_MemberContainer(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDAssignment_MemberContainer().getName(), false);
+        this.createEStructuralFeatureNode(parentNode, assign, DmxOutlineTreeProvider.DMX.getDmxAssignment_PrecedingNavigationSegment(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDmxAssignment_PrecedingNavigationSegment().getName(), false);
       }
       if (((assign.getAssignToMember() != null) && (!assign.getAssignToMember().eIsProxy()))) {
-        this.createEStructuralFeatureNode(parentNode, assign, DmxOutlineTreeProvider.DMX.getDAssignment_AssignToMember(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDAssignment_AssignToMember().getName(), false);
+        this.createEStructuralFeatureNode(parentNode, assign, DmxOutlineTreeProvider.DMX.getDmxAssignment_AssignToMember(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDmxAssignment_AssignToMember().getName(), false);
       }
       EStructuralFeatureNode _xifexpression = null;
       if (((assign.getValue() != null) && (!assign.getAssignToMember().eIsProxy()))) {
-        _xifexpression = this.createEStructuralFeatureNode(parentNode, assign, DmxOutlineTreeProvider.DMX.getDAssignment_Value(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDAssignment_Value().getName(), false);
+        _xifexpression = this.createEStructuralFeatureNode(parentNode, assign, DmxOutlineTreeProvider.DMX.getDmxAssignment_Value(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDmxAssignment_Value().getName(), false);
       }
       _xblockexpression = _xifexpression;
     }
