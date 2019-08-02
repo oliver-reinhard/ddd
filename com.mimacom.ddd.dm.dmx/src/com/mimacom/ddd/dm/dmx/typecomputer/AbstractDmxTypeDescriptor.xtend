@@ -15,7 +15,7 @@ abstract class AbstractDmxTypeDescriptor<T extends DType> {
 
 	protected val DmxBaseType baseType
 	protected val T type
-	protected val boolean collection
+	protected var boolean collection
 
 	new(DmxBaseType baseType, T type, Boolean collection) {
 		this.baseType = baseType
@@ -33,6 +33,13 @@ abstract class AbstractDmxTypeDescriptor<T extends DType> {
 
 	def boolean isCollection() {
 		collection
+	}
+   
+   /**
+    * Used to adjust value for special cases.
+    */
+	def boolean setCollection(boolean value) {
+		collection = value
 	}
 
 	def boolean canAssignTo(AbstractDmxTypeDescriptor<?> other) {

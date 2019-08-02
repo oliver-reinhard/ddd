@@ -17,7 +17,7 @@ public abstract class AbstractDmxTypeDescriptor<T extends DType> {
   
   protected final T type;
   
-  protected final boolean collection;
+  protected boolean collection;
   
   public AbstractDmxTypeDescriptor(final DmxBaseType baseType, final T type, final Boolean collection) {
     this.baseType = baseType;
@@ -35,6 +35,13 @@ public abstract class AbstractDmxTypeDescriptor<T extends DType> {
   
   public boolean isCollection() {
     return this.collection;
+  }
+  
+  /**
+   * Used to adjust value for special cases.
+   */
+  public boolean setCollection(final boolean value) {
+    return this.collection = value;
   }
   
   public boolean canAssignTo(final AbstractDmxTypeDescriptor<?> other) {

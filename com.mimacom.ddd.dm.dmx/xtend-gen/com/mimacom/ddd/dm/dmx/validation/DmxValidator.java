@@ -33,12 +33,19 @@ public class DmxValidator extends AbstractDmxValidator {
   private static final DmxPackage DMX = DmxPackage.eINSTANCE;
   
   @Check
+  public void checkFeatureNavigationOfCollection(final DmxContextReference ref) {
+    if ((ref.isAll() && (!(ref.getTarget() instanceof DComplexType)))) {
+      this.error("\'all\' qualifier is only supported after a static type reference.", ref, DmxValidator.DMX.getDmxContextReference_All());
+    }
+  }
+  
+  @Check
   public void checkNavigationOfStaticTypeReference(final DmxMemberNavigation nav) {
     DNavigableMember _member = nav.getMember();
     if ((_member instanceof DFeature)) {
       final DExpression preceding = nav.getPrecedingNavigationSegment();
       if (((preceding instanceof DmxContextReference) && (((DmxContextReference) preceding).getTarget() instanceof DComplexType))) {
-        this.error("Cannot navigate a feature from a static type reference. Use [[Type#feature]] syntax inside a RichString. ", nav, DmxValidator.DMX.getDmxMemberNavigation_Member());
+        this.error("Cannot navigate a feature from a static type reference. Use [[Type#feature]] syntax inside a RichString.", nav, DmxValidator.DMX.getDmxMemberNavigation_Member());
       }
     }
   }

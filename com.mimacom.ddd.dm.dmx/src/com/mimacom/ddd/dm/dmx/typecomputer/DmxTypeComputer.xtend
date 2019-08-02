@@ -21,6 +21,7 @@ import com.mimacom.ddd.dm.dmx.DmxFunctionCall
 import com.mimacom.ddd.dm.dmx.DmxIterator
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral
+import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable
 import com.mimacom.ddd.dm.dmx.DmxSelfExpression
 import com.mimacom.ddd.dm.dmx.DmxStringLiteral
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral
@@ -67,13 +68,22 @@ class DmxTypeComputer {
 				// => find precedingNavigationSegment of "calling" DmxMemberNavigation that contains memberCallArguments
 				var EObject prev = target
 				var container = prev.eContainer
+				var isCorrelationVariable = target.isCorrelationVariable(container)
 				while (! (container === null || container instanceof DmxMemberNavigation && (container as DmxMemberNavigation).memberCallArguments.contains(prev)))  {
 					prev = container
 					container = prev.eContainer
+					isCorrelationVariable = isCorrelationVariable || target.isCorrelationVariable(container)
 				}
 				if (container instanceof DmxMemberNavigation) {
-					return container.precedingNavigationSegment.typeFor
+					val desc = container.precedingNavigationSegment.typeFor
+					if (isCorrelationVariable) {
+						// the type derived vor correlation Varibles inside a DmxPredicateWithCorrelationVariable block is usually the type of the collection on which the
+						// enclosing iterator is applied => is a collection type, but correlation variable is a single object
+						desc.collection = false
+					}
+					return desc
 				}
+				return UNDEFINED
 			}
 			
 		} else if (target instanceof DNotification) {
@@ -88,7 +98,10 @@ class DmxTypeComputer {
 		} else  {
 			return createDescriptor(target, expr.all)
 		}
-		return UNDEFINED
+	}
+	
+	private def boolean isCorrelationVariable(DContext target, EObject container) {
+		(container instanceof DmxPredicateWithCorrelationVariable) && (container as DmxPredicateWithCorrelationVariable).correlationVariable == target
 	}
 	
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxSelfExpression expr) {

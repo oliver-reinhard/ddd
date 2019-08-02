@@ -26,11 +26,18 @@ class DmxValidator extends AbstractDmxValidator {
 	static val DMX = DmxPackage.eINSTANCE
 	
 	@Check
+	def checkUseOfAllQualifier(DmxContextReference ref) {
+		if (ref.all && !(ref.target instanceof DComplexType)) {
+			error("'all' qualifier is only supported after a static type reference.", ref, DMX.dmxContextReference_All)
+		}
+	}
+	
+	@Check
 	def checkNavigationOfStaticTypeReference(DmxMemberNavigation nav) {
 		if(nav.member instanceof DFeature) {
 			val preceding = nav.precedingNavigationSegment
 			if (preceding instanceof DmxContextReference && (preceding as DmxContextReference).target instanceof DComplexType) {
-				error("Cannot navigate a feature from a static type reference. Use [[Type#feature]] syntax inside a RichString. ", nav, DMX.dmxMemberNavigation_Member)
+				error("Cannot navigate a feature from a static type reference. Use [[Type#feature]] syntax inside a RichString.", nav, DMX.dmxMemberNavigation_Member)
 			}
 		}
 	}

@@ -24,6 +24,7 @@ import com.mimacom.ddd.dm.dmx.DmxFunctionCall;
 import com.mimacom.ddd.dm.dmx.DmxIterator;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
+import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxSelfExpression;
 import com.mimacom.ddd.dm.dmx.DmxStringLiteral;
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
@@ -86,15 +87,22 @@ public class DmxTypeComputer {
       } else {
         EObject prev = target;
         EObject container = prev.eContainer();
+        boolean isCorrelationVariable = this.isCorrelationVariable(((DContext)target), container);
         while ((!((container == null) || ((container instanceof DmxMemberNavigation) && ((DmxMemberNavigation) container).getMemberCallArguments().contains(prev))))) {
           {
             prev = container;
             container = prev.eContainer();
+            isCorrelationVariable = (isCorrelationVariable || this.isCorrelationVariable(((DContext)target), container));
           }
         }
         if ((container instanceof DmxMemberNavigation)) {
-          return this.typeFor(((DmxMemberNavigation)container).getPrecedingNavigationSegment());
+          final AbstractDmxTypeDescriptor<?> desc = this.typeFor(((DmxMemberNavigation)container).getPrecedingNavigationSegment());
+          if (isCorrelationVariable) {
+            desc.collection = false;
+          }
+          return desc;
         }
+        return DmxTypeComputer.UNDEFINED;
       }
     } else {
       if ((target instanceof DNotification)) {
@@ -111,7 +119,10 @@ public class DmxTypeComputer {
         }
       }
     }
-    return DmxTypeComputer.UNDEFINED;
+  }
+  
+  private boolean isCorrelationVariable(final DContext target, final EObject container) {
+    return ((container instanceof DmxPredicateWithCorrelationVariable) && Objects.equal(((DmxPredicateWithCorrelationVariable) container).getCorrelationVariable(), target));
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxSelfExpression expr) {
