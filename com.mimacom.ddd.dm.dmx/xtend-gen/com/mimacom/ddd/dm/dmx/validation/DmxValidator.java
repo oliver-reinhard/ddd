@@ -3,7 +3,19 @@
  */
 package com.mimacom.ddd.dm.dmx.validation;
 
+import com.google.inject.Inject;
+import com.mimacom.ddd.dm.base.BasePackage;
+import com.mimacom.ddd.dm.base.DComplexType;
+import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DNavigableMember;
+import com.mimacom.ddd.dm.dmx.DmxContextReference;
+import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
+import com.mimacom.ddd.dm.dmx.DmxPackage;
+import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer;
 import com.mimacom.ddd.dm.dmx.validation.AbstractDmxValidator;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.Extension;
 
 /**
  * This class contains custom validation rules.
@@ -12,4 +24,33 @@ import com.mimacom.ddd.dm.dmx.validation.AbstractDmxValidator;
  */
 @SuppressWarnings("all")
 public class DmxValidator extends AbstractDmxValidator {
+  @Inject
+  @Extension
+  private DmxTypeComputer _dmxTypeComputer;
+  
+  private static final BasePackage BASE = BasePackage.eINSTANCE;
+  
+  private static final DmxPackage DMX = DmxPackage.eINSTANCE;
+  
+  @Check
+  public void checkNavigationOfStaticTypeReference(final DmxMemberNavigation nav) {
+    DNavigableMember _member = nav.getMember();
+    if ((_member instanceof DFeature)) {
+      final DExpression preceding = nav.getPrecedingNavigationSegment();
+      if (((preceding instanceof DmxContextReference) && (((DmxContextReference) preceding).getTarget() instanceof DComplexType))) {
+        this.error("Cannot navigate a feature from a static type reference. Use [[Type#feature]] syntax inside a RichString. ", nav, DmxValidator.DMX.getDmxMemberNavigation_Member());
+      }
+    }
+  }
+  
+  @Check
+  public void checkFeatureNavigationOfCollection(final DmxMemberNavigation nav) {
+    final DNavigableMember member = nav.getMember();
+    if ((member instanceof DFeature)) {
+      final DExpression preceding = nav.getPrecedingNavigationSegment();
+      if (((preceding != null) && this._dmxTypeComputer.typeFor(preceding).isCollection())) {
+        this.error("Cannot navigate a feature of a collection of objects.", nav, DmxValidator.DMX.getDmxMemberNavigation_Member());
+      }
+    }
+  }
 }

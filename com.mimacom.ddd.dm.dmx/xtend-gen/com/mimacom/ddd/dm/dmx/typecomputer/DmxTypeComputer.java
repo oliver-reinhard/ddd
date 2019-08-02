@@ -2,6 +2,7 @@ package com.mimacom.ddd.dm.dmx.typecomputer;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DEnumeration;
@@ -39,6 +40,7 @@ import com.mimacom.ddd.dm.dmx.typecomputer.DmxVoidDescriptor;
 import java.util.Arrays;
 import org.eclipse.emf.ecore.EObject;
 
+@Singleton
 @SuppressWarnings("all")
 public class DmxTypeComputer {
   @Inject

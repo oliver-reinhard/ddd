@@ -31,7 +31,7 @@ abstract class AbstractDmxTypeDescriptor<T extends DType> {
 		type
 	}
 
-	def boolean collection() {
+	def boolean isCollection() {
 		collection
 	}
 

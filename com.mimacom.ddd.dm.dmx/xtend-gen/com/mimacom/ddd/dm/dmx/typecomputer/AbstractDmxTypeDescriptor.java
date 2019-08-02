@@ -33,7 +33,7 @@ public abstract class AbstractDmxTypeDescriptor<T extends DType> {
     return this.type;
   }
   
-  public boolean collection() {
+  public boolean isCollection() {
     return this.collection;
   }
   

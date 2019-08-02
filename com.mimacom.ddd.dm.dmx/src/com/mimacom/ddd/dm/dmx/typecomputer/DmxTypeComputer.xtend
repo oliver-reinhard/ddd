@@ -1,6 +1,7 @@
 package com.mimacom.ddd.dm.dmx.typecomputer
 
 import com.google.inject.Inject
+import com.google.inject.Singleton
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DContext
 import com.mimacom.ddd.dm.base.DEnumeration
@@ -26,6 +27,7 @@ import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral
 import com.mimacom.ddd.dm.dmx.DmxUtil
 import org.eclipse.emf.ecore.EObject
 
+@Singleton
 class DmxTypeComputer {
 	
 	 @Inject DmxUtil util
