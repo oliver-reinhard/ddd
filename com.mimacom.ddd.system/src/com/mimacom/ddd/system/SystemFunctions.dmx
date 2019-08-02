@@ -6,11 +6,17 @@ iterator select	: COMPLEX*
 iterator one	: COMPLEX  // like select but returns exactly 1 result
 iterator reject	: COMPLEX* 
 iterator count	: NUMBER 
+iterator min	: COMPLEX 
+iterator max	: COMPLEX 
 iterator first		: COMPLEX
 iterator last		: COMPLEX
 // iterator get(index : NUMBER): COMPLEX
-// iterator sum(array : NUMBER*) : NUMBER 
-// iterator avg(array : NUMBER*) : NUMBER 
+iterator min/*(array : NUMBER*)*/ : NUMBER 
+iterator max/*(array : NUMBER*)*/ : NUMBER 
+iterator min/*(array : NUMBER*)*/ : TIMEPOINT
+iterator max/*(array : NUMBER*)*/ : TIMEPOINT
+iterator sum/*(array : NUMBER*)*/ : NUMBER 
+iterator avg/*(array : NUMBER*)*/ : NUMBER 
 function length	(arg : TEXT): NUMBER
 function now()	: TIMEPOINT
 function delivered(arg : NOTIFICATION): BOOLEAN  // always returns true
