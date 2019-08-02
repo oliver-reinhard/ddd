@@ -13,5 +13,5 @@ iterator last		: COMPLEX
 // iterator avg(array : NUMBER*) : NUMBER 
 function length	(arg : TEXT): NUMBER
 function now()	: TIMEPOINT
-function sent(arg : NOTIFICATION): BOOLEAN  // always returns true
+function delivered(arg : NOTIFICATION): BOOLEAN  // always returns true
 function invoked(arg : SERVICE): BOOLEAN  // always returns true
