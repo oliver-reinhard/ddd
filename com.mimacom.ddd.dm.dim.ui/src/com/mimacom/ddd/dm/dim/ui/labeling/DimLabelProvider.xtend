@@ -7,18 +7,18 @@ import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DCondition
 import com.mimacom.ddd.dm.base.DFeature
+import com.mimacom.ddd.dm.base.DQueryParameter
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.dim.DimUtil
+import com.mimacom.ddd.dm.dmx.ui.labeling.DmxLabelProvider
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
-import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
-import com.mimacom.ddd.dm.base.DQueryParameter
 
 /**
  * Provides labels for EObjects.
  * 
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#label-provider
  */
-class DimLabelProvider extends DefaultEObjectLabelProvider {
+class DimLabelProvider extends DmxLabelProvider /*DefaultEObjectLabelProvider*/ {
 
 	@Inject extension DimUtil
 	@Inject

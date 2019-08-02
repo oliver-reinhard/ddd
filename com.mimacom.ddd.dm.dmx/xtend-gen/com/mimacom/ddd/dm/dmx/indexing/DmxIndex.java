@@ -71,6 +71,26 @@ public class DmxIndex {
     return Iterables.<IEObjectDescription>concat(ListExtensions.<IContainer, Iterable<IEObjectDescription>>map(this.getVisibleContainers(context), _function));
   }
   
+  public List<DmxFilter> allVisibleFilters(final EObject context) {
+    final Iterable<IEObjectDescription> functionDescriptions = this.getVisibleEObjectDescriptions(context, DmxIndex.DMX.getDmxFilter());
+    final ArrayList<DmxFilter> result = Lists.<DmxFilter>newArrayList();
+    for (final IEObjectDescription desc : functionDescriptions) {
+      {
+        EObject _eObjectOrProxy = desc.getEObjectOrProxy();
+        DmxFilter iterator = ((DmxFilter) _eObjectOrProxy);
+        boolean _eIsProxy = iterator.eIsProxy();
+        if (_eIsProxy) {
+          EObject _eObject = context.eResource().getResourceSet().getEObject(desc.getEObjectURI(), true);
+          iterator = ((DmxFilter) _eObject);
+        }
+        if ((iterator != null)) {
+          result.add(iterator);
+        }
+      }
+    }
+    return result;
+  }
+  
   public List<DmxFilter> supportedFilters(final EObject context, final DmxBaseType baseType, final boolean collection) {
     if (collection) {
       return this.collectionFilters(context, baseType);

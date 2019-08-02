@@ -157,13 +157,16 @@
         upperBound="-1" eType="#//DContext" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DContext" eSuperTypes="#//DNavigableMember"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DNotification" eSuperTypes="#//DNavigableMember">
+  <eClassifiers xsi:type="ecore:EClass" name="DNotification" eSuperTypes="#//DNavigableMember #//INavigableMemberContainer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="message" eType="#//DMessage"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="notified" lowerBound="1"
         eType="#//DActor"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DMessage" eSuperTypes="#//DNavigableMember"/>
   <eClassifiers xsi:type="ecore:EClass" name="DActor" abstract="true" eSuperTypes="#//DNamedElement #//IStaticReferenceTarget"/>
   <eClassifiers xsi:type="ecore:EClass" name="DHuman" eSuperTypes="#//DActor"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DService" eSuperTypes="#//DActor #//ITypeContainer #//INavigableMemberContainer #//IStaticReferenceTarget">
+  <eClassifiers xsi:type="ecore:EClass" name="DService" eSuperTypes="#//DActor #//ITypeContainer #//INavigableMemberContainer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//DServiceKind"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//DServiceParameter" containment="true"/>

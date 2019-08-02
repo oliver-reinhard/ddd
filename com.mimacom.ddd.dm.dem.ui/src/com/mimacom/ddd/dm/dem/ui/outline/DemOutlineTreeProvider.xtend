@@ -3,13 +3,13 @@
  */
 package com.mimacom.ddd.dm.dem.ui.outline
 
-import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
+import com.mimacom.ddd.dm.dmx.ui.outline.DmxOutlineTreeProvider
 
 /**
  * Customization of the default outline structure.
  *
  * See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#outline
  */
-class DemOutlineTreeProvider extends DefaultOutlineTreeProvider {
+class DemOutlineTreeProvider extends  DmxOutlineTreeProvider /*DefaultOutlineTreeProvider */{
 
 }

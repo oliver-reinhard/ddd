@@ -51,6 +51,23 @@ class DmxIndex {
 		].flatten
 	}
 	
+	def  List<DmxFilter> allVisibleFilters(EObject context) {
+		val functionDescriptions = getVisibleEObjectDescriptions(context, DMX.dmxFilter)
+
+		val result = Lists.newArrayList
+		for(desc : functionDescriptions) {
+			var iterator = desc.EObjectOrProxy as DmxFilter
+			if (iterator.eIsProxy) {
+				iterator = context.eResource.resourceSet.getEObject(desc.EObjectURI, true) as DmxFilter
+			}
+			// When working with an outdated index (e.g. after updating the system filters file), func can be null:
+			if (iterator !== null) {
+				result.add(iterator)
+			}
+		}
+		return result
+	}
+	
 	def  List<DmxFilter> supportedFilters(EObject context, DmxBaseType baseType, boolean collection) {
 		if (collection) {
 			return collectionFilters(context, baseType)

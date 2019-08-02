@@ -270,6 +270,11 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createDNotificationAdapter();
 			}
 			@Override
+			public Adapter caseDMessage(DMessage object)
+			{
+				return createDMessageAdapter();
+			}
+			@Override
 			public Adapter caseDActor(DActor object)
 			{
 				return createDActorAdapter();
@@ -907,6 +912,21 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDNotificationAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DMessage <em>DMessage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DMessage
+	 * @generated
+	 */
+	public Adapter createDMessageAdapter()
 	{
 		return null;
 	}

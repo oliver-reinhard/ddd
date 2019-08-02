@@ -64,7 +64,12 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 			if (context instanceof DmxAssignment) {
 				val preceding = context.precedingNavigationSegment
 				val typeDescriptor = preceding.typeFor
-				val scope = typeDescriptor.getNavigableMembersScope()
+				val scope = typeDescriptor.getNavigableMembersScope()  // exclude iterators
+				return scope
+			} else if (context instanceof DmxMemberNavigation) {
+				val preceding = context.precedingNavigationSegment
+				val typeDescriptor = preceding.typeFor
+				val scope = typeDescriptor.getNavigableMembersScope() // exclude iterators
 				return scope
 			}
 			
@@ -80,6 +85,11 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 					return scope
 				}
 			}
+
+		} else if (reference == DMX.dmxFunctionCall_Function) {
+			val allFilters = index.allVisibleFilters(context)
+			val scope = Scopes.scopeFor(allFilters, super.getScope(context, reference))
+			return scope
 		}
 
 		return super.getScope(context, reference)

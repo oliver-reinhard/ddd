@@ -3060,13 +3060,22 @@ public interface BasePackage extends EPackage
 	int DNOTIFICATION__COLLECTION = DNAVIGABLE_MEMBER__COLLECTION;
 
 	/**
+	 * The feature id for the '<em><b>Message</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DNOTIFICATION__MESSAGE = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Notified</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DNOTIFICATION__NOTIFIED = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
+	int DNOTIFICATION__NOTIFIED = DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>DNotification</em>' class.
@@ -3075,7 +3084,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DNOTIFICATION_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
+	int DNOTIFICATION_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>DNotification</em>' class.
@@ -3087,6 +3096,97 @@ public interface BasePackage extends EPackage
 	int DNOTIFICATION_OPERATION_COUNT = DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DMessageImpl <em>DMessage</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.impl.DMessageImpl
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDMessage()
+	 * @generated
+	 */
+	int DMESSAGE = 39;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMESSAGE__NAME = DNAVIGABLE_MEMBER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMESSAGE__ALIASES = DNAVIGABLE_MEMBER__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMESSAGE__DESCRIPTION = DNAVIGABLE_MEMBER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMESSAGE__TYPE = DNAVIGABLE_MEMBER__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMESSAGE__MULTIPLICITY = DNAVIGABLE_MEMBER__MULTIPLICITY;
+
+	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMESSAGE__OPTIONAL = DNAVIGABLE_MEMBER__OPTIONAL;
+
+	/**
+	 * The feature id for the '<em><b>Collection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMESSAGE__COLLECTION = DNAVIGABLE_MEMBER__COLLECTION;
+
+	/**
+	 * The number of structural features of the '<em>DMessage</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMESSAGE_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>DMessage</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMESSAGE_OPERATION_COUNT = DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DActorImpl <em>DActor</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3094,7 +3194,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDActor()
 	 * @generated
 	 */
-	int DACTOR = 39;
+	int DACTOR = 40;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3149,7 +3249,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDHuman()
 	 * @generated
 	 */
-	int DHUMAN = 40;
+	int DHUMAN = 41;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3204,7 +3304,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDService()
 	 * @generated
 	 */
-	int DSERVICE = 41;
+	int DSERVICE = 42;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3313,7 +3413,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDServiceParameter()
 	 * @generated
 	 */
-	int DSERVICE_PARAMETER = 42;
+	int DSERVICE_PARAMETER = 43;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3413,7 +3513,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDTime()
 	 * @generated
 	 */
-	int DTIME = 43;
+	int DTIME = 44;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3468,7 +3568,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDExistingApplication()
 	 * @generated
 	 */
-	int DEXISTING_APPLICATION = 44;
+	int DEXISTING_APPLICATION = 45;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3550,7 +3650,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDException()
 	 * @generated
 	 */
-	int DEXCEPTION = 45;
+	int DEXCEPTION = 46;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3605,7 +3705,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDAssociationKind()
 	 * @generated
 	 */
-	int DASSOCIATION_KIND = 46;
+	int DASSOCIATION_KIND = 47;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DDirection <em>DDirection</em>}' enum.
@@ -3615,7 +3715,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDirection()
 	 * @generated
 	 */
-	int DDIRECTION = 47;
+	int DDIRECTION = 48;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DServiceKind <em>DService Kind</em>}' enum.
@@ -3625,7 +3725,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDServiceKind()
 	 * @generated
 	 */
-	int DSERVICE_KIND = 48;
+	int DSERVICE_KIND = 49;
 
 
 	/**
@@ -4568,6 +4668,17 @@ public interface BasePackage extends EPackage
 	EClass getDNotification();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.DNotification#getMessage <em>Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Message</em>'.
+	 * @see com.mimacom.ddd.dm.base.DNotification#getMessage()
+	 * @see #getDNotification()
+	 * @generated
+	 */
+	EReference getDNotification_Message();
+
+	/**
 	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.DNotification#getNotified <em>Notified</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4577,6 +4688,16 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EReference getDNotification_Notified();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DMessage <em>DMessage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>DMessage</em>'.
+	 * @see com.mimacom.ddd.dm.base.DMessage
+	 * @generated
+	 */
+	EClass getDMessage();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DActor <em>DActor</em>}'.
@@ -5581,12 +5702,30 @@ public interface BasePackage extends EPackage
 		EClass DNOTIFICATION = eINSTANCE.getDNotification();
 
 		/**
+		 * The meta object literal for the '<em><b>Message</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DNOTIFICATION__MESSAGE = eINSTANCE.getDNotification_Message();
+
+		/**
 		 * The meta object literal for the '<em><b>Notified</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference DNOTIFICATION__NOTIFIED = eINSTANCE.getDNotification_Notified();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DMessageImpl <em>DMessage</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.impl.DMessageImpl
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDMessage()
+		 * @generated
+		 */
+		EClass DMESSAGE = eINSTANCE.getDMessage();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DActorImpl <em>DActor</em>}' class.

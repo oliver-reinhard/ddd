@@ -21,7 +21,7 @@ class DemFormatter extends  DmxFormatter {
 	def dispatch void format(DDomain domain, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		domain.description.format
-		domain.regionFor.assignment(DDomainAccess.nameAssignment_1).append[newLines = 2]
+		domain.regionFor.assignment(DDomainAccess.nameAssignment_2).append[newLines = 2]
 		
 		for (i : domain.imports) {
 			i.append[newLine]

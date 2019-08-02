@@ -451,7 +451,18 @@ public class BaseSwitch<T> extends Switch<T>
 				DNotification dNotification = (DNotification)theEObject;
 				T result = caseDNotification(dNotification);
 				if (result == null) result = caseDNavigableMember(dNotification);
+				if (result == null) result = caseINavigableMemberContainer(dNotification);
 				if (result == null) result = caseDNamedElement(dNotification);
+				if (result == null) result = caseINamespace(dNotification);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.DMESSAGE:
+			{
+				DMessage dMessage = (DMessage)theEObject;
+				T result = caseDMessage(dMessage);
+				if (result == null) result = caseDNavigableMember(dMessage);
+				if (result == null) result = caseDNamedElement(dMessage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1149,6 +1160,22 @@ public class BaseSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDNotification(DNotification object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DMessage</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DMessage</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDMessage(DMessage object)
 	{
 		return null;
 	}

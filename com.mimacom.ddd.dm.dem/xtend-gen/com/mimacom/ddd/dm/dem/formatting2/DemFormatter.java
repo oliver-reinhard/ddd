@@ -40,7 +40,7 @@ public class DemFormatter extends DmxFormatter {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
-    document.append(this.textRegionExtensions.regionFor(domain).assignment(this._demGrammarAccess.getDDomainAccess().getNameAssignment_1()), _function);
+    document.append(this.textRegionExtensions.regionFor(domain).assignment(this._demGrammarAccess.getDDomainAccess().getNameAssignment_2()), _function);
     EList<DImport> _imports = domain.getImports();
     for (final DImport i : _imports) {
       final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {

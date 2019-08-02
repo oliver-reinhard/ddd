@@ -10,8 +10,8 @@ import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dim.DimUtil;
+import com.mimacom.ddd.dm.dmx.ui.labeling.DmxLabelProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 import org.eclipse.xtext.xbase.lib.Extension;
 
 /**
@@ -20,7 +20,7 @@ import org.eclipse.xtext.xbase.lib.Extension;
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#label-provider
  */
 @SuppressWarnings("all")
-public class DimLabelProvider extends DefaultEObjectLabelProvider {
+public class DimLabelProvider extends DmxLabelProvider {
   @Inject
   @Extension
   private DimUtil _dimUtil;

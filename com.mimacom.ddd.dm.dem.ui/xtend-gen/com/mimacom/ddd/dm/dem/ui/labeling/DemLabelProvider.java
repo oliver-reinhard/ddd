@@ -4,8 +4,8 @@
 package com.mimacom.ddd.dm.dem.ui.labeling;
 
 import com.google.inject.Inject;
+import com.mimacom.ddd.dm.dmx.ui.labeling.DmxLabelProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 
 /**
  * Provides labels for EObjects.
@@ -13,7 +13,7 @@ import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#label-provider
  */
 @SuppressWarnings("all")
-public class DemLabelProvider extends DefaultEObjectLabelProvider {
+public class DemLabelProvider extends DmxLabelProvider {
   @Inject
   public DemLabelProvider(final AdapterFactoryLabelProvider delegate) {
     super(delegate);

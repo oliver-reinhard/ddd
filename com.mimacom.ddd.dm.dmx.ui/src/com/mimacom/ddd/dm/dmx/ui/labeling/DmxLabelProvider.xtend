@@ -28,42 +28,46 @@ class DmxLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	// Labels and icons can be computed like this:
-	
 	def text(DNamedElement e) {
 		return e.simpleName + " " + e.name
 	}
-	
+
 	def text(DExpression e) {
 		return e.simpleName
 	}
-	
+
 	def text(DmxBinaryOperation e) {
 		return e.simpleName + " " + e.operator.getName
 	}
-	
+
 	def text(DmxBooleanLiteral e) {
 		return e.simpleName + " " + e.value
 	}
-	
+
 	def text(DmxStringLiteral e) {
 		return e.simpleName + " " + e.value
 	}
-	
+
 	def text(DmxNaturalLiteral e) {
 		return e.simpleName + " " + e.value
 	}
-	
+
 	def text(DmxDecimalLiteral e) {
 		return e.simpleName + " " + e.value
 	}
-	
+
 	def text(DmxUndefinedLiteral e) {
 		return e.simpleName
 	}
-	
+
 	protected def simpleName(Object obj) {
 		val name = obj.class.simpleName
-		return if (name.endsWith("Impl")) name.substring(0, name.length-4)
+		if (name.endsWith("Impl")) {
+			return name.substring(0, name.length - 4)
+		} else if (name.endsWith("ImplCustom")) {
+			return name.substring(0, name.length - 10)
+		}
+		return name
 	}
 //
 //	def image(Greeting ele) {

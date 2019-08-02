@@ -80,22 +80,18 @@ public abstract class AbstractDmxTypeDescriptor<T extends DType> {
   }
   
   public IScope getNavigableMembersAndIteratorsScope(final EObject context, final DmxIndex index, final IScope outer) {
-    IScope _xblockexpression = null;
-    {
-      IScope _xifexpression = null;
-      if ((outer != null)) {
-        _xifexpression = outer;
-      } else {
-        _xifexpression = IScope.NULLSCOPE;
-      }
-      IScope nonNullOuter = _xifexpression;
-      final List<DmxFilter> iterators = this.getSupportedIterators(context, index);
-      if ((iterators != Collections.EMPTY_LIST)) {
-        nonNullOuter = Scopes.scopeFor(iterators, nonNullOuter);
-      }
-      _xblockexpression = this.getNavigableMembersScope(nonNullOuter);
+    IScope _xifexpression = null;
+    if ((outer != null)) {
+      _xifexpression = outer;
+    } else {
+      _xifexpression = IScope.NULLSCOPE;
     }
-    return _xblockexpression;
+    IScope nonNullOuter = _xifexpression;
+    final List<DmxFilter> iterators = this.getSupportedIterators(context, index);
+    if ((iterators != Collections.EMPTY_LIST)) {
+      nonNullOuter = Scopes.scopeFor(iterators, nonNullOuter);
+    }
+    return this.getNavigableMembersScope(nonNullOuter);
   }
   
   public IScope getNavigableMembersAndIteratorsScope(final EObject context, final DmxIndex index) {

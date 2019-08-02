@@ -71,7 +71,7 @@ abstract class AbstractDmxTypeDescriptor<T extends DType> {
 		if (iterators !== Collections.EMPTY_LIST) {
 			nonNullOuter = Scopes.scopeFor(iterators, nonNullOuter)
 		}
-		getNavigableMembersScope(nonNullOuter)
+		return getNavigableMembersScope(nonNullOuter)
 	}
 
 	def IScope getNavigableMembersAndIteratorsScope(EObject context, DmxIndex index) {

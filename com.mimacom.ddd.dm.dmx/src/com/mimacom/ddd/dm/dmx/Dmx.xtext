@@ -92,7 +92,12 @@ DmxTextEnd returns DTextSegment:			value=PLAIN_TEXT_END;
 
 DmxNavigableMemberReference returns DExpression:
 	DmxPrimaryExpression
-	(	=> ({DmxAssignment.precedingNavigationSegment=current} '.' assignToMember=[DNavigableMember|ID] DmxOpSingleAssign) value=DmxOrExpression
+	(	=> (
+			{DmxAssignment.precedingNavigationSegment=current} '.' 
+			assignToMember=[DNavigableMember|ID] 
+			DmxOpSingleAssign
+		) 
+		value=DmxOrExpression
 	| 	=> ({DmxMemberNavigation.precedingNavigationSegment=current} '.')
 		member=[DNavigableMember|ID] 
 		(

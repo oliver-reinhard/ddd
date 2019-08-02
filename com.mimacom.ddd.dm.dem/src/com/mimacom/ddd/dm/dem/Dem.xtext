@@ -37,13 +37,18 @@ DCondition:
 	(description=DRichText)?;
 	
 DNotification:
+	// type always null
 	name=ID
 	('alias' aliases+=ID)*
 	':'
-	type=[DType|ID]  (multiplicity=DMultiplicity)?
+	message=DMessage
 	'to' notified=[DActor|ID]
 	(description=DRichText)?;
 
+DMessage:
+	// implicit name: "message"
+	type=[DType|ID]  (multiplicity=DMultiplicity)?;
+	
 DContext:
 	name=ID
 	('alias' aliases+=ID)*

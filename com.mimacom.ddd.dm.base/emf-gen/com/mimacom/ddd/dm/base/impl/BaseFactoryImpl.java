@@ -85,6 +85,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 			case BasePackage.DDOMAIN_EVENT: return createDDomainEvent();
 			case BasePackage.DCONTEXT: return createDContext();
 			case BasePackage.DNOTIFICATION: return createDNotification();
+			case BasePackage.DMESSAGE: return createDMessage();
 			case BasePackage.DHUMAN: return createDHuman();
 			case BasePackage.DSERVICE: return createDService();
 			case BasePackage.DSERVICE_PARAMETER: return createDServiceParameter();
@@ -376,6 +377,18 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		DNotificationImpl dNotification = new DNotificationImpl();
 		return dNotification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DMessage createDMessage()
+	{
+		DMessageImplCustom dMessage = new DMessageImplCustom();
+		return dMessage;
 	}
 
 	/**

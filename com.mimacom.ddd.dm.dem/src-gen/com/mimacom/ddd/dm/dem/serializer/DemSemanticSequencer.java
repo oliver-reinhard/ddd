@@ -11,6 +11,7 @@ import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DDomainEvent;
 import com.mimacom.ddd.dm.base.DHuman;
 import com.mimacom.ddd.dm.base.DImport;
+import com.mimacom.ddd.dm.base.DMessage;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DRichText;
@@ -96,6 +97,9 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case BasePackage.DIMPORT:
 				sequence_DImport(context, (DImport) semanticObject); 
+				return; 
+			case BasePackage.DMESSAGE:
+				sequence_DMessage(context, (DMessage) semanticObject); 
 				return; 
 			case BasePackage.DMULTIPLICITY:
 				sequence_DMultiplicity(context, (DMultiplicity) semanticObject); 
@@ -297,7 +301,7 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *     DDomain returns DDomain
 	 *
 	 * Constraint:
-	 *     (name=DQualifiedName aliases+=ID* description=DRichText? imports+=DImport* (events+=DDomainEvent | actors+=DActor)*)
+	 *     (imports+=DImport* name=DQualifiedName aliases+=ID* description=DRichText? (events+=DDomainEvent | actors+=DActor)*)
 	 */
 	protected void sequence_DDomain(ISerializationContext context, DDomain semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -319,17 +323,22 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     DMessage returns DMessage
+	 *
+	 * Constraint:
+	 *     (type=[DType|ID] multiplicity=DMultiplicity?)
+	 */
+	protected void sequence_DMessage(ISerializationContext context, DMessage semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     DNotification returns DNotification
 	 *
 	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         aliases+=ID* 
-	 *         type=[DType|ID] 
-	 *         multiplicity=DMultiplicity? 
-	 *         notified=[DActor|ID] 
-	 *         description=DRichText?
-	 *     )
+	 *     (name=ID aliases+=ID* message=DMessage notified=[DActor|ID] description=DRichText?)
 	 */
 	protected void sequence_DNotification(ISerializationContext context, DNotification semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

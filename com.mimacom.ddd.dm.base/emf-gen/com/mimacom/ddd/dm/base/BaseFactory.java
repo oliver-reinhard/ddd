@@ -203,6 +203,15 @@ public interface BaseFactory extends EFactory
 	DNotification createDNotification();
 
 	/**
+	 * Returns a new object of class '<em>DMessage</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DMessage</em>'.
+	 * @generated
+	 */
+	DMessage createDMessage();
+
+	/**
 	 * Returns a new object of class '<em>DHuman</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

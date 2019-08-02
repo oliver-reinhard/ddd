@@ -27,6 +27,7 @@ import com.mimacom.ddd.dm.base.DHuman;
 import com.mimacom.ddd.dm.base.DIdentityType;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DLiteral;
+import com.mimacom.ddd.dm.base.DMessage;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNavigableMember;
@@ -343,6 +344,13 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	private EClass dNotificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dMessageEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1462,9 +1470,31 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDNotification_Notified()
+	public EReference getDNotification_Message()
 	{
 		return (EReference)dNotificationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDNotification_Notified()
+	{
+		return (EReference)dNotificationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDMessage()
+	{
+		return dMessageEClass;
 	}
 
 	/**
@@ -1823,7 +1853,10 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dContextEClass = createEClass(DCONTEXT);
 
 		dNotificationEClass = createEClass(DNOTIFICATION);
+		createEReference(dNotificationEClass, DNOTIFICATION__MESSAGE);
 		createEReference(dNotificationEClass, DNOTIFICATION__NOTIFIED);
+
+		dMessageEClass = createEClass(DMESSAGE);
 
 		dActorEClass = createEClass(DACTOR);
 
@@ -1927,13 +1960,14 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dDomainEventEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
 		dContextEClass.getESuperTypes().add(this.getDNavigableMember());
 		dNotificationEClass.getESuperTypes().add(this.getDNavigableMember());
+		dNotificationEClass.getESuperTypes().add(this.getINavigableMemberContainer());
+		dMessageEClass.getESuperTypes().add(this.getDNavigableMember());
 		dActorEClass.getESuperTypes().add(this.getDNamedElement());
 		dActorEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
 		dHumanEClass.getESuperTypes().add(this.getDActor());
 		dServiceEClass.getESuperTypes().add(this.getDActor());
 		dServiceEClass.getESuperTypes().add(this.getITypeContainer());
 		dServiceEClass.getESuperTypes().add(this.getINavigableMemberContainer());
-		dServiceEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
 		dServiceParameterEClass.getESuperTypes().add(this.getDNavigableMember());
 		dTimeEClass.getESuperTypes().add(this.getDActor());
 		dExistingApplicationEClass.getESuperTypes().add(this.getDNamedElement());
@@ -2070,7 +2104,10 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dContextEClass, DContext.class, "DContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dNotificationEClass, DNotification.class, "DNotification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDNotification_Message(), this.getDMessage(), null, "message", null, 0, 1, DNotification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDNotification_Notified(), this.getDActor(), null, "notified", null, 1, 1, DNotification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dMessageEClass, DMessage.class, "DMessage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dActorEClass, DActor.class, "DActor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

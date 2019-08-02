@@ -19,6 +19,7 @@ import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.dmx.DmxAssignment;
+import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
@@ -30,6 +31,7 @@ import com.mimacom.ddd.dm.dmx.scoping.AbstractDmxScopeProvider;
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer;
 import java.util.ArrayList;
+import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -88,13 +90,20 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
             final AbstractDmxTypeDescriptor<?> typeDescriptor_1 = this._dmxTypeComputer.typeFor(preceding_1);
             final IScope scope_2 = typeDescriptor_1.getNavigableMembersScope();
             return scope_2;
+          } else {
+            if ((context instanceof DmxMemberNavigation)) {
+              final DExpression preceding_2 = ((DmxMemberNavigation)context).getPrecedingNavigationSegment();
+              final AbstractDmxTypeDescriptor<?> typeDescriptor_2 = this._dmxTypeComputer.typeFor(preceding_2);
+              final IScope scope_3 = typeDescriptor_2.getNavigableMembersScope();
+              return scope_3;
+            }
           }
         } else {
           EReference _dmxStaticReference_Target = DmxScopeProvider.DMX.getDmxStaticReference_Target();
           boolean _equals_3 = Objects.equal(reference, _dmxStaticReference_Target);
           if (_equals_3) {
-            final IScope scope_3 = this.getDefaultScopeForType(context, DmxScopeProvider.BASE.getIStaticReferenceTarget());
-            return scope_3;
+            final IScope scope_4 = this.getDefaultScopeForType(context, DmxScopeProvider.BASE.getIStaticReferenceTarget());
+            return scope_4;
           } else {
             EReference _dmxStaticReference_Member = DmxScopeProvider.DMX.getDmxStaticReference_Member();
             boolean _equals_4 = Objects.equal(reference, _dmxStaticReference_Member);
@@ -102,9 +111,17 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
               if ((context instanceof DmxStaticReference)) {
                 final IStaticReferenceTarget target = ((DmxStaticReference)context).getTarget();
                 if ((target instanceof INavigableMemberContainer)) {
-                  final IScope scope_4 = this.getEContainerNavigableMembersScopeSwitch(((INavigableMemberContainer)target), IScope.NULLSCOPE);
-                  return scope_4;
+                  final IScope scope_5 = this.getEContainerNavigableMembersScopeSwitch(((INavigableMemberContainer)target), IScope.NULLSCOPE);
+                  return scope_5;
                 }
+              }
+            } else {
+              EReference _dmxFunctionCall_Function = DmxScopeProvider.DMX.getDmxFunctionCall_Function();
+              boolean _equals_5 = Objects.equal(reference, _dmxFunctionCall_Function);
+              if (_equals_5) {
+                final List<DmxFilter> allFilters = this.index.allVisibleFilters(context);
+                final IScope scope_6 = Scopes.scopeFor(allFilters, super.getScope(context, reference));
+                return scope_6;
               }
             }
           }

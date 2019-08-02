@@ -79,13 +79,19 @@ public class DmxLabelProvider extends DefaultEObjectLabelProvider {
   
   protected String simpleName(final Object obj) {
     final String name = obj.getClass().getSimpleName();
-    String _xifexpression = null;
     boolean _endsWith = name.endsWith("Impl");
     if (_endsWith) {
       int _length = name.length();
       int _minus = (_length - 4);
-      _xifexpression = name.substring(0, _minus);
+      return name.substring(0, _minus);
+    } else {
+      boolean _endsWith_1 = name.endsWith("ImplCustom");
+      if (_endsWith_1) {
+        int _length_1 = name.length();
+        int _minus_1 = (_length_1 - 10);
+        return name.substring(0, _minus_1);
+      }
     }
-    return _xifexpression;
+    return name;
   }
 }
