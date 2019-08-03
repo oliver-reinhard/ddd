@@ -41,12 +41,12 @@ class AsmScopeProvider extends AbstractAsmScopeProvider {
 		super.getScope(context, reference)
 	}
 
-	protected override IScope getNavigableMembersScope(INavigableMemberContainer container, IScope outerScope) {
+	protected override IScope getEContainerNavigableMembersScopeSwitch(INavigableMemberContainer container, IScope outerScope) {
 		val scope = switch container {
 			SCoreQuery: Scopes.scopeFor(container.parameters, outerScope)
-			SServiceOperation: Scopes.scopeFor(container.parameters, getPrecedingNavigableMembersScope(container, outerScope)) // recursion
+			SServiceOperation: Scopes.scopeFor(container.parameters, outerScope)
 			SServiceInterface: getServiceInterfaceCoreNavigableMembersScope(container.core, outerScope)
-			default: super.getNavigableMembersScope(container, outerScope)
+			default: super.getEContainerNavigableMembersScopeSwitch(container, outerScope)
 		}
 		return scope	
 	}

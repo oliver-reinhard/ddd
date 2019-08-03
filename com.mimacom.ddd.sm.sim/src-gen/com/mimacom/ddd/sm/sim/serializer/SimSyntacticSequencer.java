@@ -23,14 +23,14 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected SimGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_ChangeComplexType_ToKeyword_0_q;
-	protected AbstractElementAlias match_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3;
-	protected AbstractElementAlias match_DNilLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1;
-	protected AbstractElementAlias match_DParenthesizedExpression_LeftParenthesisKeyword_0_a;
-	protected AbstractElementAlias match_DParenthesizedExpression_LeftParenthesisKeyword_0_p;
-	protected AbstractElementAlias match_DRaiseExpression_RAISEKeyword_1_0_or_RaiseKeyword_1_1;
-	protected AbstractElementAlias match_DReturnExpression_RETURNKeyword_1_0_or_ReturnKeyword_1_1;
-	protected AbstractElementAlias match_DSelfExpression_SELFKeyword_1_0_or_SelfKeyword_1_1;
 	protected AbstractElementAlias match_DService___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q;
+	protected AbstractElementAlias match_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3;
+	protected AbstractElementAlias match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a;
+	protected AbstractElementAlias match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p;
+	protected AbstractElementAlias match_DmxRaiseExpression_RAISEKeyword_1_0_or_RaiseKeyword_1_1;
+	protected AbstractElementAlias match_DmxReturnExpression_RETURNKeyword_1_0_or_ReturnKeyword_1_1;
+	protected AbstractElementAlias match_DmxSelfExpression_SELFKeyword_1_0_or_SelfKeyword_1_1;
+	protected AbstractElementAlias match_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1;
 	protected AbstractElementAlias match_SAssociationDeduction_CompositeKeyword_1_0_1_1_or_ReferenceKeyword_1_0_1_0;
 	protected AbstractElementAlias match_SAssociationDeduction_CompositeKeyword_1_1_1_1_or_ReferenceKeyword_1_1_1_0;
 	protected AbstractElementAlias match_SAssociationDeduction_CompositeKeyword_1_2_1_1_or_ReferenceKeyword_1_2_1_0;
@@ -43,14 +43,14 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (SimGrammarAccess) access;
 		match_ChangeComplexType_ToKeyword_0_q = new TokenAlias(false, true, grammarAccess.getChangeComplexTypeAccess().getToKeyword_0());
-		match_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDBooleanLiteralAccess().getFALSEKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getDBooleanLiteralAccess().getFalseKeyword_1_3()));
-		match_DNilLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDNilLiteralAccess().getUNDEFINEDKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDNilLiteralAccess().getUndefinedKeyword_1_1()));
-		match_DParenthesizedExpression_LeftParenthesisKeyword_0_a = new TokenAlias(true, true, grammarAccess.getDParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
-		match_DParenthesizedExpression_LeftParenthesisKeyword_0_p = new TokenAlias(true, false, grammarAccess.getDParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
-		match_DRaiseExpression_RAISEKeyword_1_0_or_RaiseKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDRaiseExpressionAccess().getRAISEKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDRaiseExpressionAccess().getRaiseKeyword_1_1()));
-		match_DReturnExpression_RETURNKeyword_1_0_or_ReturnKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDReturnExpressionAccess().getRETURNKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDReturnExpressionAccess().getReturnKeyword_1_1()));
-		match_DSelfExpression_SELFKeyword_1_0_or_SelfKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDSelfExpressionAccess().getSELFKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDSelfExpressionAccess().getSelfKeyword_1_1()));
 		match_DService___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getDServiceAccess().getLeftParenthesisKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getDServiceAccess().getRightParenthesisKeyword_3_2()));
+		match_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDmxBooleanLiteralAccess().getFALSEKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getDmxBooleanLiteralAccess().getFalseKeyword_1_3()));
+		match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a = new TokenAlias(true, true, grammarAccess.getDmxParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
+		match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p = new TokenAlias(true, false, grammarAccess.getDmxParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
+		match_DmxRaiseExpression_RAISEKeyword_1_0_or_RaiseKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDmxRaiseExpressionAccess().getRAISEKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDmxRaiseExpressionAccess().getRaiseKeyword_1_1()));
+		match_DmxReturnExpression_RETURNKeyword_1_0_or_ReturnKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDmxReturnExpressionAccess().getRETURNKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDmxReturnExpressionAccess().getReturnKeyword_1_1()));
+		match_DmxSelfExpression_SELFKeyword_1_0_or_SelfKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDmxSelfExpressionAccess().getSELFKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDmxSelfExpressionAccess().getSelfKeyword_1_1()));
+		match_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDmxUndefinedLiteralAccess().getUNDEFINEDKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDmxUndefinedLiteralAccess().getUndefinedKeyword_1_1()));
 		match_SAssociationDeduction_CompositeKeyword_1_0_1_1_or_ReferenceKeyword_1_0_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSAssociationDeductionAccess().getCompositeKeyword_1_0_1_1()), new TokenAlias(false, false, grammarAccess.getSAssociationDeductionAccess().getReferenceKeyword_1_0_1_0()));
 		match_SAssociationDeduction_CompositeKeyword_1_1_1_1_or_ReferenceKeyword_1_1_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSAssociationDeductionAccess().getCompositeKeyword_1_1_1_1()), new TokenAlias(false, false, grammarAccess.getSAssociationDeductionAccess().getReferenceKeyword_1_1_1_0()));
 		match_SAssociationDeduction_CompositeKeyword_1_2_1_1_or_ReferenceKeyword_1_2_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSAssociationDeductionAccess().getCompositeKeyword_1_2_1_1()), new TokenAlias(false, false, grammarAccess.getSAssociationDeductionAccess().getReferenceKeyword_1_2_1_0()));
@@ -62,63 +62,52 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getNATURALRule())
-			return getNATURALToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getOpCastRule())
-			return getOpCastToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getOpConstructorRule())
-			return getOpConstructorToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getOpInstanceOfRule())
-			return getOpInstanceOfToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getOpSingleAssignRule())
-			return getOpSingleAssignToken(semanticObject, ruleCall, node);
+		if (ruleCall.getRule() == grammarAccess.getDmxOpCastRule())
+			return getDmxOpCastToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getDmxOpConstructorRule())
+			return getDmxOpConstructorToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getDmxOpInstanceOfRule())
+			return getDmxOpInstanceOfToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getDmxOpSingleAssignRule())
+			return getDmxOpSingleAssignToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
 	/**
-	 * terminal NATURAL returns ecore::EInt: '0'..'9'+;
-	 */
-	protected String getNATURALToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "";
-	}
-	
-	/**
-	 * OpCast:
+	 * DmxOpCast:
 	 * 	'AS' | 'as';
 	 */
-	protected String getOpCastToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getDmxOpCastToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return "AS";
 	}
 	
 	/**
-	 * OpConstructor:
+	 * DmxOpConstructor:
 	 * 	'NEW' | 'new';
 	 */
-	protected String getOpConstructorToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getDmxOpConstructorToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return "NEW";
 	}
 	
 	/**
-	 * OpInstanceOf:
+	 * DmxOpInstanceOf:
 	 * 	'ISA' | 'isa';
 	 */
-	protected String getOpInstanceOfToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getDmxOpInstanceOfToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return "ISA";
 	}
 	
 	/**
-	 * OpSingleAssign:
+	 * DmxOpSingleAssign:
 	 * 	':=';
 	 */
-	protected String getOpSingleAssignToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getDmxOpSingleAssignToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return ":=";
@@ -132,22 +121,22 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_ChangeComplexType_ToKeyword_0_q.equals(syntax))
 				emit_ChangeComplexType_ToKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3.equals(syntax))
-				emit_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DNilLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1.equals(syntax))
-				emit_DNilLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DParenthesizedExpression_LeftParenthesisKeyword_0_a.equals(syntax))
-				emit_DParenthesizedExpression_LeftParenthesisKeyword_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DParenthesizedExpression_LeftParenthesisKeyword_0_p.equals(syntax))
-				emit_DParenthesizedExpression_LeftParenthesisKeyword_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DRaiseExpression_RAISEKeyword_1_0_or_RaiseKeyword_1_1.equals(syntax))
-				emit_DRaiseExpression_RAISEKeyword_1_0_or_RaiseKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DReturnExpression_RETURNKeyword_1_0_or_ReturnKeyword_1_1.equals(syntax))
-				emit_DReturnExpression_RETURNKeyword_1_0_or_ReturnKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DSelfExpression_SELFKeyword_1_0_or_SelfKeyword_1_1.equals(syntax))
-				emit_DSelfExpression_SELFKeyword_1_0_or_SelfKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DService___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q.equals(syntax))
 				emit_DService___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3.equals(syntax))
+				emit_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a.equals(syntax))
+				emit_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p.equals(syntax))
+				emit_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_DmxRaiseExpression_RAISEKeyword_1_0_or_RaiseKeyword_1_1.equals(syntax))
+				emit_DmxRaiseExpression_RAISEKeyword_1_0_or_RaiseKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_DmxReturnExpression_RETURNKeyword_1_0_or_ReturnKeyword_1_1.equals(syntax))
+				emit_DmxReturnExpression_RETURNKeyword_1_0_or_ReturnKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_DmxSelfExpression_SELFKeyword_1_0_or_SelfKeyword_1_1.equals(syntax))
+				emit_DmxSelfExpression_SELFKeyword_1_0_or_SelfKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1.equals(syntax))
+				emit_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SAssociationDeduction_CompositeKeyword_1_0_1_1_or_ReferenceKeyword_1_0_1_0.equals(syntax))
 				emit_SAssociationDeduction_CompositeKeyword_1_0_1_1_or_ReferenceKeyword_1_0_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SAssociationDeduction_CompositeKeyword_1_1_1_1_or_ReferenceKeyword_1_1_1_0.equals(syntax))
@@ -180,6 +169,22 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
+	 *     ('(' ')')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=ID (ambiguity) 'raises' raises+=[DException|ID]
+	 *     name=ID (ambiguity) '{' 'effect' effects+=DExpression
+	 *     name=ID (ambiguity) '{' 'guard' guards+=DExpression
+	 *     name=ID (ambiguity) '{' '}' (rule end)
+	 *     name=ID (ambiguity) '{' types+=DType
+	 *     name=ID (ambiguity) description=DRichText
+	 */
+	protected void emit_DService___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
 	 *     'FALSE' | 'false'
 	 *
 	 * This ambiguous syntax occurs at:
@@ -187,20 +192,7 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) '('+ (ambiguity) ')' (rule start)
 	 *     (rule start) (ambiguity) (rule start)
 	 */
-	protected void emit_DBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'UNDEFINED' | 'undefined'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) '('* (ambiguity) (rule start)
-	 *     (rule start) '('+ (ambiguity) ')' (rule start)
-	 *     (rule start) (ambiguity) (rule start)
-	 */
-	protected void emit_DNilLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -209,7 +201,7 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) '[' target=[IPrimaryNavigationTarget|DQualifiedName]
+	 *     (rule start) (ambiguity) '[' target=[IStaticReferenceTarget|DQualifiedName]
 	 *     (rule start) (ambiguity) 'for' declaredParam=ID
 	 *     (rule start) (ambiguity) 'if' if=DExpression
 	 *     (rule start) (ambiguity) ('FALSE' | 'false') (rule start)
@@ -218,25 +210,26 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) ('RETURN' | 'return') expression=DExpression
 	 *     (rule start) (ambiguity) ('SELF' | 'self') (rule start)
 	 *     (rule start) (ambiguity) ('UNDEFINED' | 'undefined') (rule start)
-	 *     (rule start) (ambiguity) OpConstructor constructor=[DComplexType|ID]
+	 *     (rule start) (ambiguity) DmxOpConstructor constructor=[DComplexType|ID]
 	 *     (rule start) (ambiguity) assignToMember=[DNavigableMember|ID]
+	 *     (rule start) (ambiguity) correlationVariable=DmxCorrelationVariable
 	 *     (rule start) (ambiguity) function=[DmxFunction|ID]
 	 *     (rule start) (ambiguity) operator=OpUnary
-	 *     (rule start) (ambiguity) segments+=DTextOnly
-	 *     (rule start) (ambiguity) segments+=DTextStart
+	 *     (rule start) (ambiguity) segments+=DmxTextOnly
+	 *     (rule start) (ambiguity) segments+=DmxTextStart
 	 *     (rule start) (ambiguity) target=[DNamedElement|ID]
 	 *     (rule start) (ambiguity) value=DECIMAL
 	 *     (rule start) (ambiguity) value=NATURAL
 	 *     (rule start) (ambiguity) value=STRING
 	 *     (rule start) (ambiguity) value?='TRUE'
 	 *     (rule start) (ambiguity) value?='true'
-	 *     (rule start) (ambiguity) {DAssignment.memberContainer=}
-	 *     (rule start) (ambiguity) {DBinaryOperation.leftOperand=}
-	 *     (rule start) (ambiguity) {DCastExpression.target=}
-	 *     (rule start) (ambiguity) {DInstanceOfExpression.expression=}
-	 *     (rule start) (ambiguity) {DNavigableMemberReference.memberContainerReference=}
+	 *     (rule start) (ambiguity) {DmxAssignment.precedingNavigationSegment=}
+	 *     (rule start) (ambiguity) {DmxBinaryOperation.leftOperand=}
+	 *     (rule start) (ambiguity) {DmxCastExpression.target=}
+	 *     (rule start) (ambiguity) {DmxInstanceOfExpression.expression=}
+	 *     (rule start) (ambiguity) {DmxMemberNavigation.precedingNavigationSegment=}
 	 */
-	protected void emit_DParenthesizedExpression_LeftParenthesisKeyword_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -245,7 +238,7 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) '[' target=[IPrimaryNavigationTarget|DQualifiedName]
+	 *     (rule start) (ambiguity) '[' target=[IStaticReferenceTarget|DQualifiedName]
 	 *     (rule start) (ambiguity) 'for' declaredParam=ID
 	 *     (rule start) (ambiguity) 'if' if=DExpression
 	 *     (rule start) (ambiguity) ('FALSE' | 'false') ')' (rule start)
@@ -254,25 +247,26 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) ('RETURN' | 'return') expression=DExpression
 	 *     (rule start) (ambiguity) ('SELF' | 'self') ')' (rule start)
 	 *     (rule start) (ambiguity) ('UNDEFINED' | 'undefined') ')' (rule start)
-	 *     (rule start) (ambiguity) OpConstructor constructor=[DComplexType|ID]
+	 *     (rule start) (ambiguity) DmxOpConstructor constructor=[DComplexType|ID]
 	 *     (rule start) (ambiguity) assignToMember=[DNavigableMember|ID]
+	 *     (rule start) (ambiguity) correlationVariable=DmxCorrelationVariable
 	 *     (rule start) (ambiguity) function=[DmxFunction|ID]
 	 *     (rule start) (ambiguity) operator=OpUnary
-	 *     (rule start) (ambiguity) segments+=DTextOnly
-	 *     (rule start) (ambiguity) segments+=DTextStart
+	 *     (rule start) (ambiguity) segments+=DmxTextOnly
+	 *     (rule start) (ambiguity) segments+=DmxTextStart
 	 *     (rule start) (ambiguity) target=[DNamedElement|ID]
 	 *     (rule start) (ambiguity) value=DECIMAL
 	 *     (rule start) (ambiguity) value=NATURAL
 	 *     (rule start) (ambiguity) value=STRING
 	 *     (rule start) (ambiguity) value?='TRUE'
 	 *     (rule start) (ambiguity) value?='true'
-	 *     (rule start) (ambiguity) {DAssignment.memberContainer=}
-	 *     (rule start) (ambiguity) {DBinaryOperation.leftOperand=}
-	 *     (rule start) (ambiguity) {DCastExpression.target=}
-	 *     (rule start) (ambiguity) {DInstanceOfExpression.expression=}
-	 *     (rule start) (ambiguity) {DNavigableMemberReference.memberContainerReference=}
+	 *     (rule start) (ambiguity) {DmxAssignment.precedingNavigationSegment=}
+	 *     (rule start) (ambiguity) {DmxBinaryOperation.leftOperand=}
+	 *     (rule start) (ambiguity) {DmxCastExpression.target=}
+	 *     (rule start) (ambiguity) {DmxInstanceOfExpression.expression=}
+	 *     (rule start) (ambiguity) {DmxMemberNavigation.precedingNavigationSegment=}
 	 */
-	protected void emit_DParenthesizedExpression_LeftParenthesisKeyword_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -285,7 +279,7 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) '('+ (ambiguity) expression=DExpression
 	 *     (rule start) (ambiguity) expression=DExpression
 	 */
-	protected void emit_DRaiseExpression_RAISEKeyword_1_0_or_RaiseKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_DmxRaiseExpression_RAISEKeyword_1_0_or_RaiseKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -301,7 +295,7 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) (rule start)
 	 *     (rule start) (ambiguity) expression=DExpression
 	 */
-	protected void emit_DReturnExpression_RETURNKeyword_1_0_or_ReturnKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_DmxReturnExpression_RETURNKeyword_1_0_or_ReturnKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -314,23 +308,20 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) '('+ (ambiguity) ')' (rule start)
 	 *     (rule start) (ambiguity) (rule start)
 	 */
-	protected void emit_DSelfExpression_SELFKeyword_1_0_or_SelfKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_DmxSelfExpression_SELFKeyword_1_0_or_SelfKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('(' ')')?
+	 *     'UNDEFINED' | 'undefined'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     name=ID (ambiguity) 'raises' raises+=[DException|ID]
-	 *     name=ID (ambiguity) '{' 'effect' effects+=DExpression
-	 *     name=ID (ambiguity) '{' 'guard' guards+=DExpression
-	 *     name=ID (ambiguity) '{' '}' (rule end)
-	 *     name=ID (ambiguity) '{' types+=DType
-	 *     name=ID (ambiguity) description=DRichText
+	 *     (rule start) '('* (ambiguity) (rule start)
+	 *     (rule start) '('+ (ambiguity) ')' (rule start)
+	 *     (rule start) (ambiguity) (rule start)
 	 */
-	protected void emit_DService___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

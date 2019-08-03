@@ -25,9 +25,6 @@ DEntityStateModel:
 	'transitions'
 	(transition+=DTransition)+;
 
-DImport:
-	'import' importedNamespace=DQualifiedNameWithWildcard;
-
 DState:
 	name=ID
 	('when' expression=DExpression)?;
@@ -47,13 +44,13 @@ DTransition:
 	
 @Override 
 DExpression returns DExpression :
-	DOrExpression | DRichText;
+	DmxOrExpression | DRichText;
 	
 @Override 
-DPrimaryExpression returns DExpression:
-	DLiteralExpression |
-	DSelfExpression |
-	DParenthesizedExpression |
-	DFunctionCall |
-	DContextReference |
-	DIfExpression;
+DmxPrimaryExpression returns DExpression:
+	DmxLiteralExpression |
+	DmxSelfExpression |
+	DmxParenthesizedExpression |
+	DmxFunctionCall |
+	DmxContextReference |
+	DmxIfExpression;

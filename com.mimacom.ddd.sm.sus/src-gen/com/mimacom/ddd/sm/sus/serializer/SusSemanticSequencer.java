@@ -5,35 +5,39 @@ package com.mimacom.ddd.sm.sus.serializer;
 
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
+import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DTextSegment;
-import com.mimacom.ddd.dm.dmx.DArchetype;
-import com.mimacom.ddd.dm.dmx.DAssignment;
-import com.mimacom.ddd.dm.dmx.DBinaryOperation;
-import com.mimacom.ddd.dm.dmx.DBooleanLiteral;
-import com.mimacom.ddd.dm.dmx.DCastExpression;
-import com.mimacom.ddd.dm.dmx.DConstructorCall;
-import com.mimacom.ddd.dm.dmx.DContextReference;
-import com.mimacom.ddd.dm.dmx.DDecimalLiteral;
-import com.mimacom.ddd.dm.dmx.DForLoopExpression;
-import com.mimacom.ddd.dm.dmx.DFunction;
-import com.mimacom.ddd.dm.dmx.DFunctionCall;
-import com.mimacom.ddd.dm.dmx.DFunctionParameter;
-import com.mimacom.ddd.dm.dmx.DIfExpression;
-import com.mimacom.ddd.dm.dmx.DInstanceOfExpression;
-import com.mimacom.ddd.dm.dmx.DIterator;
-import com.mimacom.ddd.dm.dmx.DNaturalLiteral;
-import com.mimacom.ddd.dm.dmx.DNavigableMemberReference;
-import com.mimacom.ddd.dm.dmx.DRaiseExpression;
-import com.mimacom.ddd.dm.dmx.DReturnExpression;
-import com.mimacom.ddd.dm.dmx.DSelfExpression;
-import com.mimacom.ddd.dm.dmx.DStringLiteral;
-import com.mimacom.ddd.dm.dmx.DUnaryOperation;
-import com.mimacom.ddd.dm.dmx.DUndefinedLiteral;
+import com.mimacom.ddd.dm.dmx.DmxArchetype;
+import com.mimacom.ddd.dm.dmx.DmxAssignment;
+import com.mimacom.ddd.dm.dmx.DmxBinaryOperation;
+import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral;
+import com.mimacom.ddd.dm.dmx.DmxCastExpression;
+import com.mimacom.ddd.dm.dmx.DmxConstructorCall;
+import com.mimacom.ddd.dm.dmx.DmxContextReference;
+import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral;
+import com.mimacom.ddd.dm.dmx.DmxForLoopExpression;
+import com.mimacom.ddd.dm.dmx.DmxFunction;
+import com.mimacom.ddd.dm.dmx.DmxFunctionCall;
+import com.mimacom.ddd.dm.dmx.DmxFunctionParameter;
+import com.mimacom.ddd.dm.dmx.DmxIfExpression;
+import com.mimacom.ddd.dm.dmx.DmxInstanceOfExpression;
+import com.mimacom.ddd.dm.dmx.DmxIterator;
+import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxNamespace;
+import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
+import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
+import com.mimacom.ddd.dm.dmx.DmxRaiseExpression;
+import com.mimacom.ddd.dm.dmx.DmxReturnExpression;
+import com.mimacom.ddd.dm.dmx.DmxSelfExpression;
+import com.mimacom.ddd.dm.dmx.DmxStaticReference;
+import com.mimacom.ddd.dm.dmx.DmxStringLiteral;
+import com.mimacom.ddd.dm.dmx.DmxTest;
+import com.mimacom.ddd.dm.dmx.DmxUnaryOperation;
+import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.serializer.DmxSemanticSequencer;
 import com.mimacom.ddd.sm.sus.Paragraph;
 import com.mimacom.ddd.sm.sus.Section;
@@ -64,6 +68,16 @@ public class SusSemanticSequencer extends DmxSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == BasePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case BasePackage.DCONTEXT:
+				if (rule == grammarAccess.getDmxCorrelationVariableRule()) {
+					sequence_DmxCorrelationVariable(context, (DContext) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getDmxTestContextRule()) {
+					sequence_DmxTestContext(context, (DContext) semanticObject); 
+					return; 
+				}
+				else break;
 			case BasePackage.DIMPORT:
 				sequence_DImport(context, (DImport) semanticObject); 
 				return; 
@@ -74,97 +88,137 @@ public class SusSemanticSequencer extends DmxSemanticSequencer {
 				sequence_DRichText(context, (DRichText) semanticObject); 
 				return; 
 			case BasePackage.DTEXT_SEGMENT:
-				if (rule == grammarAccess.getDTextEndRule()) {
-					sequence_DTextEnd(context, (DTextSegment) semanticObject); 
+				if (rule == grammarAccess.getDmxTextEndRule()) {
+					sequence_DmxTextEnd(context, (DTextSegment) semanticObject); 
 					return; 
 				}
-				else if (rule == grammarAccess.getDTextMiddleRule()) {
-					sequence_DTextMiddle(context, (DTextSegment) semanticObject); 
+				else if (rule == grammarAccess.getDmxTextMiddleRule()) {
+					sequence_DmxTextMiddle(context, (DTextSegment) semanticObject); 
 					return; 
 				}
-				else if (rule == grammarAccess.getDTextOnlyRule()) {
-					sequence_DTextOnly(context, (DTextSegment) semanticObject); 
+				else if (rule == grammarAccess.getDmxTextOnlyRule()) {
+					sequence_DmxTextOnly(context, (DTextSegment) semanticObject); 
 					return; 
 				}
-				else if (rule == grammarAccess.getDTextStartRule()) {
-					sequence_DTextStart(context, (DTextSegment) semanticObject); 
+				else if (rule == grammarAccess.getDmxTextStartRule()) {
+					sequence_DmxTextStart(context, (DTextSegment) semanticObject); 
 					return; 
 				}
 				else break;
 			}
 		else if (epackage == DmxPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case DmxPackage.DARCHETYPE:
-				sequence_DArchetype(context, (DArchetype) semanticObject); 
+			case DmxPackage.DMX_ARCHETYPE:
+				sequence_DmxArchetype(context, (DmxArchetype) semanticObject); 
 				return; 
-			case DmxPackage.DASSIGNMENT:
-				sequence_DAssignment_DNavigableMemberReference(context, (DAssignment) semanticObject); 
+			case DmxPackage.DMX_ASSIGNMENT:
+				if (rule == grammarAccess.getDmxAssignmentRule()) {
+					sequence_DmxAssignment(context, (DmxAssignment) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getDExpressionRule()
+						|| rule == grammarAccess.getDmxNavigableMemberReferenceRule()
+						|| action == grammarAccess.getDmxNavigableMemberReferenceAccess().getDmxAssignmentPrecedingNavigationSegmentAction_1_0_0_0_0()
+						|| action == grammarAccess.getDmxNavigableMemberReferenceAccess().getDmxMemberNavigationPrecedingNavigationSegmentAction_1_1_0_0_0()
+						|| rule == grammarAccess.getDmxPredicateRule()
+						|| rule == grammarAccess.getDmxOrExpressionRule()
+						|| action == grammarAccess.getDmxOrExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()
+						|| rule == grammarAccess.getDmxAndExpressionRule()
+						|| action == grammarAccess.getDmxAndExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()
+						|| rule == grammarAccess.getDmxEqualityExpressionRule()
+						|| action == grammarAccess.getDmxEqualityExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()
+						|| rule == grammarAccess.getDmxRelationalExpressionRule()
+						|| action == grammarAccess.getDmxRelationalExpressionAccess().getDmxInstanceOfExpressionExpressionAction_1_0_0_0_0()
+						|| action == grammarAccess.getDmxRelationalExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_1_0_0_0()
+						|| rule == grammarAccess.getDmxOtherOperatorExpressionRule()
+						|| action == grammarAccess.getDmxOtherOperatorExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()
+						|| rule == grammarAccess.getDmxAdditiveExpressionRule()
+						|| action == grammarAccess.getDmxAdditiveExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()
+						|| rule == grammarAccess.getDmxMultiplicativeExpressionRule()
+						|| action == grammarAccess.getDmxMultiplicativeExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()
+						|| rule == grammarAccess.getDmxUnaryOperationRule()
+						|| rule == grammarAccess.getDmxCastExpressionRule()
+						|| action == grammarAccess.getDmxCastExpressionAccess().getDmxCastExpressionTargetAction_1_0_0_0()
+						|| rule == grammarAccess.getDmxPrimaryExpressionRule()
+						|| rule == grammarAccess.getDmxParenthesizedExpressionRule()) {
+					sequence_DmxAssignment_DmxNavigableMemberReference(context, (DmxAssignment) semanticObject); 
+					return; 
+				}
+				else break;
+			case DmxPackage.DMX_BINARY_OPERATION:
+				sequence_DmxAdditiveExpression_DmxAndExpression_DmxEqualityExpression_DmxMultiplicativeExpression_DmxOrExpression_DmxOtherOperatorExpression_DmxRelationalExpression(context, (DmxBinaryOperation) semanticObject); 
 				return; 
-			case DmxPackage.DBINARY_OPERATION:
-				sequence_DAdditiveExpression_DAndExpression_DEqualityExpression_DMultiplicativeExpression_DOrExpression_DOtherOperatorExpression_DRelationalExpression(context, (DBinaryOperation) semanticObject); 
+			case DmxPackage.DMX_BOOLEAN_LITERAL:
+				sequence_DmxBooleanLiteral(context, (DmxBooleanLiteral) semanticObject); 
 				return; 
-			case DmxPackage.DBOOLEAN_LITERAL:
-				sequence_DBooleanLiteral(context, (DBooleanLiteral) semanticObject); 
+			case DmxPackage.DMX_CAST_EXPRESSION:
+				sequence_DmxCastExpression(context, (DmxCastExpression) semanticObject); 
 				return; 
-			case DmxPackage.DCAST_EXPRESSION:
-				sequence_DCastExpression(context, (DCastExpression) semanticObject); 
+			case DmxPackage.DMX_CONSTRUCTOR_CALL:
+				sequence_DmxConstructorCall(context, (DmxConstructorCall) semanticObject); 
 				return; 
-			case DmxPackage.DCONSTRUCTOR_CALL:
-				sequence_DConstructorCall(context, (DConstructorCall) semanticObject); 
+			case DmxPackage.DMX_CONTEXT_REFERENCE:
+				sequence_DmxContextReference(context, (DmxContextReference) semanticObject); 
 				return; 
-			case DmxPackage.DCONTEXT_REFERENCE:
-				sequence_DContextReference(context, (DContextReference) semanticObject); 
+			case DmxPackage.DMX_DECIMAL_LITERAL:
+				sequence_DmxDecimalLiteral(context, (DmxDecimalLiteral) semanticObject); 
 				return; 
-			case DmxPackage.DDECIMAL_LITERAL:
-				sequence_DDecimalLiteral(context, (DDecimalLiteral) semanticObject); 
+			case DmxPackage.DMX_FOR_LOOP_EXPRESSION:
+				sequence_DmxForLoopExpression(context, (DmxForLoopExpression) semanticObject); 
 				return; 
-			case DmxPackage.DFOR_LOOP_EXPRESSION:
-				sequence_DForLoopExpression(context, (DForLoopExpression) semanticObject); 
+			case DmxPackage.DMX_FUNCTION:
+				sequence_DmxFunction(context, (DmxFunction) semanticObject); 
 				return; 
-			case DmxPackage.DFUNCTION:
-				sequence_DFunction(context, (DFunction) semanticObject); 
+			case DmxPackage.DMX_FUNCTION_CALL:
+				sequence_DmxFunctionCall(context, (DmxFunctionCall) semanticObject); 
 				return; 
-			case DmxPackage.DFUNCTION_CALL:
-				sequence_DFunctionCall(context, (DFunctionCall) semanticObject); 
+			case DmxPackage.DMX_FUNCTION_PARAMETER:
+				sequence_DmxFunctionParameter(context, (DmxFunctionParameter) semanticObject); 
 				return; 
-			case DmxPackage.DFUNCTION_PARAMETER:
-				sequence_DFunctionParameter(context, (DFunctionParameter) semanticObject); 
+			case DmxPackage.DMX_IF_EXPRESSION:
+				sequence_DmxIfExpression(context, (DmxIfExpression) semanticObject); 
 				return; 
-			case DmxPackage.DIF_EXPRESSION:
-				sequence_DIfExpression(context, (DIfExpression) semanticObject); 
+			case DmxPackage.DMX_INSTANCE_OF_EXPRESSION:
+				sequence_DmxRelationalExpression(context, (DmxInstanceOfExpression) semanticObject); 
 				return; 
-			case DmxPackage.DINSTANCE_OF_EXPRESSION:
-				sequence_DRelationalExpression(context, (DInstanceOfExpression) semanticObject); 
+			case DmxPackage.DMX_ITERATOR:
+				sequence_DmxIterator(context, (DmxIterator) semanticObject); 
 				return; 
-			case DmxPackage.DITERATOR:
-				sequence_DIterator(context, (DIterator) semanticObject); 
-				return; 
-			case DmxPackage.DNATURAL_LITERAL:
-				sequence_DNaturalLiteral(context, (DNaturalLiteral) semanticObject); 
-				return; 
-			case DmxPackage.DNAVIGABLE_MEMBER_REFERENCE:
-				sequence_DNavigableMemberReference(context, (DNavigableMemberReference) semanticObject); 
-				return; 
-			case DmxPackage.DRAISE_EXPRESSION:
-				sequence_DRaiseExpression(context, (DRaiseExpression) semanticObject); 
-				return; 
-			case DmxPackage.DRETURN_EXPRESSION:
-				sequence_DReturnExpression(context, (DReturnExpression) semanticObject); 
-				return; 
-			case DmxPackage.DSELF_EXPRESSION:
-				sequence_DSelfExpression(context, (DSelfExpression) semanticObject); 
-				return; 
-			case DmxPackage.DSTRING_LITERAL:
-				sequence_DStringLiteral(context, (DStringLiteral) semanticObject); 
-				return; 
-			case DmxPackage.DUNARY_OPERATION:
-				sequence_DUnaryOperation(context, (DUnaryOperation) semanticObject); 
-				return; 
-			case DmxPackage.DUNDEFINED_LITERAL:
-				sequence_DNilLiteral(context, (DUndefinedLiteral) semanticObject); 
+			case DmxPackage.DMX_MEMBER_NAVIGATION:
+				sequence_DmxNavigableMemberReference(context, (DmxMemberNavigation) semanticObject); 
 				return; 
 			case DmxPackage.DMX_NAMESPACE:
 				sequence_DmxNamespace(context, (DmxNamespace) semanticObject); 
+				return; 
+			case DmxPackage.DMX_NATURAL_LITERAL:
+				sequence_DmxNaturalLiteral(context, (DmxNaturalLiteral) semanticObject); 
+				return; 
+			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE:
+				sequence_DmxPredicate(context, (DmxPredicateWithCorrelationVariable) semanticObject); 
+				return; 
+			case DmxPackage.DMX_RAISE_EXPRESSION:
+				sequence_DmxRaiseExpression(context, (DmxRaiseExpression) semanticObject); 
+				return; 
+			case DmxPackage.DMX_RETURN_EXPRESSION:
+				sequence_DmxReturnExpression(context, (DmxReturnExpression) semanticObject); 
+				return; 
+			case DmxPackage.DMX_SELF_EXPRESSION:
+				sequence_DmxSelfExpression(context, (DmxSelfExpression) semanticObject); 
+				return; 
+			case DmxPackage.DMX_STATIC_REFERENCE:
+				sequence_DmxStaticReference(context, (DmxStaticReference) semanticObject); 
+				return; 
+			case DmxPackage.DMX_STRING_LITERAL:
+				sequence_DmxStringLiteral(context, (DmxStringLiteral) semanticObject); 
+				return; 
+			case DmxPackage.DMX_TEST:
+				sequence_DmxTest(context, (DmxTest) semanticObject); 
+				return; 
+			case DmxPackage.DMX_UNARY_OPERATION:
+				sequence_DmxUnaryOperation(context, (DmxUnaryOperation) semanticObject); 
+				return; 
+			case DmxPackage.DMX_UNDEFINED_LITERAL:
+				sequence_DmxUndefinedLiteral(context, (DmxUndefinedLiteral) semanticObject); 
 				return; 
 			}
 		else if (epackage == SusPackage.eINSTANCE)

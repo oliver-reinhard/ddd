@@ -47,15 +47,15 @@ public class EsmScopeProvider extends AbstractEsmScopeProvider {
   }
   
   @Override
-  protected IScope getNavigableMembersScope(final INavigableMemberContainer container, final IScope outerScope) {
+  protected IScope getEContainerNavigableMembersScopeSwitch(final INavigableMemberContainer container, final IScope outerScope) {
     IScope _switchResult = null;
     boolean _matched = false;
     if (container instanceof DEntityStateModel) {
       _matched=true;
-      _switchResult = Scopes.scopeFor(((DEntityStateModel)container).getForType().getFeatures(), this.getPrecedingNavigableMembersScope(container, outerScope));
+      _switchResult = Scopes.scopeFor(((DEntityStateModel)container).getForType().getFeatures(), outerScope);
     }
     if (!_matched) {
-      _switchResult = super.getNavigableMembersScope(container, outerScope);
+      _switchResult = super.getEContainerNavigableMembersScopeSwitch(container, outerScope);
     }
     final IScope scope = _switchResult;
     return scope;

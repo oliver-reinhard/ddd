@@ -472,7 +472,7 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		modelEClass.getESuperTypes().add(theBasePackage.getIPrimaryNavigationTarget());
+		modelEClass.getESuperTypes().add(theBasePackage.getIStaticReferenceTarget());
 		sApplicationEClass.getESuperTypes().add(this.getModel());
 		sServiceInterfaceEClass.getESuperTypes().add(this.getModel());
 		sServiceInterfaceEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());

@@ -56,7 +56,7 @@ public class AsmScopeProvider extends AbstractAsmScopeProvider {
   }
   
   @Override
-  protected IScope getNavigableMembersScope(final INavigableMemberContainer container, final IScope outerScope) {
+  protected IScope getEContainerNavigableMembersScopeSwitch(final INavigableMemberContainer container, final IScope outerScope) {
     IScope _switchResult = null;
     boolean _matched = false;
     if (container instanceof SCoreQuery) {
@@ -66,7 +66,7 @@ public class AsmScopeProvider extends AbstractAsmScopeProvider {
     if (!_matched) {
       if (container instanceof SServiceOperation) {
         _matched=true;
-        _switchResult = Scopes.scopeFor(((SServiceOperation)container).getParameters(), this.getPrecedingNavigableMembersScope(container, outerScope));
+        _switchResult = Scopes.scopeFor(((SServiceOperation)container).getParameters(), outerScope);
       }
     }
     if (!_matched) {
@@ -76,7 +76,7 @@ public class AsmScopeProvider extends AbstractAsmScopeProvider {
       }
     }
     if (!_matched) {
-      _switchResult = super.getNavigableMembersScope(container, outerScope);
+      _switchResult = super.getEContainerNavigableMembersScopeSwitch(container, outerScope);
     }
     final IScope scope = _switchResult;
     return scope;

@@ -6,7 +6,7 @@ package com.mimacom.ddd.sm.asm.util;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
-import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
+import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 
 import com.mimacom.ddd.sm.asm.*;
 
@@ -121,9 +121,9 @@ public class AsmAdapterFactory extends AdapterFactoryImpl
 				return createDNamedElementAdapter();
 			}
 			@Override
-			public Adapter caseIPrimaryNavigationTarget(IPrimaryNavigationTarget object)
+			public Adapter caseIStaticReferenceTarget(IStaticReferenceTarget object)
 			{
-				return createIPrimaryNavigationTargetAdapter();
+				return createIStaticReferenceTargetAdapter();
 			}
 			@Override
 			public Adapter caseINamespace(INamespace object)
@@ -278,16 +278,16 @@ public class AsmAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IPrimaryNavigationTarget <em>IPrimary Navigation Target</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.IPrimaryNavigationTarget
+	 * @see com.mimacom.ddd.dm.base.IStaticReferenceTarget
 	 * @generated
 	 */
-	public Adapter createIPrimaryNavigationTargetAdapter()
+	public Adapter createIStaticReferenceTargetAdapter()
 	{
 		return null;
 	}

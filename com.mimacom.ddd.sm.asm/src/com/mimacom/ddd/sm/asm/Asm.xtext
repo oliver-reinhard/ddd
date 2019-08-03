@@ -27,9 +27,6 @@ SServiceInterface:
 	(exceptions+=DException)*
 	(operations+=SServiceOperation)*;
 
-DImport:
-	'import' importedNamespace=DQualifiedNameWithWildcard;
-
 SActor:
 	SWatchdog | SHuman;
 

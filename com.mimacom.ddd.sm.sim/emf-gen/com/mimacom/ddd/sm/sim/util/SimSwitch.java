@@ -25,7 +25,7 @@ import com.mimacom.ddd.dm.base.IDeductionDefinition;
 import com.mimacom.ddd.dm.base.IIdentityType;
 import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
-import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
+import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.base.ITypeContainer;
 import com.mimacom.ddd.dm.base.IValueType;
 
@@ -168,7 +168,7 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = caseDType(sPrimitiveDeduction);
 				if (result == null) result = caseIValueType(sPrimitiveDeduction);
 				if (result == null) result = caseIDeducibleElement(sPrimitiveDeduction);
-				if (result == null) result = caseIPrimaryNavigationTarget(sPrimitiveDeduction);
+				if (result == null) result = caseIStaticReferenceTarget(sPrimitiveDeduction);
 				if (result == null) result = caseDNamedElement(sPrimitiveDeduction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -186,7 +186,7 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = caseIValueType(sEnumerationDeduction);
 				if (result == null) result = caseINamespace(sEnumerationDeduction);
 				if (result == null) result = caseIDeducibleElement(sEnumerationDeduction);
-				if (result == null) result = caseIPrimaryNavigationTarget(sEnumerationDeduction);
+				if (result == null) result = caseIStaticReferenceTarget(sEnumerationDeduction);
 				if (result == null) result = caseDNamedElement(sEnumerationDeduction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -226,7 +226,7 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = caseINavigableMemberContainer(sDetailTypeDeduction);
 				if (result == null) result = caseIDeductionDefinition(sDetailTypeDeduction);
 				if (result == null) result = caseIDeducibleElement(sDetailTypeDeduction);
-				if (result == null) result = caseIPrimaryNavigationTarget(sDetailTypeDeduction);
+				if (result == null) result = caseIStaticReferenceTarget(sDetailTypeDeduction);
 				if (result == null) result = caseINamespace(sDetailTypeDeduction);
 				if (result == null) result = caseDNamedElement(sDetailTypeDeduction);
 				if (result == null) result = defaultCase(theEObject);
@@ -246,7 +246,7 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = caseDType(sEntityTypeDeduction);
 				if (result == null) result = caseINavigableMemberContainer(sEntityTypeDeduction);
 				if (result == null) result = caseIDeducibleElement(sEntityTypeDeduction);
-				if (result == null) result = caseIPrimaryNavigationTarget(sEntityTypeDeduction);
+				if (result == null) result = caseIStaticReferenceTarget(sEntityTypeDeduction);
 				if (result == null) result = caseINamespace(sEntityTypeDeduction);
 				if (result == null) result = caseDNamedElement(sEntityTypeDeduction);
 				if (result == null) result = defaultCase(theEObject);
@@ -919,17 +919,17 @@ public class SimSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IPrimary Navigation Target</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>IStatic Reference Target</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IPrimary Navigation Target</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>IStatic Reference Target</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIPrimaryNavigationTarget(IPrimaryNavigationTarget object)
+	public T caseIStaticReferenceTarget(IStaticReferenceTarget object)
 	{
 		return null;
 	}

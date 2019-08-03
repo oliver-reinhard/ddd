@@ -77,7 +77,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__NAME = BasePackage.IPRIMARY_NAVIGATION_TARGET__NAME;
+	int MODEL__NAME = BasePackage.ISTATIC_REFERENCE_TARGET__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -86,7 +86,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__ALIASES = BasePackage.IPRIMARY_NAVIGATION_TARGET__ALIASES;
+	int MODEL__ALIASES = BasePackage.ISTATIC_REFERENCE_TARGET__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -95,7 +95,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__DESCRIPTION = BasePackage.IPRIMARY_NAVIGATION_TARGET__DESCRIPTION;
+	int MODEL__DESCRIPTION = BasePackage.ISTATIC_REFERENCE_TARGET__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
@@ -104,7 +104,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__IMPORTS = BasePackage.IPRIMARY_NAVIGATION_TARGET_FEATURE_COUNT + 0;
+	int MODEL__IMPORTS = BasePackage.ISTATIC_REFERENCE_TARGET_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -113,7 +113,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = BasePackage.IPRIMARY_NAVIGATION_TARGET_FEATURE_COUNT + 1;
+	int MODEL_FEATURE_COUNT = BasePackage.ISTATIC_REFERENCE_TARGET_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -122,7 +122,7 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_OPERATION_COUNT = BasePackage.IPRIMARY_NAVIGATION_TARGET_OPERATION_COUNT + 0;
+	int MODEL_OPERATION_COUNT = BasePackage.ISTATIC_REFERENCE_TARGET_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.SApplicationImpl <em>SApplication</em>}' class.

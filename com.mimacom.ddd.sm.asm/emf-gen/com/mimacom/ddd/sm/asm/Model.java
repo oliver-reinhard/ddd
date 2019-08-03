@@ -4,7 +4,7 @@
 package com.mimacom.ddd.sm.asm;
 
 import com.mimacom.ddd.dm.base.DImport;
-import com.mimacom.ddd.dm.base.IPrimaryNavigationTarget;
+import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface Model extends IPrimaryNavigationTarget
+public interface Model extends IStaticReferenceTarget
 {
 	/**
 	 * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
