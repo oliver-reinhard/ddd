@@ -108,7 +108,7 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 	 */
 	def String aggregateName(EObject obj) {
 			val a = EcoreUtil2.getContainerOfType(obj, DAggregate)// global types are not owned by a domain => null
-			return if (a !== null) a.derivedName else "undefined" 
+			return if (a !== null) a.name else "undefined" 
 	}
 	
 	def dispatch  generateType(DComplexType c) '''	

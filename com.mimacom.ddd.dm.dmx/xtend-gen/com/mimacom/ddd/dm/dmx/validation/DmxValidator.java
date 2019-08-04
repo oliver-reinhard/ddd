@@ -33,7 +33,7 @@ public class DmxValidator extends AbstractDmxValidator {
   private static final DmxPackage DMX = DmxPackage.eINSTANCE;
   
   @Check
-  public void checkFeatureNavigationOfCollection(final DmxContextReference ref) {
+  public void checkUseOfAllQualifier(final DmxContextReference ref) {
     if ((ref.isAll() && (!(ref.getTarget() instanceof DComplexType)))) {
       this.error("\'all\' qualifier is only supported after a static type reference.", ref, DmxValidator.DMX.getDmxContextReference_All());
     }

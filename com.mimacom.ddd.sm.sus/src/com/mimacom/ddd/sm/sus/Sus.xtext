@@ -13,9 +13,6 @@ UserStory:
 	)?
 	(description=DRichText)?
 	(sections+=Section)*;
-
-DImport:
-	'import' importedNamespace=DQualifiedNameWithWildcard;
 	
 Section:
 	'section' name=ID

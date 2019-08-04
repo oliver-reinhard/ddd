@@ -5,7 +5,9 @@ package com.mimacom.ddd.dm.esm
 
 import com.google.inject.Binder
 import com.google.inject.name.Names
+import com.mimacom.ddd.dm.dmx.indexing.DmxQualifiedNameProvider
 import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider
+import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.scoping.IScopeProvider
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 
@@ -13,6 +15,10 @@ import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class EsmRuntimeModule extends AbstractEsmRuntimeModule {
+	
+	override Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider()  {
+		return DmxQualifiedNameProvider
+	}
 	
 	override void configureIScopeProviderDelegate(Binder binder) {
 		binder.bind(IScopeProvider)

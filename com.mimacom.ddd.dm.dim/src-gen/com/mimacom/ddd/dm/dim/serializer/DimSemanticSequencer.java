@@ -292,7 +292,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *     DAggregate returns DAggregate
 	 *
 	 * Constraint:
-	 *     (description=DRichText? types+=DType*)
+	 *     (name=ID description=DRichText? staticQueries+=DQuery* types+=DType*)
 	 */
 	protected void sequence_DAggregate(ISerializationContext context, DAggregate semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

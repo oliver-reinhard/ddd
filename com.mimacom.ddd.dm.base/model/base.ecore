@@ -69,14 +69,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
         eType="#//DActor" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DAggregate" eSuperTypes="#//ITypeContainer #//IDeducibleElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//DRichText"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DAggregate" eSuperTypes="#//DNamedElement #//ITypeContainer #//INavigableMemberContainer #//IStaticReferenceTarget #//IDeducibleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="roots" unique="false" upperBound="-1"
         eType="#//DIdentityType" changeable="false" volatile="true" transient="true"
         derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="derivedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="staticQueries" upperBound="-1"
+        eType="#//DQuery" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IIdentityType" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="IValueType" abstract="true" interface="true"/>

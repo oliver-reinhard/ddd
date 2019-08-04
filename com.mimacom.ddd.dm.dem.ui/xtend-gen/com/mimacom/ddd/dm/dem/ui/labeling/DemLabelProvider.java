@@ -4,6 +4,7 @@
 package com.mimacom.ddd.dm.dem.ui.labeling;
 
 import com.google.inject.Inject;
+import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.dmx.ui.labeling.DmxLabelProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 
@@ -17,5 +18,10 @@ public class DemLabelProvider extends DmxLabelProvider {
   @Inject
   public DemLabelProvider(final AdapterFactoryLabelProvider delegate) {
     super(delegate);
+  }
+  
+  public String text(final DAggregate a) {
+    String _name = a.getName();
+    return ("Component " + _name);
   }
 }

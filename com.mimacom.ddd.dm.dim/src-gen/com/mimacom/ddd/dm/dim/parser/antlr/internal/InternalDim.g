@@ -269,16 +269,34 @@ ruleDAggregate returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='aggregate'
+		otherlv_1='component'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getDAggregateAccess().getAggregateKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getDAggregateAccess().getComponentKeyword_1());
 		}
 		(
 			(
+				lv_name_2_0=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getDAggregateAccess().getDescriptionDRichTextParserRuleCall_2_0());
+					newLeafNode(lv_name_2_0, grammarAccess.getDAggregateAccess().getNameIDTerminalRuleCall_2_0());
 				}
-				lv_description_2_0=ruleDRichText
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDAggregateRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_2_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.ID");
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDAggregateAccess().getDescriptionDRichTextParserRuleCall_3_0());
+				}
+				lv_description_3_0=ruleDRichText
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDAggregateRule());
@@ -286,22 +304,47 @@ ruleDAggregate returns [EObject current=null]
 					set(
 						$current,
 						"description",
-						lv_description_2_0,
+						lv_description_3_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
-		otherlv_3='{'
+		otherlv_4='{'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getDAggregateAccess().getLeftCurlyBracketKeyword_3());
+			newLeafNode(otherlv_4, grammarAccess.getDAggregateAccess().getLeftCurlyBracketKeyword_4());
 		}
+		(
+			otherlv_5='query'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getDAggregateAccess().getQueryKeyword_5_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getDAggregateAccess().getStaticQueriesDQueryParserRuleCall_5_1_0());
+					}
+					lv_staticQueries_6_0=ruleDQuery
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDAggregateRule());
+						}
+						add(
+							$current,
+							"staticQueries",
+							lv_staticQueries_6_0,
+							"com.mimacom.ddd.dm.dim.Dim.DQuery");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDAggregateAccess().getTypesDTypeParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getDAggregateAccess().getTypesDTypeParserRuleCall_6_0());
 				}
-				lv_types_4_0=ruleDType
+				lv_types_7_0=ruleDType
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDAggregateRule());
@@ -309,15 +352,15 @@ ruleDAggregate returns [EObject current=null]
 					add(
 						$current,
 						"types",
-						lv_types_4_0,
+						lv_types_7_0,
 						"com.mimacom.ddd.dm.dim.Dim.DType");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_5='}'
+		otherlv_8='}'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getDAggregateAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_8, grammarAccess.getDAggregateAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;

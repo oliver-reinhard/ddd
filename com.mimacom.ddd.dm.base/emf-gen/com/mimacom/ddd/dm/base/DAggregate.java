@@ -13,39 +13,16 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.DAggregate#getDescription <em>Description</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DAggregate#getRoots <em>Roots</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.DAggregate#getDerivedName <em>Derived Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DAggregate#getStaticQueries <em>Static Queries</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.base.BasePackage#getDAggregate()
  * @model
  * @generated
  */
-public interface DAggregate extends ITypeContainer, IDeducibleElement
+public interface DAggregate extends DNamedElement, ITypeContainer, INavigableMemberContainer, IStaticReferenceTarget, IDeducibleElement
 {
-	/**
-	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' containment reference.
-	 * @see #setDescription(DRichText)
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDAggregate_Description()
-	 * @model containment="true"
-	 * @generated
-	 */
-	DRichText getDescription();
-
-	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.DAggregate#getDescription <em>Description</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' containment reference.
-	 * @see #getDescription()
-	 * @generated
-	 */
-	void setDescription(DRichText value);
-
 	/**
 	 * Returns the value of the '<em><b>Roots</b></em>' reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DIdentityType}.
@@ -59,14 +36,15 @@ public interface DAggregate extends ITypeContainer, IDeducibleElement
 	EList<DIdentityType> getRoots();
 
 	/**
-	 * Returns the value of the '<em><b>Derived Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Static Queries</b></em>' containment reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DQuery}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Derived Name</em>' attribute.
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDAggregate_DerivedName()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @return the value of the '<em>Static Queries</em>' containment reference list.
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getDAggregate_StaticQueries()
+	 * @model containment="true"
 	 * @generated
 	 */
-	String getDerivedName();
+	EList<DQuery> getStaticQueries();
 
 } // DAggregate

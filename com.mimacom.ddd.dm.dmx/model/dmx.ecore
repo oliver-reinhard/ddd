@@ -28,8 +28,9 @@
     <eLiterals name="TIMEPOINT" value="6"/>
     <eLiterals name="ENUM" value="101"/>
     <eLiterals name="COMPLEX" value="102"/>
-    <eLiterals name="NOTIFICATION" value="103"/>
-    <eLiterals name="SERVICE" value="104"/>
+    <eLiterals name="AGGREGATE" value="103"/>
+    <eLiterals name="NOTIFICATION" value="104"/>
+    <eLiterals name="SERVICE" value="105"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DmxArchetype" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DPrimitive">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseType" eType="#//DmxBaseType"/>

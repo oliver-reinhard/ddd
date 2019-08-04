@@ -12,6 +12,8 @@ import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DLiteral;
+import com.mimacom.ddd.dm.base.DMultiplicity;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
@@ -69,7 +71,7 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
       return _xifexpression;
     };
     final DDomain domain = document.<DDomain>readOnly(_function);
-    if (((domain != null) && (!domain.getAggregates().isEmpty()))) {
+    if (((domain != null) && (!(domain.getTypes().isEmpty() && domain.getAggregates().isEmpty())))) {
       return this.domainTypes(domain);
     } else {
       StringConcatenation _builder = new StringConcatenation();
@@ -134,6 +136,23 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     _builder.append("}");
     _builder.newLine();
     _builder.newLine();
+    {
+      boolean _isEmpty = domain.getTypes().isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append("\' all domain-level types");
+        _builder.newLine();
+        {
+          EList<DType> _types = domain.getTypes();
+          for(final DType t : _types) {
+            CharSequence _generateType = this.generateType(t);
+            _builder.append(_generateType);
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    _builder.newLine();
     _builder.append("\' all aggregates");
     _builder.newLine();
     {
@@ -143,12 +162,22 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
         _builder.append(_aggregateName);
         _builder.append(" <<Rectangle>> {");
         _builder.newLineIfNotEmpty();
+        _builder.append("\t");
         {
-          EList<DType> _types = a.getTypes();
-          for(final DType t : _types) {
+          boolean _isEmpty_1 = a.getStaticQueries().isEmpty();
+          boolean _not_1 = (!_isEmpty_1);
+          if (_not_1) {
+            CharSequence _generateAggregateQueries = this.generateAggregateQueries(a);
+            _builder.append(_generateAggregateQueries, "\t");
+          }
+        }
+        _builder.newLineIfNotEmpty();
+        {
+          EList<DType> _types_1 = a.getTypes();
+          for(final DType t_1 : _types_1) {
             _builder.append("\t");
-            CharSequence _generateType = this.generateType(t);
-            _builder.append(_generateType, "\t");
+            CharSequence _generateType_1 = this.generateType(t_1);
+            _builder.append(_generateType_1, "\t");
             _builder.newLineIfNotEmpty();
           }
         }
@@ -175,8 +204,8 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     _builder.newLine();
     {
       for(final DEntityType re : allEntitiesReferencedWithinDomain) {
-        CharSequence _generateType_1 = this.generateType(re);
-        _builder.append(_generateType_1);
+        CharSequence _generateType_2 = this.generateType(re);
+        _builder.append(_generateType_2);
         _builder.newLineIfNotEmpty();
       }
     }
@@ -249,7 +278,7 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     if ((d != null)) {
       _xifexpression = d.getName();
     } else {
-      _xifexpression = "undefined";
+      _xifexpression = "default";
     }
     return _xifexpression;
   }
@@ -258,11 +287,43 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     final DAggregate a = EcoreUtil2.<DAggregate>getContainerOfType(obj, DAggregate.class);
     String _xifexpression = null;
     if ((a != null)) {
-      _xifexpression = a.getDerivedName();
+      _xifexpression = a.getName();
     } else {
-      _xifexpression = "undefined";
+      _xifexpression = "default";
     }
     return _xifexpression;
+  }
+  
+  public CharSequence generateAggregateQueries(final DAggregate a) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\' aggregate ");
+    String _name = a.getName();
+    _builder.append(_name);
+    _builder.append(" static queries");
+    _builder.newLineIfNotEmpty();
+    _builder.append("abstract class ");
+    String _name_1 = a.getName();
+    _builder.append(_name_1);
+    _builder.append(".");
+    String _name_2 = a.getName();
+    _builder.append(_name_2);
+    _builder.append(" ");
+    String _spot = this.getSpot(a);
+    _builder.append(_spot);
+    _builder.append(" {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    {
+      EList<DQuery> _staticQueries = a.getStaticQueries();
+      for(final DQuery q : _staticQueries) {
+        CharSequence _generateStaticQuery = this.generateStaticQuery(q);
+        _builder.append(_generateStaticQuery, "\t");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
   }
   
   protected CharSequence _generateType(final DComplexType c) {
@@ -301,6 +362,9 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
   protected CharSequence _generateType(final DPrimitive p) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("class ");
+    String _aggregateName = this.aggregateName(p);
+    _builder.append(_aggregateName);
+    _builder.append(".");
     String _name = p.getName();
     _builder.append(_name);
     _builder.append(" ");
@@ -313,6 +377,9 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
   protected CharSequence _generateType(final DEnumeration e) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("enum ");
+    String _aggregateName = this.aggregateName(e);
+    _builder.append(_aggregateName);
+    _builder.append(".");
     String _name = e.getName();
     _builder.append(_name);
     _builder.append(" ");
@@ -337,6 +404,10 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
   protected CharSequence _generateType(final DType t) {
     StringConcatenation _builder = new StringConcatenation();
     return _builder;
+  }
+  
+  public String getSpot(final DAggregate a) {
+    return "<< (Q,Gold) >>";
   }
   
   public String getSpot(final DType t) {
@@ -383,6 +454,30 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     return _switchResult;
   }
   
+  public CharSequence generateStaticQuery(final DQuery q) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      DType _type = q.getType();
+      boolean _tripleNotEquals = (_type != null);
+      if (_tripleNotEquals) {
+        _builder.append("{static} ");
+        String _name = q.getName();
+        _builder.append(_name);
+        _builder.append("(");
+        CharSequence _generateQueryParameters = this.generateQueryParameters(q);
+        _builder.append(_generateQueryParameters);
+        _builder.append(") : ");
+        String _name_1 = q.getType().getName();
+        _builder.append(_name_1);
+        _builder.append(" ");
+        String _generateMultiplicity = this.generateMultiplicity(q);
+        _builder.append(_generateMultiplicity);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
   protected CharSequence _generateFeature(final DAttribute a) {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -399,6 +494,9 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
         _builder.append(_name_1);
       }
     }
+    _builder.append(" ");
+    String _generateMultiplicity = this.generateMultiplicity(a);
+    _builder.append(_generateMultiplicity);
     _builder.newLineIfNotEmpty();
     return _builder;
   }
@@ -418,6 +516,8 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
         String _name_1 = q.getType().getName();
         _builder.append(_name_1);
         _builder.append(" ");
+        String _generateMultiplicity = this.generateMultiplicity(q);
+        _builder.append(_generateMultiplicity);
         _builder.newLineIfNotEmpty();
       }
     }
@@ -445,6 +545,9 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
         _builder.append(":");
         String _name_1 = p.getType().getName();
         _builder.append(_name_1);
+        _builder.append(" ");
+        String _generateMultiplicity = this.generateMultiplicity(p);
+        _builder.append(_generateMultiplicity);
       }
     }
     return _builder;
@@ -516,6 +619,28 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
       return this.aggregateName(target);
     }
     return this.domainName(target);
+  }
+  
+  public String generateMultiplicity(final DNavigableMember member) {
+    DMultiplicity _multiplicity = member.getMultiplicity();
+    boolean _tripleEquals = (_multiplicity == null);
+    if (_tripleEquals) {
+      return "";
+    }
+    String _xifexpression = null;
+    int _maxOccurs = member.getMultiplicity().getMaxOccurs();
+    boolean _equals = (_maxOccurs == (-1));
+    if (_equals) {
+      _xifexpression = "*";
+    } else {
+      _xifexpression = Integer.valueOf(member.getMultiplicity().getMaxOccurs()).toString();
+    }
+    final String maxOccurs = _xifexpression;
+    int _minOccurs = member.getMultiplicity().getMinOccurs();
+    String _plus = ("(" + Integer.valueOf(_minOccurs));
+    String _plus_1 = (_plus + ",");
+    String _plus_2 = (_plus_1 + maxOccurs);
+    return (_plus_2 + ")");
   }
   
   public CharSequence generateType(final DType e) {

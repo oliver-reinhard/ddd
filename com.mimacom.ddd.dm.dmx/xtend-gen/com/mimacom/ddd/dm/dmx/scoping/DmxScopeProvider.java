@@ -8,6 +8,7 @@ import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DActor;
+import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DDomainEvent;
@@ -187,6 +188,12 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
       if (container instanceof DQuery) {
         _matched=true;
         _switchResult = Scopes.scopeFor(((DQuery)container).getParameters(), outerScope);
+      }
+    }
+    if (!_matched) {
+      if (container instanceof DAggregate) {
+        _matched=true;
+        _switchResult = Scopes.scopeFor(((DAggregate)container).getStaticQueries(), outerScope);
       }
     }
     if (!_matched) {

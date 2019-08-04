@@ -11,6 +11,7 @@ import com.mimacom.ddd.dm.base.DDeductionRule;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
+import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.ITypeContainer;
 import com.mimacom.ddd.sm.sim.SAggregateDeduction;
 import com.mimacom.ddd.sm.sim.SComplexTypeDeduction;
@@ -119,7 +120,7 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
   }
   
   public void processAggregate(final SInformationModel model, final DAggregate dAggregate, final TransformationContext context) {
-    ITypeContainer _xifexpression = null;
+    INamespace _xifexpression = null;
     SInformationModelKind _kind = model.getKind();
     boolean _equals = Objects.equal(_kind, SInformationModelKind.CORE);
     if (_equals) {
@@ -127,7 +128,7 @@ public class SimDerivedStateComputer implements IDerivedStateComputer {
     } else {
       _xifexpression = model;
     }
-    ITypeContainer syntheticTypesContainer = _xifexpression;
+    ITypeContainer syntheticTypesContainer = ((ITypeContainer)_xifexpression);
     final ArrayList<SyntheticComplexTypeDescriptor> complexSyntheticTypesAcceptor = Lists.<SyntheticComplexTypeDescriptor>newArrayList();
     if ((dAggregate instanceof SAggregateDeduction)) {
       final SAggregateDeduction deductionDefinition = ((SAggregateDeduction)dAggregate);

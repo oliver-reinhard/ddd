@@ -6,9 +6,11 @@ package com.mimacom.ddd.dm.dim;
 import com.google.inject.Binder;
 import com.google.inject.name.Names;
 import com.mimacom.ddd.dm.dim.AbstractDimRuntimeModule;
+import com.mimacom.ddd.dm.dmx.indexing.DmxQualifiedNameProvider;
 import com.mimacom.ddd.dm.dmx.parsing.DmxValueConverters;
 import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider;
 import org.eclipse.xtext.conversion.IValueConverterService;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.scoping.IScopeProvider;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
 
@@ -17,6 +19,11 @@ import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
  */
 @SuppressWarnings("all")
 public class DimRuntimeModule extends AbstractDimRuntimeModule {
+  @Override
+  public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
+    return DmxQualifiedNameProvider.class;
+  }
+  
   @Override
   public Class<? extends IValueConverterService> bindIValueConverterService() {
     return DmxValueConverters.class;

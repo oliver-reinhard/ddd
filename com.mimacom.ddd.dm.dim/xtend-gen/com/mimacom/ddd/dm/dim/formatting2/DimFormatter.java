@@ -14,6 +14,7 @@ import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DLiteral;
+import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dim.services.DimGrammarAccess;
@@ -69,8 +70,8 @@ public class DimFormatter extends DmxFormatter {
   }
   
   protected void _format(final DAggregate aggregate, @Extension final IFormattableDocument document) {
-    final ISemanticRegion open = this.textRegionExtensions.regionFor(aggregate).keyword(this._dimGrammarAccess.getDAggregateAccess().getLeftCurlyBracketKeyword_3());
-    final ISemanticRegion close = this.textRegionExtensions.regionFor(aggregate).keyword(this._dimGrammarAccess.getDAggregateAccess().getRightCurlyBracketKeyword_5());
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(aggregate).keyword(this._dimGrammarAccess.getDAggregateAccess().getLeftCurlyBracketKeyword_4());
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(aggregate).keyword(this._dimGrammarAccess.getDAggregateAccess().getRightCurlyBracketKeyword_7());
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(2);
     };
@@ -79,6 +80,10 @@ public class DimFormatter extends DmxFormatter {
       it.indent();
     };
     document.<ISemanticRegion, ISemanticRegion>interior(open, close, _function_1);
+    EList<DQuery> _staticQueries = aggregate.getStaticQueries();
+    for (final DQuery query : _staticQueries) {
+      document.<DQuery>format(query);
+    }
     EList<DType> _types = aggregate.getTypes();
     for (final DType type : _types) {
       document.<DType>format(type);

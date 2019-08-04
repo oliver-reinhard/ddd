@@ -75,6 +75,7 @@ public class DimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDDomainAccess().getGroup(), "rule__DDomain__Group__0");
 			builder.put(grammarAccess.getDDomainAccess().getGroup_3(), "rule__DDomain__Group_3__0");
 			builder.put(grammarAccess.getDAggregateAccess().getGroup(), "rule__DAggregate__Group__0");
+			builder.put(grammarAccess.getDAggregateAccess().getGroup_5(), "rule__DAggregate__Group_5__0");
 			builder.put(grammarAccess.getDConstraintAccess().getGroup(), "rule__DConstraint__Group__0");
 			builder.put(grammarAccess.getDConstraintAccess().getGroup_2(), "rule__DConstraint__Group_2__0");
 			builder.put(grammarAccess.getDPrimitiveAccess().getGroup(), "rule__DPrimitive__Group__0");
@@ -217,8 +218,10 @@ public class DimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDDomainAccess().getAggregatesAssignment_5_1(), "rule__DDomain__AggregatesAssignment_5_1");
 			builder.put(grammarAccess.getDDomainAccess().getApplicationsAssignment_5_2(), "rule__DDomain__ApplicationsAssignment_5_2");
 			builder.put(grammarAccess.getDDomainAccess().getActorsAssignment_5_3(), "rule__DDomain__ActorsAssignment_5_3");
-			builder.put(grammarAccess.getDAggregateAccess().getDescriptionAssignment_2(), "rule__DAggregate__DescriptionAssignment_2");
-			builder.put(grammarAccess.getDAggregateAccess().getTypesAssignment_4(), "rule__DAggregate__TypesAssignment_4");
+			builder.put(grammarAccess.getDAggregateAccess().getNameAssignment_2(), "rule__DAggregate__NameAssignment_2");
+			builder.put(grammarAccess.getDAggregateAccess().getDescriptionAssignment_3(), "rule__DAggregate__DescriptionAssignment_3");
+			builder.put(grammarAccess.getDAggregateAccess().getStaticQueriesAssignment_5_1(), "rule__DAggregate__StaticQueriesAssignment_5_1");
+			builder.put(grammarAccess.getDAggregateAccess().getTypesAssignment_6(), "rule__DAggregate__TypesAssignment_6");
 			builder.put(grammarAccess.getDConstraintAccess().getNameAssignment_1(), "rule__DConstraint__NameAssignment_1");
 			builder.put(grammarAccess.getDConstraintAccess().getAliasesAssignment_2_1(), "rule__DConstraint__AliasesAssignment_2_1");
 			builder.put(grammarAccess.getDConstraintAccess().getConditionAssignment_4(), "rule__DConstraint__ConditionAssignment_4");

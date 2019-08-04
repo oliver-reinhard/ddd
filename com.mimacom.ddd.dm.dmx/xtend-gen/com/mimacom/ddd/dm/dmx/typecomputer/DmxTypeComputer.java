@@ -3,6 +3,7 @@ package com.mimacom.ddd.dm.dmx.typecomputer;
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DEnumeration;
@@ -30,6 +31,7 @@ import com.mimacom.ddd.dm.dmx.DmxStringLiteral;
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.DmxUtil;
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
+import com.mimacom.ddd.dm.dmx.typecomputer.DmxAggregateDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxBaseTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxComplexTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxEnumerationDescriptor;
@@ -105,16 +107,20 @@ public class DmxTypeComputer {
         return DmxTypeComputer.UNDEFINED;
       }
     } else {
-      if ((target instanceof DNotification)) {
+      if ((target instanceof DAggregate)) {
         return this.createDescriptor(target, false);
       } else {
-        if ((target instanceof DService)) {
+        if ((target instanceof DNotification)) {
           return this.createDescriptor(target, false);
         } else {
-          if ((target instanceof DNavigableMember)) {
-            return this.createDescriptor(((DNavigableMember)target).getType(), expr.isAll());
+          if ((target instanceof DService)) {
+            return this.createDescriptor(target, false);
           } else {
-            return this.createDescriptor(target, expr.isAll());
+            if ((target instanceof DNavigableMember)) {
+              return this.createDescriptor(((DNavigableMember)target).getType(), expr.isAll());
+            } else {
+              return this.createDescriptor(target, expr.isAll());
+            }
           }
         }
       }
@@ -184,6 +190,12 @@ public class DmxTypeComputer {
       if (e instanceof DComplexType) {
         _matched=true;
         _switchResult = new DmxComplexTypeDescriptor(((DComplexType)e), collection, this.util);
+      }
+    }
+    if (!_matched) {
+      if (e instanceof DAggregate) {
+        _matched=true;
+        _switchResult = new DmxAggregateDescriptor(((DAggregate)e));
       }
     }
     if (!_matched) {

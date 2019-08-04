@@ -909,7 +909,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDAggregate_Description()
+	public EReference getDAggregate_Roots()
 	{
 		return (EReference)dAggregateEClass.getEStructuralFeatures().get(0);
 	}
@@ -920,20 +920,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDAggregate_Roots()
+	public EReference getDAggregate_StaticQueries()
 	{
 		return (EReference)dAggregateEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDAggregate_DerivedName()
-	{
-		return (EAttribute)dAggregateEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1779,9 +1768,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		createEReference(dDomainEClass, DDOMAIN__ACTORS);
 
 		dAggregateEClass = createEClass(DAGGREGATE);
-		createEReference(dAggregateEClass, DAGGREGATE__DESCRIPTION);
 		createEReference(dAggregateEClass, DAGGREGATE__ROOTS);
-		createEAttribute(dAggregateEClass, DAGGREGATE__DERIVED_NAME);
+		createEReference(dAggregateEClass, DAGGREGATE__STATIC_QUERIES);
 
 		iIdentityTypeEClass = createEClass(IIDENTITY_TYPE);
 
@@ -1926,7 +1914,10 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dDomainEClass.getESuperTypes().add(this.getITypeContainer());
 		dDomainEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
 		dDomainEClass.getESuperTypes().add(this.getIDeducibleElement());
+		dAggregateEClass.getESuperTypes().add(this.getDNamedElement());
 		dAggregateEClass.getESuperTypes().add(this.getITypeContainer());
+		dAggregateEClass.getESuperTypes().add(this.getINavigableMemberContainer());
+		dAggregateEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
 		dAggregateEClass.getESuperTypes().add(this.getIDeducibleElement());
 		dTypeEClass.getESuperTypes().add(this.getDNamedElement());
 		dTypeEClass.getESuperTypes().add(this.getIDeducibleElement());
@@ -2029,9 +2020,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEReference(getDDomain_Actors(), this.getDActor(), null, "actors", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dAggregateEClass, DAggregate.class, "DAggregate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDAggregate_Description(), this.getDRichText(), null, "description", null, 0, 1, DAggregate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDAggregate_Roots(), this.getDIdentityType(), null, "roots", null, 0, -1, DAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDAggregate_DerivedName(), ecorePackage.getEString(), "derivedName", null, 0, 1, DAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDAggregate_StaticQueries(), this.getDQuery(), null, "staticQueries", null, 0, -1, DAggregate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iIdentityTypeEClass, IIdentityType.class, "IIdentityType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

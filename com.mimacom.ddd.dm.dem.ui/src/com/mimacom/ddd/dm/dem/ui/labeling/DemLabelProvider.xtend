@@ -4,6 +4,7 @@
 package com.mimacom.ddd.dm.dem.ui.labeling
 
 import com.google.inject.Inject
+import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.dmx.ui.labeling.DmxLabelProvider
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 
@@ -17,6 +18,10 @@ class DemLabelProvider extends DmxLabelProvider /* DefaultEObjectLabelProvider *
 	@Inject
 	new(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
+	}
+
+	def text(DAggregate a) {
+		return "Component " + a.name
 	}
 
 	// Labels and icons can be computed like this:

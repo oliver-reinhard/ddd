@@ -257,6 +257,11 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createIDeductionDefinitionAdapter();
 			}
 			@Override
+			public Adapter caseIStaticReferenceTarget(IStaticReferenceTarget object)
+			{
+				return createIStaticReferenceTargetAdapter();
+			}
+			@Override
 			public Adapter caseIDeducibleElement(IDeducibleElement object)
 			{
 				return createIDeducibleElementAdapter();
@@ -265,11 +270,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseDAggregate(DAggregate object)
 			{
 				return createDAggregateAdapter();
-			}
-			@Override
-			public Adapter caseIStaticReferenceTarget(IStaticReferenceTarget object)
-			{
-				return createIStaticReferenceTargetAdapter();
 			}
 			@Override
 			public Adapter caseDType(DType object)
@@ -844,6 +844,21 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IStaticReferenceTarget
+	 * @generated
+	 */
+	public Adapter createIStaticReferenceTargetAdapter()
+	{
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IDeducibleElement <em>IDeducible Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -869,21 +884,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDAggregateAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.IStaticReferenceTarget
-	 * @generated
-	 */
-	public Adapter createIStaticReferenceTargetAdapter()
 	{
 		return null;
 	}

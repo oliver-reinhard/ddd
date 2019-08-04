@@ -5,10 +5,14 @@ package com.mimacom.ddd.dm.base.impl;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DIdentityType;
-import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.base.INamespace;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
+import com.mimacom.ddd.dm.base.ITypeContainer;
 
 import java.util.Collection;
 
@@ -21,7 +25,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -37,14 +40,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getDeducedFrom <em>Deduced From</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#isSynthetic <em>Synthetic</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getRoots <em>Roots</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getDerivedName <em>Derived Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getStaticQueries <em>Static Queries</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAggregate
+public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 {
 	/**
 	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
@@ -87,24 +89,14 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	protected boolean synthetic = SYNTHETIC_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
+	 * The cached value of the '{@link #getStaticQueries() <em>Static Queries</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescription()
+	 * @see #getStaticQueries()
 	 * @generated
 	 * @ordered
 	 */
-	protected DRichText description;
-
-	/**
-	 * The default value of the '{@link #getDerivedName() <em>Derived Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDerivedName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DERIVED_NAME_EDEFAULT = null;
+	protected EList<DQuery> staticQueries;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -218,56 +210,6 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	 * @generated
 	 */
 	@Override
-	public DRichText getDescription()
-	{
-		return description;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDescription(DRichText newDescription, NotificationChain msgs)
-	{
-		DRichText oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired())
-		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasePackage.DAGGREGATE__DESCRIPTION, oldDescription, newDescription);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setDescription(DRichText newDescription)
-	{
-		if (newDescription != description)
-		{
-			NotificationChain msgs = null;
-			if (description != null)
-				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasePackage.DAGGREGATE__DESCRIPTION, null, msgs);
-			if (newDescription != null)
-				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasePackage.DAGGREGATE__DESCRIPTION, null, msgs);
-			msgs = basicSetDescription(newDescription, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DAGGREGATE__DESCRIPTION, newDescription, newDescription));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<DIdentityType> getRoots()
 	{
 		// TODO: implement this method to return the 'Roots' reference list
@@ -283,11 +225,13 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	 * @generated
 	 */
 	@Override
-	public String getDerivedName()
+	public EList<DQuery> getStaticQueries()
 	{
-		// TODO: implement this method to return the 'Derived Name' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (staticQueries == null)
+		{
+			staticQueries = new EObjectContainmentEList<DQuery>(DQuery.class, this, BasePackage.DAGGREGATE__STATIC_QUERIES);
+		}
+		return staticQueries;
 	}
 
 	/**
@@ -302,8 +246,8 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 		{
 			case BasePackage.DAGGREGATE__TYPES:
 				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
-			case BasePackage.DAGGREGATE__DESCRIPTION:
-				return basicSetDescription(null, msgs);
+			case BasePackage.DAGGREGATE__STATIC_QUERIES:
+				return ((InternalEList<?>)getStaticQueries()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -325,12 +269,10 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 				return basicGetDeducedFrom();
 			case BasePackage.DAGGREGATE__SYNTHETIC:
 				return isSynthetic();
-			case BasePackage.DAGGREGATE__DESCRIPTION:
-				return getDescription();
 			case BasePackage.DAGGREGATE__ROOTS:
 				return getRoots();
-			case BasePackage.DAGGREGATE__DERIVED_NAME:
-				return getDerivedName();
+			case BasePackage.DAGGREGATE__STATIC_QUERIES:
+				return getStaticQueries();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -356,8 +298,9 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 			case BasePackage.DAGGREGATE__SYNTHETIC:
 				setSynthetic((Boolean)newValue);
 				return;
-			case BasePackage.DAGGREGATE__DESCRIPTION:
-				setDescription((DRichText)newValue);
+			case BasePackage.DAGGREGATE__STATIC_QUERIES:
+				getStaticQueries().clear();
+				getStaticQueries().addAll((Collection<? extends DQuery>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -382,8 +325,8 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 			case BasePackage.DAGGREGATE__SYNTHETIC:
 				setSynthetic(SYNTHETIC_EDEFAULT);
 				return;
-			case BasePackage.DAGGREGATE__DESCRIPTION:
-				setDescription((DRichText)null);
+			case BasePackage.DAGGREGATE__STATIC_QUERIES:
+				getStaticQueries().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -405,12 +348,10 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 				return deducedFrom != null;
 			case BasePackage.DAGGREGATE__SYNTHETIC:
 				return synthetic != SYNTHETIC_EDEFAULT;
-			case BasePackage.DAGGREGATE__DESCRIPTION:
-				return description != null;
 			case BasePackage.DAGGREGATE__ROOTS:
 				return !getRoots().isEmpty();
-			case BasePackage.DAGGREGATE__DERIVED_NAME:
-				return DERIVED_NAME_EDEFAULT == null ? getDerivedName() != null : !DERIVED_NAME_EDEFAULT.equals(getDerivedName());
+			case BasePackage.DAGGREGATE__STATIC_QUERIES:
+				return staticQueries != null && !staticQueries.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -423,6 +364,35 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
 	{
+		if (baseClass == INamespace.class)
+		{
+			switch (derivedFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		if (baseClass == ITypeContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case BasePackage.DAGGREGATE__TYPES: return BasePackage.ITYPE_CONTAINER__TYPES;
+				default: return -1;
+			}
+		}
+		if (baseClass == INavigableMemberContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		if (baseClass == IStaticReferenceTarget.class)
+		{
+			switch (derivedFeatureID)
+			{
+				default: return -1;
+			}
+		}
 		if (baseClass == IDeducibleElement.class)
 		{
 			switch (derivedFeatureID)
@@ -443,6 +413,35 @@ public class DAggregateImpl extends MinimalEObjectImpl.Container implements DAgg
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
 	{
+		if (baseClass == INamespace.class)
+		{
+			switch (baseFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		if (baseClass == ITypeContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				case BasePackage.ITYPE_CONTAINER__TYPES: return BasePackage.DAGGREGATE__TYPES;
+				default: return -1;
+			}
+		}
+		if (baseClass == INavigableMemberContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		if (baseClass == IStaticReferenceTarget.class)
+		{
+			switch (baseFeatureID)
+			{
+				default: return -1;
+			}
+		}
 		if (baseClass == IDeducibleElement.class)
 		{
 			switch (baseFeatureID)

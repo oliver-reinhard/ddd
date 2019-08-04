@@ -669,8 +669,8 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cBeforeBeforeKeyword_1_1_2_1_0 = (Keyword)cBeforeAssignment_1_1_2_1.eContents().get(0);
 		
 		//DmxNavigableMemberReference DExpression:
-		//	DmxPrimaryExpression (=> ({DmxAssignment.precedingNavigationSegment=current} '.' assignToMember=[DNavigableMember]
-		//	DmxOpSingleAssign) value=DmxOrExpression
+		//	DmxPrimaryExpression (=> ({DmxAssignment.precedingNavigationSegment=current} '.'
+		//	assignToMember=[DNavigableMember] DmxOpSingleAssign) value=DmxOrExpression
 		//	| => ({DmxMemberNavigation.precedingNavigationSegment=current} '.') member=[DNavigableMember] (=>
 		//	explicitOperationCall?='(' (memberCallArguments+=DmxPredicate (',' memberCallArguments+=DmxPredicate)*)?
 		//	')'
@@ -3135,8 +3135,8 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxNavigableMemberReference DExpression:
-	//	DmxPrimaryExpression (=> ({DmxAssignment.precedingNavigationSegment=current} '.' assignToMember=[DNavigableMember]
-	//	DmxOpSingleAssign) value=DmxOrExpression
+	//	DmxPrimaryExpression (=> ({DmxAssignment.precedingNavigationSegment=current} '.'
+	//	assignToMember=[DNavigableMember] DmxOpSingleAssign) value=DmxOrExpression
 	//	| => ({DmxMemberNavigation.precedingNavigationSegment=current} '.') member=[DNavigableMember] (=>
 	//	explicitOperationCall?='(' (memberCallArguments+=DmxPredicate (',' memberCallArguments+=DmxPredicate)*)?
 	//	')'

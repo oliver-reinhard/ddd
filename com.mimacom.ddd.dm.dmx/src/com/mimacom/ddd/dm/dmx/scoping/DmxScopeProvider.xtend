@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EReference
 import org.eclipse.emf.ecore.EcoreFactory
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
+import com.mimacom.ddd.dm.base.DAggregate
 
 /**
  * This class contains custom scoping for expressions and {@link DComplexType} feature inheritance.
@@ -137,6 +138,7 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 			DEnumeration: Scopes.scopeFor(container.literals, outerScope)
 			DComplexType: Scopes.scopeFor(container.allFeatures(), outerScope)
 			DQuery: Scopes.scopeFor(container.parameters, outerScope)
+			DAggregate: Scopes.scopeFor(container.staticQueries, outerScope)
 			DService: Scopes.scopeFor(container.parameters, outerScope)
 			DDomainEvent: getDomainEventNavigableMemberScope(container, outerScope)
 			DmxPredicateWithCorrelationVariable: Scopes.scopeFor(Lists.newArrayList(container.correlationVariable), outerScope)

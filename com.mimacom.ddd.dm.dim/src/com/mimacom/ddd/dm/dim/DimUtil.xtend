@@ -50,7 +50,7 @@ class DimUtil extends DmxUtil {
 	
 	def String aggregateName(EObject obj) {
 			val a = obj.aggregate
-			return if (a !== null) a.derivedName else "NO_AGGREGATE" 
+			return if (a !== null) a.name else "NO_AGGREGATE" 
 	}
 	
 	/*
@@ -90,7 +90,7 @@ class DimUtil extends DmxUtil {
 	//// Labels
 	
 	def String label(DAggregate a) {
-		return "Aggregate " + a.derivedName
+		return "Component " + a.name
 	}
 	
 	def String label(DType type) {

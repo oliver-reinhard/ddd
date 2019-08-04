@@ -2,6 +2,7 @@ package com.mimacom.ddd.dm.dmx.typecomputer
 
 import com.google.inject.Inject
 import com.google.inject.Singleton
+import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DContext
 import com.mimacom.ddd.dm.base.DEnumeration
@@ -86,6 +87,9 @@ class DmxTypeComputer {
 				return UNDEFINED
 			}
 			
+		} else if (target instanceof DAggregate) {
+			return createDescriptor(target, false)
+			
 		} else if (target instanceof DNotification) {
 			return createDescriptor(target, false)
 			
@@ -146,6 +150,7 @@ class DmxTypeComputer {
 			DPrimitive: new DmxPrimitiveDescriptor(e, collection)
 			DEnumeration: new DmxEnumerationDescriptor(e)
 			DComplexType: new DmxComplexTypeDescriptor(e, collection, util)
+			DAggregate: new DmxAggregateDescriptor(e)
 			DService: new DmxServiceDescriptor(e)
 			DNotification: new DmxNotificationDescriptor(e)
 			default: UNDEFINED

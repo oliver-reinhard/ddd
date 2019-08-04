@@ -143,7 +143,10 @@ public class SimSwitch<T> extends Switch<T>
 				if (result == null) result = caseDAggregate(sAggregateDeduction);
 				if (result == null) result = caseIDeductionDefinition(sAggregateDeduction);
 				if (result == null) result = caseITypeContainer(sAggregateDeduction);
+				if (result == null) result = caseINavigableMemberContainer(sAggregateDeduction);
+				if (result == null) result = caseIStaticReferenceTarget(sAggregateDeduction);
 				if (result == null) result = caseIDeducibleElement(sAggregateDeduction);
+				if (result == null) result = caseDNamedElement(sAggregateDeduction);
 				if (result == null) result = caseINamespace(sAggregateDeduction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -887,6 +890,22 @@ public class SimSwitch<T> extends Switch<T>
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IStatic Reference Target</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IStatic Reference Target</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIStaticReferenceTarget(IStaticReferenceTarget object)
+	{
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IDeducible Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -914,22 +933,6 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDAggregate(DAggregate object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IStatic Reference Target</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IStatic Reference Target</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIStaticReferenceTarget(IStaticReferenceTarget object)
 	{
 		return null;
 	}

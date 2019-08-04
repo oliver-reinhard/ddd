@@ -195,7 +195,10 @@ public class BaseSwitch<T> extends Switch<T>
 				DAggregate dAggregate = (DAggregate)theEObject;
 				T result = caseDAggregate(dAggregate);
 				if (result == null) result = caseITypeContainer(dAggregate);
+				if (result == null) result = caseINavigableMemberContainer(dAggregate);
+				if (result == null) result = caseIStaticReferenceTarget(dAggregate);
 				if (result == null) result = caseIDeducibleElement(dAggregate);
+				if (result == null) result = caseDNamedElement(dAggregate);
 				if (result == null) result = caseINamespace(dAggregate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;

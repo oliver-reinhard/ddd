@@ -5,12 +5,14 @@ package com.mimacom.ddd.sm.sim
 
 import com.google.inject.Binder
 import com.google.inject.name.Names
+import com.mimacom.ddd.dm.dmx.indexing.DmxQualifiedNameProvider
 import com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScopeProvider
 import com.mimacom.ddd.sm.sim.derivedState.SimDerivedStateComputer
 import com.mimacom.ddd.sm.sim.indexing.SimResourceDescriptionStrategy
 import com.mimacom.ddd.sm.sim.parsing.SimValueConverters
 import com.mimacom.ddd.sm.sim.scoping.SimCrossReferenceSerializer
 import org.eclipse.xtext.conversion.IValueConverterService
+import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.resource.DerivedStateAwareResource
 import org.eclipse.xtext.resource.DerivedStateAwareResourceDescriptionManager
 import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy
@@ -24,6 +26,10 @@ import org.eclipse.xtext.serializer.tokens.ICrossReferenceSerializer
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class SimRuntimeModule extends AbstractSimRuntimeModule {
+	
+	override Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider()  {
+		return DmxQualifiedNameProvider
+	}
 
 	override Class<? extends IValueConverterService> bindIValueConverterService() {
 		return SimValueConverters

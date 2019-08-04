@@ -64,7 +64,7 @@ public class DimUtil extends DmxUtil {
     final DAggregate a = this.aggregate(obj);
     String _xifexpression = null;
     if ((a != null)) {
-      _xifexpression = a.getDerivedName();
+      _xifexpression = a.getName();
     } else {
       _xifexpression = "NO_AGGREGATE";
     }
@@ -114,8 +114,8 @@ public class DimUtil extends DmxUtil {
   }
   
   public String label(final DAggregate a) {
-    String _derivedName = a.getDerivedName();
-    return ("Aggregate " + _derivedName);
+    String _name = a.getName();
+    return ("Component " + _name);
   }
   
   public String label(final DType type) {

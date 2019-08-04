@@ -1666,6 +1666,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.TIMEPOINT);
 		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.ENUM);
 		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.COMPLEX);
+		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.AGGREGATE);
 		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.NOTIFICATION);
 		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.SERVICE);
 

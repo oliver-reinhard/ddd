@@ -253,7 +253,7 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     final DAggregate a = EcoreUtil2.<DAggregate>getContainerOfType(obj, DAggregate.class);
     String _xifexpression = null;
     if ((a != null)) {
-      _xifexpression = a.getDerivedName();
+      _xifexpression = a.getName();
     } else {
       _xifexpression = "undefined";
     }

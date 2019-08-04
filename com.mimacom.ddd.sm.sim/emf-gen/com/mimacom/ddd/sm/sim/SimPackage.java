@@ -373,6 +373,33 @@ public interface SimPackage extends EPackage
 	int SAGGREGATE_DEDUCTION = 4;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAGGREGATE_DEDUCTION__NAME = BasePackage.DAGGREGATE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAGGREGATE_DEDUCTION__ALIASES = BasePackage.DAGGREGATE__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAGGREGATE_DEDUCTION__DESCRIPTION = BasePackage.DAGGREGATE__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -400,15 +427,6 @@ public interface SimPackage extends EPackage
 	int SAGGREGATE_DEDUCTION__SYNTHETIC = BasePackage.DAGGREGATE__SYNTHETIC;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SAGGREGATE_DEDUCTION__DESCRIPTION = BasePackage.DAGGREGATE__DESCRIPTION;
-
-	/**
 	 * The feature id for the '<em><b>Roots</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -418,13 +436,13 @@ public interface SimPackage extends EPackage
 	int SAGGREGATE_DEDUCTION__ROOTS = BasePackage.DAGGREGATE__ROOTS;
 
 	/**
-	 * The feature id for the '<em><b>Derived Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Static Queries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SAGGREGATE_DEDUCTION__DERIVED_NAME = BasePackage.DAGGREGATE__DERIVED_NAME;
+	int SAGGREGATE_DEDUCTION__STATIC_QUERIES = BasePackage.DAGGREGATE__STATIC_QUERIES;
 
 	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.

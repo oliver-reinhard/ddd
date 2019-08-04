@@ -129,49 +129,74 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DAggregate");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cDAggregateAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cAggregateKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cDescriptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cDescriptionDRichTextParserRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cTypesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cTypesDTypeParserRuleCall_4_0 = (RuleCall)cTypesAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cComponentKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Assignment cDescriptionAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cDescriptionDRichTextParserRuleCall_3_0 = (RuleCall)cDescriptionAssignment_3.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cQueryKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cStaticQueriesAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cStaticQueriesDQueryParserRuleCall_5_1_0 = (RuleCall)cStaticQueriesAssignment_5_1.eContents().get(0);
+		private final Assignment cTypesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cTypesDTypeParserRuleCall_6_0 = (RuleCall)cTypesAssignment_6.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//DAggregate:
 		//	{DAggregate}
-		//	'aggregate'
+		//	'component'
+		//	name=ID
 		//	description=DRichText?
-		//	'{'
+		//	'{' ('query' staticQueries+=DQuery)*
 		//	types+=DType*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DAggregate} 'aggregate' description=DRichText? '{' types+=DType* '}'
+		//{DAggregate} 'component' name=ID description=DRichText? '{' ('query' staticQueries+=DQuery)* types+=DType* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{DAggregate}
 		public Action getDAggregateAction_0() { return cDAggregateAction_0; }
 		
-		//'aggregate'
-		public Keyword getAggregateKeyword_1() { return cAggregateKeyword_1; }
+		//'component'
+		public Keyword getComponentKeyword_1() { return cComponentKeyword_1; }
+		
+		//name=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
 		//description=DRichText?
-		public Assignment getDescriptionAssignment_2() { return cDescriptionAssignment_2; }
+		public Assignment getDescriptionAssignment_3() { return cDescriptionAssignment_3; }
 		
 		//DRichText
-		public RuleCall getDescriptionDRichTextParserRuleCall_2_0() { return cDescriptionDRichTextParserRuleCall_2_0; }
+		public RuleCall getDescriptionDRichTextParserRuleCall_3_0() { return cDescriptionDRichTextParserRuleCall_3_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
+		
+		//('query' staticQueries+=DQuery)*
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'query'
+		public Keyword getQueryKeyword_5_0() { return cQueryKeyword_5_0; }
+		
+		//staticQueries+=DQuery
+		public Assignment getStaticQueriesAssignment_5_1() { return cStaticQueriesAssignment_5_1; }
+		
+		//DQuery
+		public RuleCall getStaticQueriesDQueryParserRuleCall_5_1_0() { return cStaticQueriesDQueryParserRuleCall_5_1_0; }
 		
 		//types+=DType*
-		public Assignment getTypesAssignment_4() { return cTypesAssignment_4; }
+		public Assignment getTypesAssignment_6() { return cTypesAssignment_6; }
 		
 		//DType
-		public RuleCall getTypesDTypeParserRuleCall_4_0() { return cTypesDTypeParserRuleCall_4_0; }
+		public RuleCall getTypesDTypeParserRuleCall_6_0() { return cTypesDTypeParserRuleCall_6_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class DTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DType");
@@ -1645,9 +1670,10 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DAggregate:
 	//	{DAggregate}
-	//	'aggregate'
+	//	'component'
+	//	name=ID
 	//	description=DRichText?
-	//	'{'
+	//	'{' ('query' staticQueries+=DQuery)*
 	//	types+=DType*
 	//	'}';
 	public DAggregateElements getDAggregateAccess() {
@@ -2132,8 +2158,8 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxNavigableMemberReference DExpression:
-	//	DmxPrimaryExpression (=> ({DmxAssignment.precedingNavigationSegment=current} '.' assignToMember=[DNavigableMember]
-	//	DmxOpSingleAssign) value=DmxOrExpression
+	//	DmxPrimaryExpression (=> ({DmxAssignment.precedingNavigationSegment=current} '.'
+	//	assignToMember=[DNavigableMember] DmxOpSingleAssign) value=DmxOrExpression
 	//	| => ({DmxMemberNavigation.precedingNavigationSegment=current} '.') member=[DNavigableMember] (=>
 	//	explicitOperationCall?='(' (memberCallArguments+=DmxPredicate (',' memberCallArguments+=DmxPredicate)*)?
 	//	')'

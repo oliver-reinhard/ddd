@@ -22,10 +22,11 @@ import org.eclipse.ui.IEditorPart
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.ui.editor.XtextEditor
 import org.eclipse.xtext.ui.editor.model.XtextDocument
+import com.mimacom.ddd.dm.base.DNavigableMember
 
 class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	
-	// @Inject extension DmsUtil // TODO injector not working, bundle setup seems ok => ?
+	// @Inject extension DmsUtil // TODO injector not working, bundle setup seems ok => DimDiagramTextProvider not created via injector? 
 	
 	def DmsDiagramTextProvider() {
         editorType = typeof(XtextEditor)
@@ -46,7 +47,7 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
             return if (contents.head instanceof DDomain) contents.head as DDomain else null
         ]
         
-        if (domain !== null && ! domain.aggregates.empty) {
+        if (domain !== null && ! (domain.types.empty && domain.aggregates.empty)) {
         	return domainTypes(domain)
         } else {
         	return '''note "No structures to show." as N1'''
@@ -72,8 +73,16 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 				FontColor FireBrick
 			}
 			
+			«IF ! domain.types.empty»
+				' all domain-level types
+				«FOR t:domain.types»
+					«t.generateType»
+				«ENDFOR»
+			«ENDIF»
+			
 			' all aggregates
 			«FOR a:allAggregates»package «a.aggregateName» <<Rectangle>> {
+				«IF ! a.staticQueries.empty»«a.generateAggregateQueries»«ENDIF»
 				«FOR t:a.types»
 					«t.generateType»
 				«ENDFOR»
@@ -117,13 +126,20 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	
 	def String domainName(EObject obj) {
 			val d = EcoreUtil2.getContainerOfType(obj, DDomain) // global types are not owned by a domain => null
-			return if (d !== null) d.name else "undefined" 
+			return if (d !== null) d.name else "default" 
 	}
 	
 	def String aggregateName(EObject obj) {
 			val a = EcoreUtil2.getContainerOfType(obj, DAggregate)// global types are not owned by a domain => null
-			return if (a !== null) a.derivedName else "undefined" 
+			return if (a !== null) a.name else "default" 
 	}
+	
+	def  generateAggregateQueries(DAggregate a) '''	
+		' aggregate «a.name» static queries
+		abstract class «a.name».«a.name» «a.getSpot» {
+			«FOR q : a.staticQueries»«q.generateStaticQuery»«ENDFOR»
+		}
+	'''
 	
 	def dispatch  generateType(DComplexType c) '''	
 		«IF c.abstract»abstract «ENDIF»class «c.aggregateName».«c.name» «c.getSpot» {
@@ -132,11 +148,11 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	'''
 	
 	def dispatch  generateType(DPrimitive p) '''	
-		class «p.name» «p.getSpot»
+		class «p.aggregateName».«p.name» «p.getSpot»
 	'''
 	
 	def dispatch  generateType(DEnumeration e)  '''
-		enum «e.name» «e.getSpot» {
+		enum «e.aggregateName».«e.name» «e.getSpot» {
 			«FOR f:e.literals»
 				«f.name»
 			«ENDFOR»
@@ -145,6 +161,10 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	
 	def dispatch generateType(DType t)  '''
 	'''
+	
+	def getSpot(DAggregate a) {
+		"<< (Q,Gold) >>"
+	}
 	
 	def getSpot(DType t) {
 		// Returns the "Spot Letter" to use next to the class name.
@@ -158,14 +178,19 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 		}
 	}
 	
+	def generateStaticQuery(DQuery q) '''
+	   «IF q.getType !== null»
+	   		{static} «q.name»(«q.generateQueryParameters») : «q.getType.name» «q.generateMultiplicity»
+	   	«ENDIF»
+	 '''
 	
 	def dispatch generateFeature(DAttribute a) '''
-		«IF ! (a?.getType instanceof DDetailType)»«a.name» : «a.getType.name»«ENDIF»
+		«IF ! (a?.getType instanceof DDetailType)»«a.name» : «a.getType.name»«ENDIF» «a.generateMultiplicity»
 	  '''
 
 	def dispatch generateFeature(DQuery q) '''
 	   «IF q.getType !== null»
-	   		«q.name»(«q.generateQueryParameters») : «q.getType.name» 
+	   		«q.name»(«q.generateQueryParameters») : «q.getType.name» «q.generateMultiplicity»
 	   	«ENDIF»
 	 '''
 	
@@ -173,7 +198,7 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	'''
 	
 	def generateQueryParameters(DQuery q) 
-	'''«FOR p:q.parameters SEPARATOR ", "»«p.name»:«p.getType.name»«ENDFOR»'''
+	'''«FOR p:q.parameters SEPARATOR ", "»«p.name»:«p.getType.name» «p.generateMultiplicity»«ENDFOR»'''
 	
 	def generateAssociation(DAssociation a ) {
 		return switch a.kind {
@@ -197,5 +222,11 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 			return  target.aggregateName
 		}
 		return target.domainName
+	}
+	
+	def generateMultiplicity(DNavigableMember member) {
+		if (member.multiplicity === null) return ""
+		val maxOccurs = if (member.multiplicity.maxOccurs == -1) "*" else member.multiplicity.maxOccurs.toString
+		return "("+member.multiplicity.minOccurs+","+maxOccurs+")"
 	}
 }

@@ -19,9 +19,11 @@ DDomain:
 	
 DAggregate:
 	{DAggregate}
-	'aggregate'
+	'component'
+	name=ID
 	(description=DRichText)?
 	'{'
+		('query' staticQueries+=DQuery)*
 		( types+=DType)*
 	'}';
 

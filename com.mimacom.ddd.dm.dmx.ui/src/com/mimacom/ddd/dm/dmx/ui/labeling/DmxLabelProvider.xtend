@@ -5,6 +5,7 @@ package com.mimacom.ddd.dm.dmx.ui.labeling
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DExpression
+import com.mimacom.ddd.dm.base.DNamedElement
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation
 import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral
@@ -13,7 +14,6 @@ import com.mimacom.ddd.dm.dmx.DmxStringLiteral
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
-import com.mimacom.ddd.dm.base.DNamedElement
 
 /**
  * Provides labels for EObjects.

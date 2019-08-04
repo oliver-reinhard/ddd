@@ -40,10 +40,14 @@ class DimFormatter extends DmxFormatter {
 	}
 	
 	def dispatch void format(DAggregate aggregate, extension IFormattableDocument document) {
-		val open = aggregate.regionFor.keyword(DAggregateAccess.leftCurlyBracketKeyword_3)
-		val close = aggregate.regionFor.keyword(DAggregateAccess.rightCurlyBracketKeyword_5)
+		val open = aggregate.regionFor.keyword(DAggregateAccess.leftCurlyBracketKeyword_4)
+		val close = aggregate.regionFor.keyword(DAggregateAccess.rightCurlyBracketKeyword_7)
 		open.append[newLines = 2]
 		interior(open, close) [indent]
+		
+		for (query : aggregate.staticQueries) {
+			query.format
+		}
 		
 		for (type : aggregate.types) {
 			type.format

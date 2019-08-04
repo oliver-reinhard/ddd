@@ -796,31 +796,22 @@ public interface BasePackage extends EPackage
 	int DAGGREGATE = 15;
 
 	/**
-	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE__TYPES = ITYPE_CONTAINER__TYPES;
+	int DAGGREGATE__NAME = DNAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE__DEDUCED_FROM = ITYPE_CONTAINER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DAGGREGATE__SYNTHETIC = ITYPE_CONTAINER_FEATURE_COUNT + 1;
+	int DAGGREGATE__ALIASES = DNAMED_ELEMENT__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -829,7 +820,34 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE__DESCRIPTION = ITYPE_CONTAINER_FEATURE_COUNT + 2;
+	int DAGGREGATE__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DAGGREGATE__TYPES = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DAGGREGATE__DEDUCED_FROM = DNAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DAGGREGATE__SYNTHETIC = DNAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Roots</b></em>' reference list.
@@ -838,16 +856,16 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE__ROOTS = ITYPE_CONTAINER_FEATURE_COUNT + 3;
+	int DAGGREGATE__ROOTS = DNAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Derived Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Static Queries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE__DERIVED_NAME = ITYPE_CONTAINER_FEATURE_COUNT + 4;
+	int DAGGREGATE__STATIC_QUERIES = DNAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>DAggregate</em>' class.
@@ -856,7 +874,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE_FEATURE_COUNT = ITYPE_CONTAINER_FEATURE_COUNT + 5;
+	int DAGGREGATE_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>DAggregate</em>' class.
@@ -865,7 +883,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DAGGREGATE_OPERATION_COUNT = ITYPE_CONTAINER_OPERATION_COUNT + 0;
+	int DAGGREGATE_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.IIdentityType <em>IIdentity Type</em>}' class.
@@ -4131,17 +4149,6 @@ public interface BasePackage extends EPackage
 	EClass getDAggregate();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.DAggregate#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Description</em>'.
-	 * @see com.mimacom.ddd.dm.base.DAggregate#getDescription()
-	 * @see #getDAggregate()
-	 * @generated
-	 */
-	EReference getDAggregate_Description();
-
-	/**
 	 * Returns the meta object for the reference list '{@link com.mimacom.ddd.dm.base.DAggregate#getRoots <em>Roots</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4153,15 +4160,15 @@ public interface BasePackage extends EPackage
 	EReference getDAggregate_Roots();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DAggregate#getDerivedName <em>Derived Name</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DAggregate#getStaticQueries <em>Static Queries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Derived Name</em>'.
-	 * @see com.mimacom.ddd.dm.base.DAggregate#getDerivedName()
+	 * @return the meta object for the containment reference list '<em>Static Queries</em>'.
+	 * @see com.mimacom.ddd.dm.base.DAggregate#getStaticQueries()
 	 * @see #getDAggregate()
 	 * @generated
 	 */
-	EAttribute getDAggregate_DerivedName();
+	EReference getDAggregate_StaticQueries();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.IIdentityType <em>IIdentity Type</em>}'.
@@ -5248,14 +5255,6 @@ public interface BasePackage extends EPackage
 		EClass DAGGREGATE = eINSTANCE.getDAggregate();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DAGGREGATE__DESCRIPTION = eINSTANCE.getDAggregate_Description();
-
-		/**
 		 * The meta object literal for the '<em><b>Roots</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5264,12 +5263,12 @@ public interface BasePackage extends EPackage
 		EReference DAGGREGATE__ROOTS = eINSTANCE.getDAggregate_Roots();
 
 		/**
-		 * The meta object literal for the '<em><b>Derived Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Static Queries</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DAGGREGATE__DERIVED_NAME = eINSTANCE.getDAggregate_DerivedName();
+		EReference DAGGREGATE__STATIC_QUERIES = eINSTANCE.getDAggregate_StaticQueries();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.IIdentityType <em>IIdentity Type</em>}' class.
