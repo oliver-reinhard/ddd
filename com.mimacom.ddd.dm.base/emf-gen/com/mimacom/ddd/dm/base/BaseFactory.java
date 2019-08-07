@@ -122,15 +122,6 @@ public interface BaseFactory extends EFactory
 	DEntityType createDEntityType();
 
 	/**
-	 * Returns a new object of class '<em>DRelationship</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DRelationship</em>'.
-	 * @generated
-	 */
-	DRelationship createDRelationship();
-
-	/**
 	 * Returns a new object of class '<em>DAssociation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -11,7 +11,6 @@ import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
-import com.mimacom.ddd.dm.base.DIdentityType;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNavigableMember;
@@ -241,13 +240,12 @@ public class SimSwitch<T> extends Switch<T>
 				T result = caseSEntityTypeDeduction(sEntityTypeDeduction);
 				if (result == null) result = caseDEntityType(sEntityTypeDeduction);
 				if (result == null) result = caseSComplexTypeDeduction(sEntityTypeDeduction);
-				if (result == null) result = caseDIdentityType(sEntityTypeDeduction);
-				if (result == null) result = caseSTypeDeduction(sEntityTypeDeduction);
 				if (result == null) result = caseDComplexType(sEntityTypeDeduction);
 				if (result == null) result = caseIIdentityType(sEntityTypeDeduction);
-				if (result == null) result = caseIDeductionDefinition(sEntityTypeDeduction);
+				if (result == null) result = caseSTypeDeduction(sEntityTypeDeduction);
 				if (result == null) result = caseDType(sEntityTypeDeduction);
 				if (result == null) result = caseINavigableMemberContainer(sEntityTypeDeduction);
+				if (result == null) result = caseIDeductionDefinition(sEntityTypeDeduction);
 				if (result == null) result = caseIDeducibleElement(sEntityTypeDeduction);
 				if (result == null) result = caseIStaticReferenceTarget(sEntityTypeDeduction);
 				if (result == null) result = caseINamespace(sEntityTypeDeduction);
@@ -1077,22 +1075,6 @@ public class SimSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseIIdentityType(IIdentityType object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DIdentity Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DIdentity Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDIdentityType(DIdentityType object)
 	{
 		return null;
 	}

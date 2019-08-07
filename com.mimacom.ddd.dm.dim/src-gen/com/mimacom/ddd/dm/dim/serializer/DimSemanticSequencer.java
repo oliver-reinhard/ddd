@@ -20,7 +20,6 @@ import com.mimacom.ddd.dm.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
-import com.mimacom.ddd.dm.base.DRelationship;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.dim.services.DimGrammarAccess;
@@ -126,9 +125,6 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case BasePackage.DQUERY_PARAMETER:
 				sequence_DQueryParameter(context, (DQueryParameter) semanticObject); 
-				return; 
-			case BasePackage.DRELATIONSHIP:
-				sequence_DComplexType_DRelationship(context, (DRelationship) semanticObject); 
 				return; 
 			case BasePackage.DRICH_TEXT:
 				sequence_DRichText(context, (DRichText) semanticObject); 
@@ -353,7 +349,10 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         abstract?='abstract'? 
-	 *         ((root?='root'? origin=DIdentityOriginGeneric) | (root?='main'? (origin=DIdentityOriginObject | origin=DIdentityOriginConcept))) 
+	 *         (
+	 *             (root?='root'? origin=DEntityOriginGeneric) | 
+	 *             (root?='main'? (origin=DEntityOriginObject | origin=DEntityOriginConcept | origin=DEntityOriginRelationship))
+	 *         ) 
 	 *         name=ID 
 	 *         aliases+=ID* 
 	 *         superType=[DComplexType|ID]? 
@@ -362,27 +361,6 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *     )
 	 */
 	protected void sequence_DComplexType_DEntityType(ISerializationContext context, DEntityType semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DType returns DRelationship
-	 *     DRelationship returns DRelationship
-	 *
-	 * Constraint:
-	 *     (
-	 *         abstract?='abstract'? 
-	 *         (root?='root' | root?='main')? 
-	 *         name=ID 
-	 *         aliases+=ID* 
-	 *         superType=[DComplexType|ID]? 
-	 *         description=DRichText? 
-	 *         (features+=DFeature | constraints+=DConstraint)*
-	 *     )
-	 */
-	protected void sequence_DComplexType_DRelationship(ISerializationContext context, DRelationship semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

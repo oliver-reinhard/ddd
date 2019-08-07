@@ -8,6 +8,7 @@ import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DDomain;
+import com.mimacom.ddd.dm.base.DEntityOrigin;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
@@ -17,7 +18,6 @@ import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
-import com.mimacom.ddd.dm.base.DRelationship;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dim.ui.internal.DimActivator;
 import java.util.Arrays;
@@ -420,7 +420,15 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
       if (_isRoot) {
         _xifexpression = "<< (R,#FB3333) >>";
       } else {
-        _xifexpression = "<< (E,#F78100) >>";
+        String _xifexpression_1 = null;
+        DEntityOrigin _origin = ((DEntityType)t).getOrigin();
+        boolean _equals = Objects.equal(_origin, DEntityOrigin.RELATIONSHIP);
+        if (_equals) {
+          _xifexpression_1 = "<< (R,#FA78C8) >>";
+        } else {
+          _xifexpression_1 = "<< (E,#F78100) >>";
+        }
+        _xifexpression = _xifexpression_1;
       }
       _switchResult = _xifexpression;
     }
@@ -428,12 +436,6 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
       if (t instanceof DDetailType) {
         _matched=true;
         _switchResult = "<< (D,#FAE55F) >>";
-      }
-    }
-    if (!_matched) {
-      if (t instanceof DRelationship) {
-        _matched=true;
-        _switchResult = "<< (R,#FA78C8) >>";
       }
     }
     if (!_matched) {

@@ -42,7 +42,7 @@ class EsmScopeProvider extends AbstractEsmScopeProvider {
 
 	protected override IScope getEContainerNavigableMembersScopeSwitch(INavigableMemberContainer container, IScope outerScope) {
 		val scope = switch container {
-			DEntityStateModel: Scopes.scopeFor(container.forType.features, outerScope)
+			DEntityStateModel: Scopes.scopeFor(container.getForType.features, outerScope)
 			default: super.getEContainerNavigableMembersScopeSwitch(container, outerScope)
 		}
 		return scope	

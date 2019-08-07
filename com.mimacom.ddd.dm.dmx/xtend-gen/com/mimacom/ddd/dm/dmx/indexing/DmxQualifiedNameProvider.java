@@ -18,7 +18,7 @@ public class DmxQualifiedNameProvider extends DefaultDeclarativeQualifiedNamePro
       boolean _isRoot = ((DEntityType)obj).isRoot();
       if (_isRoot) {
         final DDomain domain = EcoreUtil2.<DDomain>getContainerOfType(obj, DDomain.class);
-        if ((domain != null)) {
+        if (((domain != null) && (((DEntityType)obj).getName() != null))) {
           final QualifiedName domainQN = this.computeFullyQualifiedName(domain);
           final QualifiedName rootQN = domainQN.append(((DEntityType)obj).getName());
           return rootQN;

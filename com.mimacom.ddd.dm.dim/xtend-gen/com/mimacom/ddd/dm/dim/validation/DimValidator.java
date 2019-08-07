@@ -15,11 +15,10 @@ import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DDomainEvent;
+import com.mimacom.ddd.dm.base.DEntityOrigin;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
-import com.mimacom.ddd.dm.base.DIdentityOrigin;
-import com.mimacom.ddd.dm.base.DIdentityType;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DNamedElement;
@@ -27,7 +26,6 @@ import com.mimacom.ddd.dm.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQueryParameter;
-import com.mimacom.ddd.dm.base.DRelationship;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IValueType;
 import com.mimacom.ddd.dm.dim.DimUtil;
@@ -76,20 +74,21 @@ public class DimValidator extends AbstractDimValidator {
   
   @Check
   public void checkAggregateHasSingleRootOrRootHiearchy(final DAggregate a) {
-    final Function1<DIdentityType, Boolean> _function = (DIdentityType it) -> {
+    final Function1<DEntityType, Boolean> _function = (DEntityType it) -> {
       return Boolean.valueOf(it.isRoot());
     };
-    final Iterable<DIdentityType> roots = IterableExtensions.<DIdentityType>filter(Iterables.<DIdentityType>filter(a.getTypes(), DIdentityType.class), _function);
-    final Function1<DIdentityType, Boolean> _function_1 = (DIdentityType it) -> {
+    final Iterable<DEntityType> roots = IterableExtensions.<DEntityType>filter(Iterables.<DEntityType>filter(a.getTypes(), DEntityType.class), _function);
+    final Function1<DEntityType, Boolean> _function_1 = (DEntityType it) -> {
       DAggregate _aggregate = this._dimUtil.aggregate(it.getSuperType());
       return Boolean.valueOf((!Objects.equal(_aggregate, a)));
     };
-    final Iterable<DIdentityType> topLevelRoots = IterableExtensions.<DIdentityType>filter(roots, _function_1);
+    final Iterable<DEntityType> topLevelRoots = IterableExtensions.<DEntityType>filter(roots, _function_1);
     int _size = IterableExtensions.size(topLevelRoots);
     boolean _greaterThan = (_size > 1);
     if (_greaterThan) {
-      for (final DIdentityType r : roots) {
-        this.error("Aggregate can only declare a single root or relationship or a a single hierarchy thereof", r, BasePackage.Literals.DNAMED_ELEMENT__NAME);
+      for (final DEntityType r : roots) {
+        this.error("Aggregate can only declare a single root or relationship or a a single hierarchy thereof", r, 
+          BasePackage.Literals.DNAMED_ELEMENT__NAME);
       }
     }
   }
@@ -113,13 +112,14 @@ public class DimValidator extends AbstractDimValidator {
       if (_tripleNotEquals_1) {
         this.error("Supertype is not compatible", t, BasePackage.Literals.DNAMED_ELEMENT__NAME);
       } else {
-        if ((t instanceof DIdentityType)) {
-          boolean _isRoot = ((DIdentityType)t).isRoot();
-          DComplexType _superType_1 = ((DIdentityType)t).getSuperType();
-          boolean _isRoot_1 = ((DIdentityType) _superType_1).isRoot();
+        if ((t instanceof DEntityType)) {
+          boolean _isRoot = ((DEntityType)t).isRoot();
+          DComplexType _superType_1 = ((DEntityType)t).getSuperType();
+          boolean _isRoot_1 = ((DEntityType) _superType_1).isRoot();
           boolean _tripleNotEquals_2 = (Boolean.valueOf(_isRoot) != Boolean.valueOf(_isRoot_1));
           if (_tripleNotEquals_2) {
-            this.error("Entity or relationship root property must match supertype\'s root property", t, BasePackage.Literals.DNAMED_ELEMENT__NAME);
+            this.error("Entity or relationship root property must match supertype\'s root property", t, 
+              BasePackage.Literals.DNAMED_ELEMENT__NAME);
           }
         }
       }
@@ -144,18 +144,22 @@ public class DimValidator extends AbstractDimValidator {
   }
   
   @Check
-  public void checkRelationshipHasTwoAssociations(final DRelationship r) {
-    int count = 0;
-    int _size = r.getFeatures().size();
-    ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _size, true);
-    for (final Integer i : _doubleDotLessThan) {
-      DFeature _get = r.getFeatures().get((i).intValue());
-      if ((_get instanceof DAssociation)) {
-        count++;
+  public void checkRelationshipHasTwoAssociations(final DEntityType r) {
+    DEntityOrigin _origin = r.getOrigin();
+    boolean _equals = Objects.equal(_origin, DEntityOrigin.RELATIONSHIP);
+    if (_equals) {
+      int count = 0;
+      int _size = r.getFeatures().size();
+      ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _size, true);
+      for (final Integer i : _doubleDotLessThan) {
+        DFeature _get = r.getFeatures().get((i).intValue());
+        if ((_get instanceof DAssociation)) {
+          count++;
+        }
       }
-    }
-    if ((count < 2)) {
-      this.error("A relationship must declare at least 2 associations", r, BasePackage.Literals.DNAMED_ELEMENT__NAME);
+      if ((count < 2)) {
+        this.error("A relationship must declare at least 2 associations", r, BasePackage.Literals.DNAMED_ELEMENT__NAME);
+      }
     }
   }
   
@@ -188,7 +192,7 @@ public class DimValidator extends AbstractDimValidator {
   
   @Check
   public void checkRealWorldEntityType(final DEntityType e) {
-    if ((Objects.equal(e.getOrigin(), DIdentityOrigin.REAL_WORLD_OBJECT) && e.isAbstract())) {
+    if ((Objects.equal(e.getOrigin(), DEntityOrigin.PHYSICAL_OBJECT) && e.isAbstract())) {
       this.error("Entity Types representng real-world objects cannot be abstract", e, BasePackage.Literals.DCOMPLEX_TYPE__ABSTRACT);
     }
   }

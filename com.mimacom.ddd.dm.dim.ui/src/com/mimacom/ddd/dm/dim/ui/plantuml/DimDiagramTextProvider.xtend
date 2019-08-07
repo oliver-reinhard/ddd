@@ -6,11 +6,12 @@ import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DDomain
+import com.mimacom.ddd.dm.base.DEntityOrigin
+import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
+import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
-import com.mimacom.ddd.dm.base.DRelationship
-import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.dim.ui.internal.DimActivator
 import java.util.Map
@@ -22,7 +23,6 @@ import org.eclipse.ui.IEditorPart
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.ui.editor.XtextEditor
 import org.eclipse.xtext.ui.editor.model.XtextDocument
-import com.mimacom.ddd.dm.base.DNavigableMember
 
 class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	
@@ -169,9 +169,8 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	def getSpot(DType t) {
 		// Returns the "Spot Letter" to use next to the class name.
 		return switch t {
-		DEntityType : if (t.root) "<< (R,#FB3333) >>" else "<< (E,#F78100) >>"
+		DEntityType : if (t.root) "<< (R,#FB3333) >>" else if (t.origin == DEntityOrigin.RELATIONSHIP) "<< (R,#FA78C8) >>" else "<< (E,#F78100) >>"
 		DDetailType : "<< (D,#FAE55F) >>"
-		DRelationship:  "<< (R,#FA78C8) >>"
 		DEnumeration: "<< (e,#66B371) >>"
 		DPrimitive:  "<< (p,#9AF78F) >>"
 		default:""

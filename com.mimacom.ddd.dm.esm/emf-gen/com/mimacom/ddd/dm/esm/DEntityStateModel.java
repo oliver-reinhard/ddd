@@ -4,7 +4,7 @@
 package com.mimacom.ddd.dm.esm;
 
 import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.IIdentityStateModel;
+import com.mimacom.ddd.dm.base.IEntityStateModel;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
 import org.eclipse.emf.common.util.EList;
@@ -27,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DEntityStateModel extends DNamedElement, IIdentityStateModel, INavigableMemberContainer
+public interface DEntityStateModel extends DNamedElement, IEntityStateModel, INavigableMemberContainer
 {
 	/**
 	 * Returns the value of the '<em><b>States</b></em>' containment reference list.

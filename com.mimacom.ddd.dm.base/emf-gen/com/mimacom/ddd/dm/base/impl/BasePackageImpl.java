@@ -16,13 +16,12 @@ import com.mimacom.ddd.dm.base.DDeductionRule;
 import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DDomainEvent;
+import com.mimacom.ddd.dm.base.DEntityOrigin;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DHumanActorRole;
-import com.mimacom.ddd.dm.base.DIdentityOrigin;
-import com.mimacom.ddd.dm.base.DIdentityType;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DMessage;
@@ -34,7 +33,6 @@ import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
-import com.mimacom.ddd.dm.base.DRelationship;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DSimpleType;
@@ -42,7 +40,7 @@ import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
-import com.mimacom.ddd.dm.base.IIdentityStateModel;
+import com.mimacom.ddd.dm.base.IEntityStateModel;
 import com.mimacom.ddd.dm.base.IIdentityType;
 import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
@@ -255,20 +253,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dIdentityTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass iIdentityStateModelEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass dEntityTypeEClass = null;
 
 	/**
@@ -276,7 +260,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dRelationshipEClass = null;
+	private EClass iEntityStateModelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -381,7 +365,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum dIdentityOriginEEnum = null;
+	private EEnum dEntityOriginEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1086,61 +1070,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDIdentityType()
-	{
-		return dIdentityTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDIdentityType_Root()
-	{
-		return (EAttribute)dIdentityTypeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDIdentityType_Origin()
-	{
-		return (EAttribute)dIdentityTypeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getIIdentityStateModel()
-	{
-		return iIdentityStateModelEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getIIdentityStateModel_ForType()
-	{
-		return (EReference)iIdentityStateModelEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getDEntityType()
 	{
 		return dEntityTypeEClass;
@@ -1152,9 +1081,42 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDRelationship()
+	public EAttribute getDEntityType_Root()
 	{
-		return dRelationshipEClass;
+		return (EAttribute)dEntityTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDEntityType_Origin()
+	{
+		return (EAttribute)dEntityTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getIEntityStateModel()
+	{
+		return iEntityStateModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getIEntityStateModel_ForType()
+	{
+		return (EReference)iEntityStateModelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1537,9 +1499,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EEnum getDIdentityOrigin()
+	public EEnum getDEntityOrigin()
 	{
-		return dIdentityOriginEEnum;
+		return dEntityOriginEEnum;
 	}
 
 	/**
@@ -1667,16 +1629,12 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		dDetailTypeEClass = createEClass(DDETAIL_TYPE);
 
-		dIdentityTypeEClass = createEClass(DIDENTITY_TYPE);
-		createEAttribute(dIdentityTypeEClass, DIDENTITY_TYPE__ROOT);
-		createEAttribute(dIdentityTypeEClass, DIDENTITY_TYPE__ORIGIN);
-
-		iIdentityStateModelEClass = createEClass(IIDENTITY_STATE_MODEL);
-		createEReference(iIdentityStateModelEClass, IIDENTITY_STATE_MODEL__FOR_TYPE);
-
 		dEntityTypeEClass = createEClass(DENTITY_TYPE);
+		createEAttribute(dEntityTypeEClass, DENTITY_TYPE__ROOT);
+		createEAttribute(dEntityTypeEClass, DENTITY_TYPE__ORIGIN);
 
-		dRelationshipEClass = createEClass(DRELATIONSHIP);
+		iEntityStateModelEClass = createEClass(IENTITY_STATE_MODEL);
+		createEReference(iEntityStateModelEClass, IENTITY_STATE_MODEL__FOR_TYPE);
 
 		dFeatureEClass = createEClass(DFEATURE);
 
@@ -1727,7 +1685,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dServiceEClass = createEClass(DSERVICE);
 
 		// Create enums
-		dIdentityOriginEEnum = createEEnum(DIDENTITY_ORIGIN);
+		dEntityOriginEEnum = createEEnum(DENTITY_ORIGIN);
 		dAssociationKindEEnum = createEEnum(DASSOCIATION_KIND);
 	}
 
@@ -1791,10 +1749,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dComplexTypeEClass.getESuperTypes().add(this.getINavigableMemberContainer());
 		dDetailTypeEClass.getESuperTypes().add(this.getDComplexType());
 		dDetailTypeEClass.getESuperTypes().add(this.getIValueType());
-		dIdentityTypeEClass.getESuperTypes().add(this.getDComplexType());
-		dIdentityTypeEClass.getESuperTypes().add(this.getIIdentityType());
-		dEntityTypeEClass.getESuperTypes().add(this.getDIdentityType());
-		dRelationshipEClass.getESuperTypes().add(this.getDIdentityType());
+		dEntityTypeEClass.getESuperTypes().add(this.getDComplexType());
+		dEntityTypeEClass.getESuperTypes().add(this.getIIdentityType());
 		dFeatureEClass.getESuperTypes().add(this.getDNavigableMember());
 		dFeatureEClass.getESuperTypes().add(this.getIDeducibleElement());
 		dAssociationEClass.getESuperTypes().add(this.getDFeature());
@@ -1864,12 +1820,12 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dDomainEClass, DDomain.class, "DDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDDomain_Imports(), this.getDImport(), null, "imports", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDDomain_Aggregates(), this.getDAggregate(), null, "aggregates", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDDomain_StateModels(), this.getIIdentityStateModel(), null, "stateModels", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDDomain_StateModels(), this.getIEntityStateModel(), null, "stateModels", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDDomain_Events(), this.getDDomainEvent(), null, "events", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDDomain_Actors(), this.getDActor(), null, "actors", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dAggregateEClass, DAggregate.class, "DAggregate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDAggregate_Roots(), this.getDIdentityType(), null, "roots", null, 0, -1, DAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDAggregate_Roots(), this.getDEntityType(), null, "roots", null, 0, -1, DAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDAggregate_StaticQueries(), this.getDQuery(), null, "staticQueries", null, 0, -1, DAggregate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iIdentityTypeEClass, IIdentityType.class, "IIdentityType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1900,16 +1856,12 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		initEClass(dDetailTypeEClass, DDetailType.class, "DDetailType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(dIdentityTypeEClass, DIdentityType.class, "DIdentityType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDIdentityType_Root(), ecorePackage.getEBoolean(), "root", null, 0, 1, DIdentityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDIdentityType_Origin(), this.getDIdentityOrigin(), "origin", null, 0, 1, DIdentityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(iIdentityStateModelEClass, IIdentityStateModel.class, "IIdentityStateModel", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIIdentityStateModel_ForType(), this.getDIdentityType(), null, "forType", null, 0, 1, IIdentityStateModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(dEntityTypeEClass, DEntityType.class, "DEntityType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDEntityType_Root(), ecorePackage.getEBoolean(), "root", null, 0, 1, DEntityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDEntityType_Origin(), this.getDEntityOrigin(), "origin", null, 0, 1, DEntityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dRelationshipEClass, DRelationship.class, "DRelationship", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(iEntityStateModelEClass, IEntityStateModel.class, "IEntityStateModel", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIEntityStateModel_ForType(), this.getDEntityType(), null, "forType", null, 0, 1, IEntityStateModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dFeatureEClass, DFeature.class, "DFeature", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1956,15 +1908,16 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dActorEClass, DActor.class, "DActor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dHumanActorRoleEClass, DHumanActorRole.class, "DHumanActorRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDHumanActorRole_Role(), this.getDIdentityType(), null, "role", null, 0, 1, DHumanActorRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDHumanActorRole_Role(), this.getDEntityType(), null, "role", null, 0, 1, DHumanActorRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dServiceEClass, DService.class, "DService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
-		initEEnum(dIdentityOriginEEnum, DIdentityOrigin.class, "DIdentityOrigin");
-		addEEnumLiteral(dIdentityOriginEEnum, DIdentityOrigin.REAL_WORLD_OBJECT);
-		addEEnumLiteral(dIdentityOriginEEnum, DIdentityOrigin.VIRTUAL_CONCEPT);
-		addEEnumLiteral(dIdentityOriginEEnum, DIdentityOrigin.GENERIC_ENTITY);
+		initEEnum(dEntityOriginEEnum, DEntityOrigin.class, "DEntityOrigin");
+		addEEnumLiteral(dEntityOriginEEnum, DEntityOrigin.GENERIC_ENTITY);
+		addEEnumLiteral(dEntityOriginEEnum, DEntityOrigin.PHYSICAL_OBJECT);
+		addEEnumLiteral(dEntityOriginEEnum, DEntityOrigin.VIRTUAL_CONCEPT);
+		addEEnumLiteral(dEntityOriginEEnum, DEntityOrigin.RELATIONSHIP);
 
 		initEEnum(dAssociationKindEEnum, DAssociationKind.class, "DAssociationKind");
 		addEEnumLiteral(dAssociationKindEEnum, DAssociationKind.REFERENCE);

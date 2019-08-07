@@ -4,7 +4,6 @@
 package com.mimacom.ddd.dm.dmx.tests
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DIdentityType
 import com.mimacom.ddd.dm.base.DNamedElement
 import com.mimacom.ddd.dm.dmx.DmxNamespace
 import com.mimacom.ddd.dm.dmx.impl.DmxAssignmentImpl
@@ -29,6 +28,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 
 import static org.junit.Assert.*
+import com.mimacom.ddd.dm.base.DEntityType
 
 @ExtendWith(InjectionExtension)
 @InjectWith(DmxInjectorProvider)
@@ -117,11 +117,11 @@ class DmxParsingTest {
 		assertEquals(DmxConstructorCallImpl, e7.class)
 		// actual value of 'e7.constructor' cross reference is a proxy that gets resolved upon access => Exception
 		assertTrue((e7 as DmxConstructorCallImpl).basicGetConstructor.eIsProxy)
-		assertTrue((e7 as DmxConstructorCallImpl).basicGetConstructor instanceof DIdentityType) 
+		assertTrue((e7 as DmxConstructorCallImpl).basicGetConstructor instanceof DEntityType) 
 		assertFalse((e7 as DmxConstructorCallImpl).explicitConstructorCall)
 		val e8 = tests.get(8).expr
 		assertEquals(DmxConstructorCallImpl, e8.class)
-		assertTrue((e8 as DmxConstructorCallImpl).basicGetConstructor instanceof DIdentityType) 
+		assertTrue((e8 as DmxConstructorCallImpl).basicGetConstructor instanceof DEntityType) 
 		assertTrue((e8 as DmxConstructorCallImpl).explicitConstructorCall)
 		assertEquals(1, (e8 as DmxConstructorCallImpl).arguments.size)
 		assertEquals(DmxNaturalLiteralImpl, (e8 as DmxConstructorCallImpl).arguments.get(0).class)

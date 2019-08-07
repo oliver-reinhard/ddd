@@ -4,7 +4,7 @@
 package com.mimacom.ddd.dm.esm.util;
 
 import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.IIdentityStateModel;
+import com.mimacom.ddd.dm.base.IEntityStateModel;
 import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
@@ -83,7 +83,7 @@ public class EsmSwitch<T> extends Switch<T>
 				DEntityStateModel dEntityStateModel = (DEntityStateModel)theEObject;
 				T result = caseDEntityStateModel(dEntityStateModel);
 				if (result == null) result = caseDNamedElement(dEntityStateModel);
-				if (result == null) result = caseIIdentityStateModel(dEntityStateModel);
+				if (result == null) result = caseIEntityStateModel(dEntityStateModel);
 				if (result == null) result = caseINavigableMemberContainer(dEntityStateModel);
 				if (result == null) result = caseINamespace(dEntityStateModel);
 				if (result == null) result = defaultCase(theEObject);
@@ -195,17 +195,17 @@ public class EsmSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IIdentity State Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>IEntity State Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IIdentity State Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>IEntity State Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIIdentityStateModel(IIdentityStateModel object)
+	public T caseIEntityStateModel(IEntityStateModel object)
 	{
 		return null;
 	}

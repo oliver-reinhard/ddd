@@ -16,7 +16,7 @@ class DmxQualifiedNameProvider extends DefaultDeclarativeQualifiedNameProvider {
 		if (obj instanceof DEntityType) {
 			if (obj.root) {
 				val domain = EcoreUtil2.getContainerOfType(obj, DDomain)
-				if (domain !== null) {
+				if (domain !== null && obj.name !== null) {
 					val domainQN = computeFullyQualifiedName(domain)
 					val rootQN = domainQN.append(obj.name)
 					return rootQN

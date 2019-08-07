@@ -3289,7 +3289,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	///*
 	// * TYPES
 	// */ DType:
-	//	DPrimitive | super::DEnumeration | super::DEntityType | DRelationship | DDetailType;
+	//	DPrimitive | super::DEnumeration | super::DEntityType | DDetailType;
 	public DimGrammarAccess.DTypeElements getDTypeAccess() {
 		return gaDim.getDTypeAccess();
 	}
@@ -3337,46 +3337,44 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		return getDLiteralAccess().getRule();
 	}
 	
-	//DRelationship:
-	//	abstract?='abstract'? (root?='root' | root?='main')?
-	//	'relationship'
-	//	super::DComplexType;
-	public DimGrammarAccess.DRelationshipElements getDRelationshipAccess() {
-		return gaDim.getDRelationshipAccess();
-	}
-	
-	public ParserRule getDRelationshipRule() {
-		return getDRelationshipAccess().getRule();
-	}
-	
-	//enum DIdentityOriginObject returns DIdentityOrigin:
-	//	REAL_WORLD_OBJECT='object';
-	public DimGrammarAccess.DIdentityOriginObjectElements getDIdentityOriginObjectAccess() {
-		return gaDim.getDIdentityOriginObjectAccess();
-	}
-	
-	public EnumRule getDIdentityOriginObjectRule() {
-		return getDIdentityOriginObjectAccess().getRule();
-	}
-	
-	//enum DIdentityOriginConcept returns DIdentityOrigin:
-	//	VIRTUAL_CONCEPT='concept';
-	public DimGrammarAccess.DIdentityOriginConceptElements getDIdentityOriginConceptAccess() {
-		return gaDim.getDIdentityOriginConceptAccess();
-	}
-	
-	public EnumRule getDIdentityOriginConceptRule() {
-		return getDIdentityOriginConceptAccess().getRule();
-	}
-	
-	//enum DIdentityOriginGeneric returns DIdentityOrigin:
+	//enum DEntityOriginGeneric returns DEntityOrigin:
 	//	GENERIC_ENTITY='entity';
-	public DimGrammarAccess.DIdentityOriginGenericElements getDIdentityOriginGenericAccess() {
-		return gaDim.getDIdentityOriginGenericAccess();
+	public DimGrammarAccess.DEntityOriginGenericElements getDEntityOriginGenericAccess() {
+		return gaDim.getDEntityOriginGenericAccess();
 	}
 	
-	public EnumRule getDIdentityOriginGenericRule() {
-		return getDIdentityOriginGenericAccess().getRule();
+	public EnumRule getDEntityOriginGenericRule() {
+		return getDEntityOriginGenericAccess().getRule();
+	}
+	
+	//enum DEntityOriginObject returns DEntityOrigin:
+	//	PHYSICAL_OBJECT='object';
+	public DimGrammarAccess.DEntityOriginObjectElements getDEntityOriginObjectAccess() {
+		return gaDim.getDEntityOriginObjectAccess();
+	}
+	
+	public EnumRule getDEntityOriginObjectRule() {
+		return getDEntityOriginObjectAccess().getRule();
+	}
+	
+	//enum DEntityOriginConcept returns DEntityOrigin:
+	//	VIRTUAL_CONCEPT='concept';
+	public DimGrammarAccess.DEntityOriginConceptElements getDEntityOriginConceptAccess() {
+		return gaDim.getDEntityOriginConceptAccess();
+	}
+	
+	public EnumRule getDEntityOriginConceptRule() {
+		return getDEntityOriginConceptAccess().getRule();
+	}
+	
+	//enum DEntityOriginRelationship returns DEntityOrigin:
+	//	VIRTUAL_CONCEPT='relationship';
+	public DimGrammarAccess.DEntityOriginRelationshipElements getDEntityOriginRelationshipAccess() {
+		return gaDim.getDEntityOriginRelationshipAccess();
+	}
+	
+	public EnumRule getDEntityOriginRelationshipRule() {
+		return getDEntityOriginRelationshipAccess().getRule();
 	}
 	
 	//DDetailType:

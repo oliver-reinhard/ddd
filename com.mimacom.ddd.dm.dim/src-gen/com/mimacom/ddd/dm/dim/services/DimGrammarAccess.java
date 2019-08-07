@@ -187,16 +187,15 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDPrimitiveParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cDEnumerationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cDEntityTypeParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cDRelationshipParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cDDetailTypeParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cDDetailTypeParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		///*
 		// * TYPES
 		// */ DType:
-		//	DPrimitive | DEnumeration | DEntityType | DRelationship | DDetailType;
+		//	DPrimitive | DEnumeration | DEntityType | DDetailType;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//DPrimitive | DEnumeration | DEntityType | DRelationship | DDetailType
+		//DPrimitive | DEnumeration | DEntityType | DDetailType
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//DPrimitive
@@ -208,11 +207,8 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		//DEntityType
 		public RuleCall getDEntityTypeParserRuleCall_2() { return cDEntityTypeParserRuleCall_2; }
 		
-		//DRelationship
-		public RuleCall getDRelationshipParserRuleCall_3() { return cDRelationshipParserRuleCall_3; }
-		
 		//DDetailType
-		public RuleCall getDDetailTypeParserRuleCall_4() { return cDDetailTypeParserRuleCall_4; }
+		public RuleCall getDDetailTypeParserRuleCall_3() { return cDDetailTypeParserRuleCall_3; }
 	}
 	public class DConstraintElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DConstraint");
@@ -516,7 +512,7 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRootAssignment_1_0_0 = (Assignment)cGroup_1_0.eContents().get(0);
 		private final Keyword cRootRootKeyword_1_0_0_0 = (Keyword)cRootAssignment_1_0_0.eContents().get(0);
 		private final Assignment cOriginAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
-		private final RuleCall cOriginDIdentityOriginGenericEnumRuleCall_1_0_1_0 = (RuleCall)cOriginAssignment_1_0_1.eContents().get(0);
+		private final RuleCall cOriginDEntityOriginGenericEnumRuleCall_1_0_1_0 = (RuleCall)cOriginAssignment_1_0_1.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Assignment cRootAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
 		private final Keyword cRootMainKeyword_1_1_0_0 = (Keyword)cRootAssignment_1_1_0.eContents().get(0);
@@ -524,23 +520,25 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1_1_1_0 = (Group)cAlternatives_1_1_1.eContents().get(0);
 		private final Keyword cPhysicalKeyword_1_1_1_0_0 = (Keyword)cGroup_1_1_1_0.eContents().get(0);
 		private final Assignment cOriginAssignment_1_1_1_0_1 = (Assignment)cGroup_1_1_1_0.eContents().get(1);
-		private final RuleCall cOriginDIdentityOriginObjectEnumRuleCall_1_1_1_0_1_0 = (RuleCall)cOriginAssignment_1_1_1_0_1.eContents().get(0);
+		private final RuleCall cOriginDEntityOriginObjectEnumRuleCall_1_1_1_0_1_0 = (RuleCall)cOriginAssignment_1_1_1_0_1.eContents().get(0);
 		private final Group cGroup_1_1_1_1 = (Group)cAlternatives_1_1_1.eContents().get(1);
 		private final Keyword cVirtualKeyword_1_1_1_1_0 = (Keyword)cGroup_1_1_1_1.eContents().get(0);
 		private final Assignment cOriginAssignment_1_1_1_1_1 = (Assignment)cGroup_1_1_1_1.eContents().get(1);
-		private final RuleCall cOriginDIdentityOriginConceptEnumRuleCall_1_1_1_1_1_0 = (RuleCall)cOriginAssignment_1_1_1_1_1.eContents().get(0);
+		private final RuleCall cOriginDEntityOriginConceptEnumRuleCall_1_1_1_1_1_0 = (RuleCall)cOriginAssignment_1_1_1_1_1.eContents().get(0);
+		private final Assignment cOriginAssignment_1_1_1_2 = (Assignment)cAlternatives_1_1_1.eContents().get(2);
+		private final RuleCall cOriginDEntityOriginRelationshipEnumRuleCall_1_1_1_2_0 = (RuleCall)cOriginAssignment_1_1_1_2.eContents().get(0);
 		private final RuleCall cDComplexTypeParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
 		//DEntityType:
 		//	abstract?='abstract'? (root?='root'?
-		//	origin=DIdentityOriginGeneric
-		//	| root?='main'? ('physical' origin=DIdentityOriginObject // validation: cannot be abstract
-		//	| 'virtual' origin=DIdentityOriginConcept)) DComplexType;
+		//	origin=DEntityOriginGeneric
+		//	| root?='main'? ('physical' origin=DEntityOriginObject // validation: cannot be abstract
+		//	| 'virtual' origin=DEntityOriginConcept
+		//	| origin=DEntityOriginRelationship)) DComplexType;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//abstract?='abstract'? (root?='root'? origin=DIdentityOriginGeneric | root?='main'? ('physical'
-		//origin=DIdentityOriginObject // validation: cannot be abstract
-		//| 'virtual' origin=DIdentityOriginConcept)) DComplexType
+		//abstract?='abstract'? (root?='root'? origin=DEntityOriginGeneric | root?='main'? ('physical' origin=DEntityOriginObject // validation: cannot be abstract
+		//| 'virtual' origin=DEntityOriginConcept | origin=DEntityOriginRelationship)) DComplexType
 		public Group getGroup() { return cGroup; }
 		
 		//abstract?='abstract'?
@@ -549,11 +547,11 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		//'abstract'
 		public Keyword getAbstractAbstractKeyword_0_0() { return cAbstractAbstractKeyword_0_0; }
 		
-		//root?='root'? origin=DIdentityOriginGeneric | root?='main'? ('physical' origin=DIdentityOriginObject // validation: cannot be abstract
-		//| 'virtual' origin=DIdentityOriginConcept)
+		//root?='root'? origin=DEntityOriginGeneric | root?='main'? ('physical' origin=DEntityOriginObject // validation: cannot be abstract
+		//| 'virtual' origin=DEntityOriginConcept | origin=DEntityOriginRelationship)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//root?='root'? origin=DIdentityOriginGeneric
+		//root?='root'? origin=DEntityOriginGeneric
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//root?='root'?
@@ -562,14 +560,14 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		//'root'
 		public Keyword getRootRootKeyword_1_0_0_0() { return cRootRootKeyword_1_0_0_0; }
 		
-		//origin=DIdentityOriginGeneric
+		//origin=DEntityOriginGeneric
 		public Assignment getOriginAssignment_1_0_1() { return cOriginAssignment_1_0_1; }
 		
-		//DIdentityOriginGeneric
-		public RuleCall getOriginDIdentityOriginGenericEnumRuleCall_1_0_1_0() { return cOriginDIdentityOriginGenericEnumRuleCall_1_0_1_0; }
+		//DEntityOriginGeneric
+		public RuleCall getOriginDEntityOriginGenericEnumRuleCall_1_0_1_0() { return cOriginDEntityOriginGenericEnumRuleCall_1_0_1_0; }
 		
-		//root?='main'? ('physical' origin=DIdentityOriginObject // validation: cannot be abstract
-		//| 'virtual' origin=DIdentityOriginConcept)
+		//root?='main'? ('physical' origin=DEntityOriginObject // validation: cannot be abstract
+		//| 'virtual' origin=DEntityOriginConcept | origin=DEntityOriginRelationship)
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//root?='main'?
@@ -578,85 +576,42 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		//'main'
 		public Keyword getRootMainKeyword_1_1_0_0() { return cRootMainKeyword_1_1_0_0; }
 		
-		//'physical' origin=DIdentityOriginObject // validation: cannot be abstract
-		//| 'virtual' origin=DIdentityOriginConcept
+		//'physical' origin=DEntityOriginObject // validation: cannot be abstract
+		//| 'virtual' origin=DEntityOriginConcept | origin=DEntityOriginRelationship
 		public Alternatives getAlternatives_1_1_1() { return cAlternatives_1_1_1; }
 		
-		//'physical' origin=DIdentityOriginObject
+		//'physical' origin=DEntityOriginObject
 		public Group getGroup_1_1_1_0() { return cGroup_1_1_1_0; }
 		
 		//'physical'
 		public Keyword getPhysicalKeyword_1_1_1_0_0() { return cPhysicalKeyword_1_1_1_0_0; }
 		
-		//origin=DIdentityOriginObject
+		//origin=DEntityOriginObject
 		public Assignment getOriginAssignment_1_1_1_0_1() { return cOriginAssignment_1_1_1_0_1; }
 		
-		//DIdentityOriginObject
-		public RuleCall getOriginDIdentityOriginObjectEnumRuleCall_1_1_1_0_1_0() { return cOriginDIdentityOriginObjectEnumRuleCall_1_1_1_0_1_0; }
+		//DEntityOriginObject
+		public RuleCall getOriginDEntityOriginObjectEnumRuleCall_1_1_1_0_1_0() { return cOriginDEntityOriginObjectEnumRuleCall_1_1_1_0_1_0; }
 		
-		//'virtual' origin=DIdentityOriginConcept
+		//'virtual' origin=DEntityOriginConcept
 		public Group getGroup_1_1_1_1() { return cGroup_1_1_1_1; }
 		
 		//'virtual'
 		public Keyword getVirtualKeyword_1_1_1_1_0() { return cVirtualKeyword_1_1_1_1_0; }
 		
-		//origin=DIdentityOriginConcept
+		//origin=DEntityOriginConcept
 		public Assignment getOriginAssignment_1_1_1_1_1() { return cOriginAssignment_1_1_1_1_1; }
 		
-		//DIdentityOriginConcept
-		public RuleCall getOriginDIdentityOriginConceptEnumRuleCall_1_1_1_1_1_0() { return cOriginDIdentityOriginConceptEnumRuleCall_1_1_1_1_1_0; }
+		//DEntityOriginConcept
+		public RuleCall getOriginDEntityOriginConceptEnumRuleCall_1_1_1_1_1_0() { return cOriginDEntityOriginConceptEnumRuleCall_1_1_1_1_1_0; }
+		
+		//origin=DEntityOriginRelationship
+		public Assignment getOriginAssignment_1_1_1_2() { return cOriginAssignment_1_1_1_2; }
+		
+		//DEntityOriginRelationship
+		public RuleCall getOriginDEntityOriginRelationshipEnumRuleCall_1_1_1_2_0() { return cOriginDEntityOriginRelationshipEnumRuleCall_1_1_1_2_0; }
 		
 		//DComplexType
 		public RuleCall getDComplexTypeParserRuleCall_2() { return cDComplexTypeParserRuleCall_2; }
-	}
-	public class DRelationshipElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DRelationship");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cAbstractAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cAbstractAbstractKeyword_0_0 = (Keyword)cAbstractAssignment_0.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cRootAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final Keyword cRootRootKeyword_1_0_0 = (Keyword)cRootAssignment_1_0.eContents().get(0);
-		private final Assignment cRootAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
-		private final Keyword cRootMainKeyword_1_1_0 = (Keyword)cRootAssignment_1_1.eContents().get(0);
-		private final Keyword cRelationshipKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final RuleCall cDComplexTypeParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		
-		//DRelationship:
-		//	abstract?='abstract'? (root?='root' | root?='main')?
-		//	'relationship'
-		//	DComplexType;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//abstract?='abstract'? (root?='root' | root?='main')? 'relationship' DComplexType
-		public Group getGroup() { return cGroup; }
-		
-		//abstract?='abstract'?
-		public Assignment getAbstractAssignment_0() { return cAbstractAssignment_0; }
-		
-		//'abstract'
-		public Keyword getAbstractAbstractKeyword_0_0() { return cAbstractAbstractKeyword_0_0; }
-		
-		//(root?='root' | root?='main')?
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
-		
-		//root?='root'
-		public Assignment getRootAssignment_1_0() { return cRootAssignment_1_0; }
-		
-		//'root'
-		public Keyword getRootRootKeyword_1_0_0() { return cRootRootKeyword_1_0_0; }
-		
-		//root?='main'
-		public Assignment getRootAssignment_1_1() { return cRootAssignment_1_1; }
-		
-		//'main'
-		public Keyword getRootMainKeyword_1_1_0() { return cRootMainKeyword_1_1_0; }
-		
-		//'relationship'
-		public Keyword getRelationshipKeyword_2() { return cRelationshipKeyword_2; }
-		
-		//DComplexType
-		public RuleCall getDComplexTypeParserRuleCall_3() { return cDComplexTypeParserRuleCall_3; }
 	}
 	public class DDetailTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DDetailType");
@@ -1183,27 +1138,42 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getDescriptionDRichTextParserRuleCall_4_0() { return cDescriptionDRichTextParserRuleCall_4_0; }
 	}
 	
-	public class DIdentityOriginObjectElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DIdentityOriginObject");
-		private final EnumLiteralDeclaration cREAL_WORLD_OBJECTEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
-		private final Keyword cREAL_WORLD_OBJECTObjectKeyword_0 = (Keyword)cREAL_WORLD_OBJECTEnumLiteralDeclaration.eContents().get(0);
+	public class DEntityOriginGenericElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DEntityOriginGeneric");
+		private final EnumLiteralDeclaration cGENERIC_ENTITYEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
+		private final Keyword cGENERIC_ENTITYEntityKeyword_0 = (Keyword)cGENERIC_ENTITYEnumLiteralDeclaration.eContents().get(0);
 		
-		//enum DIdentityOriginObject returns DIdentityOrigin:
-		//	REAL_WORLD_OBJECT='object';
+		//enum DEntityOriginGeneric returns DEntityOrigin:
+		//	GENERIC_ENTITY='entity';
 		public EnumRule getRule() { return rule; }
 		
-		//REAL_WORLD_OBJECT='object'
-		public EnumLiteralDeclaration getREAL_WORLD_OBJECTEnumLiteralDeclaration() { return cREAL_WORLD_OBJECTEnumLiteralDeclaration; }
+		//GENERIC_ENTITY='entity'
+		public EnumLiteralDeclaration getGENERIC_ENTITYEnumLiteralDeclaration() { return cGENERIC_ENTITYEnumLiteralDeclaration; }
+		
+		//'entity'
+		public Keyword getGENERIC_ENTITYEntityKeyword_0() { return cGENERIC_ENTITYEntityKeyword_0; }
+	}
+	public class DEntityOriginObjectElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DEntityOriginObject");
+		private final EnumLiteralDeclaration cPHYSICAL_OBJECTEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
+		private final Keyword cPHYSICAL_OBJECTObjectKeyword_0 = (Keyword)cPHYSICAL_OBJECTEnumLiteralDeclaration.eContents().get(0);
+		
+		//enum DEntityOriginObject returns DEntityOrigin:
+		//	PHYSICAL_OBJECT='object';
+		public EnumRule getRule() { return rule; }
+		
+		//PHYSICAL_OBJECT='object'
+		public EnumLiteralDeclaration getPHYSICAL_OBJECTEnumLiteralDeclaration() { return cPHYSICAL_OBJECTEnumLiteralDeclaration; }
 		
 		//'object'
-		public Keyword getREAL_WORLD_OBJECTObjectKeyword_0() { return cREAL_WORLD_OBJECTObjectKeyword_0; }
+		public Keyword getPHYSICAL_OBJECTObjectKeyword_0() { return cPHYSICAL_OBJECTObjectKeyword_0; }
 	}
-	public class DIdentityOriginConceptElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DIdentityOriginConcept");
+	public class DEntityOriginConceptElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DEntityOriginConcept");
 		private final EnumLiteralDeclaration cVIRTUAL_CONCEPTEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
 		private final Keyword cVIRTUAL_CONCEPTConceptKeyword_0 = (Keyword)cVIRTUAL_CONCEPTEnumLiteralDeclaration.eContents().get(0);
 		
-		//enum DIdentityOriginConcept returns DIdentityOrigin:
+		//enum DEntityOriginConcept returns DEntityOrigin:
 		//	VIRTUAL_CONCEPT='concept';
 		public EnumRule getRule() { return rule; }
 		
@@ -1213,20 +1183,20 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		//'concept'
 		public Keyword getVIRTUAL_CONCEPTConceptKeyword_0() { return cVIRTUAL_CONCEPTConceptKeyword_0; }
 	}
-	public class DIdentityOriginGenericElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DIdentityOriginGeneric");
-		private final EnumLiteralDeclaration cGENERIC_ENTITYEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
-		private final Keyword cGENERIC_ENTITYEntityKeyword_0 = (Keyword)cGENERIC_ENTITYEnumLiteralDeclaration.eContents().get(0);
+	public class DEntityOriginRelationshipElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DEntityOriginRelationship");
+		private final EnumLiteralDeclaration cRELATIONSHIPEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
+		private final Keyword cRELATIONSHIPRelationshipKeyword_0 = (Keyword)cRELATIONSHIPEnumLiteralDeclaration.eContents().get(0);
 		
-		//enum DIdentityOriginGeneric returns DIdentityOrigin:
-		//	GENERIC_ENTITY='entity';
+		//enum DEntityOriginRelationship returns DEntityOrigin:
+		//	RELATIONSHIP='relationship';
 		public EnumRule getRule() { return rule; }
 		
-		//GENERIC_ENTITY='entity'
-		public EnumLiteralDeclaration getGENERIC_ENTITYEnumLiteralDeclaration() { return cGENERIC_ENTITYEnumLiteralDeclaration; }
+		//RELATIONSHIP='relationship'
+		public EnumLiteralDeclaration getRELATIONSHIPEnumLiteralDeclaration() { return cRELATIONSHIPEnumLiteralDeclaration; }
 		
-		//'entity'
-		public Keyword getGENERIC_ENTITYEntityKeyword_0() { return cGENERIC_ENTITYEntityKeyword_0; }
+		//'relationship'
+		public Keyword getRELATIONSHIPRelationshipKeyword_0() { return cRELATIONSHIPRelationshipKeyword_0; }
 	}
 	public class DAssociationKindElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DAssociationKind");
@@ -1279,10 +1249,10 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	private final DEnumerationElements pDEnumeration;
 	private final DLiteralElements pDLiteral;
 	private final DEntityTypeElements pDEntityType;
-	private final DRelationshipElements pDRelationship;
-	private final DIdentityOriginObjectElements eDIdentityOriginObject;
-	private final DIdentityOriginConceptElements eDIdentityOriginConcept;
-	private final DIdentityOriginGenericElements eDIdentityOriginGeneric;
+	private final DEntityOriginGenericElements eDEntityOriginGeneric;
+	private final DEntityOriginObjectElements eDEntityOriginObject;
+	private final DEntityOriginConceptElements eDEntityOriginConcept;
+	private final DEntityOriginRelationshipElements eDEntityOriginRelationship;
 	private final DDetailTypeElements pDDetailType;
 	private final DComplexTypeElements pDComplexType;
 	private final DFeatureElements pDFeature;
@@ -1310,10 +1280,10 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDEnumeration = new DEnumerationElements();
 		this.pDLiteral = new DLiteralElements();
 		this.pDEntityType = new DEntityTypeElements();
-		this.pDRelationship = new DRelationshipElements();
-		this.eDIdentityOriginObject = new DIdentityOriginObjectElements();
-		this.eDIdentityOriginConcept = new DIdentityOriginConceptElements();
-		this.eDIdentityOriginGeneric = new DIdentityOriginGenericElements();
+		this.eDEntityOriginGeneric = new DEntityOriginGenericElements();
+		this.eDEntityOriginObject = new DEntityOriginObjectElements();
+		this.eDEntityOriginConcept = new DEntityOriginConceptElements();
+		this.eDEntityOriginRelationship = new DEntityOriginRelationshipElements();
 		this.pDDetailType = new DDetailTypeElements();
 		this.pDComplexType = new DComplexTypeElements();
 		this.pDFeature = new DFeatureElements();
@@ -1386,7 +1356,7 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	///*
 	// * TYPES
 	// */ DType:
-	//	DPrimitive | DEnumeration | DEntityType | DRelationship | DDetailType;
+	//	DPrimitive | DEnumeration | DEntityType | DDetailType;
 	public DTypeElements getDTypeAccess() {
 		return pDType;
 	}
@@ -1451,9 +1421,10 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DEntityType:
 	//	abstract?='abstract'? (root?='root'?
-	//	origin=DIdentityOriginGeneric
-	//	| root?='main'? ('physical' origin=DIdentityOriginObject // validation: cannot be abstract
-	//	| 'virtual' origin=DIdentityOriginConcept)) DComplexType;
+	//	origin=DEntityOriginGeneric
+	//	| root?='main'? ('physical' origin=DEntityOriginObject // validation: cannot be abstract
+	//	| 'virtual' origin=DEntityOriginConcept
+	//	| origin=DEntityOriginRelationship)) DComplexType;
 	public DEntityTypeElements getDEntityTypeAccess() {
 		return pDEntityType;
 	}
@@ -1462,46 +1433,44 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		return getDEntityTypeAccess().getRule();
 	}
 	
-	//DRelationship:
-	//	abstract?='abstract'? (root?='root' | root?='main')?
-	//	'relationship'
-	//	DComplexType;
-	public DRelationshipElements getDRelationshipAccess() {
-		return pDRelationship;
-	}
-	
-	public ParserRule getDRelationshipRule() {
-		return getDRelationshipAccess().getRule();
-	}
-	
-	//enum DIdentityOriginObject returns DIdentityOrigin:
-	//	REAL_WORLD_OBJECT='object';
-	public DIdentityOriginObjectElements getDIdentityOriginObjectAccess() {
-		return eDIdentityOriginObject;
-	}
-	
-	public EnumRule getDIdentityOriginObjectRule() {
-		return getDIdentityOriginObjectAccess().getRule();
-	}
-	
-	//enum DIdentityOriginConcept returns DIdentityOrigin:
-	//	VIRTUAL_CONCEPT='concept';
-	public DIdentityOriginConceptElements getDIdentityOriginConceptAccess() {
-		return eDIdentityOriginConcept;
-	}
-	
-	public EnumRule getDIdentityOriginConceptRule() {
-		return getDIdentityOriginConceptAccess().getRule();
-	}
-	
-	//enum DIdentityOriginGeneric returns DIdentityOrigin:
+	//enum DEntityOriginGeneric returns DEntityOrigin:
 	//	GENERIC_ENTITY='entity';
-	public DIdentityOriginGenericElements getDIdentityOriginGenericAccess() {
-		return eDIdentityOriginGeneric;
+	public DEntityOriginGenericElements getDEntityOriginGenericAccess() {
+		return eDEntityOriginGeneric;
 	}
 	
-	public EnumRule getDIdentityOriginGenericRule() {
-		return getDIdentityOriginGenericAccess().getRule();
+	public EnumRule getDEntityOriginGenericRule() {
+		return getDEntityOriginGenericAccess().getRule();
+	}
+	
+	//enum DEntityOriginObject returns DEntityOrigin:
+	//	PHYSICAL_OBJECT='object';
+	public DEntityOriginObjectElements getDEntityOriginObjectAccess() {
+		return eDEntityOriginObject;
+	}
+	
+	public EnumRule getDEntityOriginObjectRule() {
+		return getDEntityOriginObjectAccess().getRule();
+	}
+	
+	//enum DEntityOriginConcept returns DEntityOrigin:
+	//	VIRTUAL_CONCEPT='concept';
+	public DEntityOriginConceptElements getDEntityOriginConceptAccess() {
+		return eDEntityOriginConcept;
+	}
+	
+	public EnumRule getDEntityOriginConceptRule() {
+		return getDEntityOriginConceptAccess().getRule();
+	}
+	
+	//enum DEntityOriginRelationship returns DEntityOrigin:
+	//	RELATIONSHIP='relationship';
+	public DEntityOriginRelationshipElements getDEntityOriginRelationshipAccess() {
+		return eDEntityOriginRelationship;
+	}
+	
+	public EnumRule getDEntityOriginRelationshipRule() {
+		return getDEntityOriginRelationshipAccess().getRule();
 	}
 	
 	//DDetailType:

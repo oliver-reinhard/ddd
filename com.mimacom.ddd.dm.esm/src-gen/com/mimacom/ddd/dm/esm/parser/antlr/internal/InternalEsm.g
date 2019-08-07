@@ -240,7 +240,7 @@ ruleDEntityStateModel returns [EObject current=null]
 				}
 				otherlv_4=RULE_ID
 				{
-					newLeafNode(otherlv_4, grammarAccess.getDEntityStateModelAccess().getForTypeDIdentityTypeCrossReference_4_0());
+					newLeafNode(otherlv_4, grammarAccess.getDEntityStateModelAccess().getForTypeDEntityTypeCrossReference_4_0());
 				}
 			)
 		)

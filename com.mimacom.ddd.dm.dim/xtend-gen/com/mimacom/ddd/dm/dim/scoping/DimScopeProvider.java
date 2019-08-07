@@ -13,11 +13,9 @@ import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DEntityType;
-import com.mimacom.ddd.dm.base.DIdentityType;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
-import com.mimacom.ddd.dm.base.DRelationship;
 import com.mimacom.ddd.dm.dim.scoping.AbstractDimScopeProvider;
 import java.util.ArrayList;
 import org.eclipse.emf.common.util.EList;
@@ -89,13 +87,7 @@ public class DimScopeProvider extends AbstractDimScopeProvider {
         boolean _matched_1 = false;
         if (context instanceof DEntityType) {
           _matched_1=true;
-          _switchResult_1 = this.getIdentityTypeScope(((DIdentityType)context), DEntityType.class);
-        }
-        if (!_matched_1) {
-          if (context instanceof DRelationship) {
-            _matched_1=true;
-            _switchResult_1 = this.getIdentityTypeScope(((DIdentityType)context), DRelationship.class);
-          }
+          _switchResult_1 = this.getIdentityTypeScope(((DEntityType)context), DEntityType.class);
         }
         if (!_matched_1) {
           if (context instanceof DDetailType) {
@@ -120,18 +112,18 @@ public class DimScopeProvider extends AbstractDimScopeProvider {
     return outerScope;
   }
   
-  public IScope getIdentityTypeScope(final DIdentityType context, final Class<?> type) {
+  public IScope getIdentityTypeScope(final DEntityType context, final Class<?> type) {
     final DDomain domain = EcoreUtil2.<DDomain>getContainerOfType(context, DDomain.class);
     if ((domain != null)) {
-      final ArrayList<DIdentityType> list = Lists.<DIdentityType>newArrayList();
+      final ArrayList<DEntityType> list = Lists.<DEntityType>newArrayList();
       EList<DAggregate> _aggregates = domain.getAggregates();
       for (final DAggregate a : _aggregates) {
         {
-          final Function1<DIdentityType, Boolean> _function = (DIdentityType it) -> {
+          final Function1<DEntityType, Boolean> _function = (DEntityType it) -> {
             return Boolean.valueOf(((it != context) && type.isAssignableFrom(it.getClass())));
           };
-          final Iterable<DIdentityType> roots = IterableExtensions.<DIdentityType>filter(a.getRoots(), _function);
-          Iterables.<DIdentityType>addAll(list, roots);
+          final Iterable<DEntityType> roots = IterableExtensions.<DEntityType>filter(a.getRoots(), _function);
+          Iterables.<DEntityType>addAll(list, roots);
         }
       }
       return Scopes.scopeFor(list);

@@ -25,7 +25,7 @@ public interface DAggregate extends DNamedElement, ITypeContainer, INavigableMem
 {
 	/**
 	 * Returns the value of the '<em><b>Roots</b></em>' reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DIdentityType}.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DEntityType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Roots</em>' reference list.
@@ -33,7 +33,7 @@ public interface DAggregate extends DNamedElement, ITypeContainer, INavigableMem
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	EList<DIdentityType> getRoots();
+	EList<DEntityType> getRoots();
 
 	/**
 	 * Returns the value of the '<em><b>Static Queries</b></em>' containment reference list.

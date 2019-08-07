@@ -4,8 +4,8 @@
 package com.mimacom.ddd.dm.esm.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DIdentityType;
-import com.mimacom.ddd.dm.base.IIdentityStateModel;
+import com.mimacom.ddd.dm.base.DEntityType;
+import com.mimacom.ddd.dm.base.IEntityStateModel;
 import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
@@ -58,7 +58,7 @@ public class DEntityStateModelImpl extends DNamedElementImpl implements DEntityS
 	 * @generated
 	 * @ordered
 	 */
-	protected DIdentityType forType;
+	protected DEntityType forType;
 
 	/**
 	 * The cached value of the '{@link #getStates() <em>States</em>}' containment reference list.
@@ -117,12 +117,12 @@ public class DEntityStateModelImpl extends DNamedElementImpl implements DEntityS
 	 * @generated
 	 */
 	@Override
-	public DIdentityType getForType()
+	public DEntityType getForType()
 	{
 		if (forType != null && forType.eIsProxy())
 		{
 			InternalEObject oldForType = (InternalEObject)forType;
-			forType = (DIdentityType)eResolveProxy(oldForType);
+			forType = (DEntityType)eResolveProxy(oldForType);
 			if (forType != oldForType)
 			{
 				if (eNotificationRequired())
@@ -137,7 +137,7 @@ public class DEntityStateModelImpl extends DNamedElementImpl implements DEntityS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DIdentityType basicGetForType()
+	public DEntityType basicGetForType()
 	{
 		return forType;
 	}
@@ -148,9 +148,9 @@ public class DEntityStateModelImpl extends DNamedElementImpl implements DEntityS
 	 * @generated
 	 */
 	@Override
-	public void setForType(DIdentityType newForType)
+	public void setForType(DEntityType newForType)
 	{
-		DIdentityType oldForType = forType;
+		DEntityType oldForType = forType;
 		forType = newForType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsmPackage.DENTITY_STATE_MODEL__FOR_TYPE, oldForType, forType));
@@ -256,7 +256,7 @@ public class DEntityStateModelImpl extends DNamedElementImpl implements DEntityS
 		switch (featureID)
 		{
 			case EsmPackage.DENTITY_STATE_MODEL__FOR_TYPE:
-				setForType((DIdentityType)newValue);
+				setForType((DEntityType)newValue);
 				return;
 			case EsmPackage.DENTITY_STATE_MODEL__STATES:
 				getStates().clear();
@@ -285,7 +285,7 @@ public class DEntityStateModelImpl extends DNamedElementImpl implements DEntityS
 		switch (featureID)
 		{
 			case EsmPackage.DENTITY_STATE_MODEL__FOR_TYPE:
-				setForType((DIdentityType)null);
+				setForType((DEntityType)null);
 				return;
 			case EsmPackage.DENTITY_STATE_MODEL__STATES:
 				getStates().clear();
@@ -330,11 +330,11 @@ public class DEntityStateModelImpl extends DNamedElementImpl implements DEntityS
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
 	{
-		if (baseClass == IIdentityStateModel.class)
+		if (baseClass == IEntityStateModel.class)
 		{
 			switch (derivedFeatureID)
 			{
-				case EsmPackage.DENTITY_STATE_MODEL__FOR_TYPE: return BasePackage.IIDENTITY_STATE_MODEL__FOR_TYPE;
+				case EsmPackage.DENTITY_STATE_MODEL__FOR_TYPE: return BasePackage.IENTITY_STATE_MODEL__FOR_TYPE;
 				default: return -1;
 			}
 		}
@@ -363,11 +363,11 @@ public class DEntityStateModelImpl extends DNamedElementImpl implements DEntityS
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
 	{
-		if (baseClass == IIdentityStateModel.class)
+		if (baseClass == IEntityStateModel.class)
 		{
 			switch (baseFeatureID)
 			{
-				case BasePackage.IIDENTITY_STATE_MODEL__FOR_TYPE: return EsmPackage.DENTITY_STATE_MODEL__FOR_TYPE;
+				case BasePackage.IENTITY_STATE_MODEL__FOR_TYPE: return EsmPackage.DENTITY_STATE_MODEL__FOR_TYPE;
 				default: return -1;
 			}
 		}

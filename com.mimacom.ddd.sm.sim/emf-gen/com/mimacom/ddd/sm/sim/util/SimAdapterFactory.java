@@ -11,7 +11,6 @@ import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
-import com.mimacom.ddd.dm.base.DIdentityType;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNavigableMember;
@@ -315,11 +314,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseIIdentityType(IIdentityType object)
 			{
 				return createIIdentityTypeAdapter();
-			}
-			@Override
-			public Adapter caseDIdentityType(DIdentityType object)
-			{
-				return createDIdentityTypeAdapter();
 			}
 			@Override
 			public Adapter caseDEntityType(DEntityType object)
@@ -1019,21 +1013,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createIIdentityTypeAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DIdentityType <em>DIdentity Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DIdentityType
-	 * @generated
-	 */
-	public Adapter createDIdentityTypeAdapter()
 	{
 		return null;
 	}

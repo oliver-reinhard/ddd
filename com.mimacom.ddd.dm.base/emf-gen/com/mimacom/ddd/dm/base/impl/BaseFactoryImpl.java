@@ -76,7 +76,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 			case BasePackage.DLITERAL: return createDLiteral();
 			case BasePackage.DDETAIL_TYPE: return createDDetailType();
 			case BasePackage.DENTITY_TYPE: return createDEntityType();
-			case BasePackage.DRELATIONSHIP: return createDRelationship();
 			case BasePackage.DASSOCIATION: return createDAssociation();
 			case BasePackage.DMULTIPLICITY: return createDMultiplicity();
 			case BasePackage.DATTRIBUTE: return createDAttribute();
@@ -104,8 +103,8 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		switch (eDataType.getClassifierID())
 		{
-			case BasePackage.DIDENTITY_ORIGIN:
-				return createDIdentityOriginFromString(eDataType, initialValue);
+			case BasePackage.DENTITY_ORIGIN:
+				return createDEntityOriginFromString(eDataType, initialValue);
 			case BasePackage.DASSOCIATION_KIND:
 				return createDAssociationKindFromString(eDataType, initialValue);
 			default:
@@ -123,8 +122,8 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		switch (eDataType.getClassifierID())
 		{
-			case BasePackage.DIDENTITY_ORIGIN:
-				return convertDIdentityOriginToString(eDataType, instanceValue);
+			case BasePackage.DENTITY_ORIGIN:
+				return convertDEntityOriginToString(eDataType, instanceValue);
 			case BasePackage.DASSOCIATION_KIND:
 				return convertDAssociationKindToString(eDataType, instanceValue);
 			default:
@@ -262,18 +261,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		DEntityTypeImpl dEntityType = new DEntityTypeImpl();
 		return dEntityType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DRelationship createDRelationship()
-	{
-		DRelationshipImpl dRelationship = new DRelationshipImpl();
-		return dRelationship;
 	}
 
 	/**
@@ -425,9 +412,9 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DIdentityOrigin createDIdentityOriginFromString(EDataType eDataType, String initialValue)
+	public DEntityOrigin createDEntityOriginFromString(EDataType eDataType, String initialValue)
 	{
-		DIdentityOrigin result = DIdentityOrigin.get(initialValue);
+		DEntityOrigin result = DEntityOrigin.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -437,7 +424,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertDIdentityOriginToString(EDataType eDataType, Object instanceValue)
+	public String convertDEntityOriginToString(EDataType eDataType, Object instanceValue)
 	{
 		return instanceValue == null ? null : instanceValue.toString();
 	}

@@ -113,7 +113,7 @@ public class DmxIndex {
           if (_greaterThan) {
             final DmxFunctionParameter param = ((DmxFunction)func).getParameters().get(0);
             if ((Objects.equal(param.getBaseType(), baseType) && (!param.isBaseTypeCollection()))) {
-              result.add(((DmxFilter)func));
+              result.add(((DmxFunction)func));
             }
           }
         }
@@ -133,7 +133,7 @@ public class DmxIndex {
           iterator = context.eResource().getResourceSet().getEObject(desc.getEObjectURI(), true);
         }
         if ((iterator instanceof DmxIterator)) {
-          result.add(((DmxFilter)iterator));
+          result.add(((DmxIterator)iterator));
         }
       }
     }

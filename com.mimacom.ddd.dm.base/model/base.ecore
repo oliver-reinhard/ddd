@@ -61,7 +61,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregates" upperBound="-1"
         eType="#//DAggregate" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="stateModels" upperBound="-1"
-        eType="#//IIdentityStateModel" containment="true"/>
+        eType="#//IEntityStateModel" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
         eType="#//DDomainEvent" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
@@ -69,7 +69,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DAggregate" eSuperTypes="#//DNamedElement #//ITypeContainer #//INavigableMemberContainer #//IStaticReferenceTarget #//IDeducibleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="roots" unique="false" upperBound="-1"
-        eType="#//DIdentityType" changeable="false" volatile="true" transient="true"
+        eType="#//DEntityType" changeable="false" volatile="true" transient="true"
         derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="staticQueries" upperBound="-1"
         eType="#//DQuery" containment="true"/>
@@ -102,21 +102,19 @@
         eType="#//DFeature" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DDetailType" eSuperTypes="#//DComplexType #//IValueType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DIdentityType" abstract="true" eSuperTypes="#//DComplexType #//IIdentityType">
+  <eClassifiers xsi:type="ecore:EClass" name="DEntityType" eSuperTypes="#//DComplexType #//IIdentityType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="root" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="origin" eType="#//DIdentityOrigin"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="origin" eType="#//DEntityOrigin"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="DIdentityOrigin">
-    <eLiterals name="REAL_WORLD_OBJECT"/>
-    <eLiterals name="VIRTUAL_CONCEPT" value="1"/>
-    <eLiterals name="GENERIC_ENTITY" value="2"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="DEntityOrigin">
+    <eLiterals name="GENERIC_ENTITY"/>
+    <eLiterals name="PHYSICAL_OBJECT" value="1"/>
+    <eLiterals name="VIRTUAL_CONCEPT" value="2"/>
+    <eLiterals name="RELATIONSHIP" value="3"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IIdentityStateModel" abstract="true"
-      interface="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="forType" eType="#//DIdentityType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IEntityStateModel" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="forType" eType="#//DEntityType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DEntityType" eSuperTypes="#//DIdentityType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DRelationship" eSuperTypes="#//DIdentityType"/>
   <eClassifiers xsi:type="ecore:EClass" name="DFeature" abstract="true" eSuperTypes="#//DNavigableMember #//IDeducibleElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="DAssociation" eSuperTypes="#//DFeature">
     <eOperations name="getTargetType" eType="#//DEntityType"/>
@@ -174,7 +172,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="DMessage" eSuperTypes="#//DNavigableMember"/>
   <eClassifiers xsi:type="ecore:EClass" name="DActor" abstract="true" eSuperTypes="#//DNamedElement #//IStaticReferenceTarget"/>
   <eClassifiers xsi:type="ecore:EClass" name="DHumanActorRole" eSuperTypes="#//DActor">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="role" eType="#//DIdentityType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="role" eType="#//DEntityType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DService" eSuperTypes="#//DActor"/>
 </ecore:EPackage>

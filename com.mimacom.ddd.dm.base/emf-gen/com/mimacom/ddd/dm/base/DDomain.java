@@ -52,7 +52,7 @@ public interface DDomain extends DNamedElement, ITypeContainer, IStaticReference
 
 	/**
 	 * Returns the value of the '<em><b>State Models</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.IIdentityStateModel}.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.IEntityStateModel}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>State Models</em>' containment reference list.
@@ -60,7 +60,7 @@ public interface DDomain extends DNamedElement, ITypeContainer, IStaticReference
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<IIdentityStateModel> getStateModels();
+	EList<IEntityStateModel> getStateModels();
 
 	/**
 	 * Returns the value of the '<em><b>Events</b></em>' containment reference list.

@@ -11,11 +11,9 @@ import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.base.DEntityType
-import com.mimacom.ddd.dm.base.DIdentityType
 import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DQueryParameter
-import com.mimacom.ddd.dm.base.DRelationship
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.EcoreUtil2
@@ -49,7 +47,6 @@ class DimScopeProvider extends AbstractDimScopeProvider {
 			
 			return switch context {
 				DEntityType:  getIdentityTypeScope(context, DEntityType)
-				DRelationship: getIdentityTypeScope(context, DRelationship)
 				DDetailType: getDefaultScopeForType(context, epackage.DDetailType)
 				default:  IScope.NULLSCOPE
 			}
@@ -65,7 +62,7 @@ class DimScopeProvider extends AbstractDimScopeProvider {
 		return outerScope
 	}
 		
-	def IScope getIdentityTypeScope(DIdentityType context, Class<?> type) {
+	def IScope getIdentityTypeScope(DEntityType context, Class<?> type) {
 		val domain = EcoreUtil2.getContainerOfType(context, DDomain)
 		if (domain !==  null) {
 			val list = Lists.newArrayList

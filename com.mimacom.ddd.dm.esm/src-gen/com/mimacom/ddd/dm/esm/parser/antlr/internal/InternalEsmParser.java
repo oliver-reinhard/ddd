@@ -632,7 +632,7 @@ public class InternalEsmParser extends AbstractInternalAntlrParser {
             otherlv_4=(Token)match(input,RULE_ID,FOLLOW_8); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(otherlv_4, grammarAccess.getDEntityStateModelAccess().getForTypeDIdentityTypeCrossReference_4_0());
+              					newLeafNode(otherlv_4, grammarAccess.getDEntityStateModelAccess().getForTypeDEntityTypeCrossReference_4_0());
               				
             }
 

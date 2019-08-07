@@ -264,7 +264,7 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=DQualifiedName 
-	 *         forType=[DIdentityType|ID] 
+	 *         forType=[DEntityType|ID] 
 	 *         description=DRichText? 
 	 *         states+=DState+ 
 	 *         events+=DEvent+ 

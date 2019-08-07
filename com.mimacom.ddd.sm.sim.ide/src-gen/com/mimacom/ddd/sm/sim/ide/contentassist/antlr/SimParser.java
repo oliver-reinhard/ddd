@@ -59,7 +59,6 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSQueryParameterDeductionAccess().getAlternatives_1(), "rule__SQueryParameterDeduction__Alternatives_1");
 			builder.put(grammarAccess.getDDomainAccess().getAlternatives_5(), "rule__DDomain__Alternatives_5");
 			builder.put(grammarAccess.getDTypeAccess().getAlternatives(), "rule__DType__Alternatives");
-			builder.put(grammarAccess.getDRelationshipAccess().getAlternatives_1(), "rule__DRelationship__Alternatives_1");
 			builder.put(grammarAccess.getDFeatureAccess().getAlternatives(), "rule__DFeature__Alternatives");
 			builder.put(grammarAccess.getDAssociationAccess().getAlternatives_1(), "rule__DAssociation__Alternatives_1");
 			builder.put(grammarAccess.getDmxFilterAccess().getAlternatives(), "rule__DmxFilter__Alternatives");
@@ -188,7 +187,6 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDPrimitiveAccess().getGroup_6(), "rule__DPrimitive__Group_6__0");
 			builder.put(grammarAccess.getDLiteralAccess().getGroup(), "rule__DLiteral__Group__0");
 			builder.put(grammarAccess.getDLiteralAccess().getGroup_1(), "rule__DLiteral__Group_1__0");
-			builder.put(grammarAccess.getDRelationshipAccess().getGroup(), "rule__DRelationship__Group__0");
 			builder.put(grammarAccess.getDDetailTypeAccess().getGroup(), "rule__DDetailType__Group__0");
 			builder.put(grammarAccess.getDAssociationAccess().getGroup(), "rule__DAssociation__Group__0");
 			builder.put(grammarAccess.getDAssociationAccess().getGroup_1_1(), "rule__DAssociation__Group_1_1__0");
@@ -433,9 +431,6 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDLiteralAccess().getNameAssignment_0(), "rule__DLiteral__NameAssignment_0");
 			builder.put(grammarAccess.getDLiteralAccess().getAliasesAssignment_1_1(), "rule__DLiteral__AliasesAssignment_1_1");
 			builder.put(grammarAccess.getDLiteralAccess().getDescriptionAssignment_2(), "rule__DLiteral__DescriptionAssignment_2");
-			builder.put(grammarAccess.getDRelationshipAccess().getAbstractAssignment_0(), "rule__DRelationship__AbstractAssignment_0");
-			builder.put(grammarAccess.getDRelationshipAccess().getRootAssignment_1_0(), "rule__DRelationship__RootAssignment_1_0");
-			builder.put(grammarAccess.getDRelationshipAccess().getRootAssignment_1_1(), "rule__DRelationship__RootAssignment_1_1");
 			builder.put(grammarAccess.getDDetailTypeAccess().getAbstractAssignment_0(), "rule__DDetailType__AbstractAssignment_0");
 			builder.put(grammarAccess.getDAssociationAccess().getDerivedAssignment_0(), "rule__DAssociation__DerivedAssignment_0");
 			builder.put(grammarAccess.getDAssociationAccess().getKindAssignment_1_0(), "rule__DAssociation__KindAssignment_1_0");

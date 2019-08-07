@@ -3,8 +3,8 @@
 package com.mimacom.ddd.dm.base.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
+import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DHumanActorRole;
-import com.mimacom.ddd.dm.base.DIdentityType;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -36,7 +36,7 @@ public class DHumanActorRoleImpl extends DActorImpl implements DHumanActorRole
 	 * @generated
 	 * @ordered
 	 */
-	protected DIdentityType role;
+	protected DEntityType role;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -65,12 +65,12 @@ public class DHumanActorRoleImpl extends DActorImpl implements DHumanActorRole
 	 * @generated
 	 */
 	@Override
-	public DIdentityType getRole()
+	public DEntityType getRole()
 	{
 		if (role != null && role.eIsProxy())
 		{
 			InternalEObject oldRole = (InternalEObject)role;
-			role = (DIdentityType)eResolveProxy(oldRole);
+			role = (DEntityType)eResolveProxy(oldRole);
 			if (role != oldRole)
 			{
 				if (eNotificationRequired())
@@ -85,7 +85,7 @@ public class DHumanActorRoleImpl extends DActorImpl implements DHumanActorRole
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DIdentityType basicGetRole()
+	public DEntityType basicGetRole()
 	{
 		return role;
 	}
@@ -96,9 +96,9 @@ public class DHumanActorRoleImpl extends DActorImpl implements DHumanActorRole
 	 * @generated
 	 */
 	@Override
-	public void setRole(DIdentityType newRole)
+	public void setRole(DEntityType newRole)
 	{
-		DIdentityType oldRole = role;
+		DEntityType oldRole = role;
 		role = newRole;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DHUMAN_ACTOR_ROLE__ROLE, oldRole, role));
@@ -132,7 +132,7 @@ public class DHumanActorRoleImpl extends DActorImpl implements DHumanActorRole
 		switch (featureID)
 		{
 			case BasePackage.DHUMAN_ACTOR_ROLE__ROLE:
-				setRole((DIdentityType)newValue);
+				setRole((DEntityType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -149,7 +149,7 @@ public class DHumanActorRoleImpl extends DActorImpl implements DHumanActorRole
 		switch (featureID)
 		{
 			case BasePackage.DHUMAN_ACTOR_ROLE__ROLE:
-				setRole((DIdentityType)null);
+				setRole((DEntityType)null);
 				return;
 		}
 		super.eUnset(featureID);

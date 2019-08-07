@@ -28646,23 +28646,23 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
             // InternalEsm.g:8526:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDEntityStateModelAccess().getForTypeDIdentityTypeCrossReference_4_0()); 
+               before(grammarAccess.getDEntityStateModelAccess().getForTypeDEntityTypeCrossReference_4_0()); 
             }
             // InternalEsm.g:8527:3: ( RULE_ID )
             // InternalEsm.g:8528:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDEntityStateModelAccess().getForTypeDIdentityTypeIDTerminalRuleCall_4_0_1()); 
+               before(grammarAccess.getDEntityStateModelAccess().getForTypeDEntityTypeIDTerminalRuleCall_4_0_1()); 
             }
             match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDEntityStateModelAccess().getForTypeDIdentityTypeIDTerminalRuleCall_4_0_1()); 
+               after(grammarAccess.getDEntityStateModelAccess().getForTypeDEntityTypeIDTerminalRuleCall_4_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDEntityStateModelAccess().getForTypeDIdentityTypeCrossReference_4_0()); 
+               after(grammarAccess.getDEntityStateModelAccess().getForTypeDEntityTypeCrossReference_4_0()); 
             }
 
             }

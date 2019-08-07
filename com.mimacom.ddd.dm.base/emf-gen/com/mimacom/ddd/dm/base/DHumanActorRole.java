@@ -26,12 +26,12 @@ public interface DHumanActorRole extends DActor
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Role</em>' reference.
-	 * @see #setRole(DIdentityType)
+	 * @see #setRole(DEntityType)
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDHumanActorRole_Role()
 	 * @model
 	 * @generated
 	 */
-	DIdentityType getRole();
+	DEntityType getRole();
 
 	/**
 	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.DHumanActorRole#getRole <em>Role</em>}' reference.
@@ -41,6 +41,6 @@ public interface DHumanActorRole extends DActor
 	 * @see #getRole()
 	 * @generated
 	 */
-	void setRole(DIdentityType value);
+	void setRole(DEntityType value);
 
 } // DHumanActorRole

@@ -101,8 +101,8 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameDQualifiedNameParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cForKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cForTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cForTypeDIdentityTypeCrossReference_4_0 = (CrossReference)cForTypeAssignment_4.eContents().get(0);
-		private final RuleCall cForTypeDIdentityTypeIDTerminalRuleCall_4_0_1 = (RuleCall)cForTypeDIdentityTypeCrossReference_4_0.eContents().get(1);
+		private final CrossReference cForTypeDEntityTypeCrossReference_4_0 = (CrossReference)cForTypeAssignment_4.eContents().get(0);
+		private final RuleCall cForTypeDEntityTypeIDTerminalRuleCall_4_0_1 = (RuleCall)cForTypeDEntityTypeCrossReference_4_0.eContents().get(1);
 		private final Assignment cDescriptionAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_5_0 = (RuleCall)cDescriptionAssignment_5.eContents().get(0);
 		private final Keyword cStatesKeyword_6 = (Keyword)cGroup.eContents().get(6);
@@ -119,7 +119,7 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		//	'state' 'model'
 		//	name=DQualifiedName
 		//	'for'
-		//	forType=[DIdentityType] description=DRichText?
+		//	forType=[DEntityType] description=DRichText?
 		//	'states'
 		//	states+=DState+
 		//	'events'
@@ -128,8 +128,8 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		//	transition+=DTransition+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'state' 'model' name=DQualifiedName 'for' forType=[DIdentityType] description=DRichText? 'states' states+=DState+
-		//'events' events+=DEvent+ 'transitions' transition+=DTransition+
+		//'state' 'model' name=DQualifiedName 'for' forType=[DEntityType] description=DRichText? 'states' states+=DState+ 'events'
+		//events+=DEvent+ 'transitions' transition+=DTransition+
 		public Group getGroup() { return cGroup; }
 		
 		//'state'
@@ -147,14 +147,14 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		//'for'
 		public Keyword getForKeyword_3() { return cForKeyword_3; }
 		
-		//forType=[DIdentityType]
+		//forType=[DEntityType]
 		public Assignment getForTypeAssignment_4() { return cForTypeAssignment_4; }
 		
-		//[DIdentityType]
-		public CrossReference getForTypeDIdentityTypeCrossReference_4_0() { return cForTypeDIdentityTypeCrossReference_4_0; }
+		//[DEntityType]
+		public CrossReference getForTypeDEntityTypeCrossReference_4_0() { return cForTypeDEntityTypeCrossReference_4_0; }
 		
 		//ID
-		public RuleCall getForTypeDIdentityTypeIDTerminalRuleCall_4_0_1() { return cForTypeDIdentityTypeIDTerminalRuleCall_4_0_1; }
+		public RuleCall getForTypeDEntityTypeIDTerminalRuleCall_4_0_1() { return cForTypeDEntityTypeIDTerminalRuleCall_4_0_1; }
 		
 		//description=DRichText?
 		public Assignment getDescriptionAssignment_5() { return cDescriptionAssignment_5; }
@@ -445,7 +445,7 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 	//	'state' 'model'
 	//	name=DQualifiedName
 	//	'for'
-	//	forType=[DIdentityType] description=DRichText?
+	//	forType=[DEntityType] description=DRichText?
 	//	'states'
 	//	states+=DState+
 	//	'events'

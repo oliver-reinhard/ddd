@@ -11,7 +11,6 @@ import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
-import com.mimacom.ddd.dm.base.DIdentityType;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DPrimitive;
@@ -218,14 +217,14 @@ public class SyntheticModelElementsFactory {
     STristate _rootEntity = r.getRootEntity();
     boolean _equals = Objects.equal(_rootEntity, STristate.DONT_CARE);
     if (_equals) {
-      return ((source instanceof DIdentityType) && ((DIdentityType) source).isRoot());
+      return ((source instanceof DEntityType) && ((DEntityType) source).isRoot());
     }
     STristate _rootEntity_1 = r.getRootEntity();
     return Objects.equal(_rootEntity_1, STristate.TRUE);
   }
   
   protected boolean _makeRoot(final DDeductionRule r, final DComplexType source) {
-    return ((source instanceof DIdentityType) && ((DIdentityType) source).isRoot());
+    return ((source instanceof DEntityType) && ((DEntityType) source).isRoot());
   }
   
   protected boolean _makeDetailType(final SMorphRule r, final DComplexType source) {

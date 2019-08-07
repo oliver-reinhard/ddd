@@ -4,7 +4,7 @@ package com.mimacom.ddd.dm.base.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DAggregate;
-import com.mimacom.ddd.dm.base.DIdentityType;
+import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
@@ -210,7 +210,7 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * @generated
 	 */
 	@Override
-	public EList<DIdentityType> getRoots()
+	public EList<DEntityType> getRoots()
 	{
 		// TODO: implement this method to return the 'Roots' reference list
 		// Ensure that you remove @generated or mark it @generated NOT

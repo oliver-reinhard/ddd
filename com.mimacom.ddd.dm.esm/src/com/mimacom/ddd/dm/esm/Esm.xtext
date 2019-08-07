@@ -16,7 +16,7 @@ DEntityStateModel:
 	'state' 'model' 
 	name=DQualifiedName
 	'for'
-	 forType=[DIdentityType|ID]
+	 forType=[DEntityType|ID]
 	(description=DRichText)?
 	'states' 
 	(states+=DState)+

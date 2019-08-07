@@ -205,24 +205,14 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createDDetailTypeAdapter();
 			}
 			@Override
-			public Adapter caseDIdentityType(DIdentityType object)
-			{
-				return createDIdentityTypeAdapter();
-			}
-			@Override
-			public Adapter caseIIdentityStateModel(IIdentityStateModel object)
-			{
-				return createIIdentityStateModelAdapter();
-			}
-			@Override
 			public Adapter caseDEntityType(DEntityType object)
 			{
 				return createDEntityTypeAdapter();
 			}
 			@Override
-			public Adapter caseDRelationship(DRelationship object)
+			public Adapter caseIEntityStateModel(IEntityStateModel object)
 			{
-				return createDRelationshipAdapter();
+				return createIEntityStateModelAdapter();
 			}
 			@Override
 			public Adapter caseDFeature(DFeature object)
@@ -707,36 +697,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DIdentityType <em>DIdentity Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DIdentityType
-	 * @generated
-	 */
-	public Adapter createDIdentityTypeAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IIdentityStateModel <em>IIdentity State Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.IIdentityStateModel
-	 * @generated
-	 */
-	public Adapter createIIdentityStateModelAdapter()
-	{
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DEntityType <em>DEntity Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -752,16 +712,16 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DRelationship <em>DRelationship</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IEntityStateModel <em>IEntity State Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DRelationship
+	 * @see com.mimacom.ddd.dm.base.IEntityStateModel
 	 * @generated
 	 */
-	public Adapter createDRelationshipAdapter()
+	public Adapter createIEntityStateModelAdapter()
 	{
 		return null;
 	}

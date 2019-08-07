@@ -1724,179 +1724,6 @@ public interface BasePackage extends EPackage
 	int DDETAIL_TYPE_OPERATION_COUNT = DCOMPLEX_TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DIdentityTypeImpl <em>DIdentity Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.impl.DIdentityTypeImpl
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDIdentityType()
-	 * @generated
-	 */
-	int DIDENTITY_TYPE = 26;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__NAME = DCOMPLEX_TYPE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__ALIASES = DCOMPLEX_TYPE__ALIASES;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__DESCRIPTION = DCOMPLEX_TYPE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__DEDUCED_FROM = DCOMPLEX_TYPE__DEDUCED_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__SYNTHETIC = DCOMPLEX_TYPE__SYNTHETIC;
-
-	/**
-	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__CONSTRAINTS = DCOMPLEX_TYPE__CONSTRAINTS;
-
-	/**
-	 * The feature id for the '<em><b>Primitive</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__PRIMITIVE = DCOMPLEX_TYPE__PRIMITIVE;
-
-	/**
-	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__ABSTRACT = DCOMPLEX_TYPE__ABSTRACT;
-
-	/**
-	 * The feature id for the '<em><b>Super Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__SUPER_TYPE = DCOMPLEX_TYPE__SUPER_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__FEATURES = DCOMPLEX_TYPE__FEATURES;
-
-	/**
-	 * The feature id for the '<em><b>Root</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__ROOT = DCOMPLEX_TYPE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Origin</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE__ORIGIN = DCOMPLEX_TYPE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>DIdentity Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE_FEATURE_COUNT = DCOMPLEX_TYPE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>DIdentity Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIDENTITY_TYPE_OPERATION_COUNT = DCOMPLEX_TYPE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.IIdentityStateModel <em>IIdentity State Model</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.IIdentityStateModel
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIIdentityStateModel()
-	 * @generated
-	 */
-	int IIDENTITY_STATE_MODEL = 27;
-
-	/**
-	 * The feature id for the '<em><b>For Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IIDENTITY_STATE_MODEL__FOR_TYPE = 0;
-
-	/**
-	 * The number of structural features of the '<em>IIdentity State Model</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IIDENTITY_STATE_MODEL_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>IIdentity State Model</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IIDENTITY_STATE_MODEL_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DEntityTypeImpl <em>DEntity Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1904,7 +1731,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDEntityType()
 	 * @generated
 	 */
-	int DENTITY_TYPE = 28;
+	int DENTITY_TYPE = 26;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1913,7 +1740,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DENTITY_TYPE__NAME = DIDENTITY_TYPE__NAME;
+	int DENTITY_TYPE__NAME = DCOMPLEX_TYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -1922,7 +1749,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DENTITY_TYPE__ALIASES = DIDENTITY_TYPE__ALIASES;
+	int DENTITY_TYPE__ALIASES = DCOMPLEX_TYPE__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1931,7 +1758,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DENTITY_TYPE__DESCRIPTION = DIDENTITY_TYPE__DESCRIPTION;
+	int DENTITY_TYPE__DESCRIPTION = DCOMPLEX_TYPE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
@@ -1940,7 +1767,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DENTITY_TYPE__DEDUCED_FROM = DIDENTITY_TYPE__DEDUCED_FROM;
+	int DENTITY_TYPE__DEDUCED_FROM = DCOMPLEX_TYPE__DEDUCED_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
@@ -1949,7 +1776,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DENTITY_TYPE__SYNTHETIC = DIDENTITY_TYPE__SYNTHETIC;
+	int DENTITY_TYPE__SYNTHETIC = DCOMPLEX_TYPE__SYNTHETIC;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -1958,7 +1785,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DENTITY_TYPE__CONSTRAINTS = DIDENTITY_TYPE__CONSTRAINTS;
+	int DENTITY_TYPE__CONSTRAINTS = DCOMPLEX_TYPE__CONSTRAINTS;
 
 	/**
 	 * The feature id for the '<em><b>Primitive</b></em>' attribute.
@@ -1967,7 +1794,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DENTITY_TYPE__PRIMITIVE = DIDENTITY_TYPE__PRIMITIVE;
+	int DENTITY_TYPE__PRIMITIVE = DCOMPLEX_TYPE__PRIMITIVE;
 
 	/**
 	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
@@ -1976,7 +1803,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DENTITY_TYPE__ABSTRACT = DIDENTITY_TYPE__ABSTRACT;
+	int DENTITY_TYPE__ABSTRACT = DCOMPLEX_TYPE__ABSTRACT;
 
 	/**
 	 * The feature id for the '<em><b>Super Type</b></em>' reference.
@@ -1985,7 +1812,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DENTITY_TYPE__SUPER_TYPE = DIDENTITY_TYPE__SUPER_TYPE;
+	int DENTITY_TYPE__SUPER_TYPE = DCOMPLEX_TYPE__SUPER_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
@@ -1994,7 +1821,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DENTITY_TYPE__FEATURES = DIDENTITY_TYPE__FEATURES;
+	int DENTITY_TYPE__FEATURES = DCOMPLEX_TYPE__FEATURES;
 
 	/**
 	 * The feature id for the '<em><b>Root</b></em>' attribute.
@@ -2003,7 +1830,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DENTITY_TYPE__ROOT = DIDENTITY_TYPE__ROOT;
+	int DENTITY_TYPE__ROOT = DCOMPLEX_TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Origin</b></em>' attribute.
@@ -2012,7 +1839,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DENTITY_TYPE__ORIGIN = DIDENTITY_TYPE__ORIGIN;
+	int DENTITY_TYPE__ORIGIN = DCOMPLEX_TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>DEntity Type</em>' class.
@@ -2021,7 +1848,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DENTITY_TYPE_FEATURE_COUNT = DIDENTITY_TYPE_FEATURE_COUNT + 0;
+	int DENTITY_TYPE_FEATURE_COUNT = DCOMPLEX_TYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>DEntity Type</em>' class.
@@ -2030,143 +1857,44 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DENTITY_TYPE_OPERATION_COUNT = DIDENTITY_TYPE_OPERATION_COUNT + 0;
+	int DENTITY_TYPE_OPERATION_COUNT = DCOMPLEX_TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DRelationshipImpl <em>DRelationship</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.IEntityStateModel <em>IEntity State Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.impl.DRelationshipImpl
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDRelationship()
+	 * @see com.mimacom.ddd.dm.base.IEntityStateModel
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIEntityStateModel()
 	 * @generated
 	 */
-	int DRELATIONSHIP = 29;
+	int IENTITY_STATE_MODEL = 27;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DRELATIONSHIP__NAME = DIDENTITY_TYPE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>For Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DRELATIONSHIP__ALIASES = DIDENTITY_TYPE__ALIASES;
+	int IENTITY_STATE_MODEL__FOR_TYPE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * The number of structural features of the '<em>IEntity State Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DRELATIONSHIP__DESCRIPTION = DIDENTITY_TYPE__DESCRIPTION;
+	int IENTITY_STATE_MODEL_FEATURE_COUNT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Deduced From</b></em>' reference.
+	 * The number of operations of the '<em>IEntity State Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DRELATIONSHIP__DEDUCED_FROM = DIDENTITY_TYPE__DEDUCED_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Synthetic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DRELATIONSHIP__SYNTHETIC = DIDENTITY_TYPE__SYNTHETIC;
-
-	/**
-	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DRELATIONSHIP__CONSTRAINTS = DIDENTITY_TYPE__CONSTRAINTS;
-
-	/**
-	 * The feature id for the '<em><b>Primitive</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DRELATIONSHIP__PRIMITIVE = DIDENTITY_TYPE__PRIMITIVE;
-
-	/**
-	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DRELATIONSHIP__ABSTRACT = DIDENTITY_TYPE__ABSTRACT;
-
-	/**
-	 * The feature id for the '<em><b>Super Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DRELATIONSHIP__SUPER_TYPE = DIDENTITY_TYPE__SUPER_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DRELATIONSHIP__FEATURES = DIDENTITY_TYPE__FEATURES;
-
-	/**
-	 * The feature id for the '<em><b>Root</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DRELATIONSHIP__ROOT = DIDENTITY_TYPE__ROOT;
-
-	/**
-	 * The feature id for the '<em><b>Origin</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DRELATIONSHIP__ORIGIN = DIDENTITY_TYPE__ORIGIN;
-
-	/**
-	 * The number of structural features of the '<em>DRelationship</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DRELATIONSHIP_FEATURE_COUNT = DIDENTITY_TYPE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>DRelationship</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DRELATIONSHIP_OPERATION_COUNT = DIDENTITY_TYPE_OPERATION_COUNT + 0;
+	int IENTITY_STATE_MODEL_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DFeatureImpl <em>DFeature</em>}' class.
@@ -2176,7 +1904,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDFeature()
 	 * @generated
 	 */
-	int DFEATURE = 30;
+	int DFEATURE = 28;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2285,7 +2013,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDAssociation()
 	 * @generated
 	 */
-	int DASSOCIATION = 31;
+	int DASSOCIATION = 29;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2430,7 +2158,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDMultiplicity()
 	 * @generated
 	 */
-	int DMULTIPLICITY = 32;
+	int DMULTIPLICITY = 30;
 
 	/**
 	 * The feature id for the '<em><b>Min Occurs</b></em>' attribute.
@@ -2476,7 +2204,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDAttribute()
 	 * @generated
 	 */
-	int DATTRIBUTE = 33;
+	int DATTRIBUTE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2603,7 +2331,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDQuery()
 	 * @generated
 	 */
-	int DQUERY = 34;
+	int DQUERY = 32;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2730,7 +2458,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDQueryParameter()
 	 * @generated
 	 */
-	int DQUERY_PARAMETER = 35;
+	int DQUERY_PARAMETER = 33;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2839,7 +2567,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDomainEvent()
 	 * @generated
 	 */
-	int DDOMAIN_EVENT = 36;
+	int DDOMAIN_EVENT = 34;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2939,7 +2667,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDCaseConjunction()
 	 * @generated
 	 */
-	int DCASE_CONJUNCTION = 37;
+	int DCASE_CONJUNCTION = 35;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3012,7 +2740,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDContext()
 	 * @generated
 	 */
-	int DCONTEXT = 38;
+	int DCONTEXT = 36;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3103,7 +2831,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDNotification()
 	 * @generated
 	 */
-	int DNOTIFICATION = 39;
+	int DNOTIFICATION = 37;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3212,7 +2940,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDMessage()
 	 * @generated
 	 */
-	int DMESSAGE = 40;
+	int DMESSAGE = 38;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3303,7 +3031,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDActor()
 	 * @generated
 	 */
-	int DACTOR = 41;
+	int DACTOR = 39;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3358,7 +3086,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDHumanActorRole()
 	 * @generated
 	 */
-	int DHUMAN_ACTOR_ROLE = 42;
+	int DHUMAN_ACTOR_ROLE = 40;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3422,7 +3150,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDService()
 	 * @generated
 	 */
-	int DSERVICE = 43;
+	int DSERVICE = 41;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3470,14 +3198,14 @@ public interface BasePackage extends EPackage
 	int DSERVICE_OPERATION_COUNT = DACTOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DIdentityOrigin <em>DIdentity Origin</em>}' enum.
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DEntityOrigin <em>DEntity Origin</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.DIdentityOrigin
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDIdentityOrigin()
+	 * @see com.mimacom.ddd.dm.base.DEntityOrigin
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDEntityOrigin()
 	 * @generated
 	 */
-	int DIDENTITY_ORIGIN = 44;
+	int DENTITY_ORIGIN = 42;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DAssociationKind <em>DAssociation Kind</em>}' enum.
@@ -3487,7 +3215,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDAssociationKind()
 	 * @generated
 	 */
-	int DASSOCIATION_KIND = 45;
+	int DASSOCIATION_KIND = 43;
 
 
 	/**
@@ -4092,59 +3820,6 @@ public interface BasePackage extends EPackage
 	EClass getDDetailType();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DIdentityType <em>DIdentity Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DIdentity Type</em>'.
-	 * @see com.mimacom.ddd.dm.base.DIdentityType
-	 * @generated
-	 */
-	EClass getDIdentityType();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DIdentityType#isRoot <em>Root</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Root</em>'.
-	 * @see com.mimacom.ddd.dm.base.DIdentityType#isRoot()
-	 * @see #getDIdentityType()
-	 * @generated
-	 */
-	EAttribute getDIdentityType_Root();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DIdentityType#getOrigin <em>Origin</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Origin</em>'.
-	 * @see com.mimacom.ddd.dm.base.DIdentityType#getOrigin()
-	 * @see #getDIdentityType()
-	 * @generated
-	 */
-	EAttribute getDIdentityType_Origin();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.IIdentityStateModel <em>IIdentity State Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>IIdentity State Model</em>'.
-	 * @see com.mimacom.ddd.dm.base.IIdentityStateModel
-	 * @generated
-	 */
-	EClass getIIdentityStateModel();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.IIdentityStateModel#getForType <em>For Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>For Type</em>'.
-	 * @see com.mimacom.ddd.dm.base.IIdentityStateModel#getForType()
-	 * @see #getIIdentityStateModel()
-	 * @generated
-	 */
-	EReference getIIdentityStateModel_ForType();
-
-	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DEntityType <em>DEntity Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4155,14 +3830,47 @@ public interface BasePackage extends EPackage
 	EClass getDEntityType();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DRelationship <em>DRelationship</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DEntityType#isRoot <em>Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DRelationship</em>'.
-	 * @see com.mimacom.ddd.dm.base.DRelationship
+	 * @return the meta object for the attribute '<em>Root</em>'.
+	 * @see com.mimacom.ddd.dm.base.DEntityType#isRoot()
+	 * @see #getDEntityType()
 	 * @generated
 	 */
-	EClass getDRelationship();
+	EAttribute getDEntityType_Root();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DEntityType#getOrigin <em>Origin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Origin</em>'.
+	 * @see com.mimacom.ddd.dm.base.DEntityType#getOrigin()
+	 * @see #getDEntityType()
+	 * @generated
+	 */
+	EAttribute getDEntityType_Origin();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.IEntityStateModel <em>IEntity State Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IEntity State Model</em>'.
+	 * @see com.mimacom.ddd.dm.base.IEntityStateModel
+	 * @generated
+	 */
+	EClass getIEntityStateModel();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.IEntityStateModel#getForType <em>For Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>For Type</em>'.
+	 * @see com.mimacom.ddd.dm.base.IEntityStateModel#getForType()
+	 * @see #getIEntityStateModel()
+	 * @generated
+	 */
+	EReference getIEntityStateModel_ForType();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DFeature <em>DFeature</em>}'.
@@ -4524,14 +4232,14 @@ public interface BasePackage extends EPackage
 	EClass getDService();
 
 	/**
-	 * Returns the meta object for enum '{@link com.mimacom.ddd.dm.base.DIdentityOrigin <em>DIdentity Origin</em>}'.
+	 * Returns the meta object for enum '{@link com.mimacom.ddd.dm.base.DEntityOrigin <em>DEntity Origin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>DIdentity Origin</em>'.
-	 * @see com.mimacom.ddd.dm.base.DIdentityOrigin
+	 * @return the meta object for enum '<em>DEntity Origin</em>'.
+	 * @see com.mimacom.ddd.dm.base.DEntityOrigin
 	 * @generated
 	 */
-	EEnum getDIdentityOrigin();
+	EEnum getDEntityOrigin();
 
 	/**
 	 * Returns the meta object for enum '{@link com.mimacom.ddd.dm.base.DAssociationKind <em>DAssociation Kind</em>}'.
@@ -5076,50 +4784,6 @@ public interface BasePackage extends EPackage
 		EClass DDETAIL_TYPE = eINSTANCE.getDDetailType();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DIdentityTypeImpl <em>DIdentity Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.impl.DIdentityTypeImpl
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDIdentityType()
-		 * @generated
-		 */
-		EClass DIDENTITY_TYPE = eINSTANCE.getDIdentityType();
-
-		/**
-		 * The meta object literal for the '<em><b>Root</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DIDENTITY_TYPE__ROOT = eINSTANCE.getDIdentityType_Root();
-
-		/**
-		 * The meta object literal for the '<em><b>Origin</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DIDENTITY_TYPE__ORIGIN = eINSTANCE.getDIdentityType_Origin();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.IIdentityStateModel <em>IIdentity State Model</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.IIdentityStateModel
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIIdentityStateModel()
-		 * @generated
-		 */
-		EClass IIDENTITY_STATE_MODEL = eINSTANCE.getIIdentityStateModel();
-
-		/**
-		 * The meta object literal for the '<em><b>For Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IIDENTITY_STATE_MODEL__FOR_TYPE = eINSTANCE.getIIdentityStateModel_ForType();
-
-		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DEntityTypeImpl <em>DEntity Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5130,14 +4794,38 @@ public interface BasePackage extends EPackage
 		EClass DENTITY_TYPE = eINSTANCE.getDEntityType();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DRelationshipImpl <em>DRelationship</em>}' class.
+		 * The meta object literal for the '<em><b>Root</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.impl.DRelationshipImpl
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDRelationship()
 		 * @generated
 		 */
-		EClass DRELATIONSHIP = eINSTANCE.getDRelationship();
+		EAttribute DENTITY_TYPE__ROOT = eINSTANCE.getDEntityType_Root();
+
+		/**
+		 * The meta object literal for the '<em><b>Origin</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DENTITY_TYPE__ORIGIN = eINSTANCE.getDEntityType_Origin();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.IEntityStateModel <em>IEntity State Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.IEntityStateModel
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIEntityStateModel()
+		 * @generated
+		 */
+		EClass IENTITY_STATE_MODEL = eINSTANCE.getIEntityStateModel();
+
+		/**
+		 * The meta object literal for the '<em><b>For Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IENTITY_STATE_MODEL__FOR_TYPE = eINSTANCE.getIEntityStateModel_ForType();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DFeatureImpl <em>DFeature</em>}' class.
@@ -5440,14 +5128,14 @@ public interface BasePackage extends EPackage
 		EClass DSERVICE = eINSTANCE.getDService();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.DIdentityOrigin <em>DIdentity Origin</em>}' enum.
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.DEntityOrigin <em>DEntity Origin</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.DIdentityOrigin
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDIdentityOrigin()
+		 * @see com.mimacom.ddd.dm.base.DEntityOrigin
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDEntityOrigin()
 		 * @generated
 		 */
-		EEnum DIDENTITY_ORIGIN = eINSTANCE.getDIdentityOrigin();
+		EEnum DENTITY_ORIGIN = eINSTANCE.getDEntityOrigin();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.DAssociationKind <em>DAssociation Kind</em>}' enum.

@@ -3940,20 +3940,11 @@ ruleDType returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getDTypeAccess().getDRelationshipParserRuleCall_3());
+			newCompositeNode(grammarAccess.getDTypeAccess().getDDetailTypeParserRuleCall_3());
 		}
-		this_DRelationship_3=ruleDRelationship
+		this_DDetailType_3=ruleDDetailType
 		{
-			$current = $this_DRelationship_3.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getDTypeAccess().getDDetailTypeParserRuleCall_4());
-		}
-		this_DDetailType_4=ruleDDetailType
-		{
-			$current = $this_DDetailType_4.current;
+			$current = $this_DDetailType_3.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -4273,85 +4264,6 @@ ruleDLiteral returns [EObject current=null]
 				}
 			)
 		)?
-	)
-;
-
-// Entry rule entryRuleDRelationship
-entryRuleDRelationship returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDRelationshipRule()); }
-	iv_ruleDRelationship=ruleDRelationship
-	{ $current=$iv_ruleDRelationship.current; }
-	EOF;
-
-// Rule DRelationship
-ruleDRelationship returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				lv_abstract_0_0='abstract'
-				{
-					newLeafNode(lv_abstract_0_0, grammarAccess.getDRelationshipAccess().getAbstractAbstractKeyword_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDRelationshipRule());
-					}
-					setWithLastConsumed($current, "abstract", true, "abstract");
-				}
-			)
-		)?
-		(
-			(
-				(
-					lv_root_1_0='root'
-					{
-						newLeafNode(lv_root_1_0, grammarAccess.getDRelationshipAccess().getRootRootKeyword_1_0_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDRelationshipRule());
-						}
-						setWithLastConsumed($current, "root", true, "root");
-					}
-				)
-			)
-			    |
-			(
-				(
-					lv_root_2_0='main'
-					{
-						newLeafNode(lv_root_2_0, grammarAccess.getDRelationshipAccess().getRootMainKeyword_1_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDRelationshipRule());
-						}
-						setWithLastConsumed($current, "root", true, "main");
-					}
-				)
-			)
-		)?
-		otherlv_3='relationship'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getDRelationshipAccess().getRelationshipKeyword_2());
-		}
-		{
-			if ($current==null) {
-				$current = createModelElement(grammarAccess.getDRelationshipRule());
-			}
-			newCompositeNode(grammarAccess.getDRelationshipAccess().getDComplexTypeParserRuleCall_3());
-		}
-		this_DComplexType_4=ruleDComplexType[$current]
-		{
-			$current = $this_DComplexType_4.current;
-			afterParserOrEnumRuleCall();
-		}
 	)
 ;
 

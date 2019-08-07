@@ -5,8 +5,8 @@ package com.mimacom.ddd.dm.dmx.tests;
 
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DComplexType;
+import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DIdentityType;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.dmx.DmxNamespace;
 import com.mimacom.ddd.dm.dmx.DmxTest;
@@ -156,12 +156,12 @@ public class DmxParsingTest {
       Assert.assertEquals(DmxConstructorCallImpl.class, e7.getClass());
       Assert.assertTrue(((DmxConstructorCallImpl) e7).basicGetConstructor().eIsProxy());
       DComplexType _basicGetConstructor = ((DmxConstructorCallImpl) e7).basicGetConstructor();
-      Assert.assertTrue((_basicGetConstructor instanceof DIdentityType));
+      Assert.assertTrue((_basicGetConstructor instanceof DEntityType));
       Assert.assertFalse(((DmxConstructorCallImpl) e7).isExplicitConstructorCall());
       final DExpression e8 = tests.get(8).getExpr();
       Assert.assertEquals(DmxConstructorCallImpl.class, e8.getClass());
       DComplexType _basicGetConstructor_1 = ((DmxConstructorCallImpl) e8).basicGetConstructor();
-      Assert.assertTrue((_basicGetConstructor_1 instanceof DIdentityType));
+      Assert.assertTrue((_basicGetConstructor_1 instanceof DEntityType));
       Assert.assertTrue(((DmxConstructorCallImpl) e8).isExplicitConstructorCall());
       Assert.assertEquals(1, ((DmxConstructorCallImpl) e8).getArguments().size());
       Assert.assertEquals(DmxNaturalLiteralImpl.class, ((DmxConstructorCallImpl) e8).getArguments().get(0).getClass());

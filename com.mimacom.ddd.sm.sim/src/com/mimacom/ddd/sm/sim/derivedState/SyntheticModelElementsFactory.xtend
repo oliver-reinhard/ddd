@@ -7,10 +7,8 @@ import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DDeductionRule
 import com.mimacom.ddd.dm.base.DDetailType
-import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DFeature
-import com.mimacom.ddd.dm.base.DIdentityType
 import com.mimacom.ddd.dm.base.DMultiplicity
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
@@ -28,6 +26,7 @@ import com.mimacom.ddd.sm.sim.STristate
 import com.mimacom.ddd.sm.sim.SimFactory
 import org.eclipse.xtext.EcoreUtil2
 import com.mimacom.ddd.sm.sim.SInformationModelKind
+import com.mimacom.ddd.dm.base.DEntityType
 
 class SyntheticModelElementsFactory {
 	
@@ -171,13 +170,13 @@ class SyntheticModelElementsFactory {
 	
 	protected def dispatch boolean makeRoot(SStructureChangingRule r, DComplexType source) {
 		if (r.rootEntity == STristate.DONT_CARE) {
-			return source instanceof DIdentityType && (source as DIdentityType).root
+			return source instanceof DEntityType && (source as DEntityType).isRoot
 		}
 		return r.rootEntity == STristate.TRUE
 	}
 	
 	protected def dispatch boolean makeRoot(DDeductionRule r, DComplexType source) {
-		return  source instanceof DIdentityType && (source as DIdentityType).root
+		return  source instanceof DEntityType && (source as DEntityType).isRoot
 	}
 	
 	protected def dispatch boolean makeDetailType(SMorphRule r, DComplexType source) {

@@ -10,24 +10,34 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>DIdentity Origin</b></em>',
+ * A representation of the literals of the enumeration '<em><b>DEntity Origin</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see com.mimacom.ddd.dm.base.BasePackage#getDIdentityOrigin()
+ * @see com.mimacom.ddd.dm.base.BasePackage#getDEntityOrigin()
  * @model
  * @generated
  */
-public enum DIdentityOrigin implements Enumerator
+public enum DEntityOrigin implements Enumerator
 {
 	/**
-	 * The '<em><b>REAL WORLD OBJECT</b></em>' literal object.
+	 * The '<em><b>GENERIC ENTITY</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #REAL_WORLD_OBJECT_VALUE
+	 * @see #GENERIC_ENTITY_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	REAL_WORLD_OBJECT(0, "REAL_WORLD_OBJECT", "REAL_WORLD_OBJECT"),
+	GENERIC_ENTITY(0, "GENERIC_ENTITY", "GENERIC_ENTITY"),
+
+	/**
+	 * The '<em><b>PHYSICAL OBJECT</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PHYSICAL_OBJECT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PHYSICAL_OBJECT(1, "PHYSICAL_OBJECT", "PHYSICAL_OBJECT"),
 
 	/**
 	 * The '<em><b>VIRTUAL CONCEPT</b></em>' literal object.
@@ -37,39 +47,17 @@ public enum DIdentityOrigin implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	VIRTUAL_CONCEPT(1, "VIRTUAL_CONCEPT", "VIRTUAL_CONCEPT"),
+	VIRTUAL_CONCEPT(2, "VIRTUAL_CONCEPT", "VIRTUAL_CONCEPT"),
 
 	/**
-	 * The '<em><b>GENERIC ENTITY</b></em>' literal object.
+	 * The '<em><b>RELATIONSHIP</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #GENERIC_ENTITY_VALUE
+	 * @see #RELATIONSHIP_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	GENERIC_ENTITY(2, "GENERIC_ENTITY", "GENERIC_ENTITY");
-
-	/**
-	 * The '<em><b>REAL WORLD OBJECT</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #REAL_WORLD_OBJECT
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int REAL_WORLD_OBJECT_VALUE = 0;
-
-	/**
-	 * The '<em><b>VIRTUAL CONCEPT</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #VIRTUAL_CONCEPT
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int VIRTUAL_CONCEPT_VALUE = 1;
+	RELATIONSHIP(3, "RELATIONSHIP", "RELATIONSHIP");
 
 	/**
 	 * The '<em><b>GENERIC ENTITY</b></em>' literal value.
@@ -80,43 +68,77 @@ public enum DIdentityOrigin implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int GENERIC_ENTITY_VALUE = 2;
+	public static final int GENERIC_ENTITY_VALUE = 0;
 
 	/**
-	 * An array of all the '<em><b>DIdentity Origin</b></em>' enumerators.
+	 * The '<em><b>PHYSICAL OBJECT</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PHYSICAL_OBJECT
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PHYSICAL_OBJECT_VALUE = 1;
+
+	/**
+	 * The '<em><b>VIRTUAL CONCEPT</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #VIRTUAL_CONCEPT
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int VIRTUAL_CONCEPT_VALUE = 2;
+
+	/**
+	 * The '<em><b>RELATIONSHIP</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #RELATIONSHIP
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int RELATIONSHIP_VALUE = 3;
+
+	/**
+	 * An array of all the '<em><b>DEntity Origin</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final DIdentityOrigin[] VALUES_ARRAY =
-		new DIdentityOrigin[]
+	private static final DEntityOrigin[] VALUES_ARRAY =
+		new DEntityOrigin[]
 		{
-			REAL_WORLD_OBJECT,
-			VIRTUAL_CONCEPT,
 			GENERIC_ENTITY,
+			PHYSICAL_OBJECT,
+			VIRTUAL_CONCEPT,
+			RELATIONSHIP,
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>DIdentity Origin</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>DEntity Origin</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<DIdentityOrigin> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<DEntityOrigin> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>DIdentity Origin</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>DEntity Origin</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static DIdentityOrigin get(String literal)
+	public static DEntityOrigin get(String literal)
 	{
 		for (int i = 0; i < VALUES_ARRAY.length; ++i)
 		{
-			DIdentityOrigin result = VALUES_ARRAY[i];
+			DEntityOrigin result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal))
 			{
 				return result;
@@ -126,18 +148,18 @@ public enum DIdentityOrigin implements Enumerator
 	}
 
 	/**
-	 * Returns the '<em><b>DIdentity Origin</b></em>' literal with the specified name.
+	 * Returns the '<em><b>DEntity Origin</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static DIdentityOrigin getByName(String name)
+	public static DEntityOrigin getByName(String name)
 	{
 		for (int i = 0; i < VALUES_ARRAY.length; ++i)
 		{
-			DIdentityOrigin result = VALUES_ARRAY[i];
+			DEntityOrigin result = VALUES_ARRAY[i];
 			if (result.getName().equals(name))
 			{
 				return result;
@@ -147,20 +169,21 @@ public enum DIdentityOrigin implements Enumerator
 	}
 
 	/**
-	 * Returns the '<em><b>DIdentity Origin</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>DEntity Origin</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static DIdentityOrigin get(int value)
+	public static DEntityOrigin get(int value)
 	{
 		switch (value)
 		{
-			case REAL_WORLD_OBJECT_VALUE: return REAL_WORLD_OBJECT;
-			case VIRTUAL_CONCEPT_VALUE: return VIRTUAL_CONCEPT;
 			case GENERIC_ENTITY_VALUE: return GENERIC_ENTITY;
+			case PHYSICAL_OBJECT_VALUE: return PHYSICAL_OBJECT;
+			case VIRTUAL_CONCEPT_VALUE: return VIRTUAL_CONCEPT;
+			case RELATIONSHIP_VALUE: return RELATIONSHIP;
 		}
 		return null;
 	}
@@ -192,7 +215,7 @@ public enum DIdentityOrigin implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private DIdentityOrigin(int value, String name, String literal)
+	private DEntityOrigin(int value, String name, String literal)
 	{
 		this.value = value;
 		this.name = name;
@@ -244,4 +267,4 @@ public enum DIdentityOrigin implements Enumerator
 		return literal;
 	}
 	
-} //DIdentityOrigin
+} //DEntityOrigin

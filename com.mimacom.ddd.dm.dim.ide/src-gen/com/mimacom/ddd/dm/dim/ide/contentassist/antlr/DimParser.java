@@ -35,7 +35,6 @@ public class DimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDTypeAccess().getAlternatives(), "rule__DType__Alternatives");
 			builder.put(grammarAccess.getDEntityTypeAccess().getAlternatives_1(), "rule__DEntityType__Alternatives_1");
 			builder.put(grammarAccess.getDEntityTypeAccess().getAlternatives_1_1_1(), "rule__DEntityType__Alternatives_1_1_1");
-			builder.put(grammarAccess.getDRelationshipAccess().getAlternatives_1(), "rule__DRelationship__Alternatives_1");
 			builder.put(grammarAccess.getDComplexTypeAccess().getAlternatives_5(), "rule__DComplexType__Alternatives_5");
 			builder.put(grammarAccess.getDFeatureAccess().getAlternatives(), "rule__DFeature__Alternatives");
 			builder.put(grammarAccess.getDAssociationAccess().getAlternatives_1(), "rule__DAssociation__Alternatives_1");
@@ -92,7 +91,6 @@ public class DimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDEntityTypeAccess().getGroup_1_1(), "rule__DEntityType__Group_1_1__0");
 			builder.put(grammarAccess.getDEntityTypeAccess().getGroup_1_1_1_0(), "rule__DEntityType__Group_1_1_1_0__0");
 			builder.put(grammarAccess.getDEntityTypeAccess().getGroup_1_1_1_1(), "rule__DEntityType__Group_1_1_1_1__0");
-			builder.put(grammarAccess.getDRelationshipAccess().getGroup(), "rule__DRelationship__Group__0");
 			builder.put(grammarAccess.getDDetailTypeAccess().getGroup(), "rule__DDetailType__Group__0");
 			builder.put(grammarAccess.getDComplexTypeAccess().getGroup(), "rule__DComplexType__Group__0");
 			builder.put(grammarAccess.getDComplexTypeAccess().getGroup_1(), "rule__DComplexType__Group_1__0");
@@ -237,9 +235,7 @@ public class DimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDEntityTypeAccess().getRootAssignment_1_1_0(), "rule__DEntityType__RootAssignment_1_1_0");
 			builder.put(grammarAccess.getDEntityTypeAccess().getOriginAssignment_1_1_1_0_1(), "rule__DEntityType__OriginAssignment_1_1_1_0_1");
 			builder.put(grammarAccess.getDEntityTypeAccess().getOriginAssignment_1_1_1_1_1(), "rule__DEntityType__OriginAssignment_1_1_1_1_1");
-			builder.put(grammarAccess.getDRelationshipAccess().getAbstractAssignment_0(), "rule__DRelationship__AbstractAssignment_0");
-			builder.put(grammarAccess.getDRelationshipAccess().getRootAssignment_1_0(), "rule__DRelationship__RootAssignment_1_0");
-			builder.put(grammarAccess.getDRelationshipAccess().getRootAssignment_1_1(), "rule__DRelationship__RootAssignment_1_1");
+			builder.put(grammarAccess.getDEntityTypeAccess().getOriginAssignment_1_1_1_2(), "rule__DEntityType__OriginAssignment_1_1_1_2");
 			builder.put(grammarAccess.getDDetailTypeAccess().getAbstractAssignment_0(), "rule__DDetailType__AbstractAssignment_0");
 			builder.put(grammarAccess.getDComplexTypeAccess().getNameAssignment_0(), "rule__DComplexType__NameAssignment_0");
 			builder.put(grammarAccess.getDComplexTypeAccess().getAliasesAssignment_1_1(), "rule__DComplexType__AliasesAssignment_1_1");

@@ -11,7 +11,7 @@ import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
-import com.mimacom.ddd.dm.base.IIdentityStateModel;
+import com.mimacom.ddd.dm.base.IEntityStateModel;
 import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.base.ITypeContainer;
@@ -121,7 +121,7 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<IIdentityStateModel> stateModels;
+	protected EList<IEntityStateModel> stateModels;
 
 	/**
 	 * The cached value of the '{@link #getEvents() <em>Events</em>}' containment reference list.
@@ -285,11 +285,11 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * @generated
 	 */
 	@Override
-	public EList<IIdentityStateModel> getStateModels()
+	public EList<IEntityStateModel> getStateModels()
 	{
 		if (stateModels == null)
 		{
-			stateModels = new EObjectContainmentEList<IIdentityStateModel>(IIdentityStateModel.class, this, BasePackage.DDOMAIN__STATE_MODELS);
+			stateModels = new EObjectContainmentEList<IEntityStateModel>(IEntityStateModel.class, this, BasePackage.DDOMAIN__STATE_MODELS);
 		}
 		return stateModels;
 	}
@@ -412,7 +412,7 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 				return;
 			case BasePackage.DDOMAIN__STATE_MODELS:
 				getStateModels().clear();
-				getStateModels().addAll((Collection<? extends IIdentityStateModel>)newValue);
+				getStateModels().addAll((Collection<? extends IEntityStateModel>)newValue);
 				return;
 			case BasePackage.DDOMAIN__EVENTS:
 				getEvents().clear();

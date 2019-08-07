@@ -313,33 +313,10 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BasePackage.DIDENTITY_TYPE:
-			{
-				DIdentityType dIdentityType = (DIdentityType)theEObject;
-				T result = caseDIdentityType(dIdentityType);
-				if (result == null) result = caseDComplexType(dIdentityType);
-				if (result == null) result = caseIIdentityType(dIdentityType);
-				if (result == null) result = caseDType(dIdentityType);
-				if (result == null) result = caseINavigableMemberContainer(dIdentityType);
-				if (result == null) result = caseIDeducibleElement(dIdentityType);
-				if (result == null) result = caseIStaticReferenceTarget(dIdentityType);
-				if (result == null) result = caseINamespace(dIdentityType);
-				if (result == null) result = caseDNamedElement(dIdentityType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BasePackage.IIDENTITY_STATE_MODEL:
-			{
-				IIdentityStateModel iIdentityStateModel = (IIdentityStateModel)theEObject;
-				T result = caseIIdentityStateModel(iIdentityStateModel);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case BasePackage.DENTITY_TYPE:
 			{
 				DEntityType dEntityType = (DEntityType)theEObject;
 				T result = caseDEntityType(dEntityType);
-				if (result == null) result = caseDIdentityType(dEntityType);
 				if (result == null) result = caseDComplexType(dEntityType);
 				if (result == null) result = caseIIdentityType(dEntityType);
 				if (result == null) result = caseDType(dEntityType);
@@ -351,19 +328,10 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BasePackage.DRELATIONSHIP:
+			case BasePackage.IENTITY_STATE_MODEL:
 			{
-				DRelationship dRelationship = (DRelationship)theEObject;
-				T result = caseDRelationship(dRelationship);
-				if (result == null) result = caseDIdentityType(dRelationship);
-				if (result == null) result = caseDComplexType(dRelationship);
-				if (result == null) result = caseIIdentityType(dRelationship);
-				if (result == null) result = caseDType(dRelationship);
-				if (result == null) result = caseINavigableMemberContainer(dRelationship);
-				if (result == null) result = caseIDeducibleElement(dRelationship);
-				if (result == null) result = caseIStaticReferenceTarget(dRelationship);
-				if (result == null) result = caseINamespace(dRelationship);
-				if (result == null) result = caseDNamedElement(dRelationship);
+				IEntityStateModel iEntityStateModel = (IEntityStateModel)theEObject;
+				T result = caseIEntityStateModel(iEntityStateModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -927,38 +895,6 @@ public class BaseSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DIdentity Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DIdentity Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDIdentityType(DIdentityType object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IIdentity State Model</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IIdentity State Model</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIIdentityStateModel(IIdentityStateModel object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>DEntity Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -975,17 +911,17 @@ public class BaseSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DRelationship</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>IEntity State Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DRelationship</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>IEntity State Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDRelationship(DRelationship object)
+	public T caseIEntityStateModel(IEntityStateModel object)
 	{
 		return null;
 	}

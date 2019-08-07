@@ -8523,13 +8523,13 @@ rule__DEntityStateModel__ForTypeAssignment_4
 	}
 :
 	(
-		{ before(grammarAccess.getDEntityStateModelAccess().getForTypeDIdentityTypeCrossReference_4_0()); }
+		{ before(grammarAccess.getDEntityStateModelAccess().getForTypeDEntityTypeCrossReference_4_0()); }
 		(
-			{ before(grammarAccess.getDEntityStateModelAccess().getForTypeDIdentityTypeIDTerminalRuleCall_4_0_1()); }
+			{ before(grammarAccess.getDEntityStateModelAccess().getForTypeDEntityTypeIDTerminalRuleCall_4_0_1()); }
 			RULE_ID
-			{ after(grammarAccess.getDEntityStateModelAccess().getForTypeDIdentityTypeIDTerminalRuleCall_4_0_1()); }
+			{ after(grammarAccess.getDEntityStateModelAccess().getForTypeDEntityTypeIDTerminalRuleCall_4_0_1()); }
 		)
-		{ after(grammarAccess.getDEntityStateModelAccess().getForTypeDIdentityTypeCrossReference_4_0()); }
+		{ after(grammarAccess.getDEntityStateModelAccess().getForTypeDEntityTypeCrossReference_4_0()); }
 	)
 ;
 finally {
