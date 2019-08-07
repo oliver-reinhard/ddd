@@ -3,7 +3,6 @@ package com.mimacom.ddd.dm.dim
 import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DComplexType
-import com.mimacom.ddd.dm.base.DCondition
 import com.mimacom.ddd.dm.base.DDetailType
 import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.base.DEntityType
@@ -19,6 +18,7 @@ import java.util.LinkedHashSet
 import java.util.Set
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
+import com.mimacom.ddd.dm.base.DNamedPredicate
 
 class DimUtil extends DmxUtil {
 	
@@ -118,7 +118,7 @@ class DimUtil extends DmxUtil {
 		return p.name + " : " + p.getType?.label
 	}
 	
-	def String label(DCondition c) {
+	def String label(DNamedPredicate c) {
 		return "Constraint " + c.name
 	}
 	

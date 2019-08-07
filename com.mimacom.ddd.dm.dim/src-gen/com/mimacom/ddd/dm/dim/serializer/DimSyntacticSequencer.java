@@ -12,7 +12,6 @@ import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
@@ -22,7 +21,6 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class DimSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected DimGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_DService___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q;
 	protected AbstractElementAlias match_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3;
 	protected AbstractElementAlias match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a;
 	protected AbstractElementAlias match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p;
@@ -34,7 +32,6 @@ public class DimSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (DimGrammarAccess) access;
-		match_DService___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getDServiceAccess().getLeftParenthesisKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getDServiceAccess().getRightParenthesisKeyword_3_2()));
 		match_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDmxBooleanLiteralAccess().getFALSEKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getDmxBooleanLiteralAccess().getFalseKeyword_1_3()));
 		match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a = new TokenAlias(true, true, grammarAccess.getDmxParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
 		match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p = new TokenAlias(true, false, grammarAccess.getDmxParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
@@ -103,9 +100,7 @@ public class DimSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_DService___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q.equals(syntax))
-				emit_DService___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3.equals(syntax))
+			if (match_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3.equals(syntax))
 				emit_DmxBooleanLiteral_FALSEKeyword_1_2_or_FalseKeyword_1_3(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a.equals(syntax))
 				emit_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -123,22 +118,6 @@ public class DimSyntacticSequencer extends AbstractSyntacticSequencer {
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     ('(' ')')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     name=ID (ambiguity) 'raises' raises+=[DException|ID]
-	 *     name=ID (ambiguity) '{' 'effect' effects+=DExpression
-	 *     name=ID (ambiguity) '{' 'guard' guards+=DExpression
-	 *     name=ID (ambiguity) '{' '}' (rule end)
-	 *     name=ID (ambiguity) '{' types+=DType
-	 *     name=ID (ambiguity) description=DRichText
-	 */
-	protected void emit_DService___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 	/**
 	 * Ambiguous syntax:
 	 *     'FALSE' | 'false'

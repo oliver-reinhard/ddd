@@ -23,18 +23,32 @@ DDomainEvent:
 	(description=DRichText)?
 	'{'
 		'context' (context+=DContext)+
-		'triggered' 'by' trigger=[DActor|ID]
+		('triggered' 'by' trigger=[DActor|ID])?
 		('notifications' (notifications+=DNotification)+)?
-		('before' 'conditions' (before+=DCondition)+)?
-		('after' 'conditions' (after+=DCondition)+)?
+		('preconditions' (preconditionsCNF+=DNamedPredicate)+)?
+		('postconditions'
+			(	(postconditionsDNF+=DCaseConjunction)+
+			|	(postconditionsDNF+=DNamedPredicate)+
+			)
+		)? 
 	'}';
 	
-DCondition:
+DNamedPredicate:
 	name=ID
 	('alias' aliases+=ID)*
 	':'
-	condition=DExpression
+	predicate=DExpression
 	(description=DRichText)?;
+
+DCaseConjunction:
+	'case'
+	name=ID
+	('alias' aliases+=ID)*
+	'when'
+	selector=DExpression
+	':'
+	(predicates+=DNamedPredicate)+
+;
 	
 DNotification:
 	// type always null
@@ -57,16 +71,16 @@ DContext:
 	(description=DRichText)?;
 	
 DActor:
-	DHuman | DTime;
+	DHumanActorRole | DService;
 
-DHuman:
-	'human' 'actor'
+DHumanActorRole:
+	'human' 'actor' 'as'
 	name=ID
 	('alias' aliases+=ID)*
 	(description=DRichText)?;
-
-DTime:
-	'time' 'actor'
+	
+DService:
+	'service' 'actor'
 	name=ID
 	('alias' aliases+=ID)*
 	(description=DRichText)?;

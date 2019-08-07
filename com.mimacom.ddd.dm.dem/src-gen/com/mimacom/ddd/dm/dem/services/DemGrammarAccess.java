@@ -119,26 +119,28 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cContextKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cContextAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cContextDContextParserRuleCall_6_0 = (RuleCall)cContextAssignment_6.eContents().get(0);
-		private final Keyword cTriggeredKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Keyword cByKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cTriggerAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final CrossReference cTriggerDActorCrossReference_9_0 = (CrossReference)cTriggerAssignment_9.eContents().get(0);
-		private final RuleCall cTriggerDActorIDTerminalRuleCall_9_0_1 = (RuleCall)cTriggerDActorCrossReference_9_0.eContents().get(1);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cTriggeredKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Keyword cByKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Assignment cTriggerAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
+		private final CrossReference cTriggerDActorCrossReference_7_2_0 = (CrossReference)cTriggerAssignment_7_2.eContents().get(0);
+		private final RuleCall cTriggerDActorIDTerminalRuleCall_7_2_0_1 = (RuleCall)cTriggerDActorCrossReference_7_2_0.eContents().get(1);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cNotificationsKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cNotificationsAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cNotificationsDNotificationParserRuleCall_8_1_0 = (RuleCall)cNotificationsAssignment_8_1.eContents().get(0);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cPreconditionsKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cPreconditionsCNFAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cPreconditionsCNFDNamedPredicateParserRuleCall_9_1_0 = (RuleCall)cPreconditionsCNFAssignment_9_1.eContents().get(0);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
-		private final Keyword cNotificationsKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
-		private final Assignment cNotificationsAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
-		private final RuleCall cNotificationsDNotificationParserRuleCall_10_1_0 = (RuleCall)cNotificationsAssignment_10_1.eContents().get(0);
-		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
-		private final Keyword cBeforeKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
-		private final Keyword cConditionsKeyword_11_1 = (Keyword)cGroup_11.eContents().get(1);
-		private final Assignment cBeforeAssignment_11_2 = (Assignment)cGroup_11.eContents().get(2);
-		private final RuleCall cBeforeDConditionParserRuleCall_11_2_0 = (RuleCall)cBeforeAssignment_11_2.eContents().get(0);
-		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
-		private final Keyword cAfterKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
-		private final Keyword cConditionsKeyword_12_1 = (Keyword)cGroup_12.eContents().get(1);
-		private final Assignment cAfterAssignment_12_2 = (Assignment)cGroup_12.eContents().get(2);
-		private final RuleCall cAfterDConditionParserRuleCall_12_2_0 = (RuleCall)cAfterAssignment_12_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Keyword cPostconditionsKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Alternatives cAlternatives_10_1 = (Alternatives)cGroup_10.eContents().get(1);
+		private final Assignment cPostconditionsDNFAssignment_10_1_0 = (Assignment)cAlternatives_10_1.eContents().get(0);
+		private final RuleCall cPostconditionsDNFDCaseConjunctionParserRuleCall_10_1_0_0 = (RuleCall)cPostconditionsDNFAssignment_10_1_0.eContents().get(0);
+		private final Assignment cPostconditionsDNFAssignment_10_1_1 = (Assignment)cAlternatives_10_1.eContents().get(1);
+		private final RuleCall cPostconditionsDNFDNamedPredicateParserRuleCall_10_1_1_0 = (RuleCall)cPostconditionsDNFAssignment_10_1_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		///*
 		// * BEHAVIOUR
@@ -147,15 +149,16 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		//	name=ID ('alias' aliases+=ID)*
 		//	description=DRichText?
 		//	'{'
-		//	'context' context+=DContext+
-		//	'triggered' 'by' trigger=[DActor] ('notifications' notifications+=DNotification+)? ('before' 'conditions'
-		//	before+=DCondition+)? ('after' 'conditions' after+=DCondition+)?
+		//	'context' context+=DContext+ ('triggered' 'by' trigger=[DActor])? ('notifications' notifications+=DNotification+)?
+		//	('preconditions' preconditionsCNF+=DNamedPredicate+)? ('postconditions' (postconditionsDNF+=DCaseConjunction+
+		//	| postconditionsDNF+=DNamedPredicate+))?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'event' name=ID ('alias' aliases+=ID)* description=DRichText? '{' 'context' context+=DContext+ 'triggered' 'by'
-		//trigger=[DActor] ('notifications' notifications+=DNotification+)? ('before' 'conditions' before+=DCondition+)? ('after'
-		//'conditions' after+=DCondition+)? '}'
+		//'event' name=ID ('alias' aliases+=ID)* description=DRichText? '{' 'context' context+=DContext+ ('triggered' 'by'
+		//trigger=[DActor])? ('notifications' notifications+=DNotification+)? ('preconditions'
+		//preconditionsCNF+=DNamedPredicate+)? ('postconditions' (postconditionsDNF+=DCaseConjunction+ |
+		//postconditionsDNF+=DNamedPredicate+))? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'event'
@@ -197,68 +200,74 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		//DContext
 		public RuleCall getContextDContextParserRuleCall_6_0() { return cContextDContextParserRuleCall_6_0; }
 		
+		//('triggered' 'by' trigger=[DActor])?
+		public Group getGroup_7() { return cGroup_7; }
+		
 		//'triggered'
-		public Keyword getTriggeredKeyword_7() { return cTriggeredKeyword_7; }
+		public Keyword getTriggeredKeyword_7_0() { return cTriggeredKeyword_7_0; }
 		
 		//'by'
-		public Keyword getByKeyword_8() { return cByKeyword_8; }
+		public Keyword getByKeyword_7_1() { return cByKeyword_7_1; }
 		
 		//trigger=[DActor]
-		public Assignment getTriggerAssignment_9() { return cTriggerAssignment_9; }
+		public Assignment getTriggerAssignment_7_2() { return cTriggerAssignment_7_2; }
 		
 		//[DActor]
-		public CrossReference getTriggerDActorCrossReference_9_0() { return cTriggerDActorCrossReference_9_0; }
+		public CrossReference getTriggerDActorCrossReference_7_2_0() { return cTriggerDActorCrossReference_7_2_0; }
 		
 		//ID
-		public RuleCall getTriggerDActorIDTerminalRuleCall_9_0_1() { return cTriggerDActorIDTerminalRuleCall_9_0_1; }
+		public RuleCall getTriggerDActorIDTerminalRuleCall_7_2_0_1() { return cTriggerDActorIDTerminalRuleCall_7_2_0_1; }
 		
 		//('notifications' notifications+=DNotification+)?
-		public Group getGroup_10() { return cGroup_10; }
+		public Group getGroup_8() { return cGroup_8; }
 		
 		//'notifications'
-		public Keyword getNotificationsKeyword_10_0() { return cNotificationsKeyword_10_0; }
+		public Keyword getNotificationsKeyword_8_0() { return cNotificationsKeyword_8_0; }
 		
 		//notifications+=DNotification+
-		public Assignment getNotificationsAssignment_10_1() { return cNotificationsAssignment_10_1; }
+		public Assignment getNotificationsAssignment_8_1() { return cNotificationsAssignment_8_1; }
 		
 		//DNotification
-		public RuleCall getNotificationsDNotificationParserRuleCall_10_1_0() { return cNotificationsDNotificationParserRuleCall_10_1_0; }
+		public RuleCall getNotificationsDNotificationParserRuleCall_8_1_0() { return cNotificationsDNotificationParserRuleCall_8_1_0; }
 		
-		//('before' 'conditions' before+=DCondition+)?
-		public Group getGroup_11() { return cGroup_11; }
+		//('preconditions' preconditionsCNF+=DNamedPredicate+)?
+		public Group getGroup_9() { return cGroup_9; }
 		
-		//'before'
-		public Keyword getBeforeKeyword_11_0() { return cBeforeKeyword_11_0; }
+		//'preconditions'
+		public Keyword getPreconditionsKeyword_9_0() { return cPreconditionsKeyword_9_0; }
 		
-		//'conditions'
-		public Keyword getConditionsKeyword_11_1() { return cConditionsKeyword_11_1; }
+		//preconditionsCNF+=DNamedPredicate+
+		public Assignment getPreconditionsCNFAssignment_9_1() { return cPreconditionsCNFAssignment_9_1; }
 		
-		//before+=DCondition+
-		public Assignment getBeforeAssignment_11_2() { return cBeforeAssignment_11_2; }
+		//DNamedPredicate
+		public RuleCall getPreconditionsCNFDNamedPredicateParserRuleCall_9_1_0() { return cPreconditionsCNFDNamedPredicateParserRuleCall_9_1_0; }
 		
-		//DCondition
-		public RuleCall getBeforeDConditionParserRuleCall_11_2_0() { return cBeforeDConditionParserRuleCall_11_2_0; }
+		//('postconditions' (postconditionsDNF+=DCaseConjunction+ | postconditionsDNF+=DNamedPredicate+))?
+		public Group getGroup_10() { return cGroup_10; }
 		
-		//('after' 'conditions' after+=DCondition+)?
-		public Group getGroup_12() { return cGroup_12; }
+		//'postconditions'
+		public Keyword getPostconditionsKeyword_10_0() { return cPostconditionsKeyword_10_0; }
 		
-		//'after'
-		public Keyword getAfterKeyword_12_0() { return cAfterKeyword_12_0; }
+		//postconditionsDNF+=DCaseConjunction+ | postconditionsDNF+=DNamedPredicate+
+		public Alternatives getAlternatives_10_1() { return cAlternatives_10_1; }
 		
-		//'conditions'
-		public Keyword getConditionsKeyword_12_1() { return cConditionsKeyword_12_1; }
+		//postconditionsDNF+=DCaseConjunction+
+		public Assignment getPostconditionsDNFAssignment_10_1_0() { return cPostconditionsDNFAssignment_10_1_0; }
 		
-		//after+=DCondition+
-		public Assignment getAfterAssignment_12_2() { return cAfterAssignment_12_2; }
+		//DCaseConjunction
+		public RuleCall getPostconditionsDNFDCaseConjunctionParserRuleCall_10_1_0_0() { return cPostconditionsDNFDCaseConjunctionParserRuleCall_10_1_0_0; }
 		
-		//DCondition
-		public RuleCall getAfterDConditionParserRuleCall_12_2_0() { return cAfterDConditionParserRuleCall_12_2_0; }
+		//postconditionsDNF+=DNamedPredicate+
+		public Assignment getPostconditionsDNFAssignment_10_1_1() { return cPostconditionsDNFAssignment_10_1_1; }
+		
+		//DNamedPredicate
+		public RuleCall getPostconditionsDNFDNamedPredicateParserRuleCall_10_1_1_0() { return cPostconditionsDNFDNamedPredicateParserRuleCall_10_1_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
+		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
 	}
-	public class DConditionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dem.Dem.DCondition");
+	public class DNamedPredicateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dem.Dem.DNamedPredicate");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
@@ -267,19 +276,19 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cAliasesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cAliasesIDTerminalRuleCall_1_1_0 = (RuleCall)cAliasesAssignment_1_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cConditionAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cConditionDExpressionParserRuleCall_3_0 = (RuleCall)cConditionAssignment_3.eContents().get(0);
+		private final Assignment cPredicateAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cPredicateDExpressionParserRuleCall_3_0 = (RuleCall)cPredicateAssignment_3.eContents().get(0);
 		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_4_0 = (RuleCall)cDescriptionAssignment_4.eContents().get(0);
 		
-		//DCondition:
+		//DNamedPredicate:
 		//	name=ID ('alias' aliases+=ID)*
 		//	':'
-		//	condition=DExpression
+		//	predicate=DExpression
 		//	description=DRichText?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ('alias' aliases+=ID)* ':' condition=DExpression description=DRichText?
+		//name=ID ('alias' aliases+=ID)* ':' predicate=DExpression description=DRichText?
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -303,17 +312,85 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 		
-		//condition=DExpression
-		public Assignment getConditionAssignment_3() { return cConditionAssignment_3; }
+		//predicate=DExpression
+		public Assignment getPredicateAssignment_3() { return cPredicateAssignment_3; }
 		
 		//DExpression
-		public RuleCall getConditionDExpressionParserRuleCall_3_0() { return cConditionDExpressionParserRuleCall_3_0; }
+		public RuleCall getPredicateDExpressionParserRuleCall_3_0() { return cPredicateDExpressionParserRuleCall_3_0; }
 		
 		//description=DRichText?
 		public Assignment getDescriptionAssignment_4() { return cDescriptionAssignment_4; }
 		
 		//DRichText
 		public RuleCall getDescriptionDRichTextParserRuleCall_4_0() { return cDescriptionDRichTextParserRuleCall_4_0; }
+	}
+	public class DCaseConjunctionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dem.Dem.DCaseConjunction");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCaseKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cAliasKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cAliasesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cAliasesIDTerminalRuleCall_2_1_0 = (RuleCall)cAliasesAssignment_2_1.eContents().get(0);
+		private final Keyword cWhenKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cSelectorAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cSelectorDExpressionParserRuleCall_4_0 = (RuleCall)cSelectorAssignment_4.eContents().get(0);
+		private final Keyword cColonKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cPredicatesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cPredicatesDNamedPredicateParserRuleCall_6_0 = (RuleCall)cPredicatesAssignment_6.eContents().get(0);
+		
+		//DCaseConjunction:
+		//	'case'
+		//	name=ID ('alias' aliases+=ID)*
+		//	'when'
+		//	selector=DExpression
+		//	':'
+		//	predicates+=DNamedPredicate+;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'case' name=ID ('alias' aliases+=ID)* 'when' selector=DExpression ':' predicates+=DNamedPredicate+
+		public Group getGroup() { return cGroup; }
+		
+		//'case'
+		public Keyword getCaseKeyword_0() { return cCaseKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//('alias' aliases+=ID)*
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'alias'
+		public Keyword getAliasKeyword_2_0() { return cAliasKeyword_2_0; }
+		
+		//aliases+=ID
+		public Assignment getAliasesAssignment_2_1() { return cAliasesAssignment_2_1; }
+		
+		//ID
+		public RuleCall getAliasesIDTerminalRuleCall_2_1_0() { return cAliasesIDTerminalRuleCall_2_1_0; }
+		
+		//'when'
+		public Keyword getWhenKeyword_3() { return cWhenKeyword_3; }
+		
+		//selector=DExpression
+		public Assignment getSelectorAssignment_4() { return cSelectorAssignment_4; }
+		
+		//DExpression
+		public RuleCall getSelectorDExpressionParserRuleCall_4_0() { return cSelectorDExpressionParserRuleCall_4_0; }
+		
+		//':'
+		public Keyword getColonKeyword_5() { return cColonKeyword_5; }
+		
+		//predicates+=DNamedPredicate+
+		public Assignment getPredicatesAssignment_6() { return cPredicatesAssignment_6; }
+		
+		//DNamedPredicate
+		public RuleCall getPredicatesDNamedPredicateParserRuleCall_6_0() { return cPredicatesDNamedPredicateParserRuleCall_6_0; }
 	}
 	public class DNotificationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dem.Dem.DNotification");
@@ -497,43 +574,44 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	public class DActorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dem.Dem.DActor");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cDHumanParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cDTimeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDHumanActorRoleParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cDServiceParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//DActor:
-		//	DHuman | DTime;
+		//	DHumanActorRole | DService;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//DHuman | DTime
+		//DHumanActorRole | DService
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//DHuman
-		public RuleCall getDHumanParserRuleCall_0() { return cDHumanParserRuleCall_0; }
+		//DHumanActorRole
+		public RuleCall getDHumanActorRoleParserRuleCall_0() { return cDHumanActorRoleParserRuleCall_0; }
 		
-		//DTime
-		public RuleCall getDTimeParserRuleCall_1() { return cDTimeParserRuleCall_1; }
+		//DService
+		public RuleCall getDServiceParserRuleCall_1() { return cDServiceParserRuleCall_1; }
 	}
-	public class DHumanElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dem.Dem.DHuman");
+	public class DHumanActorRoleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dem.Dem.DHumanActorRole");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cHumanKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cActorKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cAliasKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cAliasesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cAliasesIDTerminalRuleCall_3_1_0 = (RuleCall)cAliasesAssignment_3_1.eContents().get(0);
-		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cDescriptionDRichTextParserRuleCall_4_0 = (RuleCall)cDescriptionAssignment_4.eContents().get(0);
+		private final Keyword cAsKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cAliasKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cAliasesAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cAliasesIDTerminalRuleCall_4_1_0 = (RuleCall)cAliasesAssignment_4_1.eContents().get(0);
+		private final Assignment cDescriptionAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cDescriptionDRichTextParserRuleCall_5_0 = (RuleCall)cDescriptionAssignment_5.eContents().get(0);
 		
-		//DHuman:
-		//	'human' 'actor'
+		//DHumanActorRole:
+		//	'human' 'actor' 'as'
 		//	name=ID ('alias' aliases+=ID)*
 		//	description=DRichText?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'human' 'actor' name=ID ('alias' aliases+=ID)* description=DRichText?
+		//'human' 'actor' 'as' name=ID ('alias' aliases+=ID)* description=DRichText?
 		public Group getGroup() { return cGroup; }
 		
 		//'human'
@@ -542,34 +620,37 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		//'actor'
 		public Keyword getActorKeyword_1() { return cActorKeyword_1; }
 		
+		//'as'
+		public Keyword getAsKeyword_2() { return cAsKeyword_2; }
+		
 		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 		
 		//('alias' aliases+=ID)*
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_4() { return cGroup_4; }
 		
 		//'alias'
-		public Keyword getAliasKeyword_3_0() { return cAliasKeyword_3_0; }
+		public Keyword getAliasKeyword_4_0() { return cAliasKeyword_4_0; }
 		
 		//aliases+=ID
-		public Assignment getAliasesAssignment_3_1() { return cAliasesAssignment_3_1; }
+		public Assignment getAliasesAssignment_4_1() { return cAliasesAssignment_4_1; }
 		
 		//ID
-		public RuleCall getAliasesIDTerminalRuleCall_3_1_0() { return cAliasesIDTerminalRuleCall_3_1_0; }
+		public RuleCall getAliasesIDTerminalRuleCall_4_1_0() { return cAliasesIDTerminalRuleCall_4_1_0; }
 		
 		//description=DRichText?
-		public Assignment getDescriptionAssignment_4() { return cDescriptionAssignment_4; }
+		public Assignment getDescriptionAssignment_5() { return cDescriptionAssignment_5; }
 		
 		//DRichText
-		public RuleCall getDescriptionDRichTextParserRuleCall_4_0() { return cDescriptionDRichTextParserRuleCall_4_0; }
+		public RuleCall getDescriptionDRichTextParserRuleCall_5_0() { return cDescriptionDRichTextParserRuleCall_5_0; }
 	}
-	public class DTimeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dem.Dem.DTime");
+	public class DServiceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dem.Dem.DService");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cTimeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cServiceKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cActorKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
@@ -580,17 +661,17 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_4_0 = (RuleCall)cDescriptionAssignment_4.eContents().get(0);
 		
-		//DTime:
-		//	'time' 'actor'
+		//DService:
+		//	'service' 'actor'
 		//	name=ID ('alias' aliases+=ID)*
 		//	description=DRichText?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'time' 'actor' name=ID ('alias' aliases+=ID)* description=DRichText?
+		//'service' 'actor' name=ID ('alias' aliases+=ID)* description=DRichText?
 		public Group getGroup() { return cGroup; }
 		
-		//'time'
-		public Keyword getTimeKeyword_0() { return cTimeKeyword_0; }
+		//'service'
+		public Keyword getServiceKeyword_0() { return cServiceKeyword_0; }
 		
 		//'actor'
 		public Keyword getActorKeyword_1() { return cActorKeyword_1; }
@@ -623,13 +704,14 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final DDomainElements pDDomain;
 	private final DDomainEventElements pDDomainEvent;
-	private final DConditionElements pDCondition;
+	private final DNamedPredicateElements pDNamedPredicate;
+	private final DCaseConjunctionElements pDCaseConjunction;
 	private final DNotificationElements pDNotification;
 	private final DMessageElements pDMessage;
 	private final DContextElements pDContext;
 	private final DActorElements pDActor;
-	private final DHumanElements pDHuman;
-	private final DTimeElements pDTime;
+	private final DHumanActorRoleElements pDHumanActorRole;
+	private final DServiceElements pDService;
 	
 	private final Grammar grammar;
 	
@@ -642,13 +724,14 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaDmx = gaDmx;
 		this.pDDomain = new DDomainElements();
 		this.pDDomainEvent = new DDomainEventElements();
-		this.pDCondition = new DConditionElements();
+		this.pDNamedPredicate = new DNamedPredicateElements();
+		this.pDCaseConjunction = new DCaseConjunctionElements();
 		this.pDNotification = new DNotificationElements();
 		this.pDMessage = new DMessageElements();
 		this.pDContext = new DContextElements();
 		this.pDActor = new DActorElements();
-		this.pDHuman = new DHumanElements();
-		this.pDTime = new DTimeElements();
+		this.pDHumanActorRole = new DHumanActorRoleElements();
+		this.pDService = new DServiceElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -698,9 +781,9 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	//	name=ID ('alias' aliases+=ID)*
 	//	description=DRichText?
 	//	'{'
-	//	'context' context+=DContext+
-	//	'triggered' 'by' trigger=[DActor] ('notifications' notifications+=DNotification+)? ('before' 'conditions'
-	//	before+=DCondition+)? ('after' 'conditions' after+=DCondition+)?
+	//	'context' context+=DContext+ ('triggered' 'by' trigger=[DActor])? ('notifications' notifications+=DNotification+)?
+	//	('preconditions' preconditionsCNF+=DNamedPredicate+)? ('postconditions' (postconditionsDNF+=DCaseConjunction+
+	//	| postconditionsDNF+=DNamedPredicate+))?
 	//	'}';
 	public DDomainEventElements getDDomainEventAccess() {
 		return pDDomainEvent;
@@ -710,17 +793,32 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		return getDDomainEventAccess().getRule();
 	}
 	
-	//DCondition:
+	//DNamedPredicate:
 	//	name=ID ('alias' aliases+=ID)*
 	//	':'
-	//	condition=DExpression
+	//	predicate=DExpression
 	//	description=DRichText?;
-	public DConditionElements getDConditionAccess() {
-		return pDCondition;
+	public DNamedPredicateElements getDNamedPredicateAccess() {
+		return pDNamedPredicate;
 	}
 	
-	public ParserRule getDConditionRule() {
-		return getDConditionAccess().getRule();
+	public ParserRule getDNamedPredicateRule() {
+		return getDNamedPredicateAccess().getRule();
+	}
+	
+	//DCaseConjunction:
+	//	'case'
+	//	name=ID ('alias' aliases+=ID)*
+	//	'when'
+	//	selector=DExpression
+	//	':'
+	//	predicates+=DNamedPredicate+;
+	public DCaseConjunctionElements getDCaseConjunctionAccess() {
+		return pDCaseConjunction;
+	}
+	
+	public ParserRule getDCaseConjunctionRule() {
+		return getDCaseConjunctionAccess().getRule();
 	}
 	
 	//DNotification:
@@ -760,7 +858,7 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DActor:
-	//	DHuman | DTime;
+	//	DHumanActorRole | DService;
 	public DActorElements getDActorAccess() {
 		return pDActor;
 	}
@@ -769,28 +867,28 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		return getDActorAccess().getRule();
 	}
 	
-	//DHuman:
-	//	'human' 'actor'
+	//DHumanActorRole:
+	//	'human' 'actor' 'as'
 	//	name=ID ('alias' aliases+=ID)*
 	//	description=DRichText?;
-	public DHumanElements getDHumanAccess() {
-		return pDHuman;
+	public DHumanActorRoleElements getDHumanActorRoleAccess() {
+		return pDHumanActorRole;
 	}
 	
-	public ParserRule getDHumanRule() {
-		return getDHumanAccess().getRule();
+	public ParserRule getDHumanActorRoleRule() {
+		return getDHumanActorRoleAccess().getRule();
 	}
 	
-	//DTime:
-	//	'time' 'actor'
+	//DService:
+	//	'service' 'actor'
 	//	name=ID ('alias' aliases+=ID)*
 	//	description=DRichText?;
-	public DTimeElements getDTimeAccess() {
-		return pDTime;
+	public DServiceElements getDServiceAccess() {
+		return pDService;
 	}
 	
-	public ParserRule getDTimeRule() {
-		return getDTimeAccess().getRule();
+	public ParserRule getDServiceRule() {
+		return getDServiceAccess().getRule();
 	}
 	
 	//DmxNamespace:
@@ -988,8 +1086,8 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxNavigableMemberReference DExpression:
-	//	DmxPrimaryExpression (=> ({DmxAssignment.precedingNavigationSegment=current} '.' assignToMember=[DNavigableMember]
-	//	DmxOpSingleAssign) value=DmxOrExpression
+	//	DmxPrimaryExpression (=> ({DmxAssignment.precedingNavigationSegment=current} '.'
+	//	assignToMember=[DNavigableMember] DmxOpSingleAssign) value=DmxOrExpression
 	//	| => ({DmxMemberNavigation.precedingNavigationSegment=current} '.') member=[DNavigableMember] (=>
 	//	explicitOperationCall?='(' (memberCallArguments+=DmxPredicate (',' memberCallArguments+=DmxPredicate)*)?
 	//	')'

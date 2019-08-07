@@ -6,6 +6,7 @@ package com.mimacom.ddd.sm.asm.impl;
 import com.mimacom.ddd.sm.asm.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -67,11 +68,51 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 		{
 			case AsmPackage.SAPPLICATION: return createSApplication();
 			case AsmPackage.SSERVICE_INTERFACE: return createSServiceInterface();
+			case AsmPackage.SEXCEPTION: return createSException();
 			case AsmPackage.SWATCHDOG: return createSWatchdog();
 			case AsmPackage.SHUMAN: return createSHuman();
 			case AsmPackage.SSERVICE_OPERATION: return createSServiceOperation();
+			case AsmPackage.SSERVICE_PARAMETER: return createSServiceParameter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue)
+	{
+		switch (eDataType.getClassifierID())
+		{
+			case AsmPackage.SSERVICE_KIND:
+				return createSServiceKindFromString(eDataType, initialValue);
+			case AsmPackage.SDIRECTION:
+				return createSDirectionFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue)
+	{
+		switch (eDataType.getClassifierID())
+		{
+			case AsmPackage.SSERVICE_KIND:
+				return convertSServiceKindToString(eDataType, instanceValue);
+			case AsmPackage.SDIRECTION:
+				return convertSDirectionToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -97,6 +138,18 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	{
 		SServiceInterfaceImpl sServiceInterface = new SServiceInterfaceImpl();
 		return sServiceInterface;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SException createSException()
+	{
+		SExceptionImpl sException = new SExceptionImpl();
+		return sException;
 	}
 
 	/**
@@ -133,6 +186,62 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	{
 		SServiceOperationImpl sServiceOperation = new SServiceOperationImpl();
 		return sServiceOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SServiceParameter createSServiceParameter()
+	{
+		SServiceParameterImpl sServiceParameter = new SServiceParameterImpl();
+		return sServiceParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SServiceKind createSServiceKindFromString(EDataType eDataType, String initialValue)
+	{
+		SServiceKind result = SServiceKind.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSServiceKindToString(EDataType eDataType, Object instanceValue)
+	{
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SDirection createSDirectionFromString(EDataType eDataType, String initialValue)
+	{
+		SDirection result = SDirection.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSDirectionToString(EDataType eDataType, Object instanceValue)
+	{
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

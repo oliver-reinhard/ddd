@@ -34,9 +34,6 @@ class DimFormatter extends DmxFormatter {
 		for (aggregate : domain.aggregates) {
 			aggregate.format
 		}
-		for (application : domain.applications) {
-			application.format
-		}
 	}
 	
 	def dispatch void format(DAggregate aggregate, extension IFormattableDocument document) {

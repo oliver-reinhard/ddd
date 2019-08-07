@@ -6,14 +6,13 @@ package com.mimacom.ddd.dm.dim.formatting2;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DComplexType;
-import com.mimacom.ddd.dm.base.DCondition;
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DEnumeration;
-import com.mimacom.ddd.dm.base.DExistingApplication;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DLiteral;
+import com.mimacom.ddd.dm.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DType;
@@ -62,10 +61,6 @@ public class DimFormatter extends DmxFormatter {
     EList<DAggregate> _aggregates = domain.getAggregates();
     for (final DAggregate aggregate : _aggregates) {
       document.<DAggregate>format(aggregate);
-    }
-    EList<DExistingApplication> _applications = domain.getApplications();
-    for (final DExistingApplication application : _applications) {
-      document.<DExistingApplication>format(application);
     }
   }
   
@@ -151,12 +146,12 @@ public class DimFormatter extends DmxFormatter {
       };
       document.<DFeature>append(feature, _function_3);
     }
-    EList<DCondition> _constraints = type.getConstraints();
-    for (final DCondition constraint : _constraints) {
+    EList<DNamedPredicate> _constraints = type.getConstraints();
+    for (final DNamedPredicate constraint : _constraints) {
       final Procedure1<IHiddenRegionFormatter> _function_4 = (IHiddenRegionFormatter it) -> {
         it.newLine();
       };
-      document.<DCondition>append(constraint, _function_4);
+      document.<DNamedPredicate>append(constraint, _function_4);
     }
   }
   

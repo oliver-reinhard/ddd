@@ -227,11 +227,11 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BasePackage.DCONDITION:
+			case BasePackage.DNAMED_PREDICATE:
 			{
-				DCondition dCondition = (DCondition)theEObject;
-				T result = caseDCondition(dCondition);
-				if (result == null) result = caseDNamedElement(dCondition);
+				DNamedPredicate dNamedPredicate = (DNamedPredicate)theEObject;
+				T result = caseDNamedPredicate(dNamedPredicate);
+				if (result == null) result = caseDNamedElement(dNamedPredicate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -440,6 +440,14 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case BasePackage.DCASE_CONJUNCTION:
+			{
+				DCaseConjunction dCaseConjunction = (DCaseConjunction)theEObject;
+				T result = caseDCaseConjunction(dCaseConjunction);
+				if (result == null) result = caseDNamedElement(dCaseConjunction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case BasePackage.DCONTEXT:
 			{
 				DContext dContext = (DContext)theEObject;
@@ -478,13 +486,13 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BasePackage.DHUMAN:
+			case BasePackage.DHUMAN_ACTOR_ROLE:
 			{
-				DHuman dHuman = (DHuman)theEObject;
-				T result = caseDHuman(dHuman);
-				if (result == null) result = caseDActor(dHuman);
-				if (result == null) result = caseIStaticReferenceTarget(dHuman);
-				if (result == null) result = caseDNamedElement(dHuman);
+				DHumanActorRole dHumanActorRole = (DHumanActorRole)theEObject;
+				T result = caseDHumanActorRole(dHumanActorRole);
+				if (result == null) result = caseDActor(dHumanActorRole);
+				if (result == null) result = caseIStaticReferenceTarget(dHumanActorRole);
+				if (result == null) result = caseDNamedElement(dHumanActorRole);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -493,49 +501,8 @@ public class BaseSwitch<T> extends Switch<T>
 				DService dService = (DService)theEObject;
 				T result = caseDService(dService);
 				if (result == null) result = caseDActor(dService);
-				if (result == null) result = caseITypeContainer(dService);
-				if (result == null) result = caseINavigableMemberContainer(dService);
 				if (result == null) result = caseIStaticReferenceTarget(dService);
-				if (result == null) result = caseINamespace(dService);
 				if (result == null) result = caseDNamedElement(dService);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BasePackage.DSERVICE_PARAMETER:
-			{
-				DServiceParameter dServiceParameter = (DServiceParameter)theEObject;
-				T result = caseDServiceParameter(dServiceParameter);
-				if (result == null) result = caseDNavigableMember(dServiceParameter);
-				if (result == null) result = caseDNamedElement(dServiceParameter);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BasePackage.DTIME:
-			{
-				DTime dTime = (DTime)theEObject;
-				T result = caseDTime(dTime);
-				if (result == null) result = caseDActor(dTime);
-				if (result == null) result = caseIStaticReferenceTarget(dTime);
-				if (result == null) result = caseDNamedElement(dTime);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BasePackage.DEXISTING_APPLICATION:
-			{
-				DExistingApplication dExistingApplication = (DExistingApplication)theEObject;
-				T result = caseDExistingApplication(dExistingApplication);
-				if (result == null) result = caseITypeContainer(dExistingApplication);
-				if (result == null) result = caseIStaticReferenceTarget(dExistingApplication);
-				if (result == null) result = caseDNamedElement(dExistingApplication);
-				if (result == null) result = caseINamespace(dExistingApplication);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BasePackage.DEXCEPTION:
-			{
-				DException dException = (DException)theEObject;
-				T result = caseDException(dException);
-				if (result == null) result = caseDNamedElement(dException);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -848,17 +815,17 @@ public class BaseSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DCondition</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>DNamed Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DCondition</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>DNamed Predicate</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDCondition(DCondition object)
+	public T caseDNamedPredicate(DNamedPredicate object)
 	{
 		return null;
 	}
@@ -1136,6 +1103,22 @@ public class BaseSwitch<T> extends Switch<T>
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DCase Conjunction</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DCase Conjunction</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDCaseConjunction(DCaseConjunction object)
+	{
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>DContext</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1200,17 +1183,17 @@ public class BaseSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DHuman</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>DHuman Actor Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DHuman</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>DHuman Actor Role</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDHuman(DHuman object)
+	public T caseDHumanActorRole(DHumanActorRole object)
 	{
 		return null;
 	}
@@ -1227,70 +1210,6 @@ public class BaseSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDService(DService object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DService Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DService Parameter</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDServiceParameter(DServiceParameter object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DTime</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DTime</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDTime(DTime object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DExisting Application</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DExisting Application</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDExistingApplication(DExistingApplication object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DException</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DException</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDException(DException object)
 	{
 		return null;
 	}

@@ -4,11 +4,11 @@
 package com.mimacom.ddd.dm.dmx.tests;
 
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DCondition;
 import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IRichTextSegment;
@@ -158,9 +158,9 @@ public class DmxScopingTest {
         this.checkExpression2(q2, expectedScope2, expectedScope4);
       }
       {
-        final DExpression c1 = IterableExtensions.<DCondition>head(detailA.getConstraints()).getCondition();
+        final DExpression c1 = IterableExtensions.<DNamedPredicate>head(detailA.getConstraints()).getPredicate();
         this.checkExpression1(c1, expectedScope1);
-        final DExpression c2 = detailA.getConstraints().get(1).getCondition();
+        final DExpression c2 = detailA.getConstraints().get(1).getPredicate();
         this.checkExpression2(c2, expectedScope2, expectedScope1);
       }
     } catch (Throwable _e) {
@@ -298,9 +298,9 @@ public class DmxScopingTest {
         this.checkExpression4(q2, expectedScope2, expectedScope4);
       }
       {
-        final DExpression c3 = IterableExtensions.<DCondition>head(detailA.getConstraints()).getCondition();
+        final DExpression c3 = IterableExtensions.<DNamedPredicate>head(detailA.getConstraints()).getPredicate();
         this.checkExpression3(c3, expectedScope1);
-        final DExpression c4 = detailA.getConstraints().get(1).getCondition();
+        final DExpression c4 = detailA.getConstraints().get(1).getPredicate();
         this.checkExpression4(c4, expectedScope2, expectedScope1);
       }
     } catch (Throwable _e) {

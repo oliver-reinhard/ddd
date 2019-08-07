@@ -5,12 +5,12 @@ package com.mimacom.ddd.sm.asm.scoping
 
 import com.google.common.collect.Lists
 import com.mimacom.ddd.dm.base.BasePackage
-import com.mimacom.ddd.dm.base.DServiceParameter
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.base.IDeductionDefinition
 import com.mimacom.ddd.dm.base.INavigableMemberContainer
 import com.mimacom.ddd.sm.asm.SServiceInterface
 import com.mimacom.ddd.sm.asm.SServiceOperation
+import com.mimacom.ddd.sm.asm.SServiceParameter
 import com.mimacom.ddd.sm.sim.SCoreQuery
 import com.mimacom.ddd.sm.sim.SInformationModel
 import java.util.List
@@ -32,7 +32,7 @@ class AsmScopeProvider extends AbstractAsmScopeProvider {
 
 	override getScope(EObject context, EReference reference) {
 
-		if (context instanceof DServiceParameter) {
+		if (context instanceof SServiceParameter) {
 			if (reference == BASE.DNavigableMember_Type) {
 				val service = EcoreUtil2.getContainerOfType(context, SServiceInterface)
 				return Scopes.scopeFor(EcoreUtil2.eAllOfType(service.interface, DType).filter[! (it instanceof IDeductionDefinition)], super.getScope(context, reference))

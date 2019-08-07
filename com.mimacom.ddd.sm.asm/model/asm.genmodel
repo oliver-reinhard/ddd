@@ -8,6 +8,14 @@
   <foreignModel>asm.ecore</foreignModel>
   <genPackages prefix="Asm" basePackage="com.mimacom.ddd.sm" disposableProviderFactory="true"
       fileExtensions="asm" ecorePackage="asm.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="asm.ecore#//SServiceKind">
+      <genEnumLiterals ecoreEnumLiteral="asm.ecore#//SServiceKind/SYNCHRONOUS"/>
+      <genEnumLiterals ecoreEnumLiteral="asm.ecore#//SServiceKind/ASYNCHRONOUS"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="asm.ecore#//SDirection">
+      <genEnumLiterals ecoreEnumLiteral="asm.ecore#//SDirection/INBOUND"/>
+      <genEnumLiterals ecoreEnumLiteral="asm.ecore#//SDirection/OUTBOUND"/>
+    </genEnums>
     <genClasses ecoreClass="asm.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//Model/imports"/>
     </genClasses>
@@ -22,6 +30,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//SServiceInterface/exceptions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//SServiceInterface/operations"/>
     </genClasses>
+    <genClasses ecoreClass="asm.ecore#//SException"/>
     <genClasses image="false" ecoreClass="asm.ecore#//SActor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asm.ecore#//SActor/name"/>
     </genClasses>
@@ -33,6 +42,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asm.ecore#//SServiceOperation/raises"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//SServiceOperation/guards"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asm.ecore#//SServiceOperation/effects"/>
+    </genClasses>
+    <genClasses ecoreClass="asm.ecore#//SServiceParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asm.ecore#//SServiceParameter/direction"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

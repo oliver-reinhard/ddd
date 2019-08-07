@@ -6,11 +6,9 @@ package com.mimacom.ddd.sm.asm.serializer;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DContext;
-import com.mimacom.ddd.dm.base.DException;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DRichText;
-import com.mimacom.ddd.dm.base.DServiceParameter;
 import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.dm.dmx.DmxAssignment;
@@ -43,9 +41,11 @@ import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.serializer.DmxSemanticSequencer;
 import com.mimacom.ddd.sm.asm.AsmPackage;
 import com.mimacom.ddd.sm.asm.SApplication;
+import com.mimacom.ddd.sm.asm.SException;
 import com.mimacom.ddd.sm.asm.SHuman;
 import com.mimacom.ddd.sm.asm.SServiceInterface;
 import com.mimacom.ddd.sm.asm.SServiceOperation;
+import com.mimacom.ddd.sm.asm.SServiceParameter;
 import com.mimacom.ddd.sm.asm.SWatchdog;
 import com.mimacom.ddd.sm.asm.services.AsmGrammarAccess;
 import java.util.Set;
@@ -75,6 +75,9 @@ public class AsmSemanticSequencer extends DmxSemanticSequencer {
 			case AsmPackage.SAPPLICATION:
 				sequence_SApplication(context, (SApplication) semanticObject); 
 				return; 
+			case AsmPackage.SEXCEPTION:
+				sequence_SException(context, (SException) semanticObject); 
+				return; 
 			case AsmPackage.SHUMAN:
 				sequence_SHuman(context, (SHuman) semanticObject); 
 				return; 
@@ -83,6 +86,9 @@ public class AsmSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case AsmPackage.SSERVICE_OPERATION:
 				sequence_SServiceOperation(context, (SServiceOperation) semanticObject); 
+				return; 
+			case AsmPackage.SSERVICE_PARAMETER:
+				sequence_SServiceParameter(context, (SServiceParameter) semanticObject); 
 				return; 
 			case AsmPackage.SWATCHDOG:
 				sequence_SWatchdog(context, (SWatchdog) semanticObject); 
@@ -100,9 +106,6 @@ public class AsmSemanticSequencer extends DmxSemanticSequencer {
 					return; 
 				}
 				else break;
-			case BasePackage.DEXCEPTION:
-				sequence_DException(context, (DException) semanticObject); 
-				return; 
 			case BasePackage.DIMPORT:
 				sequence_DImport(context, (DImport) semanticObject); 
 				return; 
@@ -111,9 +114,6 @@ public class AsmSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case BasePackage.DRICH_TEXT:
 				sequence_DRichText(context, (DRichText) semanticObject); 
-				return; 
-			case BasePackage.DSERVICE_PARAMETER:
-				sequence_DServiceParameter(context, (DServiceParameter) semanticObject); 
 				return; 
 			case BasePackage.DTEXT_SEGMENT:
 				if (rule == grammarAccess.getDmxTextEndRule()) {
@@ -255,30 +255,6 @@ public class AsmSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DException returns DException
-	 *
-	 * Constraint:
-	 *     (name=ID description=DRichText?)
-	 */
-	protected void sequence_DException(ISerializationContext context, DException semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DServiceParameter returns DServiceParameter
-	 *
-	 * Constraint:
-	 *     (direction=DDirection name=ID type=[DType|ID] multiplicity=DMultiplicity? description=DRichText?)
-	 */
-	protected void sequence_DServiceParameter(ISerializationContext context, DServiceParameter semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Model returns SApplication
 	 *     SApplication returns SApplication
 	 *
@@ -286,6 +262,18 @@ public class AsmSemanticSequencer extends DmxSemanticSequencer {
 	 *     (imports+=DImport* name=DQualifiedName model=[SInformationModel|DQualifiedName] actors+=SActor*)
 	 */
 	protected void sequence_SApplication(ISerializationContext context, SApplication semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SException returns SException
+	 *
+	 * Constraint:
+	 *     (name=ID description=DRichText?)
+	 */
+	protected void sequence_SException(ISerializationContext context, SException semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -320,7 +308,7 @@ public class AsmSemanticSequencer extends DmxSemanticSequencer {
 	 *         name=DQualifiedName 
 	 *         interface=[SInformationModel|DQualifiedName] 
 	 *         core=[SInformationModel|DQualifiedName] 
-	 *         exceptions+=DException* 
+	 *         exceptions+=SException* 
 	 *         operations+=SServiceOperation*
 	 *     )
 	 */
@@ -336,13 +324,25 @@ public class AsmSemanticSequencer extends DmxSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         (parameters+=DServiceParameter parameters+=DServiceParameter*)? 
-	 *         (raises+=[DException|ID] raises+=[DException|ID]*)? 
+	 *         (parameters+=SServiceParameter parameters+=SServiceParameter*)? 
+	 *         (raises+=[SException|ID] raises+=[SException|ID]*)? 
 	 *         guards+=DExpression* 
 	 *         effects+=DExpression*
 	 *     )
 	 */
 	protected void sequence_SServiceOperation(ISerializationContext context, SServiceOperation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SServiceParameter returns SServiceParameter
+	 *
+	 * Constraint:
+	 *     (direction=SDirection name=ID type=[DType|ID] multiplicity=DMultiplicity? description=DRichText?)
+	 */
+	protected void sequence_SServiceParameter(ISerializationContext context, SServiceParameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

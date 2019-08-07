@@ -4,14 +4,16 @@
 package com.mimacom.ddd.dm.dem.formatting2
 
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DCondition
+import com.mimacom.ddd.dm.base.DCaseConjunction
 import com.mimacom.ddd.dm.base.DContext
 import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.base.DDomainEvent
+import com.mimacom.ddd.dm.base.DNamedElement
 import com.mimacom.ddd.dm.dem.services.DemGrammarAccess
 import com.mimacom.ddd.dm.dmx.formatting2.DmxFormatter
 import java.util.List
 import org.eclipse.xtext.formatting2.IFormattableDocument
+import com.mimacom.ddd.dm.base.DNamedPredicate
 
 class DemFormatter extends  DmxFormatter {
 	
@@ -39,7 +41,7 @@ class DemFormatter extends  DmxFormatter {
 	
 	def dispatch void format(DDomainEvent event, extension IFormattableDocument document) {
 		val open = event.regionFor.keyword(DDomainEventAccess.leftCurlyBracketKeyword_4)
-		val close = event.regionFor.keyword(DDomainEventAccess.rightCurlyBracketKeyword_13)
+		val close = event.regionFor.keyword(DDomainEventAccess.rightCurlyBracketKeyword_11)
 		open.append[newLines = 2]
 		interior(open, close) [indent]
 		
@@ -52,35 +54,47 @@ class DemFormatter extends  DmxFormatter {
 		}
 		
 		// Trigger
-		event.regionFor.keyword(DDomainEventAccess.triggeredKeyword_7).prepend[newLines=2]
- 		event.regionFor.assignment(DDomainEventAccess.triggerAssignment_9).append[newLines = 2]
+		event.regionFor.keyword(DDomainEventAccess.triggeredKeyword_7_0).prepend[newLines=2]
+ 		event.regionFor.assignment(DDomainEventAccess.triggerAssignment_7_2).append[newLines = 2]
 		
 		// Notifications
-		event.regionFor.keyword(DDomainEventAccess.notificationsKeyword_10_0).append[newLine]
+		event.regionFor.keyword(DDomainEventAccess.notificationsKeyword_8_0).append[newLine]
 		for (n : event.notifications) {
 			n.regionFor.keyword(DNotificationAccess.colonKeyword_2).surround[oneSpace]
 			n.surround[indent]
 			n.append[if (n == event.notifications.last) newLines=2 else newLine]
 		}
 		
-		// Before conditions
-		event.regionFor.keyword(DDomainEventAccess.conditionsKeyword_11_1).append[newLine]
-		format(event.before, document)
+		// Preconditions
+		event.regionFor.keyword(DDomainEventAccess.preconditionsKeyword_9_0).append[newLine]
+		format(event.preconditionsCNF, document)
 		
-		// Before conditions
-		event.regionFor.keyword(DDomainEventAccess.conditionsKeyword_12_1).append[newLine]
-		format(event.after, document)
+		// Postconditions
+		event.regionFor.keyword(DDomainEventAccess.postconditionsKeyword_10_0).append[newLine]
+		format(event.postconditionsDNF, document)
 	}
 	
-	def dispatch void format(List<DCondition> conditions, extension IFormattableDocument document) {
-		for (c : conditions) {
-			c.surround[indent]
-			val colon = c.regionFor.keyword(DConditionAccess.colonKeyword_2)
+	def dispatch void format(List<DNamedElement> elements, extension IFormattableDocument document) {
+		for (e : elements) {
+			e.surround[indent]
+			e.format(document)
+			e.append[newLines=2]
+		}
+	}
+	def dispatch void format(DNamedPredicate p, extension IFormattableDocument document) {
+			val colon = p.regionFor.keyword(DNamedPredicateAccess.colonKeyword_2)
 			colon.prepend[noSpace]
 			colon.append[newLine]
-			c.condition.surround[indent]
-			c.append[newLines=2]
-		}
+			p.getPredicate.surround[indent]
+	}
+	
+	def dispatch void format(DCaseConjunction c, extension IFormattableDocument document) {
+			val when = c.regionFor.keyword(DCaseConjunctionAccess.whenKeyword_3)
+			when.prepend[newLine]
+			val colon = c.regionFor.keyword(DCaseConjunctionAccess.colonKeyword_5)
+			colon.prepend[noSpace]
+			colon.append[newLine]
+			format(c.predicates, document)
 	}
 	
 	def dispatch void format(DContext context, extension IFormattableDocument document) {

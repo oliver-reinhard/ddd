@@ -16,7 +16,6 @@ import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DQuery;
-import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.dmx.DmxAssignment;
@@ -194,12 +193,6 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
       if (container instanceof DAggregate) {
         _matched=true;
         _switchResult = Scopes.scopeFor(((DAggregate)container).getStaticQueries(), outerScope);
-      }
-    }
-    if (!_matched) {
-      if (container instanceof DService) {
-        _matched=true;
-        _switchResult = Scopes.scopeFor(((DService)container).getParameters(), outerScope);
       }
     }
     if (!_matched) {

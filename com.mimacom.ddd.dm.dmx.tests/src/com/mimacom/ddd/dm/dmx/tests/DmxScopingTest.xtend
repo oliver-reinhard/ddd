@@ -91,9 +91,9 @@ class DmxScopingTest {
 		}
 		
 		{ // Constraint Expressions
-			val c1 = detailA.constraints.head.condition
+			val c1 = detailA.constraints.head.getPredicate
 			c1.checkExpression1(expectedScope1)
-			val c2 =detailA.constraints.get(1).condition
+			val c2 =detailA.constraints.get(1).getPredicate
 			c2.checkExpression2(expectedScope2, expectedScope1)
 		}
 	}
@@ -169,9 +169,9 @@ class DmxScopingTest {
 		}
 		
 		{ // Constraint Expressions
-			val c3 = detailA.constraints.head.condition
+			val c3 = detailA.constraints.head.getPredicate
 			c3.checkExpression3(expectedScope1)
-			val c4 =detailA.constraints.get(1).condition
+			val c4 =detailA.constraints.get(1).getPredicate
 			c4.checkExpression4(expectedScope2, expectedScope1)
 		}
 	}

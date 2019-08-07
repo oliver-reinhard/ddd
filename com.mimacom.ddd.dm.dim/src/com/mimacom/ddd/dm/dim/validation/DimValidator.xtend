@@ -10,25 +10,22 @@ import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DComplexType
-import com.mimacom.ddd.dm.base.DCondition
 import com.mimacom.ddd.dm.base.DContext
 import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.base.DDomainEvent
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
-import com.mimacom.ddd.dm.base.DException
-import com.mimacom.ddd.dm.base.DExistingApplication
 import com.mimacom.ddd.dm.base.DFeature
+import com.mimacom.ddd.dm.base.DIdentityOrigin
 import com.mimacom.ddd.dm.base.DIdentityType
 import com.mimacom.ddd.dm.base.DLiteral
 import com.mimacom.ddd.dm.base.DMultiplicity
 import com.mimacom.ddd.dm.base.DNamedElement
+import com.mimacom.ddd.dm.base.DNamedPredicate
 import com.mimacom.ddd.dm.base.DNotification
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQueryParameter
 import com.mimacom.ddd.dm.base.DRelationship
-import com.mimacom.ddd.dm.base.DServiceParameter
-import com.mimacom.ddd.dm.base.DTime
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.base.IValueType
 import com.mimacom.ddd.dm.dim.DimUtil
@@ -146,7 +143,14 @@ class DimValidator extends AbstractDimValidator {
 	}
 
 	@Check
-	def checkAssocitionToRootType(DAssociation a) {
+	def checkRealWorldEntityType(DEntityType e) {
+		if(e.origin == DIdentityOrigin.REAL_WORLD_OBJECT && e.abstract) {
+			error('Entity Types representng real-world objects cannot be abstract', e, BasePackage.Literals.DCOMPLEX_TYPE__ABSTRACT)
+		}
+	}
+
+	@Check
+	def checkAssocitionToEntityType(DAssociation a) {
 		if(! (a.getType instanceof DEntityType)) {
 			error('Refererenced type is not an EntityType', a, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE)
 		}
@@ -164,21 +168,6 @@ class DimValidator extends AbstractDimValidator {
 	def checkParameterIsValueType(DQueryParameter p) {
 		if(! (p.getType instanceof IValueType || p.getType == p.eContainer)) {
 			error('Refererenced type is not a ValueType nor the query\'s own container', p, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE)
-		}
-	}
-
-	@Check
-	def checkParameterIsValueType(DServiceParameter p) {
-		if(! (p.getType instanceof IValueType)) {
-			error('Refererenced type is not a ValueType', p, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE)
-		}
-	}
-
-// // Actors
-	@Check
-	def checkTimeCannotBeNotified(DNotification n) {
-		if(n.notified instanceof DTime) {
-			error("Time cannot be notified", n, BasePackage.Literals.DNOTIFICATION__NOTIFIED)
 		}
 	}
 
@@ -212,23 +201,13 @@ class DimValidator extends AbstractDimValidator {
 	}
 
 	@Check
-	def void checkTypeNameStartsWithCapital(DCondition c) {
+	def void checkTypeNameStartsWithCapital(DNamedPredicate c) {
 		checkNameStartsWithCapital(c)
 	}
 
 	@Check
 	def void checkTypeNameStartsWithCapital(DActor a) {
 		checkNameStartsWithCapital(a)
-	}
-
-	@Check
-	def void checkTypeNameStartsWithCapital(DExistingApplication ea) {
-		checkNameStartsWithCapital(ea)
-	}
-
-	@Check
-	def void checkTypeNameStartsWithCapital(DException e) {
-		checkNameStartsWithCapital(e)
 	}
 
 	@Check
@@ -257,11 +236,6 @@ class DimValidator extends AbstractDimValidator {
 
 	@Check
 	def void checkFeatureNameStartsWithLowercase(DQueryParameter p) {
-		checkNameStartsWithLowercase(p)
-	}
-
-	@Check
-	def void checkFeatureNameStartsWithLowercase(DServiceParameter p) {
 		checkNameStartsWithLowercase(p)
 	}
 

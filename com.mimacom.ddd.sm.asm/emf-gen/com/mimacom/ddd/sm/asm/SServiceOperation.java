@@ -3,9 +3,7 @@
  */
 package com.mimacom.ddd.sm.asm;
 
-import com.mimacom.ddd.dm.base.DException;
 import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DServiceParameter;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
 import org.eclipse.emf.common.util.EList;
@@ -56,7 +54,7 @@ public interface SServiceOperation extends INavigableMemberContainer
 
 	/**
 	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DServiceParameter}.
+	 * The list contents are of type {@link com.mimacom.ddd.sm.asm.SServiceParameter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameters</em>' containment reference list.
@@ -64,11 +62,11 @@ public interface SServiceOperation extends INavigableMemberContainer
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<DServiceParameter> getParameters();
+	EList<SServiceParameter> getParameters();
 
 	/**
 	 * Returns the value of the '<em><b>Raises</b></em>' reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DException}.
+	 * The list contents are of type {@link com.mimacom.ddd.sm.asm.SException}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Raises</em>' reference list.
@@ -76,7 +74,7 @@ public interface SServiceOperation extends INavigableMemberContainer
 	 * @model
 	 * @generated
 	 */
-	EList<DException> getRaises();
+	EList<SException> getRaises();
 
 	/**
 	 * Returns the value of the '<em><b>Guards</b></em>' containment reference list.

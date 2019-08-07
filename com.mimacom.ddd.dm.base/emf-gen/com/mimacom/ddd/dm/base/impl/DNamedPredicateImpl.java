@@ -3,8 +3,8 @@
 package com.mimacom.ddd.dm.base.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DCondition;
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DNamedPredicate;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -16,35 +16,35 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>DCondition</b></em>'.
+ * An implementation of the model object '<em><b>DNamed Predicate</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DConditionImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DNamedPredicateImpl#getPredicate <em>Predicate</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DConditionImpl extends DNamedElementImpl implements DCondition
+public class DNamedPredicateImpl extends DNamedElementImpl implements DNamedPredicate
 {
 	/**
-	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
+	 * The cached value of the '{@link #getPredicate() <em>Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCondition()
+	 * @see #getPredicate()
 	 * @generated
 	 * @ordered
 	 */
-	protected DExpression condition;
+	protected DExpression predicate;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DConditionImpl()
+	protected DNamedPredicateImpl()
 	{
 		super();
 	}
@@ -57,7 +57,7 @@ public class DConditionImpl extends DNamedElementImpl implements DCondition
 	@Override
 	protected EClass eStaticClass()
 	{
-		return BasePackage.Literals.DCONDITION;
+		return BasePackage.Literals.DNAMED_PREDICATE;
 	}
 
 	/**
@@ -66,9 +66,9 @@ public class DConditionImpl extends DNamedElementImpl implements DCondition
 	 * @generated
 	 */
 	@Override
-	public DExpression getCondition()
+	public DExpression getPredicate()
 	{
-		return condition;
+		return predicate;
 	}
 
 	/**
@@ -76,13 +76,13 @@ public class DConditionImpl extends DNamedElementImpl implements DCondition
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCondition(DExpression newCondition, NotificationChain msgs)
+	public NotificationChain basicSetPredicate(DExpression newPredicate, NotificationChain msgs)
 	{
-		DExpression oldCondition = condition;
-		condition = newCondition;
+		DExpression oldPredicate = predicate;
+		predicate = newPredicate;
 		if (eNotificationRequired())
 		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasePackage.DCONDITION__CONDITION, oldCondition, newCondition);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BasePackage.DNAMED_PREDICATE__PREDICATE, oldPredicate, newPredicate);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -94,20 +94,20 @@ public class DConditionImpl extends DNamedElementImpl implements DCondition
 	 * @generated
 	 */
 	@Override
-	public void setCondition(DExpression newCondition)
+	public void setPredicate(DExpression newPredicate)
 	{
-		if (newCondition != condition)
+		if (newPredicate != predicate)
 		{
 			NotificationChain msgs = null;
-			if (condition != null)
-				msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasePackage.DCONDITION__CONDITION, null, msgs);
-			if (newCondition != null)
-				msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasePackage.DCONDITION__CONDITION, null, msgs);
-			msgs = basicSetCondition(newCondition, msgs);
+			if (predicate != null)
+				msgs = ((InternalEObject)predicate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BasePackage.DNAMED_PREDICATE__PREDICATE, null, msgs);
+			if (newPredicate != null)
+				msgs = ((InternalEObject)newPredicate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BasePackage.DNAMED_PREDICATE__PREDICATE, null, msgs);
+			msgs = basicSetPredicate(newPredicate, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DCONDITION__CONDITION, newCondition, newCondition));
+			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DNAMED_PREDICATE__PREDICATE, newPredicate, newPredicate));
 	}
 
 	/**
@@ -120,8 +120,8 @@ public class DConditionImpl extends DNamedElementImpl implements DCondition
 	{
 		switch (featureID)
 		{
-			case BasePackage.DCONDITION__CONDITION:
-				return basicSetCondition(null, msgs);
+			case BasePackage.DNAMED_PREDICATE__PREDICATE:
+				return basicSetPredicate(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -136,8 +136,8 @@ public class DConditionImpl extends DNamedElementImpl implements DCondition
 	{
 		switch (featureID)
 		{
-			case BasePackage.DCONDITION__CONDITION:
-				return getCondition();
+			case BasePackage.DNAMED_PREDICATE__PREDICATE:
+				return getPredicate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -152,8 +152,8 @@ public class DConditionImpl extends DNamedElementImpl implements DCondition
 	{
 		switch (featureID)
 		{
-			case BasePackage.DCONDITION__CONDITION:
-				setCondition((DExpression)newValue);
+			case BasePackage.DNAMED_PREDICATE__PREDICATE:
+				setPredicate((DExpression)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -169,8 +169,8 @@ public class DConditionImpl extends DNamedElementImpl implements DCondition
 	{
 		switch (featureID)
 		{
-			case BasePackage.DCONDITION__CONDITION:
-				setCondition((DExpression)null);
+			case BasePackage.DNAMED_PREDICATE__PREDICATE:
+				setPredicate((DExpression)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -186,10 +186,10 @@ public class DConditionImpl extends DNamedElementImpl implements DCondition
 	{
 		switch (featureID)
 		{
-			case BasePackage.DCONDITION__CONDITION:
-				return condition != null;
+			case BasePackage.DNAMED_PREDICATE__PREDICATE:
+				return predicate != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //DConditionImpl
+} //DNamedPredicateImpl

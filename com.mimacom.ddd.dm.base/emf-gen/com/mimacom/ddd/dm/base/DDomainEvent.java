@@ -13,11 +13,11 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.DDomainEvent#getBefore <em>Before</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.DDomainEvent#getAfter <em>After</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.DDomainEvent#getTrigger <em>Trigger</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.DDomainEvent#getNotifications <em>Notifications</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomainEvent#getContext <em>Context</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DDomainEvent#getTrigger <em>Trigger</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DDomainEvent#getPreconditionsCNF <em>Preconditions CNF</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DDomainEvent#getPostconditionsDNF <em>Postconditions DNF</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DDomainEvent#getNotifications <em>Notifications</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.base.BasePackage#getDDomainEvent()
@@ -27,28 +27,16 @@ import org.eclipse.emf.common.util.EList;
 public interface DDomainEvent extends DNamedElement, INavigableMemberContainer, IStaticReferenceTarget
 {
 	/**
-	 * Returns the value of the '<em><b>Before</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DCondition}.
+	 * Returns the value of the '<em><b>Context</b></em>' containment reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DContext}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Before</em>' containment reference list.
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomainEvent_Before()
-	 * @model containment="true"
+	 * @return the value of the '<em>Context</em>' containment reference list.
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomainEvent_Context()
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<DCondition> getBefore();
-
-	/**
-	 * Returns the value of the '<em><b>After</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DCondition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>After</em>' containment reference list.
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomainEvent_After()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<DCondition> getAfter();
+	EList<DContext> getContext();
 
 	/**
 	 * Returns the value of the '<em><b>Trigger</b></em>' reference.
@@ -73,6 +61,30 @@ public interface DDomainEvent extends DNamedElement, INavigableMemberContainer, 
 	void setTrigger(DActor value);
 
 	/**
+	 * Returns the value of the '<em><b>Preconditions CNF</b></em>' containment reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DNamedPredicate}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Preconditions CNF</em>' containment reference list.
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomainEvent_PreconditionsCNF()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DNamedPredicate> getPreconditionsCNF();
+
+	/**
+	 * Returns the value of the '<em><b>Postconditions DNF</b></em>' containment reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DNamedElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Postconditions DNF</em>' containment reference list.
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomainEvent_PostconditionsDNF()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DNamedElement> getPostconditionsDNF();
+
+	/**
 	 * Returns the value of the '<em><b>Notifications</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DNotification}.
 	 * <!-- begin-user-doc -->
@@ -83,17 +95,5 @@ public interface DDomainEvent extends DNamedElement, INavigableMemberContainer, 
 	 * @generated
 	 */
 	EList<DNotification> getNotifications();
-
-	/**
-	 * Returns the value of the '<em><b>Context</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DContext}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Context</em>' containment reference list.
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomainEvent_Context()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	EList<DContext> getContext();
 
 } // DDomainEvent

@@ -10,7 +10,6 @@ import com.mimacom.ddd.dm.base.DNamedElement
 import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DNotification
 import com.mimacom.ddd.dm.base.DPrimitive
-import com.mimacom.ddd.dm.base.DService
 import com.mimacom.ddd.dm.dmx.DmxArchetype
 import com.mimacom.ddd.dm.dmx.DmxBaseType
 import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral
@@ -93,9 +92,6 @@ class DmxTypeComputer {
 		} else if (target instanceof DNotification) {
 			return createDescriptor(target, false)
 			
-		} else if (target instanceof DService) {
-			return createDescriptor(target, false)
-			
 		} else if (target instanceof DNavigableMember) {
 			return createDescriptor(target.type, expr.all)
 			
@@ -151,7 +147,6 @@ class DmxTypeComputer {
 			DEnumeration: new DmxEnumerationDescriptor(e)
 			DComplexType: new DmxComplexTypeDescriptor(e, collection, util)
 			DAggregate: new DmxAggregateDescriptor(e)
-			DService: new DmxServiceDescriptor(e)
 			DNotification: new DmxNotificationDescriptor(e)
 			default: UNDEFINED
 		}

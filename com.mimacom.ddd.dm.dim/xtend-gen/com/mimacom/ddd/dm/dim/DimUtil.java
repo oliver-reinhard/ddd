@@ -5,13 +5,13 @@ import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAssociationKind;
 import com.mimacom.ddd.dm.base.DComplexType;
-import com.mimacom.ddd.dm.base.DCondition;
 import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DLiteral;
+import com.mimacom.ddd.dm.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DType;
@@ -209,7 +209,7 @@ public class DimUtil extends DmxUtil {
     return (_plus + _label);
   }
   
-  public String label(final DCondition c) {
+  public String label(final DNamedPredicate c) {
     String _name = c.getName();
     return ("Constraint " + _name);
   }

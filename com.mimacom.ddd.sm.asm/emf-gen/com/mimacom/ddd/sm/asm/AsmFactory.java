@@ -42,6 +42,15 @@ public interface AsmFactory extends EFactory
 	SServiceInterface createSServiceInterface();
 
 	/**
+	 * Returns a new object of class '<em>SException</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>SException</em>'.
+	 * @generated
+	 */
+	SException createSException();
+
+	/**
 	 * Returns a new object of class '<em>SWatchdog</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,6 +76,15 @@ public interface AsmFactory extends EFactory
 	 * @generated
 	 */
 	SServiceOperation createSServiceOperation();
+
+	/**
+	 * Returns a new object of class '<em>SService Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>SService Parameter</em>'.
+	 * @generated
+	 */
+	SServiceParameter createSServiceParameter();
 
 	/**
 	 * Returns the package supported by this factory.

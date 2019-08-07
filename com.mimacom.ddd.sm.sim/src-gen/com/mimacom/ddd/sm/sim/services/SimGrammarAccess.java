@@ -1574,6 +1574,45 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
 	}
+	public class DEntityTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.DEntityType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cAbstractAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cAbstractAbstractKeyword_0_0 = (Keyword)cAbstractAssignment_0.eContents().get(0);
+		private final Assignment cRootAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cRootRootKeyword_1_0 = (Keyword)cRootAssignment_1.eContents().get(0);
+		private final Keyword cEntityKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final RuleCall cDComplexTypeParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		
+		//@Override
+		//DEntityType:
+		//	abstract?='abstract'?
+		//	root?='root'?
+		//	'entity'
+		//	DComplexType;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//abstract?='abstract'? root?='root'? 'entity' DComplexType
+		public Group getGroup() { return cGroup; }
+		
+		//abstract?='abstract'?
+		public Assignment getAbstractAssignment_0() { return cAbstractAssignment_0; }
+		
+		//'abstract'
+		public Keyword getAbstractAbstractKeyword_0_0() { return cAbstractAbstractKeyword_0_0; }
+		
+		//root?='root'?
+		public Assignment getRootAssignment_1() { return cRootAssignment_1; }
+		
+		//'root'
+		public Keyword getRootRootKeyword_1_0() { return cRootRootKeyword_1_0; }
+		
+		//'entity'
+		public Keyword getEntityKeyword_2() { return cEntityKeyword_2; }
+		
+		//DComplexType
+		public RuleCall getDComplexTypeParserRuleCall_3() { return cDComplexTypeParserRuleCall_3; }
+	}
 	public class DComplexTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sim.Sim.DComplexType");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -2605,6 +2644,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	private final SEntityTypeDeductionElements pSEntityTypeDeduction;
 	private final SDetailTypeDeductionElements pSDetailTypeDeduction;
 	private final SComplexTypeFeaturesElements pSComplexTypeFeatures;
+	private final DEntityTypeElements pDEntityType;
 	private final DComplexTypeElements pDComplexType;
 	private final FeatureElements pFeature;
 	private final SAssociationDeductionElements pSAssociationDeduction;
@@ -2662,6 +2702,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSEntityTypeDeduction = new SEntityTypeDeductionElements();
 		this.pSDetailTypeDeduction = new SDetailTypeDeductionElements();
 		this.pSComplexTypeFeatures = new SComplexTypeFeaturesElements();
+		this.pDEntityType = new DEntityTypeElements();
 		this.pDComplexType = new DComplexTypeElements();
 		this.pFeature = new FeatureElements();
 		this.pSAssociationDeduction = new SAssociationDeductionElements();
@@ -3098,6 +3139,20 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//@Override
+	//DEntityType:
+	//	abstract?='abstract'?
+	//	root?='root'?
+	//	'entity'
+	//	DComplexType;
+	public DEntityTypeElements getDEntityTypeAccess() {
+		return pDEntityType;
+	}
+	
+	public ParserRule getDEntityTypeRule() {
+		return getDEntityTypeAccess().getRule();
+	}
+	
+	//@Override
 	//fragment DComplexType:
 	//	name=ID ('alias' aliases+=ID)* ('extends' superType=[DComplexType])?
 	//	description=DRichText?
@@ -3222,8 +3277,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	//	imports+=DImport*
 	//	'domain'
 	//	name=DQualifiedName ('alias' aliases+=ID)*
-	//	description=DRichText? (types+=DType | aggregates+=super::DAggregate | applications+=DExistingApplication |
-	//	actors+=DService)*;
+	//	description=DRichText? (types+=DType | aggregates+=super::DAggregate)*;
 	public DimGrammarAccess.DDomainElements getDDomainAccess() {
 		return gaDim.getDDomainAccess();
 	}
@@ -3235,7 +3289,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	///*
 	// * TYPES
 	// */ DType:
-	//	DPrimitive | super::DEnumeration | DEntityType | DRelationship | DDetailType;
+	//	DPrimitive | super::DEnumeration | super::DEntityType | DRelationship | DDetailType;
 	public DimGrammarAccess.DTypeElements getDTypeAccess() {
 		return gaDim.getDTypeAccess();
 	}
@@ -3244,11 +3298,11 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		return getDTypeAccess().getRule();
 	}
 	
-	//DConstraint DCondition:
+	//DConstraint DNamedPredicate:
 	//	'constraint'
 	//	name=ID ('alias' aliases+=ID)*
 	//	':'
-	//	condition=DExpression
+	//	predicate=DExpression
 	//	description=DRichText?;
 	public DimGrammarAccess.DConstraintElements getDConstraintAccess() {
 		return gaDim.getDConstraintAccess();
@@ -3283,22 +3337,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		return getDLiteralAccess().getRule();
 	}
 	
-	//DEntityType:
-	//	abstract?='abstract'?
-	//	root?='root'?
-	//	'entity'
-	//	super::DComplexType;
-	public DimGrammarAccess.DEntityTypeElements getDEntityTypeAccess() {
-		return gaDim.getDEntityTypeAccess();
-	}
-	
-	public ParserRule getDEntityTypeRule() {
-		return getDEntityTypeAccess().getRule();
-	}
-	
 	//DRelationship:
-	//	abstract?='abstract'?
-	//	root?='root'?
+	//	abstract?='abstract'? (root?='root' | root?='main')?
 	//	'relationship'
 	//	super::DComplexType;
 	public DimGrammarAccess.DRelationshipElements getDRelationshipAccess() {
@@ -3307,6 +3347,36 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDRelationshipRule() {
 		return getDRelationshipAccess().getRule();
+	}
+	
+	//enum DIdentityOriginObject returns DIdentityOrigin:
+	//	REAL_WORLD_OBJECT='object';
+	public DimGrammarAccess.DIdentityOriginObjectElements getDIdentityOriginObjectAccess() {
+		return gaDim.getDIdentityOriginObjectAccess();
+	}
+	
+	public EnumRule getDIdentityOriginObjectRule() {
+		return getDIdentityOriginObjectAccess().getRule();
+	}
+	
+	//enum DIdentityOriginConcept returns DIdentityOrigin:
+	//	VIRTUAL_CONCEPT='concept';
+	public DimGrammarAccess.DIdentityOriginConceptElements getDIdentityOriginConceptAccess() {
+		return gaDim.getDIdentityOriginConceptAccess();
+	}
+	
+	public EnumRule getDIdentityOriginConceptRule() {
+		return getDIdentityOriginConceptAccess().getRule();
+	}
+	
+	//enum DIdentityOriginGeneric returns DIdentityOrigin:
+	//	GENERIC_ENTITY='entity';
+	public DimGrammarAccess.DIdentityOriginGenericElements getDIdentityOriginGenericAccess() {
+		return gaDim.getDIdentityOriginGenericAccess();
+	}
+	
+	public EnumRule getDIdentityOriginGenericRule() {
+		return getDIdentityOriginGenericAccess().getRule();
 	}
 	
 	//DDetailType:
@@ -3332,7 +3402,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DAssociation:
-	//	derived?='derived'? (kind=DAssociationKind | kind=DAssociationKindInverse "composite") name=ID ('alias' aliases+=ID)*
+	//	derived?='derived'? (kind=DAssociationKind | kind=DAssociationKindInverse "contains") name=ID ('alias' aliases+=ID)*
 	//	':'
 	//	type=[DEntityType] multiplicity=DMultiplicity?
 	//	description=DRichText?;
@@ -3345,7 +3415,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum DAssociationKind:
-	//	REFERENCE="reference" | COMPOSITE="composite";
+	//	REFERENCE="references" | COMPOSITE="contains";
 	public DimGrammarAccess.DAssociationKindElements getDAssociationKindAccess() {
 		return gaDim.getDAssociationKindAccess();
 	}
@@ -3389,84 +3459,6 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDQueryParameterRule() {
 		return getDQueryParameterAccess().getRule();
-	}
-	
-	///*
-	// * EXISTING APPLICATIONS
-	// */ DExistingApplication:
-	//	'application'
-	//	name=ID
-	//	description=DRichText?
-	//	'{' (services+=DService | exceptions+=DException | types+=DType)*
-	//	'}';
-	public DimGrammarAccess.DExistingApplicationElements getDExistingApplicationAccess() {
-		return gaDim.getDExistingApplicationAccess();
-	}
-	
-	public ParserRule getDExistingApplicationRule() {
-		return getDExistingApplicationAccess().getRule();
-	}
-	
-	//DService:
-	//	kind=DServiceKind? 'service'
-	//	name=ID ('(' (parameters+=DServiceParameter ("," parameters+=DServiceParameter)*)? ')')? ('raises'
-	//	raises+=[DException] ("," raises+=[DException])*)?
-	//	description=DRichText?
-	//	'{' ('guard' guards+=DExpression)* ('effect' effects+=DExpression)*
-	//	types+=DType*
-	//	'}';
-	public DimGrammarAccess.DServiceElements getDServiceAccess() {
-		return gaDim.getDServiceAccess();
-	}
-	
-	public ParserRule getDServiceRule() {
-		return getDServiceAccess().getRule();
-	}
-	
-	//DServiceParameter:
-	//	direction=DDirection
-	//	name=ID
-	//	':'
-	//	type=[DType] multiplicity=DMultiplicity?
-	//	description=DRichText?;
-	public DimGrammarAccess.DServiceParameterElements getDServiceParameterAccess() {
-		return gaDim.getDServiceParameterAccess();
-	}
-	
-	public ParserRule getDServiceParameterRule() {
-		return getDServiceParameterAccess().getRule();
-	}
-	
-	//DException:
-	//	'exception'
-	//	name=ID
-	//	description=DRichText?;
-	public DimGrammarAccess.DExceptionElements getDExceptionAccess() {
-		return gaDim.getDExceptionAccess();
-	}
-	
-	public ParserRule getDExceptionRule() {
-		return getDExceptionAccess().getRule();
-	}
-	
-	//enum DServiceKind:
-	//	SYNCHRONOUS='synchronous' | ASYNCHRONOUS='async';
-	public DimGrammarAccess.DServiceKindElements getDServiceKindAccess() {
-		return gaDim.getDServiceKindAccess();
-	}
-	
-	public EnumRule getDServiceKindRule() {
-		return getDServiceKindAccess().getRule();
-	}
-	
-	//enum DDirection:
-	//	INBOUND='in' | OUTBOUND='out';
-	public DimGrammarAccess.DDirectionElements getDDirectionAccess() {
-		return gaDim.getDDirectionAccess();
-	}
-	
-	public EnumRule getDDirectionRule() {
-		return getDDirectionAccess().getRule();
 	}
 	
 	//DmxNamespace:

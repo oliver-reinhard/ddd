@@ -202,13 +202,15 @@ class SimValidator extends AbstractSimValidator {
 	}
 	
 	@Check
-	override checkAssocitionToRootType(DAssociation a) {
+//	override 
+	def checkAssocitionToRootType(DAssociation a) {
 		if (a instanceof IDeductionDefinition) {
 			return
 		}
-		if (! a.synthetic && (! (a.getType instanceof DEntityType && (a.getType as DEntityType).root)))  {
-			super.checkAssocitionToRootType(a)
-		} else if(a.synthetic) {
+//		if (! a.synthetic && (! (a.getType instanceof DEntityType && (a.getType as DEntityType).root)))  {
+//			super.checkAssocitionToRootType(a)
+//		} else
+		if(a.synthetic) {
 			if(a.getType === null) {
 				errorOnStructuralElement(a,  getDescription(a) + ": no mapping rule for type")
 			} else if(! (a.getType instanceof IIdentityType)) {

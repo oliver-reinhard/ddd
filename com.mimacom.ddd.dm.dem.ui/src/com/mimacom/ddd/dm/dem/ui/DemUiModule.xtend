@@ -3,11 +3,23 @@
  */
 package com.mimacom.ddd.dm.dem.ui
 
+import com.mimacom.ddd.dm.dem.ui.highlighting.DemHighlightingConfiguration
+import com.mimacom.ddd.dm.dem.ui.highlighting.DemSemanticHighlightingCalculator
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
+import org.eclipse.xtext.ide.editor.syntaxcoloring.ISemanticHighlightingCalculator
+import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.
  */
 @FinalFieldsConstructor
 class DemUiModule extends AbstractDemUiModule {
+	
+	def Class<? extends ISemanticHighlightingCalculator> bindSemanticHighlightingCalculator() {
+		return DemSemanticHighlightingCalculator
+	}
+	
+	def Class<? extends IHighlightingConfiguration> bindHighlightingConfiguration() {
+		return DemHighlightingConfiguration
+	}
 }

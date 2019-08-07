@@ -192,7 +192,14 @@ fragment SComplexTypeFeatures returns DComplexType:
 	'{'
 		(features+=Feature | constraints+=DConstraint)*
 	'}';
-	
+
+@Override 
+DEntityType:
+	(abstract?='abstract')?
+	(root?='root')?
+	'entity'
+	DComplexType;
+		
 @Override 
 fragment DComplexType:
 	name=ID

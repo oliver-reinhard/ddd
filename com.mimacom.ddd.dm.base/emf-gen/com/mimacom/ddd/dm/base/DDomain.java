@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getAggregates <em>Aggregates</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getStateModels <em>State Models</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getApplications <em>Applications</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getEvents <em>Events</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getActors <em>Actors</em>}</li>
  * </ul>
@@ -62,18 +61,6 @@ public interface DDomain extends DNamedElement, ITypeContainer, IStaticReference
 	 * @generated
 	 */
 	EList<IIdentityStateModel> getStateModels();
-
-	/**
-	 * Returns the value of the '<em><b>Applications</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DExistingApplication}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Applications</em>' containment reference list.
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomain_Applications()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<DExistingApplication> getApplications();
 
 	/**
 	 * Returns the value of the '<em><b>Events</b></em>' containment reference list.

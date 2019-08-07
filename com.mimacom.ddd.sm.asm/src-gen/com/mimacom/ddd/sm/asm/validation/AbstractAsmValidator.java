@@ -17,8 +17,8 @@ public abstract class AbstractAsmValidator extends DmxValidator {
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>(super.getEPackages());
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/sm/asm"));
-		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/dm/base"));
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/dm/dmx"));
+		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/dm/base"));
 		return result;
 	}
 }

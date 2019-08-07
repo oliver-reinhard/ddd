@@ -25,7 +25,7 @@ public interface DType extends DNamedElement, IDeducibleElement, IStaticReferenc
 {
 	/**
 	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DCondition}.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DNamedPredicate}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Constraints</em>' containment reference list.
@@ -33,7 +33,7 @@ public interface DType extends DNamedElement, IDeducibleElement, IStaticReferenc
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<DCondition> getConstraints();
+	EList<DNamedPredicate> getConstraints();
 
 	/**
 	 * Returns the value of the '<em><b>Primitive</b></em>' attribute.

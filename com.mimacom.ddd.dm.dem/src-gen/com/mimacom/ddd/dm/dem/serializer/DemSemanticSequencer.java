@@ -5,18 +5,19 @@ package com.mimacom.ddd.dm.dem.serializer;
 
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DCondition;
+import com.mimacom.ddd.dm.base.DCaseConjunction;
 import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DDomainEvent;
-import com.mimacom.ddd.dm.base.DHuman;
+import com.mimacom.ddd.dm.base.DHumanActorRole;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DMessage;
 import com.mimacom.ddd.dm.base.DMultiplicity;
+import com.mimacom.ddd.dm.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DTextSegment;
-import com.mimacom.ddd.dm.base.DTime;
 import com.mimacom.ddd.dm.dem.services.DemGrammarAccess;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.dm.dmx.DmxAssignment;
@@ -69,8 +70,8 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == BasePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case BasePackage.DCONDITION:
-				sequence_DCondition(context, (DCondition) semanticObject); 
+			case BasePackage.DCASE_CONJUNCTION:
+				sequence_DCaseConjunction(context, (DCaseConjunction) semanticObject); 
 				return; 
 			case BasePackage.DCONTEXT:
 				if (rule == grammarAccess.getDContextRule()) {
@@ -92,8 +93,8 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 			case BasePackage.DDOMAIN_EVENT:
 				sequence_DDomainEvent(context, (DDomainEvent) semanticObject); 
 				return; 
-			case BasePackage.DHUMAN:
-				sequence_DHuman(context, (DHuman) semanticObject); 
+			case BasePackage.DHUMAN_ACTOR_ROLE:
+				sequence_DHumanActorRole(context, (DHumanActorRole) semanticObject); 
 				return; 
 			case BasePackage.DIMPORT:
 				sequence_DImport(context, (DImport) semanticObject); 
@@ -104,11 +105,17 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 			case BasePackage.DMULTIPLICITY:
 				sequence_DMultiplicity(context, (DMultiplicity) semanticObject); 
 				return; 
+			case BasePackage.DNAMED_PREDICATE:
+				sequence_DNamedPredicate(context, (DNamedPredicate) semanticObject); 
+				return; 
 			case BasePackage.DNOTIFICATION:
 				sequence_DNotification(context, (DNotification) semanticObject); 
 				return; 
 			case BasePackage.DRICH_TEXT:
 				sequence_DRichText(context, (DRichText) semanticObject); 
+				return; 
+			case BasePackage.DSERVICE:
+				sequence_DService(context, (DService) semanticObject); 
 				return; 
 			case BasePackage.DTEXT_SEGMENT:
 				if (rule == grammarAccess.getDmxTextEndRule()) {
@@ -128,9 +135,6 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 					return; 
 				}
 				else break;
-			case BasePackage.DTIME:
-				sequence_DTime(context, (DTime) semanticObject); 
-				return; 
 			}
 		else if (epackage == DmxPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
@@ -253,12 +257,12 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DCondition returns DCondition
+	 *     DCaseConjunction returns DCaseConjunction
 	 *
 	 * Constraint:
-	 *     (name=ID aliases+=ID* condition=DExpression description=DRichText?)
+	 *     (name=ID aliases+=ID* selector=DExpression predicates+=DNamedPredicate+)
 	 */
-	protected void sequence_DCondition(ISerializationContext context, DCondition semanticObject) {
+	protected void sequence_DCaseConjunction(ISerializationContext context, DCaseConjunction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -285,10 +289,10 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *         aliases+=ID* 
 	 *         description=DRichText? 
 	 *         context+=DContext+ 
-	 *         trigger=[DActor|ID] 
+	 *         trigger=[DActor|ID]? 
 	 *         notifications+=DNotification* 
-	 *         before+=DCondition* 
-	 *         after+=DCondition*
+	 *         preconditionsCNF+=DNamedPredicate* 
+	 *         (postconditionsDNF+=DCaseConjunction+ | postconditionsDNF+=DNamedPredicate+)?
 	 *     )
 	 */
 	protected void sequence_DDomainEvent(ISerializationContext context, DDomainEvent semanticObject) {
@@ -310,13 +314,13 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DActor returns DHuman
-	 *     DHuman returns DHuman
+	 *     DActor returns DHumanActorRole
+	 *     DHumanActorRole returns DHumanActorRole
 	 *
 	 * Constraint:
 	 *     (name=ID aliases+=ID* description=DRichText?)
 	 */
-	protected void sequence_DHuman(ISerializationContext context, DHuman semanticObject) {
+	protected void sequence_DHumanActorRole(ISerializationContext context, DHumanActorRole semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -335,6 +339,18 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     DNamedPredicate returns DNamedPredicate
+	 *
+	 * Constraint:
+	 *     (name=ID aliases+=ID* predicate=DExpression description=DRichText?)
+	 */
+	protected void sequence_DNamedPredicate(ISerializationContext context, DNamedPredicate semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     DNotification returns DNotification
 	 *
 	 * Constraint:
@@ -347,13 +363,13 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DActor returns DTime
-	 *     DTime returns DTime
+	 *     DActor returns DService
+	 *     DService returns DService
 	 *
 	 * Constraint:
 	 *     (name=ID aliases+=ID* description=DRichText?)
 	 */
-	protected void sequence_DTime(ISerializationContext context, DTime semanticObject) {
+	protected void sequence_DService(ISerializationContext context, DService semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -3,7 +3,6 @@
  */
 package com.mimacom.ddd.sm.asm;
 
-import com.mimacom.ddd.dm.base.DException;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
 import com.mimacom.ddd.sm.sim.SInformationModel;
@@ -77,7 +76,7 @@ public interface SServiceInterface extends Model, INavigableMemberContainer
 
 	/**
 	 * Returns the value of the '<em><b>Exceptions</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DException}.
+	 * The list contents are of type {@link com.mimacom.ddd.sm.asm.SException}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Exceptions</em>' containment reference list.
@@ -85,7 +84,7 @@ public interface SServiceInterface extends Model, INavigableMemberContainer
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<DException> getExceptions();
+	EList<SException> getExceptions();
 
 	/**
 	 * Returns the value of the '<em><b>Operations</b></em>' containment reference list.

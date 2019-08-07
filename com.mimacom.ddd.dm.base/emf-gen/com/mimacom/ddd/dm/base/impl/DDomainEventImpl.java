@@ -4,9 +4,10 @@ package com.mimacom.ddd.dm.base.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DActor;
-import com.mimacom.ddd.dm.base.DCondition;
 import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DDomainEvent;
+import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.DNotification;
 
 import java.util.Collection;
@@ -32,11 +33,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainEventImpl#getBefore <em>Before</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainEventImpl#getAfter <em>After</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainEventImpl#getTrigger <em>Trigger</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainEventImpl#getNotifications <em>Notifications</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainEventImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainEventImpl#getTrigger <em>Trigger</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainEventImpl#getPreconditionsCNF <em>Preconditions CNF</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainEventImpl#getPostconditionsDNF <em>Postconditions DNF</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainEventImpl#getNotifications <em>Notifications</em>}</li>
  * </ul>
  *
  * @generated
@@ -44,24 +45,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 {
 	/**
-	 * The cached value of the '{@link #getBefore() <em>Before</em>}' containment reference list.
+	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBefore()
+	 * @see #getContext()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DCondition> before;
-
-	/**
-	 * The cached value of the '{@link #getAfter() <em>After</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAfter()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DCondition> after;
+	protected EList<DContext> context;
 
 	/**
 	 * The cached value of the '{@link #getTrigger() <em>Trigger</em>}' reference.
@@ -74,6 +65,26 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	protected DActor trigger;
 
 	/**
+	 * The cached value of the '{@link #getPreconditionsCNF() <em>Preconditions CNF</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPreconditionsCNF()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DNamedPredicate> preconditionsCNF;
+
+	/**
+	 * The cached value of the '{@link #getPostconditionsDNF() <em>Postconditions DNF</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPostconditionsDNF()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DNamedElement> postconditionsDNF;
+
+	/**
 	 * The cached value of the '{@link #getNotifications() <em>Notifications</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,16 +93,6 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	 * @ordered
 	 */
 	protected EList<DNotification> notifications;
-
-	/**
-	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContext()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DContext> context;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -120,28 +121,13 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	 * @generated
 	 */
 	@Override
-	public EList<DCondition> getBefore()
+	public EList<DContext> getContext()
 	{
-		if (before == null)
+		if (context == null)
 		{
-			before = new EObjectContainmentEList<DCondition>(DCondition.class, this, BasePackage.DDOMAIN_EVENT__BEFORE);
+			context = new EObjectContainmentEList<DContext>(DContext.class, this, BasePackage.DDOMAIN_EVENT__CONTEXT);
 		}
-		return before;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<DCondition> getAfter()
-	{
-		if (after == null)
-		{
-			after = new EObjectContainmentEList<DCondition>(DCondition.class, this, BasePackage.DDOMAIN_EVENT__AFTER);
-		}
-		return after;
+		return context;
 	}
 
 	/**
@@ -195,6 +181,36 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	 * @generated
 	 */
 	@Override
+	public EList<DNamedPredicate> getPreconditionsCNF()
+	{
+		if (preconditionsCNF == null)
+		{
+			preconditionsCNF = new EObjectContainmentEList<DNamedPredicate>(DNamedPredicate.class, this, BasePackage.DDOMAIN_EVENT__PRECONDITIONS_CNF);
+		}
+		return preconditionsCNF;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<DNamedElement> getPostconditionsDNF()
+	{
+		if (postconditionsDNF == null)
+		{
+			postconditionsDNF = new EObjectContainmentEList<DNamedElement>(DNamedElement.class, this, BasePackage.DDOMAIN_EVENT__POSTCONDITIONS_DNF);
+		}
+		return postconditionsDNF;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<DNotification> getNotifications()
 	{
 		if (notifications == null)
@@ -210,33 +226,18 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	 * @generated
 	 */
 	@Override
-	public EList<DContext> getContext()
-	{
-		if (context == null)
-		{
-			context = new EObjectContainmentEList<DContext>(DContext.class, this, BasePackage.DDOMAIN_EVENT__CONTEXT);
-		}
-		return context;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
 		switch (featureID)
 		{
-			case BasePackage.DDOMAIN_EVENT__BEFORE:
-				return ((InternalEList<?>)getBefore()).basicRemove(otherEnd, msgs);
-			case BasePackage.DDOMAIN_EVENT__AFTER:
-				return ((InternalEList<?>)getAfter()).basicRemove(otherEnd, msgs);
-			case BasePackage.DDOMAIN_EVENT__NOTIFICATIONS:
-				return ((InternalEList<?>)getNotifications()).basicRemove(otherEnd, msgs);
 			case BasePackage.DDOMAIN_EVENT__CONTEXT:
 				return ((InternalEList<?>)getContext()).basicRemove(otherEnd, msgs);
+			case BasePackage.DDOMAIN_EVENT__PRECONDITIONS_CNF:
+				return ((InternalEList<?>)getPreconditionsCNF()).basicRemove(otherEnd, msgs);
+			case BasePackage.DDOMAIN_EVENT__POSTCONDITIONS_DNF:
+				return ((InternalEList<?>)getPostconditionsDNF()).basicRemove(otherEnd, msgs);
+			case BasePackage.DDOMAIN_EVENT__NOTIFICATIONS:
+				return ((InternalEList<?>)getNotifications()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -251,17 +252,17 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	{
 		switch (featureID)
 		{
-			case BasePackage.DDOMAIN_EVENT__BEFORE:
-				return getBefore();
-			case BasePackage.DDOMAIN_EVENT__AFTER:
-				return getAfter();
+			case BasePackage.DDOMAIN_EVENT__CONTEXT:
+				return getContext();
 			case BasePackage.DDOMAIN_EVENT__TRIGGER:
 				if (resolve) return getTrigger();
 				return basicGetTrigger();
+			case BasePackage.DDOMAIN_EVENT__PRECONDITIONS_CNF:
+				return getPreconditionsCNF();
+			case BasePackage.DDOMAIN_EVENT__POSTCONDITIONS_DNF:
+				return getPostconditionsDNF();
 			case BasePackage.DDOMAIN_EVENT__NOTIFICATIONS:
 				return getNotifications();
-			case BasePackage.DDOMAIN_EVENT__CONTEXT:
-				return getContext();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -277,24 +278,24 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	{
 		switch (featureID)
 		{
-			case BasePackage.DDOMAIN_EVENT__BEFORE:
-				getBefore().clear();
-				getBefore().addAll((Collection<? extends DCondition>)newValue);
-				return;
-			case BasePackage.DDOMAIN_EVENT__AFTER:
-				getAfter().clear();
-				getAfter().addAll((Collection<? extends DCondition>)newValue);
+			case BasePackage.DDOMAIN_EVENT__CONTEXT:
+				getContext().clear();
+				getContext().addAll((Collection<? extends DContext>)newValue);
 				return;
 			case BasePackage.DDOMAIN_EVENT__TRIGGER:
 				setTrigger((DActor)newValue);
 				return;
+			case BasePackage.DDOMAIN_EVENT__PRECONDITIONS_CNF:
+				getPreconditionsCNF().clear();
+				getPreconditionsCNF().addAll((Collection<? extends DNamedPredicate>)newValue);
+				return;
+			case BasePackage.DDOMAIN_EVENT__POSTCONDITIONS_DNF:
+				getPostconditionsDNF().clear();
+				getPostconditionsDNF().addAll((Collection<? extends DNamedElement>)newValue);
+				return;
 			case BasePackage.DDOMAIN_EVENT__NOTIFICATIONS:
 				getNotifications().clear();
 				getNotifications().addAll((Collection<? extends DNotification>)newValue);
-				return;
-			case BasePackage.DDOMAIN_EVENT__CONTEXT:
-				getContext().clear();
-				getContext().addAll((Collection<? extends DContext>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -310,20 +311,20 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	{
 		switch (featureID)
 		{
-			case BasePackage.DDOMAIN_EVENT__BEFORE:
-				getBefore().clear();
-				return;
-			case BasePackage.DDOMAIN_EVENT__AFTER:
-				getAfter().clear();
+			case BasePackage.DDOMAIN_EVENT__CONTEXT:
+				getContext().clear();
 				return;
 			case BasePackage.DDOMAIN_EVENT__TRIGGER:
 				setTrigger((DActor)null);
 				return;
+			case BasePackage.DDOMAIN_EVENT__PRECONDITIONS_CNF:
+				getPreconditionsCNF().clear();
+				return;
+			case BasePackage.DDOMAIN_EVENT__POSTCONDITIONS_DNF:
+				getPostconditionsDNF().clear();
+				return;
 			case BasePackage.DDOMAIN_EVENT__NOTIFICATIONS:
 				getNotifications().clear();
-				return;
-			case BasePackage.DDOMAIN_EVENT__CONTEXT:
-				getContext().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -339,16 +340,16 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	{
 		switch (featureID)
 		{
-			case BasePackage.DDOMAIN_EVENT__BEFORE:
-				return before != null && !before.isEmpty();
-			case BasePackage.DDOMAIN_EVENT__AFTER:
-				return after != null && !after.isEmpty();
-			case BasePackage.DDOMAIN_EVENT__TRIGGER:
-				return trigger != null;
-			case BasePackage.DDOMAIN_EVENT__NOTIFICATIONS:
-				return notifications != null && !notifications.isEmpty();
 			case BasePackage.DDOMAIN_EVENT__CONTEXT:
 				return context != null && !context.isEmpty();
+			case BasePackage.DDOMAIN_EVENT__TRIGGER:
+				return trigger != null;
+			case BasePackage.DDOMAIN_EVENT__PRECONDITIONS_CNF:
+				return preconditionsCNF != null && !preconditionsCNF.isEmpty();
+			case BasePackage.DDOMAIN_EVENT__POSTCONDITIONS_DNF:
+				return postconditionsDNF != null && !postconditionsDNF.isEmpty();
+			case BasePackage.DDOMAIN_EVENT__NOTIFICATIONS:
+				return notifications != null && !notifications.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

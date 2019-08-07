@@ -4,6 +4,7 @@
 package com.mimacom.ddd.sm.asm.util;
 
 import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
@@ -96,6 +97,11 @@ public class AsmAdapterFactory extends AdapterFactoryImpl
 				return createSServiceInterfaceAdapter();
 			}
 			@Override
+			public Adapter caseSException(SException object)
+			{
+				return createSExceptionAdapter();
+			}
+			@Override
 			public Adapter caseSActor(SActor object)
 			{
 				return createSActorAdapter();
@@ -116,6 +122,11 @@ public class AsmAdapterFactory extends AdapterFactoryImpl
 				return createSServiceOperationAdapter();
 			}
 			@Override
+			public Adapter caseSServiceParameter(SServiceParameter object)
+			{
+				return createSServiceParameterAdapter();
+			}
+			@Override
 			public Adapter caseDNamedElement(DNamedElement object)
 			{
 				return createDNamedElementAdapter();
@@ -134,6 +145,11 @@ public class AsmAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseINavigableMemberContainer(INavigableMemberContainer object)
 			{
 				return createINavigableMemberContainerAdapter();
+			}
+			@Override
+			public Adapter caseDNavigableMember(DNavigableMember object)
+			{
+				return createDNavigableMemberAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object)
@@ -203,6 +219,21 @@ public class AsmAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.SException <em>SException</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.sm.asm.SException
+	 * @generated
+	 */
+	public Adapter createSExceptionAdapter()
+	{
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.SActor <em>SActor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -263,6 +294,21 @@ public class AsmAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.asm.SServiceParameter <em>SService Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.sm.asm.SServiceParameter
+	 * @generated
+	 */
+	public Adapter createSServiceParameterAdapter()
+	{
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamedElement <em>DNamed Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -318,6 +364,21 @@ public class AsmAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createINavigableMemberContainerAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNavigableMember <em>DNavigable Member</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DNavigableMember
+	 * @generated
+	 */
+	public Adapter createDNavigableMemberAdapter()
 	{
 		return null;
 	}

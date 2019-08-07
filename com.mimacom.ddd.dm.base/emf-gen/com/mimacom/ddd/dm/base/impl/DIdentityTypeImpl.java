@@ -3,6 +3,7 @@
 package com.mimacom.ddd.dm.base.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
+import com.mimacom.ddd.dm.base.DIdentityOrigin;
 import com.mimacom.ddd.dm.base.DIdentityType;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -20,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DIdentityTypeImpl#isRoot <em>Root</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DIdentityTypeImpl#getOrigin <em>Origin</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,6 +47,26 @@ public abstract class DIdentityTypeImpl extends DComplexTypeImplCustom implement
 	 * @ordered
 	 */
 	protected boolean root = ROOT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOrigin() <em>Origin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrigin()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final DIdentityOrigin ORIGIN_EDEFAULT = DIdentityOrigin.REAL_WORLD_OBJECT;
+
+	/**
+	 * The cached value of the '{@link #getOrigin() <em>Origin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrigin()
+	 * @generated
+	 * @ordered
+	 */
+	protected DIdentityOrigin origin = ORIGIN_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -98,12 +120,39 @@ public abstract class DIdentityTypeImpl extends DComplexTypeImplCustom implement
 	 * @generated
 	 */
 	@Override
+	public DIdentityOrigin getOrigin()
+	{
+		return origin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setOrigin(DIdentityOrigin newOrigin)
+	{
+		DIdentityOrigin oldOrigin = origin;
+		origin = newOrigin == null ? ORIGIN_EDEFAULT : newOrigin;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DIDENTITY_TYPE__ORIGIN, oldOrigin, origin));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
 		switch (featureID)
 		{
 			case BasePackage.DIDENTITY_TYPE__ROOT:
 				return isRoot();
+			case BasePackage.DIDENTITY_TYPE__ORIGIN:
+				return getOrigin();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -120,6 +169,9 @@ public abstract class DIdentityTypeImpl extends DComplexTypeImplCustom implement
 		{
 			case BasePackage.DIDENTITY_TYPE__ROOT:
 				setRoot((Boolean)newValue);
+				return;
+			case BasePackage.DIDENTITY_TYPE__ORIGIN:
+				setOrigin((DIdentityOrigin)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -138,6 +190,9 @@ public abstract class DIdentityTypeImpl extends DComplexTypeImplCustom implement
 			case BasePackage.DIDENTITY_TYPE__ROOT:
 				setRoot(ROOT_EDEFAULT);
 				return;
+			case BasePackage.DIDENTITY_TYPE__ORIGIN:
+				setOrigin(ORIGIN_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -154,6 +209,8 @@ public abstract class DIdentityTypeImpl extends DComplexTypeImplCustom implement
 		{
 			case BasePackage.DIDENTITY_TYPE__ROOT:
 				return root != ROOT_EDEFAULT;
+			case BasePackage.DIDENTITY_TYPE__ORIGIN:
+				return origin != ORIGIN_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -171,6 +228,8 @@ public abstract class DIdentityTypeImpl extends DComplexTypeImplCustom implement
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (root: ");
 		result.append(root);
+		result.append(", origin: ");
+		result.append(origin);
 		result.append(')');
 		return result.toString();
 	}

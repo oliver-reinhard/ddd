@@ -3,12 +3,12 @@
  */
 package com.mimacom.ddd.sm.asm.impl;
 
-import com.mimacom.ddd.dm.base.DException;
 import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DServiceParameter;
 
 import com.mimacom.ddd.sm.asm.AsmPackage;
+import com.mimacom.ddd.sm.asm.SException;
 import com.mimacom.ddd.sm.asm.SServiceOperation;
+import com.mimacom.ddd.sm.asm.SServiceParameter;
 
 import java.util.Collection;
 
@@ -74,7 +74,7 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DServiceParameter> parameters;
+	protected EList<SServiceParameter> parameters;
 
 	/**
 	 * The cached value of the '{@link #getRaises() <em>Raises</em>}' reference list.
@@ -84,7 +84,7 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DException> raises;
+	protected EList<SException> raises;
 
 	/**
 	 * The cached value of the '{@link #getGuards() <em>Guards</em>}' containment reference list.
@@ -158,11 +158,11 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public EList<DServiceParameter> getParameters()
+	public EList<SServiceParameter> getParameters()
 	{
 		if (parameters == null)
 		{
-			parameters = new EObjectContainmentEList<DServiceParameter>(DServiceParameter.class, this, AsmPackage.SSERVICE_OPERATION__PARAMETERS);
+			parameters = new EObjectContainmentEList<SServiceParameter>(SServiceParameter.class, this, AsmPackage.SSERVICE_OPERATION__PARAMETERS);
 		}
 		return parameters;
 	}
@@ -173,11 +173,11 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public EList<DException> getRaises()
+	public EList<SException> getRaises()
 	{
 		if (raises == null)
 		{
-			raises = new EObjectResolvingEList<DException>(DException.class, this, AsmPackage.SSERVICE_OPERATION__RAISES);
+			raises = new EObjectResolvingEList<SException>(SException.class, this, AsmPackage.SSERVICE_OPERATION__RAISES);
 		}
 		return raises;
 	}
@@ -272,11 +272,11 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 				return;
 			case AsmPackage.SSERVICE_OPERATION__PARAMETERS:
 				getParameters().clear();
-				getParameters().addAll((Collection<? extends DServiceParameter>)newValue);
+				getParameters().addAll((Collection<? extends SServiceParameter>)newValue);
 				return;
 			case AsmPackage.SSERVICE_OPERATION__RAISES:
 				getRaises().clear();
-				getRaises().addAll((Collection<? extends DException>)newValue);
+				getRaises().addAll((Collection<? extends SException>)newValue);
 				return;
 			case AsmPackage.SSERVICE_OPERATION__GUARDS:
 				getGuards().clear();

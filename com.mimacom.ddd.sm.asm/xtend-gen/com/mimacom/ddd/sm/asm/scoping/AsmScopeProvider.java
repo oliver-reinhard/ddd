@@ -7,12 +7,12 @@ import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DServiceParameter;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.sm.asm.SServiceInterface;
 import com.mimacom.ddd.sm.asm.SServiceOperation;
+import com.mimacom.ddd.sm.asm.SServiceParameter;
 import com.mimacom.ddd.sm.asm.scoping.AbstractAsmScopeProvider;
 import com.mimacom.ddd.sm.sim.SCoreQuery;
 import com.mimacom.ddd.sm.sim.SInformationModel;
@@ -39,7 +39,7 @@ public class AsmScopeProvider extends AbstractAsmScopeProvider {
   public IScope getScope(final EObject context, final EReference reference) {
     IScope _xblockexpression = null;
     {
-      if ((context instanceof DServiceParameter)) {
+      if ((context instanceof SServiceParameter)) {
         EReference _dNavigableMember_Type = AsmScopeProvider.BASE.getDNavigableMember_Type();
         boolean _equals = Objects.equal(reference, _dNavigableMember_Type);
         if (_equals) {

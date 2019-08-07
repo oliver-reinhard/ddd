@@ -6,11 +6,11 @@ package com.mimacom.ddd.dm.dmx.scoping
 import com.google.common.collect.Lists
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.BasePackage
+import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DDomainEvent
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DQuery
-import com.mimacom.ddd.dm.base.DService
 import com.mimacom.ddd.dm.base.INavigableMemberContainer
 import com.mimacom.ddd.dm.dmx.DmxAssignment
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.EReference
 import org.eclipse.emf.ecore.EcoreFactory
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
-import com.mimacom.ddd.dm.base.DAggregate
 
 /**
  * This class contains custom scoping for expressions and {@link DComplexType} feature inheritance.
@@ -139,7 +138,6 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 			DComplexType: Scopes.scopeFor(container.allFeatures(), outerScope)
 			DQuery: Scopes.scopeFor(container.parameters, outerScope)
 			DAggregate: Scopes.scopeFor(container.staticQueries, outerScope)
-			DService: Scopes.scopeFor(container.parameters, outerScope)
 			DDomainEvent: getDomainEventNavigableMemberScope(container, outerScope)
 			DmxPredicateWithCorrelationVariable: Scopes.scopeFor(Lists.newArrayList(container.correlationVariable), outerScope)
 			DmxTest: Scopes.scopeFor(container.context,  outerScope)

@@ -7,11 +7,11 @@ import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DComplexType;
-import com.mimacom.ddd.dm.base.DCondition;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DMultiplicity;
+import com.mimacom.ddd.dm.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.sm.sim.SAggregateDeduction;
 import com.mimacom.ddd.sm.sim.SComplexTypeDeduction;
@@ -161,12 +161,12 @@ public class SimFormatter extends AbstractFormatter2 {
       };
       document.<DFeature>append(feature, _function_3);
     }
-    EList<DCondition> _constraints = dType.getConstraints();
-    for (final DCondition constraint : _constraints) {
+    EList<DNamedPredicate> _constraints = dType.getConstraints();
+    for (final DNamedPredicate constraint : _constraints) {
       final Procedure1<IHiddenRegionFormatter> _function_4 = (IHiddenRegionFormatter it) -> {
         it.newLine();
       };
-      document.<DCondition>append(constraint, _function_4);
+      document.<DNamedPredicate>append(constraint, _function_4);
     }
   }
   

@@ -68,13 +68,13 @@ public interface BaseFactory extends EFactory
 	DAggregate createDAggregate();
 
 	/**
-	 * Returns a new object of class '<em>DCondition</em>'.
+	 * Returns a new object of class '<em>DNamed Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DCondition</em>'.
+	 * @return a new object of class '<em>DNamed Predicate</em>'.
 	 * @generated
 	 */
-	DCondition createDCondition();
+	DNamedPredicate createDNamedPredicate();
 
 	/**
 	 * Returns a new object of class '<em>DPrimitive</em>'.
@@ -185,6 +185,15 @@ public interface BaseFactory extends EFactory
 	DDomainEvent createDDomainEvent();
 
 	/**
+	 * Returns a new object of class '<em>DCase Conjunction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DCase Conjunction</em>'.
+	 * @generated
+	 */
+	DCaseConjunction createDCaseConjunction();
+
+	/**
 	 * Returns a new object of class '<em>DContext</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -212,13 +221,13 @@ public interface BaseFactory extends EFactory
 	DMessage createDMessage();
 
 	/**
-	 * Returns a new object of class '<em>DHuman</em>'.
+	 * Returns a new object of class '<em>DHuman Actor Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DHuman</em>'.
+	 * @return a new object of class '<em>DHuman Actor Role</em>'.
 	 * @generated
 	 */
-	DHuman createDHuman();
+	DHumanActorRole createDHumanActorRole();
 
 	/**
 	 * Returns a new object of class '<em>DService</em>'.
@@ -228,42 +237,6 @@ public interface BaseFactory extends EFactory
 	 * @generated
 	 */
 	DService createDService();
-
-	/**
-	 * Returns a new object of class '<em>DService Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DService Parameter</em>'.
-	 * @generated
-	 */
-	DServiceParameter createDServiceParameter();
-
-	/**
-	 * Returns a new object of class '<em>DTime</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DTime</em>'.
-	 * @generated
-	 */
-	DTime createDTime();
-
-	/**
-	 * Returns a new object of class '<em>DExisting Application</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DExisting Application</em>'.
-	 * @generated
-	 */
-	DExistingApplication createDExistingApplication();
-
-	/**
-	 * Returns a new object of class '<em>DException</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DException</em>'.
-	 * @generated
-	 */
-	DException createDException();
 
 	/**
 	 * Returns the package supported by this factory.

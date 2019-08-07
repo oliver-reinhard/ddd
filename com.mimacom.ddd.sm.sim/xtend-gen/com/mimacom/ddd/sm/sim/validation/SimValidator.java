@@ -262,30 +262,25 @@ public class SimValidator extends AbstractSimValidator {
   }
   
   @Check
-  @Override
   public void checkAssocitionToRootType(final DAssociation a) {
     if ((a instanceof IDeductionDefinition)) {
       return;
     }
-    if (((!a.isSynthetic()) && (!((a.getType() instanceof DEntityType) && ((DEntityType) a.getType()).isRoot())))) {
-      super.checkAssocitionToRootType(a);
-    } else {
-      boolean _isSynthetic = a.isSynthetic();
-      if (_isSynthetic) {
-        DType _type = a.getType();
-        boolean _tripleEquals = (_type == null);
-        if (_tripleEquals) {
-          String _description = this.getDescription(a);
-          String _plus = (_description + ": no mapping rule for type");
-          this.errorOnStructuralElement(a, _plus);
-        } else {
-          DType _type_1 = a.getType();
-          boolean _not = (!(_type_1 instanceof IIdentityType));
-          if (_not) {
-            String _description_1 = this.getDescription(a);
-            String _plus_1 = (_description_1 + ": referenced type is not an IdentityType");
-            this.errorOnStructuralElement(a, _plus_1);
-          }
+    boolean _isSynthetic = a.isSynthetic();
+    if (_isSynthetic) {
+      DType _type = a.getType();
+      boolean _tripleEquals = (_type == null);
+      if (_tripleEquals) {
+        String _description = this.getDescription(a);
+        String _plus = (_description + ": no mapping rule for type");
+        this.errorOnStructuralElement(a, _plus);
+      } else {
+        DType _type_1 = a.getType();
+        boolean _not = (!(_type_1 instanceof IIdentityType));
+        if (_not) {
+          String _description_1 = this.getDescription(a);
+          String _plus_1 = (_description_1 + ": referenced type is not an IdentityType");
+          this.errorOnStructuralElement(a, _plus_1);
         }
       }
     }

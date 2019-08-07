@@ -88,9 +88,15 @@ public class DemDiagramTextProvider extends AbstractDiagramTextProvider {
             _builder_1.newLineIfNotEmpty();
           }
         }
-        String _name_3 = e.getTrigger().getName();
-        _builder_1.append(_name_3);
-        _builder_1.append(" --> (event) : triggers");
+        {
+          DActor _trigger = e.getTrigger();
+          boolean _tripleNotEquals = (_trigger != null);
+          if (_tripleNotEquals) {
+            String _name_3 = e.getTrigger().getName();
+            _builder_1.append(_name_3);
+            _builder_1.append(" --> (event) : triggers");
+          }
+        }
         _builder_1.newLineIfNotEmpty();
         {
           final Function1<DNotification, Boolean> _function_2 = (DNotification it) -> {

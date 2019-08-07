@@ -5,8 +5,8 @@ package com.mimacom.ddd.dm.dim.ui.labeling;
 
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DAggregate;
-import com.mimacom.ddd.dm.base.DCondition;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dim.DimUtil;
@@ -46,7 +46,7 @@ public class DimLabelProvider extends DmxLabelProvider {
     return this._dimUtil.label(p);
   }
   
-  public String text(final DCondition c) {
+  public String text(final DNamedPredicate c) {
     return this._dimUtil.label(c);
   }
 }

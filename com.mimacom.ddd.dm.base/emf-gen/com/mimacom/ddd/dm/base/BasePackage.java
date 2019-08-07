@@ -741,22 +741,13 @@ public interface BasePackage extends EPackage
 	int DDOMAIN__STATE_MODELS = DNAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Applications</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DDOMAIN__APPLICATIONS = DNAMED_ELEMENT_FEATURE_COUNT + 6;
-
-	/**
 	 * The feature id for the '<em><b>Events</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN__EVENTS = DNAMED_ELEMENT_FEATURE_COUNT + 7;
+	int DDOMAIN__EVENTS = DNAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Actors</b></em>' containment reference list.
@@ -765,7 +756,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN__ACTORS = DNAMED_ELEMENT_FEATURE_COUNT + 8;
+	int DDOMAIN__ACTORS = DNAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>DDomain</em>' class.
@@ -774,7 +765,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 9;
+	int DDOMAIN_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>DDomain</em>' class.
@@ -1033,14 +1024,14 @@ public interface BasePackage extends EPackage
 	int DTYPE_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DConditionImpl <em>DCondition</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DNamedPredicateImpl <em>DNamed Predicate</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.impl.DConditionImpl
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDCondition()
+	 * @see com.mimacom.ddd.dm.base.impl.DNamedPredicateImpl
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDNamedPredicate()
 	 * @generated
 	 */
-	int DCONDITION = 19;
+	int DNAMED_PREDICATE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1049,7 +1040,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DCONDITION__NAME = DNAMED_ELEMENT__NAME;
+	int DNAMED_PREDICATE__NAME = DNAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -1058,7 +1049,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DCONDITION__ALIASES = DNAMED_ELEMENT__ALIASES;
+	int DNAMED_PREDICATE__ALIASES = DNAMED_ELEMENT__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1067,34 +1058,34 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DCONDITION__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
+	int DNAMED_PREDICATE__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
+	 * The feature id for the '<em><b>Predicate</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DCONDITION__CONDITION = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int DNAMED_PREDICATE__PREDICATE = DNAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>DCondition</em>' class.
+	 * The number of structural features of the '<em>DNamed Predicate</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DCONDITION_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 1;
+	int DNAMED_PREDICATE_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>DCondition</em>' class.
+	 * The number of operations of the '<em>DNamed Predicate</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DCONDITION_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
+	int DNAMED_PREDICATE_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DSimpleTypeImpl <em>DSimple Type</em>}' class.
@@ -1842,13 +1833,22 @@ public interface BasePackage extends EPackage
 	int DIDENTITY_TYPE__ROOT = DCOMPLEX_TYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Origin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIDENTITY_TYPE__ORIGIN = DCOMPLEX_TYPE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>DIdentity Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIDENTITY_TYPE_FEATURE_COUNT = DCOMPLEX_TYPE_FEATURE_COUNT + 1;
+	int DIDENTITY_TYPE_FEATURE_COUNT = DCOMPLEX_TYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>DIdentity Type</em>' class.
@@ -2006,6 +2006,15 @@ public interface BasePackage extends EPackage
 	int DENTITY_TYPE__ROOT = DIDENTITY_TYPE__ROOT;
 
 	/**
+	 * The feature id for the '<em><b>Origin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DENTITY_TYPE__ORIGIN = DIDENTITY_TYPE__ORIGIN;
+
+	/**
 	 * The number of structural features of the '<em>DEntity Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2131,6 +2140,15 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DRELATIONSHIP__ROOT = DIDENTITY_TYPE__ROOT;
+
+	/**
+	 * The feature id for the '<em><b>Origin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DRELATIONSHIP__ORIGIN = DIDENTITY_TYPE__ORIGIN;
 
 	/**
 	 * The number of structural features of the '<em>DRelationship</em>' class.
@@ -2851,22 +2869,13 @@ public interface BasePackage extends EPackage
 	int DDOMAIN_EVENT__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Before</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Context</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN_EVENT__BEFORE = DNAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>After</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DDOMAIN_EVENT__AFTER = DNAMED_ELEMENT_FEATURE_COUNT + 1;
+	int DDOMAIN_EVENT__CONTEXT = DNAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Trigger</b></em>' reference.
@@ -2875,7 +2884,25 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN_EVENT__TRIGGER = DNAMED_ELEMENT_FEATURE_COUNT + 2;
+	int DDOMAIN_EVENT__TRIGGER = DNAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Preconditions CNF</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DDOMAIN_EVENT__PRECONDITIONS_CNF = DNAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Postconditions DNF</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DDOMAIN_EVENT__POSTCONDITIONS_DNF = DNAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Notifications</b></em>' containment reference list.
@@ -2884,16 +2911,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN_EVENT__NOTIFICATIONS = DNAMED_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Context</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DDOMAIN_EVENT__CONTEXT = DNAMED_ELEMENT_FEATURE_COUNT + 4;
+	int DDOMAIN_EVENT__NOTIFICATIONS = DNAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>DDomain Event</em>' class.
@@ -2914,6 +2932,79 @@ public interface BasePackage extends EPackage
 	int DDOMAIN_EVENT_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DCaseConjunctionImpl <em>DCase Conjunction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.impl.DCaseConjunctionImpl
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDCaseConjunction()
+	 * @generated
+	 */
+	int DCASE_CONJUNCTION = 37;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCASE_CONJUNCTION__NAME = DNAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCASE_CONJUNCTION__ALIASES = DNAMED_ELEMENT__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCASE_CONJUNCTION__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Selector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCASE_CONJUNCTION__SELECTOR = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Predicates</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCASE_CONJUNCTION__PREDICATES = DNAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>DCase Conjunction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCASE_CONJUNCTION_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>DCase Conjunction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCASE_CONJUNCTION_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DContextImpl <em>DContext</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2921,7 +3012,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDContext()
 	 * @generated
 	 */
-	int DCONTEXT = 37;
+	int DCONTEXT = 38;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3012,7 +3103,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDNotification()
 	 * @generated
 	 */
-	int DNOTIFICATION = 38;
+	int DNOTIFICATION = 39;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3121,7 +3212,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDMessage()
 	 * @generated
 	 */
-	int DMESSAGE = 39;
+	int DMESSAGE = 40;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3212,7 +3303,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDActor()
 	 * @generated
 	 */
-	int DACTOR = 40;
+	int DACTOR = 41;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3260,14 +3351,14 @@ public interface BasePackage extends EPackage
 	int DACTOR_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DHumanImpl <em>DHuman</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DHumanActorRoleImpl <em>DHuman Actor Role</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.impl.DHumanImpl
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDHuman()
+	 * @see com.mimacom.ddd.dm.base.impl.DHumanActorRoleImpl
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDHumanActorRole()
 	 * @generated
 	 */
-	int DHUMAN = 41;
+	int DHUMAN_ACTOR_ROLE = 42;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3276,7 +3367,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DHUMAN__NAME = DACTOR__NAME;
+	int DHUMAN_ACTOR_ROLE__NAME = DACTOR__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -3285,7 +3376,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DHUMAN__ALIASES = DACTOR__ALIASES;
+	int DHUMAN_ACTOR_ROLE__ALIASES = DACTOR__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -3294,25 +3385,34 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DHUMAN__DESCRIPTION = DACTOR__DESCRIPTION;
+	int DHUMAN_ACTOR_ROLE__DESCRIPTION = DACTOR__DESCRIPTION;
 
 	/**
-	 * The number of structural features of the '<em>DHuman</em>' class.
+	 * The feature id for the '<em><b>Role</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DHUMAN_FEATURE_COUNT = DACTOR_FEATURE_COUNT + 0;
+	int DHUMAN_ACTOR_ROLE__ROLE = DACTOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>DHuman</em>' class.
+	 * The number of structural features of the '<em>DHuman Actor Role</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DHUMAN_OPERATION_COUNT = DACTOR_OPERATION_COUNT + 0;
+	int DHUMAN_ACTOR_ROLE_FEATURE_COUNT = DACTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>DHuman Actor Role</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DHUMAN_ACTOR_ROLE_OPERATION_COUNT = DACTOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DServiceImpl <em>DService</em>}' class.
@@ -3322,7 +3422,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDService()
 	 * @generated
 	 */
-	int DSERVICE = 42;
+	int DSERVICE = 43;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3352,67 +3452,13 @@ public interface BasePackage extends EPackage
 	int DSERVICE__DESCRIPTION = DACTOR__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DSERVICE__TYPES = DACTOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Kind</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DSERVICE__KIND = DACTOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DSERVICE__PARAMETERS = DACTOR_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Raises</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DSERVICE__RAISES = DACTOR_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Guards</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DSERVICE__GUARDS = DACTOR_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Effects</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DSERVICE__EFFECTS = DACTOR_FEATURE_COUNT + 5;
-
-	/**
 	 * The number of structural features of the '<em>DService</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DSERVICE_FEATURE_COUNT = DACTOR_FEATURE_COUNT + 6;
+	int DSERVICE_FEATURE_COUNT = DACTOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>DService</em>' class.
@@ -3424,296 +3470,14 @@ public interface BasePackage extends EPackage
 	int DSERVICE_OPERATION_COUNT = DACTOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DServiceParameterImpl <em>DService Parameter</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DIdentityOrigin <em>DIdentity Origin</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.impl.DServiceParameterImpl
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDServiceParameter()
+	 * @see com.mimacom.ddd.dm.base.DIdentityOrigin
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDIdentityOrigin()
 	 * @generated
 	 */
-	int DSERVICE_PARAMETER = 43;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DSERVICE_PARAMETER__NAME = DNAVIGABLE_MEMBER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DSERVICE_PARAMETER__ALIASES = DNAVIGABLE_MEMBER__ALIASES;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DSERVICE_PARAMETER__DESCRIPTION = DNAVIGABLE_MEMBER__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DSERVICE_PARAMETER__TYPE = DNAVIGABLE_MEMBER__TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DSERVICE_PARAMETER__MULTIPLICITY = DNAVIGABLE_MEMBER__MULTIPLICITY;
-
-	/**
-	 * The feature id for the '<em><b>Optional</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DSERVICE_PARAMETER__OPTIONAL = DNAVIGABLE_MEMBER__OPTIONAL;
-
-	/**
-	 * The feature id for the '<em><b>Collection</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DSERVICE_PARAMETER__COLLECTION = DNAVIGABLE_MEMBER__COLLECTION;
-
-	/**
-	 * The feature id for the '<em><b>Direction</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DSERVICE_PARAMETER__DIRECTION = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>DService Parameter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DSERVICE_PARAMETER_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>DService Parameter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DSERVICE_PARAMETER_OPERATION_COUNT = DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DTimeImpl <em>DTime</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.impl.DTimeImpl
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDTime()
-	 * @generated
-	 */
-	int DTIME = 44;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTIME__NAME = DACTOR__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTIME__ALIASES = DACTOR__ALIASES;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTIME__DESCRIPTION = DACTOR__DESCRIPTION;
-
-	/**
-	 * The number of structural features of the '<em>DTime</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTIME_FEATURE_COUNT = DACTOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>DTime</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTIME_OPERATION_COUNT = DACTOR_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DExistingApplicationImpl <em>DExisting Application</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.impl.DExistingApplicationImpl
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDExistingApplication()
-	 * @generated
-	 */
-	int DEXISTING_APPLICATION = 45;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEXISTING_APPLICATION__NAME = DNAMED_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEXISTING_APPLICATION__ALIASES = DNAMED_ELEMENT__ALIASES;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEXISTING_APPLICATION__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEXISTING_APPLICATION__TYPES = DNAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Services</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEXISTING_APPLICATION__SERVICES = DNAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Exceptions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEXISTING_APPLICATION__EXCEPTIONS = DNAMED_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>DExisting Application</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEXISTING_APPLICATION_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of operations of the '<em>DExisting Application</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEXISTING_APPLICATION_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DExceptionImpl <em>DException</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.impl.DExceptionImpl
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDException()
-	 * @generated
-	 */
-	int DEXCEPTION = 46;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEXCEPTION__NAME = DNAMED_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEXCEPTION__ALIASES = DNAMED_ELEMENT__ALIASES;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEXCEPTION__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
-
-	/**
-	 * The number of structural features of the '<em>DException</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEXCEPTION_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>DException</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEXCEPTION_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
+	int DIDENTITY_ORIGIN = 44;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DAssociationKind <em>DAssociation Kind</em>}' enum.
@@ -3723,27 +3487,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDAssociationKind()
 	 * @generated
 	 */
-	int DASSOCIATION_KIND = 47;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DDirection <em>DDirection</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.DDirection
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDirection()
-	 * @generated
-	 */
-	int DDIRECTION = 48;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DServiceKind <em>DService Kind</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.DServiceKind
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDServiceKind()
-	 * @generated
-	 */
-	int DSERVICE_KIND = 49;
+	int DASSOCIATION_KIND = 45;
 
 
 	/**
@@ -4106,17 +3850,6 @@ public interface BasePackage extends EPackage
 	EReference getDDomain_StateModels();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DDomain#getApplications <em>Applications</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Applications</em>'.
-	 * @see com.mimacom.ddd.dm.base.DDomain#getApplications()
-	 * @see #getDDomain()
-	 * @generated
-	 */
-	EReference getDDomain_Applications();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DDomain#getEvents <em>Events</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4223,25 +3956,25 @@ public interface BasePackage extends EPackage
 	EAttribute getDType_Primitive();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DCondition <em>DCondition</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DNamedPredicate <em>DNamed Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DCondition</em>'.
-	 * @see com.mimacom.ddd.dm.base.DCondition
+	 * @return the meta object for class '<em>DNamed Predicate</em>'.
+	 * @see com.mimacom.ddd.dm.base.DNamedPredicate
 	 * @generated
 	 */
-	EClass getDCondition();
+	EClass getDNamedPredicate();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.DCondition#getCondition <em>Condition</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.DNamedPredicate#getPredicate <em>Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Condition</em>'.
-	 * @see com.mimacom.ddd.dm.base.DCondition#getCondition()
-	 * @see #getDCondition()
+	 * @return the meta object for the containment reference '<em>Predicate</em>'.
+	 * @see com.mimacom.ddd.dm.base.DNamedPredicate#getPredicate()
+	 * @see #getDNamedPredicate()
 	 * @generated
 	 */
-	EReference getDCondition_Condition();
+	EReference getDNamedPredicate_Predicate();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DSimpleType <em>DSimple Type</em>}'.
@@ -4378,6 +4111,17 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EAttribute getDIdentityType_Root();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DIdentityType#getOrigin <em>Origin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Origin</em>'.
+	 * @see com.mimacom.ddd.dm.base.DIdentityType#getOrigin()
+	 * @see #getDIdentityType()
+	 * @generated
+	 */
+	EAttribute getDIdentityType_Origin();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.IIdentityStateModel <em>IIdentity State Model</em>}'.
@@ -4600,26 +4344,15 @@ public interface BasePackage extends EPackage
 	EClass getDDomainEvent();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DDomainEvent#getBefore <em>Before</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DDomainEvent#getContext <em>Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Before</em>'.
-	 * @see com.mimacom.ddd.dm.base.DDomainEvent#getBefore()
+	 * @return the meta object for the containment reference list '<em>Context</em>'.
+	 * @see com.mimacom.ddd.dm.base.DDomainEvent#getContext()
 	 * @see #getDDomainEvent()
 	 * @generated
 	 */
-	EReference getDDomainEvent_Before();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DDomainEvent#getAfter <em>After</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>After</em>'.
-	 * @see com.mimacom.ddd.dm.base.DDomainEvent#getAfter()
-	 * @see #getDDomainEvent()
-	 * @generated
-	 */
-	EReference getDDomainEvent_After();
+	EReference getDDomainEvent_Context();
 
 	/**
 	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.DDomainEvent#getTrigger <em>Trigger</em>}'.
@@ -4633,6 +4366,28 @@ public interface BasePackage extends EPackage
 	EReference getDDomainEvent_Trigger();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DDomainEvent#getPreconditionsCNF <em>Preconditions CNF</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Preconditions CNF</em>'.
+	 * @see com.mimacom.ddd.dm.base.DDomainEvent#getPreconditionsCNF()
+	 * @see #getDDomainEvent()
+	 * @generated
+	 */
+	EReference getDDomainEvent_PreconditionsCNF();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DDomainEvent#getPostconditionsDNF <em>Postconditions DNF</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Postconditions DNF</em>'.
+	 * @see com.mimacom.ddd.dm.base.DDomainEvent#getPostconditionsDNF()
+	 * @see #getDDomainEvent()
+	 * @generated
+	 */
+	EReference getDDomainEvent_PostconditionsDNF();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DDomainEvent#getNotifications <em>Notifications</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4644,15 +4399,36 @@ public interface BasePackage extends EPackage
 	EReference getDDomainEvent_Notifications();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DDomainEvent#getContext <em>Context</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DCaseConjunction <em>DCase Conjunction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Context</em>'.
-	 * @see com.mimacom.ddd.dm.base.DDomainEvent#getContext()
-	 * @see #getDDomainEvent()
+	 * @return the meta object for class '<em>DCase Conjunction</em>'.
+	 * @see com.mimacom.ddd.dm.base.DCaseConjunction
 	 * @generated
 	 */
-	EReference getDDomainEvent_Context();
+	EClass getDCaseConjunction();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.base.DCaseConjunction#getSelector <em>Selector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Selector</em>'.
+	 * @see com.mimacom.ddd.dm.base.DCaseConjunction#getSelector()
+	 * @see #getDCaseConjunction()
+	 * @generated
+	 */
+	EReference getDCaseConjunction_Selector();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DCaseConjunction#getPredicates <em>Predicates</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Predicates</em>'.
+	 * @see com.mimacom.ddd.dm.base.DCaseConjunction#getPredicates()
+	 * @see #getDCaseConjunction()
+	 * @generated
+	 */
+	EReference getDCaseConjunction_Predicates();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DContext <em>DContext</em>}'.
@@ -4717,14 +4493,25 @@ public interface BasePackage extends EPackage
 	EClass getDActor();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DHuman <em>DHuman</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DHumanActorRole <em>DHuman Actor Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DHuman</em>'.
-	 * @see com.mimacom.ddd.dm.base.DHuman
+	 * @return the meta object for class '<em>DHuman Actor Role</em>'.
+	 * @see com.mimacom.ddd.dm.base.DHumanActorRole
 	 * @generated
 	 */
-	EClass getDHuman();
+	EClass getDHumanActorRole();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.DHumanActorRole#getRole <em>Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Role</em>'.
+	 * @see com.mimacom.ddd.dm.base.DHumanActorRole#getRole()
+	 * @see #getDHumanActorRole()
+	 * @generated
+	 */
+	EReference getDHumanActorRole_Role();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DService <em>DService</em>}'.
@@ -4737,132 +4524,14 @@ public interface BasePackage extends EPackage
 	EClass getDService();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DService#getKind <em>Kind</em>}'.
+	 * Returns the meta object for enum '{@link com.mimacom.ddd.dm.base.DIdentityOrigin <em>DIdentity Origin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Kind</em>'.
-	 * @see com.mimacom.ddd.dm.base.DService#getKind()
-	 * @see #getDService()
+	 * @return the meta object for enum '<em>DIdentity Origin</em>'.
+	 * @see com.mimacom.ddd.dm.base.DIdentityOrigin
 	 * @generated
 	 */
-	EAttribute getDService_Kind();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DService#getParameters <em>Parameters</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
-	 * @see com.mimacom.ddd.dm.base.DService#getParameters()
-	 * @see #getDService()
-	 * @generated
-	 */
-	EReference getDService_Parameters();
-
-	/**
-	 * Returns the meta object for the reference list '{@link com.mimacom.ddd.dm.base.DService#getRaises <em>Raises</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Raises</em>'.
-	 * @see com.mimacom.ddd.dm.base.DService#getRaises()
-	 * @see #getDService()
-	 * @generated
-	 */
-	EReference getDService_Raises();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DService#getGuards <em>Guards</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Guards</em>'.
-	 * @see com.mimacom.ddd.dm.base.DService#getGuards()
-	 * @see #getDService()
-	 * @generated
-	 */
-	EReference getDService_Guards();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DService#getEffects <em>Effects</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Effects</em>'.
-	 * @see com.mimacom.ddd.dm.base.DService#getEffects()
-	 * @see #getDService()
-	 * @generated
-	 */
-	EReference getDService_Effects();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DServiceParameter <em>DService Parameter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DService Parameter</em>'.
-	 * @see com.mimacom.ddd.dm.base.DServiceParameter
-	 * @generated
-	 */
-	EClass getDServiceParameter();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DServiceParameter#getDirection <em>Direction</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Direction</em>'.
-	 * @see com.mimacom.ddd.dm.base.DServiceParameter#getDirection()
-	 * @see #getDServiceParameter()
-	 * @generated
-	 */
-	EAttribute getDServiceParameter_Direction();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DTime <em>DTime</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DTime</em>'.
-	 * @see com.mimacom.ddd.dm.base.DTime
-	 * @generated
-	 */
-	EClass getDTime();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DExistingApplication <em>DExisting Application</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DExisting Application</em>'.
-	 * @see com.mimacom.ddd.dm.base.DExistingApplication
-	 * @generated
-	 */
-	EClass getDExistingApplication();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DExistingApplication#getServices <em>Services</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Services</em>'.
-	 * @see com.mimacom.ddd.dm.base.DExistingApplication#getServices()
-	 * @see #getDExistingApplication()
-	 * @generated
-	 */
-	EReference getDExistingApplication_Services();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DExistingApplication#getExceptions <em>Exceptions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Exceptions</em>'.
-	 * @see com.mimacom.ddd.dm.base.DExistingApplication#getExceptions()
-	 * @see #getDExistingApplication()
-	 * @generated
-	 */
-	EReference getDExistingApplication_Exceptions();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DException <em>DException</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DException</em>'.
-	 * @see com.mimacom.ddd.dm.base.DException
-	 * @generated
-	 */
-	EClass getDException();
+	EEnum getDIdentityOrigin();
 
 	/**
 	 * Returns the meta object for enum '{@link com.mimacom.ddd.dm.base.DAssociationKind <em>DAssociation Kind</em>}'.
@@ -4873,26 +4542,6 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EEnum getDAssociationKind();
-
-	/**
-	 * Returns the meta object for enum '{@link com.mimacom.ddd.dm.base.DDirection <em>DDirection</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>DDirection</em>'.
-	 * @see com.mimacom.ddd.dm.base.DDirection
-	 * @generated
-	 */
-	EEnum getDDirection();
-
-	/**
-	 * Returns the meta object for enum '{@link com.mimacom.ddd.dm.base.DServiceKind <em>DService Kind</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>DService Kind</em>'.
-	 * @see com.mimacom.ddd.dm.base.DServiceKind
-	 * @generated
-	 */
-	EEnum getDServiceKind();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -5221,14 +4870,6 @@ public interface BasePackage extends EPackage
 		EReference DDOMAIN__STATE_MODELS = eINSTANCE.getDDomain_StateModels();
 
 		/**
-		 * The meta object literal for the '<em><b>Applications</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DDOMAIN__APPLICATIONS = eINSTANCE.getDDomain_Applications();
-
-		/**
 		 * The meta object literal for the '<em><b>Events</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5317,22 +4958,22 @@ public interface BasePackage extends EPackage
 		EAttribute DTYPE__PRIMITIVE = eINSTANCE.getDType_Primitive();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DConditionImpl <em>DCondition</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DNamedPredicateImpl <em>DNamed Predicate</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.impl.DConditionImpl
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDCondition()
+		 * @see com.mimacom.ddd.dm.base.impl.DNamedPredicateImpl
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDNamedPredicate()
 		 * @generated
 		 */
-		EClass DCONDITION = eINSTANCE.getDCondition();
+		EClass DNAMED_PREDICATE = eINSTANCE.getDNamedPredicate();
 
 		/**
-		 * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Predicate</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DCONDITION__CONDITION = eINSTANCE.getDCondition_Condition();
+		EReference DNAMED_PREDICATE__PREDICATE = eINSTANCE.getDNamedPredicate_Predicate();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DSimpleTypeImpl <em>DSimple Type</em>}' class.
@@ -5451,6 +5092,14 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EAttribute DIDENTITY_TYPE__ROOT = eINSTANCE.getDIdentityType_Root();
+
+		/**
+		 * The meta object literal for the '<em><b>Origin</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIDENTITY_TYPE__ORIGIN = eINSTANCE.getDIdentityType_Origin();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.IIdentityStateModel <em>IIdentity State Model</em>}' class.
@@ -5641,20 +5290,12 @@ public interface BasePackage extends EPackage
 		EClass DDOMAIN_EVENT = eINSTANCE.getDDomainEvent();
 
 		/**
-		 * The meta object literal for the '<em><b>Before</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Context</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DDOMAIN_EVENT__BEFORE = eINSTANCE.getDDomainEvent_Before();
-
-		/**
-		 * The meta object literal for the '<em><b>After</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DDOMAIN_EVENT__AFTER = eINSTANCE.getDDomainEvent_After();
+		EReference DDOMAIN_EVENT__CONTEXT = eINSTANCE.getDDomainEvent_Context();
 
 		/**
 		 * The meta object literal for the '<em><b>Trigger</b></em>' reference feature.
@@ -5665,6 +5306,22 @@ public interface BasePackage extends EPackage
 		EReference DDOMAIN_EVENT__TRIGGER = eINSTANCE.getDDomainEvent_Trigger();
 
 		/**
+		 * The meta object literal for the '<em><b>Preconditions CNF</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DDOMAIN_EVENT__PRECONDITIONS_CNF = eINSTANCE.getDDomainEvent_PreconditionsCNF();
+
+		/**
+		 * The meta object literal for the '<em><b>Postconditions DNF</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DDOMAIN_EVENT__POSTCONDITIONS_DNF = eINSTANCE.getDDomainEvent_PostconditionsDNF();
+
+		/**
 		 * The meta object literal for the '<em><b>Notifications</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5673,12 +5330,30 @@ public interface BasePackage extends EPackage
 		EReference DDOMAIN_EVENT__NOTIFICATIONS = eINSTANCE.getDDomainEvent_Notifications();
 
 		/**
-		 * The meta object literal for the '<em><b>Context</b></em>' containment reference list feature.
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DCaseConjunctionImpl <em>DCase Conjunction</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.impl.DCaseConjunctionImpl
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDCaseConjunction()
+		 * @generated
+		 */
+		EClass DCASE_CONJUNCTION = eINSTANCE.getDCaseConjunction();
+
+		/**
+		 * The meta object literal for the '<em><b>Selector</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DDOMAIN_EVENT__CONTEXT = eINSTANCE.getDDomainEvent_Context();
+		EReference DCASE_CONJUNCTION__SELECTOR = eINSTANCE.getDCaseConjunction_Selector();
+
+		/**
+		 * The meta object literal for the '<em><b>Predicates</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DCASE_CONJUNCTION__PREDICATES = eINSTANCE.getDCaseConjunction_Predicates();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DContextImpl <em>DContext</em>}' class.
@@ -5737,14 +5412,22 @@ public interface BasePackage extends EPackage
 		EClass DACTOR = eINSTANCE.getDActor();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DHumanImpl <em>DHuman</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DHumanActorRoleImpl <em>DHuman Actor Role</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.impl.DHumanImpl
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDHuman()
+		 * @see com.mimacom.ddd.dm.base.impl.DHumanActorRoleImpl
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDHumanActorRole()
 		 * @generated
 		 */
-		EClass DHUMAN = eINSTANCE.getDHuman();
+		EClass DHUMAN_ACTOR_ROLE = eINSTANCE.getDHumanActorRole();
+
+		/**
+		 * The meta object literal for the '<em><b>Role</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DHUMAN_ACTOR_ROLE__ROLE = eINSTANCE.getDHumanActorRole_Role();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DServiceImpl <em>DService</em>}' class.
@@ -5757,108 +5440,14 @@ public interface BasePackage extends EPackage
 		EClass DSERVICE = eINSTANCE.getDService();
 
 		/**
-		 * The meta object literal for the '<em><b>Kind</b></em>' attribute feature.
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.DIdentityOrigin <em>DIdentity Origin</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.DIdentityOrigin
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDIdentityOrigin()
 		 * @generated
 		 */
-		EAttribute DSERVICE__KIND = eINSTANCE.getDService_Kind();
-
-		/**
-		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DSERVICE__PARAMETERS = eINSTANCE.getDService_Parameters();
-
-		/**
-		 * The meta object literal for the '<em><b>Raises</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DSERVICE__RAISES = eINSTANCE.getDService_Raises();
-
-		/**
-		 * The meta object literal for the '<em><b>Guards</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DSERVICE__GUARDS = eINSTANCE.getDService_Guards();
-
-		/**
-		 * The meta object literal for the '<em><b>Effects</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DSERVICE__EFFECTS = eINSTANCE.getDService_Effects();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DServiceParameterImpl <em>DService Parameter</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.impl.DServiceParameterImpl
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDServiceParameter()
-		 * @generated
-		 */
-		EClass DSERVICE_PARAMETER = eINSTANCE.getDServiceParameter();
-
-		/**
-		 * The meta object literal for the '<em><b>Direction</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DSERVICE_PARAMETER__DIRECTION = eINSTANCE.getDServiceParameter_Direction();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DTimeImpl <em>DTime</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.impl.DTimeImpl
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDTime()
-		 * @generated
-		 */
-		EClass DTIME = eINSTANCE.getDTime();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DExistingApplicationImpl <em>DExisting Application</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.impl.DExistingApplicationImpl
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDExistingApplication()
-		 * @generated
-		 */
-		EClass DEXISTING_APPLICATION = eINSTANCE.getDExistingApplication();
-
-		/**
-		 * The meta object literal for the '<em><b>Services</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DEXISTING_APPLICATION__SERVICES = eINSTANCE.getDExistingApplication_Services();
-
-		/**
-		 * The meta object literal for the '<em><b>Exceptions</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DEXISTING_APPLICATION__EXCEPTIONS = eINSTANCE.getDExistingApplication_Exceptions();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DExceptionImpl <em>DException</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.impl.DExceptionImpl
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDException()
-		 * @generated
-		 */
-		EClass DEXCEPTION = eINSTANCE.getDException();
+		EEnum DIDENTITY_ORIGIN = eINSTANCE.getDIdentityOrigin();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.DAssociationKind <em>DAssociation Kind</em>}' enum.
@@ -5869,26 +5458,6 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EEnum DASSOCIATION_KIND = eINSTANCE.getDAssociationKind();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.DDirection <em>DDirection</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.DDirection
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDirection()
-		 * @generated
-		 */
-		EEnum DDIRECTION = eINSTANCE.getDDirection();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.DServiceKind <em>DService Kind</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.DServiceKind
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDServiceKind()
-		 * @generated
-		 */
-		EEnum DSERVICE_KIND = eINSTANCE.getDServiceKind();
 
 	}
 

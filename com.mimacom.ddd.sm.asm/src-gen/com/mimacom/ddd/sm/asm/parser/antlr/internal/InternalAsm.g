@@ -314,9 +314,9 @@ ruleSServiceInterface returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSServiceInterfaceAccess().getExceptionsDExceptionParserRuleCall_10_0());
+					newCompositeNode(grammarAccess.getSServiceInterfaceAccess().getExceptionsSExceptionParserRuleCall_10_0());
 				}
-				lv_exceptions_10_0=ruleDException
+				lv_exceptions_10_0=ruleSException
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSServiceInterfaceRule());
@@ -325,7 +325,7 @@ ruleSServiceInterface returns [EObject current=null]
 						$current,
 						"exceptions",
 						lv_exceptions_10_0,
-						"com.mimacom.ddd.sm.asm.Asm.DException");
+						"com.mimacom.ddd.sm.asm.Asm.SException");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -516,9 +516,9 @@ ruleSServiceOperation returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSServiceOperationAccess().getParametersDServiceParameterParserRuleCall_3_0_0());
+						newCompositeNode(grammarAccess.getSServiceOperationAccess().getParametersSServiceParameterParserRuleCall_3_0_0());
 					}
-					lv_parameters_3_0=ruleDServiceParameter
+					lv_parameters_3_0=ruleSServiceParameter
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getSServiceOperationRule());
@@ -527,7 +527,7 @@ ruleSServiceOperation returns [EObject current=null]
 							$current,
 							"parameters",
 							lv_parameters_3_0,
-							"com.mimacom.ddd.sm.asm.Asm.DServiceParameter");
+							"com.mimacom.ddd.sm.asm.Asm.SServiceParameter");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -540,9 +540,9 @@ ruleSServiceOperation returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getSServiceOperationAccess().getParametersDServiceParameterParserRuleCall_3_1_1_0());
+							newCompositeNode(grammarAccess.getSServiceOperationAccess().getParametersSServiceParameterParserRuleCall_3_1_1_0());
 						}
-						lv_parameters_5_0=ruleDServiceParameter
+						lv_parameters_5_0=ruleSServiceParameter
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getSServiceOperationRule());
@@ -551,7 +551,7 @@ ruleSServiceOperation returns [EObject current=null]
 								$current,
 								"parameters",
 								lv_parameters_5_0,
-								"com.mimacom.ddd.sm.asm.Asm.DServiceParameter");
+								"com.mimacom.ddd.sm.asm.Asm.SServiceParameter");
 							afterParserOrEnumRuleCall();
 						}
 					)
@@ -576,7 +576,7 @@ ruleSServiceOperation returns [EObject current=null]
 					}
 					otherlv_8=RULE_ID
 					{
-						newLeafNode(otherlv_8, grammarAccess.getSServiceOperationAccess().getRaisesDExceptionCrossReference_5_1_0());
+						newLeafNode(otherlv_8, grammarAccess.getSServiceOperationAccess().getRaisesSExceptionCrossReference_5_1_0());
 					}
 				)
 			)
@@ -594,7 +594,7 @@ ruleSServiceOperation returns [EObject current=null]
 						}
 						otherlv_10=RULE_ID
 						{
-							newLeafNode(otherlv_10, grammarAccess.getSServiceOperationAccess().getRaisesDExceptionCrossReference_5_2_1_0());
+							newLeafNode(otherlv_10, grammarAccess.getSServiceOperationAccess().getRaisesSExceptionCrossReference_5_2_1_0());
 						}
 					)
 				)
@@ -661,15 +661,15 @@ ruleSServiceOperation returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleDServiceParameter
-entryRuleDServiceParameter returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDServiceParameterRule()); }
-	iv_ruleDServiceParameter=ruleDServiceParameter
-	{ $current=$iv_ruleDServiceParameter.current; }
+// Entry rule entryRuleSServiceParameter
+entryRuleSServiceParameter returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSServiceParameterRule()); }
+	iv_ruleSServiceParameter=ruleSServiceParameter
+	{ $current=$iv_ruleSServiceParameter.current; }
 	EOF;
 
-// Rule DServiceParameter
-ruleDServiceParameter returns [EObject current=null]
+// Rule SServiceParameter
+ruleSServiceParameter returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -680,18 +680,18 @@ ruleDServiceParameter returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDServiceParameterAccess().getDirectionDDirectionEnumRuleCall_0_0());
+					newCompositeNode(grammarAccess.getSServiceParameterAccess().getDirectionSDirectionEnumRuleCall_0_0());
 				}
-				lv_direction_0_0=ruleDDirection
+				lv_direction_0_0=ruleSDirection
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDServiceParameterRule());
+						$current = createModelElementForParent(grammarAccess.getSServiceParameterRule());
 					}
 					set(
 						$current,
 						"direction",
 						lv_direction_0_0,
-						"com.mimacom.ddd.sm.asm.Asm.DDirection");
+						"com.mimacom.ddd.sm.asm.Asm.SDirection");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -700,11 +700,11 @@ ruleDServiceParameter returns [EObject current=null]
 			(
 				lv_name_1_0=RULE_ID
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getDServiceParameterAccess().getNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getSServiceParameterAccess().getNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDServiceParameterRule());
+						$current = createModelElement(grammarAccess.getSServiceParameterRule());
 					}
 					setWithLastConsumed(
 						$current,
@@ -716,30 +716,30 @@ ruleDServiceParameter returns [EObject current=null]
 		)
 		otherlv_2=':'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getDServiceParameterAccess().getColonKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getSServiceParameterAccess().getColonKeyword_2());
 		}
 		(
 			(
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDServiceParameterRule());
+						$current = createModelElement(grammarAccess.getSServiceParameterRule());
 					}
 				}
 				otherlv_3=RULE_ID
 				{
-					newLeafNode(otherlv_3, grammarAccess.getDServiceParameterAccess().getTypeDTypeCrossReference_3_0());
+					newLeafNode(otherlv_3, grammarAccess.getSServiceParameterAccess().getTypeDTypeCrossReference_3_0());
 				}
 			)
 		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDServiceParameterAccess().getMultiplicityDMultiplicityParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getSServiceParameterAccess().getMultiplicityDMultiplicityParserRuleCall_4_0());
 				}
 				lv_multiplicity_4_0=ruleDMultiplicity
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDServiceParameterRule());
+						$current = createModelElementForParent(grammarAccess.getSServiceParameterRule());
 					}
 					set(
 						$current,
@@ -753,12 +753,12 @@ ruleDServiceParameter returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDServiceParameterAccess().getDescriptionDRichTextParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getSServiceParameterAccess().getDescriptionDRichTextParserRuleCall_5_0());
 				}
 				lv_description_5_0=ruleDRichText
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDServiceParameterRule());
+						$current = createModelElementForParent(grammarAccess.getSServiceParameterRule());
 					}
 					set(
 						$current,
@@ -772,15 +772,15 @@ ruleDServiceParameter returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleDException
-entryRuleDException returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDExceptionRule()); }
-	iv_ruleDException=ruleDException
-	{ $current=$iv_ruleDException.current; }
+// Entry rule entryRuleSException
+entryRuleSException returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSExceptionRule()); }
+	iv_ruleSException=ruleSException
+	{ $current=$iv_ruleSException.current; }
 	EOF;
 
-// Rule DException
-ruleDException returns [EObject current=null]
+// Rule SException
+ruleSException returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -790,17 +790,17 @@ ruleDException returns [EObject current=null]
 	(
 		otherlv_0='exception'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getDExceptionAccess().getExceptionKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getSExceptionAccess().getExceptionKeyword_0());
 		}
 		(
 			(
 				lv_name_1_0=RULE_ID
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getDExceptionAccess().getNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getSExceptionAccess().getNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDExceptionRule());
+						$current = createModelElement(grammarAccess.getSExceptionRule());
 					}
 					setWithLastConsumed(
 						$current,
@@ -813,12 +813,12 @@ ruleDException returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDExceptionAccess().getDescriptionDRichTextParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getSExceptionAccess().getDescriptionDRichTextParserRuleCall_2_0());
 				}
 				lv_description_2_0=ruleDRichText
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDExceptionRule());
+						$current = createModelElementForParent(grammarAccess.getSExceptionRule());
 					}
 					set(
 						$current,
@@ -4583,8 +4583,8 @@ ruleDQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRule
 	)
 ;
 
-// Rule DDirection
-ruleDDirection returns [Enumerator current=null]
+// Rule SDirection
+ruleSDirection returns [Enumerator current=null]
 @init {
 	enterRule();
 }
@@ -4595,16 +4595,16 @@ ruleDDirection returns [Enumerator current=null]
 		(
 			enumLiteral_0='in'
 			{
-				$current = grammarAccess.getDDirectionAccess().getINBOUNDEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getDDirectionAccess().getINBOUNDEnumLiteralDeclaration_0());
+				$current = grammarAccess.getSDirectionAccess().getINBOUNDEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getSDirectionAccess().getINBOUNDEnumLiteralDeclaration_0());
 			}
 		)
 		    |
 		(
 			enumLiteral_1='out'
 			{
-				$current = grammarAccess.getDDirectionAccess().getOUTBOUNDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getDDirectionAccess().getOUTBOUNDEnumLiteralDeclaration_1());
+				$current = grammarAccess.getSDirectionAccess().getOUTBOUNDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getSDirectionAccess().getOUTBOUNDEnumLiteralDeclaration_1());
 			}
 		)
 	)

@@ -12,7 +12,6 @@ import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DPrimitive;
-import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;
@@ -37,7 +36,6 @@ import com.mimacom.ddd.dm.dmx.typecomputer.DmxComplexTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxEnumerationDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxNotificationDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxPrimitiveDescriptor;
-import com.mimacom.ddd.dm.dmx.typecomputer.DmxServiceDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxUndefinedDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxVoidDescriptor;
 import java.util.Arrays;
@@ -113,14 +111,10 @@ public class DmxTypeComputer {
         if ((target instanceof DNotification)) {
           return this.createDescriptor(target, false);
         } else {
-          if ((target instanceof DService)) {
-            return this.createDescriptor(target, false);
+          if ((target instanceof DNavigableMember)) {
+            return this.createDescriptor(((DNavigableMember)target).getType(), expr.isAll());
           } else {
-            if ((target instanceof DNavigableMember)) {
-              return this.createDescriptor(((DNavigableMember)target).getType(), expr.isAll());
-            } else {
-              return this.createDescriptor(target, expr.isAll());
-            }
+            return this.createDescriptor(target, expr.isAll());
           }
         }
       }
@@ -196,12 +190,6 @@ public class DmxTypeComputer {
       if (e instanceof DAggregate) {
         _matched=true;
         _switchResult = new DmxAggregateDescriptor(((DAggregate)e));
-      }
-    }
-    if (!_matched) {
-      if (e instanceof DService) {
-        _matched=true;
-        _switchResult = new DmxServiceDescriptor(((DService)e));
       }
     }
     if (!_matched) {

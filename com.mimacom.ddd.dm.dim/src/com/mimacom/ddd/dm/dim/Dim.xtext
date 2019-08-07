@@ -14,7 +14,7 @@ DDomain:
 	name=DQualifiedName
 	('alias' aliases+=ID)*
 	(description=DRichText)?
-	(types+=DType | aggregates+=DAggregate | applications+=DExistingApplication | actors+=DService)*;
+	(types+=DType | aggregates+=DAggregate)*;
 
 	
 DAggregate:
@@ -33,12 +33,12 @@ DAggregate:
 DType:
 	DPrimitive | DEnumeration | DEntityType | DRelationship | DDetailType;
 	
-DConstraint returns DCondition:
+DConstraint returns DNamedPredicate:
 	'constraint'
 	name=ID
 	('alias' aliases+=ID)*
 	':'
-	condition=DExpression
+	predicate=DExpression
 	(description=DRichText)?;
 
 DPrimitive:
@@ -70,15 +70,27 @@ DLiteral:
 
 DEntityType:
 	(abstract?='abstract')?
-	(root?='root')?
-	'entity'
+	(	(root?='root')?
+		origin=DIdentityOriginGeneric
+	|	(root?='main')?
+		(	'physical' origin=DIdentityOriginObject // validation: cannot be abstract
+		|	'virtual' origin=DIdentityOriginConcept
+		) 
+	)
 	DComplexType;
 
 DRelationship:
 	(abstract?='abstract')?
-	(root?='root')?
+	(root?='root' | root?='main')?
 	'relationship'
 	DComplexType;
+	
+enum DIdentityOriginObject returns DIdentityOrigin:
+	REAL_WORLD_OBJECT='object';	
+enum DIdentityOriginConcept returns DIdentityOrigin:
+	VIRTUAL_CONCEPT='concept';	
+enum DIdentityOriginGeneric returns DIdentityOrigin:
+	GENERIC_ENTITY='entity';	
 
 DDetailType:
 	(abstract?='abstract')?
@@ -99,7 +111,7 @@ DFeature:
 
 DAssociation:
 	(derived?='derived')? 
-	(kind=DAssociationKind | (kind=DAssociationKindInverse "composite"))
+	(kind=DAssociationKind | (kind=DAssociationKindInverse "contains"))
 	name=ID
 	('alias' aliases+=ID)*
 	':'
@@ -107,7 +119,7 @@ DAssociation:
 	(description=DRichText)?;
 
 enum DAssociationKind:
-	REFERENCE="reference" | COMPOSITE="composite";
+	REFERENCE="references" | COMPOSITE="contains";
 
 enum DAssociationKindInverse returns DAssociationKind:	
 	 INVERSE_COMPOSITE="inverse";
@@ -137,44 +149,3 @@ DQueryParameter:
 	type=[DType|ID]  (multiplicity=DMultiplicity)?
 	(description=DRichText)?;
 
-
-/*
- * EXISTING APPLICATIONS
- */
-DExistingApplication:
-	'application'
-	name=ID
-	(description=DRichText)?
-	'{'
-		(services+=DService | exceptions+=DException | types+=DType)*
-	'}';
-	
-DService:
-	(kind=DServiceKind)? 'service'
-	name=ID
-	('(' (parameters+=DServiceParameter ( "," parameters+=DServiceParameter)*)? ')' )?
-	('raises' raises+=[DException|ID]  ( "," raises+=[DException|ID])* )?
-	(description=DRichText)? 
-	'{'
-	('guard' guards+=DExpression)*
-	('effect' effects+=DExpression)*
-	(types+=DType)*
-	'}';
-
-DServiceParameter:
-	direction=DDirection
-	name=ID
-	':'
-	type=[DType|ID]  (multiplicity=DMultiplicity)?
-	(description=DRichText)?;
-
-DException:
-	'exception'
-	name=ID
-	(description=DRichText)?;
-
-enum DServiceKind:
-				SYNCHRONOUS = 'synchronous' | ASYNCHRONOUS = 'async';
-
-enum DDirection:
-				INBOUND = 'in' | OUTBOUND = 'out';

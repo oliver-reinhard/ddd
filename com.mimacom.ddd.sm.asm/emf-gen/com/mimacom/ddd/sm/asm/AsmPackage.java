@@ -7,6 +7,7 @@ import com.mimacom.ddd.dm.base.BasePackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -316,6 +317,61 @@ public interface AsmPackage extends EPackage
 	int SSERVICE_INTERFACE_OPERATION_COUNT = MODEL_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.SExceptionImpl <em>SException</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.asm.impl.SExceptionImpl
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSException()
+	 * @generated
+	 */
+	int SEXCEPTION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEXCEPTION__NAME = BasePackage.DNAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEXCEPTION__ALIASES = BasePackage.DNAMED_ELEMENT__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEXCEPTION__DESCRIPTION = BasePackage.DNAMED_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The number of structural features of the '<em>SException</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEXCEPTION_FEATURE_COUNT = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>SException</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEXCEPTION_OPERATION_COUNT = BasePackage.DNAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.SActorImpl <em>SActor</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -323,7 +379,7 @@ public interface AsmPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSActor()
 	 * @generated
 	 */
-	int SACTOR = 3;
+	int SACTOR = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -360,7 +416,7 @@ public interface AsmPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSWatchdog()
 	 * @generated
 	 */
-	int SWATCHDOG = 4;
+	int SWATCHDOG = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -397,7 +453,7 @@ public interface AsmPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSHuman()
 	 * @generated
 	 */
-	int SHUMAN = 5;
+	int SHUMAN = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -434,7 +490,7 @@ public interface AsmPackage extends EPackage
 	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSServiceOperation()
 	 * @generated
 	 */
-	int SSERVICE_OPERATION = 6;
+	int SSERVICE_OPERATION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -498,6 +554,126 @@ public interface AsmPackage extends EPackage
 	 * @ordered
 	 */
 	int SSERVICE_OPERATION_OPERATION_COUNT = BasePackage.INAVIGABLE_MEMBER_CONTAINER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.impl.SServiceParameterImpl <em>SService Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.asm.impl.SServiceParameterImpl
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSServiceParameter()
+	 * @generated
+	 */
+	int SSERVICE_PARAMETER = 8;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSERVICE_PARAMETER__NAME = BasePackage.DNAVIGABLE_MEMBER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSERVICE_PARAMETER__ALIASES = BasePackage.DNAVIGABLE_MEMBER__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSERVICE_PARAMETER__DESCRIPTION = BasePackage.DNAVIGABLE_MEMBER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSERVICE_PARAMETER__TYPE = BasePackage.DNAVIGABLE_MEMBER__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSERVICE_PARAMETER__MULTIPLICITY = BasePackage.DNAVIGABLE_MEMBER__MULTIPLICITY;
+
+	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSERVICE_PARAMETER__OPTIONAL = BasePackage.DNAVIGABLE_MEMBER__OPTIONAL;
+
+	/**
+	 * The feature id for the '<em><b>Collection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSERVICE_PARAMETER__COLLECTION = BasePackage.DNAVIGABLE_MEMBER__COLLECTION;
+
+	/**
+	 * The feature id for the '<em><b>Direction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSERVICE_PARAMETER__DIRECTION = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>SService Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSERVICE_PARAMETER_FEATURE_COUNT = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>SService Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SSERVICE_PARAMETER_OPERATION_COUNT = BasePackage.DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.SServiceKind <em>SService Kind</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.asm.SServiceKind
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSServiceKind()
+	 * @generated
+	 */
+	int SSERVICE_KIND = 9;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.sm.asm.SDirection <em>SDirection</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.sm.asm.SDirection
+	 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSDirection()
+	 * @generated
+	 */
+	int SDIRECTION = 10;
 
 
 	/**
@@ -619,6 +795,16 @@ public interface AsmPackage extends EPackage
 	EReference getSServiceInterface_Operations();
 
 	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.SException <em>SException</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SException</em>'.
+	 * @see com.mimacom.ddd.sm.asm.SException
+	 * @generated
+	 */
+	EClass getSException();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.SActor <em>SActor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -723,6 +909,47 @@ public interface AsmPackage extends EPackage
 	 * @generated
 	 */
 	EReference getSServiceOperation_Effects();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.sm.asm.SServiceParameter <em>SService Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SService Parameter</em>'.
+	 * @see com.mimacom.ddd.sm.asm.SServiceParameter
+	 * @generated
+	 */
+	EClass getSServiceParameter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.asm.SServiceParameter#getDirection <em>Direction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Direction</em>'.
+	 * @see com.mimacom.ddd.sm.asm.SServiceParameter#getDirection()
+	 * @see #getSServiceParameter()
+	 * @generated
+	 */
+	EAttribute getSServiceParameter_Direction();
+
+	/**
+	 * Returns the meta object for enum '{@link com.mimacom.ddd.sm.asm.SServiceKind <em>SService Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>SService Kind</em>'.
+	 * @see com.mimacom.ddd.sm.asm.SServiceKind
+	 * @generated
+	 */
+	EEnum getSServiceKind();
+
+	/**
+	 * Returns the meta object for enum '{@link com.mimacom.ddd.sm.asm.SDirection <em>SDirection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>SDirection</em>'.
+	 * @see com.mimacom.ddd.sm.asm.SDirection
+	 * @generated
+	 */
+	EEnum getSDirection();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -843,6 +1070,16 @@ public interface AsmPackage extends EPackage
 		EReference SSERVICE_INTERFACE__OPERATIONS = eINSTANCE.getSServiceInterface_Operations();
 
 		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.SExceptionImpl <em>SException</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.asm.impl.SExceptionImpl
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSException()
+		 * @generated
+		 */
+		EClass SEXCEPTION = eINSTANCE.getSException();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.SActorImpl <em>SActor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -929,6 +1166,44 @@ public interface AsmPackage extends EPackage
 		 * @generated
 		 */
 		EReference SSERVICE_OPERATION__EFFECTS = eINSTANCE.getSServiceOperation_Effects();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.impl.SServiceParameterImpl <em>SService Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.asm.impl.SServiceParameterImpl
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSServiceParameter()
+		 * @generated
+		 */
+		EClass SSERVICE_PARAMETER = eINSTANCE.getSServiceParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Direction</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SSERVICE_PARAMETER__DIRECTION = eINSTANCE.getSServiceParameter_Direction();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.SServiceKind <em>SService Kind</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.asm.SServiceKind
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSServiceKind()
+		 * @generated
+		 */
+		EEnum SSERVICE_KIND = eINSTANCE.getSServiceKind();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.sm.asm.SDirection <em>SDirection</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.sm.asm.SDirection
+		 * @see com.mimacom.ddd.sm.asm.impl.AsmPackageImpl#getSDirection()
+		 * @generated
+		 */
+		EEnum SDIRECTION = eINSTANCE.getSDirection();
 
 	}
 

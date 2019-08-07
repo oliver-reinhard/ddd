@@ -70,7 +70,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 			case BasePackage.DIMPORT: return createDImport();
 			case BasePackage.DDOMAIN: return createDDomain();
 			case BasePackage.DAGGREGATE: return createDAggregate();
-			case BasePackage.DCONDITION: return createDCondition();
+			case BasePackage.DNAMED_PREDICATE: return createDNamedPredicate();
 			case BasePackage.DPRIMITIVE: return createDPrimitive();
 			case BasePackage.DENUMERATION: return createDEnumeration();
 			case BasePackage.DLITERAL: return createDLiteral();
@@ -83,15 +83,12 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 			case BasePackage.DQUERY: return createDQuery();
 			case BasePackage.DQUERY_PARAMETER: return createDQueryParameter();
 			case BasePackage.DDOMAIN_EVENT: return createDDomainEvent();
+			case BasePackage.DCASE_CONJUNCTION: return createDCaseConjunction();
 			case BasePackage.DCONTEXT: return createDContext();
 			case BasePackage.DNOTIFICATION: return createDNotification();
 			case BasePackage.DMESSAGE: return createDMessage();
-			case BasePackage.DHUMAN: return createDHuman();
+			case BasePackage.DHUMAN_ACTOR_ROLE: return createDHumanActorRole();
 			case BasePackage.DSERVICE: return createDService();
-			case BasePackage.DSERVICE_PARAMETER: return createDServiceParameter();
-			case BasePackage.DTIME: return createDTime();
-			case BasePackage.DEXISTING_APPLICATION: return createDExistingApplication();
-			case BasePackage.DEXCEPTION: return createDException();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -107,12 +104,10 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		switch (eDataType.getClassifierID())
 		{
+			case BasePackage.DIDENTITY_ORIGIN:
+				return createDIdentityOriginFromString(eDataType, initialValue);
 			case BasePackage.DASSOCIATION_KIND:
 				return createDAssociationKindFromString(eDataType, initialValue);
-			case BasePackage.DDIRECTION:
-				return createDDirectionFromString(eDataType, initialValue);
-			case BasePackage.DSERVICE_KIND:
-				return createDServiceKindFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -128,12 +123,10 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		switch (eDataType.getClassifierID())
 		{
+			case BasePackage.DIDENTITY_ORIGIN:
+				return convertDIdentityOriginToString(eDataType, instanceValue);
 			case BasePackage.DASSOCIATION_KIND:
 				return convertDAssociationKindToString(eDataType, instanceValue);
-			case BasePackage.DDIRECTION:
-				return convertDDirectionToString(eDataType, instanceValue);
-			case BasePackage.DSERVICE_KIND:
-				return convertDServiceKindToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -205,10 +198,10 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * @generated
 	 */
 	@Override
-	public DCondition createDCondition()
+	public DNamedPredicate createDNamedPredicate()
 	{
-		DConditionImpl dCondition = new DConditionImpl();
-		return dCondition;
+		DNamedPredicateImpl dNamedPredicate = new DNamedPredicateImpl();
+		return dNamedPredicate;
 	}
 
 	/**
@@ -361,6 +354,18 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * @generated
 	 */
 	@Override
+	public DCaseConjunction createDCaseConjunction()
+	{
+		DCaseConjunctionImpl dCaseConjunction = new DCaseConjunctionImpl();
+		return dCaseConjunction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public DContext createDContext()
 	{
 		DContextImpl dContext = new DContextImpl();
@@ -397,10 +402,10 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * @generated
 	 */
 	@Override
-	public DHuman createDHuman()
+	public DHumanActorRole createDHumanActorRole()
 	{
-		DHumanImpl dHuman = new DHumanImpl();
-		return dHuman;
+		DHumanActorRoleImpl dHumanActorRole = new DHumanActorRoleImpl();
+		return dHumanActorRole;
 	}
 
 	/**
@@ -420,11 +425,11 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public DServiceParameter createDServiceParameter()
+	public DIdentityOrigin createDIdentityOriginFromString(EDataType eDataType, String initialValue)
 	{
-		DServiceParameterImpl dServiceParameter = new DServiceParameterImpl();
-		return dServiceParameter;
+		DIdentityOrigin result = DIdentityOrigin.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
 	}
 
 	/**
@@ -432,35 +437,9 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public DTime createDTime()
+	public String convertDIdentityOriginToString(EDataType eDataType, Object instanceValue)
 	{
-		DTimeImpl dTime = new DTimeImpl();
-		return dTime;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DExistingApplication createDExistingApplication()
-	{
-		DExistingApplicationImpl dExistingApplication = new DExistingApplicationImpl();
-		return dExistingApplication;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DException createDException()
-	{
-		DExceptionImpl dException = new DExceptionImpl();
-		return dException;
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
@@ -481,50 +460,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * @generated
 	 */
 	public String convertDAssociationKindToString(EDataType eDataType, Object instanceValue)
-	{
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DDirection createDDirectionFromString(EDataType eDataType, String initialValue)
-	{
-		DDirection result = DDirection.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDDirectionToString(EDataType eDataType, Object instanceValue)
-	{
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DServiceKind createDServiceKindFromString(EDataType eDataType, String initialValue)
-	{
-		DServiceKind result = DServiceKind.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDServiceKindToString(EDataType eDataType, Object instanceValue)
 	{
 		return instanceValue == null ? null : instanceValue.toString();
 	}

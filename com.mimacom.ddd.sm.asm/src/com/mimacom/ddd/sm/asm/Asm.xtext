@@ -24,7 +24,7 @@ SServiceInterface:
 	name=DQualifiedName
 	'interface' 'model' interface=[SInformationModel|DQualifiedName]
 	'core' 'model' core=[SInformationModel|DQualifiedName]
-	(exceptions+=DException)*
+	(exceptions+=SException)*
 	(operations+=SServiceOperation)*;
 
 SActor:
@@ -41,28 +41,28 @@ SHuman:
 SServiceOperation:
 	'operation'
 	name=ID
-	'(' 	(parameters+=DServiceParameter ( "," parameters+=DServiceParameter)*)?
+	'(' 	(parameters+=SServiceParameter ( "," parameters+=SServiceParameter)*)?
 	')'
-	('raises' raises+=[DException|ID]  ( "," raises+=[DException|ID])* )?
+	('raises' raises+=[SException|ID]  ( "," raises+=[SException|ID])* )?
 	'{'
 	('guard' guards+=DExpression)*
 	('effect' effects+=DExpression)*
 	'}';
 
-DServiceParameter:
-	direction=DDirection
+SServiceParameter:
+	direction=SDirection
 	name=ID
 	':'
 	type=[DType|ID]  (multiplicity=DMultiplicity)?
 	(description=DRichText)?;
 
-DException:
+SException:
 	'exception'
 	name=ID
 	(description=DRichText)?;
 	
-enum DServiceKind:
+enum SServiceKind:
 				SYNCHRONOUS = 'synchronous' | ASYNCHRONOUS = 'async';
 
-enum DDirection:
+enum SDirection:
 				INBOUND = 'in' | OUTBOUND = 'out';

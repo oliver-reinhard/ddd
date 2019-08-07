@@ -3,7 +3,7 @@
 package com.mimacom.ddd.dm.base.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DCondition;
+import com.mimacom.ddd.dm.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
@@ -80,7 +80,7 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DCondition> constraints;
+	protected EList<DNamedPredicate> constraints;
 
 	/**
 	 * The default value of the '{@link #isPrimitive() <em>Primitive</em>}' attribute.
@@ -199,11 +199,11 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	 * @generated
 	 */
 	@Override
-	public EList<DCondition> getConstraints()
+	public EList<DNamedPredicate> getConstraints()
 	{
 		if (constraints == null)
 		{
-			constraints = new EObjectContainmentEList<DCondition>(DCondition.class, this, BasePackage.DTYPE__CONSTRAINTS);
+			constraints = new EObjectContainmentEList<DNamedPredicate>(DNamedPredicate.class, this, BasePackage.DTYPE__CONSTRAINTS);
 		}
 		return constraints;
 	}
@@ -291,7 +291,7 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 				return;
 			case BasePackage.DTYPE__CONSTRAINTS:
 				getConstraints().clear();
-				getConstraints().addAll((Collection<? extends DCondition>)newValue);
+				getConstraints().addAll((Collection<? extends DNamedPredicate>)newValue);
 				return;
 			case BasePackage.DTYPE__PRIMITIVE:
 				setPrimitive((Boolean)newValue);

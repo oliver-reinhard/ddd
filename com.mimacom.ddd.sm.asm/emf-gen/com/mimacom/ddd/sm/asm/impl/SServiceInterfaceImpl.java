@@ -3,9 +3,8 @@
  */
 package com.mimacom.ddd.sm.asm.impl;
 
-import com.mimacom.ddd.dm.base.DException;
-
 import com.mimacom.ddd.sm.asm.AsmPackage;
+import com.mimacom.ddd.sm.asm.SException;
 import com.mimacom.ddd.sm.asm.SServiceInterface;
 import com.mimacom.ddd.sm.asm.SServiceOperation;
 
@@ -72,7 +71,7 @@ public class SServiceInterfaceImpl extends ModelImpl implements SServiceInterfac
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DException> exceptions;
+	protected EList<SException> exceptions;
 
 	/**
 	 * The cached value of the '{@link #getOperations() <em>Operations</em>}' containment reference list.
@@ -201,11 +200,11 @@ public class SServiceInterfaceImpl extends ModelImpl implements SServiceInterfac
 	 * @generated
 	 */
 	@Override
-	public EList<DException> getExceptions()
+	public EList<SException> getExceptions()
 	{
 		if (exceptions == null)
 		{
-			exceptions = new EObjectContainmentEList<DException>(DException.class, this, AsmPackage.SSERVICE_INTERFACE__EXCEPTIONS);
+			exceptions = new EObjectContainmentEList<SException>(SException.class, this, AsmPackage.SSERVICE_INTERFACE__EXCEPTIONS);
 		}
 		return exceptions;
 	}
@@ -286,7 +285,7 @@ public class SServiceInterfaceImpl extends ModelImpl implements SServiceInterfac
 				return;
 			case AsmPackage.SSERVICE_INTERFACE__EXCEPTIONS:
 				getExceptions().clear();
-				getExceptions().addAll((Collection<? extends DException>)newValue);
+				getExceptions().addAll((Collection<? extends SException>)newValue);
 				return;
 			case AsmPackage.SSERVICE_INTERFACE__OPERATIONS:
 				getOperations().clear();

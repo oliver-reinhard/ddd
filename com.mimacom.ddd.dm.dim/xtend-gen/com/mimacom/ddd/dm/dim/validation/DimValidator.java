@@ -12,25 +12,22 @@ import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DComplexType;
-import com.mimacom.ddd.dm.base.DCondition;
 import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DDomainEvent;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
-import com.mimacom.ddd.dm.base.DException;
-import com.mimacom.ddd.dm.base.DExistingApplication;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DIdentityOrigin;
 import com.mimacom.ddd.dm.base.DIdentityType;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DRelationship;
-import com.mimacom.ddd.dm.base.DServiceParameter;
-import com.mimacom.ddd.dm.base.DTime;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IValueType;
 import com.mimacom.ddd.dm.dim.DimUtil;
@@ -190,7 +187,14 @@ public class DimValidator extends AbstractDimValidator {
   }
   
   @Check
-  public void checkAssocitionToRootType(final DAssociation a) {
+  public void checkRealWorldEntityType(final DEntityType e) {
+    if ((Objects.equal(e.getOrigin(), DIdentityOrigin.REAL_WORLD_OBJECT) && e.isAbstract())) {
+      this.error("Entity Types representng real-world objects cannot be abstract", e, BasePackage.Literals.DCOMPLEX_TYPE__ABSTRACT);
+    }
+  }
+  
+  @Check
+  public void checkAssocitionToEntityType(final DAssociation a) {
     DType _type = a.getType();
     boolean _not = (!(_type instanceof DEntityType));
     if (_not) {
@@ -212,23 +216,6 @@ public class DimValidator extends AbstractDimValidator {
     boolean _not = (!((p.getType() instanceof IValueType) || Objects.equal(p.getType(), p.eContainer())));
     if (_not) {
       this.error("Refererenced type is not a ValueType nor the query\'s own container", p, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE);
-    }
-  }
-  
-  @Check
-  public void checkParameterIsValueType(final DServiceParameter p) {
-    DType _type = p.getType();
-    boolean _not = (!(_type instanceof IValueType));
-    if (_not) {
-      this.error("Refererenced type is not a ValueType", p, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE);
-    }
-  }
-  
-  @Check
-  public void checkTimeCannotBeNotified(final DNotification n) {
-    DActor _notified = n.getNotified();
-    if ((_notified instanceof DTime)) {
-      this.error("Time cannot be notified", n, BasePackage.Literals.DNOTIFICATION__NOTIFIED);
     }
   }
   
@@ -264,23 +251,13 @@ public class DimValidator extends AbstractDimValidator {
   }
   
   @Check
-  public void checkTypeNameStartsWithCapital(final DCondition c) {
+  public void checkTypeNameStartsWithCapital(final DNamedPredicate c) {
     this.checkNameStartsWithCapital(c);
   }
   
   @Check
   public void checkTypeNameStartsWithCapital(final DActor a) {
     this.checkNameStartsWithCapital(a);
-  }
-  
-  @Check
-  public void checkTypeNameStartsWithCapital(final DExistingApplication ea) {
-    this.checkNameStartsWithCapital(ea);
-  }
-  
-  @Check
-  public void checkTypeNameStartsWithCapital(final DException e) {
-    this.checkNameStartsWithCapital(e);
   }
   
   @Check
@@ -308,11 +285,6 @@ public class DimValidator extends AbstractDimValidator {
   
   @Check
   public void checkFeatureNameStartsWithLowercase(final DQueryParameter p) {
-    this.checkNameStartsWithLowercase(p);
-  }
-  
-  @Check
-  public void checkFeatureNameStartsWithLowercase(final DServiceParameter p) {
     this.checkNameStartsWithLowercase(p);
   }
   

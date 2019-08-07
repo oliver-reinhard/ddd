@@ -4,6 +4,7 @@
 package com.mimacom.ddd.sm.asm.util;
 
 import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
@@ -109,6 +110,14 @@ public class AsmSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case AsmPackage.SEXCEPTION:
+			{
+				SException sException = (SException)theEObject;
+				T result = caseSException(sException);
+				if (result == null) result = caseDNamedElement(sException);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case AsmPackage.SACTOR:
 			{
 				SActor sActor = (SActor)theEObject;
@@ -138,6 +147,15 @@ public class AsmSwitch<T> extends Switch<T>
 				T result = caseSServiceOperation(sServiceOperation);
 				if (result == null) result = caseINavigableMemberContainer(sServiceOperation);
 				if (result == null) result = caseINamespace(sServiceOperation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AsmPackage.SSERVICE_PARAMETER:
+			{
+				SServiceParameter sServiceParameter = (SServiceParameter)theEObject;
+				T result = caseSServiceParameter(sServiceParameter);
+				if (result == null) result = caseDNavigableMember(sServiceParameter);
+				if (result == null) result = caseDNamedElement(sServiceParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -189,6 +207,22 @@ public class AsmSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseSServiceInterface(SServiceInterface object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>SException</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>SException</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSException(SException object)
 	{
 		return null;
 	}
@@ -258,6 +292,22 @@ public class AsmSwitch<T> extends Switch<T>
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>SService Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>SService Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSServiceParameter(SServiceParameter object)
+	{
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>DNamed Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -317,6 +367,22 @@ public class AsmSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseINavigableMemberContainer(INavigableMemberContainer object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DNavigable Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DNavigable Member</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDNavigableMember(DNavigableMember object)
 	{
 		return null;
 	}
