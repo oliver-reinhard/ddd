@@ -108,10 +108,9 @@ DFeature:
 
 DAssociation:
 	(derived?='derived')? 
-	(kind=DAssociationKind | (kind=DAssociationKindInverse "contains"))
 	name=ID
 	('alias' aliases+=ID)*
-	':'
+	(kind=DAssociationKind | (kind=DAssociationKindInverse "contains"))
 	type=[DEntityType|ID]  (multiplicity=DMultiplicity)?
 	(description=DRichText)?;
 

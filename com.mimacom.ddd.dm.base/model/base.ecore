@@ -144,6 +144,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DQueryParameter" eSuperTypes="#//DNavigableMember #//IDeducibleElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DContext" eSuperTypes="#//DNavigableMember"/>
   <eClassifiers xsi:type="ecore:EClass" name="DDomainEvent" eSuperTypes="#//DNamedElement #//INavigableMemberContainer #//IStaticReferenceTarget">
     <eStructuralFeatures xsi:type="ecore:EReference" name="context" lowerBound="1"
         upperBound="-1" eType="#//DContext" containment="true"/>
@@ -162,7 +163,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="predicates" upperBound="-1"
         eType="#//DNamedPredicate" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DContext" eSuperTypes="#//DNavigableMember"/>
   <eClassifiers xsi:type="ecore:EClass" name="DNotification" eSuperTypes="#//DNavigableMember #//INavigableMemberContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="message" eType="#//DMessage"
         containment="true"/>

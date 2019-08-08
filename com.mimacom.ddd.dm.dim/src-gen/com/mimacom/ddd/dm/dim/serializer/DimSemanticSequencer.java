@@ -287,9 +287,9 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         derived?='derived'? 
-	 *         (kind=DAssociationKind | kind=DAssociationKindInverse) 
 	 *         name=ID 
 	 *         aliases+=ID* 
+	 *         (kind=DAssociationKind | kind=DAssociationKindInverse) 
 	 *         type=[DEntityType|ID] 
 	 *         multiplicity=DMultiplicity? 
 	 *         description=DRichText?

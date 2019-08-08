@@ -1291,11 +1291,53 @@ ruleDAssociation returns [EObject current=null]
 		)?
 		(
 			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getDAssociationAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDAssociationRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.ID");
+				}
+			)
+		)
+		(
+			otherlv_2='alias'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getDAssociationAccess().getAliasKeyword_2_0());
+			}
+			(
+				(
+					lv_aliases_3_0=RULE_ID
+					{
+						newLeafNode(lv_aliases_3_0, grammarAccess.getDAssociationAccess().getAliasesIDTerminalRuleCall_2_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getDAssociationRule());
+						}
+						addWithLastConsumed(
+							$current,
+							"aliases",
+							lv_aliases_3_0,
+							"com.mimacom.ddd.dm.dmx.Dmx.ID");
+					}
+				)
+			)
+		)*
+		(
+			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDAssociationAccess().getKindDAssociationKindEnumRuleCall_1_0_0());
+						newCompositeNode(grammarAccess.getDAssociationAccess().getKindDAssociationKindEnumRuleCall_3_0_0());
 					}
-					lv_kind_1_0=ruleDAssociationKind
+					lv_kind_4_0=ruleDAssociationKind
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDAssociationRule());
@@ -1303,7 +1345,7 @@ ruleDAssociation returns [EObject current=null]
 						set(
 							$current,
 							"kind",
-							lv_kind_1_0,
+							lv_kind_4_0,
 							"com.mimacom.ddd.dm.dim.Dim.DAssociationKind");
 						afterParserOrEnumRuleCall();
 					}
@@ -1314,9 +1356,9 @@ ruleDAssociation returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDAssociationAccess().getKindDAssociationKindInverseEnumRuleCall_1_1_0_0());
+							newCompositeNode(grammarAccess.getDAssociationAccess().getKindDAssociationKindInverseEnumRuleCall_3_1_0_0());
 						}
-						lv_kind_2_0=ruleDAssociationKindInverse
+						lv_kind_5_0=ruleDAssociationKindInverse
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDAssociationRule());
@@ -1324,64 +1366,18 @@ ruleDAssociation returns [EObject current=null]
 							set(
 								$current,
 								"kind",
-								lv_kind_2_0,
+								lv_kind_5_0,
 								"com.mimacom.ddd.dm.dim.Dim.DAssociationKindInverse");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
-				otherlv_3='contains'
+				otherlv_6='contains'
 				{
-					newLeafNode(otherlv_3, grammarAccess.getDAssociationAccess().getContainsKeyword_1_1_1());
+					newLeafNode(otherlv_6, grammarAccess.getDAssociationAccess().getContainsKeyword_3_1_1());
 				}
 			)
 		)
-		(
-			(
-				lv_name_4_0=RULE_ID
-				{
-					newLeafNode(lv_name_4_0, grammarAccess.getDAssociationAccess().getNameIDTerminalRuleCall_2_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDAssociationRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_4_0,
-						"com.mimacom.ddd.dm.dmx.Dmx.ID");
-				}
-			)
-		)
-		(
-			otherlv_5='alias'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getDAssociationAccess().getAliasKeyword_3_0());
-			}
-			(
-				(
-					lv_aliases_6_0=RULE_ID
-					{
-						newLeafNode(lv_aliases_6_0, grammarAccess.getDAssociationAccess().getAliasesIDTerminalRuleCall_3_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDAssociationRule());
-						}
-						addWithLastConsumed(
-							$current,
-							"aliases",
-							lv_aliases_6_0,
-							"com.mimacom.ddd.dm.dmx.Dmx.ID");
-					}
-				)
-			)
-		)*
-		otherlv_7=':'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getDAssociationAccess().getColonKeyword_4());
-		}
 		(
 			(
 				{
@@ -1389,18 +1385,18 @@ ruleDAssociation returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getDAssociationRule());
 					}
 				}
-				otherlv_8=RULE_ID
+				otherlv_7=RULE_ID
 				{
-					newLeafNode(otherlv_8, grammarAccess.getDAssociationAccess().getTypeDEntityTypeCrossReference_5_0());
+					newLeafNode(otherlv_7, grammarAccess.getDAssociationAccess().getTypeDEntityTypeCrossReference_4_0());
 				}
 			)
 		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDAssociationAccess().getMultiplicityDMultiplicityParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getDAssociationAccess().getMultiplicityDMultiplicityParserRuleCall_5_0());
 				}
-				lv_multiplicity_9_0=ruleDMultiplicity
+				lv_multiplicity_8_0=ruleDMultiplicity
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDAssociationRule());
@@ -1408,7 +1404,7 @@ ruleDAssociation returns [EObject current=null]
 					set(
 						$current,
 						"multiplicity",
-						lv_multiplicity_9_0,
+						lv_multiplicity_8_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DMultiplicity");
 					afterParserOrEnumRuleCall();
 				}
@@ -1417,9 +1413,9 @@ ruleDAssociation returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDAssociationAccess().getDescriptionDRichTextParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getDAssociationAccess().getDescriptionDRichTextParserRuleCall_6_0());
 				}
-				lv_description_10_0=ruleDRichText
+				lv_description_9_0=ruleDRichText
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDAssociationRule());
@@ -1427,7 +1423,7 @@ ruleDAssociation returns [EObject current=null]
 					set(
 						$current,
 						"description",
-						lv_description_10_0,
+						lv_description_9_0,
 						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
 					afterParserOrEnumRuleCall();
 				}

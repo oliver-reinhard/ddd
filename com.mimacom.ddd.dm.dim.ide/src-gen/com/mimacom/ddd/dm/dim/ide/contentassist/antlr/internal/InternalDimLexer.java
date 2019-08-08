@@ -2419,10 +2419,10 @@ public class InternalDimLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDim.g:15434:9: ( ( '^' )? ( RULE_LETTER | '_' ) ( RULE_LETTER | '_' | '0' .. '9' )* )
-            // InternalDim.g:15434:11: ( '^' )? ( RULE_LETTER | '_' ) ( RULE_LETTER | '_' | '0' .. '9' )*
+            // InternalDim.g:15407:9: ( ( '^' )? ( RULE_LETTER | '_' ) ( RULE_LETTER | '_' | '0' .. '9' )* )
+            // InternalDim.g:15407:11: ( '^' )? ( RULE_LETTER | '_' ) ( RULE_LETTER | '_' | '0' .. '9' )*
             {
-            // InternalDim.g:15434:11: ( '^' )?
+            // InternalDim.g:15407:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -2431,7 +2431,7 @@ public class InternalDimLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalDim.g:15434:11: '^'
+                    // InternalDim.g:15407:11: '^'
                     {
                     match('^'); 
 
@@ -2449,7 +2449,7 @@ public class InternalDimLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalDim.g:15434:34: ( RULE_LETTER | '_' | '0' .. '9' )*
+            // InternalDim.g:15407:34: ( RULE_LETTER | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -2498,11 +2498,11 @@ public class InternalDimLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDim.g:15436:13: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
-            // InternalDim.g:15436:15: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+            // InternalDim.g:15409:13: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
+            // InternalDim.g:15409:15: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
             {
             match('\"'); 
-            // InternalDim.g:15436:19: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+            // InternalDim.g:15409:19: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
             loop3:
             do {
                 int alt3=3;
@@ -2518,7 +2518,7 @@ public class InternalDimLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalDim.g:15436:20: '\\\\' .
+            	    // InternalDim.g:15409:20: '\\\\' .
             	    {
             	    match('\\'); 
             	    matchAny(); 
@@ -2526,7 +2526,7 @@ public class InternalDimLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // InternalDim.g:15436:27: ~ ( ( '\\\\' | '\"' ) )
+            	    // InternalDim.g:15409:27: ~ ( ( '\\\\' | '\"' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2563,10 +2563,10 @@ public class InternalDimLexer extends Lexer {
         try {
             int _type = RULE_NATURAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDim.g:15438:14: ( ( '0' .. '9' )+ )
-            // InternalDim.g:15438:16: ( '0' .. '9' )+
+            // InternalDim.g:15411:14: ( ( '0' .. '9' )+ )
+            // InternalDim.g:15411:16: ( '0' .. '9' )+
             {
-            // InternalDim.g:15438:16: ( '0' .. '9' )+
+            // InternalDim.g:15411:16: ( '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -2580,7 +2580,7 @@ public class InternalDimLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalDim.g:15438:17: '0' .. '9'
+            	    // InternalDim.g:15411:17: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2610,8 +2610,8 @@ public class InternalDimLexer extends Lexer {
     // $ANTLR start "RULE_LETTER"
     public final void mRULE_LETTER() throws RecognitionException {
         try {
-            // InternalDim.g:15440:22: ( ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u00FF' ) )
-            // InternalDim.g:15440:24: ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u00FF' )
+            // InternalDim.g:15413:22: ( ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u00FF' ) )
+            // InternalDim.g:15413:24: ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u00FF' )
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z')||(input.LA(1)>='\u00C0' && input.LA(1)<='\u00D6')||(input.LA(1)>='\u00D8' && input.LA(1)<='\u00F6')||(input.LA(1)>='\u00F8' && input.LA(1)<='\u00FF') ) {
                 input.consume();
@@ -2634,8 +2634,8 @@ public class InternalDimLexer extends Lexer {
     // $ANTLR start "RULE_PLAIN_TEXT"
     public final void mRULE_PLAIN_TEXT() throws RecognitionException {
         try {
-            // InternalDim.g:15442:26: (~ ( ( '\\u00BB' | ']' | '[' ) ) )
-            // InternalDim.g:15442:28: ~ ( ( '\\u00BB' | ']' | '[' ) )
+            // InternalDim.g:15415:26: (~ ( ( '\\u00BB' | ']' | '[' ) ) )
+            // InternalDim.g:15415:28: ~ ( ( '\\u00BB' | ']' | '[' ) )
             {
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='Z')||input.LA(1)=='\\'||(input.LA(1)>='^' && input.LA(1)<='\u00BA')||(input.LA(1)>='\u00BC' && input.LA(1)<='\uFFFF') ) {
                 input.consume();
@@ -2660,11 +2660,11 @@ public class InternalDimLexer extends Lexer {
         try {
             int _type = RULE_PLAIN_TEXT_ONLY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDim.g:15444:22: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB' )
-            // InternalDim.g:15444:24: '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB'
+            // InternalDim.g:15417:22: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB' )
+            // InternalDim.g:15417:24: '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB'
             {
             match('\u00AB'); 
-            // InternalDim.g:15444:33: ( RULE_PLAIN_TEXT )*
+            // InternalDim.g:15417:33: ( RULE_PLAIN_TEXT )*
             loop5:
             do {
                 int alt5=2;
@@ -2677,7 +2677,7 @@ public class InternalDimLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalDim.g:15444:33: RULE_PLAIN_TEXT
+            	    // InternalDim.g:15417:33: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2706,11 +2706,11 @@ public class InternalDimLexer extends Lexer {
         try {
             int _type = RULE_PLAIN_TEXT_START;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDim.g:15446:23: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '[' )
-            // InternalDim.g:15446:25: '\\u00AB' ( RULE_PLAIN_TEXT )* '['
+            // InternalDim.g:15419:23: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '[' )
+            // InternalDim.g:15419:25: '\\u00AB' ( RULE_PLAIN_TEXT )* '['
             {
             match('\u00AB'); 
-            // InternalDim.g:15446:34: ( RULE_PLAIN_TEXT )*
+            // InternalDim.g:15419:34: ( RULE_PLAIN_TEXT )*
             loop6:
             do {
                 int alt6=2;
@@ -2723,7 +2723,7 @@ public class InternalDimLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalDim.g:15446:34: RULE_PLAIN_TEXT
+            	    // InternalDim.g:15419:34: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2752,11 +2752,11 @@ public class InternalDimLexer extends Lexer {
         try {
             int _type = RULE_PLAIN_TEXT_MIDDLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDim.g:15448:24: ( ']' ( RULE_PLAIN_TEXT )* '[' )
-            // InternalDim.g:15448:26: ']' ( RULE_PLAIN_TEXT )* '['
+            // InternalDim.g:15421:24: ( ']' ( RULE_PLAIN_TEXT )* '[' )
+            // InternalDim.g:15421:26: ']' ( RULE_PLAIN_TEXT )* '['
             {
             match(']'); 
-            // InternalDim.g:15448:30: ( RULE_PLAIN_TEXT )*
+            // InternalDim.g:15421:30: ( RULE_PLAIN_TEXT )*
             loop7:
             do {
                 int alt7=2;
@@ -2769,7 +2769,7 @@ public class InternalDimLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalDim.g:15448:30: RULE_PLAIN_TEXT
+            	    // InternalDim.g:15421:30: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2798,11 +2798,11 @@ public class InternalDimLexer extends Lexer {
         try {
             int _type = RULE_PLAIN_TEXT_END;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDim.g:15450:21: ( ']' ( RULE_PLAIN_TEXT )* '\\u00BB' )
-            // InternalDim.g:15450:23: ']' ( RULE_PLAIN_TEXT )* '\\u00BB'
+            // InternalDim.g:15423:21: ( ']' ( RULE_PLAIN_TEXT )* '\\u00BB' )
+            // InternalDim.g:15423:23: ']' ( RULE_PLAIN_TEXT )* '\\u00BB'
             {
             match(']'); 
-            // InternalDim.g:15450:27: ( RULE_PLAIN_TEXT )*
+            // InternalDim.g:15423:27: ( RULE_PLAIN_TEXT )*
             loop8:
             do {
                 int alt8=2;
@@ -2815,7 +2815,7 @@ public class InternalDimLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalDim.g:15450:27: RULE_PLAIN_TEXT
+            	    // InternalDim.g:15423:27: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2844,12 +2844,12 @@ public class InternalDimLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDim.g:15452:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalDim.g:15452:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalDim.g:15425:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalDim.g:15425:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalDim.g:15452:24: ( options {greedy=false; } : . )*
+            // InternalDim.g:15425:24: ( options {greedy=false; } : . )*
             loop9:
             do {
                 int alt9=2;
@@ -2874,7 +2874,7 @@ public class InternalDimLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalDim.g:15452:52: .
+            	    // InternalDim.g:15425:52: .
             	    {
             	    matchAny(); 
 
@@ -2904,12 +2904,12 @@ public class InternalDimLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDim.g:15454:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalDim.g:15454:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalDim.g:15427:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalDim.g:15427:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalDim.g:15454:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalDim.g:15427:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop10:
             do {
                 int alt10=2;
@@ -2922,7 +2922,7 @@ public class InternalDimLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalDim.g:15454:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalDim.g:15427:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2942,7 +2942,7 @@ public class InternalDimLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalDim.g:15454:40: ( ( '\\r' )? '\\n' )?
+            // InternalDim.g:15427:40: ( ( '\\r' )? '\\n' )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -2951,9 +2951,9 @@ public class InternalDimLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // InternalDim.g:15454:41: ( '\\r' )? '\\n'
+                    // InternalDim.g:15427:41: ( '\\r' )? '\\n'
                     {
-                    // InternalDim.g:15454:41: ( '\\r' )?
+                    // InternalDim.g:15427:41: ( '\\r' )?
                     int alt11=2;
                     int LA11_0 = input.LA(1);
 
@@ -2962,7 +2962,7 @@ public class InternalDimLexer extends Lexer {
                     }
                     switch (alt11) {
                         case 1 :
-                            // InternalDim.g:15454:41: '\\r'
+                            // InternalDim.g:15427:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2994,10 +2994,10 @@ public class InternalDimLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDim.g:15456:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalDim.g:15456:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalDim.g:15429:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalDim.g:15429:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalDim.g:15456:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalDim.g:15429:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt13=0;
             loop13:
             do {
@@ -3051,8 +3051,8 @@ public class InternalDimLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDim.g:15458:16: ( . )
-            // InternalDim.g:15458:18: .
+            // InternalDim.g:15431:16: ( . )
+            // InternalDim.g:15431:18: .
             {
             matchAny(); 
 

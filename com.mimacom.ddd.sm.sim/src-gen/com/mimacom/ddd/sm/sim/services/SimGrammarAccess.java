@@ -3368,7 +3368,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum DEntityOriginRelationship returns DEntityOrigin:
-	//	VIRTUAL_CONCEPT='relationship';
+	//	RELATIONSHIP='relationship';
 	public DimGrammarAccess.DEntityOriginRelationshipElements getDEntityOriginRelationshipAccess() {
 		return gaDim.getDEntityOriginRelationshipAccess();
 	}
@@ -3400,9 +3400,9 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DAssociation:
-	//	derived?='derived'? (kind=DAssociationKind | kind=DAssociationKindInverse "contains") name=ID ('alias' aliases+=ID)*
-	//	':'
-	//	type=[DEntityType] multiplicity=DMultiplicity?
+	//	derived?='derived'?
+	//	name=ID ('alias' aliases+=ID)* (kind=DAssociationKind | kind=DAssociationKindInverse "contains") type=[DEntityType]
+	//	multiplicity=DMultiplicity?
 	//	description=DRichText?;
 	public DimGrammarAccess.DAssociationElements getDAssociationAccess() {
 		return gaDim.getDAssociationAccess();

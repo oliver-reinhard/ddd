@@ -765,36 +765,35 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cDerivedAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Keyword cDerivedDerivedKeyword_0_0 = (Keyword)cDerivedAssignment_0.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cKindAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cKindDAssociationKindEnumRuleCall_1_0_0 = (RuleCall)cKindAssignment_1_0.eContents().get(0);
-		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
-		private final Assignment cKindAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
-		private final RuleCall cKindDAssociationKindInverseEnumRuleCall_1_1_0_0 = (RuleCall)cKindAssignment_1_1_0.eContents().get(0);
-		private final Keyword cContainsKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cAliasKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cAliasesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cAliasesIDTerminalRuleCall_3_1_0 = (RuleCall)cAliasesAssignment_3_1.eContents().get(0);
-		private final Keyword cColonKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cTypeAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final CrossReference cTypeDEntityTypeCrossReference_5_0 = (CrossReference)cTypeAssignment_5.eContents().get(0);
-		private final RuleCall cTypeDEntityTypeIDTerminalRuleCall_5_0_1 = (RuleCall)cTypeDEntityTypeCrossReference_5_0.eContents().get(1);
-		private final Assignment cMultiplicityAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cMultiplicityDMultiplicityParserRuleCall_6_0 = (RuleCall)cMultiplicityAssignment_6.eContents().get(0);
-		private final Assignment cDescriptionAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cDescriptionDRichTextParserRuleCall_7_0 = (RuleCall)cDescriptionAssignment_7.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cAliasKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cAliasesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cAliasesIDTerminalRuleCall_2_1_0 = (RuleCall)cAliasesAssignment_2_1.eContents().get(0);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Assignment cKindAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
+		private final RuleCall cKindDAssociationKindEnumRuleCall_3_0_0 = (RuleCall)cKindAssignment_3_0.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cAlternatives_3.eContents().get(1);
+		private final Assignment cKindAssignment_3_1_0 = (Assignment)cGroup_3_1.eContents().get(0);
+		private final RuleCall cKindDAssociationKindInverseEnumRuleCall_3_1_0_0 = (RuleCall)cKindAssignment_3_1_0.eContents().get(0);
+		private final Keyword cContainsKeyword_3_1_1 = (Keyword)cGroup_3_1.eContents().get(1);
+		private final Assignment cTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cTypeDEntityTypeCrossReference_4_0 = (CrossReference)cTypeAssignment_4.eContents().get(0);
+		private final RuleCall cTypeDEntityTypeIDTerminalRuleCall_4_0_1 = (RuleCall)cTypeDEntityTypeCrossReference_4_0.eContents().get(1);
+		private final Assignment cMultiplicityAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cMultiplicityDMultiplicityParserRuleCall_5_0 = (RuleCall)cMultiplicityAssignment_5.eContents().get(0);
+		private final Assignment cDescriptionAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cDescriptionDRichTextParserRuleCall_6_0 = (RuleCall)cDescriptionAssignment_6.eContents().get(0);
 		
 		//DAssociation:
-		//	derived?='derived'? (kind=DAssociationKind | kind=DAssociationKindInverse "contains") name=ID ('alias' aliases+=ID)*
-		//	':'
-		//	type=[DEntityType] multiplicity=DMultiplicity?
+		//	derived?='derived'?
+		//	name=ID ('alias' aliases+=ID)* (kind=DAssociationKind | kind=DAssociationKindInverse "contains") type=[DEntityType]
+		//	multiplicity=DMultiplicity?
 		//	description=DRichText?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//derived?='derived'? (kind=DAssociationKind | kind=DAssociationKindInverse "contains") name=ID ('alias' aliases+=ID)* ':'
+		//derived?='derived'? name=ID ('alias' aliases+=ID)* (kind=DAssociationKind | kind=DAssociationKindInverse "contains")
 		//type=[DEntityType] multiplicity=DMultiplicity? description=DRichText?
 		public Group getGroup() { return cGroup; }
 		
@@ -804,68 +803,65 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		//'derived'
 		public Keyword getDerivedDerivedKeyword_0_0() { return cDerivedDerivedKeyword_0_0; }
 		
-		//kind=DAssociationKind | kind=DAssociationKindInverse "contains"
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
-		
-		//kind=DAssociationKind
-		public Assignment getKindAssignment_1_0() { return cKindAssignment_1_0; }
-		
-		//DAssociationKind
-		public RuleCall getKindDAssociationKindEnumRuleCall_1_0_0() { return cKindDAssociationKindEnumRuleCall_1_0_0; }
-		
-		//kind=DAssociationKindInverse "contains"
-		public Group getGroup_1_1() { return cGroup_1_1; }
-		
-		//kind=DAssociationKindInverse
-		public Assignment getKindAssignment_1_1_0() { return cKindAssignment_1_1_0; }
-		
-		//DAssociationKindInverse
-		public RuleCall getKindDAssociationKindInverseEnumRuleCall_1_1_0_0() { return cKindDAssociationKindInverseEnumRuleCall_1_1_0_0; }
-		
-		//"contains"
-		public Keyword getContainsKeyword_1_1_1() { return cContainsKeyword_1_1_1; }
-		
 		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
 		//('alias' aliases+=ID)*
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//'alias'
-		public Keyword getAliasKeyword_3_0() { return cAliasKeyword_3_0; }
+		public Keyword getAliasKeyword_2_0() { return cAliasKeyword_2_0; }
 		
 		//aliases+=ID
-		public Assignment getAliasesAssignment_3_1() { return cAliasesAssignment_3_1; }
+		public Assignment getAliasesAssignment_2_1() { return cAliasesAssignment_2_1; }
 		
 		//ID
-		public RuleCall getAliasesIDTerminalRuleCall_3_1_0() { return cAliasesIDTerminalRuleCall_3_1_0; }
+		public RuleCall getAliasesIDTerminalRuleCall_2_1_0() { return cAliasesIDTerminalRuleCall_2_1_0; }
 		
-		//':'
-		public Keyword getColonKeyword_4() { return cColonKeyword_4; }
+		//kind=DAssociationKind | kind=DAssociationKindInverse "contains"
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+		
+		//kind=DAssociationKind
+		public Assignment getKindAssignment_3_0() { return cKindAssignment_3_0; }
+		
+		//DAssociationKind
+		public RuleCall getKindDAssociationKindEnumRuleCall_3_0_0() { return cKindDAssociationKindEnumRuleCall_3_0_0; }
+		
+		//kind=DAssociationKindInverse "contains"
+		public Group getGroup_3_1() { return cGroup_3_1; }
+		
+		//kind=DAssociationKindInverse
+		public Assignment getKindAssignment_3_1_0() { return cKindAssignment_3_1_0; }
+		
+		//DAssociationKindInverse
+		public RuleCall getKindDAssociationKindInverseEnumRuleCall_3_1_0_0() { return cKindDAssociationKindInverseEnumRuleCall_3_1_0_0; }
+		
+		//"contains"
+		public Keyword getContainsKeyword_3_1_1() { return cContainsKeyword_3_1_1; }
 		
 		//type=[DEntityType]
-		public Assignment getTypeAssignment_5() { return cTypeAssignment_5; }
+		public Assignment getTypeAssignment_4() { return cTypeAssignment_4; }
 		
 		//[DEntityType]
-		public CrossReference getTypeDEntityTypeCrossReference_5_0() { return cTypeDEntityTypeCrossReference_5_0; }
+		public CrossReference getTypeDEntityTypeCrossReference_4_0() { return cTypeDEntityTypeCrossReference_4_0; }
 		
 		//ID
-		public RuleCall getTypeDEntityTypeIDTerminalRuleCall_5_0_1() { return cTypeDEntityTypeIDTerminalRuleCall_5_0_1; }
+		public RuleCall getTypeDEntityTypeIDTerminalRuleCall_4_0_1() { return cTypeDEntityTypeIDTerminalRuleCall_4_0_1; }
 		
 		//multiplicity=DMultiplicity?
-		public Assignment getMultiplicityAssignment_6() { return cMultiplicityAssignment_6; }
+		public Assignment getMultiplicityAssignment_5() { return cMultiplicityAssignment_5; }
 		
 		//DMultiplicity
-		public RuleCall getMultiplicityDMultiplicityParserRuleCall_6_0() { return cMultiplicityDMultiplicityParserRuleCall_6_0; }
+		public RuleCall getMultiplicityDMultiplicityParserRuleCall_5_0() { return cMultiplicityDMultiplicityParserRuleCall_5_0; }
 		
 		//description=DRichText?
-		public Assignment getDescriptionAssignment_7() { return cDescriptionAssignment_7; }
+		public Assignment getDescriptionAssignment_6() { return cDescriptionAssignment_6; }
 		
 		//DRichText
-		public RuleCall getDescriptionDRichTextParserRuleCall_7_0() { return cDescriptionDRichTextParserRuleCall_7_0; }
+		public RuleCall getDescriptionDRichTextParserRuleCall_6_0() { return cDescriptionDRichTextParserRuleCall_6_0; }
 	}
 	public class DAttributeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dim.Dim.DAttribute");
@@ -1509,9 +1505,9 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DAssociation:
-	//	derived?='derived'? (kind=DAssociationKind | kind=DAssociationKindInverse "contains") name=ID ('alias' aliases+=ID)*
-	//	':'
-	//	type=[DEntityType] multiplicity=DMultiplicity?
+	//	derived?='derived'?
+	//	name=ID ('alias' aliases+=ID)* (kind=DAssociationKind | kind=DAssociationKindInverse "contains") type=[DEntityType]
+	//	multiplicity=DMultiplicity?
 	//	description=DRichText?;
 	public DAssociationElements getDAssociationAccess() {
 		return pDAssociation;
