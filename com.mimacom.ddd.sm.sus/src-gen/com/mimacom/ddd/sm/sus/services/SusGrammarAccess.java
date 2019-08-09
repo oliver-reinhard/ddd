@@ -108,29 +108,6 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 		//Section
 		public RuleCall getSectionsSectionParserRuleCall_6_0() { return cSectionsSectionParserRuleCall_6_0; }
 	}
-	public class DImportElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sus.Sus.DImport");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cImportKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cImportedNamespaceAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cImportedNamespaceDQualifiedNameWithWildcardParserRuleCall_1_0 = (RuleCall)cImportedNamespaceAssignment_1.eContents().get(0);
-		
-		//DImport:
-		//	'import' importedNamespace=DQualifiedNameWithWildcard;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'import' importedNamespace=DQualifiedNameWithWildcard
-		public Group getGroup() { return cGroup; }
-		
-		//'import'
-		public Keyword getImportKeyword_0() { return cImportKeyword_0; }
-		
-		//importedNamespace=DQualifiedNameWithWildcard
-		public Assignment getImportedNamespaceAssignment_1() { return cImportedNamespaceAssignment_1; }
-		
-		//DQualifiedNameWithWildcard
-		public RuleCall getImportedNamespaceDQualifiedNameWithWildcardParserRuleCall_1_0() { return cImportedNamespaceDQualifiedNameWithWildcardParserRuleCall_1_0; }
-	}
 	public class SectionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.sm.sus.Sus.Section");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -181,7 +158,6 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
 	private final UserStoryElements pUserStory;
-	private final DImportElements pDImport;
 	private final SectionElements pSection;
 	private final ParagraphElements pParagraph;
 	
@@ -195,7 +171,6 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaDmx = gaDmx;
 		this.pUserStory = new UserStoryElements();
-		this.pDImport = new DImportElements();
 		this.pSection = new SectionElements();
 		this.pParagraph = new ParagraphElements();
 	}
@@ -241,16 +216,6 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 		return getUserStoryAccess().getRule();
 	}
 	
-	//DImport:
-	//	'import' importedNamespace=DQualifiedNameWithWildcard;
-	public DImportElements getDImportAccess() {
-		return pDImport;
-	}
-	
-	public ParserRule getDImportRule() {
-		return getDImportAccess().getRule();
-	}
-	
 	//Section:
 	//	'section' name=ID
 	//	paragraphs+=Paragraph*;
@@ -273,7 +238,7 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxNamespace:
-	//	imports+=super::DImport*
+	//	imports+=DImport*
 	//	'namespace'
 	//	name=DQualifiedName
 	//	types+=DmxArchetype*
@@ -286,6 +251,16 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDmxNamespaceRule() {
 		return getDmxNamespaceAccess().getRule();
+	}
+	
+	//DImport:
+	//	'import' importedNamespace=DQualifiedNameWithWildcard;
+	public DmxGrammarAccess.DImportElements getDImportAccess() {
+		return gaDmx.getDImportAccess();
+	}
+	
+	public ParserRule getDImportRule() {
+		return getDImportAccess().getRule();
 	}
 	
 	///* 
@@ -327,6 +302,18 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 		return getDmxBaseTypeAccess().getRule();
 	}
 	
+	//DmxBaseTypeSet:
+	//	name=ID
+	//	'in'
+	//	'(' members+=DmxBaseType (',' members+=DmxBaseType)+ ')';
+	public DmxGrammarAccess.DmxBaseTypeSetElements getDmxBaseTypeSetAccess() {
+		return gaDmx.getDmxBaseTypeSetAccess();
+	}
+	
+	public ParserRule getDmxBaseTypeSetRule() {
+		return getDmxBaseTypeSetAccess().getRule();
+	}
+	
 	//DmxArchetype:
 	//	'archetype'
 	//	name=ID
@@ -342,7 +329,11 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxFilter:
-	//	DmxFunction | DmxIterator;
+	//	'filter'
+	//	name=ID
+	//	'(' (parameters+=DmxFilterParameter (',' parameters+=DmxFilterParameter)*)? ')'
+	//	':'
+	//	typeDesc=DmxFilterTypeDescriptor ('with' withTypeSet=DmxBaseTypeSet)?;
 	public DmxGrammarAccess.DmxFilterElements getDmxFilterAccess() {
 		return gaDmx.getDmxFilterAccess();
 	}
@@ -351,44 +342,27 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 		return getDmxFilterAccess().getRule();
 	}
 	
-	//DmxFunction:
-	//	'function' name=ID
-	//	'(' (parameters+=DmxFunctionParameter (',' parameters+=DmxFunctionParameter)*)? ')'
-	//	':'
-	//	baseType=DmxBaseType
-	//	baseTypeCollection?='*'?;
-	public DmxGrammarAccess.DmxFunctionElements getDmxFunctionAccess() {
-		return gaDmx.getDmxFunctionAccess();
+	//DmxFilterTypeDescriptor:
+	//	(single=DmxBaseType
+	//	| multiple=[DmxBaseTypeSet]) collection?='*'?;
+	public DmxGrammarAccess.DmxFilterTypeDescriptorElements getDmxFilterTypeDescriptorAccess() {
+		return gaDmx.getDmxFilterTypeDescriptorAccess();
 	}
 	
-	public ParserRule getDmxFunctionRule() {
-		return getDmxFunctionAccess().getRule();
+	public ParserRule getDmxFilterTypeDescriptorRule() {
+		return getDmxFilterTypeDescriptorAccess().getRule();
 	}
 	
-	//DmxFunctionParameter:
+	//DmxFilterParameter:
 	//	name=ID
 	//	':'
-	//	baseType=DmxBaseType
-	//	baseTypeCollection?='*'?;
-	public DmxGrammarAccess.DmxFunctionParameterElements getDmxFunctionParameterAccess() {
-		return gaDmx.getDmxFunctionParameterAccess();
+	//	typeDesc=DmxFilterTypeDescriptor;
+	public DmxGrammarAccess.DmxFilterParameterElements getDmxFilterParameterAccess() {
+		return gaDmx.getDmxFilterParameterAccess();
 	}
 	
-	public ParserRule getDmxFunctionParameterRule() {
-		return getDmxFunctionParameterAccess().getRule();
-	}
-	
-	//DmxIterator:
-	//	'iterator' name=ID
-	//	':'
-	//	baseType=DmxBaseType
-	//	baseTypeCollection?='*'?;
-	public DmxGrammarAccess.DmxIteratorElements getDmxIteratorAccess() {
-		return gaDmx.getDmxIteratorAccess();
-	}
-	
-	public ParserRule getDmxIteratorRule() {
-		return getDmxIteratorAccess().getRule();
+	public ParserRule getDmxFilterParameterRule() {
+		return getDmxFilterParameterAccess().getRule();
 	}
 	
 	///*
@@ -774,7 +748,7 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxFunctionCall DExpression:
-	//	{DmxFunctionCall} function=[DmxFunction]
+	//	{DmxFunctionCall} function=[DmxFilter]
 	//	'(' (functionCallArguments+=DExpression (',' functionCallArguments+=DExpression)*)?
 	//	')';
 	public DmxGrammarAccess.DmxFunctionCallElements getDmxFunctionCallAccess() {

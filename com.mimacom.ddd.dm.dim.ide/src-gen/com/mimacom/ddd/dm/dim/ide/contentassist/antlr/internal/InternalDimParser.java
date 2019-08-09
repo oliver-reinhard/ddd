@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalDimParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_PLAIN_TEXT_START", "RULE_PLAIN_TEXT_MIDDLE", "RULE_PLAIN_TEXT_END", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'entity'", "'object'", "'concept'", "'relationship'", "'inverse'", "'ISA'", "'isa'", "'AS'", "'as'", "'SELF'", "'self'", "'RETURN'", "'return'", "'RAISE'", "'raise'", "'NEW'", "'new'", "'*'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'references'", "'contains'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'domain'", "'alias'", "'component'", "'{'", "'}'", "'query'", "'constraint'", "':'", "'primitive'", "'redefines'", "'enumeration'", "','", "'physical'", "'virtual'", "'detail'", "'extends'", "'('", "')'", "'returns'", "'import'", "'test'", "'context'", "'archetype'", "'is'", "'function'", "'iterator'", "'.'", "'|'", "'['", "']'", "'#'", "'if'", "'then'", "'end'", "'else'", "'do'", "'for'", "'.*'", "'abstract'", "'root'", "'main'", "'derived'", "'key'", "'@before'", "'all'", "'TRUE'", "'true'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_PLAIN_TEXT_START", "RULE_PLAIN_TEXT_MIDDLE", "RULE_PLAIN_TEXT_END", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'entity'", "'object'", "'concept'", "'relationship'", "'inverse'", "'ISA'", "'isa'", "'AS'", "'as'", "'SELF'", "'self'", "'RETURN'", "'return'", "'RAISE'", "'raise'", "'NEW'", "'new'", "'*'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'references'", "'contains'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'domain'", "'alias'", "'component'", "'{'", "'}'", "'query'", "'constraint'", "':'", "'primitive'", "'redefines'", "'enumeration'", "','", "'physical'", "'virtual'", "'detail'", "'extends'", "'('", "')'", "'returns'", "'import'", "'test'", "'context'", "'in'", "'archetype'", "'is'", "'filter'", "'with'", "'.'", "'|'", "'['", "']'", "'#'", "'if'", "'then'", "'end'", "'else'", "'do'", "'for'", "'.*'", "'abstract'", "'root'", "'main'", "'derived'", "'key'", "'@before'", "'all'", "'TRUE'", "'true'"
     };
     public static final int T__50=50;
     public static final int RULE_PLAIN_TEXT_ONLY=6;
@@ -47,6 +47,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     public static final int T__68=68;
     public static final int T__69=69;
     public static final int T__62=62;
+    public static final int T__126=126;
     public static final int T__63=63;
     public static final int T__125=125;
     public static final int T__64=64;
@@ -1680,12 +1681,97 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleDmxTestContext"
 
 
+    // $ANTLR start "entryRuleDmxBaseTypeSet"
+    // InternalDim.g:496:1: entryRuleDmxBaseTypeSet : ruleDmxBaseTypeSet EOF ;
+    public final void entryRuleDmxBaseTypeSet() throws RecognitionException {
+        try {
+            // InternalDim.g:497:1: ( ruleDmxBaseTypeSet EOF )
+            // InternalDim.g:498:1: ruleDmxBaseTypeSet EOF
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            ruleDmxBaseTypeSet();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetRule()); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleDmxBaseTypeSet"
+
+
+    // $ANTLR start "ruleDmxBaseTypeSet"
+    // InternalDim.g:505:1: ruleDmxBaseTypeSet : ( ( rule__DmxBaseTypeSet__Group__0 ) ) ;
+    public final void ruleDmxBaseTypeSet() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:509:2: ( ( ( rule__DmxBaseTypeSet__Group__0 ) ) )
+            // InternalDim.g:510:2: ( ( rule__DmxBaseTypeSet__Group__0 ) )
+            {
+            // InternalDim.g:510:2: ( ( rule__DmxBaseTypeSet__Group__0 ) )
+            // InternalDim.g:511:3: ( rule__DmxBaseTypeSet__Group__0 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getGroup()); 
+            }
+            // InternalDim.g:512:3: ( rule__DmxBaseTypeSet__Group__0 )
+            // InternalDim.g:512:4: rule__DmxBaseTypeSet__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__Group__0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getGroup()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleDmxBaseTypeSet"
+
+
     // $ANTLR start "entryRuleDmxArchetype"
-    // InternalDim.g:496:1: entryRuleDmxArchetype : ruleDmxArchetype EOF ;
+    // InternalDim.g:521:1: entryRuleDmxArchetype : ruleDmxArchetype EOF ;
     public final void entryRuleDmxArchetype() throws RecognitionException {
         try {
-            // InternalDim.g:497:1: ( ruleDmxArchetype EOF )
-            // InternalDim.g:498:1: ruleDmxArchetype EOF
+            // InternalDim.g:522:1: ( ruleDmxArchetype EOF )
+            // InternalDim.g:523:1: ruleDmxArchetype EOF
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeRule()); 
@@ -1715,23 +1801,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleDmxArchetype"
-    // InternalDim.g:505:1: ruleDmxArchetype : ( ( rule__DmxArchetype__Group__0 ) ) ;
+    // InternalDim.g:530:1: ruleDmxArchetype : ( ( rule__DmxArchetype__Group__0 ) ) ;
     public final void ruleDmxArchetype() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:509:2: ( ( ( rule__DmxArchetype__Group__0 ) ) )
-            // InternalDim.g:510:2: ( ( rule__DmxArchetype__Group__0 ) )
+            // InternalDim.g:534:2: ( ( ( rule__DmxArchetype__Group__0 ) ) )
+            // InternalDim.g:535:2: ( ( rule__DmxArchetype__Group__0 ) )
             {
-            // InternalDim.g:510:2: ( ( rule__DmxArchetype__Group__0 ) )
-            // InternalDim.g:511:3: ( rule__DmxArchetype__Group__0 )
+            // InternalDim.g:535:2: ( ( rule__DmxArchetype__Group__0 ) )
+            // InternalDim.g:536:3: ( rule__DmxArchetype__Group__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeAccess().getGroup()); 
             }
-            // InternalDim.g:512:3: ( rule__DmxArchetype__Group__0 )
-            // InternalDim.g:512:4: rule__DmxArchetype__Group__0
+            // InternalDim.g:537:3: ( rule__DmxArchetype__Group__0 )
+            // InternalDim.g:537:4: rule__DmxArchetype__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxArchetype__Group__0();
@@ -1766,11 +1852,11 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleDmxFilter"
-    // InternalDim.g:521:1: entryRuleDmxFilter : ruleDmxFilter EOF ;
+    // InternalDim.g:546:1: entryRuleDmxFilter : ruleDmxFilter EOF ;
     public final void entryRuleDmxFilter() throws RecognitionException {
         try {
-            // InternalDim.g:522:1: ( ruleDmxFilter EOF )
-            // InternalDim.g:523:1: ruleDmxFilter EOF
+            // InternalDim.g:547:1: ( ruleDmxFilter EOF )
+            // InternalDim.g:548:1: ruleDmxFilter EOF
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFilterRule()); 
@@ -1800,26 +1886,26 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleDmxFilter"
-    // InternalDim.g:530:1: ruleDmxFilter : ( ( rule__DmxFilter__Alternatives ) ) ;
+    // InternalDim.g:555:1: ruleDmxFilter : ( ( rule__DmxFilter__Group__0 ) ) ;
     public final void ruleDmxFilter() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:534:2: ( ( ( rule__DmxFilter__Alternatives ) ) )
-            // InternalDim.g:535:2: ( ( rule__DmxFilter__Alternatives ) )
+            // InternalDim.g:559:2: ( ( ( rule__DmxFilter__Group__0 ) ) )
+            // InternalDim.g:560:2: ( ( rule__DmxFilter__Group__0 ) )
             {
-            // InternalDim.g:535:2: ( ( rule__DmxFilter__Alternatives ) )
-            // InternalDim.g:536:3: ( rule__DmxFilter__Alternatives )
+            // InternalDim.g:560:2: ( ( rule__DmxFilter__Group__0 ) )
+            // InternalDim.g:561:3: ( rule__DmxFilter__Group__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFilterAccess().getAlternatives()); 
+               before(grammarAccess.getDmxFilterAccess().getGroup()); 
             }
-            // InternalDim.g:537:3: ( rule__DmxFilter__Alternatives )
-            // InternalDim.g:537:4: rule__DmxFilter__Alternatives
+            // InternalDim.g:562:3: ( rule__DmxFilter__Group__0 )
+            // InternalDim.g:562:4: rule__DmxFilter__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__DmxFilter__Alternatives();
+            rule__DmxFilter__Group__0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -1827,7 +1913,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFilterAccess().getAlternatives()); 
+               after(grammarAccess.getDmxFilterAccess().getGroup()); 
             }
 
             }
@@ -1850,23 +1936,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleDmxFilter"
 
 
-    // $ANTLR start "entryRuleDmxFunction"
-    // InternalDim.g:546:1: entryRuleDmxFunction : ruleDmxFunction EOF ;
-    public final void entryRuleDmxFunction() throws RecognitionException {
+    // $ANTLR start "entryRuleDmxFilterTypeDescriptor"
+    // InternalDim.g:571:1: entryRuleDmxFilterTypeDescriptor : ruleDmxFilterTypeDescriptor EOF ;
+    public final void entryRuleDmxFilterTypeDescriptor() throws RecognitionException {
         try {
-            // InternalDim.g:547:1: ( ruleDmxFunction EOF )
-            // InternalDim.g:548:1: ruleDmxFunction EOF
+            // InternalDim.g:572:1: ( ruleDmxFilterTypeDescriptor EOF )
+            // InternalDim.g:573:1: ruleDmxFilterTypeDescriptor EOF
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionRule()); 
+               before(grammarAccess.getDmxFilterTypeDescriptorRule()); 
             }
             pushFollow(FOLLOW_1);
-            ruleDmxFunction();
+            ruleDmxFilterTypeDescriptor();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionRule()); 
+               after(grammarAccess.getDmxFilterTypeDescriptorRule()); 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return ;
 
@@ -1881,30 +1967,30 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleDmxFunction"
+    // $ANTLR end "entryRuleDmxFilterTypeDescriptor"
 
 
-    // $ANTLR start "ruleDmxFunction"
-    // InternalDim.g:555:1: ruleDmxFunction : ( ( rule__DmxFunction__Group__0 ) ) ;
-    public final void ruleDmxFunction() throws RecognitionException {
+    // $ANTLR start "ruleDmxFilterTypeDescriptor"
+    // InternalDim.g:580:1: ruleDmxFilterTypeDescriptor : ( ( rule__DmxFilterTypeDescriptor__Group__0 ) ) ;
+    public final void ruleDmxFilterTypeDescriptor() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:559:2: ( ( ( rule__DmxFunction__Group__0 ) ) )
-            // InternalDim.g:560:2: ( ( rule__DmxFunction__Group__0 ) )
+            // InternalDim.g:584:2: ( ( ( rule__DmxFilterTypeDescriptor__Group__0 ) ) )
+            // InternalDim.g:585:2: ( ( rule__DmxFilterTypeDescriptor__Group__0 ) )
             {
-            // InternalDim.g:560:2: ( ( rule__DmxFunction__Group__0 ) )
-            // InternalDim.g:561:3: ( rule__DmxFunction__Group__0 )
+            // InternalDim.g:585:2: ( ( rule__DmxFilterTypeDescriptor__Group__0 ) )
+            // InternalDim.g:586:3: ( rule__DmxFilterTypeDescriptor__Group__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getGroup()); 
+               before(grammarAccess.getDmxFilterTypeDescriptorAccess().getGroup()); 
             }
-            // InternalDim.g:562:3: ( rule__DmxFunction__Group__0 )
-            // InternalDim.g:562:4: rule__DmxFunction__Group__0
+            // InternalDim.g:587:3: ( rule__DmxFilterTypeDescriptor__Group__0 )
+            // InternalDim.g:587:4: rule__DmxFilterTypeDescriptor__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group__0();
+            rule__DmxFilterTypeDescriptor__Group__0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -1912,7 +1998,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getGroup()); 
+               after(grammarAccess.getDmxFilterTypeDescriptorAccess().getGroup()); 
             }
 
             }
@@ -1932,26 +2018,26 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleDmxFunction"
+    // $ANTLR end "ruleDmxFilterTypeDescriptor"
 
 
-    // $ANTLR start "entryRuleDmxFunctionParameter"
-    // InternalDim.g:571:1: entryRuleDmxFunctionParameter : ruleDmxFunctionParameter EOF ;
-    public final void entryRuleDmxFunctionParameter() throws RecognitionException {
+    // $ANTLR start "entryRuleDmxFilterParameter"
+    // InternalDim.g:596:1: entryRuleDmxFilterParameter : ruleDmxFilterParameter EOF ;
+    public final void entryRuleDmxFilterParameter() throws RecognitionException {
         try {
-            // InternalDim.g:572:1: ( ruleDmxFunctionParameter EOF )
-            // InternalDim.g:573:1: ruleDmxFunctionParameter EOF
+            // InternalDim.g:597:1: ( ruleDmxFilterParameter EOF )
+            // InternalDim.g:598:1: ruleDmxFilterParameter EOF
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionParameterRule()); 
+               before(grammarAccess.getDmxFilterParameterRule()); 
             }
             pushFollow(FOLLOW_1);
-            ruleDmxFunctionParameter();
+            ruleDmxFilterParameter();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionParameterRule()); 
+               after(grammarAccess.getDmxFilterParameterRule()); 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return ;
 
@@ -1966,30 +2052,30 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleDmxFunctionParameter"
+    // $ANTLR end "entryRuleDmxFilterParameter"
 
 
-    // $ANTLR start "ruleDmxFunctionParameter"
-    // InternalDim.g:580:1: ruleDmxFunctionParameter : ( ( rule__DmxFunctionParameter__Group__0 ) ) ;
-    public final void ruleDmxFunctionParameter() throws RecognitionException {
+    // $ANTLR start "ruleDmxFilterParameter"
+    // InternalDim.g:605:1: ruleDmxFilterParameter : ( ( rule__DmxFilterParameter__Group__0 ) ) ;
+    public final void ruleDmxFilterParameter() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:584:2: ( ( ( rule__DmxFunctionParameter__Group__0 ) ) )
-            // InternalDim.g:585:2: ( ( rule__DmxFunctionParameter__Group__0 ) )
+            // InternalDim.g:609:2: ( ( ( rule__DmxFilterParameter__Group__0 ) ) )
+            // InternalDim.g:610:2: ( ( rule__DmxFilterParameter__Group__0 ) )
             {
-            // InternalDim.g:585:2: ( ( rule__DmxFunctionParameter__Group__0 ) )
-            // InternalDim.g:586:3: ( rule__DmxFunctionParameter__Group__0 )
+            // InternalDim.g:610:2: ( ( rule__DmxFilterParameter__Group__0 ) )
+            // InternalDim.g:611:3: ( rule__DmxFilterParameter__Group__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionParameterAccess().getGroup()); 
+               before(grammarAccess.getDmxFilterParameterAccess().getGroup()); 
             }
-            // InternalDim.g:587:3: ( rule__DmxFunctionParameter__Group__0 )
-            // InternalDim.g:587:4: rule__DmxFunctionParameter__Group__0
+            // InternalDim.g:612:3: ( rule__DmxFilterParameter__Group__0 )
+            // InternalDim.g:612:4: rule__DmxFilterParameter__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__DmxFunctionParameter__Group__0();
+            rule__DmxFilterParameter__Group__0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -1997,7 +2083,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionParameterAccess().getGroup()); 
+               after(grammarAccess.getDmxFilterParameterAccess().getGroup()); 
             }
 
             }
@@ -2017,92 +2103,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleDmxFunctionParameter"
-
-
-    // $ANTLR start "entryRuleDmxIterator"
-    // InternalDim.g:596:1: entryRuleDmxIterator : ruleDmxIterator EOF ;
-    public final void entryRuleDmxIterator() throws RecognitionException {
-        try {
-            // InternalDim.g:597:1: ( ruleDmxIterator EOF )
-            // InternalDim.g:598:1: ruleDmxIterator EOF
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorRule()); 
-            }
-            pushFollow(FOLLOW_1);
-            ruleDmxIterator();
-
-            state._fsp--;
-            if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorRule()); 
-            }
-            match(input,EOF,FOLLOW_2); if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "entryRuleDmxIterator"
-
-
-    // $ANTLR start "ruleDmxIterator"
-    // InternalDim.g:605:1: ruleDmxIterator : ( ( rule__DmxIterator__Group__0 ) ) ;
-    public final void ruleDmxIterator() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:609:2: ( ( ( rule__DmxIterator__Group__0 ) ) )
-            // InternalDim.g:610:2: ( ( rule__DmxIterator__Group__0 ) )
-            {
-            // InternalDim.g:610:2: ( ( rule__DmxIterator__Group__0 ) )
-            // InternalDim.g:611:3: ( rule__DmxIterator__Group__0 )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorAccess().getGroup()); 
-            }
-            // InternalDim.g:612:3: ( rule__DmxIterator__Group__0 )
-            // InternalDim.g:612:4: rule__DmxIterator__Group__0
-            {
-            pushFollow(FOLLOW_2);
-            rule__DmxIterator__Group__0();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorAccess().getGroup()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "ruleDmxIterator"
+    // $ANTLR end "ruleDmxFilterParameter"
 
 
     // $ANTLR start "entryRuleDExpression"
@@ -6676,7 +6677,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt1=2;
             int LA1_0 = input.LA(1);
 
-            if ( (LA1_0==18||LA1_0==21||LA1_0==87||LA1_0==89||(LA1_0>=91 && LA1_0<=93)||(LA1_0>=117 && LA1_0<=119)) ) {
+            if ( (LA1_0==18||LA1_0==21||LA1_0==87||LA1_0==89||(LA1_0>=91 && LA1_0<=93)||(LA1_0>=118 && LA1_0<=120)) ) {
                 alt1=1;
             }
             else if ( (LA1_0==81) ) {
@@ -6785,11 +6786,11 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                 alt2=2;
                 }
                 break;
-            case 117:
+            case 118:
                 {
                 int LA2_3 = input.LA(2);
 
-                if ( (LA2_3==18||LA2_3==21||(LA2_3>=91 && LA2_3<=92)||(LA2_3>=118 && LA2_3<=119)) ) {
+                if ( (LA2_3==18||LA2_3==21||(LA2_3>=91 && LA2_3<=92)||(LA2_3>=119 && LA2_3<=120)) ) {
                     alt2=3;
                 }
                 else if ( (LA2_3==93) ) {
@@ -6808,8 +6809,8 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             case 21:
             case 91:
             case 92:
-            case 118:
             case 119:
+            case 120:
                 {
                 alt2=3;
                 }
@@ -6948,10 +6949,10 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( (LA3_0==18||LA3_0==118) ) {
+            if ( (LA3_0==18||LA3_0==119) ) {
                 alt3=1;
             }
-            else if ( (LA3_0==21||(LA3_0>=91 && LA3_0<=92)||LA3_0==119) ) {
+            else if ( (LA3_0==21||(LA3_0>=91 && LA3_0<=92)||LA3_0==120) ) {
                 alt3=2;
             }
             else {
@@ -7186,7 +7187,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==RULE_ID||LA5_0==93||LA5_0==120) ) {
+            if ( (LA5_0==RULE_ID||LA5_0==93||LA5_0==121) ) {
                 alt5=1;
             }
             else if ( (LA5_0==85) ) {
@@ -7472,21 +7473,21 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DAssociation__Alternatives_3"
 
 
-    // $ANTLR start "rule__DmxFilter__Alternatives"
-    // InternalDim.g:2156:1: rule__DmxFilter__Alternatives : ( ( ruleDmxFunction ) | ( ruleDmxIterator ) );
-    public final void rule__DmxFilter__Alternatives() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilterTypeDescriptor__Alternatives_0"
+    // InternalDim.g:2156:1: rule__DmxFilterTypeDescriptor__Alternatives_0 : ( ( ( rule__DmxFilterTypeDescriptor__SingleAssignment_0_0 ) ) | ( ( rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1 ) ) );
+    public final void rule__DmxFilterTypeDescriptor__Alternatives_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:2160:1: ( ( ruleDmxFunction ) | ( ruleDmxIterator ) )
+            // InternalDim.g:2160:1: ( ( ( rule__DmxFilterTypeDescriptor__SingleAssignment_0_0 ) ) | ( ( rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1 ) ) )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==103) ) {
+            if ( ((LA8_0>=46 && LA8_0<=54)) ) {
                 alt8=1;
             }
-            else if ( (LA8_0==104) ) {
+            else if ( (LA8_0==RULE_ID) ) {
                 alt8=2;
             }
             else {
@@ -7498,21 +7499,27 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             }
             switch (alt8) {
                 case 1 :
-                    // InternalDim.g:2161:2: ( ruleDmxFunction )
+                    // InternalDim.g:2161:2: ( ( rule__DmxFilterTypeDescriptor__SingleAssignment_0_0 ) )
                     {
-                    // InternalDim.g:2161:2: ( ruleDmxFunction )
-                    // InternalDim.g:2162:3: ruleDmxFunction
+                    // InternalDim.g:2161:2: ( ( rule__DmxFilterTypeDescriptor__SingleAssignment_0_0 ) )
+                    // InternalDim.g:2162:3: ( rule__DmxFilterTypeDescriptor__SingleAssignment_0_0 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getDmxFilterAccess().getDmxFunctionParserRuleCall_0()); 
+                       before(grammarAccess.getDmxFilterTypeDescriptorAccess().getSingleAssignment_0_0()); 
                     }
+                    // InternalDim.g:2163:3: ( rule__DmxFilterTypeDescriptor__SingleAssignment_0_0 )
+                    // InternalDim.g:2163:4: rule__DmxFilterTypeDescriptor__SingleAssignment_0_0
+                    {
                     pushFollow(FOLLOW_2);
-                    ruleDmxFunction();
+                    rule__DmxFilterTypeDescriptor__SingleAssignment_0_0();
 
                     state._fsp--;
                     if (state.failed) return ;
+
+                    }
+
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getDmxFilterAccess().getDmxFunctionParserRuleCall_0()); 
+                       after(grammarAccess.getDmxFilterTypeDescriptorAccess().getSingleAssignment_0_0()); 
                     }
 
                     }
@@ -7521,21 +7528,27 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalDim.g:2167:2: ( ruleDmxIterator )
+                    // InternalDim.g:2167:2: ( ( rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1 ) )
                     {
-                    // InternalDim.g:2167:2: ( ruleDmxIterator )
-                    // InternalDim.g:2168:3: ruleDmxIterator
+                    // InternalDim.g:2167:2: ( ( rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1 ) )
+                    // InternalDim.g:2168:3: ( rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getDmxFilterAccess().getDmxIteratorParserRuleCall_1()); 
+                       before(grammarAccess.getDmxFilterTypeDescriptorAccess().getMultipleAssignment_0_1()); 
                     }
+                    // InternalDim.g:2169:3: ( rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1 )
+                    // InternalDim.g:2169:4: rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1
+                    {
                     pushFollow(FOLLOW_2);
-                    ruleDmxIterator();
+                    rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1();
 
                     state._fsp--;
                     if (state.failed) return ;
+
+                    }
+
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getDmxFilterAccess().getDmxIteratorParserRuleCall_1()); 
+                       after(grammarAccess.getDmxFilterTypeDescriptorAccess().getMultipleAssignment_0_1()); 
                     }
 
                     }
@@ -7557,7 +7570,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFilter__Alternatives"
+    // $ANTLR end "rule__DmxFilterTypeDescriptor__Alternatives_0"
 
 
     // $ANTLR start "rule__DExpression__Alternatives"
@@ -7574,7 +7587,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                 {
                 int LA9_1 = input.LA(2);
 
-                if ( (LA9_1==EOF||(LA9_1>=RULE_ID && LA9_1<=RULE_PLAIN_TEXT_END)||LA9_1==18||LA9_1==21||(LA9_1>=23 && LA9_1<=26)||LA9_1==35||(LA9_1>=42 && LA9_1<=43)||(LA9_1>=55 && LA9_1<=75)||(LA9_1>=83 && LA9_1<=85)||LA9_1==87||(LA9_1>=89 && LA9_1<=93)||(LA9_1>=95 && LA9_1<=96)||(LA9_1>=105 && LA9_1<=106)||(LA9_1>=111 && LA9_1<=114)||(LA9_1>=117 && LA9_1<=120)||LA9_1==122) ) {
+                if ( (LA9_1==EOF||(LA9_1>=RULE_ID && LA9_1<=RULE_PLAIN_TEXT_END)||LA9_1==18||LA9_1==21||(LA9_1>=23 && LA9_1<=26)||LA9_1==35||(LA9_1>=42 && LA9_1<=43)||(LA9_1>=55 && LA9_1<=75)||(LA9_1>=83 && LA9_1<=85)||LA9_1==87||(LA9_1>=89 && LA9_1<=93)||(LA9_1>=95 && LA9_1<=96)||(LA9_1>=106 && LA9_1<=107)||(LA9_1>=112 && LA9_1<=115)||(LA9_1>=118 && LA9_1<=121)||LA9_1==123) ) {
                     alt9=2;
                 }
                 else if ( (LA9_1==17) ) {
@@ -7609,11 +7622,11 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             case 77:
             case 78:
             case 95:
-            case 107:
-            case 110:
-            case 115:
-            case 124:
+            case 108:
+            case 111:
+            case 116:
             case 125:
+            case 126:
                 {
                 alt9=2;
                 }
@@ -7830,17 +7843,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt11=2;
             int LA11_0 = input.LA(1);
 
-            if ( (LA11_0==105) ) {
+            if ( (LA11_0==106) ) {
                 int LA11_1 = input.LA(2);
 
                 if ( (LA11_1==RULE_ID) ) {
                     int LA11_2 = input.LA(3);
 
-                    if ( (LA11_2==17) ) {
-                        alt11=1;
-                    }
-                    else if ( (LA11_2==EOF||(LA11_2>=RULE_ID && LA11_2<=RULE_PLAIN_TEXT_END)||LA11_2==18||LA11_2==21||(LA11_2>=23 && LA11_2<=26)||LA11_2==35||(LA11_2>=42 && LA11_2<=43)||(LA11_2>=55 && LA11_2<=75)||(LA11_2>=83 && LA11_2<=85)||LA11_2==87||(LA11_2>=89 && LA11_2<=93)||(LA11_2>=95 && LA11_2<=96)||LA11_2==105||(LA11_2>=111 && LA11_2<=114)||(LA11_2>=117 && LA11_2<=120)||LA11_2==122) ) {
+                    if ( (LA11_2==EOF||(LA11_2>=RULE_ID && LA11_2<=RULE_PLAIN_TEXT_END)||LA11_2==18||LA11_2==21||(LA11_2>=23 && LA11_2<=26)||LA11_2==35||(LA11_2>=42 && LA11_2<=43)||(LA11_2>=55 && LA11_2<=75)||(LA11_2>=83 && LA11_2<=85)||LA11_2==87||(LA11_2>=89 && LA11_2<=93)||(LA11_2>=95 && LA11_2<=96)||LA11_2==106||(LA11_2>=112 && LA11_2<=115)||(LA11_2>=118 && LA11_2<=121)||LA11_2==123) ) {
                         alt11=2;
+                    }
+                    else if ( (LA11_2==17) ) {
+                        alt11=1;
                     }
                     else {
                         if (state.backtracking>0) {state.failed=true; return ;}
@@ -7955,7 +7968,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             if ( (LA12_0==95) ) {
                 alt12=1;
             }
-            else if ( (LA12_0==122) ) {
+            else if ( (LA12_0==123) ) {
                 alt12=2;
             }
             else {
@@ -8055,10 +8068,10 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             if ( (LA13_0==RULE_ID) ) {
                 int LA13_1 = input.LA(2);
 
-                if ( (LA13_1==106) ) {
+                if ( (LA13_1==107) ) {
                     alt13=1;
                 }
-                else if ( (LA13_1==EOF||(LA13_1>=RULE_ID && LA13_1<=RULE_PLAIN_TEXT_END)||LA13_1==18||LA13_1==21||(LA13_1>=23 && LA13_1<=26)||LA13_1==35||(LA13_1>=42 && LA13_1<=43)||(LA13_1>=55 && LA13_1<=75)||(LA13_1>=83 && LA13_1<=85)||LA13_1==87||(LA13_1>=89 && LA13_1<=93)||(LA13_1>=95 && LA13_1<=96)||LA13_1==105||(LA13_1>=111 && LA13_1<=114)||(LA13_1>=117 && LA13_1<=120)||LA13_1==122) ) {
+                else if ( (LA13_1==EOF||(LA13_1>=RULE_ID && LA13_1<=RULE_PLAIN_TEXT_END)||LA13_1==18||LA13_1==21||(LA13_1>=23 && LA13_1<=26)||LA13_1==35||(LA13_1>=42 && LA13_1<=43)||(LA13_1>=55 && LA13_1<=75)||(LA13_1>=83 && LA13_1<=85)||LA13_1==87||(LA13_1>=89 && LA13_1<=93)||(LA13_1>=95 && LA13_1<=96)||LA13_1==106||(LA13_1>=112 && LA13_1<=115)||(LA13_1>=118 && LA13_1<=121)||LA13_1==123) ) {
                     alt13=2;
                 }
                 else {
@@ -8069,7 +8082,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                     throw nvae;
                 }
             }
-            else if ( (LA13_0==RULE_NATURAL||LA13_0==RULE_STRING||(LA13_0>=27 && LA13_0<=34)||(LA13_0>=36 && LA13_0<=39)||(LA13_0>=42 && LA13_0<=43)||(LA13_0>=76 && LA13_0<=78)||LA13_0==95||LA13_0==107||LA13_0==110||LA13_0==115||(LA13_0>=124 && LA13_0<=125)) ) {
+            else if ( (LA13_0==RULE_NATURAL||LA13_0==RULE_STRING||(LA13_0>=27 && LA13_0<=34)||(LA13_0>=36 && LA13_0<=39)||(LA13_0>=42 && LA13_0<=43)||(LA13_0>=76 && LA13_0<=78)||LA13_0==95||LA13_0==108||LA13_0==111||LA13_0==116||(LA13_0>=125 && LA13_0<=126)) ) {
                 alt13=2;
             }
             else {
@@ -8343,7 +8356,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             if ( ((LA16_0>=42 && LA16_0<=43)||(LA16_0>=76 && LA16_0<=78)) ) {
                 alt16=1;
             }
-            else if ( ((LA16_0>=RULE_NATURAL && LA16_0<=RULE_ID)||LA16_0==RULE_STRING||(LA16_0>=27 && LA16_0<=34)||(LA16_0>=36 && LA16_0<=39)||LA16_0==95||LA16_0==107||LA16_0==110||LA16_0==115||(LA16_0>=124 && LA16_0<=125)) ) {
+            else if ( ((LA16_0>=RULE_NATURAL && LA16_0<=RULE_ID)||LA16_0==RULE_STRING||(LA16_0>=27 && LA16_0<=34)||(LA16_0>=36 && LA16_0<=39)||LA16_0==95||LA16_0==108||LA16_0==111||LA16_0==116||(LA16_0>=125 && LA16_0<=126)) ) {
                 alt16=2;
             }
             else {
@@ -8802,8 +8815,8 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             switch ( input.LA(1) ) {
             case 36:
             case 37:
-            case 124:
             case 125:
+            case 126:
                 {
                 alt19=1;
                 }
@@ -8817,10 +8830,10 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                 {
                 int LA19_3 = input.LA(2);
 
-                if ( (LA19_3==EOF||(LA19_3>=RULE_ID && LA19_3<=RULE_PLAIN_TEXT_END)||LA19_3==18||LA19_3==21||(LA19_3>=23 && LA19_3<=26)||LA19_3==35||(LA19_3>=42 && LA19_3<=43)||(LA19_3>=55 && LA19_3<=75)||(LA19_3>=83 && LA19_3<=85)||LA19_3==87||(LA19_3>=89 && LA19_3<=93)||LA19_3==96||(LA19_3>=111 && LA19_3<=114)||(LA19_3>=117 && LA19_3<=120)) ) {
+                if ( (LA19_3==EOF||(LA19_3>=RULE_ID && LA19_3<=RULE_PLAIN_TEXT_END)||LA19_3==18||LA19_3==21||(LA19_3>=23 && LA19_3<=26)||LA19_3==35||(LA19_3>=42 && LA19_3<=43)||(LA19_3>=55 && LA19_3<=75)||(LA19_3>=83 && LA19_3<=85)||LA19_3==87||(LA19_3>=89 && LA19_3<=93)||LA19_3==96||(LA19_3>=112 && LA19_3<=115)||(LA19_3>=118 && LA19_3<=121)) ) {
                     alt19=3;
                 }
-                else if ( (LA19_3==105) ) {
+                else if ( (LA19_3==106) ) {
                     int LA19_6 = input.LA(3);
 
                     if ( (LA19_6==RULE_ID) ) {
@@ -9424,10 +9437,10 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt25=2;
             int LA25_0 = input.LA(1);
 
-            if ( (LA25_0==122) ) {
+            if ( (LA25_0==123) ) {
                 alt25=1;
             }
-            else if ( (LA25_0==105) ) {
+            else if ( (LA25_0==106) ) {
                 alt25=2;
             }
             else {
@@ -9603,12 +9616,12 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:2637:1: ( ( ( rule__DmxBooleanLiteral__ValueAssignment_1_0 ) ) | ( ( rule__DmxBooleanLiteral__ValueAssignment_1_1 ) ) | ( 'FALSE' ) | ( 'false' ) )
             int alt27=4;
             switch ( input.LA(1) ) {
-            case 124:
+            case 125:
                 {
                 alt27=1;
                 }
                 break;
-            case 125:
+            case 126:
                 {
                 alt27=2;
                 }
@@ -12070,7 +12083,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                 int alt44=2;
                 int LA44_0 = input.LA(1);
 
-                if ( (LA44_0==18||LA44_0==21||LA44_0==81||LA44_0==87||LA44_0==89||(LA44_0>=91 && LA44_0<=93)||(LA44_0>=117 && LA44_0<=119)) ) {
+                if ( (LA44_0==18||LA44_0==21||LA44_0==81||LA44_0==87||LA44_0==89||(LA44_0>=91 && LA44_0<=93)||(LA44_0>=118 && LA44_0<=120)) ) {
                     alt44=1;
                 }
 
@@ -12873,7 +12886,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                 int alt47=2;
                 int LA47_0 = input.LA(1);
 
-                if ( (LA47_0==18||LA47_0==21||LA47_0==87||LA47_0==89||(LA47_0>=91 && LA47_0<=93)||(LA47_0>=117 && LA47_0<=119)) ) {
+                if ( (LA47_0==18||LA47_0==21||LA47_0==87||LA47_0==89||(LA47_0>=91 && LA47_0<=93)||(LA47_0>=118 && LA47_0<=120)) ) {
                     alt47=1;
                 }
 
@@ -16712,7 +16725,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt61=2;
             int LA61_0 = input.LA(1);
 
-            if ( (LA61_0==117) ) {
+            if ( (LA61_0==118) ) {
                 alt61=1;
             }
             switch (alt61) {
@@ -16979,7 +16992,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt62=2;
             int LA62_0 = input.LA(1);
 
-            if ( (LA62_0==118) ) {
+            if ( (LA62_0==119) ) {
                 alt62=1;
             }
             switch (alt62) {
@@ -17163,7 +17176,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt63=2;
             int LA63_0 = input.LA(1);
 
-            if ( (LA63_0==119) ) {
+            if ( (LA63_0==120) ) {
                 alt63=1;
             }
             switch (alt63) {
@@ -17673,7 +17686,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt64=2;
             int LA64_0 = input.LA(1);
 
-            if ( (LA64_0==117) ) {
+            if ( (LA64_0==118) ) {
                 alt64=1;
             }
             switch (alt64) {
@@ -18407,7 +18420,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                 int alt68=2;
                 int LA68_0 = input.LA(1);
 
-                if ( (LA68_0==RULE_ID||LA68_0==85||LA68_0==93||LA68_0==120) ) {
+                if ( (LA68_0==RULE_ID||LA68_0==85||LA68_0==93||LA68_0==121) ) {
                     alt68=1;
                 }
 
@@ -18912,7 +18925,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt69=2;
             int LA69_0 = input.LA(1);
 
-            if ( (LA69_0==120) ) {
+            if ( (LA69_0==121) ) {
                 alt69=1;
             }
             switch (alt69) {
@@ -20196,7 +20209,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt75=2;
             int LA75_0 = input.LA(1);
 
-            if ( (LA75_0==121) ) {
+            if ( (LA75_0==122) ) {
                 alt75=1;
             }
             switch (alt75) {
@@ -24362,15 +24375,724 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DmxTestContext__Group__3__Impl"
 
 
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__0"
+    // InternalDim.g:6954:1: rule__DmxBaseTypeSet__Group__0 : rule__DmxBaseTypeSet__Group__0__Impl rule__DmxBaseTypeSet__Group__1 ;
+    public final void rule__DmxBaseTypeSet__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:6958:1: ( rule__DmxBaseTypeSet__Group__0__Impl rule__DmxBaseTypeSet__Group__1 )
+            // InternalDim.g:6959:2: rule__DmxBaseTypeSet__Group__0__Impl rule__DmxBaseTypeSet__Group__1
+            {
+            pushFollow(FOLLOW_46);
+            rule__DmxBaseTypeSet__Group__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__Group__1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__0"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__0__Impl"
+    // InternalDim.g:6966:1: rule__DmxBaseTypeSet__Group__0__Impl : ( ( rule__DmxBaseTypeSet__NameAssignment_0 ) ) ;
+    public final void rule__DmxBaseTypeSet__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:6970:1: ( ( ( rule__DmxBaseTypeSet__NameAssignment_0 ) ) )
+            // InternalDim.g:6971:1: ( ( rule__DmxBaseTypeSet__NameAssignment_0 ) )
+            {
+            // InternalDim.g:6971:1: ( ( rule__DmxBaseTypeSet__NameAssignment_0 ) )
+            // InternalDim.g:6972:2: ( rule__DmxBaseTypeSet__NameAssignment_0 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getNameAssignment_0()); 
+            }
+            // InternalDim.g:6973:2: ( rule__DmxBaseTypeSet__NameAssignment_0 )
+            // InternalDim.g:6973:3: rule__DmxBaseTypeSet__NameAssignment_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__NameAssignment_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getNameAssignment_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__0__Impl"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__1"
+    // InternalDim.g:6981:1: rule__DmxBaseTypeSet__Group__1 : rule__DmxBaseTypeSet__Group__1__Impl rule__DmxBaseTypeSet__Group__2 ;
+    public final void rule__DmxBaseTypeSet__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:6985:1: ( rule__DmxBaseTypeSet__Group__1__Impl rule__DmxBaseTypeSet__Group__2 )
+            // InternalDim.g:6986:2: rule__DmxBaseTypeSet__Group__1__Impl rule__DmxBaseTypeSet__Group__2
+            {
+            pushFollow(FOLLOW_45);
+            rule__DmxBaseTypeSet__Group__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__Group__2();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__1"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__1__Impl"
+    // InternalDim.g:6993:1: rule__DmxBaseTypeSet__Group__1__Impl : ( 'in' ) ;
+    public final void rule__DmxBaseTypeSet__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:6997:1: ( ( 'in' ) )
+            // InternalDim.g:6998:1: ( 'in' )
+            {
+            // InternalDim.g:6998:1: ( 'in' )
+            // InternalDim.g:6999:2: 'in'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getInKeyword_1()); 
+            }
+            match(input,101,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getInKeyword_1()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__1__Impl"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__2"
+    // InternalDim.g:7008:1: rule__DmxBaseTypeSet__Group__2 : rule__DmxBaseTypeSet__Group__2__Impl rule__DmxBaseTypeSet__Group__3 ;
+    public final void rule__DmxBaseTypeSet__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7012:1: ( rule__DmxBaseTypeSet__Group__2__Impl rule__DmxBaseTypeSet__Group__3 )
+            // InternalDim.g:7013:2: rule__DmxBaseTypeSet__Group__2__Impl rule__DmxBaseTypeSet__Group__3
+            {
+            pushFollow(FOLLOW_47);
+            rule__DmxBaseTypeSet__Group__2__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__Group__3();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__2"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__2__Impl"
+    // InternalDim.g:7020:1: rule__DmxBaseTypeSet__Group__2__Impl : ( '(' ) ;
+    public final void rule__DmxBaseTypeSet__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7024:1: ( ( '(' ) )
+            // InternalDim.g:7025:1: ( '(' )
+            {
+            // InternalDim.g:7025:1: ( '(' )
+            // InternalDim.g:7026:2: '('
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getLeftParenthesisKeyword_2()); 
+            }
+            match(input,95,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getLeftParenthesisKeyword_2()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__2__Impl"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__3"
+    // InternalDim.g:7035:1: rule__DmxBaseTypeSet__Group__3 : rule__DmxBaseTypeSet__Group__3__Impl rule__DmxBaseTypeSet__Group__4 ;
+    public final void rule__DmxBaseTypeSet__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7039:1: ( rule__DmxBaseTypeSet__Group__3__Impl rule__DmxBaseTypeSet__Group__4 )
+            // InternalDim.g:7040:2: rule__DmxBaseTypeSet__Group__3__Impl rule__DmxBaseTypeSet__Group__4
+            {
+            pushFollow(FOLLOW_23);
+            rule__DmxBaseTypeSet__Group__3__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__Group__4();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__3"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__3__Impl"
+    // InternalDim.g:7047:1: rule__DmxBaseTypeSet__Group__3__Impl : ( ( rule__DmxBaseTypeSet__MembersAssignment_3 ) ) ;
+    public final void rule__DmxBaseTypeSet__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7051:1: ( ( ( rule__DmxBaseTypeSet__MembersAssignment_3 ) ) )
+            // InternalDim.g:7052:1: ( ( rule__DmxBaseTypeSet__MembersAssignment_3 ) )
+            {
+            // InternalDim.g:7052:1: ( ( rule__DmxBaseTypeSet__MembersAssignment_3 ) )
+            // InternalDim.g:7053:2: ( rule__DmxBaseTypeSet__MembersAssignment_3 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getMembersAssignment_3()); 
+            }
+            // InternalDim.g:7054:2: ( rule__DmxBaseTypeSet__MembersAssignment_3 )
+            // InternalDim.g:7054:3: rule__DmxBaseTypeSet__MembersAssignment_3
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__MembersAssignment_3();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getMembersAssignment_3()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__3__Impl"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__4"
+    // InternalDim.g:7062:1: rule__DmxBaseTypeSet__Group__4 : rule__DmxBaseTypeSet__Group__4__Impl rule__DmxBaseTypeSet__Group__5 ;
+    public final void rule__DmxBaseTypeSet__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7066:1: ( rule__DmxBaseTypeSet__Group__4__Impl rule__DmxBaseTypeSet__Group__5 )
+            // InternalDim.g:7067:2: rule__DmxBaseTypeSet__Group__4__Impl rule__DmxBaseTypeSet__Group__5
+            {
+            pushFollow(FOLLOW_48);
+            rule__DmxBaseTypeSet__Group__4__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__Group__5();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__4"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__4__Impl"
+    // InternalDim.g:7074:1: rule__DmxBaseTypeSet__Group__4__Impl : ( ( ( rule__DmxBaseTypeSet__Group_4__0 ) ) ( ( rule__DmxBaseTypeSet__Group_4__0 )* ) ) ;
+    public final void rule__DmxBaseTypeSet__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7078:1: ( ( ( ( rule__DmxBaseTypeSet__Group_4__0 ) ) ( ( rule__DmxBaseTypeSet__Group_4__0 )* ) ) )
+            // InternalDim.g:7079:1: ( ( ( rule__DmxBaseTypeSet__Group_4__0 ) ) ( ( rule__DmxBaseTypeSet__Group_4__0 )* ) )
+            {
+            // InternalDim.g:7079:1: ( ( ( rule__DmxBaseTypeSet__Group_4__0 ) ) ( ( rule__DmxBaseTypeSet__Group_4__0 )* ) )
+            // InternalDim.g:7080:2: ( ( rule__DmxBaseTypeSet__Group_4__0 ) ) ( ( rule__DmxBaseTypeSet__Group_4__0 )* )
+            {
+            // InternalDim.g:7080:2: ( ( rule__DmxBaseTypeSet__Group_4__0 ) )
+            // InternalDim.g:7081:3: ( rule__DmxBaseTypeSet__Group_4__0 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getGroup_4()); 
+            }
+            // InternalDim.g:7082:3: ( rule__DmxBaseTypeSet__Group_4__0 )
+            // InternalDim.g:7082:4: rule__DmxBaseTypeSet__Group_4__0
+            {
+            pushFollow(FOLLOW_24);
+            rule__DmxBaseTypeSet__Group_4__0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getGroup_4()); 
+            }
+
+            }
+
+            // InternalDim.g:7085:2: ( ( rule__DmxBaseTypeSet__Group_4__0 )* )
+            // InternalDim.g:7086:3: ( rule__DmxBaseTypeSet__Group_4__0 )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getGroup_4()); 
+            }
+            // InternalDim.g:7087:3: ( rule__DmxBaseTypeSet__Group_4__0 )*
+            loop89:
+            do {
+                int alt89=2;
+                int LA89_0 = input.LA(1);
+
+                if ( (LA89_0==90) ) {
+                    alt89=1;
+                }
+
+
+                switch (alt89) {
+            	case 1 :
+            	    // InternalDim.g:7087:4: rule__DmxBaseTypeSet__Group_4__0
+            	    {
+            	    pushFollow(FOLLOW_24);
+            	    rule__DmxBaseTypeSet__Group_4__0();
+
+            	    state._fsp--;
+            	    if (state.failed) return ;
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop89;
+                }
+            } while (true);
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getGroup_4()); 
+            }
+
+            }
+
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__4__Impl"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__5"
+    // InternalDim.g:7096:1: rule__DmxBaseTypeSet__Group__5 : rule__DmxBaseTypeSet__Group__5__Impl ;
+    public final void rule__DmxBaseTypeSet__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7100:1: ( rule__DmxBaseTypeSet__Group__5__Impl )
+            // InternalDim.g:7101:2: rule__DmxBaseTypeSet__Group__5__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__Group__5__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__5"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__5__Impl"
+    // InternalDim.g:7107:1: rule__DmxBaseTypeSet__Group__5__Impl : ( ')' ) ;
+    public final void rule__DmxBaseTypeSet__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7111:1: ( ( ')' ) )
+            // InternalDim.g:7112:1: ( ')' )
+            {
+            // InternalDim.g:7112:1: ( ')' )
+            // InternalDim.g:7113:2: ')'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getRightParenthesisKeyword_5()); 
+            }
+            match(input,96,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getRightParenthesisKeyword_5()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__5__Impl"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group_4__0"
+    // InternalDim.g:7123:1: rule__DmxBaseTypeSet__Group_4__0 : rule__DmxBaseTypeSet__Group_4__0__Impl rule__DmxBaseTypeSet__Group_4__1 ;
+    public final void rule__DmxBaseTypeSet__Group_4__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7127:1: ( rule__DmxBaseTypeSet__Group_4__0__Impl rule__DmxBaseTypeSet__Group_4__1 )
+            // InternalDim.g:7128:2: rule__DmxBaseTypeSet__Group_4__0__Impl rule__DmxBaseTypeSet__Group_4__1
+            {
+            pushFollow(FOLLOW_47);
+            rule__DmxBaseTypeSet__Group_4__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__Group_4__1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group_4__0"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group_4__0__Impl"
+    // InternalDim.g:7135:1: rule__DmxBaseTypeSet__Group_4__0__Impl : ( ',' ) ;
+    public final void rule__DmxBaseTypeSet__Group_4__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7139:1: ( ( ',' ) )
+            // InternalDim.g:7140:1: ( ',' )
+            {
+            // InternalDim.g:7140:1: ( ',' )
+            // InternalDim.g:7141:2: ','
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getCommaKeyword_4_0()); 
+            }
+            match(input,90,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getCommaKeyword_4_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group_4__0__Impl"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group_4__1"
+    // InternalDim.g:7150:1: rule__DmxBaseTypeSet__Group_4__1 : rule__DmxBaseTypeSet__Group_4__1__Impl ;
+    public final void rule__DmxBaseTypeSet__Group_4__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7154:1: ( rule__DmxBaseTypeSet__Group_4__1__Impl )
+            // InternalDim.g:7155:2: rule__DmxBaseTypeSet__Group_4__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__Group_4__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group_4__1"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group_4__1__Impl"
+    // InternalDim.g:7161:1: rule__DmxBaseTypeSet__Group_4__1__Impl : ( ( rule__DmxBaseTypeSet__MembersAssignment_4_1 ) ) ;
+    public final void rule__DmxBaseTypeSet__Group_4__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7165:1: ( ( ( rule__DmxBaseTypeSet__MembersAssignment_4_1 ) ) )
+            // InternalDim.g:7166:1: ( ( rule__DmxBaseTypeSet__MembersAssignment_4_1 ) )
+            {
+            // InternalDim.g:7166:1: ( ( rule__DmxBaseTypeSet__MembersAssignment_4_1 ) )
+            // InternalDim.g:7167:2: ( rule__DmxBaseTypeSet__MembersAssignment_4_1 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getMembersAssignment_4_1()); 
+            }
+            // InternalDim.g:7168:2: ( rule__DmxBaseTypeSet__MembersAssignment_4_1 )
+            // InternalDim.g:7168:3: rule__DmxBaseTypeSet__MembersAssignment_4_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__MembersAssignment_4_1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getMembersAssignment_4_1()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group_4__1__Impl"
+
+
     // $ANTLR start "rule__DmxArchetype__Group__0"
-    // InternalDim.g:6954:1: rule__DmxArchetype__Group__0 : rule__DmxArchetype__Group__0__Impl rule__DmxArchetype__Group__1 ;
+    // InternalDim.g:7177:1: rule__DmxArchetype__Group__0 : rule__DmxArchetype__Group__0__Impl rule__DmxArchetype__Group__1 ;
     public final void rule__DmxArchetype__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:6958:1: ( rule__DmxArchetype__Group__0__Impl rule__DmxArchetype__Group__1 )
-            // InternalDim.g:6959:2: rule__DmxArchetype__Group__0__Impl rule__DmxArchetype__Group__1
+            // InternalDim.g:7181:1: ( rule__DmxArchetype__Group__0__Impl rule__DmxArchetype__Group__1 )
+            // InternalDim.g:7182:2: rule__DmxArchetype__Group__0__Impl rule__DmxArchetype__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__DmxArchetype__Group__0__Impl();
@@ -24401,22 +25123,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__Group__0__Impl"
-    // InternalDim.g:6966:1: rule__DmxArchetype__Group__0__Impl : ( 'archetype' ) ;
+    // InternalDim.g:7189:1: rule__DmxArchetype__Group__0__Impl : ( 'archetype' ) ;
     public final void rule__DmxArchetype__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:6970:1: ( ( 'archetype' ) )
-            // InternalDim.g:6971:1: ( 'archetype' )
+            // InternalDim.g:7193:1: ( ( 'archetype' ) )
+            // InternalDim.g:7194:1: ( 'archetype' )
             {
-            // InternalDim.g:6971:1: ( 'archetype' )
-            // InternalDim.g:6972:2: 'archetype'
+            // InternalDim.g:7194:1: ( 'archetype' )
+            // InternalDim.g:7195:2: 'archetype'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeAccess().getArchetypeKeyword_0()); 
             }
-            match(input,101,FOLLOW_2); if (state.failed) return ;
+            match(input,102,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxArchetypeAccess().getArchetypeKeyword_0()); 
             }
@@ -24442,16 +25164,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__Group__1"
-    // InternalDim.g:6981:1: rule__DmxArchetype__Group__1 : rule__DmxArchetype__Group__1__Impl rule__DmxArchetype__Group__2 ;
+    // InternalDim.g:7204:1: rule__DmxArchetype__Group__1 : rule__DmxArchetype__Group__1__Impl rule__DmxArchetype__Group__2 ;
     public final void rule__DmxArchetype__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:6985:1: ( rule__DmxArchetype__Group__1__Impl rule__DmxArchetype__Group__2 )
-            // InternalDim.g:6986:2: rule__DmxArchetype__Group__1__Impl rule__DmxArchetype__Group__2
+            // InternalDim.g:7208:1: ( rule__DmxArchetype__Group__1__Impl rule__DmxArchetype__Group__2 )
+            // InternalDim.g:7209:2: rule__DmxArchetype__Group__1__Impl rule__DmxArchetype__Group__2
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_49);
             rule__DmxArchetype__Group__1__Impl();
 
             state._fsp--;
@@ -24480,23 +25202,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__Group__1__Impl"
-    // InternalDim.g:6993:1: rule__DmxArchetype__Group__1__Impl : ( ( rule__DmxArchetype__NameAssignment_1 ) ) ;
+    // InternalDim.g:7216:1: rule__DmxArchetype__Group__1__Impl : ( ( rule__DmxArchetype__NameAssignment_1 ) ) ;
     public final void rule__DmxArchetype__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:6997:1: ( ( ( rule__DmxArchetype__NameAssignment_1 ) ) )
-            // InternalDim.g:6998:1: ( ( rule__DmxArchetype__NameAssignment_1 ) )
+            // InternalDim.g:7220:1: ( ( ( rule__DmxArchetype__NameAssignment_1 ) ) )
+            // InternalDim.g:7221:1: ( ( rule__DmxArchetype__NameAssignment_1 ) )
             {
-            // InternalDim.g:6998:1: ( ( rule__DmxArchetype__NameAssignment_1 ) )
-            // InternalDim.g:6999:2: ( rule__DmxArchetype__NameAssignment_1 )
+            // InternalDim.g:7221:1: ( ( rule__DmxArchetype__NameAssignment_1 ) )
+            // InternalDim.g:7222:2: ( rule__DmxArchetype__NameAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeAccess().getNameAssignment_1()); 
             }
-            // InternalDim.g:7000:2: ( rule__DmxArchetype__NameAssignment_1 )
-            // InternalDim.g:7000:3: rule__DmxArchetype__NameAssignment_1
+            // InternalDim.g:7223:2: ( rule__DmxArchetype__NameAssignment_1 )
+            // InternalDim.g:7223:3: rule__DmxArchetype__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxArchetype__NameAssignment_1();
@@ -24531,14 +25253,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__Group__2"
-    // InternalDim.g:7008:1: rule__DmxArchetype__Group__2 : rule__DmxArchetype__Group__2__Impl rule__DmxArchetype__Group__3 ;
+    // InternalDim.g:7231:1: rule__DmxArchetype__Group__2 : rule__DmxArchetype__Group__2__Impl rule__DmxArchetype__Group__3 ;
     public final void rule__DmxArchetype__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7012:1: ( rule__DmxArchetype__Group__2__Impl rule__DmxArchetype__Group__3 )
-            // InternalDim.g:7013:2: rule__DmxArchetype__Group__2__Impl rule__DmxArchetype__Group__3
+            // InternalDim.g:7235:1: ( rule__DmxArchetype__Group__2__Impl rule__DmxArchetype__Group__3 )
+            // InternalDim.g:7236:2: rule__DmxArchetype__Group__2__Impl rule__DmxArchetype__Group__3
             {
             pushFollow(FOLLOW_47);
             rule__DmxArchetype__Group__2__Impl();
@@ -24569,22 +25291,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__Group__2__Impl"
-    // InternalDim.g:7020:1: rule__DmxArchetype__Group__2__Impl : ( 'is' ) ;
+    // InternalDim.g:7243:1: rule__DmxArchetype__Group__2__Impl : ( 'is' ) ;
     public final void rule__DmxArchetype__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7024:1: ( ( 'is' ) )
-            // InternalDim.g:7025:1: ( 'is' )
+            // InternalDim.g:7247:1: ( ( 'is' ) )
+            // InternalDim.g:7248:1: ( 'is' )
             {
-            // InternalDim.g:7025:1: ( 'is' )
-            // InternalDim.g:7026:2: 'is'
+            // InternalDim.g:7248:1: ( 'is' )
+            // InternalDim.g:7249:2: 'is'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeAccess().getIsKeyword_2()); 
             }
-            match(input,102,FOLLOW_2); if (state.failed) return ;
+            match(input,103,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxArchetypeAccess().getIsKeyword_2()); 
             }
@@ -24610,14 +25332,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__Group__3"
-    // InternalDim.g:7035:1: rule__DmxArchetype__Group__3 : rule__DmxArchetype__Group__3__Impl rule__DmxArchetype__Group__4 ;
+    // InternalDim.g:7258:1: rule__DmxArchetype__Group__3 : rule__DmxArchetype__Group__3__Impl rule__DmxArchetype__Group__4 ;
     public final void rule__DmxArchetype__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7039:1: ( rule__DmxArchetype__Group__3__Impl rule__DmxArchetype__Group__4 )
-            // InternalDim.g:7040:2: rule__DmxArchetype__Group__3__Impl rule__DmxArchetype__Group__4
+            // InternalDim.g:7262:1: ( rule__DmxArchetype__Group__3__Impl rule__DmxArchetype__Group__4 )
+            // InternalDim.g:7263:2: rule__DmxArchetype__Group__3__Impl rule__DmxArchetype__Group__4
             {
             pushFollow(FOLLOW_16);
             rule__DmxArchetype__Group__3__Impl();
@@ -24648,23 +25370,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__Group__3__Impl"
-    // InternalDim.g:7047:1: rule__DmxArchetype__Group__3__Impl : ( ( rule__DmxArchetype__BaseTypeAssignment_3 ) ) ;
+    // InternalDim.g:7270:1: rule__DmxArchetype__Group__3__Impl : ( ( rule__DmxArchetype__BaseTypeAssignment_3 ) ) ;
     public final void rule__DmxArchetype__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7051:1: ( ( ( rule__DmxArchetype__BaseTypeAssignment_3 ) ) )
-            // InternalDim.g:7052:1: ( ( rule__DmxArchetype__BaseTypeAssignment_3 ) )
+            // InternalDim.g:7274:1: ( ( ( rule__DmxArchetype__BaseTypeAssignment_3 ) ) )
+            // InternalDim.g:7275:1: ( ( rule__DmxArchetype__BaseTypeAssignment_3 ) )
             {
-            // InternalDim.g:7052:1: ( ( rule__DmxArchetype__BaseTypeAssignment_3 ) )
-            // InternalDim.g:7053:2: ( rule__DmxArchetype__BaseTypeAssignment_3 )
+            // InternalDim.g:7275:1: ( ( rule__DmxArchetype__BaseTypeAssignment_3 ) )
+            // InternalDim.g:7276:2: ( rule__DmxArchetype__BaseTypeAssignment_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeAccess().getBaseTypeAssignment_3()); 
             }
-            // InternalDim.g:7054:2: ( rule__DmxArchetype__BaseTypeAssignment_3 )
-            // InternalDim.g:7054:3: rule__DmxArchetype__BaseTypeAssignment_3
+            // InternalDim.g:7277:2: ( rule__DmxArchetype__BaseTypeAssignment_3 )
+            // InternalDim.g:7277:3: rule__DmxArchetype__BaseTypeAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__DmxArchetype__BaseTypeAssignment_3();
@@ -24699,14 +25421,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__Group__4"
-    // InternalDim.g:7062:1: rule__DmxArchetype__Group__4 : rule__DmxArchetype__Group__4__Impl ;
+    // InternalDim.g:7285:1: rule__DmxArchetype__Group__4 : rule__DmxArchetype__Group__4__Impl ;
     public final void rule__DmxArchetype__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7066:1: ( rule__DmxArchetype__Group__4__Impl )
-            // InternalDim.g:7067:2: rule__DmxArchetype__Group__4__Impl
+            // InternalDim.g:7289:1: ( rule__DmxArchetype__Group__4__Impl )
+            // InternalDim.g:7290:2: rule__DmxArchetype__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxArchetype__Group__4__Impl();
@@ -24732,31 +25454,31 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__Group__4__Impl"
-    // InternalDim.g:7073:1: rule__DmxArchetype__Group__4__Impl : ( ( rule__DmxArchetype__DescriptionAssignment_4 )? ) ;
+    // InternalDim.g:7296:1: rule__DmxArchetype__Group__4__Impl : ( ( rule__DmxArchetype__DescriptionAssignment_4 )? ) ;
     public final void rule__DmxArchetype__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7077:1: ( ( ( rule__DmxArchetype__DescriptionAssignment_4 )? ) )
-            // InternalDim.g:7078:1: ( ( rule__DmxArchetype__DescriptionAssignment_4 )? )
+            // InternalDim.g:7300:1: ( ( ( rule__DmxArchetype__DescriptionAssignment_4 )? ) )
+            // InternalDim.g:7301:1: ( ( rule__DmxArchetype__DescriptionAssignment_4 )? )
             {
-            // InternalDim.g:7078:1: ( ( rule__DmxArchetype__DescriptionAssignment_4 )? )
-            // InternalDim.g:7079:2: ( rule__DmxArchetype__DescriptionAssignment_4 )?
+            // InternalDim.g:7301:1: ( ( rule__DmxArchetype__DescriptionAssignment_4 )? )
+            // InternalDim.g:7302:2: ( rule__DmxArchetype__DescriptionAssignment_4 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeAccess().getDescriptionAssignment_4()); 
             }
-            // InternalDim.g:7080:2: ( rule__DmxArchetype__DescriptionAssignment_4 )?
-            int alt89=2;
-            int LA89_0 = input.LA(1);
+            // InternalDim.g:7303:2: ( rule__DmxArchetype__DescriptionAssignment_4 )?
+            int alt90=2;
+            int LA90_0 = input.LA(1);
 
-            if ( ((LA89_0>=RULE_PLAIN_TEXT_ONLY && LA89_0<=RULE_PLAIN_TEXT_START)) ) {
-                alt89=1;
+            if ( ((LA90_0>=RULE_PLAIN_TEXT_ONLY && LA90_0<=RULE_PLAIN_TEXT_START)) ) {
+                alt90=1;
             }
-            switch (alt89) {
+            switch (alt90) {
                 case 1 :
-                    // InternalDim.g:7080:3: rule__DmxArchetype__DescriptionAssignment_4
+                    // InternalDim.g:7303:3: rule__DmxArchetype__DescriptionAssignment_4
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxArchetype__DescriptionAssignment_4();
@@ -24793,23 +25515,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DmxArchetype__Group__4__Impl"
 
 
-    // $ANTLR start "rule__DmxFunction__Group__0"
-    // InternalDim.g:7089:1: rule__DmxFunction__Group__0 : rule__DmxFunction__Group__0__Impl rule__DmxFunction__Group__1 ;
-    public final void rule__DmxFunction__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group__0"
+    // InternalDim.g:7312:1: rule__DmxFilter__Group__0 : rule__DmxFilter__Group__0__Impl rule__DmxFilter__Group__1 ;
+    public final void rule__DmxFilter__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7093:1: ( rule__DmxFunction__Group__0__Impl rule__DmxFunction__Group__1 )
-            // InternalDim.g:7094:2: rule__DmxFunction__Group__0__Impl rule__DmxFunction__Group__1
+            // InternalDim.g:7316:1: ( rule__DmxFilter__Group__0__Impl rule__DmxFilter__Group__1 )
+            // InternalDim.g:7317:2: rule__DmxFilter__Group__0__Impl rule__DmxFilter__Group__1
             {
             pushFollow(FOLLOW_5);
-            rule__DmxFunction__Group__0__Impl();
+            rule__DmxFilter__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group__1();
+            rule__DmxFilter__Group__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -24828,28 +25550,28 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group__0"
+    // $ANTLR end "rule__DmxFilter__Group__0"
 
 
-    // $ANTLR start "rule__DmxFunction__Group__0__Impl"
-    // InternalDim.g:7101:1: rule__DmxFunction__Group__0__Impl : ( 'function' ) ;
-    public final void rule__DmxFunction__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group__0__Impl"
+    // InternalDim.g:7324:1: rule__DmxFilter__Group__0__Impl : ( 'filter' ) ;
+    public final void rule__DmxFilter__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7105:1: ( ( 'function' ) )
-            // InternalDim.g:7106:1: ( 'function' )
+            // InternalDim.g:7328:1: ( ( 'filter' ) )
+            // InternalDim.g:7329:1: ( 'filter' )
             {
-            // InternalDim.g:7106:1: ( 'function' )
-            // InternalDim.g:7107:2: 'function'
+            // InternalDim.g:7329:1: ( 'filter' )
+            // InternalDim.g:7330:2: 'filter'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getFunctionKeyword_0()); 
+               before(grammarAccess.getDmxFilterAccess().getFilterKeyword_0()); 
             }
-            match(input,103,FOLLOW_2); if (state.failed) return ;
+            match(input,104,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getFunctionKeyword_0()); 
+               after(grammarAccess.getDmxFilterAccess().getFilterKeyword_0()); 
             }
 
             }
@@ -24869,26 +25591,26 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group__0__Impl"
+    // $ANTLR end "rule__DmxFilter__Group__0__Impl"
 
 
-    // $ANTLR start "rule__DmxFunction__Group__1"
-    // InternalDim.g:7116:1: rule__DmxFunction__Group__1 : rule__DmxFunction__Group__1__Impl rule__DmxFunction__Group__2 ;
-    public final void rule__DmxFunction__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group__1"
+    // InternalDim.g:7339:1: rule__DmxFilter__Group__1 : rule__DmxFilter__Group__1__Impl rule__DmxFilter__Group__2 ;
+    public final void rule__DmxFilter__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7120:1: ( rule__DmxFunction__Group__1__Impl rule__DmxFunction__Group__2 )
-            // InternalDim.g:7121:2: rule__DmxFunction__Group__1__Impl rule__DmxFunction__Group__2
+            // InternalDim.g:7343:1: ( rule__DmxFilter__Group__1__Impl rule__DmxFilter__Group__2 )
+            // InternalDim.g:7344:2: rule__DmxFilter__Group__1__Impl rule__DmxFilter__Group__2
             {
             pushFollow(FOLLOW_45);
-            rule__DmxFunction__Group__1__Impl();
+            rule__DmxFilter__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group__2();
+            rule__DmxFilter__Group__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -24907,30 +25629,30 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group__1"
+    // $ANTLR end "rule__DmxFilter__Group__1"
 
 
-    // $ANTLR start "rule__DmxFunction__Group__1__Impl"
-    // InternalDim.g:7128:1: rule__DmxFunction__Group__1__Impl : ( ( rule__DmxFunction__NameAssignment_1 ) ) ;
-    public final void rule__DmxFunction__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group__1__Impl"
+    // InternalDim.g:7351:1: rule__DmxFilter__Group__1__Impl : ( ( rule__DmxFilter__NameAssignment_1 ) ) ;
+    public final void rule__DmxFilter__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7132:1: ( ( ( rule__DmxFunction__NameAssignment_1 ) ) )
-            // InternalDim.g:7133:1: ( ( rule__DmxFunction__NameAssignment_1 ) )
+            // InternalDim.g:7355:1: ( ( ( rule__DmxFilter__NameAssignment_1 ) ) )
+            // InternalDim.g:7356:1: ( ( rule__DmxFilter__NameAssignment_1 ) )
             {
-            // InternalDim.g:7133:1: ( ( rule__DmxFunction__NameAssignment_1 ) )
-            // InternalDim.g:7134:2: ( rule__DmxFunction__NameAssignment_1 )
+            // InternalDim.g:7356:1: ( ( rule__DmxFilter__NameAssignment_1 ) )
+            // InternalDim.g:7357:2: ( rule__DmxFilter__NameAssignment_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getNameAssignment_1()); 
+               before(grammarAccess.getDmxFilterAccess().getNameAssignment_1()); 
             }
-            // InternalDim.g:7135:2: ( rule__DmxFunction__NameAssignment_1 )
-            // InternalDim.g:7135:3: rule__DmxFunction__NameAssignment_1
+            // InternalDim.g:7358:2: ( rule__DmxFilter__NameAssignment_1 )
+            // InternalDim.g:7358:3: rule__DmxFilter__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__NameAssignment_1();
+            rule__DmxFilter__NameAssignment_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -24938,7 +25660,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getNameAssignment_1()); 
+               after(grammarAccess.getDmxFilterAccess().getNameAssignment_1()); 
             }
 
             }
@@ -24958,26 +25680,26 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group__1__Impl"
+    // $ANTLR end "rule__DmxFilter__Group__1__Impl"
 
 
-    // $ANTLR start "rule__DmxFunction__Group__2"
-    // InternalDim.g:7143:1: rule__DmxFunction__Group__2 : rule__DmxFunction__Group__2__Impl rule__DmxFunction__Group__3 ;
-    public final void rule__DmxFunction__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group__2"
+    // InternalDim.g:7366:1: rule__DmxFilter__Group__2 : rule__DmxFilter__Group__2__Impl rule__DmxFilter__Group__3 ;
+    public final void rule__DmxFilter__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7147:1: ( rule__DmxFunction__Group__2__Impl rule__DmxFunction__Group__3 )
-            // InternalDim.g:7148:2: rule__DmxFunction__Group__2__Impl rule__DmxFunction__Group__3
+            // InternalDim.g:7370:1: ( rule__DmxFilter__Group__2__Impl rule__DmxFilter__Group__3 )
+            // InternalDim.g:7371:2: rule__DmxFilter__Group__2__Impl rule__DmxFilter__Group__3
             {
             pushFollow(FOLLOW_41);
-            rule__DmxFunction__Group__2__Impl();
+            rule__DmxFilter__Group__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group__3();
+            rule__DmxFilter__Group__3();
 
             state._fsp--;
             if (state.failed) return ;
@@ -24996,28 +25718,28 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group__2"
+    // $ANTLR end "rule__DmxFilter__Group__2"
 
 
-    // $ANTLR start "rule__DmxFunction__Group__2__Impl"
-    // InternalDim.g:7155:1: rule__DmxFunction__Group__2__Impl : ( '(' ) ;
-    public final void rule__DmxFunction__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group__2__Impl"
+    // InternalDim.g:7378:1: rule__DmxFilter__Group__2__Impl : ( '(' ) ;
+    public final void rule__DmxFilter__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7159:1: ( ( '(' ) )
-            // InternalDim.g:7160:1: ( '(' )
+            // InternalDim.g:7382:1: ( ( '(' ) )
+            // InternalDim.g:7383:1: ( '(' )
             {
-            // InternalDim.g:7160:1: ( '(' )
-            // InternalDim.g:7161:2: '('
+            // InternalDim.g:7383:1: ( '(' )
+            // InternalDim.g:7384:2: '('
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getLeftParenthesisKeyword_2()); 
+               before(grammarAccess.getDmxFilterAccess().getLeftParenthesisKeyword_2()); 
             }
             match(input,95,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getLeftParenthesisKeyword_2()); 
+               after(grammarAccess.getDmxFilterAccess().getLeftParenthesisKeyword_2()); 
             }
 
             }
@@ -25037,26 +25759,26 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group__2__Impl"
+    // $ANTLR end "rule__DmxFilter__Group__2__Impl"
 
 
-    // $ANTLR start "rule__DmxFunction__Group__3"
-    // InternalDim.g:7170:1: rule__DmxFunction__Group__3 : rule__DmxFunction__Group__3__Impl rule__DmxFunction__Group__4 ;
-    public final void rule__DmxFunction__Group__3() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group__3"
+    // InternalDim.g:7393:1: rule__DmxFilter__Group__3 : rule__DmxFilter__Group__3__Impl rule__DmxFilter__Group__4 ;
+    public final void rule__DmxFilter__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7174:1: ( rule__DmxFunction__Group__3__Impl rule__DmxFunction__Group__4 )
-            // InternalDim.g:7175:2: rule__DmxFunction__Group__3__Impl rule__DmxFunction__Group__4
+            // InternalDim.g:7397:1: ( rule__DmxFilter__Group__3__Impl rule__DmxFilter__Group__4 )
+            // InternalDim.g:7398:2: rule__DmxFilter__Group__3__Impl rule__DmxFilter__Group__4
             {
             pushFollow(FOLLOW_41);
-            rule__DmxFunction__Group__3__Impl();
+            rule__DmxFilter__Group__3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group__4();
+            rule__DmxFilter__Group__4();
 
             state._fsp--;
             if (state.failed) return ;
@@ -25075,380 +25797,38 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group__3"
+    // $ANTLR end "rule__DmxFilter__Group__3"
 
 
-    // $ANTLR start "rule__DmxFunction__Group__3__Impl"
-    // InternalDim.g:7182:1: rule__DmxFunction__Group__3__Impl : ( ( rule__DmxFunction__Group_3__0 )? ) ;
-    public final void rule__DmxFunction__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:7186:1: ( ( ( rule__DmxFunction__Group_3__0 )? ) )
-            // InternalDim.g:7187:1: ( ( rule__DmxFunction__Group_3__0 )? )
-            {
-            // InternalDim.g:7187:1: ( ( rule__DmxFunction__Group_3__0 )? )
-            // InternalDim.g:7188:2: ( rule__DmxFunction__Group_3__0 )?
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getGroup_3()); 
-            }
-            // InternalDim.g:7189:2: ( rule__DmxFunction__Group_3__0 )?
-            int alt90=2;
-            int LA90_0 = input.LA(1);
-
-            if ( (LA90_0==RULE_ID) ) {
-                alt90=1;
-            }
-            switch (alt90) {
-                case 1 :
-                    // InternalDim.g:7189:3: rule__DmxFunction__Group_3__0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__DmxFunction__Group_3__0();
-
-                    state._fsp--;
-                    if (state.failed) return ;
-
-                    }
-                    break;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getGroup_3()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunction__Group__3__Impl"
-
-
-    // $ANTLR start "rule__DmxFunction__Group__4"
-    // InternalDim.g:7197:1: rule__DmxFunction__Group__4 : rule__DmxFunction__Group__4__Impl rule__DmxFunction__Group__5 ;
-    public final void rule__DmxFunction__Group__4() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group__3__Impl"
+    // InternalDim.g:7405:1: rule__DmxFilter__Group__3__Impl : ( ( rule__DmxFilter__Group_3__0 )? ) ;
+    public final void rule__DmxFilter__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7201:1: ( rule__DmxFunction__Group__4__Impl rule__DmxFunction__Group__5 )
-            // InternalDim.g:7202:2: rule__DmxFunction__Group__4__Impl rule__DmxFunction__Group__5
+            // InternalDim.g:7409:1: ( ( ( rule__DmxFilter__Group_3__0 )? ) )
+            // InternalDim.g:7410:1: ( ( rule__DmxFilter__Group_3__0 )? )
             {
-            pushFollow(FOLLOW_42);
-            rule__DmxFunction__Group__4__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group__5();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunction__Group__4"
-
-
-    // $ANTLR start "rule__DmxFunction__Group__4__Impl"
-    // InternalDim.g:7209:1: rule__DmxFunction__Group__4__Impl : ( ')' ) ;
-    public final void rule__DmxFunction__Group__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:7213:1: ( ( ')' ) )
-            // InternalDim.g:7214:1: ( ')' )
-            {
-            // InternalDim.g:7214:1: ( ')' )
-            // InternalDim.g:7215:2: ')'
+            // InternalDim.g:7410:1: ( ( rule__DmxFilter__Group_3__0 )? )
+            // InternalDim.g:7411:2: ( rule__DmxFilter__Group_3__0 )?
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getRightParenthesisKeyword_4()); 
+               before(grammarAccess.getDmxFilterAccess().getGroup_3()); 
             }
-            match(input,96,FOLLOW_2); if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getRightParenthesisKeyword_4()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunction__Group__4__Impl"
-
-
-    // $ANTLR start "rule__DmxFunction__Group__5"
-    // InternalDim.g:7224:1: rule__DmxFunction__Group__5 : rule__DmxFunction__Group__5__Impl rule__DmxFunction__Group__6 ;
-    public final void rule__DmxFunction__Group__5() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:7228:1: ( rule__DmxFunction__Group__5__Impl rule__DmxFunction__Group__6 )
-            // InternalDim.g:7229:2: rule__DmxFunction__Group__5__Impl rule__DmxFunction__Group__6
-            {
-            pushFollow(FOLLOW_47);
-            rule__DmxFunction__Group__5__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group__6();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunction__Group__5"
-
-
-    // $ANTLR start "rule__DmxFunction__Group__5__Impl"
-    // InternalDim.g:7236:1: rule__DmxFunction__Group__5__Impl : ( ':' ) ;
-    public final void rule__DmxFunction__Group__5__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:7240:1: ( ( ':' ) )
-            // InternalDim.g:7241:1: ( ':' )
-            {
-            // InternalDim.g:7241:1: ( ':' )
-            // InternalDim.g:7242:2: ':'
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getColonKeyword_5()); 
-            }
-            match(input,86,FOLLOW_2); if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getColonKeyword_5()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunction__Group__5__Impl"
-
-
-    // $ANTLR start "rule__DmxFunction__Group__6"
-    // InternalDim.g:7251:1: rule__DmxFunction__Group__6 : rule__DmxFunction__Group__6__Impl rule__DmxFunction__Group__7 ;
-    public final void rule__DmxFunction__Group__6() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:7255:1: ( rule__DmxFunction__Group__6__Impl rule__DmxFunction__Group__7 )
-            // InternalDim.g:7256:2: rule__DmxFunction__Group__6__Impl rule__DmxFunction__Group__7
-            {
-            pushFollow(FOLLOW_48);
-            rule__DmxFunction__Group__6__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group__7();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunction__Group__6"
-
-
-    // $ANTLR start "rule__DmxFunction__Group__6__Impl"
-    // InternalDim.g:7263:1: rule__DmxFunction__Group__6__Impl : ( ( rule__DmxFunction__BaseTypeAssignment_6 ) ) ;
-    public final void rule__DmxFunction__Group__6__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:7267:1: ( ( ( rule__DmxFunction__BaseTypeAssignment_6 ) ) )
-            // InternalDim.g:7268:1: ( ( rule__DmxFunction__BaseTypeAssignment_6 ) )
-            {
-            // InternalDim.g:7268:1: ( ( rule__DmxFunction__BaseTypeAssignment_6 ) )
-            // InternalDim.g:7269:2: ( rule__DmxFunction__BaseTypeAssignment_6 )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getBaseTypeAssignment_6()); 
-            }
-            // InternalDim.g:7270:2: ( rule__DmxFunction__BaseTypeAssignment_6 )
-            // InternalDim.g:7270:3: rule__DmxFunction__BaseTypeAssignment_6
-            {
-            pushFollow(FOLLOW_2);
-            rule__DmxFunction__BaseTypeAssignment_6();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getBaseTypeAssignment_6()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunction__Group__6__Impl"
-
-
-    // $ANTLR start "rule__DmxFunction__Group__7"
-    // InternalDim.g:7278:1: rule__DmxFunction__Group__7 : rule__DmxFunction__Group__7__Impl ;
-    public final void rule__DmxFunction__Group__7() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:7282:1: ( rule__DmxFunction__Group__7__Impl )
-            // InternalDim.g:7283:2: rule__DmxFunction__Group__7__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group__7__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunction__Group__7"
-
-
-    // $ANTLR start "rule__DmxFunction__Group__7__Impl"
-    // InternalDim.g:7289:1: rule__DmxFunction__Group__7__Impl : ( ( rule__DmxFunction__BaseTypeCollectionAssignment_7 )? ) ;
-    public final void rule__DmxFunction__Group__7__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:7293:1: ( ( ( rule__DmxFunction__BaseTypeCollectionAssignment_7 )? ) )
-            // InternalDim.g:7294:1: ( ( rule__DmxFunction__BaseTypeCollectionAssignment_7 )? )
-            {
-            // InternalDim.g:7294:1: ( ( rule__DmxFunction__BaseTypeCollectionAssignment_7 )? )
-            // InternalDim.g:7295:2: ( rule__DmxFunction__BaseTypeCollectionAssignment_7 )?
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getBaseTypeCollectionAssignment_7()); 
-            }
-            // InternalDim.g:7296:2: ( rule__DmxFunction__BaseTypeCollectionAssignment_7 )?
+            // InternalDim.g:7412:2: ( rule__DmxFilter__Group_3__0 )?
             int alt91=2;
             int LA91_0 = input.LA(1);
 
-            if ( (LA91_0==35) ) {
+            if ( (LA91_0==RULE_ID) ) {
                 alt91=1;
             }
             switch (alt91) {
                 case 1 :
-                    // InternalDim.g:7296:3: rule__DmxFunction__BaseTypeCollectionAssignment_7
+                    // InternalDim.g:7412:3: rule__DmxFilter__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__DmxFunction__BaseTypeCollectionAssignment_7();
+                    rule__DmxFilter__Group_3__0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -25459,7 +25839,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getBaseTypeCollectionAssignment_7()); 
+               after(grammarAccess.getDmxFilterAccess().getGroup_3()); 
             }
 
             }
@@ -25479,26 +25859,368 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group__7__Impl"
+    // $ANTLR end "rule__DmxFilter__Group__3__Impl"
 
 
-    // $ANTLR start "rule__DmxFunction__Group_3__0"
-    // InternalDim.g:7305:1: rule__DmxFunction__Group_3__0 : rule__DmxFunction__Group_3__0__Impl rule__DmxFunction__Group_3__1 ;
-    public final void rule__DmxFunction__Group_3__0() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group__4"
+    // InternalDim.g:7420:1: rule__DmxFilter__Group__4 : rule__DmxFilter__Group__4__Impl rule__DmxFilter__Group__5 ;
+    public final void rule__DmxFilter__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7309:1: ( rule__DmxFunction__Group_3__0__Impl rule__DmxFunction__Group_3__1 )
-            // InternalDim.g:7310:2: rule__DmxFunction__Group_3__0__Impl rule__DmxFunction__Group_3__1
+            // InternalDim.g:7424:1: ( rule__DmxFilter__Group__4__Impl rule__DmxFilter__Group__5 )
+            // InternalDim.g:7425:2: rule__DmxFilter__Group__4__Impl rule__DmxFilter__Group__5
+            {
+            pushFollow(FOLLOW_42);
+            rule__DmxFilter__Group__4__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxFilter__Group__5();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__Group__4"
+
+
+    // $ANTLR start "rule__DmxFilter__Group__4__Impl"
+    // InternalDim.g:7432:1: rule__DmxFilter__Group__4__Impl : ( ')' ) ;
+    public final void rule__DmxFilter__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7436:1: ( ( ')' ) )
+            // InternalDim.g:7437:1: ( ')' )
+            {
+            // InternalDim.g:7437:1: ( ')' )
+            // InternalDim.g:7438:2: ')'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterAccess().getRightParenthesisKeyword_4()); 
+            }
+            match(input,96,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterAccess().getRightParenthesisKeyword_4()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__Group__4__Impl"
+
+
+    // $ANTLR start "rule__DmxFilter__Group__5"
+    // InternalDim.g:7447:1: rule__DmxFilter__Group__5 : rule__DmxFilter__Group__5__Impl rule__DmxFilter__Group__6 ;
+    public final void rule__DmxFilter__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7451:1: ( rule__DmxFilter__Group__5__Impl rule__DmxFilter__Group__6 )
+            // InternalDim.g:7452:2: rule__DmxFilter__Group__5__Impl rule__DmxFilter__Group__6
+            {
+            pushFollow(FOLLOW_50);
+            rule__DmxFilter__Group__5__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxFilter__Group__6();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__Group__5"
+
+
+    // $ANTLR start "rule__DmxFilter__Group__5__Impl"
+    // InternalDim.g:7459:1: rule__DmxFilter__Group__5__Impl : ( ':' ) ;
+    public final void rule__DmxFilter__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7463:1: ( ( ':' ) )
+            // InternalDim.g:7464:1: ( ':' )
+            {
+            // InternalDim.g:7464:1: ( ':' )
+            // InternalDim.g:7465:2: ':'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterAccess().getColonKeyword_5()); 
+            }
+            match(input,86,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterAccess().getColonKeyword_5()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__Group__5__Impl"
+
+
+    // $ANTLR start "rule__DmxFilter__Group__6"
+    // InternalDim.g:7474:1: rule__DmxFilter__Group__6 : rule__DmxFilter__Group__6__Impl rule__DmxFilter__Group__7 ;
+    public final void rule__DmxFilter__Group__6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7478:1: ( rule__DmxFilter__Group__6__Impl rule__DmxFilter__Group__7 )
+            // InternalDim.g:7479:2: rule__DmxFilter__Group__6__Impl rule__DmxFilter__Group__7
+            {
+            pushFollow(FOLLOW_51);
+            rule__DmxFilter__Group__6__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxFilter__Group__7();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__Group__6"
+
+
+    // $ANTLR start "rule__DmxFilter__Group__6__Impl"
+    // InternalDim.g:7486:1: rule__DmxFilter__Group__6__Impl : ( ( rule__DmxFilter__TypeDescAssignment_6 ) ) ;
+    public final void rule__DmxFilter__Group__6__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7490:1: ( ( ( rule__DmxFilter__TypeDescAssignment_6 ) ) )
+            // InternalDim.g:7491:1: ( ( rule__DmxFilter__TypeDescAssignment_6 ) )
+            {
+            // InternalDim.g:7491:1: ( ( rule__DmxFilter__TypeDescAssignment_6 ) )
+            // InternalDim.g:7492:2: ( rule__DmxFilter__TypeDescAssignment_6 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterAccess().getTypeDescAssignment_6()); 
+            }
+            // InternalDim.g:7493:2: ( rule__DmxFilter__TypeDescAssignment_6 )
+            // InternalDim.g:7493:3: rule__DmxFilter__TypeDescAssignment_6
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxFilter__TypeDescAssignment_6();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterAccess().getTypeDescAssignment_6()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__Group__6__Impl"
+
+
+    // $ANTLR start "rule__DmxFilter__Group__7"
+    // InternalDim.g:7501:1: rule__DmxFilter__Group__7 : rule__DmxFilter__Group__7__Impl ;
+    public final void rule__DmxFilter__Group__7() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7505:1: ( rule__DmxFilter__Group__7__Impl )
+            // InternalDim.g:7506:2: rule__DmxFilter__Group__7__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxFilter__Group__7__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__Group__7"
+
+
+    // $ANTLR start "rule__DmxFilter__Group__7__Impl"
+    // InternalDim.g:7512:1: rule__DmxFilter__Group__7__Impl : ( ( rule__DmxFilter__Group_7__0 )? ) ;
+    public final void rule__DmxFilter__Group__7__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7516:1: ( ( ( rule__DmxFilter__Group_7__0 )? ) )
+            // InternalDim.g:7517:1: ( ( rule__DmxFilter__Group_7__0 )? )
+            {
+            // InternalDim.g:7517:1: ( ( rule__DmxFilter__Group_7__0 )? )
+            // InternalDim.g:7518:2: ( rule__DmxFilter__Group_7__0 )?
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterAccess().getGroup_7()); 
+            }
+            // InternalDim.g:7519:2: ( rule__DmxFilter__Group_7__0 )?
+            int alt92=2;
+            int LA92_0 = input.LA(1);
+
+            if ( (LA92_0==105) ) {
+                alt92=1;
+            }
+            switch (alt92) {
+                case 1 :
+                    // InternalDim.g:7519:3: rule__DmxFilter__Group_7__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__DmxFilter__Group_7__0();
+
+                    state._fsp--;
+                    if (state.failed) return ;
+
+                    }
+                    break;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterAccess().getGroup_7()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__Group__7__Impl"
+
+
+    // $ANTLR start "rule__DmxFilter__Group_3__0"
+    // InternalDim.g:7528:1: rule__DmxFilter__Group_3__0 : rule__DmxFilter__Group_3__0__Impl rule__DmxFilter__Group_3__1 ;
+    public final void rule__DmxFilter__Group_3__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7532:1: ( rule__DmxFilter__Group_3__0__Impl rule__DmxFilter__Group_3__1 )
+            // InternalDim.g:7533:2: rule__DmxFilter__Group_3__0__Impl rule__DmxFilter__Group_3__1
             {
             pushFollow(FOLLOW_23);
-            rule__DmxFunction__Group_3__0__Impl();
+            rule__DmxFilter__Group_3__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group_3__1();
+            rule__DmxFilter__Group_3__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -25517,30 +26239,30 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group_3__0"
+    // $ANTLR end "rule__DmxFilter__Group_3__0"
 
 
-    // $ANTLR start "rule__DmxFunction__Group_3__0__Impl"
-    // InternalDim.g:7317:1: rule__DmxFunction__Group_3__0__Impl : ( ( rule__DmxFunction__ParametersAssignment_3_0 ) ) ;
-    public final void rule__DmxFunction__Group_3__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group_3__0__Impl"
+    // InternalDim.g:7540:1: rule__DmxFilter__Group_3__0__Impl : ( ( rule__DmxFilter__ParametersAssignment_3_0 ) ) ;
+    public final void rule__DmxFilter__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7321:1: ( ( ( rule__DmxFunction__ParametersAssignment_3_0 ) ) )
-            // InternalDim.g:7322:1: ( ( rule__DmxFunction__ParametersAssignment_3_0 ) )
+            // InternalDim.g:7544:1: ( ( ( rule__DmxFilter__ParametersAssignment_3_0 ) ) )
+            // InternalDim.g:7545:1: ( ( rule__DmxFilter__ParametersAssignment_3_0 ) )
             {
-            // InternalDim.g:7322:1: ( ( rule__DmxFunction__ParametersAssignment_3_0 ) )
-            // InternalDim.g:7323:2: ( rule__DmxFunction__ParametersAssignment_3_0 )
+            // InternalDim.g:7545:1: ( ( rule__DmxFilter__ParametersAssignment_3_0 ) )
+            // InternalDim.g:7546:2: ( rule__DmxFilter__ParametersAssignment_3_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getParametersAssignment_3_0()); 
+               before(grammarAccess.getDmxFilterAccess().getParametersAssignment_3_0()); 
             }
-            // InternalDim.g:7324:2: ( rule__DmxFunction__ParametersAssignment_3_0 )
-            // InternalDim.g:7324:3: rule__DmxFunction__ParametersAssignment_3_0
+            // InternalDim.g:7547:2: ( rule__DmxFilter__ParametersAssignment_3_0 )
+            // InternalDim.g:7547:3: rule__DmxFilter__ParametersAssignment_3_0
             {
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__ParametersAssignment_3_0();
+            rule__DmxFilter__ParametersAssignment_3_0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -25548,7 +26270,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getParametersAssignment_3_0()); 
+               after(grammarAccess.getDmxFilterAccess().getParametersAssignment_3_0()); 
             }
 
             }
@@ -25568,21 +26290,21 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group_3__0__Impl"
+    // $ANTLR end "rule__DmxFilter__Group_3__0__Impl"
 
 
-    // $ANTLR start "rule__DmxFunction__Group_3__1"
-    // InternalDim.g:7332:1: rule__DmxFunction__Group_3__1 : rule__DmxFunction__Group_3__1__Impl ;
-    public final void rule__DmxFunction__Group_3__1() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group_3__1"
+    // InternalDim.g:7555:1: rule__DmxFilter__Group_3__1 : rule__DmxFilter__Group_3__1__Impl ;
+    public final void rule__DmxFilter__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7336:1: ( rule__DmxFunction__Group_3__1__Impl )
-            // InternalDim.g:7337:2: rule__DmxFunction__Group_3__1__Impl
+            // InternalDim.g:7559:1: ( rule__DmxFilter__Group_3__1__Impl )
+            // InternalDim.g:7560:2: rule__DmxFilter__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group_3__1__Impl();
+            rule__DmxFilter__Group_3__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -25601,42 +26323,42 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group_3__1"
+    // $ANTLR end "rule__DmxFilter__Group_3__1"
 
 
-    // $ANTLR start "rule__DmxFunction__Group_3__1__Impl"
-    // InternalDim.g:7343:1: rule__DmxFunction__Group_3__1__Impl : ( ( rule__DmxFunction__Group_3_1__0 )* ) ;
-    public final void rule__DmxFunction__Group_3__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group_3__1__Impl"
+    // InternalDim.g:7566:1: rule__DmxFilter__Group_3__1__Impl : ( ( rule__DmxFilter__Group_3_1__0 )* ) ;
+    public final void rule__DmxFilter__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7347:1: ( ( ( rule__DmxFunction__Group_3_1__0 )* ) )
-            // InternalDim.g:7348:1: ( ( rule__DmxFunction__Group_3_1__0 )* )
+            // InternalDim.g:7570:1: ( ( ( rule__DmxFilter__Group_3_1__0 )* ) )
+            // InternalDim.g:7571:1: ( ( rule__DmxFilter__Group_3_1__0 )* )
             {
-            // InternalDim.g:7348:1: ( ( rule__DmxFunction__Group_3_1__0 )* )
-            // InternalDim.g:7349:2: ( rule__DmxFunction__Group_3_1__0 )*
+            // InternalDim.g:7571:1: ( ( rule__DmxFilter__Group_3_1__0 )* )
+            // InternalDim.g:7572:2: ( rule__DmxFilter__Group_3_1__0 )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getGroup_3_1()); 
+               before(grammarAccess.getDmxFilterAccess().getGroup_3_1()); 
             }
-            // InternalDim.g:7350:2: ( rule__DmxFunction__Group_3_1__0 )*
-            loop92:
+            // InternalDim.g:7573:2: ( rule__DmxFilter__Group_3_1__0 )*
+            loop93:
             do {
-                int alt92=2;
-                int LA92_0 = input.LA(1);
+                int alt93=2;
+                int LA93_0 = input.LA(1);
 
-                if ( (LA92_0==90) ) {
-                    alt92=1;
+                if ( (LA93_0==90) ) {
+                    alt93=1;
                 }
 
 
-                switch (alt92) {
+                switch (alt93) {
             	case 1 :
-            	    // InternalDim.g:7350:3: rule__DmxFunction__Group_3_1__0
+            	    // InternalDim.g:7573:3: rule__DmxFilter__Group_3_1__0
             	    {
             	    pushFollow(FOLLOW_24);
-            	    rule__DmxFunction__Group_3_1__0();
+            	    rule__DmxFilter__Group_3_1__0();
 
             	    state._fsp--;
             	    if (state.failed) return ;
@@ -25645,12 +26367,12 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop92;
+            	    break loop93;
                 }
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getGroup_3_1()); 
+               after(grammarAccess.getDmxFilterAccess().getGroup_3_1()); 
             }
 
             }
@@ -25670,26 +26392,26 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group_3__1__Impl"
+    // $ANTLR end "rule__DmxFilter__Group_3__1__Impl"
 
 
-    // $ANTLR start "rule__DmxFunction__Group_3_1__0"
-    // InternalDim.g:7359:1: rule__DmxFunction__Group_3_1__0 : rule__DmxFunction__Group_3_1__0__Impl rule__DmxFunction__Group_3_1__1 ;
-    public final void rule__DmxFunction__Group_3_1__0() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group_3_1__0"
+    // InternalDim.g:7582:1: rule__DmxFilter__Group_3_1__0 : rule__DmxFilter__Group_3_1__0__Impl rule__DmxFilter__Group_3_1__1 ;
+    public final void rule__DmxFilter__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7363:1: ( rule__DmxFunction__Group_3_1__0__Impl rule__DmxFunction__Group_3_1__1 )
-            // InternalDim.g:7364:2: rule__DmxFunction__Group_3_1__0__Impl rule__DmxFunction__Group_3_1__1
+            // InternalDim.g:7586:1: ( rule__DmxFilter__Group_3_1__0__Impl rule__DmxFilter__Group_3_1__1 )
+            // InternalDim.g:7587:2: rule__DmxFilter__Group_3_1__0__Impl rule__DmxFilter__Group_3_1__1
             {
             pushFollow(FOLLOW_5);
-            rule__DmxFunction__Group_3_1__0__Impl();
+            rule__DmxFilter__Group_3_1__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group_3_1__1();
+            rule__DmxFilter__Group_3_1__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -25708,28 +26430,28 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group_3_1__0"
+    // $ANTLR end "rule__DmxFilter__Group_3_1__0"
 
 
-    // $ANTLR start "rule__DmxFunction__Group_3_1__0__Impl"
-    // InternalDim.g:7371:1: rule__DmxFunction__Group_3_1__0__Impl : ( ',' ) ;
-    public final void rule__DmxFunction__Group_3_1__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group_3_1__0__Impl"
+    // InternalDim.g:7594:1: rule__DmxFilter__Group_3_1__0__Impl : ( ',' ) ;
+    public final void rule__DmxFilter__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7375:1: ( ( ',' ) )
-            // InternalDim.g:7376:1: ( ',' )
+            // InternalDim.g:7598:1: ( ( ',' ) )
+            // InternalDim.g:7599:1: ( ',' )
             {
-            // InternalDim.g:7376:1: ( ',' )
-            // InternalDim.g:7377:2: ','
+            // InternalDim.g:7599:1: ( ',' )
+            // InternalDim.g:7600:2: ','
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getCommaKeyword_3_1_0()); 
+               before(grammarAccess.getDmxFilterAccess().getCommaKeyword_3_1_0()); 
             }
             match(input,90,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getCommaKeyword_3_1_0()); 
+               after(grammarAccess.getDmxFilterAccess().getCommaKeyword_3_1_0()); 
             }
 
             }
@@ -25749,21 +26471,21 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group_3_1__0__Impl"
+    // $ANTLR end "rule__DmxFilter__Group_3_1__0__Impl"
 
 
-    // $ANTLR start "rule__DmxFunction__Group_3_1__1"
-    // InternalDim.g:7386:1: rule__DmxFunction__Group_3_1__1 : rule__DmxFunction__Group_3_1__1__Impl ;
-    public final void rule__DmxFunction__Group_3_1__1() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group_3_1__1"
+    // InternalDim.g:7609:1: rule__DmxFilter__Group_3_1__1 : rule__DmxFilter__Group_3_1__1__Impl ;
+    public final void rule__DmxFilter__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7390:1: ( rule__DmxFunction__Group_3_1__1__Impl )
-            // InternalDim.g:7391:2: rule__DmxFunction__Group_3_1__1__Impl
+            // InternalDim.g:7613:1: ( rule__DmxFilter__Group_3_1__1__Impl )
+            // InternalDim.g:7614:2: rule__DmxFilter__Group_3_1__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group_3_1__1__Impl();
+            rule__DmxFilter__Group_3_1__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -25782,30 +26504,30 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group_3_1__1"
+    // $ANTLR end "rule__DmxFilter__Group_3_1__1"
 
 
-    // $ANTLR start "rule__DmxFunction__Group_3_1__1__Impl"
-    // InternalDim.g:7397:1: rule__DmxFunction__Group_3_1__1__Impl : ( ( rule__DmxFunction__ParametersAssignment_3_1_1 ) ) ;
-    public final void rule__DmxFunction__Group_3_1__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group_3_1__1__Impl"
+    // InternalDim.g:7620:1: rule__DmxFilter__Group_3_1__1__Impl : ( ( rule__DmxFilter__ParametersAssignment_3_1_1 ) ) ;
+    public final void rule__DmxFilter__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7401:1: ( ( ( rule__DmxFunction__ParametersAssignment_3_1_1 ) ) )
-            // InternalDim.g:7402:1: ( ( rule__DmxFunction__ParametersAssignment_3_1_1 ) )
+            // InternalDim.g:7624:1: ( ( ( rule__DmxFilter__ParametersAssignment_3_1_1 ) ) )
+            // InternalDim.g:7625:1: ( ( rule__DmxFilter__ParametersAssignment_3_1_1 ) )
             {
-            // InternalDim.g:7402:1: ( ( rule__DmxFunction__ParametersAssignment_3_1_1 ) )
-            // InternalDim.g:7403:2: ( rule__DmxFunction__ParametersAssignment_3_1_1 )
+            // InternalDim.g:7625:1: ( ( rule__DmxFilter__ParametersAssignment_3_1_1 ) )
+            // InternalDim.g:7626:2: ( rule__DmxFilter__ParametersAssignment_3_1_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getParametersAssignment_3_1_1()); 
+               before(grammarAccess.getDmxFilterAccess().getParametersAssignment_3_1_1()); 
             }
-            // InternalDim.g:7404:2: ( rule__DmxFunction__ParametersAssignment_3_1_1 )
-            // InternalDim.g:7404:3: rule__DmxFunction__ParametersAssignment_3_1_1
+            // InternalDim.g:7627:2: ( rule__DmxFilter__ParametersAssignment_3_1_1 )
+            // InternalDim.g:7627:3: rule__DmxFilter__ParametersAssignment_3_1_1
             {
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__ParametersAssignment_3_1_1();
+            rule__DmxFilter__ParametersAssignment_3_1_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -25813,7 +26535,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getParametersAssignment_3_1_1()); 
+               after(grammarAccess.getDmxFilterAccess().getParametersAssignment_3_1_1()); 
             }
 
             }
@@ -25833,378 +26555,26 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group_3_1__1__Impl"
+    // $ANTLR end "rule__DmxFilter__Group_3_1__1__Impl"
 
 
-    // $ANTLR start "rule__DmxFunctionParameter__Group__0"
-    // InternalDim.g:7413:1: rule__DmxFunctionParameter__Group__0 : rule__DmxFunctionParameter__Group__0__Impl rule__DmxFunctionParameter__Group__1 ;
-    public final void rule__DmxFunctionParameter__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:7417:1: ( rule__DmxFunctionParameter__Group__0__Impl rule__DmxFunctionParameter__Group__1 )
-            // InternalDim.g:7418:2: rule__DmxFunctionParameter__Group__0__Impl rule__DmxFunctionParameter__Group__1
-            {
-            pushFollow(FOLLOW_42);
-            rule__DmxFunctionParameter__Group__0__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__DmxFunctionParameter__Group__1();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunctionParameter__Group__0"
-
-
-    // $ANTLR start "rule__DmxFunctionParameter__Group__0__Impl"
-    // InternalDim.g:7425:1: rule__DmxFunctionParameter__Group__0__Impl : ( ( rule__DmxFunctionParameter__NameAssignment_0 ) ) ;
-    public final void rule__DmxFunctionParameter__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group_7__0"
+    // InternalDim.g:7636:1: rule__DmxFilter__Group_7__0 : rule__DmxFilter__Group_7__0__Impl rule__DmxFilter__Group_7__1 ;
+    public final void rule__DmxFilter__Group_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7429:1: ( ( ( rule__DmxFunctionParameter__NameAssignment_0 ) ) )
-            // InternalDim.g:7430:1: ( ( rule__DmxFunctionParameter__NameAssignment_0 ) )
-            {
-            // InternalDim.g:7430:1: ( ( rule__DmxFunctionParameter__NameAssignment_0 ) )
-            // InternalDim.g:7431:2: ( rule__DmxFunctionParameter__NameAssignment_0 )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionParameterAccess().getNameAssignment_0()); 
-            }
-            // InternalDim.g:7432:2: ( rule__DmxFunctionParameter__NameAssignment_0 )
-            // InternalDim.g:7432:3: rule__DmxFunctionParameter__NameAssignment_0
-            {
-            pushFollow(FOLLOW_2);
-            rule__DmxFunctionParameter__NameAssignment_0();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionParameterAccess().getNameAssignment_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunctionParameter__Group__0__Impl"
-
-
-    // $ANTLR start "rule__DmxFunctionParameter__Group__1"
-    // InternalDim.g:7440:1: rule__DmxFunctionParameter__Group__1 : rule__DmxFunctionParameter__Group__1__Impl rule__DmxFunctionParameter__Group__2 ;
-    public final void rule__DmxFunctionParameter__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:7444:1: ( rule__DmxFunctionParameter__Group__1__Impl rule__DmxFunctionParameter__Group__2 )
-            // InternalDim.g:7445:2: rule__DmxFunctionParameter__Group__1__Impl rule__DmxFunctionParameter__Group__2
-            {
-            pushFollow(FOLLOW_47);
-            rule__DmxFunctionParameter__Group__1__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__DmxFunctionParameter__Group__2();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunctionParameter__Group__1"
-
-
-    // $ANTLR start "rule__DmxFunctionParameter__Group__1__Impl"
-    // InternalDim.g:7452:1: rule__DmxFunctionParameter__Group__1__Impl : ( ':' ) ;
-    public final void rule__DmxFunctionParameter__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:7456:1: ( ( ':' ) )
-            // InternalDim.g:7457:1: ( ':' )
-            {
-            // InternalDim.g:7457:1: ( ':' )
-            // InternalDim.g:7458:2: ':'
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionParameterAccess().getColonKeyword_1()); 
-            }
-            match(input,86,FOLLOW_2); if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionParameterAccess().getColonKeyword_1()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunctionParameter__Group__1__Impl"
-
-
-    // $ANTLR start "rule__DmxFunctionParameter__Group__2"
-    // InternalDim.g:7467:1: rule__DmxFunctionParameter__Group__2 : rule__DmxFunctionParameter__Group__2__Impl rule__DmxFunctionParameter__Group__3 ;
-    public final void rule__DmxFunctionParameter__Group__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:7471:1: ( rule__DmxFunctionParameter__Group__2__Impl rule__DmxFunctionParameter__Group__3 )
-            // InternalDim.g:7472:2: rule__DmxFunctionParameter__Group__2__Impl rule__DmxFunctionParameter__Group__3
-            {
-            pushFollow(FOLLOW_48);
-            rule__DmxFunctionParameter__Group__2__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__DmxFunctionParameter__Group__3();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunctionParameter__Group__2"
-
-
-    // $ANTLR start "rule__DmxFunctionParameter__Group__2__Impl"
-    // InternalDim.g:7479:1: rule__DmxFunctionParameter__Group__2__Impl : ( ( rule__DmxFunctionParameter__BaseTypeAssignment_2 ) ) ;
-    public final void rule__DmxFunctionParameter__Group__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:7483:1: ( ( ( rule__DmxFunctionParameter__BaseTypeAssignment_2 ) ) )
-            // InternalDim.g:7484:1: ( ( rule__DmxFunctionParameter__BaseTypeAssignment_2 ) )
-            {
-            // InternalDim.g:7484:1: ( ( rule__DmxFunctionParameter__BaseTypeAssignment_2 ) )
-            // InternalDim.g:7485:2: ( rule__DmxFunctionParameter__BaseTypeAssignment_2 )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeAssignment_2()); 
-            }
-            // InternalDim.g:7486:2: ( rule__DmxFunctionParameter__BaseTypeAssignment_2 )
-            // InternalDim.g:7486:3: rule__DmxFunctionParameter__BaseTypeAssignment_2
-            {
-            pushFollow(FOLLOW_2);
-            rule__DmxFunctionParameter__BaseTypeAssignment_2();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeAssignment_2()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunctionParameter__Group__2__Impl"
-
-
-    // $ANTLR start "rule__DmxFunctionParameter__Group__3"
-    // InternalDim.g:7494:1: rule__DmxFunctionParameter__Group__3 : rule__DmxFunctionParameter__Group__3__Impl ;
-    public final void rule__DmxFunctionParameter__Group__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:7498:1: ( rule__DmxFunctionParameter__Group__3__Impl )
-            // InternalDim.g:7499:2: rule__DmxFunctionParameter__Group__3__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__DmxFunctionParameter__Group__3__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunctionParameter__Group__3"
-
-
-    // $ANTLR start "rule__DmxFunctionParameter__Group__3__Impl"
-    // InternalDim.g:7505:1: rule__DmxFunctionParameter__Group__3__Impl : ( ( rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3 )? ) ;
-    public final void rule__DmxFunctionParameter__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:7509:1: ( ( ( rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3 )? ) )
-            // InternalDim.g:7510:1: ( ( rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3 )? )
-            {
-            // InternalDim.g:7510:1: ( ( rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3 )? )
-            // InternalDim.g:7511:2: ( rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3 )?
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeCollectionAssignment_3()); 
-            }
-            // InternalDim.g:7512:2: ( rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3 )?
-            int alt93=2;
-            int LA93_0 = input.LA(1);
-
-            if ( (LA93_0==35) ) {
-                alt93=1;
-            }
-            switch (alt93) {
-                case 1 :
-                    // InternalDim.g:7512:3: rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3();
-
-                    state._fsp--;
-                    if (state.failed) return ;
-
-                    }
-                    break;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeCollectionAssignment_3()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunctionParameter__Group__3__Impl"
-
-
-    // $ANTLR start "rule__DmxIterator__Group__0"
-    // InternalDim.g:7521:1: rule__DmxIterator__Group__0 : rule__DmxIterator__Group__0__Impl rule__DmxIterator__Group__1 ;
-    public final void rule__DmxIterator__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:7525:1: ( rule__DmxIterator__Group__0__Impl rule__DmxIterator__Group__1 )
-            // InternalDim.g:7526:2: rule__DmxIterator__Group__0__Impl rule__DmxIterator__Group__1
+            // InternalDim.g:7640:1: ( rule__DmxFilter__Group_7__0__Impl rule__DmxFilter__Group_7__1 )
+            // InternalDim.g:7641:2: rule__DmxFilter__Group_7__0__Impl rule__DmxFilter__Group_7__1
             {
             pushFollow(FOLLOW_5);
-            rule__DmxIterator__Group__0__Impl();
+            rule__DmxFilter__Group_7__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DmxIterator__Group__1();
+            rule__DmxFilter__Group_7__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -26223,28 +26593,28 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxIterator__Group__0"
+    // $ANTLR end "rule__DmxFilter__Group_7__0"
 
 
-    // $ANTLR start "rule__DmxIterator__Group__0__Impl"
-    // InternalDim.g:7533:1: rule__DmxIterator__Group__0__Impl : ( 'iterator' ) ;
-    public final void rule__DmxIterator__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group_7__0__Impl"
+    // InternalDim.g:7648:1: rule__DmxFilter__Group_7__0__Impl : ( 'with' ) ;
+    public final void rule__DmxFilter__Group_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7537:1: ( ( 'iterator' ) )
-            // InternalDim.g:7538:1: ( 'iterator' )
+            // InternalDim.g:7652:1: ( ( 'with' ) )
+            // InternalDim.g:7653:1: ( 'with' )
             {
-            // InternalDim.g:7538:1: ( 'iterator' )
-            // InternalDim.g:7539:2: 'iterator'
+            // InternalDim.g:7653:1: ( 'with' )
+            // InternalDim.g:7654:2: 'with'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorAccess().getIteratorKeyword_0()); 
+               before(grammarAccess.getDmxFilterAccess().getWithKeyword_7_0()); 
             }
-            match(input,104,FOLLOW_2); if (state.failed) return ;
+            match(input,105,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorAccess().getIteratorKeyword_0()); 
+               after(grammarAccess.getDmxFilterAccess().getWithKeyword_7_0()); 
             }
 
             }
@@ -26264,26 +26634,110 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxIterator__Group__0__Impl"
+    // $ANTLR end "rule__DmxFilter__Group_7__0__Impl"
 
 
-    // $ANTLR start "rule__DmxIterator__Group__1"
-    // InternalDim.g:7548:1: rule__DmxIterator__Group__1 : rule__DmxIterator__Group__1__Impl rule__DmxIterator__Group__2 ;
-    public final void rule__DmxIterator__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group_7__1"
+    // InternalDim.g:7663:1: rule__DmxFilter__Group_7__1 : rule__DmxFilter__Group_7__1__Impl ;
+    public final void rule__DmxFilter__Group_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7552:1: ( rule__DmxIterator__Group__1__Impl rule__DmxIterator__Group__2 )
-            // InternalDim.g:7553:2: rule__DmxIterator__Group__1__Impl rule__DmxIterator__Group__2
+            // InternalDim.g:7667:1: ( rule__DmxFilter__Group_7__1__Impl )
+            // InternalDim.g:7668:2: rule__DmxFilter__Group_7__1__Impl
             {
-            pushFollow(FOLLOW_42);
-            rule__DmxIterator__Group__1__Impl();
+            pushFollow(FOLLOW_2);
+            rule__DmxFilter__Group_7__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__Group_7__1"
+
+
+    // $ANTLR start "rule__DmxFilter__Group_7__1__Impl"
+    // InternalDim.g:7674:1: rule__DmxFilter__Group_7__1__Impl : ( ( rule__DmxFilter__WithTypeSetAssignment_7_1 ) ) ;
+    public final void rule__DmxFilter__Group_7__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7678:1: ( ( ( rule__DmxFilter__WithTypeSetAssignment_7_1 ) ) )
+            // InternalDim.g:7679:1: ( ( rule__DmxFilter__WithTypeSetAssignment_7_1 ) )
+            {
+            // InternalDim.g:7679:1: ( ( rule__DmxFilter__WithTypeSetAssignment_7_1 ) )
+            // InternalDim.g:7680:2: ( rule__DmxFilter__WithTypeSetAssignment_7_1 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterAccess().getWithTypeSetAssignment_7_1()); 
+            }
+            // InternalDim.g:7681:2: ( rule__DmxFilter__WithTypeSetAssignment_7_1 )
+            // InternalDim.g:7681:3: rule__DmxFilter__WithTypeSetAssignment_7_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxFilter__WithTypeSetAssignment_7_1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterAccess().getWithTypeSetAssignment_7_1()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__Group_7__1__Impl"
+
+
+    // $ANTLR start "rule__DmxFilterTypeDescriptor__Group__0"
+    // InternalDim.g:7690:1: rule__DmxFilterTypeDescriptor__Group__0 : rule__DmxFilterTypeDescriptor__Group__0__Impl rule__DmxFilterTypeDescriptor__Group__1 ;
+    public final void rule__DmxFilterTypeDescriptor__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7694:1: ( rule__DmxFilterTypeDescriptor__Group__0__Impl rule__DmxFilterTypeDescriptor__Group__1 )
+            // InternalDim.g:7695:2: rule__DmxFilterTypeDescriptor__Group__0__Impl rule__DmxFilterTypeDescriptor__Group__1
+            {
+            pushFollow(FOLLOW_52);
+            rule__DmxFilterTypeDescriptor__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DmxIterator__Group__2();
+            rule__DmxFilterTypeDescriptor__Group__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -26302,30 +26756,30 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxIterator__Group__1"
+    // $ANTLR end "rule__DmxFilterTypeDescriptor__Group__0"
 
 
-    // $ANTLR start "rule__DmxIterator__Group__1__Impl"
-    // InternalDim.g:7560:1: rule__DmxIterator__Group__1__Impl : ( ( rule__DmxIterator__NameAssignment_1 ) ) ;
-    public final void rule__DmxIterator__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilterTypeDescriptor__Group__0__Impl"
+    // InternalDim.g:7702:1: rule__DmxFilterTypeDescriptor__Group__0__Impl : ( ( rule__DmxFilterTypeDescriptor__Alternatives_0 ) ) ;
+    public final void rule__DmxFilterTypeDescriptor__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7564:1: ( ( ( rule__DmxIterator__NameAssignment_1 ) ) )
-            // InternalDim.g:7565:1: ( ( rule__DmxIterator__NameAssignment_1 ) )
+            // InternalDim.g:7706:1: ( ( ( rule__DmxFilterTypeDescriptor__Alternatives_0 ) ) )
+            // InternalDim.g:7707:1: ( ( rule__DmxFilterTypeDescriptor__Alternatives_0 ) )
             {
-            // InternalDim.g:7565:1: ( ( rule__DmxIterator__NameAssignment_1 ) )
-            // InternalDim.g:7566:2: ( rule__DmxIterator__NameAssignment_1 )
+            // InternalDim.g:7707:1: ( ( rule__DmxFilterTypeDescriptor__Alternatives_0 ) )
+            // InternalDim.g:7708:2: ( rule__DmxFilterTypeDescriptor__Alternatives_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorAccess().getNameAssignment_1()); 
+               before(grammarAccess.getDmxFilterTypeDescriptorAccess().getAlternatives_0()); 
             }
-            // InternalDim.g:7567:2: ( rule__DmxIterator__NameAssignment_1 )
-            // InternalDim.g:7567:3: rule__DmxIterator__NameAssignment_1
+            // InternalDim.g:7709:2: ( rule__DmxFilterTypeDescriptor__Alternatives_0 )
+            // InternalDim.g:7709:3: rule__DmxFilterTypeDescriptor__Alternatives_0
             {
             pushFollow(FOLLOW_2);
-            rule__DmxIterator__NameAssignment_1();
+            rule__DmxFilterTypeDescriptor__Alternatives_0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -26333,7 +26787,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorAccess().getNameAssignment_1()); 
+               after(grammarAccess.getDmxFilterTypeDescriptorAccess().getAlternatives_0()); 
             }
 
             }
@@ -26353,189 +26807,21 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxIterator__Group__1__Impl"
+    // $ANTLR end "rule__DmxFilterTypeDescriptor__Group__0__Impl"
 
 
-    // $ANTLR start "rule__DmxIterator__Group__2"
-    // InternalDim.g:7575:1: rule__DmxIterator__Group__2 : rule__DmxIterator__Group__2__Impl rule__DmxIterator__Group__3 ;
-    public final void rule__DmxIterator__Group__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:7579:1: ( rule__DmxIterator__Group__2__Impl rule__DmxIterator__Group__3 )
-            // InternalDim.g:7580:2: rule__DmxIterator__Group__2__Impl rule__DmxIterator__Group__3
-            {
-            pushFollow(FOLLOW_47);
-            rule__DmxIterator__Group__2__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__DmxIterator__Group__3();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxIterator__Group__2"
-
-
-    // $ANTLR start "rule__DmxIterator__Group__2__Impl"
-    // InternalDim.g:7587:1: rule__DmxIterator__Group__2__Impl : ( ':' ) ;
-    public final void rule__DmxIterator__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilterTypeDescriptor__Group__1"
+    // InternalDim.g:7717:1: rule__DmxFilterTypeDescriptor__Group__1 : rule__DmxFilterTypeDescriptor__Group__1__Impl ;
+    public final void rule__DmxFilterTypeDescriptor__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7591:1: ( ( ':' ) )
-            // InternalDim.g:7592:1: ( ':' )
-            {
-            // InternalDim.g:7592:1: ( ':' )
-            // InternalDim.g:7593:2: ':'
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorAccess().getColonKeyword_2()); 
-            }
-            match(input,86,FOLLOW_2); if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorAccess().getColonKeyword_2()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxIterator__Group__2__Impl"
-
-
-    // $ANTLR start "rule__DmxIterator__Group__3"
-    // InternalDim.g:7602:1: rule__DmxIterator__Group__3 : rule__DmxIterator__Group__3__Impl rule__DmxIterator__Group__4 ;
-    public final void rule__DmxIterator__Group__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:7606:1: ( rule__DmxIterator__Group__3__Impl rule__DmxIterator__Group__4 )
-            // InternalDim.g:7607:2: rule__DmxIterator__Group__3__Impl rule__DmxIterator__Group__4
-            {
-            pushFollow(FOLLOW_48);
-            rule__DmxIterator__Group__3__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__DmxIterator__Group__4();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxIterator__Group__3"
-
-
-    // $ANTLR start "rule__DmxIterator__Group__3__Impl"
-    // InternalDim.g:7614:1: rule__DmxIterator__Group__3__Impl : ( ( rule__DmxIterator__BaseTypeAssignment_3 ) ) ;
-    public final void rule__DmxIterator__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:7618:1: ( ( ( rule__DmxIterator__BaseTypeAssignment_3 ) ) )
-            // InternalDim.g:7619:1: ( ( rule__DmxIterator__BaseTypeAssignment_3 ) )
-            {
-            // InternalDim.g:7619:1: ( ( rule__DmxIterator__BaseTypeAssignment_3 ) )
-            // InternalDim.g:7620:2: ( rule__DmxIterator__BaseTypeAssignment_3 )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorAccess().getBaseTypeAssignment_3()); 
-            }
-            // InternalDim.g:7621:2: ( rule__DmxIterator__BaseTypeAssignment_3 )
-            // InternalDim.g:7621:3: rule__DmxIterator__BaseTypeAssignment_3
+            // InternalDim.g:7721:1: ( rule__DmxFilterTypeDescriptor__Group__1__Impl )
+            // InternalDim.g:7722:2: rule__DmxFilterTypeDescriptor__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__DmxIterator__BaseTypeAssignment_3();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorAccess().getBaseTypeAssignment_3()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxIterator__Group__3__Impl"
-
-
-    // $ANTLR start "rule__DmxIterator__Group__4"
-    // InternalDim.g:7629:1: rule__DmxIterator__Group__4 : rule__DmxIterator__Group__4__Impl ;
-    public final void rule__DmxIterator__Group__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:7633:1: ( rule__DmxIterator__Group__4__Impl )
-            // InternalDim.g:7634:2: rule__DmxIterator__Group__4__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__DmxIterator__Group__4__Impl();
+            rule__DmxFilterTypeDescriptor__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -26554,26 +26840,26 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxIterator__Group__4"
+    // $ANTLR end "rule__DmxFilterTypeDescriptor__Group__1"
 
 
-    // $ANTLR start "rule__DmxIterator__Group__4__Impl"
-    // InternalDim.g:7640:1: rule__DmxIterator__Group__4__Impl : ( ( rule__DmxIterator__BaseTypeCollectionAssignment_4 )? ) ;
-    public final void rule__DmxIterator__Group__4__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilterTypeDescriptor__Group__1__Impl"
+    // InternalDim.g:7728:1: rule__DmxFilterTypeDescriptor__Group__1__Impl : ( ( rule__DmxFilterTypeDescriptor__CollectionAssignment_1 )? ) ;
+    public final void rule__DmxFilterTypeDescriptor__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7644:1: ( ( ( rule__DmxIterator__BaseTypeCollectionAssignment_4 )? ) )
-            // InternalDim.g:7645:1: ( ( rule__DmxIterator__BaseTypeCollectionAssignment_4 )? )
+            // InternalDim.g:7732:1: ( ( ( rule__DmxFilterTypeDescriptor__CollectionAssignment_1 )? ) )
+            // InternalDim.g:7733:1: ( ( rule__DmxFilterTypeDescriptor__CollectionAssignment_1 )? )
             {
-            // InternalDim.g:7645:1: ( ( rule__DmxIterator__BaseTypeCollectionAssignment_4 )? )
-            // InternalDim.g:7646:2: ( rule__DmxIterator__BaseTypeCollectionAssignment_4 )?
+            // InternalDim.g:7733:1: ( ( rule__DmxFilterTypeDescriptor__CollectionAssignment_1 )? )
+            // InternalDim.g:7734:2: ( rule__DmxFilterTypeDescriptor__CollectionAssignment_1 )?
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorAccess().getBaseTypeCollectionAssignment_4()); 
+               before(grammarAccess.getDmxFilterTypeDescriptorAccess().getCollectionAssignment_1()); 
             }
-            // InternalDim.g:7647:2: ( rule__DmxIterator__BaseTypeCollectionAssignment_4 )?
+            // InternalDim.g:7735:2: ( rule__DmxFilterTypeDescriptor__CollectionAssignment_1 )?
             int alt94=2;
             int LA94_0 = input.LA(1);
 
@@ -26582,10 +26868,10 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             }
             switch (alt94) {
                 case 1 :
-                    // InternalDim.g:7647:3: rule__DmxIterator__BaseTypeCollectionAssignment_4
+                    // InternalDim.g:7735:3: rule__DmxFilterTypeDescriptor__CollectionAssignment_1
                     {
                     pushFollow(FOLLOW_2);
-                    rule__DmxIterator__BaseTypeCollectionAssignment_4();
+                    rule__DmxFilterTypeDescriptor__CollectionAssignment_1();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -26596,7 +26882,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorAccess().getBaseTypeCollectionAssignment_4()); 
+               after(grammarAccess.getDmxFilterTypeDescriptorAccess().getCollectionAssignment_1()); 
             }
 
             }
@@ -26616,18 +26902,270 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxIterator__Group__4__Impl"
+    // $ANTLR end "rule__DmxFilterTypeDescriptor__Group__1__Impl"
+
+
+    // $ANTLR start "rule__DmxFilterParameter__Group__0"
+    // InternalDim.g:7744:1: rule__DmxFilterParameter__Group__0 : rule__DmxFilterParameter__Group__0__Impl rule__DmxFilterParameter__Group__1 ;
+    public final void rule__DmxFilterParameter__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7748:1: ( rule__DmxFilterParameter__Group__0__Impl rule__DmxFilterParameter__Group__1 )
+            // InternalDim.g:7749:2: rule__DmxFilterParameter__Group__0__Impl rule__DmxFilterParameter__Group__1
+            {
+            pushFollow(FOLLOW_42);
+            rule__DmxFilterParameter__Group__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxFilterParameter__Group__1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilterParameter__Group__0"
+
+
+    // $ANTLR start "rule__DmxFilterParameter__Group__0__Impl"
+    // InternalDim.g:7756:1: rule__DmxFilterParameter__Group__0__Impl : ( ( rule__DmxFilterParameter__NameAssignment_0 ) ) ;
+    public final void rule__DmxFilterParameter__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7760:1: ( ( ( rule__DmxFilterParameter__NameAssignment_0 ) ) )
+            // InternalDim.g:7761:1: ( ( rule__DmxFilterParameter__NameAssignment_0 ) )
+            {
+            // InternalDim.g:7761:1: ( ( rule__DmxFilterParameter__NameAssignment_0 ) )
+            // InternalDim.g:7762:2: ( rule__DmxFilterParameter__NameAssignment_0 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterParameterAccess().getNameAssignment_0()); 
+            }
+            // InternalDim.g:7763:2: ( rule__DmxFilterParameter__NameAssignment_0 )
+            // InternalDim.g:7763:3: rule__DmxFilterParameter__NameAssignment_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxFilterParameter__NameAssignment_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterParameterAccess().getNameAssignment_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilterParameter__Group__0__Impl"
+
+
+    // $ANTLR start "rule__DmxFilterParameter__Group__1"
+    // InternalDim.g:7771:1: rule__DmxFilterParameter__Group__1 : rule__DmxFilterParameter__Group__1__Impl rule__DmxFilterParameter__Group__2 ;
+    public final void rule__DmxFilterParameter__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7775:1: ( rule__DmxFilterParameter__Group__1__Impl rule__DmxFilterParameter__Group__2 )
+            // InternalDim.g:7776:2: rule__DmxFilterParameter__Group__1__Impl rule__DmxFilterParameter__Group__2
+            {
+            pushFollow(FOLLOW_50);
+            rule__DmxFilterParameter__Group__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxFilterParameter__Group__2();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilterParameter__Group__1"
+
+
+    // $ANTLR start "rule__DmxFilterParameter__Group__1__Impl"
+    // InternalDim.g:7783:1: rule__DmxFilterParameter__Group__1__Impl : ( ':' ) ;
+    public final void rule__DmxFilterParameter__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7787:1: ( ( ':' ) )
+            // InternalDim.g:7788:1: ( ':' )
+            {
+            // InternalDim.g:7788:1: ( ':' )
+            // InternalDim.g:7789:2: ':'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterParameterAccess().getColonKeyword_1()); 
+            }
+            match(input,86,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterParameterAccess().getColonKeyword_1()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilterParameter__Group__1__Impl"
+
+
+    // $ANTLR start "rule__DmxFilterParameter__Group__2"
+    // InternalDim.g:7798:1: rule__DmxFilterParameter__Group__2 : rule__DmxFilterParameter__Group__2__Impl ;
+    public final void rule__DmxFilterParameter__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7802:1: ( rule__DmxFilterParameter__Group__2__Impl )
+            // InternalDim.g:7803:2: rule__DmxFilterParameter__Group__2__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxFilterParameter__Group__2__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilterParameter__Group__2"
+
+
+    // $ANTLR start "rule__DmxFilterParameter__Group__2__Impl"
+    // InternalDim.g:7809:1: rule__DmxFilterParameter__Group__2__Impl : ( ( rule__DmxFilterParameter__TypeDescAssignment_2 ) ) ;
+    public final void rule__DmxFilterParameter__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:7813:1: ( ( ( rule__DmxFilterParameter__TypeDescAssignment_2 ) ) )
+            // InternalDim.g:7814:1: ( ( rule__DmxFilterParameter__TypeDescAssignment_2 ) )
+            {
+            // InternalDim.g:7814:1: ( ( rule__DmxFilterParameter__TypeDescAssignment_2 ) )
+            // InternalDim.g:7815:2: ( rule__DmxFilterParameter__TypeDescAssignment_2 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterParameterAccess().getTypeDescAssignment_2()); 
+            }
+            // InternalDim.g:7816:2: ( rule__DmxFilterParameter__TypeDescAssignment_2 )
+            // InternalDim.g:7816:3: rule__DmxFilterParameter__TypeDescAssignment_2
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxFilterParameter__TypeDescAssignment_2();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterParameterAccess().getTypeDescAssignment_2()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilterParameter__Group__2__Impl"
 
 
     // $ANTLR start "rule__DRichText__Group_1__0"
-    // InternalDim.g:7656:1: rule__DRichText__Group_1__0 : rule__DRichText__Group_1__0__Impl rule__DRichText__Group_1__1 ;
+    // InternalDim.g:7825:1: rule__DRichText__Group_1__0 : rule__DRichText__Group_1__0__Impl rule__DRichText__Group_1__1 ;
     public final void rule__DRichText__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7660:1: ( rule__DRichText__Group_1__0__Impl rule__DRichText__Group_1__1 )
-            // InternalDim.g:7661:2: rule__DRichText__Group_1__0__Impl rule__DRichText__Group_1__1
+            // InternalDim.g:7829:1: ( rule__DRichText__Group_1__0__Impl rule__DRichText__Group_1__1 )
+            // InternalDim.g:7830:2: rule__DRichText__Group_1__0__Impl rule__DRichText__Group_1__1
             {
             pushFollow(FOLLOW_15);
             rule__DRichText__Group_1__0__Impl();
@@ -26658,23 +27196,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1__0__Impl"
-    // InternalDim.g:7668:1: rule__DRichText__Group_1__0__Impl : ( ( rule__DRichText__SegmentsAssignment_1_0 ) ) ;
+    // InternalDim.g:7837:1: rule__DRichText__Group_1__0__Impl : ( ( rule__DRichText__SegmentsAssignment_1_0 ) ) ;
     public final void rule__DRichText__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7672:1: ( ( ( rule__DRichText__SegmentsAssignment_1_0 ) ) )
-            // InternalDim.g:7673:1: ( ( rule__DRichText__SegmentsAssignment_1_0 ) )
+            // InternalDim.g:7841:1: ( ( ( rule__DRichText__SegmentsAssignment_1_0 ) ) )
+            // InternalDim.g:7842:1: ( ( rule__DRichText__SegmentsAssignment_1_0 ) )
             {
-            // InternalDim.g:7673:1: ( ( rule__DRichText__SegmentsAssignment_1_0 ) )
-            // InternalDim.g:7674:2: ( rule__DRichText__SegmentsAssignment_1_0 )
+            // InternalDim.g:7842:1: ( ( rule__DRichText__SegmentsAssignment_1_0 ) )
+            // InternalDim.g:7843:2: ( rule__DRichText__SegmentsAssignment_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_0()); 
             }
-            // InternalDim.g:7675:2: ( rule__DRichText__SegmentsAssignment_1_0 )
-            // InternalDim.g:7675:3: rule__DRichText__SegmentsAssignment_1_0
+            // InternalDim.g:7844:2: ( rule__DRichText__SegmentsAssignment_1_0 )
+            // InternalDim.g:7844:3: rule__DRichText__SegmentsAssignment_1_0
             {
             pushFollow(FOLLOW_2);
             rule__DRichText__SegmentsAssignment_1_0();
@@ -26709,16 +27247,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1__1"
-    // InternalDim.g:7683:1: rule__DRichText__Group_1__1 : rule__DRichText__Group_1__1__Impl rule__DRichText__Group_1__2 ;
+    // InternalDim.g:7852:1: rule__DRichText__Group_1__1 : rule__DRichText__Group_1__1__Impl rule__DRichText__Group_1__2 ;
     public final void rule__DRichText__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7687:1: ( rule__DRichText__Group_1__1__Impl rule__DRichText__Group_1__2 )
-            // InternalDim.g:7688:2: rule__DRichText__Group_1__1__Impl rule__DRichText__Group_1__2
+            // InternalDim.g:7856:1: ( rule__DRichText__Group_1__1__Impl rule__DRichText__Group_1__2 )
+            // InternalDim.g:7857:2: rule__DRichText__Group_1__1__Impl rule__DRichText__Group_1__2
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_53);
             rule__DRichText__Group_1__1__Impl();
 
             state._fsp--;
@@ -26747,23 +27285,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1__1__Impl"
-    // InternalDim.g:7695:1: rule__DRichText__Group_1__1__Impl : ( ( rule__DRichText__SegmentsAssignment_1_1 ) ) ;
+    // InternalDim.g:7864:1: rule__DRichText__Group_1__1__Impl : ( ( rule__DRichText__SegmentsAssignment_1_1 ) ) ;
     public final void rule__DRichText__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7699:1: ( ( ( rule__DRichText__SegmentsAssignment_1_1 ) ) )
-            // InternalDim.g:7700:1: ( ( rule__DRichText__SegmentsAssignment_1_1 ) )
+            // InternalDim.g:7868:1: ( ( ( rule__DRichText__SegmentsAssignment_1_1 ) ) )
+            // InternalDim.g:7869:1: ( ( rule__DRichText__SegmentsAssignment_1_1 ) )
             {
-            // InternalDim.g:7700:1: ( ( rule__DRichText__SegmentsAssignment_1_1 ) )
-            // InternalDim.g:7701:2: ( rule__DRichText__SegmentsAssignment_1_1 )
+            // InternalDim.g:7869:1: ( ( rule__DRichText__SegmentsAssignment_1_1 ) )
+            // InternalDim.g:7870:2: ( rule__DRichText__SegmentsAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_1()); 
             }
-            // InternalDim.g:7702:2: ( rule__DRichText__SegmentsAssignment_1_1 )
-            // InternalDim.g:7702:3: rule__DRichText__SegmentsAssignment_1_1
+            // InternalDim.g:7871:2: ( rule__DRichText__SegmentsAssignment_1_1 )
+            // InternalDim.g:7871:3: rule__DRichText__SegmentsAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DRichText__SegmentsAssignment_1_1();
@@ -26798,16 +27336,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1__2"
-    // InternalDim.g:7710:1: rule__DRichText__Group_1__2 : rule__DRichText__Group_1__2__Impl rule__DRichText__Group_1__3 ;
+    // InternalDim.g:7879:1: rule__DRichText__Group_1__2 : rule__DRichText__Group_1__2__Impl rule__DRichText__Group_1__3 ;
     public final void rule__DRichText__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7714:1: ( rule__DRichText__Group_1__2__Impl rule__DRichText__Group_1__3 )
-            // InternalDim.g:7715:2: rule__DRichText__Group_1__2__Impl rule__DRichText__Group_1__3
+            // InternalDim.g:7883:1: ( rule__DRichText__Group_1__2__Impl rule__DRichText__Group_1__3 )
+            // InternalDim.g:7884:2: rule__DRichText__Group_1__2__Impl rule__DRichText__Group_1__3
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_53);
             rule__DRichText__Group_1__2__Impl();
 
             state._fsp--;
@@ -26836,22 +27374,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1__2__Impl"
-    // InternalDim.g:7722:1: rule__DRichText__Group_1__2__Impl : ( ( rule__DRichText__Group_1_2__0 )* ) ;
+    // InternalDim.g:7891:1: rule__DRichText__Group_1__2__Impl : ( ( rule__DRichText__Group_1_2__0 )* ) ;
     public final void rule__DRichText__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7726:1: ( ( ( rule__DRichText__Group_1_2__0 )* ) )
-            // InternalDim.g:7727:1: ( ( rule__DRichText__Group_1_2__0 )* )
+            // InternalDim.g:7895:1: ( ( ( rule__DRichText__Group_1_2__0 )* ) )
+            // InternalDim.g:7896:1: ( ( rule__DRichText__Group_1_2__0 )* )
             {
-            // InternalDim.g:7727:1: ( ( rule__DRichText__Group_1_2__0 )* )
-            // InternalDim.g:7728:2: ( rule__DRichText__Group_1_2__0 )*
+            // InternalDim.g:7896:1: ( ( rule__DRichText__Group_1_2__0 )* )
+            // InternalDim.g:7897:2: ( rule__DRichText__Group_1_2__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getGroup_1_2()); 
             }
-            // InternalDim.g:7729:2: ( rule__DRichText__Group_1_2__0 )*
+            // InternalDim.g:7898:2: ( rule__DRichText__Group_1_2__0 )*
             loop95:
             do {
                 int alt95=2;
@@ -26864,9 +27402,9 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
                 switch (alt95) {
             	case 1 :
-            	    // InternalDim.g:7729:3: rule__DRichText__Group_1_2__0
+            	    // InternalDim.g:7898:3: rule__DRichText__Group_1_2__0
             	    {
-            	    pushFollow(FOLLOW_50);
+            	    pushFollow(FOLLOW_54);
             	    rule__DRichText__Group_1_2__0();
 
             	    state._fsp--;
@@ -26905,14 +27443,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1__3"
-    // InternalDim.g:7737:1: rule__DRichText__Group_1__3 : rule__DRichText__Group_1__3__Impl ;
+    // InternalDim.g:7906:1: rule__DRichText__Group_1__3 : rule__DRichText__Group_1__3__Impl ;
     public final void rule__DRichText__Group_1__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7741:1: ( rule__DRichText__Group_1__3__Impl )
-            // InternalDim.g:7742:2: rule__DRichText__Group_1__3__Impl
+            // InternalDim.g:7910:1: ( rule__DRichText__Group_1__3__Impl )
+            // InternalDim.g:7911:2: rule__DRichText__Group_1__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DRichText__Group_1__3__Impl();
@@ -26938,23 +27476,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1__3__Impl"
-    // InternalDim.g:7748:1: rule__DRichText__Group_1__3__Impl : ( ( rule__DRichText__SegmentsAssignment_1_3 ) ) ;
+    // InternalDim.g:7917:1: rule__DRichText__Group_1__3__Impl : ( ( rule__DRichText__SegmentsAssignment_1_3 ) ) ;
     public final void rule__DRichText__Group_1__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7752:1: ( ( ( rule__DRichText__SegmentsAssignment_1_3 ) ) )
-            // InternalDim.g:7753:1: ( ( rule__DRichText__SegmentsAssignment_1_3 ) )
+            // InternalDim.g:7921:1: ( ( ( rule__DRichText__SegmentsAssignment_1_3 ) ) )
+            // InternalDim.g:7922:1: ( ( rule__DRichText__SegmentsAssignment_1_3 ) )
             {
-            // InternalDim.g:7753:1: ( ( rule__DRichText__SegmentsAssignment_1_3 ) )
-            // InternalDim.g:7754:2: ( rule__DRichText__SegmentsAssignment_1_3 )
+            // InternalDim.g:7922:1: ( ( rule__DRichText__SegmentsAssignment_1_3 ) )
+            // InternalDim.g:7923:2: ( rule__DRichText__SegmentsAssignment_1_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_3()); 
             }
-            // InternalDim.g:7755:2: ( rule__DRichText__SegmentsAssignment_1_3 )
-            // InternalDim.g:7755:3: rule__DRichText__SegmentsAssignment_1_3
+            // InternalDim.g:7924:2: ( rule__DRichText__SegmentsAssignment_1_3 )
+            // InternalDim.g:7924:3: rule__DRichText__SegmentsAssignment_1_3
             {
             pushFollow(FOLLOW_2);
             rule__DRichText__SegmentsAssignment_1_3();
@@ -26989,14 +27527,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1_2__0"
-    // InternalDim.g:7764:1: rule__DRichText__Group_1_2__0 : rule__DRichText__Group_1_2__0__Impl rule__DRichText__Group_1_2__1 ;
+    // InternalDim.g:7933:1: rule__DRichText__Group_1_2__0 : rule__DRichText__Group_1_2__0__Impl rule__DRichText__Group_1_2__1 ;
     public final void rule__DRichText__Group_1_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7768:1: ( rule__DRichText__Group_1_2__0__Impl rule__DRichText__Group_1_2__1 )
-            // InternalDim.g:7769:2: rule__DRichText__Group_1_2__0__Impl rule__DRichText__Group_1_2__1
+            // InternalDim.g:7937:1: ( rule__DRichText__Group_1_2__0__Impl rule__DRichText__Group_1_2__1 )
+            // InternalDim.g:7938:2: rule__DRichText__Group_1_2__0__Impl rule__DRichText__Group_1_2__1
             {
             pushFollow(FOLLOW_15);
             rule__DRichText__Group_1_2__0__Impl();
@@ -27027,23 +27565,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1_2__0__Impl"
-    // InternalDim.g:7776:1: rule__DRichText__Group_1_2__0__Impl : ( ( rule__DRichText__SegmentsAssignment_1_2_0 ) ) ;
+    // InternalDim.g:7945:1: rule__DRichText__Group_1_2__0__Impl : ( ( rule__DRichText__SegmentsAssignment_1_2_0 ) ) ;
     public final void rule__DRichText__Group_1_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7780:1: ( ( ( rule__DRichText__SegmentsAssignment_1_2_0 ) ) )
-            // InternalDim.g:7781:1: ( ( rule__DRichText__SegmentsAssignment_1_2_0 ) )
+            // InternalDim.g:7949:1: ( ( ( rule__DRichText__SegmentsAssignment_1_2_0 ) ) )
+            // InternalDim.g:7950:1: ( ( rule__DRichText__SegmentsAssignment_1_2_0 ) )
             {
-            // InternalDim.g:7781:1: ( ( rule__DRichText__SegmentsAssignment_1_2_0 ) )
-            // InternalDim.g:7782:2: ( rule__DRichText__SegmentsAssignment_1_2_0 )
+            // InternalDim.g:7950:1: ( ( rule__DRichText__SegmentsAssignment_1_2_0 ) )
+            // InternalDim.g:7951:2: ( rule__DRichText__SegmentsAssignment_1_2_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_2_0()); 
             }
-            // InternalDim.g:7783:2: ( rule__DRichText__SegmentsAssignment_1_2_0 )
-            // InternalDim.g:7783:3: rule__DRichText__SegmentsAssignment_1_2_0
+            // InternalDim.g:7952:2: ( rule__DRichText__SegmentsAssignment_1_2_0 )
+            // InternalDim.g:7952:3: rule__DRichText__SegmentsAssignment_1_2_0
             {
             pushFollow(FOLLOW_2);
             rule__DRichText__SegmentsAssignment_1_2_0();
@@ -27078,14 +27616,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1_2__1"
-    // InternalDim.g:7791:1: rule__DRichText__Group_1_2__1 : rule__DRichText__Group_1_2__1__Impl ;
+    // InternalDim.g:7960:1: rule__DRichText__Group_1_2__1 : rule__DRichText__Group_1_2__1__Impl ;
     public final void rule__DRichText__Group_1_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7795:1: ( rule__DRichText__Group_1_2__1__Impl )
-            // InternalDim.g:7796:2: rule__DRichText__Group_1_2__1__Impl
+            // InternalDim.g:7964:1: ( rule__DRichText__Group_1_2__1__Impl )
+            // InternalDim.g:7965:2: rule__DRichText__Group_1_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DRichText__Group_1_2__1__Impl();
@@ -27111,23 +27649,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1_2__1__Impl"
-    // InternalDim.g:7802:1: rule__DRichText__Group_1_2__1__Impl : ( ( rule__DRichText__SegmentsAssignment_1_2_1 ) ) ;
+    // InternalDim.g:7971:1: rule__DRichText__Group_1_2__1__Impl : ( ( rule__DRichText__SegmentsAssignment_1_2_1 ) ) ;
     public final void rule__DRichText__Group_1_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7806:1: ( ( ( rule__DRichText__SegmentsAssignment_1_2_1 ) ) )
-            // InternalDim.g:7807:1: ( ( rule__DRichText__SegmentsAssignment_1_2_1 ) )
+            // InternalDim.g:7975:1: ( ( ( rule__DRichText__SegmentsAssignment_1_2_1 ) ) )
+            // InternalDim.g:7976:1: ( ( rule__DRichText__SegmentsAssignment_1_2_1 ) )
             {
-            // InternalDim.g:7807:1: ( ( rule__DRichText__SegmentsAssignment_1_2_1 ) )
-            // InternalDim.g:7808:2: ( rule__DRichText__SegmentsAssignment_1_2_1 )
+            // InternalDim.g:7976:1: ( ( rule__DRichText__SegmentsAssignment_1_2_1 ) )
+            // InternalDim.g:7977:2: ( rule__DRichText__SegmentsAssignment_1_2_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_2_1()); 
             }
-            // InternalDim.g:7809:2: ( rule__DRichText__SegmentsAssignment_1_2_1 )
-            // InternalDim.g:7809:3: rule__DRichText__SegmentsAssignment_1_2_1
+            // InternalDim.g:7978:2: ( rule__DRichText__SegmentsAssignment_1_2_1 )
+            // InternalDim.g:7978:3: rule__DRichText__SegmentsAssignment_1_2_1
             {
             pushFollow(FOLLOW_2);
             rule__DRichText__SegmentsAssignment_1_2_1();
@@ -27162,16 +27700,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group__0"
-    // InternalDim.g:7818:1: rule__DmxNavigableMemberReference__Group__0 : rule__DmxNavigableMemberReference__Group__0__Impl rule__DmxNavigableMemberReference__Group__1 ;
+    // InternalDim.g:7987:1: rule__DmxNavigableMemberReference__Group__0 : rule__DmxNavigableMemberReference__Group__0__Impl rule__DmxNavigableMemberReference__Group__1 ;
     public final void rule__DmxNavigableMemberReference__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7822:1: ( rule__DmxNavigableMemberReference__Group__0__Impl rule__DmxNavigableMemberReference__Group__1 )
-            // InternalDim.g:7823:2: rule__DmxNavigableMemberReference__Group__0__Impl rule__DmxNavigableMemberReference__Group__1
+            // InternalDim.g:7991:1: ( rule__DmxNavigableMemberReference__Group__0__Impl rule__DmxNavigableMemberReference__Group__1 )
+            // InternalDim.g:7992:2: rule__DmxNavigableMemberReference__Group__0__Impl rule__DmxNavigableMemberReference__Group__1
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_55);
             rule__DmxNavigableMemberReference__Group__0__Impl();
 
             state._fsp--;
@@ -27200,17 +27738,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group__0__Impl"
-    // InternalDim.g:7830:1: rule__DmxNavigableMemberReference__Group__0__Impl : ( ruleDmxPrimaryExpression ) ;
+    // InternalDim.g:7999:1: rule__DmxNavigableMemberReference__Group__0__Impl : ( ruleDmxPrimaryExpression ) ;
     public final void rule__DmxNavigableMemberReference__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7834:1: ( ( ruleDmxPrimaryExpression ) )
-            // InternalDim.g:7835:1: ( ruleDmxPrimaryExpression )
+            // InternalDim.g:8003:1: ( ( ruleDmxPrimaryExpression ) )
+            // InternalDim.g:8004:1: ( ruleDmxPrimaryExpression )
             {
-            // InternalDim.g:7835:1: ( ruleDmxPrimaryExpression )
-            // InternalDim.g:7836:2: ruleDmxPrimaryExpression
+            // InternalDim.g:8004:1: ( ruleDmxPrimaryExpression )
+            // InternalDim.g:8005:2: ruleDmxPrimaryExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getDmxPrimaryExpressionParserRuleCall_0()); 
@@ -27245,14 +27783,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group__1"
-    // InternalDim.g:7845:1: rule__DmxNavigableMemberReference__Group__1 : rule__DmxNavigableMemberReference__Group__1__Impl ;
+    // InternalDim.g:8014:1: rule__DmxNavigableMemberReference__Group__1 : rule__DmxNavigableMemberReference__Group__1__Impl ;
     public final void rule__DmxNavigableMemberReference__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7849:1: ( rule__DmxNavigableMemberReference__Group__1__Impl )
-            // InternalDim.g:7850:2: rule__DmxNavigableMemberReference__Group__1__Impl
+            // InternalDim.g:8018:1: ( rule__DmxNavigableMemberReference__Group__1__Impl )
+            // InternalDim.g:8019:2: rule__DmxNavigableMemberReference__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group__1__Impl();
@@ -27278,28 +27816,28 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group__1__Impl"
-    // InternalDim.g:7856:1: rule__DmxNavigableMemberReference__Group__1__Impl : ( ( rule__DmxNavigableMemberReference__Alternatives_1 )* ) ;
+    // InternalDim.g:8025:1: rule__DmxNavigableMemberReference__Group__1__Impl : ( ( rule__DmxNavigableMemberReference__Alternatives_1 )* ) ;
     public final void rule__DmxNavigableMemberReference__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7860:1: ( ( ( rule__DmxNavigableMemberReference__Alternatives_1 )* ) )
-            // InternalDim.g:7861:1: ( ( rule__DmxNavigableMemberReference__Alternatives_1 )* )
+            // InternalDim.g:8029:1: ( ( ( rule__DmxNavigableMemberReference__Alternatives_1 )* ) )
+            // InternalDim.g:8030:1: ( ( rule__DmxNavigableMemberReference__Alternatives_1 )* )
             {
-            // InternalDim.g:7861:1: ( ( rule__DmxNavigableMemberReference__Alternatives_1 )* )
-            // InternalDim.g:7862:2: ( rule__DmxNavigableMemberReference__Alternatives_1 )*
+            // InternalDim.g:8030:1: ( ( rule__DmxNavigableMemberReference__Alternatives_1 )* )
+            // InternalDim.g:8031:2: ( rule__DmxNavigableMemberReference__Alternatives_1 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getAlternatives_1()); 
             }
-            // InternalDim.g:7863:2: ( rule__DmxNavigableMemberReference__Alternatives_1 )*
+            // InternalDim.g:8032:2: ( rule__DmxNavigableMemberReference__Alternatives_1 )*
             loop96:
             do {
                 int alt96=2;
                 int LA96_0 = input.LA(1);
 
-                if ( (LA96_0==105) ) {
+                if ( (LA96_0==106) ) {
                     int LA96_2 = input.LA(2);
 
                     if ( (synpred135_InternalDim()) ) {
@@ -27312,9 +27850,9 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
                 switch (alt96) {
             	case 1 :
-            	    // InternalDim.g:7863:3: rule__DmxNavigableMemberReference__Alternatives_1
+            	    // InternalDim.g:8032:3: rule__DmxNavigableMemberReference__Alternatives_1
             	    {
-            	    pushFollow(FOLLOW_52);
+            	    pushFollow(FOLLOW_56);
             	    rule__DmxNavigableMemberReference__Alternatives_1();
 
             	    state._fsp--;
@@ -27353,16 +27891,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0__0"
-    // InternalDim.g:7872:1: rule__DmxNavigableMemberReference__Group_1_0__0 : rule__DmxNavigableMemberReference__Group_1_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0__1 ;
+    // InternalDim.g:8041:1: rule__DmxNavigableMemberReference__Group_1_0__0 : rule__DmxNavigableMemberReference__Group_1_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0__1 ;
     public final void rule__DmxNavigableMemberReference__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7876:1: ( rule__DmxNavigableMemberReference__Group_1_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0__1 )
-            // InternalDim.g:7877:2: rule__DmxNavigableMemberReference__Group_1_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0__1
+            // InternalDim.g:8045:1: ( rule__DmxNavigableMemberReference__Group_1_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0__1 )
+            // InternalDim.g:8046:2: rule__DmxNavigableMemberReference__Group_1_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_57);
             rule__DmxNavigableMemberReference__Group_1_0__0__Impl();
 
             state._fsp--;
@@ -27391,23 +27929,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0__0__Impl"
-    // InternalDim.g:7884:1: rule__DmxNavigableMemberReference__Group_1_0__0__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_0_0__0 ) ) ;
+    // InternalDim.g:8053:1: rule__DmxNavigableMemberReference__Group_1_0__0__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_0_0__0 ) ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7888:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_0_0__0 ) ) )
-            // InternalDim.g:7889:1: ( ( rule__DmxNavigableMemberReference__Group_1_0_0__0 ) )
+            // InternalDim.g:8057:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_0_0__0 ) ) )
+            // InternalDim.g:8058:1: ( ( rule__DmxNavigableMemberReference__Group_1_0_0__0 ) )
             {
-            // InternalDim.g:7889:1: ( ( rule__DmxNavigableMemberReference__Group_1_0_0__0 ) )
-            // InternalDim.g:7890:2: ( rule__DmxNavigableMemberReference__Group_1_0_0__0 )
+            // InternalDim.g:8058:1: ( ( rule__DmxNavigableMemberReference__Group_1_0_0__0 ) )
+            // InternalDim.g:8059:2: ( rule__DmxNavigableMemberReference__Group_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getGroup_1_0_0()); 
             }
-            // InternalDim.g:7891:2: ( rule__DmxNavigableMemberReference__Group_1_0_0__0 )
-            // InternalDim.g:7891:3: rule__DmxNavigableMemberReference__Group_1_0_0__0
+            // InternalDim.g:8060:2: ( rule__DmxNavigableMemberReference__Group_1_0_0__0 )
+            // InternalDim.g:8060:3: rule__DmxNavigableMemberReference__Group_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_0_0__0();
@@ -27442,14 +27980,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0__1"
-    // InternalDim.g:7899:1: rule__DmxNavigableMemberReference__Group_1_0__1 : rule__DmxNavigableMemberReference__Group_1_0__1__Impl ;
+    // InternalDim.g:8068:1: rule__DmxNavigableMemberReference__Group_1_0__1 : rule__DmxNavigableMemberReference__Group_1_0__1__Impl ;
     public final void rule__DmxNavigableMemberReference__Group_1_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7903:1: ( rule__DmxNavigableMemberReference__Group_1_0__1__Impl )
-            // InternalDim.g:7904:2: rule__DmxNavigableMemberReference__Group_1_0__1__Impl
+            // InternalDim.g:8072:1: ( rule__DmxNavigableMemberReference__Group_1_0__1__Impl )
+            // InternalDim.g:8073:2: rule__DmxNavigableMemberReference__Group_1_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_0__1__Impl();
@@ -27475,23 +28013,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0__1__Impl"
-    // InternalDim.g:7910:1: rule__DmxNavigableMemberReference__Group_1_0__1__Impl : ( ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 ) ) ;
+    // InternalDim.g:8079:1: rule__DmxNavigableMemberReference__Group_1_0__1__Impl : ( ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 ) ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7914:1: ( ( ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 ) ) )
-            // InternalDim.g:7915:1: ( ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 ) )
+            // InternalDim.g:8083:1: ( ( ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 ) ) )
+            // InternalDim.g:8084:1: ( ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 ) )
             {
-            // InternalDim.g:7915:1: ( ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 ) )
-            // InternalDim.g:7916:2: ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 )
+            // InternalDim.g:8084:1: ( ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 ) )
+            // InternalDim.g:8085:2: ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getValueAssignment_1_0_1()); 
             }
-            // InternalDim.g:7917:2: ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 )
-            // InternalDim.g:7917:3: rule__DmxNavigableMemberReference__ValueAssignment_1_0_1
+            // InternalDim.g:8086:2: ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 )
+            // InternalDim.g:8086:3: rule__DmxNavigableMemberReference__ValueAssignment_1_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__ValueAssignment_1_0_1();
@@ -27526,14 +28064,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0_0__0"
-    // InternalDim.g:7926:1: rule__DmxNavigableMemberReference__Group_1_0_0__0 : rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl ;
+    // InternalDim.g:8095:1: rule__DmxNavigableMemberReference__Group_1_0_0__0 : rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl ;
     public final void rule__DmxNavigableMemberReference__Group_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7930:1: ( rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl )
-            // InternalDim.g:7931:2: rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl
+            // InternalDim.g:8099:1: ( rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl )
+            // InternalDim.g:8100:2: rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl();
@@ -27559,23 +28097,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl"
-    // InternalDim.g:7937:1: rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 ) ) ;
+    // InternalDim.g:8106:1: rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 ) ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7941:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 ) ) )
-            // InternalDim.g:7942:1: ( ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 ) )
+            // InternalDim.g:8110:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 ) ) )
+            // InternalDim.g:8111:1: ( ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 ) )
             {
-            // InternalDim.g:7942:1: ( ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 ) )
-            // InternalDim.g:7943:2: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 )
+            // InternalDim.g:8111:1: ( ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 ) )
+            // InternalDim.g:8112:2: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getGroup_1_0_0_0()); 
             }
-            // InternalDim.g:7944:2: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 )
-            // InternalDim.g:7944:3: rule__DmxNavigableMemberReference__Group_1_0_0_0__0
+            // InternalDim.g:8113:2: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 )
+            // InternalDim.g:8113:3: rule__DmxNavigableMemberReference__Group_1_0_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_0_0_0__0();
@@ -27610,16 +28148,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0_0_0__0"
-    // InternalDim.g:7953:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__0 : rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__1 ;
+    // InternalDim.g:8122:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__0 : rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__1 ;
     public final void rule__DmxNavigableMemberReference__Group_1_0_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7957:1: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__1 )
-            // InternalDim.g:7958:2: rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__1
+            // InternalDim.g:8126:1: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__1 )
+            // InternalDim.g:8127:2: rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__1
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_55);
             rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl();
 
             state._fsp--;
@@ -27648,23 +28186,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl"
-    // InternalDim.g:7965:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl : ( () ) ;
+    // InternalDim.g:8134:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl : ( () ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7969:1: ( ( () ) )
-            // InternalDim.g:7970:1: ( () )
+            // InternalDim.g:8138:1: ( ( () ) )
+            // InternalDim.g:8139:1: ( () )
             {
-            // InternalDim.g:7970:1: ( () )
-            // InternalDim.g:7971:2: ()
+            // InternalDim.g:8139:1: ( () )
+            // InternalDim.g:8140:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getDmxAssignmentPrecedingNavigationSegmentAction_1_0_0_0_0()); 
             }
-            // InternalDim.g:7972:2: ()
-            // InternalDim.g:7972:3: 
+            // InternalDim.g:8141:2: ()
+            // InternalDim.g:8141:3: 
             {
             }
 
@@ -27689,14 +28227,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0_0_0__1"
-    // InternalDim.g:7980:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__1 : rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__2 ;
+    // InternalDim.g:8149:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__1 : rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__2 ;
     public final void rule__DmxNavigableMemberReference__Group_1_0_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7984:1: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__2 )
-            // InternalDim.g:7985:2: rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__2
+            // InternalDim.g:8153:1: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__2 )
+            // InternalDim.g:8154:2: rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__2
             {
             pushFollow(FOLLOW_5);
             rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl();
@@ -27727,22 +28265,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl"
-    // InternalDim.g:7992:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl : ( '.' ) ;
+    // InternalDim.g:8161:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl : ( '.' ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:7996:1: ( ( '.' ) )
-            // InternalDim.g:7997:1: ( '.' )
+            // InternalDim.g:8165:1: ( ( '.' ) )
+            // InternalDim.g:8166:1: ( '.' )
             {
-            // InternalDim.g:7997:1: ( '.' )
-            // InternalDim.g:7998:2: '.'
+            // InternalDim.g:8166:1: ( '.' )
+            // InternalDim.g:8167:2: '.'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getFullStopKeyword_1_0_0_0_1()); 
             }
-            match(input,105,FOLLOW_2); if (state.failed) return ;
+            match(input,106,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxNavigableMemberReferenceAccess().getFullStopKeyword_1_0_0_0_1()); 
             }
@@ -27768,16 +28306,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0_0_0__2"
-    // InternalDim.g:8007:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__2 : rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__3 ;
+    // InternalDim.g:8176:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__2 : rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__3 ;
     public final void rule__DmxNavigableMemberReference__Group_1_0_0_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8011:1: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__3 )
-            // InternalDim.g:8012:2: rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__3
+            // InternalDim.g:8180:1: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__3 )
+            // InternalDim.g:8181:2: rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__3
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_58);
             rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl();
 
             state._fsp--;
@@ -27806,23 +28344,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl"
-    // InternalDim.g:8019:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl : ( ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 ) ) ;
+    // InternalDim.g:8188:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl : ( ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 ) ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8023:1: ( ( ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 ) ) )
-            // InternalDim.g:8024:1: ( ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 ) )
+            // InternalDim.g:8192:1: ( ( ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 ) ) )
+            // InternalDim.g:8193:1: ( ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 ) )
             {
-            // InternalDim.g:8024:1: ( ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 ) )
-            // InternalDim.g:8025:2: ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 )
+            // InternalDim.g:8193:1: ( ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 ) )
+            // InternalDim.g:8194:2: ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getAssignToMemberAssignment_1_0_0_0_2()); 
             }
-            // InternalDim.g:8026:2: ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 )
-            // InternalDim.g:8026:3: rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2
+            // InternalDim.g:8195:2: ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 )
+            // InternalDim.g:8195:3: rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2();
@@ -27857,14 +28395,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0_0_0__3"
-    // InternalDim.g:8034:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__3 : rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl ;
+    // InternalDim.g:8203:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__3 : rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl ;
     public final void rule__DmxNavigableMemberReference__Group_1_0_0_0__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8038:1: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl )
-            // InternalDim.g:8039:2: rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl
+            // InternalDim.g:8207:1: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl )
+            // InternalDim.g:8208:2: rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl();
@@ -27890,17 +28428,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl"
-    // InternalDim.g:8045:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl : ( ruleDmxOpSingleAssign ) ;
+    // InternalDim.g:8214:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl : ( ruleDmxOpSingleAssign ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8049:1: ( ( ruleDmxOpSingleAssign ) )
-            // InternalDim.g:8050:1: ( ruleDmxOpSingleAssign )
+            // InternalDim.g:8218:1: ( ( ruleDmxOpSingleAssign ) )
+            // InternalDim.g:8219:1: ( ruleDmxOpSingleAssign )
             {
-            // InternalDim.g:8050:1: ( ruleDmxOpSingleAssign )
-            // InternalDim.g:8051:2: ruleDmxOpSingleAssign
+            // InternalDim.g:8219:1: ( ruleDmxOpSingleAssign )
+            // InternalDim.g:8220:2: ruleDmxOpSingleAssign
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getDmxOpSingleAssignParserRuleCall_1_0_0_0_3()); 
@@ -27935,14 +28473,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1__0"
-    // InternalDim.g:8061:1: rule__DmxNavigableMemberReference__Group_1_1__0 : rule__DmxNavigableMemberReference__Group_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1__1 ;
+    // InternalDim.g:8230:1: rule__DmxNavigableMemberReference__Group_1_1__0 : rule__DmxNavigableMemberReference__Group_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1__1 ;
     public final void rule__DmxNavigableMemberReference__Group_1_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8065:1: ( rule__DmxNavigableMemberReference__Group_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1__1 )
-            // InternalDim.g:8066:2: rule__DmxNavigableMemberReference__Group_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1__1
+            // InternalDim.g:8234:1: ( rule__DmxNavigableMemberReference__Group_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1__1 )
+            // InternalDim.g:8235:2: rule__DmxNavigableMemberReference__Group_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1__1
             {
             pushFollow(FOLLOW_5);
             rule__DmxNavigableMemberReference__Group_1_1__0__Impl();
@@ -27973,23 +28511,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1__0__Impl"
-    // InternalDim.g:8073:1: rule__DmxNavigableMemberReference__Group_1_1__0__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_1_0__0 ) ) ;
+    // InternalDim.g:8242:1: rule__DmxNavigableMemberReference__Group_1_1__0__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_1_0__0 ) ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8077:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_1_0__0 ) ) )
-            // InternalDim.g:8078:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_0__0 ) )
+            // InternalDim.g:8246:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_1_0__0 ) ) )
+            // InternalDim.g:8247:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_0__0 ) )
             {
-            // InternalDim.g:8078:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_0__0 ) )
-            // InternalDim.g:8079:2: ( rule__DmxNavigableMemberReference__Group_1_1_0__0 )
+            // InternalDim.g:8247:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_0__0 ) )
+            // InternalDim.g:8248:2: ( rule__DmxNavigableMemberReference__Group_1_1_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getGroup_1_1_0()); 
             }
-            // InternalDim.g:8080:2: ( rule__DmxNavigableMemberReference__Group_1_1_0__0 )
-            // InternalDim.g:8080:3: rule__DmxNavigableMemberReference__Group_1_1_0__0
+            // InternalDim.g:8249:2: ( rule__DmxNavigableMemberReference__Group_1_1_0__0 )
+            // InternalDim.g:8249:3: rule__DmxNavigableMemberReference__Group_1_1_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_1_0__0();
@@ -28024,16 +28562,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1__1"
-    // InternalDim.g:8088:1: rule__DmxNavigableMemberReference__Group_1_1__1 : rule__DmxNavigableMemberReference__Group_1_1__1__Impl rule__DmxNavigableMemberReference__Group_1_1__2 ;
+    // InternalDim.g:8257:1: rule__DmxNavigableMemberReference__Group_1_1__1 : rule__DmxNavigableMemberReference__Group_1_1__1__Impl rule__DmxNavigableMemberReference__Group_1_1__2 ;
     public final void rule__DmxNavigableMemberReference__Group_1_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8092:1: ( rule__DmxNavigableMemberReference__Group_1_1__1__Impl rule__DmxNavigableMemberReference__Group_1_1__2 )
-            // InternalDim.g:8093:2: rule__DmxNavigableMemberReference__Group_1_1__1__Impl rule__DmxNavigableMemberReference__Group_1_1__2
+            // InternalDim.g:8261:1: ( rule__DmxNavigableMemberReference__Group_1_1__1__Impl rule__DmxNavigableMemberReference__Group_1_1__2 )
+            // InternalDim.g:8262:2: rule__DmxNavigableMemberReference__Group_1_1__1__Impl rule__DmxNavigableMemberReference__Group_1_1__2
             {
-            pushFollow(FOLLOW_55);
+            pushFollow(FOLLOW_59);
             rule__DmxNavigableMemberReference__Group_1_1__1__Impl();
 
             state._fsp--;
@@ -28062,23 +28600,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1__1__Impl"
-    // InternalDim.g:8100:1: rule__DmxNavigableMemberReference__Group_1_1__1__Impl : ( ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 ) ) ;
+    // InternalDim.g:8269:1: rule__DmxNavigableMemberReference__Group_1_1__1__Impl : ( ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 ) ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8104:1: ( ( ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 ) ) )
-            // InternalDim.g:8105:1: ( ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 ) )
+            // InternalDim.g:8273:1: ( ( ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 ) ) )
+            // InternalDim.g:8274:1: ( ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 ) )
             {
-            // InternalDim.g:8105:1: ( ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 ) )
-            // InternalDim.g:8106:2: ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 )
+            // InternalDim.g:8274:1: ( ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 ) )
+            // InternalDim.g:8275:2: ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getMemberAssignment_1_1_1()); 
             }
-            // InternalDim.g:8107:2: ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 )
-            // InternalDim.g:8107:3: rule__DmxNavigableMemberReference__MemberAssignment_1_1_1
+            // InternalDim.g:8276:2: ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 )
+            // InternalDim.g:8276:3: rule__DmxNavigableMemberReference__MemberAssignment_1_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__MemberAssignment_1_1_1();
@@ -28113,14 +28651,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1__2"
-    // InternalDim.g:8115:1: rule__DmxNavigableMemberReference__Group_1_1__2 : rule__DmxNavigableMemberReference__Group_1_1__2__Impl ;
+    // InternalDim.g:8284:1: rule__DmxNavigableMemberReference__Group_1_1__2 : rule__DmxNavigableMemberReference__Group_1_1__2__Impl ;
     public final void rule__DmxNavigableMemberReference__Group_1_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8119:1: ( rule__DmxNavigableMemberReference__Group_1_1__2__Impl )
-            // InternalDim.g:8120:2: rule__DmxNavigableMemberReference__Group_1_1__2__Impl
+            // InternalDim.g:8288:1: ( rule__DmxNavigableMemberReference__Group_1_1__2__Impl )
+            // InternalDim.g:8289:2: rule__DmxNavigableMemberReference__Group_1_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_1__2__Impl();
@@ -28146,31 +28684,31 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1__2__Impl"
-    // InternalDim.g:8126:1: rule__DmxNavigableMemberReference__Group_1_1__2__Impl : ( ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )? ) ;
+    // InternalDim.g:8295:1: rule__DmxNavigableMemberReference__Group_1_1__2__Impl : ( ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )? ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8130:1: ( ( ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )? ) )
-            // InternalDim.g:8131:1: ( ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )? )
+            // InternalDim.g:8299:1: ( ( ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )? ) )
+            // InternalDim.g:8300:1: ( ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )? )
             {
-            // InternalDim.g:8131:1: ( ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )? )
-            // InternalDim.g:8132:2: ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )?
+            // InternalDim.g:8300:1: ( ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )? )
+            // InternalDim.g:8301:2: ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getAlternatives_1_1_2()); 
             }
-            // InternalDim.g:8133:2: ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )?
+            // InternalDim.g:8302:2: ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )?
             int alt97=2;
             int LA97_0 = input.LA(1);
 
-            if ( (LA97_0==95||LA97_0==122) ) {
+            if ( (LA97_0==95||LA97_0==123) ) {
                 alt97=1;
             }
             switch (alt97) {
                 case 1 :
-                    // InternalDim.g:8133:3: rule__DmxNavigableMemberReference__Alternatives_1_1_2
+                    // InternalDim.g:8302:3: rule__DmxNavigableMemberReference__Alternatives_1_1_2
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxNavigableMemberReference__Alternatives_1_1_2();
@@ -28208,14 +28746,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_0__0"
-    // InternalDim.g:8142:1: rule__DmxNavigableMemberReference__Group_1_1_0__0 : rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl ;
+    // InternalDim.g:8311:1: rule__DmxNavigableMemberReference__Group_1_1_0__0 : rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8146:1: ( rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl )
-            // InternalDim.g:8147:2: rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl
+            // InternalDim.g:8315:1: ( rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl )
+            // InternalDim.g:8316:2: rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl();
@@ -28241,23 +28779,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl"
-    // InternalDim.g:8153:1: rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 ) ) ;
+    // InternalDim.g:8322:1: rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 ) ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8157:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 ) ) )
-            // InternalDim.g:8158:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 ) )
+            // InternalDim.g:8326:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 ) ) )
+            // InternalDim.g:8327:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 ) )
             {
-            // InternalDim.g:8158:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 ) )
-            // InternalDim.g:8159:2: ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 )
+            // InternalDim.g:8327:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 ) )
+            // InternalDim.g:8328:2: ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getGroup_1_1_0_0()); 
             }
-            // InternalDim.g:8160:2: ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 )
-            // InternalDim.g:8160:3: rule__DmxNavigableMemberReference__Group_1_1_0_0__0
+            // InternalDim.g:8329:2: ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 )
+            // InternalDim.g:8329:3: rule__DmxNavigableMemberReference__Group_1_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_1_0_0__0();
@@ -28292,16 +28830,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_0_0__0"
-    // InternalDim.g:8169:1: rule__DmxNavigableMemberReference__Group_1_1_0_0__0 : rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_0_0__1 ;
+    // InternalDim.g:8338:1: rule__DmxNavigableMemberReference__Group_1_1_0_0__0 : rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_0_0__1 ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8173:1: ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_0_0__1 )
-            // InternalDim.g:8174:2: rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_0_0__1
+            // InternalDim.g:8342:1: ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_0_0__1 )
+            // InternalDim.g:8343:2: rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_0_0__1
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_55);
             rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl();
 
             state._fsp--;
@@ -28330,23 +28868,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl"
-    // InternalDim.g:8181:1: rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl : ( () ) ;
+    // InternalDim.g:8350:1: rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl : ( () ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8185:1: ( ( () ) )
-            // InternalDim.g:8186:1: ( () )
+            // InternalDim.g:8354:1: ( ( () ) )
+            // InternalDim.g:8355:1: ( () )
             {
-            // InternalDim.g:8186:1: ( () )
-            // InternalDim.g:8187:2: ()
+            // InternalDim.g:8355:1: ( () )
+            // InternalDim.g:8356:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getDmxMemberNavigationPrecedingNavigationSegmentAction_1_1_0_0_0()); 
             }
-            // InternalDim.g:8188:2: ()
-            // InternalDim.g:8188:3: 
+            // InternalDim.g:8357:2: ()
+            // InternalDim.g:8357:3: 
             {
             }
 
@@ -28371,14 +28909,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_0_0__1"
-    // InternalDim.g:8196:1: rule__DmxNavigableMemberReference__Group_1_1_0_0__1 : rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl ;
+    // InternalDim.g:8365:1: rule__DmxNavigableMemberReference__Group_1_1_0_0__1 : rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8200:1: ( rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl )
-            // InternalDim.g:8201:2: rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl
+            // InternalDim.g:8369:1: ( rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl )
+            // InternalDim.g:8370:2: rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl();
@@ -28404,22 +28942,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl"
-    // InternalDim.g:8207:1: rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl : ( '.' ) ;
+    // InternalDim.g:8376:1: rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl : ( '.' ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8211:1: ( ( '.' ) )
-            // InternalDim.g:8212:1: ( '.' )
+            // InternalDim.g:8380:1: ( ( '.' ) )
+            // InternalDim.g:8381:1: ( '.' )
             {
-            // InternalDim.g:8212:1: ( '.' )
-            // InternalDim.g:8213:2: '.'
+            // InternalDim.g:8381:1: ( '.' )
+            // InternalDim.g:8382:2: '.'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getFullStopKeyword_1_1_0_0_1()); 
             }
-            match(input,105,FOLLOW_2); if (state.failed) return ;
+            match(input,106,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxNavigableMemberReferenceAccess().getFullStopKeyword_1_1_0_0_1()); 
             }
@@ -28445,16 +28983,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0__0"
-    // InternalDim.g:8223:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__0 : rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__1 ;
+    // InternalDim.g:8392:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__0 : rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__1 ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8227:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__1 )
-            // InternalDim.g:8228:2: rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__1
+            // InternalDim.g:8396:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__1 )
+            // InternalDim.g:8397:2: rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__1
             {
-            pushFollow(FOLLOW_56);
+            pushFollow(FOLLOW_60);
             rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl();
 
             state._fsp--;
@@ -28483,23 +29021,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl"
-    // InternalDim.g:8235:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl : ( ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) ) ;
+    // InternalDim.g:8404:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl : ( ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8239:1: ( ( ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) ) )
-            // InternalDim.g:8240:1: ( ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) )
+            // InternalDim.g:8408:1: ( ( ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) ) )
+            // InternalDim.g:8409:1: ( ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) )
             {
-            // InternalDim.g:8240:1: ( ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) )
-            // InternalDim.g:8241:2: ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 )
+            // InternalDim.g:8409:1: ( ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) )
+            // InternalDim.g:8410:2: ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getExplicitOperationCallAssignment_1_1_2_0_0()); 
             }
-            // InternalDim.g:8242:2: ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 )
-            // InternalDim.g:8242:3: rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0
+            // InternalDim.g:8411:2: ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 )
+            // InternalDim.g:8411:3: rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0();
@@ -28534,16 +29072,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0__1"
-    // InternalDim.g:8250:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__1 : rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__2 ;
+    // InternalDim.g:8419:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__1 : rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__2 ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8254:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__2 )
-            // InternalDim.g:8255:2: rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__2
+            // InternalDim.g:8423:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__2 )
+            // InternalDim.g:8424:2: rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__2
             {
-            pushFollow(FOLLOW_56);
+            pushFollow(FOLLOW_60);
             rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl();
 
             state._fsp--;
@@ -28572,31 +29110,31 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl"
-    // InternalDim.g:8262:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )? ) ;
+    // InternalDim.g:8431:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )? ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8266:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )? ) )
-            // InternalDim.g:8267:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )? )
+            // InternalDim.g:8435:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )? ) )
+            // InternalDim.g:8436:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )? )
             {
-            // InternalDim.g:8267:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )? )
-            // InternalDim.g:8268:2: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )?
+            // InternalDim.g:8436:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )? )
+            // InternalDim.g:8437:2: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getGroup_1_1_2_0_1()); 
             }
-            // InternalDim.g:8269:2: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )?
+            // InternalDim.g:8438:2: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )?
             int alt98=2;
             int LA98_0 = input.LA(1);
 
-            if ( ((LA98_0>=RULE_NATURAL && LA98_0<=RULE_ID)||LA98_0==RULE_STRING||(LA98_0>=27 && LA98_0<=34)||(LA98_0>=36 && LA98_0<=39)||(LA98_0>=42 && LA98_0<=43)||(LA98_0>=76 && LA98_0<=78)||LA98_0==95||LA98_0==107||LA98_0==110||LA98_0==115||(LA98_0>=124 && LA98_0<=125)) ) {
+            if ( ((LA98_0>=RULE_NATURAL && LA98_0<=RULE_ID)||LA98_0==RULE_STRING||(LA98_0>=27 && LA98_0<=34)||(LA98_0>=36 && LA98_0<=39)||(LA98_0>=42 && LA98_0<=43)||(LA98_0>=76 && LA98_0<=78)||LA98_0==95||LA98_0==108||LA98_0==111||LA98_0==116||(LA98_0>=125 && LA98_0<=126)) ) {
                 alt98=1;
             }
             switch (alt98) {
                 case 1 :
-                    // InternalDim.g:8269:3: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0
+                    // InternalDim.g:8438:3: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0();
@@ -28634,14 +29172,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0__2"
-    // InternalDim.g:8277:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__2 : rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl ;
+    // InternalDim.g:8446:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__2 : rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8281:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl )
-            // InternalDim.g:8282:2: rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl
+            // InternalDim.g:8450:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl )
+            // InternalDim.g:8451:2: rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl();
@@ -28667,17 +29205,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl"
-    // InternalDim.g:8288:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl : ( ')' ) ;
+    // InternalDim.g:8457:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl : ( ')' ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8292:1: ( ( ')' ) )
-            // InternalDim.g:8293:1: ( ')' )
+            // InternalDim.g:8461:1: ( ( ')' ) )
+            // InternalDim.g:8462:1: ( ')' )
             {
-            // InternalDim.g:8293:1: ( ')' )
-            // InternalDim.g:8294:2: ')'
+            // InternalDim.g:8462:1: ( ')' )
+            // InternalDim.g:8463:2: ')'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getRightParenthesisKeyword_1_1_2_0_2()); 
@@ -28708,14 +29246,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0"
-    // InternalDim.g:8304:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 : rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1 ;
+    // InternalDim.g:8473:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 : rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1 ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8308:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1 )
-            // InternalDim.g:8309:2: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1
+            // InternalDim.g:8477:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1 )
+            // InternalDim.g:8478:2: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1
             {
             pushFollow(FOLLOW_23);
             rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl();
@@ -28746,23 +29284,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl"
-    // InternalDim.g:8316:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl : ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) ) ;
+    // InternalDim.g:8485:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl : ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8320:1: ( ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) ) )
-            // InternalDim.g:8321:1: ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) )
+            // InternalDim.g:8489:1: ( ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) ) )
+            // InternalDim.g:8490:1: ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) )
             {
-            // InternalDim.g:8321:1: ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) )
-            // InternalDim.g:8322:2: ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 )
+            // InternalDim.g:8490:1: ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) )
+            // InternalDim.g:8491:2: ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getMemberCallArgumentsAssignment_1_1_2_0_1_0()); 
             }
-            // InternalDim.g:8323:2: ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 )
-            // InternalDim.g:8323:3: rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0
+            // InternalDim.g:8492:2: ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 )
+            // InternalDim.g:8492:3: rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0();
@@ -28797,14 +29335,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1"
-    // InternalDim.g:8331:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1 : rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl ;
+    // InternalDim.g:8500:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1 : rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8335:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl )
-            // InternalDim.g:8336:2: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl
+            // InternalDim.g:8504:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl )
+            // InternalDim.g:8505:2: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl();
@@ -28830,22 +29368,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl"
-    // InternalDim.g:8342:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )* ) ;
+    // InternalDim.g:8511:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )* ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8346:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )* ) )
-            // InternalDim.g:8347:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )* )
+            // InternalDim.g:8515:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )* ) )
+            // InternalDim.g:8516:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )* )
             {
-            // InternalDim.g:8347:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )* )
-            // InternalDim.g:8348:2: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )*
+            // InternalDim.g:8516:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )* )
+            // InternalDim.g:8517:2: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getGroup_1_1_2_0_1_1()); 
             }
-            // InternalDim.g:8349:2: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )*
+            // InternalDim.g:8518:2: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )*
             loop99:
             do {
                 int alt99=2;
@@ -28858,7 +29396,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
                 switch (alt99) {
             	case 1 :
-            	    // InternalDim.g:8349:3: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0
+            	    // InternalDim.g:8518:3: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0
             	    {
             	    pushFollow(FOLLOW_24);
             	    rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0();
@@ -28899,16 +29437,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0"
-    // InternalDim.g:8358:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 : rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1 ;
+    // InternalDim.g:8527:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 : rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1 ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8362:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1 )
-            // InternalDim.g:8363:2: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1
+            // InternalDim.g:8531:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1 )
+            // InternalDim.g:8532:2: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_57);
             rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl();
 
             state._fsp--;
@@ -28937,17 +29475,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl"
-    // InternalDim.g:8370:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl : ( ',' ) ;
+    // InternalDim.g:8539:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl : ( ',' ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8374:1: ( ( ',' ) )
-            // InternalDim.g:8375:1: ( ',' )
+            // InternalDim.g:8543:1: ( ( ',' ) )
+            // InternalDim.g:8544:1: ( ',' )
             {
-            // InternalDim.g:8375:1: ( ',' )
-            // InternalDim.g:8376:2: ','
+            // InternalDim.g:8544:1: ( ',' )
+            // InternalDim.g:8545:2: ','
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getCommaKeyword_1_1_2_0_1_1_0()); 
@@ -28978,14 +29516,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1"
-    // InternalDim.g:8385:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1 : rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl ;
+    // InternalDim.g:8554:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1 : rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8389:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl )
-            // InternalDim.g:8390:2: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl
+            // InternalDim.g:8558:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl )
+            // InternalDim.g:8559:2: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl();
@@ -29011,23 +29549,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl"
-    // InternalDim.g:8396:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl : ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) ) ;
+    // InternalDim.g:8565:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl : ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8400:1: ( ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) ) )
-            // InternalDim.g:8401:1: ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) )
+            // InternalDim.g:8569:1: ( ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) ) )
+            // InternalDim.g:8570:1: ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) )
             {
-            // InternalDim.g:8401:1: ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) )
-            // InternalDim.g:8402:2: ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 )
+            // InternalDim.g:8570:1: ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) )
+            // InternalDim.g:8571:2: ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getMemberCallArgumentsAssignment_1_1_2_0_1_1_1()); 
             }
-            // InternalDim.g:8403:2: ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 )
-            // InternalDim.g:8403:3: rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1
+            // InternalDim.g:8572:2: ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 )
+            // InternalDim.g:8572:3: rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1();
@@ -29062,14 +29600,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAssignment__Group__0"
-    // InternalDim.g:8412:1: rule__DmxAssignment__Group__0 : rule__DmxAssignment__Group__0__Impl rule__DmxAssignment__Group__1 ;
+    // InternalDim.g:8581:1: rule__DmxAssignment__Group__0 : rule__DmxAssignment__Group__0__Impl rule__DmxAssignment__Group__1 ;
     public final void rule__DmxAssignment__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8416:1: ( rule__DmxAssignment__Group__0__Impl rule__DmxAssignment__Group__1 )
-            // InternalDim.g:8417:2: rule__DmxAssignment__Group__0__Impl rule__DmxAssignment__Group__1
+            // InternalDim.g:8585:1: ( rule__DmxAssignment__Group__0__Impl rule__DmxAssignment__Group__1 )
+            // InternalDim.g:8586:2: rule__DmxAssignment__Group__0__Impl rule__DmxAssignment__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__DmxAssignment__Group__0__Impl();
@@ -29100,23 +29638,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAssignment__Group__0__Impl"
-    // InternalDim.g:8424:1: rule__DmxAssignment__Group__0__Impl : ( () ) ;
+    // InternalDim.g:8593:1: rule__DmxAssignment__Group__0__Impl : ( () ) ;
     public final void rule__DmxAssignment__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8428:1: ( ( () ) )
-            // InternalDim.g:8429:1: ( () )
+            // InternalDim.g:8597:1: ( ( () ) )
+            // InternalDim.g:8598:1: ( () )
             {
-            // InternalDim.g:8429:1: ( () )
-            // InternalDim.g:8430:2: ()
+            // InternalDim.g:8598:1: ( () )
+            // InternalDim.g:8599:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAssignmentAccess().getDmxAssignmentAction_0()); 
             }
-            // InternalDim.g:8431:2: ()
-            // InternalDim.g:8431:3: 
+            // InternalDim.g:8600:2: ()
+            // InternalDim.g:8600:3: 
             {
             }
 
@@ -29141,16 +29679,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAssignment__Group__1"
-    // InternalDim.g:8439:1: rule__DmxAssignment__Group__1 : rule__DmxAssignment__Group__1__Impl rule__DmxAssignment__Group__2 ;
+    // InternalDim.g:8608:1: rule__DmxAssignment__Group__1 : rule__DmxAssignment__Group__1__Impl rule__DmxAssignment__Group__2 ;
     public final void rule__DmxAssignment__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8443:1: ( rule__DmxAssignment__Group__1__Impl rule__DmxAssignment__Group__2 )
-            // InternalDim.g:8444:2: rule__DmxAssignment__Group__1__Impl rule__DmxAssignment__Group__2
+            // InternalDim.g:8612:1: ( rule__DmxAssignment__Group__1__Impl rule__DmxAssignment__Group__2 )
+            // InternalDim.g:8613:2: rule__DmxAssignment__Group__1__Impl rule__DmxAssignment__Group__2
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_58);
             rule__DmxAssignment__Group__1__Impl();
 
             state._fsp--;
@@ -29179,23 +29717,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAssignment__Group__1__Impl"
-    // InternalDim.g:8451:1: rule__DmxAssignment__Group__1__Impl : ( ( rule__DmxAssignment__AssignToMemberAssignment_1 ) ) ;
+    // InternalDim.g:8620:1: rule__DmxAssignment__Group__1__Impl : ( ( rule__DmxAssignment__AssignToMemberAssignment_1 ) ) ;
     public final void rule__DmxAssignment__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8455:1: ( ( ( rule__DmxAssignment__AssignToMemberAssignment_1 ) ) )
-            // InternalDim.g:8456:1: ( ( rule__DmxAssignment__AssignToMemberAssignment_1 ) )
+            // InternalDim.g:8624:1: ( ( ( rule__DmxAssignment__AssignToMemberAssignment_1 ) ) )
+            // InternalDim.g:8625:1: ( ( rule__DmxAssignment__AssignToMemberAssignment_1 ) )
             {
-            // InternalDim.g:8456:1: ( ( rule__DmxAssignment__AssignToMemberAssignment_1 ) )
-            // InternalDim.g:8457:2: ( rule__DmxAssignment__AssignToMemberAssignment_1 )
+            // InternalDim.g:8625:1: ( ( rule__DmxAssignment__AssignToMemberAssignment_1 ) )
+            // InternalDim.g:8626:2: ( rule__DmxAssignment__AssignToMemberAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAssignmentAccess().getAssignToMemberAssignment_1()); 
             }
-            // InternalDim.g:8458:2: ( rule__DmxAssignment__AssignToMemberAssignment_1 )
-            // InternalDim.g:8458:3: rule__DmxAssignment__AssignToMemberAssignment_1
+            // InternalDim.g:8627:2: ( rule__DmxAssignment__AssignToMemberAssignment_1 )
+            // InternalDim.g:8627:3: rule__DmxAssignment__AssignToMemberAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxAssignment__AssignToMemberAssignment_1();
@@ -29230,16 +29768,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAssignment__Group__2"
-    // InternalDim.g:8466:1: rule__DmxAssignment__Group__2 : rule__DmxAssignment__Group__2__Impl rule__DmxAssignment__Group__3 ;
+    // InternalDim.g:8635:1: rule__DmxAssignment__Group__2 : rule__DmxAssignment__Group__2__Impl rule__DmxAssignment__Group__3 ;
     public final void rule__DmxAssignment__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8470:1: ( rule__DmxAssignment__Group__2__Impl rule__DmxAssignment__Group__3 )
-            // InternalDim.g:8471:2: rule__DmxAssignment__Group__2__Impl rule__DmxAssignment__Group__3
+            // InternalDim.g:8639:1: ( rule__DmxAssignment__Group__2__Impl rule__DmxAssignment__Group__3 )
+            // InternalDim.g:8640:2: rule__DmxAssignment__Group__2__Impl rule__DmxAssignment__Group__3
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_57);
             rule__DmxAssignment__Group__2__Impl();
 
             state._fsp--;
@@ -29268,17 +29806,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAssignment__Group__2__Impl"
-    // InternalDim.g:8478:1: rule__DmxAssignment__Group__2__Impl : ( ruleDmxOpSingleAssign ) ;
+    // InternalDim.g:8647:1: rule__DmxAssignment__Group__2__Impl : ( ruleDmxOpSingleAssign ) ;
     public final void rule__DmxAssignment__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8482:1: ( ( ruleDmxOpSingleAssign ) )
-            // InternalDim.g:8483:1: ( ruleDmxOpSingleAssign )
+            // InternalDim.g:8651:1: ( ( ruleDmxOpSingleAssign ) )
+            // InternalDim.g:8652:1: ( ruleDmxOpSingleAssign )
             {
-            // InternalDim.g:8483:1: ( ruleDmxOpSingleAssign )
-            // InternalDim.g:8484:2: ruleDmxOpSingleAssign
+            // InternalDim.g:8652:1: ( ruleDmxOpSingleAssign )
+            // InternalDim.g:8653:2: ruleDmxOpSingleAssign
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAssignmentAccess().getDmxOpSingleAssignParserRuleCall_2()); 
@@ -29313,14 +29851,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAssignment__Group__3"
-    // InternalDim.g:8493:1: rule__DmxAssignment__Group__3 : rule__DmxAssignment__Group__3__Impl ;
+    // InternalDim.g:8662:1: rule__DmxAssignment__Group__3 : rule__DmxAssignment__Group__3__Impl ;
     public final void rule__DmxAssignment__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8497:1: ( rule__DmxAssignment__Group__3__Impl )
-            // InternalDim.g:8498:2: rule__DmxAssignment__Group__3__Impl
+            // InternalDim.g:8666:1: ( rule__DmxAssignment__Group__3__Impl )
+            // InternalDim.g:8667:2: rule__DmxAssignment__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxAssignment__Group__3__Impl();
@@ -29346,23 +29884,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAssignment__Group__3__Impl"
-    // InternalDim.g:8504:1: rule__DmxAssignment__Group__3__Impl : ( ( rule__DmxAssignment__ValueAssignment_3 ) ) ;
+    // InternalDim.g:8673:1: rule__DmxAssignment__Group__3__Impl : ( ( rule__DmxAssignment__ValueAssignment_3 ) ) ;
     public final void rule__DmxAssignment__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8508:1: ( ( ( rule__DmxAssignment__ValueAssignment_3 ) ) )
-            // InternalDim.g:8509:1: ( ( rule__DmxAssignment__ValueAssignment_3 ) )
+            // InternalDim.g:8677:1: ( ( ( rule__DmxAssignment__ValueAssignment_3 ) ) )
+            // InternalDim.g:8678:1: ( ( rule__DmxAssignment__ValueAssignment_3 ) )
             {
-            // InternalDim.g:8509:1: ( ( rule__DmxAssignment__ValueAssignment_3 ) )
-            // InternalDim.g:8510:2: ( rule__DmxAssignment__ValueAssignment_3 )
+            // InternalDim.g:8678:1: ( ( rule__DmxAssignment__ValueAssignment_3 ) )
+            // InternalDim.g:8679:2: ( rule__DmxAssignment__ValueAssignment_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAssignmentAccess().getValueAssignment_3()); 
             }
-            // InternalDim.g:8511:2: ( rule__DmxAssignment__ValueAssignment_3 )
-            // InternalDim.g:8511:3: rule__DmxAssignment__ValueAssignment_3
+            // InternalDim.g:8680:2: ( rule__DmxAssignment__ValueAssignment_3 )
+            // InternalDim.g:8680:3: rule__DmxAssignment__ValueAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__DmxAssignment__ValueAssignment_3();
@@ -29397,14 +29935,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxPredicate__Group_0__0"
-    // InternalDim.g:8520:1: rule__DmxPredicate__Group_0__0 : rule__DmxPredicate__Group_0__0__Impl rule__DmxPredicate__Group_0__1 ;
+    // InternalDim.g:8689:1: rule__DmxPredicate__Group_0__0 : rule__DmxPredicate__Group_0__0__Impl rule__DmxPredicate__Group_0__1 ;
     public final void rule__DmxPredicate__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8524:1: ( rule__DmxPredicate__Group_0__0__Impl rule__DmxPredicate__Group_0__1 )
-            // InternalDim.g:8525:2: rule__DmxPredicate__Group_0__0__Impl rule__DmxPredicate__Group_0__1
+            // InternalDim.g:8693:1: ( rule__DmxPredicate__Group_0__0__Impl rule__DmxPredicate__Group_0__1 )
+            // InternalDim.g:8694:2: rule__DmxPredicate__Group_0__0__Impl rule__DmxPredicate__Group_0__1
             {
             pushFollow(FOLLOW_5);
             rule__DmxPredicate__Group_0__0__Impl();
@@ -29435,23 +29973,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxPredicate__Group_0__0__Impl"
-    // InternalDim.g:8532:1: rule__DmxPredicate__Group_0__0__Impl : ( () ) ;
+    // InternalDim.g:8701:1: rule__DmxPredicate__Group_0__0__Impl : ( () ) ;
     public final void rule__DmxPredicate__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8536:1: ( ( () ) )
-            // InternalDim.g:8537:1: ( () )
+            // InternalDim.g:8705:1: ( ( () ) )
+            // InternalDim.g:8706:1: ( () )
             {
-            // InternalDim.g:8537:1: ( () )
-            // InternalDim.g:8538:2: ()
+            // InternalDim.g:8706:1: ( () )
+            // InternalDim.g:8707:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxPredicateAccess().getDmxPredicateWithCorrelationVariableAction_0_0()); 
             }
-            // InternalDim.g:8539:2: ()
-            // InternalDim.g:8539:3: 
+            // InternalDim.g:8708:2: ()
+            // InternalDim.g:8708:3: 
             {
             }
 
@@ -29476,16 +30014,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxPredicate__Group_0__1"
-    // InternalDim.g:8547:1: rule__DmxPredicate__Group_0__1 : rule__DmxPredicate__Group_0__1__Impl rule__DmxPredicate__Group_0__2 ;
+    // InternalDim.g:8716:1: rule__DmxPredicate__Group_0__1 : rule__DmxPredicate__Group_0__1__Impl rule__DmxPredicate__Group_0__2 ;
     public final void rule__DmxPredicate__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8551:1: ( rule__DmxPredicate__Group_0__1__Impl rule__DmxPredicate__Group_0__2 )
-            // InternalDim.g:8552:2: rule__DmxPredicate__Group_0__1__Impl rule__DmxPredicate__Group_0__2
+            // InternalDim.g:8720:1: ( rule__DmxPredicate__Group_0__1__Impl rule__DmxPredicate__Group_0__2 )
+            // InternalDim.g:8721:2: rule__DmxPredicate__Group_0__1__Impl rule__DmxPredicate__Group_0__2
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_61);
             rule__DmxPredicate__Group_0__1__Impl();
 
             state._fsp--;
@@ -29514,23 +30052,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxPredicate__Group_0__1__Impl"
-    // InternalDim.g:8559:1: rule__DmxPredicate__Group_0__1__Impl : ( ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 ) ) ;
+    // InternalDim.g:8728:1: rule__DmxPredicate__Group_0__1__Impl : ( ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 ) ) ;
     public final void rule__DmxPredicate__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8563:1: ( ( ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 ) ) )
-            // InternalDim.g:8564:1: ( ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 ) )
+            // InternalDim.g:8732:1: ( ( ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 ) ) )
+            // InternalDim.g:8733:1: ( ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 ) )
             {
-            // InternalDim.g:8564:1: ( ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 ) )
-            // InternalDim.g:8565:2: ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 )
+            // InternalDim.g:8733:1: ( ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 ) )
+            // InternalDim.g:8734:2: ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxPredicateAccess().getCorrelationVariableAssignment_0_1()); 
             }
-            // InternalDim.g:8566:2: ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 )
-            // InternalDim.g:8566:3: rule__DmxPredicate__CorrelationVariableAssignment_0_1
+            // InternalDim.g:8735:2: ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 )
+            // InternalDim.g:8735:3: rule__DmxPredicate__CorrelationVariableAssignment_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxPredicate__CorrelationVariableAssignment_0_1();
@@ -29565,16 +30103,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxPredicate__Group_0__2"
-    // InternalDim.g:8574:1: rule__DmxPredicate__Group_0__2 : rule__DmxPredicate__Group_0__2__Impl rule__DmxPredicate__Group_0__3 ;
+    // InternalDim.g:8743:1: rule__DmxPredicate__Group_0__2 : rule__DmxPredicate__Group_0__2__Impl rule__DmxPredicate__Group_0__3 ;
     public final void rule__DmxPredicate__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8578:1: ( rule__DmxPredicate__Group_0__2__Impl rule__DmxPredicate__Group_0__3 )
-            // InternalDim.g:8579:2: rule__DmxPredicate__Group_0__2__Impl rule__DmxPredicate__Group_0__3
+            // InternalDim.g:8747:1: ( rule__DmxPredicate__Group_0__2__Impl rule__DmxPredicate__Group_0__3 )
+            // InternalDim.g:8748:2: rule__DmxPredicate__Group_0__2__Impl rule__DmxPredicate__Group_0__3
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_57);
             rule__DmxPredicate__Group_0__2__Impl();
 
             state._fsp--;
@@ -29603,22 +30141,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxPredicate__Group_0__2__Impl"
-    // InternalDim.g:8586:1: rule__DmxPredicate__Group_0__2__Impl : ( '|' ) ;
+    // InternalDim.g:8755:1: rule__DmxPredicate__Group_0__2__Impl : ( '|' ) ;
     public final void rule__DmxPredicate__Group_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8590:1: ( ( '|' ) )
-            // InternalDim.g:8591:1: ( '|' )
+            // InternalDim.g:8759:1: ( ( '|' ) )
+            // InternalDim.g:8760:1: ( '|' )
             {
-            // InternalDim.g:8591:1: ( '|' )
-            // InternalDim.g:8592:2: '|'
+            // InternalDim.g:8760:1: ( '|' )
+            // InternalDim.g:8761:2: '|'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxPredicateAccess().getVerticalLineKeyword_0_2()); 
             }
-            match(input,106,FOLLOW_2); if (state.failed) return ;
+            match(input,107,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxPredicateAccess().getVerticalLineKeyword_0_2()); 
             }
@@ -29644,14 +30182,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxPredicate__Group_0__3"
-    // InternalDim.g:8601:1: rule__DmxPredicate__Group_0__3 : rule__DmxPredicate__Group_0__3__Impl ;
+    // InternalDim.g:8770:1: rule__DmxPredicate__Group_0__3 : rule__DmxPredicate__Group_0__3__Impl ;
     public final void rule__DmxPredicate__Group_0__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8605:1: ( rule__DmxPredicate__Group_0__3__Impl )
-            // InternalDim.g:8606:2: rule__DmxPredicate__Group_0__3__Impl
+            // InternalDim.g:8774:1: ( rule__DmxPredicate__Group_0__3__Impl )
+            // InternalDim.g:8775:2: rule__DmxPredicate__Group_0__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxPredicate__Group_0__3__Impl();
@@ -29677,23 +30215,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxPredicate__Group_0__3__Impl"
-    // InternalDim.g:8612:1: rule__DmxPredicate__Group_0__3__Impl : ( ( rule__DmxPredicate__ValueAssignment_0_3 ) ) ;
+    // InternalDim.g:8781:1: rule__DmxPredicate__Group_0__3__Impl : ( ( rule__DmxPredicate__ValueAssignment_0_3 ) ) ;
     public final void rule__DmxPredicate__Group_0__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8616:1: ( ( ( rule__DmxPredicate__ValueAssignment_0_3 ) ) )
-            // InternalDim.g:8617:1: ( ( rule__DmxPredicate__ValueAssignment_0_3 ) )
+            // InternalDim.g:8785:1: ( ( ( rule__DmxPredicate__ValueAssignment_0_3 ) ) )
+            // InternalDim.g:8786:1: ( ( rule__DmxPredicate__ValueAssignment_0_3 ) )
             {
-            // InternalDim.g:8617:1: ( ( rule__DmxPredicate__ValueAssignment_0_3 ) )
-            // InternalDim.g:8618:2: ( rule__DmxPredicate__ValueAssignment_0_3 )
+            // InternalDim.g:8786:1: ( ( rule__DmxPredicate__ValueAssignment_0_3 ) )
+            // InternalDim.g:8787:2: ( rule__DmxPredicate__ValueAssignment_0_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxPredicateAccess().getValueAssignment_0_3()); 
             }
-            // InternalDim.g:8619:2: ( rule__DmxPredicate__ValueAssignment_0_3 )
-            // InternalDim.g:8619:3: rule__DmxPredicate__ValueAssignment_0_3
+            // InternalDim.g:8788:2: ( rule__DmxPredicate__ValueAssignment_0_3 )
+            // InternalDim.g:8788:3: rule__DmxPredicate__ValueAssignment_0_3
             {
             pushFollow(FOLLOW_2);
             rule__DmxPredicate__ValueAssignment_0_3();
@@ -29728,16 +30266,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group__0"
-    // InternalDim.g:8628:1: rule__DmxOrExpression__Group__0 : rule__DmxOrExpression__Group__0__Impl rule__DmxOrExpression__Group__1 ;
+    // InternalDim.g:8797:1: rule__DmxOrExpression__Group__0 : rule__DmxOrExpression__Group__0__Impl rule__DmxOrExpression__Group__1 ;
     public final void rule__DmxOrExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8632:1: ( rule__DmxOrExpression__Group__0__Impl rule__DmxOrExpression__Group__1 )
-            // InternalDim.g:8633:2: rule__DmxOrExpression__Group__0__Impl rule__DmxOrExpression__Group__1
+            // InternalDim.g:8801:1: ( rule__DmxOrExpression__Group__0__Impl rule__DmxOrExpression__Group__1 )
+            // InternalDim.g:8802:2: rule__DmxOrExpression__Group__0__Impl rule__DmxOrExpression__Group__1
             {
-            pushFollow(FOLLOW_58);
+            pushFollow(FOLLOW_62);
             rule__DmxOrExpression__Group__0__Impl();
 
             state._fsp--;
@@ -29766,17 +30304,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group__0__Impl"
-    // InternalDim.g:8640:1: rule__DmxOrExpression__Group__0__Impl : ( ruleDmxAndExpression ) ;
+    // InternalDim.g:8809:1: rule__DmxOrExpression__Group__0__Impl : ( ruleDmxAndExpression ) ;
     public final void rule__DmxOrExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8644:1: ( ( ruleDmxAndExpression ) )
-            // InternalDim.g:8645:1: ( ruleDmxAndExpression )
+            // InternalDim.g:8813:1: ( ( ruleDmxAndExpression ) )
+            // InternalDim.g:8814:1: ( ruleDmxAndExpression )
             {
-            // InternalDim.g:8645:1: ( ruleDmxAndExpression )
-            // InternalDim.g:8646:2: ruleDmxAndExpression
+            // InternalDim.g:8814:1: ( ruleDmxAndExpression )
+            // InternalDim.g:8815:2: ruleDmxAndExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOrExpressionAccess().getDmxAndExpressionParserRuleCall_0()); 
@@ -29811,14 +30349,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group__1"
-    // InternalDim.g:8655:1: rule__DmxOrExpression__Group__1 : rule__DmxOrExpression__Group__1__Impl ;
+    // InternalDim.g:8824:1: rule__DmxOrExpression__Group__1 : rule__DmxOrExpression__Group__1__Impl ;
     public final void rule__DmxOrExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8659:1: ( rule__DmxOrExpression__Group__1__Impl )
-            // InternalDim.g:8660:2: rule__DmxOrExpression__Group__1__Impl
+            // InternalDim.g:8828:1: ( rule__DmxOrExpression__Group__1__Impl )
+            // InternalDim.g:8829:2: rule__DmxOrExpression__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxOrExpression__Group__1__Impl();
@@ -29844,22 +30382,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group__1__Impl"
-    // InternalDim.g:8666:1: rule__DmxOrExpression__Group__1__Impl : ( ( rule__DmxOrExpression__Group_1__0 )* ) ;
+    // InternalDim.g:8835:1: rule__DmxOrExpression__Group__1__Impl : ( ( rule__DmxOrExpression__Group_1__0 )* ) ;
     public final void rule__DmxOrExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8670:1: ( ( ( rule__DmxOrExpression__Group_1__0 )* ) )
-            // InternalDim.g:8671:1: ( ( rule__DmxOrExpression__Group_1__0 )* )
+            // InternalDim.g:8839:1: ( ( ( rule__DmxOrExpression__Group_1__0 )* ) )
+            // InternalDim.g:8840:1: ( ( rule__DmxOrExpression__Group_1__0 )* )
             {
-            // InternalDim.g:8671:1: ( ( rule__DmxOrExpression__Group_1__0 )* )
-            // InternalDim.g:8672:2: ( rule__DmxOrExpression__Group_1__0 )*
+            // InternalDim.g:8840:1: ( ( rule__DmxOrExpression__Group_1__0 )* )
+            // InternalDim.g:8841:2: ( rule__DmxOrExpression__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOrExpressionAccess().getGroup_1()); 
             }
-            // InternalDim.g:8673:2: ( rule__DmxOrExpression__Group_1__0 )*
+            // InternalDim.g:8842:2: ( rule__DmxOrExpression__Group_1__0 )*
             loop100:
             do {
                 int alt100=2;
@@ -29913,9 +30451,9 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
                 switch (alt100) {
             	case 1 :
-            	    // InternalDim.g:8673:3: rule__DmxOrExpression__Group_1__0
+            	    // InternalDim.g:8842:3: rule__DmxOrExpression__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_59);
+            	    pushFollow(FOLLOW_63);
             	    rule__DmxOrExpression__Group_1__0();
 
             	    state._fsp--;
@@ -29954,16 +30492,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group_1__0"
-    // InternalDim.g:8682:1: rule__DmxOrExpression__Group_1__0 : rule__DmxOrExpression__Group_1__0__Impl rule__DmxOrExpression__Group_1__1 ;
+    // InternalDim.g:8851:1: rule__DmxOrExpression__Group_1__0 : rule__DmxOrExpression__Group_1__0__Impl rule__DmxOrExpression__Group_1__1 ;
     public final void rule__DmxOrExpression__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8686:1: ( rule__DmxOrExpression__Group_1__0__Impl rule__DmxOrExpression__Group_1__1 )
-            // InternalDim.g:8687:2: rule__DmxOrExpression__Group_1__0__Impl rule__DmxOrExpression__Group_1__1
+            // InternalDim.g:8855:1: ( rule__DmxOrExpression__Group_1__0__Impl rule__DmxOrExpression__Group_1__1 )
+            // InternalDim.g:8856:2: rule__DmxOrExpression__Group_1__0__Impl rule__DmxOrExpression__Group_1__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_57);
             rule__DmxOrExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -29992,23 +30530,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group_1__0__Impl"
-    // InternalDim.g:8694:1: rule__DmxOrExpression__Group_1__0__Impl : ( ( rule__DmxOrExpression__Group_1_0__0 ) ) ;
+    // InternalDim.g:8863:1: rule__DmxOrExpression__Group_1__0__Impl : ( ( rule__DmxOrExpression__Group_1_0__0 ) ) ;
     public final void rule__DmxOrExpression__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8698:1: ( ( ( rule__DmxOrExpression__Group_1_0__0 ) ) )
-            // InternalDim.g:8699:1: ( ( rule__DmxOrExpression__Group_1_0__0 ) )
+            // InternalDim.g:8867:1: ( ( ( rule__DmxOrExpression__Group_1_0__0 ) ) )
+            // InternalDim.g:8868:1: ( ( rule__DmxOrExpression__Group_1_0__0 ) )
             {
-            // InternalDim.g:8699:1: ( ( rule__DmxOrExpression__Group_1_0__0 ) )
-            // InternalDim.g:8700:2: ( rule__DmxOrExpression__Group_1_0__0 )
+            // InternalDim.g:8868:1: ( ( rule__DmxOrExpression__Group_1_0__0 ) )
+            // InternalDim.g:8869:2: ( rule__DmxOrExpression__Group_1_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOrExpressionAccess().getGroup_1_0()); 
             }
-            // InternalDim.g:8701:2: ( rule__DmxOrExpression__Group_1_0__0 )
-            // InternalDim.g:8701:3: rule__DmxOrExpression__Group_1_0__0
+            // InternalDim.g:8870:2: ( rule__DmxOrExpression__Group_1_0__0 )
+            // InternalDim.g:8870:3: rule__DmxOrExpression__Group_1_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxOrExpression__Group_1_0__0();
@@ -30043,14 +30581,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group_1__1"
-    // InternalDim.g:8709:1: rule__DmxOrExpression__Group_1__1 : rule__DmxOrExpression__Group_1__1__Impl ;
+    // InternalDim.g:8878:1: rule__DmxOrExpression__Group_1__1 : rule__DmxOrExpression__Group_1__1__Impl ;
     public final void rule__DmxOrExpression__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8713:1: ( rule__DmxOrExpression__Group_1__1__Impl )
-            // InternalDim.g:8714:2: rule__DmxOrExpression__Group_1__1__Impl
+            // InternalDim.g:8882:1: ( rule__DmxOrExpression__Group_1__1__Impl )
+            // InternalDim.g:8883:2: rule__DmxOrExpression__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxOrExpression__Group_1__1__Impl();
@@ -30076,23 +30614,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group_1__1__Impl"
-    // InternalDim.g:8720:1: rule__DmxOrExpression__Group_1__1__Impl : ( ( rule__DmxOrExpression__RightOperandAssignment_1_1 ) ) ;
+    // InternalDim.g:8889:1: rule__DmxOrExpression__Group_1__1__Impl : ( ( rule__DmxOrExpression__RightOperandAssignment_1_1 ) ) ;
     public final void rule__DmxOrExpression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8724:1: ( ( ( rule__DmxOrExpression__RightOperandAssignment_1_1 ) ) )
-            // InternalDim.g:8725:1: ( ( rule__DmxOrExpression__RightOperandAssignment_1_1 ) )
+            // InternalDim.g:8893:1: ( ( ( rule__DmxOrExpression__RightOperandAssignment_1_1 ) ) )
+            // InternalDim.g:8894:1: ( ( rule__DmxOrExpression__RightOperandAssignment_1_1 ) )
             {
-            // InternalDim.g:8725:1: ( ( rule__DmxOrExpression__RightOperandAssignment_1_1 ) )
-            // InternalDim.g:8726:2: ( rule__DmxOrExpression__RightOperandAssignment_1_1 )
+            // InternalDim.g:8894:1: ( ( rule__DmxOrExpression__RightOperandAssignment_1_1 ) )
+            // InternalDim.g:8895:2: ( rule__DmxOrExpression__RightOperandAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOrExpressionAccess().getRightOperandAssignment_1_1()); 
             }
-            // InternalDim.g:8727:2: ( rule__DmxOrExpression__RightOperandAssignment_1_1 )
-            // InternalDim.g:8727:3: rule__DmxOrExpression__RightOperandAssignment_1_1
+            // InternalDim.g:8896:2: ( rule__DmxOrExpression__RightOperandAssignment_1_1 )
+            // InternalDim.g:8896:3: rule__DmxOrExpression__RightOperandAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxOrExpression__RightOperandAssignment_1_1();
@@ -30127,14 +30665,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group_1_0__0"
-    // InternalDim.g:8736:1: rule__DmxOrExpression__Group_1_0__0 : rule__DmxOrExpression__Group_1_0__0__Impl ;
+    // InternalDim.g:8905:1: rule__DmxOrExpression__Group_1_0__0 : rule__DmxOrExpression__Group_1_0__0__Impl ;
     public final void rule__DmxOrExpression__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8740:1: ( rule__DmxOrExpression__Group_1_0__0__Impl )
-            // InternalDim.g:8741:2: rule__DmxOrExpression__Group_1_0__0__Impl
+            // InternalDim.g:8909:1: ( rule__DmxOrExpression__Group_1_0__0__Impl )
+            // InternalDim.g:8910:2: rule__DmxOrExpression__Group_1_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxOrExpression__Group_1_0__0__Impl();
@@ -30160,23 +30698,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group_1_0__0__Impl"
-    // InternalDim.g:8747:1: rule__DmxOrExpression__Group_1_0__0__Impl : ( ( rule__DmxOrExpression__Group_1_0_0__0 ) ) ;
+    // InternalDim.g:8916:1: rule__DmxOrExpression__Group_1_0__0__Impl : ( ( rule__DmxOrExpression__Group_1_0_0__0 ) ) ;
     public final void rule__DmxOrExpression__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8751:1: ( ( ( rule__DmxOrExpression__Group_1_0_0__0 ) ) )
-            // InternalDim.g:8752:1: ( ( rule__DmxOrExpression__Group_1_0_0__0 ) )
+            // InternalDim.g:8920:1: ( ( ( rule__DmxOrExpression__Group_1_0_0__0 ) ) )
+            // InternalDim.g:8921:1: ( ( rule__DmxOrExpression__Group_1_0_0__0 ) )
             {
-            // InternalDim.g:8752:1: ( ( rule__DmxOrExpression__Group_1_0_0__0 ) )
-            // InternalDim.g:8753:2: ( rule__DmxOrExpression__Group_1_0_0__0 )
+            // InternalDim.g:8921:1: ( ( rule__DmxOrExpression__Group_1_0_0__0 ) )
+            // InternalDim.g:8922:2: ( rule__DmxOrExpression__Group_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOrExpressionAccess().getGroup_1_0_0()); 
             }
-            // InternalDim.g:8754:2: ( rule__DmxOrExpression__Group_1_0_0__0 )
-            // InternalDim.g:8754:3: rule__DmxOrExpression__Group_1_0_0__0
+            // InternalDim.g:8923:2: ( rule__DmxOrExpression__Group_1_0_0__0 )
+            // InternalDim.g:8923:3: rule__DmxOrExpression__Group_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxOrExpression__Group_1_0_0__0();
@@ -30211,16 +30749,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group_1_0_0__0"
-    // InternalDim.g:8763:1: rule__DmxOrExpression__Group_1_0_0__0 : rule__DmxOrExpression__Group_1_0_0__0__Impl rule__DmxOrExpression__Group_1_0_0__1 ;
+    // InternalDim.g:8932:1: rule__DmxOrExpression__Group_1_0_0__0 : rule__DmxOrExpression__Group_1_0_0__0__Impl rule__DmxOrExpression__Group_1_0_0__1 ;
     public final void rule__DmxOrExpression__Group_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8767:1: ( rule__DmxOrExpression__Group_1_0_0__0__Impl rule__DmxOrExpression__Group_1_0_0__1 )
-            // InternalDim.g:8768:2: rule__DmxOrExpression__Group_1_0_0__0__Impl rule__DmxOrExpression__Group_1_0_0__1
+            // InternalDim.g:8936:1: ( rule__DmxOrExpression__Group_1_0_0__0__Impl rule__DmxOrExpression__Group_1_0_0__1 )
+            // InternalDim.g:8937:2: rule__DmxOrExpression__Group_1_0_0__0__Impl rule__DmxOrExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_58);
+            pushFollow(FOLLOW_62);
             rule__DmxOrExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -30249,23 +30787,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group_1_0_0__0__Impl"
-    // InternalDim.g:8775:1: rule__DmxOrExpression__Group_1_0_0__0__Impl : ( () ) ;
+    // InternalDim.g:8944:1: rule__DmxOrExpression__Group_1_0_0__0__Impl : ( () ) ;
     public final void rule__DmxOrExpression__Group_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8779:1: ( ( () ) )
-            // InternalDim.g:8780:1: ( () )
+            // InternalDim.g:8948:1: ( ( () ) )
+            // InternalDim.g:8949:1: ( () )
             {
-            // InternalDim.g:8780:1: ( () )
-            // InternalDim.g:8781:2: ()
+            // InternalDim.g:8949:1: ( () )
+            // InternalDim.g:8950:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOrExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()); 
             }
-            // InternalDim.g:8782:2: ()
-            // InternalDim.g:8782:3: 
+            // InternalDim.g:8951:2: ()
+            // InternalDim.g:8951:3: 
             {
             }
 
@@ -30290,14 +30828,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group_1_0_0__1"
-    // InternalDim.g:8790:1: rule__DmxOrExpression__Group_1_0_0__1 : rule__DmxOrExpression__Group_1_0_0__1__Impl ;
+    // InternalDim.g:8959:1: rule__DmxOrExpression__Group_1_0_0__1 : rule__DmxOrExpression__Group_1_0_0__1__Impl ;
     public final void rule__DmxOrExpression__Group_1_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8794:1: ( rule__DmxOrExpression__Group_1_0_0__1__Impl )
-            // InternalDim.g:8795:2: rule__DmxOrExpression__Group_1_0_0__1__Impl
+            // InternalDim.g:8963:1: ( rule__DmxOrExpression__Group_1_0_0__1__Impl )
+            // InternalDim.g:8964:2: rule__DmxOrExpression__Group_1_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxOrExpression__Group_1_0_0__1__Impl();
@@ -30323,23 +30861,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group_1_0_0__1__Impl"
-    // InternalDim.g:8801:1: rule__DmxOrExpression__Group_1_0_0__1__Impl : ( ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 ) ) ;
+    // InternalDim.g:8970:1: rule__DmxOrExpression__Group_1_0_0__1__Impl : ( ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 ) ) ;
     public final void rule__DmxOrExpression__Group_1_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8805:1: ( ( ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 ) ) )
-            // InternalDim.g:8806:1: ( ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalDim.g:8974:1: ( ( ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 ) ) )
+            // InternalDim.g:8975:1: ( ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 ) )
             {
-            // InternalDim.g:8806:1: ( ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 ) )
-            // InternalDim.g:8807:2: ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 )
+            // InternalDim.g:8975:1: ( ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalDim.g:8976:2: ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOrExpressionAccess().getOperatorAssignment_1_0_0_1()); 
             }
-            // InternalDim.g:8808:2: ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 )
-            // InternalDim.g:8808:3: rule__DmxOrExpression__OperatorAssignment_1_0_0_1
+            // InternalDim.g:8977:2: ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 )
+            // InternalDim.g:8977:3: rule__DmxOrExpression__OperatorAssignment_1_0_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxOrExpression__OperatorAssignment_1_0_0_1();
@@ -30374,16 +30912,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group__0"
-    // InternalDim.g:8817:1: rule__DmxAndExpression__Group__0 : rule__DmxAndExpression__Group__0__Impl rule__DmxAndExpression__Group__1 ;
+    // InternalDim.g:8986:1: rule__DmxAndExpression__Group__0 : rule__DmxAndExpression__Group__0__Impl rule__DmxAndExpression__Group__1 ;
     public final void rule__DmxAndExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8821:1: ( rule__DmxAndExpression__Group__0__Impl rule__DmxAndExpression__Group__1 )
-            // InternalDim.g:8822:2: rule__DmxAndExpression__Group__0__Impl rule__DmxAndExpression__Group__1
+            // InternalDim.g:8990:1: ( rule__DmxAndExpression__Group__0__Impl rule__DmxAndExpression__Group__1 )
+            // InternalDim.g:8991:2: rule__DmxAndExpression__Group__0__Impl rule__DmxAndExpression__Group__1
             {
-            pushFollow(FOLLOW_60);
+            pushFollow(FOLLOW_64);
             rule__DmxAndExpression__Group__0__Impl();
 
             state._fsp--;
@@ -30412,17 +30950,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group__0__Impl"
-    // InternalDim.g:8829:1: rule__DmxAndExpression__Group__0__Impl : ( ruleDmxEqualityExpression ) ;
+    // InternalDim.g:8998:1: rule__DmxAndExpression__Group__0__Impl : ( ruleDmxEqualityExpression ) ;
     public final void rule__DmxAndExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8833:1: ( ( ruleDmxEqualityExpression ) )
-            // InternalDim.g:8834:1: ( ruleDmxEqualityExpression )
+            // InternalDim.g:9002:1: ( ( ruleDmxEqualityExpression ) )
+            // InternalDim.g:9003:1: ( ruleDmxEqualityExpression )
             {
-            // InternalDim.g:8834:1: ( ruleDmxEqualityExpression )
-            // InternalDim.g:8835:2: ruleDmxEqualityExpression
+            // InternalDim.g:9003:1: ( ruleDmxEqualityExpression )
+            // InternalDim.g:9004:2: ruleDmxEqualityExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAndExpressionAccess().getDmxEqualityExpressionParserRuleCall_0()); 
@@ -30457,14 +30995,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group__1"
-    // InternalDim.g:8844:1: rule__DmxAndExpression__Group__1 : rule__DmxAndExpression__Group__1__Impl ;
+    // InternalDim.g:9013:1: rule__DmxAndExpression__Group__1 : rule__DmxAndExpression__Group__1__Impl ;
     public final void rule__DmxAndExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8848:1: ( rule__DmxAndExpression__Group__1__Impl )
-            // InternalDim.g:8849:2: rule__DmxAndExpression__Group__1__Impl
+            // InternalDim.g:9017:1: ( rule__DmxAndExpression__Group__1__Impl )
+            // InternalDim.g:9018:2: rule__DmxAndExpression__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxAndExpression__Group__1__Impl();
@@ -30490,22 +31028,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group__1__Impl"
-    // InternalDim.g:8855:1: rule__DmxAndExpression__Group__1__Impl : ( ( rule__DmxAndExpression__Group_1__0 )* ) ;
+    // InternalDim.g:9024:1: rule__DmxAndExpression__Group__1__Impl : ( ( rule__DmxAndExpression__Group_1__0 )* ) ;
     public final void rule__DmxAndExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8859:1: ( ( ( rule__DmxAndExpression__Group_1__0 )* ) )
-            // InternalDim.g:8860:1: ( ( rule__DmxAndExpression__Group_1__0 )* )
+            // InternalDim.g:9028:1: ( ( ( rule__DmxAndExpression__Group_1__0 )* ) )
+            // InternalDim.g:9029:1: ( ( rule__DmxAndExpression__Group_1__0 )* )
             {
-            // InternalDim.g:8860:1: ( ( rule__DmxAndExpression__Group_1__0 )* )
-            // InternalDim.g:8861:2: ( rule__DmxAndExpression__Group_1__0 )*
+            // InternalDim.g:9029:1: ( ( rule__DmxAndExpression__Group_1__0 )* )
+            // InternalDim.g:9030:2: ( rule__DmxAndExpression__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAndExpressionAccess().getGroup_1()); 
             }
-            // InternalDim.g:8862:2: ( rule__DmxAndExpression__Group_1__0 )*
+            // InternalDim.g:9031:2: ( rule__DmxAndExpression__Group_1__0 )*
             loop101:
             do {
                 int alt101=2;
@@ -30533,9 +31071,9 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
                 switch (alt101) {
             	case 1 :
-            	    // InternalDim.g:8862:3: rule__DmxAndExpression__Group_1__0
+            	    // InternalDim.g:9031:3: rule__DmxAndExpression__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_61);
+            	    pushFollow(FOLLOW_65);
             	    rule__DmxAndExpression__Group_1__0();
 
             	    state._fsp--;
@@ -30574,16 +31112,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group_1__0"
-    // InternalDim.g:8871:1: rule__DmxAndExpression__Group_1__0 : rule__DmxAndExpression__Group_1__0__Impl rule__DmxAndExpression__Group_1__1 ;
+    // InternalDim.g:9040:1: rule__DmxAndExpression__Group_1__0 : rule__DmxAndExpression__Group_1__0__Impl rule__DmxAndExpression__Group_1__1 ;
     public final void rule__DmxAndExpression__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8875:1: ( rule__DmxAndExpression__Group_1__0__Impl rule__DmxAndExpression__Group_1__1 )
-            // InternalDim.g:8876:2: rule__DmxAndExpression__Group_1__0__Impl rule__DmxAndExpression__Group_1__1
+            // InternalDim.g:9044:1: ( rule__DmxAndExpression__Group_1__0__Impl rule__DmxAndExpression__Group_1__1 )
+            // InternalDim.g:9045:2: rule__DmxAndExpression__Group_1__0__Impl rule__DmxAndExpression__Group_1__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_57);
             rule__DmxAndExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -30612,23 +31150,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group_1__0__Impl"
-    // InternalDim.g:8883:1: rule__DmxAndExpression__Group_1__0__Impl : ( ( rule__DmxAndExpression__Group_1_0__0 ) ) ;
+    // InternalDim.g:9052:1: rule__DmxAndExpression__Group_1__0__Impl : ( ( rule__DmxAndExpression__Group_1_0__0 ) ) ;
     public final void rule__DmxAndExpression__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8887:1: ( ( ( rule__DmxAndExpression__Group_1_0__0 ) ) )
-            // InternalDim.g:8888:1: ( ( rule__DmxAndExpression__Group_1_0__0 ) )
+            // InternalDim.g:9056:1: ( ( ( rule__DmxAndExpression__Group_1_0__0 ) ) )
+            // InternalDim.g:9057:1: ( ( rule__DmxAndExpression__Group_1_0__0 ) )
             {
-            // InternalDim.g:8888:1: ( ( rule__DmxAndExpression__Group_1_0__0 ) )
-            // InternalDim.g:8889:2: ( rule__DmxAndExpression__Group_1_0__0 )
+            // InternalDim.g:9057:1: ( ( rule__DmxAndExpression__Group_1_0__0 ) )
+            // InternalDim.g:9058:2: ( rule__DmxAndExpression__Group_1_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAndExpressionAccess().getGroup_1_0()); 
             }
-            // InternalDim.g:8890:2: ( rule__DmxAndExpression__Group_1_0__0 )
-            // InternalDim.g:8890:3: rule__DmxAndExpression__Group_1_0__0
+            // InternalDim.g:9059:2: ( rule__DmxAndExpression__Group_1_0__0 )
+            // InternalDim.g:9059:3: rule__DmxAndExpression__Group_1_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxAndExpression__Group_1_0__0();
@@ -30663,14 +31201,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group_1__1"
-    // InternalDim.g:8898:1: rule__DmxAndExpression__Group_1__1 : rule__DmxAndExpression__Group_1__1__Impl ;
+    // InternalDim.g:9067:1: rule__DmxAndExpression__Group_1__1 : rule__DmxAndExpression__Group_1__1__Impl ;
     public final void rule__DmxAndExpression__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8902:1: ( rule__DmxAndExpression__Group_1__1__Impl )
-            // InternalDim.g:8903:2: rule__DmxAndExpression__Group_1__1__Impl
+            // InternalDim.g:9071:1: ( rule__DmxAndExpression__Group_1__1__Impl )
+            // InternalDim.g:9072:2: rule__DmxAndExpression__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxAndExpression__Group_1__1__Impl();
@@ -30696,23 +31234,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group_1__1__Impl"
-    // InternalDim.g:8909:1: rule__DmxAndExpression__Group_1__1__Impl : ( ( rule__DmxAndExpression__RightOperandAssignment_1_1 ) ) ;
+    // InternalDim.g:9078:1: rule__DmxAndExpression__Group_1__1__Impl : ( ( rule__DmxAndExpression__RightOperandAssignment_1_1 ) ) ;
     public final void rule__DmxAndExpression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8913:1: ( ( ( rule__DmxAndExpression__RightOperandAssignment_1_1 ) ) )
-            // InternalDim.g:8914:1: ( ( rule__DmxAndExpression__RightOperandAssignment_1_1 ) )
+            // InternalDim.g:9082:1: ( ( ( rule__DmxAndExpression__RightOperandAssignment_1_1 ) ) )
+            // InternalDim.g:9083:1: ( ( rule__DmxAndExpression__RightOperandAssignment_1_1 ) )
             {
-            // InternalDim.g:8914:1: ( ( rule__DmxAndExpression__RightOperandAssignment_1_1 ) )
-            // InternalDim.g:8915:2: ( rule__DmxAndExpression__RightOperandAssignment_1_1 )
+            // InternalDim.g:9083:1: ( ( rule__DmxAndExpression__RightOperandAssignment_1_1 ) )
+            // InternalDim.g:9084:2: ( rule__DmxAndExpression__RightOperandAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAndExpressionAccess().getRightOperandAssignment_1_1()); 
             }
-            // InternalDim.g:8916:2: ( rule__DmxAndExpression__RightOperandAssignment_1_1 )
-            // InternalDim.g:8916:3: rule__DmxAndExpression__RightOperandAssignment_1_1
+            // InternalDim.g:9085:2: ( rule__DmxAndExpression__RightOperandAssignment_1_1 )
+            // InternalDim.g:9085:3: rule__DmxAndExpression__RightOperandAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxAndExpression__RightOperandAssignment_1_1();
@@ -30747,14 +31285,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group_1_0__0"
-    // InternalDim.g:8925:1: rule__DmxAndExpression__Group_1_0__0 : rule__DmxAndExpression__Group_1_0__0__Impl ;
+    // InternalDim.g:9094:1: rule__DmxAndExpression__Group_1_0__0 : rule__DmxAndExpression__Group_1_0__0__Impl ;
     public final void rule__DmxAndExpression__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8929:1: ( rule__DmxAndExpression__Group_1_0__0__Impl )
-            // InternalDim.g:8930:2: rule__DmxAndExpression__Group_1_0__0__Impl
+            // InternalDim.g:9098:1: ( rule__DmxAndExpression__Group_1_0__0__Impl )
+            // InternalDim.g:9099:2: rule__DmxAndExpression__Group_1_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxAndExpression__Group_1_0__0__Impl();
@@ -30780,23 +31318,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group_1_0__0__Impl"
-    // InternalDim.g:8936:1: rule__DmxAndExpression__Group_1_0__0__Impl : ( ( rule__DmxAndExpression__Group_1_0_0__0 ) ) ;
+    // InternalDim.g:9105:1: rule__DmxAndExpression__Group_1_0__0__Impl : ( ( rule__DmxAndExpression__Group_1_0_0__0 ) ) ;
     public final void rule__DmxAndExpression__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8940:1: ( ( ( rule__DmxAndExpression__Group_1_0_0__0 ) ) )
-            // InternalDim.g:8941:1: ( ( rule__DmxAndExpression__Group_1_0_0__0 ) )
+            // InternalDim.g:9109:1: ( ( ( rule__DmxAndExpression__Group_1_0_0__0 ) ) )
+            // InternalDim.g:9110:1: ( ( rule__DmxAndExpression__Group_1_0_0__0 ) )
             {
-            // InternalDim.g:8941:1: ( ( rule__DmxAndExpression__Group_1_0_0__0 ) )
-            // InternalDim.g:8942:2: ( rule__DmxAndExpression__Group_1_0_0__0 )
+            // InternalDim.g:9110:1: ( ( rule__DmxAndExpression__Group_1_0_0__0 ) )
+            // InternalDim.g:9111:2: ( rule__DmxAndExpression__Group_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAndExpressionAccess().getGroup_1_0_0()); 
             }
-            // InternalDim.g:8943:2: ( rule__DmxAndExpression__Group_1_0_0__0 )
-            // InternalDim.g:8943:3: rule__DmxAndExpression__Group_1_0_0__0
+            // InternalDim.g:9112:2: ( rule__DmxAndExpression__Group_1_0_0__0 )
+            // InternalDim.g:9112:3: rule__DmxAndExpression__Group_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxAndExpression__Group_1_0_0__0();
@@ -30831,16 +31369,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group_1_0_0__0"
-    // InternalDim.g:8952:1: rule__DmxAndExpression__Group_1_0_0__0 : rule__DmxAndExpression__Group_1_0_0__0__Impl rule__DmxAndExpression__Group_1_0_0__1 ;
+    // InternalDim.g:9121:1: rule__DmxAndExpression__Group_1_0_0__0 : rule__DmxAndExpression__Group_1_0_0__0__Impl rule__DmxAndExpression__Group_1_0_0__1 ;
     public final void rule__DmxAndExpression__Group_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8956:1: ( rule__DmxAndExpression__Group_1_0_0__0__Impl rule__DmxAndExpression__Group_1_0_0__1 )
-            // InternalDim.g:8957:2: rule__DmxAndExpression__Group_1_0_0__0__Impl rule__DmxAndExpression__Group_1_0_0__1
+            // InternalDim.g:9125:1: ( rule__DmxAndExpression__Group_1_0_0__0__Impl rule__DmxAndExpression__Group_1_0_0__1 )
+            // InternalDim.g:9126:2: rule__DmxAndExpression__Group_1_0_0__0__Impl rule__DmxAndExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_60);
+            pushFollow(FOLLOW_64);
             rule__DmxAndExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -30869,23 +31407,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group_1_0_0__0__Impl"
-    // InternalDim.g:8964:1: rule__DmxAndExpression__Group_1_0_0__0__Impl : ( () ) ;
+    // InternalDim.g:9133:1: rule__DmxAndExpression__Group_1_0_0__0__Impl : ( () ) ;
     public final void rule__DmxAndExpression__Group_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8968:1: ( ( () ) )
-            // InternalDim.g:8969:1: ( () )
+            // InternalDim.g:9137:1: ( ( () ) )
+            // InternalDim.g:9138:1: ( () )
             {
-            // InternalDim.g:8969:1: ( () )
-            // InternalDim.g:8970:2: ()
+            // InternalDim.g:9138:1: ( () )
+            // InternalDim.g:9139:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAndExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()); 
             }
-            // InternalDim.g:8971:2: ()
-            // InternalDim.g:8971:3: 
+            // InternalDim.g:9140:2: ()
+            // InternalDim.g:9140:3: 
             {
             }
 
@@ -30910,14 +31448,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group_1_0_0__1"
-    // InternalDim.g:8979:1: rule__DmxAndExpression__Group_1_0_0__1 : rule__DmxAndExpression__Group_1_0_0__1__Impl ;
+    // InternalDim.g:9148:1: rule__DmxAndExpression__Group_1_0_0__1 : rule__DmxAndExpression__Group_1_0_0__1__Impl ;
     public final void rule__DmxAndExpression__Group_1_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8983:1: ( rule__DmxAndExpression__Group_1_0_0__1__Impl )
-            // InternalDim.g:8984:2: rule__DmxAndExpression__Group_1_0_0__1__Impl
+            // InternalDim.g:9152:1: ( rule__DmxAndExpression__Group_1_0_0__1__Impl )
+            // InternalDim.g:9153:2: rule__DmxAndExpression__Group_1_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxAndExpression__Group_1_0_0__1__Impl();
@@ -30943,23 +31481,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group_1_0_0__1__Impl"
-    // InternalDim.g:8990:1: rule__DmxAndExpression__Group_1_0_0__1__Impl : ( ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 ) ) ;
+    // InternalDim.g:9159:1: rule__DmxAndExpression__Group_1_0_0__1__Impl : ( ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 ) ) ;
     public final void rule__DmxAndExpression__Group_1_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:8994:1: ( ( ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 ) ) )
-            // InternalDim.g:8995:1: ( ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalDim.g:9163:1: ( ( ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 ) ) )
+            // InternalDim.g:9164:1: ( ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 ) )
             {
-            // InternalDim.g:8995:1: ( ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 ) )
-            // InternalDim.g:8996:2: ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 )
+            // InternalDim.g:9164:1: ( ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalDim.g:9165:2: ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAndExpressionAccess().getOperatorAssignment_1_0_0_1()); 
             }
-            // InternalDim.g:8997:2: ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 )
-            // InternalDim.g:8997:3: rule__DmxAndExpression__OperatorAssignment_1_0_0_1
+            // InternalDim.g:9166:2: ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 )
+            // InternalDim.g:9166:3: rule__DmxAndExpression__OperatorAssignment_1_0_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxAndExpression__OperatorAssignment_1_0_0_1();
@@ -30994,16 +31532,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group__0"
-    // InternalDim.g:9006:1: rule__DmxEqualityExpression__Group__0 : rule__DmxEqualityExpression__Group__0__Impl rule__DmxEqualityExpression__Group__1 ;
+    // InternalDim.g:9175:1: rule__DmxEqualityExpression__Group__0 : rule__DmxEqualityExpression__Group__0__Impl rule__DmxEqualityExpression__Group__1 ;
     public final void rule__DmxEqualityExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9010:1: ( rule__DmxEqualityExpression__Group__0__Impl rule__DmxEqualityExpression__Group__1 )
-            // InternalDim.g:9011:2: rule__DmxEqualityExpression__Group__0__Impl rule__DmxEqualityExpression__Group__1
+            // InternalDim.g:9179:1: ( rule__DmxEqualityExpression__Group__0__Impl rule__DmxEqualityExpression__Group__1 )
+            // InternalDim.g:9180:2: rule__DmxEqualityExpression__Group__0__Impl rule__DmxEqualityExpression__Group__1
             {
-            pushFollow(FOLLOW_62);
+            pushFollow(FOLLOW_66);
             rule__DmxEqualityExpression__Group__0__Impl();
 
             state._fsp--;
@@ -31032,17 +31570,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group__0__Impl"
-    // InternalDim.g:9018:1: rule__DmxEqualityExpression__Group__0__Impl : ( ruleDmxRelationalExpression ) ;
+    // InternalDim.g:9187:1: rule__DmxEqualityExpression__Group__0__Impl : ( ruleDmxRelationalExpression ) ;
     public final void rule__DmxEqualityExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9022:1: ( ( ruleDmxRelationalExpression ) )
-            // InternalDim.g:9023:1: ( ruleDmxRelationalExpression )
+            // InternalDim.g:9191:1: ( ( ruleDmxRelationalExpression ) )
+            // InternalDim.g:9192:1: ( ruleDmxRelationalExpression )
             {
-            // InternalDim.g:9023:1: ( ruleDmxRelationalExpression )
-            // InternalDim.g:9024:2: ruleDmxRelationalExpression
+            // InternalDim.g:9192:1: ( ruleDmxRelationalExpression )
+            // InternalDim.g:9193:2: ruleDmxRelationalExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxEqualityExpressionAccess().getDmxRelationalExpressionParserRuleCall_0()); 
@@ -31077,14 +31615,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group__1"
-    // InternalDim.g:9033:1: rule__DmxEqualityExpression__Group__1 : rule__DmxEqualityExpression__Group__1__Impl ;
+    // InternalDim.g:9202:1: rule__DmxEqualityExpression__Group__1 : rule__DmxEqualityExpression__Group__1__Impl ;
     public final void rule__DmxEqualityExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9037:1: ( rule__DmxEqualityExpression__Group__1__Impl )
-            // InternalDim.g:9038:2: rule__DmxEqualityExpression__Group__1__Impl
+            // InternalDim.g:9206:1: ( rule__DmxEqualityExpression__Group__1__Impl )
+            // InternalDim.g:9207:2: rule__DmxEqualityExpression__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxEqualityExpression__Group__1__Impl();
@@ -31110,22 +31648,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group__1__Impl"
-    // InternalDim.g:9044:1: rule__DmxEqualityExpression__Group__1__Impl : ( ( rule__DmxEqualityExpression__Group_1__0 )* ) ;
+    // InternalDim.g:9213:1: rule__DmxEqualityExpression__Group__1__Impl : ( ( rule__DmxEqualityExpression__Group_1__0 )* ) ;
     public final void rule__DmxEqualityExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9048:1: ( ( ( rule__DmxEqualityExpression__Group_1__0 )* ) )
-            // InternalDim.g:9049:1: ( ( rule__DmxEqualityExpression__Group_1__0 )* )
+            // InternalDim.g:9217:1: ( ( ( rule__DmxEqualityExpression__Group_1__0 )* ) )
+            // InternalDim.g:9218:1: ( ( rule__DmxEqualityExpression__Group_1__0 )* )
             {
-            // InternalDim.g:9049:1: ( ( rule__DmxEqualityExpression__Group_1__0 )* )
-            // InternalDim.g:9050:2: ( rule__DmxEqualityExpression__Group_1__0 )*
+            // InternalDim.g:9218:1: ( ( rule__DmxEqualityExpression__Group_1__0 )* )
+            // InternalDim.g:9219:2: ( rule__DmxEqualityExpression__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxEqualityExpressionAccess().getGroup_1()); 
             }
-            // InternalDim.g:9051:2: ( rule__DmxEqualityExpression__Group_1__0 )*
+            // InternalDim.g:9220:2: ( rule__DmxEqualityExpression__Group_1__0 )*
             loop102:
             do {
                 int alt102=2;
@@ -31168,9 +31706,9 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
                 switch (alt102) {
             	case 1 :
-            	    // InternalDim.g:9051:3: rule__DmxEqualityExpression__Group_1__0
+            	    // InternalDim.g:9220:3: rule__DmxEqualityExpression__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_63);
+            	    pushFollow(FOLLOW_67);
             	    rule__DmxEqualityExpression__Group_1__0();
 
             	    state._fsp--;
@@ -31209,16 +31747,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group_1__0"
-    // InternalDim.g:9060:1: rule__DmxEqualityExpression__Group_1__0 : rule__DmxEqualityExpression__Group_1__0__Impl rule__DmxEqualityExpression__Group_1__1 ;
+    // InternalDim.g:9229:1: rule__DmxEqualityExpression__Group_1__0 : rule__DmxEqualityExpression__Group_1__0__Impl rule__DmxEqualityExpression__Group_1__1 ;
     public final void rule__DmxEqualityExpression__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9064:1: ( rule__DmxEqualityExpression__Group_1__0__Impl rule__DmxEqualityExpression__Group_1__1 )
-            // InternalDim.g:9065:2: rule__DmxEqualityExpression__Group_1__0__Impl rule__DmxEqualityExpression__Group_1__1
+            // InternalDim.g:9233:1: ( rule__DmxEqualityExpression__Group_1__0__Impl rule__DmxEqualityExpression__Group_1__1 )
+            // InternalDim.g:9234:2: rule__DmxEqualityExpression__Group_1__0__Impl rule__DmxEqualityExpression__Group_1__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_57);
             rule__DmxEqualityExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -31247,23 +31785,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group_1__0__Impl"
-    // InternalDim.g:9072:1: rule__DmxEqualityExpression__Group_1__0__Impl : ( ( rule__DmxEqualityExpression__Group_1_0__0 ) ) ;
+    // InternalDim.g:9241:1: rule__DmxEqualityExpression__Group_1__0__Impl : ( ( rule__DmxEqualityExpression__Group_1_0__0 ) ) ;
     public final void rule__DmxEqualityExpression__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9076:1: ( ( ( rule__DmxEqualityExpression__Group_1_0__0 ) ) )
-            // InternalDim.g:9077:1: ( ( rule__DmxEqualityExpression__Group_1_0__0 ) )
+            // InternalDim.g:9245:1: ( ( ( rule__DmxEqualityExpression__Group_1_0__0 ) ) )
+            // InternalDim.g:9246:1: ( ( rule__DmxEqualityExpression__Group_1_0__0 ) )
             {
-            // InternalDim.g:9077:1: ( ( rule__DmxEqualityExpression__Group_1_0__0 ) )
-            // InternalDim.g:9078:2: ( rule__DmxEqualityExpression__Group_1_0__0 )
+            // InternalDim.g:9246:1: ( ( rule__DmxEqualityExpression__Group_1_0__0 ) )
+            // InternalDim.g:9247:2: ( rule__DmxEqualityExpression__Group_1_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxEqualityExpressionAccess().getGroup_1_0()); 
             }
-            // InternalDim.g:9079:2: ( rule__DmxEqualityExpression__Group_1_0__0 )
-            // InternalDim.g:9079:3: rule__DmxEqualityExpression__Group_1_0__0
+            // InternalDim.g:9248:2: ( rule__DmxEqualityExpression__Group_1_0__0 )
+            // InternalDim.g:9248:3: rule__DmxEqualityExpression__Group_1_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxEqualityExpression__Group_1_0__0();
@@ -31298,14 +31836,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group_1__1"
-    // InternalDim.g:9087:1: rule__DmxEqualityExpression__Group_1__1 : rule__DmxEqualityExpression__Group_1__1__Impl ;
+    // InternalDim.g:9256:1: rule__DmxEqualityExpression__Group_1__1 : rule__DmxEqualityExpression__Group_1__1__Impl ;
     public final void rule__DmxEqualityExpression__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9091:1: ( rule__DmxEqualityExpression__Group_1__1__Impl )
-            // InternalDim.g:9092:2: rule__DmxEqualityExpression__Group_1__1__Impl
+            // InternalDim.g:9260:1: ( rule__DmxEqualityExpression__Group_1__1__Impl )
+            // InternalDim.g:9261:2: rule__DmxEqualityExpression__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxEqualityExpression__Group_1__1__Impl();
@@ -31331,23 +31869,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group_1__1__Impl"
-    // InternalDim.g:9098:1: rule__DmxEqualityExpression__Group_1__1__Impl : ( ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 ) ) ;
+    // InternalDim.g:9267:1: rule__DmxEqualityExpression__Group_1__1__Impl : ( ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 ) ) ;
     public final void rule__DmxEqualityExpression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9102:1: ( ( ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 ) ) )
-            // InternalDim.g:9103:1: ( ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 ) )
+            // InternalDim.g:9271:1: ( ( ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 ) ) )
+            // InternalDim.g:9272:1: ( ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 ) )
             {
-            // InternalDim.g:9103:1: ( ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 ) )
-            // InternalDim.g:9104:2: ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 )
+            // InternalDim.g:9272:1: ( ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 ) )
+            // InternalDim.g:9273:2: ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxEqualityExpressionAccess().getRightOperandAssignment_1_1()); 
             }
-            // InternalDim.g:9105:2: ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 )
-            // InternalDim.g:9105:3: rule__DmxEqualityExpression__RightOperandAssignment_1_1
+            // InternalDim.g:9274:2: ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 )
+            // InternalDim.g:9274:3: rule__DmxEqualityExpression__RightOperandAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxEqualityExpression__RightOperandAssignment_1_1();
@@ -31382,14 +31920,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group_1_0__0"
-    // InternalDim.g:9114:1: rule__DmxEqualityExpression__Group_1_0__0 : rule__DmxEqualityExpression__Group_1_0__0__Impl ;
+    // InternalDim.g:9283:1: rule__DmxEqualityExpression__Group_1_0__0 : rule__DmxEqualityExpression__Group_1_0__0__Impl ;
     public final void rule__DmxEqualityExpression__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9118:1: ( rule__DmxEqualityExpression__Group_1_0__0__Impl )
-            // InternalDim.g:9119:2: rule__DmxEqualityExpression__Group_1_0__0__Impl
+            // InternalDim.g:9287:1: ( rule__DmxEqualityExpression__Group_1_0__0__Impl )
+            // InternalDim.g:9288:2: rule__DmxEqualityExpression__Group_1_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxEqualityExpression__Group_1_0__0__Impl();
@@ -31415,23 +31953,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group_1_0__0__Impl"
-    // InternalDim.g:9125:1: rule__DmxEqualityExpression__Group_1_0__0__Impl : ( ( rule__DmxEqualityExpression__Group_1_0_0__0 ) ) ;
+    // InternalDim.g:9294:1: rule__DmxEqualityExpression__Group_1_0__0__Impl : ( ( rule__DmxEqualityExpression__Group_1_0_0__0 ) ) ;
     public final void rule__DmxEqualityExpression__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9129:1: ( ( ( rule__DmxEqualityExpression__Group_1_0_0__0 ) ) )
-            // InternalDim.g:9130:1: ( ( rule__DmxEqualityExpression__Group_1_0_0__0 ) )
+            // InternalDim.g:9298:1: ( ( ( rule__DmxEqualityExpression__Group_1_0_0__0 ) ) )
+            // InternalDim.g:9299:1: ( ( rule__DmxEqualityExpression__Group_1_0_0__0 ) )
             {
-            // InternalDim.g:9130:1: ( ( rule__DmxEqualityExpression__Group_1_0_0__0 ) )
-            // InternalDim.g:9131:2: ( rule__DmxEqualityExpression__Group_1_0_0__0 )
+            // InternalDim.g:9299:1: ( ( rule__DmxEqualityExpression__Group_1_0_0__0 ) )
+            // InternalDim.g:9300:2: ( rule__DmxEqualityExpression__Group_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxEqualityExpressionAccess().getGroup_1_0_0()); 
             }
-            // InternalDim.g:9132:2: ( rule__DmxEqualityExpression__Group_1_0_0__0 )
-            // InternalDim.g:9132:3: rule__DmxEqualityExpression__Group_1_0_0__0
+            // InternalDim.g:9301:2: ( rule__DmxEqualityExpression__Group_1_0_0__0 )
+            // InternalDim.g:9301:3: rule__DmxEqualityExpression__Group_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxEqualityExpression__Group_1_0_0__0();
@@ -31466,16 +32004,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group_1_0_0__0"
-    // InternalDim.g:9141:1: rule__DmxEqualityExpression__Group_1_0_0__0 : rule__DmxEqualityExpression__Group_1_0_0__0__Impl rule__DmxEqualityExpression__Group_1_0_0__1 ;
+    // InternalDim.g:9310:1: rule__DmxEqualityExpression__Group_1_0_0__0 : rule__DmxEqualityExpression__Group_1_0_0__0__Impl rule__DmxEqualityExpression__Group_1_0_0__1 ;
     public final void rule__DmxEqualityExpression__Group_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9145:1: ( rule__DmxEqualityExpression__Group_1_0_0__0__Impl rule__DmxEqualityExpression__Group_1_0_0__1 )
-            // InternalDim.g:9146:2: rule__DmxEqualityExpression__Group_1_0_0__0__Impl rule__DmxEqualityExpression__Group_1_0_0__1
+            // InternalDim.g:9314:1: ( rule__DmxEqualityExpression__Group_1_0_0__0__Impl rule__DmxEqualityExpression__Group_1_0_0__1 )
+            // InternalDim.g:9315:2: rule__DmxEqualityExpression__Group_1_0_0__0__Impl rule__DmxEqualityExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_62);
+            pushFollow(FOLLOW_66);
             rule__DmxEqualityExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -31504,23 +32042,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group_1_0_0__0__Impl"
-    // InternalDim.g:9153:1: rule__DmxEqualityExpression__Group_1_0_0__0__Impl : ( () ) ;
+    // InternalDim.g:9322:1: rule__DmxEqualityExpression__Group_1_0_0__0__Impl : ( () ) ;
     public final void rule__DmxEqualityExpression__Group_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9157:1: ( ( () ) )
-            // InternalDim.g:9158:1: ( () )
+            // InternalDim.g:9326:1: ( ( () ) )
+            // InternalDim.g:9327:1: ( () )
             {
-            // InternalDim.g:9158:1: ( () )
-            // InternalDim.g:9159:2: ()
+            // InternalDim.g:9327:1: ( () )
+            // InternalDim.g:9328:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxEqualityExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()); 
             }
-            // InternalDim.g:9160:2: ()
-            // InternalDim.g:9160:3: 
+            // InternalDim.g:9329:2: ()
+            // InternalDim.g:9329:3: 
             {
             }
 
@@ -31545,14 +32083,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group_1_0_0__1"
-    // InternalDim.g:9168:1: rule__DmxEqualityExpression__Group_1_0_0__1 : rule__DmxEqualityExpression__Group_1_0_0__1__Impl ;
+    // InternalDim.g:9337:1: rule__DmxEqualityExpression__Group_1_0_0__1 : rule__DmxEqualityExpression__Group_1_0_0__1__Impl ;
     public final void rule__DmxEqualityExpression__Group_1_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9172:1: ( rule__DmxEqualityExpression__Group_1_0_0__1__Impl )
-            // InternalDim.g:9173:2: rule__DmxEqualityExpression__Group_1_0_0__1__Impl
+            // InternalDim.g:9341:1: ( rule__DmxEqualityExpression__Group_1_0_0__1__Impl )
+            // InternalDim.g:9342:2: rule__DmxEqualityExpression__Group_1_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxEqualityExpression__Group_1_0_0__1__Impl();
@@ -31578,23 +32116,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group_1_0_0__1__Impl"
-    // InternalDim.g:9179:1: rule__DmxEqualityExpression__Group_1_0_0__1__Impl : ( ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 ) ) ;
+    // InternalDim.g:9348:1: rule__DmxEqualityExpression__Group_1_0_0__1__Impl : ( ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 ) ) ;
     public final void rule__DmxEqualityExpression__Group_1_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9183:1: ( ( ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 ) ) )
-            // InternalDim.g:9184:1: ( ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalDim.g:9352:1: ( ( ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 ) ) )
+            // InternalDim.g:9353:1: ( ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 ) )
             {
-            // InternalDim.g:9184:1: ( ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 ) )
-            // InternalDim.g:9185:2: ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 )
+            // InternalDim.g:9353:1: ( ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalDim.g:9354:2: ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxEqualityExpressionAccess().getOperatorAssignment_1_0_0_1()); 
             }
-            // InternalDim.g:9186:2: ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 )
-            // InternalDim.g:9186:3: rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1
+            // InternalDim.g:9355:2: ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 )
+            // InternalDim.g:9355:3: rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1();
@@ -31629,16 +32167,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group__0"
-    // InternalDim.g:9195:1: rule__DmxRelationalExpression__Group__0 : rule__DmxRelationalExpression__Group__0__Impl rule__DmxRelationalExpression__Group__1 ;
+    // InternalDim.g:9364:1: rule__DmxRelationalExpression__Group__0 : rule__DmxRelationalExpression__Group__0__Impl rule__DmxRelationalExpression__Group__1 ;
     public final void rule__DmxRelationalExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9199:1: ( rule__DmxRelationalExpression__Group__0__Impl rule__DmxRelationalExpression__Group__1 )
-            // InternalDim.g:9200:2: rule__DmxRelationalExpression__Group__0__Impl rule__DmxRelationalExpression__Group__1
+            // InternalDim.g:9368:1: ( rule__DmxRelationalExpression__Group__0__Impl rule__DmxRelationalExpression__Group__1 )
+            // InternalDim.g:9369:2: rule__DmxRelationalExpression__Group__0__Impl rule__DmxRelationalExpression__Group__1
             {
-            pushFollow(FOLLOW_64);
+            pushFollow(FOLLOW_68);
             rule__DmxRelationalExpression__Group__0__Impl();
 
             state._fsp--;
@@ -31667,17 +32205,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group__0__Impl"
-    // InternalDim.g:9207:1: rule__DmxRelationalExpression__Group__0__Impl : ( ruleDmxOtherOperatorExpression ) ;
+    // InternalDim.g:9376:1: rule__DmxRelationalExpression__Group__0__Impl : ( ruleDmxOtherOperatorExpression ) ;
     public final void rule__DmxRelationalExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9211:1: ( ( ruleDmxOtherOperatorExpression ) )
-            // InternalDim.g:9212:1: ( ruleDmxOtherOperatorExpression )
+            // InternalDim.g:9380:1: ( ( ruleDmxOtherOperatorExpression ) )
+            // InternalDim.g:9381:1: ( ruleDmxOtherOperatorExpression )
             {
-            // InternalDim.g:9212:1: ( ruleDmxOtherOperatorExpression )
-            // InternalDim.g:9213:2: ruleDmxOtherOperatorExpression
+            // InternalDim.g:9381:1: ( ruleDmxOtherOperatorExpression )
+            // InternalDim.g:9382:2: ruleDmxOtherOperatorExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getDmxOtherOperatorExpressionParserRuleCall_0()); 
@@ -31712,14 +32250,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group__1"
-    // InternalDim.g:9222:1: rule__DmxRelationalExpression__Group__1 : rule__DmxRelationalExpression__Group__1__Impl ;
+    // InternalDim.g:9391:1: rule__DmxRelationalExpression__Group__1 : rule__DmxRelationalExpression__Group__1__Impl ;
     public final void rule__DmxRelationalExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9226:1: ( rule__DmxRelationalExpression__Group__1__Impl )
-            // InternalDim.g:9227:2: rule__DmxRelationalExpression__Group__1__Impl
+            // InternalDim.g:9395:1: ( rule__DmxRelationalExpression__Group__1__Impl )
+            // InternalDim.g:9396:2: rule__DmxRelationalExpression__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group__1__Impl();
@@ -31745,31 +32283,31 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group__1__Impl"
-    // InternalDim.g:9233:1: rule__DmxRelationalExpression__Group__1__Impl : ( ( rule__DmxRelationalExpression__Alternatives_1 )* ) ;
+    // InternalDim.g:9402:1: rule__DmxRelationalExpression__Group__1__Impl : ( ( rule__DmxRelationalExpression__Alternatives_1 )* ) ;
     public final void rule__DmxRelationalExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9237:1: ( ( ( rule__DmxRelationalExpression__Alternatives_1 )* ) )
-            // InternalDim.g:9238:1: ( ( rule__DmxRelationalExpression__Alternatives_1 )* )
+            // InternalDim.g:9406:1: ( ( ( rule__DmxRelationalExpression__Alternatives_1 )* ) )
+            // InternalDim.g:9407:1: ( ( rule__DmxRelationalExpression__Alternatives_1 )* )
             {
-            // InternalDim.g:9238:1: ( ( rule__DmxRelationalExpression__Alternatives_1 )* )
-            // InternalDim.g:9239:2: ( rule__DmxRelationalExpression__Alternatives_1 )*
+            // InternalDim.g:9407:1: ( ( rule__DmxRelationalExpression__Alternatives_1 )* )
+            // InternalDim.g:9408:2: ( rule__DmxRelationalExpression__Alternatives_1 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getAlternatives_1()); 
             }
-            // InternalDim.g:9240:2: ( rule__DmxRelationalExpression__Alternatives_1 )*
+            // InternalDim.g:9409:2: ( rule__DmxRelationalExpression__Alternatives_1 )*
             loop103:
             do {
                 int alt103=2;
                 alt103 = dfa103.predict(input);
                 switch (alt103) {
             	case 1 :
-            	    // InternalDim.g:9240:3: rule__DmxRelationalExpression__Alternatives_1
+            	    // InternalDim.g:9409:3: rule__DmxRelationalExpression__Alternatives_1
             	    {
-            	    pushFollow(FOLLOW_65);
+            	    pushFollow(FOLLOW_69);
             	    rule__DmxRelationalExpression__Alternatives_1();
 
             	    state._fsp--;
@@ -31808,14 +32346,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_0__0"
-    // InternalDim.g:9249:1: rule__DmxRelationalExpression__Group_1_0__0 : rule__DmxRelationalExpression__Group_1_0__0__Impl rule__DmxRelationalExpression__Group_1_0__1 ;
+    // InternalDim.g:9418:1: rule__DmxRelationalExpression__Group_1_0__0 : rule__DmxRelationalExpression__Group_1_0__0__Impl rule__DmxRelationalExpression__Group_1_0__1 ;
     public final void rule__DmxRelationalExpression__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9253:1: ( rule__DmxRelationalExpression__Group_1_0__0__Impl rule__DmxRelationalExpression__Group_1_0__1 )
-            // InternalDim.g:9254:2: rule__DmxRelationalExpression__Group_1_0__0__Impl rule__DmxRelationalExpression__Group_1_0__1
+            // InternalDim.g:9422:1: ( rule__DmxRelationalExpression__Group_1_0__0__Impl rule__DmxRelationalExpression__Group_1_0__1 )
+            // InternalDim.g:9423:2: rule__DmxRelationalExpression__Group_1_0__0__Impl rule__DmxRelationalExpression__Group_1_0__1
             {
             pushFollow(FOLLOW_5);
             rule__DmxRelationalExpression__Group_1_0__0__Impl();
@@ -31846,23 +32384,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_0__0__Impl"
-    // InternalDim.g:9261:1: rule__DmxRelationalExpression__Group_1_0__0__Impl : ( ( rule__DmxRelationalExpression__Group_1_0_0__0 ) ) ;
+    // InternalDim.g:9430:1: rule__DmxRelationalExpression__Group_1_0__0__Impl : ( ( rule__DmxRelationalExpression__Group_1_0_0__0 ) ) ;
     public final void rule__DmxRelationalExpression__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9265:1: ( ( ( rule__DmxRelationalExpression__Group_1_0_0__0 ) ) )
-            // InternalDim.g:9266:1: ( ( rule__DmxRelationalExpression__Group_1_0_0__0 ) )
+            // InternalDim.g:9434:1: ( ( ( rule__DmxRelationalExpression__Group_1_0_0__0 ) ) )
+            // InternalDim.g:9435:1: ( ( rule__DmxRelationalExpression__Group_1_0_0__0 ) )
             {
-            // InternalDim.g:9266:1: ( ( rule__DmxRelationalExpression__Group_1_0_0__0 ) )
-            // InternalDim.g:9267:2: ( rule__DmxRelationalExpression__Group_1_0_0__0 )
+            // InternalDim.g:9435:1: ( ( rule__DmxRelationalExpression__Group_1_0_0__0 ) )
+            // InternalDim.g:9436:2: ( rule__DmxRelationalExpression__Group_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getGroup_1_0_0()); 
             }
-            // InternalDim.g:9268:2: ( rule__DmxRelationalExpression__Group_1_0_0__0 )
-            // InternalDim.g:9268:3: rule__DmxRelationalExpression__Group_1_0_0__0
+            // InternalDim.g:9437:2: ( rule__DmxRelationalExpression__Group_1_0_0__0 )
+            // InternalDim.g:9437:3: rule__DmxRelationalExpression__Group_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group_1_0_0__0();
@@ -31897,14 +32435,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_0__1"
-    // InternalDim.g:9276:1: rule__DmxRelationalExpression__Group_1_0__1 : rule__DmxRelationalExpression__Group_1_0__1__Impl ;
+    // InternalDim.g:9445:1: rule__DmxRelationalExpression__Group_1_0__1 : rule__DmxRelationalExpression__Group_1_0__1__Impl ;
     public final void rule__DmxRelationalExpression__Group_1_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9280:1: ( rule__DmxRelationalExpression__Group_1_0__1__Impl )
-            // InternalDim.g:9281:2: rule__DmxRelationalExpression__Group_1_0__1__Impl
+            // InternalDim.g:9449:1: ( rule__DmxRelationalExpression__Group_1_0__1__Impl )
+            // InternalDim.g:9450:2: rule__DmxRelationalExpression__Group_1_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group_1_0__1__Impl();
@@ -31930,23 +32468,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_0__1__Impl"
-    // InternalDim.g:9287:1: rule__DmxRelationalExpression__Group_1_0__1__Impl : ( ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 ) ) ;
+    // InternalDim.g:9456:1: rule__DmxRelationalExpression__Group_1_0__1__Impl : ( ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 ) ) ;
     public final void rule__DmxRelationalExpression__Group_1_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9291:1: ( ( ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 ) ) )
-            // InternalDim.g:9292:1: ( ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 ) )
+            // InternalDim.g:9460:1: ( ( ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 ) ) )
+            // InternalDim.g:9461:1: ( ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 ) )
             {
-            // InternalDim.g:9292:1: ( ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 ) )
-            // InternalDim.g:9293:2: ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 )
+            // InternalDim.g:9461:1: ( ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 ) )
+            // InternalDim.g:9462:2: ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getTypeAssignment_1_0_1()); 
             }
-            // InternalDim.g:9294:2: ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 )
-            // InternalDim.g:9294:3: rule__DmxRelationalExpression__TypeAssignment_1_0_1
+            // InternalDim.g:9463:2: ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 )
+            // InternalDim.g:9463:3: rule__DmxRelationalExpression__TypeAssignment_1_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__TypeAssignment_1_0_1();
@@ -31981,14 +32519,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_0_0__0"
-    // InternalDim.g:9303:1: rule__DmxRelationalExpression__Group_1_0_0__0 : rule__DmxRelationalExpression__Group_1_0_0__0__Impl ;
+    // InternalDim.g:9472:1: rule__DmxRelationalExpression__Group_1_0_0__0 : rule__DmxRelationalExpression__Group_1_0_0__0__Impl ;
     public final void rule__DmxRelationalExpression__Group_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9307:1: ( rule__DmxRelationalExpression__Group_1_0_0__0__Impl )
-            // InternalDim.g:9308:2: rule__DmxRelationalExpression__Group_1_0_0__0__Impl
+            // InternalDim.g:9476:1: ( rule__DmxRelationalExpression__Group_1_0_0__0__Impl )
+            // InternalDim.g:9477:2: rule__DmxRelationalExpression__Group_1_0_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group_1_0_0__0__Impl();
@@ -32014,23 +32552,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_0_0__0__Impl"
-    // InternalDim.g:9314:1: rule__DmxRelationalExpression__Group_1_0_0__0__Impl : ( ( rule__DmxRelationalExpression__Group_1_0_0_0__0 ) ) ;
+    // InternalDim.g:9483:1: rule__DmxRelationalExpression__Group_1_0_0__0__Impl : ( ( rule__DmxRelationalExpression__Group_1_0_0_0__0 ) ) ;
     public final void rule__DmxRelationalExpression__Group_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9318:1: ( ( ( rule__DmxRelationalExpression__Group_1_0_0_0__0 ) ) )
-            // InternalDim.g:9319:1: ( ( rule__DmxRelationalExpression__Group_1_0_0_0__0 ) )
+            // InternalDim.g:9487:1: ( ( ( rule__DmxRelationalExpression__Group_1_0_0_0__0 ) ) )
+            // InternalDim.g:9488:1: ( ( rule__DmxRelationalExpression__Group_1_0_0_0__0 ) )
             {
-            // InternalDim.g:9319:1: ( ( rule__DmxRelationalExpression__Group_1_0_0_0__0 ) )
-            // InternalDim.g:9320:2: ( rule__DmxRelationalExpression__Group_1_0_0_0__0 )
+            // InternalDim.g:9488:1: ( ( rule__DmxRelationalExpression__Group_1_0_0_0__0 ) )
+            // InternalDim.g:9489:2: ( rule__DmxRelationalExpression__Group_1_0_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getGroup_1_0_0_0()); 
             }
-            // InternalDim.g:9321:2: ( rule__DmxRelationalExpression__Group_1_0_0_0__0 )
-            // InternalDim.g:9321:3: rule__DmxRelationalExpression__Group_1_0_0_0__0
+            // InternalDim.g:9490:2: ( rule__DmxRelationalExpression__Group_1_0_0_0__0 )
+            // InternalDim.g:9490:3: rule__DmxRelationalExpression__Group_1_0_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group_1_0_0_0__0();
@@ -32065,16 +32603,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_0_0_0__0"
-    // InternalDim.g:9330:1: rule__DmxRelationalExpression__Group_1_0_0_0__0 : rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl rule__DmxRelationalExpression__Group_1_0_0_0__1 ;
+    // InternalDim.g:9499:1: rule__DmxRelationalExpression__Group_1_0_0_0__0 : rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl rule__DmxRelationalExpression__Group_1_0_0_0__1 ;
     public final void rule__DmxRelationalExpression__Group_1_0_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9334:1: ( rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl rule__DmxRelationalExpression__Group_1_0_0_0__1 )
-            // InternalDim.g:9335:2: rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl rule__DmxRelationalExpression__Group_1_0_0_0__1
+            // InternalDim.g:9503:1: ( rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl rule__DmxRelationalExpression__Group_1_0_0_0__1 )
+            // InternalDim.g:9504:2: rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl rule__DmxRelationalExpression__Group_1_0_0_0__1
             {
-            pushFollow(FOLLOW_66);
+            pushFollow(FOLLOW_70);
             rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl();
 
             state._fsp--;
@@ -32103,23 +32641,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl"
-    // InternalDim.g:9342:1: rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl : ( () ) ;
+    // InternalDim.g:9511:1: rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl : ( () ) ;
     public final void rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9346:1: ( ( () ) )
-            // InternalDim.g:9347:1: ( () )
+            // InternalDim.g:9515:1: ( ( () ) )
+            // InternalDim.g:9516:1: ( () )
             {
-            // InternalDim.g:9347:1: ( () )
-            // InternalDim.g:9348:2: ()
+            // InternalDim.g:9516:1: ( () )
+            // InternalDim.g:9517:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getDmxInstanceOfExpressionExpressionAction_1_0_0_0_0()); 
             }
-            // InternalDim.g:9349:2: ()
-            // InternalDim.g:9349:3: 
+            // InternalDim.g:9518:2: ()
+            // InternalDim.g:9518:3: 
             {
             }
 
@@ -32144,14 +32682,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_0_0_0__1"
-    // InternalDim.g:9357:1: rule__DmxRelationalExpression__Group_1_0_0_0__1 : rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl ;
+    // InternalDim.g:9526:1: rule__DmxRelationalExpression__Group_1_0_0_0__1 : rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl ;
     public final void rule__DmxRelationalExpression__Group_1_0_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9361:1: ( rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl )
-            // InternalDim.g:9362:2: rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl
+            // InternalDim.g:9530:1: ( rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl )
+            // InternalDim.g:9531:2: rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl();
@@ -32177,17 +32715,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl"
-    // InternalDim.g:9368:1: rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl : ( ruleDmxOpInstanceOf ) ;
+    // InternalDim.g:9537:1: rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl : ( ruleDmxOpInstanceOf ) ;
     public final void rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9372:1: ( ( ruleDmxOpInstanceOf ) )
-            // InternalDim.g:9373:1: ( ruleDmxOpInstanceOf )
+            // InternalDim.g:9541:1: ( ( ruleDmxOpInstanceOf ) )
+            // InternalDim.g:9542:1: ( ruleDmxOpInstanceOf )
             {
-            // InternalDim.g:9373:1: ( ruleDmxOpInstanceOf )
-            // InternalDim.g:9374:2: ruleDmxOpInstanceOf
+            // InternalDim.g:9542:1: ( ruleDmxOpInstanceOf )
+            // InternalDim.g:9543:2: ruleDmxOpInstanceOf
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getDmxOpInstanceOfParserRuleCall_1_0_0_0_1()); 
@@ -32222,16 +32760,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_1__0"
-    // InternalDim.g:9384:1: rule__DmxRelationalExpression__Group_1_1__0 : rule__DmxRelationalExpression__Group_1_1__0__Impl rule__DmxRelationalExpression__Group_1_1__1 ;
+    // InternalDim.g:9553:1: rule__DmxRelationalExpression__Group_1_1__0 : rule__DmxRelationalExpression__Group_1_1__0__Impl rule__DmxRelationalExpression__Group_1_1__1 ;
     public final void rule__DmxRelationalExpression__Group_1_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9388:1: ( rule__DmxRelationalExpression__Group_1_1__0__Impl rule__DmxRelationalExpression__Group_1_1__1 )
-            // InternalDim.g:9389:2: rule__DmxRelationalExpression__Group_1_1__0__Impl rule__DmxRelationalExpression__Group_1_1__1
+            // InternalDim.g:9557:1: ( rule__DmxRelationalExpression__Group_1_1__0__Impl rule__DmxRelationalExpression__Group_1_1__1 )
+            // InternalDim.g:9558:2: rule__DmxRelationalExpression__Group_1_1__0__Impl rule__DmxRelationalExpression__Group_1_1__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_57);
             rule__DmxRelationalExpression__Group_1_1__0__Impl();
 
             state._fsp--;
@@ -32260,23 +32798,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_1__0__Impl"
-    // InternalDim.g:9396:1: rule__DmxRelationalExpression__Group_1_1__0__Impl : ( ( rule__DmxRelationalExpression__Group_1_1_0__0 ) ) ;
+    // InternalDim.g:9565:1: rule__DmxRelationalExpression__Group_1_1__0__Impl : ( ( rule__DmxRelationalExpression__Group_1_1_0__0 ) ) ;
     public final void rule__DmxRelationalExpression__Group_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9400:1: ( ( ( rule__DmxRelationalExpression__Group_1_1_0__0 ) ) )
-            // InternalDim.g:9401:1: ( ( rule__DmxRelationalExpression__Group_1_1_0__0 ) )
+            // InternalDim.g:9569:1: ( ( ( rule__DmxRelationalExpression__Group_1_1_0__0 ) ) )
+            // InternalDim.g:9570:1: ( ( rule__DmxRelationalExpression__Group_1_1_0__0 ) )
             {
-            // InternalDim.g:9401:1: ( ( rule__DmxRelationalExpression__Group_1_1_0__0 ) )
-            // InternalDim.g:9402:2: ( rule__DmxRelationalExpression__Group_1_1_0__0 )
+            // InternalDim.g:9570:1: ( ( rule__DmxRelationalExpression__Group_1_1_0__0 ) )
+            // InternalDim.g:9571:2: ( rule__DmxRelationalExpression__Group_1_1_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getGroup_1_1_0()); 
             }
-            // InternalDim.g:9403:2: ( rule__DmxRelationalExpression__Group_1_1_0__0 )
-            // InternalDim.g:9403:3: rule__DmxRelationalExpression__Group_1_1_0__0
+            // InternalDim.g:9572:2: ( rule__DmxRelationalExpression__Group_1_1_0__0 )
+            // InternalDim.g:9572:3: rule__DmxRelationalExpression__Group_1_1_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group_1_1_0__0();
@@ -32311,14 +32849,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_1__1"
-    // InternalDim.g:9411:1: rule__DmxRelationalExpression__Group_1_1__1 : rule__DmxRelationalExpression__Group_1_1__1__Impl ;
+    // InternalDim.g:9580:1: rule__DmxRelationalExpression__Group_1_1__1 : rule__DmxRelationalExpression__Group_1_1__1__Impl ;
     public final void rule__DmxRelationalExpression__Group_1_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9415:1: ( rule__DmxRelationalExpression__Group_1_1__1__Impl )
-            // InternalDim.g:9416:2: rule__DmxRelationalExpression__Group_1_1__1__Impl
+            // InternalDim.g:9584:1: ( rule__DmxRelationalExpression__Group_1_1__1__Impl )
+            // InternalDim.g:9585:2: rule__DmxRelationalExpression__Group_1_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group_1_1__1__Impl();
@@ -32344,23 +32882,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_1__1__Impl"
-    // InternalDim.g:9422:1: rule__DmxRelationalExpression__Group_1_1__1__Impl : ( ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 ) ) ;
+    // InternalDim.g:9591:1: rule__DmxRelationalExpression__Group_1_1__1__Impl : ( ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 ) ) ;
     public final void rule__DmxRelationalExpression__Group_1_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9426:1: ( ( ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 ) ) )
-            // InternalDim.g:9427:1: ( ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 ) )
+            // InternalDim.g:9595:1: ( ( ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 ) ) )
+            // InternalDim.g:9596:1: ( ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 ) )
             {
-            // InternalDim.g:9427:1: ( ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 ) )
-            // InternalDim.g:9428:2: ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 )
+            // InternalDim.g:9596:1: ( ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 ) )
+            // InternalDim.g:9597:2: ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getRightOperandAssignment_1_1_1()); 
             }
-            // InternalDim.g:9429:2: ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 )
-            // InternalDim.g:9429:3: rule__DmxRelationalExpression__RightOperandAssignment_1_1_1
+            // InternalDim.g:9598:2: ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 )
+            // InternalDim.g:9598:3: rule__DmxRelationalExpression__RightOperandAssignment_1_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__RightOperandAssignment_1_1_1();
@@ -32395,14 +32933,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_1_0__0"
-    // InternalDim.g:9438:1: rule__DmxRelationalExpression__Group_1_1_0__0 : rule__DmxRelationalExpression__Group_1_1_0__0__Impl ;
+    // InternalDim.g:9607:1: rule__DmxRelationalExpression__Group_1_1_0__0 : rule__DmxRelationalExpression__Group_1_1_0__0__Impl ;
     public final void rule__DmxRelationalExpression__Group_1_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9442:1: ( rule__DmxRelationalExpression__Group_1_1_0__0__Impl )
-            // InternalDim.g:9443:2: rule__DmxRelationalExpression__Group_1_1_0__0__Impl
+            // InternalDim.g:9611:1: ( rule__DmxRelationalExpression__Group_1_1_0__0__Impl )
+            // InternalDim.g:9612:2: rule__DmxRelationalExpression__Group_1_1_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group_1_1_0__0__Impl();
@@ -32428,23 +32966,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_1_0__0__Impl"
-    // InternalDim.g:9449:1: rule__DmxRelationalExpression__Group_1_1_0__0__Impl : ( ( rule__DmxRelationalExpression__Group_1_1_0_0__0 ) ) ;
+    // InternalDim.g:9618:1: rule__DmxRelationalExpression__Group_1_1_0__0__Impl : ( ( rule__DmxRelationalExpression__Group_1_1_0_0__0 ) ) ;
     public final void rule__DmxRelationalExpression__Group_1_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9453:1: ( ( ( rule__DmxRelationalExpression__Group_1_1_0_0__0 ) ) )
-            // InternalDim.g:9454:1: ( ( rule__DmxRelationalExpression__Group_1_1_0_0__0 ) )
+            // InternalDim.g:9622:1: ( ( ( rule__DmxRelationalExpression__Group_1_1_0_0__0 ) ) )
+            // InternalDim.g:9623:1: ( ( rule__DmxRelationalExpression__Group_1_1_0_0__0 ) )
             {
-            // InternalDim.g:9454:1: ( ( rule__DmxRelationalExpression__Group_1_1_0_0__0 ) )
-            // InternalDim.g:9455:2: ( rule__DmxRelationalExpression__Group_1_1_0_0__0 )
+            // InternalDim.g:9623:1: ( ( rule__DmxRelationalExpression__Group_1_1_0_0__0 ) )
+            // InternalDim.g:9624:2: ( rule__DmxRelationalExpression__Group_1_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getGroup_1_1_0_0()); 
             }
-            // InternalDim.g:9456:2: ( rule__DmxRelationalExpression__Group_1_1_0_0__0 )
-            // InternalDim.g:9456:3: rule__DmxRelationalExpression__Group_1_1_0_0__0
+            // InternalDim.g:9625:2: ( rule__DmxRelationalExpression__Group_1_1_0_0__0 )
+            // InternalDim.g:9625:3: rule__DmxRelationalExpression__Group_1_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group_1_1_0_0__0();
@@ -32479,16 +33017,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_1_0_0__0"
-    // InternalDim.g:9465:1: rule__DmxRelationalExpression__Group_1_1_0_0__0 : rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl rule__DmxRelationalExpression__Group_1_1_0_0__1 ;
+    // InternalDim.g:9634:1: rule__DmxRelationalExpression__Group_1_1_0_0__0 : rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl rule__DmxRelationalExpression__Group_1_1_0_0__1 ;
     public final void rule__DmxRelationalExpression__Group_1_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9469:1: ( rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl rule__DmxRelationalExpression__Group_1_1_0_0__1 )
-            // InternalDim.g:9470:2: rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl rule__DmxRelationalExpression__Group_1_1_0_0__1
+            // InternalDim.g:9638:1: ( rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl rule__DmxRelationalExpression__Group_1_1_0_0__1 )
+            // InternalDim.g:9639:2: rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl rule__DmxRelationalExpression__Group_1_1_0_0__1
             {
-            pushFollow(FOLLOW_64);
+            pushFollow(FOLLOW_68);
             rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl();
 
             state._fsp--;
@@ -32517,23 +33055,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl"
-    // InternalDim.g:9477:1: rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl : ( () ) ;
+    // InternalDim.g:9646:1: rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl : ( () ) ;
     public final void rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9481:1: ( ( () ) )
-            // InternalDim.g:9482:1: ( () )
+            // InternalDim.g:9650:1: ( ( () ) )
+            // InternalDim.g:9651:1: ( () )
             {
-            // InternalDim.g:9482:1: ( () )
-            // InternalDim.g:9483:2: ()
+            // InternalDim.g:9651:1: ( () )
+            // InternalDim.g:9652:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_1_0_0_0()); 
             }
-            // InternalDim.g:9484:2: ()
-            // InternalDim.g:9484:3: 
+            // InternalDim.g:9653:2: ()
+            // InternalDim.g:9653:3: 
             {
             }
 
@@ -32558,14 +33096,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_1_0_0__1"
-    // InternalDim.g:9492:1: rule__DmxRelationalExpression__Group_1_1_0_0__1 : rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl ;
+    // InternalDim.g:9661:1: rule__DmxRelationalExpression__Group_1_1_0_0__1 : rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl ;
     public final void rule__DmxRelationalExpression__Group_1_1_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9496:1: ( rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl )
-            // InternalDim.g:9497:2: rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl
+            // InternalDim.g:9665:1: ( rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl )
+            // InternalDim.g:9666:2: rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl();
@@ -32591,23 +33129,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl"
-    // InternalDim.g:9503:1: rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl : ( ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 ) ) ;
+    // InternalDim.g:9672:1: rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl : ( ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 ) ) ;
     public final void rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9507:1: ( ( ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 ) ) )
-            // InternalDim.g:9508:1: ( ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 ) )
+            // InternalDim.g:9676:1: ( ( ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 ) ) )
+            // InternalDim.g:9677:1: ( ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 ) )
             {
-            // InternalDim.g:9508:1: ( ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 ) )
-            // InternalDim.g:9509:2: ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 )
+            // InternalDim.g:9677:1: ( ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 ) )
+            // InternalDim.g:9678:2: ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getOperatorAssignment_1_1_0_0_1()); 
             }
-            // InternalDim.g:9510:2: ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 )
-            // InternalDim.g:9510:3: rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1
+            // InternalDim.g:9679:2: ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 )
+            // InternalDim.g:9679:3: rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1();
@@ -32642,16 +33180,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group__0"
-    // InternalDim.g:9519:1: rule__DmxOtherOperatorExpression__Group__0 : rule__DmxOtherOperatorExpression__Group__0__Impl rule__DmxOtherOperatorExpression__Group__1 ;
+    // InternalDim.g:9688:1: rule__DmxOtherOperatorExpression__Group__0 : rule__DmxOtherOperatorExpression__Group__0__Impl rule__DmxOtherOperatorExpression__Group__1 ;
     public final void rule__DmxOtherOperatorExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9523:1: ( rule__DmxOtherOperatorExpression__Group__0__Impl rule__DmxOtherOperatorExpression__Group__1 )
-            // InternalDim.g:9524:2: rule__DmxOtherOperatorExpression__Group__0__Impl rule__DmxOtherOperatorExpression__Group__1
+            // InternalDim.g:9692:1: ( rule__DmxOtherOperatorExpression__Group__0__Impl rule__DmxOtherOperatorExpression__Group__1 )
+            // InternalDim.g:9693:2: rule__DmxOtherOperatorExpression__Group__0__Impl rule__DmxOtherOperatorExpression__Group__1
             {
-            pushFollow(FOLLOW_67);
+            pushFollow(FOLLOW_71);
             rule__DmxOtherOperatorExpression__Group__0__Impl();
 
             state._fsp--;
@@ -32680,17 +33218,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group__0__Impl"
-    // InternalDim.g:9531:1: rule__DmxOtherOperatorExpression__Group__0__Impl : ( ruleDmxAdditiveExpression ) ;
+    // InternalDim.g:9700:1: rule__DmxOtherOperatorExpression__Group__0__Impl : ( ruleDmxAdditiveExpression ) ;
     public final void rule__DmxOtherOperatorExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9535:1: ( ( ruleDmxAdditiveExpression ) )
-            // InternalDim.g:9536:1: ( ruleDmxAdditiveExpression )
+            // InternalDim.g:9704:1: ( ( ruleDmxAdditiveExpression ) )
+            // InternalDim.g:9705:1: ( ruleDmxAdditiveExpression )
             {
-            // InternalDim.g:9536:1: ( ruleDmxAdditiveExpression )
-            // InternalDim.g:9537:2: ruleDmxAdditiveExpression
+            // InternalDim.g:9705:1: ( ruleDmxAdditiveExpression )
+            // InternalDim.g:9706:2: ruleDmxAdditiveExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOtherOperatorExpressionAccess().getDmxAdditiveExpressionParserRuleCall_0()); 
@@ -32725,14 +33263,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group__1"
-    // InternalDim.g:9546:1: rule__DmxOtherOperatorExpression__Group__1 : rule__DmxOtherOperatorExpression__Group__1__Impl ;
+    // InternalDim.g:9715:1: rule__DmxOtherOperatorExpression__Group__1 : rule__DmxOtherOperatorExpression__Group__1__Impl ;
     public final void rule__DmxOtherOperatorExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9550:1: ( rule__DmxOtherOperatorExpression__Group__1__Impl )
-            // InternalDim.g:9551:2: rule__DmxOtherOperatorExpression__Group__1__Impl
+            // InternalDim.g:9719:1: ( rule__DmxOtherOperatorExpression__Group__1__Impl )
+            // InternalDim.g:9720:2: rule__DmxOtherOperatorExpression__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxOtherOperatorExpression__Group__1__Impl();
@@ -32758,22 +33296,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group__1__Impl"
-    // InternalDim.g:9557:1: rule__DmxOtherOperatorExpression__Group__1__Impl : ( ( rule__DmxOtherOperatorExpression__Group_1__0 )* ) ;
+    // InternalDim.g:9726:1: rule__DmxOtherOperatorExpression__Group__1__Impl : ( ( rule__DmxOtherOperatorExpression__Group_1__0 )* ) ;
     public final void rule__DmxOtherOperatorExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9561:1: ( ( ( rule__DmxOtherOperatorExpression__Group_1__0 )* ) )
-            // InternalDim.g:9562:1: ( ( rule__DmxOtherOperatorExpression__Group_1__0 )* )
+            // InternalDim.g:9730:1: ( ( ( rule__DmxOtherOperatorExpression__Group_1__0 )* ) )
+            // InternalDim.g:9731:1: ( ( rule__DmxOtherOperatorExpression__Group_1__0 )* )
             {
-            // InternalDim.g:9562:1: ( ( rule__DmxOtherOperatorExpression__Group_1__0 )* )
-            // InternalDim.g:9563:2: ( rule__DmxOtherOperatorExpression__Group_1__0 )*
+            // InternalDim.g:9731:1: ( ( rule__DmxOtherOperatorExpression__Group_1__0 )* )
+            // InternalDim.g:9732:2: ( rule__DmxOtherOperatorExpression__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOtherOperatorExpressionAccess().getGroup_1()); 
             }
-            // InternalDim.g:9564:2: ( rule__DmxOtherOperatorExpression__Group_1__0 )*
+            // InternalDim.g:9733:2: ( rule__DmxOtherOperatorExpression__Group_1__0 )*
             loop104:
             do {
                 int alt104=2;
@@ -32816,9 +33354,9 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
                 switch (alt104) {
             	case 1 :
-            	    // InternalDim.g:9564:3: rule__DmxOtherOperatorExpression__Group_1__0
+            	    // InternalDim.g:9733:3: rule__DmxOtherOperatorExpression__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_68);
+            	    pushFollow(FOLLOW_72);
             	    rule__DmxOtherOperatorExpression__Group_1__0();
 
             	    state._fsp--;
@@ -32857,16 +33395,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group_1__0"
-    // InternalDim.g:9573:1: rule__DmxOtherOperatorExpression__Group_1__0 : rule__DmxOtherOperatorExpression__Group_1__0__Impl rule__DmxOtherOperatorExpression__Group_1__1 ;
+    // InternalDim.g:9742:1: rule__DmxOtherOperatorExpression__Group_1__0 : rule__DmxOtherOperatorExpression__Group_1__0__Impl rule__DmxOtherOperatorExpression__Group_1__1 ;
     public final void rule__DmxOtherOperatorExpression__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9577:1: ( rule__DmxOtherOperatorExpression__Group_1__0__Impl rule__DmxOtherOperatorExpression__Group_1__1 )
-            // InternalDim.g:9578:2: rule__DmxOtherOperatorExpression__Group_1__0__Impl rule__DmxOtherOperatorExpression__Group_1__1
+            // InternalDim.g:9746:1: ( rule__DmxOtherOperatorExpression__Group_1__0__Impl rule__DmxOtherOperatorExpression__Group_1__1 )
+            // InternalDim.g:9747:2: rule__DmxOtherOperatorExpression__Group_1__0__Impl rule__DmxOtherOperatorExpression__Group_1__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_57);
             rule__DmxOtherOperatorExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -32895,23 +33433,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group_1__0__Impl"
-    // InternalDim.g:9585:1: rule__DmxOtherOperatorExpression__Group_1__0__Impl : ( ( rule__DmxOtherOperatorExpression__Group_1_0__0 ) ) ;
+    // InternalDim.g:9754:1: rule__DmxOtherOperatorExpression__Group_1__0__Impl : ( ( rule__DmxOtherOperatorExpression__Group_1_0__0 ) ) ;
     public final void rule__DmxOtherOperatorExpression__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9589:1: ( ( ( rule__DmxOtherOperatorExpression__Group_1_0__0 ) ) )
-            // InternalDim.g:9590:1: ( ( rule__DmxOtherOperatorExpression__Group_1_0__0 ) )
+            // InternalDim.g:9758:1: ( ( ( rule__DmxOtherOperatorExpression__Group_1_0__0 ) ) )
+            // InternalDim.g:9759:1: ( ( rule__DmxOtherOperatorExpression__Group_1_0__0 ) )
             {
-            // InternalDim.g:9590:1: ( ( rule__DmxOtherOperatorExpression__Group_1_0__0 ) )
-            // InternalDim.g:9591:2: ( rule__DmxOtherOperatorExpression__Group_1_0__0 )
+            // InternalDim.g:9759:1: ( ( rule__DmxOtherOperatorExpression__Group_1_0__0 ) )
+            // InternalDim.g:9760:2: ( rule__DmxOtherOperatorExpression__Group_1_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOtherOperatorExpressionAccess().getGroup_1_0()); 
             }
-            // InternalDim.g:9592:2: ( rule__DmxOtherOperatorExpression__Group_1_0__0 )
-            // InternalDim.g:9592:3: rule__DmxOtherOperatorExpression__Group_1_0__0
+            // InternalDim.g:9761:2: ( rule__DmxOtherOperatorExpression__Group_1_0__0 )
+            // InternalDim.g:9761:3: rule__DmxOtherOperatorExpression__Group_1_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxOtherOperatorExpression__Group_1_0__0();
@@ -32946,14 +33484,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group_1__1"
-    // InternalDim.g:9600:1: rule__DmxOtherOperatorExpression__Group_1__1 : rule__DmxOtherOperatorExpression__Group_1__1__Impl ;
+    // InternalDim.g:9769:1: rule__DmxOtherOperatorExpression__Group_1__1 : rule__DmxOtherOperatorExpression__Group_1__1__Impl ;
     public final void rule__DmxOtherOperatorExpression__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9604:1: ( rule__DmxOtherOperatorExpression__Group_1__1__Impl )
-            // InternalDim.g:9605:2: rule__DmxOtherOperatorExpression__Group_1__1__Impl
+            // InternalDim.g:9773:1: ( rule__DmxOtherOperatorExpression__Group_1__1__Impl )
+            // InternalDim.g:9774:2: rule__DmxOtherOperatorExpression__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxOtherOperatorExpression__Group_1__1__Impl();
@@ -32979,23 +33517,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group_1__1__Impl"
-    // InternalDim.g:9611:1: rule__DmxOtherOperatorExpression__Group_1__1__Impl : ( ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 ) ) ;
+    // InternalDim.g:9780:1: rule__DmxOtherOperatorExpression__Group_1__1__Impl : ( ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 ) ) ;
     public final void rule__DmxOtherOperatorExpression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9615:1: ( ( ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 ) ) )
-            // InternalDim.g:9616:1: ( ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 ) )
+            // InternalDim.g:9784:1: ( ( ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 ) ) )
+            // InternalDim.g:9785:1: ( ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 ) )
             {
-            // InternalDim.g:9616:1: ( ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 ) )
-            // InternalDim.g:9617:2: ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 )
+            // InternalDim.g:9785:1: ( ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 ) )
+            // InternalDim.g:9786:2: ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOtherOperatorExpressionAccess().getRightOperandAssignment_1_1()); 
             }
-            // InternalDim.g:9618:2: ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 )
-            // InternalDim.g:9618:3: rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1
+            // InternalDim.g:9787:2: ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 )
+            // InternalDim.g:9787:3: rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1();
@@ -33030,14 +33568,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group_1_0__0"
-    // InternalDim.g:9627:1: rule__DmxOtherOperatorExpression__Group_1_0__0 : rule__DmxOtherOperatorExpression__Group_1_0__0__Impl ;
+    // InternalDim.g:9796:1: rule__DmxOtherOperatorExpression__Group_1_0__0 : rule__DmxOtherOperatorExpression__Group_1_0__0__Impl ;
     public final void rule__DmxOtherOperatorExpression__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9631:1: ( rule__DmxOtherOperatorExpression__Group_1_0__0__Impl )
-            // InternalDim.g:9632:2: rule__DmxOtherOperatorExpression__Group_1_0__0__Impl
+            // InternalDim.g:9800:1: ( rule__DmxOtherOperatorExpression__Group_1_0__0__Impl )
+            // InternalDim.g:9801:2: rule__DmxOtherOperatorExpression__Group_1_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxOtherOperatorExpression__Group_1_0__0__Impl();
@@ -33063,23 +33601,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group_1_0__0__Impl"
-    // InternalDim.g:9638:1: rule__DmxOtherOperatorExpression__Group_1_0__0__Impl : ( ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 ) ) ;
+    // InternalDim.g:9807:1: rule__DmxOtherOperatorExpression__Group_1_0__0__Impl : ( ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 ) ) ;
     public final void rule__DmxOtherOperatorExpression__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9642:1: ( ( ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 ) ) )
-            // InternalDim.g:9643:1: ( ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 ) )
+            // InternalDim.g:9811:1: ( ( ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 ) ) )
+            // InternalDim.g:9812:1: ( ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 ) )
             {
-            // InternalDim.g:9643:1: ( ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 ) )
-            // InternalDim.g:9644:2: ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 )
+            // InternalDim.g:9812:1: ( ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 ) )
+            // InternalDim.g:9813:2: ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOtherOperatorExpressionAccess().getGroup_1_0_0()); 
             }
-            // InternalDim.g:9645:2: ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 )
-            // InternalDim.g:9645:3: rule__DmxOtherOperatorExpression__Group_1_0_0__0
+            // InternalDim.g:9814:2: ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 )
+            // InternalDim.g:9814:3: rule__DmxOtherOperatorExpression__Group_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxOtherOperatorExpression__Group_1_0_0__0();
@@ -33114,16 +33652,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group_1_0_0__0"
-    // InternalDim.g:9654:1: rule__DmxOtherOperatorExpression__Group_1_0_0__0 : rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl rule__DmxOtherOperatorExpression__Group_1_0_0__1 ;
+    // InternalDim.g:9823:1: rule__DmxOtherOperatorExpression__Group_1_0_0__0 : rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl rule__DmxOtherOperatorExpression__Group_1_0_0__1 ;
     public final void rule__DmxOtherOperatorExpression__Group_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9658:1: ( rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl rule__DmxOtherOperatorExpression__Group_1_0_0__1 )
-            // InternalDim.g:9659:2: rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl rule__DmxOtherOperatorExpression__Group_1_0_0__1
+            // InternalDim.g:9827:1: ( rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl rule__DmxOtherOperatorExpression__Group_1_0_0__1 )
+            // InternalDim.g:9828:2: rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl rule__DmxOtherOperatorExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_67);
+            pushFollow(FOLLOW_71);
             rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -33152,23 +33690,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl"
-    // InternalDim.g:9666:1: rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl : ( () ) ;
+    // InternalDim.g:9835:1: rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl : ( () ) ;
     public final void rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9670:1: ( ( () ) )
-            // InternalDim.g:9671:1: ( () )
+            // InternalDim.g:9839:1: ( ( () ) )
+            // InternalDim.g:9840:1: ( () )
             {
-            // InternalDim.g:9671:1: ( () )
-            // InternalDim.g:9672:2: ()
+            // InternalDim.g:9840:1: ( () )
+            // InternalDim.g:9841:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOtherOperatorExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()); 
             }
-            // InternalDim.g:9673:2: ()
-            // InternalDim.g:9673:3: 
+            // InternalDim.g:9842:2: ()
+            // InternalDim.g:9842:3: 
             {
             }
 
@@ -33193,14 +33731,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group_1_0_0__1"
-    // InternalDim.g:9681:1: rule__DmxOtherOperatorExpression__Group_1_0_0__1 : rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl ;
+    // InternalDim.g:9850:1: rule__DmxOtherOperatorExpression__Group_1_0_0__1 : rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl ;
     public final void rule__DmxOtherOperatorExpression__Group_1_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9685:1: ( rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl )
-            // InternalDim.g:9686:2: rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl
+            // InternalDim.g:9854:1: ( rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl )
+            // InternalDim.g:9855:2: rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl();
@@ -33226,23 +33764,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl"
-    // InternalDim.g:9692:1: rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl : ( ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 ) ) ;
+    // InternalDim.g:9861:1: rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl : ( ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 ) ) ;
     public final void rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9696:1: ( ( ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 ) ) )
-            // InternalDim.g:9697:1: ( ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalDim.g:9865:1: ( ( ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 ) ) )
+            // InternalDim.g:9866:1: ( ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 ) )
             {
-            // InternalDim.g:9697:1: ( ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 ) )
-            // InternalDim.g:9698:2: ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 )
+            // InternalDim.g:9866:1: ( ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalDim.g:9867:2: ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOtherOperatorExpressionAccess().getOperatorAssignment_1_0_0_1()); 
             }
-            // InternalDim.g:9699:2: ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 )
-            // InternalDim.g:9699:3: rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1
+            // InternalDim.g:9868:2: ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 )
+            // InternalDim.g:9868:3: rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1();
@@ -33277,16 +33815,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group__0"
-    // InternalDim.g:9708:1: rule__DmxAdditiveExpression__Group__0 : rule__DmxAdditiveExpression__Group__0__Impl rule__DmxAdditiveExpression__Group__1 ;
+    // InternalDim.g:9877:1: rule__DmxAdditiveExpression__Group__0 : rule__DmxAdditiveExpression__Group__0__Impl rule__DmxAdditiveExpression__Group__1 ;
     public final void rule__DmxAdditiveExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9712:1: ( rule__DmxAdditiveExpression__Group__0__Impl rule__DmxAdditiveExpression__Group__1 )
-            // InternalDim.g:9713:2: rule__DmxAdditiveExpression__Group__0__Impl rule__DmxAdditiveExpression__Group__1
+            // InternalDim.g:9881:1: ( rule__DmxAdditiveExpression__Group__0__Impl rule__DmxAdditiveExpression__Group__1 )
+            // InternalDim.g:9882:2: rule__DmxAdditiveExpression__Group__0__Impl rule__DmxAdditiveExpression__Group__1
             {
-            pushFollow(FOLLOW_69);
+            pushFollow(FOLLOW_73);
             rule__DmxAdditiveExpression__Group__0__Impl();
 
             state._fsp--;
@@ -33315,17 +33853,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group__0__Impl"
-    // InternalDim.g:9720:1: rule__DmxAdditiveExpression__Group__0__Impl : ( ruleDmxMultiplicativeExpression ) ;
+    // InternalDim.g:9889:1: rule__DmxAdditiveExpression__Group__0__Impl : ( ruleDmxMultiplicativeExpression ) ;
     public final void rule__DmxAdditiveExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9724:1: ( ( ruleDmxMultiplicativeExpression ) )
-            // InternalDim.g:9725:1: ( ruleDmxMultiplicativeExpression )
+            // InternalDim.g:9893:1: ( ( ruleDmxMultiplicativeExpression ) )
+            // InternalDim.g:9894:1: ( ruleDmxMultiplicativeExpression )
             {
-            // InternalDim.g:9725:1: ( ruleDmxMultiplicativeExpression )
-            // InternalDim.g:9726:2: ruleDmxMultiplicativeExpression
+            // InternalDim.g:9894:1: ( ruleDmxMultiplicativeExpression )
+            // InternalDim.g:9895:2: ruleDmxMultiplicativeExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAdditiveExpressionAccess().getDmxMultiplicativeExpressionParserRuleCall_0()); 
@@ -33360,14 +33898,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group__1"
-    // InternalDim.g:9735:1: rule__DmxAdditiveExpression__Group__1 : rule__DmxAdditiveExpression__Group__1__Impl ;
+    // InternalDim.g:9904:1: rule__DmxAdditiveExpression__Group__1 : rule__DmxAdditiveExpression__Group__1__Impl ;
     public final void rule__DmxAdditiveExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9739:1: ( rule__DmxAdditiveExpression__Group__1__Impl )
-            // InternalDim.g:9740:2: rule__DmxAdditiveExpression__Group__1__Impl
+            // InternalDim.g:9908:1: ( rule__DmxAdditiveExpression__Group__1__Impl )
+            // InternalDim.g:9909:2: rule__DmxAdditiveExpression__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxAdditiveExpression__Group__1__Impl();
@@ -33393,22 +33931,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group__1__Impl"
-    // InternalDim.g:9746:1: rule__DmxAdditiveExpression__Group__1__Impl : ( ( rule__DmxAdditiveExpression__Group_1__0 )* ) ;
+    // InternalDim.g:9915:1: rule__DmxAdditiveExpression__Group__1__Impl : ( ( rule__DmxAdditiveExpression__Group_1__0 )* ) ;
     public final void rule__DmxAdditiveExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9750:1: ( ( ( rule__DmxAdditiveExpression__Group_1__0 )* ) )
-            // InternalDim.g:9751:1: ( ( rule__DmxAdditiveExpression__Group_1__0 )* )
+            // InternalDim.g:9919:1: ( ( ( rule__DmxAdditiveExpression__Group_1__0 )* ) )
+            // InternalDim.g:9920:1: ( ( rule__DmxAdditiveExpression__Group_1__0 )* )
             {
-            // InternalDim.g:9751:1: ( ( rule__DmxAdditiveExpression__Group_1__0 )* )
-            // InternalDim.g:9752:2: ( rule__DmxAdditiveExpression__Group_1__0 )*
+            // InternalDim.g:9920:1: ( ( rule__DmxAdditiveExpression__Group_1__0 )* )
+            // InternalDim.g:9921:2: ( rule__DmxAdditiveExpression__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAdditiveExpressionAccess().getGroup_1()); 
             }
-            // InternalDim.g:9753:2: ( rule__DmxAdditiveExpression__Group_1__0 )*
+            // InternalDim.g:9922:2: ( rule__DmxAdditiveExpression__Group_1__0 )*
             loop105:
             do {
                 int alt105=2;
@@ -33436,9 +33974,9 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
                 switch (alt105) {
             	case 1 :
-            	    // InternalDim.g:9753:3: rule__DmxAdditiveExpression__Group_1__0
+            	    // InternalDim.g:9922:3: rule__DmxAdditiveExpression__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_70);
+            	    pushFollow(FOLLOW_74);
             	    rule__DmxAdditiveExpression__Group_1__0();
 
             	    state._fsp--;
@@ -33477,16 +34015,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group_1__0"
-    // InternalDim.g:9762:1: rule__DmxAdditiveExpression__Group_1__0 : rule__DmxAdditiveExpression__Group_1__0__Impl rule__DmxAdditiveExpression__Group_1__1 ;
+    // InternalDim.g:9931:1: rule__DmxAdditiveExpression__Group_1__0 : rule__DmxAdditiveExpression__Group_1__0__Impl rule__DmxAdditiveExpression__Group_1__1 ;
     public final void rule__DmxAdditiveExpression__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9766:1: ( rule__DmxAdditiveExpression__Group_1__0__Impl rule__DmxAdditiveExpression__Group_1__1 )
-            // InternalDim.g:9767:2: rule__DmxAdditiveExpression__Group_1__0__Impl rule__DmxAdditiveExpression__Group_1__1
+            // InternalDim.g:9935:1: ( rule__DmxAdditiveExpression__Group_1__0__Impl rule__DmxAdditiveExpression__Group_1__1 )
+            // InternalDim.g:9936:2: rule__DmxAdditiveExpression__Group_1__0__Impl rule__DmxAdditiveExpression__Group_1__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_57);
             rule__DmxAdditiveExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -33515,23 +34053,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group_1__0__Impl"
-    // InternalDim.g:9774:1: rule__DmxAdditiveExpression__Group_1__0__Impl : ( ( rule__DmxAdditiveExpression__Group_1_0__0 ) ) ;
+    // InternalDim.g:9943:1: rule__DmxAdditiveExpression__Group_1__0__Impl : ( ( rule__DmxAdditiveExpression__Group_1_0__0 ) ) ;
     public final void rule__DmxAdditiveExpression__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9778:1: ( ( ( rule__DmxAdditiveExpression__Group_1_0__0 ) ) )
-            // InternalDim.g:9779:1: ( ( rule__DmxAdditiveExpression__Group_1_0__0 ) )
+            // InternalDim.g:9947:1: ( ( ( rule__DmxAdditiveExpression__Group_1_0__0 ) ) )
+            // InternalDim.g:9948:1: ( ( rule__DmxAdditiveExpression__Group_1_0__0 ) )
             {
-            // InternalDim.g:9779:1: ( ( rule__DmxAdditiveExpression__Group_1_0__0 ) )
-            // InternalDim.g:9780:2: ( rule__DmxAdditiveExpression__Group_1_0__0 )
+            // InternalDim.g:9948:1: ( ( rule__DmxAdditiveExpression__Group_1_0__0 ) )
+            // InternalDim.g:9949:2: ( rule__DmxAdditiveExpression__Group_1_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAdditiveExpressionAccess().getGroup_1_0()); 
             }
-            // InternalDim.g:9781:2: ( rule__DmxAdditiveExpression__Group_1_0__0 )
-            // InternalDim.g:9781:3: rule__DmxAdditiveExpression__Group_1_0__0
+            // InternalDim.g:9950:2: ( rule__DmxAdditiveExpression__Group_1_0__0 )
+            // InternalDim.g:9950:3: rule__DmxAdditiveExpression__Group_1_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxAdditiveExpression__Group_1_0__0();
@@ -33566,14 +34104,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group_1__1"
-    // InternalDim.g:9789:1: rule__DmxAdditiveExpression__Group_1__1 : rule__DmxAdditiveExpression__Group_1__1__Impl ;
+    // InternalDim.g:9958:1: rule__DmxAdditiveExpression__Group_1__1 : rule__DmxAdditiveExpression__Group_1__1__Impl ;
     public final void rule__DmxAdditiveExpression__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9793:1: ( rule__DmxAdditiveExpression__Group_1__1__Impl )
-            // InternalDim.g:9794:2: rule__DmxAdditiveExpression__Group_1__1__Impl
+            // InternalDim.g:9962:1: ( rule__DmxAdditiveExpression__Group_1__1__Impl )
+            // InternalDim.g:9963:2: rule__DmxAdditiveExpression__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxAdditiveExpression__Group_1__1__Impl();
@@ -33599,23 +34137,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group_1__1__Impl"
-    // InternalDim.g:9800:1: rule__DmxAdditiveExpression__Group_1__1__Impl : ( ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 ) ) ;
+    // InternalDim.g:9969:1: rule__DmxAdditiveExpression__Group_1__1__Impl : ( ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 ) ) ;
     public final void rule__DmxAdditiveExpression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9804:1: ( ( ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 ) ) )
-            // InternalDim.g:9805:1: ( ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 ) )
+            // InternalDim.g:9973:1: ( ( ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 ) ) )
+            // InternalDim.g:9974:1: ( ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 ) )
             {
-            // InternalDim.g:9805:1: ( ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 ) )
-            // InternalDim.g:9806:2: ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 )
+            // InternalDim.g:9974:1: ( ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 ) )
+            // InternalDim.g:9975:2: ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAdditiveExpressionAccess().getRightOperandAssignment_1_1()); 
             }
-            // InternalDim.g:9807:2: ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 )
-            // InternalDim.g:9807:3: rule__DmxAdditiveExpression__RightOperandAssignment_1_1
+            // InternalDim.g:9976:2: ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 )
+            // InternalDim.g:9976:3: rule__DmxAdditiveExpression__RightOperandAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxAdditiveExpression__RightOperandAssignment_1_1();
@@ -33650,14 +34188,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group_1_0__0"
-    // InternalDim.g:9816:1: rule__DmxAdditiveExpression__Group_1_0__0 : rule__DmxAdditiveExpression__Group_1_0__0__Impl ;
+    // InternalDim.g:9985:1: rule__DmxAdditiveExpression__Group_1_0__0 : rule__DmxAdditiveExpression__Group_1_0__0__Impl ;
     public final void rule__DmxAdditiveExpression__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9820:1: ( rule__DmxAdditiveExpression__Group_1_0__0__Impl )
-            // InternalDim.g:9821:2: rule__DmxAdditiveExpression__Group_1_0__0__Impl
+            // InternalDim.g:9989:1: ( rule__DmxAdditiveExpression__Group_1_0__0__Impl )
+            // InternalDim.g:9990:2: rule__DmxAdditiveExpression__Group_1_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxAdditiveExpression__Group_1_0__0__Impl();
@@ -33683,23 +34221,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group_1_0__0__Impl"
-    // InternalDim.g:9827:1: rule__DmxAdditiveExpression__Group_1_0__0__Impl : ( ( rule__DmxAdditiveExpression__Group_1_0_0__0 ) ) ;
+    // InternalDim.g:9996:1: rule__DmxAdditiveExpression__Group_1_0__0__Impl : ( ( rule__DmxAdditiveExpression__Group_1_0_0__0 ) ) ;
     public final void rule__DmxAdditiveExpression__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9831:1: ( ( ( rule__DmxAdditiveExpression__Group_1_0_0__0 ) ) )
-            // InternalDim.g:9832:1: ( ( rule__DmxAdditiveExpression__Group_1_0_0__0 ) )
+            // InternalDim.g:10000:1: ( ( ( rule__DmxAdditiveExpression__Group_1_0_0__0 ) ) )
+            // InternalDim.g:10001:1: ( ( rule__DmxAdditiveExpression__Group_1_0_0__0 ) )
             {
-            // InternalDim.g:9832:1: ( ( rule__DmxAdditiveExpression__Group_1_0_0__0 ) )
-            // InternalDim.g:9833:2: ( rule__DmxAdditiveExpression__Group_1_0_0__0 )
+            // InternalDim.g:10001:1: ( ( rule__DmxAdditiveExpression__Group_1_0_0__0 ) )
+            // InternalDim.g:10002:2: ( rule__DmxAdditiveExpression__Group_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAdditiveExpressionAccess().getGroup_1_0_0()); 
             }
-            // InternalDim.g:9834:2: ( rule__DmxAdditiveExpression__Group_1_0_0__0 )
-            // InternalDim.g:9834:3: rule__DmxAdditiveExpression__Group_1_0_0__0
+            // InternalDim.g:10003:2: ( rule__DmxAdditiveExpression__Group_1_0_0__0 )
+            // InternalDim.g:10003:3: rule__DmxAdditiveExpression__Group_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxAdditiveExpression__Group_1_0_0__0();
@@ -33734,16 +34272,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group_1_0_0__0"
-    // InternalDim.g:9843:1: rule__DmxAdditiveExpression__Group_1_0_0__0 : rule__DmxAdditiveExpression__Group_1_0_0__0__Impl rule__DmxAdditiveExpression__Group_1_0_0__1 ;
+    // InternalDim.g:10012:1: rule__DmxAdditiveExpression__Group_1_0_0__0 : rule__DmxAdditiveExpression__Group_1_0_0__0__Impl rule__DmxAdditiveExpression__Group_1_0_0__1 ;
     public final void rule__DmxAdditiveExpression__Group_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9847:1: ( rule__DmxAdditiveExpression__Group_1_0_0__0__Impl rule__DmxAdditiveExpression__Group_1_0_0__1 )
-            // InternalDim.g:9848:2: rule__DmxAdditiveExpression__Group_1_0_0__0__Impl rule__DmxAdditiveExpression__Group_1_0_0__1
+            // InternalDim.g:10016:1: ( rule__DmxAdditiveExpression__Group_1_0_0__0__Impl rule__DmxAdditiveExpression__Group_1_0_0__1 )
+            // InternalDim.g:10017:2: rule__DmxAdditiveExpression__Group_1_0_0__0__Impl rule__DmxAdditiveExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_69);
+            pushFollow(FOLLOW_73);
             rule__DmxAdditiveExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -33772,23 +34310,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group_1_0_0__0__Impl"
-    // InternalDim.g:9855:1: rule__DmxAdditiveExpression__Group_1_0_0__0__Impl : ( () ) ;
+    // InternalDim.g:10024:1: rule__DmxAdditiveExpression__Group_1_0_0__0__Impl : ( () ) ;
     public final void rule__DmxAdditiveExpression__Group_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9859:1: ( ( () ) )
-            // InternalDim.g:9860:1: ( () )
+            // InternalDim.g:10028:1: ( ( () ) )
+            // InternalDim.g:10029:1: ( () )
             {
-            // InternalDim.g:9860:1: ( () )
-            // InternalDim.g:9861:2: ()
+            // InternalDim.g:10029:1: ( () )
+            // InternalDim.g:10030:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAdditiveExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()); 
             }
-            // InternalDim.g:9862:2: ()
-            // InternalDim.g:9862:3: 
+            // InternalDim.g:10031:2: ()
+            // InternalDim.g:10031:3: 
             {
             }
 
@@ -33813,14 +34351,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group_1_0_0__1"
-    // InternalDim.g:9870:1: rule__DmxAdditiveExpression__Group_1_0_0__1 : rule__DmxAdditiveExpression__Group_1_0_0__1__Impl ;
+    // InternalDim.g:10039:1: rule__DmxAdditiveExpression__Group_1_0_0__1 : rule__DmxAdditiveExpression__Group_1_0_0__1__Impl ;
     public final void rule__DmxAdditiveExpression__Group_1_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9874:1: ( rule__DmxAdditiveExpression__Group_1_0_0__1__Impl )
-            // InternalDim.g:9875:2: rule__DmxAdditiveExpression__Group_1_0_0__1__Impl
+            // InternalDim.g:10043:1: ( rule__DmxAdditiveExpression__Group_1_0_0__1__Impl )
+            // InternalDim.g:10044:2: rule__DmxAdditiveExpression__Group_1_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxAdditiveExpression__Group_1_0_0__1__Impl();
@@ -33846,23 +34384,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group_1_0_0__1__Impl"
-    // InternalDim.g:9881:1: rule__DmxAdditiveExpression__Group_1_0_0__1__Impl : ( ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 ) ) ;
+    // InternalDim.g:10050:1: rule__DmxAdditiveExpression__Group_1_0_0__1__Impl : ( ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 ) ) ;
     public final void rule__DmxAdditiveExpression__Group_1_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9885:1: ( ( ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 ) ) )
-            // InternalDim.g:9886:1: ( ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalDim.g:10054:1: ( ( ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 ) ) )
+            // InternalDim.g:10055:1: ( ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 ) )
             {
-            // InternalDim.g:9886:1: ( ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 ) )
-            // InternalDim.g:9887:2: ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 )
+            // InternalDim.g:10055:1: ( ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalDim.g:10056:2: ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAdditiveExpressionAccess().getOperatorAssignment_1_0_0_1()); 
             }
-            // InternalDim.g:9888:2: ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 )
-            // InternalDim.g:9888:3: rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1
+            // InternalDim.g:10057:2: ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 )
+            // InternalDim.g:10057:3: rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1();
@@ -33897,16 +34435,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group__0"
-    // InternalDim.g:9897:1: rule__DmxMultiplicativeExpression__Group__0 : rule__DmxMultiplicativeExpression__Group__0__Impl rule__DmxMultiplicativeExpression__Group__1 ;
+    // InternalDim.g:10066:1: rule__DmxMultiplicativeExpression__Group__0 : rule__DmxMultiplicativeExpression__Group__0__Impl rule__DmxMultiplicativeExpression__Group__1 ;
     public final void rule__DmxMultiplicativeExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9901:1: ( rule__DmxMultiplicativeExpression__Group__0__Impl rule__DmxMultiplicativeExpression__Group__1 )
-            // InternalDim.g:9902:2: rule__DmxMultiplicativeExpression__Group__0__Impl rule__DmxMultiplicativeExpression__Group__1
+            // InternalDim.g:10070:1: ( rule__DmxMultiplicativeExpression__Group__0__Impl rule__DmxMultiplicativeExpression__Group__1 )
+            // InternalDim.g:10071:2: rule__DmxMultiplicativeExpression__Group__0__Impl rule__DmxMultiplicativeExpression__Group__1
             {
-            pushFollow(FOLLOW_71);
+            pushFollow(FOLLOW_75);
             rule__DmxMultiplicativeExpression__Group__0__Impl();
 
             state._fsp--;
@@ -33935,17 +34473,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group__0__Impl"
-    // InternalDim.g:9909:1: rule__DmxMultiplicativeExpression__Group__0__Impl : ( ruleDmxUnaryOperation ) ;
+    // InternalDim.g:10078:1: rule__DmxMultiplicativeExpression__Group__0__Impl : ( ruleDmxUnaryOperation ) ;
     public final void rule__DmxMultiplicativeExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9913:1: ( ( ruleDmxUnaryOperation ) )
-            // InternalDim.g:9914:1: ( ruleDmxUnaryOperation )
+            // InternalDim.g:10082:1: ( ( ruleDmxUnaryOperation ) )
+            // InternalDim.g:10083:1: ( ruleDmxUnaryOperation )
             {
-            // InternalDim.g:9914:1: ( ruleDmxUnaryOperation )
-            // InternalDim.g:9915:2: ruleDmxUnaryOperation
+            // InternalDim.g:10083:1: ( ruleDmxUnaryOperation )
+            // InternalDim.g:10084:2: ruleDmxUnaryOperation
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxMultiplicativeExpressionAccess().getDmxUnaryOperationParserRuleCall_0()); 
@@ -33980,14 +34518,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group__1"
-    // InternalDim.g:9924:1: rule__DmxMultiplicativeExpression__Group__1 : rule__DmxMultiplicativeExpression__Group__1__Impl ;
+    // InternalDim.g:10093:1: rule__DmxMultiplicativeExpression__Group__1 : rule__DmxMultiplicativeExpression__Group__1__Impl ;
     public final void rule__DmxMultiplicativeExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9928:1: ( rule__DmxMultiplicativeExpression__Group__1__Impl )
-            // InternalDim.g:9929:2: rule__DmxMultiplicativeExpression__Group__1__Impl
+            // InternalDim.g:10097:1: ( rule__DmxMultiplicativeExpression__Group__1__Impl )
+            // InternalDim.g:10098:2: rule__DmxMultiplicativeExpression__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxMultiplicativeExpression__Group__1__Impl();
@@ -34013,22 +34551,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group__1__Impl"
-    // InternalDim.g:9935:1: rule__DmxMultiplicativeExpression__Group__1__Impl : ( ( rule__DmxMultiplicativeExpression__Group_1__0 )* ) ;
+    // InternalDim.g:10104:1: rule__DmxMultiplicativeExpression__Group__1__Impl : ( ( rule__DmxMultiplicativeExpression__Group_1__0 )* ) ;
     public final void rule__DmxMultiplicativeExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9939:1: ( ( ( rule__DmxMultiplicativeExpression__Group_1__0 )* ) )
-            // InternalDim.g:9940:1: ( ( rule__DmxMultiplicativeExpression__Group_1__0 )* )
+            // InternalDim.g:10108:1: ( ( ( rule__DmxMultiplicativeExpression__Group_1__0 )* ) )
+            // InternalDim.g:10109:1: ( ( rule__DmxMultiplicativeExpression__Group_1__0 )* )
             {
-            // InternalDim.g:9940:1: ( ( rule__DmxMultiplicativeExpression__Group_1__0 )* )
-            // InternalDim.g:9941:2: ( rule__DmxMultiplicativeExpression__Group_1__0 )*
+            // InternalDim.g:10109:1: ( ( rule__DmxMultiplicativeExpression__Group_1__0 )* )
+            // InternalDim.g:10110:2: ( rule__DmxMultiplicativeExpression__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxMultiplicativeExpressionAccess().getGroup_1()); 
             }
-            // InternalDim.g:9942:2: ( rule__DmxMultiplicativeExpression__Group_1__0 )*
+            // InternalDim.g:10111:2: ( rule__DmxMultiplicativeExpression__Group_1__0 )*
             loop106:
             do {
                 int alt106=2;
@@ -34082,9 +34620,9 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
                 switch (alt106) {
             	case 1 :
-            	    // InternalDim.g:9942:3: rule__DmxMultiplicativeExpression__Group_1__0
+            	    // InternalDim.g:10111:3: rule__DmxMultiplicativeExpression__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_72);
+            	    pushFollow(FOLLOW_76);
             	    rule__DmxMultiplicativeExpression__Group_1__0();
 
             	    state._fsp--;
@@ -34123,16 +34661,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group_1__0"
-    // InternalDim.g:9951:1: rule__DmxMultiplicativeExpression__Group_1__0 : rule__DmxMultiplicativeExpression__Group_1__0__Impl rule__DmxMultiplicativeExpression__Group_1__1 ;
+    // InternalDim.g:10120:1: rule__DmxMultiplicativeExpression__Group_1__0 : rule__DmxMultiplicativeExpression__Group_1__0__Impl rule__DmxMultiplicativeExpression__Group_1__1 ;
     public final void rule__DmxMultiplicativeExpression__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9955:1: ( rule__DmxMultiplicativeExpression__Group_1__0__Impl rule__DmxMultiplicativeExpression__Group_1__1 )
-            // InternalDim.g:9956:2: rule__DmxMultiplicativeExpression__Group_1__0__Impl rule__DmxMultiplicativeExpression__Group_1__1
+            // InternalDim.g:10124:1: ( rule__DmxMultiplicativeExpression__Group_1__0__Impl rule__DmxMultiplicativeExpression__Group_1__1 )
+            // InternalDim.g:10125:2: rule__DmxMultiplicativeExpression__Group_1__0__Impl rule__DmxMultiplicativeExpression__Group_1__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_57);
             rule__DmxMultiplicativeExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -34161,23 +34699,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group_1__0__Impl"
-    // InternalDim.g:9963:1: rule__DmxMultiplicativeExpression__Group_1__0__Impl : ( ( rule__DmxMultiplicativeExpression__Group_1_0__0 ) ) ;
+    // InternalDim.g:10132:1: rule__DmxMultiplicativeExpression__Group_1__0__Impl : ( ( rule__DmxMultiplicativeExpression__Group_1_0__0 ) ) ;
     public final void rule__DmxMultiplicativeExpression__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9967:1: ( ( ( rule__DmxMultiplicativeExpression__Group_1_0__0 ) ) )
-            // InternalDim.g:9968:1: ( ( rule__DmxMultiplicativeExpression__Group_1_0__0 ) )
+            // InternalDim.g:10136:1: ( ( ( rule__DmxMultiplicativeExpression__Group_1_0__0 ) ) )
+            // InternalDim.g:10137:1: ( ( rule__DmxMultiplicativeExpression__Group_1_0__0 ) )
             {
-            // InternalDim.g:9968:1: ( ( rule__DmxMultiplicativeExpression__Group_1_0__0 ) )
-            // InternalDim.g:9969:2: ( rule__DmxMultiplicativeExpression__Group_1_0__0 )
+            // InternalDim.g:10137:1: ( ( rule__DmxMultiplicativeExpression__Group_1_0__0 ) )
+            // InternalDim.g:10138:2: ( rule__DmxMultiplicativeExpression__Group_1_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxMultiplicativeExpressionAccess().getGroup_1_0()); 
             }
-            // InternalDim.g:9970:2: ( rule__DmxMultiplicativeExpression__Group_1_0__0 )
-            // InternalDim.g:9970:3: rule__DmxMultiplicativeExpression__Group_1_0__0
+            // InternalDim.g:10139:2: ( rule__DmxMultiplicativeExpression__Group_1_0__0 )
+            // InternalDim.g:10139:3: rule__DmxMultiplicativeExpression__Group_1_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxMultiplicativeExpression__Group_1_0__0();
@@ -34212,14 +34750,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group_1__1"
-    // InternalDim.g:9978:1: rule__DmxMultiplicativeExpression__Group_1__1 : rule__DmxMultiplicativeExpression__Group_1__1__Impl ;
+    // InternalDim.g:10147:1: rule__DmxMultiplicativeExpression__Group_1__1 : rule__DmxMultiplicativeExpression__Group_1__1__Impl ;
     public final void rule__DmxMultiplicativeExpression__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9982:1: ( rule__DmxMultiplicativeExpression__Group_1__1__Impl )
-            // InternalDim.g:9983:2: rule__DmxMultiplicativeExpression__Group_1__1__Impl
+            // InternalDim.g:10151:1: ( rule__DmxMultiplicativeExpression__Group_1__1__Impl )
+            // InternalDim.g:10152:2: rule__DmxMultiplicativeExpression__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxMultiplicativeExpression__Group_1__1__Impl();
@@ -34245,23 +34783,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group_1__1__Impl"
-    // InternalDim.g:9989:1: rule__DmxMultiplicativeExpression__Group_1__1__Impl : ( ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 ) ) ;
+    // InternalDim.g:10158:1: rule__DmxMultiplicativeExpression__Group_1__1__Impl : ( ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 ) ) ;
     public final void rule__DmxMultiplicativeExpression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:9993:1: ( ( ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 ) ) )
-            // InternalDim.g:9994:1: ( ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 ) )
+            // InternalDim.g:10162:1: ( ( ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 ) ) )
+            // InternalDim.g:10163:1: ( ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 ) )
             {
-            // InternalDim.g:9994:1: ( ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 ) )
-            // InternalDim.g:9995:2: ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 )
+            // InternalDim.g:10163:1: ( ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 ) )
+            // InternalDim.g:10164:2: ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxMultiplicativeExpressionAccess().getRightOperandAssignment_1_1()); 
             }
-            // InternalDim.g:9996:2: ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 )
-            // InternalDim.g:9996:3: rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1
+            // InternalDim.g:10165:2: ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 )
+            // InternalDim.g:10165:3: rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1();
@@ -34296,14 +34834,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group_1_0__0"
-    // InternalDim.g:10005:1: rule__DmxMultiplicativeExpression__Group_1_0__0 : rule__DmxMultiplicativeExpression__Group_1_0__0__Impl ;
+    // InternalDim.g:10174:1: rule__DmxMultiplicativeExpression__Group_1_0__0 : rule__DmxMultiplicativeExpression__Group_1_0__0__Impl ;
     public final void rule__DmxMultiplicativeExpression__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10009:1: ( rule__DmxMultiplicativeExpression__Group_1_0__0__Impl )
-            // InternalDim.g:10010:2: rule__DmxMultiplicativeExpression__Group_1_0__0__Impl
+            // InternalDim.g:10178:1: ( rule__DmxMultiplicativeExpression__Group_1_0__0__Impl )
+            // InternalDim.g:10179:2: rule__DmxMultiplicativeExpression__Group_1_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxMultiplicativeExpression__Group_1_0__0__Impl();
@@ -34329,23 +34867,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group_1_0__0__Impl"
-    // InternalDim.g:10016:1: rule__DmxMultiplicativeExpression__Group_1_0__0__Impl : ( ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 ) ) ;
+    // InternalDim.g:10185:1: rule__DmxMultiplicativeExpression__Group_1_0__0__Impl : ( ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 ) ) ;
     public final void rule__DmxMultiplicativeExpression__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10020:1: ( ( ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 ) ) )
-            // InternalDim.g:10021:1: ( ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 ) )
+            // InternalDim.g:10189:1: ( ( ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 ) ) )
+            // InternalDim.g:10190:1: ( ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 ) )
             {
-            // InternalDim.g:10021:1: ( ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 ) )
-            // InternalDim.g:10022:2: ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 )
+            // InternalDim.g:10190:1: ( ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 ) )
+            // InternalDim.g:10191:2: ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxMultiplicativeExpressionAccess().getGroup_1_0_0()); 
             }
-            // InternalDim.g:10023:2: ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 )
-            // InternalDim.g:10023:3: rule__DmxMultiplicativeExpression__Group_1_0_0__0
+            // InternalDim.g:10192:2: ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 )
+            // InternalDim.g:10192:3: rule__DmxMultiplicativeExpression__Group_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxMultiplicativeExpression__Group_1_0_0__0();
@@ -34380,16 +34918,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group_1_0_0__0"
-    // InternalDim.g:10032:1: rule__DmxMultiplicativeExpression__Group_1_0_0__0 : rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl rule__DmxMultiplicativeExpression__Group_1_0_0__1 ;
+    // InternalDim.g:10201:1: rule__DmxMultiplicativeExpression__Group_1_0_0__0 : rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl rule__DmxMultiplicativeExpression__Group_1_0_0__1 ;
     public final void rule__DmxMultiplicativeExpression__Group_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10036:1: ( rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl rule__DmxMultiplicativeExpression__Group_1_0_0__1 )
-            // InternalDim.g:10037:2: rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl rule__DmxMultiplicativeExpression__Group_1_0_0__1
+            // InternalDim.g:10205:1: ( rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl rule__DmxMultiplicativeExpression__Group_1_0_0__1 )
+            // InternalDim.g:10206:2: rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl rule__DmxMultiplicativeExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_71);
+            pushFollow(FOLLOW_75);
             rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -34418,23 +34956,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl"
-    // InternalDim.g:10044:1: rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl : ( () ) ;
+    // InternalDim.g:10213:1: rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl : ( () ) ;
     public final void rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10048:1: ( ( () ) )
-            // InternalDim.g:10049:1: ( () )
+            // InternalDim.g:10217:1: ( ( () ) )
+            // InternalDim.g:10218:1: ( () )
             {
-            // InternalDim.g:10049:1: ( () )
-            // InternalDim.g:10050:2: ()
+            // InternalDim.g:10218:1: ( () )
+            // InternalDim.g:10219:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxMultiplicativeExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()); 
             }
-            // InternalDim.g:10051:2: ()
-            // InternalDim.g:10051:3: 
+            // InternalDim.g:10220:2: ()
+            // InternalDim.g:10220:3: 
             {
             }
 
@@ -34459,14 +34997,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group_1_0_0__1"
-    // InternalDim.g:10059:1: rule__DmxMultiplicativeExpression__Group_1_0_0__1 : rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl ;
+    // InternalDim.g:10228:1: rule__DmxMultiplicativeExpression__Group_1_0_0__1 : rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl ;
     public final void rule__DmxMultiplicativeExpression__Group_1_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10063:1: ( rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl )
-            // InternalDim.g:10064:2: rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl
+            // InternalDim.g:10232:1: ( rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl )
+            // InternalDim.g:10233:2: rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl();
@@ -34492,23 +35030,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl"
-    // InternalDim.g:10070:1: rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl : ( ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 ) ) ;
+    // InternalDim.g:10239:1: rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl : ( ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 ) ) ;
     public final void rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10074:1: ( ( ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 ) ) )
-            // InternalDim.g:10075:1: ( ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalDim.g:10243:1: ( ( ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 ) ) )
+            // InternalDim.g:10244:1: ( ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 ) )
             {
-            // InternalDim.g:10075:1: ( ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 ) )
-            // InternalDim.g:10076:2: ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 )
+            // InternalDim.g:10244:1: ( ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalDim.g:10245:2: ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxMultiplicativeExpressionAccess().getOperatorAssignment_1_0_0_1()); 
             }
-            // InternalDim.g:10077:2: ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 )
-            // InternalDim.g:10077:3: rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1
+            // InternalDim.g:10246:2: ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 )
+            // InternalDim.g:10246:3: rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1();
@@ -34543,16 +35081,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUnaryOperation__Group_0__0"
-    // InternalDim.g:10086:1: rule__DmxUnaryOperation__Group_0__0 : rule__DmxUnaryOperation__Group_0__0__Impl rule__DmxUnaryOperation__Group_0__1 ;
+    // InternalDim.g:10255:1: rule__DmxUnaryOperation__Group_0__0 : rule__DmxUnaryOperation__Group_0__0__Impl rule__DmxUnaryOperation__Group_0__1 ;
     public final void rule__DmxUnaryOperation__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10090:1: ( rule__DmxUnaryOperation__Group_0__0__Impl rule__DmxUnaryOperation__Group_0__1 )
-            // InternalDim.g:10091:2: rule__DmxUnaryOperation__Group_0__0__Impl rule__DmxUnaryOperation__Group_0__1
+            // InternalDim.g:10259:1: ( rule__DmxUnaryOperation__Group_0__0__Impl rule__DmxUnaryOperation__Group_0__1 )
+            // InternalDim.g:10260:2: rule__DmxUnaryOperation__Group_0__0__Impl rule__DmxUnaryOperation__Group_0__1
             {
-            pushFollow(FOLLOW_73);
+            pushFollow(FOLLOW_77);
             rule__DmxUnaryOperation__Group_0__0__Impl();
 
             state._fsp--;
@@ -34581,23 +35119,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUnaryOperation__Group_0__0__Impl"
-    // InternalDim.g:10098:1: rule__DmxUnaryOperation__Group_0__0__Impl : ( () ) ;
+    // InternalDim.g:10267:1: rule__DmxUnaryOperation__Group_0__0__Impl : ( () ) ;
     public final void rule__DmxUnaryOperation__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10102:1: ( ( () ) )
-            // InternalDim.g:10103:1: ( () )
+            // InternalDim.g:10271:1: ( ( () ) )
+            // InternalDim.g:10272:1: ( () )
             {
-            // InternalDim.g:10103:1: ( () )
-            // InternalDim.g:10104:2: ()
+            // InternalDim.g:10272:1: ( () )
+            // InternalDim.g:10273:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxUnaryOperationAccess().getDmxUnaryOperationAction_0_0()); 
             }
-            // InternalDim.g:10105:2: ()
-            // InternalDim.g:10105:3: 
+            // InternalDim.g:10274:2: ()
+            // InternalDim.g:10274:3: 
             {
             }
 
@@ -34622,16 +35160,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUnaryOperation__Group_0__1"
-    // InternalDim.g:10113:1: rule__DmxUnaryOperation__Group_0__1 : rule__DmxUnaryOperation__Group_0__1__Impl rule__DmxUnaryOperation__Group_0__2 ;
+    // InternalDim.g:10282:1: rule__DmxUnaryOperation__Group_0__1 : rule__DmxUnaryOperation__Group_0__1__Impl rule__DmxUnaryOperation__Group_0__2 ;
     public final void rule__DmxUnaryOperation__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10117:1: ( rule__DmxUnaryOperation__Group_0__1__Impl rule__DmxUnaryOperation__Group_0__2 )
-            // InternalDim.g:10118:2: rule__DmxUnaryOperation__Group_0__1__Impl rule__DmxUnaryOperation__Group_0__2
+            // InternalDim.g:10286:1: ( rule__DmxUnaryOperation__Group_0__1__Impl rule__DmxUnaryOperation__Group_0__2 )
+            // InternalDim.g:10287:2: rule__DmxUnaryOperation__Group_0__1__Impl rule__DmxUnaryOperation__Group_0__2
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_57);
             rule__DmxUnaryOperation__Group_0__1__Impl();
 
             state._fsp--;
@@ -34660,23 +35198,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUnaryOperation__Group_0__1__Impl"
-    // InternalDim.g:10125:1: rule__DmxUnaryOperation__Group_0__1__Impl : ( ( rule__DmxUnaryOperation__OperatorAssignment_0_1 ) ) ;
+    // InternalDim.g:10294:1: rule__DmxUnaryOperation__Group_0__1__Impl : ( ( rule__DmxUnaryOperation__OperatorAssignment_0_1 ) ) ;
     public final void rule__DmxUnaryOperation__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10129:1: ( ( ( rule__DmxUnaryOperation__OperatorAssignment_0_1 ) ) )
-            // InternalDim.g:10130:1: ( ( rule__DmxUnaryOperation__OperatorAssignment_0_1 ) )
+            // InternalDim.g:10298:1: ( ( ( rule__DmxUnaryOperation__OperatorAssignment_0_1 ) ) )
+            // InternalDim.g:10299:1: ( ( rule__DmxUnaryOperation__OperatorAssignment_0_1 ) )
             {
-            // InternalDim.g:10130:1: ( ( rule__DmxUnaryOperation__OperatorAssignment_0_1 ) )
-            // InternalDim.g:10131:2: ( rule__DmxUnaryOperation__OperatorAssignment_0_1 )
+            // InternalDim.g:10299:1: ( ( rule__DmxUnaryOperation__OperatorAssignment_0_1 ) )
+            // InternalDim.g:10300:2: ( rule__DmxUnaryOperation__OperatorAssignment_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxUnaryOperationAccess().getOperatorAssignment_0_1()); 
             }
-            // InternalDim.g:10132:2: ( rule__DmxUnaryOperation__OperatorAssignment_0_1 )
-            // InternalDim.g:10132:3: rule__DmxUnaryOperation__OperatorAssignment_0_1
+            // InternalDim.g:10301:2: ( rule__DmxUnaryOperation__OperatorAssignment_0_1 )
+            // InternalDim.g:10301:3: rule__DmxUnaryOperation__OperatorAssignment_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxUnaryOperation__OperatorAssignment_0_1();
@@ -34711,14 +35249,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUnaryOperation__Group_0__2"
-    // InternalDim.g:10140:1: rule__DmxUnaryOperation__Group_0__2 : rule__DmxUnaryOperation__Group_0__2__Impl ;
+    // InternalDim.g:10309:1: rule__DmxUnaryOperation__Group_0__2 : rule__DmxUnaryOperation__Group_0__2__Impl ;
     public final void rule__DmxUnaryOperation__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10144:1: ( rule__DmxUnaryOperation__Group_0__2__Impl )
-            // InternalDim.g:10145:2: rule__DmxUnaryOperation__Group_0__2__Impl
+            // InternalDim.g:10313:1: ( rule__DmxUnaryOperation__Group_0__2__Impl )
+            // InternalDim.g:10314:2: rule__DmxUnaryOperation__Group_0__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxUnaryOperation__Group_0__2__Impl();
@@ -34744,23 +35282,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUnaryOperation__Group_0__2__Impl"
-    // InternalDim.g:10151:1: rule__DmxUnaryOperation__Group_0__2__Impl : ( ( rule__DmxUnaryOperation__OperandAssignment_0_2 ) ) ;
+    // InternalDim.g:10320:1: rule__DmxUnaryOperation__Group_0__2__Impl : ( ( rule__DmxUnaryOperation__OperandAssignment_0_2 ) ) ;
     public final void rule__DmxUnaryOperation__Group_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10155:1: ( ( ( rule__DmxUnaryOperation__OperandAssignment_0_2 ) ) )
-            // InternalDim.g:10156:1: ( ( rule__DmxUnaryOperation__OperandAssignment_0_2 ) )
+            // InternalDim.g:10324:1: ( ( ( rule__DmxUnaryOperation__OperandAssignment_0_2 ) ) )
+            // InternalDim.g:10325:1: ( ( rule__DmxUnaryOperation__OperandAssignment_0_2 ) )
             {
-            // InternalDim.g:10156:1: ( ( rule__DmxUnaryOperation__OperandAssignment_0_2 ) )
-            // InternalDim.g:10157:2: ( rule__DmxUnaryOperation__OperandAssignment_0_2 )
+            // InternalDim.g:10325:1: ( ( rule__DmxUnaryOperation__OperandAssignment_0_2 ) )
+            // InternalDim.g:10326:2: ( rule__DmxUnaryOperation__OperandAssignment_0_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxUnaryOperationAccess().getOperandAssignment_0_2()); 
             }
-            // InternalDim.g:10158:2: ( rule__DmxUnaryOperation__OperandAssignment_0_2 )
-            // InternalDim.g:10158:3: rule__DmxUnaryOperation__OperandAssignment_0_2
+            // InternalDim.g:10327:2: ( rule__DmxUnaryOperation__OperandAssignment_0_2 )
+            // InternalDim.g:10327:3: rule__DmxUnaryOperation__OperandAssignment_0_2
             {
             pushFollow(FOLLOW_2);
             rule__DmxUnaryOperation__OperandAssignment_0_2();
@@ -34795,16 +35333,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group__0"
-    // InternalDim.g:10167:1: rule__DmxCastExpression__Group__0 : rule__DmxCastExpression__Group__0__Impl rule__DmxCastExpression__Group__1 ;
+    // InternalDim.g:10336:1: rule__DmxCastExpression__Group__0 : rule__DmxCastExpression__Group__0__Impl rule__DmxCastExpression__Group__1 ;
     public final void rule__DmxCastExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10171:1: ( rule__DmxCastExpression__Group__0__Impl rule__DmxCastExpression__Group__1 )
-            // InternalDim.g:10172:2: rule__DmxCastExpression__Group__0__Impl rule__DmxCastExpression__Group__1
+            // InternalDim.g:10340:1: ( rule__DmxCastExpression__Group__0__Impl rule__DmxCastExpression__Group__1 )
+            // InternalDim.g:10341:2: rule__DmxCastExpression__Group__0__Impl rule__DmxCastExpression__Group__1
             {
-            pushFollow(FOLLOW_74);
+            pushFollow(FOLLOW_78);
             rule__DmxCastExpression__Group__0__Impl();
 
             state._fsp--;
@@ -34833,17 +35371,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group__0__Impl"
-    // InternalDim.g:10179:1: rule__DmxCastExpression__Group__0__Impl : ( ruleDmxNavigableMemberReference ) ;
+    // InternalDim.g:10348:1: rule__DmxCastExpression__Group__0__Impl : ( ruleDmxNavigableMemberReference ) ;
     public final void rule__DmxCastExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10183:1: ( ( ruleDmxNavigableMemberReference ) )
-            // InternalDim.g:10184:1: ( ruleDmxNavigableMemberReference )
+            // InternalDim.g:10352:1: ( ( ruleDmxNavigableMemberReference ) )
+            // InternalDim.g:10353:1: ( ruleDmxNavigableMemberReference )
             {
-            // InternalDim.g:10184:1: ( ruleDmxNavigableMemberReference )
-            // InternalDim.g:10185:2: ruleDmxNavigableMemberReference
+            // InternalDim.g:10353:1: ( ruleDmxNavigableMemberReference )
+            // InternalDim.g:10354:2: ruleDmxNavigableMemberReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxCastExpressionAccess().getDmxNavigableMemberReferenceParserRuleCall_0()); 
@@ -34878,14 +35416,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group__1"
-    // InternalDim.g:10194:1: rule__DmxCastExpression__Group__1 : rule__DmxCastExpression__Group__1__Impl ;
+    // InternalDim.g:10363:1: rule__DmxCastExpression__Group__1 : rule__DmxCastExpression__Group__1__Impl ;
     public final void rule__DmxCastExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10198:1: ( rule__DmxCastExpression__Group__1__Impl )
-            // InternalDim.g:10199:2: rule__DmxCastExpression__Group__1__Impl
+            // InternalDim.g:10367:1: ( rule__DmxCastExpression__Group__1__Impl )
+            // InternalDim.g:10368:2: rule__DmxCastExpression__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxCastExpression__Group__1__Impl();
@@ -34911,22 +35449,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group__1__Impl"
-    // InternalDim.g:10205:1: rule__DmxCastExpression__Group__1__Impl : ( ( rule__DmxCastExpression__Group_1__0 )? ) ;
+    // InternalDim.g:10374:1: rule__DmxCastExpression__Group__1__Impl : ( ( rule__DmxCastExpression__Group_1__0 )? ) ;
     public final void rule__DmxCastExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10209:1: ( ( ( rule__DmxCastExpression__Group_1__0 )? ) )
-            // InternalDim.g:10210:1: ( ( rule__DmxCastExpression__Group_1__0 )? )
+            // InternalDim.g:10378:1: ( ( ( rule__DmxCastExpression__Group_1__0 )? ) )
+            // InternalDim.g:10379:1: ( ( rule__DmxCastExpression__Group_1__0 )? )
             {
-            // InternalDim.g:10210:1: ( ( rule__DmxCastExpression__Group_1__0 )? )
-            // InternalDim.g:10211:2: ( rule__DmxCastExpression__Group_1__0 )?
+            // InternalDim.g:10379:1: ( ( rule__DmxCastExpression__Group_1__0 )? )
+            // InternalDim.g:10380:2: ( rule__DmxCastExpression__Group_1__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxCastExpressionAccess().getGroup_1()); 
             }
-            // InternalDim.g:10212:2: ( rule__DmxCastExpression__Group_1__0 )?
+            // InternalDim.g:10381:2: ( rule__DmxCastExpression__Group_1__0 )?
             int alt107=2;
             int LA107_0 = input.LA(1);
 
@@ -34946,7 +35484,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             }
             switch (alt107) {
                 case 1 :
-                    // InternalDim.g:10212:3: rule__DmxCastExpression__Group_1__0
+                    // InternalDim.g:10381:3: rule__DmxCastExpression__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxCastExpression__Group_1__0();
@@ -34984,14 +35522,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group_1__0"
-    // InternalDim.g:10221:1: rule__DmxCastExpression__Group_1__0 : rule__DmxCastExpression__Group_1__0__Impl rule__DmxCastExpression__Group_1__1 ;
+    // InternalDim.g:10390:1: rule__DmxCastExpression__Group_1__0 : rule__DmxCastExpression__Group_1__0__Impl rule__DmxCastExpression__Group_1__1 ;
     public final void rule__DmxCastExpression__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10225:1: ( rule__DmxCastExpression__Group_1__0__Impl rule__DmxCastExpression__Group_1__1 )
-            // InternalDim.g:10226:2: rule__DmxCastExpression__Group_1__0__Impl rule__DmxCastExpression__Group_1__1
+            // InternalDim.g:10394:1: ( rule__DmxCastExpression__Group_1__0__Impl rule__DmxCastExpression__Group_1__1 )
+            // InternalDim.g:10395:2: rule__DmxCastExpression__Group_1__0__Impl rule__DmxCastExpression__Group_1__1
             {
             pushFollow(FOLLOW_5);
             rule__DmxCastExpression__Group_1__0__Impl();
@@ -35022,23 +35560,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group_1__0__Impl"
-    // InternalDim.g:10233:1: rule__DmxCastExpression__Group_1__0__Impl : ( ( rule__DmxCastExpression__Group_1_0__0 ) ) ;
+    // InternalDim.g:10402:1: rule__DmxCastExpression__Group_1__0__Impl : ( ( rule__DmxCastExpression__Group_1_0__0 ) ) ;
     public final void rule__DmxCastExpression__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10237:1: ( ( ( rule__DmxCastExpression__Group_1_0__0 ) ) )
-            // InternalDim.g:10238:1: ( ( rule__DmxCastExpression__Group_1_0__0 ) )
+            // InternalDim.g:10406:1: ( ( ( rule__DmxCastExpression__Group_1_0__0 ) ) )
+            // InternalDim.g:10407:1: ( ( rule__DmxCastExpression__Group_1_0__0 ) )
             {
-            // InternalDim.g:10238:1: ( ( rule__DmxCastExpression__Group_1_0__0 ) )
-            // InternalDim.g:10239:2: ( rule__DmxCastExpression__Group_1_0__0 )
+            // InternalDim.g:10407:1: ( ( rule__DmxCastExpression__Group_1_0__0 ) )
+            // InternalDim.g:10408:2: ( rule__DmxCastExpression__Group_1_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxCastExpressionAccess().getGroup_1_0()); 
             }
-            // InternalDim.g:10240:2: ( rule__DmxCastExpression__Group_1_0__0 )
-            // InternalDim.g:10240:3: rule__DmxCastExpression__Group_1_0__0
+            // InternalDim.g:10409:2: ( rule__DmxCastExpression__Group_1_0__0 )
+            // InternalDim.g:10409:3: rule__DmxCastExpression__Group_1_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxCastExpression__Group_1_0__0();
@@ -35073,14 +35611,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group_1__1"
-    // InternalDim.g:10248:1: rule__DmxCastExpression__Group_1__1 : rule__DmxCastExpression__Group_1__1__Impl ;
+    // InternalDim.g:10417:1: rule__DmxCastExpression__Group_1__1 : rule__DmxCastExpression__Group_1__1__Impl ;
     public final void rule__DmxCastExpression__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10252:1: ( rule__DmxCastExpression__Group_1__1__Impl )
-            // InternalDim.g:10253:2: rule__DmxCastExpression__Group_1__1__Impl
+            // InternalDim.g:10421:1: ( rule__DmxCastExpression__Group_1__1__Impl )
+            // InternalDim.g:10422:2: rule__DmxCastExpression__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxCastExpression__Group_1__1__Impl();
@@ -35106,23 +35644,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group_1__1__Impl"
-    // InternalDim.g:10259:1: rule__DmxCastExpression__Group_1__1__Impl : ( ( rule__DmxCastExpression__TypeAssignment_1_1 ) ) ;
+    // InternalDim.g:10428:1: rule__DmxCastExpression__Group_1__1__Impl : ( ( rule__DmxCastExpression__TypeAssignment_1_1 ) ) ;
     public final void rule__DmxCastExpression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10263:1: ( ( ( rule__DmxCastExpression__TypeAssignment_1_1 ) ) )
-            // InternalDim.g:10264:1: ( ( rule__DmxCastExpression__TypeAssignment_1_1 ) )
+            // InternalDim.g:10432:1: ( ( ( rule__DmxCastExpression__TypeAssignment_1_1 ) ) )
+            // InternalDim.g:10433:1: ( ( rule__DmxCastExpression__TypeAssignment_1_1 ) )
             {
-            // InternalDim.g:10264:1: ( ( rule__DmxCastExpression__TypeAssignment_1_1 ) )
-            // InternalDim.g:10265:2: ( rule__DmxCastExpression__TypeAssignment_1_1 )
+            // InternalDim.g:10433:1: ( ( rule__DmxCastExpression__TypeAssignment_1_1 ) )
+            // InternalDim.g:10434:2: ( rule__DmxCastExpression__TypeAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxCastExpressionAccess().getTypeAssignment_1_1()); 
             }
-            // InternalDim.g:10266:2: ( rule__DmxCastExpression__TypeAssignment_1_1 )
-            // InternalDim.g:10266:3: rule__DmxCastExpression__TypeAssignment_1_1
+            // InternalDim.g:10435:2: ( rule__DmxCastExpression__TypeAssignment_1_1 )
+            // InternalDim.g:10435:3: rule__DmxCastExpression__TypeAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxCastExpression__TypeAssignment_1_1();
@@ -35157,14 +35695,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group_1_0__0"
-    // InternalDim.g:10275:1: rule__DmxCastExpression__Group_1_0__0 : rule__DmxCastExpression__Group_1_0__0__Impl ;
+    // InternalDim.g:10444:1: rule__DmxCastExpression__Group_1_0__0 : rule__DmxCastExpression__Group_1_0__0__Impl ;
     public final void rule__DmxCastExpression__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10279:1: ( rule__DmxCastExpression__Group_1_0__0__Impl )
-            // InternalDim.g:10280:2: rule__DmxCastExpression__Group_1_0__0__Impl
+            // InternalDim.g:10448:1: ( rule__DmxCastExpression__Group_1_0__0__Impl )
+            // InternalDim.g:10449:2: rule__DmxCastExpression__Group_1_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxCastExpression__Group_1_0__0__Impl();
@@ -35190,23 +35728,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group_1_0__0__Impl"
-    // InternalDim.g:10286:1: rule__DmxCastExpression__Group_1_0__0__Impl : ( ( rule__DmxCastExpression__Group_1_0_0__0 ) ) ;
+    // InternalDim.g:10455:1: rule__DmxCastExpression__Group_1_0__0__Impl : ( ( rule__DmxCastExpression__Group_1_0_0__0 ) ) ;
     public final void rule__DmxCastExpression__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10290:1: ( ( ( rule__DmxCastExpression__Group_1_0_0__0 ) ) )
-            // InternalDim.g:10291:1: ( ( rule__DmxCastExpression__Group_1_0_0__0 ) )
+            // InternalDim.g:10459:1: ( ( ( rule__DmxCastExpression__Group_1_0_0__0 ) ) )
+            // InternalDim.g:10460:1: ( ( rule__DmxCastExpression__Group_1_0_0__0 ) )
             {
-            // InternalDim.g:10291:1: ( ( rule__DmxCastExpression__Group_1_0_0__0 ) )
-            // InternalDim.g:10292:2: ( rule__DmxCastExpression__Group_1_0_0__0 )
+            // InternalDim.g:10460:1: ( ( rule__DmxCastExpression__Group_1_0_0__0 ) )
+            // InternalDim.g:10461:2: ( rule__DmxCastExpression__Group_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxCastExpressionAccess().getGroup_1_0_0()); 
             }
-            // InternalDim.g:10293:2: ( rule__DmxCastExpression__Group_1_0_0__0 )
-            // InternalDim.g:10293:3: rule__DmxCastExpression__Group_1_0_0__0
+            // InternalDim.g:10462:2: ( rule__DmxCastExpression__Group_1_0_0__0 )
+            // InternalDim.g:10462:3: rule__DmxCastExpression__Group_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxCastExpression__Group_1_0_0__0();
@@ -35241,16 +35779,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group_1_0_0__0"
-    // InternalDim.g:10302:1: rule__DmxCastExpression__Group_1_0_0__0 : rule__DmxCastExpression__Group_1_0_0__0__Impl rule__DmxCastExpression__Group_1_0_0__1 ;
+    // InternalDim.g:10471:1: rule__DmxCastExpression__Group_1_0_0__0 : rule__DmxCastExpression__Group_1_0_0__0__Impl rule__DmxCastExpression__Group_1_0_0__1 ;
     public final void rule__DmxCastExpression__Group_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10306:1: ( rule__DmxCastExpression__Group_1_0_0__0__Impl rule__DmxCastExpression__Group_1_0_0__1 )
-            // InternalDim.g:10307:2: rule__DmxCastExpression__Group_1_0_0__0__Impl rule__DmxCastExpression__Group_1_0_0__1
+            // InternalDim.g:10475:1: ( rule__DmxCastExpression__Group_1_0_0__0__Impl rule__DmxCastExpression__Group_1_0_0__1 )
+            // InternalDim.g:10476:2: rule__DmxCastExpression__Group_1_0_0__0__Impl rule__DmxCastExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_74);
+            pushFollow(FOLLOW_78);
             rule__DmxCastExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -35279,23 +35817,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group_1_0_0__0__Impl"
-    // InternalDim.g:10314:1: rule__DmxCastExpression__Group_1_0_0__0__Impl : ( () ) ;
+    // InternalDim.g:10483:1: rule__DmxCastExpression__Group_1_0_0__0__Impl : ( () ) ;
     public final void rule__DmxCastExpression__Group_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10318:1: ( ( () ) )
-            // InternalDim.g:10319:1: ( () )
+            // InternalDim.g:10487:1: ( ( () ) )
+            // InternalDim.g:10488:1: ( () )
             {
-            // InternalDim.g:10319:1: ( () )
-            // InternalDim.g:10320:2: ()
+            // InternalDim.g:10488:1: ( () )
+            // InternalDim.g:10489:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxCastExpressionAccess().getDmxCastExpressionTargetAction_1_0_0_0()); 
             }
-            // InternalDim.g:10321:2: ()
-            // InternalDim.g:10321:3: 
+            // InternalDim.g:10490:2: ()
+            // InternalDim.g:10490:3: 
             {
             }
 
@@ -35320,14 +35858,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group_1_0_0__1"
-    // InternalDim.g:10329:1: rule__DmxCastExpression__Group_1_0_0__1 : rule__DmxCastExpression__Group_1_0_0__1__Impl ;
+    // InternalDim.g:10498:1: rule__DmxCastExpression__Group_1_0_0__1 : rule__DmxCastExpression__Group_1_0_0__1__Impl ;
     public final void rule__DmxCastExpression__Group_1_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10333:1: ( rule__DmxCastExpression__Group_1_0_0__1__Impl )
-            // InternalDim.g:10334:2: rule__DmxCastExpression__Group_1_0_0__1__Impl
+            // InternalDim.g:10502:1: ( rule__DmxCastExpression__Group_1_0_0__1__Impl )
+            // InternalDim.g:10503:2: rule__DmxCastExpression__Group_1_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxCastExpression__Group_1_0_0__1__Impl();
@@ -35353,17 +35891,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group_1_0_0__1__Impl"
-    // InternalDim.g:10340:1: rule__DmxCastExpression__Group_1_0_0__1__Impl : ( ruleDmxOpCast ) ;
+    // InternalDim.g:10509:1: rule__DmxCastExpression__Group_1_0_0__1__Impl : ( ruleDmxOpCast ) ;
     public final void rule__DmxCastExpression__Group_1_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10344:1: ( ( ruleDmxOpCast ) )
-            // InternalDim.g:10345:1: ( ruleDmxOpCast )
+            // InternalDim.g:10513:1: ( ( ruleDmxOpCast ) )
+            // InternalDim.g:10514:1: ( ruleDmxOpCast )
             {
-            // InternalDim.g:10345:1: ( ruleDmxOpCast )
-            // InternalDim.g:10346:2: ruleDmxOpCast
+            // InternalDim.g:10514:1: ( ruleDmxOpCast )
+            // InternalDim.g:10515:2: ruleDmxOpCast
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxCastExpressionAccess().getDmxOpCastParserRuleCall_1_0_0_1()); 
@@ -35398,16 +35936,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxSelfExpression__Group__0"
-    // InternalDim.g:10356:1: rule__DmxSelfExpression__Group__0 : rule__DmxSelfExpression__Group__0__Impl rule__DmxSelfExpression__Group__1 ;
+    // InternalDim.g:10525:1: rule__DmxSelfExpression__Group__0 : rule__DmxSelfExpression__Group__0__Impl rule__DmxSelfExpression__Group__1 ;
     public final void rule__DmxSelfExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10360:1: ( rule__DmxSelfExpression__Group__0__Impl rule__DmxSelfExpression__Group__1 )
-            // InternalDim.g:10361:2: rule__DmxSelfExpression__Group__0__Impl rule__DmxSelfExpression__Group__1
+            // InternalDim.g:10529:1: ( rule__DmxSelfExpression__Group__0__Impl rule__DmxSelfExpression__Group__1 )
+            // InternalDim.g:10530:2: rule__DmxSelfExpression__Group__0__Impl rule__DmxSelfExpression__Group__1
             {
-            pushFollow(FOLLOW_75);
+            pushFollow(FOLLOW_79);
             rule__DmxSelfExpression__Group__0__Impl();
 
             state._fsp--;
@@ -35436,23 +35974,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxSelfExpression__Group__0__Impl"
-    // InternalDim.g:10368:1: rule__DmxSelfExpression__Group__0__Impl : ( () ) ;
+    // InternalDim.g:10537:1: rule__DmxSelfExpression__Group__0__Impl : ( () ) ;
     public final void rule__DmxSelfExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10372:1: ( ( () ) )
-            // InternalDim.g:10373:1: ( () )
+            // InternalDim.g:10541:1: ( ( () ) )
+            // InternalDim.g:10542:1: ( () )
             {
-            // InternalDim.g:10373:1: ( () )
-            // InternalDim.g:10374:2: ()
+            // InternalDim.g:10542:1: ( () )
+            // InternalDim.g:10543:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxSelfExpressionAccess().getDmxSelfExpressionAction_0()); 
             }
-            // InternalDim.g:10375:2: ()
-            // InternalDim.g:10375:3: 
+            // InternalDim.g:10544:2: ()
+            // InternalDim.g:10544:3: 
             {
             }
 
@@ -35477,14 +36015,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxSelfExpression__Group__1"
-    // InternalDim.g:10383:1: rule__DmxSelfExpression__Group__1 : rule__DmxSelfExpression__Group__1__Impl ;
+    // InternalDim.g:10552:1: rule__DmxSelfExpression__Group__1 : rule__DmxSelfExpression__Group__1__Impl ;
     public final void rule__DmxSelfExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10387:1: ( rule__DmxSelfExpression__Group__1__Impl )
-            // InternalDim.g:10388:2: rule__DmxSelfExpression__Group__1__Impl
+            // InternalDim.g:10556:1: ( rule__DmxSelfExpression__Group__1__Impl )
+            // InternalDim.g:10557:2: rule__DmxSelfExpression__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxSelfExpression__Group__1__Impl();
@@ -35510,23 +36048,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxSelfExpression__Group__1__Impl"
-    // InternalDim.g:10394:1: rule__DmxSelfExpression__Group__1__Impl : ( ( rule__DmxSelfExpression__Alternatives_1 ) ) ;
+    // InternalDim.g:10563:1: rule__DmxSelfExpression__Group__1__Impl : ( ( rule__DmxSelfExpression__Alternatives_1 ) ) ;
     public final void rule__DmxSelfExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10398:1: ( ( ( rule__DmxSelfExpression__Alternatives_1 ) ) )
-            // InternalDim.g:10399:1: ( ( rule__DmxSelfExpression__Alternatives_1 ) )
+            // InternalDim.g:10567:1: ( ( ( rule__DmxSelfExpression__Alternatives_1 ) ) )
+            // InternalDim.g:10568:1: ( ( rule__DmxSelfExpression__Alternatives_1 ) )
             {
-            // InternalDim.g:10399:1: ( ( rule__DmxSelfExpression__Alternatives_1 ) )
-            // InternalDim.g:10400:2: ( rule__DmxSelfExpression__Alternatives_1 )
+            // InternalDim.g:10568:1: ( ( rule__DmxSelfExpression__Alternatives_1 ) )
+            // InternalDim.g:10569:2: ( rule__DmxSelfExpression__Alternatives_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxSelfExpressionAccess().getAlternatives_1()); 
             }
-            // InternalDim.g:10401:2: ( rule__DmxSelfExpression__Alternatives_1 )
-            // InternalDim.g:10401:3: rule__DmxSelfExpression__Alternatives_1
+            // InternalDim.g:10570:2: ( rule__DmxSelfExpression__Alternatives_1 )
+            // InternalDim.g:10570:3: rule__DmxSelfExpression__Alternatives_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxSelfExpression__Alternatives_1();
@@ -35561,16 +36099,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxReturnExpression__Group__0"
-    // InternalDim.g:10410:1: rule__DmxReturnExpression__Group__0 : rule__DmxReturnExpression__Group__0__Impl rule__DmxReturnExpression__Group__1 ;
+    // InternalDim.g:10579:1: rule__DmxReturnExpression__Group__0 : rule__DmxReturnExpression__Group__0__Impl rule__DmxReturnExpression__Group__1 ;
     public final void rule__DmxReturnExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10414:1: ( rule__DmxReturnExpression__Group__0__Impl rule__DmxReturnExpression__Group__1 )
-            // InternalDim.g:10415:2: rule__DmxReturnExpression__Group__0__Impl rule__DmxReturnExpression__Group__1
+            // InternalDim.g:10583:1: ( rule__DmxReturnExpression__Group__0__Impl rule__DmxReturnExpression__Group__1 )
+            // InternalDim.g:10584:2: rule__DmxReturnExpression__Group__0__Impl rule__DmxReturnExpression__Group__1
             {
-            pushFollow(FOLLOW_76);
+            pushFollow(FOLLOW_80);
             rule__DmxReturnExpression__Group__0__Impl();
 
             state._fsp--;
@@ -35599,23 +36137,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxReturnExpression__Group__0__Impl"
-    // InternalDim.g:10422:1: rule__DmxReturnExpression__Group__0__Impl : ( () ) ;
+    // InternalDim.g:10591:1: rule__DmxReturnExpression__Group__0__Impl : ( () ) ;
     public final void rule__DmxReturnExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10426:1: ( ( () ) )
-            // InternalDim.g:10427:1: ( () )
+            // InternalDim.g:10595:1: ( ( () ) )
+            // InternalDim.g:10596:1: ( () )
             {
-            // InternalDim.g:10427:1: ( () )
-            // InternalDim.g:10428:2: ()
+            // InternalDim.g:10596:1: ( () )
+            // InternalDim.g:10597:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxReturnExpressionAccess().getDmxReturnExpressionAction_0()); 
             }
-            // InternalDim.g:10429:2: ()
-            // InternalDim.g:10429:3: 
+            // InternalDim.g:10598:2: ()
+            // InternalDim.g:10598:3: 
             {
             }
 
@@ -35640,14 +36178,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxReturnExpression__Group__1"
-    // InternalDim.g:10437:1: rule__DmxReturnExpression__Group__1 : rule__DmxReturnExpression__Group__1__Impl rule__DmxReturnExpression__Group__2 ;
+    // InternalDim.g:10606:1: rule__DmxReturnExpression__Group__1 : rule__DmxReturnExpression__Group__1__Impl rule__DmxReturnExpression__Group__2 ;
     public final void rule__DmxReturnExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10441:1: ( rule__DmxReturnExpression__Group__1__Impl rule__DmxReturnExpression__Group__2 )
-            // InternalDim.g:10442:2: rule__DmxReturnExpression__Group__1__Impl rule__DmxReturnExpression__Group__2
+            // InternalDim.g:10610:1: ( rule__DmxReturnExpression__Group__1__Impl rule__DmxReturnExpression__Group__2 )
+            // InternalDim.g:10611:2: rule__DmxReturnExpression__Group__1__Impl rule__DmxReturnExpression__Group__2
             {
             pushFollow(FOLLOW_15);
             rule__DmxReturnExpression__Group__1__Impl();
@@ -35678,23 +36216,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxReturnExpression__Group__1__Impl"
-    // InternalDim.g:10449:1: rule__DmxReturnExpression__Group__1__Impl : ( ( rule__DmxReturnExpression__Alternatives_1 ) ) ;
+    // InternalDim.g:10618:1: rule__DmxReturnExpression__Group__1__Impl : ( ( rule__DmxReturnExpression__Alternatives_1 ) ) ;
     public final void rule__DmxReturnExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10453:1: ( ( ( rule__DmxReturnExpression__Alternatives_1 ) ) )
-            // InternalDim.g:10454:1: ( ( rule__DmxReturnExpression__Alternatives_1 ) )
+            // InternalDim.g:10622:1: ( ( ( rule__DmxReturnExpression__Alternatives_1 ) ) )
+            // InternalDim.g:10623:1: ( ( rule__DmxReturnExpression__Alternatives_1 ) )
             {
-            // InternalDim.g:10454:1: ( ( rule__DmxReturnExpression__Alternatives_1 ) )
-            // InternalDim.g:10455:2: ( rule__DmxReturnExpression__Alternatives_1 )
+            // InternalDim.g:10623:1: ( ( rule__DmxReturnExpression__Alternatives_1 ) )
+            // InternalDim.g:10624:2: ( rule__DmxReturnExpression__Alternatives_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxReturnExpressionAccess().getAlternatives_1()); 
             }
-            // InternalDim.g:10456:2: ( rule__DmxReturnExpression__Alternatives_1 )
-            // InternalDim.g:10456:3: rule__DmxReturnExpression__Alternatives_1
+            // InternalDim.g:10625:2: ( rule__DmxReturnExpression__Alternatives_1 )
+            // InternalDim.g:10625:3: rule__DmxReturnExpression__Alternatives_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxReturnExpression__Alternatives_1();
@@ -35729,14 +36267,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxReturnExpression__Group__2"
-    // InternalDim.g:10464:1: rule__DmxReturnExpression__Group__2 : rule__DmxReturnExpression__Group__2__Impl ;
+    // InternalDim.g:10633:1: rule__DmxReturnExpression__Group__2 : rule__DmxReturnExpression__Group__2__Impl ;
     public final void rule__DmxReturnExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10468:1: ( rule__DmxReturnExpression__Group__2__Impl )
-            // InternalDim.g:10469:2: rule__DmxReturnExpression__Group__2__Impl
+            // InternalDim.g:10637:1: ( rule__DmxReturnExpression__Group__2__Impl )
+            // InternalDim.g:10638:2: rule__DmxReturnExpression__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxReturnExpression__Group__2__Impl();
@@ -35762,27 +36300,27 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxReturnExpression__Group__2__Impl"
-    // InternalDim.g:10475:1: rule__DmxReturnExpression__Group__2__Impl : ( ( rule__DmxReturnExpression__ExpressionAssignment_2 )? ) ;
+    // InternalDim.g:10644:1: rule__DmxReturnExpression__Group__2__Impl : ( ( rule__DmxReturnExpression__ExpressionAssignment_2 )? ) ;
     public final void rule__DmxReturnExpression__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10479:1: ( ( ( rule__DmxReturnExpression__ExpressionAssignment_2 )? ) )
-            // InternalDim.g:10480:1: ( ( rule__DmxReturnExpression__ExpressionAssignment_2 )? )
+            // InternalDim.g:10648:1: ( ( ( rule__DmxReturnExpression__ExpressionAssignment_2 )? ) )
+            // InternalDim.g:10649:1: ( ( rule__DmxReturnExpression__ExpressionAssignment_2 )? )
             {
-            // InternalDim.g:10480:1: ( ( rule__DmxReturnExpression__ExpressionAssignment_2 )? )
-            // InternalDim.g:10481:2: ( rule__DmxReturnExpression__ExpressionAssignment_2 )?
+            // InternalDim.g:10649:1: ( ( rule__DmxReturnExpression__ExpressionAssignment_2 )? )
+            // InternalDim.g:10650:2: ( rule__DmxReturnExpression__ExpressionAssignment_2 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxReturnExpressionAccess().getExpressionAssignment_2()); 
             }
-            // InternalDim.g:10482:2: ( rule__DmxReturnExpression__ExpressionAssignment_2 )?
+            // InternalDim.g:10651:2: ( rule__DmxReturnExpression__ExpressionAssignment_2 )?
             int alt108=2;
             alt108 = dfa108.predict(input);
             switch (alt108) {
                 case 1 :
-                    // InternalDim.g:10482:3: rule__DmxReturnExpression__ExpressionAssignment_2
+                    // InternalDim.g:10651:3: rule__DmxReturnExpression__ExpressionAssignment_2
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxReturnExpression__ExpressionAssignment_2();
@@ -35820,16 +36358,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRaiseExpression__Group__0"
-    // InternalDim.g:10491:1: rule__DmxRaiseExpression__Group__0 : rule__DmxRaiseExpression__Group__0__Impl rule__DmxRaiseExpression__Group__1 ;
+    // InternalDim.g:10660:1: rule__DmxRaiseExpression__Group__0 : rule__DmxRaiseExpression__Group__0__Impl rule__DmxRaiseExpression__Group__1 ;
     public final void rule__DmxRaiseExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10495:1: ( rule__DmxRaiseExpression__Group__0__Impl rule__DmxRaiseExpression__Group__1 )
-            // InternalDim.g:10496:2: rule__DmxRaiseExpression__Group__0__Impl rule__DmxRaiseExpression__Group__1
+            // InternalDim.g:10664:1: ( rule__DmxRaiseExpression__Group__0__Impl rule__DmxRaiseExpression__Group__1 )
+            // InternalDim.g:10665:2: rule__DmxRaiseExpression__Group__0__Impl rule__DmxRaiseExpression__Group__1
             {
-            pushFollow(FOLLOW_77);
+            pushFollow(FOLLOW_81);
             rule__DmxRaiseExpression__Group__0__Impl();
 
             state._fsp--;
@@ -35858,23 +36396,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRaiseExpression__Group__0__Impl"
-    // InternalDim.g:10503:1: rule__DmxRaiseExpression__Group__0__Impl : ( () ) ;
+    // InternalDim.g:10672:1: rule__DmxRaiseExpression__Group__0__Impl : ( () ) ;
     public final void rule__DmxRaiseExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10507:1: ( ( () ) )
-            // InternalDim.g:10508:1: ( () )
+            // InternalDim.g:10676:1: ( ( () ) )
+            // InternalDim.g:10677:1: ( () )
             {
-            // InternalDim.g:10508:1: ( () )
-            // InternalDim.g:10509:2: ()
+            // InternalDim.g:10677:1: ( () )
+            // InternalDim.g:10678:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRaiseExpressionAccess().getDmxRaiseExpressionAction_0()); 
             }
-            // InternalDim.g:10510:2: ()
-            // InternalDim.g:10510:3: 
+            // InternalDim.g:10679:2: ()
+            // InternalDim.g:10679:3: 
             {
             }
 
@@ -35899,14 +36437,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRaiseExpression__Group__1"
-    // InternalDim.g:10518:1: rule__DmxRaiseExpression__Group__1 : rule__DmxRaiseExpression__Group__1__Impl rule__DmxRaiseExpression__Group__2 ;
+    // InternalDim.g:10687:1: rule__DmxRaiseExpression__Group__1 : rule__DmxRaiseExpression__Group__1__Impl rule__DmxRaiseExpression__Group__2 ;
     public final void rule__DmxRaiseExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10522:1: ( rule__DmxRaiseExpression__Group__1__Impl rule__DmxRaiseExpression__Group__2 )
-            // InternalDim.g:10523:2: rule__DmxRaiseExpression__Group__1__Impl rule__DmxRaiseExpression__Group__2
+            // InternalDim.g:10691:1: ( rule__DmxRaiseExpression__Group__1__Impl rule__DmxRaiseExpression__Group__2 )
+            // InternalDim.g:10692:2: rule__DmxRaiseExpression__Group__1__Impl rule__DmxRaiseExpression__Group__2
             {
             pushFollow(FOLLOW_15);
             rule__DmxRaiseExpression__Group__1__Impl();
@@ -35937,23 +36475,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRaiseExpression__Group__1__Impl"
-    // InternalDim.g:10530:1: rule__DmxRaiseExpression__Group__1__Impl : ( ( rule__DmxRaiseExpression__Alternatives_1 ) ) ;
+    // InternalDim.g:10699:1: rule__DmxRaiseExpression__Group__1__Impl : ( ( rule__DmxRaiseExpression__Alternatives_1 ) ) ;
     public final void rule__DmxRaiseExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10534:1: ( ( ( rule__DmxRaiseExpression__Alternatives_1 ) ) )
-            // InternalDim.g:10535:1: ( ( rule__DmxRaiseExpression__Alternatives_1 ) )
+            // InternalDim.g:10703:1: ( ( ( rule__DmxRaiseExpression__Alternatives_1 ) ) )
+            // InternalDim.g:10704:1: ( ( rule__DmxRaiseExpression__Alternatives_1 ) )
             {
-            // InternalDim.g:10535:1: ( ( rule__DmxRaiseExpression__Alternatives_1 ) )
-            // InternalDim.g:10536:2: ( rule__DmxRaiseExpression__Alternatives_1 )
+            // InternalDim.g:10704:1: ( ( rule__DmxRaiseExpression__Alternatives_1 ) )
+            // InternalDim.g:10705:2: ( rule__DmxRaiseExpression__Alternatives_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRaiseExpressionAccess().getAlternatives_1()); 
             }
-            // InternalDim.g:10537:2: ( rule__DmxRaiseExpression__Alternatives_1 )
-            // InternalDim.g:10537:3: rule__DmxRaiseExpression__Alternatives_1
+            // InternalDim.g:10706:2: ( rule__DmxRaiseExpression__Alternatives_1 )
+            // InternalDim.g:10706:3: rule__DmxRaiseExpression__Alternatives_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxRaiseExpression__Alternatives_1();
@@ -35988,14 +36526,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRaiseExpression__Group__2"
-    // InternalDim.g:10545:1: rule__DmxRaiseExpression__Group__2 : rule__DmxRaiseExpression__Group__2__Impl ;
+    // InternalDim.g:10714:1: rule__DmxRaiseExpression__Group__2 : rule__DmxRaiseExpression__Group__2__Impl ;
     public final void rule__DmxRaiseExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10549:1: ( rule__DmxRaiseExpression__Group__2__Impl )
-            // InternalDim.g:10550:2: rule__DmxRaiseExpression__Group__2__Impl
+            // InternalDim.g:10718:1: ( rule__DmxRaiseExpression__Group__2__Impl )
+            // InternalDim.g:10719:2: rule__DmxRaiseExpression__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxRaiseExpression__Group__2__Impl();
@@ -36021,23 +36559,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRaiseExpression__Group__2__Impl"
-    // InternalDim.g:10556:1: rule__DmxRaiseExpression__Group__2__Impl : ( ( rule__DmxRaiseExpression__ExpressionAssignment_2 ) ) ;
+    // InternalDim.g:10725:1: rule__DmxRaiseExpression__Group__2__Impl : ( ( rule__DmxRaiseExpression__ExpressionAssignment_2 ) ) ;
     public final void rule__DmxRaiseExpression__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10560:1: ( ( ( rule__DmxRaiseExpression__ExpressionAssignment_2 ) ) )
-            // InternalDim.g:10561:1: ( ( rule__DmxRaiseExpression__ExpressionAssignment_2 ) )
+            // InternalDim.g:10729:1: ( ( ( rule__DmxRaiseExpression__ExpressionAssignment_2 ) ) )
+            // InternalDim.g:10730:1: ( ( rule__DmxRaiseExpression__ExpressionAssignment_2 ) )
             {
-            // InternalDim.g:10561:1: ( ( rule__DmxRaiseExpression__ExpressionAssignment_2 ) )
-            // InternalDim.g:10562:2: ( rule__DmxRaiseExpression__ExpressionAssignment_2 )
+            // InternalDim.g:10730:1: ( ( rule__DmxRaiseExpression__ExpressionAssignment_2 ) )
+            // InternalDim.g:10731:2: ( rule__DmxRaiseExpression__ExpressionAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRaiseExpressionAccess().getExpressionAssignment_2()); 
             }
-            // InternalDim.g:10563:2: ( rule__DmxRaiseExpression__ExpressionAssignment_2 )
-            // InternalDim.g:10563:3: rule__DmxRaiseExpression__ExpressionAssignment_2
+            // InternalDim.g:10732:2: ( rule__DmxRaiseExpression__ExpressionAssignment_2 )
+            // InternalDim.g:10732:3: rule__DmxRaiseExpression__ExpressionAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__DmxRaiseExpression__ExpressionAssignment_2();
@@ -36072,14 +36610,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxParenthesizedExpression__Group__0"
-    // InternalDim.g:10572:1: rule__DmxParenthesizedExpression__Group__0 : rule__DmxParenthesizedExpression__Group__0__Impl rule__DmxParenthesizedExpression__Group__1 ;
+    // InternalDim.g:10741:1: rule__DmxParenthesizedExpression__Group__0 : rule__DmxParenthesizedExpression__Group__0__Impl rule__DmxParenthesizedExpression__Group__1 ;
     public final void rule__DmxParenthesizedExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10576:1: ( rule__DmxParenthesizedExpression__Group__0__Impl rule__DmxParenthesizedExpression__Group__1 )
-            // InternalDim.g:10577:2: rule__DmxParenthesizedExpression__Group__0__Impl rule__DmxParenthesizedExpression__Group__1
+            // InternalDim.g:10745:1: ( rule__DmxParenthesizedExpression__Group__0__Impl rule__DmxParenthesizedExpression__Group__1 )
+            // InternalDim.g:10746:2: rule__DmxParenthesizedExpression__Group__0__Impl rule__DmxParenthesizedExpression__Group__1
             {
             pushFollow(FOLLOW_15);
             rule__DmxParenthesizedExpression__Group__0__Impl();
@@ -36110,17 +36648,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxParenthesizedExpression__Group__0__Impl"
-    // InternalDim.g:10584:1: rule__DmxParenthesizedExpression__Group__0__Impl : ( '(' ) ;
+    // InternalDim.g:10753:1: rule__DmxParenthesizedExpression__Group__0__Impl : ( '(' ) ;
     public final void rule__DmxParenthesizedExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10588:1: ( ( '(' ) )
-            // InternalDim.g:10589:1: ( '(' )
+            // InternalDim.g:10757:1: ( ( '(' ) )
+            // InternalDim.g:10758:1: ( '(' )
             {
-            // InternalDim.g:10589:1: ( '(' )
-            // InternalDim.g:10590:2: '('
+            // InternalDim.g:10758:1: ( '(' )
+            // InternalDim.g:10759:2: '('
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxParenthesizedExpressionAccess().getLeftParenthesisKeyword_0()); 
@@ -36151,16 +36689,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxParenthesizedExpression__Group__1"
-    // InternalDim.g:10599:1: rule__DmxParenthesizedExpression__Group__1 : rule__DmxParenthesizedExpression__Group__1__Impl rule__DmxParenthesizedExpression__Group__2 ;
+    // InternalDim.g:10768:1: rule__DmxParenthesizedExpression__Group__1 : rule__DmxParenthesizedExpression__Group__1__Impl rule__DmxParenthesizedExpression__Group__2 ;
     public final void rule__DmxParenthesizedExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10603:1: ( rule__DmxParenthesizedExpression__Group__1__Impl rule__DmxParenthesizedExpression__Group__2 )
-            // InternalDim.g:10604:2: rule__DmxParenthesizedExpression__Group__1__Impl rule__DmxParenthesizedExpression__Group__2
+            // InternalDim.g:10772:1: ( rule__DmxParenthesizedExpression__Group__1__Impl rule__DmxParenthesizedExpression__Group__2 )
+            // InternalDim.g:10773:2: rule__DmxParenthesizedExpression__Group__1__Impl rule__DmxParenthesizedExpression__Group__2
             {
-            pushFollow(FOLLOW_78);
+            pushFollow(FOLLOW_48);
             rule__DmxParenthesizedExpression__Group__1__Impl();
 
             state._fsp--;
@@ -36189,17 +36727,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxParenthesizedExpression__Group__1__Impl"
-    // InternalDim.g:10611:1: rule__DmxParenthesizedExpression__Group__1__Impl : ( ruleDExpression ) ;
+    // InternalDim.g:10780:1: rule__DmxParenthesizedExpression__Group__1__Impl : ( ruleDExpression ) ;
     public final void rule__DmxParenthesizedExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10615:1: ( ( ruleDExpression ) )
-            // InternalDim.g:10616:1: ( ruleDExpression )
+            // InternalDim.g:10784:1: ( ( ruleDExpression ) )
+            // InternalDim.g:10785:1: ( ruleDExpression )
             {
-            // InternalDim.g:10616:1: ( ruleDExpression )
-            // InternalDim.g:10617:2: ruleDExpression
+            // InternalDim.g:10785:1: ( ruleDExpression )
+            // InternalDim.g:10786:2: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxParenthesizedExpressionAccess().getDExpressionParserRuleCall_1()); 
@@ -36234,14 +36772,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxParenthesizedExpression__Group__2"
-    // InternalDim.g:10626:1: rule__DmxParenthesizedExpression__Group__2 : rule__DmxParenthesizedExpression__Group__2__Impl ;
+    // InternalDim.g:10795:1: rule__DmxParenthesizedExpression__Group__2 : rule__DmxParenthesizedExpression__Group__2__Impl ;
     public final void rule__DmxParenthesizedExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10630:1: ( rule__DmxParenthesizedExpression__Group__2__Impl )
-            // InternalDim.g:10631:2: rule__DmxParenthesizedExpression__Group__2__Impl
+            // InternalDim.g:10799:1: ( rule__DmxParenthesizedExpression__Group__2__Impl )
+            // InternalDim.g:10800:2: rule__DmxParenthesizedExpression__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxParenthesizedExpression__Group__2__Impl();
@@ -36267,17 +36805,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxParenthesizedExpression__Group__2__Impl"
-    // InternalDim.g:10637:1: rule__DmxParenthesizedExpression__Group__2__Impl : ( ')' ) ;
+    // InternalDim.g:10806:1: rule__DmxParenthesizedExpression__Group__2__Impl : ( ')' ) ;
     public final void rule__DmxParenthesizedExpression__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10641:1: ( ( ')' ) )
-            // InternalDim.g:10642:1: ( ')' )
+            // InternalDim.g:10810:1: ( ( ')' ) )
+            // InternalDim.g:10811:1: ( ')' )
             {
-            // InternalDim.g:10642:1: ( ')' )
-            // InternalDim.g:10643:2: ')'
+            // InternalDim.g:10811:1: ( ')' )
+            // InternalDim.g:10812:2: ')'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxParenthesizedExpressionAccess().getRightParenthesisKeyword_2()); 
@@ -36308,14 +36846,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group__0"
-    // InternalDim.g:10653:1: rule__DmxFunctionCall__Group__0 : rule__DmxFunctionCall__Group__0__Impl rule__DmxFunctionCall__Group__1 ;
+    // InternalDim.g:10822:1: rule__DmxFunctionCall__Group__0 : rule__DmxFunctionCall__Group__0__Impl rule__DmxFunctionCall__Group__1 ;
     public final void rule__DmxFunctionCall__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10657:1: ( rule__DmxFunctionCall__Group__0__Impl rule__DmxFunctionCall__Group__1 )
-            // InternalDim.g:10658:2: rule__DmxFunctionCall__Group__0__Impl rule__DmxFunctionCall__Group__1
+            // InternalDim.g:10826:1: ( rule__DmxFunctionCall__Group__0__Impl rule__DmxFunctionCall__Group__1 )
+            // InternalDim.g:10827:2: rule__DmxFunctionCall__Group__0__Impl rule__DmxFunctionCall__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__DmxFunctionCall__Group__0__Impl();
@@ -36346,23 +36884,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group__0__Impl"
-    // InternalDim.g:10665:1: rule__DmxFunctionCall__Group__0__Impl : ( () ) ;
+    // InternalDim.g:10834:1: rule__DmxFunctionCall__Group__0__Impl : ( () ) ;
     public final void rule__DmxFunctionCall__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10669:1: ( ( () ) )
-            // InternalDim.g:10670:1: ( () )
+            // InternalDim.g:10838:1: ( ( () ) )
+            // InternalDim.g:10839:1: ( () )
             {
-            // InternalDim.g:10670:1: ( () )
-            // InternalDim.g:10671:2: ()
+            // InternalDim.g:10839:1: ( () )
+            // InternalDim.g:10840:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getDmxFunctionCallAction_0()); 
             }
-            // InternalDim.g:10672:2: ()
-            // InternalDim.g:10672:3: 
+            // InternalDim.g:10841:2: ()
+            // InternalDim.g:10841:3: 
             {
             }
 
@@ -36387,14 +36925,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group__1"
-    // InternalDim.g:10680:1: rule__DmxFunctionCall__Group__1 : rule__DmxFunctionCall__Group__1__Impl rule__DmxFunctionCall__Group__2 ;
+    // InternalDim.g:10849:1: rule__DmxFunctionCall__Group__1 : rule__DmxFunctionCall__Group__1__Impl rule__DmxFunctionCall__Group__2 ;
     public final void rule__DmxFunctionCall__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10684:1: ( rule__DmxFunctionCall__Group__1__Impl rule__DmxFunctionCall__Group__2 )
-            // InternalDim.g:10685:2: rule__DmxFunctionCall__Group__1__Impl rule__DmxFunctionCall__Group__2
+            // InternalDim.g:10853:1: ( rule__DmxFunctionCall__Group__1__Impl rule__DmxFunctionCall__Group__2 )
+            // InternalDim.g:10854:2: rule__DmxFunctionCall__Group__1__Impl rule__DmxFunctionCall__Group__2
             {
             pushFollow(FOLLOW_45);
             rule__DmxFunctionCall__Group__1__Impl();
@@ -36425,23 +36963,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group__1__Impl"
-    // InternalDim.g:10692:1: rule__DmxFunctionCall__Group__1__Impl : ( ( rule__DmxFunctionCall__FunctionAssignment_1 ) ) ;
+    // InternalDim.g:10861:1: rule__DmxFunctionCall__Group__1__Impl : ( ( rule__DmxFunctionCall__FunctionAssignment_1 ) ) ;
     public final void rule__DmxFunctionCall__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10696:1: ( ( ( rule__DmxFunctionCall__FunctionAssignment_1 ) ) )
-            // InternalDim.g:10697:1: ( ( rule__DmxFunctionCall__FunctionAssignment_1 ) )
+            // InternalDim.g:10865:1: ( ( ( rule__DmxFunctionCall__FunctionAssignment_1 ) ) )
+            // InternalDim.g:10866:1: ( ( rule__DmxFunctionCall__FunctionAssignment_1 ) )
             {
-            // InternalDim.g:10697:1: ( ( rule__DmxFunctionCall__FunctionAssignment_1 ) )
-            // InternalDim.g:10698:2: ( rule__DmxFunctionCall__FunctionAssignment_1 )
+            // InternalDim.g:10866:1: ( ( rule__DmxFunctionCall__FunctionAssignment_1 ) )
+            // InternalDim.g:10867:2: ( rule__DmxFunctionCall__FunctionAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getFunctionAssignment_1()); 
             }
-            // InternalDim.g:10699:2: ( rule__DmxFunctionCall__FunctionAssignment_1 )
-            // InternalDim.g:10699:3: rule__DmxFunctionCall__FunctionAssignment_1
+            // InternalDim.g:10868:2: ( rule__DmxFunctionCall__FunctionAssignment_1 )
+            // InternalDim.g:10868:3: rule__DmxFunctionCall__FunctionAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxFunctionCall__FunctionAssignment_1();
@@ -36476,16 +37014,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group__2"
-    // InternalDim.g:10707:1: rule__DmxFunctionCall__Group__2 : rule__DmxFunctionCall__Group__2__Impl rule__DmxFunctionCall__Group__3 ;
+    // InternalDim.g:10876:1: rule__DmxFunctionCall__Group__2 : rule__DmxFunctionCall__Group__2__Impl rule__DmxFunctionCall__Group__3 ;
     public final void rule__DmxFunctionCall__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10711:1: ( rule__DmxFunctionCall__Group__2__Impl rule__DmxFunctionCall__Group__3 )
-            // InternalDim.g:10712:2: rule__DmxFunctionCall__Group__2__Impl rule__DmxFunctionCall__Group__3
+            // InternalDim.g:10880:1: ( rule__DmxFunctionCall__Group__2__Impl rule__DmxFunctionCall__Group__3 )
+            // InternalDim.g:10881:2: rule__DmxFunctionCall__Group__2__Impl rule__DmxFunctionCall__Group__3
             {
-            pushFollow(FOLLOW_79);
+            pushFollow(FOLLOW_82);
             rule__DmxFunctionCall__Group__2__Impl();
 
             state._fsp--;
@@ -36514,17 +37052,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group__2__Impl"
-    // InternalDim.g:10719:1: rule__DmxFunctionCall__Group__2__Impl : ( '(' ) ;
+    // InternalDim.g:10888:1: rule__DmxFunctionCall__Group__2__Impl : ( '(' ) ;
     public final void rule__DmxFunctionCall__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10723:1: ( ( '(' ) )
-            // InternalDim.g:10724:1: ( '(' )
+            // InternalDim.g:10892:1: ( ( '(' ) )
+            // InternalDim.g:10893:1: ( '(' )
             {
-            // InternalDim.g:10724:1: ( '(' )
-            // InternalDim.g:10725:2: '('
+            // InternalDim.g:10893:1: ( '(' )
+            // InternalDim.g:10894:2: '('
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getLeftParenthesisKeyword_2()); 
@@ -36555,16 +37093,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group__3"
-    // InternalDim.g:10734:1: rule__DmxFunctionCall__Group__3 : rule__DmxFunctionCall__Group__3__Impl rule__DmxFunctionCall__Group__4 ;
+    // InternalDim.g:10903:1: rule__DmxFunctionCall__Group__3 : rule__DmxFunctionCall__Group__3__Impl rule__DmxFunctionCall__Group__4 ;
     public final void rule__DmxFunctionCall__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10738:1: ( rule__DmxFunctionCall__Group__3__Impl rule__DmxFunctionCall__Group__4 )
-            // InternalDim.g:10739:2: rule__DmxFunctionCall__Group__3__Impl rule__DmxFunctionCall__Group__4
+            // InternalDim.g:10907:1: ( rule__DmxFunctionCall__Group__3__Impl rule__DmxFunctionCall__Group__4 )
+            // InternalDim.g:10908:2: rule__DmxFunctionCall__Group__3__Impl rule__DmxFunctionCall__Group__4
             {
-            pushFollow(FOLLOW_79);
+            pushFollow(FOLLOW_82);
             rule__DmxFunctionCall__Group__3__Impl();
 
             state._fsp--;
@@ -36593,31 +37131,31 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group__3__Impl"
-    // InternalDim.g:10746:1: rule__DmxFunctionCall__Group__3__Impl : ( ( rule__DmxFunctionCall__Group_3__0 )? ) ;
+    // InternalDim.g:10915:1: rule__DmxFunctionCall__Group__3__Impl : ( ( rule__DmxFunctionCall__Group_3__0 )? ) ;
     public final void rule__DmxFunctionCall__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10750:1: ( ( ( rule__DmxFunctionCall__Group_3__0 )? ) )
-            // InternalDim.g:10751:1: ( ( rule__DmxFunctionCall__Group_3__0 )? )
+            // InternalDim.g:10919:1: ( ( ( rule__DmxFunctionCall__Group_3__0 )? ) )
+            // InternalDim.g:10920:1: ( ( rule__DmxFunctionCall__Group_3__0 )? )
             {
-            // InternalDim.g:10751:1: ( ( rule__DmxFunctionCall__Group_3__0 )? )
-            // InternalDim.g:10752:2: ( rule__DmxFunctionCall__Group_3__0 )?
+            // InternalDim.g:10920:1: ( ( rule__DmxFunctionCall__Group_3__0 )? )
+            // InternalDim.g:10921:2: ( rule__DmxFunctionCall__Group_3__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getGroup_3()); 
             }
-            // InternalDim.g:10753:2: ( rule__DmxFunctionCall__Group_3__0 )?
+            // InternalDim.g:10922:2: ( rule__DmxFunctionCall__Group_3__0 )?
             int alt109=2;
             int LA109_0 = input.LA(1);
 
-            if ( ((LA109_0>=RULE_NATURAL && LA109_0<=RULE_PLAIN_TEXT_START)||LA109_0==RULE_STRING||(LA109_0>=27 && LA109_0<=34)||(LA109_0>=36 && LA109_0<=39)||(LA109_0>=42 && LA109_0<=43)||(LA109_0>=76 && LA109_0<=78)||LA109_0==95||LA109_0==107||LA109_0==110||LA109_0==115||(LA109_0>=124 && LA109_0<=125)) ) {
+            if ( ((LA109_0>=RULE_NATURAL && LA109_0<=RULE_PLAIN_TEXT_START)||LA109_0==RULE_STRING||(LA109_0>=27 && LA109_0<=34)||(LA109_0>=36 && LA109_0<=39)||(LA109_0>=42 && LA109_0<=43)||(LA109_0>=76 && LA109_0<=78)||LA109_0==95||LA109_0==108||LA109_0==111||LA109_0==116||(LA109_0>=125 && LA109_0<=126)) ) {
                 alt109=1;
             }
             switch (alt109) {
                 case 1 :
-                    // InternalDim.g:10753:3: rule__DmxFunctionCall__Group_3__0
+                    // InternalDim.g:10922:3: rule__DmxFunctionCall__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxFunctionCall__Group_3__0();
@@ -36655,14 +37193,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group__4"
-    // InternalDim.g:10761:1: rule__DmxFunctionCall__Group__4 : rule__DmxFunctionCall__Group__4__Impl ;
+    // InternalDim.g:10930:1: rule__DmxFunctionCall__Group__4 : rule__DmxFunctionCall__Group__4__Impl ;
     public final void rule__DmxFunctionCall__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10765:1: ( rule__DmxFunctionCall__Group__4__Impl )
-            // InternalDim.g:10766:2: rule__DmxFunctionCall__Group__4__Impl
+            // InternalDim.g:10934:1: ( rule__DmxFunctionCall__Group__4__Impl )
+            // InternalDim.g:10935:2: rule__DmxFunctionCall__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxFunctionCall__Group__4__Impl();
@@ -36688,17 +37226,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group__4__Impl"
-    // InternalDim.g:10772:1: rule__DmxFunctionCall__Group__4__Impl : ( ')' ) ;
+    // InternalDim.g:10941:1: rule__DmxFunctionCall__Group__4__Impl : ( ')' ) ;
     public final void rule__DmxFunctionCall__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10776:1: ( ( ')' ) )
-            // InternalDim.g:10777:1: ( ')' )
+            // InternalDim.g:10945:1: ( ( ')' ) )
+            // InternalDim.g:10946:1: ( ')' )
             {
-            // InternalDim.g:10777:1: ( ')' )
-            // InternalDim.g:10778:2: ')'
+            // InternalDim.g:10946:1: ( ')' )
+            // InternalDim.g:10947:2: ')'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getRightParenthesisKeyword_4()); 
@@ -36729,14 +37267,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group_3__0"
-    // InternalDim.g:10788:1: rule__DmxFunctionCall__Group_3__0 : rule__DmxFunctionCall__Group_3__0__Impl rule__DmxFunctionCall__Group_3__1 ;
+    // InternalDim.g:10957:1: rule__DmxFunctionCall__Group_3__0 : rule__DmxFunctionCall__Group_3__0__Impl rule__DmxFunctionCall__Group_3__1 ;
     public final void rule__DmxFunctionCall__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10792:1: ( rule__DmxFunctionCall__Group_3__0__Impl rule__DmxFunctionCall__Group_3__1 )
-            // InternalDim.g:10793:2: rule__DmxFunctionCall__Group_3__0__Impl rule__DmxFunctionCall__Group_3__1
+            // InternalDim.g:10961:1: ( rule__DmxFunctionCall__Group_3__0__Impl rule__DmxFunctionCall__Group_3__1 )
+            // InternalDim.g:10962:2: rule__DmxFunctionCall__Group_3__0__Impl rule__DmxFunctionCall__Group_3__1
             {
             pushFollow(FOLLOW_23);
             rule__DmxFunctionCall__Group_3__0__Impl();
@@ -36767,23 +37305,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group_3__0__Impl"
-    // InternalDim.g:10800:1: rule__DmxFunctionCall__Group_3__0__Impl : ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 ) ) ;
+    // InternalDim.g:10969:1: rule__DmxFunctionCall__Group_3__0__Impl : ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 ) ) ;
     public final void rule__DmxFunctionCall__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10804:1: ( ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 ) ) )
-            // InternalDim.g:10805:1: ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 ) )
+            // InternalDim.g:10973:1: ( ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 ) ) )
+            // InternalDim.g:10974:1: ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 ) )
             {
-            // InternalDim.g:10805:1: ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 ) )
-            // InternalDim.g:10806:2: ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 )
+            // InternalDim.g:10974:1: ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 ) )
+            // InternalDim.g:10975:2: ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getFunctionCallArgumentsAssignment_3_0()); 
             }
-            // InternalDim.g:10807:2: ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 )
-            // InternalDim.g:10807:3: rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0
+            // InternalDim.g:10976:2: ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 )
+            // InternalDim.g:10976:3: rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0
             {
             pushFollow(FOLLOW_2);
             rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0();
@@ -36818,14 +37356,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group_3__1"
-    // InternalDim.g:10815:1: rule__DmxFunctionCall__Group_3__1 : rule__DmxFunctionCall__Group_3__1__Impl ;
+    // InternalDim.g:10984:1: rule__DmxFunctionCall__Group_3__1 : rule__DmxFunctionCall__Group_3__1__Impl ;
     public final void rule__DmxFunctionCall__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10819:1: ( rule__DmxFunctionCall__Group_3__1__Impl )
-            // InternalDim.g:10820:2: rule__DmxFunctionCall__Group_3__1__Impl
+            // InternalDim.g:10988:1: ( rule__DmxFunctionCall__Group_3__1__Impl )
+            // InternalDim.g:10989:2: rule__DmxFunctionCall__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxFunctionCall__Group_3__1__Impl();
@@ -36851,22 +37389,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group_3__1__Impl"
-    // InternalDim.g:10826:1: rule__DmxFunctionCall__Group_3__1__Impl : ( ( rule__DmxFunctionCall__Group_3_1__0 )* ) ;
+    // InternalDim.g:10995:1: rule__DmxFunctionCall__Group_3__1__Impl : ( ( rule__DmxFunctionCall__Group_3_1__0 )* ) ;
     public final void rule__DmxFunctionCall__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10830:1: ( ( ( rule__DmxFunctionCall__Group_3_1__0 )* ) )
-            // InternalDim.g:10831:1: ( ( rule__DmxFunctionCall__Group_3_1__0 )* )
+            // InternalDim.g:10999:1: ( ( ( rule__DmxFunctionCall__Group_3_1__0 )* ) )
+            // InternalDim.g:11000:1: ( ( rule__DmxFunctionCall__Group_3_1__0 )* )
             {
-            // InternalDim.g:10831:1: ( ( rule__DmxFunctionCall__Group_3_1__0 )* )
-            // InternalDim.g:10832:2: ( rule__DmxFunctionCall__Group_3_1__0 )*
+            // InternalDim.g:11000:1: ( ( rule__DmxFunctionCall__Group_3_1__0 )* )
+            // InternalDim.g:11001:2: ( rule__DmxFunctionCall__Group_3_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getGroup_3_1()); 
             }
-            // InternalDim.g:10833:2: ( rule__DmxFunctionCall__Group_3_1__0 )*
+            // InternalDim.g:11002:2: ( rule__DmxFunctionCall__Group_3_1__0 )*
             loop110:
             do {
                 int alt110=2;
@@ -36879,7 +37417,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
                 switch (alt110) {
             	case 1 :
-            	    // InternalDim.g:10833:3: rule__DmxFunctionCall__Group_3_1__0
+            	    // InternalDim.g:11002:3: rule__DmxFunctionCall__Group_3_1__0
             	    {
             	    pushFollow(FOLLOW_24);
             	    rule__DmxFunctionCall__Group_3_1__0();
@@ -36920,14 +37458,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group_3_1__0"
-    // InternalDim.g:10842:1: rule__DmxFunctionCall__Group_3_1__0 : rule__DmxFunctionCall__Group_3_1__0__Impl rule__DmxFunctionCall__Group_3_1__1 ;
+    // InternalDim.g:11011:1: rule__DmxFunctionCall__Group_3_1__0 : rule__DmxFunctionCall__Group_3_1__0__Impl rule__DmxFunctionCall__Group_3_1__1 ;
     public final void rule__DmxFunctionCall__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10846:1: ( rule__DmxFunctionCall__Group_3_1__0__Impl rule__DmxFunctionCall__Group_3_1__1 )
-            // InternalDim.g:10847:2: rule__DmxFunctionCall__Group_3_1__0__Impl rule__DmxFunctionCall__Group_3_1__1
+            // InternalDim.g:11015:1: ( rule__DmxFunctionCall__Group_3_1__0__Impl rule__DmxFunctionCall__Group_3_1__1 )
+            // InternalDim.g:11016:2: rule__DmxFunctionCall__Group_3_1__0__Impl rule__DmxFunctionCall__Group_3_1__1
             {
             pushFollow(FOLLOW_15);
             rule__DmxFunctionCall__Group_3_1__0__Impl();
@@ -36958,17 +37496,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group_3_1__0__Impl"
-    // InternalDim.g:10854:1: rule__DmxFunctionCall__Group_3_1__0__Impl : ( ',' ) ;
+    // InternalDim.g:11023:1: rule__DmxFunctionCall__Group_3_1__0__Impl : ( ',' ) ;
     public final void rule__DmxFunctionCall__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10858:1: ( ( ',' ) )
-            // InternalDim.g:10859:1: ( ',' )
+            // InternalDim.g:11027:1: ( ( ',' ) )
+            // InternalDim.g:11028:1: ( ',' )
             {
-            // InternalDim.g:10859:1: ( ',' )
-            // InternalDim.g:10860:2: ','
+            // InternalDim.g:11028:1: ( ',' )
+            // InternalDim.g:11029:2: ','
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getCommaKeyword_3_1_0()); 
@@ -36999,14 +37537,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group_3_1__1"
-    // InternalDim.g:10869:1: rule__DmxFunctionCall__Group_3_1__1 : rule__DmxFunctionCall__Group_3_1__1__Impl ;
+    // InternalDim.g:11038:1: rule__DmxFunctionCall__Group_3_1__1 : rule__DmxFunctionCall__Group_3_1__1__Impl ;
     public final void rule__DmxFunctionCall__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10873:1: ( rule__DmxFunctionCall__Group_3_1__1__Impl )
-            // InternalDim.g:10874:2: rule__DmxFunctionCall__Group_3_1__1__Impl
+            // InternalDim.g:11042:1: ( rule__DmxFunctionCall__Group_3_1__1__Impl )
+            // InternalDim.g:11043:2: rule__DmxFunctionCall__Group_3_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxFunctionCall__Group_3_1__1__Impl();
@@ -37032,23 +37570,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group_3_1__1__Impl"
-    // InternalDim.g:10880:1: rule__DmxFunctionCall__Group_3_1__1__Impl : ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 ) ) ;
+    // InternalDim.g:11049:1: rule__DmxFunctionCall__Group_3_1__1__Impl : ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 ) ) ;
     public final void rule__DmxFunctionCall__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10884:1: ( ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 ) ) )
-            // InternalDim.g:10885:1: ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 ) )
+            // InternalDim.g:11053:1: ( ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 ) ) )
+            // InternalDim.g:11054:1: ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 ) )
             {
-            // InternalDim.g:10885:1: ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 ) )
-            // InternalDim.g:10886:2: ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 )
+            // InternalDim.g:11054:1: ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 ) )
+            // InternalDim.g:11055:2: ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getFunctionCallArgumentsAssignment_3_1_1()); 
             }
-            // InternalDim.g:10887:2: ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 )
-            // InternalDim.g:10887:3: rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1
+            // InternalDim.g:11056:2: ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 )
+            // InternalDim.g:11056:3: rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1();
@@ -37083,16 +37621,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group__0"
-    // InternalDim.g:10896:1: rule__DmxConstructorCall__Group__0 : rule__DmxConstructorCall__Group__0__Impl rule__DmxConstructorCall__Group__1 ;
+    // InternalDim.g:11065:1: rule__DmxConstructorCall__Group__0 : rule__DmxConstructorCall__Group__0__Impl rule__DmxConstructorCall__Group__1 ;
     public final void rule__DmxConstructorCall__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10900:1: ( rule__DmxConstructorCall__Group__0__Impl rule__DmxConstructorCall__Group__1 )
-            // InternalDim.g:10901:2: rule__DmxConstructorCall__Group__0__Impl rule__DmxConstructorCall__Group__1
+            // InternalDim.g:11069:1: ( rule__DmxConstructorCall__Group__0__Impl rule__DmxConstructorCall__Group__1 )
+            // InternalDim.g:11070:2: rule__DmxConstructorCall__Group__0__Impl rule__DmxConstructorCall__Group__1
             {
-            pushFollow(FOLLOW_80);
+            pushFollow(FOLLOW_83);
             rule__DmxConstructorCall__Group__0__Impl();
 
             state._fsp--;
@@ -37121,23 +37659,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group__0__Impl"
-    // InternalDim.g:10908:1: rule__DmxConstructorCall__Group__0__Impl : ( () ) ;
+    // InternalDim.g:11077:1: rule__DmxConstructorCall__Group__0__Impl : ( () ) ;
     public final void rule__DmxConstructorCall__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10912:1: ( ( () ) )
-            // InternalDim.g:10913:1: ( () )
+            // InternalDim.g:11081:1: ( ( () ) )
+            // InternalDim.g:11082:1: ( () )
             {
-            // InternalDim.g:10913:1: ( () )
-            // InternalDim.g:10914:2: ()
+            // InternalDim.g:11082:1: ( () )
+            // InternalDim.g:11083:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getDmxConstructorCallAction_0()); 
             }
-            // InternalDim.g:10915:2: ()
-            // InternalDim.g:10915:3: 
+            // InternalDim.g:11084:2: ()
+            // InternalDim.g:11084:3: 
             {
             }
 
@@ -37162,14 +37700,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group__1"
-    // InternalDim.g:10923:1: rule__DmxConstructorCall__Group__1 : rule__DmxConstructorCall__Group__1__Impl rule__DmxConstructorCall__Group__2 ;
+    // InternalDim.g:11092:1: rule__DmxConstructorCall__Group__1 : rule__DmxConstructorCall__Group__1__Impl rule__DmxConstructorCall__Group__2 ;
     public final void rule__DmxConstructorCall__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10927:1: ( rule__DmxConstructorCall__Group__1__Impl rule__DmxConstructorCall__Group__2 )
-            // InternalDim.g:10928:2: rule__DmxConstructorCall__Group__1__Impl rule__DmxConstructorCall__Group__2
+            // InternalDim.g:11096:1: ( rule__DmxConstructorCall__Group__1__Impl rule__DmxConstructorCall__Group__2 )
+            // InternalDim.g:11097:2: rule__DmxConstructorCall__Group__1__Impl rule__DmxConstructorCall__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__DmxConstructorCall__Group__1__Impl();
@@ -37200,17 +37738,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group__1__Impl"
-    // InternalDim.g:10935:1: rule__DmxConstructorCall__Group__1__Impl : ( ruleDmxOpConstructor ) ;
+    // InternalDim.g:11104:1: rule__DmxConstructorCall__Group__1__Impl : ( ruleDmxOpConstructor ) ;
     public final void rule__DmxConstructorCall__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10939:1: ( ( ruleDmxOpConstructor ) )
-            // InternalDim.g:10940:1: ( ruleDmxOpConstructor )
+            // InternalDim.g:11108:1: ( ( ruleDmxOpConstructor ) )
+            // InternalDim.g:11109:1: ( ruleDmxOpConstructor )
             {
-            // InternalDim.g:10940:1: ( ruleDmxOpConstructor )
-            // InternalDim.g:10941:2: ruleDmxOpConstructor
+            // InternalDim.g:11109:1: ( ruleDmxOpConstructor )
+            // InternalDim.g:11110:2: ruleDmxOpConstructor
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getDmxOpConstructorParserRuleCall_1()); 
@@ -37245,14 +37783,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group__2"
-    // InternalDim.g:10950:1: rule__DmxConstructorCall__Group__2 : rule__DmxConstructorCall__Group__2__Impl rule__DmxConstructorCall__Group__3 ;
+    // InternalDim.g:11119:1: rule__DmxConstructorCall__Group__2 : rule__DmxConstructorCall__Group__2__Impl rule__DmxConstructorCall__Group__3 ;
     public final void rule__DmxConstructorCall__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10954:1: ( rule__DmxConstructorCall__Group__2__Impl rule__DmxConstructorCall__Group__3 )
-            // InternalDim.g:10955:2: rule__DmxConstructorCall__Group__2__Impl rule__DmxConstructorCall__Group__3
+            // InternalDim.g:11123:1: ( rule__DmxConstructorCall__Group__2__Impl rule__DmxConstructorCall__Group__3 )
+            // InternalDim.g:11124:2: rule__DmxConstructorCall__Group__2__Impl rule__DmxConstructorCall__Group__3
             {
             pushFollow(FOLLOW_45);
             rule__DmxConstructorCall__Group__2__Impl();
@@ -37283,23 +37821,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group__2__Impl"
-    // InternalDim.g:10962:1: rule__DmxConstructorCall__Group__2__Impl : ( ( rule__DmxConstructorCall__ConstructorAssignment_2 ) ) ;
+    // InternalDim.g:11131:1: rule__DmxConstructorCall__Group__2__Impl : ( ( rule__DmxConstructorCall__ConstructorAssignment_2 ) ) ;
     public final void rule__DmxConstructorCall__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10966:1: ( ( ( rule__DmxConstructorCall__ConstructorAssignment_2 ) ) )
-            // InternalDim.g:10967:1: ( ( rule__DmxConstructorCall__ConstructorAssignment_2 ) )
+            // InternalDim.g:11135:1: ( ( ( rule__DmxConstructorCall__ConstructorAssignment_2 ) ) )
+            // InternalDim.g:11136:1: ( ( rule__DmxConstructorCall__ConstructorAssignment_2 ) )
             {
-            // InternalDim.g:10967:1: ( ( rule__DmxConstructorCall__ConstructorAssignment_2 ) )
-            // InternalDim.g:10968:2: ( rule__DmxConstructorCall__ConstructorAssignment_2 )
+            // InternalDim.g:11136:1: ( ( rule__DmxConstructorCall__ConstructorAssignment_2 ) )
+            // InternalDim.g:11137:2: ( rule__DmxConstructorCall__ConstructorAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getConstructorAssignment_2()); 
             }
-            // InternalDim.g:10969:2: ( rule__DmxConstructorCall__ConstructorAssignment_2 )
-            // InternalDim.g:10969:3: rule__DmxConstructorCall__ConstructorAssignment_2
+            // InternalDim.g:11138:2: ( rule__DmxConstructorCall__ConstructorAssignment_2 )
+            // InternalDim.g:11138:3: rule__DmxConstructorCall__ConstructorAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__DmxConstructorCall__ConstructorAssignment_2();
@@ -37334,14 +37872,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group__3"
-    // InternalDim.g:10977:1: rule__DmxConstructorCall__Group__3 : rule__DmxConstructorCall__Group__3__Impl ;
+    // InternalDim.g:11146:1: rule__DmxConstructorCall__Group__3 : rule__DmxConstructorCall__Group__3__Impl ;
     public final void rule__DmxConstructorCall__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10981:1: ( rule__DmxConstructorCall__Group__3__Impl )
-            // InternalDim.g:10982:2: rule__DmxConstructorCall__Group__3__Impl
+            // InternalDim.g:11150:1: ( rule__DmxConstructorCall__Group__3__Impl )
+            // InternalDim.g:11151:2: rule__DmxConstructorCall__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxConstructorCall__Group__3__Impl();
@@ -37367,22 +37905,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group__3__Impl"
-    // InternalDim.g:10988:1: rule__DmxConstructorCall__Group__3__Impl : ( ( rule__DmxConstructorCall__Group_3__0 )? ) ;
+    // InternalDim.g:11157:1: rule__DmxConstructorCall__Group__3__Impl : ( ( rule__DmxConstructorCall__Group_3__0 )? ) ;
     public final void rule__DmxConstructorCall__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:10992:1: ( ( ( rule__DmxConstructorCall__Group_3__0 )? ) )
-            // InternalDim.g:10993:1: ( ( rule__DmxConstructorCall__Group_3__0 )? )
+            // InternalDim.g:11161:1: ( ( ( rule__DmxConstructorCall__Group_3__0 )? ) )
+            // InternalDim.g:11162:1: ( ( rule__DmxConstructorCall__Group_3__0 )? )
             {
-            // InternalDim.g:10993:1: ( ( rule__DmxConstructorCall__Group_3__0 )? )
-            // InternalDim.g:10994:2: ( rule__DmxConstructorCall__Group_3__0 )?
+            // InternalDim.g:11162:1: ( ( rule__DmxConstructorCall__Group_3__0 )? )
+            // InternalDim.g:11163:2: ( rule__DmxConstructorCall__Group_3__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getGroup_3()); 
             }
-            // InternalDim.g:10995:2: ( rule__DmxConstructorCall__Group_3__0 )?
+            // InternalDim.g:11164:2: ( rule__DmxConstructorCall__Group_3__0 )?
             int alt111=2;
             int LA111_0 = input.LA(1);
 
@@ -37391,7 +37929,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             }
             switch (alt111) {
                 case 1 :
-                    // InternalDim.g:10995:3: rule__DmxConstructorCall__Group_3__0
+                    // InternalDim.g:11164:3: rule__DmxConstructorCall__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxConstructorCall__Group_3__0();
@@ -37429,16 +37967,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3__0"
-    // InternalDim.g:11004:1: rule__DmxConstructorCall__Group_3__0 : rule__DmxConstructorCall__Group_3__0__Impl rule__DmxConstructorCall__Group_3__1 ;
+    // InternalDim.g:11173:1: rule__DmxConstructorCall__Group_3__0 : rule__DmxConstructorCall__Group_3__0__Impl rule__DmxConstructorCall__Group_3__1 ;
     public final void rule__DmxConstructorCall__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11008:1: ( rule__DmxConstructorCall__Group_3__0__Impl rule__DmxConstructorCall__Group_3__1 )
-            // InternalDim.g:11009:2: rule__DmxConstructorCall__Group_3__0__Impl rule__DmxConstructorCall__Group_3__1
+            // InternalDim.g:11177:1: ( rule__DmxConstructorCall__Group_3__0__Impl rule__DmxConstructorCall__Group_3__1 )
+            // InternalDim.g:11178:2: rule__DmxConstructorCall__Group_3__0__Impl rule__DmxConstructorCall__Group_3__1
             {
-            pushFollow(FOLLOW_79);
+            pushFollow(FOLLOW_82);
             rule__DmxConstructorCall__Group_3__0__Impl();
 
             state._fsp--;
@@ -37467,23 +38005,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3__0__Impl"
-    // InternalDim.g:11016:1: rule__DmxConstructorCall__Group_3__0__Impl : ( ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 ) ) ;
+    // InternalDim.g:11185:1: rule__DmxConstructorCall__Group_3__0__Impl : ( ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 ) ) ;
     public final void rule__DmxConstructorCall__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11020:1: ( ( ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 ) ) )
-            // InternalDim.g:11021:1: ( ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 ) )
+            // InternalDim.g:11189:1: ( ( ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 ) ) )
+            // InternalDim.g:11190:1: ( ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 ) )
             {
-            // InternalDim.g:11021:1: ( ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 ) )
-            // InternalDim.g:11022:2: ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 )
+            // InternalDim.g:11190:1: ( ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 ) )
+            // InternalDim.g:11191:2: ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getExplicitConstructorCallAssignment_3_0()); 
             }
-            // InternalDim.g:11023:2: ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 )
-            // InternalDim.g:11023:3: rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0
+            // InternalDim.g:11192:2: ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 )
+            // InternalDim.g:11192:3: rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0
             {
             pushFollow(FOLLOW_2);
             rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0();
@@ -37518,16 +38056,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3__1"
-    // InternalDim.g:11031:1: rule__DmxConstructorCall__Group_3__1 : rule__DmxConstructorCall__Group_3__1__Impl rule__DmxConstructorCall__Group_3__2 ;
+    // InternalDim.g:11200:1: rule__DmxConstructorCall__Group_3__1 : rule__DmxConstructorCall__Group_3__1__Impl rule__DmxConstructorCall__Group_3__2 ;
     public final void rule__DmxConstructorCall__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11035:1: ( rule__DmxConstructorCall__Group_3__1__Impl rule__DmxConstructorCall__Group_3__2 )
-            // InternalDim.g:11036:2: rule__DmxConstructorCall__Group_3__1__Impl rule__DmxConstructorCall__Group_3__2
+            // InternalDim.g:11204:1: ( rule__DmxConstructorCall__Group_3__1__Impl rule__DmxConstructorCall__Group_3__2 )
+            // InternalDim.g:11205:2: rule__DmxConstructorCall__Group_3__1__Impl rule__DmxConstructorCall__Group_3__2
             {
-            pushFollow(FOLLOW_79);
+            pushFollow(FOLLOW_82);
             rule__DmxConstructorCall__Group_3__1__Impl();
 
             state._fsp--;
@@ -37556,31 +38094,31 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3__1__Impl"
-    // InternalDim.g:11043:1: rule__DmxConstructorCall__Group_3__1__Impl : ( ( rule__DmxConstructorCall__Group_3_1__0 )? ) ;
+    // InternalDim.g:11212:1: rule__DmxConstructorCall__Group_3__1__Impl : ( ( rule__DmxConstructorCall__Group_3_1__0 )? ) ;
     public final void rule__DmxConstructorCall__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11047:1: ( ( ( rule__DmxConstructorCall__Group_3_1__0 )? ) )
-            // InternalDim.g:11048:1: ( ( rule__DmxConstructorCall__Group_3_1__0 )? )
+            // InternalDim.g:11216:1: ( ( ( rule__DmxConstructorCall__Group_3_1__0 )? ) )
+            // InternalDim.g:11217:1: ( ( rule__DmxConstructorCall__Group_3_1__0 )? )
             {
-            // InternalDim.g:11048:1: ( ( rule__DmxConstructorCall__Group_3_1__0 )? )
-            // InternalDim.g:11049:2: ( rule__DmxConstructorCall__Group_3_1__0 )?
+            // InternalDim.g:11217:1: ( ( rule__DmxConstructorCall__Group_3_1__0 )? )
+            // InternalDim.g:11218:2: ( rule__DmxConstructorCall__Group_3_1__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getGroup_3_1()); 
             }
-            // InternalDim.g:11050:2: ( rule__DmxConstructorCall__Group_3_1__0 )?
+            // InternalDim.g:11219:2: ( rule__DmxConstructorCall__Group_3_1__0 )?
             int alt112=2;
             int LA112_0 = input.LA(1);
 
-            if ( ((LA112_0>=RULE_NATURAL && LA112_0<=RULE_PLAIN_TEXT_START)||LA112_0==RULE_STRING||(LA112_0>=27 && LA112_0<=34)||(LA112_0>=36 && LA112_0<=39)||(LA112_0>=42 && LA112_0<=43)||(LA112_0>=76 && LA112_0<=78)||LA112_0==95||LA112_0==107||LA112_0==110||LA112_0==115||(LA112_0>=124 && LA112_0<=125)) ) {
+            if ( ((LA112_0>=RULE_NATURAL && LA112_0<=RULE_PLAIN_TEXT_START)||LA112_0==RULE_STRING||(LA112_0>=27 && LA112_0<=34)||(LA112_0>=36 && LA112_0<=39)||(LA112_0>=42 && LA112_0<=43)||(LA112_0>=76 && LA112_0<=78)||LA112_0==95||LA112_0==108||LA112_0==111||LA112_0==116||(LA112_0>=125 && LA112_0<=126)) ) {
                 alt112=1;
             }
             switch (alt112) {
                 case 1 :
-                    // InternalDim.g:11050:3: rule__DmxConstructorCall__Group_3_1__0
+                    // InternalDim.g:11219:3: rule__DmxConstructorCall__Group_3_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxConstructorCall__Group_3_1__0();
@@ -37618,14 +38156,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3__2"
-    // InternalDim.g:11058:1: rule__DmxConstructorCall__Group_3__2 : rule__DmxConstructorCall__Group_3__2__Impl ;
+    // InternalDim.g:11227:1: rule__DmxConstructorCall__Group_3__2 : rule__DmxConstructorCall__Group_3__2__Impl ;
     public final void rule__DmxConstructorCall__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11062:1: ( rule__DmxConstructorCall__Group_3__2__Impl )
-            // InternalDim.g:11063:2: rule__DmxConstructorCall__Group_3__2__Impl
+            // InternalDim.g:11231:1: ( rule__DmxConstructorCall__Group_3__2__Impl )
+            // InternalDim.g:11232:2: rule__DmxConstructorCall__Group_3__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxConstructorCall__Group_3__2__Impl();
@@ -37651,17 +38189,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3__2__Impl"
-    // InternalDim.g:11069:1: rule__DmxConstructorCall__Group_3__2__Impl : ( ')' ) ;
+    // InternalDim.g:11238:1: rule__DmxConstructorCall__Group_3__2__Impl : ( ')' ) ;
     public final void rule__DmxConstructorCall__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11073:1: ( ( ')' ) )
-            // InternalDim.g:11074:1: ( ')' )
+            // InternalDim.g:11242:1: ( ( ')' ) )
+            // InternalDim.g:11243:1: ( ')' )
             {
-            // InternalDim.g:11074:1: ( ')' )
-            // InternalDim.g:11075:2: ')'
+            // InternalDim.g:11243:1: ( ')' )
+            // InternalDim.g:11244:2: ')'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getRightParenthesisKeyword_3_2()); 
@@ -37692,14 +38230,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3_1__0"
-    // InternalDim.g:11085:1: rule__DmxConstructorCall__Group_3_1__0 : rule__DmxConstructorCall__Group_3_1__0__Impl rule__DmxConstructorCall__Group_3_1__1 ;
+    // InternalDim.g:11254:1: rule__DmxConstructorCall__Group_3_1__0 : rule__DmxConstructorCall__Group_3_1__0__Impl rule__DmxConstructorCall__Group_3_1__1 ;
     public final void rule__DmxConstructorCall__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11089:1: ( rule__DmxConstructorCall__Group_3_1__0__Impl rule__DmxConstructorCall__Group_3_1__1 )
-            // InternalDim.g:11090:2: rule__DmxConstructorCall__Group_3_1__0__Impl rule__DmxConstructorCall__Group_3_1__1
+            // InternalDim.g:11258:1: ( rule__DmxConstructorCall__Group_3_1__0__Impl rule__DmxConstructorCall__Group_3_1__1 )
+            // InternalDim.g:11259:2: rule__DmxConstructorCall__Group_3_1__0__Impl rule__DmxConstructorCall__Group_3_1__1
             {
             pushFollow(FOLLOW_23);
             rule__DmxConstructorCall__Group_3_1__0__Impl();
@@ -37730,23 +38268,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3_1__0__Impl"
-    // InternalDim.g:11097:1: rule__DmxConstructorCall__Group_3_1__0__Impl : ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 ) ) ;
+    // InternalDim.g:11266:1: rule__DmxConstructorCall__Group_3_1__0__Impl : ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 ) ) ;
     public final void rule__DmxConstructorCall__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11101:1: ( ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 ) ) )
-            // InternalDim.g:11102:1: ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 ) )
+            // InternalDim.g:11270:1: ( ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 ) ) )
+            // InternalDim.g:11271:1: ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 ) )
             {
-            // InternalDim.g:11102:1: ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 ) )
-            // InternalDim.g:11103:2: ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 )
+            // InternalDim.g:11271:1: ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 ) )
+            // InternalDim.g:11272:2: ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getArgumentsAssignment_3_1_0()); 
             }
-            // InternalDim.g:11104:2: ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 )
-            // InternalDim.g:11104:3: rule__DmxConstructorCall__ArgumentsAssignment_3_1_0
+            // InternalDim.g:11273:2: ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 )
+            // InternalDim.g:11273:3: rule__DmxConstructorCall__ArgumentsAssignment_3_1_0
             {
             pushFollow(FOLLOW_2);
             rule__DmxConstructorCall__ArgumentsAssignment_3_1_0();
@@ -37781,14 +38319,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3_1__1"
-    // InternalDim.g:11112:1: rule__DmxConstructorCall__Group_3_1__1 : rule__DmxConstructorCall__Group_3_1__1__Impl ;
+    // InternalDim.g:11281:1: rule__DmxConstructorCall__Group_3_1__1 : rule__DmxConstructorCall__Group_3_1__1__Impl ;
     public final void rule__DmxConstructorCall__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11116:1: ( rule__DmxConstructorCall__Group_3_1__1__Impl )
-            // InternalDim.g:11117:2: rule__DmxConstructorCall__Group_3_1__1__Impl
+            // InternalDim.g:11285:1: ( rule__DmxConstructorCall__Group_3_1__1__Impl )
+            // InternalDim.g:11286:2: rule__DmxConstructorCall__Group_3_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxConstructorCall__Group_3_1__1__Impl();
@@ -37814,22 +38352,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3_1__1__Impl"
-    // InternalDim.g:11123:1: rule__DmxConstructorCall__Group_3_1__1__Impl : ( ( rule__DmxConstructorCall__Group_3_1_1__0 )* ) ;
+    // InternalDim.g:11292:1: rule__DmxConstructorCall__Group_3_1__1__Impl : ( ( rule__DmxConstructorCall__Group_3_1_1__0 )* ) ;
     public final void rule__DmxConstructorCall__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11127:1: ( ( ( rule__DmxConstructorCall__Group_3_1_1__0 )* ) )
-            // InternalDim.g:11128:1: ( ( rule__DmxConstructorCall__Group_3_1_1__0 )* )
+            // InternalDim.g:11296:1: ( ( ( rule__DmxConstructorCall__Group_3_1_1__0 )* ) )
+            // InternalDim.g:11297:1: ( ( rule__DmxConstructorCall__Group_3_1_1__0 )* )
             {
-            // InternalDim.g:11128:1: ( ( rule__DmxConstructorCall__Group_3_1_1__0 )* )
-            // InternalDim.g:11129:2: ( rule__DmxConstructorCall__Group_3_1_1__0 )*
+            // InternalDim.g:11297:1: ( ( rule__DmxConstructorCall__Group_3_1_1__0 )* )
+            // InternalDim.g:11298:2: ( rule__DmxConstructorCall__Group_3_1_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getGroup_3_1_1()); 
             }
-            // InternalDim.g:11130:2: ( rule__DmxConstructorCall__Group_3_1_1__0 )*
+            // InternalDim.g:11299:2: ( rule__DmxConstructorCall__Group_3_1_1__0 )*
             loop113:
             do {
                 int alt113=2;
@@ -37842,7 +38380,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
                 switch (alt113) {
             	case 1 :
-            	    // InternalDim.g:11130:3: rule__DmxConstructorCall__Group_3_1_1__0
+            	    // InternalDim.g:11299:3: rule__DmxConstructorCall__Group_3_1_1__0
             	    {
             	    pushFollow(FOLLOW_24);
             	    rule__DmxConstructorCall__Group_3_1_1__0();
@@ -37883,14 +38421,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3_1_1__0"
-    // InternalDim.g:11139:1: rule__DmxConstructorCall__Group_3_1_1__0 : rule__DmxConstructorCall__Group_3_1_1__0__Impl rule__DmxConstructorCall__Group_3_1_1__1 ;
+    // InternalDim.g:11308:1: rule__DmxConstructorCall__Group_3_1_1__0 : rule__DmxConstructorCall__Group_3_1_1__0__Impl rule__DmxConstructorCall__Group_3_1_1__1 ;
     public final void rule__DmxConstructorCall__Group_3_1_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11143:1: ( rule__DmxConstructorCall__Group_3_1_1__0__Impl rule__DmxConstructorCall__Group_3_1_1__1 )
-            // InternalDim.g:11144:2: rule__DmxConstructorCall__Group_3_1_1__0__Impl rule__DmxConstructorCall__Group_3_1_1__1
+            // InternalDim.g:11312:1: ( rule__DmxConstructorCall__Group_3_1_1__0__Impl rule__DmxConstructorCall__Group_3_1_1__1 )
+            // InternalDim.g:11313:2: rule__DmxConstructorCall__Group_3_1_1__0__Impl rule__DmxConstructorCall__Group_3_1_1__1
             {
             pushFollow(FOLLOW_15);
             rule__DmxConstructorCall__Group_3_1_1__0__Impl();
@@ -37921,17 +38459,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3_1_1__0__Impl"
-    // InternalDim.g:11151:1: rule__DmxConstructorCall__Group_3_1_1__0__Impl : ( ',' ) ;
+    // InternalDim.g:11320:1: rule__DmxConstructorCall__Group_3_1_1__0__Impl : ( ',' ) ;
     public final void rule__DmxConstructorCall__Group_3_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11155:1: ( ( ',' ) )
-            // InternalDim.g:11156:1: ( ',' )
+            // InternalDim.g:11324:1: ( ( ',' ) )
+            // InternalDim.g:11325:1: ( ',' )
             {
-            // InternalDim.g:11156:1: ( ',' )
-            // InternalDim.g:11157:2: ','
+            // InternalDim.g:11325:1: ( ',' )
+            // InternalDim.g:11326:2: ','
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getCommaKeyword_3_1_1_0()); 
@@ -37962,14 +38500,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3_1_1__1"
-    // InternalDim.g:11166:1: rule__DmxConstructorCall__Group_3_1_1__1 : rule__DmxConstructorCall__Group_3_1_1__1__Impl ;
+    // InternalDim.g:11335:1: rule__DmxConstructorCall__Group_3_1_1__1 : rule__DmxConstructorCall__Group_3_1_1__1__Impl ;
     public final void rule__DmxConstructorCall__Group_3_1_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11170:1: ( rule__DmxConstructorCall__Group_3_1_1__1__Impl )
-            // InternalDim.g:11171:2: rule__DmxConstructorCall__Group_3_1_1__1__Impl
+            // InternalDim.g:11339:1: ( rule__DmxConstructorCall__Group_3_1_1__1__Impl )
+            // InternalDim.g:11340:2: rule__DmxConstructorCall__Group_3_1_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxConstructorCall__Group_3_1_1__1__Impl();
@@ -37995,23 +38533,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3_1_1__1__Impl"
-    // InternalDim.g:11177:1: rule__DmxConstructorCall__Group_3_1_1__1__Impl : ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 ) ) ;
+    // InternalDim.g:11346:1: rule__DmxConstructorCall__Group_3_1_1__1__Impl : ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 ) ) ;
     public final void rule__DmxConstructorCall__Group_3_1_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11181:1: ( ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 ) ) )
-            // InternalDim.g:11182:1: ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 ) )
+            // InternalDim.g:11350:1: ( ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 ) ) )
+            // InternalDim.g:11351:1: ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 ) )
             {
-            // InternalDim.g:11182:1: ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 ) )
-            // InternalDim.g:11183:2: ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 )
+            // InternalDim.g:11351:1: ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 ) )
+            // InternalDim.g:11352:2: ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getArgumentsAssignment_3_1_1_1()); 
             }
-            // InternalDim.g:11184:2: ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 )
-            // InternalDim.g:11184:3: rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1
+            // InternalDim.g:11353:2: ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 )
+            // InternalDim.g:11353:3: rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1();
@@ -38046,16 +38584,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__0"
-    // InternalDim.g:11193:1: rule__DmxStaticReference__Group__0 : rule__DmxStaticReference__Group__0__Impl rule__DmxStaticReference__Group__1 ;
+    // InternalDim.g:11362:1: rule__DmxStaticReference__Group__0 : rule__DmxStaticReference__Group__0__Impl rule__DmxStaticReference__Group__1 ;
     public final void rule__DmxStaticReference__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11197:1: ( rule__DmxStaticReference__Group__0__Impl rule__DmxStaticReference__Group__1 )
-            // InternalDim.g:11198:2: rule__DmxStaticReference__Group__0__Impl rule__DmxStaticReference__Group__1
+            // InternalDim.g:11366:1: ( rule__DmxStaticReference__Group__0__Impl rule__DmxStaticReference__Group__1 )
+            // InternalDim.g:11367:2: rule__DmxStaticReference__Group__0__Impl rule__DmxStaticReference__Group__1
             {
-            pushFollow(FOLLOW_81);
+            pushFollow(FOLLOW_84);
             rule__DmxStaticReference__Group__0__Impl();
 
             state._fsp--;
@@ -38084,23 +38622,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__0__Impl"
-    // InternalDim.g:11205:1: rule__DmxStaticReference__Group__0__Impl : ( () ) ;
+    // InternalDim.g:11374:1: rule__DmxStaticReference__Group__0__Impl : ( () ) ;
     public final void rule__DmxStaticReference__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11209:1: ( ( () ) )
-            // InternalDim.g:11210:1: ( () )
+            // InternalDim.g:11378:1: ( ( () ) )
+            // InternalDim.g:11379:1: ( () )
             {
-            // InternalDim.g:11210:1: ( () )
-            // InternalDim.g:11211:2: ()
+            // InternalDim.g:11379:1: ( () )
+            // InternalDim.g:11380:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getDmxStaticReferenceAction_0()); 
             }
-            // InternalDim.g:11212:2: ()
-            // InternalDim.g:11212:3: 
+            // InternalDim.g:11381:2: ()
+            // InternalDim.g:11381:3: 
             {
             }
 
@@ -38125,14 +38663,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__1"
-    // InternalDim.g:11220:1: rule__DmxStaticReference__Group__1 : rule__DmxStaticReference__Group__1__Impl rule__DmxStaticReference__Group__2 ;
+    // InternalDim.g:11389:1: rule__DmxStaticReference__Group__1 : rule__DmxStaticReference__Group__1__Impl rule__DmxStaticReference__Group__2 ;
     public final void rule__DmxStaticReference__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11224:1: ( rule__DmxStaticReference__Group__1__Impl rule__DmxStaticReference__Group__2 )
-            // InternalDim.g:11225:2: rule__DmxStaticReference__Group__1__Impl rule__DmxStaticReference__Group__2
+            // InternalDim.g:11393:1: ( rule__DmxStaticReference__Group__1__Impl rule__DmxStaticReference__Group__2 )
+            // InternalDim.g:11394:2: rule__DmxStaticReference__Group__1__Impl rule__DmxStaticReference__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__DmxStaticReference__Group__1__Impl();
@@ -38163,22 +38701,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__1__Impl"
-    // InternalDim.g:11232:1: rule__DmxStaticReference__Group__1__Impl : ( '[' ) ;
+    // InternalDim.g:11401:1: rule__DmxStaticReference__Group__1__Impl : ( '[' ) ;
     public final void rule__DmxStaticReference__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11236:1: ( ( '[' ) )
-            // InternalDim.g:11237:1: ( '[' )
+            // InternalDim.g:11405:1: ( ( '[' ) )
+            // InternalDim.g:11406:1: ( '[' )
             {
-            // InternalDim.g:11237:1: ( '[' )
-            // InternalDim.g:11238:2: '['
+            // InternalDim.g:11406:1: ( '[' )
+            // InternalDim.g:11407:2: '['
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getLeftSquareBracketKeyword_1()); 
             }
-            match(input,107,FOLLOW_2); if (state.failed) return ;
+            match(input,108,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxStaticReferenceAccess().getLeftSquareBracketKeyword_1()); 
             }
@@ -38204,16 +38742,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__2"
-    // InternalDim.g:11247:1: rule__DmxStaticReference__Group__2 : rule__DmxStaticReference__Group__2__Impl rule__DmxStaticReference__Group__3 ;
+    // InternalDim.g:11416:1: rule__DmxStaticReference__Group__2 : rule__DmxStaticReference__Group__2__Impl rule__DmxStaticReference__Group__3 ;
     public final void rule__DmxStaticReference__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11251:1: ( rule__DmxStaticReference__Group__2__Impl rule__DmxStaticReference__Group__3 )
-            // InternalDim.g:11252:2: rule__DmxStaticReference__Group__2__Impl rule__DmxStaticReference__Group__3
+            // InternalDim.g:11420:1: ( rule__DmxStaticReference__Group__2__Impl rule__DmxStaticReference__Group__3 )
+            // InternalDim.g:11421:2: rule__DmxStaticReference__Group__2__Impl rule__DmxStaticReference__Group__3
             {
-            pushFollow(FOLLOW_82);
+            pushFollow(FOLLOW_85);
             rule__DmxStaticReference__Group__2__Impl();
 
             state._fsp--;
@@ -38242,23 +38780,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__2__Impl"
-    // InternalDim.g:11259:1: rule__DmxStaticReference__Group__2__Impl : ( ( rule__DmxStaticReference__TargetAssignment_2 ) ) ;
+    // InternalDim.g:11428:1: rule__DmxStaticReference__Group__2__Impl : ( ( rule__DmxStaticReference__TargetAssignment_2 ) ) ;
     public final void rule__DmxStaticReference__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11263:1: ( ( ( rule__DmxStaticReference__TargetAssignment_2 ) ) )
-            // InternalDim.g:11264:1: ( ( rule__DmxStaticReference__TargetAssignment_2 ) )
+            // InternalDim.g:11432:1: ( ( ( rule__DmxStaticReference__TargetAssignment_2 ) ) )
+            // InternalDim.g:11433:1: ( ( rule__DmxStaticReference__TargetAssignment_2 ) )
             {
-            // InternalDim.g:11264:1: ( ( rule__DmxStaticReference__TargetAssignment_2 ) )
-            // InternalDim.g:11265:2: ( rule__DmxStaticReference__TargetAssignment_2 )
+            // InternalDim.g:11433:1: ( ( rule__DmxStaticReference__TargetAssignment_2 ) )
+            // InternalDim.g:11434:2: ( rule__DmxStaticReference__TargetAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getTargetAssignment_2()); 
             }
-            // InternalDim.g:11266:2: ( rule__DmxStaticReference__TargetAssignment_2 )
-            // InternalDim.g:11266:3: rule__DmxStaticReference__TargetAssignment_2
+            // InternalDim.g:11435:2: ( rule__DmxStaticReference__TargetAssignment_2 )
+            // InternalDim.g:11435:3: rule__DmxStaticReference__TargetAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__DmxStaticReference__TargetAssignment_2();
@@ -38293,16 +38831,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__3"
-    // InternalDim.g:11274:1: rule__DmxStaticReference__Group__3 : rule__DmxStaticReference__Group__3__Impl rule__DmxStaticReference__Group__4 ;
+    // InternalDim.g:11443:1: rule__DmxStaticReference__Group__3 : rule__DmxStaticReference__Group__3__Impl rule__DmxStaticReference__Group__4 ;
     public final void rule__DmxStaticReference__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11278:1: ( rule__DmxStaticReference__Group__3__Impl rule__DmxStaticReference__Group__4 )
-            // InternalDim.g:11279:2: rule__DmxStaticReference__Group__3__Impl rule__DmxStaticReference__Group__4
+            // InternalDim.g:11447:1: ( rule__DmxStaticReference__Group__3__Impl rule__DmxStaticReference__Group__4 )
+            // InternalDim.g:11448:2: rule__DmxStaticReference__Group__3__Impl rule__DmxStaticReference__Group__4
             {
-            pushFollow(FOLLOW_82);
+            pushFollow(FOLLOW_85);
             rule__DmxStaticReference__Group__3__Impl();
 
             state._fsp--;
@@ -38331,31 +38869,31 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__3__Impl"
-    // InternalDim.g:11286:1: rule__DmxStaticReference__Group__3__Impl : ( ( rule__DmxStaticReference__Group_3__0 )? ) ;
+    // InternalDim.g:11455:1: rule__DmxStaticReference__Group__3__Impl : ( ( rule__DmxStaticReference__Group_3__0 )? ) ;
     public final void rule__DmxStaticReference__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11290:1: ( ( ( rule__DmxStaticReference__Group_3__0 )? ) )
-            // InternalDim.g:11291:1: ( ( rule__DmxStaticReference__Group_3__0 )? )
+            // InternalDim.g:11459:1: ( ( ( rule__DmxStaticReference__Group_3__0 )? ) )
+            // InternalDim.g:11460:1: ( ( rule__DmxStaticReference__Group_3__0 )? )
             {
-            // InternalDim.g:11291:1: ( ( rule__DmxStaticReference__Group_3__0 )? )
-            // InternalDim.g:11292:2: ( rule__DmxStaticReference__Group_3__0 )?
+            // InternalDim.g:11460:1: ( ( rule__DmxStaticReference__Group_3__0 )? )
+            // InternalDim.g:11461:2: ( rule__DmxStaticReference__Group_3__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getGroup_3()); 
             }
-            // InternalDim.g:11293:2: ( rule__DmxStaticReference__Group_3__0 )?
+            // InternalDim.g:11462:2: ( rule__DmxStaticReference__Group_3__0 )?
             int alt114=2;
             int LA114_0 = input.LA(1);
 
-            if ( (LA114_0==109) ) {
+            if ( (LA114_0==110) ) {
                 alt114=1;
             }
             switch (alt114) {
                 case 1 :
-                    // InternalDim.g:11293:3: rule__DmxStaticReference__Group_3__0
+                    // InternalDim.g:11462:3: rule__DmxStaticReference__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxStaticReference__Group_3__0();
@@ -38393,16 +38931,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__4"
-    // InternalDim.g:11301:1: rule__DmxStaticReference__Group__4 : rule__DmxStaticReference__Group__4__Impl rule__DmxStaticReference__Group__5 ;
+    // InternalDim.g:11470:1: rule__DmxStaticReference__Group__4 : rule__DmxStaticReference__Group__4__Impl rule__DmxStaticReference__Group__5 ;
     public final void rule__DmxStaticReference__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11305:1: ( rule__DmxStaticReference__Group__4__Impl rule__DmxStaticReference__Group__5 )
-            // InternalDim.g:11306:2: rule__DmxStaticReference__Group__4__Impl rule__DmxStaticReference__Group__5
+            // InternalDim.g:11474:1: ( rule__DmxStaticReference__Group__4__Impl rule__DmxStaticReference__Group__5 )
+            // InternalDim.g:11475:2: rule__DmxStaticReference__Group__4__Impl rule__DmxStaticReference__Group__5
             {
-            pushFollow(FOLLOW_82);
+            pushFollow(FOLLOW_85);
             rule__DmxStaticReference__Group__4__Impl();
 
             state._fsp--;
@@ -38431,31 +38969,31 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__4__Impl"
-    // InternalDim.g:11313:1: rule__DmxStaticReference__Group__4__Impl : ( ( rule__DmxStaticReference__Group_4__0 )? ) ;
+    // InternalDim.g:11482:1: rule__DmxStaticReference__Group__4__Impl : ( ( rule__DmxStaticReference__Group_4__0 )? ) ;
     public final void rule__DmxStaticReference__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11317:1: ( ( ( rule__DmxStaticReference__Group_4__0 )? ) )
-            // InternalDim.g:11318:1: ( ( rule__DmxStaticReference__Group_4__0 )? )
+            // InternalDim.g:11486:1: ( ( ( rule__DmxStaticReference__Group_4__0 )? ) )
+            // InternalDim.g:11487:1: ( ( rule__DmxStaticReference__Group_4__0 )? )
             {
-            // InternalDim.g:11318:1: ( ( rule__DmxStaticReference__Group_4__0 )? )
-            // InternalDim.g:11319:2: ( rule__DmxStaticReference__Group_4__0 )?
+            // InternalDim.g:11487:1: ( ( rule__DmxStaticReference__Group_4__0 )? )
+            // InternalDim.g:11488:2: ( rule__DmxStaticReference__Group_4__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getGroup_4()); 
             }
-            // InternalDim.g:11320:2: ( rule__DmxStaticReference__Group_4__0 )?
+            // InternalDim.g:11489:2: ( rule__DmxStaticReference__Group_4__0 )?
             int alt115=2;
             int LA115_0 = input.LA(1);
 
-            if ( (LA115_0==106) ) {
+            if ( (LA115_0==107) ) {
                 alt115=1;
             }
             switch (alt115) {
                 case 1 :
-                    // InternalDim.g:11320:3: rule__DmxStaticReference__Group_4__0
+                    // InternalDim.g:11489:3: rule__DmxStaticReference__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxStaticReference__Group_4__0();
@@ -38493,14 +39031,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__5"
-    // InternalDim.g:11328:1: rule__DmxStaticReference__Group__5 : rule__DmxStaticReference__Group__5__Impl ;
+    // InternalDim.g:11497:1: rule__DmxStaticReference__Group__5 : rule__DmxStaticReference__Group__5__Impl ;
     public final void rule__DmxStaticReference__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11332:1: ( rule__DmxStaticReference__Group__5__Impl )
-            // InternalDim.g:11333:2: rule__DmxStaticReference__Group__5__Impl
+            // InternalDim.g:11501:1: ( rule__DmxStaticReference__Group__5__Impl )
+            // InternalDim.g:11502:2: rule__DmxStaticReference__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxStaticReference__Group__5__Impl();
@@ -38526,25 +39064,25 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__5__Impl"
-    // InternalDim.g:11339:1: rule__DmxStaticReference__Group__5__Impl : ( ( ']' ) ) ;
+    // InternalDim.g:11508:1: rule__DmxStaticReference__Group__5__Impl : ( ( ']' ) ) ;
     public final void rule__DmxStaticReference__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11343:1: ( ( ( ']' ) ) )
-            // InternalDim.g:11344:1: ( ( ']' ) )
+            // InternalDim.g:11512:1: ( ( ( ']' ) ) )
+            // InternalDim.g:11513:1: ( ( ']' ) )
             {
-            // InternalDim.g:11344:1: ( ( ']' ) )
-            // InternalDim.g:11345:2: ( ']' )
+            // InternalDim.g:11513:1: ( ( ']' ) )
+            // InternalDim.g:11514:2: ( ']' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getRightSquareBracketKeyword_5()); 
             }
-            // InternalDim.g:11346:2: ( ']' )
-            // InternalDim.g:11346:3: ']'
+            // InternalDim.g:11515:2: ( ']' )
+            // InternalDim.g:11515:3: ']'
             {
-            match(input,108,FOLLOW_2); if (state.failed) return ;
+            match(input,109,FOLLOW_2); if (state.failed) return ;
 
             }
 
@@ -38573,14 +39111,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group_3__0"
-    // InternalDim.g:11355:1: rule__DmxStaticReference__Group_3__0 : rule__DmxStaticReference__Group_3__0__Impl rule__DmxStaticReference__Group_3__1 ;
+    // InternalDim.g:11524:1: rule__DmxStaticReference__Group_3__0 : rule__DmxStaticReference__Group_3__0__Impl rule__DmxStaticReference__Group_3__1 ;
     public final void rule__DmxStaticReference__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11359:1: ( rule__DmxStaticReference__Group_3__0__Impl rule__DmxStaticReference__Group_3__1 )
-            // InternalDim.g:11360:2: rule__DmxStaticReference__Group_3__0__Impl rule__DmxStaticReference__Group_3__1
+            // InternalDim.g:11528:1: ( rule__DmxStaticReference__Group_3__0__Impl rule__DmxStaticReference__Group_3__1 )
+            // InternalDim.g:11529:2: rule__DmxStaticReference__Group_3__0__Impl rule__DmxStaticReference__Group_3__1
             {
             pushFollow(FOLLOW_5);
             rule__DmxStaticReference__Group_3__0__Impl();
@@ -38611,22 +39149,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group_3__0__Impl"
-    // InternalDim.g:11367:1: rule__DmxStaticReference__Group_3__0__Impl : ( '#' ) ;
+    // InternalDim.g:11536:1: rule__DmxStaticReference__Group_3__0__Impl : ( '#' ) ;
     public final void rule__DmxStaticReference__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11371:1: ( ( '#' ) )
-            // InternalDim.g:11372:1: ( '#' )
+            // InternalDim.g:11540:1: ( ( '#' ) )
+            // InternalDim.g:11541:1: ( '#' )
             {
-            // InternalDim.g:11372:1: ( '#' )
-            // InternalDim.g:11373:2: '#'
+            // InternalDim.g:11541:1: ( '#' )
+            // InternalDim.g:11542:2: '#'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getNumberSignKeyword_3_0()); 
             }
-            match(input,109,FOLLOW_2); if (state.failed) return ;
+            match(input,110,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxStaticReferenceAccess().getNumberSignKeyword_3_0()); 
             }
@@ -38652,14 +39190,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group_3__1"
-    // InternalDim.g:11382:1: rule__DmxStaticReference__Group_3__1 : rule__DmxStaticReference__Group_3__1__Impl ;
+    // InternalDim.g:11551:1: rule__DmxStaticReference__Group_3__1 : rule__DmxStaticReference__Group_3__1__Impl ;
     public final void rule__DmxStaticReference__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11386:1: ( rule__DmxStaticReference__Group_3__1__Impl )
-            // InternalDim.g:11387:2: rule__DmxStaticReference__Group_3__1__Impl
+            // InternalDim.g:11555:1: ( rule__DmxStaticReference__Group_3__1__Impl )
+            // InternalDim.g:11556:2: rule__DmxStaticReference__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxStaticReference__Group_3__1__Impl();
@@ -38685,23 +39223,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group_3__1__Impl"
-    // InternalDim.g:11393:1: rule__DmxStaticReference__Group_3__1__Impl : ( ( rule__DmxStaticReference__MemberAssignment_3_1 ) ) ;
+    // InternalDim.g:11562:1: rule__DmxStaticReference__Group_3__1__Impl : ( ( rule__DmxStaticReference__MemberAssignment_3_1 ) ) ;
     public final void rule__DmxStaticReference__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11397:1: ( ( ( rule__DmxStaticReference__MemberAssignment_3_1 ) ) )
-            // InternalDim.g:11398:1: ( ( rule__DmxStaticReference__MemberAssignment_3_1 ) )
+            // InternalDim.g:11566:1: ( ( ( rule__DmxStaticReference__MemberAssignment_3_1 ) ) )
+            // InternalDim.g:11567:1: ( ( rule__DmxStaticReference__MemberAssignment_3_1 ) )
             {
-            // InternalDim.g:11398:1: ( ( rule__DmxStaticReference__MemberAssignment_3_1 ) )
-            // InternalDim.g:11399:2: ( rule__DmxStaticReference__MemberAssignment_3_1 )
+            // InternalDim.g:11567:1: ( ( rule__DmxStaticReference__MemberAssignment_3_1 ) )
+            // InternalDim.g:11568:2: ( rule__DmxStaticReference__MemberAssignment_3_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getMemberAssignment_3_1()); 
             }
-            // InternalDim.g:11400:2: ( rule__DmxStaticReference__MemberAssignment_3_1 )
-            // InternalDim.g:11400:3: rule__DmxStaticReference__MemberAssignment_3_1
+            // InternalDim.g:11569:2: ( rule__DmxStaticReference__MemberAssignment_3_1 )
+            // InternalDim.g:11569:3: rule__DmxStaticReference__MemberAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxStaticReference__MemberAssignment_3_1();
@@ -38736,16 +39274,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group_4__0"
-    // InternalDim.g:11409:1: rule__DmxStaticReference__Group_4__0 : rule__DmxStaticReference__Group_4__0__Impl rule__DmxStaticReference__Group_4__1 ;
+    // InternalDim.g:11578:1: rule__DmxStaticReference__Group_4__0 : rule__DmxStaticReference__Group_4__0__Impl rule__DmxStaticReference__Group_4__1 ;
     public final void rule__DmxStaticReference__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11413:1: ( rule__DmxStaticReference__Group_4__0__Impl rule__DmxStaticReference__Group_4__1 )
-            // InternalDim.g:11414:2: rule__DmxStaticReference__Group_4__0__Impl rule__DmxStaticReference__Group_4__1
+            // InternalDim.g:11582:1: ( rule__DmxStaticReference__Group_4__0__Impl rule__DmxStaticReference__Group_4__1 )
+            // InternalDim.g:11583:2: rule__DmxStaticReference__Group_4__0__Impl rule__DmxStaticReference__Group_4__1
             {
-            pushFollow(FOLLOW_83);
+            pushFollow(FOLLOW_86);
             rule__DmxStaticReference__Group_4__0__Impl();
 
             state._fsp--;
@@ -38774,22 +39312,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group_4__0__Impl"
-    // InternalDim.g:11421:1: rule__DmxStaticReference__Group_4__0__Impl : ( '|' ) ;
+    // InternalDim.g:11590:1: rule__DmxStaticReference__Group_4__0__Impl : ( '|' ) ;
     public final void rule__DmxStaticReference__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11425:1: ( ( '|' ) )
-            // InternalDim.g:11426:1: ( '|' )
+            // InternalDim.g:11594:1: ( ( '|' ) )
+            // InternalDim.g:11595:1: ( '|' )
             {
-            // InternalDim.g:11426:1: ( '|' )
-            // InternalDim.g:11427:2: '|'
+            // InternalDim.g:11595:1: ( '|' )
+            // InternalDim.g:11596:2: '|'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getVerticalLineKeyword_4_0()); 
             }
-            match(input,106,FOLLOW_2); if (state.failed) return ;
+            match(input,107,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxStaticReferenceAccess().getVerticalLineKeyword_4_0()); 
             }
@@ -38815,14 +39353,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group_4__1"
-    // InternalDim.g:11436:1: rule__DmxStaticReference__Group_4__1 : rule__DmxStaticReference__Group_4__1__Impl ;
+    // InternalDim.g:11605:1: rule__DmxStaticReference__Group_4__1 : rule__DmxStaticReference__Group_4__1__Impl ;
     public final void rule__DmxStaticReference__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11440:1: ( rule__DmxStaticReference__Group_4__1__Impl )
-            // InternalDim.g:11441:2: rule__DmxStaticReference__Group_4__1__Impl
+            // InternalDim.g:11609:1: ( rule__DmxStaticReference__Group_4__1__Impl )
+            // InternalDim.g:11610:2: rule__DmxStaticReference__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxStaticReference__Group_4__1__Impl();
@@ -38848,23 +39386,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group_4__1__Impl"
-    // InternalDim.g:11447:1: rule__DmxStaticReference__Group_4__1__Impl : ( ( rule__DmxStaticReference__Alternatives_4_1 ) ) ;
+    // InternalDim.g:11616:1: rule__DmxStaticReference__Group_4__1__Impl : ( ( rule__DmxStaticReference__Alternatives_4_1 ) ) ;
     public final void rule__DmxStaticReference__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11451:1: ( ( ( rule__DmxStaticReference__Alternatives_4_1 ) ) )
-            // InternalDim.g:11452:1: ( ( rule__DmxStaticReference__Alternatives_4_1 ) )
+            // InternalDim.g:11620:1: ( ( ( rule__DmxStaticReference__Alternatives_4_1 ) ) )
+            // InternalDim.g:11621:1: ( ( rule__DmxStaticReference__Alternatives_4_1 ) )
             {
-            // InternalDim.g:11452:1: ( ( rule__DmxStaticReference__Alternatives_4_1 ) )
-            // InternalDim.g:11453:2: ( rule__DmxStaticReference__Alternatives_4_1 )
+            // InternalDim.g:11621:1: ( ( rule__DmxStaticReference__Alternatives_4_1 ) )
+            // InternalDim.g:11622:2: ( rule__DmxStaticReference__Alternatives_4_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getAlternatives_4_1()); 
             }
-            // InternalDim.g:11454:2: ( rule__DmxStaticReference__Alternatives_4_1 )
-            // InternalDim.g:11454:3: rule__DmxStaticReference__Alternatives_4_1
+            // InternalDim.g:11623:2: ( rule__DmxStaticReference__Alternatives_4_1 )
+            // InternalDim.g:11623:3: rule__DmxStaticReference__Alternatives_4_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxStaticReference__Alternatives_4_1();
@@ -38899,14 +39437,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__Group__0"
-    // InternalDim.g:11463:1: rule__DmxContextReference__Group__0 : rule__DmxContextReference__Group__0__Impl rule__DmxContextReference__Group__1 ;
+    // InternalDim.g:11632:1: rule__DmxContextReference__Group__0 : rule__DmxContextReference__Group__0__Impl rule__DmxContextReference__Group__1 ;
     public final void rule__DmxContextReference__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11467:1: ( rule__DmxContextReference__Group__0__Impl rule__DmxContextReference__Group__1 )
-            // InternalDim.g:11468:2: rule__DmxContextReference__Group__0__Impl rule__DmxContextReference__Group__1
+            // InternalDim.g:11636:1: ( rule__DmxContextReference__Group__0__Impl rule__DmxContextReference__Group__1 )
+            // InternalDim.g:11637:2: rule__DmxContextReference__Group__0__Impl rule__DmxContextReference__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__DmxContextReference__Group__0__Impl();
@@ -38937,23 +39475,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__Group__0__Impl"
-    // InternalDim.g:11475:1: rule__DmxContextReference__Group__0__Impl : ( () ) ;
+    // InternalDim.g:11644:1: rule__DmxContextReference__Group__0__Impl : ( () ) ;
     public final void rule__DmxContextReference__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11479:1: ( ( () ) )
-            // InternalDim.g:11480:1: ( () )
+            // InternalDim.g:11648:1: ( ( () ) )
+            // InternalDim.g:11649:1: ( () )
             {
-            // InternalDim.g:11480:1: ( () )
-            // InternalDim.g:11481:2: ()
+            // InternalDim.g:11649:1: ( () )
+            // InternalDim.g:11650:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getDmxContextReferenceAction_0()); 
             }
-            // InternalDim.g:11482:2: ()
-            // InternalDim.g:11482:3: 
+            // InternalDim.g:11651:2: ()
+            // InternalDim.g:11651:3: 
             {
             }
 
@@ -38978,16 +39516,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__Group__1"
-    // InternalDim.g:11490:1: rule__DmxContextReference__Group__1 : rule__DmxContextReference__Group__1__Impl rule__DmxContextReference__Group__2 ;
+    // InternalDim.g:11659:1: rule__DmxContextReference__Group__1 : rule__DmxContextReference__Group__1__Impl rule__DmxContextReference__Group__2 ;
     public final void rule__DmxContextReference__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11494:1: ( rule__DmxContextReference__Group__1__Impl rule__DmxContextReference__Group__2 )
-            // InternalDim.g:11495:2: rule__DmxContextReference__Group__1__Impl rule__DmxContextReference__Group__2
+            // InternalDim.g:11663:1: ( rule__DmxContextReference__Group__1__Impl rule__DmxContextReference__Group__2 )
+            // InternalDim.g:11664:2: rule__DmxContextReference__Group__1__Impl rule__DmxContextReference__Group__2
             {
-            pushFollow(FOLLOW_84);
+            pushFollow(FOLLOW_87);
             rule__DmxContextReference__Group__1__Impl();
 
             state._fsp--;
@@ -39016,23 +39554,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__Group__1__Impl"
-    // InternalDim.g:11502:1: rule__DmxContextReference__Group__1__Impl : ( ( rule__DmxContextReference__TargetAssignment_1 ) ) ;
+    // InternalDim.g:11671:1: rule__DmxContextReference__Group__1__Impl : ( ( rule__DmxContextReference__TargetAssignment_1 ) ) ;
     public final void rule__DmxContextReference__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11506:1: ( ( ( rule__DmxContextReference__TargetAssignment_1 ) ) )
-            // InternalDim.g:11507:1: ( ( rule__DmxContextReference__TargetAssignment_1 ) )
+            // InternalDim.g:11675:1: ( ( ( rule__DmxContextReference__TargetAssignment_1 ) ) )
+            // InternalDim.g:11676:1: ( ( rule__DmxContextReference__TargetAssignment_1 ) )
             {
-            // InternalDim.g:11507:1: ( ( rule__DmxContextReference__TargetAssignment_1 ) )
-            // InternalDim.g:11508:2: ( rule__DmxContextReference__TargetAssignment_1 )
+            // InternalDim.g:11676:1: ( ( rule__DmxContextReference__TargetAssignment_1 ) )
+            // InternalDim.g:11677:2: ( rule__DmxContextReference__TargetAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getTargetAssignment_1()); 
             }
-            // InternalDim.g:11509:2: ( rule__DmxContextReference__TargetAssignment_1 )
-            // InternalDim.g:11509:3: rule__DmxContextReference__TargetAssignment_1
+            // InternalDim.g:11678:2: ( rule__DmxContextReference__TargetAssignment_1 )
+            // InternalDim.g:11678:3: rule__DmxContextReference__TargetAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxContextReference__TargetAssignment_1();
@@ -39067,14 +39605,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__Group__2"
-    // InternalDim.g:11517:1: rule__DmxContextReference__Group__2 : rule__DmxContextReference__Group__2__Impl ;
+    // InternalDim.g:11686:1: rule__DmxContextReference__Group__2 : rule__DmxContextReference__Group__2__Impl ;
     public final void rule__DmxContextReference__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11521:1: ( rule__DmxContextReference__Group__2__Impl )
-            // InternalDim.g:11522:2: rule__DmxContextReference__Group__2__Impl
+            // InternalDim.g:11690:1: ( rule__DmxContextReference__Group__2__Impl )
+            // InternalDim.g:11691:2: rule__DmxContextReference__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxContextReference__Group__2__Impl();
@@ -39100,38 +39638,38 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__Group__2__Impl"
-    // InternalDim.g:11528:1: rule__DmxContextReference__Group__2__Impl : ( ( rule__DmxContextReference__Alternatives_2 )? ) ;
+    // InternalDim.g:11697:1: rule__DmxContextReference__Group__2__Impl : ( ( rule__DmxContextReference__Alternatives_2 )? ) ;
     public final void rule__DmxContextReference__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11532:1: ( ( ( rule__DmxContextReference__Alternatives_2 )? ) )
-            // InternalDim.g:11533:1: ( ( rule__DmxContextReference__Alternatives_2 )? )
+            // InternalDim.g:11701:1: ( ( ( rule__DmxContextReference__Alternatives_2 )? ) )
+            // InternalDim.g:11702:1: ( ( rule__DmxContextReference__Alternatives_2 )? )
             {
-            // InternalDim.g:11533:1: ( ( rule__DmxContextReference__Alternatives_2 )? )
-            // InternalDim.g:11534:2: ( rule__DmxContextReference__Alternatives_2 )?
+            // InternalDim.g:11702:1: ( ( rule__DmxContextReference__Alternatives_2 )? )
+            // InternalDim.g:11703:2: ( rule__DmxContextReference__Alternatives_2 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getAlternatives_2()); 
             }
-            // InternalDim.g:11535:2: ( rule__DmxContextReference__Alternatives_2 )?
+            // InternalDim.g:11704:2: ( rule__DmxContextReference__Alternatives_2 )?
             int alt116=2;
             int LA116_0 = input.LA(1);
 
-            if ( (LA116_0==122) ) {
+            if ( (LA116_0==123) ) {
                 alt116=1;
             }
-            else if ( (LA116_0==105) ) {
+            else if ( (LA116_0==106) ) {
                 int LA116_2 = input.LA(2);
 
-                if ( (LA116_2==123) ) {
+                if ( (LA116_2==124) ) {
                     alt116=1;
                 }
             }
             switch (alt116) {
                 case 1 :
-                    // InternalDim.g:11535:3: rule__DmxContextReference__Alternatives_2
+                    // InternalDim.g:11704:3: rule__DmxContextReference__Alternatives_2
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxContextReference__Alternatives_2();
@@ -39169,16 +39707,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__Group_2_1__0"
-    // InternalDim.g:11544:1: rule__DmxContextReference__Group_2_1__0 : rule__DmxContextReference__Group_2_1__0__Impl rule__DmxContextReference__Group_2_1__1 ;
+    // InternalDim.g:11713:1: rule__DmxContextReference__Group_2_1__0 : rule__DmxContextReference__Group_2_1__0__Impl rule__DmxContextReference__Group_2_1__1 ;
     public final void rule__DmxContextReference__Group_2_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11548:1: ( rule__DmxContextReference__Group_2_1__0__Impl rule__DmxContextReference__Group_2_1__1 )
-            // InternalDim.g:11549:2: rule__DmxContextReference__Group_2_1__0__Impl rule__DmxContextReference__Group_2_1__1
+            // InternalDim.g:11717:1: ( rule__DmxContextReference__Group_2_1__0__Impl rule__DmxContextReference__Group_2_1__1 )
+            // InternalDim.g:11718:2: rule__DmxContextReference__Group_2_1__0__Impl rule__DmxContextReference__Group_2_1__1
             {
-            pushFollow(FOLLOW_85);
+            pushFollow(FOLLOW_88);
             rule__DmxContextReference__Group_2_1__0__Impl();
 
             state._fsp--;
@@ -39207,22 +39745,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__Group_2_1__0__Impl"
-    // InternalDim.g:11556:1: rule__DmxContextReference__Group_2_1__0__Impl : ( '.' ) ;
+    // InternalDim.g:11725:1: rule__DmxContextReference__Group_2_1__0__Impl : ( '.' ) ;
     public final void rule__DmxContextReference__Group_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11560:1: ( ( '.' ) )
-            // InternalDim.g:11561:1: ( '.' )
+            // InternalDim.g:11729:1: ( ( '.' ) )
+            // InternalDim.g:11730:1: ( '.' )
             {
-            // InternalDim.g:11561:1: ( '.' )
-            // InternalDim.g:11562:2: '.'
+            // InternalDim.g:11730:1: ( '.' )
+            // InternalDim.g:11731:2: '.'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getFullStopKeyword_2_1_0()); 
             }
-            match(input,105,FOLLOW_2); if (state.failed) return ;
+            match(input,106,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxContextReferenceAccess().getFullStopKeyword_2_1_0()); 
             }
@@ -39248,14 +39786,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__Group_2_1__1"
-    // InternalDim.g:11571:1: rule__DmxContextReference__Group_2_1__1 : rule__DmxContextReference__Group_2_1__1__Impl ;
+    // InternalDim.g:11740:1: rule__DmxContextReference__Group_2_1__1 : rule__DmxContextReference__Group_2_1__1__Impl ;
     public final void rule__DmxContextReference__Group_2_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11575:1: ( rule__DmxContextReference__Group_2_1__1__Impl )
-            // InternalDim.g:11576:2: rule__DmxContextReference__Group_2_1__1__Impl
+            // InternalDim.g:11744:1: ( rule__DmxContextReference__Group_2_1__1__Impl )
+            // InternalDim.g:11745:2: rule__DmxContextReference__Group_2_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxContextReference__Group_2_1__1__Impl();
@@ -39281,23 +39819,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__Group_2_1__1__Impl"
-    // InternalDim.g:11582:1: rule__DmxContextReference__Group_2_1__1__Impl : ( ( rule__DmxContextReference__AllAssignment_2_1_1 ) ) ;
+    // InternalDim.g:11751:1: rule__DmxContextReference__Group_2_1__1__Impl : ( ( rule__DmxContextReference__AllAssignment_2_1_1 ) ) ;
     public final void rule__DmxContextReference__Group_2_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11586:1: ( ( ( rule__DmxContextReference__AllAssignment_2_1_1 ) ) )
-            // InternalDim.g:11587:1: ( ( rule__DmxContextReference__AllAssignment_2_1_1 ) )
+            // InternalDim.g:11755:1: ( ( ( rule__DmxContextReference__AllAssignment_2_1_1 ) ) )
+            // InternalDim.g:11756:1: ( ( rule__DmxContextReference__AllAssignment_2_1_1 ) )
             {
-            // InternalDim.g:11587:1: ( ( rule__DmxContextReference__AllAssignment_2_1_1 ) )
-            // InternalDim.g:11588:2: ( rule__DmxContextReference__AllAssignment_2_1_1 )
+            // InternalDim.g:11756:1: ( ( rule__DmxContextReference__AllAssignment_2_1_1 ) )
+            // InternalDim.g:11757:2: ( rule__DmxContextReference__AllAssignment_2_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getAllAssignment_2_1_1()); 
             }
-            // InternalDim.g:11589:2: ( rule__DmxContextReference__AllAssignment_2_1_1 )
-            // InternalDim.g:11589:3: rule__DmxContextReference__AllAssignment_2_1_1
+            // InternalDim.g:11758:2: ( rule__DmxContextReference__AllAssignment_2_1_1 )
+            // InternalDim.g:11758:3: rule__DmxContextReference__AllAssignment_2_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxContextReference__AllAssignment_2_1_1();
@@ -39332,16 +39870,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__0"
-    // InternalDim.g:11598:1: rule__DmxIfExpression__Group__0 : rule__DmxIfExpression__Group__0__Impl rule__DmxIfExpression__Group__1 ;
+    // InternalDim.g:11767:1: rule__DmxIfExpression__Group__0 : rule__DmxIfExpression__Group__0__Impl rule__DmxIfExpression__Group__1 ;
     public final void rule__DmxIfExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11602:1: ( rule__DmxIfExpression__Group__0__Impl rule__DmxIfExpression__Group__1 )
-            // InternalDim.g:11603:2: rule__DmxIfExpression__Group__0__Impl rule__DmxIfExpression__Group__1
+            // InternalDim.g:11771:1: ( rule__DmxIfExpression__Group__0__Impl rule__DmxIfExpression__Group__1 )
+            // InternalDim.g:11772:2: rule__DmxIfExpression__Group__0__Impl rule__DmxIfExpression__Group__1
             {
-            pushFollow(FOLLOW_86);
+            pushFollow(FOLLOW_89);
             rule__DmxIfExpression__Group__0__Impl();
 
             state._fsp--;
@@ -39370,23 +39908,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__0__Impl"
-    // InternalDim.g:11610:1: rule__DmxIfExpression__Group__0__Impl : ( () ) ;
+    // InternalDim.g:11779:1: rule__DmxIfExpression__Group__0__Impl : ( () ) ;
     public final void rule__DmxIfExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11614:1: ( ( () ) )
-            // InternalDim.g:11615:1: ( () )
+            // InternalDim.g:11783:1: ( ( () ) )
+            // InternalDim.g:11784:1: ( () )
             {
-            // InternalDim.g:11615:1: ( () )
-            // InternalDim.g:11616:2: ()
+            // InternalDim.g:11784:1: ( () )
+            // InternalDim.g:11785:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getDmxIfExpressionAction_0()); 
             }
-            // InternalDim.g:11617:2: ()
-            // InternalDim.g:11617:3: 
+            // InternalDim.g:11786:2: ()
+            // InternalDim.g:11786:3: 
             {
             }
 
@@ -39411,14 +39949,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__1"
-    // InternalDim.g:11625:1: rule__DmxIfExpression__Group__1 : rule__DmxIfExpression__Group__1__Impl rule__DmxIfExpression__Group__2 ;
+    // InternalDim.g:11794:1: rule__DmxIfExpression__Group__1 : rule__DmxIfExpression__Group__1__Impl rule__DmxIfExpression__Group__2 ;
     public final void rule__DmxIfExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11629:1: ( rule__DmxIfExpression__Group__1__Impl rule__DmxIfExpression__Group__2 )
-            // InternalDim.g:11630:2: rule__DmxIfExpression__Group__1__Impl rule__DmxIfExpression__Group__2
+            // InternalDim.g:11798:1: ( rule__DmxIfExpression__Group__1__Impl rule__DmxIfExpression__Group__2 )
+            // InternalDim.g:11799:2: rule__DmxIfExpression__Group__1__Impl rule__DmxIfExpression__Group__2
             {
             pushFollow(FOLLOW_15);
             rule__DmxIfExpression__Group__1__Impl();
@@ -39449,22 +39987,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__1__Impl"
-    // InternalDim.g:11637:1: rule__DmxIfExpression__Group__1__Impl : ( 'if' ) ;
+    // InternalDim.g:11806:1: rule__DmxIfExpression__Group__1__Impl : ( 'if' ) ;
     public final void rule__DmxIfExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11641:1: ( ( 'if' ) )
-            // InternalDim.g:11642:1: ( 'if' )
+            // InternalDim.g:11810:1: ( ( 'if' ) )
+            // InternalDim.g:11811:1: ( 'if' )
             {
-            // InternalDim.g:11642:1: ( 'if' )
-            // InternalDim.g:11643:2: 'if'
+            // InternalDim.g:11811:1: ( 'if' )
+            // InternalDim.g:11812:2: 'if'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getIfKeyword_1()); 
             }
-            match(input,110,FOLLOW_2); if (state.failed) return ;
+            match(input,111,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxIfExpressionAccess().getIfKeyword_1()); 
             }
@@ -39490,16 +40028,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__2"
-    // InternalDim.g:11652:1: rule__DmxIfExpression__Group__2 : rule__DmxIfExpression__Group__2__Impl rule__DmxIfExpression__Group__3 ;
+    // InternalDim.g:11821:1: rule__DmxIfExpression__Group__2 : rule__DmxIfExpression__Group__2__Impl rule__DmxIfExpression__Group__3 ;
     public final void rule__DmxIfExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11656:1: ( rule__DmxIfExpression__Group__2__Impl rule__DmxIfExpression__Group__3 )
-            // InternalDim.g:11657:2: rule__DmxIfExpression__Group__2__Impl rule__DmxIfExpression__Group__3
+            // InternalDim.g:11825:1: ( rule__DmxIfExpression__Group__2__Impl rule__DmxIfExpression__Group__3 )
+            // InternalDim.g:11826:2: rule__DmxIfExpression__Group__2__Impl rule__DmxIfExpression__Group__3
             {
-            pushFollow(FOLLOW_87);
+            pushFollow(FOLLOW_90);
             rule__DmxIfExpression__Group__2__Impl();
 
             state._fsp--;
@@ -39528,23 +40066,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__2__Impl"
-    // InternalDim.g:11664:1: rule__DmxIfExpression__Group__2__Impl : ( ( rule__DmxIfExpression__IfAssignment_2 ) ) ;
+    // InternalDim.g:11833:1: rule__DmxIfExpression__Group__2__Impl : ( ( rule__DmxIfExpression__IfAssignment_2 ) ) ;
     public final void rule__DmxIfExpression__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11668:1: ( ( ( rule__DmxIfExpression__IfAssignment_2 ) ) )
-            // InternalDim.g:11669:1: ( ( rule__DmxIfExpression__IfAssignment_2 ) )
+            // InternalDim.g:11837:1: ( ( ( rule__DmxIfExpression__IfAssignment_2 ) ) )
+            // InternalDim.g:11838:1: ( ( rule__DmxIfExpression__IfAssignment_2 ) )
             {
-            // InternalDim.g:11669:1: ( ( rule__DmxIfExpression__IfAssignment_2 ) )
-            // InternalDim.g:11670:2: ( rule__DmxIfExpression__IfAssignment_2 )
+            // InternalDim.g:11838:1: ( ( rule__DmxIfExpression__IfAssignment_2 ) )
+            // InternalDim.g:11839:2: ( rule__DmxIfExpression__IfAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getIfAssignment_2()); 
             }
-            // InternalDim.g:11671:2: ( rule__DmxIfExpression__IfAssignment_2 )
-            // InternalDim.g:11671:3: rule__DmxIfExpression__IfAssignment_2
+            // InternalDim.g:11840:2: ( rule__DmxIfExpression__IfAssignment_2 )
+            // InternalDim.g:11840:3: rule__DmxIfExpression__IfAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__DmxIfExpression__IfAssignment_2();
@@ -39579,14 +40117,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__3"
-    // InternalDim.g:11679:1: rule__DmxIfExpression__Group__3 : rule__DmxIfExpression__Group__3__Impl rule__DmxIfExpression__Group__4 ;
+    // InternalDim.g:11848:1: rule__DmxIfExpression__Group__3 : rule__DmxIfExpression__Group__3__Impl rule__DmxIfExpression__Group__4 ;
     public final void rule__DmxIfExpression__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11683:1: ( rule__DmxIfExpression__Group__3__Impl rule__DmxIfExpression__Group__4 )
-            // InternalDim.g:11684:2: rule__DmxIfExpression__Group__3__Impl rule__DmxIfExpression__Group__4
+            // InternalDim.g:11852:1: ( rule__DmxIfExpression__Group__3__Impl rule__DmxIfExpression__Group__4 )
+            // InternalDim.g:11853:2: rule__DmxIfExpression__Group__3__Impl rule__DmxIfExpression__Group__4
             {
             pushFollow(FOLLOW_15);
             rule__DmxIfExpression__Group__3__Impl();
@@ -39617,22 +40155,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__3__Impl"
-    // InternalDim.g:11691:1: rule__DmxIfExpression__Group__3__Impl : ( 'then' ) ;
+    // InternalDim.g:11860:1: rule__DmxIfExpression__Group__3__Impl : ( 'then' ) ;
     public final void rule__DmxIfExpression__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11695:1: ( ( 'then' ) )
-            // InternalDim.g:11696:1: ( 'then' )
+            // InternalDim.g:11864:1: ( ( 'then' ) )
+            // InternalDim.g:11865:1: ( 'then' )
             {
-            // InternalDim.g:11696:1: ( 'then' )
-            // InternalDim.g:11697:2: 'then'
+            // InternalDim.g:11865:1: ( 'then' )
+            // InternalDim.g:11866:2: 'then'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getThenKeyword_3()); 
             }
-            match(input,111,FOLLOW_2); if (state.failed) return ;
+            match(input,112,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxIfExpressionAccess().getThenKeyword_3()); 
             }
@@ -39658,16 +40196,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__4"
-    // InternalDim.g:11706:1: rule__DmxIfExpression__Group__4 : rule__DmxIfExpression__Group__4__Impl rule__DmxIfExpression__Group__5 ;
+    // InternalDim.g:11875:1: rule__DmxIfExpression__Group__4 : rule__DmxIfExpression__Group__4__Impl rule__DmxIfExpression__Group__5 ;
     public final void rule__DmxIfExpression__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11710:1: ( rule__DmxIfExpression__Group__4__Impl rule__DmxIfExpression__Group__5 )
-            // InternalDim.g:11711:2: rule__DmxIfExpression__Group__4__Impl rule__DmxIfExpression__Group__5
+            // InternalDim.g:11879:1: ( rule__DmxIfExpression__Group__4__Impl rule__DmxIfExpression__Group__5 )
+            // InternalDim.g:11880:2: rule__DmxIfExpression__Group__4__Impl rule__DmxIfExpression__Group__5
             {
-            pushFollow(FOLLOW_88);
+            pushFollow(FOLLOW_91);
             rule__DmxIfExpression__Group__4__Impl();
 
             state._fsp--;
@@ -39696,23 +40234,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__4__Impl"
-    // InternalDim.g:11718:1: rule__DmxIfExpression__Group__4__Impl : ( ( rule__DmxIfExpression__ThenAssignment_4 ) ) ;
+    // InternalDim.g:11887:1: rule__DmxIfExpression__Group__4__Impl : ( ( rule__DmxIfExpression__ThenAssignment_4 ) ) ;
     public final void rule__DmxIfExpression__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11722:1: ( ( ( rule__DmxIfExpression__ThenAssignment_4 ) ) )
-            // InternalDim.g:11723:1: ( ( rule__DmxIfExpression__ThenAssignment_4 ) )
+            // InternalDim.g:11891:1: ( ( ( rule__DmxIfExpression__ThenAssignment_4 ) ) )
+            // InternalDim.g:11892:1: ( ( rule__DmxIfExpression__ThenAssignment_4 ) )
             {
-            // InternalDim.g:11723:1: ( ( rule__DmxIfExpression__ThenAssignment_4 ) )
-            // InternalDim.g:11724:2: ( rule__DmxIfExpression__ThenAssignment_4 )
+            // InternalDim.g:11892:1: ( ( rule__DmxIfExpression__ThenAssignment_4 ) )
+            // InternalDim.g:11893:2: ( rule__DmxIfExpression__ThenAssignment_4 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getThenAssignment_4()); 
             }
-            // InternalDim.g:11725:2: ( rule__DmxIfExpression__ThenAssignment_4 )
-            // InternalDim.g:11725:3: rule__DmxIfExpression__ThenAssignment_4
+            // InternalDim.g:11894:2: ( rule__DmxIfExpression__ThenAssignment_4 )
+            // InternalDim.g:11894:3: rule__DmxIfExpression__ThenAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__DmxIfExpression__ThenAssignment_4();
@@ -39747,16 +40285,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__5"
-    // InternalDim.g:11733:1: rule__DmxIfExpression__Group__5 : rule__DmxIfExpression__Group__5__Impl rule__DmxIfExpression__Group__6 ;
+    // InternalDim.g:11902:1: rule__DmxIfExpression__Group__5 : rule__DmxIfExpression__Group__5__Impl rule__DmxIfExpression__Group__6 ;
     public final void rule__DmxIfExpression__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11737:1: ( rule__DmxIfExpression__Group__5__Impl rule__DmxIfExpression__Group__6 )
-            // InternalDim.g:11738:2: rule__DmxIfExpression__Group__5__Impl rule__DmxIfExpression__Group__6
+            // InternalDim.g:11906:1: ( rule__DmxIfExpression__Group__5__Impl rule__DmxIfExpression__Group__6 )
+            // InternalDim.g:11907:2: rule__DmxIfExpression__Group__5__Impl rule__DmxIfExpression__Group__6
             {
-            pushFollow(FOLLOW_88);
+            pushFollow(FOLLOW_91);
             rule__DmxIfExpression__Group__5__Impl();
 
             state._fsp--;
@@ -39785,31 +40323,31 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__5__Impl"
-    // InternalDim.g:11745:1: rule__DmxIfExpression__Group__5__Impl : ( ( rule__DmxIfExpression__Group_5__0 )? ) ;
+    // InternalDim.g:11914:1: rule__DmxIfExpression__Group__5__Impl : ( ( rule__DmxIfExpression__Group_5__0 )? ) ;
     public final void rule__DmxIfExpression__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11749:1: ( ( ( rule__DmxIfExpression__Group_5__0 )? ) )
-            // InternalDim.g:11750:1: ( ( rule__DmxIfExpression__Group_5__0 )? )
+            // InternalDim.g:11918:1: ( ( ( rule__DmxIfExpression__Group_5__0 )? ) )
+            // InternalDim.g:11919:1: ( ( rule__DmxIfExpression__Group_5__0 )? )
             {
-            // InternalDim.g:11750:1: ( ( rule__DmxIfExpression__Group_5__0 )? )
-            // InternalDim.g:11751:2: ( rule__DmxIfExpression__Group_5__0 )?
+            // InternalDim.g:11919:1: ( ( rule__DmxIfExpression__Group_5__0 )? )
+            // InternalDim.g:11920:2: ( rule__DmxIfExpression__Group_5__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getGroup_5()); 
             }
-            // InternalDim.g:11752:2: ( rule__DmxIfExpression__Group_5__0 )?
+            // InternalDim.g:11921:2: ( rule__DmxIfExpression__Group_5__0 )?
             int alt117=2;
             int LA117_0 = input.LA(1);
 
-            if ( (LA117_0==113) ) {
+            if ( (LA117_0==114) ) {
                 alt117=1;
             }
             switch (alt117) {
                 case 1 :
-                    // InternalDim.g:11752:3: rule__DmxIfExpression__Group_5__0
+                    // InternalDim.g:11921:3: rule__DmxIfExpression__Group_5__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxIfExpression__Group_5__0();
@@ -39847,14 +40385,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__6"
-    // InternalDim.g:11760:1: rule__DmxIfExpression__Group__6 : rule__DmxIfExpression__Group__6__Impl ;
+    // InternalDim.g:11929:1: rule__DmxIfExpression__Group__6 : rule__DmxIfExpression__Group__6__Impl ;
     public final void rule__DmxIfExpression__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11764:1: ( rule__DmxIfExpression__Group__6__Impl )
-            // InternalDim.g:11765:2: rule__DmxIfExpression__Group__6__Impl
+            // InternalDim.g:11933:1: ( rule__DmxIfExpression__Group__6__Impl )
+            // InternalDim.g:11934:2: rule__DmxIfExpression__Group__6__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxIfExpression__Group__6__Impl();
@@ -39880,22 +40418,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__6__Impl"
-    // InternalDim.g:11771:1: rule__DmxIfExpression__Group__6__Impl : ( 'end' ) ;
+    // InternalDim.g:11940:1: rule__DmxIfExpression__Group__6__Impl : ( 'end' ) ;
     public final void rule__DmxIfExpression__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11775:1: ( ( 'end' ) )
-            // InternalDim.g:11776:1: ( 'end' )
+            // InternalDim.g:11944:1: ( ( 'end' ) )
+            // InternalDim.g:11945:1: ( 'end' )
             {
-            // InternalDim.g:11776:1: ( 'end' )
-            // InternalDim.g:11777:2: 'end'
+            // InternalDim.g:11945:1: ( 'end' )
+            // InternalDim.g:11946:2: 'end'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getEndKeyword_6()); 
             }
-            match(input,112,FOLLOW_2); if (state.failed) return ;
+            match(input,113,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxIfExpressionAccess().getEndKeyword_6()); 
             }
@@ -39921,14 +40459,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group_5__0"
-    // InternalDim.g:11787:1: rule__DmxIfExpression__Group_5__0 : rule__DmxIfExpression__Group_5__0__Impl rule__DmxIfExpression__Group_5__1 ;
+    // InternalDim.g:11956:1: rule__DmxIfExpression__Group_5__0 : rule__DmxIfExpression__Group_5__0__Impl rule__DmxIfExpression__Group_5__1 ;
     public final void rule__DmxIfExpression__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11791:1: ( rule__DmxIfExpression__Group_5__0__Impl rule__DmxIfExpression__Group_5__1 )
-            // InternalDim.g:11792:2: rule__DmxIfExpression__Group_5__0__Impl rule__DmxIfExpression__Group_5__1
+            // InternalDim.g:11960:1: ( rule__DmxIfExpression__Group_5__0__Impl rule__DmxIfExpression__Group_5__1 )
+            // InternalDim.g:11961:2: rule__DmxIfExpression__Group_5__0__Impl rule__DmxIfExpression__Group_5__1
             {
             pushFollow(FOLLOW_15);
             rule__DmxIfExpression__Group_5__0__Impl();
@@ -39959,25 +40497,25 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group_5__0__Impl"
-    // InternalDim.g:11799:1: rule__DmxIfExpression__Group_5__0__Impl : ( ( 'else' ) ) ;
+    // InternalDim.g:11968:1: rule__DmxIfExpression__Group_5__0__Impl : ( ( 'else' ) ) ;
     public final void rule__DmxIfExpression__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11803:1: ( ( ( 'else' ) ) )
-            // InternalDim.g:11804:1: ( ( 'else' ) )
+            // InternalDim.g:11972:1: ( ( ( 'else' ) ) )
+            // InternalDim.g:11973:1: ( ( 'else' ) )
             {
-            // InternalDim.g:11804:1: ( ( 'else' ) )
-            // InternalDim.g:11805:2: ( 'else' )
+            // InternalDim.g:11973:1: ( ( 'else' ) )
+            // InternalDim.g:11974:2: ( 'else' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getElseKeyword_5_0()); 
             }
-            // InternalDim.g:11806:2: ( 'else' )
-            // InternalDim.g:11806:3: 'else'
+            // InternalDim.g:11975:2: ( 'else' )
+            // InternalDim.g:11975:3: 'else'
             {
-            match(input,113,FOLLOW_2); if (state.failed) return ;
+            match(input,114,FOLLOW_2); if (state.failed) return ;
 
             }
 
@@ -40006,14 +40544,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group_5__1"
-    // InternalDim.g:11814:1: rule__DmxIfExpression__Group_5__1 : rule__DmxIfExpression__Group_5__1__Impl ;
+    // InternalDim.g:11983:1: rule__DmxIfExpression__Group_5__1 : rule__DmxIfExpression__Group_5__1__Impl ;
     public final void rule__DmxIfExpression__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11818:1: ( rule__DmxIfExpression__Group_5__1__Impl )
-            // InternalDim.g:11819:2: rule__DmxIfExpression__Group_5__1__Impl
+            // InternalDim.g:11987:1: ( rule__DmxIfExpression__Group_5__1__Impl )
+            // InternalDim.g:11988:2: rule__DmxIfExpression__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxIfExpression__Group_5__1__Impl();
@@ -40039,23 +40577,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group_5__1__Impl"
-    // InternalDim.g:11825:1: rule__DmxIfExpression__Group_5__1__Impl : ( ( rule__DmxIfExpression__ElseAssignment_5_1 ) ) ;
+    // InternalDim.g:11994:1: rule__DmxIfExpression__Group_5__1__Impl : ( ( rule__DmxIfExpression__ElseAssignment_5_1 ) ) ;
     public final void rule__DmxIfExpression__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11829:1: ( ( ( rule__DmxIfExpression__ElseAssignment_5_1 ) ) )
-            // InternalDim.g:11830:1: ( ( rule__DmxIfExpression__ElseAssignment_5_1 ) )
+            // InternalDim.g:11998:1: ( ( ( rule__DmxIfExpression__ElseAssignment_5_1 ) ) )
+            // InternalDim.g:11999:1: ( ( rule__DmxIfExpression__ElseAssignment_5_1 ) )
             {
-            // InternalDim.g:11830:1: ( ( rule__DmxIfExpression__ElseAssignment_5_1 ) )
-            // InternalDim.g:11831:2: ( rule__DmxIfExpression__ElseAssignment_5_1 )
+            // InternalDim.g:11999:1: ( ( rule__DmxIfExpression__ElseAssignment_5_1 ) )
+            // InternalDim.g:12000:2: ( rule__DmxIfExpression__ElseAssignment_5_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getElseAssignment_5_1()); 
             }
-            // InternalDim.g:11832:2: ( rule__DmxIfExpression__ElseAssignment_5_1 )
-            // InternalDim.g:11832:3: rule__DmxIfExpression__ElseAssignment_5_1
+            // InternalDim.g:12001:2: ( rule__DmxIfExpression__ElseAssignment_5_1 )
+            // InternalDim.g:12001:3: rule__DmxIfExpression__ElseAssignment_5_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxIfExpression__ElseAssignment_5_1();
@@ -40090,14 +40628,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group__0"
-    // InternalDim.g:11841:1: rule__DmxForLoopExpression__Group__0 : rule__DmxForLoopExpression__Group__0__Impl rule__DmxForLoopExpression__Group__1 ;
+    // InternalDim.g:12010:1: rule__DmxForLoopExpression__Group__0 : rule__DmxForLoopExpression__Group__0__Impl rule__DmxForLoopExpression__Group__1 ;
     public final void rule__DmxForLoopExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11845:1: ( rule__DmxForLoopExpression__Group__0__Impl rule__DmxForLoopExpression__Group__1 )
-            // InternalDim.g:11846:2: rule__DmxForLoopExpression__Group__0__Impl rule__DmxForLoopExpression__Group__1
+            // InternalDim.g:12014:1: ( rule__DmxForLoopExpression__Group__0__Impl rule__DmxForLoopExpression__Group__1 )
+            // InternalDim.g:12015:2: rule__DmxForLoopExpression__Group__0__Impl rule__DmxForLoopExpression__Group__1
             {
             pushFollow(FOLLOW_15);
             rule__DmxForLoopExpression__Group__0__Impl();
@@ -40128,23 +40666,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group__0__Impl"
-    // InternalDim.g:11853:1: rule__DmxForLoopExpression__Group__0__Impl : ( ( rule__DmxForLoopExpression__Group_0__0 ) ) ;
+    // InternalDim.g:12022:1: rule__DmxForLoopExpression__Group__0__Impl : ( ( rule__DmxForLoopExpression__Group_0__0 ) ) ;
     public final void rule__DmxForLoopExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11857:1: ( ( ( rule__DmxForLoopExpression__Group_0__0 ) ) )
-            // InternalDim.g:11858:1: ( ( rule__DmxForLoopExpression__Group_0__0 ) )
+            // InternalDim.g:12026:1: ( ( ( rule__DmxForLoopExpression__Group_0__0 ) ) )
+            // InternalDim.g:12027:1: ( ( rule__DmxForLoopExpression__Group_0__0 ) )
             {
-            // InternalDim.g:11858:1: ( ( rule__DmxForLoopExpression__Group_0__0 ) )
-            // InternalDim.g:11859:2: ( rule__DmxForLoopExpression__Group_0__0 )
+            // InternalDim.g:12027:1: ( ( rule__DmxForLoopExpression__Group_0__0 ) )
+            // InternalDim.g:12028:2: ( rule__DmxForLoopExpression__Group_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getGroup_0()); 
             }
-            // InternalDim.g:11860:2: ( rule__DmxForLoopExpression__Group_0__0 )
-            // InternalDim.g:11860:3: rule__DmxForLoopExpression__Group_0__0
+            // InternalDim.g:12029:2: ( rule__DmxForLoopExpression__Group_0__0 )
+            // InternalDim.g:12029:3: rule__DmxForLoopExpression__Group_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxForLoopExpression__Group_0__0();
@@ -40179,16 +40717,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group__1"
-    // InternalDim.g:11868:1: rule__DmxForLoopExpression__Group__1 : rule__DmxForLoopExpression__Group__1__Impl rule__DmxForLoopExpression__Group__2 ;
+    // InternalDim.g:12037:1: rule__DmxForLoopExpression__Group__1 : rule__DmxForLoopExpression__Group__1__Impl rule__DmxForLoopExpression__Group__2 ;
     public final void rule__DmxForLoopExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11872:1: ( rule__DmxForLoopExpression__Group__1__Impl rule__DmxForLoopExpression__Group__2 )
-            // InternalDim.g:11873:2: rule__DmxForLoopExpression__Group__1__Impl rule__DmxForLoopExpression__Group__2
+            // InternalDim.g:12041:1: ( rule__DmxForLoopExpression__Group__1__Impl rule__DmxForLoopExpression__Group__2 )
+            // InternalDim.g:12042:2: rule__DmxForLoopExpression__Group__1__Impl rule__DmxForLoopExpression__Group__2
             {
-            pushFollow(FOLLOW_89);
+            pushFollow(FOLLOW_92);
             rule__DmxForLoopExpression__Group__1__Impl();
 
             state._fsp--;
@@ -40217,23 +40755,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group__1__Impl"
-    // InternalDim.g:11880:1: rule__DmxForLoopExpression__Group__1__Impl : ( ( rule__DmxForLoopExpression__ForExpressionAssignment_1 ) ) ;
+    // InternalDim.g:12049:1: rule__DmxForLoopExpression__Group__1__Impl : ( ( rule__DmxForLoopExpression__ForExpressionAssignment_1 ) ) ;
     public final void rule__DmxForLoopExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11884:1: ( ( ( rule__DmxForLoopExpression__ForExpressionAssignment_1 ) ) )
-            // InternalDim.g:11885:1: ( ( rule__DmxForLoopExpression__ForExpressionAssignment_1 ) )
+            // InternalDim.g:12053:1: ( ( ( rule__DmxForLoopExpression__ForExpressionAssignment_1 ) ) )
+            // InternalDim.g:12054:1: ( ( rule__DmxForLoopExpression__ForExpressionAssignment_1 ) )
             {
-            // InternalDim.g:11885:1: ( ( rule__DmxForLoopExpression__ForExpressionAssignment_1 ) )
-            // InternalDim.g:11886:2: ( rule__DmxForLoopExpression__ForExpressionAssignment_1 )
+            // InternalDim.g:12054:1: ( ( rule__DmxForLoopExpression__ForExpressionAssignment_1 ) )
+            // InternalDim.g:12055:2: ( rule__DmxForLoopExpression__ForExpressionAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getForExpressionAssignment_1()); 
             }
-            // InternalDim.g:11887:2: ( rule__DmxForLoopExpression__ForExpressionAssignment_1 )
-            // InternalDim.g:11887:3: rule__DmxForLoopExpression__ForExpressionAssignment_1
+            // InternalDim.g:12056:2: ( rule__DmxForLoopExpression__ForExpressionAssignment_1 )
+            // InternalDim.g:12056:3: rule__DmxForLoopExpression__ForExpressionAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxForLoopExpression__ForExpressionAssignment_1();
@@ -40268,14 +40806,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group__2"
-    // InternalDim.g:11895:1: rule__DmxForLoopExpression__Group__2 : rule__DmxForLoopExpression__Group__2__Impl rule__DmxForLoopExpression__Group__3 ;
+    // InternalDim.g:12064:1: rule__DmxForLoopExpression__Group__2 : rule__DmxForLoopExpression__Group__2__Impl rule__DmxForLoopExpression__Group__3 ;
     public final void rule__DmxForLoopExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11899:1: ( rule__DmxForLoopExpression__Group__2__Impl rule__DmxForLoopExpression__Group__3 )
-            // InternalDim.g:11900:2: rule__DmxForLoopExpression__Group__2__Impl rule__DmxForLoopExpression__Group__3
+            // InternalDim.g:12068:1: ( rule__DmxForLoopExpression__Group__2__Impl rule__DmxForLoopExpression__Group__3 )
+            // InternalDim.g:12069:2: rule__DmxForLoopExpression__Group__2__Impl rule__DmxForLoopExpression__Group__3
             {
             pushFollow(FOLLOW_15);
             rule__DmxForLoopExpression__Group__2__Impl();
@@ -40306,22 +40844,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group__2__Impl"
-    // InternalDim.g:11907:1: rule__DmxForLoopExpression__Group__2__Impl : ( 'do' ) ;
+    // InternalDim.g:12076:1: rule__DmxForLoopExpression__Group__2__Impl : ( 'do' ) ;
     public final void rule__DmxForLoopExpression__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11911:1: ( ( 'do' ) )
-            // InternalDim.g:11912:1: ( 'do' )
+            // InternalDim.g:12080:1: ( ( 'do' ) )
+            // InternalDim.g:12081:1: ( 'do' )
             {
-            // InternalDim.g:11912:1: ( 'do' )
-            // InternalDim.g:11913:2: 'do'
+            // InternalDim.g:12081:1: ( 'do' )
+            // InternalDim.g:12082:2: 'do'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getDoKeyword_2()); 
             }
-            match(input,114,FOLLOW_2); if (state.failed) return ;
+            match(input,115,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxForLoopExpressionAccess().getDoKeyword_2()); 
             }
@@ -40347,16 +40885,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group__3"
-    // InternalDim.g:11922:1: rule__DmxForLoopExpression__Group__3 : rule__DmxForLoopExpression__Group__3__Impl rule__DmxForLoopExpression__Group__4 ;
+    // InternalDim.g:12091:1: rule__DmxForLoopExpression__Group__3 : rule__DmxForLoopExpression__Group__3__Impl rule__DmxForLoopExpression__Group__4 ;
     public final void rule__DmxForLoopExpression__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11926:1: ( rule__DmxForLoopExpression__Group__3__Impl rule__DmxForLoopExpression__Group__4 )
-            // InternalDim.g:11927:2: rule__DmxForLoopExpression__Group__3__Impl rule__DmxForLoopExpression__Group__4
+            // InternalDim.g:12095:1: ( rule__DmxForLoopExpression__Group__3__Impl rule__DmxForLoopExpression__Group__4 )
+            // InternalDim.g:12096:2: rule__DmxForLoopExpression__Group__3__Impl rule__DmxForLoopExpression__Group__4
             {
-            pushFollow(FOLLOW_90);
+            pushFollow(FOLLOW_93);
             rule__DmxForLoopExpression__Group__3__Impl();
 
             state._fsp--;
@@ -40385,23 +40923,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group__3__Impl"
-    // InternalDim.g:11934:1: rule__DmxForLoopExpression__Group__3__Impl : ( ( rule__DmxForLoopExpression__EachExpressionAssignment_3 ) ) ;
+    // InternalDim.g:12103:1: rule__DmxForLoopExpression__Group__3__Impl : ( ( rule__DmxForLoopExpression__EachExpressionAssignment_3 ) ) ;
     public final void rule__DmxForLoopExpression__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11938:1: ( ( ( rule__DmxForLoopExpression__EachExpressionAssignment_3 ) ) )
-            // InternalDim.g:11939:1: ( ( rule__DmxForLoopExpression__EachExpressionAssignment_3 ) )
+            // InternalDim.g:12107:1: ( ( ( rule__DmxForLoopExpression__EachExpressionAssignment_3 ) ) )
+            // InternalDim.g:12108:1: ( ( rule__DmxForLoopExpression__EachExpressionAssignment_3 ) )
             {
-            // InternalDim.g:11939:1: ( ( rule__DmxForLoopExpression__EachExpressionAssignment_3 ) )
-            // InternalDim.g:11940:2: ( rule__DmxForLoopExpression__EachExpressionAssignment_3 )
+            // InternalDim.g:12108:1: ( ( rule__DmxForLoopExpression__EachExpressionAssignment_3 ) )
+            // InternalDim.g:12109:2: ( rule__DmxForLoopExpression__EachExpressionAssignment_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getEachExpressionAssignment_3()); 
             }
-            // InternalDim.g:11941:2: ( rule__DmxForLoopExpression__EachExpressionAssignment_3 )
-            // InternalDim.g:11941:3: rule__DmxForLoopExpression__EachExpressionAssignment_3
+            // InternalDim.g:12110:2: ( rule__DmxForLoopExpression__EachExpressionAssignment_3 )
+            // InternalDim.g:12110:3: rule__DmxForLoopExpression__EachExpressionAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__DmxForLoopExpression__EachExpressionAssignment_3();
@@ -40436,14 +40974,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group__4"
-    // InternalDim.g:11949:1: rule__DmxForLoopExpression__Group__4 : rule__DmxForLoopExpression__Group__4__Impl ;
+    // InternalDim.g:12118:1: rule__DmxForLoopExpression__Group__4 : rule__DmxForLoopExpression__Group__4__Impl ;
     public final void rule__DmxForLoopExpression__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11953:1: ( rule__DmxForLoopExpression__Group__4__Impl )
-            // InternalDim.g:11954:2: rule__DmxForLoopExpression__Group__4__Impl
+            // InternalDim.g:12122:1: ( rule__DmxForLoopExpression__Group__4__Impl )
+            // InternalDim.g:12123:2: rule__DmxForLoopExpression__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxForLoopExpression__Group__4__Impl();
@@ -40469,22 +41007,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group__4__Impl"
-    // InternalDim.g:11960:1: rule__DmxForLoopExpression__Group__4__Impl : ( 'end' ) ;
+    // InternalDim.g:12129:1: rule__DmxForLoopExpression__Group__4__Impl : ( 'end' ) ;
     public final void rule__DmxForLoopExpression__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11964:1: ( ( 'end' ) )
-            // InternalDim.g:11965:1: ( 'end' )
+            // InternalDim.g:12133:1: ( ( 'end' ) )
+            // InternalDim.g:12134:1: ( 'end' )
             {
-            // InternalDim.g:11965:1: ( 'end' )
-            // InternalDim.g:11966:2: 'end'
+            // InternalDim.g:12134:1: ( 'end' )
+            // InternalDim.g:12135:2: 'end'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getEndKeyword_4()); 
             }
-            match(input,112,FOLLOW_2); if (state.failed) return ;
+            match(input,113,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxForLoopExpressionAccess().getEndKeyword_4()); 
             }
@@ -40510,14 +41048,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group_0__0"
-    // InternalDim.g:11976:1: rule__DmxForLoopExpression__Group_0__0 : rule__DmxForLoopExpression__Group_0__0__Impl ;
+    // InternalDim.g:12145:1: rule__DmxForLoopExpression__Group_0__0 : rule__DmxForLoopExpression__Group_0__0__Impl ;
     public final void rule__DmxForLoopExpression__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11980:1: ( rule__DmxForLoopExpression__Group_0__0__Impl )
-            // InternalDim.g:11981:2: rule__DmxForLoopExpression__Group_0__0__Impl
+            // InternalDim.g:12149:1: ( rule__DmxForLoopExpression__Group_0__0__Impl )
+            // InternalDim.g:12150:2: rule__DmxForLoopExpression__Group_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxForLoopExpression__Group_0__0__Impl();
@@ -40543,23 +41081,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group_0__0__Impl"
-    // InternalDim.g:11987:1: rule__DmxForLoopExpression__Group_0__0__Impl : ( ( rule__DmxForLoopExpression__Group_0_0__0 ) ) ;
+    // InternalDim.g:12156:1: rule__DmxForLoopExpression__Group_0__0__Impl : ( ( rule__DmxForLoopExpression__Group_0_0__0 ) ) ;
     public final void rule__DmxForLoopExpression__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:11991:1: ( ( ( rule__DmxForLoopExpression__Group_0_0__0 ) ) )
-            // InternalDim.g:11992:1: ( ( rule__DmxForLoopExpression__Group_0_0__0 ) )
+            // InternalDim.g:12160:1: ( ( ( rule__DmxForLoopExpression__Group_0_0__0 ) ) )
+            // InternalDim.g:12161:1: ( ( rule__DmxForLoopExpression__Group_0_0__0 ) )
             {
-            // InternalDim.g:11992:1: ( ( rule__DmxForLoopExpression__Group_0_0__0 ) )
-            // InternalDim.g:11993:2: ( rule__DmxForLoopExpression__Group_0_0__0 )
+            // InternalDim.g:12161:1: ( ( rule__DmxForLoopExpression__Group_0_0__0 ) )
+            // InternalDim.g:12162:2: ( rule__DmxForLoopExpression__Group_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getGroup_0_0()); 
             }
-            // InternalDim.g:11994:2: ( rule__DmxForLoopExpression__Group_0_0__0 )
-            // InternalDim.g:11994:3: rule__DmxForLoopExpression__Group_0_0__0
+            // InternalDim.g:12163:2: ( rule__DmxForLoopExpression__Group_0_0__0 )
+            // InternalDim.g:12163:3: rule__DmxForLoopExpression__Group_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxForLoopExpression__Group_0_0__0();
@@ -40594,16 +41132,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group_0_0__0"
-    // InternalDim.g:12003:1: rule__DmxForLoopExpression__Group_0_0__0 : rule__DmxForLoopExpression__Group_0_0__0__Impl rule__DmxForLoopExpression__Group_0_0__1 ;
+    // InternalDim.g:12172:1: rule__DmxForLoopExpression__Group_0_0__0 : rule__DmxForLoopExpression__Group_0_0__0__Impl rule__DmxForLoopExpression__Group_0_0__1 ;
     public final void rule__DmxForLoopExpression__Group_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12007:1: ( rule__DmxForLoopExpression__Group_0_0__0__Impl rule__DmxForLoopExpression__Group_0_0__1 )
-            // InternalDim.g:12008:2: rule__DmxForLoopExpression__Group_0_0__0__Impl rule__DmxForLoopExpression__Group_0_0__1
+            // InternalDim.g:12176:1: ( rule__DmxForLoopExpression__Group_0_0__0__Impl rule__DmxForLoopExpression__Group_0_0__1 )
+            // InternalDim.g:12177:2: rule__DmxForLoopExpression__Group_0_0__0__Impl rule__DmxForLoopExpression__Group_0_0__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_57);
             rule__DmxForLoopExpression__Group_0_0__0__Impl();
 
             state._fsp--;
@@ -40632,23 +41170,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group_0_0__0__Impl"
-    // InternalDim.g:12015:1: rule__DmxForLoopExpression__Group_0_0__0__Impl : ( () ) ;
+    // InternalDim.g:12184:1: rule__DmxForLoopExpression__Group_0_0__0__Impl : ( () ) ;
     public final void rule__DmxForLoopExpression__Group_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12019:1: ( ( () ) )
-            // InternalDim.g:12020:1: ( () )
+            // InternalDim.g:12188:1: ( ( () ) )
+            // InternalDim.g:12189:1: ( () )
             {
-            // InternalDim.g:12020:1: ( () )
-            // InternalDim.g:12021:2: ()
+            // InternalDim.g:12189:1: ( () )
+            // InternalDim.g:12190:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getDmxForLoopExpressionAction_0_0_0()); 
             }
-            // InternalDim.g:12022:2: ()
-            // InternalDim.g:12022:3: 
+            // InternalDim.g:12191:2: ()
+            // InternalDim.g:12191:3: 
             {
             }
 
@@ -40673,14 +41211,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group_0_0__1"
-    // InternalDim.g:12030:1: rule__DmxForLoopExpression__Group_0_0__1 : rule__DmxForLoopExpression__Group_0_0__1__Impl rule__DmxForLoopExpression__Group_0_0__2 ;
+    // InternalDim.g:12199:1: rule__DmxForLoopExpression__Group_0_0__1 : rule__DmxForLoopExpression__Group_0_0__1__Impl rule__DmxForLoopExpression__Group_0_0__2 ;
     public final void rule__DmxForLoopExpression__Group_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12034:1: ( rule__DmxForLoopExpression__Group_0_0__1__Impl rule__DmxForLoopExpression__Group_0_0__2 )
-            // InternalDim.g:12035:2: rule__DmxForLoopExpression__Group_0_0__1__Impl rule__DmxForLoopExpression__Group_0_0__2
+            // InternalDim.g:12203:1: ( rule__DmxForLoopExpression__Group_0_0__1__Impl rule__DmxForLoopExpression__Group_0_0__2 )
+            // InternalDim.g:12204:2: rule__DmxForLoopExpression__Group_0_0__1__Impl rule__DmxForLoopExpression__Group_0_0__2
             {
             pushFollow(FOLLOW_5);
             rule__DmxForLoopExpression__Group_0_0__1__Impl();
@@ -40711,22 +41249,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group_0_0__1__Impl"
-    // InternalDim.g:12042:1: rule__DmxForLoopExpression__Group_0_0__1__Impl : ( 'for' ) ;
+    // InternalDim.g:12211:1: rule__DmxForLoopExpression__Group_0_0__1__Impl : ( 'for' ) ;
     public final void rule__DmxForLoopExpression__Group_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12046:1: ( ( 'for' ) )
-            // InternalDim.g:12047:1: ( 'for' )
+            // InternalDim.g:12215:1: ( ( 'for' ) )
+            // InternalDim.g:12216:1: ( 'for' )
             {
-            // InternalDim.g:12047:1: ( 'for' )
-            // InternalDim.g:12048:2: 'for'
+            // InternalDim.g:12216:1: ( 'for' )
+            // InternalDim.g:12217:2: 'for'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getForKeyword_0_0_1()); 
             }
-            match(input,115,FOLLOW_2); if (state.failed) return ;
+            match(input,116,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxForLoopExpressionAccess().getForKeyword_0_0_1()); 
             }
@@ -40752,14 +41290,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group_0_0__2"
-    // InternalDim.g:12057:1: rule__DmxForLoopExpression__Group_0_0__2 : rule__DmxForLoopExpression__Group_0_0__2__Impl rule__DmxForLoopExpression__Group_0_0__3 ;
+    // InternalDim.g:12226:1: rule__DmxForLoopExpression__Group_0_0__2 : rule__DmxForLoopExpression__Group_0_0__2__Impl rule__DmxForLoopExpression__Group_0_0__3 ;
     public final void rule__DmxForLoopExpression__Group_0_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12061:1: ( rule__DmxForLoopExpression__Group_0_0__2__Impl rule__DmxForLoopExpression__Group_0_0__3 )
-            // InternalDim.g:12062:2: rule__DmxForLoopExpression__Group_0_0__2__Impl rule__DmxForLoopExpression__Group_0_0__3
+            // InternalDim.g:12230:1: ( rule__DmxForLoopExpression__Group_0_0__2__Impl rule__DmxForLoopExpression__Group_0_0__3 )
+            // InternalDim.g:12231:2: rule__DmxForLoopExpression__Group_0_0__2__Impl rule__DmxForLoopExpression__Group_0_0__3
             {
             pushFollow(FOLLOW_42);
             rule__DmxForLoopExpression__Group_0_0__2__Impl();
@@ -40790,23 +41328,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group_0_0__2__Impl"
-    // InternalDim.g:12069:1: rule__DmxForLoopExpression__Group_0_0__2__Impl : ( ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 ) ) ;
+    // InternalDim.g:12238:1: rule__DmxForLoopExpression__Group_0_0__2__Impl : ( ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 ) ) ;
     public final void rule__DmxForLoopExpression__Group_0_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12073:1: ( ( ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 ) ) )
-            // InternalDim.g:12074:1: ( ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 ) )
+            // InternalDim.g:12242:1: ( ( ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 ) ) )
+            // InternalDim.g:12243:1: ( ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 ) )
             {
-            // InternalDim.g:12074:1: ( ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 ) )
-            // InternalDim.g:12075:2: ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 )
+            // InternalDim.g:12243:1: ( ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 ) )
+            // InternalDim.g:12244:2: ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getDeclaredParamAssignment_0_0_2()); 
             }
-            // InternalDim.g:12076:2: ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 )
-            // InternalDim.g:12076:3: rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2
+            // InternalDim.g:12245:2: ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 )
+            // InternalDim.g:12245:3: rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2
             {
             pushFollow(FOLLOW_2);
             rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2();
@@ -40841,14 +41379,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group_0_0__3"
-    // InternalDim.g:12084:1: rule__DmxForLoopExpression__Group_0_0__3 : rule__DmxForLoopExpression__Group_0_0__3__Impl ;
+    // InternalDim.g:12253:1: rule__DmxForLoopExpression__Group_0_0__3 : rule__DmxForLoopExpression__Group_0_0__3__Impl ;
     public final void rule__DmxForLoopExpression__Group_0_0__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12088:1: ( rule__DmxForLoopExpression__Group_0_0__3__Impl )
-            // InternalDim.g:12089:2: rule__DmxForLoopExpression__Group_0_0__3__Impl
+            // InternalDim.g:12257:1: ( rule__DmxForLoopExpression__Group_0_0__3__Impl )
+            // InternalDim.g:12258:2: rule__DmxForLoopExpression__Group_0_0__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxForLoopExpression__Group_0_0__3__Impl();
@@ -40874,17 +41412,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group_0_0__3__Impl"
-    // InternalDim.g:12095:1: rule__DmxForLoopExpression__Group_0_0__3__Impl : ( ':' ) ;
+    // InternalDim.g:12264:1: rule__DmxForLoopExpression__Group_0_0__3__Impl : ( ':' ) ;
     public final void rule__DmxForLoopExpression__Group_0_0__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12099:1: ( ( ':' ) )
-            // InternalDim.g:12100:1: ( ':' )
+            // InternalDim.g:12268:1: ( ( ':' ) )
+            // InternalDim.g:12269:1: ( ':' )
             {
-            // InternalDim.g:12100:1: ( ':' )
-            // InternalDim.g:12101:2: ':'
+            // InternalDim.g:12269:1: ( ':' )
+            // InternalDim.g:12270:2: ':'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getColonKeyword_0_0_3()); 
@@ -40915,16 +41453,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__Group__0"
-    // InternalDim.g:12111:1: rule__DMultiplicity__Group__0 : rule__DMultiplicity__Group__0__Impl rule__DMultiplicity__Group__1 ;
+    // InternalDim.g:12280:1: rule__DMultiplicity__Group__0 : rule__DMultiplicity__Group__0__Impl rule__DMultiplicity__Group__1 ;
     public final void rule__DMultiplicity__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12115:1: ( rule__DMultiplicity__Group__0__Impl rule__DMultiplicity__Group__1 )
-            // InternalDim.g:12116:2: rule__DMultiplicity__Group__0__Impl rule__DMultiplicity__Group__1
+            // InternalDim.g:12284:1: ( rule__DMultiplicity__Group__0__Impl rule__DMultiplicity__Group__1 )
+            // InternalDim.g:12285:2: rule__DMultiplicity__Group__0__Impl rule__DMultiplicity__Group__1
             {
-            pushFollow(FOLLOW_91);
+            pushFollow(FOLLOW_94);
             rule__DMultiplicity__Group__0__Impl();
 
             state._fsp--;
@@ -40953,17 +41491,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__Group__0__Impl"
-    // InternalDim.g:12123:1: rule__DMultiplicity__Group__0__Impl : ( '(' ) ;
+    // InternalDim.g:12292:1: rule__DMultiplicity__Group__0__Impl : ( '(' ) ;
     public final void rule__DMultiplicity__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12127:1: ( ( '(' ) )
-            // InternalDim.g:12128:1: ( '(' )
+            // InternalDim.g:12296:1: ( ( '(' ) )
+            // InternalDim.g:12297:1: ( '(' )
             {
-            // InternalDim.g:12128:1: ( '(' )
-            // InternalDim.g:12129:2: '('
+            // InternalDim.g:12297:1: ( '(' )
+            // InternalDim.g:12298:2: '('
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDMultiplicityAccess().getLeftParenthesisKeyword_0()); 
@@ -40994,16 +41532,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__Group__1"
-    // InternalDim.g:12138:1: rule__DMultiplicity__Group__1 : rule__DMultiplicity__Group__1__Impl rule__DMultiplicity__Group__2 ;
+    // InternalDim.g:12307:1: rule__DMultiplicity__Group__1 : rule__DMultiplicity__Group__1__Impl rule__DMultiplicity__Group__2 ;
     public final void rule__DMultiplicity__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12142:1: ( rule__DMultiplicity__Group__1__Impl rule__DMultiplicity__Group__2 )
-            // InternalDim.g:12143:2: rule__DMultiplicity__Group__1__Impl rule__DMultiplicity__Group__2
+            // InternalDim.g:12311:1: ( rule__DMultiplicity__Group__1__Impl rule__DMultiplicity__Group__2 )
+            // InternalDim.g:12312:2: rule__DMultiplicity__Group__1__Impl rule__DMultiplicity__Group__2
             {
-            pushFollow(FOLLOW_92);
+            pushFollow(FOLLOW_95);
             rule__DMultiplicity__Group__1__Impl();
 
             state._fsp--;
@@ -41032,23 +41570,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__Group__1__Impl"
-    // InternalDim.g:12150:1: rule__DMultiplicity__Group__1__Impl : ( ( rule__DMultiplicity__MinOccursAssignment_1 ) ) ;
+    // InternalDim.g:12319:1: rule__DMultiplicity__Group__1__Impl : ( ( rule__DMultiplicity__MinOccursAssignment_1 ) ) ;
     public final void rule__DMultiplicity__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12154:1: ( ( ( rule__DMultiplicity__MinOccursAssignment_1 ) ) )
-            // InternalDim.g:12155:1: ( ( rule__DMultiplicity__MinOccursAssignment_1 ) )
+            // InternalDim.g:12323:1: ( ( ( rule__DMultiplicity__MinOccursAssignment_1 ) ) )
+            // InternalDim.g:12324:1: ( ( rule__DMultiplicity__MinOccursAssignment_1 ) )
             {
-            // InternalDim.g:12155:1: ( ( rule__DMultiplicity__MinOccursAssignment_1 ) )
-            // InternalDim.g:12156:2: ( rule__DMultiplicity__MinOccursAssignment_1 )
+            // InternalDim.g:12324:1: ( ( rule__DMultiplicity__MinOccursAssignment_1 ) )
+            // InternalDim.g:12325:2: ( rule__DMultiplicity__MinOccursAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDMultiplicityAccess().getMinOccursAssignment_1()); 
             }
-            // InternalDim.g:12157:2: ( rule__DMultiplicity__MinOccursAssignment_1 )
-            // InternalDim.g:12157:3: rule__DMultiplicity__MinOccursAssignment_1
+            // InternalDim.g:12326:2: ( rule__DMultiplicity__MinOccursAssignment_1 )
+            // InternalDim.g:12326:3: rule__DMultiplicity__MinOccursAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__DMultiplicity__MinOccursAssignment_1();
@@ -41083,16 +41621,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__Group__2"
-    // InternalDim.g:12165:1: rule__DMultiplicity__Group__2 : rule__DMultiplicity__Group__2__Impl rule__DMultiplicity__Group__3 ;
+    // InternalDim.g:12334:1: rule__DMultiplicity__Group__2 : rule__DMultiplicity__Group__2__Impl rule__DMultiplicity__Group__3 ;
     public final void rule__DMultiplicity__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12169:1: ( rule__DMultiplicity__Group__2__Impl rule__DMultiplicity__Group__3 )
-            // InternalDim.g:12170:2: rule__DMultiplicity__Group__2__Impl rule__DMultiplicity__Group__3
+            // InternalDim.g:12338:1: ( rule__DMultiplicity__Group__2__Impl rule__DMultiplicity__Group__3 )
+            // InternalDim.g:12339:2: rule__DMultiplicity__Group__2__Impl rule__DMultiplicity__Group__3
             {
-            pushFollow(FOLLOW_93);
+            pushFollow(FOLLOW_96);
             rule__DMultiplicity__Group__2__Impl();
 
             state._fsp--;
@@ -41121,17 +41659,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__Group__2__Impl"
-    // InternalDim.g:12177:1: rule__DMultiplicity__Group__2__Impl : ( '..' ) ;
+    // InternalDim.g:12346:1: rule__DMultiplicity__Group__2__Impl : ( '..' ) ;
     public final void rule__DMultiplicity__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12181:1: ( ( '..' ) )
-            // InternalDim.g:12182:1: ( '..' )
+            // InternalDim.g:12350:1: ( ( '..' ) )
+            // InternalDim.g:12351:1: ( '..' )
             {
-            // InternalDim.g:12182:1: ( '..' )
-            // InternalDim.g:12183:2: '..'
+            // InternalDim.g:12351:1: ( '..' )
+            // InternalDim.g:12352:2: '..'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDMultiplicityAccess().getFullStopFullStopKeyword_2()); 
@@ -41162,16 +41700,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__Group__3"
-    // InternalDim.g:12192:1: rule__DMultiplicity__Group__3 : rule__DMultiplicity__Group__3__Impl rule__DMultiplicity__Group__4 ;
+    // InternalDim.g:12361:1: rule__DMultiplicity__Group__3 : rule__DMultiplicity__Group__3__Impl rule__DMultiplicity__Group__4 ;
     public final void rule__DMultiplicity__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12196:1: ( rule__DMultiplicity__Group__3__Impl rule__DMultiplicity__Group__4 )
-            // InternalDim.g:12197:2: rule__DMultiplicity__Group__3__Impl rule__DMultiplicity__Group__4
+            // InternalDim.g:12365:1: ( rule__DMultiplicity__Group__3__Impl rule__DMultiplicity__Group__4 )
+            // InternalDim.g:12366:2: rule__DMultiplicity__Group__3__Impl rule__DMultiplicity__Group__4
             {
-            pushFollow(FOLLOW_78);
+            pushFollow(FOLLOW_48);
             rule__DMultiplicity__Group__3__Impl();
 
             state._fsp--;
@@ -41200,23 +41738,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__Group__3__Impl"
-    // InternalDim.g:12204:1: rule__DMultiplicity__Group__3__Impl : ( ( rule__DMultiplicity__MaxOccursAssignment_3 ) ) ;
+    // InternalDim.g:12373:1: rule__DMultiplicity__Group__3__Impl : ( ( rule__DMultiplicity__MaxOccursAssignment_3 ) ) ;
     public final void rule__DMultiplicity__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12208:1: ( ( ( rule__DMultiplicity__MaxOccursAssignment_3 ) ) )
-            // InternalDim.g:12209:1: ( ( rule__DMultiplicity__MaxOccursAssignment_3 ) )
+            // InternalDim.g:12377:1: ( ( ( rule__DMultiplicity__MaxOccursAssignment_3 ) ) )
+            // InternalDim.g:12378:1: ( ( rule__DMultiplicity__MaxOccursAssignment_3 ) )
             {
-            // InternalDim.g:12209:1: ( ( rule__DMultiplicity__MaxOccursAssignment_3 ) )
-            // InternalDim.g:12210:2: ( rule__DMultiplicity__MaxOccursAssignment_3 )
+            // InternalDim.g:12378:1: ( ( rule__DMultiplicity__MaxOccursAssignment_3 ) )
+            // InternalDim.g:12379:2: ( rule__DMultiplicity__MaxOccursAssignment_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDMultiplicityAccess().getMaxOccursAssignment_3()); 
             }
-            // InternalDim.g:12211:2: ( rule__DMultiplicity__MaxOccursAssignment_3 )
-            // InternalDim.g:12211:3: rule__DMultiplicity__MaxOccursAssignment_3
+            // InternalDim.g:12380:2: ( rule__DMultiplicity__MaxOccursAssignment_3 )
+            // InternalDim.g:12380:3: rule__DMultiplicity__MaxOccursAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__DMultiplicity__MaxOccursAssignment_3();
@@ -41251,14 +41789,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__Group__4"
-    // InternalDim.g:12219:1: rule__DMultiplicity__Group__4 : rule__DMultiplicity__Group__4__Impl ;
+    // InternalDim.g:12388:1: rule__DMultiplicity__Group__4 : rule__DMultiplicity__Group__4__Impl ;
     public final void rule__DMultiplicity__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12223:1: ( rule__DMultiplicity__Group__4__Impl )
-            // InternalDim.g:12224:2: rule__DMultiplicity__Group__4__Impl
+            // InternalDim.g:12392:1: ( rule__DMultiplicity__Group__4__Impl )
+            // InternalDim.g:12393:2: rule__DMultiplicity__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DMultiplicity__Group__4__Impl();
@@ -41284,17 +41822,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__Group__4__Impl"
-    // InternalDim.g:12230:1: rule__DMultiplicity__Group__4__Impl : ( ')' ) ;
+    // InternalDim.g:12399:1: rule__DMultiplicity__Group__4__Impl : ( ')' ) ;
     public final void rule__DMultiplicity__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12234:1: ( ( ')' ) )
-            // InternalDim.g:12235:1: ( ')' )
+            // InternalDim.g:12403:1: ( ( ')' ) )
+            // InternalDim.g:12404:1: ( ')' )
             {
-            // InternalDim.g:12235:1: ( ')' )
-            // InternalDim.g:12236:2: ')'
+            // InternalDim.g:12404:1: ( ')' )
+            // InternalDim.g:12405:2: ')'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDMultiplicityAccess().getRightParenthesisKeyword_4()); 
@@ -41325,16 +41863,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxBooleanLiteral__Group__0"
-    // InternalDim.g:12246:1: rule__DmxBooleanLiteral__Group__0 : rule__DmxBooleanLiteral__Group__0__Impl rule__DmxBooleanLiteral__Group__1 ;
+    // InternalDim.g:12415:1: rule__DmxBooleanLiteral__Group__0 : rule__DmxBooleanLiteral__Group__0__Impl rule__DmxBooleanLiteral__Group__1 ;
     public final void rule__DmxBooleanLiteral__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12250:1: ( rule__DmxBooleanLiteral__Group__0__Impl rule__DmxBooleanLiteral__Group__1 )
-            // InternalDim.g:12251:2: rule__DmxBooleanLiteral__Group__0__Impl rule__DmxBooleanLiteral__Group__1
+            // InternalDim.g:12419:1: ( rule__DmxBooleanLiteral__Group__0__Impl rule__DmxBooleanLiteral__Group__1 )
+            // InternalDim.g:12420:2: rule__DmxBooleanLiteral__Group__0__Impl rule__DmxBooleanLiteral__Group__1
             {
-            pushFollow(FOLLOW_94);
+            pushFollow(FOLLOW_97);
             rule__DmxBooleanLiteral__Group__0__Impl();
 
             state._fsp--;
@@ -41363,23 +41901,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxBooleanLiteral__Group__0__Impl"
-    // InternalDim.g:12258:1: rule__DmxBooleanLiteral__Group__0__Impl : ( () ) ;
+    // InternalDim.g:12427:1: rule__DmxBooleanLiteral__Group__0__Impl : ( () ) ;
     public final void rule__DmxBooleanLiteral__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12262:1: ( ( () ) )
-            // InternalDim.g:12263:1: ( () )
+            // InternalDim.g:12431:1: ( ( () ) )
+            // InternalDim.g:12432:1: ( () )
             {
-            // InternalDim.g:12263:1: ( () )
-            // InternalDim.g:12264:2: ()
+            // InternalDim.g:12432:1: ( () )
+            // InternalDim.g:12433:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxBooleanLiteralAccess().getDmxBooleanLiteralAction_0()); 
             }
-            // InternalDim.g:12265:2: ()
-            // InternalDim.g:12265:3: 
+            // InternalDim.g:12434:2: ()
+            // InternalDim.g:12434:3: 
             {
             }
 
@@ -41404,14 +41942,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxBooleanLiteral__Group__1"
-    // InternalDim.g:12273:1: rule__DmxBooleanLiteral__Group__1 : rule__DmxBooleanLiteral__Group__1__Impl ;
+    // InternalDim.g:12442:1: rule__DmxBooleanLiteral__Group__1 : rule__DmxBooleanLiteral__Group__1__Impl ;
     public final void rule__DmxBooleanLiteral__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12277:1: ( rule__DmxBooleanLiteral__Group__1__Impl )
-            // InternalDim.g:12278:2: rule__DmxBooleanLiteral__Group__1__Impl
+            // InternalDim.g:12446:1: ( rule__DmxBooleanLiteral__Group__1__Impl )
+            // InternalDim.g:12447:2: rule__DmxBooleanLiteral__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxBooleanLiteral__Group__1__Impl();
@@ -41437,23 +41975,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxBooleanLiteral__Group__1__Impl"
-    // InternalDim.g:12284:1: rule__DmxBooleanLiteral__Group__1__Impl : ( ( rule__DmxBooleanLiteral__Alternatives_1 ) ) ;
+    // InternalDim.g:12453:1: rule__DmxBooleanLiteral__Group__1__Impl : ( ( rule__DmxBooleanLiteral__Alternatives_1 ) ) ;
     public final void rule__DmxBooleanLiteral__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12288:1: ( ( ( rule__DmxBooleanLiteral__Alternatives_1 ) ) )
-            // InternalDim.g:12289:1: ( ( rule__DmxBooleanLiteral__Alternatives_1 ) )
+            // InternalDim.g:12457:1: ( ( ( rule__DmxBooleanLiteral__Alternatives_1 ) ) )
+            // InternalDim.g:12458:1: ( ( rule__DmxBooleanLiteral__Alternatives_1 ) )
             {
-            // InternalDim.g:12289:1: ( ( rule__DmxBooleanLiteral__Alternatives_1 ) )
-            // InternalDim.g:12290:2: ( rule__DmxBooleanLiteral__Alternatives_1 )
+            // InternalDim.g:12458:1: ( ( rule__DmxBooleanLiteral__Alternatives_1 ) )
+            // InternalDim.g:12459:2: ( rule__DmxBooleanLiteral__Alternatives_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxBooleanLiteralAccess().getAlternatives_1()); 
             }
-            // InternalDim.g:12291:2: ( rule__DmxBooleanLiteral__Alternatives_1 )
-            // InternalDim.g:12291:3: rule__DmxBooleanLiteral__Alternatives_1
+            // InternalDim.g:12460:2: ( rule__DmxBooleanLiteral__Alternatives_1 )
+            // InternalDim.g:12460:3: rule__DmxBooleanLiteral__Alternatives_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxBooleanLiteral__Alternatives_1();
@@ -41488,16 +42026,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNaturalLiteral__Group__0"
-    // InternalDim.g:12300:1: rule__DmxNaturalLiteral__Group__0 : rule__DmxNaturalLiteral__Group__0__Impl rule__DmxNaturalLiteral__Group__1 ;
+    // InternalDim.g:12469:1: rule__DmxNaturalLiteral__Group__0 : rule__DmxNaturalLiteral__Group__0__Impl rule__DmxNaturalLiteral__Group__1 ;
     public final void rule__DmxNaturalLiteral__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12304:1: ( rule__DmxNaturalLiteral__Group__0__Impl rule__DmxNaturalLiteral__Group__1 )
-            // InternalDim.g:12305:2: rule__DmxNaturalLiteral__Group__0__Impl rule__DmxNaturalLiteral__Group__1
+            // InternalDim.g:12473:1: ( rule__DmxNaturalLiteral__Group__0__Impl rule__DmxNaturalLiteral__Group__1 )
+            // InternalDim.g:12474:2: rule__DmxNaturalLiteral__Group__0__Impl rule__DmxNaturalLiteral__Group__1
             {
-            pushFollow(FOLLOW_91);
+            pushFollow(FOLLOW_94);
             rule__DmxNaturalLiteral__Group__0__Impl();
 
             state._fsp--;
@@ -41526,23 +42064,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNaturalLiteral__Group__0__Impl"
-    // InternalDim.g:12312:1: rule__DmxNaturalLiteral__Group__0__Impl : ( () ) ;
+    // InternalDim.g:12481:1: rule__DmxNaturalLiteral__Group__0__Impl : ( () ) ;
     public final void rule__DmxNaturalLiteral__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12316:1: ( ( () ) )
-            // InternalDim.g:12317:1: ( () )
+            // InternalDim.g:12485:1: ( ( () ) )
+            // InternalDim.g:12486:1: ( () )
             {
-            // InternalDim.g:12317:1: ( () )
-            // InternalDim.g:12318:2: ()
+            // InternalDim.g:12486:1: ( () )
+            // InternalDim.g:12487:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNaturalLiteralAccess().getDmxNaturalLiteralAction_0()); 
             }
-            // InternalDim.g:12319:2: ()
-            // InternalDim.g:12319:3: 
+            // InternalDim.g:12488:2: ()
+            // InternalDim.g:12488:3: 
             {
             }
 
@@ -41567,14 +42105,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNaturalLiteral__Group__1"
-    // InternalDim.g:12327:1: rule__DmxNaturalLiteral__Group__1 : rule__DmxNaturalLiteral__Group__1__Impl ;
+    // InternalDim.g:12496:1: rule__DmxNaturalLiteral__Group__1 : rule__DmxNaturalLiteral__Group__1__Impl ;
     public final void rule__DmxNaturalLiteral__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12331:1: ( rule__DmxNaturalLiteral__Group__1__Impl )
-            // InternalDim.g:12332:2: rule__DmxNaturalLiteral__Group__1__Impl
+            // InternalDim.g:12500:1: ( rule__DmxNaturalLiteral__Group__1__Impl )
+            // InternalDim.g:12501:2: rule__DmxNaturalLiteral__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNaturalLiteral__Group__1__Impl();
@@ -41600,23 +42138,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNaturalLiteral__Group__1__Impl"
-    // InternalDim.g:12338:1: rule__DmxNaturalLiteral__Group__1__Impl : ( ( rule__DmxNaturalLiteral__ValueAssignment_1 ) ) ;
+    // InternalDim.g:12507:1: rule__DmxNaturalLiteral__Group__1__Impl : ( ( rule__DmxNaturalLiteral__ValueAssignment_1 ) ) ;
     public final void rule__DmxNaturalLiteral__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12342:1: ( ( ( rule__DmxNaturalLiteral__ValueAssignment_1 ) ) )
-            // InternalDim.g:12343:1: ( ( rule__DmxNaturalLiteral__ValueAssignment_1 ) )
+            // InternalDim.g:12511:1: ( ( ( rule__DmxNaturalLiteral__ValueAssignment_1 ) ) )
+            // InternalDim.g:12512:1: ( ( rule__DmxNaturalLiteral__ValueAssignment_1 ) )
             {
-            // InternalDim.g:12343:1: ( ( rule__DmxNaturalLiteral__ValueAssignment_1 ) )
-            // InternalDim.g:12344:2: ( rule__DmxNaturalLiteral__ValueAssignment_1 )
+            // InternalDim.g:12512:1: ( ( rule__DmxNaturalLiteral__ValueAssignment_1 ) )
+            // InternalDim.g:12513:2: ( rule__DmxNaturalLiteral__ValueAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNaturalLiteralAccess().getValueAssignment_1()); 
             }
-            // InternalDim.g:12345:2: ( rule__DmxNaturalLiteral__ValueAssignment_1 )
-            // InternalDim.g:12345:3: rule__DmxNaturalLiteral__ValueAssignment_1
+            // InternalDim.g:12514:2: ( rule__DmxNaturalLiteral__ValueAssignment_1 )
+            // InternalDim.g:12514:3: rule__DmxNaturalLiteral__ValueAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxNaturalLiteral__ValueAssignment_1();
@@ -41651,16 +42189,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxDecimalLiteral__Group__0"
-    // InternalDim.g:12354:1: rule__DmxDecimalLiteral__Group__0 : rule__DmxDecimalLiteral__Group__0__Impl rule__DmxDecimalLiteral__Group__1 ;
+    // InternalDim.g:12523:1: rule__DmxDecimalLiteral__Group__0 : rule__DmxDecimalLiteral__Group__0__Impl rule__DmxDecimalLiteral__Group__1 ;
     public final void rule__DmxDecimalLiteral__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12358:1: ( rule__DmxDecimalLiteral__Group__0__Impl rule__DmxDecimalLiteral__Group__1 )
-            // InternalDim.g:12359:2: rule__DmxDecimalLiteral__Group__0__Impl rule__DmxDecimalLiteral__Group__1
+            // InternalDim.g:12527:1: ( rule__DmxDecimalLiteral__Group__0__Impl rule__DmxDecimalLiteral__Group__1 )
+            // InternalDim.g:12528:2: rule__DmxDecimalLiteral__Group__0__Impl rule__DmxDecimalLiteral__Group__1
             {
-            pushFollow(FOLLOW_91);
+            pushFollow(FOLLOW_94);
             rule__DmxDecimalLiteral__Group__0__Impl();
 
             state._fsp--;
@@ -41689,23 +42227,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxDecimalLiteral__Group__0__Impl"
-    // InternalDim.g:12366:1: rule__DmxDecimalLiteral__Group__0__Impl : ( () ) ;
+    // InternalDim.g:12535:1: rule__DmxDecimalLiteral__Group__0__Impl : ( () ) ;
     public final void rule__DmxDecimalLiteral__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12370:1: ( ( () ) )
-            // InternalDim.g:12371:1: ( () )
+            // InternalDim.g:12539:1: ( ( () ) )
+            // InternalDim.g:12540:1: ( () )
             {
-            // InternalDim.g:12371:1: ( () )
-            // InternalDim.g:12372:2: ()
+            // InternalDim.g:12540:1: ( () )
+            // InternalDim.g:12541:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxDecimalLiteralAccess().getDmxDecimalLiteralAction_0()); 
             }
-            // InternalDim.g:12373:2: ()
-            // InternalDim.g:12373:3: 
+            // InternalDim.g:12542:2: ()
+            // InternalDim.g:12542:3: 
             {
             }
 
@@ -41730,14 +42268,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxDecimalLiteral__Group__1"
-    // InternalDim.g:12381:1: rule__DmxDecimalLiteral__Group__1 : rule__DmxDecimalLiteral__Group__1__Impl ;
+    // InternalDim.g:12550:1: rule__DmxDecimalLiteral__Group__1 : rule__DmxDecimalLiteral__Group__1__Impl ;
     public final void rule__DmxDecimalLiteral__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12385:1: ( rule__DmxDecimalLiteral__Group__1__Impl )
-            // InternalDim.g:12386:2: rule__DmxDecimalLiteral__Group__1__Impl
+            // InternalDim.g:12554:1: ( rule__DmxDecimalLiteral__Group__1__Impl )
+            // InternalDim.g:12555:2: rule__DmxDecimalLiteral__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxDecimalLiteral__Group__1__Impl();
@@ -41763,23 +42301,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxDecimalLiteral__Group__1__Impl"
-    // InternalDim.g:12392:1: rule__DmxDecimalLiteral__Group__1__Impl : ( ( rule__DmxDecimalLiteral__ValueAssignment_1 ) ) ;
+    // InternalDim.g:12561:1: rule__DmxDecimalLiteral__Group__1__Impl : ( ( rule__DmxDecimalLiteral__ValueAssignment_1 ) ) ;
     public final void rule__DmxDecimalLiteral__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12396:1: ( ( ( rule__DmxDecimalLiteral__ValueAssignment_1 ) ) )
-            // InternalDim.g:12397:1: ( ( rule__DmxDecimalLiteral__ValueAssignment_1 ) )
+            // InternalDim.g:12565:1: ( ( ( rule__DmxDecimalLiteral__ValueAssignment_1 ) ) )
+            // InternalDim.g:12566:1: ( ( rule__DmxDecimalLiteral__ValueAssignment_1 ) )
             {
-            // InternalDim.g:12397:1: ( ( rule__DmxDecimalLiteral__ValueAssignment_1 ) )
-            // InternalDim.g:12398:2: ( rule__DmxDecimalLiteral__ValueAssignment_1 )
+            // InternalDim.g:12566:1: ( ( rule__DmxDecimalLiteral__ValueAssignment_1 ) )
+            // InternalDim.g:12567:2: ( rule__DmxDecimalLiteral__ValueAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxDecimalLiteralAccess().getValueAssignment_1()); 
             }
-            // InternalDim.g:12399:2: ( rule__DmxDecimalLiteral__ValueAssignment_1 )
-            // InternalDim.g:12399:3: rule__DmxDecimalLiteral__ValueAssignment_1
+            // InternalDim.g:12568:2: ( rule__DmxDecimalLiteral__ValueAssignment_1 )
+            // InternalDim.g:12568:3: rule__DmxDecimalLiteral__ValueAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxDecimalLiteral__ValueAssignment_1();
@@ -41814,16 +42352,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStringLiteral__Group__0"
-    // InternalDim.g:12408:1: rule__DmxStringLiteral__Group__0 : rule__DmxStringLiteral__Group__0__Impl rule__DmxStringLiteral__Group__1 ;
+    // InternalDim.g:12577:1: rule__DmxStringLiteral__Group__0 : rule__DmxStringLiteral__Group__0__Impl rule__DmxStringLiteral__Group__1 ;
     public final void rule__DmxStringLiteral__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12412:1: ( rule__DmxStringLiteral__Group__0__Impl rule__DmxStringLiteral__Group__1 )
-            // InternalDim.g:12413:2: rule__DmxStringLiteral__Group__0__Impl rule__DmxStringLiteral__Group__1
+            // InternalDim.g:12581:1: ( rule__DmxStringLiteral__Group__0__Impl rule__DmxStringLiteral__Group__1 )
+            // InternalDim.g:12582:2: rule__DmxStringLiteral__Group__0__Impl rule__DmxStringLiteral__Group__1
             {
-            pushFollow(FOLLOW_95);
+            pushFollow(FOLLOW_98);
             rule__DmxStringLiteral__Group__0__Impl();
 
             state._fsp--;
@@ -41852,23 +42390,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStringLiteral__Group__0__Impl"
-    // InternalDim.g:12420:1: rule__DmxStringLiteral__Group__0__Impl : ( () ) ;
+    // InternalDim.g:12589:1: rule__DmxStringLiteral__Group__0__Impl : ( () ) ;
     public final void rule__DmxStringLiteral__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12424:1: ( ( () ) )
-            // InternalDim.g:12425:1: ( () )
+            // InternalDim.g:12593:1: ( ( () ) )
+            // InternalDim.g:12594:1: ( () )
             {
-            // InternalDim.g:12425:1: ( () )
-            // InternalDim.g:12426:2: ()
+            // InternalDim.g:12594:1: ( () )
+            // InternalDim.g:12595:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStringLiteralAccess().getDmxStringLiteralAction_0()); 
             }
-            // InternalDim.g:12427:2: ()
-            // InternalDim.g:12427:3: 
+            // InternalDim.g:12596:2: ()
+            // InternalDim.g:12596:3: 
             {
             }
 
@@ -41893,14 +42431,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStringLiteral__Group__1"
-    // InternalDim.g:12435:1: rule__DmxStringLiteral__Group__1 : rule__DmxStringLiteral__Group__1__Impl ;
+    // InternalDim.g:12604:1: rule__DmxStringLiteral__Group__1 : rule__DmxStringLiteral__Group__1__Impl ;
     public final void rule__DmxStringLiteral__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12439:1: ( rule__DmxStringLiteral__Group__1__Impl )
-            // InternalDim.g:12440:2: rule__DmxStringLiteral__Group__1__Impl
+            // InternalDim.g:12608:1: ( rule__DmxStringLiteral__Group__1__Impl )
+            // InternalDim.g:12609:2: rule__DmxStringLiteral__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxStringLiteral__Group__1__Impl();
@@ -41926,23 +42464,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStringLiteral__Group__1__Impl"
-    // InternalDim.g:12446:1: rule__DmxStringLiteral__Group__1__Impl : ( ( rule__DmxStringLiteral__ValueAssignment_1 ) ) ;
+    // InternalDim.g:12615:1: rule__DmxStringLiteral__Group__1__Impl : ( ( rule__DmxStringLiteral__ValueAssignment_1 ) ) ;
     public final void rule__DmxStringLiteral__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12450:1: ( ( ( rule__DmxStringLiteral__ValueAssignment_1 ) ) )
-            // InternalDim.g:12451:1: ( ( rule__DmxStringLiteral__ValueAssignment_1 ) )
+            // InternalDim.g:12619:1: ( ( ( rule__DmxStringLiteral__ValueAssignment_1 ) ) )
+            // InternalDim.g:12620:1: ( ( rule__DmxStringLiteral__ValueAssignment_1 ) )
             {
-            // InternalDim.g:12451:1: ( ( rule__DmxStringLiteral__ValueAssignment_1 ) )
-            // InternalDim.g:12452:2: ( rule__DmxStringLiteral__ValueAssignment_1 )
+            // InternalDim.g:12620:1: ( ( rule__DmxStringLiteral__ValueAssignment_1 ) )
+            // InternalDim.g:12621:2: ( rule__DmxStringLiteral__ValueAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStringLiteralAccess().getValueAssignment_1()); 
             }
-            // InternalDim.g:12453:2: ( rule__DmxStringLiteral__ValueAssignment_1 )
-            // InternalDim.g:12453:3: rule__DmxStringLiteral__ValueAssignment_1
+            // InternalDim.g:12622:2: ( rule__DmxStringLiteral__ValueAssignment_1 )
+            // InternalDim.g:12622:3: rule__DmxStringLiteral__ValueAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxStringLiteral__ValueAssignment_1();
@@ -41977,16 +42515,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUndefinedLiteral__Group__0"
-    // InternalDim.g:12462:1: rule__DmxUndefinedLiteral__Group__0 : rule__DmxUndefinedLiteral__Group__0__Impl rule__DmxUndefinedLiteral__Group__1 ;
+    // InternalDim.g:12631:1: rule__DmxUndefinedLiteral__Group__0 : rule__DmxUndefinedLiteral__Group__0__Impl rule__DmxUndefinedLiteral__Group__1 ;
     public final void rule__DmxUndefinedLiteral__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12466:1: ( rule__DmxUndefinedLiteral__Group__0__Impl rule__DmxUndefinedLiteral__Group__1 )
-            // InternalDim.g:12467:2: rule__DmxUndefinedLiteral__Group__0__Impl rule__DmxUndefinedLiteral__Group__1
+            // InternalDim.g:12635:1: ( rule__DmxUndefinedLiteral__Group__0__Impl rule__DmxUndefinedLiteral__Group__1 )
+            // InternalDim.g:12636:2: rule__DmxUndefinedLiteral__Group__0__Impl rule__DmxUndefinedLiteral__Group__1
             {
-            pushFollow(FOLLOW_96);
+            pushFollow(FOLLOW_99);
             rule__DmxUndefinedLiteral__Group__0__Impl();
 
             state._fsp--;
@@ -42015,23 +42553,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUndefinedLiteral__Group__0__Impl"
-    // InternalDim.g:12474:1: rule__DmxUndefinedLiteral__Group__0__Impl : ( () ) ;
+    // InternalDim.g:12643:1: rule__DmxUndefinedLiteral__Group__0__Impl : ( () ) ;
     public final void rule__DmxUndefinedLiteral__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12478:1: ( ( () ) )
-            // InternalDim.g:12479:1: ( () )
+            // InternalDim.g:12647:1: ( ( () ) )
+            // InternalDim.g:12648:1: ( () )
             {
-            // InternalDim.g:12479:1: ( () )
-            // InternalDim.g:12480:2: ()
+            // InternalDim.g:12648:1: ( () )
+            // InternalDim.g:12649:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxUndefinedLiteralAccess().getDmxUndefinedLiteralAction_0()); 
             }
-            // InternalDim.g:12481:2: ()
-            // InternalDim.g:12481:3: 
+            // InternalDim.g:12650:2: ()
+            // InternalDim.g:12650:3: 
             {
             }
 
@@ -42056,14 +42594,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUndefinedLiteral__Group__1"
-    // InternalDim.g:12489:1: rule__DmxUndefinedLiteral__Group__1 : rule__DmxUndefinedLiteral__Group__1__Impl ;
+    // InternalDim.g:12658:1: rule__DmxUndefinedLiteral__Group__1 : rule__DmxUndefinedLiteral__Group__1__Impl ;
     public final void rule__DmxUndefinedLiteral__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12493:1: ( rule__DmxUndefinedLiteral__Group__1__Impl )
-            // InternalDim.g:12494:2: rule__DmxUndefinedLiteral__Group__1__Impl
+            // InternalDim.g:12662:1: ( rule__DmxUndefinedLiteral__Group__1__Impl )
+            // InternalDim.g:12663:2: rule__DmxUndefinedLiteral__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxUndefinedLiteral__Group__1__Impl();
@@ -42089,23 +42627,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUndefinedLiteral__Group__1__Impl"
-    // InternalDim.g:12500:1: rule__DmxUndefinedLiteral__Group__1__Impl : ( ( rule__DmxUndefinedLiteral__Alternatives_1 ) ) ;
+    // InternalDim.g:12669:1: rule__DmxUndefinedLiteral__Group__1__Impl : ( ( rule__DmxUndefinedLiteral__Alternatives_1 ) ) ;
     public final void rule__DmxUndefinedLiteral__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12504:1: ( ( ( rule__DmxUndefinedLiteral__Alternatives_1 ) ) )
-            // InternalDim.g:12505:1: ( ( rule__DmxUndefinedLiteral__Alternatives_1 ) )
+            // InternalDim.g:12673:1: ( ( ( rule__DmxUndefinedLiteral__Alternatives_1 ) ) )
+            // InternalDim.g:12674:1: ( ( rule__DmxUndefinedLiteral__Alternatives_1 ) )
             {
-            // InternalDim.g:12505:1: ( ( rule__DmxUndefinedLiteral__Alternatives_1 ) )
-            // InternalDim.g:12506:2: ( rule__DmxUndefinedLiteral__Alternatives_1 )
+            // InternalDim.g:12674:1: ( ( rule__DmxUndefinedLiteral__Alternatives_1 ) )
+            // InternalDim.g:12675:2: ( rule__DmxUndefinedLiteral__Alternatives_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxUndefinedLiteralAccess().getAlternatives_1()); 
             }
-            // InternalDim.g:12507:2: ( rule__DmxUndefinedLiteral__Alternatives_1 )
-            // InternalDim.g:12507:3: rule__DmxUndefinedLiteral__Alternatives_1
+            // InternalDim.g:12676:2: ( rule__DmxUndefinedLiteral__Alternatives_1 )
+            // InternalDim.g:12676:3: rule__DmxUndefinedLiteral__Alternatives_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxUndefinedLiteral__Alternatives_1();
@@ -42140,16 +42678,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__0"
-    // InternalDim.g:12516:1: rule__DECIMAL__Group__0 : rule__DECIMAL__Group__0__Impl rule__DECIMAL__Group__1 ;
+    // InternalDim.g:12685:1: rule__DECIMAL__Group__0 : rule__DECIMAL__Group__0__Impl rule__DECIMAL__Group__1 ;
     public final void rule__DECIMAL__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12520:1: ( rule__DECIMAL__Group__0__Impl rule__DECIMAL__Group__1 )
-            // InternalDim.g:12521:2: rule__DECIMAL__Group__0__Impl rule__DECIMAL__Group__1
+            // InternalDim.g:12689:1: ( rule__DECIMAL__Group__0__Impl rule__DECIMAL__Group__1 )
+            // InternalDim.g:12690:2: rule__DECIMAL__Group__0__Impl rule__DECIMAL__Group__1
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_55);
             rule__DECIMAL__Group__0__Impl();
 
             state._fsp--;
@@ -42178,17 +42716,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__0__Impl"
-    // InternalDim.g:12528:1: rule__DECIMAL__Group__0__Impl : ( RULE_NATURAL ) ;
+    // InternalDim.g:12697:1: rule__DECIMAL__Group__0__Impl : ( RULE_NATURAL ) ;
     public final void rule__DECIMAL__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12532:1: ( ( RULE_NATURAL ) )
-            // InternalDim.g:12533:1: ( RULE_NATURAL )
+            // InternalDim.g:12701:1: ( ( RULE_NATURAL ) )
+            // InternalDim.g:12702:1: ( RULE_NATURAL )
             {
-            // InternalDim.g:12533:1: ( RULE_NATURAL )
-            // InternalDim.g:12534:2: RULE_NATURAL
+            // InternalDim.g:12702:1: ( RULE_NATURAL )
+            // InternalDim.g:12703:2: RULE_NATURAL
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDECIMALAccess().getNATURALTerminalRuleCall_0()); 
@@ -42219,16 +42757,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__1"
-    // InternalDim.g:12543:1: rule__DECIMAL__Group__1 : rule__DECIMAL__Group__1__Impl rule__DECIMAL__Group__2 ;
+    // InternalDim.g:12712:1: rule__DECIMAL__Group__1 : rule__DECIMAL__Group__1__Impl rule__DECIMAL__Group__2 ;
     public final void rule__DECIMAL__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12547:1: ( rule__DECIMAL__Group__1__Impl rule__DECIMAL__Group__2 )
-            // InternalDim.g:12548:2: rule__DECIMAL__Group__1__Impl rule__DECIMAL__Group__2
+            // InternalDim.g:12716:1: ( rule__DECIMAL__Group__1__Impl rule__DECIMAL__Group__2 )
+            // InternalDim.g:12717:2: rule__DECIMAL__Group__1__Impl rule__DECIMAL__Group__2
             {
-            pushFollow(FOLLOW_91);
+            pushFollow(FOLLOW_94);
             rule__DECIMAL__Group__1__Impl();
 
             state._fsp--;
@@ -42257,22 +42795,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__1__Impl"
-    // InternalDim.g:12555:1: rule__DECIMAL__Group__1__Impl : ( '.' ) ;
+    // InternalDim.g:12724:1: rule__DECIMAL__Group__1__Impl : ( '.' ) ;
     public final void rule__DECIMAL__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12559:1: ( ( '.' ) )
-            // InternalDim.g:12560:1: ( '.' )
+            // InternalDim.g:12728:1: ( ( '.' ) )
+            // InternalDim.g:12729:1: ( '.' )
             {
-            // InternalDim.g:12560:1: ( '.' )
-            // InternalDim.g:12561:2: '.'
+            // InternalDim.g:12729:1: ( '.' )
+            // InternalDim.g:12730:2: '.'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDECIMALAccess().getFullStopKeyword_1()); 
             }
-            match(input,105,FOLLOW_2); if (state.failed) return ;
+            match(input,106,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDECIMALAccess().getFullStopKeyword_1()); 
             }
@@ -42298,16 +42836,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__2"
-    // InternalDim.g:12570:1: rule__DECIMAL__Group__2 : rule__DECIMAL__Group__2__Impl rule__DECIMAL__Group__3 ;
+    // InternalDim.g:12739:1: rule__DECIMAL__Group__2 : rule__DECIMAL__Group__2__Impl rule__DECIMAL__Group__3 ;
     public final void rule__DECIMAL__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12574:1: ( rule__DECIMAL__Group__2__Impl rule__DECIMAL__Group__3 )
-            // InternalDim.g:12575:2: rule__DECIMAL__Group__2__Impl rule__DECIMAL__Group__3
+            // InternalDim.g:12743:1: ( rule__DECIMAL__Group__2__Impl rule__DECIMAL__Group__3 )
+            // InternalDim.g:12744:2: rule__DECIMAL__Group__2__Impl rule__DECIMAL__Group__3
             {
-            pushFollow(FOLLOW_97);
+            pushFollow(FOLLOW_100);
             rule__DECIMAL__Group__2__Impl();
 
             state._fsp--;
@@ -42336,17 +42874,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__2__Impl"
-    // InternalDim.g:12582:1: rule__DECIMAL__Group__2__Impl : ( RULE_NATURAL ) ;
+    // InternalDim.g:12751:1: rule__DECIMAL__Group__2__Impl : ( RULE_NATURAL ) ;
     public final void rule__DECIMAL__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12586:1: ( ( RULE_NATURAL ) )
-            // InternalDim.g:12587:1: ( RULE_NATURAL )
+            // InternalDim.g:12755:1: ( ( RULE_NATURAL ) )
+            // InternalDim.g:12756:1: ( RULE_NATURAL )
             {
-            // InternalDim.g:12587:1: ( RULE_NATURAL )
-            // InternalDim.g:12588:2: RULE_NATURAL
+            // InternalDim.g:12756:1: ( RULE_NATURAL )
+            // InternalDim.g:12757:2: RULE_NATURAL
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDECIMALAccess().getNATURALTerminalRuleCall_2()); 
@@ -42377,14 +42915,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__3"
-    // InternalDim.g:12597:1: rule__DECIMAL__Group__3 : rule__DECIMAL__Group__3__Impl ;
+    // InternalDim.g:12766:1: rule__DECIMAL__Group__3 : rule__DECIMAL__Group__3__Impl ;
     public final void rule__DECIMAL__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12601:1: ( rule__DECIMAL__Group__3__Impl )
-            // InternalDim.g:12602:2: rule__DECIMAL__Group__3__Impl
+            // InternalDim.g:12770:1: ( rule__DECIMAL__Group__3__Impl )
+            // InternalDim.g:12771:2: rule__DECIMAL__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DECIMAL__Group__3__Impl();
@@ -42410,22 +42948,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__3__Impl"
-    // InternalDim.g:12608:1: rule__DECIMAL__Group__3__Impl : ( ( rule__DECIMAL__Group_3__0 )? ) ;
+    // InternalDim.g:12777:1: rule__DECIMAL__Group__3__Impl : ( ( rule__DECIMAL__Group_3__0 )? ) ;
     public final void rule__DECIMAL__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12612:1: ( ( ( rule__DECIMAL__Group_3__0 )? ) )
-            // InternalDim.g:12613:1: ( ( rule__DECIMAL__Group_3__0 )? )
+            // InternalDim.g:12781:1: ( ( ( rule__DECIMAL__Group_3__0 )? ) )
+            // InternalDim.g:12782:1: ( ( rule__DECIMAL__Group_3__0 )? )
             {
-            // InternalDim.g:12613:1: ( ( rule__DECIMAL__Group_3__0 )? )
-            // InternalDim.g:12614:2: ( rule__DECIMAL__Group_3__0 )?
+            // InternalDim.g:12782:1: ( ( rule__DECIMAL__Group_3__0 )? )
+            // InternalDim.g:12783:2: ( rule__DECIMAL__Group_3__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDECIMALAccess().getGroup_3()); 
             }
-            // InternalDim.g:12615:2: ( rule__DECIMAL__Group_3__0 )?
+            // InternalDim.g:12784:2: ( rule__DECIMAL__Group_3__0 )?
             int alt118=2;
             int LA118_0 = input.LA(1);
 
@@ -42434,7 +42972,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             }
             switch (alt118) {
                 case 1 :
-                    // InternalDim.g:12615:3: rule__DECIMAL__Group_3__0
+                    // InternalDim.g:12784:3: rule__DECIMAL__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DECIMAL__Group_3__0();
@@ -42472,16 +43010,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group_3__0"
-    // InternalDim.g:12624:1: rule__DECIMAL__Group_3__0 : rule__DECIMAL__Group_3__0__Impl rule__DECIMAL__Group_3__1 ;
+    // InternalDim.g:12793:1: rule__DECIMAL__Group_3__0 : rule__DECIMAL__Group_3__0__Impl rule__DECIMAL__Group_3__1 ;
     public final void rule__DECIMAL__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12628:1: ( rule__DECIMAL__Group_3__0__Impl rule__DECIMAL__Group_3__1 )
-            // InternalDim.g:12629:2: rule__DECIMAL__Group_3__0__Impl rule__DECIMAL__Group_3__1
+            // InternalDim.g:12797:1: ( rule__DECIMAL__Group_3__0__Impl rule__DECIMAL__Group_3__1 )
+            // InternalDim.g:12798:2: rule__DECIMAL__Group_3__0__Impl rule__DECIMAL__Group_3__1
             {
-            pushFollow(FOLLOW_98);
+            pushFollow(FOLLOW_101);
             rule__DECIMAL__Group_3__0__Impl();
 
             state._fsp--;
@@ -42510,23 +43048,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group_3__0__Impl"
-    // InternalDim.g:12636:1: rule__DECIMAL__Group_3__0__Impl : ( ( rule__DECIMAL__Alternatives_3_0 ) ) ;
+    // InternalDim.g:12805:1: rule__DECIMAL__Group_3__0__Impl : ( ( rule__DECIMAL__Alternatives_3_0 ) ) ;
     public final void rule__DECIMAL__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12640:1: ( ( ( rule__DECIMAL__Alternatives_3_0 ) ) )
-            // InternalDim.g:12641:1: ( ( rule__DECIMAL__Alternatives_3_0 ) )
+            // InternalDim.g:12809:1: ( ( ( rule__DECIMAL__Alternatives_3_0 ) ) )
+            // InternalDim.g:12810:1: ( ( rule__DECIMAL__Alternatives_3_0 ) )
             {
-            // InternalDim.g:12641:1: ( ( rule__DECIMAL__Alternatives_3_0 ) )
-            // InternalDim.g:12642:2: ( rule__DECIMAL__Alternatives_3_0 )
+            // InternalDim.g:12810:1: ( ( rule__DECIMAL__Alternatives_3_0 ) )
+            // InternalDim.g:12811:2: ( rule__DECIMAL__Alternatives_3_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDECIMALAccess().getAlternatives_3_0()); 
             }
-            // InternalDim.g:12643:2: ( rule__DECIMAL__Alternatives_3_0 )
-            // InternalDim.g:12643:3: rule__DECIMAL__Alternatives_3_0
+            // InternalDim.g:12812:2: ( rule__DECIMAL__Alternatives_3_0 )
+            // InternalDim.g:12812:3: rule__DECIMAL__Alternatives_3_0
             {
             pushFollow(FOLLOW_2);
             rule__DECIMAL__Alternatives_3_0();
@@ -42561,16 +43099,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group_3__1"
-    // InternalDim.g:12651:1: rule__DECIMAL__Group_3__1 : rule__DECIMAL__Group_3__1__Impl rule__DECIMAL__Group_3__2 ;
+    // InternalDim.g:12820:1: rule__DECIMAL__Group_3__1 : rule__DECIMAL__Group_3__1__Impl rule__DECIMAL__Group_3__2 ;
     public final void rule__DECIMAL__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12655:1: ( rule__DECIMAL__Group_3__1__Impl rule__DECIMAL__Group_3__2 )
-            // InternalDim.g:12656:2: rule__DECIMAL__Group_3__1__Impl rule__DECIMAL__Group_3__2
+            // InternalDim.g:12824:1: ( rule__DECIMAL__Group_3__1__Impl rule__DECIMAL__Group_3__2 )
+            // InternalDim.g:12825:2: rule__DECIMAL__Group_3__1__Impl rule__DECIMAL__Group_3__2
             {
-            pushFollow(FOLLOW_98);
+            pushFollow(FOLLOW_101);
             rule__DECIMAL__Group_3__1__Impl();
 
             state._fsp--;
@@ -42599,22 +43137,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group_3__1__Impl"
-    // InternalDim.g:12663:1: rule__DECIMAL__Group_3__1__Impl : ( ( rule__DECIMAL__Alternatives_3_1 )? ) ;
+    // InternalDim.g:12832:1: rule__DECIMAL__Group_3__1__Impl : ( ( rule__DECIMAL__Alternatives_3_1 )? ) ;
     public final void rule__DECIMAL__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12667:1: ( ( ( rule__DECIMAL__Alternatives_3_1 )? ) )
-            // InternalDim.g:12668:1: ( ( rule__DECIMAL__Alternatives_3_1 )? )
+            // InternalDim.g:12836:1: ( ( ( rule__DECIMAL__Alternatives_3_1 )? ) )
+            // InternalDim.g:12837:1: ( ( rule__DECIMAL__Alternatives_3_1 )? )
             {
-            // InternalDim.g:12668:1: ( ( rule__DECIMAL__Alternatives_3_1 )? )
-            // InternalDim.g:12669:2: ( rule__DECIMAL__Alternatives_3_1 )?
+            // InternalDim.g:12837:1: ( ( rule__DECIMAL__Alternatives_3_1 )? )
+            // InternalDim.g:12838:2: ( rule__DECIMAL__Alternatives_3_1 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDECIMALAccess().getAlternatives_3_1()); 
             }
-            // InternalDim.g:12670:2: ( rule__DECIMAL__Alternatives_3_1 )?
+            // InternalDim.g:12839:2: ( rule__DECIMAL__Alternatives_3_1 )?
             int alt119=2;
             int LA119_0 = input.LA(1);
 
@@ -42623,7 +43161,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             }
             switch (alt119) {
                 case 1 :
-                    // InternalDim.g:12670:3: rule__DECIMAL__Alternatives_3_1
+                    // InternalDim.g:12839:3: rule__DECIMAL__Alternatives_3_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__DECIMAL__Alternatives_3_1();
@@ -42661,14 +43199,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group_3__2"
-    // InternalDim.g:12678:1: rule__DECIMAL__Group_3__2 : rule__DECIMAL__Group_3__2__Impl ;
+    // InternalDim.g:12847:1: rule__DECIMAL__Group_3__2 : rule__DECIMAL__Group_3__2__Impl ;
     public final void rule__DECIMAL__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12682:1: ( rule__DECIMAL__Group_3__2__Impl )
-            // InternalDim.g:12683:2: rule__DECIMAL__Group_3__2__Impl
+            // InternalDim.g:12851:1: ( rule__DECIMAL__Group_3__2__Impl )
+            // InternalDim.g:12852:2: rule__DECIMAL__Group_3__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DECIMAL__Group_3__2__Impl();
@@ -42694,17 +43232,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group_3__2__Impl"
-    // InternalDim.g:12689:1: rule__DECIMAL__Group_3__2__Impl : ( RULE_NATURAL ) ;
+    // InternalDim.g:12858:1: rule__DECIMAL__Group_3__2__Impl : ( RULE_NATURAL ) ;
     public final void rule__DECIMAL__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12693:1: ( ( RULE_NATURAL ) )
-            // InternalDim.g:12694:1: ( RULE_NATURAL )
+            // InternalDim.g:12862:1: ( ( RULE_NATURAL ) )
+            // InternalDim.g:12863:1: ( RULE_NATURAL )
             {
-            // InternalDim.g:12694:1: ( RULE_NATURAL )
-            // InternalDim.g:12695:2: RULE_NATURAL
+            // InternalDim.g:12863:1: ( RULE_NATURAL )
+            // InternalDim.g:12864:2: RULE_NATURAL
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDECIMALAccess().getNATURALTerminalRuleCall_3_2()); 
@@ -42735,16 +43273,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedNameWithWildcard__Group__0"
-    // InternalDim.g:12705:1: rule__DQualifiedNameWithWildcard__Group__0 : rule__DQualifiedNameWithWildcard__Group__0__Impl rule__DQualifiedNameWithWildcard__Group__1 ;
+    // InternalDim.g:12874:1: rule__DQualifiedNameWithWildcard__Group__0 : rule__DQualifiedNameWithWildcard__Group__0__Impl rule__DQualifiedNameWithWildcard__Group__1 ;
     public final void rule__DQualifiedNameWithWildcard__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12709:1: ( rule__DQualifiedNameWithWildcard__Group__0__Impl rule__DQualifiedNameWithWildcard__Group__1 )
-            // InternalDim.g:12710:2: rule__DQualifiedNameWithWildcard__Group__0__Impl rule__DQualifiedNameWithWildcard__Group__1
+            // InternalDim.g:12878:1: ( rule__DQualifiedNameWithWildcard__Group__0__Impl rule__DQualifiedNameWithWildcard__Group__1 )
+            // InternalDim.g:12879:2: rule__DQualifiedNameWithWildcard__Group__0__Impl rule__DQualifiedNameWithWildcard__Group__1
             {
-            pushFollow(FOLLOW_99);
+            pushFollow(FOLLOW_102);
             rule__DQualifiedNameWithWildcard__Group__0__Impl();
 
             state._fsp--;
@@ -42773,17 +43311,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedNameWithWildcard__Group__0__Impl"
-    // InternalDim.g:12717:1: rule__DQualifiedNameWithWildcard__Group__0__Impl : ( ruleDQualifiedName ) ;
+    // InternalDim.g:12886:1: rule__DQualifiedNameWithWildcard__Group__0__Impl : ( ruleDQualifiedName ) ;
     public final void rule__DQualifiedNameWithWildcard__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12721:1: ( ( ruleDQualifiedName ) )
-            // InternalDim.g:12722:1: ( ruleDQualifiedName )
+            // InternalDim.g:12890:1: ( ( ruleDQualifiedName ) )
+            // InternalDim.g:12891:1: ( ruleDQualifiedName )
             {
-            // InternalDim.g:12722:1: ( ruleDQualifiedName )
-            // InternalDim.g:12723:2: ruleDQualifiedName
+            // InternalDim.g:12891:1: ( ruleDQualifiedName )
+            // InternalDim.g:12892:2: ruleDQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQualifiedNameWithWildcardAccess().getDQualifiedNameParserRuleCall_0()); 
@@ -42818,14 +43356,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedNameWithWildcard__Group__1"
-    // InternalDim.g:12732:1: rule__DQualifiedNameWithWildcard__Group__1 : rule__DQualifiedNameWithWildcard__Group__1__Impl ;
+    // InternalDim.g:12901:1: rule__DQualifiedNameWithWildcard__Group__1 : rule__DQualifiedNameWithWildcard__Group__1__Impl ;
     public final void rule__DQualifiedNameWithWildcard__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12736:1: ( rule__DQualifiedNameWithWildcard__Group__1__Impl )
-            // InternalDim.g:12737:2: rule__DQualifiedNameWithWildcard__Group__1__Impl
+            // InternalDim.g:12905:1: ( rule__DQualifiedNameWithWildcard__Group__1__Impl )
+            // InternalDim.g:12906:2: rule__DQualifiedNameWithWildcard__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DQualifiedNameWithWildcard__Group__1__Impl();
@@ -42851,33 +43389,33 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedNameWithWildcard__Group__1__Impl"
-    // InternalDim.g:12743:1: rule__DQualifiedNameWithWildcard__Group__1__Impl : ( ( '.*' )? ) ;
+    // InternalDim.g:12912:1: rule__DQualifiedNameWithWildcard__Group__1__Impl : ( ( '.*' )? ) ;
     public final void rule__DQualifiedNameWithWildcard__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12747:1: ( ( ( '.*' )? ) )
-            // InternalDim.g:12748:1: ( ( '.*' )? )
+            // InternalDim.g:12916:1: ( ( ( '.*' )? ) )
+            // InternalDim.g:12917:1: ( ( '.*' )? )
             {
-            // InternalDim.g:12748:1: ( ( '.*' )? )
-            // InternalDim.g:12749:2: ( '.*' )?
+            // InternalDim.g:12917:1: ( ( '.*' )? )
+            // InternalDim.g:12918:2: ( '.*' )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQualifiedNameWithWildcardAccess().getFullStopAsteriskKeyword_1()); 
             }
-            // InternalDim.g:12750:2: ( '.*' )?
+            // InternalDim.g:12919:2: ( '.*' )?
             int alt120=2;
             int LA120_0 = input.LA(1);
 
-            if ( (LA120_0==116) ) {
+            if ( (LA120_0==117) ) {
                 alt120=1;
             }
             switch (alt120) {
                 case 1 :
-                    // InternalDim.g:12750:3: '.*'
+                    // InternalDim.g:12919:3: '.*'
                     {
-                    match(input,116,FOLLOW_2); if (state.failed) return ;
+                    match(input,117,FOLLOW_2); if (state.failed) return ;
 
                     }
                     break;
@@ -42909,16 +43447,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedName__Group__0"
-    // InternalDim.g:12759:1: rule__DQualifiedName__Group__0 : rule__DQualifiedName__Group__0__Impl rule__DQualifiedName__Group__1 ;
+    // InternalDim.g:12928:1: rule__DQualifiedName__Group__0 : rule__DQualifiedName__Group__0__Impl rule__DQualifiedName__Group__1 ;
     public final void rule__DQualifiedName__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12763:1: ( rule__DQualifiedName__Group__0__Impl rule__DQualifiedName__Group__1 )
-            // InternalDim.g:12764:2: rule__DQualifiedName__Group__0__Impl rule__DQualifiedName__Group__1
+            // InternalDim.g:12932:1: ( rule__DQualifiedName__Group__0__Impl rule__DQualifiedName__Group__1 )
+            // InternalDim.g:12933:2: rule__DQualifiedName__Group__0__Impl rule__DQualifiedName__Group__1
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_55);
             rule__DQualifiedName__Group__0__Impl();
 
             state._fsp--;
@@ -42947,17 +43485,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedName__Group__0__Impl"
-    // InternalDim.g:12771:1: rule__DQualifiedName__Group__0__Impl : ( RULE_ID ) ;
+    // InternalDim.g:12940:1: rule__DQualifiedName__Group__0__Impl : ( RULE_ID ) ;
     public final void rule__DQualifiedName__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12775:1: ( ( RULE_ID ) )
-            // InternalDim.g:12776:1: ( RULE_ID )
+            // InternalDim.g:12944:1: ( ( RULE_ID ) )
+            // InternalDim.g:12945:1: ( RULE_ID )
             {
-            // InternalDim.g:12776:1: ( RULE_ID )
-            // InternalDim.g:12777:2: RULE_ID
+            // InternalDim.g:12945:1: ( RULE_ID )
+            // InternalDim.g:12946:2: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQualifiedNameAccess().getIDTerminalRuleCall_0()); 
@@ -42988,14 +43526,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedName__Group__1"
-    // InternalDim.g:12786:1: rule__DQualifiedName__Group__1 : rule__DQualifiedName__Group__1__Impl ;
+    // InternalDim.g:12955:1: rule__DQualifiedName__Group__1 : rule__DQualifiedName__Group__1__Impl ;
     public final void rule__DQualifiedName__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12790:1: ( rule__DQualifiedName__Group__1__Impl )
-            // InternalDim.g:12791:2: rule__DQualifiedName__Group__1__Impl
+            // InternalDim.g:12959:1: ( rule__DQualifiedName__Group__1__Impl )
+            // InternalDim.g:12960:2: rule__DQualifiedName__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DQualifiedName__Group__1__Impl();
@@ -43021,37 +43559,37 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedName__Group__1__Impl"
-    // InternalDim.g:12797:1: rule__DQualifiedName__Group__1__Impl : ( ( rule__DQualifiedName__Group_1__0 )* ) ;
+    // InternalDim.g:12966:1: rule__DQualifiedName__Group__1__Impl : ( ( rule__DQualifiedName__Group_1__0 )* ) ;
     public final void rule__DQualifiedName__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12801:1: ( ( ( rule__DQualifiedName__Group_1__0 )* ) )
-            // InternalDim.g:12802:1: ( ( rule__DQualifiedName__Group_1__0 )* )
+            // InternalDim.g:12970:1: ( ( ( rule__DQualifiedName__Group_1__0 )* ) )
+            // InternalDim.g:12971:1: ( ( rule__DQualifiedName__Group_1__0 )* )
             {
-            // InternalDim.g:12802:1: ( ( rule__DQualifiedName__Group_1__0 )* )
-            // InternalDim.g:12803:2: ( rule__DQualifiedName__Group_1__0 )*
+            // InternalDim.g:12971:1: ( ( rule__DQualifiedName__Group_1__0 )* )
+            // InternalDim.g:12972:2: ( rule__DQualifiedName__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQualifiedNameAccess().getGroup_1()); 
             }
-            // InternalDim.g:12804:2: ( rule__DQualifiedName__Group_1__0 )*
+            // InternalDim.g:12973:2: ( rule__DQualifiedName__Group_1__0 )*
             loop121:
             do {
                 int alt121=2;
                 int LA121_0 = input.LA(1);
 
-                if ( (LA121_0==105) ) {
+                if ( (LA121_0==106) ) {
                     alt121=1;
                 }
 
 
                 switch (alt121) {
             	case 1 :
-            	    // InternalDim.g:12804:3: rule__DQualifiedName__Group_1__0
+            	    // InternalDim.g:12973:3: rule__DQualifiedName__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_52);
+            	    pushFollow(FOLLOW_56);
             	    rule__DQualifiedName__Group_1__0();
 
             	    state._fsp--;
@@ -43090,14 +43628,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedName__Group_1__0"
-    // InternalDim.g:12813:1: rule__DQualifiedName__Group_1__0 : rule__DQualifiedName__Group_1__0__Impl rule__DQualifiedName__Group_1__1 ;
+    // InternalDim.g:12982:1: rule__DQualifiedName__Group_1__0 : rule__DQualifiedName__Group_1__0__Impl rule__DQualifiedName__Group_1__1 ;
     public final void rule__DQualifiedName__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12817:1: ( rule__DQualifiedName__Group_1__0__Impl rule__DQualifiedName__Group_1__1 )
-            // InternalDim.g:12818:2: rule__DQualifiedName__Group_1__0__Impl rule__DQualifiedName__Group_1__1
+            // InternalDim.g:12986:1: ( rule__DQualifiedName__Group_1__0__Impl rule__DQualifiedName__Group_1__1 )
+            // InternalDim.g:12987:2: rule__DQualifiedName__Group_1__0__Impl rule__DQualifiedName__Group_1__1
             {
             pushFollow(FOLLOW_5);
             rule__DQualifiedName__Group_1__0__Impl();
@@ -43128,22 +43666,22 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedName__Group_1__0__Impl"
-    // InternalDim.g:12825:1: rule__DQualifiedName__Group_1__0__Impl : ( '.' ) ;
+    // InternalDim.g:12994:1: rule__DQualifiedName__Group_1__0__Impl : ( '.' ) ;
     public final void rule__DQualifiedName__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12829:1: ( ( '.' ) )
-            // InternalDim.g:12830:1: ( '.' )
+            // InternalDim.g:12998:1: ( ( '.' ) )
+            // InternalDim.g:12999:1: ( '.' )
             {
-            // InternalDim.g:12830:1: ( '.' )
-            // InternalDim.g:12831:2: '.'
+            // InternalDim.g:12999:1: ( '.' )
+            // InternalDim.g:13000:2: '.'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQualifiedNameAccess().getFullStopKeyword_1_0()); 
             }
-            match(input,105,FOLLOW_2); if (state.failed) return ;
+            match(input,106,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDQualifiedNameAccess().getFullStopKeyword_1_0()); 
             }
@@ -43169,14 +43707,14 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedName__Group_1__1"
-    // InternalDim.g:12840:1: rule__DQualifiedName__Group_1__1 : rule__DQualifiedName__Group_1__1__Impl ;
+    // InternalDim.g:13009:1: rule__DQualifiedName__Group_1__1 : rule__DQualifiedName__Group_1__1__Impl ;
     public final void rule__DQualifiedName__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12844:1: ( rule__DQualifiedName__Group_1__1__Impl )
-            // InternalDim.g:12845:2: rule__DQualifiedName__Group_1__1__Impl
+            // InternalDim.g:13013:1: ( rule__DQualifiedName__Group_1__1__Impl )
+            // InternalDim.g:13014:2: rule__DQualifiedName__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DQualifiedName__Group_1__1__Impl();
@@ -43202,17 +43740,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedName__Group_1__1__Impl"
-    // InternalDim.g:12851:1: rule__DQualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
+    // InternalDim.g:13020:1: rule__DQualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
     public final void rule__DQualifiedName__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12855:1: ( ( RULE_ID ) )
-            // InternalDim.g:12856:1: ( RULE_ID )
+            // InternalDim.g:13024:1: ( ( RULE_ID ) )
+            // InternalDim.g:13025:1: ( RULE_ID )
             {
-            // InternalDim.g:12856:1: ( RULE_ID )
-            // InternalDim.g:12857:2: RULE_ID
+            // InternalDim.g:13025:1: ( RULE_ID )
+            // InternalDim.g:13026:2: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
@@ -43243,17 +43781,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DDomain__ImportsAssignment_0"
-    // InternalDim.g:12867:1: rule__DDomain__ImportsAssignment_0 : ( ruleDImport ) ;
+    // InternalDim.g:13036:1: rule__DDomain__ImportsAssignment_0 : ( ruleDImport ) ;
     public final void rule__DDomain__ImportsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12871:1: ( ( ruleDImport ) )
-            // InternalDim.g:12872:2: ( ruleDImport )
+            // InternalDim.g:13040:1: ( ( ruleDImport ) )
+            // InternalDim.g:13041:2: ( ruleDImport )
             {
-            // InternalDim.g:12872:2: ( ruleDImport )
-            // InternalDim.g:12873:3: ruleDImport
+            // InternalDim.g:13041:2: ( ruleDImport )
+            // InternalDim.g:13042:3: ruleDImport
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDDomainAccess().getImportsDImportParserRuleCall_0_0()); 
@@ -43288,17 +43826,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DDomain__NameAssignment_2"
-    // InternalDim.g:12882:1: rule__DDomain__NameAssignment_2 : ( ruleDQualifiedName ) ;
+    // InternalDim.g:13051:1: rule__DDomain__NameAssignment_2 : ( ruleDQualifiedName ) ;
     public final void rule__DDomain__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12886:1: ( ( ruleDQualifiedName ) )
-            // InternalDim.g:12887:2: ( ruleDQualifiedName )
+            // InternalDim.g:13055:1: ( ( ruleDQualifiedName ) )
+            // InternalDim.g:13056:2: ( ruleDQualifiedName )
             {
-            // InternalDim.g:12887:2: ( ruleDQualifiedName )
-            // InternalDim.g:12888:3: ruleDQualifiedName
+            // InternalDim.g:13056:2: ( ruleDQualifiedName )
+            // InternalDim.g:13057:3: ruleDQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDDomainAccess().getNameDQualifiedNameParserRuleCall_2_0()); 
@@ -43333,17 +43871,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DDomain__AliasesAssignment_3_1"
-    // InternalDim.g:12897:1: rule__DDomain__AliasesAssignment_3_1 : ( RULE_ID ) ;
+    // InternalDim.g:13066:1: rule__DDomain__AliasesAssignment_3_1 : ( RULE_ID ) ;
     public final void rule__DDomain__AliasesAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12901:1: ( ( RULE_ID ) )
-            // InternalDim.g:12902:2: ( RULE_ID )
+            // InternalDim.g:13070:1: ( ( RULE_ID ) )
+            // InternalDim.g:13071:2: ( RULE_ID )
             {
-            // InternalDim.g:12902:2: ( RULE_ID )
-            // InternalDim.g:12903:3: RULE_ID
+            // InternalDim.g:13071:2: ( RULE_ID )
+            // InternalDim.g:13072:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDDomainAccess().getAliasesIDTerminalRuleCall_3_1_0()); 
@@ -43374,17 +43912,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DDomain__DescriptionAssignment_4"
-    // InternalDim.g:12912:1: rule__DDomain__DescriptionAssignment_4 : ( ruleDRichText ) ;
+    // InternalDim.g:13081:1: rule__DDomain__DescriptionAssignment_4 : ( ruleDRichText ) ;
     public final void rule__DDomain__DescriptionAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12916:1: ( ( ruleDRichText ) )
-            // InternalDim.g:12917:2: ( ruleDRichText )
+            // InternalDim.g:13085:1: ( ( ruleDRichText ) )
+            // InternalDim.g:13086:2: ( ruleDRichText )
             {
-            // InternalDim.g:12917:2: ( ruleDRichText )
-            // InternalDim.g:12918:3: ruleDRichText
+            // InternalDim.g:13086:2: ( ruleDRichText )
+            // InternalDim.g:13087:3: ruleDRichText
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDDomainAccess().getDescriptionDRichTextParserRuleCall_4_0()); 
@@ -43419,17 +43957,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DDomain__TypesAssignment_5_0"
-    // InternalDim.g:12927:1: rule__DDomain__TypesAssignment_5_0 : ( ruleDType ) ;
+    // InternalDim.g:13096:1: rule__DDomain__TypesAssignment_5_0 : ( ruleDType ) ;
     public final void rule__DDomain__TypesAssignment_5_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12931:1: ( ( ruleDType ) )
-            // InternalDim.g:12932:2: ( ruleDType )
+            // InternalDim.g:13100:1: ( ( ruleDType ) )
+            // InternalDim.g:13101:2: ( ruleDType )
             {
-            // InternalDim.g:12932:2: ( ruleDType )
-            // InternalDim.g:12933:3: ruleDType
+            // InternalDim.g:13101:2: ( ruleDType )
+            // InternalDim.g:13102:3: ruleDType
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDDomainAccess().getTypesDTypeParserRuleCall_5_0_0()); 
@@ -43464,17 +44002,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DDomain__AggregatesAssignment_5_1"
-    // InternalDim.g:12942:1: rule__DDomain__AggregatesAssignment_5_1 : ( ruleDAggregate ) ;
+    // InternalDim.g:13111:1: rule__DDomain__AggregatesAssignment_5_1 : ( ruleDAggregate ) ;
     public final void rule__DDomain__AggregatesAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12946:1: ( ( ruleDAggregate ) )
-            // InternalDim.g:12947:2: ( ruleDAggregate )
+            // InternalDim.g:13115:1: ( ( ruleDAggregate ) )
+            // InternalDim.g:13116:2: ( ruleDAggregate )
             {
-            // InternalDim.g:12947:2: ( ruleDAggregate )
-            // InternalDim.g:12948:3: ruleDAggregate
+            // InternalDim.g:13116:2: ( ruleDAggregate )
+            // InternalDim.g:13117:3: ruleDAggregate
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDDomainAccess().getAggregatesDAggregateParserRuleCall_5_1_0()); 
@@ -43509,17 +44047,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAggregate__NameAssignment_2"
-    // InternalDim.g:12957:1: rule__DAggregate__NameAssignment_2 : ( RULE_ID ) ;
+    // InternalDim.g:13126:1: rule__DAggregate__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__DAggregate__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12961:1: ( ( RULE_ID ) )
-            // InternalDim.g:12962:2: ( RULE_ID )
+            // InternalDim.g:13130:1: ( ( RULE_ID ) )
+            // InternalDim.g:13131:2: ( RULE_ID )
             {
-            // InternalDim.g:12962:2: ( RULE_ID )
-            // InternalDim.g:12963:3: RULE_ID
+            // InternalDim.g:13131:2: ( RULE_ID )
+            // InternalDim.g:13132:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAggregateAccess().getNameIDTerminalRuleCall_2_0()); 
@@ -43550,17 +44088,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAggregate__DescriptionAssignment_3"
-    // InternalDim.g:12972:1: rule__DAggregate__DescriptionAssignment_3 : ( ruleDRichText ) ;
+    // InternalDim.g:13141:1: rule__DAggregate__DescriptionAssignment_3 : ( ruleDRichText ) ;
     public final void rule__DAggregate__DescriptionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12976:1: ( ( ruleDRichText ) )
-            // InternalDim.g:12977:2: ( ruleDRichText )
+            // InternalDim.g:13145:1: ( ( ruleDRichText ) )
+            // InternalDim.g:13146:2: ( ruleDRichText )
             {
-            // InternalDim.g:12977:2: ( ruleDRichText )
-            // InternalDim.g:12978:3: ruleDRichText
+            // InternalDim.g:13146:2: ( ruleDRichText )
+            // InternalDim.g:13147:3: ruleDRichText
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAggregateAccess().getDescriptionDRichTextParserRuleCall_3_0()); 
@@ -43595,17 +44133,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAggregate__StaticQueriesAssignment_5_1"
-    // InternalDim.g:12987:1: rule__DAggregate__StaticQueriesAssignment_5_1 : ( ruleDQuery ) ;
+    // InternalDim.g:13156:1: rule__DAggregate__StaticQueriesAssignment_5_1 : ( ruleDQuery ) ;
     public final void rule__DAggregate__StaticQueriesAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:12991:1: ( ( ruleDQuery ) )
-            // InternalDim.g:12992:2: ( ruleDQuery )
+            // InternalDim.g:13160:1: ( ( ruleDQuery ) )
+            // InternalDim.g:13161:2: ( ruleDQuery )
             {
-            // InternalDim.g:12992:2: ( ruleDQuery )
-            // InternalDim.g:12993:3: ruleDQuery
+            // InternalDim.g:13161:2: ( ruleDQuery )
+            // InternalDim.g:13162:3: ruleDQuery
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAggregateAccess().getStaticQueriesDQueryParserRuleCall_5_1_0()); 
@@ -43640,17 +44178,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAggregate__TypesAssignment_6"
-    // InternalDim.g:13002:1: rule__DAggregate__TypesAssignment_6 : ( ruleDType ) ;
+    // InternalDim.g:13171:1: rule__DAggregate__TypesAssignment_6 : ( ruleDType ) ;
     public final void rule__DAggregate__TypesAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13006:1: ( ( ruleDType ) )
-            // InternalDim.g:13007:2: ( ruleDType )
+            // InternalDim.g:13175:1: ( ( ruleDType ) )
+            // InternalDim.g:13176:2: ( ruleDType )
             {
-            // InternalDim.g:13007:2: ( ruleDType )
-            // InternalDim.g:13008:3: ruleDType
+            // InternalDim.g:13176:2: ( ruleDType )
+            // InternalDim.g:13177:3: ruleDType
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAggregateAccess().getTypesDTypeParserRuleCall_6_0()); 
@@ -43685,17 +44223,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DConstraint__NameAssignment_1"
-    // InternalDim.g:13017:1: rule__DConstraint__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalDim.g:13186:1: rule__DConstraint__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__DConstraint__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13021:1: ( ( RULE_ID ) )
-            // InternalDim.g:13022:2: ( RULE_ID )
+            // InternalDim.g:13190:1: ( ( RULE_ID ) )
+            // InternalDim.g:13191:2: ( RULE_ID )
             {
-            // InternalDim.g:13022:2: ( RULE_ID )
-            // InternalDim.g:13023:3: RULE_ID
+            // InternalDim.g:13191:2: ( RULE_ID )
+            // InternalDim.g:13192:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDConstraintAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -43726,17 +44264,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DConstraint__AliasesAssignment_2_1"
-    // InternalDim.g:13032:1: rule__DConstraint__AliasesAssignment_2_1 : ( RULE_ID ) ;
+    // InternalDim.g:13201:1: rule__DConstraint__AliasesAssignment_2_1 : ( RULE_ID ) ;
     public final void rule__DConstraint__AliasesAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13036:1: ( ( RULE_ID ) )
-            // InternalDim.g:13037:2: ( RULE_ID )
+            // InternalDim.g:13205:1: ( ( RULE_ID ) )
+            // InternalDim.g:13206:2: ( RULE_ID )
             {
-            // InternalDim.g:13037:2: ( RULE_ID )
-            // InternalDim.g:13038:3: RULE_ID
+            // InternalDim.g:13206:2: ( RULE_ID )
+            // InternalDim.g:13207:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDConstraintAccess().getAliasesIDTerminalRuleCall_2_1_0()); 
@@ -43767,17 +44305,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DConstraint__PredicateAssignment_4"
-    // InternalDim.g:13047:1: rule__DConstraint__PredicateAssignment_4 : ( ruleDExpression ) ;
+    // InternalDim.g:13216:1: rule__DConstraint__PredicateAssignment_4 : ( ruleDExpression ) ;
     public final void rule__DConstraint__PredicateAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13051:1: ( ( ruleDExpression ) )
-            // InternalDim.g:13052:2: ( ruleDExpression )
+            // InternalDim.g:13220:1: ( ( ruleDExpression ) )
+            // InternalDim.g:13221:2: ( ruleDExpression )
             {
-            // InternalDim.g:13052:2: ( ruleDExpression )
-            // InternalDim.g:13053:3: ruleDExpression
+            // InternalDim.g:13221:2: ( ruleDExpression )
+            // InternalDim.g:13222:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDConstraintAccess().getPredicateDExpressionParserRuleCall_4_0()); 
@@ -43812,17 +44350,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DConstraint__DescriptionAssignment_5"
-    // InternalDim.g:13062:1: rule__DConstraint__DescriptionAssignment_5 : ( ruleDRichText ) ;
+    // InternalDim.g:13231:1: rule__DConstraint__DescriptionAssignment_5 : ( ruleDRichText ) ;
     public final void rule__DConstraint__DescriptionAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13066:1: ( ( ruleDRichText ) )
-            // InternalDim.g:13067:2: ( ruleDRichText )
+            // InternalDim.g:13235:1: ( ( ruleDRichText ) )
+            // InternalDim.g:13236:2: ( ruleDRichText )
             {
-            // InternalDim.g:13067:2: ( ruleDRichText )
-            // InternalDim.g:13068:3: ruleDRichText
+            // InternalDim.g:13236:2: ( ruleDRichText )
+            // InternalDim.g:13237:3: ruleDRichText
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDConstraintAccess().getDescriptionDRichTextParserRuleCall_5_0()); 
@@ -43857,17 +44395,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DPrimitive__NameAssignment_1"
-    // InternalDim.g:13077:1: rule__DPrimitive__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalDim.g:13246:1: rule__DPrimitive__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__DPrimitive__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13081:1: ( ( RULE_ID ) )
-            // InternalDim.g:13082:2: ( RULE_ID )
+            // InternalDim.g:13250:1: ( ( RULE_ID ) )
+            // InternalDim.g:13251:2: ( RULE_ID )
             {
-            // InternalDim.g:13082:2: ( RULE_ID )
-            // InternalDim.g:13083:3: RULE_ID
+            // InternalDim.g:13251:2: ( RULE_ID )
+            // InternalDim.g:13252:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDPrimitiveAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -43898,17 +44436,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DPrimitive__AliasesAssignment_2_1"
-    // InternalDim.g:13092:1: rule__DPrimitive__AliasesAssignment_2_1 : ( RULE_ID ) ;
+    // InternalDim.g:13261:1: rule__DPrimitive__AliasesAssignment_2_1 : ( RULE_ID ) ;
     public final void rule__DPrimitive__AliasesAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13096:1: ( ( RULE_ID ) )
-            // InternalDim.g:13097:2: ( RULE_ID )
+            // InternalDim.g:13265:1: ( ( RULE_ID ) )
+            // InternalDim.g:13266:2: ( RULE_ID )
             {
-            // InternalDim.g:13097:2: ( RULE_ID )
-            // InternalDim.g:13098:3: RULE_ID
+            // InternalDim.g:13266:2: ( RULE_ID )
+            // InternalDim.g:13267:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDPrimitiveAccess().getAliasesIDTerminalRuleCall_2_1_0()); 
@@ -43939,23 +44477,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DPrimitive__RedefinesAssignment_4"
-    // InternalDim.g:13107:1: rule__DPrimitive__RedefinesAssignment_4 : ( ( RULE_ID ) ) ;
+    // InternalDim.g:13276:1: rule__DPrimitive__RedefinesAssignment_4 : ( ( RULE_ID ) ) ;
     public final void rule__DPrimitive__RedefinesAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13111:1: ( ( ( RULE_ID ) ) )
-            // InternalDim.g:13112:2: ( ( RULE_ID ) )
+            // InternalDim.g:13280:1: ( ( ( RULE_ID ) ) )
+            // InternalDim.g:13281:2: ( ( RULE_ID ) )
             {
-            // InternalDim.g:13112:2: ( ( RULE_ID ) )
-            // InternalDim.g:13113:3: ( RULE_ID )
+            // InternalDim.g:13281:2: ( ( RULE_ID ) )
+            // InternalDim.g:13282:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDPrimitiveAccess().getRedefinesDmxArchetypeCrossReference_4_0()); 
             }
-            // InternalDim.g:13114:3: ( RULE_ID )
-            // InternalDim.g:13115:4: RULE_ID
+            // InternalDim.g:13283:3: ( RULE_ID )
+            // InternalDim.g:13284:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDPrimitiveAccess().getRedefinesDmxArchetypeIDTerminalRuleCall_4_0_1()); 
@@ -43992,17 +44530,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DPrimitive__DescriptionAssignment_5"
-    // InternalDim.g:13126:1: rule__DPrimitive__DescriptionAssignment_5 : ( ruleDRichText ) ;
+    // InternalDim.g:13295:1: rule__DPrimitive__DescriptionAssignment_5 : ( ruleDRichText ) ;
     public final void rule__DPrimitive__DescriptionAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13130:1: ( ( ruleDRichText ) )
-            // InternalDim.g:13131:2: ( ruleDRichText )
+            // InternalDim.g:13299:1: ( ( ruleDRichText ) )
+            // InternalDim.g:13300:2: ( ruleDRichText )
             {
-            // InternalDim.g:13131:2: ( ruleDRichText )
-            // InternalDim.g:13132:3: ruleDRichText
+            // InternalDim.g:13300:2: ( ruleDRichText )
+            // InternalDim.g:13301:3: ruleDRichText
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDPrimitiveAccess().getDescriptionDRichTextParserRuleCall_5_0()); 
@@ -44037,17 +44575,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DPrimitive__ConstraintsAssignment_6_1"
-    // InternalDim.g:13141:1: rule__DPrimitive__ConstraintsAssignment_6_1 : ( ruleDConstraint ) ;
+    // InternalDim.g:13310:1: rule__DPrimitive__ConstraintsAssignment_6_1 : ( ruleDConstraint ) ;
     public final void rule__DPrimitive__ConstraintsAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13145:1: ( ( ruleDConstraint ) )
-            // InternalDim.g:13146:2: ( ruleDConstraint )
+            // InternalDim.g:13314:1: ( ( ruleDConstraint ) )
+            // InternalDim.g:13315:2: ( ruleDConstraint )
             {
-            // InternalDim.g:13146:2: ( ruleDConstraint )
-            // InternalDim.g:13147:3: ruleDConstraint
+            // InternalDim.g:13315:2: ( ruleDConstraint )
+            // InternalDim.g:13316:3: ruleDConstraint
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDPrimitiveAccess().getConstraintsDConstraintParserRuleCall_6_1_0()); 
@@ -44082,17 +44620,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DEnumeration__NameAssignment_1"
-    // InternalDim.g:13156:1: rule__DEnumeration__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalDim.g:13325:1: rule__DEnumeration__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__DEnumeration__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13160:1: ( ( RULE_ID ) )
-            // InternalDim.g:13161:2: ( RULE_ID )
+            // InternalDim.g:13329:1: ( ( RULE_ID ) )
+            // InternalDim.g:13330:2: ( RULE_ID )
             {
-            // InternalDim.g:13161:2: ( RULE_ID )
-            // InternalDim.g:13162:3: RULE_ID
+            // InternalDim.g:13330:2: ( RULE_ID )
+            // InternalDim.g:13331:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDEnumerationAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -44123,17 +44661,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DEnumeration__AliasesAssignment_2_1"
-    // InternalDim.g:13171:1: rule__DEnumeration__AliasesAssignment_2_1 : ( RULE_ID ) ;
+    // InternalDim.g:13340:1: rule__DEnumeration__AliasesAssignment_2_1 : ( RULE_ID ) ;
     public final void rule__DEnumeration__AliasesAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13175:1: ( ( RULE_ID ) )
-            // InternalDim.g:13176:2: ( RULE_ID )
+            // InternalDim.g:13344:1: ( ( RULE_ID ) )
+            // InternalDim.g:13345:2: ( RULE_ID )
             {
-            // InternalDim.g:13176:2: ( RULE_ID )
-            // InternalDim.g:13177:3: RULE_ID
+            // InternalDim.g:13345:2: ( RULE_ID )
+            // InternalDim.g:13346:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDEnumerationAccess().getAliasesIDTerminalRuleCall_2_1_0()); 
@@ -44164,17 +44702,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DEnumeration__DescriptionAssignment_3"
-    // InternalDim.g:13186:1: rule__DEnumeration__DescriptionAssignment_3 : ( ruleDRichText ) ;
+    // InternalDim.g:13355:1: rule__DEnumeration__DescriptionAssignment_3 : ( ruleDRichText ) ;
     public final void rule__DEnumeration__DescriptionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13190:1: ( ( ruleDRichText ) )
-            // InternalDim.g:13191:2: ( ruleDRichText )
+            // InternalDim.g:13359:1: ( ( ruleDRichText ) )
+            // InternalDim.g:13360:2: ( ruleDRichText )
             {
-            // InternalDim.g:13191:2: ( ruleDRichText )
-            // InternalDim.g:13192:3: ruleDRichText
+            // InternalDim.g:13360:2: ( ruleDRichText )
+            // InternalDim.g:13361:3: ruleDRichText
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDEnumerationAccess().getDescriptionDRichTextParserRuleCall_3_0()); 
@@ -44209,17 +44747,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DEnumeration__LiteralsAssignment_5_0"
-    // InternalDim.g:13201:1: rule__DEnumeration__LiteralsAssignment_5_0 : ( ruleDLiteral ) ;
+    // InternalDim.g:13370:1: rule__DEnumeration__LiteralsAssignment_5_0 : ( ruleDLiteral ) ;
     public final void rule__DEnumeration__LiteralsAssignment_5_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13205:1: ( ( ruleDLiteral ) )
-            // InternalDim.g:13206:2: ( ruleDLiteral )
+            // InternalDim.g:13374:1: ( ( ruleDLiteral ) )
+            // InternalDim.g:13375:2: ( ruleDLiteral )
             {
-            // InternalDim.g:13206:2: ( ruleDLiteral )
-            // InternalDim.g:13207:3: ruleDLiteral
+            // InternalDim.g:13375:2: ( ruleDLiteral )
+            // InternalDim.g:13376:3: ruleDLiteral
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDEnumerationAccess().getLiteralsDLiteralParserRuleCall_5_0_0()); 
@@ -44254,17 +44792,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DEnumeration__LiteralsAssignment_5_1_1"
-    // InternalDim.g:13216:1: rule__DEnumeration__LiteralsAssignment_5_1_1 : ( ruleDLiteral ) ;
+    // InternalDim.g:13385:1: rule__DEnumeration__LiteralsAssignment_5_1_1 : ( ruleDLiteral ) ;
     public final void rule__DEnumeration__LiteralsAssignment_5_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13220:1: ( ( ruleDLiteral ) )
-            // InternalDim.g:13221:2: ( ruleDLiteral )
+            // InternalDim.g:13389:1: ( ( ruleDLiteral ) )
+            // InternalDim.g:13390:2: ( ruleDLiteral )
             {
-            // InternalDim.g:13221:2: ( ruleDLiteral )
-            // InternalDim.g:13222:3: ruleDLiteral
+            // InternalDim.g:13390:2: ( ruleDLiteral )
+            // InternalDim.g:13391:3: ruleDLiteral
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDEnumerationAccess().getLiteralsDLiteralParserRuleCall_5_1_1_0()); 
@@ -44299,17 +44837,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DEnumeration__ConstraintsAssignment_6"
-    // InternalDim.g:13231:1: rule__DEnumeration__ConstraintsAssignment_6 : ( ruleDConstraint ) ;
+    // InternalDim.g:13400:1: rule__DEnumeration__ConstraintsAssignment_6 : ( ruleDConstraint ) ;
     public final void rule__DEnumeration__ConstraintsAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13235:1: ( ( ruleDConstraint ) )
-            // InternalDim.g:13236:2: ( ruleDConstraint )
+            // InternalDim.g:13404:1: ( ( ruleDConstraint ) )
+            // InternalDim.g:13405:2: ( ruleDConstraint )
             {
-            // InternalDim.g:13236:2: ( ruleDConstraint )
-            // InternalDim.g:13237:3: ruleDConstraint
+            // InternalDim.g:13405:2: ( ruleDConstraint )
+            // InternalDim.g:13406:3: ruleDConstraint
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDEnumerationAccess().getConstraintsDConstraintParserRuleCall_6_0()); 
@@ -44344,17 +44882,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DLiteral__NameAssignment_0"
-    // InternalDim.g:13246:1: rule__DLiteral__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalDim.g:13415:1: rule__DLiteral__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__DLiteral__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13250:1: ( ( RULE_ID ) )
-            // InternalDim.g:13251:2: ( RULE_ID )
+            // InternalDim.g:13419:1: ( ( RULE_ID ) )
+            // InternalDim.g:13420:2: ( RULE_ID )
             {
-            // InternalDim.g:13251:2: ( RULE_ID )
-            // InternalDim.g:13252:3: RULE_ID
+            // InternalDim.g:13420:2: ( RULE_ID )
+            // InternalDim.g:13421:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDLiteralAccess().getNameIDTerminalRuleCall_0_0()); 
@@ -44385,17 +44923,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DLiteral__AliasesAssignment_1_1"
-    // InternalDim.g:13261:1: rule__DLiteral__AliasesAssignment_1_1 : ( RULE_ID ) ;
+    // InternalDim.g:13430:1: rule__DLiteral__AliasesAssignment_1_1 : ( RULE_ID ) ;
     public final void rule__DLiteral__AliasesAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13265:1: ( ( RULE_ID ) )
-            // InternalDim.g:13266:2: ( RULE_ID )
+            // InternalDim.g:13434:1: ( ( RULE_ID ) )
+            // InternalDim.g:13435:2: ( RULE_ID )
             {
-            // InternalDim.g:13266:2: ( RULE_ID )
-            // InternalDim.g:13267:3: RULE_ID
+            // InternalDim.g:13435:2: ( RULE_ID )
+            // InternalDim.g:13436:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDLiteralAccess().getAliasesIDTerminalRuleCall_1_1_0()); 
@@ -44426,17 +44964,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DLiteral__DescriptionAssignment_2"
-    // InternalDim.g:13276:1: rule__DLiteral__DescriptionAssignment_2 : ( ruleDRichText ) ;
+    // InternalDim.g:13445:1: rule__DLiteral__DescriptionAssignment_2 : ( ruleDRichText ) ;
     public final void rule__DLiteral__DescriptionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13280:1: ( ( ruleDRichText ) )
-            // InternalDim.g:13281:2: ( ruleDRichText )
+            // InternalDim.g:13449:1: ( ( ruleDRichText ) )
+            // InternalDim.g:13450:2: ( ruleDRichText )
             {
-            // InternalDim.g:13281:2: ( ruleDRichText )
-            // InternalDim.g:13282:3: ruleDRichText
+            // InternalDim.g:13450:2: ( ruleDRichText )
+            // InternalDim.g:13451:3: ruleDRichText
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDLiteralAccess().getDescriptionDRichTextParserRuleCall_2_0()); 
@@ -44471,28 +45009,28 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DEntityType__AbstractAssignment_0"
-    // InternalDim.g:13291:1: rule__DEntityType__AbstractAssignment_0 : ( ( 'abstract' ) ) ;
+    // InternalDim.g:13460:1: rule__DEntityType__AbstractAssignment_0 : ( ( 'abstract' ) ) ;
     public final void rule__DEntityType__AbstractAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13295:1: ( ( ( 'abstract' ) ) )
-            // InternalDim.g:13296:2: ( ( 'abstract' ) )
+            // InternalDim.g:13464:1: ( ( ( 'abstract' ) ) )
+            // InternalDim.g:13465:2: ( ( 'abstract' ) )
             {
-            // InternalDim.g:13296:2: ( ( 'abstract' ) )
-            // InternalDim.g:13297:3: ( 'abstract' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDEntityTypeAccess().getAbstractAbstractKeyword_0_0()); 
-            }
-            // InternalDim.g:13298:3: ( 'abstract' )
-            // InternalDim.g:13299:4: 'abstract'
+            // InternalDim.g:13465:2: ( ( 'abstract' ) )
+            // InternalDim.g:13466:3: ( 'abstract' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDEntityTypeAccess().getAbstractAbstractKeyword_0_0()); 
             }
-            match(input,117,FOLLOW_2); if (state.failed) return ;
+            // InternalDim.g:13467:3: ( 'abstract' )
+            // InternalDim.g:13468:4: 'abstract'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDEntityTypeAccess().getAbstractAbstractKeyword_0_0()); 
+            }
+            match(input,118,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDEntityTypeAccess().getAbstractAbstractKeyword_0_0()); 
             }
@@ -44524,28 +45062,28 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DEntityType__RootAssignment_1_0_0"
-    // InternalDim.g:13310:1: rule__DEntityType__RootAssignment_1_0_0 : ( ( 'root' ) ) ;
+    // InternalDim.g:13479:1: rule__DEntityType__RootAssignment_1_0_0 : ( ( 'root' ) ) ;
     public final void rule__DEntityType__RootAssignment_1_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13314:1: ( ( ( 'root' ) ) )
-            // InternalDim.g:13315:2: ( ( 'root' ) )
+            // InternalDim.g:13483:1: ( ( ( 'root' ) ) )
+            // InternalDim.g:13484:2: ( ( 'root' ) )
             {
-            // InternalDim.g:13315:2: ( ( 'root' ) )
-            // InternalDim.g:13316:3: ( 'root' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDEntityTypeAccess().getRootRootKeyword_1_0_0_0()); 
-            }
-            // InternalDim.g:13317:3: ( 'root' )
-            // InternalDim.g:13318:4: 'root'
+            // InternalDim.g:13484:2: ( ( 'root' ) )
+            // InternalDim.g:13485:3: ( 'root' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDEntityTypeAccess().getRootRootKeyword_1_0_0_0()); 
             }
-            match(input,118,FOLLOW_2); if (state.failed) return ;
+            // InternalDim.g:13486:3: ( 'root' )
+            // InternalDim.g:13487:4: 'root'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDEntityTypeAccess().getRootRootKeyword_1_0_0_0()); 
+            }
+            match(input,119,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDEntityTypeAccess().getRootRootKeyword_1_0_0_0()); 
             }
@@ -44577,17 +45115,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DEntityType__OriginAssignment_1_0_1"
-    // InternalDim.g:13329:1: rule__DEntityType__OriginAssignment_1_0_1 : ( ruleDEntityOriginGeneric ) ;
+    // InternalDim.g:13498:1: rule__DEntityType__OriginAssignment_1_0_1 : ( ruleDEntityOriginGeneric ) ;
     public final void rule__DEntityType__OriginAssignment_1_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13333:1: ( ( ruleDEntityOriginGeneric ) )
-            // InternalDim.g:13334:2: ( ruleDEntityOriginGeneric )
+            // InternalDim.g:13502:1: ( ( ruleDEntityOriginGeneric ) )
+            // InternalDim.g:13503:2: ( ruleDEntityOriginGeneric )
             {
-            // InternalDim.g:13334:2: ( ruleDEntityOriginGeneric )
-            // InternalDim.g:13335:3: ruleDEntityOriginGeneric
+            // InternalDim.g:13503:2: ( ruleDEntityOriginGeneric )
+            // InternalDim.g:13504:3: ruleDEntityOriginGeneric
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDEntityTypeAccess().getOriginDEntityOriginGenericEnumRuleCall_1_0_1_0()); 
@@ -44622,28 +45160,28 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DEntityType__RootAssignment_1_1_0"
-    // InternalDim.g:13344:1: rule__DEntityType__RootAssignment_1_1_0 : ( ( 'main' ) ) ;
+    // InternalDim.g:13513:1: rule__DEntityType__RootAssignment_1_1_0 : ( ( 'main' ) ) ;
     public final void rule__DEntityType__RootAssignment_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13348:1: ( ( ( 'main' ) ) )
-            // InternalDim.g:13349:2: ( ( 'main' ) )
+            // InternalDim.g:13517:1: ( ( ( 'main' ) ) )
+            // InternalDim.g:13518:2: ( ( 'main' ) )
             {
-            // InternalDim.g:13349:2: ( ( 'main' ) )
-            // InternalDim.g:13350:3: ( 'main' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDEntityTypeAccess().getRootMainKeyword_1_1_0_0()); 
-            }
-            // InternalDim.g:13351:3: ( 'main' )
-            // InternalDim.g:13352:4: 'main'
+            // InternalDim.g:13518:2: ( ( 'main' ) )
+            // InternalDim.g:13519:3: ( 'main' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDEntityTypeAccess().getRootMainKeyword_1_1_0_0()); 
             }
-            match(input,119,FOLLOW_2); if (state.failed) return ;
+            // InternalDim.g:13520:3: ( 'main' )
+            // InternalDim.g:13521:4: 'main'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDEntityTypeAccess().getRootMainKeyword_1_1_0_0()); 
+            }
+            match(input,120,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDEntityTypeAccess().getRootMainKeyword_1_1_0_0()); 
             }
@@ -44675,17 +45213,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DEntityType__OriginAssignment_1_1_1_0_1"
-    // InternalDim.g:13363:1: rule__DEntityType__OriginAssignment_1_1_1_0_1 : ( ruleDEntityOriginObject ) ;
+    // InternalDim.g:13532:1: rule__DEntityType__OriginAssignment_1_1_1_0_1 : ( ruleDEntityOriginObject ) ;
     public final void rule__DEntityType__OriginAssignment_1_1_1_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13367:1: ( ( ruleDEntityOriginObject ) )
-            // InternalDim.g:13368:2: ( ruleDEntityOriginObject )
+            // InternalDim.g:13536:1: ( ( ruleDEntityOriginObject ) )
+            // InternalDim.g:13537:2: ( ruleDEntityOriginObject )
             {
-            // InternalDim.g:13368:2: ( ruleDEntityOriginObject )
-            // InternalDim.g:13369:3: ruleDEntityOriginObject
+            // InternalDim.g:13537:2: ( ruleDEntityOriginObject )
+            // InternalDim.g:13538:3: ruleDEntityOriginObject
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDEntityTypeAccess().getOriginDEntityOriginObjectEnumRuleCall_1_1_1_0_1_0()); 
@@ -44720,17 +45258,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DEntityType__OriginAssignment_1_1_1_1_1"
-    // InternalDim.g:13378:1: rule__DEntityType__OriginAssignment_1_1_1_1_1 : ( ruleDEntityOriginConcept ) ;
+    // InternalDim.g:13547:1: rule__DEntityType__OriginAssignment_1_1_1_1_1 : ( ruleDEntityOriginConcept ) ;
     public final void rule__DEntityType__OriginAssignment_1_1_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13382:1: ( ( ruleDEntityOriginConcept ) )
-            // InternalDim.g:13383:2: ( ruleDEntityOriginConcept )
+            // InternalDim.g:13551:1: ( ( ruleDEntityOriginConcept ) )
+            // InternalDim.g:13552:2: ( ruleDEntityOriginConcept )
             {
-            // InternalDim.g:13383:2: ( ruleDEntityOriginConcept )
-            // InternalDim.g:13384:3: ruleDEntityOriginConcept
+            // InternalDim.g:13552:2: ( ruleDEntityOriginConcept )
+            // InternalDim.g:13553:3: ruleDEntityOriginConcept
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDEntityTypeAccess().getOriginDEntityOriginConceptEnumRuleCall_1_1_1_1_1_0()); 
@@ -44765,17 +45303,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DEntityType__OriginAssignment_1_1_1_2"
-    // InternalDim.g:13393:1: rule__DEntityType__OriginAssignment_1_1_1_2 : ( ruleDEntityOriginRelationship ) ;
+    // InternalDim.g:13562:1: rule__DEntityType__OriginAssignment_1_1_1_2 : ( ruleDEntityOriginRelationship ) ;
     public final void rule__DEntityType__OriginAssignment_1_1_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13397:1: ( ( ruleDEntityOriginRelationship ) )
-            // InternalDim.g:13398:2: ( ruleDEntityOriginRelationship )
+            // InternalDim.g:13566:1: ( ( ruleDEntityOriginRelationship ) )
+            // InternalDim.g:13567:2: ( ruleDEntityOriginRelationship )
             {
-            // InternalDim.g:13398:2: ( ruleDEntityOriginRelationship )
-            // InternalDim.g:13399:3: ruleDEntityOriginRelationship
+            // InternalDim.g:13567:2: ( ruleDEntityOriginRelationship )
+            // InternalDim.g:13568:3: ruleDEntityOriginRelationship
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDEntityTypeAccess().getOriginDEntityOriginRelationshipEnumRuleCall_1_1_1_2_0()); 
@@ -44810,28 +45348,28 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DDetailType__AbstractAssignment_0"
-    // InternalDim.g:13408:1: rule__DDetailType__AbstractAssignment_0 : ( ( 'abstract' ) ) ;
+    // InternalDim.g:13577:1: rule__DDetailType__AbstractAssignment_0 : ( ( 'abstract' ) ) ;
     public final void rule__DDetailType__AbstractAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13412:1: ( ( ( 'abstract' ) ) )
-            // InternalDim.g:13413:2: ( ( 'abstract' ) )
+            // InternalDim.g:13581:1: ( ( ( 'abstract' ) ) )
+            // InternalDim.g:13582:2: ( ( 'abstract' ) )
             {
-            // InternalDim.g:13413:2: ( ( 'abstract' ) )
-            // InternalDim.g:13414:3: ( 'abstract' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDDetailTypeAccess().getAbstractAbstractKeyword_0_0()); 
-            }
-            // InternalDim.g:13415:3: ( 'abstract' )
-            // InternalDim.g:13416:4: 'abstract'
+            // InternalDim.g:13582:2: ( ( 'abstract' ) )
+            // InternalDim.g:13583:3: ( 'abstract' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDDetailTypeAccess().getAbstractAbstractKeyword_0_0()); 
             }
-            match(input,117,FOLLOW_2); if (state.failed) return ;
+            // InternalDim.g:13584:3: ( 'abstract' )
+            // InternalDim.g:13585:4: 'abstract'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDDetailTypeAccess().getAbstractAbstractKeyword_0_0()); 
+            }
+            match(input,118,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDDetailTypeAccess().getAbstractAbstractKeyword_0_0()); 
             }
@@ -44863,17 +45401,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DComplexType__NameAssignment_0"
-    // InternalDim.g:13427:1: rule__DComplexType__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalDim.g:13596:1: rule__DComplexType__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__DComplexType__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13431:1: ( ( RULE_ID ) )
-            // InternalDim.g:13432:2: ( RULE_ID )
+            // InternalDim.g:13600:1: ( ( RULE_ID ) )
+            // InternalDim.g:13601:2: ( RULE_ID )
             {
-            // InternalDim.g:13432:2: ( RULE_ID )
-            // InternalDim.g:13433:3: RULE_ID
+            // InternalDim.g:13601:2: ( RULE_ID )
+            // InternalDim.g:13602:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDComplexTypeAccess().getNameIDTerminalRuleCall_0_0()); 
@@ -44904,17 +45442,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DComplexType__AliasesAssignment_1_1"
-    // InternalDim.g:13442:1: rule__DComplexType__AliasesAssignment_1_1 : ( RULE_ID ) ;
+    // InternalDim.g:13611:1: rule__DComplexType__AliasesAssignment_1_1 : ( RULE_ID ) ;
     public final void rule__DComplexType__AliasesAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13446:1: ( ( RULE_ID ) )
-            // InternalDim.g:13447:2: ( RULE_ID )
+            // InternalDim.g:13615:1: ( ( RULE_ID ) )
+            // InternalDim.g:13616:2: ( RULE_ID )
             {
-            // InternalDim.g:13447:2: ( RULE_ID )
-            // InternalDim.g:13448:3: RULE_ID
+            // InternalDim.g:13616:2: ( RULE_ID )
+            // InternalDim.g:13617:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDComplexTypeAccess().getAliasesIDTerminalRuleCall_1_1_0()); 
@@ -44945,23 +45483,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DComplexType__SuperTypeAssignment_2_1"
-    // InternalDim.g:13457:1: rule__DComplexType__SuperTypeAssignment_2_1 : ( ( RULE_ID ) ) ;
+    // InternalDim.g:13626:1: rule__DComplexType__SuperTypeAssignment_2_1 : ( ( RULE_ID ) ) ;
     public final void rule__DComplexType__SuperTypeAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13461:1: ( ( ( RULE_ID ) ) )
-            // InternalDim.g:13462:2: ( ( RULE_ID ) )
+            // InternalDim.g:13630:1: ( ( ( RULE_ID ) ) )
+            // InternalDim.g:13631:2: ( ( RULE_ID ) )
             {
-            // InternalDim.g:13462:2: ( ( RULE_ID ) )
-            // InternalDim.g:13463:3: ( RULE_ID )
+            // InternalDim.g:13631:2: ( ( RULE_ID ) )
+            // InternalDim.g:13632:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDComplexTypeAccess().getSuperTypeDComplexTypeCrossReference_2_1_0()); 
             }
-            // InternalDim.g:13464:3: ( RULE_ID )
-            // InternalDim.g:13465:4: RULE_ID
+            // InternalDim.g:13633:3: ( RULE_ID )
+            // InternalDim.g:13634:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDComplexTypeAccess().getSuperTypeDComplexTypeIDTerminalRuleCall_2_1_0_1()); 
@@ -44998,17 +45536,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DComplexType__DescriptionAssignment_3"
-    // InternalDim.g:13476:1: rule__DComplexType__DescriptionAssignment_3 : ( ruleDRichText ) ;
+    // InternalDim.g:13645:1: rule__DComplexType__DescriptionAssignment_3 : ( ruleDRichText ) ;
     public final void rule__DComplexType__DescriptionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13480:1: ( ( ruleDRichText ) )
-            // InternalDim.g:13481:2: ( ruleDRichText )
+            // InternalDim.g:13649:1: ( ( ruleDRichText ) )
+            // InternalDim.g:13650:2: ( ruleDRichText )
             {
-            // InternalDim.g:13481:2: ( ruleDRichText )
-            // InternalDim.g:13482:3: ruleDRichText
+            // InternalDim.g:13650:2: ( ruleDRichText )
+            // InternalDim.g:13651:3: ruleDRichText
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDComplexTypeAccess().getDescriptionDRichTextParserRuleCall_3_0()); 
@@ -45043,17 +45581,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DComplexType__FeaturesAssignment_5_0"
-    // InternalDim.g:13491:1: rule__DComplexType__FeaturesAssignment_5_0 : ( ruleDFeature ) ;
+    // InternalDim.g:13660:1: rule__DComplexType__FeaturesAssignment_5_0 : ( ruleDFeature ) ;
     public final void rule__DComplexType__FeaturesAssignment_5_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13495:1: ( ( ruleDFeature ) )
-            // InternalDim.g:13496:2: ( ruleDFeature )
+            // InternalDim.g:13664:1: ( ( ruleDFeature ) )
+            // InternalDim.g:13665:2: ( ruleDFeature )
             {
-            // InternalDim.g:13496:2: ( ruleDFeature )
-            // InternalDim.g:13497:3: ruleDFeature
+            // InternalDim.g:13665:2: ( ruleDFeature )
+            // InternalDim.g:13666:3: ruleDFeature
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDComplexTypeAccess().getFeaturesDFeatureParserRuleCall_5_0_0()); 
@@ -45088,17 +45626,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DComplexType__ConstraintsAssignment_5_1"
-    // InternalDim.g:13506:1: rule__DComplexType__ConstraintsAssignment_5_1 : ( ruleDConstraint ) ;
+    // InternalDim.g:13675:1: rule__DComplexType__ConstraintsAssignment_5_1 : ( ruleDConstraint ) ;
     public final void rule__DComplexType__ConstraintsAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13510:1: ( ( ruleDConstraint ) )
-            // InternalDim.g:13511:2: ( ruleDConstraint )
+            // InternalDim.g:13679:1: ( ( ruleDConstraint ) )
+            // InternalDim.g:13680:2: ( ruleDConstraint )
             {
-            // InternalDim.g:13511:2: ( ruleDConstraint )
-            // InternalDim.g:13512:3: ruleDConstraint
+            // InternalDim.g:13680:2: ( ruleDConstraint )
+            // InternalDim.g:13681:3: ruleDConstraint
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDComplexTypeAccess().getConstraintsDConstraintParserRuleCall_5_1_0()); 
@@ -45133,28 +45671,28 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAssociation__DerivedAssignment_0"
-    // InternalDim.g:13521:1: rule__DAssociation__DerivedAssignment_0 : ( ( 'derived' ) ) ;
+    // InternalDim.g:13690:1: rule__DAssociation__DerivedAssignment_0 : ( ( 'derived' ) ) ;
     public final void rule__DAssociation__DerivedAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13525:1: ( ( ( 'derived' ) ) )
-            // InternalDim.g:13526:2: ( ( 'derived' ) )
+            // InternalDim.g:13694:1: ( ( ( 'derived' ) ) )
+            // InternalDim.g:13695:2: ( ( 'derived' ) )
             {
-            // InternalDim.g:13526:2: ( ( 'derived' ) )
-            // InternalDim.g:13527:3: ( 'derived' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDAssociationAccess().getDerivedDerivedKeyword_0_0()); 
-            }
-            // InternalDim.g:13528:3: ( 'derived' )
-            // InternalDim.g:13529:4: 'derived'
+            // InternalDim.g:13695:2: ( ( 'derived' ) )
+            // InternalDim.g:13696:3: ( 'derived' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAssociationAccess().getDerivedDerivedKeyword_0_0()); 
             }
-            match(input,120,FOLLOW_2); if (state.failed) return ;
+            // InternalDim.g:13697:3: ( 'derived' )
+            // InternalDim.g:13698:4: 'derived'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDAssociationAccess().getDerivedDerivedKeyword_0_0()); 
+            }
+            match(input,121,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDAssociationAccess().getDerivedDerivedKeyword_0_0()); 
             }
@@ -45186,17 +45724,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAssociation__NameAssignment_1"
-    // InternalDim.g:13540:1: rule__DAssociation__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalDim.g:13709:1: rule__DAssociation__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__DAssociation__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13544:1: ( ( RULE_ID ) )
-            // InternalDim.g:13545:2: ( RULE_ID )
+            // InternalDim.g:13713:1: ( ( RULE_ID ) )
+            // InternalDim.g:13714:2: ( RULE_ID )
             {
-            // InternalDim.g:13545:2: ( RULE_ID )
-            // InternalDim.g:13546:3: RULE_ID
+            // InternalDim.g:13714:2: ( RULE_ID )
+            // InternalDim.g:13715:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAssociationAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -45227,17 +45765,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAssociation__AliasesAssignment_2_1"
-    // InternalDim.g:13555:1: rule__DAssociation__AliasesAssignment_2_1 : ( RULE_ID ) ;
+    // InternalDim.g:13724:1: rule__DAssociation__AliasesAssignment_2_1 : ( RULE_ID ) ;
     public final void rule__DAssociation__AliasesAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13559:1: ( ( RULE_ID ) )
-            // InternalDim.g:13560:2: ( RULE_ID )
+            // InternalDim.g:13728:1: ( ( RULE_ID ) )
+            // InternalDim.g:13729:2: ( RULE_ID )
             {
-            // InternalDim.g:13560:2: ( RULE_ID )
-            // InternalDim.g:13561:3: RULE_ID
+            // InternalDim.g:13729:2: ( RULE_ID )
+            // InternalDim.g:13730:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAssociationAccess().getAliasesIDTerminalRuleCall_2_1_0()); 
@@ -45268,17 +45806,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAssociation__KindAssignment_3_0"
-    // InternalDim.g:13570:1: rule__DAssociation__KindAssignment_3_0 : ( ruleDAssociationKind ) ;
+    // InternalDim.g:13739:1: rule__DAssociation__KindAssignment_3_0 : ( ruleDAssociationKind ) ;
     public final void rule__DAssociation__KindAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13574:1: ( ( ruleDAssociationKind ) )
-            // InternalDim.g:13575:2: ( ruleDAssociationKind )
+            // InternalDim.g:13743:1: ( ( ruleDAssociationKind ) )
+            // InternalDim.g:13744:2: ( ruleDAssociationKind )
             {
-            // InternalDim.g:13575:2: ( ruleDAssociationKind )
-            // InternalDim.g:13576:3: ruleDAssociationKind
+            // InternalDim.g:13744:2: ( ruleDAssociationKind )
+            // InternalDim.g:13745:3: ruleDAssociationKind
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAssociationAccess().getKindDAssociationKindEnumRuleCall_3_0_0()); 
@@ -45313,17 +45851,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAssociation__KindAssignment_3_1_0"
-    // InternalDim.g:13585:1: rule__DAssociation__KindAssignment_3_1_0 : ( ruleDAssociationKindInverse ) ;
+    // InternalDim.g:13754:1: rule__DAssociation__KindAssignment_3_1_0 : ( ruleDAssociationKindInverse ) ;
     public final void rule__DAssociation__KindAssignment_3_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13589:1: ( ( ruleDAssociationKindInverse ) )
-            // InternalDim.g:13590:2: ( ruleDAssociationKindInverse )
+            // InternalDim.g:13758:1: ( ( ruleDAssociationKindInverse ) )
+            // InternalDim.g:13759:2: ( ruleDAssociationKindInverse )
             {
-            // InternalDim.g:13590:2: ( ruleDAssociationKindInverse )
-            // InternalDim.g:13591:3: ruleDAssociationKindInverse
+            // InternalDim.g:13759:2: ( ruleDAssociationKindInverse )
+            // InternalDim.g:13760:3: ruleDAssociationKindInverse
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAssociationAccess().getKindDAssociationKindInverseEnumRuleCall_3_1_0_0()); 
@@ -45358,23 +45896,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAssociation__TypeAssignment_4"
-    // InternalDim.g:13600:1: rule__DAssociation__TypeAssignment_4 : ( ( RULE_ID ) ) ;
+    // InternalDim.g:13769:1: rule__DAssociation__TypeAssignment_4 : ( ( RULE_ID ) ) ;
     public final void rule__DAssociation__TypeAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13604:1: ( ( ( RULE_ID ) ) )
-            // InternalDim.g:13605:2: ( ( RULE_ID ) )
+            // InternalDim.g:13773:1: ( ( ( RULE_ID ) ) )
+            // InternalDim.g:13774:2: ( ( RULE_ID ) )
             {
-            // InternalDim.g:13605:2: ( ( RULE_ID ) )
-            // InternalDim.g:13606:3: ( RULE_ID )
+            // InternalDim.g:13774:2: ( ( RULE_ID ) )
+            // InternalDim.g:13775:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAssociationAccess().getTypeDEntityTypeCrossReference_4_0()); 
             }
-            // InternalDim.g:13607:3: ( RULE_ID )
-            // InternalDim.g:13608:4: RULE_ID
+            // InternalDim.g:13776:3: ( RULE_ID )
+            // InternalDim.g:13777:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAssociationAccess().getTypeDEntityTypeIDTerminalRuleCall_4_0_1()); 
@@ -45411,17 +45949,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAssociation__MultiplicityAssignment_5"
-    // InternalDim.g:13619:1: rule__DAssociation__MultiplicityAssignment_5 : ( ruleDMultiplicity ) ;
+    // InternalDim.g:13788:1: rule__DAssociation__MultiplicityAssignment_5 : ( ruleDMultiplicity ) ;
     public final void rule__DAssociation__MultiplicityAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13623:1: ( ( ruleDMultiplicity ) )
-            // InternalDim.g:13624:2: ( ruleDMultiplicity )
+            // InternalDim.g:13792:1: ( ( ruleDMultiplicity ) )
+            // InternalDim.g:13793:2: ( ruleDMultiplicity )
             {
-            // InternalDim.g:13624:2: ( ruleDMultiplicity )
-            // InternalDim.g:13625:3: ruleDMultiplicity
+            // InternalDim.g:13793:2: ( ruleDMultiplicity )
+            // InternalDim.g:13794:3: ruleDMultiplicity
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAssociationAccess().getMultiplicityDMultiplicityParserRuleCall_5_0()); 
@@ -45456,17 +45994,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAssociation__DescriptionAssignment_6"
-    // InternalDim.g:13634:1: rule__DAssociation__DescriptionAssignment_6 : ( ruleDRichText ) ;
+    // InternalDim.g:13803:1: rule__DAssociation__DescriptionAssignment_6 : ( ruleDRichText ) ;
     public final void rule__DAssociation__DescriptionAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13638:1: ( ( ruleDRichText ) )
-            // InternalDim.g:13639:2: ( ruleDRichText )
+            // InternalDim.g:13807:1: ( ( ruleDRichText ) )
+            // InternalDim.g:13808:2: ( ruleDRichText )
             {
-            // InternalDim.g:13639:2: ( ruleDRichText )
-            // InternalDim.g:13640:3: ruleDRichText
+            // InternalDim.g:13808:2: ( ruleDRichText )
+            // InternalDim.g:13809:3: ruleDRichText
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAssociationAccess().getDescriptionDRichTextParserRuleCall_6_0()); 
@@ -45501,23 +46039,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAttribute__DetailAssignment_0"
-    // InternalDim.g:13649:1: rule__DAttribute__DetailAssignment_0 : ( ( 'detail' ) ) ;
+    // InternalDim.g:13818:1: rule__DAttribute__DetailAssignment_0 : ( ( 'detail' ) ) ;
     public final void rule__DAttribute__DetailAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13653:1: ( ( ( 'detail' ) ) )
-            // InternalDim.g:13654:2: ( ( 'detail' ) )
+            // InternalDim.g:13822:1: ( ( ( 'detail' ) ) )
+            // InternalDim.g:13823:2: ( ( 'detail' ) )
             {
-            // InternalDim.g:13654:2: ( ( 'detail' ) )
-            // InternalDim.g:13655:3: ( 'detail' )
+            // InternalDim.g:13823:2: ( ( 'detail' ) )
+            // InternalDim.g:13824:3: ( 'detail' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAttributeAccess().getDetailDetailKeyword_0_0()); 
             }
-            // InternalDim.g:13656:3: ( 'detail' )
-            // InternalDim.g:13657:4: 'detail'
+            // InternalDim.g:13825:3: ( 'detail' )
+            // InternalDim.g:13826:4: 'detail'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAttributeAccess().getDetailDetailKeyword_0_0()); 
@@ -45554,17 +46092,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAttribute__NameAssignment_1_0"
-    // InternalDim.g:13668:1: rule__DAttribute__NameAssignment_1_0 : ( RULE_ID ) ;
+    // InternalDim.g:13837:1: rule__DAttribute__NameAssignment_1_0 : ( RULE_ID ) ;
     public final void rule__DAttribute__NameAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13672:1: ( ( RULE_ID ) )
-            // InternalDim.g:13673:2: ( RULE_ID )
+            // InternalDim.g:13841:1: ( ( RULE_ID ) )
+            // InternalDim.g:13842:2: ( RULE_ID )
             {
-            // InternalDim.g:13673:2: ( RULE_ID )
-            // InternalDim.g:13674:3: RULE_ID
+            // InternalDim.g:13842:2: ( RULE_ID )
+            // InternalDim.g:13843:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAttributeAccess().getNameIDTerminalRuleCall_1_0_0()); 
@@ -45595,17 +46133,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAttribute__AliasesAssignment_1_1_1"
-    // InternalDim.g:13683:1: rule__DAttribute__AliasesAssignment_1_1_1 : ( RULE_ID ) ;
+    // InternalDim.g:13852:1: rule__DAttribute__AliasesAssignment_1_1_1 : ( RULE_ID ) ;
     public final void rule__DAttribute__AliasesAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13687:1: ( ( RULE_ID ) )
-            // InternalDim.g:13688:2: ( RULE_ID )
+            // InternalDim.g:13856:1: ( ( RULE_ID ) )
+            // InternalDim.g:13857:2: ( RULE_ID )
             {
-            // InternalDim.g:13688:2: ( RULE_ID )
-            // InternalDim.g:13689:3: RULE_ID
+            // InternalDim.g:13857:2: ( RULE_ID )
+            // InternalDim.g:13858:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAttributeAccess().getAliasesIDTerminalRuleCall_1_1_1_0()); 
@@ -45636,23 +46174,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAttribute__TypeAssignment_1_3"
-    // InternalDim.g:13698:1: rule__DAttribute__TypeAssignment_1_3 : ( ( RULE_ID ) ) ;
+    // InternalDim.g:13867:1: rule__DAttribute__TypeAssignment_1_3 : ( ( RULE_ID ) ) ;
     public final void rule__DAttribute__TypeAssignment_1_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13702:1: ( ( ( RULE_ID ) ) )
-            // InternalDim.g:13703:2: ( ( RULE_ID ) )
+            // InternalDim.g:13871:1: ( ( ( RULE_ID ) ) )
+            // InternalDim.g:13872:2: ( ( RULE_ID ) )
             {
-            // InternalDim.g:13703:2: ( ( RULE_ID ) )
-            // InternalDim.g:13704:3: ( RULE_ID )
+            // InternalDim.g:13872:2: ( ( RULE_ID ) )
+            // InternalDim.g:13873:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAttributeAccess().getTypeDTypeCrossReference_1_3_0()); 
             }
-            // InternalDim.g:13705:3: ( RULE_ID )
-            // InternalDim.g:13706:4: RULE_ID
+            // InternalDim.g:13874:3: ( RULE_ID )
+            // InternalDim.g:13875:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAttributeAccess().getTypeDTypeIDTerminalRuleCall_1_3_0_1()); 
@@ -45689,17 +46227,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAttribute__MultiplicityAssignment_2"
-    // InternalDim.g:13717:1: rule__DAttribute__MultiplicityAssignment_2 : ( ruleDMultiplicity ) ;
+    // InternalDim.g:13886:1: rule__DAttribute__MultiplicityAssignment_2 : ( ruleDMultiplicity ) ;
     public final void rule__DAttribute__MultiplicityAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13721:1: ( ( ruleDMultiplicity ) )
-            // InternalDim.g:13722:2: ( ruleDMultiplicity )
+            // InternalDim.g:13890:1: ( ( ruleDMultiplicity ) )
+            // InternalDim.g:13891:2: ( ruleDMultiplicity )
             {
-            // InternalDim.g:13722:2: ( ruleDMultiplicity )
-            // InternalDim.g:13723:3: ruleDMultiplicity
+            // InternalDim.g:13891:2: ( ruleDMultiplicity )
+            // InternalDim.g:13892:3: ruleDMultiplicity
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAttributeAccess().getMultiplicityDMultiplicityParserRuleCall_2_0()); 
@@ -45734,28 +46272,28 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAttribute__KeyAssignment_3"
-    // InternalDim.g:13732:1: rule__DAttribute__KeyAssignment_3 : ( ( 'key' ) ) ;
+    // InternalDim.g:13901:1: rule__DAttribute__KeyAssignment_3 : ( ( 'key' ) ) ;
     public final void rule__DAttribute__KeyAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13736:1: ( ( ( 'key' ) ) )
-            // InternalDim.g:13737:2: ( ( 'key' ) )
+            // InternalDim.g:13905:1: ( ( ( 'key' ) ) )
+            // InternalDim.g:13906:2: ( ( 'key' ) )
             {
-            // InternalDim.g:13737:2: ( ( 'key' ) )
-            // InternalDim.g:13738:3: ( 'key' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDAttributeAccess().getKeyKeyKeyword_3_0()); 
-            }
-            // InternalDim.g:13739:3: ( 'key' )
-            // InternalDim.g:13740:4: 'key'
+            // InternalDim.g:13906:2: ( ( 'key' ) )
+            // InternalDim.g:13907:3: ( 'key' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAttributeAccess().getKeyKeyKeyword_3_0()); 
             }
-            match(input,121,FOLLOW_2); if (state.failed) return ;
+            // InternalDim.g:13908:3: ( 'key' )
+            // InternalDim.g:13909:4: 'key'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDAttributeAccess().getKeyKeyKeyword_3_0()); 
+            }
+            match(input,122,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDAttributeAccess().getKeyKeyKeyword_3_0()); 
             }
@@ -45787,17 +46325,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAttribute__DescriptionAssignment_4"
-    // InternalDim.g:13751:1: rule__DAttribute__DescriptionAssignment_4 : ( ruleDRichText ) ;
+    // InternalDim.g:13920:1: rule__DAttribute__DescriptionAssignment_4 : ( ruleDRichText ) ;
     public final void rule__DAttribute__DescriptionAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13755:1: ( ( ruleDRichText ) )
-            // InternalDim.g:13756:2: ( ruleDRichText )
+            // InternalDim.g:13924:1: ( ( ruleDRichText ) )
+            // InternalDim.g:13925:2: ( ruleDRichText )
             {
-            // InternalDim.g:13756:2: ( ruleDRichText )
-            // InternalDim.g:13757:3: ruleDRichText
+            // InternalDim.g:13925:2: ( ruleDRichText )
+            // InternalDim.g:13926:3: ruleDRichText
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDAttributeAccess().getDescriptionDRichTextParserRuleCall_4_0()); 
@@ -45832,17 +46370,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQuery__NameAssignment_0"
-    // InternalDim.g:13766:1: rule__DQuery__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalDim.g:13935:1: rule__DQuery__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__DQuery__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13770:1: ( ( RULE_ID ) )
-            // InternalDim.g:13771:2: ( RULE_ID )
+            // InternalDim.g:13939:1: ( ( RULE_ID ) )
+            // InternalDim.g:13940:2: ( RULE_ID )
             {
-            // InternalDim.g:13771:2: ( RULE_ID )
-            // InternalDim.g:13772:3: RULE_ID
+            // InternalDim.g:13940:2: ( RULE_ID )
+            // InternalDim.g:13941:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQueryAccess().getNameIDTerminalRuleCall_0_0()); 
@@ -45873,17 +46411,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQuery__AliasesAssignment_1_1"
-    // InternalDim.g:13781:1: rule__DQuery__AliasesAssignment_1_1 : ( RULE_ID ) ;
+    // InternalDim.g:13950:1: rule__DQuery__AliasesAssignment_1_1 : ( RULE_ID ) ;
     public final void rule__DQuery__AliasesAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13785:1: ( ( RULE_ID ) )
-            // InternalDim.g:13786:2: ( RULE_ID )
+            // InternalDim.g:13954:1: ( ( RULE_ID ) )
+            // InternalDim.g:13955:2: ( RULE_ID )
             {
-            // InternalDim.g:13786:2: ( RULE_ID )
-            // InternalDim.g:13787:3: RULE_ID
+            // InternalDim.g:13955:2: ( RULE_ID )
+            // InternalDim.g:13956:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQueryAccess().getAliasesIDTerminalRuleCall_1_1_0()); 
@@ -45914,17 +46452,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQuery__ParametersAssignment_3_0"
-    // InternalDim.g:13796:1: rule__DQuery__ParametersAssignment_3_0 : ( ruleDQueryParameter ) ;
+    // InternalDim.g:13965:1: rule__DQuery__ParametersAssignment_3_0 : ( ruleDQueryParameter ) ;
     public final void rule__DQuery__ParametersAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13800:1: ( ( ruleDQueryParameter ) )
-            // InternalDim.g:13801:2: ( ruleDQueryParameter )
+            // InternalDim.g:13969:1: ( ( ruleDQueryParameter ) )
+            // InternalDim.g:13970:2: ( ruleDQueryParameter )
             {
-            // InternalDim.g:13801:2: ( ruleDQueryParameter )
-            // InternalDim.g:13802:3: ruleDQueryParameter
+            // InternalDim.g:13970:2: ( ruleDQueryParameter )
+            // InternalDim.g:13971:3: ruleDQueryParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQueryAccess().getParametersDQueryParameterParserRuleCall_3_0_0()); 
@@ -45959,17 +46497,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQuery__ParametersAssignment_3_1_1"
-    // InternalDim.g:13811:1: rule__DQuery__ParametersAssignment_3_1_1 : ( ruleDQueryParameter ) ;
+    // InternalDim.g:13980:1: rule__DQuery__ParametersAssignment_3_1_1 : ( ruleDQueryParameter ) ;
     public final void rule__DQuery__ParametersAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13815:1: ( ( ruleDQueryParameter ) )
-            // InternalDim.g:13816:2: ( ruleDQueryParameter )
+            // InternalDim.g:13984:1: ( ( ruleDQueryParameter ) )
+            // InternalDim.g:13985:2: ( ruleDQueryParameter )
             {
-            // InternalDim.g:13816:2: ( ruleDQueryParameter )
-            // InternalDim.g:13817:3: ruleDQueryParameter
+            // InternalDim.g:13985:2: ( ruleDQueryParameter )
+            // InternalDim.g:13986:3: ruleDQueryParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQueryAccess().getParametersDQueryParameterParserRuleCall_3_1_1_0()); 
@@ -46004,23 +46542,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQuery__TypeAssignment_6"
-    // InternalDim.g:13826:1: rule__DQuery__TypeAssignment_6 : ( ( RULE_ID ) ) ;
+    // InternalDim.g:13995:1: rule__DQuery__TypeAssignment_6 : ( ( RULE_ID ) ) ;
     public final void rule__DQuery__TypeAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13830:1: ( ( ( RULE_ID ) ) )
-            // InternalDim.g:13831:2: ( ( RULE_ID ) )
+            // InternalDim.g:13999:1: ( ( ( RULE_ID ) ) )
+            // InternalDim.g:14000:2: ( ( RULE_ID ) )
             {
-            // InternalDim.g:13831:2: ( ( RULE_ID ) )
-            // InternalDim.g:13832:3: ( RULE_ID )
+            // InternalDim.g:14000:2: ( ( RULE_ID ) )
+            // InternalDim.g:14001:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQueryAccess().getTypeDTypeCrossReference_6_0()); 
             }
-            // InternalDim.g:13833:3: ( RULE_ID )
-            // InternalDim.g:13834:4: RULE_ID
+            // InternalDim.g:14002:3: ( RULE_ID )
+            // InternalDim.g:14003:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQueryAccess().getTypeDTypeIDTerminalRuleCall_6_0_1()); 
@@ -46057,17 +46595,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQuery__MultiplicityAssignment_7"
-    // InternalDim.g:13845:1: rule__DQuery__MultiplicityAssignment_7 : ( ruleDMultiplicity ) ;
+    // InternalDim.g:14014:1: rule__DQuery__MultiplicityAssignment_7 : ( ruleDMultiplicity ) ;
     public final void rule__DQuery__MultiplicityAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13849:1: ( ( ruleDMultiplicity ) )
-            // InternalDim.g:13850:2: ( ruleDMultiplicity )
+            // InternalDim.g:14018:1: ( ( ruleDMultiplicity ) )
+            // InternalDim.g:14019:2: ( ruleDMultiplicity )
             {
-            // InternalDim.g:13850:2: ( ruleDMultiplicity )
-            // InternalDim.g:13851:3: ruleDMultiplicity
+            // InternalDim.g:14019:2: ( ruleDMultiplicity )
+            // InternalDim.g:14020:3: ruleDMultiplicity
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQueryAccess().getMultiplicityDMultiplicityParserRuleCall_7_0()); 
@@ -46102,17 +46640,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQuery__ReturnsAssignment_8_1"
-    // InternalDim.g:13860:1: rule__DQuery__ReturnsAssignment_8_1 : ( ruleDExpression ) ;
+    // InternalDim.g:14029:1: rule__DQuery__ReturnsAssignment_8_1 : ( ruleDExpression ) ;
     public final void rule__DQuery__ReturnsAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13864:1: ( ( ruleDExpression ) )
-            // InternalDim.g:13865:2: ( ruleDExpression )
+            // InternalDim.g:14033:1: ( ( ruleDExpression ) )
+            // InternalDim.g:14034:2: ( ruleDExpression )
             {
-            // InternalDim.g:13865:2: ( ruleDExpression )
-            // InternalDim.g:13866:3: ruleDExpression
+            // InternalDim.g:14034:2: ( ruleDExpression )
+            // InternalDim.g:14035:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQueryAccess().getReturnsDExpressionParserRuleCall_8_1_0()); 
@@ -46147,17 +46685,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQuery__DescriptionAssignment_9"
-    // InternalDim.g:13875:1: rule__DQuery__DescriptionAssignment_9 : ( ruleDRichText ) ;
+    // InternalDim.g:14044:1: rule__DQuery__DescriptionAssignment_9 : ( ruleDRichText ) ;
     public final void rule__DQuery__DescriptionAssignment_9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13879:1: ( ( ruleDRichText ) )
-            // InternalDim.g:13880:2: ( ruleDRichText )
+            // InternalDim.g:14048:1: ( ( ruleDRichText ) )
+            // InternalDim.g:14049:2: ( ruleDRichText )
             {
-            // InternalDim.g:13880:2: ( ruleDRichText )
-            // InternalDim.g:13881:3: ruleDRichText
+            // InternalDim.g:14049:2: ( ruleDRichText )
+            // InternalDim.g:14050:3: ruleDRichText
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQueryAccess().getDescriptionDRichTextParserRuleCall_9_0()); 
@@ -46192,17 +46730,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQueryParameter__NameAssignment_0"
-    // InternalDim.g:13890:1: rule__DQueryParameter__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalDim.g:14059:1: rule__DQueryParameter__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__DQueryParameter__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13894:1: ( ( RULE_ID ) )
-            // InternalDim.g:13895:2: ( RULE_ID )
+            // InternalDim.g:14063:1: ( ( RULE_ID ) )
+            // InternalDim.g:14064:2: ( RULE_ID )
             {
-            // InternalDim.g:13895:2: ( RULE_ID )
-            // InternalDim.g:13896:3: RULE_ID
+            // InternalDim.g:14064:2: ( RULE_ID )
+            // InternalDim.g:14065:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQueryParameterAccess().getNameIDTerminalRuleCall_0_0()); 
@@ -46233,23 +46771,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQueryParameter__TypeAssignment_2"
-    // InternalDim.g:13905:1: rule__DQueryParameter__TypeAssignment_2 : ( ( RULE_ID ) ) ;
+    // InternalDim.g:14074:1: rule__DQueryParameter__TypeAssignment_2 : ( ( RULE_ID ) ) ;
     public final void rule__DQueryParameter__TypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13909:1: ( ( ( RULE_ID ) ) )
-            // InternalDim.g:13910:2: ( ( RULE_ID ) )
+            // InternalDim.g:14078:1: ( ( ( RULE_ID ) ) )
+            // InternalDim.g:14079:2: ( ( RULE_ID ) )
             {
-            // InternalDim.g:13910:2: ( ( RULE_ID ) )
-            // InternalDim.g:13911:3: ( RULE_ID )
+            // InternalDim.g:14079:2: ( ( RULE_ID ) )
+            // InternalDim.g:14080:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQueryParameterAccess().getTypeDTypeCrossReference_2_0()); 
             }
-            // InternalDim.g:13912:3: ( RULE_ID )
-            // InternalDim.g:13913:4: RULE_ID
+            // InternalDim.g:14081:3: ( RULE_ID )
+            // InternalDim.g:14082:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQueryParameterAccess().getTypeDTypeIDTerminalRuleCall_2_0_1()); 
@@ -46286,17 +46824,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQueryParameter__MultiplicityAssignment_3"
-    // InternalDim.g:13924:1: rule__DQueryParameter__MultiplicityAssignment_3 : ( ruleDMultiplicity ) ;
+    // InternalDim.g:14093:1: rule__DQueryParameter__MultiplicityAssignment_3 : ( ruleDMultiplicity ) ;
     public final void rule__DQueryParameter__MultiplicityAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13928:1: ( ( ruleDMultiplicity ) )
-            // InternalDim.g:13929:2: ( ruleDMultiplicity )
+            // InternalDim.g:14097:1: ( ( ruleDMultiplicity ) )
+            // InternalDim.g:14098:2: ( ruleDMultiplicity )
             {
-            // InternalDim.g:13929:2: ( ruleDMultiplicity )
-            // InternalDim.g:13930:3: ruleDMultiplicity
+            // InternalDim.g:14098:2: ( ruleDMultiplicity )
+            // InternalDim.g:14099:3: ruleDMultiplicity
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQueryParameterAccess().getMultiplicityDMultiplicityParserRuleCall_3_0()); 
@@ -46331,17 +46869,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQueryParameter__DescriptionAssignment_4"
-    // InternalDim.g:13939:1: rule__DQueryParameter__DescriptionAssignment_4 : ( ruleDRichText ) ;
+    // InternalDim.g:14108:1: rule__DQueryParameter__DescriptionAssignment_4 : ( ruleDRichText ) ;
     public final void rule__DQueryParameter__DescriptionAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13943:1: ( ( ruleDRichText ) )
-            // InternalDim.g:13944:2: ( ruleDRichText )
+            // InternalDim.g:14112:1: ( ( ruleDRichText ) )
+            // InternalDim.g:14113:2: ( ruleDRichText )
             {
-            // InternalDim.g:13944:2: ( ruleDRichText )
-            // InternalDim.g:13945:3: ruleDRichText
+            // InternalDim.g:14113:2: ( ruleDRichText )
+            // InternalDim.g:14114:3: ruleDRichText
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQueryParameterAccess().getDescriptionDRichTextParserRuleCall_4_0()); 
@@ -46376,17 +46914,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DImport__ImportedNamespaceAssignment_1"
-    // InternalDim.g:13954:1: rule__DImport__ImportedNamespaceAssignment_1 : ( ruleDQualifiedNameWithWildcard ) ;
+    // InternalDim.g:14123:1: rule__DImport__ImportedNamespaceAssignment_1 : ( ruleDQualifiedNameWithWildcard ) ;
     public final void rule__DImport__ImportedNamespaceAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13958:1: ( ( ruleDQualifiedNameWithWildcard ) )
-            // InternalDim.g:13959:2: ( ruleDQualifiedNameWithWildcard )
+            // InternalDim.g:14127:1: ( ( ruleDQualifiedNameWithWildcard ) )
+            // InternalDim.g:14128:2: ( ruleDQualifiedNameWithWildcard )
             {
-            // InternalDim.g:13959:2: ( ruleDQualifiedNameWithWildcard )
-            // InternalDim.g:13960:3: ruleDQualifiedNameWithWildcard
+            // InternalDim.g:14128:2: ( ruleDQualifiedNameWithWildcard )
+            // InternalDim.g:14129:3: ruleDQualifiedNameWithWildcard
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDImportAccess().getImportedNamespaceDQualifiedNameWithWildcardParserRuleCall_1_0()); 
@@ -46421,17 +46959,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTest__NameAssignment_1"
-    // InternalDim.g:13969:1: rule__DmxTest__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalDim.g:14138:1: rule__DmxTest__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__DmxTest__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13973:1: ( ( RULE_ID ) )
-            // InternalDim.g:13974:2: ( RULE_ID )
+            // InternalDim.g:14142:1: ( ( RULE_ID ) )
+            // InternalDim.g:14143:2: ( RULE_ID )
             {
-            // InternalDim.g:13974:2: ( RULE_ID )
-            // InternalDim.g:13975:3: RULE_ID
+            // InternalDim.g:14143:2: ( RULE_ID )
+            // InternalDim.g:14144:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTestAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -46462,17 +47000,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTest__ContextAssignment_2_1"
-    // InternalDim.g:13984:1: rule__DmxTest__ContextAssignment_2_1 : ( ruleDmxTestContext ) ;
+    // InternalDim.g:14153:1: rule__DmxTest__ContextAssignment_2_1 : ( ruleDmxTestContext ) ;
     public final void rule__DmxTest__ContextAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:13988:1: ( ( ruleDmxTestContext ) )
-            // InternalDim.g:13989:2: ( ruleDmxTestContext )
+            // InternalDim.g:14157:1: ( ( ruleDmxTestContext ) )
+            // InternalDim.g:14158:2: ( ruleDmxTestContext )
             {
-            // InternalDim.g:13989:2: ( ruleDmxTestContext )
-            // InternalDim.g:13990:3: ruleDmxTestContext
+            // InternalDim.g:14158:2: ( ruleDmxTestContext )
+            // InternalDim.g:14159:3: ruleDmxTestContext
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTestAccess().getContextDmxTestContextParserRuleCall_2_1_0()); 
@@ -46507,17 +47045,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTest__ContextAssignment_2_2_1"
-    // InternalDim.g:13999:1: rule__DmxTest__ContextAssignment_2_2_1 : ( ruleDmxTestContext ) ;
+    // InternalDim.g:14168:1: rule__DmxTest__ContextAssignment_2_2_1 : ( ruleDmxTestContext ) ;
     public final void rule__DmxTest__ContextAssignment_2_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14003:1: ( ( ruleDmxTestContext ) )
-            // InternalDim.g:14004:2: ( ruleDmxTestContext )
+            // InternalDim.g:14172:1: ( ( ruleDmxTestContext ) )
+            // InternalDim.g:14173:2: ( ruleDmxTestContext )
             {
-            // InternalDim.g:14004:2: ( ruleDmxTestContext )
-            // InternalDim.g:14005:3: ruleDmxTestContext
+            // InternalDim.g:14173:2: ( ruleDmxTestContext )
+            // InternalDim.g:14174:3: ruleDmxTestContext
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTestAccess().getContextDmxTestContextParserRuleCall_2_2_1_0()); 
@@ -46552,17 +47090,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTest__ExprAssignment_4"
-    // InternalDim.g:14014:1: rule__DmxTest__ExprAssignment_4 : ( ruleDExpression ) ;
+    // InternalDim.g:14183:1: rule__DmxTest__ExprAssignment_4 : ( ruleDExpression ) ;
     public final void rule__DmxTest__ExprAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14018:1: ( ( ruleDExpression ) )
-            // InternalDim.g:14019:2: ( ruleDExpression )
+            // InternalDim.g:14187:1: ( ( ruleDExpression ) )
+            // InternalDim.g:14188:2: ( ruleDExpression )
             {
-            // InternalDim.g:14019:2: ( ruleDExpression )
-            // InternalDim.g:14020:3: ruleDExpression
+            // InternalDim.g:14188:2: ( ruleDExpression )
+            // InternalDim.g:14189:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTestAccess().getExprDExpressionParserRuleCall_4_0()); 
@@ -46597,17 +47135,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTestContext__NameAssignment_0"
-    // InternalDim.g:14029:1: rule__DmxTestContext__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalDim.g:14198:1: rule__DmxTestContext__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__DmxTestContext__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14033:1: ( ( RULE_ID ) )
-            // InternalDim.g:14034:2: ( RULE_ID )
+            // InternalDim.g:14202:1: ( ( RULE_ID ) )
+            // InternalDim.g:14203:2: ( RULE_ID )
             {
-            // InternalDim.g:14034:2: ( RULE_ID )
-            // InternalDim.g:14035:3: RULE_ID
+            // InternalDim.g:14203:2: ( RULE_ID )
+            // InternalDim.g:14204:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTestContextAccess().getNameIDTerminalRuleCall_0_0()); 
@@ -46638,23 +47176,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTestContext__TypeAssignment_2"
-    // InternalDim.g:14044:1: rule__DmxTestContext__TypeAssignment_2 : ( ( RULE_ID ) ) ;
+    // InternalDim.g:14213:1: rule__DmxTestContext__TypeAssignment_2 : ( ( RULE_ID ) ) ;
     public final void rule__DmxTestContext__TypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14048:1: ( ( ( RULE_ID ) ) )
-            // InternalDim.g:14049:2: ( ( RULE_ID ) )
+            // InternalDim.g:14217:1: ( ( ( RULE_ID ) ) )
+            // InternalDim.g:14218:2: ( ( RULE_ID ) )
             {
-            // InternalDim.g:14049:2: ( ( RULE_ID ) )
-            // InternalDim.g:14050:3: ( RULE_ID )
+            // InternalDim.g:14218:2: ( ( RULE_ID ) )
+            // InternalDim.g:14219:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTestContextAccess().getTypeDTypeCrossReference_2_0()); 
             }
-            // InternalDim.g:14051:3: ( RULE_ID )
-            // InternalDim.g:14052:4: RULE_ID
+            // InternalDim.g:14220:3: ( RULE_ID )
+            // InternalDim.g:14221:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTestContextAccess().getTypeDTypeIDTerminalRuleCall_2_0_1()); 
@@ -46691,17 +47229,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTestContext__MultiplicityAssignment_3"
-    // InternalDim.g:14063:1: rule__DmxTestContext__MultiplicityAssignment_3 : ( ruleDMultiplicity ) ;
+    // InternalDim.g:14232:1: rule__DmxTestContext__MultiplicityAssignment_3 : ( ruleDMultiplicity ) ;
     public final void rule__DmxTestContext__MultiplicityAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14067:1: ( ( ruleDMultiplicity ) )
-            // InternalDim.g:14068:2: ( ruleDMultiplicity )
+            // InternalDim.g:14236:1: ( ( ruleDMultiplicity ) )
+            // InternalDim.g:14237:2: ( ruleDMultiplicity )
             {
-            // InternalDim.g:14068:2: ( ruleDMultiplicity )
-            // InternalDim.g:14069:3: ruleDMultiplicity
+            // InternalDim.g:14237:2: ( ruleDMultiplicity )
+            // InternalDim.g:14238:3: ruleDMultiplicity
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTestContextAccess().getMultiplicityDMultiplicityParserRuleCall_3_0()); 
@@ -46735,18 +47273,149 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DmxTestContext__MultiplicityAssignment_3"
 
 
+    // $ANTLR start "rule__DmxBaseTypeSet__NameAssignment_0"
+    // InternalDim.g:14247:1: rule__DmxBaseTypeSet__NameAssignment_0 : ( RULE_ID ) ;
+    public final void rule__DmxBaseTypeSet__NameAssignment_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:14251:1: ( ( RULE_ID ) )
+            // InternalDim.g:14252:2: ( RULE_ID )
+            {
+            // InternalDim.g:14252:2: ( RULE_ID )
+            // InternalDim.g:14253:3: RULE_ID
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getNameIDTerminalRuleCall_0_0()); 
+            }
+            match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getNameIDTerminalRuleCall_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__NameAssignment_0"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__MembersAssignment_3"
+    // InternalDim.g:14262:1: rule__DmxBaseTypeSet__MembersAssignment_3 : ( ruleDmxBaseType ) ;
+    public final void rule__DmxBaseTypeSet__MembersAssignment_3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:14266:1: ( ( ruleDmxBaseType ) )
+            // InternalDim.g:14267:2: ( ruleDmxBaseType )
+            {
+            // InternalDim.g:14267:2: ( ruleDmxBaseType )
+            // InternalDim.g:14268:3: ruleDmxBaseType
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getMembersDmxBaseTypeEnumRuleCall_3_0()); 
+            }
+            pushFollow(FOLLOW_2);
+            ruleDmxBaseType();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getMembersDmxBaseTypeEnumRuleCall_3_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__MembersAssignment_3"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__MembersAssignment_4_1"
+    // InternalDim.g:14277:1: rule__DmxBaseTypeSet__MembersAssignment_4_1 : ( ruleDmxBaseType ) ;
+    public final void rule__DmxBaseTypeSet__MembersAssignment_4_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:14281:1: ( ( ruleDmxBaseType ) )
+            // InternalDim.g:14282:2: ( ruleDmxBaseType )
+            {
+            // InternalDim.g:14282:2: ( ruleDmxBaseType )
+            // InternalDim.g:14283:3: ruleDmxBaseType
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getMembersDmxBaseTypeEnumRuleCall_4_1_0()); 
+            }
+            pushFollow(FOLLOW_2);
+            ruleDmxBaseType();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getMembersDmxBaseTypeEnumRuleCall_4_1_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__MembersAssignment_4_1"
+
+
     // $ANTLR start "rule__DmxArchetype__NameAssignment_1"
-    // InternalDim.g:14078:1: rule__DmxArchetype__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalDim.g:14292:1: rule__DmxArchetype__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__DmxArchetype__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14082:1: ( ( RULE_ID ) )
-            // InternalDim.g:14083:2: ( RULE_ID )
+            // InternalDim.g:14296:1: ( ( RULE_ID ) )
+            // InternalDim.g:14297:2: ( RULE_ID )
             {
-            // InternalDim.g:14083:2: ( RULE_ID )
-            // InternalDim.g:14084:3: RULE_ID
+            // InternalDim.g:14297:2: ( RULE_ID )
+            // InternalDim.g:14298:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -46777,17 +47446,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__BaseTypeAssignment_3"
-    // InternalDim.g:14093:1: rule__DmxArchetype__BaseTypeAssignment_3 : ( ruleDmxBaseType ) ;
+    // InternalDim.g:14307:1: rule__DmxArchetype__BaseTypeAssignment_3 : ( ruleDmxBaseType ) ;
     public final void rule__DmxArchetype__BaseTypeAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14097:1: ( ( ruleDmxBaseType ) )
-            // InternalDim.g:14098:2: ( ruleDmxBaseType )
+            // InternalDim.g:14311:1: ( ( ruleDmxBaseType ) )
+            // InternalDim.g:14312:2: ( ruleDmxBaseType )
             {
-            // InternalDim.g:14098:2: ( ruleDmxBaseType )
-            // InternalDim.g:14099:3: ruleDmxBaseType
+            // InternalDim.g:14312:2: ( ruleDmxBaseType )
+            // InternalDim.g:14313:3: ruleDmxBaseType
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeAccess().getBaseTypeDmxBaseTypeEnumRuleCall_3_0()); 
@@ -46822,17 +47491,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__DescriptionAssignment_4"
-    // InternalDim.g:14108:1: rule__DmxArchetype__DescriptionAssignment_4 : ( ruleDRichText ) ;
+    // InternalDim.g:14322:1: rule__DmxArchetype__DescriptionAssignment_4 : ( ruleDRichText ) ;
     public final void rule__DmxArchetype__DescriptionAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14112:1: ( ( ruleDRichText ) )
-            // InternalDim.g:14113:2: ( ruleDRichText )
+            // InternalDim.g:14326:1: ( ( ruleDRichText ) )
+            // InternalDim.g:14327:2: ( ruleDRichText )
             {
-            // InternalDim.g:14113:2: ( ruleDRichText )
-            // InternalDim.g:14114:3: ruleDRichText
+            // InternalDim.g:14327:2: ( ruleDRichText )
+            // InternalDim.g:14328:3: ruleDRichText
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeAccess().getDescriptionDRichTextParserRuleCall_4_0()); 
@@ -46866,25 +47535,25 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DmxArchetype__DescriptionAssignment_4"
 
 
-    // $ANTLR start "rule__DmxFunction__NameAssignment_1"
-    // InternalDim.g:14123:1: rule__DmxFunction__NameAssignment_1 : ( RULE_ID ) ;
-    public final void rule__DmxFunction__NameAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__NameAssignment_1"
+    // InternalDim.g:14337:1: rule__DmxFilter__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__DmxFilter__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14127:1: ( ( RULE_ID ) )
-            // InternalDim.g:14128:2: ( RULE_ID )
+            // InternalDim.g:14341:1: ( ( RULE_ID ) )
+            // InternalDim.g:14342:2: ( RULE_ID )
             {
-            // InternalDim.g:14128:2: ( RULE_ID )
-            // InternalDim.g:14129:3: RULE_ID
+            // InternalDim.g:14342:2: ( RULE_ID )
+            // InternalDim.g:14343:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getNameIDTerminalRuleCall_1_0()); 
+               before(grammarAccess.getDmxFilterAccess().getNameIDTerminalRuleCall_1_0()); 
             }
             match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getNameIDTerminalRuleCall_1_0()); 
+               after(grammarAccess.getDmxFilterAccess().getNameIDTerminalRuleCall_1_0()); 
             }
 
             }
@@ -46904,32 +47573,32 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__NameAssignment_1"
+    // $ANTLR end "rule__DmxFilter__NameAssignment_1"
 
 
-    // $ANTLR start "rule__DmxFunction__ParametersAssignment_3_0"
-    // InternalDim.g:14138:1: rule__DmxFunction__ParametersAssignment_3_0 : ( ruleDmxFunctionParameter ) ;
-    public final void rule__DmxFunction__ParametersAssignment_3_0() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__ParametersAssignment_3_0"
+    // InternalDim.g:14352:1: rule__DmxFilter__ParametersAssignment_3_0 : ( ruleDmxFilterParameter ) ;
+    public final void rule__DmxFilter__ParametersAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14142:1: ( ( ruleDmxFunctionParameter ) )
-            // InternalDim.g:14143:2: ( ruleDmxFunctionParameter )
+            // InternalDim.g:14356:1: ( ( ruleDmxFilterParameter ) )
+            // InternalDim.g:14357:2: ( ruleDmxFilterParameter )
             {
-            // InternalDim.g:14143:2: ( ruleDmxFunctionParameter )
-            // InternalDim.g:14144:3: ruleDmxFunctionParameter
+            // InternalDim.g:14357:2: ( ruleDmxFilterParameter )
+            // InternalDim.g:14358:3: ruleDmxFilterParameter
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getParametersDmxFunctionParameterParserRuleCall_3_0_0()); 
+               before(grammarAccess.getDmxFilterAccess().getParametersDmxFilterParameterParserRuleCall_3_0_0()); 
             }
             pushFollow(FOLLOW_2);
-            ruleDmxFunctionParameter();
+            ruleDmxFilterParameter();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getParametersDmxFunctionParameterParserRuleCall_3_0_0()); 
+               after(grammarAccess.getDmxFilterAccess().getParametersDmxFilterParameterParserRuleCall_3_0_0()); 
             }
 
             }
@@ -46949,32 +47618,32 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__ParametersAssignment_3_0"
+    // $ANTLR end "rule__DmxFilter__ParametersAssignment_3_0"
 
 
-    // $ANTLR start "rule__DmxFunction__ParametersAssignment_3_1_1"
-    // InternalDim.g:14153:1: rule__DmxFunction__ParametersAssignment_3_1_1 : ( ruleDmxFunctionParameter ) ;
-    public final void rule__DmxFunction__ParametersAssignment_3_1_1() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__ParametersAssignment_3_1_1"
+    // InternalDim.g:14367:1: rule__DmxFilter__ParametersAssignment_3_1_1 : ( ruleDmxFilterParameter ) ;
+    public final void rule__DmxFilter__ParametersAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14157:1: ( ( ruleDmxFunctionParameter ) )
-            // InternalDim.g:14158:2: ( ruleDmxFunctionParameter )
+            // InternalDim.g:14371:1: ( ( ruleDmxFilterParameter ) )
+            // InternalDim.g:14372:2: ( ruleDmxFilterParameter )
             {
-            // InternalDim.g:14158:2: ( ruleDmxFunctionParameter )
-            // InternalDim.g:14159:3: ruleDmxFunctionParameter
+            // InternalDim.g:14372:2: ( ruleDmxFilterParameter )
+            // InternalDim.g:14373:3: ruleDmxFilterParameter
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getParametersDmxFunctionParameterParserRuleCall_3_1_1_0()); 
+               before(grammarAccess.getDmxFilterAccess().getParametersDmxFilterParameterParserRuleCall_3_1_1_0()); 
             }
             pushFollow(FOLLOW_2);
-            ruleDmxFunctionParameter();
+            ruleDmxFilterParameter();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getParametersDmxFunctionParameterParserRuleCall_3_1_1_0()); 
+               after(grammarAccess.getDmxFilterAccess().getParametersDmxFilterParameterParserRuleCall_3_1_1_0()); 
             }
 
             }
@@ -46994,24 +47663,114 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__ParametersAssignment_3_1_1"
+    // $ANTLR end "rule__DmxFilter__ParametersAssignment_3_1_1"
 
 
-    // $ANTLR start "rule__DmxFunction__BaseTypeAssignment_6"
-    // InternalDim.g:14168:1: rule__DmxFunction__BaseTypeAssignment_6 : ( ruleDmxBaseType ) ;
-    public final void rule__DmxFunction__BaseTypeAssignment_6() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__TypeDescAssignment_6"
+    // InternalDim.g:14382:1: rule__DmxFilter__TypeDescAssignment_6 : ( ruleDmxFilterTypeDescriptor ) ;
+    public final void rule__DmxFilter__TypeDescAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14172:1: ( ( ruleDmxBaseType ) )
-            // InternalDim.g:14173:2: ( ruleDmxBaseType )
+            // InternalDim.g:14386:1: ( ( ruleDmxFilterTypeDescriptor ) )
+            // InternalDim.g:14387:2: ( ruleDmxFilterTypeDescriptor )
             {
-            // InternalDim.g:14173:2: ( ruleDmxBaseType )
-            // InternalDim.g:14174:3: ruleDmxBaseType
+            // InternalDim.g:14387:2: ( ruleDmxFilterTypeDescriptor )
+            // InternalDim.g:14388:3: ruleDmxFilterTypeDescriptor
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getBaseTypeDmxBaseTypeEnumRuleCall_6_0()); 
+               before(grammarAccess.getDmxFilterAccess().getTypeDescDmxFilterTypeDescriptorParserRuleCall_6_0()); 
+            }
+            pushFollow(FOLLOW_2);
+            ruleDmxFilterTypeDescriptor();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterAccess().getTypeDescDmxFilterTypeDescriptorParserRuleCall_6_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__TypeDescAssignment_6"
+
+
+    // $ANTLR start "rule__DmxFilter__WithTypeSetAssignment_7_1"
+    // InternalDim.g:14397:1: rule__DmxFilter__WithTypeSetAssignment_7_1 : ( ruleDmxBaseTypeSet ) ;
+    public final void rule__DmxFilter__WithTypeSetAssignment_7_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:14401:1: ( ( ruleDmxBaseTypeSet ) )
+            // InternalDim.g:14402:2: ( ruleDmxBaseTypeSet )
+            {
+            // InternalDim.g:14402:2: ( ruleDmxBaseTypeSet )
+            // InternalDim.g:14403:3: ruleDmxBaseTypeSet
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterAccess().getWithTypeSetDmxBaseTypeSetParserRuleCall_7_1_0()); 
+            }
+            pushFollow(FOLLOW_2);
+            ruleDmxBaseTypeSet();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterAccess().getWithTypeSetDmxBaseTypeSetParserRuleCall_7_1_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__WithTypeSetAssignment_7_1"
+
+
+    // $ANTLR start "rule__DmxFilterTypeDescriptor__SingleAssignment_0_0"
+    // InternalDim.g:14412:1: rule__DmxFilterTypeDescriptor__SingleAssignment_0_0 : ( ruleDmxBaseType ) ;
+    public final void rule__DmxFilterTypeDescriptor__SingleAssignment_0_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:14416:1: ( ( ruleDmxBaseType ) )
+            // InternalDim.g:14417:2: ( ruleDmxBaseType )
+            {
+            // InternalDim.g:14417:2: ( ruleDmxBaseType )
+            // InternalDim.g:14418:3: ruleDmxBaseType
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterTypeDescriptorAccess().getSingleDmxBaseTypeEnumRuleCall_0_0_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleDmxBaseType();
@@ -47019,7 +47778,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getBaseTypeDmxBaseTypeEnumRuleCall_6_0()); 
+               after(grammarAccess.getDmxFilterTypeDescriptorAccess().getSingleDmxBaseTypeEnumRuleCall_0_0_0()); 
             }
 
             }
@@ -47039,81 +47798,40 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__BaseTypeAssignment_6"
+    // $ANTLR end "rule__DmxFilterTypeDescriptor__SingleAssignment_0_0"
 
 
-    // $ANTLR start "rule__DmxFunction__BaseTypeCollectionAssignment_7"
-    // InternalDim.g:14183:1: rule__DmxFunction__BaseTypeCollectionAssignment_7 : ( ( '*' ) ) ;
-    public final void rule__DmxFunction__BaseTypeCollectionAssignment_7() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:14187:1: ( ( ( '*' ) ) )
-            // InternalDim.g:14188:2: ( ( '*' ) )
-            {
-            // InternalDim.g:14188:2: ( ( '*' ) )
-            // InternalDim.g:14189:3: ( '*' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getBaseTypeCollectionAsteriskKeyword_7_0()); 
-            }
-            // InternalDim.g:14190:3: ( '*' )
-            // InternalDim.g:14191:4: '*'
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getBaseTypeCollectionAsteriskKeyword_7_0()); 
-            }
-            match(input,35,FOLLOW_2); if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getBaseTypeCollectionAsteriskKeyword_7_0()); 
-            }
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getBaseTypeCollectionAsteriskKeyword_7_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunction__BaseTypeCollectionAssignment_7"
-
-
-    // $ANTLR start "rule__DmxFunctionParameter__NameAssignment_0"
-    // InternalDim.g:14202:1: rule__DmxFunctionParameter__NameAssignment_0 : ( RULE_ID ) ;
-    public final void rule__DmxFunctionParameter__NameAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1"
+    // InternalDim.g:14427:1: rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1 : ( ( RULE_ID ) ) ;
+    public final void rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14206:1: ( ( RULE_ID ) )
-            // InternalDim.g:14207:2: ( RULE_ID )
+            // InternalDim.g:14431:1: ( ( ( RULE_ID ) ) )
+            // InternalDim.g:14432:2: ( ( RULE_ID ) )
             {
-            // InternalDim.g:14207:2: ( RULE_ID )
-            // InternalDim.g:14208:3: RULE_ID
+            // InternalDim.g:14432:2: ( ( RULE_ID ) )
+            // InternalDim.g:14433:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionParameterAccess().getNameIDTerminalRuleCall_0_0()); 
+               before(grammarAccess.getDmxFilterTypeDescriptorAccess().getMultipleDmxBaseTypeSetCrossReference_0_1_0()); 
+            }
+            // InternalDim.g:14434:3: ( RULE_ID )
+            // InternalDim.g:14435:4: RULE_ID
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterTypeDescriptorAccess().getMultipleDmxBaseTypeSetIDTerminalRuleCall_0_1_0_1()); 
             }
             match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionParameterAccess().getNameIDTerminalRuleCall_0_0()); 
+               after(grammarAccess.getDmxFilterTypeDescriptorAccess().getMultipleDmxBaseTypeSetIDTerminalRuleCall_0_1_0_1()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterTypeDescriptorAccess().getMultipleDmxBaseTypeSetCrossReference_0_1_0()); 
             }
 
             }
@@ -47133,32 +47851,126 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunctionParameter__NameAssignment_0"
+    // $ANTLR end "rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1"
 
 
-    // $ANTLR start "rule__DmxFunctionParameter__BaseTypeAssignment_2"
-    // InternalDim.g:14217:1: rule__DmxFunctionParameter__BaseTypeAssignment_2 : ( ruleDmxBaseType ) ;
-    public final void rule__DmxFunctionParameter__BaseTypeAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilterTypeDescriptor__CollectionAssignment_1"
+    // InternalDim.g:14446:1: rule__DmxFilterTypeDescriptor__CollectionAssignment_1 : ( ( '*' ) ) ;
+    public final void rule__DmxFilterTypeDescriptor__CollectionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14221:1: ( ( ruleDmxBaseType ) )
-            // InternalDim.g:14222:2: ( ruleDmxBaseType )
+            // InternalDim.g:14450:1: ( ( ( '*' ) ) )
+            // InternalDim.g:14451:2: ( ( '*' ) )
             {
-            // InternalDim.g:14222:2: ( ruleDmxBaseType )
-            // InternalDim.g:14223:3: ruleDmxBaseType
+            // InternalDim.g:14451:2: ( ( '*' ) )
+            // InternalDim.g:14452:3: ( '*' )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeDmxBaseTypeEnumRuleCall_2_0()); 
+               before(grammarAccess.getDmxFilterTypeDescriptorAccess().getCollectionAsteriskKeyword_1_0()); 
+            }
+            // InternalDim.g:14453:3: ( '*' )
+            // InternalDim.g:14454:4: '*'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterTypeDescriptorAccess().getCollectionAsteriskKeyword_1_0()); 
+            }
+            match(input,35,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterTypeDescriptorAccess().getCollectionAsteriskKeyword_1_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterTypeDescriptorAccess().getCollectionAsteriskKeyword_1_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilterTypeDescriptor__CollectionAssignment_1"
+
+
+    // $ANTLR start "rule__DmxFilterParameter__NameAssignment_0"
+    // InternalDim.g:14465:1: rule__DmxFilterParameter__NameAssignment_0 : ( RULE_ID ) ;
+    public final void rule__DmxFilterParameter__NameAssignment_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:14469:1: ( ( RULE_ID ) )
+            // InternalDim.g:14470:2: ( RULE_ID )
+            {
+            // InternalDim.g:14470:2: ( RULE_ID )
+            // InternalDim.g:14471:3: RULE_ID
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterParameterAccess().getNameIDTerminalRuleCall_0_0()); 
+            }
+            match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterParameterAccess().getNameIDTerminalRuleCall_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilterParameter__NameAssignment_0"
+
+
+    // $ANTLR start "rule__DmxFilterParameter__TypeDescAssignment_2"
+    // InternalDim.g:14480:1: rule__DmxFilterParameter__TypeDescAssignment_2 : ( ruleDmxFilterTypeDescriptor ) ;
+    public final void rule__DmxFilterParameter__TypeDescAssignment_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalDim.g:14484:1: ( ( ruleDmxFilterTypeDescriptor ) )
+            // InternalDim.g:14485:2: ( ruleDmxFilterTypeDescriptor )
+            {
+            // InternalDim.g:14485:2: ( ruleDmxFilterTypeDescriptor )
+            // InternalDim.g:14486:3: ruleDmxFilterTypeDescriptor
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterParameterAccess().getTypeDescDmxFilterTypeDescriptorParserRuleCall_2_0()); 
             }
             pushFollow(FOLLOW_2);
-            ruleDmxBaseType();
+            ruleDmxFilterTypeDescriptor();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeDmxBaseTypeEnumRuleCall_2_0()); 
+               after(grammarAccess.getDmxFilterParameterAccess().getTypeDescDmxFilterTypeDescriptorParserRuleCall_2_0()); 
             }
 
             }
@@ -47178,213 +47990,21 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunctionParameter__BaseTypeAssignment_2"
-
-
-    // $ANTLR start "rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3"
-    // InternalDim.g:14232:1: rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3 : ( ( '*' ) ) ;
-    public final void rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:14236:1: ( ( ( '*' ) ) )
-            // InternalDim.g:14237:2: ( ( '*' ) )
-            {
-            // InternalDim.g:14237:2: ( ( '*' ) )
-            // InternalDim.g:14238:3: ( '*' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeCollectionAsteriskKeyword_3_0()); 
-            }
-            // InternalDim.g:14239:3: ( '*' )
-            // InternalDim.g:14240:4: '*'
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeCollectionAsteriskKeyword_3_0()); 
-            }
-            match(input,35,FOLLOW_2); if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeCollectionAsteriskKeyword_3_0()); 
-            }
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeCollectionAsteriskKeyword_3_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3"
-
-
-    // $ANTLR start "rule__DmxIterator__NameAssignment_1"
-    // InternalDim.g:14251:1: rule__DmxIterator__NameAssignment_1 : ( RULE_ID ) ;
-    public final void rule__DmxIterator__NameAssignment_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:14255:1: ( ( RULE_ID ) )
-            // InternalDim.g:14256:2: ( RULE_ID )
-            {
-            // InternalDim.g:14256:2: ( RULE_ID )
-            // InternalDim.g:14257:3: RULE_ID
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorAccess().getNameIDTerminalRuleCall_1_0()); 
-            }
-            match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorAccess().getNameIDTerminalRuleCall_1_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxIterator__NameAssignment_1"
-
-
-    // $ANTLR start "rule__DmxIterator__BaseTypeAssignment_3"
-    // InternalDim.g:14266:1: rule__DmxIterator__BaseTypeAssignment_3 : ( ruleDmxBaseType ) ;
-    public final void rule__DmxIterator__BaseTypeAssignment_3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:14270:1: ( ( ruleDmxBaseType ) )
-            // InternalDim.g:14271:2: ( ruleDmxBaseType )
-            {
-            // InternalDim.g:14271:2: ( ruleDmxBaseType )
-            // InternalDim.g:14272:3: ruleDmxBaseType
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorAccess().getBaseTypeDmxBaseTypeEnumRuleCall_3_0()); 
-            }
-            pushFollow(FOLLOW_2);
-            ruleDmxBaseType();
-
-            state._fsp--;
-            if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorAccess().getBaseTypeDmxBaseTypeEnumRuleCall_3_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxIterator__BaseTypeAssignment_3"
-
-
-    // $ANTLR start "rule__DmxIterator__BaseTypeCollectionAssignment_4"
-    // InternalDim.g:14281:1: rule__DmxIterator__BaseTypeCollectionAssignment_4 : ( ( '*' ) ) ;
-    public final void rule__DmxIterator__BaseTypeCollectionAssignment_4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalDim.g:14285:1: ( ( ( '*' ) ) )
-            // InternalDim.g:14286:2: ( ( '*' ) )
-            {
-            // InternalDim.g:14286:2: ( ( '*' ) )
-            // InternalDim.g:14287:3: ( '*' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorAccess().getBaseTypeCollectionAsteriskKeyword_4_0()); 
-            }
-            // InternalDim.g:14288:3: ( '*' )
-            // InternalDim.g:14289:4: '*'
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorAccess().getBaseTypeCollectionAsteriskKeyword_4_0()); 
-            }
-            match(input,35,FOLLOW_2); if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorAccess().getBaseTypeCollectionAsteriskKeyword_4_0()); 
-            }
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorAccess().getBaseTypeCollectionAsteriskKeyword_4_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxIterator__BaseTypeCollectionAssignment_4"
+    // $ANTLR end "rule__DmxFilterParameter__TypeDescAssignment_2"
 
 
     // $ANTLR start "rule__DRichText__SegmentsAssignment_0"
-    // InternalDim.g:14300:1: rule__DRichText__SegmentsAssignment_0 : ( ruleDmxTextOnly ) ;
+    // InternalDim.g:14495:1: rule__DRichText__SegmentsAssignment_0 : ( ruleDmxTextOnly ) ;
     public final void rule__DRichText__SegmentsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14304:1: ( ( ruleDmxTextOnly ) )
-            // InternalDim.g:14305:2: ( ruleDmxTextOnly )
+            // InternalDim.g:14499:1: ( ( ruleDmxTextOnly ) )
+            // InternalDim.g:14500:2: ( ruleDmxTextOnly )
             {
-            // InternalDim.g:14305:2: ( ruleDmxTextOnly )
-            // InternalDim.g:14306:3: ruleDmxTextOnly
+            // InternalDim.g:14500:2: ( ruleDmxTextOnly )
+            // InternalDim.g:14501:3: ruleDmxTextOnly
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsDmxTextOnlyParserRuleCall_0_0()); 
@@ -47419,17 +48039,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__SegmentsAssignment_1_0"
-    // InternalDim.g:14315:1: rule__DRichText__SegmentsAssignment_1_0 : ( ruleDmxTextStart ) ;
+    // InternalDim.g:14510:1: rule__DRichText__SegmentsAssignment_1_0 : ( ruleDmxTextStart ) ;
     public final void rule__DRichText__SegmentsAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14319:1: ( ( ruleDmxTextStart ) )
-            // InternalDim.g:14320:2: ( ruleDmxTextStart )
+            // InternalDim.g:14514:1: ( ( ruleDmxTextStart ) )
+            // InternalDim.g:14515:2: ( ruleDmxTextStart )
             {
-            // InternalDim.g:14320:2: ( ruleDmxTextStart )
-            // InternalDim.g:14321:3: ruleDmxTextStart
+            // InternalDim.g:14515:2: ( ruleDmxTextStart )
+            // InternalDim.g:14516:3: ruleDmxTextStart
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsDmxTextStartParserRuleCall_1_0_0()); 
@@ -47464,17 +48084,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__SegmentsAssignment_1_1"
-    // InternalDim.g:14330:1: rule__DRichText__SegmentsAssignment_1_1 : ( ruleDExpression ) ;
+    // InternalDim.g:14525:1: rule__DRichText__SegmentsAssignment_1_1 : ( ruleDExpression ) ;
     public final void rule__DRichText__SegmentsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14334:1: ( ( ruleDExpression ) )
-            // InternalDim.g:14335:2: ( ruleDExpression )
+            // InternalDim.g:14529:1: ( ( ruleDExpression ) )
+            // InternalDim.g:14530:2: ( ruleDExpression )
             {
-            // InternalDim.g:14335:2: ( ruleDExpression )
-            // InternalDim.g:14336:3: ruleDExpression
+            // InternalDim.g:14530:2: ( ruleDExpression )
+            // InternalDim.g:14531:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsDExpressionParserRuleCall_1_1_0()); 
@@ -47509,17 +48129,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__SegmentsAssignment_1_2_0"
-    // InternalDim.g:14345:1: rule__DRichText__SegmentsAssignment_1_2_0 : ( ruleDmxTextMiddle ) ;
+    // InternalDim.g:14540:1: rule__DRichText__SegmentsAssignment_1_2_0 : ( ruleDmxTextMiddle ) ;
     public final void rule__DRichText__SegmentsAssignment_1_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14349:1: ( ( ruleDmxTextMiddle ) )
-            // InternalDim.g:14350:2: ( ruleDmxTextMiddle )
+            // InternalDim.g:14544:1: ( ( ruleDmxTextMiddle ) )
+            // InternalDim.g:14545:2: ( ruleDmxTextMiddle )
             {
-            // InternalDim.g:14350:2: ( ruleDmxTextMiddle )
-            // InternalDim.g:14351:3: ruleDmxTextMiddle
+            // InternalDim.g:14545:2: ( ruleDmxTextMiddle )
+            // InternalDim.g:14546:3: ruleDmxTextMiddle
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsDmxTextMiddleParserRuleCall_1_2_0_0()); 
@@ -47554,17 +48174,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__SegmentsAssignment_1_2_1"
-    // InternalDim.g:14360:1: rule__DRichText__SegmentsAssignment_1_2_1 : ( ruleDExpression ) ;
+    // InternalDim.g:14555:1: rule__DRichText__SegmentsAssignment_1_2_1 : ( ruleDExpression ) ;
     public final void rule__DRichText__SegmentsAssignment_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14364:1: ( ( ruleDExpression ) )
-            // InternalDim.g:14365:2: ( ruleDExpression )
+            // InternalDim.g:14559:1: ( ( ruleDExpression ) )
+            // InternalDim.g:14560:2: ( ruleDExpression )
             {
-            // InternalDim.g:14365:2: ( ruleDExpression )
-            // InternalDim.g:14366:3: ruleDExpression
+            // InternalDim.g:14560:2: ( ruleDExpression )
+            // InternalDim.g:14561:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsDExpressionParserRuleCall_1_2_1_0()); 
@@ -47599,17 +48219,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__SegmentsAssignment_1_3"
-    // InternalDim.g:14375:1: rule__DRichText__SegmentsAssignment_1_3 : ( ruleDmxTextEnd ) ;
+    // InternalDim.g:14570:1: rule__DRichText__SegmentsAssignment_1_3 : ( ruleDmxTextEnd ) ;
     public final void rule__DRichText__SegmentsAssignment_1_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14379:1: ( ( ruleDmxTextEnd ) )
-            // InternalDim.g:14380:2: ( ruleDmxTextEnd )
+            // InternalDim.g:14574:1: ( ( ruleDmxTextEnd ) )
+            // InternalDim.g:14575:2: ( ruleDmxTextEnd )
             {
-            // InternalDim.g:14380:2: ( ruleDmxTextEnd )
-            // InternalDim.g:14381:3: ruleDmxTextEnd
+            // InternalDim.g:14575:2: ( ruleDmxTextEnd )
+            // InternalDim.g:14576:3: ruleDmxTextEnd
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsDmxTextEndParserRuleCall_1_3_0()); 
@@ -47644,17 +48264,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTextOnly__ValueAssignment"
-    // InternalDim.g:14390:1: rule__DmxTextOnly__ValueAssignment : ( RULE_PLAIN_TEXT_ONLY ) ;
+    // InternalDim.g:14585:1: rule__DmxTextOnly__ValueAssignment : ( RULE_PLAIN_TEXT_ONLY ) ;
     public final void rule__DmxTextOnly__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14394:1: ( ( RULE_PLAIN_TEXT_ONLY ) )
-            // InternalDim.g:14395:2: ( RULE_PLAIN_TEXT_ONLY )
+            // InternalDim.g:14589:1: ( ( RULE_PLAIN_TEXT_ONLY ) )
+            // InternalDim.g:14590:2: ( RULE_PLAIN_TEXT_ONLY )
             {
-            // InternalDim.g:14395:2: ( RULE_PLAIN_TEXT_ONLY )
-            // InternalDim.g:14396:3: RULE_PLAIN_TEXT_ONLY
+            // InternalDim.g:14590:2: ( RULE_PLAIN_TEXT_ONLY )
+            // InternalDim.g:14591:3: RULE_PLAIN_TEXT_ONLY
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTextOnlyAccess().getValuePLAIN_TEXT_ONLYTerminalRuleCall_0()); 
@@ -47685,17 +48305,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTextStart__ValueAssignment"
-    // InternalDim.g:14405:1: rule__DmxTextStart__ValueAssignment : ( RULE_PLAIN_TEXT_START ) ;
+    // InternalDim.g:14600:1: rule__DmxTextStart__ValueAssignment : ( RULE_PLAIN_TEXT_START ) ;
     public final void rule__DmxTextStart__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14409:1: ( ( RULE_PLAIN_TEXT_START ) )
-            // InternalDim.g:14410:2: ( RULE_PLAIN_TEXT_START )
+            // InternalDim.g:14604:1: ( ( RULE_PLAIN_TEXT_START ) )
+            // InternalDim.g:14605:2: ( RULE_PLAIN_TEXT_START )
             {
-            // InternalDim.g:14410:2: ( RULE_PLAIN_TEXT_START )
-            // InternalDim.g:14411:3: RULE_PLAIN_TEXT_START
+            // InternalDim.g:14605:2: ( RULE_PLAIN_TEXT_START )
+            // InternalDim.g:14606:3: RULE_PLAIN_TEXT_START
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTextStartAccess().getValuePLAIN_TEXT_STARTTerminalRuleCall_0()); 
@@ -47726,17 +48346,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTextMiddle__ValueAssignment"
-    // InternalDim.g:14420:1: rule__DmxTextMiddle__ValueAssignment : ( RULE_PLAIN_TEXT_MIDDLE ) ;
+    // InternalDim.g:14615:1: rule__DmxTextMiddle__ValueAssignment : ( RULE_PLAIN_TEXT_MIDDLE ) ;
     public final void rule__DmxTextMiddle__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14424:1: ( ( RULE_PLAIN_TEXT_MIDDLE ) )
-            // InternalDim.g:14425:2: ( RULE_PLAIN_TEXT_MIDDLE )
+            // InternalDim.g:14619:1: ( ( RULE_PLAIN_TEXT_MIDDLE ) )
+            // InternalDim.g:14620:2: ( RULE_PLAIN_TEXT_MIDDLE )
             {
-            // InternalDim.g:14425:2: ( RULE_PLAIN_TEXT_MIDDLE )
-            // InternalDim.g:14426:3: RULE_PLAIN_TEXT_MIDDLE
+            // InternalDim.g:14620:2: ( RULE_PLAIN_TEXT_MIDDLE )
+            // InternalDim.g:14621:3: RULE_PLAIN_TEXT_MIDDLE
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTextMiddleAccess().getValuePLAIN_TEXT_MIDDLETerminalRuleCall_0()); 
@@ -47767,17 +48387,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTextEnd__ValueAssignment"
-    // InternalDim.g:14435:1: rule__DmxTextEnd__ValueAssignment : ( RULE_PLAIN_TEXT_END ) ;
+    // InternalDim.g:14630:1: rule__DmxTextEnd__ValueAssignment : ( RULE_PLAIN_TEXT_END ) ;
     public final void rule__DmxTextEnd__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14439:1: ( ( RULE_PLAIN_TEXT_END ) )
-            // InternalDim.g:14440:2: ( RULE_PLAIN_TEXT_END )
+            // InternalDim.g:14634:1: ( ( RULE_PLAIN_TEXT_END ) )
+            // InternalDim.g:14635:2: ( RULE_PLAIN_TEXT_END )
             {
-            // InternalDim.g:14440:2: ( RULE_PLAIN_TEXT_END )
-            // InternalDim.g:14441:3: RULE_PLAIN_TEXT_END
+            // InternalDim.g:14635:2: ( RULE_PLAIN_TEXT_END )
+            // InternalDim.g:14636:3: RULE_PLAIN_TEXT_END
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTextEndAccess().getValuePLAIN_TEXT_ENDTerminalRuleCall_0()); 
@@ -47808,23 +48428,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2"
-    // InternalDim.g:14450:1: rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 : ( ( RULE_ID ) ) ;
+    // InternalDim.g:14645:1: rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 : ( ( RULE_ID ) ) ;
     public final void rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14454:1: ( ( ( RULE_ID ) ) )
-            // InternalDim.g:14455:2: ( ( RULE_ID ) )
+            // InternalDim.g:14649:1: ( ( ( RULE_ID ) ) )
+            // InternalDim.g:14650:2: ( ( RULE_ID ) )
             {
-            // InternalDim.g:14455:2: ( ( RULE_ID ) )
-            // InternalDim.g:14456:3: ( RULE_ID )
+            // InternalDim.g:14650:2: ( ( RULE_ID ) )
+            // InternalDim.g:14651:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getAssignToMemberDNavigableMemberCrossReference_1_0_0_0_2_0()); 
             }
-            // InternalDim.g:14457:3: ( RULE_ID )
-            // InternalDim.g:14458:4: RULE_ID
+            // InternalDim.g:14652:3: ( RULE_ID )
+            // InternalDim.g:14653:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getAssignToMemberDNavigableMemberIDTerminalRuleCall_1_0_0_0_2_0_1()); 
@@ -47861,17 +48481,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__ValueAssignment_1_0_1"
-    // InternalDim.g:14469:1: rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 : ( ruleDmxOrExpression ) ;
+    // InternalDim.g:14664:1: rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 : ( ruleDmxOrExpression ) ;
     public final void rule__DmxNavigableMemberReference__ValueAssignment_1_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14473:1: ( ( ruleDmxOrExpression ) )
-            // InternalDim.g:14474:2: ( ruleDmxOrExpression )
+            // InternalDim.g:14668:1: ( ( ruleDmxOrExpression ) )
+            // InternalDim.g:14669:2: ( ruleDmxOrExpression )
             {
-            // InternalDim.g:14474:2: ( ruleDmxOrExpression )
-            // InternalDim.g:14475:3: ruleDmxOrExpression
+            // InternalDim.g:14669:2: ( ruleDmxOrExpression )
+            // InternalDim.g:14670:3: ruleDmxOrExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getValueDmxOrExpressionParserRuleCall_1_0_1_0()); 
@@ -47906,23 +48526,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__MemberAssignment_1_1_1"
-    // InternalDim.g:14484:1: rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 : ( ( RULE_ID ) ) ;
+    // InternalDim.g:14679:1: rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 : ( ( RULE_ID ) ) ;
     public final void rule__DmxNavigableMemberReference__MemberAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14488:1: ( ( ( RULE_ID ) ) )
-            // InternalDim.g:14489:2: ( ( RULE_ID ) )
+            // InternalDim.g:14683:1: ( ( ( RULE_ID ) ) )
+            // InternalDim.g:14684:2: ( ( RULE_ID ) )
             {
-            // InternalDim.g:14489:2: ( ( RULE_ID ) )
-            // InternalDim.g:14490:3: ( RULE_ID )
+            // InternalDim.g:14684:2: ( ( RULE_ID ) )
+            // InternalDim.g:14685:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getMemberDNavigableMemberCrossReference_1_1_1_0()); 
             }
-            // InternalDim.g:14491:3: ( RULE_ID )
-            // InternalDim.g:14492:4: RULE_ID
+            // InternalDim.g:14686:3: ( RULE_ID )
+            // InternalDim.g:14687:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getMemberDNavigableMemberIDTerminalRuleCall_1_1_1_0_1()); 
@@ -47959,23 +48579,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0"
-    // InternalDim.g:14503:1: rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 : ( ( '(' ) ) ;
+    // InternalDim.g:14698:1: rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 : ( ( '(' ) ) ;
     public final void rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14507:1: ( ( ( '(' ) ) )
-            // InternalDim.g:14508:2: ( ( '(' ) )
+            // InternalDim.g:14702:1: ( ( ( '(' ) ) )
+            // InternalDim.g:14703:2: ( ( '(' ) )
             {
-            // InternalDim.g:14508:2: ( ( '(' ) )
-            // InternalDim.g:14509:3: ( '(' )
+            // InternalDim.g:14703:2: ( ( '(' ) )
+            // InternalDim.g:14704:3: ( '(' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0_0()); 
             }
-            // InternalDim.g:14510:3: ( '(' )
-            // InternalDim.g:14511:4: '('
+            // InternalDim.g:14705:3: ( '(' )
+            // InternalDim.g:14706:4: '('
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0_0()); 
@@ -48012,17 +48632,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0"
-    // InternalDim.g:14522:1: rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 : ( ruleDmxPredicate ) ;
+    // InternalDim.g:14717:1: rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 : ( ruleDmxPredicate ) ;
     public final void rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14526:1: ( ( ruleDmxPredicate ) )
-            // InternalDim.g:14527:2: ( ruleDmxPredicate )
+            // InternalDim.g:14721:1: ( ( ruleDmxPredicate ) )
+            // InternalDim.g:14722:2: ( ruleDmxPredicate )
             {
-            // InternalDim.g:14527:2: ( ruleDmxPredicate )
-            // InternalDim.g:14528:3: ruleDmxPredicate
+            // InternalDim.g:14722:2: ( ruleDmxPredicate )
+            // InternalDim.g:14723:3: ruleDmxPredicate
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getMemberCallArgumentsDmxPredicateParserRuleCall_1_1_2_0_1_0_0()); 
@@ -48057,17 +48677,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1"
-    // InternalDim.g:14537:1: rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 : ( ruleDmxPredicate ) ;
+    // InternalDim.g:14732:1: rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 : ( ruleDmxPredicate ) ;
     public final void rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14541:1: ( ( ruleDmxPredicate ) )
-            // InternalDim.g:14542:2: ( ruleDmxPredicate )
+            // InternalDim.g:14736:1: ( ( ruleDmxPredicate ) )
+            // InternalDim.g:14737:2: ( ruleDmxPredicate )
             {
-            // InternalDim.g:14542:2: ( ruleDmxPredicate )
-            // InternalDim.g:14543:3: ruleDmxPredicate
+            // InternalDim.g:14737:2: ( ruleDmxPredicate )
+            // InternalDim.g:14738:3: ruleDmxPredicate
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getMemberCallArgumentsDmxPredicateParserRuleCall_1_1_2_0_1_1_1_0()); 
@@ -48102,28 +48722,28 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__BeforeAssignment_1_1_2_1"
-    // InternalDim.g:14552:1: rule__DmxNavigableMemberReference__BeforeAssignment_1_1_2_1 : ( ( '@before' ) ) ;
+    // InternalDim.g:14747:1: rule__DmxNavigableMemberReference__BeforeAssignment_1_1_2_1 : ( ( '@before' ) ) ;
     public final void rule__DmxNavigableMemberReference__BeforeAssignment_1_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14556:1: ( ( ( '@before' ) ) )
-            // InternalDim.g:14557:2: ( ( '@before' ) )
+            // InternalDim.g:14751:1: ( ( ( '@before' ) ) )
+            // InternalDim.g:14752:2: ( ( '@before' ) )
             {
-            // InternalDim.g:14557:2: ( ( '@before' ) )
-            // InternalDim.g:14558:3: ( '@before' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxNavigableMemberReferenceAccess().getBeforeBeforeKeyword_1_1_2_1_0()); 
-            }
-            // InternalDim.g:14559:3: ( '@before' )
-            // InternalDim.g:14560:4: '@before'
+            // InternalDim.g:14752:2: ( ( '@before' ) )
+            // InternalDim.g:14753:3: ( '@before' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getBeforeBeforeKeyword_1_1_2_1_0()); 
             }
-            match(input,122,FOLLOW_2); if (state.failed) return ;
+            // InternalDim.g:14754:3: ( '@before' )
+            // InternalDim.g:14755:4: '@before'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxNavigableMemberReferenceAccess().getBeforeBeforeKeyword_1_1_2_1_0()); 
+            }
+            match(input,123,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxNavigableMemberReferenceAccess().getBeforeBeforeKeyword_1_1_2_1_0()); 
             }
@@ -48155,23 +48775,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAssignment__AssignToMemberAssignment_1"
-    // InternalDim.g:14571:1: rule__DmxAssignment__AssignToMemberAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalDim.g:14766:1: rule__DmxAssignment__AssignToMemberAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__DmxAssignment__AssignToMemberAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14575:1: ( ( ( RULE_ID ) ) )
-            // InternalDim.g:14576:2: ( ( RULE_ID ) )
+            // InternalDim.g:14770:1: ( ( ( RULE_ID ) ) )
+            // InternalDim.g:14771:2: ( ( RULE_ID ) )
             {
-            // InternalDim.g:14576:2: ( ( RULE_ID ) )
-            // InternalDim.g:14577:3: ( RULE_ID )
+            // InternalDim.g:14771:2: ( ( RULE_ID ) )
+            // InternalDim.g:14772:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAssignmentAccess().getAssignToMemberDNavigableMemberCrossReference_1_0()); 
             }
-            // InternalDim.g:14578:3: ( RULE_ID )
-            // InternalDim.g:14579:4: RULE_ID
+            // InternalDim.g:14773:3: ( RULE_ID )
+            // InternalDim.g:14774:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAssignmentAccess().getAssignToMemberDNavigableMemberIDTerminalRuleCall_1_0_1()); 
@@ -48208,17 +48828,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAssignment__ValueAssignment_3"
-    // InternalDim.g:14590:1: rule__DmxAssignment__ValueAssignment_3 : ( ruleDmxOrExpression ) ;
+    // InternalDim.g:14785:1: rule__DmxAssignment__ValueAssignment_3 : ( ruleDmxOrExpression ) ;
     public final void rule__DmxAssignment__ValueAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14594:1: ( ( ruleDmxOrExpression ) )
-            // InternalDim.g:14595:2: ( ruleDmxOrExpression )
+            // InternalDim.g:14789:1: ( ( ruleDmxOrExpression ) )
+            // InternalDim.g:14790:2: ( ruleDmxOrExpression )
             {
-            // InternalDim.g:14595:2: ( ruleDmxOrExpression )
-            // InternalDim.g:14596:3: ruleDmxOrExpression
+            // InternalDim.g:14790:2: ( ruleDmxOrExpression )
+            // InternalDim.g:14791:3: ruleDmxOrExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAssignmentAccess().getValueDmxOrExpressionParserRuleCall_3_0()); 
@@ -48253,17 +48873,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxPredicate__CorrelationVariableAssignment_0_1"
-    // InternalDim.g:14605:1: rule__DmxPredicate__CorrelationVariableAssignment_0_1 : ( ruleDmxCorrelationVariable ) ;
+    // InternalDim.g:14800:1: rule__DmxPredicate__CorrelationVariableAssignment_0_1 : ( ruleDmxCorrelationVariable ) ;
     public final void rule__DmxPredicate__CorrelationVariableAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14609:1: ( ( ruleDmxCorrelationVariable ) )
-            // InternalDim.g:14610:2: ( ruleDmxCorrelationVariable )
+            // InternalDim.g:14804:1: ( ( ruleDmxCorrelationVariable ) )
+            // InternalDim.g:14805:2: ( ruleDmxCorrelationVariable )
             {
-            // InternalDim.g:14610:2: ( ruleDmxCorrelationVariable )
-            // InternalDim.g:14611:3: ruleDmxCorrelationVariable
+            // InternalDim.g:14805:2: ( ruleDmxCorrelationVariable )
+            // InternalDim.g:14806:3: ruleDmxCorrelationVariable
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxPredicateAccess().getCorrelationVariableDmxCorrelationVariableParserRuleCall_0_1_0()); 
@@ -48298,17 +48918,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxPredicate__ValueAssignment_0_3"
-    // InternalDim.g:14620:1: rule__DmxPredicate__ValueAssignment_0_3 : ( ruleDmxOrExpression ) ;
+    // InternalDim.g:14815:1: rule__DmxPredicate__ValueAssignment_0_3 : ( ruleDmxOrExpression ) ;
     public final void rule__DmxPredicate__ValueAssignment_0_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14624:1: ( ( ruleDmxOrExpression ) )
-            // InternalDim.g:14625:2: ( ruleDmxOrExpression )
+            // InternalDim.g:14819:1: ( ( ruleDmxOrExpression ) )
+            // InternalDim.g:14820:2: ( ruleDmxOrExpression )
             {
-            // InternalDim.g:14625:2: ( ruleDmxOrExpression )
-            // InternalDim.g:14626:3: ruleDmxOrExpression
+            // InternalDim.g:14820:2: ( ruleDmxOrExpression )
+            // InternalDim.g:14821:3: ruleDmxOrExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxPredicateAccess().getValueDmxOrExpressionParserRuleCall_0_3_0()); 
@@ -48343,17 +48963,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCorrelationVariable__NameAssignment"
-    // InternalDim.g:14635:1: rule__DmxCorrelationVariable__NameAssignment : ( RULE_ID ) ;
+    // InternalDim.g:14830:1: rule__DmxCorrelationVariable__NameAssignment : ( RULE_ID ) ;
     public final void rule__DmxCorrelationVariable__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14639:1: ( ( RULE_ID ) )
-            // InternalDim.g:14640:2: ( RULE_ID )
+            // InternalDim.g:14834:1: ( ( RULE_ID ) )
+            // InternalDim.g:14835:2: ( RULE_ID )
             {
-            // InternalDim.g:14640:2: ( RULE_ID )
-            // InternalDim.g:14641:3: RULE_ID
+            // InternalDim.g:14835:2: ( RULE_ID )
+            // InternalDim.g:14836:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxCorrelationVariableAccess().getNameIDTerminalRuleCall_0()); 
@@ -48384,17 +49004,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__OperatorAssignment_1_0_0_1"
-    // InternalDim.g:14650:1: rule__DmxOrExpression__OperatorAssignment_1_0_0_1 : ( ruleDmxOpOr ) ;
+    // InternalDim.g:14845:1: rule__DmxOrExpression__OperatorAssignment_1_0_0_1 : ( ruleDmxOpOr ) ;
     public final void rule__DmxOrExpression__OperatorAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14654:1: ( ( ruleDmxOpOr ) )
-            // InternalDim.g:14655:2: ( ruleDmxOpOr )
+            // InternalDim.g:14849:1: ( ( ruleDmxOpOr ) )
+            // InternalDim.g:14850:2: ( ruleDmxOpOr )
             {
-            // InternalDim.g:14655:2: ( ruleDmxOpOr )
-            // InternalDim.g:14656:3: ruleDmxOpOr
+            // InternalDim.g:14850:2: ( ruleDmxOpOr )
+            // InternalDim.g:14851:3: ruleDmxOpOr
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOrExpressionAccess().getOperatorDmxOpOrEnumRuleCall_1_0_0_1_0()); 
@@ -48429,17 +49049,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__RightOperandAssignment_1_1"
-    // InternalDim.g:14665:1: rule__DmxOrExpression__RightOperandAssignment_1_1 : ( ruleDmxAndExpression ) ;
+    // InternalDim.g:14860:1: rule__DmxOrExpression__RightOperandAssignment_1_1 : ( ruleDmxAndExpression ) ;
     public final void rule__DmxOrExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14669:1: ( ( ruleDmxAndExpression ) )
-            // InternalDim.g:14670:2: ( ruleDmxAndExpression )
+            // InternalDim.g:14864:1: ( ( ruleDmxAndExpression ) )
+            // InternalDim.g:14865:2: ( ruleDmxAndExpression )
             {
-            // InternalDim.g:14670:2: ( ruleDmxAndExpression )
-            // InternalDim.g:14671:3: ruleDmxAndExpression
+            // InternalDim.g:14865:2: ( ruleDmxAndExpression )
+            // InternalDim.g:14866:3: ruleDmxAndExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOrExpressionAccess().getRightOperandDmxAndExpressionParserRuleCall_1_1_0()); 
@@ -48474,17 +49094,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__OperatorAssignment_1_0_0_1"
-    // InternalDim.g:14680:1: rule__DmxAndExpression__OperatorAssignment_1_0_0_1 : ( ruleDmxOpAnd ) ;
+    // InternalDim.g:14875:1: rule__DmxAndExpression__OperatorAssignment_1_0_0_1 : ( ruleDmxOpAnd ) ;
     public final void rule__DmxAndExpression__OperatorAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14684:1: ( ( ruleDmxOpAnd ) )
-            // InternalDim.g:14685:2: ( ruleDmxOpAnd )
+            // InternalDim.g:14879:1: ( ( ruleDmxOpAnd ) )
+            // InternalDim.g:14880:2: ( ruleDmxOpAnd )
             {
-            // InternalDim.g:14685:2: ( ruleDmxOpAnd )
-            // InternalDim.g:14686:3: ruleDmxOpAnd
+            // InternalDim.g:14880:2: ( ruleDmxOpAnd )
+            // InternalDim.g:14881:3: ruleDmxOpAnd
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAndExpressionAccess().getOperatorDmxOpAndEnumRuleCall_1_0_0_1_0()); 
@@ -48519,17 +49139,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__RightOperandAssignment_1_1"
-    // InternalDim.g:14695:1: rule__DmxAndExpression__RightOperandAssignment_1_1 : ( ruleDmxEqualityExpression ) ;
+    // InternalDim.g:14890:1: rule__DmxAndExpression__RightOperandAssignment_1_1 : ( ruleDmxEqualityExpression ) ;
     public final void rule__DmxAndExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14699:1: ( ( ruleDmxEqualityExpression ) )
-            // InternalDim.g:14700:2: ( ruleDmxEqualityExpression )
+            // InternalDim.g:14894:1: ( ( ruleDmxEqualityExpression ) )
+            // InternalDim.g:14895:2: ( ruleDmxEqualityExpression )
             {
-            // InternalDim.g:14700:2: ( ruleDmxEqualityExpression )
-            // InternalDim.g:14701:3: ruleDmxEqualityExpression
+            // InternalDim.g:14895:2: ( ruleDmxEqualityExpression )
+            // InternalDim.g:14896:3: ruleDmxEqualityExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAndExpressionAccess().getRightOperandDmxEqualityExpressionParserRuleCall_1_1_0()); 
@@ -48564,17 +49184,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1"
-    // InternalDim.g:14710:1: rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 : ( ruleDmxOpEquality ) ;
+    // InternalDim.g:14905:1: rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 : ( ruleDmxOpEquality ) ;
     public final void rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14714:1: ( ( ruleDmxOpEquality ) )
-            // InternalDim.g:14715:2: ( ruleDmxOpEquality )
+            // InternalDim.g:14909:1: ( ( ruleDmxOpEquality ) )
+            // InternalDim.g:14910:2: ( ruleDmxOpEquality )
             {
-            // InternalDim.g:14715:2: ( ruleDmxOpEquality )
-            // InternalDim.g:14716:3: ruleDmxOpEquality
+            // InternalDim.g:14910:2: ( ruleDmxOpEquality )
+            // InternalDim.g:14911:3: ruleDmxOpEquality
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxEqualityExpressionAccess().getOperatorDmxOpEqualityEnumRuleCall_1_0_0_1_0()); 
@@ -48609,17 +49229,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__RightOperandAssignment_1_1"
-    // InternalDim.g:14725:1: rule__DmxEqualityExpression__RightOperandAssignment_1_1 : ( ruleDmxRelationalExpression ) ;
+    // InternalDim.g:14920:1: rule__DmxEqualityExpression__RightOperandAssignment_1_1 : ( ruleDmxRelationalExpression ) ;
     public final void rule__DmxEqualityExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14729:1: ( ( ruleDmxRelationalExpression ) )
-            // InternalDim.g:14730:2: ( ruleDmxRelationalExpression )
+            // InternalDim.g:14924:1: ( ( ruleDmxRelationalExpression ) )
+            // InternalDim.g:14925:2: ( ruleDmxRelationalExpression )
             {
-            // InternalDim.g:14730:2: ( ruleDmxRelationalExpression )
-            // InternalDim.g:14731:3: ruleDmxRelationalExpression
+            // InternalDim.g:14925:2: ( ruleDmxRelationalExpression )
+            // InternalDim.g:14926:3: ruleDmxRelationalExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxEqualityExpressionAccess().getRightOperandDmxRelationalExpressionParserRuleCall_1_1_0()); 
@@ -48654,23 +49274,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__TypeAssignment_1_0_1"
-    // InternalDim.g:14740:1: rule__DmxRelationalExpression__TypeAssignment_1_0_1 : ( ( RULE_ID ) ) ;
+    // InternalDim.g:14935:1: rule__DmxRelationalExpression__TypeAssignment_1_0_1 : ( ( RULE_ID ) ) ;
     public final void rule__DmxRelationalExpression__TypeAssignment_1_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14744:1: ( ( ( RULE_ID ) ) )
-            // InternalDim.g:14745:2: ( ( RULE_ID ) )
+            // InternalDim.g:14939:1: ( ( ( RULE_ID ) ) )
+            // InternalDim.g:14940:2: ( ( RULE_ID ) )
             {
-            // InternalDim.g:14745:2: ( ( RULE_ID ) )
-            // InternalDim.g:14746:3: ( RULE_ID )
+            // InternalDim.g:14940:2: ( ( RULE_ID ) )
+            // InternalDim.g:14941:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getTypeDTypeCrossReference_1_0_1_0()); 
             }
-            // InternalDim.g:14747:3: ( RULE_ID )
-            // InternalDim.g:14748:4: RULE_ID
+            // InternalDim.g:14942:3: ( RULE_ID )
+            // InternalDim.g:14943:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getTypeDTypeIDTerminalRuleCall_1_0_1_0_1()); 
@@ -48707,17 +49327,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1"
-    // InternalDim.g:14759:1: rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 : ( ruleOpCompare ) ;
+    // InternalDim.g:14954:1: rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 : ( ruleOpCompare ) ;
     public final void rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14763:1: ( ( ruleOpCompare ) )
-            // InternalDim.g:14764:2: ( ruleOpCompare )
+            // InternalDim.g:14958:1: ( ( ruleOpCompare ) )
+            // InternalDim.g:14959:2: ( ruleOpCompare )
             {
-            // InternalDim.g:14764:2: ( ruleOpCompare )
-            // InternalDim.g:14765:3: ruleOpCompare
+            // InternalDim.g:14959:2: ( ruleOpCompare )
+            // InternalDim.g:14960:3: ruleOpCompare
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getOperatorOpCompareEnumRuleCall_1_1_0_0_1_0()); 
@@ -48752,17 +49372,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__RightOperandAssignment_1_1_1"
-    // InternalDim.g:14774:1: rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 : ( ruleDmxOtherOperatorExpression ) ;
+    // InternalDim.g:14969:1: rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 : ( ruleDmxOtherOperatorExpression ) ;
     public final void rule__DmxRelationalExpression__RightOperandAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14778:1: ( ( ruleDmxOtherOperatorExpression ) )
-            // InternalDim.g:14779:2: ( ruleDmxOtherOperatorExpression )
+            // InternalDim.g:14973:1: ( ( ruleDmxOtherOperatorExpression ) )
+            // InternalDim.g:14974:2: ( ruleDmxOtherOperatorExpression )
             {
-            // InternalDim.g:14779:2: ( ruleDmxOtherOperatorExpression )
-            // InternalDim.g:14780:3: ruleDmxOtherOperatorExpression
+            // InternalDim.g:14974:2: ( ruleDmxOtherOperatorExpression )
+            // InternalDim.g:14975:3: ruleDmxOtherOperatorExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getRightOperandDmxOtherOperatorExpressionParserRuleCall_1_1_1_0()); 
@@ -48797,17 +49417,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1"
-    // InternalDim.g:14789:1: rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 : ( ruleOpOther ) ;
+    // InternalDim.g:14984:1: rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 : ( ruleOpOther ) ;
     public final void rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14793:1: ( ( ruleOpOther ) )
-            // InternalDim.g:14794:2: ( ruleOpOther )
+            // InternalDim.g:14988:1: ( ( ruleOpOther ) )
+            // InternalDim.g:14989:2: ( ruleOpOther )
             {
-            // InternalDim.g:14794:2: ( ruleOpOther )
-            // InternalDim.g:14795:3: ruleOpOther
+            // InternalDim.g:14989:2: ( ruleOpOther )
+            // InternalDim.g:14990:3: ruleOpOther
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOtherOperatorExpressionAccess().getOperatorOpOtherEnumRuleCall_1_0_0_1_0()); 
@@ -48842,17 +49462,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1"
-    // InternalDim.g:14804:1: rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 : ( ruleDmxAdditiveExpression ) ;
+    // InternalDim.g:14999:1: rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 : ( ruleDmxAdditiveExpression ) ;
     public final void rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14808:1: ( ( ruleDmxAdditiveExpression ) )
-            // InternalDim.g:14809:2: ( ruleDmxAdditiveExpression )
+            // InternalDim.g:15003:1: ( ( ruleDmxAdditiveExpression ) )
+            // InternalDim.g:15004:2: ( ruleDmxAdditiveExpression )
             {
-            // InternalDim.g:14809:2: ( ruleDmxAdditiveExpression )
-            // InternalDim.g:14810:3: ruleDmxAdditiveExpression
+            // InternalDim.g:15004:2: ( ruleDmxAdditiveExpression )
+            // InternalDim.g:15005:3: ruleDmxAdditiveExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOtherOperatorExpressionAccess().getRightOperandDmxAdditiveExpressionParserRuleCall_1_1_0()); 
@@ -48887,17 +49507,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1"
-    // InternalDim.g:14819:1: rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 : ( ruleOpAdd ) ;
+    // InternalDim.g:15014:1: rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 : ( ruleOpAdd ) ;
     public final void rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14823:1: ( ( ruleOpAdd ) )
-            // InternalDim.g:14824:2: ( ruleOpAdd )
+            // InternalDim.g:15018:1: ( ( ruleOpAdd ) )
+            // InternalDim.g:15019:2: ( ruleOpAdd )
             {
-            // InternalDim.g:14824:2: ( ruleOpAdd )
-            // InternalDim.g:14825:3: ruleOpAdd
+            // InternalDim.g:15019:2: ( ruleOpAdd )
+            // InternalDim.g:15020:3: ruleOpAdd
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAdditiveExpressionAccess().getOperatorOpAddEnumRuleCall_1_0_0_1_0()); 
@@ -48932,17 +49552,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__RightOperandAssignment_1_1"
-    // InternalDim.g:14834:1: rule__DmxAdditiveExpression__RightOperandAssignment_1_1 : ( ruleDmxMultiplicativeExpression ) ;
+    // InternalDim.g:15029:1: rule__DmxAdditiveExpression__RightOperandAssignment_1_1 : ( ruleDmxMultiplicativeExpression ) ;
     public final void rule__DmxAdditiveExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14838:1: ( ( ruleDmxMultiplicativeExpression ) )
-            // InternalDim.g:14839:2: ( ruleDmxMultiplicativeExpression )
+            // InternalDim.g:15033:1: ( ( ruleDmxMultiplicativeExpression ) )
+            // InternalDim.g:15034:2: ( ruleDmxMultiplicativeExpression )
             {
-            // InternalDim.g:14839:2: ( ruleDmxMultiplicativeExpression )
-            // InternalDim.g:14840:3: ruleDmxMultiplicativeExpression
+            // InternalDim.g:15034:2: ( ruleDmxMultiplicativeExpression )
+            // InternalDim.g:15035:3: ruleDmxMultiplicativeExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAdditiveExpressionAccess().getRightOperandDmxMultiplicativeExpressionParserRuleCall_1_1_0()); 
@@ -48977,17 +49597,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1"
-    // InternalDim.g:14849:1: rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 : ( ruleOpMulti ) ;
+    // InternalDim.g:15044:1: rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 : ( ruleOpMulti ) ;
     public final void rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14853:1: ( ( ruleOpMulti ) )
-            // InternalDim.g:14854:2: ( ruleOpMulti )
+            // InternalDim.g:15048:1: ( ( ruleOpMulti ) )
+            // InternalDim.g:15049:2: ( ruleOpMulti )
             {
-            // InternalDim.g:14854:2: ( ruleOpMulti )
-            // InternalDim.g:14855:3: ruleOpMulti
+            // InternalDim.g:15049:2: ( ruleOpMulti )
+            // InternalDim.g:15050:3: ruleOpMulti
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxMultiplicativeExpressionAccess().getOperatorOpMultiEnumRuleCall_1_0_0_1_0()); 
@@ -49022,17 +49642,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1"
-    // InternalDim.g:14864:1: rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 : ( ruleDmxUnaryOperation ) ;
+    // InternalDim.g:15059:1: rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 : ( ruleDmxUnaryOperation ) ;
     public final void rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14868:1: ( ( ruleDmxUnaryOperation ) )
-            // InternalDim.g:14869:2: ( ruleDmxUnaryOperation )
+            // InternalDim.g:15063:1: ( ( ruleDmxUnaryOperation ) )
+            // InternalDim.g:15064:2: ( ruleDmxUnaryOperation )
             {
-            // InternalDim.g:14869:2: ( ruleDmxUnaryOperation )
-            // InternalDim.g:14870:3: ruleDmxUnaryOperation
+            // InternalDim.g:15064:2: ( ruleDmxUnaryOperation )
+            // InternalDim.g:15065:3: ruleDmxUnaryOperation
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxMultiplicativeExpressionAccess().getRightOperandDmxUnaryOperationParserRuleCall_1_1_0()); 
@@ -49067,17 +49687,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUnaryOperation__OperatorAssignment_0_1"
-    // InternalDim.g:14879:1: rule__DmxUnaryOperation__OperatorAssignment_0_1 : ( ruleOpUnary ) ;
+    // InternalDim.g:15074:1: rule__DmxUnaryOperation__OperatorAssignment_0_1 : ( ruleOpUnary ) ;
     public final void rule__DmxUnaryOperation__OperatorAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14883:1: ( ( ruleOpUnary ) )
-            // InternalDim.g:14884:2: ( ruleOpUnary )
+            // InternalDim.g:15078:1: ( ( ruleOpUnary ) )
+            // InternalDim.g:15079:2: ( ruleOpUnary )
             {
-            // InternalDim.g:14884:2: ( ruleOpUnary )
-            // InternalDim.g:14885:3: ruleOpUnary
+            // InternalDim.g:15079:2: ( ruleOpUnary )
+            // InternalDim.g:15080:3: ruleOpUnary
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxUnaryOperationAccess().getOperatorOpUnaryEnumRuleCall_0_1_0()); 
@@ -49112,17 +49732,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUnaryOperation__OperandAssignment_0_2"
-    // InternalDim.g:14894:1: rule__DmxUnaryOperation__OperandAssignment_0_2 : ( ruleDmxUnaryOperation ) ;
+    // InternalDim.g:15089:1: rule__DmxUnaryOperation__OperandAssignment_0_2 : ( ruleDmxUnaryOperation ) ;
     public final void rule__DmxUnaryOperation__OperandAssignment_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14898:1: ( ( ruleDmxUnaryOperation ) )
-            // InternalDim.g:14899:2: ( ruleDmxUnaryOperation )
+            // InternalDim.g:15093:1: ( ( ruleDmxUnaryOperation ) )
+            // InternalDim.g:15094:2: ( ruleDmxUnaryOperation )
             {
-            // InternalDim.g:14899:2: ( ruleDmxUnaryOperation )
-            // InternalDim.g:14900:3: ruleDmxUnaryOperation
+            // InternalDim.g:15094:2: ( ruleDmxUnaryOperation )
+            // InternalDim.g:15095:3: ruleDmxUnaryOperation
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxUnaryOperationAccess().getOperandDmxUnaryOperationParserRuleCall_0_2_0()); 
@@ -49157,23 +49777,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__TypeAssignment_1_1"
-    // InternalDim.g:14909:1: rule__DmxCastExpression__TypeAssignment_1_1 : ( ( RULE_ID ) ) ;
+    // InternalDim.g:15104:1: rule__DmxCastExpression__TypeAssignment_1_1 : ( ( RULE_ID ) ) ;
     public final void rule__DmxCastExpression__TypeAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14913:1: ( ( ( RULE_ID ) ) )
-            // InternalDim.g:14914:2: ( ( RULE_ID ) )
+            // InternalDim.g:15108:1: ( ( ( RULE_ID ) ) )
+            // InternalDim.g:15109:2: ( ( RULE_ID ) )
             {
-            // InternalDim.g:14914:2: ( ( RULE_ID ) )
-            // InternalDim.g:14915:3: ( RULE_ID )
+            // InternalDim.g:15109:2: ( ( RULE_ID ) )
+            // InternalDim.g:15110:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxCastExpressionAccess().getTypeDTypeCrossReference_1_1_0()); 
             }
-            // InternalDim.g:14916:3: ( RULE_ID )
-            // InternalDim.g:14917:4: RULE_ID
+            // InternalDim.g:15111:3: ( RULE_ID )
+            // InternalDim.g:15112:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxCastExpressionAccess().getTypeDTypeIDTerminalRuleCall_1_1_0_1()); 
@@ -49210,17 +49830,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxReturnExpression__ExpressionAssignment_2"
-    // InternalDim.g:14928:1: rule__DmxReturnExpression__ExpressionAssignment_2 : ( ruleDExpression ) ;
+    // InternalDim.g:15123:1: rule__DmxReturnExpression__ExpressionAssignment_2 : ( ruleDExpression ) ;
     public final void rule__DmxReturnExpression__ExpressionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14932:1: ( ( ruleDExpression ) )
-            // InternalDim.g:14933:2: ( ruleDExpression )
+            // InternalDim.g:15127:1: ( ( ruleDExpression ) )
+            // InternalDim.g:15128:2: ( ruleDExpression )
             {
-            // InternalDim.g:14933:2: ( ruleDExpression )
-            // InternalDim.g:14934:3: ruleDExpression
+            // InternalDim.g:15128:2: ( ruleDExpression )
+            // InternalDim.g:15129:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxReturnExpressionAccess().getExpressionDExpressionParserRuleCall_2_0()); 
@@ -49255,17 +49875,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRaiseExpression__ExpressionAssignment_2"
-    // InternalDim.g:14943:1: rule__DmxRaiseExpression__ExpressionAssignment_2 : ( ruleDExpression ) ;
+    // InternalDim.g:15138:1: rule__DmxRaiseExpression__ExpressionAssignment_2 : ( ruleDExpression ) ;
     public final void rule__DmxRaiseExpression__ExpressionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14947:1: ( ( ruleDExpression ) )
-            // InternalDim.g:14948:2: ( ruleDExpression )
+            // InternalDim.g:15142:1: ( ( ruleDExpression ) )
+            // InternalDim.g:15143:2: ( ruleDExpression )
             {
-            // InternalDim.g:14948:2: ( ruleDExpression )
-            // InternalDim.g:14949:3: ruleDExpression
+            // InternalDim.g:15143:2: ( ruleDExpression )
+            // InternalDim.g:15144:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRaiseExpressionAccess().getExpressionDExpressionParserRuleCall_2_0()); 
@@ -49300,36 +49920,36 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__FunctionAssignment_1"
-    // InternalDim.g:14958:1: rule__DmxFunctionCall__FunctionAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalDim.g:15153:1: rule__DmxFunctionCall__FunctionAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__DmxFunctionCall__FunctionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14962:1: ( ( ( RULE_ID ) ) )
-            // InternalDim.g:14963:2: ( ( RULE_ID ) )
+            // InternalDim.g:15157:1: ( ( ( RULE_ID ) ) )
+            // InternalDim.g:15158:2: ( ( RULE_ID ) )
             {
-            // InternalDim.g:14963:2: ( ( RULE_ID ) )
-            // InternalDim.g:14964:3: ( RULE_ID )
+            // InternalDim.g:15158:2: ( ( RULE_ID ) )
+            // InternalDim.g:15159:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionCallAccess().getFunctionDmxFunctionCrossReference_1_0()); 
+               before(grammarAccess.getDmxFunctionCallAccess().getFunctionDmxFilterCrossReference_1_0()); 
             }
-            // InternalDim.g:14965:3: ( RULE_ID )
-            // InternalDim.g:14966:4: RULE_ID
+            // InternalDim.g:15160:3: ( RULE_ID )
+            // InternalDim.g:15161:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionCallAccess().getFunctionDmxFunctionIDTerminalRuleCall_1_0_1()); 
+               before(grammarAccess.getDmxFunctionCallAccess().getFunctionDmxFilterIDTerminalRuleCall_1_0_1()); 
             }
             match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionCallAccess().getFunctionDmxFunctionIDTerminalRuleCall_1_0_1()); 
+               after(grammarAccess.getDmxFunctionCallAccess().getFunctionDmxFilterIDTerminalRuleCall_1_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionCallAccess().getFunctionDmxFunctionCrossReference_1_0()); 
+               after(grammarAccess.getDmxFunctionCallAccess().getFunctionDmxFilterCrossReference_1_0()); 
             }
 
             }
@@ -49353,17 +49973,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0"
-    // InternalDim.g:14977:1: rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 : ( ruleDExpression ) ;
+    // InternalDim.g:15172:1: rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 : ( ruleDExpression ) ;
     public final void rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14981:1: ( ( ruleDExpression ) )
-            // InternalDim.g:14982:2: ( ruleDExpression )
+            // InternalDim.g:15176:1: ( ( ruleDExpression ) )
+            // InternalDim.g:15177:2: ( ruleDExpression )
             {
-            // InternalDim.g:14982:2: ( ruleDExpression )
-            // InternalDim.g:14983:3: ruleDExpression
+            // InternalDim.g:15177:2: ( ruleDExpression )
+            // InternalDim.g:15178:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getFunctionCallArgumentsDExpressionParserRuleCall_3_0_0()); 
@@ -49398,17 +50018,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1"
-    // InternalDim.g:14992:1: rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 : ( ruleDExpression ) ;
+    // InternalDim.g:15187:1: rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 : ( ruleDExpression ) ;
     public final void rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:14996:1: ( ( ruleDExpression ) )
-            // InternalDim.g:14997:2: ( ruleDExpression )
+            // InternalDim.g:15191:1: ( ( ruleDExpression ) )
+            // InternalDim.g:15192:2: ( ruleDExpression )
             {
-            // InternalDim.g:14997:2: ( ruleDExpression )
-            // InternalDim.g:14998:3: ruleDExpression
+            // InternalDim.g:15192:2: ( ruleDExpression )
+            // InternalDim.g:15193:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getFunctionCallArgumentsDExpressionParserRuleCall_3_1_1_0()); 
@@ -49443,23 +50063,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__ConstructorAssignment_2"
-    // InternalDim.g:15007:1: rule__DmxConstructorCall__ConstructorAssignment_2 : ( ( RULE_ID ) ) ;
+    // InternalDim.g:15202:1: rule__DmxConstructorCall__ConstructorAssignment_2 : ( ( RULE_ID ) ) ;
     public final void rule__DmxConstructorCall__ConstructorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15011:1: ( ( ( RULE_ID ) ) )
-            // InternalDim.g:15012:2: ( ( RULE_ID ) )
+            // InternalDim.g:15206:1: ( ( ( RULE_ID ) ) )
+            // InternalDim.g:15207:2: ( ( RULE_ID ) )
             {
-            // InternalDim.g:15012:2: ( ( RULE_ID ) )
-            // InternalDim.g:15013:3: ( RULE_ID )
+            // InternalDim.g:15207:2: ( ( RULE_ID ) )
+            // InternalDim.g:15208:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getConstructorDComplexTypeCrossReference_2_0()); 
             }
-            // InternalDim.g:15014:3: ( RULE_ID )
-            // InternalDim.g:15015:4: RULE_ID
+            // InternalDim.g:15209:3: ( RULE_ID )
+            // InternalDim.g:15210:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getConstructorDComplexTypeIDTerminalRuleCall_2_0_1()); 
@@ -49496,23 +50116,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0"
-    // InternalDim.g:15026:1: rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 : ( ( '(' ) ) ;
+    // InternalDim.g:15221:1: rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 : ( ( '(' ) ) ;
     public final void rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15030:1: ( ( ( '(' ) ) )
-            // InternalDim.g:15031:2: ( ( '(' ) )
+            // InternalDim.g:15225:1: ( ( ( '(' ) ) )
+            // InternalDim.g:15226:2: ( ( '(' ) )
             {
-            // InternalDim.g:15031:2: ( ( '(' ) )
-            // InternalDim.g:15032:3: ( '(' )
+            // InternalDim.g:15226:2: ( ( '(' ) )
+            // InternalDim.g:15227:3: ( '(' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getExplicitConstructorCallLeftParenthesisKeyword_3_0_0()); 
             }
-            // InternalDim.g:15033:3: ( '(' )
-            // InternalDim.g:15034:4: '('
+            // InternalDim.g:15228:3: ( '(' )
+            // InternalDim.g:15229:4: '('
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getExplicitConstructorCallLeftParenthesisKeyword_3_0_0()); 
@@ -49549,17 +50169,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__ArgumentsAssignment_3_1_0"
-    // InternalDim.g:15045:1: rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 : ( ruleDExpression ) ;
+    // InternalDim.g:15240:1: rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 : ( ruleDExpression ) ;
     public final void rule__DmxConstructorCall__ArgumentsAssignment_3_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15049:1: ( ( ruleDExpression ) )
-            // InternalDim.g:15050:2: ( ruleDExpression )
+            // InternalDim.g:15244:1: ( ( ruleDExpression ) )
+            // InternalDim.g:15245:2: ( ruleDExpression )
             {
-            // InternalDim.g:15050:2: ( ruleDExpression )
-            // InternalDim.g:15051:3: ruleDExpression
+            // InternalDim.g:15245:2: ( ruleDExpression )
+            // InternalDim.g:15246:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getArgumentsDExpressionParserRuleCall_3_1_0_0()); 
@@ -49594,17 +50214,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1"
-    // InternalDim.g:15060:1: rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 : ( ruleDExpression ) ;
+    // InternalDim.g:15255:1: rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 : ( ruleDExpression ) ;
     public final void rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15064:1: ( ( ruleDExpression ) )
-            // InternalDim.g:15065:2: ( ruleDExpression )
+            // InternalDim.g:15259:1: ( ( ruleDExpression ) )
+            // InternalDim.g:15260:2: ( ruleDExpression )
             {
-            // InternalDim.g:15065:2: ( ruleDExpression )
-            // InternalDim.g:15066:3: ruleDExpression
+            // InternalDim.g:15260:2: ( ruleDExpression )
+            // InternalDim.g:15261:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getArgumentsDExpressionParserRuleCall_3_1_1_1_0()); 
@@ -49639,23 +50259,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__TargetAssignment_2"
-    // InternalDim.g:15075:1: rule__DmxStaticReference__TargetAssignment_2 : ( ( ruleDQualifiedName ) ) ;
+    // InternalDim.g:15270:1: rule__DmxStaticReference__TargetAssignment_2 : ( ( ruleDQualifiedName ) ) ;
     public final void rule__DmxStaticReference__TargetAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15079:1: ( ( ( ruleDQualifiedName ) ) )
-            // InternalDim.g:15080:2: ( ( ruleDQualifiedName ) )
+            // InternalDim.g:15274:1: ( ( ( ruleDQualifiedName ) ) )
+            // InternalDim.g:15275:2: ( ( ruleDQualifiedName ) )
             {
-            // InternalDim.g:15080:2: ( ( ruleDQualifiedName ) )
-            // InternalDim.g:15081:3: ( ruleDQualifiedName )
+            // InternalDim.g:15275:2: ( ( ruleDQualifiedName ) )
+            // InternalDim.g:15276:3: ( ruleDQualifiedName )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getTargetIStaticReferenceTargetCrossReference_2_0()); 
             }
-            // InternalDim.g:15082:3: ( ruleDQualifiedName )
-            // InternalDim.g:15083:4: ruleDQualifiedName
+            // InternalDim.g:15277:3: ( ruleDQualifiedName )
+            // InternalDim.g:15278:4: ruleDQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getTargetIStaticReferenceTargetDQualifiedNameParserRuleCall_2_0_1()); 
@@ -49696,23 +50316,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__MemberAssignment_3_1"
-    // InternalDim.g:15094:1: rule__DmxStaticReference__MemberAssignment_3_1 : ( ( RULE_ID ) ) ;
+    // InternalDim.g:15289:1: rule__DmxStaticReference__MemberAssignment_3_1 : ( ( RULE_ID ) ) ;
     public final void rule__DmxStaticReference__MemberAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15098:1: ( ( ( RULE_ID ) ) )
-            // InternalDim.g:15099:2: ( ( RULE_ID ) )
+            // InternalDim.g:15293:1: ( ( ( RULE_ID ) ) )
+            // InternalDim.g:15294:2: ( ( RULE_ID ) )
             {
-            // InternalDim.g:15099:2: ( ( RULE_ID ) )
-            // InternalDim.g:15100:3: ( RULE_ID )
+            // InternalDim.g:15294:2: ( ( RULE_ID ) )
+            // InternalDim.g:15295:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getMemberDNavigableMemberCrossReference_3_1_0()); 
             }
-            // InternalDim.g:15101:3: ( RULE_ID )
-            // InternalDim.g:15102:4: RULE_ID
+            // InternalDim.g:15296:3: ( RULE_ID )
+            // InternalDim.g:15297:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getMemberDNavigableMemberIDTerminalRuleCall_3_1_0_1()); 
@@ -49749,17 +50369,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__DisplayNameAssignment_4_1_0"
-    // InternalDim.g:15113:1: rule__DmxStaticReference__DisplayNameAssignment_4_1_0 : ( RULE_ID ) ;
+    // InternalDim.g:15308:1: rule__DmxStaticReference__DisplayNameAssignment_4_1_0 : ( RULE_ID ) ;
     public final void rule__DmxStaticReference__DisplayNameAssignment_4_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15117:1: ( ( RULE_ID ) )
-            // InternalDim.g:15118:2: ( RULE_ID )
+            // InternalDim.g:15312:1: ( ( RULE_ID ) )
+            // InternalDim.g:15313:2: ( RULE_ID )
             {
-            // InternalDim.g:15118:2: ( RULE_ID )
-            // InternalDim.g:15119:3: RULE_ID
+            // InternalDim.g:15313:2: ( RULE_ID )
+            // InternalDim.g:15314:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getDisplayNameIDTerminalRuleCall_4_1_0_0()); 
@@ -49790,23 +50410,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__PluralAssignment_4_1_1"
-    // InternalDim.g:15128:1: rule__DmxStaticReference__PluralAssignment_4_1_1 : ( ( '*' ) ) ;
+    // InternalDim.g:15323:1: rule__DmxStaticReference__PluralAssignment_4_1_1 : ( ( '*' ) ) ;
     public final void rule__DmxStaticReference__PluralAssignment_4_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15132:1: ( ( ( '*' ) ) )
-            // InternalDim.g:15133:2: ( ( '*' ) )
+            // InternalDim.g:15327:1: ( ( ( '*' ) ) )
+            // InternalDim.g:15328:2: ( ( '*' ) )
             {
-            // InternalDim.g:15133:2: ( ( '*' ) )
-            // InternalDim.g:15134:3: ( '*' )
+            // InternalDim.g:15328:2: ( ( '*' ) )
+            // InternalDim.g:15329:3: ( '*' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getPluralAsteriskKeyword_4_1_1_0()); 
             }
-            // InternalDim.g:15135:3: ( '*' )
-            // InternalDim.g:15136:4: '*'
+            // InternalDim.g:15330:3: ( '*' )
+            // InternalDim.g:15331:4: '*'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getPluralAsteriskKeyword_4_1_1_0()); 
@@ -49843,23 +50463,23 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__TargetAssignment_1"
-    // InternalDim.g:15147:1: rule__DmxContextReference__TargetAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalDim.g:15342:1: rule__DmxContextReference__TargetAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__DmxContextReference__TargetAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15151:1: ( ( ( RULE_ID ) ) )
-            // InternalDim.g:15152:2: ( ( RULE_ID ) )
+            // InternalDim.g:15346:1: ( ( ( RULE_ID ) ) )
+            // InternalDim.g:15347:2: ( ( RULE_ID ) )
             {
-            // InternalDim.g:15152:2: ( ( RULE_ID ) )
-            // InternalDim.g:15153:3: ( RULE_ID )
+            // InternalDim.g:15347:2: ( ( RULE_ID ) )
+            // InternalDim.g:15348:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getTargetDNamedElementCrossReference_1_0()); 
             }
-            // InternalDim.g:15154:3: ( RULE_ID )
-            // InternalDim.g:15155:4: RULE_ID
+            // InternalDim.g:15349:3: ( RULE_ID )
+            // InternalDim.g:15350:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getTargetDNamedElementIDTerminalRuleCall_1_0_1()); 
@@ -49896,28 +50516,28 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__BeforeAssignment_2_0"
-    // InternalDim.g:15166:1: rule__DmxContextReference__BeforeAssignment_2_0 : ( ( '@before' ) ) ;
+    // InternalDim.g:15361:1: rule__DmxContextReference__BeforeAssignment_2_0 : ( ( '@before' ) ) ;
     public final void rule__DmxContextReference__BeforeAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15170:1: ( ( ( '@before' ) ) )
-            // InternalDim.g:15171:2: ( ( '@before' ) )
+            // InternalDim.g:15365:1: ( ( ( '@before' ) ) )
+            // InternalDim.g:15366:2: ( ( '@before' ) )
             {
-            // InternalDim.g:15171:2: ( ( '@before' ) )
-            // InternalDim.g:15172:3: ( '@before' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxContextReferenceAccess().getBeforeBeforeKeyword_2_0_0()); 
-            }
-            // InternalDim.g:15173:3: ( '@before' )
-            // InternalDim.g:15174:4: '@before'
+            // InternalDim.g:15366:2: ( ( '@before' ) )
+            // InternalDim.g:15367:3: ( '@before' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getBeforeBeforeKeyword_2_0_0()); 
             }
-            match(input,122,FOLLOW_2); if (state.failed) return ;
+            // InternalDim.g:15368:3: ( '@before' )
+            // InternalDim.g:15369:4: '@before'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxContextReferenceAccess().getBeforeBeforeKeyword_2_0_0()); 
+            }
+            match(input,123,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxContextReferenceAccess().getBeforeBeforeKeyword_2_0_0()); 
             }
@@ -49949,28 +50569,28 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__AllAssignment_2_1_1"
-    // InternalDim.g:15185:1: rule__DmxContextReference__AllAssignment_2_1_1 : ( ( 'all' ) ) ;
+    // InternalDim.g:15380:1: rule__DmxContextReference__AllAssignment_2_1_1 : ( ( 'all' ) ) ;
     public final void rule__DmxContextReference__AllAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15189:1: ( ( ( 'all' ) ) )
-            // InternalDim.g:15190:2: ( ( 'all' ) )
+            // InternalDim.g:15384:1: ( ( ( 'all' ) ) )
+            // InternalDim.g:15385:2: ( ( 'all' ) )
             {
-            // InternalDim.g:15190:2: ( ( 'all' ) )
-            // InternalDim.g:15191:3: ( 'all' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxContextReferenceAccess().getAllAllKeyword_2_1_1_0()); 
-            }
-            // InternalDim.g:15192:3: ( 'all' )
-            // InternalDim.g:15193:4: 'all'
+            // InternalDim.g:15385:2: ( ( 'all' ) )
+            // InternalDim.g:15386:3: ( 'all' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getAllAllKeyword_2_1_1_0()); 
             }
-            match(input,123,FOLLOW_2); if (state.failed) return ;
+            // InternalDim.g:15387:3: ( 'all' )
+            // InternalDim.g:15388:4: 'all'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxContextReferenceAccess().getAllAllKeyword_2_1_1_0()); 
+            }
+            match(input,124,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxContextReferenceAccess().getAllAllKeyword_2_1_1_0()); 
             }
@@ -50002,17 +50622,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__IfAssignment_2"
-    // InternalDim.g:15204:1: rule__DmxIfExpression__IfAssignment_2 : ( ruleDExpression ) ;
+    // InternalDim.g:15399:1: rule__DmxIfExpression__IfAssignment_2 : ( ruleDExpression ) ;
     public final void rule__DmxIfExpression__IfAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15208:1: ( ( ruleDExpression ) )
-            // InternalDim.g:15209:2: ( ruleDExpression )
+            // InternalDim.g:15403:1: ( ( ruleDExpression ) )
+            // InternalDim.g:15404:2: ( ruleDExpression )
             {
-            // InternalDim.g:15209:2: ( ruleDExpression )
-            // InternalDim.g:15210:3: ruleDExpression
+            // InternalDim.g:15404:2: ( ruleDExpression )
+            // InternalDim.g:15405:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getIfDExpressionParserRuleCall_2_0()); 
@@ -50047,17 +50667,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__ThenAssignment_4"
-    // InternalDim.g:15219:1: rule__DmxIfExpression__ThenAssignment_4 : ( ruleDExpression ) ;
+    // InternalDim.g:15414:1: rule__DmxIfExpression__ThenAssignment_4 : ( ruleDExpression ) ;
     public final void rule__DmxIfExpression__ThenAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15223:1: ( ( ruleDExpression ) )
-            // InternalDim.g:15224:2: ( ruleDExpression )
+            // InternalDim.g:15418:1: ( ( ruleDExpression ) )
+            // InternalDim.g:15419:2: ( ruleDExpression )
             {
-            // InternalDim.g:15224:2: ( ruleDExpression )
-            // InternalDim.g:15225:3: ruleDExpression
+            // InternalDim.g:15419:2: ( ruleDExpression )
+            // InternalDim.g:15420:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getThenDExpressionParserRuleCall_4_0()); 
@@ -50092,17 +50712,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__ElseAssignment_5_1"
-    // InternalDim.g:15234:1: rule__DmxIfExpression__ElseAssignment_5_1 : ( ruleDExpression ) ;
+    // InternalDim.g:15429:1: rule__DmxIfExpression__ElseAssignment_5_1 : ( ruleDExpression ) ;
     public final void rule__DmxIfExpression__ElseAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15238:1: ( ( ruleDExpression ) )
-            // InternalDim.g:15239:2: ( ruleDExpression )
+            // InternalDim.g:15433:1: ( ( ruleDExpression ) )
+            // InternalDim.g:15434:2: ( ruleDExpression )
             {
-            // InternalDim.g:15239:2: ( ruleDExpression )
-            // InternalDim.g:15240:3: ruleDExpression
+            // InternalDim.g:15434:2: ( ruleDExpression )
+            // InternalDim.g:15435:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getElseDExpressionParserRuleCall_5_1_0()); 
@@ -50137,17 +50757,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2"
-    // InternalDim.g:15249:1: rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 : ( RULE_ID ) ;
+    // InternalDim.g:15444:1: rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 : ( RULE_ID ) ;
     public final void rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15253:1: ( ( RULE_ID ) )
-            // InternalDim.g:15254:2: ( RULE_ID )
+            // InternalDim.g:15448:1: ( ( RULE_ID ) )
+            // InternalDim.g:15449:2: ( RULE_ID )
             {
-            // InternalDim.g:15254:2: ( RULE_ID )
-            // InternalDim.g:15255:3: RULE_ID
+            // InternalDim.g:15449:2: ( RULE_ID )
+            // InternalDim.g:15450:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getDeclaredParamIDTerminalRuleCall_0_0_2_0()); 
@@ -50178,17 +50798,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__ForExpressionAssignment_1"
-    // InternalDim.g:15264:1: rule__DmxForLoopExpression__ForExpressionAssignment_1 : ( ruleDExpression ) ;
+    // InternalDim.g:15459:1: rule__DmxForLoopExpression__ForExpressionAssignment_1 : ( ruleDExpression ) ;
     public final void rule__DmxForLoopExpression__ForExpressionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15268:1: ( ( ruleDExpression ) )
-            // InternalDim.g:15269:2: ( ruleDExpression )
+            // InternalDim.g:15463:1: ( ( ruleDExpression ) )
+            // InternalDim.g:15464:2: ( ruleDExpression )
             {
-            // InternalDim.g:15269:2: ( ruleDExpression )
-            // InternalDim.g:15270:3: ruleDExpression
+            // InternalDim.g:15464:2: ( ruleDExpression )
+            // InternalDim.g:15465:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getForExpressionDExpressionParserRuleCall_1_0()); 
@@ -50223,17 +50843,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__EachExpressionAssignment_3"
-    // InternalDim.g:15279:1: rule__DmxForLoopExpression__EachExpressionAssignment_3 : ( ruleDExpression ) ;
+    // InternalDim.g:15474:1: rule__DmxForLoopExpression__EachExpressionAssignment_3 : ( ruleDExpression ) ;
     public final void rule__DmxForLoopExpression__EachExpressionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15283:1: ( ( ruleDExpression ) )
-            // InternalDim.g:15284:2: ( ruleDExpression )
+            // InternalDim.g:15478:1: ( ( ruleDExpression ) )
+            // InternalDim.g:15479:2: ( ruleDExpression )
             {
-            // InternalDim.g:15284:2: ( ruleDExpression )
-            // InternalDim.g:15285:3: ruleDExpression
+            // InternalDim.g:15479:2: ( ruleDExpression )
+            // InternalDim.g:15480:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getEachExpressionDExpressionParserRuleCall_3_0()); 
@@ -50268,17 +50888,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__MinOccursAssignment_1"
-    // InternalDim.g:15294:1: rule__DMultiplicity__MinOccursAssignment_1 : ( RULE_NATURAL ) ;
+    // InternalDim.g:15489:1: rule__DMultiplicity__MinOccursAssignment_1 : ( RULE_NATURAL ) ;
     public final void rule__DMultiplicity__MinOccursAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15298:1: ( ( RULE_NATURAL ) )
-            // InternalDim.g:15299:2: ( RULE_NATURAL )
+            // InternalDim.g:15493:1: ( ( RULE_NATURAL ) )
+            // InternalDim.g:15494:2: ( RULE_NATURAL )
             {
-            // InternalDim.g:15299:2: ( RULE_NATURAL )
-            // InternalDim.g:15300:3: RULE_NATURAL
+            // InternalDim.g:15494:2: ( RULE_NATURAL )
+            // InternalDim.g:15495:3: RULE_NATURAL
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDMultiplicityAccess().getMinOccursNATURALTerminalRuleCall_1_0()); 
@@ -50309,17 +50929,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__MaxOccursAssignment_3"
-    // InternalDim.g:15309:1: rule__DMultiplicity__MaxOccursAssignment_3 : ( ruleMULTIPLICITY ) ;
+    // InternalDim.g:15504:1: rule__DMultiplicity__MaxOccursAssignment_3 : ( ruleMULTIPLICITY ) ;
     public final void rule__DMultiplicity__MaxOccursAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15313:1: ( ( ruleMULTIPLICITY ) )
-            // InternalDim.g:15314:2: ( ruleMULTIPLICITY )
+            // InternalDim.g:15508:1: ( ( ruleMULTIPLICITY ) )
+            // InternalDim.g:15509:2: ( ruleMULTIPLICITY )
             {
-            // InternalDim.g:15314:2: ( ruleMULTIPLICITY )
-            // InternalDim.g:15315:3: ruleMULTIPLICITY
+            // InternalDim.g:15509:2: ( ruleMULTIPLICITY )
+            // InternalDim.g:15510:3: ruleMULTIPLICITY
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDMultiplicityAccess().getMaxOccursMULTIPLICITYParserRuleCall_3_0()); 
@@ -50354,28 +50974,28 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxBooleanLiteral__ValueAssignment_1_0"
-    // InternalDim.g:15324:1: rule__DmxBooleanLiteral__ValueAssignment_1_0 : ( ( 'TRUE' ) ) ;
+    // InternalDim.g:15519:1: rule__DmxBooleanLiteral__ValueAssignment_1_0 : ( ( 'TRUE' ) ) ;
     public final void rule__DmxBooleanLiteral__ValueAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15328:1: ( ( ( 'TRUE' ) ) )
-            // InternalDim.g:15329:2: ( ( 'TRUE' ) )
+            // InternalDim.g:15523:1: ( ( ( 'TRUE' ) ) )
+            // InternalDim.g:15524:2: ( ( 'TRUE' ) )
             {
-            // InternalDim.g:15329:2: ( ( 'TRUE' ) )
-            // InternalDim.g:15330:3: ( 'TRUE' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxBooleanLiteralAccess().getValueTRUEKeyword_1_0_0()); 
-            }
-            // InternalDim.g:15331:3: ( 'TRUE' )
-            // InternalDim.g:15332:4: 'TRUE'
+            // InternalDim.g:15524:2: ( ( 'TRUE' ) )
+            // InternalDim.g:15525:3: ( 'TRUE' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxBooleanLiteralAccess().getValueTRUEKeyword_1_0_0()); 
             }
-            match(input,124,FOLLOW_2); if (state.failed) return ;
+            // InternalDim.g:15526:3: ( 'TRUE' )
+            // InternalDim.g:15527:4: 'TRUE'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBooleanLiteralAccess().getValueTRUEKeyword_1_0_0()); 
+            }
+            match(input,125,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxBooleanLiteralAccess().getValueTRUEKeyword_1_0_0()); 
             }
@@ -50407,28 +51027,28 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxBooleanLiteral__ValueAssignment_1_1"
-    // InternalDim.g:15343:1: rule__DmxBooleanLiteral__ValueAssignment_1_1 : ( ( 'true' ) ) ;
+    // InternalDim.g:15538:1: rule__DmxBooleanLiteral__ValueAssignment_1_1 : ( ( 'true' ) ) ;
     public final void rule__DmxBooleanLiteral__ValueAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15347:1: ( ( ( 'true' ) ) )
-            // InternalDim.g:15348:2: ( ( 'true' ) )
+            // InternalDim.g:15542:1: ( ( ( 'true' ) ) )
+            // InternalDim.g:15543:2: ( ( 'true' ) )
             {
-            // InternalDim.g:15348:2: ( ( 'true' ) )
-            // InternalDim.g:15349:3: ( 'true' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxBooleanLiteralAccess().getValueTrueKeyword_1_1_0()); 
-            }
-            // InternalDim.g:15350:3: ( 'true' )
-            // InternalDim.g:15351:4: 'true'
+            // InternalDim.g:15543:2: ( ( 'true' ) )
+            // InternalDim.g:15544:3: ( 'true' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxBooleanLiteralAccess().getValueTrueKeyword_1_1_0()); 
             }
-            match(input,125,FOLLOW_2); if (state.failed) return ;
+            // InternalDim.g:15545:3: ( 'true' )
+            // InternalDim.g:15546:4: 'true'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBooleanLiteralAccess().getValueTrueKeyword_1_1_0()); 
+            }
+            match(input,126,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDmxBooleanLiteralAccess().getValueTrueKeyword_1_1_0()); 
             }
@@ -50460,17 +51080,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNaturalLiteral__ValueAssignment_1"
-    // InternalDim.g:15362:1: rule__DmxNaturalLiteral__ValueAssignment_1 : ( RULE_NATURAL ) ;
+    // InternalDim.g:15557:1: rule__DmxNaturalLiteral__ValueAssignment_1 : ( RULE_NATURAL ) ;
     public final void rule__DmxNaturalLiteral__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15366:1: ( ( RULE_NATURAL ) )
-            // InternalDim.g:15367:2: ( RULE_NATURAL )
+            // InternalDim.g:15561:1: ( ( RULE_NATURAL ) )
+            // InternalDim.g:15562:2: ( RULE_NATURAL )
             {
-            // InternalDim.g:15367:2: ( RULE_NATURAL )
-            // InternalDim.g:15368:3: RULE_NATURAL
+            // InternalDim.g:15562:2: ( RULE_NATURAL )
+            // InternalDim.g:15563:3: RULE_NATURAL
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNaturalLiteralAccess().getValueNATURALTerminalRuleCall_1_0()); 
@@ -50501,17 +51121,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxDecimalLiteral__ValueAssignment_1"
-    // InternalDim.g:15377:1: rule__DmxDecimalLiteral__ValueAssignment_1 : ( ruleDECIMAL ) ;
+    // InternalDim.g:15572:1: rule__DmxDecimalLiteral__ValueAssignment_1 : ( ruleDECIMAL ) ;
     public final void rule__DmxDecimalLiteral__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15381:1: ( ( ruleDECIMAL ) )
-            // InternalDim.g:15382:2: ( ruleDECIMAL )
+            // InternalDim.g:15576:1: ( ( ruleDECIMAL ) )
+            // InternalDim.g:15577:2: ( ruleDECIMAL )
             {
-            // InternalDim.g:15382:2: ( ruleDECIMAL )
-            // InternalDim.g:15383:3: ruleDECIMAL
+            // InternalDim.g:15577:2: ( ruleDECIMAL )
+            // InternalDim.g:15578:3: ruleDECIMAL
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxDecimalLiteralAccess().getValueDECIMALParserRuleCall_1_0()); 
@@ -50546,17 +51166,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStringLiteral__ValueAssignment_1"
-    // InternalDim.g:15392:1: rule__DmxStringLiteral__ValueAssignment_1 : ( RULE_STRING ) ;
+    // InternalDim.g:15587:1: rule__DmxStringLiteral__ValueAssignment_1 : ( RULE_STRING ) ;
     public final void rule__DmxStringLiteral__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15396:1: ( ( RULE_STRING ) )
-            // InternalDim.g:15397:2: ( RULE_STRING )
+            // InternalDim.g:15591:1: ( ( RULE_STRING ) )
+            // InternalDim.g:15592:2: ( RULE_STRING )
             {
-            // InternalDim.g:15397:2: ( RULE_STRING )
-            // InternalDim.g:15398:3: RULE_STRING
+            // InternalDim.g:15592:2: ( RULE_STRING )
+            // InternalDim.g:15593:3: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStringLiteralAccess().getValueSTRINGTerminalRuleCall_1_0()); 
@@ -50587,8 +51207,8 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred135_InternalDim
     public final void synpred135_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:7863:3: ( rule__DmxNavigableMemberReference__Alternatives_1 )
-        // InternalDim.g:7863:3: rule__DmxNavigableMemberReference__Alternatives_1
+        // InternalDim.g:8032:3: ( rule__DmxNavigableMemberReference__Alternatives_1 )
+        // InternalDim.g:8032:3: rule__DmxNavigableMemberReference__Alternatives_1
         {
         pushFollow(FOLLOW_2);
         rule__DmxNavigableMemberReference__Alternatives_1();
@@ -50602,8 +51222,8 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred139_InternalDim
     public final void synpred139_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:8673:3: ( rule__DmxOrExpression__Group_1__0 )
-        // InternalDim.g:8673:3: rule__DmxOrExpression__Group_1__0
+        // InternalDim.g:8842:3: ( rule__DmxOrExpression__Group_1__0 )
+        // InternalDim.g:8842:3: rule__DmxOrExpression__Group_1__0
         {
         pushFollow(FOLLOW_2);
         rule__DmxOrExpression__Group_1__0();
@@ -50617,8 +51237,8 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred140_InternalDim
     public final void synpred140_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:8862:3: ( rule__DmxAndExpression__Group_1__0 )
-        // InternalDim.g:8862:3: rule__DmxAndExpression__Group_1__0
+        // InternalDim.g:9031:3: ( rule__DmxAndExpression__Group_1__0 )
+        // InternalDim.g:9031:3: rule__DmxAndExpression__Group_1__0
         {
         pushFollow(FOLLOW_2);
         rule__DmxAndExpression__Group_1__0();
@@ -50632,8 +51252,8 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred141_InternalDim
     public final void synpred141_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:9051:3: ( rule__DmxEqualityExpression__Group_1__0 )
-        // InternalDim.g:9051:3: rule__DmxEqualityExpression__Group_1__0
+        // InternalDim.g:9220:3: ( rule__DmxEqualityExpression__Group_1__0 )
+        // InternalDim.g:9220:3: rule__DmxEqualityExpression__Group_1__0
         {
         pushFollow(FOLLOW_2);
         rule__DmxEqualityExpression__Group_1__0();
@@ -50647,8 +51267,8 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred142_InternalDim
     public final void synpred142_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:9240:3: ( rule__DmxRelationalExpression__Alternatives_1 )
-        // InternalDim.g:9240:3: rule__DmxRelationalExpression__Alternatives_1
+        // InternalDim.g:9409:3: ( rule__DmxRelationalExpression__Alternatives_1 )
+        // InternalDim.g:9409:3: rule__DmxRelationalExpression__Alternatives_1
         {
         pushFollow(FOLLOW_2);
         rule__DmxRelationalExpression__Alternatives_1();
@@ -50662,8 +51282,8 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred143_InternalDim
     public final void synpred143_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:9564:3: ( rule__DmxOtherOperatorExpression__Group_1__0 )
-        // InternalDim.g:9564:3: rule__DmxOtherOperatorExpression__Group_1__0
+        // InternalDim.g:9733:3: ( rule__DmxOtherOperatorExpression__Group_1__0 )
+        // InternalDim.g:9733:3: rule__DmxOtherOperatorExpression__Group_1__0
         {
         pushFollow(FOLLOW_2);
         rule__DmxOtherOperatorExpression__Group_1__0();
@@ -50677,8 +51297,8 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred144_InternalDim
     public final void synpred144_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:9753:3: ( rule__DmxAdditiveExpression__Group_1__0 )
-        // InternalDim.g:9753:3: rule__DmxAdditiveExpression__Group_1__0
+        // InternalDim.g:9922:3: ( rule__DmxAdditiveExpression__Group_1__0 )
+        // InternalDim.g:9922:3: rule__DmxAdditiveExpression__Group_1__0
         {
         pushFollow(FOLLOW_2);
         rule__DmxAdditiveExpression__Group_1__0();
@@ -50692,8 +51312,8 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred145_InternalDim
     public final void synpred145_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:9942:3: ( rule__DmxMultiplicativeExpression__Group_1__0 )
-        // InternalDim.g:9942:3: rule__DmxMultiplicativeExpression__Group_1__0
+        // InternalDim.g:10111:3: ( rule__DmxMultiplicativeExpression__Group_1__0 )
+        // InternalDim.g:10111:3: rule__DmxMultiplicativeExpression__Group_1__0
         {
         pushFollow(FOLLOW_2);
         rule__DmxMultiplicativeExpression__Group_1__0();
@@ -50707,8 +51327,8 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred146_InternalDim
     public final void synpred146_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:10212:3: ( rule__DmxCastExpression__Group_1__0 )
-        // InternalDim.g:10212:3: rule__DmxCastExpression__Group_1__0
+        // InternalDim.g:10381:3: ( rule__DmxCastExpression__Group_1__0 )
+        // InternalDim.g:10381:3: rule__DmxCastExpression__Group_1__0
         {
         pushFollow(FOLLOW_2);
         rule__DmxCastExpression__Group_1__0();
@@ -50722,8 +51342,8 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred147_InternalDim
     public final void synpred147_InternalDim_fragment() throws RecognitionException {   
-        // InternalDim.g:10482:3: ( rule__DmxReturnExpression__ExpressionAssignment_2 )
-        // InternalDim.g:10482:3: rule__DmxReturnExpression__ExpressionAssignment_2
+        // InternalDim.g:10651:3: ( rule__DmxReturnExpression__ExpressionAssignment_2 )
+        // InternalDim.g:10651:3: rule__DmxReturnExpression__ExpressionAssignment_2
         {
         pushFollow(FOLLOW_2);
         rule__DmxReturnExpression__ExpressionAssignment_2();
@@ -50885,11 +51505,11 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     protected DFA108 dfa108 = new DFA108(this);
     static final String dfa_1s = "\7\uffff";
     static final String dfa_2s = "\1\5\1\uffff\1\26\1\uffff\1\5\1\uffff\1\26";
-    static final String dfa_3s = "\1\170\1\uffff\1\137\1\uffff\1\5\1\uffff\1\137";
+    static final String dfa_3s = "\1\171\1\uffff\1\137\1\uffff\1\5\1\uffff\1\137";
     static final String dfa_4s = "\1\uffff\1\1\1\uffff\1\2\1\uffff\1\3\1\uffff";
     static final String dfa_5s = "\7\uffff}>";
     static final String[] dfa_6s = {
-            "\1\2\127\uffff\1\3\32\uffff\1\1",
+            "\1\2\127\uffff\1\3\33\uffff\1\1",
             "",
             "\1\1\25\uffff\2\1\42\uffff\1\4\5\uffff\1\3\10\uffff\1\5",
             "",
@@ -50925,17 +51545,17 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     static final String dfa_7s = "\15\uffff";
     static final String dfa_8s = "\6\uffff\1\13\6\uffff";
     static final String dfa_9s = "\1\4\5\uffff\1\5\6\uffff";
-    static final String dfa_10s = "\1\175\5\uffff\1\172\6\uffff";
+    static final String dfa_10s = "\1\176\5\uffff\1\173\6\uffff";
     static final String dfa_11s = "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\uffff\1\7\1\10\1\12\1\13\1\11\1\6";
     static final String dfa_12s = "\15\uffff}>";
     static final String[] dfa_13s = {
-            "\1\1\1\6\4\uffff\1\1\20\uffff\2\2\2\3\2\4\2\7\1\uffff\4\1\67\uffff\1\5\13\uffff\1\10\2\uffff\1\11\4\uffff\1\12\10\uffff\2\1",
+            "\1\1\1\6\4\uffff\1\1\20\uffff\2\2\2\3\2\4\2\7\1\uffff\4\1\67\uffff\1\5\14\uffff\1\10\2\uffff\1\11\4\uffff\1\12\10\uffff\2\1",
             "",
             "",
             "",
             "",
             "",
-            "\5\13\10\uffff\1\13\2\uffff\1\13\1\uffff\4\13\10\uffff\1\13\6\uffff\2\13\13\uffff\25\13\7\uffff\3\13\1\uffff\1\13\1\uffff\5\13\1\uffff\1\14\1\13\10\uffff\1\13\5\uffff\4\13\2\uffff\4\13\1\uffff\1\13",
+            "\5\13\10\uffff\1\13\2\uffff\1\13\1\uffff\4\13\10\uffff\1\13\6\uffff\2\13\13\uffff\25\13\7\uffff\3\13\1\uffff\1\13\1\uffff\5\13\1\uffff\1\14\1\13\11\uffff\1\13\5\uffff\4\13\2\uffff\4\13\1\uffff\1\13",
             "",
             "",
             "",
@@ -50972,11 +51592,11 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     static final String dfa_14s = "\13\uffff";
     static final String dfa_15s = "\1\1\12\uffff";
     static final String dfa_16s = "\1\5\1\uffff\10\0\1\uffff";
-    static final String dfa_17s = "\1\170\1\uffff\10\0\1\uffff";
+    static final String dfa_17s = "\1\171\1\uffff\10\0\1\uffff";
     static final String dfa_18s = "\1\uffff\1\2\10\uffff\1\1";
-    static final String dfa_19s = "\2\uffff\1\4\1\1\1\5\1\0\1\2\1\3\1\6\1\7\1\uffff}>";
+    static final String dfa_19s = "\2\uffff\1\6\1\4\1\1\1\5\1\7\1\0\1\2\1\3\1\uffff}>";
     static final String[] dfa_20s = {
-            "\5\1\10\uffff\1\1\2\uffff\1\1\1\uffff\1\2\1\3\2\1\10\uffff\1\1\6\uffff\2\1\13\uffff\11\1\1\4\1\5\1\6\1\7\1\10\1\11\6\1\7\uffff\3\1\1\uffff\1\1\1\uffff\5\1\2\uffff\1\1\10\uffff\1\1\5\uffff\4\1\2\uffff\4\1",
+            "\5\1\10\uffff\1\1\2\uffff\1\1\1\uffff\1\2\1\3\2\1\10\uffff\1\1\6\uffff\2\1\13\uffff\11\1\1\4\1\5\1\6\1\7\1\10\1\11\6\1\7\uffff\3\1\1\uffff\1\1\1\uffff\5\1\2\uffff\1\1\11\uffff\1\1\5\uffff\4\1\2\uffff\4\1",
             "",
             "\1\uffff",
             "\1\uffff",
@@ -51011,58 +51631,13 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             this.transition = dfa_20;
         }
         public String getDescription() {
-            return "()* loopback of 9240:2: ( rule__DmxRelationalExpression__Alternatives_1 )*";
+            return "()* loopback of 9409:2: ( rule__DmxRelationalExpression__Alternatives_1 )*";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA103_5 = input.LA(1);
-
-                         
-                        int index103_5 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred142_InternalDim()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index103_5);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA103_3 = input.LA(1);
-
-                         
-                        int index103_3 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred142_InternalDim()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index103_3);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA103_6 = input.LA(1);
-
-                         
-                        int index103_6 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred142_InternalDim()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index103_6);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
                         int LA103_7 = input.LA(1);
 
                          
@@ -51077,22 +51652,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                         input.seek(index103_7);
                         if ( s>=0 ) return s;
                         break;
-                    case 4 : 
-                        int LA103_2 = input.LA(1);
-
-                         
-                        int index103_2 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred142_InternalDim()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index103_2);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 5 : 
+                    case 1 : 
                         int LA103_4 = input.LA(1);
 
                          
@@ -51107,7 +51667,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                         input.seek(index103_4);
                         if ( s>=0 ) return s;
                         break;
-                    case 6 : 
+                    case 2 : 
                         int LA103_8 = input.LA(1);
 
                          
@@ -51122,7 +51682,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                         input.seek(index103_8);
                         if ( s>=0 ) return s;
                         break;
-                    case 7 : 
+                    case 3 : 
                         int LA103_9 = input.LA(1);
 
                          
@@ -51137,6 +51697,66 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                         input.seek(index103_9);
                         if ( s>=0 ) return s;
                         break;
+                    case 4 : 
+                        int LA103_3 = input.LA(1);
+
+                         
+                        int index103_3 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred142_InternalDim()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index103_3);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA103_5 = input.LA(1);
+
+                         
+                        int index103_5 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred142_InternalDim()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index103_5);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA103_2 = input.LA(1);
+
+                         
+                        int index103_2 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred142_InternalDim()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index103_2);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA103_6 = input.LA(1);
+
+                         
+                        int index103_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred142_InternalDim()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index103_6);
+                        if ( s>=0 ) return s;
+                        break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
@@ -51148,11 +51768,11 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     static final String dfa_21s = "\117\uffff";
     static final String dfa_22s = "\1\35\116\uffff";
     static final String dfa_23s = "\1\4\3\0\27\uffff\2\0\62\uffff";
-    static final String dfa_24s = "\1\175\3\0\27\uffff\2\0\62\uffff";
+    static final String dfa_24s = "\1\176\3\0\27\uffff\2\0\62\uffff";
     static final String dfa_25s = "\4\uffff\1\1\30\uffff\1\2\61\uffff";
     static final String dfa_26s = "\1\uffff\1\0\1\1\1\2\27\uffff\1\3\1\4\62\uffff}>";
     static final String[] dfa_27s = {
-            "\1\4\1\1\1\33\1\34\2\35\1\4\7\uffff\1\35\2\uffff\1\35\1\uffff\4\35\10\4\1\35\4\4\2\uffff\1\2\1\3\13\uffff\25\35\3\4\4\uffff\3\35\1\uffff\1\35\1\uffff\5\35\1\uffff\1\4\1\35\10\uffff\1\35\1\uffff\1\4\2\uffff\1\4\4\35\1\4\1\uffff\4\35\3\uffff\2\4",
+            "\1\4\1\1\1\33\1\34\2\35\1\4\7\uffff\1\35\2\uffff\1\35\1\uffff\4\35\10\4\1\35\4\4\2\uffff\1\2\1\3\13\uffff\25\35\3\4\4\uffff\3\35\1\uffff\1\35\1\uffff\5\35\1\uffff\1\4\1\35\11\uffff\1\35\1\uffff\1\4\2\uffff\1\4\4\35\1\4\1\uffff\4\35\3\uffff\2\4",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
@@ -51255,7 +51875,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             this.transition = dfa_27;
         }
         public String getDescription() {
-            return "10482:2: ( rule__DmxReturnExpression__ExpressionAssignment_2 )?";
+            return "10651:2: ( rule__DmxReturnExpression__ExpressionAssignment_2 )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -51351,16 +51971,16 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000000L,0x0000000000008000L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000002L,0x0000000400000000L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x00000000002400C0L,0x00E000003A830000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x00000000002400C0L,0x01C000003A830000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000002L,0x0000000000010000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000240002L,0x00E000003A820000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000240000L,0x00E000003A820000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000240002L,0x01C000003A820000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000240000L,0x01C000003A820000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000000000000C0L,0x0000000000040000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000240000L,0x00E000003A980000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000240000L,0x01C000003A980000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000002L,0x0000000000100000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000240002L,0x00E000003A800000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000240002L,0x01C000003A800000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000000L,0x0000000000410000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x00000CF7F80004F0L,0x3008480080007000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x00000CF7F80004F0L,0x6010900080007000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x00000000000000C0L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000000000L,0x0000000001010000L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000000000L,0x0000000000200000L});
@@ -51371,79 +51991,82 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000000000002L,0x0000000004000000L});
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x00000000000000C0L,0x0000000000010000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000240000L,0x00E0000018000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000040000L,0x0040000000000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000240000L,0x01C0000018000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000040000L,0x0080000000000000L});
     public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000000240000L,0x00E000003A800000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000000240000L,0x01C000003A800000L});
     public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x00000000000000C0L,0x0000000040050000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000000020L,0x0100000020280000L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000000022L,0x0100000020200000L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000000000020L,0x0100000000000000L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000000020L,0x0200000020280000L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000000022L,0x0200000020200000L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000000000020L,0x0200000000000000L});
     public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000300000400000L,0x0000000000010000L});
     public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x00000000000000C0L,0x0000000080000000L});
     public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000200000000000L});
     public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000000000000020L,0x0000000020000000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x00000000000000C0L,0x0200000080000000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x00000000000000C0L,0x0400000080000000L});
     public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000000000000000L,0x0000000080010000L});
     public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000000000000020L,0x0000000100000000L});
     public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
     public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x00000000000000C0L,0x0000000280000000L});
     public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000000000000L,0x0000001000040000L});
     public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000000000000L,0x0000000080000000L});
-    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L});
     public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x007FC00000000000L});
-    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000000000000300L});
-    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0000000000000102L});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000000000000000L,0x0000000100000000L});
+    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000000000000000L,0x0000008000000000L});
+    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x007FC00000000020L});
     public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000000000000000L,0x0000020000000000L});
-    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000000000000002L,0x0000020000000000L});
-    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x00000CF7F8000430L,0x3008480080007000L});
-    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000000000000000L,0x0400000080000000L});
-    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x00000CF7F8000430L,0x3008480180007000L});
-    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0000000000000000L,0x0000040000000000L});
-    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0780000000000000L});
-    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0780000000000002L});
-    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x1800000000000000L});
-    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x1800000000000002L});
-    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0xE000000000000000L});
-    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0xE000000000000002L});
-    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0000000001800000L,0x000000000000003FL});
-    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0000000001800002L,0x000000000000003FL});
-    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0000000001800000L});
-    public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x0000000000000000L,0x00000000000001C0L});
-    public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x0000000000000002L,0x00000000000001C0L});
-    public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x00000C0000000000L});
-    public static final BitSet FOLLOW_70 = new BitSet(new long[]{0x00000C0000000002L});
-    public static final BitSet FOLLOW_71 = new BitSet(new long[]{0x0000000800000000L,0x0000000000000E00L});
-    public static final BitSet FOLLOW_72 = new BitSet(new long[]{0x0000000800000002L,0x0000000000000E00L});
-    public static final BitSet FOLLOW_73 = new BitSet(new long[]{0x00000C0000000000L,0x0000000000007000L});
-    public static final BitSet FOLLOW_74 = new BitSet(new long[]{0x0000000006000000L});
-    public static final BitSet FOLLOW_75 = new BitSet(new long[]{0x0000000018000000L});
-    public static final BitSet FOLLOW_76 = new BitSet(new long[]{0x0000000060000000L});
-    public static final BitSet FOLLOW_77 = new BitSet(new long[]{0x0000000180000000L});
-    public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x0000000000000000L,0x0000000100000000L});
-    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x00000CF7F80004F0L,0x3008480180007000L});
-    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0000000600000000L});
-    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0000000000000000L,0x0000080000000000L});
-    public static final BitSet FOLLOW_82 = new BitSet(new long[]{0x0000000000000000L,0x0000340000000000L});
-    public static final BitSet FOLLOW_83 = new BitSet(new long[]{0x0000000800000020L});
-    public static final BitSet FOLLOW_84 = new BitSet(new long[]{0x0000000000000000L,0x0400020000000000L});
-    public static final BitSet FOLLOW_85 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000000L});
-    public static final BitSet FOLLOW_86 = new BitSet(new long[]{0x0000000000000000L,0x0000400000000000L});
-    public static final BitSet FOLLOW_87 = new BitSet(new long[]{0x0000000000000000L,0x0000800000000000L});
-    public static final BitSet FOLLOW_88 = new BitSet(new long[]{0x0000000000000000L,0x0003000000000000L});
-    public static final BitSet FOLLOW_89 = new BitSet(new long[]{0x0000000000000000L,0x0004000000000000L});
+    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0000000000000300L});
+    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0000000000000102L});
+    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000000000000000L,0x0000040000000000L});
+    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0000000000000002L,0x0000040000000000L});
+    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x00000CF7F8000430L,0x6010900080007000L});
+    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000000000000L,0x0800000080000000L});
+    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x00000CF7F8000430L,0x6010900180007000L});
+    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0000000000000000L,0x0000080000000000L});
+    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x0780000000000000L});
+    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0780000000000002L});
+    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x1800000000000000L});
+    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x1800000000000002L});
+    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0xE000000000000000L});
+    public static final BitSet FOLLOW_67 = new BitSet(new long[]{0xE000000000000002L});
+    public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x0000000001800000L,0x000000000000003FL});
+    public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x0000000001800002L,0x000000000000003FL});
+    public static final BitSet FOLLOW_70 = new BitSet(new long[]{0x0000000001800000L});
+    public static final BitSet FOLLOW_71 = new BitSet(new long[]{0x0000000000000000L,0x00000000000001C0L});
+    public static final BitSet FOLLOW_72 = new BitSet(new long[]{0x0000000000000002L,0x00000000000001C0L});
+    public static final BitSet FOLLOW_73 = new BitSet(new long[]{0x00000C0000000000L});
+    public static final BitSet FOLLOW_74 = new BitSet(new long[]{0x00000C0000000002L});
+    public static final BitSet FOLLOW_75 = new BitSet(new long[]{0x0000000800000000L,0x0000000000000E00L});
+    public static final BitSet FOLLOW_76 = new BitSet(new long[]{0x0000000800000002L,0x0000000000000E00L});
+    public static final BitSet FOLLOW_77 = new BitSet(new long[]{0x00000C0000000000L,0x0000000000007000L});
+    public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x0000000006000000L});
+    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x0000000018000000L});
+    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0000000060000000L});
+    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0000000180000000L});
+    public static final BitSet FOLLOW_82 = new BitSet(new long[]{0x00000CF7F80004F0L,0x6010900180007000L});
+    public static final BitSet FOLLOW_83 = new BitSet(new long[]{0x0000000600000000L});
+    public static final BitSet FOLLOW_84 = new BitSet(new long[]{0x0000000000000000L,0x0000100000000000L});
+    public static final BitSet FOLLOW_85 = new BitSet(new long[]{0x0000000000000000L,0x0000680000000000L});
+    public static final BitSet FOLLOW_86 = new BitSet(new long[]{0x0000000800000020L});
+    public static final BitSet FOLLOW_87 = new BitSet(new long[]{0x0000000000000000L,0x0800040000000000L});
+    public static final BitSet FOLLOW_88 = new BitSet(new long[]{0x0000000000000000L,0x1000000000000000L});
+    public static final BitSet FOLLOW_89 = new BitSet(new long[]{0x0000000000000000L,0x0000800000000000L});
     public static final BitSet FOLLOW_90 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_91 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_92 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_93 = new BitSet(new long[]{0x0000000800000010L});
-    public static final BitSet FOLLOW_94 = new BitSet(new long[]{0x0000003000000000L,0x3000000000000000L});
-    public static final BitSet FOLLOW_95 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_96 = new BitSet(new long[]{0x000000F000000410L,0x3000000000000000L});
-    public static final BitSet FOLLOW_97 = new BitSet(new long[]{0x0000030000000000L});
-    public static final BitSet FOLLOW_98 = new BitSet(new long[]{0x00000C0000000010L});
-    public static final BitSet FOLLOW_99 = new BitSet(new long[]{0x0000000000000000L,0x0010000000000000L});
+    public static final BitSet FOLLOW_91 = new BitSet(new long[]{0x0000000000000000L,0x0006000000000000L});
+    public static final BitSet FOLLOW_92 = new BitSet(new long[]{0x0000000000000000L,0x0008000000000000L});
+    public static final BitSet FOLLOW_93 = new BitSet(new long[]{0x0000000000000000L,0x0002000000000000L});
+    public static final BitSet FOLLOW_94 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_95 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_96 = new BitSet(new long[]{0x0000000800000010L});
+    public static final BitSet FOLLOW_97 = new BitSet(new long[]{0x0000003000000000L,0x6000000000000000L});
+    public static final BitSet FOLLOW_98 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_99 = new BitSet(new long[]{0x000000F000000410L,0x6000000000000000L});
+    public static final BitSet FOLLOW_100 = new BitSet(new long[]{0x0000030000000000L});
+    public static final BitSet FOLLOW_101 = new BitSet(new long[]{0x00000C0000000010L});
+    public static final BitSet FOLLOW_102 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000000L});
 
 }

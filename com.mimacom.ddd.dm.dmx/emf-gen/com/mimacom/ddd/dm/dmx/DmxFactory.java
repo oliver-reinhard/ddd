@@ -41,6 +41,15 @@ public interface DmxFactory extends EFactory
 	DmxTest createDmxTest();
 
 	/**
+	 * Returns a new object of class '<em>Base Type Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Base Type Set</em>'.
+	 * @generated
+	 */
+	DmxBaseTypeSet createDmxBaseTypeSet();
+
+	/**
 	 * Returns a new object of class '<em>Archetype</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -50,31 +59,31 @@ public interface DmxFactory extends EFactory
 	DmxArchetype createDmxArchetype();
 
 	/**
-	 * Returns a new object of class '<em>Function</em>'.
+	 * Returns a new object of class '<em>Filter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Function</em>'.
+	 * @return a new object of class '<em>Filter</em>'.
 	 * @generated
 	 */
-	DmxFunction createDmxFunction();
+	DmxFilter createDmxFilter();
 
 	/**
-	 * Returns a new object of class '<em>Function Parameter</em>'.
+	 * Returns a new object of class '<em>Filter Type Descriptor</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Function Parameter</em>'.
+	 * @return a new object of class '<em>Filter Type Descriptor</em>'.
 	 * @generated
 	 */
-	DmxFunctionParameter createDmxFunctionParameter();
+	DmxFilterTypeDescriptor createDmxFilterTypeDescriptor();
 
 	/**
-	 * Returns a new object of class '<em>Iterator</em>'.
+	 * Returns a new object of class '<em>Filter Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Iterator</em>'.
+	 * @return a new object of class '<em>Filter Parameter</em>'.
 	 * @generated
 	 */
-	DmxIterator createDmxIterator();
+	DmxFilterParameter createDmxFilterParameter();
 
 	/**
 	 * Returns a new object of class '<em>Assignment</em>'.

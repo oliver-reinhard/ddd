@@ -5,11 +5,11 @@ package com.mimacom.ddd.dm.dmx.ui.outline
 
 import com.mimacom.ddd.dm.base.DContext
 import com.mimacom.ddd.dm.dmx.DmxAssignment
-import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable
 import com.mimacom.ddd.dm.dmx.DmxContextReference
-import com.mimacom.ddd.dm.dmx.DmxIterator
+import com.mimacom.ddd.dm.dmx.DmxFilter
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DmxPackage
+import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable
 import org.eclipse.jface.resource.ImageDescriptor
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
@@ -40,10 +40,27 @@ class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		createEObjectNode(parentNode, context, imageDispatcher.invoke(context),	textDispatcher.invoke(context) + type , isLeafDispatcher.invoke(context));
 	}
 	
-	def _createNode(IOutlineNode parentNode, DmxIterator iterator) {
+	def _createNode(IOutlineNode parentNode, DmxFilter filter) {
 		// DmxContextReference has NO childeren => customise _createNode
-		val node = createEObjectNode(parentNode, iterator, imageDispatcher.invoke(iterator),	textDispatcher.invoke(iterator), isLeafDispatcher.invoke(iterator));
-		createEStructuralFeatureNode(node, iterator, DMX.dmxFilter_BaseType, FEATURE_IMAGE, DMX.dmxFilter_BaseType.name + " " + iterator.baseType.literal +  if (iterator.baseTypeCollection) "*" else "", true)
+		val node = createEObjectNode(parentNode, filter, imageDispatcher.invoke(filter),	textDispatcher.invoke(filter), isLeafDispatcher.invoke(filter));
+		createEStructuralFeatureNode(node, filter, DMX.dmxFilter_TypeDesc, FEATURE_IMAGE, DMX.dmxFilter_TypeDesc.name + " " + filter.resultTypes +  if (filter.typeDesc.collection) "*" else "", true)
+	}
+	
+	private def String getResultTypes(DmxFilter filter) {
+		val desc = filter.typeDesc
+		if (desc === null) {
+			return "null"
+		}
+		if (desc.isMultiTyped) {
+			val b = new StringBuilder(filter.typeDesc.multiple.members.get(0).literal)
+			for(i:1..filter.typeDesc.multiple.members.size-1) {
+				b.append(",")
+				b.append(filter.typeDesc.multiple.members.get(i))
+			}
+			b.toString
+		} else {
+			desc.single.literal
+		}
 	}
 
 	def _createChildren(IOutlineNode parentNode, DmxPredicateWithCorrelationVariable pred) {

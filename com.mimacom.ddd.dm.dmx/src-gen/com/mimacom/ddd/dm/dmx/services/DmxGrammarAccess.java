@@ -235,6 +235,63 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		//DMultiplicity
 		public RuleCall getMultiplicityDMultiplicityParserRuleCall_3_0() { return cMultiplicityDMultiplicityParserRuleCall_3_0; }
 	}
+	public class DmxBaseTypeSetElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DmxBaseTypeSet");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Keyword cInKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cMembersAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cMembersDmxBaseTypeEnumRuleCall_3_0 = (RuleCall)cMembersAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cCommaKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cMembersAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cMembersDmxBaseTypeEnumRuleCall_4_1_0 = (RuleCall)cMembersAssignment_4_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//DmxBaseTypeSet:
+		//	name=ID
+		//	'in'
+		//	'(' members+=DmxBaseType (',' members+=DmxBaseType)+ ')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID 'in' '(' members+=DmxBaseType (',' members+=DmxBaseType)+ ')'
+		public Group getGroup() { return cGroup; }
+		
+		//name=ID
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		
+		//'in'
+		public Keyword getInKeyword_1() { return cInKeyword_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
+		
+		//members+=DmxBaseType
+		public Assignment getMembersAssignment_3() { return cMembersAssignment_3; }
+		
+		//DmxBaseType
+		public RuleCall getMembersDmxBaseTypeEnumRuleCall_3_0() { return cMembersDmxBaseTypeEnumRuleCall_3_0; }
+		
+		//(',' members+=DmxBaseType)+
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//','
+		public Keyword getCommaKeyword_4_0() { return cCommaKeyword_4_0; }
+		
+		//members+=DmxBaseType
+		public Assignment getMembersAssignment_4_1() { return cMembersAssignment_4_1; }
+		
+		//DmxBaseType
+		public RuleCall getMembersDmxBaseTypeEnumRuleCall_4_1_0() { return cMembersDmxBaseTypeEnumRuleCall_4_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+	}
 	public class DmxArchetypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DmxArchetype");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -284,58 +341,41 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class DmxFilterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DmxFilter");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cDmxFunctionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cDmxIteratorParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//DmxFilter:
-		//	DmxFunction | DmxIterator;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//DmxFunction | DmxIterator
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//DmxFunction
-		public RuleCall getDmxFunctionParserRuleCall_0() { return cDmxFunctionParserRuleCall_0; }
-		
-		//DmxIterator
-		public RuleCall getDmxIteratorParserRuleCall_1() { return cDmxIteratorParserRuleCall_1; }
-	}
-	public class DmxFunctionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DmxFunction");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cFunctionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cFilterKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Assignment cParametersAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
-		private final RuleCall cParametersDmxFunctionParameterParserRuleCall_3_0_0 = (RuleCall)cParametersAssignment_3_0.eContents().get(0);
+		private final RuleCall cParametersDmxFilterParameterParserRuleCall_3_0_0 = (RuleCall)cParametersAssignment_3_0.eContents().get(0);
 		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
 		private final Keyword cCommaKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
 		private final Assignment cParametersAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
-		private final RuleCall cParametersDmxFunctionParameterParserRuleCall_3_1_1_0 = (RuleCall)cParametersAssignment_3_1_1.eContents().get(0);
+		private final RuleCall cParametersDmxFilterParameterParserRuleCall_3_1_1_0 = (RuleCall)cParametersAssignment_3_1_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Keyword cColonKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cBaseTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cBaseTypeDmxBaseTypeEnumRuleCall_6_0 = (RuleCall)cBaseTypeAssignment_6.eContents().get(0);
-		private final Assignment cBaseTypeCollectionAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final Keyword cBaseTypeCollectionAsteriskKeyword_7_0 = (Keyword)cBaseTypeCollectionAssignment_7.eContents().get(0);
+		private final Assignment cTypeDescAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cTypeDescDmxFilterTypeDescriptorParserRuleCall_6_0 = (RuleCall)cTypeDescAssignment_6.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cWithKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cWithTypeSetAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cWithTypeSetDmxBaseTypeSetParserRuleCall_7_1_0 = (RuleCall)cWithTypeSetAssignment_7_1.eContents().get(0);
 		
-		//DmxFunction:
-		//	'function' name=ID
-		//	'(' (parameters+=DmxFunctionParameter (',' parameters+=DmxFunctionParameter)*)? ')'
+		//DmxFilter:
+		//	'filter'
+		//	name=ID
+		//	'(' (parameters+=DmxFilterParameter (',' parameters+=DmxFilterParameter)*)? ')'
 		//	':'
-		//	baseType=DmxBaseType
-		//	baseTypeCollection?='*'?;
+		//	typeDesc=DmxFilterTypeDescriptor ('with' withTypeSet=DmxBaseTypeSet)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'function' name=ID '(' (parameters+=DmxFunctionParameter (',' parameters+=DmxFunctionParameter)*)? ')' ':'
-		//baseType=DmxBaseType baseTypeCollection?='*'?
+		//'filter' name=ID '(' (parameters+=DmxFilterParameter (',' parameters+=DmxFilterParameter)*)? ')' ':'
+		//typeDesc=DmxFilterTypeDescriptor ('with' withTypeSet=DmxBaseTypeSet)?
 		public Group getGroup() { return cGroup; }
 		
-		//'function'
-		public Keyword getFunctionKeyword_0() { return cFunctionKeyword_0; }
+		//'filter'
+		public Keyword getFilterKeyword_0() { return cFilterKeyword_0; }
 		
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -346,26 +386,26 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
 		
-		//(parameters+=DmxFunctionParameter (',' parameters+=DmxFunctionParameter)*)?
+		//(parameters+=DmxFilterParameter (',' parameters+=DmxFilterParameter)*)?
 		public Group getGroup_3() { return cGroup_3; }
 		
-		//parameters+=DmxFunctionParameter
+		//parameters+=DmxFilterParameter
 		public Assignment getParametersAssignment_3_0() { return cParametersAssignment_3_0; }
 		
-		//DmxFunctionParameter
-		public RuleCall getParametersDmxFunctionParameterParserRuleCall_3_0_0() { return cParametersDmxFunctionParameterParserRuleCall_3_0_0; }
+		//DmxFilterParameter
+		public RuleCall getParametersDmxFilterParameterParserRuleCall_3_0_0() { return cParametersDmxFilterParameterParserRuleCall_3_0_0; }
 		
-		//(',' parameters+=DmxFunctionParameter)*
+		//(',' parameters+=DmxFilterParameter)*
 		public Group getGroup_3_1() { return cGroup_3_1; }
 		
 		//','
 		public Keyword getCommaKeyword_3_1_0() { return cCommaKeyword_3_1_0; }
 		
-		//parameters+=DmxFunctionParameter
+		//parameters+=DmxFilterParameter
 		public Assignment getParametersAssignment_3_1_1() { return cParametersAssignment_3_1_1; }
 		
-		//DmxFunctionParameter
-		public RuleCall getParametersDmxFunctionParameterParserRuleCall_3_1_1_0() { return cParametersDmxFunctionParameterParserRuleCall_3_1_1_0; }
+		//DmxFilterParameter
+		public RuleCall getParametersDmxFilterParameterParserRuleCall_3_1_1_0() { return cParametersDmxFilterParameterParserRuleCall_3_1_1_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
@@ -373,37 +413,84 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		//':'
 		public Keyword getColonKeyword_5() { return cColonKeyword_5; }
 		
-		//baseType=DmxBaseType
-		public Assignment getBaseTypeAssignment_6() { return cBaseTypeAssignment_6; }
+		//typeDesc=DmxFilterTypeDescriptor
+		public Assignment getTypeDescAssignment_6() { return cTypeDescAssignment_6; }
+		
+		//DmxFilterTypeDescriptor
+		public RuleCall getTypeDescDmxFilterTypeDescriptorParserRuleCall_6_0() { return cTypeDescDmxFilterTypeDescriptorParserRuleCall_6_0; }
+		
+		//('with' withTypeSet=DmxBaseTypeSet)?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'with'
+		public Keyword getWithKeyword_7_0() { return cWithKeyword_7_0; }
+		
+		//withTypeSet=DmxBaseTypeSet
+		public Assignment getWithTypeSetAssignment_7_1() { return cWithTypeSetAssignment_7_1; }
+		
+		//DmxBaseTypeSet
+		public RuleCall getWithTypeSetDmxBaseTypeSetParserRuleCall_7_1_0() { return cWithTypeSetDmxBaseTypeSetParserRuleCall_7_1_0; }
+	}
+	public class DmxFilterTypeDescriptorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DmxFilterTypeDescriptor");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Assignment cSingleAssignment_0_0 = (Assignment)cAlternatives_0.eContents().get(0);
+		private final RuleCall cSingleDmxBaseTypeEnumRuleCall_0_0_0 = (RuleCall)cSingleAssignment_0_0.eContents().get(0);
+		private final Assignment cMultipleAssignment_0_1 = (Assignment)cAlternatives_0.eContents().get(1);
+		private final CrossReference cMultipleDmxBaseTypeSetCrossReference_0_1_0 = (CrossReference)cMultipleAssignment_0_1.eContents().get(0);
+		private final RuleCall cMultipleDmxBaseTypeSetIDTerminalRuleCall_0_1_0_1 = (RuleCall)cMultipleDmxBaseTypeSetCrossReference_0_1_0.eContents().get(1);
+		private final Assignment cCollectionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cCollectionAsteriskKeyword_1_0 = (Keyword)cCollectionAssignment_1.eContents().get(0);
+		
+		//DmxFilterTypeDescriptor:
+		//	(single=DmxBaseType
+		//	| multiple=[DmxBaseTypeSet]) collection?='*'?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//(single=DmxBaseType | multiple=[DmxBaseTypeSet]) collection?='*'?
+		public Group getGroup() { return cGroup; }
+		
+		//single=DmxBaseType | multiple=[DmxBaseTypeSet]
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
+		//single=DmxBaseType
+		public Assignment getSingleAssignment_0_0() { return cSingleAssignment_0_0; }
 		
 		//DmxBaseType
-		public RuleCall getBaseTypeDmxBaseTypeEnumRuleCall_6_0() { return cBaseTypeDmxBaseTypeEnumRuleCall_6_0; }
+		public RuleCall getSingleDmxBaseTypeEnumRuleCall_0_0_0() { return cSingleDmxBaseTypeEnumRuleCall_0_0_0; }
 		
-		//baseTypeCollection?='*'?
-		public Assignment getBaseTypeCollectionAssignment_7() { return cBaseTypeCollectionAssignment_7; }
+		//multiple=[DmxBaseTypeSet]
+		public Assignment getMultipleAssignment_0_1() { return cMultipleAssignment_0_1; }
+		
+		//[DmxBaseTypeSet]
+		public CrossReference getMultipleDmxBaseTypeSetCrossReference_0_1_0() { return cMultipleDmxBaseTypeSetCrossReference_0_1_0; }
+		
+		//ID
+		public RuleCall getMultipleDmxBaseTypeSetIDTerminalRuleCall_0_1_0_1() { return cMultipleDmxBaseTypeSetIDTerminalRuleCall_0_1_0_1; }
+		
+		//collection?='*'?
+		public Assignment getCollectionAssignment_1() { return cCollectionAssignment_1; }
 		
 		//'*'
-		public Keyword getBaseTypeCollectionAsteriskKeyword_7_0() { return cBaseTypeCollectionAsteriskKeyword_7_0; }
+		public Keyword getCollectionAsteriskKeyword_1_0() { return cCollectionAsteriskKeyword_1_0; }
 	}
-	public class DmxFunctionParameterElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DmxFunctionParameter");
+	public class DmxFilterParameterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DmxFilterParameter");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cBaseTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cBaseTypeDmxBaseTypeEnumRuleCall_2_0 = (RuleCall)cBaseTypeAssignment_2.eContents().get(0);
-		private final Assignment cBaseTypeCollectionAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final Keyword cBaseTypeCollectionAsteriskKeyword_3_0 = (Keyword)cBaseTypeCollectionAssignment_3.eContents().get(0);
+		private final Assignment cTypeDescAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cTypeDescDmxFilterTypeDescriptorParserRuleCall_2_0 = (RuleCall)cTypeDescAssignment_2.eContents().get(0);
 		
-		//DmxFunctionParameter:
+		//DmxFilterParameter:
 		//	name=ID
 		//	':'
-		//	baseType=DmxBaseType
-		//	baseTypeCollection?='*'?;
+		//	typeDesc=DmxFilterTypeDescriptor;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ':' baseType=DmxBaseType baseTypeCollection?='*'?
+		//name=ID ':' typeDesc=DmxFilterTypeDescriptor
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -415,63 +502,11 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		//':'
 		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
 		
-		//baseType=DmxBaseType
-		public Assignment getBaseTypeAssignment_2() { return cBaseTypeAssignment_2; }
+		//typeDesc=DmxFilterTypeDescriptor
+		public Assignment getTypeDescAssignment_2() { return cTypeDescAssignment_2; }
 		
-		//DmxBaseType
-		public RuleCall getBaseTypeDmxBaseTypeEnumRuleCall_2_0() { return cBaseTypeDmxBaseTypeEnumRuleCall_2_0; }
-		
-		//baseTypeCollection?='*'?
-		public Assignment getBaseTypeCollectionAssignment_3() { return cBaseTypeCollectionAssignment_3; }
-		
-		//'*'
-		public Keyword getBaseTypeCollectionAsteriskKeyword_3_0() { return cBaseTypeCollectionAsteriskKeyword_3_0; }
-	}
-	public class DmxIteratorElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DmxIterator");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cIteratorKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cBaseTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cBaseTypeDmxBaseTypeEnumRuleCall_3_0 = (RuleCall)cBaseTypeAssignment_3.eContents().get(0);
-		private final Assignment cBaseTypeCollectionAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final Keyword cBaseTypeCollectionAsteriskKeyword_4_0 = (Keyword)cBaseTypeCollectionAssignment_4.eContents().get(0);
-		
-		//DmxIterator:
-		//	'iterator' name=ID
-		//	':'
-		//	baseType=DmxBaseType
-		//	baseTypeCollection?='*'?;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'iterator' name=ID ':' baseType=DmxBaseType baseTypeCollection?='*'?
-		public Group getGroup() { return cGroup; }
-		
-		//'iterator'
-		public Keyword getIteratorKeyword_0() { return cIteratorKeyword_0; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-		
-		//':'
-		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
-		
-		//baseType=DmxBaseType
-		public Assignment getBaseTypeAssignment_3() { return cBaseTypeAssignment_3; }
-		
-		//DmxBaseType
-		public RuleCall getBaseTypeDmxBaseTypeEnumRuleCall_3_0() { return cBaseTypeDmxBaseTypeEnumRuleCall_3_0; }
-		
-		//baseTypeCollection?='*'?
-		public Assignment getBaseTypeCollectionAssignment_4() { return cBaseTypeCollectionAssignment_4; }
-		
-		//'*'
-		public Keyword getBaseTypeCollectionAsteriskKeyword_4_0() { return cBaseTypeCollectionAsteriskKeyword_4_0; }
+		//DmxFilterTypeDescriptor
+		public RuleCall getTypeDescDmxFilterTypeDescriptorParserRuleCall_2_0() { return cTypeDescDmxFilterTypeDescriptorParserRuleCall_2_0; }
 	}
 	public class DExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DExpression");
@@ -1624,8 +1659,8 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cDmxFunctionCallAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cFunctionAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cFunctionDmxFunctionCrossReference_1_0 = (CrossReference)cFunctionAssignment_1.eContents().get(0);
-		private final RuleCall cFunctionDmxFunctionIDTerminalRuleCall_1_0_1 = (RuleCall)cFunctionDmxFunctionCrossReference_1_0.eContents().get(1);
+		private final CrossReference cFunctionDmxFilterCrossReference_1_0 = (CrossReference)cFunctionAssignment_1.eContents().get(0);
+		private final RuleCall cFunctionDmxFilterIDTerminalRuleCall_1_0_1 = (RuleCall)cFunctionDmxFilterCrossReference_1_0.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Assignment cFunctionCallArgumentsAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
@@ -1637,26 +1672,26 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//DmxFunctionCall DExpression:
-		//	{DmxFunctionCall} function=[DmxFunction]
+		//	{DmxFunctionCall} function=[DmxFilter]
 		//	'(' (functionCallArguments+=DExpression (',' functionCallArguments+=DExpression)*)?
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DmxFunctionCall} function=[DmxFunction] '(' (functionCallArguments+=DExpression (','
+		//{DmxFunctionCall} function=[DmxFilter] '(' (functionCallArguments+=DExpression (','
 		//functionCallArguments+=DExpression)*)? ')'
 		public Group getGroup() { return cGroup; }
 		
 		//{DmxFunctionCall}
 		public Action getDmxFunctionCallAction_0() { return cDmxFunctionCallAction_0; }
 		
-		//function=[DmxFunction]
+		//function=[DmxFilter]
 		public Assignment getFunctionAssignment_1() { return cFunctionAssignment_1; }
 		
-		//[DmxFunction]
-		public CrossReference getFunctionDmxFunctionCrossReference_1_0() { return cFunctionDmxFunctionCrossReference_1_0; }
+		//[DmxFilter]
+		public CrossReference getFunctionDmxFilterCrossReference_1_0() { return cFunctionDmxFilterCrossReference_1_0; }
 		
 		//ID
-		public RuleCall getFunctionDmxFunctionIDTerminalRuleCall_1_0_1() { return cFunctionDmxFunctionIDTerminalRuleCall_1_0_1; }
+		public RuleCall getFunctionDmxFilterIDTerminalRuleCall_1_0_1() { return cFunctionDmxFilterIDTerminalRuleCall_1_0_1; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
@@ -2762,11 +2797,11 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	private final DmxTestElements pDmxTest;
 	private final DmxTestContextElements pDmxTestContext;
 	private final DmxBaseTypeElements eDmxBaseType;
+	private final DmxBaseTypeSetElements pDmxBaseTypeSet;
 	private final DmxArchetypeElements pDmxArchetype;
 	private final DmxFilterElements pDmxFilter;
-	private final DmxFunctionElements pDmxFunction;
-	private final DmxFunctionParameterElements pDmxFunctionParameter;
-	private final DmxIteratorElements pDmxIterator;
+	private final DmxFilterTypeDescriptorElements pDmxFilterTypeDescriptor;
+	private final DmxFilterParameterElements pDmxFilterParameter;
 	private final DExpressionElements pDExpression;
 	private final DRichTextElements pDRichText;
 	private final DmxTextOnlyElements pDmxTextOnly;
@@ -2844,11 +2879,11 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDmxTest = new DmxTestElements();
 		this.pDmxTestContext = new DmxTestContextElements();
 		this.eDmxBaseType = new DmxBaseTypeElements();
+		this.pDmxBaseTypeSet = new DmxBaseTypeSetElements();
 		this.pDmxArchetype = new DmxArchetypeElements();
 		this.pDmxFilter = new DmxFilterElements();
-		this.pDmxFunction = new DmxFunctionElements();
-		this.pDmxFunctionParameter = new DmxFunctionParameterElements();
-		this.pDmxIterator = new DmxIteratorElements();
+		this.pDmxFilterTypeDescriptor = new DmxFilterTypeDescriptorElements();
+		this.pDmxFilterParameter = new DmxFilterParameterElements();
 		this.pDExpression = new DExpressionElements();
 		this.pDRichText = new DRichTextElements();
 		this.pDmxTextOnly = new DmxTextOnlyElements();
@@ -3005,6 +3040,18 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		return getDmxBaseTypeAccess().getRule();
 	}
 	
+	//DmxBaseTypeSet:
+	//	name=ID
+	//	'in'
+	//	'(' members+=DmxBaseType (',' members+=DmxBaseType)+ ')';
+	public DmxBaseTypeSetElements getDmxBaseTypeSetAccess() {
+		return pDmxBaseTypeSet;
+	}
+	
+	public ParserRule getDmxBaseTypeSetRule() {
+		return getDmxBaseTypeSetAccess().getRule();
+	}
+	
 	//DmxArchetype:
 	//	'archetype'
 	//	name=ID
@@ -3020,7 +3067,11 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxFilter:
-	//	DmxFunction | DmxIterator;
+	//	'filter'
+	//	name=ID
+	//	'(' (parameters+=DmxFilterParameter (',' parameters+=DmxFilterParameter)*)? ')'
+	//	':'
+	//	typeDesc=DmxFilterTypeDescriptor ('with' withTypeSet=DmxBaseTypeSet)?;
 	public DmxFilterElements getDmxFilterAccess() {
 		return pDmxFilter;
 	}
@@ -3029,44 +3080,27 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		return getDmxFilterAccess().getRule();
 	}
 	
-	//DmxFunction:
-	//	'function' name=ID
-	//	'(' (parameters+=DmxFunctionParameter (',' parameters+=DmxFunctionParameter)*)? ')'
-	//	':'
-	//	baseType=DmxBaseType
-	//	baseTypeCollection?='*'?;
-	public DmxFunctionElements getDmxFunctionAccess() {
-		return pDmxFunction;
+	//DmxFilterTypeDescriptor:
+	//	(single=DmxBaseType
+	//	| multiple=[DmxBaseTypeSet]) collection?='*'?;
+	public DmxFilterTypeDescriptorElements getDmxFilterTypeDescriptorAccess() {
+		return pDmxFilterTypeDescriptor;
 	}
 	
-	public ParserRule getDmxFunctionRule() {
-		return getDmxFunctionAccess().getRule();
+	public ParserRule getDmxFilterTypeDescriptorRule() {
+		return getDmxFilterTypeDescriptorAccess().getRule();
 	}
 	
-	//DmxFunctionParameter:
+	//DmxFilterParameter:
 	//	name=ID
 	//	':'
-	//	baseType=DmxBaseType
-	//	baseTypeCollection?='*'?;
-	public DmxFunctionParameterElements getDmxFunctionParameterAccess() {
-		return pDmxFunctionParameter;
+	//	typeDesc=DmxFilterTypeDescriptor;
+	public DmxFilterParameterElements getDmxFilterParameterAccess() {
+		return pDmxFilterParameter;
 	}
 	
-	public ParserRule getDmxFunctionParameterRule() {
-		return getDmxFunctionParameterAccess().getRule();
-	}
-	
-	//DmxIterator:
-	//	'iterator' name=ID
-	//	':'
-	//	baseType=DmxBaseType
-	//	baseTypeCollection?='*'?;
-	public DmxIteratorElements getDmxIteratorAccess() {
-		return pDmxIterator;
-	}
-	
-	public ParserRule getDmxIteratorRule() {
-		return getDmxIteratorAccess().getRule();
+	public ParserRule getDmxFilterParameterRule() {
+		return getDmxFilterParameterAccess().getRule();
 	}
 	
 	///*
@@ -3452,7 +3486,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxFunctionCall DExpression:
-	//	{DmxFunctionCall} function=[DmxFunction]
+	//	{DmxFunctionCall} function=[DmxFilter]
 	//	'(' (functionCallArguments+=DExpression (',' functionCallArguments+=DExpression)*)?
 	//	')';
 	public DmxFunctionCallElements getDmxFunctionCallAccess() {

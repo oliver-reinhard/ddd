@@ -1,27 +1,27 @@
 namespace dm.Math
 
-function abs(arg : NUMBER): NUMBER 
-function acos(arg : NUMBER): NUMBER 
-function asin(arg : NUMBER): NUMBER 
-function atan(arg : NUMBER): NUMBER 
-function ceil(arg : NUMBER): NUMBER 
-function cos(arg : NUMBER): NUMBER 
-function cosh(arg : NUMBER): NUMBER 
-function dec(arg : NUMBER): NUMBER  
-function exp(arg : NUMBER): NUMBER 
-function floor(arg : NUMBER): NUMBER 
-function inc(arg : NUMBER): NUMBER  
-function log(arg : NUMBER): NUMBER 
-function log10(arg : NUMBER): NUMBER 
-function max(arg : NUMBER*): NUMBER 
-function min(arg : NUMBER*): NUMBER 
-function power(base : NUMBER, exp : NUMBER): NUMBER
-function random(): NUMBER
-function round(arg : NUMBER, decimals : NUMBER): NUMBER
-function sign(arg : NUMBER): NUMBER
-function sin(arg : NUMBER): NUMBER
-function sinh(arg : NUMBER): NUMBER
-function sqrt(arg : NUMBER): NUMBER
-function sum(arg : NUMBER): NUMBER
-function tan(arg : NUMBER): NUMBER
-function tanh(arg : NUMBER): NUMBER
+filter abs(arg : NUMBER): NUMBER 
+filter acos(arg : NUMBER): NUMBER 
+filter asin(arg : NUMBER): NUMBER 
+filter atan(arg : NUMBER): NUMBER 
+filter ceil(arg : NUMBER): NUMBER 
+filter cos(arg : NUMBER): NUMBER 
+filter cosh(arg : NUMBER): NUMBER 
+filter dec(arg : NUMBER): NUMBER  
+filter exp(arg : NUMBER): NUMBER 
+filter floor(arg : NUMBER): NUMBER 
+filter inc(arg : NUMBER): NUMBER  
+filter log(arg : NUMBER): NUMBER 
+filter log10(arg : NUMBER): NUMBER 
+filter max(arg : NUMBER*): NUMBER 
+filter min(arg : NUMBER*): NUMBER 
+filter power(base : NUMBER, exp : NUMBER): NUMBER
+filter random(): NUMBER
+filter round(arg : NUMBER, decimals : NUMBER): NUMBER
+filter sign(arg : NUMBER): NUMBER
+filter sin(arg : NUMBER): NUMBER
+filter sinh(arg : NUMBER): NUMBER
+filter sqrt(arg : NUMBER): NUMBER
+filter sum(arg : NUMBER): NUMBER
+filter tan(arg : NUMBER): NUMBER
+filter tanh(arg : NUMBER): NUMBER

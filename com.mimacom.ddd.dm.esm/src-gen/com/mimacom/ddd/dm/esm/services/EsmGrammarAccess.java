@@ -582,6 +582,18 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		return getDmxBaseTypeAccess().getRule();
 	}
 	
+	//DmxBaseTypeSet:
+	//	name=ID
+	//	'in'
+	//	'(' members+=DmxBaseType (',' members+=DmxBaseType)+ ')';
+	public DmxGrammarAccess.DmxBaseTypeSetElements getDmxBaseTypeSetAccess() {
+		return gaDmx.getDmxBaseTypeSetAccess();
+	}
+	
+	public ParserRule getDmxBaseTypeSetRule() {
+		return getDmxBaseTypeSetAccess().getRule();
+	}
+	
 	//DmxArchetype:
 	//	'archetype'
 	//	name=ID
@@ -597,7 +609,11 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxFilter:
-	//	DmxFunction | DmxIterator;
+	//	'filter'
+	//	name=ID
+	//	'(' (parameters+=DmxFilterParameter (',' parameters+=DmxFilterParameter)*)? ')'
+	//	':'
+	//	typeDesc=DmxFilterTypeDescriptor ('with' withTypeSet=DmxBaseTypeSet)?;
 	public DmxGrammarAccess.DmxFilterElements getDmxFilterAccess() {
 		return gaDmx.getDmxFilterAccess();
 	}
@@ -606,44 +622,27 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		return getDmxFilterAccess().getRule();
 	}
 	
-	//DmxFunction:
-	//	'function' name=ID
-	//	'(' (parameters+=DmxFunctionParameter (',' parameters+=DmxFunctionParameter)*)? ')'
-	//	':'
-	//	baseType=DmxBaseType
-	//	baseTypeCollection?='*'?;
-	public DmxGrammarAccess.DmxFunctionElements getDmxFunctionAccess() {
-		return gaDmx.getDmxFunctionAccess();
+	//DmxFilterTypeDescriptor:
+	//	(single=DmxBaseType
+	//	| multiple=[DmxBaseTypeSet]) collection?='*'?;
+	public DmxGrammarAccess.DmxFilterTypeDescriptorElements getDmxFilterTypeDescriptorAccess() {
+		return gaDmx.getDmxFilterTypeDescriptorAccess();
 	}
 	
-	public ParserRule getDmxFunctionRule() {
-		return getDmxFunctionAccess().getRule();
+	public ParserRule getDmxFilterTypeDescriptorRule() {
+		return getDmxFilterTypeDescriptorAccess().getRule();
 	}
 	
-	//DmxFunctionParameter:
+	//DmxFilterParameter:
 	//	name=ID
 	//	':'
-	//	baseType=DmxBaseType
-	//	baseTypeCollection?='*'?;
-	public DmxGrammarAccess.DmxFunctionParameterElements getDmxFunctionParameterAccess() {
-		return gaDmx.getDmxFunctionParameterAccess();
+	//	typeDesc=DmxFilterTypeDescriptor;
+	public DmxGrammarAccess.DmxFilterParameterElements getDmxFilterParameterAccess() {
+		return gaDmx.getDmxFilterParameterAccess();
 	}
 	
-	public ParserRule getDmxFunctionParameterRule() {
-		return getDmxFunctionParameterAccess().getRule();
-	}
-	
-	//DmxIterator:
-	//	'iterator' name=ID
-	//	':'
-	//	baseType=DmxBaseType
-	//	baseTypeCollection?='*'?;
-	public DmxGrammarAccess.DmxIteratorElements getDmxIteratorAccess() {
-		return gaDmx.getDmxIteratorAccess();
-	}
-	
-	public ParserRule getDmxIteratorRule() {
-		return getDmxIteratorAccess().getRule();
+	public ParserRule getDmxFilterParameterRule() {
+		return getDmxFilterParameterAccess().getRule();
 	}
 	
 	//DRichText:
@@ -1005,7 +1004,7 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxFunctionCall DExpression:
-	//	{DmxFunctionCall} function=[DmxFunction]
+	//	{DmxFunctionCall} function=[DmxFilter]
 	//	'(' (functionCallArguments+=super::DExpression (',' functionCallArguments+=super::DExpression)*)?
 	//	')';
 	public DmxGrammarAccess.DmxFunctionCallElements getDmxFunctionCallAccess() {

@@ -148,7 +148,7 @@ public class DimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) DmxOpConstructor constructor=[DComplexType|ID]
 	 *     (rule start) (ambiguity) assignToMember=[DNavigableMember|ID]
 	 *     (rule start) (ambiguity) correlationVariable=DmxCorrelationVariable
-	 *     (rule start) (ambiguity) function=[DmxFunction|ID]
+	 *     (rule start) (ambiguity) function=[DmxFilter|ID]
 	 *     (rule start) (ambiguity) operator=OpUnary
 	 *     (rule start) (ambiguity) segments+=DmxTextOnly
 	 *     (rule start) (ambiguity) segments+=DmxTextStart
@@ -185,7 +185,7 @@ public class DimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) DmxOpConstructor constructor=[DComplexType|ID]
 	 *     (rule start) (ambiguity) assignToMember=[DNavigableMember|ID]
 	 *     (rule start) (ambiguity) correlationVariable=DmxCorrelationVariable
-	 *     (rule start) (ambiguity) function=[DmxFunction|ID]
+	 *     (rule start) (ambiguity) function=[DmxFilter|ID]
 	 *     (rule start) (ambiguity) operator=OpUnary
 	 *     (rule start) (ambiguity) segments+=DmxTextOnly
 	 *     (rule start) (ambiguity) segments+=DmxTextStart

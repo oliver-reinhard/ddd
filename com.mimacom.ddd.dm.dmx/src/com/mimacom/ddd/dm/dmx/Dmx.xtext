@@ -40,35 +40,37 @@ DmxTestContext returns DContext:
 enum DmxBaseType:
 	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | COMPLEX | NOTIFICATION /*sent* */ | SERVICE /*invoked* */;
 	
+DmxBaseTypeSet:
+	name=ID
+	'in'
+	'(' members+=DmxBaseType (',' members+=DmxBaseType)+')';
+	
 DmxArchetype:
 	'archetype'
 	name=ID
 	'is'
 	baseType=DmxBaseType
 	(description=DRichText)?;
-	
+
 DmxFilter:
-	DmxFunction | DmxIterator;
-
-DmxFunction:
-	'function' name=ID 
-	'(' (parameters+=DmxFunctionParameter (','  parameters+=DmxFunctionParameter)*)? ')'
+	'filter'
+	name=ID 
+	'(' (parameters+=DmxFilterParameter (','  parameters+=DmxFilterParameter)*)? ')'
 	':'
-	baseType=DmxBaseType
-	(baseTypeCollection?='*')?;
+	typeDesc=DmxFilterTypeDescriptor
+	('with' withTypeSet=DmxBaseTypeSet)?;
 
-DmxFunctionParameter:
+DmxFilterTypeDescriptor:
+	(	single=DmxBaseType
+	|	multiple= [DmxBaseTypeSet|ID]
+	)
+	(collection?='*')?;
+
+DmxFilterParameter:
 	name=ID
 	':'
-	baseType=DmxBaseType
-	(baseTypeCollection?='*')?;
-
-DmxIterator:
-	'iterator' name=ID
-	':'
-	baseType=DmxBaseType
-	(baseTypeCollection?='*')?;
-
+	typeDesc=DmxFilterTypeDescriptor;
+	
 /*
  * Expressions
  */
@@ -236,7 +238,7 @@ DmxParenthesizedExpression returns DExpression:
 
 DmxFunctionCall returns DExpression:
 	{DmxFunctionCall}
-	function=[DmxFunction|ID]
+	function=[DmxFilter|ID]
 	'('
 		(
 			functionCallArguments+=DExpression (',' functionCallArguments+=DExpression)*

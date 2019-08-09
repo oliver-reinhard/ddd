@@ -5,8 +5,6 @@ import com.google.inject.Inject
 import com.google.inject.Singleton
 import com.mimacom.ddd.dm.dmx.DmxBaseType
 import com.mimacom.ddd.dm.dmx.DmxFilter
-import com.mimacom.ddd.dm.dmx.DmxFunction
-import com.mimacom.ddd.dm.dmx.DmxIterator
 import com.mimacom.ddd.dm.dmx.DmxPackage
 import java.util.Collections
 import java.util.List
@@ -69,16 +67,7 @@ class DmxIndex {
 	}
 	
 	def  List<DmxFilter> supportedFilters(EObject context, DmxBaseType baseType, boolean collection) {
-		if (collection) {
-			return collectionFilters(context, baseType)
-		} else {
-			return singleObjectFunctions(context, baseType)
-		}
-	}
-	
-	
-	private def  List<DmxFilter> singleObjectFunctions(EObject context, DmxBaseType baseType) {
-		val functionDescriptions = getVisibleEObjectDescriptions(context, DMX.dmxFunction)
+		val functionDescriptions = getVisibleEObjectDescriptions(context, DMX.dmxFilter)
 		val result = Lists.newArrayList
 		for(desc : functionDescriptions) {
 			var func = desc.EObjectOrProxy
@@ -86,30 +75,13 @@ class DmxIndex {
 				func = context.eResource.resourceSet.getEObject(desc.EObjectURI, true)
 			}
 			// When working with an outdated index (e.g. after updating the system filters file), func can be null or of a different type, e.g. DmxIterator:
-			if (func instanceof DmxFunction) {
+			if (func instanceof DmxFilter) {
 				if (func.parameters.size > 0) {
 					val param = func.parameters.get(0)
-					if (param.baseType == baseType && ! param.baseTypeCollection) {
+					if (param.typeDesc.isCompatible(baseType, collection)) {
 						result.add(func)
 					}
 				}
-			}
-		}
-		return result
-	}
-	
-	private def  List<DmxFilter> collectionFilters(EObject context, DmxBaseType baseType) {
-		val functionDescriptions = getVisibleEObjectDescriptions(context, DMX.dmxIterator)
-
-		val result = Lists.newArrayList
-		for(desc : functionDescriptions) {
-			var iterator = desc.EObjectOrProxy
-			if (iterator.eIsProxy) {
-				iterator = context.eResource.resourceSet.getEObject(desc.EObjectURI, true)
-			}
-			// When working with an outdated index (e.g. after updating the system filters file), func can be null or of a different type, e.g. DmxIterator:
-			if (iterator instanceof DmxIterator) {
-				result.add(iterator)
 			}
 		}
 		return result

@@ -4,6 +4,8 @@ package com.mimacom.ddd.dm.dmx;
 
 import com.mimacom.ddd.dm.base.DNavigableMember;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Filter</b></em>'.
@@ -13,61 +15,71 @@ import com.mimacom.ddd.dm.base.DNavigableMember;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.dmx.DmxFilter#getBaseType <em>Base Type</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dmx.DmxFilter#isBaseTypeCollection <em>Base Type Collection</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.DmxFilter#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.DmxFilter#getTypeDesc <em>Type Desc</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.DmxFilter#getWithTypeSet <em>With Type Set</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFilter()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface DmxFilter extends DNavigableMember
 {
 	/**
-	 * Returns the value of the '<em><b>Base Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link com.mimacom.ddd.dm.dmx.DmxBaseType}.
+	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.dmx.DmxFilterParameter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Base Type</em>' attribute.
-	 * @see com.mimacom.ddd.dm.dmx.DmxBaseType
-	 * @see #setBaseType(DmxBaseType)
-	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFilter_BaseType()
-	 * @model
+	 * @return the value of the '<em>Parameters</em>' containment reference list.
+	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFilter_Parameters()
+	 * @model containment="true"
 	 * @generated
 	 */
-	DmxBaseType getBaseType();
+	EList<DmxFilterParameter> getParameters();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxFilter#getBaseType <em>Base Type</em>}' attribute.
+	 * Returns the value of the '<em><b>Type Desc</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Base Type</em>' attribute.
-	 * @see com.mimacom.ddd.dm.dmx.DmxBaseType
-	 * @see #getBaseType()
+	 * @return the value of the '<em>Type Desc</em>' containment reference.
+	 * @see #setTypeDesc(DmxFilterTypeDescriptor)
+	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFilter_TypeDesc()
+	 * @model containment="true"
 	 * @generated
 	 */
-	void setBaseType(DmxBaseType value);
+	DmxFilterTypeDescriptor getTypeDesc();
 
 	/**
-	 * Returns the value of the '<em><b>Base Type Collection</b></em>' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxFilter#getTypeDesc <em>Type Desc</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Base Type Collection</em>' attribute.
-	 * @see #setBaseTypeCollection(boolean)
-	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFilter_BaseTypeCollection()
-	 * @model
+	 * @param value the new value of the '<em>Type Desc</em>' containment reference.
+	 * @see #getTypeDesc()
 	 * @generated
 	 */
-	boolean isBaseTypeCollection();
+	void setTypeDesc(DmxFilterTypeDescriptor value);
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxFilter#isBaseTypeCollection <em>Base Type Collection</em>}' attribute.
+	 * Returns the value of the '<em><b>With Type Set</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Base Type Collection</em>' attribute.
-	 * @see #isBaseTypeCollection()
+	 * @return the value of the '<em>With Type Set</em>' containment reference.
+	 * @see #setWithTypeSet(DmxBaseTypeSet)
+	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFilter_WithTypeSet()
+	 * @model containment="true"
 	 * @generated
 	 */
-	void setBaseTypeCollection(boolean value);
+	DmxBaseTypeSet getWithTypeSet();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxFilter#getWithTypeSet <em>With Type Set</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>With Type Set</em>' containment reference.
+	 * @see #getWithTypeSet()
+	 * @generated
+	 */
+	void setWithTypeSet(DmxBaseTypeSet value);
 
 } // DmxFilter

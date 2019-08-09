@@ -12,19 +12,20 @@ import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.dm.dmx.DmxAssignment;
+import com.mimacom.ddd.dm.dmx.DmxBaseTypeSet;
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation;
 import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral;
 import com.mimacom.ddd.dm.dmx.DmxCastExpression;
 import com.mimacom.ddd.dm.dmx.DmxConstructorCall;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral;
+import com.mimacom.ddd.dm.dmx.DmxFilter;
+import com.mimacom.ddd.dm.dmx.DmxFilterParameter;
+import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.DmxForLoopExpression;
-import com.mimacom.ddd.dm.dmx.DmxFunction;
 import com.mimacom.ddd.dm.dmx.DmxFunctionCall;
-import com.mimacom.ddd.dm.dmx.DmxFunctionParameter;
 import com.mimacom.ddd.dm.dmx.DmxIfExpression;
 import com.mimacom.ddd.dm.dmx.DmxInstanceOfExpression;
-import com.mimacom.ddd.dm.dmx.DmxIterator;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxNamespace;
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
@@ -141,6 +142,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
+			case DmxPackage.DMX_BASE_TYPE_SET:
+				sequence_DmxBaseTypeSet(context, (DmxBaseTypeSet) semanticObject); 
+				return; 
 			case DmxPackage.DMX_BINARY_OPERATION:
 				sequence_DmxAdditiveExpression_DmxAndExpression_DmxEqualityExpression_DmxMultiplicativeExpression_DmxOrExpression_DmxOtherOperatorExpression_DmxRelationalExpression(context, (DmxBinaryOperation) semanticObject); 
 				return; 
@@ -159,26 +163,26 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DmxPackage.DMX_DECIMAL_LITERAL:
 				sequence_DmxDecimalLiteral(context, (DmxDecimalLiteral) semanticObject); 
 				return; 
+			case DmxPackage.DMX_FILTER:
+				sequence_DmxFilter(context, (DmxFilter) semanticObject); 
+				return; 
+			case DmxPackage.DMX_FILTER_PARAMETER:
+				sequence_DmxFilterParameter(context, (DmxFilterParameter) semanticObject); 
+				return; 
+			case DmxPackage.DMX_FILTER_TYPE_DESCRIPTOR:
+				sequence_DmxFilterTypeDescriptor(context, (DmxFilterTypeDescriptor) semanticObject); 
+				return; 
 			case DmxPackage.DMX_FOR_LOOP_EXPRESSION:
 				sequence_DmxForLoopExpression(context, (DmxForLoopExpression) semanticObject); 
 				return; 
-			case DmxPackage.DMX_FUNCTION:
-				sequence_DmxFunction(context, (DmxFunction) semanticObject); 
-				return; 
 			case DmxPackage.DMX_FUNCTION_CALL:
 				sequence_DmxFunctionCall(context, (DmxFunctionCall) semanticObject); 
-				return; 
-			case DmxPackage.DMX_FUNCTION_PARAMETER:
-				sequence_DmxFunctionParameter(context, (DmxFunctionParameter) semanticObject); 
 				return; 
 			case DmxPackage.DMX_IF_EXPRESSION:
 				sequence_DmxIfExpression(context, (DmxIfExpression) semanticObject); 
 				return; 
 			case DmxPackage.DMX_INSTANCE_OF_EXPRESSION:
 				sequence_DmxRelationalExpression(context, (DmxInstanceOfExpression) semanticObject); 
-				return; 
-			case DmxPackage.DMX_ITERATOR:
-				sequence_DmxIterator(context, (DmxIterator) semanticObject); 
 				return; 
 			case DmxPackage.DMX_MEMBER_NAVIGATION:
 				sequence_DmxNavigableMemberReference(context, (DmxMemberNavigation) semanticObject); 
@@ -415,6 +419,18 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     DmxBaseTypeSet returns DmxBaseTypeSet
+	 *
+	 * Constraint:
+	 *     (name=ID members+=DmxBaseType members+=DmxBaseType+)
+	 */
+	protected void sequence_DmxBaseTypeSet(ISerializationContext context, DmxBaseTypeSet semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     DExpression returns DmxBooleanLiteral
 	 *     DmxNavigableMemberReference returns DmxBooleanLiteral
 	 *     DmxNavigableMemberReference.DmxAssignment_1_0_0_0_0 returns DmxBooleanLiteral
@@ -634,6 +650,51 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     DmxFilterParameter returns DmxFilterParameter
+	 *
+	 * Constraint:
+	 *     (name=ID typeDesc=DmxFilterTypeDescriptor)
+	 */
+	protected void sequence_DmxFilterParameter(ISerializationContext context, DmxFilterParameter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DmxPackage.Literals.DMX_FILTER_PARAMETER__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmxPackage.Literals.DMX_FILTER_PARAMETER__NAME));
+			if (transientValues.isValueTransient(semanticObject, DmxPackage.Literals.DMX_FILTER_PARAMETER__TYPE_DESC) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmxPackage.Literals.DMX_FILTER_PARAMETER__TYPE_DESC));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDmxFilterParameterAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getDmxFilterParameterAccess().getTypeDescDmxFilterTypeDescriptorParserRuleCall_2_0(), semanticObject.getTypeDesc());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DmxFilterTypeDescriptor returns DmxFilterTypeDescriptor
+	 *
+	 * Constraint:
+	 *     ((single=DmxBaseType | multiple=[DmxBaseTypeSet|ID]) collection?='*'?)
+	 */
+	protected void sequence_DmxFilterTypeDescriptor(ISerializationContext context, DmxFilterTypeDescriptor semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DmxFilter returns DmxFilter
+	 *
+	 * Constraint:
+	 *     (name=ID (parameters+=DmxFilterParameter parameters+=DmxFilterParameter*)? typeDesc=DmxFilterTypeDescriptor withTypeSet=DmxBaseTypeSet?)
+	 */
+	protected void sequence_DmxFilter(ISerializationContext context, DmxFilter semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     DExpression returns DmxForLoopExpression
 	 *     DmxNavigableMemberReference returns DmxForLoopExpression
 	 *     DmxNavigableMemberReference.DmxAssignment_1_0_0_0_0 returns DmxForLoopExpression
@@ -711,34 +772,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DmxFunctionCall returns DmxFunctionCall
 	 *
 	 * Constraint:
-	 *     (function=[DmxFunction|ID] (functionCallArguments+=DExpression functionCallArguments+=DExpression*)?)
+	 *     (function=[DmxFilter|ID] (functionCallArguments+=DExpression functionCallArguments+=DExpression*)?)
 	 */
 	protected void sequence_DmxFunctionCall(ISerializationContext context, DmxFunctionCall semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DmxFunctionParameter returns DmxFunctionParameter
-	 *
-	 * Constraint:
-	 *     (name=ID baseType=DmxBaseType baseTypeCollection?='*'?)
-	 */
-	protected void sequence_DmxFunctionParameter(ISerializationContext context, DmxFunctionParameter semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DmxFilter returns DmxFunction
-	 *     DmxFunction returns DmxFunction
-	 *
-	 * Constraint:
-	 *     (name=ID (parameters+=DmxFunctionParameter parameters+=DmxFunctionParameter*)? baseType=DmxBaseType baseTypeCollection?='*'?)
-	 */
-	protected void sequence_DmxFunction(ISerializationContext context, DmxFunction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -776,19 +812,6 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (if=DExpression then=DExpression else=DExpression?)
 	 */
 	protected void sequence_DmxIfExpression(ISerializationContext context, DmxIfExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DmxFilter returns DmxIterator
-	 *     DmxIterator returns DmxIterator
-	 *
-	 * Constraint:
-	 *     (name=ID baseType=DmxBaseType baseTypeCollection?='*'?)
-	 */
-	protected void sequence_DmxIterator(ISerializationContext context, DmxIterator semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

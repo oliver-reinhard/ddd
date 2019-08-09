@@ -10,6 +10,9 @@ import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
+import com.mimacom.ddd.dm.dmx.DmxFilter;
+import com.mimacom.ddd.dm.dmx.DmxFilterParameter;
+import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer;
@@ -33,6 +36,29 @@ public class DmxValidator extends AbstractDmxValidator {
   private static final DmxPackage DMX = DmxPackage.eINSTANCE;
   
   @Check
+  public void checkFilterParameters(final DmxFilter f) {
+    boolean _isMultiTyped = f.getTypeDesc().isMultiTyped();
+    if (_isMultiTyped) {
+      int _size = f.getParameters().size();
+      boolean _equals = (_size == 0);
+      if (_equals) {
+        this.error("For a multi-typed return type, there must be a matching first parameter.", f, DmxValidator.BASE.getDNamedElement_Name(), 0);
+      } else {
+        DmxFilterParameter _get = f.getParameters().get(0);
+        DmxFilterTypeDescriptor _typeDesc = null;
+        if (_get!=null) {
+          _typeDesc=_get.getTypeDesc();
+        }
+        boolean _isMultiTyped_1 = _typeDesc.isMultiTyped();
+        boolean _not = (!_isMultiTyped_1);
+        if (_not) {
+          this.error("For a multi-typed return type, the first parameter must have the same type.", f, DmxValidator.DMX.getDmxFilter_Parameters(), 0);
+        }
+      }
+    }
+  }
+  
+  @Check
   public void checkUseOfAllQualifier(final DmxContextReference ref) {
     if ((ref.isAll() && (!(ref.getTarget() instanceof DComplexType)))) {
       this.error("\'all\' qualifier is only supported after a static type reference.", ref, DmxValidator.DMX.getDmxContextReference_All());
@@ -45,7 +71,8 @@ public class DmxValidator extends AbstractDmxValidator {
     if ((_member instanceof DFeature)) {
       final DExpression preceding = nav.getPrecedingNavigationSegment();
       if (((preceding instanceof DmxContextReference) && (((DmxContextReference) preceding).getTarget() instanceof DComplexType))) {
-        this.error("Cannot navigate a feature from a static type reference. Use [[Type#feature]] syntax inside a RichString.", nav, DmxValidator.DMX.getDmxMemberNavigation_Member());
+        this.error("Cannot navigate a feature from a static type reference. Use [[Type#feature]] syntax inside a RichString.", nav, 
+          DmxValidator.DMX.getDmxMemberNavigation_Member());
       }
     }
   }

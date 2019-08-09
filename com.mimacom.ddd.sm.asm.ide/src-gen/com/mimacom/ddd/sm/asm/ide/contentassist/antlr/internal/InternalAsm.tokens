@@ -65,8 +65,8 @@
 'end'=107
 'exception'=92
 'false'=32
+'filter'=98
 'for'=110
-'function'=98
 'guard'=89
 'human'=81
 'if'=105
@@ -76,7 +76,6 @@
 'interface'=78
 'is'=97
 'isa'=19
-'iterator'=99
 'model'=76
 'new'=29
 'not'=73
@@ -93,6 +92,7 @@
 'true'=115
 'undefined'=34
 'watchdog'=80
+'with'=99
 'xor'=53
 '{'=85
 '|'=101

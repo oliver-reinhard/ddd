@@ -99,6 +99,11 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 				return createDmxTestAdapter();
 			}
 			@Override
+			public Adapter caseDmxBaseTypeSet(DmxBaseTypeSet object)
+			{
+				return createDmxBaseTypeSetAdapter();
+			}
+			@Override
 			public Adapter caseDmxArchetype(DmxArchetype object)
 			{
 				return createDmxArchetypeAdapter();
@@ -109,19 +114,14 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 				return createDmxFilterAdapter();
 			}
 			@Override
-			public Adapter caseDmxFunction(DmxFunction object)
+			public Adapter caseDmxFilterTypeDescriptor(DmxFilterTypeDescriptor object)
 			{
-				return createDmxFunctionAdapter();
+				return createDmxFilterTypeDescriptorAdapter();
 			}
 			@Override
-			public Adapter caseDmxFunctionParameter(DmxFunctionParameter object)
+			public Adapter caseDmxFilterParameter(DmxFilterParameter object)
 			{
-				return createDmxFunctionParameterAdapter();
-			}
-			@Override
-			public Adapter caseDmxIterator(DmxIterator object)
-			{
-				return createDmxIteratorAdapter();
+				return createDmxFilterParameterAdapter();
 			}
 			@Override
 			public Adapter caseDmxAssignment(DmxAssignment object)
@@ -351,6 +351,21 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxBaseTypeSet <em>Base Type Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dmx.DmxBaseTypeSet
+	 * @generated
+	 */
+	public Adapter createDmxBaseTypeSetAdapter()
+	{
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxArchetype <em>Archetype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -381,46 +396,31 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxFunction <em>Function</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor <em>Filter Type Descriptor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DmxFunction
+	 * @see com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor
 	 * @generated
 	 */
-	public Adapter createDmxFunctionAdapter()
+	public Adapter createDmxFilterTypeDescriptorAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter <em>Function Parameter</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxFilterParameter <em>Filter Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DmxFunctionParameter
+	 * @see com.mimacom.ddd.dm.dmx.DmxFilterParameter
 	 * @generated
 	 */
-	public Adapter createDmxFunctionParameterAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxIterator <em>Iterator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DmxIterator
-	 * @generated
-	 */
-	public Adapter createDmxIteratorAdapter()
+	public Adapter createDmxFilterParameterAdapter()
 	{
 		return null;
 	}

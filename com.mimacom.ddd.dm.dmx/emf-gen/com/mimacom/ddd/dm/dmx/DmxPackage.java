@@ -7,6 +7,7 @@ import com.mimacom.ddd.dm.base.BasePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -207,6 +208,52 @@ public interface DmxPackage extends EPackage
 	int DMX_TEST_OPERATION_COUNT = BasePackage.INAVIGABLE_MEMBER_CONTAINER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxBaseTypeSetImpl <em>Base Type Set</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxBaseTypeSetImpl
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxBaseTypeSet()
+	 * @generated
+	 */
+	int DMX_BASE_TYPE_SET = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_BASE_TYPE_SET__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Members</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_BASE_TYPE_SET__MEMBERS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Base Type Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_BASE_TYPE_SET_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Base Type Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_BASE_TYPE_SET_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxArchetypeImpl <em>Archetype</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -214,7 +261,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxArchetype()
 	 * @generated
 	 */
-	int DMX_ARCHETYPE = 2;
+	int DMX_ARCHETYPE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -323,7 +370,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxFilter()
 	 * @generated
 	 */
-	int DMX_FILTER = 3;
+	int DMX_FILTER = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -389,22 +436,31 @@ public interface DmxPackage extends EPackage
 	int DMX_FILTER__COLLECTION = BasePackage.DNAVIGABLE_MEMBER__COLLECTION;
 
 	/**
-	 * The feature id for the '<em><b>Base Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_FILTER__BASE_TYPE = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
+	int DMX_FILTER__PARAMETERS = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Base Type Collection</b></em>' attribute.
+	 * The feature id for the '<em><b>Type Desc</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_FILTER__BASE_TYPE_COLLECTION = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
+	int DMX_FILTER__TYPE_DESC = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>With Type Set</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_FILTER__WITH_TYPE_SET = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Filter</em>' class.
@@ -413,7 +469,7 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_FILTER_FEATURE_COUNT = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 2;
+	int DMX_FILTER_FEATURE_COUNT = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Filter</em>' class.
@@ -425,68 +481,32 @@ public interface DmxPackage extends EPackage
 	int DMX_FILTER_OPERATION_COUNT = BasePackage.DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxFunctionImpl <em>Function</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxFilterTypeDescriptorImpl <em>Filter Type Descriptor</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.dmx.impl.DmxFunctionImpl
-	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxFunction()
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxFilterTypeDescriptorImpl
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxFilterTypeDescriptor()
 	 * @generated
 	 */
-	int DMX_FUNCTION = 4;
+	int DMX_FILTER_TYPE_DESCRIPTOR = 5;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Single</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_FUNCTION__NAME = DMX_FILTER__NAME;
+	int DMX_FILTER_TYPE_DESCRIPTOR__SINGLE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * The feature id for the '<em><b>Multiple</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_FUNCTION__ALIASES = DMX_FILTER__ALIASES;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_FUNCTION__DESCRIPTION = DMX_FILTER__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_FUNCTION__TYPE = DMX_FILTER__TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_FUNCTION__MULTIPLICITY = DMX_FILTER__MULTIPLICITY;
-
-	/**
-	 * The feature id for the '<em><b>Optional</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_FUNCTION__OPTIONAL = DMX_FILTER__OPTIONAL;
+	int DMX_FILTER_TYPE_DESCRIPTOR__MULTIPLE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Collection</b></em>' attribute.
@@ -495,62 +515,62 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_FUNCTION__COLLECTION = DMX_FILTER__COLLECTION;
+	int DMX_FILTER_TYPE_DESCRIPTOR__COLLECTION = 2;
 
 	/**
-	 * The feature id for the '<em><b>Base Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Multi Typed</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_FUNCTION__BASE_TYPE = DMX_FILTER__BASE_TYPE;
+	int DMX_FILTER_TYPE_DESCRIPTOR__MULTI_TYPED = 3;
 
 	/**
-	 * The feature id for the '<em><b>Base Type Collection</b></em>' attribute.
+	 * The number of structural features of the '<em>Filter Type Descriptor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_FUNCTION__BASE_TYPE_COLLECTION = DMX_FILTER__BASE_TYPE_COLLECTION;
+	int DMX_FILTER_TYPE_DESCRIPTOR_FEATURE_COUNT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * The operation id for the '<em>Is Compatible</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_FUNCTION__PARAMETERS = DMX_FILTER_FEATURE_COUNT + 0;
+	int DMX_FILTER_TYPE_DESCRIPTOR___IS_COMPATIBLE__DMXBASETYPE_BOOLEAN = 0;
 
 	/**
-	 * The number of structural features of the '<em>Function</em>' class.
+	 * The operation id for the '<em>Is Compatible</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_FUNCTION_FEATURE_COUNT = DMX_FILTER_FEATURE_COUNT + 1;
+	int DMX_FILTER_TYPE_DESCRIPTOR___IS_COMPATIBLE__DMXBASETYPE = 1;
 
 	/**
-	 * The number of operations of the '<em>Function</em>' class.
+	 * The number of operations of the '<em>Filter Type Descriptor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_FUNCTION_OPERATION_COUNT = DMX_FILTER_OPERATION_COUNT + 0;
+	int DMX_FILTER_TYPE_DESCRIPTOR_OPERATION_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxFunctionParameterImpl <em>Function Parameter</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxFilterParameterImpl <em>Filter Parameter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.dmx.impl.DmxFunctionParameterImpl
-	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxFunctionParameter()
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxFilterParameterImpl
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxFilterParameter()
 	 * @generated
 	 */
-	int DMX_FUNCTION_PARAMETER = 5;
+	int DMX_FILTER_PARAMETER = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -559,152 +579,34 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_FUNCTION_PARAMETER__NAME = 0;
+	int DMX_FILTER_PARAMETER__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Base Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Type Desc</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_FUNCTION_PARAMETER__BASE_TYPE = 1;
+	int DMX_FILTER_PARAMETER__TYPE_DESC = 1;
 
 	/**
-	 * The feature id for the '<em><b>Base Type Collection</b></em>' attribute.
+	 * The number of structural features of the '<em>Filter Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_FUNCTION_PARAMETER__BASE_TYPE_COLLECTION = 2;
+	int DMX_FILTER_PARAMETER_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of structural features of the '<em>Function Parameter</em>' class.
+	 * The number of operations of the '<em>Filter Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_FUNCTION_PARAMETER_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Function Parameter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_FUNCTION_PARAMETER_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxIteratorImpl <em>Iterator</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.dmx.impl.DmxIteratorImpl
-	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxIterator()
-	 * @generated
-	 */
-	int DMX_ITERATOR = 6;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_ITERATOR__NAME = DMX_FILTER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_ITERATOR__ALIASES = DMX_FILTER__ALIASES;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_ITERATOR__DESCRIPTION = DMX_FILTER__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_ITERATOR__TYPE = DMX_FILTER__TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_ITERATOR__MULTIPLICITY = DMX_FILTER__MULTIPLICITY;
-
-	/**
-	 * The feature id for the '<em><b>Optional</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_ITERATOR__OPTIONAL = DMX_FILTER__OPTIONAL;
-
-	/**
-	 * The feature id for the '<em><b>Collection</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_ITERATOR__COLLECTION = DMX_FILTER__COLLECTION;
-
-	/**
-	 * The feature id for the '<em><b>Base Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_ITERATOR__BASE_TYPE = DMX_FILTER__BASE_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Base Type Collection</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_ITERATOR__BASE_TYPE_COLLECTION = DMX_FILTER__BASE_TYPE_COLLECTION;
-
-	/**
-	 * The number of structural features of the '<em>Iterator</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_ITERATOR_FEATURE_COUNT = DMX_FILTER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Iterator</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_ITERATOR_OPERATION_COUNT = DMX_FILTER_OPERATION_COUNT + 0;
+	int DMX_FILTER_PARAMETER_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxAssignmentImpl <em>Assignment</em>}' class.
@@ -1836,6 +1738,38 @@ public interface DmxPackage extends EPackage
 	EReference getDmxTest_Expr();
 
 	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxBaseTypeSet <em>Base Type Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Base Type Set</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxBaseTypeSet
+	 * @generated
+	 */
+	EClass getDmxBaseTypeSet();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DmxBaseTypeSet#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxBaseTypeSet#getName()
+	 * @see #getDmxBaseTypeSet()
+	 * @generated
+	 */
+	EAttribute getDmxBaseTypeSet_Name();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link com.mimacom.ddd.dm.dmx.DmxBaseTypeSet#getMembers <em>Members</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Members</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxBaseTypeSet#getMembers()
+	 * @see #getDmxBaseTypeSet()
+	 * @generated
+	 */
+	EAttribute getDmxBaseTypeSet_Members();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxArchetype <em>Archetype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1867,100 +1801,143 @@ public interface DmxPackage extends EPackage
 	EClass getDmxFilter();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DmxFilter#getBaseType <em>Base Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Base Type</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxFilter#getBaseType()
-	 * @see #getDmxFilter()
-	 * @generated
-	 */
-	EAttribute getDmxFilter_BaseType();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DmxFilter#isBaseTypeCollection <em>Base Type Collection</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Base Type Collection</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxFilter#isBaseTypeCollection()
-	 * @see #getDmxFilter()
-	 * @generated
-	 */
-	EAttribute getDmxFilter_BaseTypeCollection();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxFunction <em>Function</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Function</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxFunction
-	 * @generated
-	 */
-	EClass getDmxFunction();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.dmx.DmxFunction#getParameters <em>Parameters</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.dmx.DmxFilter#getParameters <em>Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxFunction#getParameters()
-	 * @see #getDmxFunction()
+	 * @see com.mimacom.ddd.dm.dmx.DmxFilter#getParameters()
+	 * @see #getDmxFilter()
 	 * @generated
 	 */
-	EReference getDmxFunction_Parameters();
+	EReference getDmxFilter_Parameters();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter <em>Function Parameter</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.dmx.DmxFilter#getTypeDesc <em>Type Desc</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Function Parameter</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxFunctionParameter
+	 * @return the meta object for the containment reference '<em>Type Desc</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxFilter#getTypeDesc()
+	 * @see #getDmxFilter()
 	 * @generated
 	 */
-	EClass getDmxFunctionParameter();
+	EReference getDmxFilter_TypeDesc();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter#getName <em>Name</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.dmx.DmxFilter#getWithTypeSet <em>With Type Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>With Type Set</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxFilter#getWithTypeSet()
+	 * @see #getDmxFilter()
+	 * @generated
+	 */
+	EReference getDmxFilter_WithTypeSet();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor <em>Filter Type Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Filter Type Descriptor</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor
+	 * @generated
+	 */
+	EClass getDmxFilterTypeDescriptor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor#getSingle <em>Single</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Single</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor#getSingle()
+	 * @see #getDmxFilterTypeDescriptor()
+	 * @generated
+	 */
+	EAttribute getDmxFilterTypeDescriptor_Single();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor#getMultiple <em>Multiple</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Multiple</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor#getMultiple()
+	 * @see #getDmxFilterTypeDescriptor()
+	 * @generated
+	 */
+	EReference getDmxFilterTypeDescriptor_Multiple();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor#isCollection <em>Collection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Collection</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor#isCollection()
+	 * @see #getDmxFilterTypeDescriptor()
+	 * @generated
+	 */
+	EAttribute getDmxFilterTypeDescriptor_Collection();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor#isMultiTyped <em>Multi Typed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Multi Typed</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor#isMultiTyped()
+	 * @see #getDmxFilterTypeDescriptor()
+	 * @generated
+	 */
+	EAttribute getDmxFilterTypeDescriptor_MultiTyped();
+
+	/**
+	 * Returns the meta object for the '{@link com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor#isCompatible(com.mimacom.ddd.dm.dmx.DmxBaseType, boolean) <em>Is Compatible</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Compatible</em>' operation.
+	 * @see com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor#isCompatible(com.mimacom.ddd.dm.dmx.DmxBaseType, boolean)
+	 * @generated
+	 */
+	EOperation getDmxFilterTypeDescriptor__IsCompatible__DmxBaseType_boolean();
+
+	/**
+	 * Returns the meta object for the '{@link com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor#isCompatible(com.mimacom.ddd.dm.dmx.DmxBaseType) <em>Is Compatible</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Compatible</em>' operation.
+	 * @see com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor#isCompatible(com.mimacom.ddd.dm.dmx.DmxBaseType)
+	 * @generated
+	 */
+	EOperation getDmxFilterTypeDescriptor__IsCompatible__DmxBaseType();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxFilterParameter <em>Filter Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Filter Parameter</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxFilterParameter
+	 * @generated
+	 */
+	EClass getDmxFilterParameter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DmxFilterParameter#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxFunctionParameter#getName()
-	 * @see #getDmxFunctionParameter()
+	 * @see com.mimacom.ddd.dm.dmx.DmxFilterParameter#getName()
+	 * @see #getDmxFilterParameter()
 	 * @generated
 	 */
-	EAttribute getDmxFunctionParameter_Name();
+	EAttribute getDmxFilterParameter_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter#getBaseType <em>Base Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.dmx.DmxFilterParameter#getTypeDesc <em>Type Desc</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Base Type</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxFunctionParameter#getBaseType()
-	 * @see #getDmxFunctionParameter()
+	 * @return the meta object for the containment reference '<em>Type Desc</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxFilterParameter#getTypeDesc()
+	 * @see #getDmxFilterParameter()
 	 * @generated
 	 */
-	EAttribute getDmxFunctionParameter_BaseType();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DmxFunctionParameter#isBaseTypeCollection <em>Base Type Collection</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Base Type Collection</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxFunctionParameter#isBaseTypeCollection()
-	 * @see #getDmxFunctionParameter()
-	 * @generated
-	 */
-	EAttribute getDmxFunctionParameter_BaseTypeCollection();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxIterator <em>Iterator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Iterator</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxIterator
-	 * @generated
-	 */
-	EClass getDmxIterator();
+	EReference getDmxFilterParameter_TypeDesc();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxAssignment <em>Assignment</em>}'.
@@ -2789,6 +2766,32 @@ public interface DmxPackage extends EPackage
 		EReference DMX_TEST__EXPR = eINSTANCE.getDmxTest_Expr();
 
 		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxBaseTypeSetImpl <em>Base Type Set</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxBaseTypeSetImpl
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxBaseTypeSet()
+		 * @generated
+		 */
+		EClass DMX_BASE_TYPE_SET = eINSTANCE.getDmxBaseTypeSet();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DMX_BASE_TYPE_SET__NAME = eINSTANCE.getDmxBaseTypeSet_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Members</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DMX_BASE_TYPE_SET__MEMBERS = eINSTANCE.getDmxBaseTypeSet_Members();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxArchetypeImpl <em>Archetype</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2817,48 +2820,96 @@ public interface DmxPackage extends EPackage
 		EClass DMX_FILTER = eINSTANCE.getDmxFilter();
 
 		/**
-		 * The meta object literal for the '<em><b>Base Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DMX_FILTER__BASE_TYPE = eINSTANCE.getDmxFilter_BaseType();
-
-		/**
-		 * The meta object literal for the '<em><b>Base Type Collection</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DMX_FILTER__BASE_TYPE_COLLECTION = eINSTANCE.getDmxFilter_BaseTypeCollection();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxFunctionImpl <em>Function</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.dmx.impl.DmxFunctionImpl
-		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxFunction()
-		 * @generated
-		 */
-		EClass DMX_FUNCTION = eINSTANCE.getDmxFunction();
-
-		/**
 		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DMX_FUNCTION__PARAMETERS = eINSTANCE.getDmxFunction_Parameters();
+		EReference DMX_FILTER__PARAMETERS = eINSTANCE.getDmxFilter_Parameters();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxFunctionParameterImpl <em>Function Parameter</em>}' class.
+		 * The meta object literal for the '<em><b>Type Desc</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.dmx.impl.DmxFunctionParameterImpl
-		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxFunctionParameter()
 		 * @generated
 		 */
-		EClass DMX_FUNCTION_PARAMETER = eINSTANCE.getDmxFunctionParameter();
+		EReference DMX_FILTER__TYPE_DESC = eINSTANCE.getDmxFilter_TypeDesc();
+
+		/**
+		 * The meta object literal for the '<em><b>With Type Set</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DMX_FILTER__WITH_TYPE_SET = eINSTANCE.getDmxFilter_WithTypeSet();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxFilterTypeDescriptorImpl <em>Filter Type Descriptor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxFilterTypeDescriptorImpl
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxFilterTypeDescriptor()
+		 * @generated
+		 */
+		EClass DMX_FILTER_TYPE_DESCRIPTOR = eINSTANCE.getDmxFilterTypeDescriptor();
+
+		/**
+		 * The meta object literal for the '<em><b>Single</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DMX_FILTER_TYPE_DESCRIPTOR__SINGLE = eINSTANCE.getDmxFilterTypeDescriptor_Single();
+
+		/**
+		 * The meta object literal for the '<em><b>Multiple</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DMX_FILTER_TYPE_DESCRIPTOR__MULTIPLE = eINSTANCE.getDmxFilterTypeDescriptor_Multiple();
+
+		/**
+		 * The meta object literal for the '<em><b>Collection</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DMX_FILTER_TYPE_DESCRIPTOR__COLLECTION = eINSTANCE.getDmxFilterTypeDescriptor_Collection();
+
+		/**
+		 * The meta object literal for the '<em><b>Multi Typed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DMX_FILTER_TYPE_DESCRIPTOR__MULTI_TYPED = eINSTANCE.getDmxFilterTypeDescriptor_MultiTyped();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Compatible</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DMX_FILTER_TYPE_DESCRIPTOR___IS_COMPATIBLE__DMXBASETYPE_BOOLEAN = eINSTANCE.getDmxFilterTypeDescriptor__IsCompatible__DmxBaseType_boolean();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Compatible</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DMX_FILTER_TYPE_DESCRIPTOR___IS_COMPATIBLE__DMXBASETYPE = eINSTANCE.getDmxFilterTypeDescriptor__IsCompatible__DmxBaseType();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxFilterParameterImpl <em>Filter Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxFilterParameterImpl
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxFilterParameter()
+		 * @generated
+		 */
+		EClass DMX_FILTER_PARAMETER = eINSTANCE.getDmxFilterParameter();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -2866,33 +2917,15 @@ public interface DmxPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DMX_FUNCTION_PARAMETER__NAME = eINSTANCE.getDmxFunctionParameter_Name();
+		EAttribute DMX_FILTER_PARAMETER__NAME = eINSTANCE.getDmxFilterParameter_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Base Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Type Desc</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DMX_FUNCTION_PARAMETER__BASE_TYPE = eINSTANCE.getDmxFunctionParameter_BaseType();
-
-		/**
-		 * The meta object literal for the '<em><b>Base Type Collection</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DMX_FUNCTION_PARAMETER__BASE_TYPE_COLLECTION = eINSTANCE.getDmxFunctionParameter_BaseTypeCollection();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxIteratorImpl <em>Iterator</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.dmx.impl.DmxIteratorImpl
-		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxIterator()
-		 * @generated
-		 */
-		EClass DMX_ITERATOR = eINSTANCE.getDmxIterator();
+		EReference DMX_FILTER_PARAMETER__TYPE_DESC = eINSTANCE.getDmxFilterParameter_TypeDesc();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxAssignmentImpl <em>Assignment</em>}' class.

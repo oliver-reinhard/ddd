@@ -32,23 +32,41 @@
     <eLiterals name="NOTIFICATION" value="104"/>
     <eLiterals name="SERVICE" value="105"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DmxBaseTypeSet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="members" upperBound="-1"
+        eType="#//DmxBaseType"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DmxArchetype" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DPrimitive">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseType" eType="#//DmxBaseType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DmxFilter" abstract="true" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseType" eType="#//DmxBaseType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseTypeCollection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DmxFunction" eSuperTypes="#//DmxFilter">
+  <eClassifiers xsi:type="ecore:EClass" name="DmxFilter" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//DmxFunctionParameter" containment="true"/>
+        eType="#//DmxFilterParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeDesc" eType="#//DmxFilterTypeDescriptor"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="withTypeSet" eType="#//DmxBaseTypeSet"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DmxFunctionParameter">
+  <eClassifiers xsi:type="ecore:EClass" name="DmxFilterTypeDescriptor">
+    <eOperations name="isCompatible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="type" eType="#//DmxBaseType"/>
+      <eParameters name="collection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="isCompatible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="type" eType="#//DmxBaseType"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="single" eType="#//DmxBaseType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="multiple" eType="#//DmxBaseTypeSet"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="collection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiTyped" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DmxFilterParameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseType" eType="#//DmxBaseType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseTypeCollection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeDesc" eType="#//DmxFilterTypeDescriptor"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DmxIterator" eSuperTypes="#//DmxFilter"/>
   <eClassifiers xsi:type="ecore:EClass" name="DmxAssignment" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="precedingNavigationSegment"
         eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
@@ -133,7 +151,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DmxFunctionCall" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="function" eType="#//DmxFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="function" eType="#//DmxFilter"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="functionCallArguments"
         upperBound="-1" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>

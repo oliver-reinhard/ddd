@@ -6,7 +6,7 @@ import com.mimacom.ddd.dm.base.DExpression;
 
 import com.mimacom.ddd.dm.base.impl.DExpressionImpl;
 
-import com.mimacom.ddd.dm.dmx.DmxFunction;
+import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxFunctionCall;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 
@@ -49,7 +49,7 @@ public class DmxFunctionCallImpl extends DExpressionImpl implements DmxFunctionC
 	 * @generated
 	 * @ordered
 	 */
-	protected DmxFunction function;
+	protected DmxFilter function;
 
 	/**
 	 * The cached value of the '{@link #getFunctionCallArguments() <em>Function Call Arguments</em>}' containment reference list.
@@ -88,12 +88,12 @@ public class DmxFunctionCallImpl extends DExpressionImpl implements DmxFunctionC
 	 * @generated
 	 */
 	@Override
-	public DmxFunction getFunction()
+	public DmxFilter getFunction()
 	{
 		if (function != null && function.eIsProxy())
 		{
 			InternalEObject oldFunction = (InternalEObject)function;
-			function = (DmxFunction)eResolveProxy(oldFunction);
+			function = (DmxFilter)eResolveProxy(oldFunction);
 			if (function != oldFunction)
 			{
 				if (eNotificationRequired())
@@ -108,7 +108,7 @@ public class DmxFunctionCallImpl extends DExpressionImpl implements DmxFunctionC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DmxFunction basicGetFunction()
+	public DmxFilter basicGetFunction()
 	{
 		return function;
 	}
@@ -119,9 +119,9 @@ public class DmxFunctionCallImpl extends DExpressionImpl implements DmxFunctionC
 	 * @generated
 	 */
 	@Override
-	public void setFunction(DmxFunction newFunction)
+	public void setFunction(DmxFilter newFunction)
 	{
-		DmxFunction oldFunction = function;
+		DmxFilter oldFunction = function;
 		function = newFunction;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_FUNCTION_CALL__FUNCTION, oldFunction, function));
@@ -189,7 +189,7 @@ public class DmxFunctionCallImpl extends DExpressionImpl implements DmxFunctionC
 		switch (featureID)
 		{
 			case DmxPackage.DMX_FUNCTION_CALL__FUNCTION:
-				setFunction((DmxFunction)newValue);
+				setFunction((DmxFilter)newValue);
 				return;
 			case DmxPackage.DMX_FUNCTION_CALL__FUNCTION_CALL_ARGUMENTS:
 				getFunctionCallArguments().clear();
@@ -210,7 +210,7 @@ public class DmxFunctionCallImpl extends DExpressionImpl implements DmxFunctionC
 		switch (featureID)
 		{
 			case DmxPackage.DMX_FUNCTION_CALL__FUNCTION:
-				setFunction((DmxFunction)null);
+				setFunction((DmxFilter)null);
 				return;
 			case DmxPackage.DMX_FUNCTION_CALL__FUNCTION_CALL_ARGUMENTS:
 				getFunctionCallArguments().clear();

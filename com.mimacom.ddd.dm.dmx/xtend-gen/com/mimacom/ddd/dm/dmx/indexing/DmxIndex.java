@@ -1,15 +1,12 @@
 package com.mimacom.ddd.dm.dmx.indexing;
 
-import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
-import com.mimacom.ddd.dm.dmx.DmxFunction;
-import com.mimacom.ddd.dm.dmx.DmxFunctionParameter;
-import com.mimacom.ddd.dm.dmx.DmxIterator;
+import com.mimacom.ddd.dm.dmx.DmxFilterParameter;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -90,15 +87,7 @@ public class DmxIndex {
   }
   
   public List<DmxFilter> supportedFilters(final EObject context, final DmxBaseType baseType, final boolean collection) {
-    if (collection) {
-      return this.collectionFilters(context, baseType);
-    } else {
-      return this.singleObjectFunctions(context, baseType);
-    }
-  }
-  
-  private List<DmxFilter> singleObjectFunctions(final EObject context, final DmxBaseType baseType) {
-    final Iterable<IEObjectDescription> functionDescriptions = this.getVisibleEObjectDescriptions(context, DmxIndex.DMX.getDmxFunction());
+    final Iterable<IEObjectDescription> functionDescriptions = this.getVisibleEObjectDescriptions(context, DmxIndex.DMX.getDmxFilter());
     final ArrayList<DmxFilter> result = Lists.<DmxFilter>newArrayList();
     for (final IEObjectDescription desc : functionDescriptions) {
       {
@@ -107,33 +96,16 @@ public class DmxIndex {
         if (_eIsProxy) {
           func = context.eResource().getResourceSet().getEObject(desc.getEObjectURI(), true);
         }
-        if ((func instanceof DmxFunction)) {
-          int _size = ((DmxFunction)func).getParameters().size();
+        if ((func instanceof DmxFilter)) {
+          int _size = ((DmxFilter)func).getParameters().size();
           boolean _greaterThan = (_size > 0);
           if (_greaterThan) {
-            final DmxFunctionParameter param = ((DmxFunction)func).getParameters().get(0);
-            if ((Objects.equal(param.getBaseType(), baseType) && (!param.isBaseTypeCollection()))) {
-              result.add(((DmxFunction)func));
+            final DmxFilterParameter param = ((DmxFilter)func).getParameters().get(0);
+            boolean _isCompatible = param.getTypeDesc().isCompatible(baseType, collection);
+            if (_isCompatible) {
+              result.add(((DmxFilter)func));
             }
           }
-        }
-      }
-    }
-    return result;
-  }
-  
-  private List<DmxFilter> collectionFilters(final EObject context, final DmxBaseType baseType) {
-    final Iterable<IEObjectDescription> functionDescriptions = this.getVisibleEObjectDescriptions(context, DmxIndex.DMX.getDmxIterator());
-    final ArrayList<DmxFilter> result = Lists.<DmxFilter>newArrayList();
-    for (final IEObjectDescription desc : functionDescriptions) {
-      {
-        EObject iterator = desc.getEObjectOrProxy();
-        boolean _eIsProxy = iterator.eIsProxy();
-        if (_eIsProxy) {
-          iterator = context.eResource().getResourceSet().getEObject(desc.getEObjectURI(), true);
-        }
-        if ((iterator instanceof DmxIterator)) {
-          result.add(((DmxIterator)iterator));
         }
       }
     }

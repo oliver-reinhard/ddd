@@ -6,7 +6,6 @@ import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DContext
 import com.mimacom.ddd.dm.base.DEnumeration
-import com.mimacom.ddd.dm.base.DNamedElement
 import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DNotification
 import com.mimacom.ddd.dm.base.DPrimitive
@@ -17,8 +16,8 @@ import com.mimacom.ddd.dm.dmx.DmxCastExpression
 import com.mimacom.ddd.dm.dmx.DmxConstructorCall
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral
+import com.mimacom.ddd.dm.dmx.DmxFilter
 import com.mimacom.ddd.dm.dmx.DmxFunctionCall
-import com.mimacom.ddd.dm.dmx.DmxIterator
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable
@@ -35,26 +34,33 @@ class DmxTypeComputer {
 	
 	static val VOID = new DmxVoidDescriptor
 	static val UNDEFINED = new DmxUndefinedDescriptor
-	static val BOOLEAN = new DmxBaseTypeDescriptor(DmxBaseType.BOOLEAN)
-	static val NUMBER = new DmxBaseTypeDescriptor(DmxBaseType.NUMBER)
-	static val TEXT = new DmxBaseTypeDescriptor(DmxBaseType.TEXT)
-	static val IDENTIFIER = new DmxBaseTypeDescriptor(DmxBaseType.IDENTIFIER)
-	static val TIMEPOINT = new DmxBaseTypeDescriptor(DmxBaseType.TIMEPOINT)
+	static val BOOLEAN = new DmxBaseTypeDescriptor(DmxBaseType.BOOLEAN, false)
+	static val BOOLEAN_COLLECTION = new DmxBaseTypeDescriptor(DmxBaseType.BOOLEAN, true)
+	static val NUMBER = new DmxBaseTypeDescriptor(DmxBaseType.NUMBER, false)
+	static val NUMBER_COLLECTION = new DmxBaseTypeDescriptor(DmxBaseType.NUMBER, true)
+	static val TEXT = new DmxBaseTypeDescriptor(DmxBaseType.TEXT, false)
+	static val TEXT_COLLECTION = new DmxBaseTypeDescriptor(DmxBaseType.TEXT, true)
+	static val IDENTIFIER = new DmxBaseTypeDescriptor(DmxBaseType.IDENTIFIER, false)
+	static val IDENTIFIER_COLLECTION = new DmxBaseTypeDescriptor(DmxBaseType.IDENTIFIER, true)
+	static val TIMEPOINT = new DmxBaseTypeDescriptor(DmxBaseType.TIMEPOINT, false)
+	static val TIMEPOINT_COLLECTION = new DmxBaseTypeDescriptor(DmxBaseType.TIMEPOINT, true)
 	
 	
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxMemberNavigation expr) {
 		val member = expr.member
 		val preceding = expr.precedingNavigationSegment
 		
-		if (member instanceof DmxIterator) {
-			if (member.baseType == DmxBaseType.COMPLEX) {
+		if (member instanceof DmxFilter) {
+			if (member.typeDesc.isCompatible(DmxBaseType.COMPLEX /* ignore collection property */) || member.typeDesc.isMultiTyped) {
+				// propagte type from preceding navigation segment: (this may differ from the actually decared type of the first parameter
 				val precedingType = preceding.typeFor // recursion
-				return createDescriptor(precedingType.type, member.baseTypeCollection)
+				return getTypeDescriptor(precedingType.type, member.typeDesc.collection)
+				
 			} else {
-				return getBaseTypeDescriptor(member.baseType)
+				return getTypeDescriptor(member.typeDesc.single, member.typeDesc.collection)
 			}
 		}
-		return createDescriptor(member.type, member.isCollection)
+		return getTypeDescriptor(member.type, member.isCollection)
 	}
 	
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxContextReference expr) {
@@ -62,7 +68,7 @@ class DmxTypeComputer {
 		
 		if (target instanceof DContext) {
 			if (target.type !== null) {
-				return createDescriptor(target.type, target.isCollection)
+				return getTypeDescriptor(target.type, target.isCollection)
 			} else {
 				// this only occurs when the context is accessd from within the memberCallArguments of a DmxMemberNavigation 
 				// => find precedingNavigationSegment of "calling" DmxMemberNavigation that contains memberCallArguments
@@ -87,16 +93,16 @@ class DmxTypeComputer {
 			}
 			
 		} else if (target instanceof DAggregate) {
-			return createDescriptor(target, false)
+			return getTypeDescriptor(target, false)
 			
 		} else if (target instanceof DNotification) {
-			return createDescriptor(target, false)
+			return getTypeDescriptor(target, false)
 			
 		} else if (target instanceof DNavigableMember) {
-			return createDescriptor(target.type, expr.all)
+			return getTypeDescriptor(target.type, expr.all)
 			
 		} else  {
-			return createDescriptor(target, expr.all)
+			return getTypeDescriptor(target, expr.all)
 		}
 	}
 	
@@ -109,7 +115,7 @@ class DmxTypeComputer {
 	}
 	
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxCastExpression expr) {
-		createDescriptor(expr.type, false)
+		getTypeDescriptor(expr.type, false)
 	}
 	
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxFunctionCall expr) {
@@ -117,7 +123,7 @@ class DmxTypeComputer {
 	}
 	
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxConstructorCall expr) {
-		createDescriptor(expr.constructor, false)
+		getTypeDescriptor(expr.constructor, false)
 	}
 	
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxBooleanLiteral expr) {
@@ -140,26 +146,27 @@ class DmxTypeComputer {
 		UNDEFINED
 	}
 	
-	private def AbstractDmxTypeDescriptor<?> createDescriptor(DNamedElement e, boolean collection) {
-		switch e {
-			DmxArchetype: new DmxPrimitiveDescriptor(e, collection)
-			DPrimitive: new DmxPrimitiveDescriptor(e, collection)
-			DEnumeration: new DmxEnumerationDescriptor(e)
-			DComplexType: new DmxComplexTypeDescriptor(e, collection, util)
-			DAggregate: new DmxAggregateDescriptor(e)
-			DNotification: new DmxNotificationDescriptor(e)
+	private def AbstractDmxTypeDescriptor<?> getTypeDescriptor(Object obj, boolean collection) {
+		switch obj {
+			DmxBaseType: getBaseTypeDescriptor(obj, collection)
+			DmxArchetype: new DmxPrimitiveDescriptor(obj, collection)
+			DPrimitive: new DmxPrimitiveDescriptor(obj, collection)
+			DEnumeration: new DmxEnumerationDescriptor(obj)
+			DComplexType: new DmxComplexTypeDescriptor(obj, collection, util)
+			DAggregate: new DmxAggregateDescriptor(obj)
+			DNotification: new DmxNotificationDescriptor(obj)
 			default: UNDEFINED
 		}
 	}
 	
-	private def AbstractDmxTypeDescriptor<?> getBaseTypeDescriptor(DmxBaseType t) {
+	private def AbstractDmxTypeDescriptor<?> getBaseTypeDescriptor(DmxBaseType t, boolean collection) {
 		switch t {
 			case DmxBaseType::VOID: VOID
-			case DmxBaseType::BOOLEAN: BOOLEAN
-			case DmxBaseType::NUMBER: NUMBER
-			case DmxBaseType::TEXT: TEXT
-			case DmxBaseType::IDENTIFIER: IDENTIFIER
-			case DmxBaseType::TIMEPOINT: TIMEPOINT
+			case DmxBaseType::BOOLEAN: if (collection) BOOLEAN_COLLECTION else BOOLEAN
+			case DmxBaseType::NUMBER: if (collection) NUMBER_COLLECTION else NUMBER
+			case DmxBaseType::TEXT: if (collection) TEXT_COLLECTION else TEXT
+			case DmxBaseType::IDENTIFIER: if (collection) IDENTIFIER_COLLECTION else IDENTIFIER
+			case DmxBaseType::TIMEPOINT: if (collection) TIMEPOINT_COLLECTION else TIMEPOINT
 			default: throw new IllegalArgumentException(t.toString)
 		}
 	}

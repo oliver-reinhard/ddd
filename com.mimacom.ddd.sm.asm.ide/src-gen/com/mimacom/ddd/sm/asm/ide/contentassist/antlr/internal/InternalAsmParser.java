@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalAsmParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_PLAIN_TEXT_START", "RULE_PLAIN_TEXT_MIDDLE", "RULE_PLAIN_TEXT_END", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'ISA'", "'isa'", "'AS'", "'as'", "'SELF'", "'self'", "'RETURN'", "'return'", "'RAISE'", "'raise'", "'NEW'", "'new'", "'*'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'in'", "'out'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'application'", "'information'", "'model'", "'service'", "'interface'", "'core'", "'watchdog'", "'human'", "'operation'", "'('", "')'", "'{'", "'}'", "','", "'raises'", "'guard'", "'effect'", "':'", "'exception'", "'import'", "'test'", "'context'", "'archetype'", "'is'", "'function'", "'iterator'", "'.'", "'|'", "'['", "']'", "'#'", "'if'", "'then'", "'end'", "'else'", "'do'", "'for'", "'.*'", "'@before'", "'all'", "'TRUE'", "'true'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_PLAIN_TEXT_START", "RULE_PLAIN_TEXT_MIDDLE", "RULE_PLAIN_TEXT_END", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'ISA'", "'isa'", "'AS'", "'as'", "'SELF'", "'self'", "'RETURN'", "'return'", "'RAISE'", "'raise'", "'NEW'", "'new'", "'*'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'in'", "'out'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'application'", "'information'", "'model'", "'service'", "'interface'", "'core'", "'watchdog'", "'human'", "'operation'", "'('", "')'", "'{'", "'}'", "','", "'raises'", "'guard'", "'effect'", "':'", "'exception'", "'import'", "'test'", "'context'", "'archetype'", "'is'", "'filter'", "'with'", "'.'", "'|'", "'['", "']'", "'#'", "'if'", "'then'", "'end'", "'else'", "'do'", "'for'", "'.*'", "'@before'", "'all'", "'TRUE'", "'true'"
     };
     public static final int T__50=50;
     public static final int RULE_PLAIN_TEXT_ONLY=6;
@@ -1194,12 +1194,97 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleDmxTestContext"
 
 
+    // $ANTLR start "entryRuleDmxBaseTypeSet"
+    // InternalAsm.g:354:1: entryRuleDmxBaseTypeSet : ruleDmxBaseTypeSet EOF ;
+    public final void entryRuleDmxBaseTypeSet() throws RecognitionException {
+        try {
+            // InternalAsm.g:355:1: ( ruleDmxBaseTypeSet EOF )
+            // InternalAsm.g:356:1: ruleDmxBaseTypeSet EOF
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            ruleDmxBaseTypeSet();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetRule()); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleDmxBaseTypeSet"
+
+
+    // $ANTLR start "ruleDmxBaseTypeSet"
+    // InternalAsm.g:363:1: ruleDmxBaseTypeSet : ( ( rule__DmxBaseTypeSet__Group__0 ) ) ;
+    public final void ruleDmxBaseTypeSet() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:367:2: ( ( ( rule__DmxBaseTypeSet__Group__0 ) ) )
+            // InternalAsm.g:368:2: ( ( rule__DmxBaseTypeSet__Group__0 ) )
+            {
+            // InternalAsm.g:368:2: ( ( rule__DmxBaseTypeSet__Group__0 ) )
+            // InternalAsm.g:369:3: ( rule__DmxBaseTypeSet__Group__0 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getGroup()); 
+            }
+            // InternalAsm.g:370:3: ( rule__DmxBaseTypeSet__Group__0 )
+            // InternalAsm.g:370:4: rule__DmxBaseTypeSet__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__Group__0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getGroup()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleDmxBaseTypeSet"
+
+
     // $ANTLR start "entryRuleDmxArchetype"
-    // InternalAsm.g:354:1: entryRuleDmxArchetype : ruleDmxArchetype EOF ;
+    // InternalAsm.g:379:1: entryRuleDmxArchetype : ruleDmxArchetype EOF ;
     public final void entryRuleDmxArchetype() throws RecognitionException {
         try {
-            // InternalAsm.g:355:1: ( ruleDmxArchetype EOF )
-            // InternalAsm.g:356:1: ruleDmxArchetype EOF
+            // InternalAsm.g:380:1: ( ruleDmxArchetype EOF )
+            // InternalAsm.g:381:1: ruleDmxArchetype EOF
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeRule()); 
@@ -1229,23 +1314,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleDmxArchetype"
-    // InternalAsm.g:363:1: ruleDmxArchetype : ( ( rule__DmxArchetype__Group__0 ) ) ;
+    // InternalAsm.g:388:1: ruleDmxArchetype : ( ( rule__DmxArchetype__Group__0 ) ) ;
     public final void ruleDmxArchetype() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:367:2: ( ( ( rule__DmxArchetype__Group__0 ) ) )
-            // InternalAsm.g:368:2: ( ( rule__DmxArchetype__Group__0 ) )
+            // InternalAsm.g:392:2: ( ( ( rule__DmxArchetype__Group__0 ) ) )
+            // InternalAsm.g:393:2: ( ( rule__DmxArchetype__Group__0 ) )
             {
-            // InternalAsm.g:368:2: ( ( rule__DmxArchetype__Group__0 ) )
-            // InternalAsm.g:369:3: ( rule__DmxArchetype__Group__0 )
+            // InternalAsm.g:393:2: ( ( rule__DmxArchetype__Group__0 ) )
+            // InternalAsm.g:394:3: ( rule__DmxArchetype__Group__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeAccess().getGroup()); 
             }
-            // InternalAsm.g:370:3: ( rule__DmxArchetype__Group__0 )
-            // InternalAsm.g:370:4: rule__DmxArchetype__Group__0
+            // InternalAsm.g:395:3: ( rule__DmxArchetype__Group__0 )
+            // InternalAsm.g:395:4: rule__DmxArchetype__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxArchetype__Group__0();
@@ -1280,11 +1365,11 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleDmxFilter"
-    // InternalAsm.g:379:1: entryRuleDmxFilter : ruleDmxFilter EOF ;
+    // InternalAsm.g:404:1: entryRuleDmxFilter : ruleDmxFilter EOF ;
     public final void entryRuleDmxFilter() throws RecognitionException {
         try {
-            // InternalAsm.g:380:1: ( ruleDmxFilter EOF )
-            // InternalAsm.g:381:1: ruleDmxFilter EOF
+            // InternalAsm.g:405:1: ( ruleDmxFilter EOF )
+            // InternalAsm.g:406:1: ruleDmxFilter EOF
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFilterRule()); 
@@ -1314,26 +1399,26 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleDmxFilter"
-    // InternalAsm.g:388:1: ruleDmxFilter : ( ( rule__DmxFilter__Alternatives ) ) ;
+    // InternalAsm.g:413:1: ruleDmxFilter : ( ( rule__DmxFilter__Group__0 ) ) ;
     public final void ruleDmxFilter() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:392:2: ( ( ( rule__DmxFilter__Alternatives ) ) )
-            // InternalAsm.g:393:2: ( ( rule__DmxFilter__Alternatives ) )
+            // InternalAsm.g:417:2: ( ( ( rule__DmxFilter__Group__0 ) ) )
+            // InternalAsm.g:418:2: ( ( rule__DmxFilter__Group__0 ) )
             {
-            // InternalAsm.g:393:2: ( ( rule__DmxFilter__Alternatives ) )
-            // InternalAsm.g:394:3: ( rule__DmxFilter__Alternatives )
+            // InternalAsm.g:418:2: ( ( rule__DmxFilter__Group__0 ) )
+            // InternalAsm.g:419:3: ( rule__DmxFilter__Group__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFilterAccess().getAlternatives()); 
+               before(grammarAccess.getDmxFilterAccess().getGroup()); 
             }
-            // InternalAsm.g:395:3: ( rule__DmxFilter__Alternatives )
-            // InternalAsm.g:395:4: rule__DmxFilter__Alternatives
+            // InternalAsm.g:420:3: ( rule__DmxFilter__Group__0 )
+            // InternalAsm.g:420:4: rule__DmxFilter__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__DmxFilter__Alternatives();
+            rule__DmxFilter__Group__0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -1341,7 +1426,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFilterAccess().getAlternatives()); 
+               after(grammarAccess.getDmxFilterAccess().getGroup()); 
             }
 
             }
@@ -1364,23 +1449,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleDmxFilter"
 
 
-    // $ANTLR start "entryRuleDmxFunction"
-    // InternalAsm.g:404:1: entryRuleDmxFunction : ruleDmxFunction EOF ;
-    public final void entryRuleDmxFunction() throws RecognitionException {
+    // $ANTLR start "entryRuleDmxFilterTypeDescriptor"
+    // InternalAsm.g:429:1: entryRuleDmxFilterTypeDescriptor : ruleDmxFilterTypeDescriptor EOF ;
+    public final void entryRuleDmxFilterTypeDescriptor() throws RecognitionException {
         try {
-            // InternalAsm.g:405:1: ( ruleDmxFunction EOF )
-            // InternalAsm.g:406:1: ruleDmxFunction EOF
+            // InternalAsm.g:430:1: ( ruleDmxFilterTypeDescriptor EOF )
+            // InternalAsm.g:431:1: ruleDmxFilterTypeDescriptor EOF
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionRule()); 
+               before(grammarAccess.getDmxFilterTypeDescriptorRule()); 
             }
             pushFollow(FOLLOW_1);
-            ruleDmxFunction();
+            ruleDmxFilterTypeDescriptor();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionRule()); 
+               after(grammarAccess.getDmxFilterTypeDescriptorRule()); 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return ;
 
@@ -1395,30 +1480,30 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleDmxFunction"
+    // $ANTLR end "entryRuleDmxFilterTypeDescriptor"
 
 
-    // $ANTLR start "ruleDmxFunction"
-    // InternalAsm.g:413:1: ruleDmxFunction : ( ( rule__DmxFunction__Group__0 ) ) ;
-    public final void ruleDmxFunction() throws RecognitionException {
+    // $ANTLR start "ruleDmxFilterTypeDescriptor"
+    // InternalAsm.g:438:1: ruleDmxFilterTypeDescriptor : ( ( rule__DmxFilterTypeDescriptor__Group__0 ) ) ;
+    public final void ruleDmxFilterTypeDescriptor() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:417:2: ( ( ( rule__DmxFunction__Group__0 ) ) )
-            // InternalAsm.g:418:2: ( ( rule__DmxFunction__Group__0 ) )
+            // InternalAsm.g:442:2: ( ( ( rule__DmxFilterTypeDescriptor__Group__0 ) ) )
+            // InternalAsm.g:443:2: ( ( rule__DmxFilterTypeDescriptor__Group__0 ) )
             {
-            // InternalAsm.g:418:2: ( ( rule__DmxFunction__Group__0 ) )
-            // InternalAsm.g:419:3: ( rule__DmxFunction__Group__0 )
+            // InternalAsm.g:443:2: ( ( rule__DmxFilterTypeDescriptor__Group__0 ) )
+            // InternalAsm.g:444:3: ( rule__DmxFilterTypeDescriptor__Group__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getGroup()); 
+               before(grammarAccess.getDmxFilterTypeDescriptorAccess().getGroup()); 
             }
-            // InternalAsm.g:420:3: ( rule__DmxFunction__Group__0 )
-            // InternalAsm.g:420:4: rule__DmxFunction__Group__0
+            // InternalAsm.g:445:3: ( rule__DmxFilterTypeDescriptor__Group__0 )
+            // InternalAsm.g:445:4: rule__DmxFilterTypeDescriptor__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group__0();
+            rule__DmxFilterTypeDescriptor__Group__0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -1426,7 +1511,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getGroup()); 
+               after(grammarAccess.getDmxFilterTypeDescriptorAccess().getGroup()); 
             }
 
             }
@@ -1446,26 +1531,26 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleDmxFunction"
+    // $ANTLR end "ruleDmxFilterTypeDescriptor"
 
 
-    // $ANTLR start "entryRuleDmxFunctionParameter"
-    // InternalAsm.g:429:1: entryRuleDmxFunctionParameter : ruleDmxFunctionParameter EOF ;
-    public final void entryRuleDmxFunctionParameter() throws RecognitionException {
+    // $ANTLR start "entryRuleDmxFilterParameter"
+    // InternalAsm.g:454:1: entryRuleDmxFilterParameter : ruleDmxFilterParameter EOF ;
+    public final void entryRuleDmxFilterParameter() throws RecognitionException {
         try {
-            // InternalAsm.g:430:1: ( ruleDmxFunctionParameter EOF )
-            // InternalAsm.g:431:1: ruleDmxFunctionParameter EOF
+            // InternalAsm.g:455:1: ( ruleDmxFilterParameter EOF )
+            // InternalAsm.g:456:1: ruleDmxFilterParameter EOF
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionParameterRule()); 
+               before(grammarAccess.getDmxFilterParameterRule()); 
             }
             pushFollow(FOLLOW_1);
-            ruleDmxFunctionParameter();
+            ruleDmxFilterParameter();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionParameterRule()); 
+               after(grammarAccess.getDmxFilterParameterRule()); 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return ;
 
@@ -1480,30 +1565,30 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleDmxFunctionParameter"
+    // $ANTLR end "entryRuleDmxFilterParameter"
 
 
-    // $ANTLR start "ruleDmxFunctionParameter"
-    // InternalAsm.g:438:1: ruleDmxFunctionParameter : ( ( rule__DmxFunctionParameter__Group__0 ) ) ;
-    public final void ruleDmxFunctionParameter() throws RecognitionException {
+    // $ANTLR start "ruleDmxFilterParameter"
+    // InternalAsm.g:463:1: ruleDmxFilterParameter : ( ( rule__DmxFilterParameter__Group__0 ) ) ;
+    public final void ruleDmxFilterParameter() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:442:2: ( ( ( rule__DmxFunctionParameter__Group__0 ) ) )
-            // InternalAsm.g:443:2: ( ( rule__DmxFunctionParameter__Group__0 ) )
+            // InternalAsm.g:467:2: ( ( ( rule__DmxFilterParameter__Group__0 ) ) )
+            // InternalAsm.g:468:2: ( ( rule__DmxFilterParameter__Group__0 ) )
             {
-            // InternalAsm.g:443:2: ( ( rule__DmxFunctionParameter__Group__0 ) )
-            // InternalAsm.g:444:3: ( rule__DmxFunctionParameter__Group__0 )
+            // InternalAsm.g:468:2: ( ( rule__DmxFilterParameter__Group__0 ) )
+            // InternalAsm.g:469:3: ( rule__DmxFilterParameter__Group__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionParameterAccess().getGroup()); 
+               before(grammarAccess.getDmxFilterParameterAccess().getGroup()); 
             }
-            // InternalAsm.g:445:3: ( rule__DmxFunctionParameter__Group__0 )
-            // InternalAsm.g:445:4: rule__DmxFunctionParameter__Group__0
+            // InternalAsm.g:470:3: ( rule__DmxFilterParameter__Group__0 )
+            // InternalAsm.g:470:4: rule__DmxFilterParameter__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__DmxFunctionParameter__Group__0();
+            rule__DmxFilterParameter__Group__0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -1511,7 +1596,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionParameterAccess().getGroup()); 
+               after(grammarAccess.getDmxFilterParameterAccess().getGroup()); 
             }
 
             }
@@ -1531,92 +1616,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleDmxFunctionParameter"
-
-
-    // $ANTLR start "entryRuleDmxIterator"
-    // InternalAsm.g:454:1: entryRuleDmxIterator : ruleDmxIterator EOF ;
-    public final void entryRuleDmxIterator() throws RecognitionException {
-        try {
-            // InternalAsm.g:455:1: ( ruleDmxIterator EOF )
-            // InternalAsm.g:456:1: ruleDmxIterator EOF
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorRule()); 
-            }
-            pushFollow(FOLLOW_1);
-            ruleDmxIterator();
-
-            state._fsp--;
-            if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorRule()); 
-            }
-            match(input,EOF,FOLLOW_2); if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "entryRuleDmxIterator"
-
-
-    // $ANTLR start "ruleDmxIterator"
-    // InternalAsm.g:463:1: ruleDmxIterator : ( ( rule__DmxIterator__Group__0 ) ) ;
-    public final void ruleDmxIterator() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:467:2: ( ( ( rule__DmxIterator__Group__0 ) ) )
-            // InternalAsm.g:468:2: ( ( rule__DmxIterator__Group__0 ) )
-            {
-            // InternalAsm.g:468:2: ( ( rule__DmxIterator__Group__0 ) )
-            // InternalAsm.g:469:3: ( rule__DmxIterator__Group__0 )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorAccess().getGroup()); 
-            }
-            // InternalAsm.g:470:3: ( rule__DmxIterator__Group__0 )
-            // InternalAsm.g:470:4: rule__DmxIterator__Group__0
-            {
-            pushFollow(FOLLOW_2);
-            rule__DmxIterator__Group__0();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorAccess().getGroup()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "ruleDmxIterator"
+    // $ANTLR end "ruleDmxFilterParameter"
 
 
     // $ANTLR start "entryRuleDExpression"
@@ -6106,21 +6106,21 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__SActor__Alternatives"
 
 
-    // $ANTLR start "rule__DmxFilter__Alternatives"
-    // InternalAsm.g:1805:1: rule__DmxFilter__Alternatives : ( ( ruleDmxFunction ) | ( ruleDmxIterator ) );
-    public final void rule__DmxFilter__Alternatives() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilterTypeDescriptor__Alternatives_0"
+    // InternalAsm.g:1805:1: rule__DmxFilterTypeDescriptor__Alternatives_0 : ( ( ( rule__DmxFilterTypeDescriptor__SingleAssignment_0_0 ) ) | ( ( rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1 ) ) );
+    public final void rule__DmxFilterTypeDescriptor__Alternatives_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:1809:1: ( ( ruleDmxFunction ) | ( ruleDmxIterator ) )
+            // InternalAsm.g:1809:1: ( ( ( rule__DmxFilterTypeDescriptor__SingleAssignment_0_0 ) ) | ( ( rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1 ) ) )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( (LA3_0==98) ) {
+            if ( ((LA3_0>=41 && LA3_0<=49)) ) {
                 alt3=1;
             }
-            else if ( (LA3_0==99) ) {
+            else if ( (LA3_0==RULE_ID) ) {
                 alt3=2;
             }
             else {
@@ -6132,21 +6132,27 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
             switch (alt3) {
                 case 1 :
-                    // InternalAsm.g:1810:2: ( ruleDmxFunction )
+                    // InternalAsm.g:1810:2: ( ( rule__DmxFilterTypeDescriptor__SingleAssignment_0_0 ) )
                     {
-                    // InternalAsm.g:1810:2: ( ruleDmxFunction )
-                    // InternalAsm.g:1811:3: ruleDmxFunction
+                    // InternalAsm.g:1810:2: ( ( rule__DmxFilterTypeDescriptor__SingleAssignment_0_0 ) )
+                    // InternalAsm.g:1811:3: ( rule__DmxFilterTypeDescriptor__SingleAssignment_0_0 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getDmxFilterAccess().getDmxFunctionParserRuleCall_0()); 
+                       before(grammarAccess.getDmxFilterTypeDescriptorAccess().getSingleAssignment_0_0()); 
                     }
+                    // InternalAsm.g:1812:3: ( rule__DmxFilterTypeDescriptor__SingleAssignment_0_0 )
+                    // InternalAsm.g:1812:4: rule__DmxFilterTypeDescriptor__SingleAssignment_0_0
+                    {
                     pushFollow(FOLLOW_2);
-                    ruleDmxFunction();
+                    rule__DmxFilterTypeDescriptor__SingleAssignment_0_0();
 
                     state._fsp--;
                     if (state.failed) return ;
+
+                    }
+
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getDmxFilterAccess().getDmxFunctionParserRuleCall_0()); 
+                       after(grammarAccess.getDmxFilterTypeDescriptorAccess().getSingleAssignment_0_0()); 
                     }
 
                     }
@@ -6155,21 +6161,27 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalAsm.g:1816:2: ( ruleDmxIterator )
+                    // InternalAsm.g:1816:2: ( ( rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1 ) )
                     {
-                    // InternalAsm.g:1816:2: ( ruleDmxIterator )
-                    // InternalAsm.g:1817:3: ruleDmxIterator
+                    // InternalAsm.g:1816:2: ( ( rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1 ) )
+                    // InternalAsm.g:1817:3: ( rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getDmxFilterAccess().getDmxIteratorParserRuleCall_1()); 
+                       before(grammarAccess.getDmxFilterTypeDescriptorAccess().getMultipleAssignment_0_1()); 
                     }
+                    // InternalAsm.g:1818:3: ( rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1 )
+                    // InternalAsm.g:1818:4: rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1
+                    {
                     pushFollow(FOLLOW_2);
-                    ruleDmxIterator();
+                    rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1();
 
                     state._fsp--;
                     if (state.failed) return ;
+
+                    }
+
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getDmxFilterAccess().getDmxIteratorParserRuleCall_1()); 
+                       after(grammarAccess.getDmxFilterTypeDescriptorAccess().getMultipleAssignment_0_1()); 
                     }
 
                     }
@@ -6191,7 +6203,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFilter__Alternatives"
+    // $ANTLR end "rule__DmxFilterTypeDescriptor__Alternatives_0"
 
 
     // $ANTLR start "rule__DExpression__Alternatives"
@@ -6208,11 +6220,11 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
                 {
                 int LA4_1 = input.LA(2);
 
-                if ( (LA4_1==17) ) {
-                    alt4=1;
-                }
-                else if ( (LA4_1==EOF||(LA4_1>=RULE_PLAIN_TEXT_MIDDLE && LA4_1<=RULE_PLAIN_TEXT_END)||(LA4_1>=18 && LA4_1<=21)||LA4_1==30||(LA4_1>=37 && LA4_1<=38)||(LA4_1>=50 && LA4_1<=70)||(LA4_1>=83 && LA4_1<=84)||(LA4_1>=86 && LA4_1<=87)||(LA4_1>=89 && LA4_1<=90)||(LA4_1>=100 && LA4_1<=101)||(LA4_1>=106 && LA4_1<=109)||LA4_1==112) ) {
+                if ( (LA4_1==EOF||(LA4_1>=RULE_PLAIN_TEXT_MIDDLE && LA4_1<=RULE_PLAIN_TEXT_END)||(LA4_1>=18 && LA4_1<=21)||LA4_1==30||(LA4_1>=37 && LA4_1<=38)||(LA4_1>=50 && LA4_1<=70)||(LA4_1>=83 && LA4_1<=84)||(LA4_1>=86 && LA4_1<=87)||(LA4_1>=89 && LA4_1<=90)||(LA4_1>=100 && LA4_1<=101)||(LA4_1>=106 && LA4_1<=109)||LA4_1==112) ) {
                     alt4=2;
+                }
+                else if ( (LA4_1==17) ) {
+                    alt4=1;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -6470,11 +6482,11 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
                 if ( (LA6_1==RULE_ID) ) {
                     int LA6_2 = input.LA(3);
 
-                    if ( (LA6_2==EOF||(LA6_2>=RULE_PLAIN_TEXT_MIDDLE && LA6_2<=RULE_PLAIN_TEXT_END)||(LA6_2>=18 && LA6_2<=21)||LA6_2==30||(LA6_2>=37 && LA6_2<=38)||(LA6_2>=50 && LA6_2<=70)||(LA6_2>=83 && LA6_2<=84)||(LA6_2>=86 && LA6_2<=87)||(LA6_2>=89 && LA6_2<=90)||LA6_2==100||(LA6_2>=106 && LA6_2<=109)||LA6_2==112) ) {
-                        alt6=2;
-                    }
-                    else if ( (LA6_2==17) ) {
+                    if ( (LA6_2==17) ) {
                         alt6=1;
+                    }
+                    else if ( (LA6_2==EOF||(LA6_2>=RULE_PLAIN_TEXT_MIDDLE && LA6_2<=RULE_PLAIN_TEXT_END)||(LA6_2>=18 && LA6_2<=21)||LA6_2==30||(LA6_2>=37 && LA6_2<=38)||(LA6_2>=50 && LA6_2<=70)||(LA6_2>=83 && LA6_2<=84)||(LA6_2>=86 && LA6_2<=87)||(LA6_2>=89 && LA6_2<=90)||LA6_2==100||(LA6_2>=106 && LA6_2<=109)||LA6_2==112) ) {
+                        alt6=2;
                     }
                     else {
                         if (state.backtracking>0) {state.failed=true; return ;}
@@ -16442,15 +16454,724 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DmxTestContext__Group__3__Impl"
 
 
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__0"
+    // InternalAsm.g:4652:1: rule__DmxBaseTypeSet__Group__0 : rule__DmxBaseTypeSet__Group__0__Impl rule__DmxBaseTypeSet__Group__1 ;
+    public final void rule__DmxBaseTypeSet__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:4656:1: ( rule__DmxBaseTypeSet__Group__0__Impl rule__DmxBaseTypeSet__Group__1 )
+            // InternalAsm.g:4657:2: rule__DmxBaseTypeSet__Group__0__Impl rule__DmxBaseTypeSet__Group__1
+            {
+            pushFollow(FOLLOW_29);
+            rule__DmxBaseTypeSet__Group__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__Group__1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__0"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__0__Impl"
+    // InternalAsm.g:4664:1: rule__DmxBaseTypeSet__Group__0__Impl : ( ( rule__DmxBaseTypeSet__NameAssignment_0 ) ) ;
+    public final void rule__DmxBaseTypeSet__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:4668:1: ( ( ( rule__DmxBaseTypeSet__NameAssignment_0 ) ) )
+            // InternalAsm.g:4669:1: ( ( rule__DmxBaseTypeSet__NameAssignment_0 ) )
+            {
+            // InternalAsm.g:4669:1: ( ( rule__DmxBaseTypeSet__NameAssignment_0 ) )
+            // InternalAsm.g:4670:2: ( rule__DmxBaseTypeSet__NameAssignment_0 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getNameAssignment_0()); 
+            }
+            // InternalAsm.g:4671:2: ( rule__DmxBaseTypeSet__NameAssignment_0 )
+            // InternalAsm.g:4671:3: rule__DmxBaseTypeSet__NameAssignment_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__NameAssignment_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getNameAssignment_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__0__Impl"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__1"
+    // InternalAsm.g:4679:1: rule__DmxBaseTypeSet__Group__1 : rule__DmxBaseTypeSet__Group__1__Impl rule__DmxBaseTypeSet__Group__2 ;
+    public final void rule__DmxBaseTypeSet__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:4683:1: ( rule__DmxBaseTypeSet__Group__1__Impl rule__DmxBaseTypeSet__Group__2 )
+            // InternalAsm.g:4684:2: rule__DmxBaseTypeSet__Group__1__Impl rule__DmxBaseTypeSet__Group__2
+            {
+            pushFollow(FOLLOW_16);
+            rule__DmxBaseTypeSet__Group__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__Group__2();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__1"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__1__Impl"
+    // InternalAsm.g:4691:1: rule__DmxBaseTypeSet__Group__1__Impl : ( 'in' ) ;
+    public final void rule__DmxBaseTypeSet__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:4695:1: ( ( 'in' ) )
+            // InternalAsm.g:4696:1: ( 'in' )
+            {
+            // InternalAsm.g:4696:1: ( 'in' )
+            // InternalAsm.g:4697:2: 'in'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getInKeyword_1()); 
+            }
+            match(input,39,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getInKeyword_1()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__1__Impl"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__2"
+    // InternalAsm.g:4706:1: rule__DmxBaseTypeSet__Group__2 : rule__DmxBaseTypeSet__Group__2__Impl rule__DmxBaseTypeSet__Group__3 ;
+    public final void rule__DmxBaseTypeSet__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:4710:1: ( rule__DmxBaseTypeSet__Group__2__Impl rule__DmxBaseTypeSet__Group__3 )
+            // InternalAsm.g:4711:2: rule__DmxBaseTypeSet__Group__2__Impl rule__DmxBaseTypeSet__Group__3
+            {
+            pushFollow(FOLLOW_30);
+            rule__DmxBaseTypeSet__Group__2__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__Group__3();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__2"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__2__Impl"
+    // InternalAsm.g:4718:1: rule__DmxBaseTypeSet__Group__2__Impl : ( '(' ) ;
+    public final void rule__DmxBaseTypeSet__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:4722:1: ( ( '(' ) )
+            // InternalAsm.g:4723:1: ( '(' )
+            {
+            // InternalAsm.g:4723:1: ( '(' )
+            // InternalAsm.g:4724:2: '('
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getLeftParenthesisKeyword_2()); 
+            }
+            match(input,83,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getLeftParenthesisKeyword_2()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__2__Impl"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__3"
+    // InternalAsm.g:4733:1: rule__DmxBaseTypeSet__Group__3 : rule__DmxBaseTypeSet__Group__3__Impl rule__DmxBaseTypeSet__Group__4 ;
+    public final void rule__DmxBaseTypeSet__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:4737:1: ( rule__DmxBaseTypeSet__Group__3__Impl rule__DmxBaseTypeSet__Group__4 )
+            // InternalAsm.g:4738:2: rule__DmxBaseTypeSet__Group__3__Impl rule__DmxBaseTypeSet__Group__4
+            {
+            pushFollow(FOLLOW_22);
+            rule__DmxBaseTypeSet__Group__3__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__Group__4();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__3"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__3__Impl"
+    // InternalAsm.g:4745:1: rule__DmxBaseTypeSet__Group__3__Impl : ( ( rule__DmxBaseTypeSet__MembersAssignment_3 ) ) ;
+    public final void rule__DmxBaseTypeSet__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:4749:1: ( ( ( rule__DmxBaseTypeSet__MembersAssignment_3 ) ) )
+            // InternalAsm.g:4750:1: ( ( rule__DmxBaseTypeSet__MembersAssignment_3 ) )
+            {
+            // InternalAsm.g:4750:1: ( ( rule__DmxBaseTypeSet__MembersAssignment_3 ) )
+            // InternalAsm.g:4751:2: ( rule__DmxBaseTypeSet__MembersAssignment_3 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getMembersAssignment_3()); 
+            }
+            // InternalAsm.g:4752:2: ( rule__DmxBaseTypeSet__MembersAssignment_3 )
+            // InternalAsm.g:4752:3: rule__DmxBaseTypeSet__MembersAssignment_3
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__MembersAssignment_3();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getMembersAssignment_3()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__3__Impl"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__4"
+    // InternalAsm.g:4760:1: rule__DmxBaseTypeSet__Group__4 : rule__DmxBaseTypeSet__Group__4__Impl rule__DmxBaseTypeSet__Group__5 ;
+    public final void rule__DmxBaseTypeSet__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:4764:1: ( rule__DmxBaseTypeSet__Group__4__Impl rule__DmxBaseTypeSet__Group__5 )
+            // InternalAsm.g:4765:2: rule__DmxBaseTypeSet__Group__4__Impl rule__DmxBaseTypeSet__Group__5
+            {
+            pushFollow(FOLLOW_31);
+            rule__DmxBaseTypeSet__Group__4__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__Group__5();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__4"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__4__Impl"
+    // InternalAsm.g:4772:1: rule__DmxBaseTypeSet__Group__4__Impl : ( ( ( rule__DmxBaseTypeSet__Group_4__0 ) ) ( ( rule__DmxBaseTypeSet__Group_4__0 )* ) ) ;
+    public final void rule__DmxBaseTypeSet__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:4776:1: ( ( ( ( rule__DmxBaseTypeSet__Group_4__0 ) ) ( ( rule__DmxBaseTypeSet__Group_4__0 )* ) ) )
+            // InternalAsm.g:4777:1: ( ( ( rule__DmxBaseTypeSet__Group_4__0 ) ) ( ( rule__DmxBaseTypeSet__Group_4__0 )* ) )
+            {
+            // InternalAsm.g:4777:1: ( ( ( rule__DmxBaseTypeSet__Group_4__0 ) ) ( ( rule__DmxBaseTypeSet__Group_4__0 )* ) )
+            // InternalAsm.g:4778:2: ( ( rule__DmxBaseTypeSet__Group_4__0 ) ) ( ( rule__DmxBaseTypeSet__Group_4__0 )* )
+            {
+            // InternalAsm.g:4778:2: ( ( rule__DmxBaseTypeSet__Group_4__0 ) )
+            // InternalAsm.g:4779:3: ( rule__DmxBaseTypeSet__Group_4__0 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getGroup_4()); 
+            }
+            // InternalAsm.g:4780:3: ( rule__DmxBaseTypeSet__Group_4__0 )
+            // InternalAsm.g:4780:4: rule__DmxBaseTypeSet__Group_4__0
+            {
+            pushFollow(FOLLOW_23);
+            rule__DmxBaseTypeSet__Group_4__0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getGroup_4()); 
+            }
+
+            }
+
+            // InternalAsm.g:4783:2: ( ( rule__DmxBaseTypeSet__Group_4__0 )* )
+            // InternalAsm.g:4784:3: ( rule__DmxBaseTypeSet__Group_4__0 )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getGroup_4()); 
+            }
+            // InternalAsm.g:4785:3: ( rule__DmxBaseTypeSet__Group_4__0 )*
+            loop53:
+            do {
+                int alt53=2;
+                int LA53_0 = input.LA(1);
+
+                if ( (LA53_0==87) ) {
+                    alt53=1;
+                }
+
+
+                switch (alt53) {
+            	case 1 :
+            	    // InternalAsm.g:4785:4: rule__DmxBaseTypeSet__Group_4__0
+            	    {
+            	    pushFollow(FOLLOW_23);
+            	    rule__DmxBaseTypeSet__Group_4__0();
+
+            	    state._fsp--;
+            	    if (state.failed) return ;
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop53;
+                }
+            } while (true);
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getGroup_4()); 
+            }
+
+            }
+
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__4__Impl"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__5"
+    // InternalAsm.g:4794:1: rule__DmxBaseTypeSet__Group__5 : rule__DmxBaseTypeSet__Group__5__Impl ;
+    public final void rule__DmxBaseTypeSet__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:4798:1: ( rule__DmxBaseTypeSet__Group__5__Impl )
+            // InternalAsm.g:4799:2: rule__DmxBaseTypeSet__Group__5__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__Group__5__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__5"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group__5__Impl"
+    // InternalAsm.g:4805:1: rule__DmxBaseTypeSet__Group__5__Impl : ( ')' ) ;
+    public final void rule__DmxBaseTypeSet__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:4809:1: ( ( ')' ) )
+            // InternalAsm.g:4810:1: ( ')' )
+            {
+            // InternalAsm.g:4810:1: ( ')' )
+            // InternalAsm.g:4811:2: ')'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getRightParenthesisKeyword_5()); 
+            }
+            match(input,84,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getRightParenthesisKeyword_5()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group__5__Impl"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group_4__0"
+    // InternalAsm.g:4821:1: rule__DmxBaseTypeSet__Group_4__0 : rule__DmxBaseTypeSet__Group_4__0__Impl rule__DmxBaseTypeSet__Group_4__1 ;
+    public final void rule__DmxBaseTypeSet__Group_4__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:4825:1: ( rule__DmxBaseTypeSet__Group_4__0__Impl rule__DmxBaseTypeSet__Group_4__1 )
+            // InternalAsm.g:4826:2: rule__DmxBaseTypeSet__Group_4__0__Impl rule__DmxBaseTypeSet__Group_4__1
+            {
+            pushFollow(FOLLOW_30);
+            rule__DmxBaseTypeSet__Group_4__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__Group_4__1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group_4__0"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group_4__0__Impl"
+    // InternalAsm.g:4833:1: rule__DmxBaseTypeSet__Group_4__0__Impl : ( ',' ) ;
+    public final void rule__DmxBaseTypeSet__Group_4__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:4837:1: ( ( ',' ) )
+            // InternalAsm.g:4838:1: ( ',' )
+            {
+            // InternalAsm.g:4838:1: ( ',' )
+            // InternalAsm.g:4839:2: ','
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getCommaKeyword_4_0()); 
+            }
+            match(input,87,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getCommaKeyword_4_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group_4__0__Impl"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group_4__1"
+    // InternalAsm.g:4848:1: rule__DmxBaseTypeSet__Group_4__1 : rule__DmxBaseTypeSet__Group_4__1__Impl ;
+    public final void rule__DmxBaseTypeSet__Group_4__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:4852:1: ( rule__DmxBaseTypeSet__Group_4__1__Impl )
+            // InternalAsm.g:4853:2: rule__DmxBaseTypeSet__Group_4__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__Group_4__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group_4__1"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__Group_4__1__Impl"
+    // InternalAsm.g:4859:1: rule__DmxBaseTypeSet__Group_4__1__Impl : ( ( rule__DmxBaseTypeSet__MembersAssignment_4_1 ) ) ;
+    public final void rule__DmxBaseTypeSet__Group_4__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:4863:1: ( ( ( rule__DmxBaseTypeSet__MembersAssignment_4_1 ) ) )
+            // InternalAsm.g:4864:1: ( ( rule__DmxBaseTypeSet__MembersAssignment_4_1 ) )
+            {
+            // InternalAsm.g:4864:1: ( ( rule__DmxBaseTypeSet__MembersAssignment_4_1 ) )
+            // InternalAsm.g:4865:2: ( rule__DmxBaseTypeSet__MembersAssignment_4_1 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getMembersAssignment_4_1()); 
+            }
+            // InternalAsm.g:4866:2: ( rule__DmxBaseTypeSet__MembersAssignment_4_1 )
+            // InternalAsm.g:4866:3: rule__DmxBaseTypeSet__MembersAssignment_4_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxBaseTypeSet__MembersAssignment_4_1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getMembersAssignment_4_1()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__Group_4__1__Impl"
+
+
     // $ANTLR start "rule__DmxArchetype__Group__0"
-    // InternalAsm.g:4652:1: rule__DmxArchetype__Group__0 : rule__DmxArchetype__Group__0__Impl rule__DmxArchetype__Group__1 ;
+    // InternalAsm.g:4875:1: rule__DmxArchetype__Group__0 : rule__DmxArchetype__Group__0__Impl rule__DmxArchetype__Group__1 ;
     public final void rule__DmxArchetype__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:4656:1: ( rule__DmxArchetype__Group__0__Impl rule__DmxArchetype__Group__1 )
-            // InternalAsm.g:4657:2: rule__DmxArchetype__Group__0__Impl rule__DmxArchetype__Group__1
+            // InternalAsm.g:4879:1: ( rule__DmxArchetype__Group__0__Impl rule__DmxArchetype__Group__1 )
+            // InternalAsm.g:4880:2: rule__DmxArchetype__Group__0__Impl rule__DmxArchetype__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__DmxArchetype__Group__0__Impl();
@@ -16481,17 +17202,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__Group__0__Impl"
-    // InternalAsm.g:4664:1: rule__DmxArchetype__Group__0__Impl : ( 'archetype' ) ;
+    // InternalAsm.g:4887:1: rule__DmxArchetype__Group__0__Impl : ( 'archetype' ) ;
     public final void rule__DmxArchetype__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:4668:1: ( ( 'archetype' ) )
-            // InternalAsm.g:4669:1: ( 'archetype' )
+            // InternalAsm.g:4891:1: ( ( 'archetype' ) )
+            // InternalAsm.g:4892:1: ( 'archetype' )
             {
-            // InternalAsm.g:4669:1: ( 'archetype' )
-            // InternalAsm.g:4670:2: 'archetype'
+            // InternalAsm.g:4892:1: ( 'archetype' )
+            // InternalAsm.g:4893:2: 'archetype'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeAccess().getArchetypeKeyword_0()); 
@@ -16522,16 +17243,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__Group__1"
-    // InternalAsm.g:4679:1: rule__DmxArchetype__Group__1 : rule__DmxArchetype__Group__1__Impl rule__DmxArchetype__Group__2 ;
+    // InternalAsm.g:4902:1: rule__DmxArchetype__Group__1 : rule__DmxArchetype__Group__1__Impl rule__DmxArchetype__Group__2 ;
     public final void rule__DmxArchetype__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:4683:1: ( rule__DmxArchetype__Group__1__Impl rule__DmxArchetype__Group__2 )
-            // InternalAsm.g:4684:2: rule__DmxArchetype__Group__1__Impl rule__DmxArchetype__Group__2
+            // InternalAsm.g:4906:1: ( rule__DmxArchetype__Group__1__Impl rule__DmxArchetype__Group__2 )
+            // InternalAsm.g:4907:2: rule__DmxArchetype__Group__1__Impl rule__DmxArchetype__Group__2
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_32);
             rule__DmxArchetype__Group__1__Impl();
 
             state._fsp--;
@@ -16560,23 +17281,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__Group__1__Impl"
-    // InternalAsm.g:4691:1: rule__DmxArchetype__Group__1__Impl : ( ( rule__DmxArchetype__NameAssignment_1 ) ) ;
+    // InternalAsm.g:4914:1: rule__DmxArchetype__Group__1__Impl : ( ( rule__DmxArchetype__NameAssignment_1 ) ) ;
     public final void rule__DmxArchetype__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:4695:1: ( ( ( rule__DmxArchetype__NameAssignment_1 ) ) )
-            // InternalAsm.g:4696:1: ( ( rule__DmxArchetype__NameAssignment_1 ) )
+            // InternalAsm.g:4918:1: ( ( ( rule__DmxArchetype__NameAssignment_1 ) ) )
+            // InternalAsm.g:4919:1: ( ( rule__DmxArchetype__NameAssignment_1 ) )
             {
-            // InternalAsm.g:4696:1: ( ( rule__DmxArchetype__NameAssignment_1 ) )
-            // InternalAsm.g:4697:2: ( rule__DmxArchetype__NameAssignment_1 )
+            // InternalAsm.g:4919:1: ( ( rule__DmxArchetype__NameAssignment_1 ) )
+            // InternalAsm.g:4920:2: ( rule__DmxArchetype__NameAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeAccess().getNameAssignment_1()); 
             }
-            // InternalAsm.g:4698:2: ( rule__DmxArchetype__NameAssignment_1 )
-            // InternalAsm.g:4698:3: rule__DmxArchetype__NameAssignment_1
+            // InternalAsm.g:4921:2: ( rule__DmxArchetype__NameAssignment_1 )
+            // InternalAsm.g:4921:3: rule__DmxArchetype__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxArchetype__NameAssignment_1();
@@ -16611,14 +17332,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__Group__2"
-    // InternalAsm.g:4706:1: rule__DmxArchetype__Group__2 : rule__DmxArchetype__Group__2__Impl rule__DmxArchetype__Group__3 ;
+    // InternalAsm.g:4929:1: rule__DmxArchetype__Group__2 : rule__DmxArchetype__Group__2__Impl rule__DmxArchetype__Group__3 ;
     public final void rule__DmxArchetype__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:4710:1: ( rule__DmxArchetype__Group__2__Impl rule__DmxArchetype__Group__3 )
-            // InternalAsm.g:4711:2: rule__DmxArchetype__Group__2__Impl rule__DmxArchetype__Group__3
+            // InternalAsm.g:4933:1: ( rule__DmxArchetype__Group__2__Impl rule__DmxArchetype__Group__3 )
+            // InternalAsm.g:4934:2: rule__DmxArchetype__Group__2__Impl rule__DmxArchetype__Group__3
             {
             pushFollow(FOLLOW_30);
             rule__DmxArchetype__Group__2__Impl();
@@ -16649,17 +17370,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__Group__2__Impl"
-    // InternalAsm.g:4718:1: rule__DmxArchetype__Group__2__Impl : ( 'is' ) ;
+    // InternalAsm.g:4941:1: rule__DmxArchetype__Group__2__Impl : ( 'is' ) ;
     public final void rule__DmxArchetype__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:4722:1: ( ( 'is' ) )
-            // InternalAsm.g:4723:1: ( 'is' )
+            // InternalAsm.g:4945:1: ( ( 'is' ) )
+            // InternalAsm.g:4946:1: ( 'is' )
             {
-            // InternalAsm.g:4723:1: ( 'is' )
-            // InternalAsm.g:4724:2: 'is'
+            // InternalAsm.g:4946:1: ( 'is' )
+            // InternalAsm.g:4947:2: 'is'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeAccess().getIsKeyword_2()); 
@@ -16690,14 +17411,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__Group__3"
-    // InternalAsm.g:4733:1: rule__DmxArchetype__Group__3 : rule__DmxArchetype__Group__3__Impl rule__DmxArchetype__Group__4 ;
+    // InternalAsm.g:4956:1: rule__DmxArchetype__Group__3 : rule__DmxArchetype__Group__3__Impl rule__DmxArchetype__Group__4 ;
     public final void rule__DmxArchetype__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:4737:1: ( rule__DmxArchetype__Group__3__Impl rule__DmxArchetype__Group__4 )
-            // InternalAsm.g:4738:2: rule__DmxArchetype__Group__3__Impl rule__DmxArchetype__Group__4
+            // InternalAsm.g:4960:1: ( rule__DmxArchetype__Group__3__Impl rule__DmxArchetype__Group__4 )
+            // InternalAsm.g:4961:2: rule__DmxArchetype__Group__3__Impl rule__DmxArchetype__Group__4
             {
             pushFollow(FOLLOW_25);
             rule__DmxArchetype__Group__3__Impl();
@@ -16728,23 +17449,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__Group__3__Impl"
-    // InternalAsm.g:4745:1: rule__DmxArchetype__Group__3__Impl : ( ( rule__DmxArchetype__BaseTypeAssignment_3 ) ) ;
+    // InternalAsm.g:4968:1: rule__DmxArchetype__Group__3__Impl : ( ( rule__DmxArchetype__BaseTypeAssignment_3 ) ) ;
     public final void rule__DmxArchetype__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:4749:1: ( ( ( rule__DmxArchetype__BaseTypeAssignment_3 ) ) )
-            // InternalAsm.g:4750:1: ( ( rule__DmxArchetype__BaseTypeAssignment_3 ) )
+            // InternalAsm.g:4972:1: ( ( ( rule__DmxArchetype__BaseTypeAssignment_3 ) ) )
+            // InternalAsm.g:4973:1: ( ( rule__DmxArchetype__BaseTypeAssignment_3 ) )
             {
-            // InternalAsm.g:4750:1: ( ( rule__DmxArchetype__BaseTypeAssignment_3 ) )
-            // InternalAsm.g:4751:2: ( rule__DmxArchetype__BaseTypeAssignment_3 )
+            // InternalAsm.g:4973:1: ( ( rule__DmxArchetype__BaseTypeAssignment_3 ) )
+            // InternalAsm.g:4974:2: ( rule__DmxArchetype__BaseTypeAssignment_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeAccess().getBaseTypeAssignment_3()); 
             }
-            // InternalAsm.g:4752:2: ( rule__DmxArchetype__BaseTypeAssignment_3 )
-            // InternalAsm.g:4752:3: rule__DmxArchetype__BaseTypeAssignment_3
+            // InternalAsm.g:4975:2: ( rule__DmxArchetype__BaseTypeAssignment_3 )
+            // InternalAsm.g:4975:3: rule__DmxArchetype__BaseTypeAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__DmxArchetype__BaseTypeAssignment_3();
@@ -16779,14 +17500,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__Group__4"
-    // InternalAsm.g:4760:1: rule__DmxArchetype__Group__4 : rule__DmxArchetype__Group__4__Impl ;
+    // InternalAsm.g:4983:1: rule__DmxArchetype__Group__4 : rule__DmxArchetype__Group__4__Impl ;
     public final void rule__DmxArchetype__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:4764:1: ( rule__DmxArchetype__Group__4__Impl )
-            // InternalAsm.g:4765:2: rule__DmxArchetype__Group__4__Impl
+            // InternalAsm.g:4987:1: ( rule__DmxArchetype__Group__4__Impl )
+            // InternalAsm.g:4988:2: rule__DmxArchetype__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxArchetype__Group__4__Impl();
@@ -16812,31 +17533,31 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__Group__4__Impl"
-    // InternalAsm.g:4771:1: rule__DmxArchetype__Group__4__Impl : ( ( rule__DmxArchetype__DescriptionAssignment_4 )? ) ;
+    // InternalAsm.g:4994:1: rule__DmxArchetype__Group__4__Impl : ( ( rule__DmxArchetype__DescriptionAssignment_4 )? ) ;
     public final void rule__DmxArchetype__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:4775:1: ( ( ( rule__DmxArchetype__DescriptionAssignment_4 )? ) )
-            // InternalAsm.g:4776:1: ( ( rule__DmxArchetype__DescriptionAssignment_4 )? )
+            // InternalAsm.g:4998:1: ( ( ( rule__DmxArchetype__DescriptionAssignment_4 )? ) )
+            // InternalAsm.g:4999:1: ( ( rule__DmxArchetype__DescriptionAssignment_4 )? )
             {
-            // InternalAsm.g:4776:1: ( ( rule__DmxArchetype__DescriptionAssignment_4 )? )
-            // InternalAsm.g:4777:2: ( rule__DmxArchetype__DescriptionAssignment_4 )?
+            // InternalAsm.g:4999:1: ( ( rule__DmxArchetype__DescriptionAssignment_4 )? )
+            // InternalAsm.g:5000:2: ( rule__DmxArchetype__DescriptionAssignment_4 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeAccess().getDescriptionAssignment_4()); 
             }
-            // InternalAsm.g:4778:2: ( rule__DmxArchetype__DescriptionAssignment_4 )?
-            int alt53=2;
-            int LA53_0 = input.LA(1);
+            // InternalAsm.g:5001:2: ( rule__DmxArchetype__DescriptionAssignment_4 )?
+            int alt54=2;
+            int LA54_0 = input.LA(1);
 
-            if ( ((LA53_0>=RULE_PLAIN_TEXT_ONLY && LA53_0<=RULE_PLAIN_TEXT_START)) ) {
-                alt53=1;
+            if ( ((LA54_0>=RULE_PLAIN_TEXT_ONLY && LA54_0<=RULE_PLAIN_TEXT_START)) ) {
+                alt54=1;
             }
-            switch (alt53) {
+            switch (alt54) {
                 case 1 :
-                    // InternalAsm.g:4778:3: rule__DmxArchetype__DescriptionAssignment_4
+                    // InternalAsm.g:5001:3: rule__DmxArchetype__DescriptionAssignment_4
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxArchetype__DescriptionAssignment_4();
@@ -16873,23 +17594,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DmxArchetype__Group__4__Impl"
 
 
-    // $ANTLR start "rule__DmxFunction__Group__0"
-    // InternalAsm.g:4787:1: rule__DmxFunction__Group__0 : rule__DmxFunction__Group__0__Impl rule__DmxFunction__Group__1 ;
-    public final void rule__DmxFunction__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group__0"
+    // InternalAsm.g:5010:1: rule__DmxFilter__Group__0 : rule__DmxFilter__Group__0__Impl rule__DmxFilter__Group__1 ;
+    public final void rule__DmxFilter__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:4791:1: ( rule__DmxFunction__Group__0__Impl rule__DmxFunction__Group__1 )
-            // InternalAsm.g:4792:2: rule__DmxFunction__Group__0__Impl rule__DmxFunction__Group__1
+            // InternalAsm.g:5014:1: ( rule__DmxFilter__Group__0__Impl rule__DmxFilter__Group__1 )
+            // InternalAsm.g:5015:2: rule__DmxFilter__Group__0__Impl rule__DmxFilter__Group__1
             {
             pushFollow(FOLLOW_5);
-            rule__DmxFunction__Group__0__Impl();
+            rule__DmxFilter__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group__1();
+            rule__DmxFilter__Group__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16908,28 +17629,28 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group__0"
+    // $ANTLR end "rule__DmxFilter__Group__0"
 
 
-    // $ANTLR start "rule__DmxFunction__Group__0__Impl"
-    // InternalAsm.g:4799:1: rule__DmxFunction__Group__0__Impl : ( 'function' ) ;
-    public final void rule__DmxFunction__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group__0__Impl"
+    // InternalAsm.g:5022:1: rule__DmxFilter__Group__0__Impl : ( 'filter' ) ;
+    public final void rule__DmxFilter__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:4803:1: ( ( 'function' ) )
-            // InternalAsm.g:4804:1: ( 'function' )
+            // InternalAsm.g:5026:1: ( ( 'filter' ) )
+            // InternalAsm.g:5027:1: ( 'filter' )
             {
-            // InternalAsm.g:4804:1: ( 'function' )
-            // InternalAsm.g:4805:2: 'function'
+            // InternalAsm.g:5027:1: ( 'filter' )
+            // InternalAsm.g:5028:2: 'filter'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getFunctionKeyword_0()); 
+               before(grammarAccess.getDmxFilterAccess().getFilterKeyword_0()); 
             }
             match(input,98,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getFunctionKeyword_0()); 
+               after(grammarAccess.getDmxFilterAccess().getFilterKeyword_0()); 
             }
 
             }
@@ -16949,26 +17670,26 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group__0__Impl"
+    // $ANTLR end "rule__DmxFilter__Group__0__Impl"
 
 
-    // $ANTLR start "rule__DmxFunction__Group__1"
-    // InternalAsm.g:4814:1: rule__DmxFunction__Group__1 : rule__DmxFunction__Group__1__Impl rule__DmxFunction__Group__2 ;
-    public final void rule__DmxFunction__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group__1"
+    // InternalAsm.g:5037:1: rule__DmxFilter__Group__1 : rule__DmxFilter__Group__1__Impl rule__DmxFilter__Group__2 ;
+    public final void rule__DmxFilter__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:4818:1: ( rule__DmxFunction__Group__1__Impl rule__DmxFunction__Group__2 )
-            // InternalAsm.g:4819:2: rule__DmxFunction__Group__1__Impl rule__DmxFunction__Group__2
+            // InternalAsm.g:5041:1: ( rule__DmxFilter__Group__1__Impl rule__DmxFilter__Group__2 )
+            // InternalAsm.g:5042:2: rule__DmxFilter__Group__1__Impl rule__DmxFilter__Group__2
             {
             pushFollow(FOLLOW_16);
-            rule__DmxFunction__Group__1__Impl();
+            rule__DmxFilter__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group__2();
+            rule__DmxFilter__Group__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16987,30 +17708,30 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group__1"
+    // $ANTLR end "rule__DmxFilter__Group__1"
 
 
-    // $ANTLR start "rule__DmxFunction__Group__1__Impl"
-    // InternalAsm.g:4826:1: rule__DmxFunction__Group__1__Impl : ( ( rule__DmxFunction__NameAssignment_1 ) ) ;
-    public final void rule__DmxFunction__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group__1__Impl"
+    // InternalAsm.g:5049:1: rule__DmxFilter__Group__1__Impl : ( ( rule__DmxFilter__NameAssignment_1 ) ) ;
+    public final void rule__DmxFilter__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:4830:1: ( ( ( rule__DmxFunction__NameAssignment_1 ) ) )
-            // InternalAsm.g:4831:1: ( ( rule__DmxFunction__NameAssignment_1 ) )
+            // InternalAsm.g:5053:1: ( ( ( rule__DmxFilter__NameAssignment_1 ) ) )
+            // InternalAsm.g:5054:1: ( ( rule__DmxFilter__NameAssignment_1 ) )
             {
-            // InternalAsm.g:4831:1: ( ( rule__DmxFunction__NameAssignment_1 ) )
-            // InternalAsm.g:4832:2: ( rule__DmxFunction__NameAssignment_1 )
+            // InternalAsm.g:5054:1: ( ( rule__DmxFilter__NameAssignment_1 ) )
+            // InternalAsm.g:5055:2: ( rule__DmxFilter__NameAssignment_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getNameAssignment_1()); 
+               before(grammarAccess.getDmxFilterAccess().getNameAssignment_1()); 
             }
-            // InternalAsm.g:4833:2: ( rule__DmxFunction__NameAssignment_1 )
-            // InternalAsm.g:4833:3: rule__DmxFunction__NameAssignment_1
+            // InternalAsm.g:5056:2: ( rule__DmxFilter__NameAssignment_1 )
+            // InternalAsm.g:5056:3: rule__DmxFilter__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__NameAssignment_1();
+            rule__DmxFilter__NameAssignment_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -17018,7 +17739,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getNameAssignment_1()); 
+               after(grammarAccess.getDmxFilterAccess().getNameAssignment_1()); 
             }
 
             }
@@ -17038,26 +17759,26 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group__1__Impl"
+    // $ANTLR end "rule__DmxFilter__Group__1__Impl"
 
 
-    // $ANTLR start "rule__DmxFunction__Group__2"
-    // InternalAsm.g:4841:1: rule__DmxFunction__Group__2 : rule__DmxFunction__Group__2__Impl rule__DmxFunction__Group__3 ;
-    public final void rule__DmxFunction__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group__2"
+    // InternalAsm.g:5064:1: rule__DmxFilter__Group__2 : rule__DmxFilter__Group__2__Impl rule__DmxFilter__Group__3 ;
+    public final void rule__DmxFilter__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:4845:1: ( rule__DmxFunction__Group__2__Impl rule__DmxFunction__Group__3 )
-            // InternalAsm.g:4846:2: rule__DmxFunction__Group__2__Impl rule__DmxFunction__Group__3
+            // InternalAsm.g:5068:1: ( rule__DmxFilter__Group__2__Impl rule__DmxFilter__Group__3 )
+            // InternalAsm.g:5069:2: rule__DmxFilter__Group__2__Impl rule__DmxFilter__Group__3
             {
-            pushFollow(FOLLOW_31);
-            rule__DmxFunction__Group__2__Impl();
+            pushFollow(FOLLOW_33);
+            rule__DmxFilter__Group__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group__3();
+            rule__DmxFilter__Group__3();
 
             state._fsp--;
             if (state.failed) return ;
@@ -17076,28 +17797,28 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group__2"
+    // $ANTLR end "rule__DmxFilter__Group__2"
 
 
-    // $ANTLR start "rule__DmxFunction__Group__2__Impl"
-    // InternalAsm.g:4853:1: rule__DmxFunction__Group__2__Impl : ( '(' ) ;
-    public final void rule__DmxFunction__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group__2__Impl"
+    // InternalAsm.g:5076:1: rule__DmxFilter__Group__2__Impl : ( '(' ) ;
+    public final void rule__DmxFilter__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:4857:1: ( ( '(' ) )
-            // InternalAsm.g:4858:1: ( '(' )
+            // InternalAsm.g:5080:1: ( ( '(' ) )
+            // InternalAsm.g:5081:1: ( '(' )
             {
-            // InternalAsm.g:4858:1: ( '(' )
-            // InternalAsm.g:4859:2: '('
+            // InternalAsm.g:5081:1: ( '(' )
+            // InternalAsm.g:5082:2: '('
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getLeftParenthesisKeyword_2()); 
+               before(grammarAccess.getDmxFilterAccess().getLeftParenthesisKeyword_2()); 
             }
             match(input,83,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getLeftParenthesisKeyword_2()); 
+               after(grammarAccess.getDmxFilterAccess().getLeftParenthesisKeyword_2()); 
             }
 
             }
@@ -17117,26 +17838,26 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group__2__Impl"
+    // $ANTLR end "rule__DmxFilter__Group__2__Impl"
 
 
-    // $ANTLR start "rule__DmxFunction__Group__3"
-    // InternalAsm.g:4868:1: rule__DmxFunction__Group__3 : rule__DmxFunction__Group__3__Impl rule__DmxFunction__Group__4 ;
-    public final void rule__DmxFunction__Group__3() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group__3"
+    // InternalAsm.g:5091:1: rule__DmxFilter__Group__3 : rule__DmxFilter__Group__3__Impl rule__DmxFilter__Group__4 ;
+    public final void rule__DmxFilter__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:4872:1: ( rule__DmxFunction__Group__3__Impl rule__DmxFunction__Group__4 )
-            // InternalAsm.g:4873:2: rule__DmxFunction__Group__3__Impl rule__DmxFunction__Group__4
+            // InternalAsm.g:5095:1: ( rule__DmxFilter__Group__3__Impl rule__DmxFilter__Group__4 )
+            // InternalAsm.g:5096:2: rule__DmxFilter__Group__3__Impl rule__DmxFilter__Group__4
             {
-            pushFollow(FOLLOW_31);
-            rule__DmxFunction__Group__3__Impl();
+            pushFollow(FOLLOW_33);
+            rule__DmxFilter__Group__3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group__4();
+            rule__DmxFilter__Group__4();
 
             state._fsp--;
             if (state.failed) return ;
@@ -17155,380 +17876,38 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group__3"
+    // $ANTLR end "rule__DmxFilter__Group__3"
 
 
-    // $ANTLR start "rule__DmxFunction__Group__3__Impl"
-    // InternalAsm.g:4880:1: rule__DmxFunction__Group__3__Impl : ( ( rule__DmxFunction__Group_3__0 )? ) ;
-    public final void rule__DmxFunction__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:4884:1: ( ( ( rule__DmxFunction__Group_3__0 )? ) )
-            // InternalAsm.g:4885:1: ( ( rule__DmxFunction__Group_3__0 )? )
-            {
-            // InternalAsm.g:4885:1: ( ( rule__DmxFunction__Group_3__0 )? )
-            // InternalAsm.g:4886:2: ( rule__DmxFunction__Group_3__0 )?
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getGroup_3()); 
-            }
-            // InternalAsm.g:4887:2: ( rule__DmxFunction__Group_3__0 )?
-            int alt54=2;
-            int LA54_0 = input.LA(1);
-
-            if ( (LA54_0==RULE_ID) ) {
-                alt54=1;
-            }
-            switch (alt54) {
-                case 1 :
-                    // InternalAsm.g:4887:3: rule__DmxFunction__Group_3__0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__DmxFunction__Group_3__0();
-
-                    state._fsp--;
-                    if (state.failed) return ;
-
-                    }
-                    break;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getGroup_3()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunction__Group__3__Impl"
-
-
-    // $ANTLR start "rule__DmxFunction__Group__4"
-    // InternalAsm.g:4895:1: rule__DmxFunction__Group__4 : rule__DmxFunction__Group__4__Impl rule__DmxFunction__Group__5 ;
-    public final void rule__DmxFunction__Group__4() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group__3__Impl"
+    // InternalAsm.g:5103:1: rule__DmxFilter__Group__3__Impl : ( ( rule__DmxFilter__Group_3__0 )? ) ;
+    public final void rule__DmxFilter__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:4899:1: ( rule__DmxFunction__Group__4__Impl rule__DmxFunction__Group__5 )
-            // InternalAsm.g:4900:2: rule__DmxFunction__Group__4__Impl rule__DmxFunction__Group__5
+            // InternalAsm.g:5107:1: ( ( ( rule__DmxFilter__Group_3__0 )? ) )
+            // InternalAsm.g:5108:1: ( ( rule__DmxFilter__Group_3__0 )? )
             {
-            pushFollow(FOLLOW_26);
-            rule__DmxFunction__Group__4__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group__5();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunction__Group__4"
-
-
-    // $ANTLR start "rule__DmxFunction__Group__4__Impl"
-    // InternalAsm.g:4907:1: rule__DmxFunction__Group__4__Impl : ( ')' ) ;
-    public final void rule__DmxFunction__Group__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:4911:1: ( ( ')' ) )
-            // InternalAsm.g:4912:1: ( ')' )
-            {
-            // InternalAsm.g:4912:1: ( ')' )
-            // InternalAsm.g:4913:2: ')'
+            // InternalAsm.g:5108:1: ( ( rule__DmxFilter__Group_3__0 )? )
+            // InternalAsm.g:5109:2: ( rule__DmxFilter__Group_3__0 )?
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getRightParenthesisKeyword_4()); 
+               before(grammarAccess.getDmxFilterAccess().getGroup_3()); 
             }
-            match(input,84,FOLLOW_2); if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getRightParenthesisKeyword_4()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunction__Group__4__Impl"
-
-
-    // $ANTLR start "rule__DmxFunction__Group__5"
-    // InternalAsm.g:4922:1: rule__DmxFunction__Group__5 : rule__DmxFunction__Group__5__Impl rule__DmxFunction__Group__6 ;
-    public final void rule__DmxFunction__Group__5() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:4926:1: ( rule__DmxFunction__Group__5__Impl rule__DmxFunction__Group__6 )
-            // InternalAsm.g:4927:2: rule__DmxFunction__Group__5__Impl rule__DmxFunction__Group__6
-            {
-            pushFollow(FOLLOW_30);
-            rule__DmxFunction__Group__5__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group__6();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunction__Group__5"
-
-
-    // $ANTLR start "rule__DmxFunction__Group__5__Impl"
-    // InternalAsm.g:4934:1: rule__DmxFunction__Group__5__Impl : ( ':' ) ;
-    public final void rule__DmxFunction__Group__5__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:4938:1: ( ( ':' ) )
-            // InternalAsm.g:4939:1: ( ':' )
-            {
-            // InternalAsm.g:4939:1: ( ':' )
-            // InternalAsm.g:4940:2: ':'
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getColonKeyword_5()); 
-            }
-            match(input,91,FOLLOW_2); if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getColonKeyword_5()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunction__Group__5__Impl"
-
-
-    // $ANTLR start "rule__DmxFunction__Group__6"
-    // InternalAsm.g:4949:1: rule__DmxFunction__Group__6 : rule__DmxFunction__Group__6__Impl rule__DmxFunction__Group__7 ;
-    public final void rule__DmxFunction__Group__6() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:4953:1: ( rule__DmxFunction__Group__6__Impl rule__DmxFunction__Group__7 )
-            // InternalAsm.g:4954:2: rule__DmxFunction__Group__6__Impl rule__DmxFunction__Group__7
-            {
-            pushFollow(FOLLOW_32);
-            rule__DmxFunction__Group__6__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group__7();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunction__Group__6"
-
-
-    // $ANTLR start "rule__DmxFunction__Group__6__Impl"
-    // InternalAsm.g:4961:1: rule__DmxFunction__Group__6__Impl : ( ( rule__DmxFunction__BaseTypeAssignment_6 ) ) ;
-    public final void rule__DmxFunction__Group__6__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:4965:1: ( ( ( rule__DmxFunction__BaseTypeAssignment_6 ) ) )
-            // InternalAsm.g:4966:1: ( ( rule__DmxFunction__BaseTypeAssignment_6 ) )
-            {
-            // InternalAsm.g:4966:1: ( ( rule__DmxFunction__BaseTypeAssignment_6 ) )
-            // InternalAsm.g:4967:2: ( rule__DmxFunction__BaseTypeAssignment_6 )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getBaseTypeAssignment_6()); 
-            }
-            // InternalAsm.g:4968:2: ( rule__DmxFunction__BaseTypeAssignment_6 )
-            // InternalAsm.g:4968:3: rule__DmxFunction__BaseTypeAssignment_6
-            {
-            pushFollow(FOLLOW_2);
-            rule__DmxFunction__BaseTypeAssignment_6();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getBaseTypeAssignment_6()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunction__Group__6__Impl"
-
-
-    // $ANTLR start "rule__DmxFunction__Group__7"
-    // InternalAsm.g:4976:1: rule__DmxFunction__Group__7 : rule__DmxFunction__Group__7__Impl ;
-    public final void rule__DmxFunction__Group__7() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:4980:1: ( rule__DmxFunction__Group__7__Impl )
-            // InternalAsm.g:4981:2: rule__DmxFunction__Group__7__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group__7__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunction__Group__7"
-
-
-    // $ANTLR start "rule__DmxFunction__Group__7__Impl"
-    // InternalAsm.g:4987:1: rule__DmxFunction__Group__7__Impl : ( ( rule__DmxFunction__BaseTypeCollectionAssignment_7 )? ) ;
-    public final void rule__DmxFunction__Group__7__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:4991:1: ( ( ( rule__DmxFunction__BaseTypeCollectionAssignment_7 )? ) )
-            // InternalAsm.g:4992:1: ( ( rule__DmxFunction__BaseTypeCollectionAssignment_7 )? )
-            {
-            // InternalAsm.g:4992:1: ( ( rule__DmxFunction__BaseTypeCollectionAssignment_7 )? )
-            // InternalAsm.g:4993:2: ( rule__DmxFunction__BaseTypeCollectionAssignment_7 )?
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getBaseTypeCollectionAssignment_7()); 
-            }
-            // InternalAsm.g:4994:2: ( rule__DmxFunction__BaseTypeCollectionAssignment_7 )?
+            // InternalAsm.g:5110:2: ( rule__DmxFilter__Group_3__0 )?
             int alt55=2;
             int LA55_0 = input.LA(1);
 
-            if ( (LA55_0==30) ) {
+            if ( (LA55_0==RULE_ID) ) {
                 alt55=1;
             }
             switch (alt55) {
                 case 1 :
-                    // InternalAsm.g:4994:3: rule__DmxFunction__BaseTypeCollectionAssignment_7
+                    // InternalAsm.g:5110:3: rule__DmxFilter__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__DmxFunction__BaseTypeCollectionAssignment_7();
+                    rule__DmxFilter__Group_3__0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -17539,7 +17918,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getBaseTypeCollectionAssignment_7()); 
+               after(grammarAccess.getDmxFilterAccess().getGroup_3()); 
             }
 
             }
@@ -17559,26 +17938,368 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group__7__Impl"
+    // $ANTLR end "rule__DmxFilter__Group__3__Impl"
 
 
-    // $ANTLR start "rule__DmxFunction__Group_3__0"
-    // InternalAsm.g:5003:1: rule__DmxFunction__Group_3__0 : rule__DmxFunction__Group_3__0__Impl rule__DmxFunction__Group_3__1 ;
-    public final void rule__DmxFunction__Group_3__0() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group__4"
+    // InternalAsm.g:5118:1: rule__DmxFilter__Group__4 : rule__DmxFilter__Group__4__Impl rule__DmxFilter__Group__5 ;
+    public final void rule__DmxFilter__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5007:1: ( rule__DmxFunction__Group_3__0__Impl rule__DmxFunction__Group_3__1 )
-            // InternalAsm.g:5008:2: rule__DmxFunction__Group_3__0__Impl rule__DmxFunction__Group_3__1
+            // InternalAsm.g:5122:1: ( rule__DmxFilter__Group__4__Impl rule__DmxFilter__Group__5 )
+            // InternalAsm.g:5123:2: rule__DmxFilter__Group__4__Impl rule__DmxFilter__Group__5
+            {
+            pushFollow(FOLLOW_26);
+            rule__DmxFilter__Group__4__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxFilter__Group__5();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__Group__4"
+
+
+    // $ANTLR start "rule__DmxFilter__Group__4__Impl"
+    // InternalAsm.g:5130:1: rule__DmxFilter__Group__4__Impl : ( ')' ) ;
+    public final void rule__DmxFilter__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:5134:1: ( ( ')' ) )
+            // InternalAsm.g:5135:1: ( ')' )
+            {
+            // InternalAsm.g:5135:1: ( ')' )
+            // InternalAsm.g:5136:2: ')'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterAccess().getRightParenthesisKeyword_4()); 
+            }
+            match(input,84,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterAccess().getRightParenthesisKeyword_4()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__Group__4__Impl"
+
+
+    // $ANTLR start "rule__DmxFilter__Group__5"
+    // InternalAsm.g:5145:1: rule__DmxFilter__Group__5 : rule__DmxFilter__Group__5__Impl rule__DmxFilter__Group__6 ;
+    public final void rule__DmxFilter__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:5149:1: ( rule__DmxFilter__Group__5__Impl rule__DmxFilter__Group__6 )
+            // InternalAsm.g:5150:2: rule__DmxFilter__Group__5__Impl rule__DmxFilter__Group__6
+            {
+            pushFollow(FOLLOW_34);
+            rule__DmxFilter__Group__5__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxFilter__Group__6();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__Group__5"
+
+
+    // $ANTLR start "rule__DmxFilter__Group__5__Impl"
+    // InternalAsm.g:5157:1: rule__DmxFilter__Group__5__Impl : ( ':' ) ;
+    public final void rule__DmxFilter__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:5161:1: ( ( ':' ) )
+            // InternalAsm.g:5162:1: ( ':' )
+            {
+            // InternalAsm.g:5162:1: ( ':' )
+            // InternalAsm.g:5163:2: ':'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterAccess().getColonKeyword_5()); 
+            }
+            match(input,91,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterAccess().getColonKeyword_5()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__Group__5__Impl"
+
+
+    // $ANTLR start "rule__DmxFilter__Group__6"
+    // InternalAsm.g:5172:1: rule__DmxFilter__Group__6 : rule__DmxFilter__Group__6__Impl rule__DmxFilter__Group__7 ;
+    public final void rule__DmxFilter__Group__6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:5176:1: ( rule__DmxFilter__Group__6__Impl rule__DmxFilter__Group__7 )
+            // InternalAsm.g:5177:2: rule__DmxFilter__Group__6__Impl rule__DmxFilter__Group__7
+            {
+            pushFollow(FOLLOW_35);
+            rule__DmxFilter__Group__6__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxFilter__Group__7();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__Group__6"
+
+
+    // $ANTLR start "rule__DmxFilter__Group__6__Impl"
+    // InternalAsm.g:5184:1: rule__DmxFilter__Group__6__Impl : ( ( rule__DmxFilter__TypeDescAssignment_6 ) ) ;
+    public final void rule__DmxFilter__Group__6__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:5188:1: ( ( ( rule__DmxFilter__TypeDescAssignment_6 ) ) )
+            // InternalAsm.g:5189:1: ( ( rule__DmxFilter__TypeDescAssignment_6 ) )
+            {
+            // InternalAsm.g:5189:1: ( ( rule__DmxFilter__TypeDescAssignment_6 ) )
+            // InternalAsm.g:5190:2: ( rule__DmxFilter__TypeDescAssignment_6 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterAccess().getTypeDescAssignment_6()); 
+            }
+            // InternalAsm.g:5191:2: ( rule__DmxFilter__TypeDescAssignment_6 )
+            // InternalAsm.g:5191:3: rule__DmxFilter__TypeDescAssignment_6
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxFilter__TypeDescAssignment_6();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterAccess().getTypeDescAssignment_6()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__Group__6__Impl"
+
+
+    // $ANTLR start "rule__DmxFilter__Group__7"
+    // InternalAsm.g:5199:1: rule__DmxFilter__Group__7 : rule__DmxFilter__Group__7__Impl ;
+    public final void rule__DmxFilter__Group__7() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:5203:1: ( rule__DmxFilter__Group__7__Impl )
+            // InternalAsm.g:5204:2: rule__DmxFilter__Group__7__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxFilter__Group__7__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__Group__7"
+
+
+    // $ANTLR start "rule__DmxFilter__Group__7__Impl"
+    // InternalAsm.g:5210:1: rule__DmxFilter__Group__7__Impl : ( ( rule__DmxFilter__Group_7__0 )? ) ;
+    public final void rule__DmxFilter__Group__7__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:5214:1: ( ( ( rule__DmxFilter__Group_7__0 )? ) )
+            // InternalAsm.g:5215:1: ( ( rule__DmxFilter__Group_7__0 )? )
+            {
+            // InternalAsm.g:5215:1: ( ( rule__DmxFilter__Group_7__0 )? )
+            // InternalAsm.g:5216:2: ( rule__DmxFilter__Group_7__0 )?
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterAccess().getGroup_7()); 
+            }
+            // InternalAsm.g:5217:2: ( rule__DmxFilter__Group_7__0 )?
+            int alt56=2;
+            int LA56_0 = input.LA(1);
+
+            if ( (LA56_0==99) ) {
+                alt56=1;
+            }
+            switch (alt56) {
+                case 1 :
+                    // InternalAsm.g:5217:3: rule__DmxFilter__Group_7__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__DmxFilter__Group_7__0();
+
+                    state._fsp--;
+                    if (state.failed) return ;
+
+                    }
+                    break;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterAccess().getGroup_7()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__Group__7__Impl"
+
+
+    // $ANTLR start "rule__DmxFilter__Group_3__0"
+    // InternalAsm.g:5226:1: rule__DmxFilter__Group_3__0 : rule__DmxFilter__Group_3__0__Impl rule__DmxFilter__Group_3__1 ;
+    public final void rule__DmxFilter__Group_3__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:5230:1: ( rule__DmxFilter__Group_3__0__Impl rule__DmxFilter__Group_3__1 )
+            // InternalAsm.g:5231:2: rule__DmxFilter__Group_3__0__Impl rule__DmxFilter__Group_3__1
             {
             pushFollow(FOLLOW_22);
-            rule__DmxFunction__Group_3__0__Impl();
+            rule__DmxFilter__Group_3__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group_3__1();
+            rule__DmxFilter__Group_3__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -17597,30 +18318,30 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group_3__0"
+    // $ANTLR end "rule__DmxFilter__Group_3__0"
 
 
-    // $ANTLR start "rule__DmxFunction__Group_3__0__Impl"
-    // InternalAsm.g:5015:1: rule__DmxFunction__Group_3__0__Impl : ( ( rule__DmxFunction__ParametersAssignment_3_0 ) ) ;
-    public final void rule__DmxFunction__Group_3__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group_3__0__Impl"
+    // InternalAsm.g:5238:1: rule__DmxFilter__Group_3__0__Impl : ( ( rule__DmxFilter__ParametersAssignment_3_0 ) ) ;
+    public final void rule__DmxFilter__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5019:1: ( ( ( rule__DmxFunction__ParametersAssignment_3_0 ) ) )
-            // InternalAsm.g:5020:1: ( ( rule__DmxFunction__ParametersAssignment_3_0 ) )
+            // InternalAsm.g:5242:1: ( ( ( rule__DmxFilter__ParametersAssignment_3_0 ) ) )
+            // InternalAsm.g:5243:1: ( ( rule__DmxFilter__ParametersAssignment_3_0 ) )
             {
-            // InternalAsm.g:5020:1: ( ( rule__DmxFunction__ParametersAssignment_3_0 ) )
-            // InternalAsm.g:5021:2: ( rule__DmxFunction__ParametersAssignment_3_0 )
+            // InternalAsm.g:5243:1: ( ( rule__DmxFilter__ParametersAssignment_3_0 ) )
+            // InternalAsm.g:5244:2: ( rule__DmxFilter__ParametersAssignment_3_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getParametersAssignment_3_0()); 
+               before(grammarAccess.getDmxFilterAccess().getParametersAssignment_3_0()); 
             }
-            // InternalAsm.g:5022:2: ( rule__DmxFunction__ParametersAssignment_3_0 )
-            // InternalAsm.g:5022:3: rule__DmxFunction__ParametersAssignment_3_0
+            // InternalAsm.g:5245:2: ( rule__DmxFilter__ParametersAssignment_3_0 )
+            // InternalAsm.g:5245:3: rule__DmxFilter__ParametersAssignment_3_0
             {
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__ParametersAssignment_3_0();
+            rule__DmxFilter__ParametersAssignment_3_0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -17628,7 +18349,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getParametersAssignment_3_0()); 
+               after(grammarAccess.getDmxFilterAccess().getParametersAssignment_3_0()); 
             }
 
             }
@@ -17648,21 +18369,21 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group_3__0__Impl"
+    // $ANTLR end "rule__DmxFilter__Group_3__0__Impl"
 
 
-    // $ANTLR start "rule__DmxFunction__Group_3__1"
-    // InternalAsm.g:5030:1: rule__DmxFunction__Group_3__1 : rule__DmxFunction__Group_3__1__Impl ;
-    public final void rule__DmxFunction__Group_3__1() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group_3__1"
+    // InternalAsm.g:5253:1: rule__DmxFilter__Group_3__1 : rule__DmxFilter__Group_3__1__Impl ;
+    public final void rule__DmxFilter__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5034:1: ( rule__DmxFunction__Group_3__1__Impl )
-            // InternalAsm.g:5035:2: rule__DmxFunction__Group_3__1__Impl
+            // InternalAsm.g:5257:1: ( rule__DmxFilter__Group_3__1__Impl )
+            // InternalAsm.g:5258:2: rule__DmxFilter__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group_3__1__Impl();
+            rule__DmxFilter__Group_3__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -17681,42 +18402,42 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group_3__1"
+    // $ANTLR end "rule__DmxFilter__Group_3__1"
 
 
-    // $ANTLR start "rule__DmxFunction__Group_3__1__Impl"
-    // InternalAsm.g:5041:1: rule__DmxFunction__Group_3__1__Impl : ( ( rule__DmxFunction__Group_3_1__0 )* ) ;
-    public final void rule__DmxFunction__Group_3__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group_3__1__Impl"
+    // InternalAsm.g:5264:1: rule__DmxFilter__Group_3__1__Impl : ( ( rule__DmxFilter__Group_3_1__0 )* ) ;
+    public final void rule__DmxFilter__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5045:1: ( ( ( rule__DmxFunction__Group_3_1__0 )* ) )
-            // InternalAsm.g:5046:1: ( ( rule__DmxFunction__Group_3_1__0 )* )
+            // InternalAsm.g:5268:1: ( ( ( rule__DmxFilter__Group_3_1__0 )* ) )
+            // InternalAsm.g:5269:1: ( ( rule__DmxFilter__Group_3_1__0 )* )
             {
-            // InternalAsm.g:5046:1: ( ( rule__DmxFunction__Group_3_1__0 )* )
-            // InternalAsm.g:5047:2: ( rule__DmxFunction__Group_3_1__0 )*
+            // InternalAsm.g:5269:1: ( ( rule__DmxFilter__Group_3_1__0 )* )
+            // InternalAsm.g:5270:2: ( rule__DmxFilter__Group_3_1__0 )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getGroup_3_1()); 
+               before(grammarAccess.getDmxFilterAccess().getGroup_3_1()); 
             }
-            // InternalAsm.g:5048:2: ( rule__DmxFunction__Group_3_1__0 )*
-            loop56:
+            // InternalAsm.g:5271:2: ( rule__DmxFilter__Group_3_1__0 )*
+            loop57:
             do {
-                int alt56=2;
-                int LA56_0 = input.LA(1);
+                int alt57=2;
+                int LA57_0 = input.LA(1);
 
-                if ( (LA56_0==87) ) {
-                    alt56=1;
+                if ( (LA57_0==87) ) {
+                    alt57=1;
                 }
 
 
-                switch (alt56) {
+                switch (alt57) {
             	case 1 :
-            	    // InternalAsm.g:5048:3: rule__DmxFunction__Group_3_1__0
+            	    // InternalAsm.g:5271:3: rule__DmxFilter__Group_3_1__0
             	    {
             	    pushFollow(FOLLOW_23);
-            	    rule__DmxFunction__Group_3_1__0();
+            	    rule__DmxFilter__Group_3_1__0();
 
             	    state._fsp--;
             	    if (state.failed) return ;
@@ -17725,12 +18446,12 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop56;
+            	    break loop57;
                 }
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getGroup_3_1()); 
+               after(grammarAccess.getDmxFilterAccess().getGroup_3_1()); 
             }
 
             }
@@ -17750,26 +18471,26 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group_3__1__Impl"
+    // $ANTLR end "rule__DmxFilter__Group_3__1__Impl"
 
 
-    // $ANTLR start "rule__DmxFunction__Group_3_1__0"
-    // InternalAsm.g:5057:1: rule__DmxFunction__Group_3_1__0 : rule__DmxFunction__Group_3_1__0__Impl rule__DmxFunction__Group_3_1__1 ;
-    public final void rule__DmxFunction__Group_3_1__0() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group_3_1__0"
+    // InternalAsm.g:5280:1: rule__DmxFilter__Group_3_1__0 : rule__DmxFilter__Group_3_1__0__Impl rule__DmxFilter__Group_3_1__1 ;
+    public final void rule__DmxFilter__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5061:1: ( rule__DmxFunction__Group_3_1__0__Impl rule__DmxFunction__Group_3_1__1 )
-            // InternalAsm.g:5062:2: rule__DmxFunction__Group_3_1__0__Impl rule__DmxFunction__Group_3_1__1
+            // InternalAsm.g:5284:1: ( rule__DmxFilter__Group_3_1__0__Impl rule__DmxFilter__Group_3_1__1 )
+            // InternalAsm.g:5285:2: rule__DmxFilter__Group_3_1__0__Impl rule__DmxFilter__Group_3_1__1
             {
             pushFollow(FOLLOW_5);
-            rule__DmxFunction__Group_3_1__0__Impl();
+            rule__DmxFilter__Group_3_1__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group_3_1__1();
+            rule__DmxFilter__Group_3_1__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -17788,28 +18509,28 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group_3_1__0"
+    // $ANTLR end "rule__DmxFilter__Group_3_1__0"
 
 
-    // $ANTLR start "rule__DmxFunction__Group_3_1__0__Impl"
-    // InternalAsm.g:5069:1: rule__DmxFunction__Group_3_1__0__Impl : ( ',' ) ;
-    public final void rule__DmxFunction__Group_3_1__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group_3_1__0__Impl"
+    // InternalAsm.g:5292:1: rule__DmxFilter__Group_3_1__0__Impl : ( ',' ) ;
+    public final void rule__DmxFilter__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5073:1: ( ( ',' ) )
-            // InternalAsm.g:5074:1: ( ',' )
+            // InternalAsm.g:5296:1: ( ( ',' ) )
+            // InternalAsm.g:5297:1: ( ',' )
             {
-            // InternalAsm.g:5074:1: ( ',' )
-            // InternalAsm.g:5075:2: ','
+            // InternalAsm.g:5297:1: ( ',' )
+            // InternalAsm.g:5298:2: ','
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getCommaKeyword_3_1_0()); 
+               before(grammarAccess.getDmxFilterAccess().getCommaKeyword_3_1_0()); 
             }
             match(input,87,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getCommaKeyword_3_1_0()); 
+               after(grammarAccess.getDmxFilterAccess().getCommaKeyword_3_1_0()); 
             }
 
             }
@@ -17829,21 +18550,21 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group_3_1__0__Impl"
+    // $ANTLR end "rule__DmxFilter__Group_3_1__0__Impl"
 
 
-    // $ANTLR start "rule__DmxFunction__Group_3_1__1"
-    // InternalAsm.g:5084:1: rule__DmxFunction__Group_3_1__1 : rule__DmxFunction__Group_3_1__1__Impl ;
-    public final void rule__DmxFunction__Group_3_1__1() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group_3_1__1"
+    // InternalAsm.g:5307:1: rule__DmxFilter__Group_3_1__1 : rule__DmxFilter__Group_3_1__1__Impl ;
+    public final void rule__DmxFilter__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5088:1: ( rule__DmxFunction__Group_3_1__1__Impl )
-            // InternalAsm.g:5089:2: rule__DmxFunction__Group_3_1__1__Impl
+            // InternalAsm.g:5311:1: ( rule__DmxFilter__Group_3_1__1__Impl )
+            // InternalAsm.g:5312:2: rule__DmxFilter__Group_3_1__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__Group_3_1__1__Impl();
+            rule__DmxFilter__Group_3_1__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -17862,30 +18583,30 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group_3_1__1"
+    // $ANTLR end "rule__DmxFilter__Group_3_1__1"
 
 
-    // $ANTLR start "rule__DmxFunction__Group_3_1__1__Impl"
-    // InternalAsm.g:5095:1: rule__DmxFunction__Group_3_1__1__Impl : ( ( rule__DmxFunction__ParametersAssignment_3_1_1 ) ) ;
-    public final void rule__DmxFunction__Group_3_1__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group_3_1__1__Impl"
+    // InternalAsm.g:5318:1: rule__DmxFilter__Group_3_1__1__Impl : ( ( rule__DmxFilter__ParametersAssignment_3_1_1 ) ) ;
+    public final void rule__DmxFilter__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5099:1: ( ( ( rule__DmxFunction__ParametersAssignment_3_1_1 ) ) )
-            // InternalAsm.g:5100:1: ( ( rule__DmxFunction__ParametersAssignment_3_1_1 ) )
+            // InternalAsm.g:5322:1: ( ( ( rule__DmxFilter__ParametersAssignment_3_1_1 ) ) )
+            // InternalAsm.g:5323:1: ( ( rule__DmxFilter__ParametersAssignment_3_1_1 ) )
             {
-            // InternalAsm.g:5100:1: ( ( rule__DmxFunction__ParametersAssignment_3_1_1 ) )
-            // InternalAsm.g:5101:2: ( rule__DmxFunction__ParametersAssignment_3_1_1 )
+            // InternalAsm.g:5323:1: ( ( rule__DmxFilter__ParametersAssignment_3_1_1 ) )
+            // InternalAsm.g:5324:2: ( rule__DmxFilter__ParametersAssignment_3_1_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getParametersAssignment_3_1_1()); 
+               before(grammarAccess.getDmxFilterAccess().getParametersAssignment_3_1_1()); 
             }
-            // InternalAsm.g:5102:2: ( rule__DmxFunction__ParametersAssignment_3_1_1 )
-            // InternalAsm.g:5102:3: rule__DmxFunction__ParametersAssignment_3_1_1
+            // InternalAsm.g:5325:2: ( rule__DmxFilter__ParametersAssignment_3_1_1 )
+            // InternalAsm.g:5325:3: rule__DmxFilter__ParametersAssignment_3_1_1
             {
             pushFollow(FOLLOW_2);
-            rule__DmxFunction__ParametersAssignment_3_1_1();
+            rule__DmxFilter__ParametersAssignment_3_1_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -17893,7 +18614,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getParametersAssignment_3_1_1()); 
+               after(grammarAccess.getDmxFilterAccess().getParametersAssignment_3_1_1()); 
             }
 
             }
@@ -17913,378 +18634,26 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__Group_3_1__1__Impl"
+    // $ANTLR end "rule__DmxFilter__Group_3_1__1__Impl"
 
 
-    // $ANTLR start "rule__DmxFunctionParameter__Group__0"
-    // InternalAsm.g:5111:1: rule__DmxFunctionParameter__Group__0 : rule__DmxFunctionParameter__Group__0__Impl rule__DmxFunctionParameter__Group__1 ;
-    public final void rule__DmxFunctionParameter__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:5115:1: ( rule__DmxFunctionParameter__Group__0__Impl rule__DmxFunctionParameter__Group__1 )
-            // InternalAsm.g:5116:2: rule__DmxFunctionParameter__Group__0__Impl rule__DmxFunctionParameter__Group__1
-            {
-            pushFollow(FOLLOW_26);
-            rule__DmxFunctionParameter__Group__0__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__DmxFunctionParameter__Group__1();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunctionParameter__Group__0"
-
-
-    // $ANTLR start "rule__DmxFunctionParameter__Group__0__Impl"
-    // InternalAsm.g:5123:1: rule__DmxFunctionParameter__Group__0__Impl : ( ( rule__DmxFunctionParameter__NameAssignment_0 ) ) ;
-    public final void rule__DmxFunctionParameter__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group_7__0"
+    // InternalAsm.g:5334:1: rule__DmxFilter__Group_7__0 : rule__DmxFilter__Group_7__0__Impl rule__DmxFilter__Group_7__1 ;
+    public final void rule__DmxFilter__Group_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5127:1: ( ( ( rule__DmxFunctionParameter__NameAssignment_0 ) ) )
-            // InternalAsm.g:5128:1: ( ( rule__DmxFunctionParameter__NameAssignment_0 ) )
-            {
-            // InternalAsm.g:5128:1: ( ( rule__DmxFunctionParameter__NameAssignment_0 ) )
-            // InternalAsm.g:5129:2: ( rule__DmxFunctionParameter__NameAssignment_0 )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionParameterAccess().getNameAssignment_0()); 
-            }
-            // InternalAsm.g:5130:2: ( rule__DmxFunctionParameter__NameAssignment_0 )
-            // InternalAsm.g:5130:3: rule__DmxFunctionParameter__NameAssignment_0
-            {
-            pushFollow(FOLLOW_2);
-            rule__DmxFunctionParameter__NameAssignment_0();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionParameterAccess().getNameAssignment_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunctionParameter__Group__0__Impl"
-
-
-    // $ANTLR start "rule__DmxFunctionParameter__Group__1"
-    // InternalAsm.g:5138:1: rule__DmxFunctionParameter__Group__1 : rule__DmxFunctionParameter__Group__1__Impl rule__DmxFunctionParameter__Group__2 ;
-    public final void rule__DmxFunctionParameter__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:5142:1: ( rule__DmxFunctionParameter__Group__1__Impl rule__DmxFunctionParameter__Group__2 )
-            // InternalAsm.g:5143:2: rule__DmxFunctionParameter__Group__1__Impl rule__DmxFunctionParameter__Group__2
-            {
-            pushFollow(FOLLOW_30);
-            rule__DmxFunctionParameter__Group__1__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__DmxFunctionParameter__Group__2();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunctionParameter__Group__1"
-
-
-    // $ANTLR start "rule__DmxFunctionParameter__Group__1__Impl"
-    // InternalAsm.g:5150:1: rule__DmxFunctionParameter__Group__1__Impl : ( ':' ) ;
-    public final void rule__DmxFunctionParameter__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:5154:1: ( ( ':' ) )
-            // InternalAsm.g:5155:1: ( ':' )
-            {
-            // InternalAsm.g:5155:1: ( ':' )
-            // InternalAsm.g:5156:2: ':'
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionParameterAccess().getColonKeyword_1()); 
-            }
-            match(input,91,FOLLOW_2); if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionParameterAccess().getColonKeyword_1()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunctionParameter__Group__1__Impl"
-
-
-    // $ANTLR start "rule__DmxFunctionParameter__Group__2"
-    // InternalAsm.g:5165:1: rule__DmxFunctionParameter__Group__2 : rule__DmxFunctionParameter__Group__2__Impl rule__DmxFunctionParameter__Group__3 ;
-    public final void rule__DmxFunctionParameter__Group__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:5169:1: ( rule__DmxFunctionParameter__Group__2__Impl rule__DmxFunctionParameter__Group__3 )
-            // InternalAsm.g:5170:2: rule__DmxFunctionParameter__Group__2__Impl rule__DmxFunctionParameter__Group__3
-            {
-            pushFollow(FOLLOW_32);
-            rule__DmxFunctionParameter__Group__2__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__DmxFunctionParameter__Group__3();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunctionParameter__Group__2"
-
-
-    // $ANTLR start "rule__DmxFunctionParameter__Group__2__Impl"
-    // InternalAsm.g:5177:1: rule__DmxFunctionParameter__Group__2__Impl : ( ( rule__DmxFunctionParameter__BaseTypeAssignment_2 ) ) ;
-    public final void rule__DmxFunctionParameter__Group__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:5181:1: ( ( ( rule__DmxFunctionParameter__BaseTypeAssignment_2 ) ) )
-            // InternalAsm.g:5182:1: ( ( rule__DmxFunctionParameter__BaseTypeAssignment_2 ) )
-            {
-            // InternalAsm.g:5182:1: ( ( rule__DmxFunctionParameter__BaseTypeAssignment_2 ) )
-            // InternalAsm.g:5183:2: ( rule__DmxFunctionParameter__BaseTypeAssignment_2 )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeAssignment_2()); 
-            }
-            // InternalAsm.g:5184:2: ( rule__DmxFunctionParameter__BaseTypeAssignment_2 )
-            // InternalAsm.g:5184:3: rule__DmxFunctionParameter__BaseTypeAssignment_2
-            {
-            pushFollow(FOLLOW_2);
-            rule__DmxFunctionParameter__BaseTypeAssignment_2();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeAssignment_2()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunctionParameter__Group__2__Impl"
-
-
-    // $ANTLR start "rule__DmxFunctionParameter__Group__3"
-    // InternalAsm.g:5192:1: rule__DmxFunctionParameter__Group__3 : rule__DmxFunctionParameter__Group__3__Impl ;
-    public final void rule__DmxFunctionParameter__Group__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:5196:1: ( rule__DmxFunctionParameter__Group__3__Impl )
-            // InternalAsm.g:5197:2: rule__DmxFunctionParameter__Group__3__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__DmxFunctionParameter__Group__3__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunctionParameter__Group__3"
-
-
-    // $ANTLR start "rule__DmxFunctionParameter__Group__3__Impl"
-    // InternalAsm.g:5203:1: rule__DmxFunctionParameter__Group__3__Impl : ( ( rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3 )? ) ;
-    public final void rule__DmxFunctionParameter__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:5207:1: ( ( ( rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3 )? ) )
-            // InternalAsm.g:5208:1: ( ( rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3 )? )
-            {
-            // InternalAsm.g:5208:1: ( ( rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3 )? )
-            // InternalAsm.g:5209:2: ( rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3 )?
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeCollectionAssignment_3()); 
-            }
-            // InternalAsm.g:5210:2: ( rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3 )?
-            int alt57=2;
-            int LA57_0 = input.LA(1);
-
-            if ( (LA57_0==30) ) {
-                alt57=1;
-            }
-            switch (alt57) {
-                case 1 :
-                    // InternalAsm.g:5210:3: rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3();
-
-                    state._fsp--;
-                    if (state.failed) return ;
-
-                    }
-                    break;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeCollectionAssignment_3()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunctionParameter__Group__3__Impl"
-
-
-    // $ANTLR start "rule__DmxIterator__Group__0"
-    // InternalAsm.g:5219:1: rule__DmxIterator__Group__0 : rule__DmxIterator__Group__0__Impl rule__DmxIterator__Group__1 ;
-    public final void rule__DmxIterator__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:5223:1: ( rule__DmxIterator__Group__0__Impl rule__DmxIterator__Group__1 )
-            // InternalAsm.g:5224:2: rule__DmxIterator__Group__0__Impl rule__DmxIterator__Group__1
+            // InternalAsm.g:5338:1: ( rule__DmxFilter__Group_7__0__Impl rule__DmxFilter__Group_7__1 )
+            // InternalAsm.g:5339:2: rule__DmxFilter__Group_7__0__Impl rule__DmxFilter__Group_7__1
             {
             pushFollow(FOLLOW_5);
-            rule__DmxIterator__Group__0__Impl();
+            rule__DmxFilter__Group_7__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DmxIterator__Group__1();
+            rule__DmxFilter__Group_7__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -18303,28 +18672,28 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxIterator__Group__0"
+    // $ANTLR end "rule__DmxFilter__Group_7__0"
 
 
-    // $ANTLR start "rule__DmxIterator__Group__0__Impl"
-    // InternalAsm.g:5231:1: rule__DmxIterator__Group__0__Impl : ( 'iterator' ) ;
-    public final void rule__DmxIterator__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group_7__0__Impl"
+    // InternalAsm.g:5346:1: rule__DmxFilter__Group_7__0__Impl : ( 'with' ) ;
+    public final void rule__DmxFilter__Group_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5235:1: ( ( 'iterator' ) )
-            // InternalAsm.g:5236:1: ( 'iterator' )
+            // InternalAsm.g:5350:1: ( ( 'with' ) )
+            // InternalAsm.g:5351:1: ( 'with' )
             {
-            // InternalAsm.g:5236:1: ( 'iterator' )
-            // InternalAsm.g:5237:2: 'iterator'
+            // InternalAsm.g:5351:1: ( 'with' )
+            // InternalAsm.g:5352:2: 'with'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorAccess().getIteratorKeyword_0()); 
+               before(grammarAccess.getDmxFilterAccess().getWithKeyword_7_0()); 
             }
             match(input,99,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorAccess().getIteratorKeyword_0()); 
+               after(grammarAccess.getDmxFilterAccess().getWithKeyword_7_0()); 
             }
 
             }
@@ -18344,26 +18713,110 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxIterator__Group__0__Impl"
+    // $ANTLR end "rule__DmxFilter__Group_7__0__Impl"
 
 
-    // $ANTLR start "rule__DmxIterator__Group__1"
-    // InternalAsm.g:5246:1: rule__DmxIterator__Group__1 : rule__DmxIterator__Group__1__Impl rule__DmxIterator__Group__2 ;
-    public final void rule__DmxIterator__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__Group_7__1"
+    // InternalAsm.g:5361:1: rule__DmxFilter__Group_7__1 : rule__DmxFilter__Group_7__1__Impl ;
+    public final void rule__DmxFilter__Group_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5250:1: ( rule__DmxIterator__Group__1__Impl rule__DmxIterator__Group__2 )
-            // InternalAsm.g:5251:2: rule__DmxIterator__Group__1__Impl rule__DmxIterator__Group__2
+            // InternalAsm.g:5365:1: ( rule__DmxFilter__Group_7__1__Impl )
+            // InternalAsm.g:5366:2: rule__DmxFilter__Group_7__1__Impl
             {
-            pushFollow(FOLLOW_26);
-            rule__DmxIterator__Group__1__Impl();
+            pushFollow(FOLLOW_2);
+            rule__DmxFilter__Group_7__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__Group_7__1"
+
+
+    // $ANTLR start "rule__DmxFilter__Group_7__1__Impl"
+    // InternalAsm.g:5372:1: rule__DmxFilter__Group_7__1__Impl : ( ( rule__DmxFilter__WithTypeSetAssignment_7_1 ) ) ;
+    public final void rule__DmxFilter__Group_7__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:5376:1: ( ( ( rule__DmxFilter__WithTypeSetAssignment_7_1 ) ) )
+            // InternalAsm.g:5377:1: ( ( rule__DmxFilter__WithTypeSetAssignment_7_1 ) )
+            {
+            // InternalAsm.g:5377:1: ( ( rule__DmxFilter__WithTypeSetAssignment_7_1 ) )
+            // InternalAsm.g:5378:2: ( rule__DmxFilter__WithTypeSetAssignment_7_1 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterAccess().getWithTypeSetAssignment_7_1()); 
+            }
+            // InternalAsm.g:5379:2: ( rule__DmxFilter__WithTypeSetAssignment_7_1 )
+            // InternalAsm.g:5379:3: rule__DmxFilter__WithTypeSetAssignment_7_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxFilter__WithTypeSetAssignment_7_1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterAccess().getWithTypeSetAssignment_7_1()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__Group_7__1__Impl"
+
+
+    // $ANTLR start "rule__DmxFilterTypeDescriptor__Group__0"
+    // InternalAsm.g:5388:1: rule__DmxFilterTypeDescriptor__Group__0 : rule__DmxFilterTypeDescriptor__Group__0__Impl rule__DmxFilterTypeDescriptor__Group__1 ;
+    public final void rule__DmxFilterTypeDescriptor__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:5392:1: ( rule__DmxFilterTypeDescriptor__Group__0__Impl rule__DmxFilterTypeDescriptor__Group__1 )
+            // InternalAsm.g:5393:2: rule__DmxFilterTypeDescriptor__Group__0__Impl rule__DmxFilterTypeDescriptor__Group__1
+            {
+            pushFollow(FOLLOW_36);
+            rule__DmxFilterTypeDescriptor__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DmxIterator__Group__2();
+            rule__DmxFilterTypeDescriptor__Group__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -18382,30 +18835,30 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxIterator__Group__1"
+    // $ANTLR end "rule__DmxFilterTypeDescriptor__Group__0"
 
 
-    // $ANTLR start "rule__DmxIterator__Group__1__Impl"
-    // InternalAsm.g:5258:1: rule__DmxIterator__Group__1__Impl : ( ( rule__DmxIterator__NameAssignment_1 ) ) ;
-    public final void rule__DmxIterator__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilterTypeDescriptor__Group__0__Impl"
+    // InternalAsm.g:5400:1: rule__DmxFilterTypeDescriptor__Group__0__Impl : ( ( rule__DmxFilterTypeDescriptor__Alternatives_0 ) ) ;
+    public final void rule__DmxFilterTypeDescriptor__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5262:1: ( ( ( rule__DmxIterator__NameAssignment_1 ) ) )
-            // InternalAsm.g:5263:1: ( ( rule__DmxIterator__NameAssignment_1 ) )
+            // InternalAsm.g:5404:1: ( ( ( rule__DmxFilterTypeDescriptor__Alternatives_0 ) ) )
+            // InternalAsm.g:5405:1: ( ( rule__DmxFilterTypeDescriptor__Alternatives_0 ) )
             {
-            // InternalAsm.g:5263:1: ( ( rule__DmxIterator__NameAssignment_1 ) )
-            // InternalAsm.g:5264:2: ( rule__DmxIterator__NameAssignment_1 )
+            // InternalAsm.g:5405:1: ( ( rule__DmxFilterTypeDescriptor__Alternatives_0 ) )
+            // InternalAsm.g:5406:2: ( rule__DmxFilterTypeDescriptor__Alternatives_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorAccess().getNameAssignment_1()); 
+               before(grammarAccess.getDmxFilterTypeDescriptorAccess().getAlternatives_0()); 
             }
-            // InternalAsm.g:5265:2: ( rule__DmxIterator__NameAssignment_1 )
-            // InternalAsm.g:5265:3: rule__DmxIterator__NameAssignment_1
+            // InternalAsm.g:5407:2: ( rule__DmxFilterTypeDescriptor__Alternatives_0 )
+            // InternalAsm.g:5407:3: rule__DmxFilterTypeDescriptor__Alternatives_0
             {
             pushFollow(FOLLOW_2);
-            rule__DmxIterator__NameAssignment_1();
+            rule__DmxFilterTypeDescriptor__Alternatives_0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -18413,7 +18866,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorAccess().getNameAssignment_1()); 
+               after(grammarAccess.getDmxFilterTypeDescriptorAccess().getAlternatives_0()); 
             }
 
             }
@@ -18433,189 +18886,21 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxIterator__Group__1__Impl"
+    // $ANTLR end "rule__DmxFilterTypeDescriptor__Group__0__Impl"
 
 
-    // $ANTLR start "rule__DmxIterator__Group__2"
-    // InternalAsm.g:5273:1: rule__DmxIterator__Group__2 : rule__DmxIterator__Group__2__Impl rule__DmxIterator__Group__3 ;
-    public final void rule__DmxIterator__Group__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:5277:1: ( rule__DmxIterator__Group__2__Impl rule__DmxIterator__Group__3 )
-            // InternalAsm.g:5278:2: rule__DmxIterator__Group__2__Impl rule__DmxIterator__Group__3
-            {
-            pushFollow(FOLLOW_30);
-            rule__DmxIterator__Group__2__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__DmxIterator__Group__3();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxIterator__Group__2"
-
-
-    // $ANTLR start "rule__DmxIterator__Group__2__Impl"
-    // InternalAsm.g:5285:1: rule__DmxIterator__Group__2__Impl : ( ':' ) ;
-    public final void rule__DmxIterator__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilterTypeDescriptor__Group__1"
+    // InternalAsm.g:5415:1: rule__DmxFilterTypeDescriptor__Group__1 : rule__DmxFilterTypeDescriptor__Group__1__Impl ;
+    public final void rule__DmxFilterTypeDescriptor__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5289:1: ( ( ':' ) )
-            // InternalAsm.g:5290:1: ( ':' )
-            {
-            // InternalAsm.g:5290:1: ( ':' )
-            // InternalAsm.g:5291:2: ':'
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorAccess().getColonKeyword_2()); 
-            }
-            match(input,91,FOLLOW_2); if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorAccess().getColonKeyword_2()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxIterator__Group__2__Impl"
-
-
-    // $ANTLR start "rule__DmxIterator__Group__3"
-    // InternalAsm.g:5300:1: rule__DmxIterator__Group__3 : rule__DmxIterator__Group__3__Impl rule__DmxIterator__Group__4 ;
-    public final void rule__DmxIterator__Group__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:5304:1: ( rule__DmxIterator__Group__3__Impl rule__DmxIterator__Group__4 )
-            // InternalAsm.g:5305:2: rule__DmxIterator__Group__3__Impl rule__DmxIterator__Group__4
-            {
-            pushFollow(FOLLOW_32);
-            rule__DmxIterator__Group__3__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__DmxIterator__Group__4();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxIterator__Group__3"
-
-
-    // $ANTLR start "rule__DmxIterator__Group__3__Impl"
-    // InternalAsm.g:5312:1: rule__DmxIterator__Group__3__Impl : ( ( rule__DmxIterator__BaseTypeAssignment_3 ) ) ;
-    public final void rule__DmxIterator__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:5316:1: ( ( ( rule__DmxIterator__BaseTypeAssignment_3 ) ) )
-            // InternalAsm.g:5317:1: ( ( rule__DmxIterator__BaseTypeAssignment_3 ) )
-            {
-            // InternalAsm.g:5317:1: ( ( rule__DmxIterator__BaseTypeAssignment_3 ) )
-            // InternalAsm.g:5318:2: ( rule__DmxIterator__BaseTypeAssignment_3 )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorAccess().getBaseTypeAssignment_3()); 
-            }
-            // InternalAsm.g:5319:2: ( rule__DmxIterator__BaseTypeAssignment_3 )
-            // InternalAsm.g:5319:3: rule__DmxIterator__BaseTypeAssignment_3
+            // InternalAsm.g:5419:1: ( rule__DmxFilterTypeDescriptor__Group__1__Impl )
+            // InternalAsm.g:5420:2: rule__DmxFilterTypeDescriptor__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__DmxIterator__BaseTypeAssignment_3();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorAccess().getBaseTypeAssignment_3()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxIterator__Group__3__Impl"
-
-
-    // $ANTLR start "rule__DmxIterator__Group__4"
-    // InternalAsm.g:5327:1: rule__DmxIterator__Group__4 : rule__DmxIterator__Group__4__Impl ;
-    public final void rule__DmxIterator__Group__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:5331:1: ( rule__DmxIterator__Group__4__Impl )
-            // InternalAsm.g:5332:2: rule__DmxIterator__Group__4__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__DmxIterator__Group__4__Impl();
+            rule__DmxFilterTypeDescriptor__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -18634,26 +18919,26 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxIterator__Group__4"
+    // $ANTLR end "rule__DmxFilterTypeDescriptor__Group__1"
 
 
-    // $ANTLR start "rule__DmxIterator__Group__4__Impl"
-    // InternalAsm.g:5338:1: rule__DmxIterator__Group__4__Impl : ( ( rule__DmxIterator__BaseTypeCollectionAssignment_4 )? ) ;
-    public final void rule__DmxIterator__Group__4__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilterTypeDescriptor__Group__1__Impl"
+    // InternalAsm.g:5426:1: rule__DmxFilterTypeDescriptor__Group__1__Impl : ( ( rule__DmxFilterTypeDescriptor__CollectionAssignment_1 )? ) ;
+    public final void rule__DmxFilterTypeDescriptor__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5342:1: ( ( ( rule__DmxIterator__BaseTypeCollectionAssignment_4 )? ) )
-            // InternalAsm.g:5343:1: ( ( rule__DmxIterator__BaseTypeCollectionAssignment_4 )? )
+            // InternalAsm.g:5430:1: ( ( ( rule__DmxFilterTypeDescriptor__CollectionAssignment_1 )? ) )
+            // InternalAsm.g:5431:1: ( ( rule__DmxFilterTypeDescriptor__CollectionAssignment_1 )? )
             {
-            // InternalAsm.g:5343:1: ( ( rule__DmxIterator__BaseTypeCollectionAssignment_4 )? )
-            // InternalAsm.g:5344:2: ( rule__DmxIterator__BaseTypeCollectionAssignment_4 )?
+            // InternalAsm.g:5431:1: ( ( rule__DmxFilterTypeDescriptor__CollectionAssignment_1 )? )
+            // InternalAsm.g:5432:2: ( rule__DmxFilterTypeDescriptor__CollectionAssignment_1 )?
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorAccess().getBaseTypeCollectionAssignment_4()); 
+               before(grammarAccess.getDmxFilterTypeDescriptorAccess().getCollectionAssignment_1()); 
             }
-            // InternalAsm.g:5345:2: ( rule__DmxIterator__BaseTypeCollectionAssignment_4 )?
+            // InternalAsm.g:5433:2: ( rule__DmxFilterTypeDescriptor__CollectionAssignment_1 )?
             int alt58=2;
             int LA58_0 = input.LA(1);
 
@@ -18662,10 +18947,10 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
             switch (alt58) {
                 case 1 :
-                    // InternalAsm.g:5345:3: rule__DmxIterator__BaseTypeCollectionAssignment_4
+                    // InternalAsm.g:5433:3: rule__DmxFilterTypeDescriptor__CollectionAssignment_1
                     {
                     pushFollow(FOLLOW_2);
-                    rule__DmxIterator__BaseTypeCollectionAssignment_4();
+                    rule__DmxFilterTypeDescriptor__CollectionAssignment_1();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -18676,7 +18961,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorAccess().getBaseTypeCollectionAssignment_4()); 
+               after(grammarAccess.getDmxFilterTypeDescriptorAccess().getCollectionAssignment_1()); 
             }
 
             }
@@ -18696,18 +18981,270 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxIterator__Group__4__Impl"
+    // $ANTLR end "rule__DmxFilterTypeDescriptor__Group__1__Impl"
+
+
+    // $ANTLR start "rule__DmxFilterParameter__Group__0"
+    // InternalAsm.g:5442:1: rule__DmxFilterParameter__Group__0 : rule__DmxFilterParameter__Group__0__Impl rule__DmxFilterParameter__Group__1 ;
+    public final void rule__DmxFilterParameter__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:5446:1: ( rule__DmxFilterParameter__Group__0__Impl rule__DmxFilterParameter__Group__1 )
+            // InternalAsm.g:5447:2: rule__DmxFilterParameter__Group__0__Impl rule__DmxFilterParameter__Group__1
+            {
+            pushFollow(FOLLOW_26);
+            rule__DmxFilterParameter__Group__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxFilterParameter__Group__1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilterParameter__Group__0"
+
+
+    // $ANTLR start "rule__DmxFilterParameter__Group__0__Impl"
+    // InternalAsm.g:5454:1: rule__DmxFilterParameter__Group__0__Impl : ( ( rule__DmxFilterParameter__NameAssignment_0 ) ) ;
+    public final void rule__DmxFilterParameter__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:5458:1: ( ( ( rule__DmxFilterParameter__NameAssignment_0 ) ) )
+            // InternalAsm.g:5459:1: ( ( rule__DmxFilterParameter__NameAssignment_0 ) )
+            {
+            // InternalAsm.g:5459:1: ( ( rule__DmxFilterParameter__NameAssignment_0 ) )
+            // InternalAsm.g:5460:2: ( rule__DmxFilterParameter__NameAssignment_0 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterParameterAccess().getNameAssignment_0()); 
+            }
+            // InternalAsm.g:5461:2: ( rule__DmxFilterParameter__NameAssignment_0 )
+            // InternalAsm.g:5461:3: rule__DmxFilterParameter__NameAssignment_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxFilterParameter__NameAssignment_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterParameterAccess().getNameAssignment_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilterParameter__Group__0__Impl"
+
+
+    // $ANTLR start "rule__DmxFilterParameter__Group__1"
+    // InternalAsm.g:5469:1: rule__DmxFilterParameter__Group__1 : rule__DmxFilterParameter__Group__1__Impl rule__DmxFilterParameter__Group__2 ;
+    public final void rule__DmxFilterParameter__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:5473:1: ( rule__DmxFilterParameter__Group__1__Impl rule__DmxFilterParameter__Group__2 )
+            // InternalAsm.g:5474:2: rule__DmxFilterParameter__Group__1__Impl rule__DmxFilterParameter__Group__2
+            {
+            pushFollow(FOLLOW_34);
+            rule__DmxFilterParameter__Group__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__DmxFilterParameter__Group__2();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilterParameter__Group__1"
+
+
+    // $ANTLR start "rule__DmxFilterParameter__Group__1__Impl"
+    // InternalAsm.g:5481:1: rule__DmxFilterParameter__Group__1__Impl : ( ':' ) ;
+    public final void rule__DmxFilterParameter__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:5485:1: ( ( ':' ) )
+            // InternalAsm.g:5486:1: ( ':' )
+            {
+            // InternalAsm.g:5486:1: ( ':' )
+            // InternalAsm.g:5487:2: ':'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterParameterAccess().getColonKeyword_1()); 
+            }
+            match(input,91,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterParameterAccess().getColonKeyword_1()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilterParameter__Group__1__Impl"
+
+
+    // $ANTLR start "rule__DmxFilterParameter__Group__2"
+    // InternalAsm.g:5496:1: rule__DmxFilterParameter__Group__2 : rule__DmxFilterParameter__Group__2__Impl ;
+    public final void rule__DmxFilterParameter__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:5500:1: ( rule__DmxFilterParameter__Group__2__Impl )
+            // InternalAsm.g:5501:2: rule__DmxFilterParameter__Group__2__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxFilterParameter__Group__2__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilterParameter__Group__2"
+
+
+    // $ANTLR start "rule__DmxFilterParameter__Group__2__Impl"
+    // InternalAsm.g:5507:1: rule__DmxFilterParameter__Group__2__Impl : ( ( rule__DmxFilterParameter__TypeDescAssignment_2 ) ) ;
+    public final void rule__DmxFilterParameter__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:5511:1: ( ( ( rule__DmxFilterParameter__TypeDescAssignment_2 ) ) )
+            // InternalAsm.g:5512:1: ( ( rule__DmxFilterParameter__TypeDescAssignment_2 ) )
+            {
+            // InternalAsm.g:5512:1: ( ( rule__DmxFilterParameter__TypeDescAssignment_2 ) )
+            // InternalAsm.g:5513:2: ( rule__DmxFilterParameter__TypeDescAssignment_2 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterParameterAccess().getTypeDescAssignment_2()); 
+            }
+            // InternalAsm.g:5514:2: ( rule__DmxFilterParameter__TypeDescAssignment_2 )
+            // InternalAsm.g:5514:3: rule__DmxFilterParameter__TypeDescAssignment_2
+            {
+            pushFollow(FOLLOW_2);
+            rule__DmxFilterParameter__TypeDescAssignment_2();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterParameterAccess().getTypeDescAssignment_2()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilterParameter__Group__2__Impl"
 
 
     // $ANTLR start "rule__DRichText__Group_1__0"
-    // InternalAsm.g:5354:1: rule__DRichText__Group_1__0 : rule__DRichText__Group_1__0__Impl rule__DRichText__Group_1__1 ;
+    // InternalAsm.g:5523:1: rule__DRichText__Group_1__0 : rule__DRichText__Group_1__0__Impl rule__DRichText__Group_1__1 ;
     public final void rule__DRichText__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5358:1: ( rule__DRichText__Group_1__0__Impl rule__DRichText__Group_1__1 )
-            // InternalAsm.g:5359:2: rule__DRichText__Group_1__0__Impl rule__DRichText__Group_1__1
+            // InternalAsm.g:5527:1: ( rule__DRichText__Group_1__0__Impl rule__DRichText__Group_1__1 )
+            // InternalAsm.g:5528:2: rule__DRichText__Group_1__0__Impl rule__DRichText__Group_1__1
             {
             pushFollow(FOLLOW_25);
             rule__DRichText__Group_1__0__Impl();
@@ -18738,23 +19275,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1__0__Impl"
-    // InternalAsm.g:5366:1: rule__DRichText__Group_1__0__Impl : ( ( rule__DRichText__SegmentsAssignment_1_0 ) ) ;
+    // InternalAsm.g:5535:1: rule__DRichText__Group_1__0__Impl : ( ( rule__DRichText__SegmentsAssignment_1_0 ) ) ;
     public final void rule__DRichText__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5370:1: ( ( ( rule__DRichText__SegmentsAssignment_1_0 ) ) )
-            // InternalAsm.g:5371:1: ( ( rule__DRichText__SegmentsAssignment_1_0 ) )
+            // InternalAsm.g:5539:1: ( ( ( rule__DRichText__SegmentsAssignment_1_0 ) ) )
+            // InternalAsm.g:5540:1: ( ( rule__DRichText__SegmentsAssignment_1_0 ) )
             {
-            // InternalAsm.g:5371:1: ( ( rule__DRichText__SegmentsAssignment_1_0 ) )
-            // InternalAsm.g:5372:2: ( rule__DRichText__SegmentsAssignment_1_0 )
+            // InternalAsm.g:5540:1: ( ( rule__DRichText__SegmentsAssignment_1_0 ) )
+            // InternalAsm.g:5541:2: ( rule__DRichText__SegmentsAssignment_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_0()); 
             }
-            // InternalAsm.g:5373:2: ( rule__DRichText__SegmentsAssignment_1_0 )
-            // InternalAsm.g:5373:3: rule__DRichText__SegmentsAssignment_1_0
+            // InternalAsm.g:5542:2: ( rule__DRichText__SegmentsAssignment_1_0 )
+            // InternalAsm.g:5542:3: rule__DRichText__SegmentsAssignment_1_0
             {
             pushFollow(FOLLOW_2);
             rule__DRichText__SegmentsAssignment_1_0();
@@ -18789,16 +19326,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1__1"
-    // InternalAsm.g:5381:1: rule__DRichText__Group_1__1 : rule__DRichText__Group_1__1__Impl rule__DRichText__Group_1__2 ;
+    // InternalAsm.g:5550:1: rule__DRichText__Group_1__1 : rule__DRichText__Group_1__1__Impl rule__DRichText__Group_1__2 ;
     public final void rule__DRichText__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5385:1: ( rule__DRichText__Group_1__1__Impl rule__DRichText__Group_1__2 )
-            // InternalAsm.g:5386:2: rule__DRichText__Group_1__1__Impl rule__DRichText__Group_1__2
+            // InternalAsm.g:5554:1: ( rule__DRichText__Group_1__1__Impl rule__DRichText__Group_1__2 )
+            // InternalAsm.g:5555:2: rule__DRichText__Group_1__1__Impl rule__DRichText__Group_1__2
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_37);
             rule__DRichText__Group_1__1__Impl();
 
             state._fsp--;
@@ -18827,23 +19364,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1__1__Impl"
-    // InternalAsm.g:5393:1: rule__DRichText__Group_1__1__Impl : ( ( rule__DRichText__SegmentsAssignment_1_1 ) ) ;
+    // InternalAsm.g:5562:1: rule__DRichText__Group_1__1__Impl : ( ( rule__DRichText__SegmentsAssignment_1_1 ) ) ;
     public final void rule__DRichText__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5397:1: ( ( ( rule__DRichText__SegmentsAssignment_1_1 ) ) )
-            // InternalAsm.g:5398:1: ( ( rule__DRichText__SegmentsAssignment_1_1 ) )
+            // InternalAsm.g:5566:1: ( ( ( rule__DRichText__SegmentsAssignment_1_1 ) ) )
+            // InternalAsm.g:5567:1: ( ( rule__DRichText__SegmentsAssignment_1_1 ) )
             {
-            // InternalAsm.g:5398:1: ( ( rule__DRichText__SegmentsAssignment_1_1 ) )
-            // InternalAsm.g:5399:2: ( rule__DRichText__SegmentsAssignment_1_1 )
+            // InternalAsm.g:5567:1: ( ( rule__DRichText__SegmentsAssignment_1_1 ) )
+            // InternalAsm.g:5568:2: ( rule__DRichText__SegmentsAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_1()); 
             }
-            // InternalAsm.g:5400:2: ( rule__DRichText__SegmentsAssignment_1_1 )
-            // InternalAsm.g:5400:3: rule__DRichText__SegmentsAssignment_1_1
+            // InternalAsm.g:5569:2: ( rule__DRichText__SegmentsAssignment_1_1 )
+            // InternalAsm.g:5569:3: rule__DRichText__SegmentsAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DRichText__SegmentsAssignment_1_1();
@@ -18878,16 +19415,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1__2"
-    // InternalAsm.g:5408:1: rule__DRichText__Group_1__2 : rule__DRichText__Group_1__2__Impl rule__DRichText__Group_1__3 ;
+    // InternalAsm.g:5577:1: rule__DRichText__Group_1__2 : rule__DRichText__Group_1__2__Impl rule__DRichText__Group_1__3 ;
     public final void rule__DRichText__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5412:1: ( rule__DRichText__Group_1__2__Impl rule__DRichText__Group_1__3 )
-            // InternalAsm.g:5413:2: rule__DRichText__Group_1__2__Impl rule__DRichText__Group_1__3
+            // InternalAsm.g:5581:1: ( rule__DRichText__Group_1__2__Impl rule__DRichText__Group_1__3 )
+            // InternalAsm.g:5582:2: rule__DRichText__Group_1__2__Impl rule__DRichText__Group_1__3
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_37);
             rule__DRichText__Group_1__2__Impl();
 
             state._fsp--;
@@ -18916,22 +19453,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1__2__Impl"
-    // InternalAsm.g:5420:1: rule__DRichText__Group_1__2__Impl : ( ( rule__DRichText__Group_1_2__0 )* ) ;
+    // InternalAsm.g:5589:1: rule__DRichText__Group_1__2__Impl : ( ( rule__DRichText__Group_1_2__0 )* ) ;
     public final void rule__DRichText__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5424:1: ( ( ( rule__DRichText__Group_1_2__0 )* ) )
-            // InternalAsm.g:5425:1: ( ( rule__DRichText__Group_1_2__0 )* )
+            // InternalAsm.g:5593:1: ( ( ( rule__DRichText__Group_1_2__0 )* ) )
+            // InternalAsm.g:5594:1: ( ( rule__DRichText__Group_1_2__0 )* )
             {
-            // InternalAsm.g:5425:1: ( ( rule__DRichText__Group_1_2__0 )* )
-            // InternalAsm.g:5426:2: ( rule__DRichText__Group_1_2__0 )*
+            // InternalAsm.g:5594:1: ( ( rule__DRichText__Group_1_2__0 )* )
+            // InternalAsm.g:5595:2: ( rule__DRichText__Group_1_2__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getGroup_1_2()); 
             }
-            // InternalAsm.g:5427:2: ( rule__DRichText__Group_1_2__0 )*
+            // InternalAsm.g:5596:2: ( rule__DRichText__Group_1_2__0 )*
             loop59:
             do {
                 int alt59=2;
@@ -18944,9 +19481,9 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
                 switch (alt59) {
             	case 1 :
-            	    // InternalAsm.g:5427:3: rule__DRichText__Group_1_2__0
+            	    // InternalAsm.g:5596:3: rule__DRichText__Group_1_2__0
             	    {
-            	    pushFollow(FOLLOW_34);
+            	    pushFollow(FOLLOW_38);
             	    rule__DRichText__Group_1_2__0();
 
             	    state._fsp--;
@@ -18985,14 +19522,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1__3"
-    // InternalAsm.g:5435:1: rule__DRichText__Group_1__3 : rule__DRichText__Group_1__3__Impl ;
+    // InternalAsm.g:5604:1: rule__DRichText__Group_1__3 : rule__DRichText__Group_1__3__Impl ;
     public final void rule__DRichText__Group_1__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5439:1: ( rule__DRichText__Group_1__3__Impl )
-            // InternalAsm.g:5440:2: rule__DRichText__Group_1__3__Impl
+            // InternalAsm.g:5608:1: ( rule__DRichText__Group_1__3__Impl )
+            // InternalAsm.g:5609:2: rule__DRichText__Group_1__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DRichText__Group_1__3__Impl();
@@ -19018,23 +19555,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1__3__Impl"
-    // InternalAsm.g:5446:1: rule__DRichText__Group_1__3__Impl : ( ( rule__DRichText__SegmentsAssignment_1_3 ) ) ;
+    // InternalAsm.g:5615:1: rule__DRichText__Group_1__3__Impl : ( ( rule__DRichText__SegmentsAssignment_1_3 ) ) ;
     public final void rule__DRichText__Group_1__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5450:1: ( ( ( rule__DRichText__SegmentsAssignment_1_3 ) ) )
-            // InternalAsm.g:5451:1: ( ( rule__DRichText__SegmentsAssignment_1_3 ) )
+            // InternalAsm.g:5619:1: ( ( ( rule__DRichText__SegmentsAssignment_1_3 ) ) )
+            // InternalAsm.g:5620:1: ( ( rule__DRichText__SegmentsAssignment_1_3 ) )
             {
-            // InternalAsm.g:5451:1: ( ( rule__DRichText__SegmentsAssignment_1_3 ) )
-            // InternalAsm.g:5452:2: ( rule__DRichText__SegmentsAssignment_1_3 )
+            // InternalAsm.g:5620:1: ( ( rule__DRichText__SegmentsAssignment_1_3 ) )
+            // InternalAsm.g:5621:2: ( rule__DRichText__SegmentsAssignment_1_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_3()); 
             }
-            // InternalAsm.g:5453:2: ( rule__DRichText__SegmentsAssignment_1_3 )
-            // InternalAsm.g:5453:3: rule__DRichText__SegmentsAssignment_1_3
+            // InternalAsm.g:5622:2: ( rule__DRichText__SegmentsAssignment_1_3 )
+            // InternalAsm.g:5622:3: rule__DRichText__SegmentsAssignment_1_3
             {
             pushFollow(FOLLOW_2);
             rule__DRichText__SegmentsAssignment_1_3();
@@ -19069,14 +19606,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1_2__0"
-    // InternalAsm.g:5462:1: rule__DRichText__Group_1_2__0 : rule__DRichText__Group_1_2__0__Impl rule__DRichText__Group_1_2__1 ;
+    // InternalAsm.g:5631:1: rule__DRichText__Group_1_2__0 : rule__DRichText__Group_1_2__0__Impl rule__DRichText__Group_1_2__1 ;
     public final void rule__DRichText__Group_1_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5466:1: ( rule__DRichText__Group_1_2__0__Impl rule__DRichText__Group_1_2__1 )
-            // InternalAsm.g:5467:2: rule__DRichText__Group_1_2__0__Impl rule__DRichText__Group_1_2__1
+            // InternalAsm.g:5635:1: ( rule__DRichText__Group_1_2__0__Impl rule__DRichText__Group_1_2__1 )
+            // InternalAsm.g:5636:2: rule__DRichText__Group_1_2__0__Impl rule__DRichText__Group_1_2__1
             {
             pushFollow(FOLLOW_25);
             rule__DRichText__Group_1_2__0__Impl();
@@ -19107,23 +19644,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1_2__0__Impl"
-    // InternalAsm.g:5474:1: rule__DRichText__Group_1_2__0__Impl : ( ( rule__DRichText__SegmentsAssignment_1_2_0 ) ) ;
+    // InternalAsm.g:5643:1: rule__DRichText__Group_1_2__0__Impl : ( ( rule__DRichText__SegmentsAssignment_1_2_0 ) ) ;
     public final void rule__DRichText__Group_1_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5478:1: ( ( ( rule__DRichText__SegmentsAssignment_1_2_0 ) ) )
-            // InternalAsm.g:5479:1: ( ( rule__DRichText__SegmentsAssignment_1_2_0 ) )
+            // InternalAsm.g:5647:1: ( ( ( rule__DRichText__SegmentsAssignment_1_2_0 ) ) )
+            // InternalAsm.g:5648:1: ( ( rule__DRichText__SegmentsAssignment_1_2_0 ) )
             {
-            // InternalAsm.g:5479:1: ( ( rule__DRichText__SegmentsAssignment_1_2_0 ) )
-            // InternalAsm.g:5480:2: ( rule__DRichText__SegmentsAssignment_1_2_0 )
+            // InternalAsm.g:5648:1: ( ( rule__DRichText__SegmentsAssignment_1_2_0 ) )
+            // InternalAsm.g:5649:2: ( rule__DRichText__SegmentsAssignment_1_2_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_2_0()); 
             }
-            // InternalAsm.g:5481:2: ( rule__DRichText__SegmentsAssignment_1_2_0 )
-            // InternalAsm.g:5481:3: rule__DRichText__SegmentsAssignment_1_2_0
+            // InternalAsm.g:5650:2: ( rule__DRichText__SegmentsAssignment_1_2_0 )
+            // InternalAsm.g:5650:3: rule__DRichText__SegmentsAssignment_1_2_0
             {
             pushFollow(FOLLOW_2);
             rule__DRichText__SegmentsAssignment_1_2_0();
@@ -19158,14 +19695,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1_2__1"
-    // InternalAsm.g:5489:1: rule__DRichText__Group_1_2__1 : rule__DRichText__Group_1_2__1__Impl ;
+    // InternalAsm.g:5658:1: rule__DRichText__Group_1_2__1 : rule__DRichText__Group_1_2__1__Impl ;
     public final void rule__DRichText__Group_1_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5493:1: ( rule__DRichText__Group_1_2__1__Impl )
-            // InternalAsm.g:5494:2: rule__DRichText__Group_1_2__1__Impl
+            // InternalAsm.g:5662:1: ( rule__DRichText__Group_1_2__1__Impl )
+            // InternalAsm.g:5663:2: rule__DRichText__Group_1_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DRichText__Group_1_2__1__Impl();
@@ -19191,23 +19728,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__Group_1_2__1__Impl"
-    // InternalAsm.g:5500:1: rule__DRichText__Group_1_2__1__Impl : ( ( rule__DRichText__SegmentsAssignment_1_2_1 ) ) ;
+    // InternalAsm.g:5669:1: rule__DRichText__Group_1_2__1__Impl : ( ( rule__DRichText__SegmentsAssignment_1_2_1 ) ) ;
     public final void rule__DRichText__Group_1_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5504:1: ( ( ( rule__DRichText__SegmentsAssignment_1_2_1 ) ) )
-            // InternalAsm.g:5505:1: ( ( rule__DRichText__SegmentsAssignment_1_2_1 ) )
+            // InternalAsm.g:5673:1: ( ( ( rule__DRichText__SegmentsAssignment_1_2_1 ) ) )
+            // InternalAsm.g:5674:1: ( ( rule__DRichText__SegmentsAssignment_1_2_1 ) )
             {
-            // InternalAsm.g:5505:1: ( ( rule__DRichText__SegmentsAssignment_1_2_1 ) )
-            // InternalAsm.g:5506:2: ( rule__DRichText__SegmentsAssignment_1_2_1 )
+            // InternalAsm.g:5674:1: ( ( rule__DRichText__SegmentsAssignment_1_2_1 ) )
+            // InternalAsm.g:5675:2: ( rule__DRichText__SegmentsAssignment_1_2_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsAssignment_1_2_1()); 
             }
-            // InternalAsm.g:5507:2: ( rule__DRichText__SegmentsAssignment_1_2_1 )
-            // InternalAsm.g:5507:3: rule__DRichText__SegmentsAssignment_1_2_1
+            // InternalAsm.g:5676:2: ( rule__DRichText__SegmentsAssignment_1_2_1 )
+            // InternalAsm.g:5676:3: rule__DRichText__SegmentsAssignment_1_2_1
             {
             pushFollow(FOLLOW_2);
             rule__DRichText__SegmentsAssignment_1_2_1();
@@ -19242,16 +19779,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group__0"
-    // InternalAsm.g:5516:1: rule__DmxNavigableMemberReference__Group__0 : rule__DmxNavigableMemberReference__Group__0__Impl rule__DmxNavigableMemberReference__Group__1 ;
+    // InternalAsm.g:5685:1: rule__DmxNavigableMemberReference__Group__0 : rule__DmxNavigableMemberReference__Group__0__Impl rule__DmxNavigableMemberReference__Group__1 ;
     public final void rule__DmxNavigableMemberReference__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5520:1: ( rule__DmxNavigableMemberReference__Group__0__Impl rule__DmxNavigableMemberReference__Group__1 )
-            // InternalAsm.g:5521:2: rule__DmxNavigableMemberReference__Group__0__Impl rule__DmxNavigableMemberReference__Group__1
+            // InternalAsm.g:5689:1: ( rule__DmxNavigableMemberReference__Group__0__Impl rule__DmxNavigableMemberReference__Group__1 )
+            // InternalAsm.g:5690:2: rule__DmxNavigableMemberReference__Group__0__Impl rule__DmxNavigableMemberReference__Group__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_39);
             rule__DmxNavigableMemberReference__Group__0__Impl();
 
             state._fsp--;
@@ -19280,17 +19817,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group__0__Impl"
-    // InternalAsm.g:5528:1: rule__DmxNavigableMemberReference__Group__0__Impl : ( ruleDmxPrimaryExpression ) ;
+    // InternalAsm.g:5697:1: rule__DmxNavigableMemberReference__Group__0__Impl : ( ruleDmxPrimaryExpression ) ;
     public final void rule__DmxNavigableMemberReference__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5532:1: ( ( ruleDmxPrimaryExpression ) )
-            // InternalAsm.g:5533:1: ( ruleDmxPrimaryExpression )
+            // InternalAsm.g:5701:1: ( ( ruleDmxPrimaryExpression ) )
+            // InternalAsm.g:5702:1: ( ruleDmxPrimaryExpression )
             {
-            // InternalAsm.g:5533:1: ( ruleDmxPrimaryExpression )
-            // InternalAsm.g:5534:2: ruleDmxPrimaryExpression
+            // InternalAsm.g:5702:1: ( ruleDmxPrimaryExpression )
+            // InternalAsm.g:5703:2: ruleDmxPrimaryExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getDmxPrimaryExpressionParserRuleCall_0()); 
@@ -19325,14 +19862,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group__1"
-    // InternalAsm.g:5543:1: rule__DmxNavigableMemberReference__Group__1 : rule__DmxNavigableMemberReference__Group__1__Impl ;
+    // InternalAsm.g:5712:1: rule__DmxNavigableMemberReference__Group__1 : rule__DmxNavigableMemberReference__Group__1__Impl ;
     public final void rule__DmxNavigableMemberReference__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5547:1: ( rule__DmxNavigableMemberReference__Group__1__Impl )
-            // InternalAsm.g:5548:2: rule__DmxNavigableMemberReference__Group__1__Impl
+            // InternalAsm.g:5716:1: ( rule__DmxNavigableMemberReference__Group__1__Impl )
+            // InternalAsm.g:5717:2: rule__DmxNavigableMemberReference__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group__1__Impl();
@@ -19358,22 +19895,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group__1__Impl"
-    // InternalAsm.g:5554:1: rule__DmxNavigableMemberReference__Group__1__Impl : ( ( rule__DmxNavigableMemberReference__Alternatives_1 )* ) ;
+    // InternalAsm.g:5723:1: rule__DmxNavigableMemberReference__Group__1__Impl : ( ( rule__DmxNavigableMemberReference__Alternatives_1 )* ) ;
     public final void rule__DmxNavigableMemberReference__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5558:1: ( ( ( rule__DmxNavigableMemberReference__Alternatives_1 )* ) )
-            // InternalAsm.g:5559:1: ( ( rule__DmxNavigableMemberReference__Alternatives_1 )* )
+            // InternalAsm.g:5727:1: ( ( ( rule__DmxNavigableMemberReference__Alternatives_1 )* ) )
+            // InternalAsm.g:5728:1: ( ( rule__DmxNavigableMemberReference__Alternatives_1 )* )
             {
-            // InternalAsm.g:5559:1: ( ( rule__DmxNavigableMemberReference__Alternatives_1 )* )
-            // InternalAsm.g:5560:2: ( rule__DmxNavigableMemberReference__Alternatives_1 )*
+            // InternalAsm.g:5728:1: ( ( rule__DmxNavigableMemberReference__Alternatives_1 )* )
+            // InternalAsm.g:5729:2: ( rule__DmxNavigableMemberReference__Alternatives_1 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getAlternatives_1()); 
             }
-            // InternalAsm.g:5561:2: ( rule__DmxNavigableMemberReference__Alternatives_1 )*
+            // InternalAsm.g:5730:2: ( rule__DmxNavigableMemberReference__Alternatives_1 )*
             loop60:
             do {
                 int alt60=2;
@@ -19392,9 +19929,9 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
                 switch (alt60) {
             	case 1 :
-            	    // InternalAsm.g:5561:3: rule__DmxNavigableMemberReference__Alternatives_1
+            	    // InternalAsm.g:5730:3: rule__DmxNavigableMemberReference__Alternatives_1
             	    {
-            	    pushFollow(FOLLOW_36);
+            	    pushFollow(FOLLOW_40);
             	    rule__DmxNavigableMemberReference__Alternatives_1();
 
             	    state._fsp--;
@@ -19433,16 +19970,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0__0"
-    // InternalAsm.g:5570:1: rule__DmxNavigableMemberReference__Group_1_0__0 : rule__DmxNavigableMemberReference__Group_1_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0__1 ;
+    // InternalAsm.g:5739:1: rule__DmxNavigableMemberReference__Group_1_0__0 : rule__DmxNavigableMemberReference__Group_1_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0__1 ;
     public final void rule__DmxNavigableMemberReference__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5574:1: ( rule__DmxNavigableMemberReference__Group_1_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0__1 )
-            // InternalAsm.g:5575:2: rule__DmxNavigableMemberReference__Group_1_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0__1
+            // InternalAsm.g:5743:1: ( rule__DmxNavigableMemberReference__Group_1_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0__1 )
+            // InternalAsm.g:5744:2: rule__DmxNavigableMemberReference__Group_1_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_41);
             rule__DmxNavigableMemberReference__Group_1_0__0__Impl();
 
             state._fsp--;
@@ -19471,23 +20008,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0__0__Impl"
-    // InternalAsm.g:5582:1: rule__DmxNavigableMemberReference__Group_1_0__0__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_0_0__0 ) ) ;
+    // InternalAsm.g:5751:1: rule__DmxNavigableMemberReference__Group_1_0__0__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_0_0__0 ) ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5586:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_0_0__0 ) ) )
-            // InternalAsm.g:5587:1: ( ( rule__DmxNavigableMemberReference__Group_1_0_0__0 ) )
+            // InternalAsm.g:5755:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_0_0__0 ) ) )
+            // InternalAsm.g:5756:1: ( ( rule__DmxNavigableMemberReference__Group_1_0_0__0 ) )
             {
-            // InternalAsm.g:5587:1: ( ( rule__DmxNavigableMemberReference__Group_1_0_0__0 ) )
-            // InternalAsm.g:5588:2: ( rule__DmxNavigableMemberReference__Group_1_0_0__0 )
+            // InternalAsm.g:5756:1: ( ( rule__DmxNavigableMemberReference__Group_1_0_0__0 ) )
+            // InternalAsm.g:5757:2: ( rule__DmxNavigableMemberReference__Group_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getGroup_1_0_0()); 
             }
-            // InternalAsm.g:5589:2: ( rule__DmxNavigableMemberReference__Group_1_0_0__0 )
-            // InternalAsm.g:5589:3: rule__DmxNavigableMemberReference__Group_1_0_0__0
+            // InternalAsm.g:5758:2: ( rule__DmxNavigableMemberReference__Group_1_0_0__0 )
+            // InternalAsm.g:5758:3: rule__DmxNavigableMemberReference__Group_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_0_0__0();
@@ -19522,14 +20059,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0__1"
-    // InternalAsm.g:5597:1: rule__DmxNavigableMemberReference__Group_1_0__1 : rule__DmxNavigableMemberReference__Group_1_0__1__Impl ;
+    // InternalAsm.g:5766:1: rule__DmxNavigableMemberReference__Group_1_0__1 : rule__DmxNavigableMemberReference__Group_1_0__1__Impl ;
     public final void rule__DmxNavigableMemberReference__Group_1_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5601:1: ( rule__DmxNavigableMemberReference__Group_1_0__1__Impl )
-            // InternalAsm.g:5602:2: rule__DmxNavigableMemberReference__Group_1_0__1__Impl
+            // InternalAsm.g:5770:1: ( rule__DmxNavigableMemberReference__Group_1_0__1__Impl )
+            // InternalAsm.g:5771:2: rule__DmxNavigableMemberReference__Group_1_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_0__1__Impl();
@@ -19555,23 +20092,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0__1__Impl"
-    // InternalAsm.g:5608:1: rule__DmxNavigableMemberReference__Group_1_0__1__Impl : ( ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 ) ) ;
+    // InternalAsm.g:5777:1: rule__DmxNavigableMemberReference__Group_1_0__1__Impl : ( ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 ) ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5612:1: ( ( ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 ) ) )
-            // InternalAsm.g:5613:1: ( ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 ) )
+            // InternalAsm.g:5781:1: ( ( ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 ) ) )
+            // InternalAsm.g:5782:1: ( ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 ) )
             {
-            // InternalAsm.g:5613:1: ( ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 ) )
-            // InternalAsm.g:5614:2: ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 )
+            // InternalAsm.g:5782:1: ( ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 ) )
+            // InternalAsm.g:5783:2: ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getValueAssignment_1_0_1()); 
             }
-            // InternalAsm.g:5615:2: ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 )
-            // InternalAsm.g:5615:3: rule__DmxNavigableMemberReference__ValueAssignment_1_0_1
+            // InternalAsm.g:5784:2: ( rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 )
+            // InternalAsm.g:5784:3: rule__DmxNavigableMemberReference__ValueAssignment_1_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__ValueAssignment_1_0_1();
@@ -19606,14 +20143,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0_0__0"
-    // InternalAsm.g:5624:1: rule__DmxNavigableMemberReference__Group_1_0_0__0 : rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl ;
+    // InternalAsm.g:5793:1: rule__DmxNavigableMemberReference__Group_1_0_0__0 : rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl ;
     public final void rule__DmxNavigableMemberReference__Group_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5628:1: ( rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl )
-            // InternalAsm.g:5629:2: rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl
+            // InternalAsm.g:5797:1: ( rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl )
+            // InternalAsm.g:5798:2: rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl();
@@ -19639,23 +20176,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl"
-    // InternalAsm.g:5635:1: rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 ) ) ;
+    // InternalAsm.g:5804:1: rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 ) ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5639:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 ) ) )
-            // InternalAsm.g:5640:1: ( ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 ) )
+            // InternalAsm.g:5808:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 ) ) )
+            // InternalAsm.g:5809:1: ( ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 ) )
             {
-            // InternalAsm.g:5640:1: ( ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 ) )
-            // InternalAsm.g:5641:2: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 )
+            // InternalAsm.g:5809:1: ( ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 ) )
+            // InternalAsm.g:5810:2: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getGroup_1_0_0_0()); 
             }
-            // InternalAsm.g:5642:2: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 )
-            // InternalAsm.g:5642:3: rule__DmxNavigableMemberReference__Group_1_0_0_0__0
+            // InternalAsm.g:5811:2: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0 )
+            // InternalAsm.g:5811:3: rule__DmxNavigableMemberReference__Group_1_0_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_0_0_0__0();
@@ -19690,16 +20227,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0_0_0__0"
-    // InternalAsm.g:5651:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__0 : rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__1 ;
+    // InternalAsm.g:5820:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__0 : rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__1 ;
     public final void rule__DmxNavigableMemberReference__Group_1_0_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5655:1: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__1 )
-            // InternalAsm.g:5656:2: rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__1
+            // InternalAsm.g:5824:1: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__1 )
+            // InternalAsm.g:5825:2: rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_39);
             rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl();
 
             state._fsp--;
@@ -19728,23 +20265,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl"
-    // InternalAsm.g:5663:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl : ( () ) ;
+    // InternalAsm.g:5832:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl : ( () ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_0_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5667:1: ( ( () ) )
-            // InternalAsm.g:5668:1: ( () )
+            // InternalAsm.g:5836:1: ( ( () ) )
+            // InternalAsm.g:5837:1: ( () )
             {
-            // InternalAsm.g:5668:1: ( () )
-            // InternalAsm.g:5669:2: ()
+            // InternalAsm.g:5837:1: ( () )
+            // InternalAsm.g:5838:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getDmxAssignmentPrecedingNavigationSegmentAction_1_0_0_0_0()); 
             }
-            // InternalAsm.g:5670:2: ()
-            // InternalAsm.g:5670:3: 
+            // InternalAsm.g:5839:2: ()
+            // InternalAsm.g:5839:3: 
             {
             }
 
@@ -19769,14 +20306,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0_0_0__1"
-    // InternalAsm.g:5678:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__1 : rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__2 ;
+    // InternalAsm.g:5847:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__1 : rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__2 ;
     public final void rule__DmxNavigableMemberReference__Group_1_0_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5682:1: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__2 )
-            // InternalAsm.g:5683:2: rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__2
+            // InternalAsm.g:5851:1: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__2 )
+            // InternalAsm.g:5852:2: rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__2
             {
             pushFollow(FOLLOW_5);
             rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl();
@@ -19807,17 +20344,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl"
-    // InternalAsm.g:5690:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl : ( '.' ) ;
+    // InternalAsm.g:5859:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl : ( '.' ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_0_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5694:1: ( ( '.' ) )
-            // InternalAsm.g:5695:1: ( '.' )
+            // InternalAsm.g:5863:1: ( ( '.' ) )
+            // InternalAsm.g:5864:1: ( '.' )
             {
-            // InternalAsm.g:5695:1: ( '.' )
-            // InternalAsm.g:5696:2: '.'
+            // InternalAsm.g:5864:1: ( '.' )
+            // InternalAsm.g:5865:2: '.'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getFullStopKeyword_1_0_0_0_1()); 
@@ -19848,16 +20385,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0_0_0__2"
-    // InternalAsm.g:5705:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__2 : rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__3 ;
+    // InternalAsm.g:5874:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__2 : rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__3 ;
     public final void rule__DmxNavigableMemberReference__Group_1_0_0_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5709:1: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__3 )
-            // InternalAsm.g:5710:2: rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__3
+            // InternalAsm.g:5878:1: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__3 )
+            // InternalAsm.g:5879:2: rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl rule__DmxNavigableMemberReference__Group_1_0_0_0__3
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_42);
             rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl();
 
             state._fsp--;
@@ -19886,23 +20423,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl"
-    // InternalAsm.g:5717:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl : ( ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 ) ) ;
+    // InternalAsm.g:5886:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl : ( ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 ) ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_0_0_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5721:1: ( ( ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 ) ) )
-            // InternalAsm.g:5722:1: ( ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 ) )
+            // InternalAsm.g:5890:1: ( ( ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 ) ) )
+            // InternalAsm.g:5891:1: ( ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 ) )
             {
-            // InternalAsm.g:5722:1: ( ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 ) )
-            // InternalAsm.g:5723:2: ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 )
+            // InternalAsm.g:5891:1: ( ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 ) )
+            // InternalAsm.g:5892:2: ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getAssignToMemberAssignment_1_0_0_0_2()); 
             }
-            // InternalAsm.g:5724:2: ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 )
-            // InternalAsm.g:5724:3: rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2
+            // InternalAsm.g:5893:2: ( rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 )
+            // InternalAsm.g:5893:3: rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2();
@@ -19937,14 +20474,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0_0_0__3"
-    // InternalAsm.g:5732:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__3 : rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl ;
+    // InternalAsm.g:5901:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__3 : rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl ;
     public final void rule__DmxNavigableMemberReference__Group_1_0_0_0__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5736:1: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl )
-            // InternalAsm.g:5737:2: rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl
+            // InternalAsm.g:5905:1: ( rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl )
+            // InternalAsm.g:5906:2: rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl();
@@ -19970,17 +20507,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl"
-    // InternalAsm.g:5743:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl : ( ruleDmxOpSingleAssign ) ;
+    // InternalAsm.g:5912:1: rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl : ( ruleDmxOpSingleAssign ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_0_0_0__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5747:1: ( ( ruleDmxOpSingleAssign ) )
-            // InternalAsm.g:5748:1: ( ruleDmxOpSingleAssign )
+            // InternalAsm.g:5916:1: ( ( ruleDmxOpSingleAssign ) )
+            // InternalAsm.g:5917:1: ( ruleDmxOpSingleAssign )
             {
-            // InternalAsm.g:5748:1: ( ruleDmxOpSingleAssign )
-            // InternalAsm.g:5749:2: ruleDmxOpSingleAssign
+            // InternalAsm.g:5917:1: ( ruleDmxOpSingleAssign )
+            // InternalAsm.g:5918:2: ruleDmxOpSingleAssign
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getDmxOpSingleAssignParserRuleCall_1_0_0_0_3()); 
@@ -20015,14 +20552,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1__0"
-    // InternalAsm.g:5759:1: rule__DmxNavigableMemberReference__Group_1_1__0 : rule__DmxNavigableMemberReference__Group_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1__1 ;
+    // InternalAsm.g:5928:1: rule__DmxNavigableMemberReference__Group_1_1__0 : rule__DmxNavigableMemberReference__Group_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1__1 ;
     public final void rule__DmxNavigableMemberReference__Group_1_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5763:1: ( rule__DmxNavigableMemberReference__Group_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1__1 )
-            // InternalAsm.g:5764:2: rule__DmxNavigableMemberReference__Group_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1__1
+            // InternalAsm.g:5932:1: ( rule__DmxNavigableMemberReference__Group_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1__1 )
+            // InternalAsm.g:5933:2: rule__DmxNavigableMemberReference__Group_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1__1
             {
             pushFollow(FOLLOW_5);
             rule__DmxNavigableMemberReference__Group_1_1__0__Impl();
@@ -20053,23 +20590,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1__0__Impl"
-    // InternalAsm.g:5771:1: rule__DmxNavigableMemberReference__Group_1_1__0__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_1_0__0 ) ) ;
+    // InternalAsm.g:5940:1: rule__DmxNavigableMemberReference__Group_1_1__0__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_1_0__0 ) ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5775:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_1_0__0 ) ) )
-            // InternalAsm.g:5776:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_0__0 ) )
+            // InternalAsm.g:5944:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_1_0__0 ) ) )
+            // InternalAsm.g:5945:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_0__0 ) )
             {
-            // InternalAsm.g:5776:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_0__0 ) )
-            // InternalAsm.g:5777:2: ( rule__DmxNavigableMemberReference__Group_1_1_0__0 )
+            // InternalAsm.g:5945:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_0__0 ) )
+            // InternalAsm.g:5946:2: ( rule__DmxNavigableMemberReference__Group_1_1_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getGroup_1_1_0()); 
             }
-            // InternalAsm.g:5778:2: ( rule__DmxNavigableMemberReference__Group_1_1_0__0 )
-            // InternalAsm.g:5778:3: rule__DmxNavigableMemberReference__Group_1_1_0__0
+            // InternalAsm.g:5947:2: ( rule__DmxNavigableMemberReference__Group_1_1_0__0 )
+            // InternalAsm.g:5947:3: rule__DmxNavigableMemberReference__Group_1_1_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_1_0__0();
@@ -20104,16 +20641,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1__1"
-    // InternalAsm.g:5786:1: rule__DmxNavigableMemberReference__Group_1_1__1 : rule__DmxNavigableMemberReference__Group_1_1__1__Impl rule__DmxNavigableMemberReference__Group_1_1__2 ;
+    // InternalAsm.g:5955:1: rule__DmxNavigableMemberReference__Group_1_1__1 : rule__DmxNavigableMemberReference__Group_1_1__1__Impl rule__DmxNavigableMemberReference__Group_1_1__2 ;
     public final void rule__DmxNavigableMemberReference__Group_1_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5790:1: ( rule__DmxNavigableMemberReference__Group_1_1__1__Impl rule__DmxNavigableMemberReference__Group_1_1__2 )
-            // InternalAsm.g:5791:2: rule__DmxNavigableMemberReference__Group_1_1__1__Impl rule__DmxNavigableMemberReference__Group_1_1__2
+            // InternalAsm.g:5959:1: ( rule__DmxNavigableMemberReference__Group_1_1__1__Impl rule__DmxNavigableMemberReference__Group_1_1__2 )
+            // InternalAsm.g:5960:2: rule__DmxNavigableMemberReference__Group_1_1__1__Impl rule__DmxNavigableMemberReference__Group_1_1__2
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_43);
             rule__DmxNavigableMemberReference__Group_1_1__1__Impl();
 
             state._fsp--;
@@ -20142,23 +20679,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1__1__Impl"
-    // InternalAsm.g:5798:1: rule__DmxNavigableMemberReference__Group_1_1__1__Impl : ( ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 ) ) ;
+    // InternalAsm.g:5967:1: rule__DmxNavigableMemberReference__Group_1_1__1__Impl : ( ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 ) ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5802:1: ( ( ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 ) ) )
-            // InternalAsm.g:5803:1: ( ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 ) )
+            // InternalAsm.g:5971:1: ( ( ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 ) ) )
+            // InternalAsm.g:5972:1: ( ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 ) )
             {
-            // InternalAsm.g:5803:1: ( ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 ) )
-            // InternalAsm.g:5804:2: ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 )
+            // InternalAsm.g:5972:1: ( ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 ) )
+            // InternalAsm.g:5973:2: ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getMemberAssignment_1_1_1()); 
             }
-            // InternalAsm.g:5805:2: ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 )
-            // InternalAsm.g:5805:3: rule__DmxNavigableMemberReference__MemberAssignment_1_1_1
+            // InternalAsm.g:5974:2: ( rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 )
+            // InternalAsm.g:5974:3: rule__DmxNavigableMemberReference__MemberAssignment_1_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__MemberAssignment_1_1_1();
@@ -20193,14 +20730,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1__2"
-    // InternalAsm.g:5813:1: rule__DmxNavigableMemberReference__Group_1_1__2 : rule__DmxNavigableMemberReference__Group_1_1__2__Impl ;
+    // InternalAsm.g:5982:1: rule__DmxNavigableMemberReference__Group_1_1__2 : rule__DmxNavigableMemberReference__Group_1_1__2__Impl ;
     public final void rule__DmxNavigableMemberReference__Group_1_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5817:1: ( rule__DmxNavigableMemberReference__Group_1_1__2__Impl )
-            // InternalAsm.g:5818:2: rule__DmxNavigableMemberReference__Group_1_1__2__Impl
+            // InternalAsm.g:5986:1: ( rule__DmxNavigableMemberReference__Group_1_1__2__Impl )
+            // InternalAsm.g:5987:2: rule__DmxNavigableMemberReference__Group_1_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_1__2__Impl();
@@ -20226,22 +20763,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1__2__Impl"
-    // InternalAsm.g:5824:1: rule__DmxNavigableMemberReference__Group_1_1__2__Impl : ( ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )? ) ;
+    // InternalAsm.g:5993:1: rule__DmxNavigableMemberReference__Group_1_1__2__Impl : ( ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )? ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5828:1: ( ( ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )? ) )
-            // InternalAsm.g:5829:1: ( ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )? )
+            // InternalAsm.g:5997:1: ( ( ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )? ) )
+            // InternalAsm.g:5998:1: ( ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )? )
             {
-            // InternalAsm.g:5829:1: ( ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )? )
-            // InternalAsm.g:5830:2: ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )?
+            // InternalAsm.g:5998:1: ( ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )? )
+            // InternalAsm.g:5999:2: ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getAlternatives_1_1_2()); 
             }
-            // InternalAsm.g:5831:2: ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )?
+            // InternalAsm.g:6000:2: ( rule__DmxNavigableMemberReference__Alternatives_1_1_2 )?
             int alt61=2;
             int LA61_0 = input.LA(1);
 
@@ -20250,7 +20787,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
             switch (alt61) {
                 case 1 :
-                    // InternalAsm.g:5831:3: rule__DmxNavigableMemberReference__Alternatives_1_1_2
+                    // InternalAsm.g:6000:3: rule__DmxNavigableMemberReference__Alternatives_1_1_2
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxNavigableMemberReference__Alternatives_1_1_2();
@@ -20288,14 +20825,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_0__0"
-    // InternalAsm.g:5840:1: rule__DmxNavigableMemberReference__Group_1_1_0__0 : rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl ;
+    // InternalAsm.g:6009:1: rule__DmxNavigableMemberReference__Group_1_1_0__0 : rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5844:1: ( rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl )
-            // InternalAsm.g:5845:2: rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl
+            // InternalAsm.g:6013:1: ( rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl )
+            // InternalAsm.g:6014:2: rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl();
@@ -20321,23 +20858,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl"
-    // InternalAsm.g:5851:1: rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 ) ) ;
+    // InternalAsm.g:6020:1: rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 ) ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5855:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 ) ) )
-            // InternalAsm.g:5856:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 ) )
+            // InternalAsm.g:6024:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 ) ) )
+            // InternalAsm.g:6025:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 ) )
             {
-            // InternalAsm.g:5856:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 ) )
-            // InternalAsm.g:5857:2: ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 )
+            // InternalAsm.g:6025:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 ) )
+            // InternalAsm.g:6026:2: ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getGroup_1_1_0_0()); 
             }
-            // InternalAsm.g:5858:2: ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 )
-            // InternalAsm.g:5858:3: rule__DmxNavigableMemberReference__Group_1_1_0_0__0
+            // InternalAsm.g:6027:2: ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0 )
+            // InternalAsm.g:6027:3: rule__DmxNavigableMemberReference__Group_1_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_1_0_0__0();
@@ -20372,16 +20909,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_0_0__0"
-    // InternalAsm.g:5867:1: rule__DmxNavigableMemberReference__Group_1_1_0_0__0 : rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_0_0__1 ;
+    // InternalAsm.g:6036:1: rule__DmxNavigableMemberReference__Group_1_1_0_0__0 : rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_0_0__1 ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5871:1: ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_0_0__1 )
-            // InternalAsm.g:5872:2: rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_0_0__1
+            // InternalAsm.g:6040:1: ( rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_0_0__1 )
+            // InternalAsm.g:6041:2: rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_0_0__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_39);
             rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl();
 
             state._fsp--;
@@ -20410,23 +20947,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl"
-    // InternalAsm.g:5879:1: rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl : ( () ) ;
+    // InternalAsm.g:6048:1: rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl : ( () ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5883:1: ( ( () ) )
-            // InternalAsm.g:5884:1: ( () )
+            // InternalAsm.g:6052:1: ( ( () ) )
+            // InternalAsm.g:6053:1: ( () )
             {
-            // InternalAsm.g:5884:1: ( () )
-            // InternalAsm.g:5885:2: ()
+            // InternalAsm.g:6053:1: ( () )
+            // InternalAsm.g:6054:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getDmxMemberNavigationPrecedingNavigationSegmentAction_1_1_0_0_0()); 
             }
-            // InternalAsm.g:5886:2: ()
-            // InternalAsm.g:5886:3: 
+            // InternalAsm.g:6055:2: ()
+            // InternalAsm.g:6055:3: 
             {
             }
 
@@ -20451,14 +20988,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_0_0__1"
-    // InternalAsm.g:5894:1: rule__DmxNavigableMemberReference__Group_1_1_0_0__1 : rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl ;
+    // InternalAsm.g:6063:1: rule__DmxNavigableMemberReference__Group_1_1_0_0__1 : rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5898:1: ( rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl )
-            // InternalAsm.g:5899:2: rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl
+            // InternalAsm.g:6067:1: ( rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl )
+            // InternalAsm.g:6068:2: rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl();
@@ -20484,17 +21021,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl"
-    // InternalAsm.g:5905:1: rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl : ( '.' ) ;
+    // InternalAsm.g:6074:1: rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl : ( '.' ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5909:1: ( ( '.' ) )
-            // InternalAsm.g:5910:1: ( '.' )
+            // InternalAsm.g:6078:1: ( ( '.' ) )
+            // InternalAsm.g:6079:1: ( '.' )
             {
-            // InternalAsm.g:5910:1: ( '.' )
-            // InternalAsm.g:5911:2: '.'
+            // InternalAsm.g:6079:1: ( '.' )
+            // InternalAsm.g:6080:2: '.'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getFullStopKeyword_1_1_0_0_1()); 
@@ -20525,16 +21062,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0__0"
-    // InternalAsm.g:5921:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__0 : rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__1 ;
+    // InternalAsm.g:6090:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__0 : rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__1 ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5925:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__1 )
-            // InternalAsm.g:5926:2: rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__1
+            // InternalAsm.g:6094:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__1 )
+            // InternalAsm.g:6095:2: rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__1
             {
-            pushFollow(FOLLOW_40);
+            pushFollow(FOLLOW_44);
             rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl();
 
             state._fsp--;
@@ -20563,23 +21100,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl"
-    // InternalAsm.g:5933:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl : ( ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) ) ;
+    // InternalAsm.g:6102:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl : ( ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5937:1: ( ( ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) ) )
-            // InternalAsm.g:5938:1: ( ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) )
+            // InternalAsm.g:6106:1: ( ( ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) ) )
+            // InternalAsm.g:6107:1: ( ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) )
             {
-            // InternalAsm.g:5938:1: ( ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) )
-            // InternalAsm.g:5939:2: ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 )
+            // InternalAsm.g:6107:1: ( ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 ) )
+            // InternalAsm.g:6108:2: ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getExplicitOperationCallAssignment_1_1_2_0_0()); 
             }
-            // InternalAsm.g:5940:2: ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 )
-            // InternalAsm.g:5940:3: rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0
+            // InternalAsm.g:6109:2: ( rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 )
+            // InternalAsm.g:6109:3: rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0();
@@ -20614,16 +21151,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0__1"
-    // InternalAsm.g:5948:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__1 : rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__2 ;
+    // InternalAsm.g:6117:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__1 : rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__2 ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5952:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__2 )
-            // InternalAsm.g:5953:2: rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__2
+            // InternalAsm.g:6121:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__2 )
+            // InternalAsm.g:6122:2: rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0__2
             {
-            pushFollow(FOLLOW_40);
+            pushFollow(FOLLOW_44);
             rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl();
 
             state._fsp--;
@@ -20652,22 +21189,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl"
-    // InternalAsm.g:5960:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )? ) ;
+    // InternalAsm.g:6129:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )? ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5964:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )? ) )
-            // InternalAsm.g:5965:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )? )
+            // InternalAsm.g:6133:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )? ) )
+            // InternalAsm.g:6134:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )? )
             {
-            // InternalAsm.g:5965:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )? )
-            // InternalAsm.g:5966:2: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )?
+            // InternalAsm.g:6134:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )? )
+            // InternalAsm.g:6135:2: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getGroup_1_1_2_0_1()); 
             }
-            // InternalAsm.g:5967:2: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )?
+            // InternalAsm.g:6136:2: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 )?
             int alt62=2;
             int LA62_0 = input.LA(1);
 
@@ -20676,7 +21213,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
             switch (alt62) {
                 case 1 :
-                    // InternalAsm.g:5967:3: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0
+                    // InternalAsm.g:6136:3: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0();
@@ -20714,14 +21251,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0__2"
-    // InternalAsm.g:5975:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__2 : rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl ;
+    // InternalAsm.g:6144:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__2 : rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5979:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl )
-            // InternalAsm.g:5980:2: rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl
+            // InternalAsm.g:6148:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl )
+            // InternalAsm.g:6149:2: rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl();
@@ -20747,17 +21284,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl"
-    // InternalAsm.g:5986:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl : ( ')' ) ;
+    // InternalAsm.g:6155:1: rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl : ( ')' ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:5990:1: ( ( ')' ) )
-            // InternalAsm.g:5991:1: ( ')' )
+            // InternalAsm.g:6159:1: ( ( ')' ) )
+            // InternalAsm.g:6160:1: ( ')' )
             {
-            // InternalAsm.g:5991:1: ( ')' )
-            // InternalAsm.g:5992:2: ')'
+            // InternalAsm.g:6160:1: ( ')' )
+            // InternalAsm.g:6161:2: ')'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getRightParenthesisKeyword_1_1_2_0_2()); 
@@ -20788,14 +21325,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0"
-    // InternalAsm.g:6002:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 : rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1 ;
+    // InternalAsm.g:6171:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0 : rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1 ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6006:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1 )
-            // InternalAsm.g:6007:2: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1
+            // InternalAsm.g:6175:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1 )
+            // InternalAsm.g:6176:2: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1
             {
             pushFollow(FOLLOW_22);
             rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl();
@@ -20826,23 +21363,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl"
-    // InternalAsm.g:6014:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl : ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) ) ;
+    // InternalAsm.g:6183:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl : ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6018:1: ( ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) ) )
-            // InternalAsm.g:6019:1: ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) )
+            // InternalAsm.g:6187:1: ( ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) ) )
+            // InternalAsm.g:6188:1: ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) )
             {
-            // InternalAsm.g:6019:1: ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) )
-            // InternalAsm.g:6020:2: ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 )
+            // InternalAsm.g:6188:1: ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 ) )
+            // InternalAsm.g:6189:2: ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getMemberCallArgumentsAssignment_1_1_2_0_1_0()); 
             }
-            // InternalAsm.g:6021:2: ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 )
-            // InternalAsm.g:6021:3: rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0
+            // InternalAsm.g:6190:2: ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 )
+            // InternalAsm.g:6190:3: rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0();
@@ -20877,14 +21414,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1"
-    // InternalAsm.g:6029:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1 : rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl ;
+    // InternalAsm.g:6198:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1 : rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6033:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl )
-            // InternalAsm.g:6034:2: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl
+            // InternalAsm.g:6202:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl )
+            // InternalAsm.g:6203:2: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl();
@@ -20910,22 +21447,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl"
-    // InternalAsm.g:6040:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )* ) ;
+    // InternalAsm.g:6209:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl : ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )* ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6044:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )* ) )
-            // InternalAsm.g:6045:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )* )
+            // InternalAsm.g:6213:1: ( ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )* ) )
+            // InternalAsm.g:6214:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )* )
             {
-            // InternalAsm.g:6045:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )* )
-            // InternalAsm.g:6046:2: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )*
+            // InternalAsm.g:6214:1: ( ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )* )
+            // InternalAsm.g:6215:2: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getGroup_1_1_2_0_1_1()); 
             }
-            // InternalAsm.g:6047:2: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )*
+            // InternalAsm.g:6216:2: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 )*
             loop63:
             do {
                 int alt63=2;
@@ -20938,7 +21475,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
                 switch (alt63) {
             	case 1 :
-            	    // InternalAsm.g:6047:3: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0
+            	    // InternalAsm.g:6216:3: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0
             	    {
             	    pushFollow(FOLLOW_23);
             	    rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0();
@@ -20979,16 +21516,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0"
-    // InternalAsm.g:6056:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 : rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1 ;
+    // InternalAsm.g:6225:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0 : rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1 ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6060:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1 )
-            // InternalAsm.g:6061:2: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1
+            // InternalAsm.g:6229:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1 )
+            // InternalAsm.g:6230:2: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_41);
             rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl();
 
             state._fsp--;
@@ -21017,17 +21554,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl"
-    // InternalAsm.g:6068:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl : ( ',' ) ;
+    // InternalAsm.g:6237:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl : ( ',' ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6072:1: ( ( ',' ) )
-            // InternalAsm.g:6073:1: ( ',' )
+            // InternalAsm.g:6241:1: ( ( ',' ) )
+            // InternalAsm.g:6242:1: ( ',' )
             {
-            // InternalAsm.g:6073:1: ( ',' )
-            // InternalAsm.g:6074:2: ','
+            // InternalAsm.g:6242:1: ( ',' )
+            // InternalAsm.g:6243:2: ','
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getCommaKeyword_1_1_2_0_1_1_0()); 
@@ -21058,14 +21595,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1"
-    // InternalAsm.g:6083:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1 : rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl ;
+    // InternalAsm.g:6252:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1 : rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6087:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl )
-            // InternalAsm.g:6088:2: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl
+            // InternalAsm.g:6256:1: ( rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl )
+            // InternalAsm.g:6257:2: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl();
@@ -21091,23 +21628,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl"
-    // InternalAsm.g:6094:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl : ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) ) ;
+    // InternalAsm.g:6263:1: rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl : ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) ) ;
     public final void rule__DmxNavigableMemberReference__Group_1_1_2_0_1_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6098:1: ( ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) ) )
-            // InternalAsm.g:6099:1: ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) )
+            // InternalAsm.g:6267:1: ( ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) ) )
+            // InternalAsm.g:6268:1: ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) )
             {
-            // InternalAsm.g:6099:1: ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) )
-            // InternalAsm.g:6100:2: ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 )
+            // InternalAsm.g:6268:1: ( ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 ) )
+            // InternalAsm.g:6269:2: ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getMemberCallArgumentsAssignment_1_1_2_0_1_1_1()); 
             }
-            // InternalAsm.g:6101:2: ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 )
-            // InternalAsm.g:6101:3: rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1
+            // InternalAsm.g:6270:2: ( rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 )
+            // InternalAsm.g:6270:3: rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1();
@@ -21142,14 +21679,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAssignment__Group__0"
-    // InternalAsm.g:6110:1: rule__DmxAssignment__Group__0 : rule__DmxAssignment__Group__0__Impl rule__DmxAssignment__Group__1 ;
+    // InternalAsm.g:6279:1: rule__DmxAssignment__Group__0 : rule__DmxAssignment__Group__0__Impl rule__DmxAssignment__Group__1 ;
     public final void rule__DmxAssignment__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6114:1: ( rule__DmxAssignment__Group__0__Impl rule__DmxAssignment__Group__1 )
-            // InternalAsm.g:6115:2: rule__DmxAssignment__Group__0__Impl rule__DmxAssignment__Group__1
+            // InternalAsm.g:6283:1: ( rule__DmxAssignment__Group__0__Impl rule__DmxAssignment__Group__1 )
+            // InternalAsm.g:6284:2: rule__DmxAssignment__Group__0__Impl rule__DmxAssignment__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__DmxAssignment__Group__0__Impl();
@@ -21180,23 +21717,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAssignment__Group__0__Impl"
-    // InternalAsm.g:6122:1: rule__DmxAssignment__Group__0__Impl : ( () ) ;
+    // InternalAsm.g:6291:1: rule__DmxAssignment__Group__0__Impl : ( () ) ;
     public final void rule__DmxAssignment__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6126:1: ( ( () ) )
-            // InternalAsm.g:6127:1: ( () )
+            // InternalAsm.g:6295:1: ( ( () ) )
+            // InternalAsm.g:6296:1: ( () )
             {
-            // InternalAsm.g:6127:1: ( () )
-            // InternalAsm.g:6128:2: ()
+            // InternalAsm.g:6296:1: ( () )
+            // InternalAsm.g:6297:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAssignmentAccess().getDmxAssignmentAction_0()); 
             }
-            // InternalAsm.g:6129:2: ()
-            // InternalAsm.g:6129:3: 
+            // InternalAsm.g:6298:2: ()
+            // InternalAsm.g:6298:3: 
             {
             }
 
@@ -21221,16 +21758,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAssignment__Group__1"
-    // InternalAsm.g:6137:1: rule__DmxAssignment__Group__1 : rule__DmxAssignment__Group__1__Impl rule__DmxAssignment__Group__2 ;
+    // InternalAsm.g:6306:1: rule__DmxAssignment__Group__1 : rule__DmxAssignment__Group__1__Impl rule__DmxAssignment__Group__2 ;
     public final void rule__DmxAssignment__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6141:1: ( rule__DmxAssignment__Group__1__Impl rule__DmxAssignment__Group__2 )
-            // InternalAsm.g:6142:2: rule__DmxAssignment__Group__1__Impl rule__DmxAssignment__Group__2
+            // InternalAsm.g:6310:1: ( rule__DmxAssignment__Group__1__Impl rule__DmxAssignment__Group__2 )
+            // InternalAsm.g:6311:2: rule__DmxAssignment__Group__1__Impl rule__DmxAssignment__Group__2
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_42);
             rule__DmxAssignment__Group__1__Impl();
 
             state._fsp--;
@@ -21259,23 +21796,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAssignment__Group__1__Impl"
-    // InternalAsm.g:6149:1: rule__DmxAssignment__Group__1__Impl : ( ( rule__DmxAssignment__AssignToMemberAssignment_1 ) ) ;
+    // InternalAsm.g:6318:1: rule__DmxAssignment__Group__1__Impl : ( ( rule__DmxAssignment__AssignToMemberAssignment_1 ) ) ;
     public final void rule__DmxAssignment__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6153:1: ( ( ( rule__DmxAssignment__AssignToMemberAssignment_1 ) ) )
-            // InternalAsm.g:6154:1: ( ( rule__DmxAssignment__AssignToMemberAssignment_1 ) )
+            // InternalAsm.g:6322:1: ( ( ( rule__DmxAssignment__AssignToMemberAssignment_1 ) ) )
+            // InternalAsm.g:6323:1: ( ( rule__DmxAssignment__AssignToMemberAssignment_1 ) )
             {
-            // InternalAsm.g:6154:1: ( ( rule__DmxAssignment__AssignToMemberAssignment_1 ) )
-            // InternalAsm.g:6155:2: ( rule__DmxAssignment__AssignToMemberAssignment_1 )
+            // InternalAsm.g:6323:1: ( ( rule__DmxAssignment__AssignToMemberAssignment_1 ) )
+            // InternalAsm.g:6324:2: ( rule__DmxAssignment__AssignToMemberAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAssignmentAccess().getAssignToMemberAssignment_1()); 
             }
-            // InternalAsm.g:6156:2: ( rule__DmxAssignment__AssignToMemberAssignment_1 )
-            // InternalAsm.g:6156:3: rule__DmxAssignment__AssignToMemberAssignment_1
+            // InternalAsm.g:6325:2: ( rule__DmxAssignment__AssignToMemberAssignment_1 )
+            // InternalAsm.g:6325:3: rule__DmxAssignment__AssignToMemberAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxAssignment__AssignToMemberAssignment_1();
@@ -21310,16 +21847,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAssignment__Group__2"
-    // InternalAsm.g:6164:1: rule__DmxAssignment__Group__2 : rule__DmxAssignment__Group__2__Impl rule__DmxAssignment__Group__3 ;
+    // InternalAsm.g:6333:1: rule__DmxAssignment__Group__2 : rule__DmxAssignment__Group__2__Impl rule__DmxAssignment__Group__3 ;
     public final void rule__DmxAssignment__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6168:1: ( rule__DmxAssignment__Group__2__Impl rule__DmxAssignment__Group__3 )
-            // InternalAsm.g:6169:2: rule__DmxAssignment__Group__2__Impl rule__DmxAssignment__Group__3
+            // InternalAsm.g:6337:1: ( rule__DmxAssignment__Group__2__Impl rule__DmxAssignment__Group__3 )
+            // InternalAsm.g:6338:2: rule__DmxAssignment__Group__2__Impl rule__DmxAssignment__Group__3
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_41);
             rule__DmxAssignment__Group__2__Impl();
 
             state._fsp--;
@@ -21348,17 +21885,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAssignment__Group__2__Impl"
-    // InternalAsm.g:6176:1: rule__DmxAssignment__Group__2__Impl : ( ruleDmxOpSingleAssign ) ;
+    // InternalAsm.g:6345:1: rule__DmxAssignment__Group__2__Impl : ( ruleDmxOpSingleAssign ) ;
     public final void rule__DmxAssignment__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6180:1: ( ( ruleDmxOpSingleAssign ) )
-            // InternalAsm.g:6181:1: ( ruleDmxOpSingleAssign )
+            // InternalAsm.g:6349:1: ( ( ruleDmxOpSingleAssign ) )
+            // InternalAsm.g:6350:1: ( ruleDmxOpSingleAssign )
             {
-            // InternalAsm.g:6181:1: ( ruleDmxOpSingleAssign )
-            // InternalAsm.g:6182:2: ruleDmxOpSingleAssign
+            // InternalAsm.g:6350:1: ( ruleDmxOpSingleAssign )
+            // InternalAsm.g:6351:2: ruleDmxOpSingleAssign
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAssignmentAccess().getDmxOpSingleAssignParserRuleCall_2()); 
@@ -21393,14 +21930,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAssignment__Group__3"
-    // InternalAsm.g:6191:1: rule__DmxAssignment__Group__3 : rule__DmxAssignment__Group__3__Impl ;
+    // InternalAsm.g:6360:1: rule__DmxAssignment__Group__3 : rule__DmxAssignment__Group__3__Impl ;
     public final void rule__DmxAssignment__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6195:1: ( rule__DmxAssignment__Group__3__Impl )
-            // InternalAsm.g:6196:2: rule__DmxAssignment__Group__3__Impl
+            // InternalAsm.g:6364:1: ( rule__DmxAssignment__Group__3__Impl )
+            // InternalAsm.g:6365:2: rule__DmxAssignment__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxAssignment__Group__3__Impl();
@@ -21426,23 +21963,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAssignment__Group__3__Impl"
-    // InternalAsm.g:6202:1: rule__DmxAssignment__Group__3__Impl : ( ( rule__DmxAssignment__ValueAssignment_3 ) ) ;
+    // InternalAsm.g:6371:1: rule__DmxAssignment__Group__3__Impl : ( ( rule__DmxAssignment__ValueAssignment_3 ) ) ;
     public final void rule__DmxAssignment__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6206:1: ( ( ( rule__DmxAssignment__ValueAssignment_3 ) ) )
-            // InternalAsm.g:6207:1: ( ( rule__DmxAssignment__ValueAssignment_3 ) )
+            // InternalAsm.g:6375:1: ( ( ( rule__DmxAssignment__ValueAssignment_3 ) ) )
+            // InternalAsm.g:6376:1: ( ( rule__DmxAssignment__ValueAssignment_3 ) )
             {
-            // InternalAsm.g:6207:1: ( ( rule__DmxAssignment__ValueAssignment_3 ) )
-            // InternalAsm.g:6208:2: ( rule__DmxAssignment__ValueAssignment_3 )
+            // InternalAsm.g:6376:1: ( ( rule__DmxAssignment__ValueAssignment_3 ) )
+            // InternalAsm.g:6377:2: ( rule__DmxAssignment__ValueAssignment_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAssignmentAccess().getValueAssignment_3()); 
             }
-            // InternalAsm.g:6209:2: ( rule__DmxAssignment__ValueAssignment_3 )
-            // InternalAsm.g:6209:3: rule__DmxAssignment__ValueAssignment_3
+            // InternalAsm.g:6378:2: ( rule__DmxAssignment__ValueAssignment_3 )
+            // InternalAsm.g:6378:3: rule__DmxAssignment__ValueAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__DmxAssignment__ValueAssignment_3();
@@ -21477,14 +22014,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxPredicate__Group_0__0"
-    // InternalAsm.g:6218:1: rule__DmxPredicate__Group_0__0 : rule__DmxPredicate__Group_0__0__Impl rule__DmxPredicate__Group_0__1 ;
+    // InternalAsm.g:6387:1: rule__DmxPredicate__Group_0__0 : rule__DmxPredicate__Group_0__0__Impl rule__DmxPredicate__Group_0__1 ;
     public final void rule__DmxPredicate__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6222:1: ( rule__DmxPredicate__Group_0__0__Impl rule__DmxPredicate__Group_0__1 )
-            // InternalAsm.g:6223:2: rule__DmxPredicate__Group_0__0__Impl rule__DmxPredicate__Group_0__1
+            // InternalAsm.g:6391:1: ( rule__DmxPredicate__Group_0__0__Impl rule__DmxPredicate__Group_0__1 )
+            // InternalAsm.g:6392:2: rule__DmxPredicate__Group_0__0__Impl rule__DmxPredicate__Group_0__1
             {
             pushFollow(FOLLOW_5);
             rule__DmxPredicate__Group_0__0__Impl();
@@ -21515,23 +22052,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxPredicate__Group_0__0__Impl"
-    // InternalAsm.g:6230:1: rule__DmxPredicate__Group_0__0__Impl : ( () ) ;
+    // InternalAsm.g:6399:1: rule__DmxPredicate__Group_0__0__Impl : ( () ) ;
     public final void rule__DmxPredicate__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6234:1: ( ( () ) )
-            // InternalAsm.g:6235:1: ( () )
+            // InternalAsm.g:6403:1: ( ( () ) )
+            // InternalAsm.g:6404:1: ( () )
             {
-            // InternalAsm.g:6235:1: ( () )
-            // InternalAsm.g:6236:2: ()
+            // InternalAsm.g:6404:1: ( () )
+            // InternalAsm.g:6405:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxPredicateAccess().getDmxPredicateWithCorrelationVariableAction_0_0()); 
             }
-            // InternalAsm.g:6237:2: ()
-            // InternalAsm.g:6237:3: 
+            // InternalAsm.g:6406:2: ()
+            // InternalAsm.g:6406:3: 
             {
             }
 
@@ -21556,16 +22093,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxPredicate__Group_0__1"
-    // InternalAsm.g:6245:1: rule__DmxPredicate__Group_0__1 : rule__DmxPredicate__Group_0__1__Impl rule__DmxPredicate__Group_0__2 ;
+    // InternalAsm.g:6414:1: rule__DmxPredicate__Group_0__1 : rule__DmxPredicate__Group_0__1__Impl rule__DmxPredicate__Group_0__2 ;
     public final void rule__DmxPredicate__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6249:1: ( rule__DmxPredicate__Group_0__1__Impl rule__DmxPredicate__Group_0__2 )
-            // InternalAsm.g:6250:2: rule__DmxPredicate__Group_0__1__Impl rule__DmxPredicate__Group_0__2
+            // InternalAsm.g:6418:1: ( rule__DmxPredicate__Group_0__1__Impl rule__DmxPredicate__Group_0__2 )
+            // InternalAsm.g:6419:2: rule__DmxPredicate__Group_0__1__Impl rule__DmxPredicate__Group_0__2
             {
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_45);
             rule__DmxPredicate__Group_0__1__Impl();
 
             state._fsp--;
@@ -21594,23 +22131,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxPredicate__Group_0__1__Impl"
-    // InternalAsm.g:6257:1: rule__DmxPredicate__Group_0__1__Impl : ( ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 ) ) ;
+    // InternalAsm.g:6426:1: rule__DmxPredicate__Group_0__1__Impl : ( ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 ) ) ;
     public final void rule__DmxPredicate__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6261:1: ( ( ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 ) ) )
-            // InternalAsm.g:6262:1: ( ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 ) )
+            // InternalAsm.g:6430:1: ( ( ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 ) ) )
+            // InternalAsm.g:6431:1: ( ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 ) )
             {
-            // InternalAsm.g:6262:1: ( ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 ) )
-            // InternalAsm.g:6263:2: ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 )
+            // InternalAsm.g:6431:1: ( ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 ) )
+            // InternalAsm.g:6432:2: ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxPredicateAccess().getCorrelationVariableAssignment_0_1()); 
             }
-            // InternalAsm.g:6264:2: ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 )
-            // InternalAsm.g:6264:3: rule__DmxPredicate__CorrelationVariableAssignment_0_1
+            // InternalAsm.g:6433:2: ( rule__DmxPredicate__CorrelationVariableAssignment_0_1 )
+            // InternalAsm.g:6433:3: rule__DmxPredicate__CorrelationVariableAssignment_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxPredicate__CorrelationVariableAssignment_0_1();
@@ -21645,16 +22182,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxPredicate__Group_0__2"
-    // InternalAsm.g:6272:1: rule__DmxPredicate__Group_0__2 : rule__DmxPredicate__Group_0__2__Impl rule__DmxPredicate__Group_0__3 ;
+    // InternalAsm.g:6441:1: rule__DmxPredicate__Group_0__2 : rule__DmxPredicate__Group_0__2__Impl rule__DmxPredicate__Group_0__3 ;
     public final void rule__DmxPredicate__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6276:1: ( rule__DmxPredicate__Group_0__2__Impl rule__DmxPredicate__Group_0__3 )
-            // InternalAsm.g:6277:2: rule__DmxPredicate__Group_0__2__Impl rule__DmxPredicate__Group_0__3
+            // InternalAsm.g:6445:1: ( rule__DmxPredicate__Group_0__2__Impl rule__DmxPredicate__Group_0__3 )
+            // InternalAsm.g:6446:2: rule__DmxPredicate__Group_0__2__Impl rule__DmxPredicate__Group_0__3
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_41);
             rule__DmxPredicate__Group_0__2__Impl();
 
             state._fsp--;
@@ -21683,17 +22220,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxPredicate__Group_0__2__Impl"
-    // InternalAsm.g:6284:1: rule__DmxPredicate__Group_0__2__Impl : ( '|' ) ;
+    // InternalAsm.g:6453:1: rule__DmxPredicate__Group_0__2__Impl : ( '|' ) ;
     public final void rule__DmxPredicate__Group_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6288:1: ( ( '|' ) )
-            // InternalAsm.g:6289:1: ( '|' )
+            // InternalAsm.g:6457:1: ( ( '|' ) )
+            // InternalAsm.g:6458:1: ( '|' )
             {
-            // InternalAsm.g:6289:1: ( '|' )
-            // InternalAsm.g:6290:2: '|'
+            // InternalAsm.g:6458:1: ( '|' )
+            // InternalAsm.g:6459:2: '|'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxPredicateAccess().getVerticalLineKeyword_0_2()); 
@@ -21724,14 +22261,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxPredicate__Group_0__3"
-    // InternalAsm.g:6299:1: rule__DmxPredicate__Group_0__3 : rule__DmxPredicate__Group_0__3__Impl ;
+    // InternalAsm.g:6468:1: rule__DmxPredicate__Group_0__3 : rule__DmxPredicate__Group_0__3__Impl ;
     public final void rule__DmxPredicate__Group_0__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6303:1: ( rule__DmxPredicate__Group_0__3__Impl )
-            // InternalAsm.g:6304:2: rule__DmxPredicate__Group_0__3__Impl
+            // InternalAsm.g:6472:1: ( rule__DmxPredicate__Group_0__3__Impl )
+            // InternalAsm.g:6473:2: rule__DmxPredicate__Group_0__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxPredicate__Group_0__3__Impl();
@@ -21757,23 +22294,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxPredicate__Group_0__3__Impl"
-    // InternalAsm.g:6310:1: rule__DmxPredicate__Group_0__3__Impl : ( ( rule__DmxPredicate__ValueAssignment_0_3 ) ) ;
+    // InternalAsm.g:6479:1: rule__DmxPredicate__Group_0__3__Impl : ( ( rule__DmxPredicate__ValueAssignment_0_3 ) ) ;
     public final void rule__DmxPredicate__Group_0__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6314:1: ( ( ( rule__DmxPredicate__ValueAssignment_0_3 ) ) )
-            // InternalAsm.g:6315:1: ( ( rule__DmxPredicate__ValueAssignment_0_3 ) )
+            // InternalAsm.g:6483:1: ( ( ( rule__DmxPredicate__ValueAssignment_0_3 ) ) )
+            // InternalAsm.g:6484:1: ( ( rule__DmxPredicate__ValueAssignment_0_3 ) )
             {
-            // InternalAsm.g:6315:1: ( ( rule__DmxPredicate__ValueAssignment_0_3 ) )
-            // InternalAsm.g:6316:2: ( rule__DmxPredicate__ValueAssignment_0_3 )
+            // InternalAsm.g:6484:1: ( ( rule__DmxPredicate__ValueAssignment_0_3 ) )
+            // InternalAsm.g:6485:2: ( rule__DmxPredicate__ValueAssignment_0_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxPredicateAccess().getValueAssignment_0_3()); 
             }
-            // InternalAsm.g:6317:2: ( rule__DmxPredicate__ValueAssignment_0_3 )
-            // InternalAsm.g:6317:3: rule__DmxPredicate__ValueAssignment_0_3
+            // InternalAsm.g:6486:2: ( rule__DmxPredicate__ValueAssignment_0_3 )
+            // InternalAsm.g:6486:3: rule__DmxPredicate__ValueAssignment_0_3
             {
             pushFollow(FOLLOW_2);
             rule__DmxPredicate__ValueAssignment_0_3();
@@ -21808,16 +22345,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group__0"
-    // InternalAsm.g:6326:1: rule__DmxOrExpression__Group__0 : rule__DmxOrExpression__Group__0__Impl rule__DmxOrExpression__Group__1 ;
+    // InternalAsm.g:6495:1: rule__DmxOrExpression__Group__0 : rule__DmxOrExpression__Group__0__Impl rule__DmxOrExpression__Group__1 ;
     public final void rule__DmxOrExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6330:1: ( rule__DmxOrExpression__Group__0__Impl rule__DmxOrExpression__Group__1 )
-            // InternalAsm.g:6331:2: rule__DmxOrExpression__Group__0__Impl rule__DmxOrExpression__Group__1
+            // InternalAsm.g:6499:1: ( rule__DmxOrExpression__Group__0__Impl rule__DmxOrExpression__Group__1 )
+            // InternalAsm.g:6500:2: rule__DmxOrExpression__Group__0__Impl rule__DmxOrExpression__Group__1
             {
-            pushFollow(FOLLOW_42);
+            pushFollow(FOLLOW_46);
             rule__DmxOrExpression__Group__0__Impl();
 
             state._fsp--;
@@ -21846,17 +22383,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group__0__Impl"
-    // InternalAsm.g:6338:1: rule__DmxOrExpression__Group__0__Impl : ( ruleDmxAndExpression ) ;
+    // InternalAsm.g:6507:1: rule__DmxOrExpression__Group__0__Impl : ( ruleDmxAndExpression ) ;
     public final void rule__DmxOrExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6342:1: ( ( ruleDmxAndExpression ) )
-            // InternalAsm.g:6343:1: ( ruleDmxAndExpression )
+            // InternalAsm.g:6511:1: ( ( ruleDmxAndExpression ) )
+            // InternalAsm.g:6512:1: ( ruleDmxAndExpression )
             {
-            // InternalAsm.g:6343:1: ( ruleDmxAndExpression )
-            // InternalAsm.g:6344:2: ruleDmxAndExpression
+            // InternalAsm.g:6512:1: ( ruleDmxAndExpression )
+            // InternalAsm.g:6513:2: ruleDmxAndExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOrExpressionAccess().getDmxAndExpressionParserRuleCall_0()); 
@@ -21891,14 +22428,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group__1"
-    // InternalAsm.g:6353:1: rule__DmxOrExpression__Group__1 : rule__DmxOrExpression__Group__1__Impl ;
+    // InternalAsm.g:6522:1: rule__DmxOrExpression__Group__1 : rule__DmxOrExpression__Group__1__Impl ;
     public final void rule__DmxOrExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6357:1: ( rule__DmxOrExpression__Group__1__Impl )
-            // InternalAsm.g:6358:2: rule__DmxOrExpression__Group__1__Impl
+            // InternalAsm.g:6526:1: ( rule__DmxOrExpression__Group__1__Impl )
+            // InternalAsm.g:6527:2: rule__DmxOrExpression__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxOrExpression__Group__1__Impl();
@@ -21924,22 +22461,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group__1__Impl"
-    // InternalAsm.g:6364:1: rule__DmxOrExpression__Group__1__Impl : ( ( rule__DmxOrExpression__Group_1__0 )* ) ;
+    // InternalAsm.g:6533:1: rule__DmxOrExpression__Group__1__Impl : ( ( rule__DmxOrExpression__Group_1__0 )* ) ;
     public final void rule__DmxOrExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6368:1: ( ( ( rule__DmxOrExpression__Group_1__0 )* ) )
-            // InternalAsm.g:6369:1: ( ( rule__DmxOrExpression__Group_1__0 )* )
+            // InternalAsm.g:6537:1: ( ( ( rule__DmxOrExpression__Group_1__0 )* ) )
+            // InternalAsm.g:6538:1: ( ( rule__DmxOrExpression__Group_1__0 )* )
             {
-            // InternalAsm.g:6369:1: ( ( rule__DmxOrExpression__Group_1__0 )* )
-            // InternalAsm.g:6370:2: ( rule__DmxOrExpression__Group_1__0 )*
+            // InternalAsm.g:6538:1: ( ( rule__DmxOrExpression__Group_1__0 )* )
+            // InternalAsm.g:6539:2: ( rule__DmxOrExpression__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOrExpressionAccess().getGroup_1()); 
             }
-            // InternalAsm.g:6371:2: ( rule__DmxOrExpression__Group_1__0 )*
+            // InternalAsm.g:6540:2: ( rule__DmxOrExpression__Group_1__0 )*
             loop64:
             do {
                 int alt64=2;
@@ -21993,9 +22530,9 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
                 switch (alt64) {
             	case 1 :
-            	    // InternalAsm.g:6371:3: rule__DmxOrExpression__Group_1__0
+            	    // InternalAsm.g:6540:3: rule__DmxOrExpression__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_43);
+            	    pushFollow(FOLLOW_47);
             	    rule__DmxOrExpression__Group_1__0();
 
             	    state._fsp--;
@@ -22034,16 +22571,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group_1__0"
-    // InternalAsm.g:6380:1: rule__DmxOrExpression__Group_1__0 : rule__DmxOrExpression__Group_1__0__Impl rule__DmxOrExpression__Group_1__1 ;
+    // InternalAsm.g:6549:1: rule__DmxOrExpression__Group_1__0 : rule__DmxOrExpression__Group_1__0__Impl rule__DmxOrExpression__Group_1__1 ;
     public final void rule__DmxOrExpression__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6384:1: ( rule__DmxOrExpression__Group_1__0__Impl rule__DmxOrExpression__Group_1__1 )
-            // InternalAsm.g:6385:2: rule__DmxOrExpression__Group_1__0__Impl rule__DmxOrExpression__Group_1__1
+            // InternalAsm.g:6553:1: ( rule__DmxOrExpression__Group_1__0__Impl rule__DmxOrExpression__Group_1__1 )
+            // InternalAsm.g:6554:2: rule__DmxOrExpression__Group_1__0__Impl rule__DmxOrExpression__Group_1__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_41);
             rule__DmxOrExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -22072,23 +22609,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group_1__0__Impl"
-    // InternalAsm.g:6392:1: rule__DmxOrExpression__Group_1__0__Impl : ( ( rule__DmxOrExpression__Group_1_0__0 ) ) ;
+    // InternalAsm.g:6561:1: rule__DmxOrExpression__Group_1__0__Impl : ( ( rule__DmxOrExpression__Group_1_0__0 ) ) ;
     public final void rule__DmxOrExpression__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6396:1: ( ( ( rule__DmxOrExpression__Group_1_0__0 ) ) )
-            // InternalAsm.g:6397:1: ( ( rule__DmxOrExpression__Group_1_0__0 ) )
+            // InternalAsm.g:6565:1: ( ( ( rule__DmxOrExpression__Group_1_0__0 ) ) )
+            // InternalAsm.g:6566:1: ( ( rule__DmxOrExpression__Group_1_0__0 ) )
             {
-            // InternalAsm.g:6397:1: ( ( rule__DmxOrExpression__Group_1_0__0 ) )
-            // InternalAsm.g:6398:2: ( rule__DmxOrExpression__Group_1_0__0 )
+            // InternalAsm.g:6566:1: ( ( rule__DmxOrExpression__Group_1_0__0 ) )
+            // InternalAsm.g:6567:2: ( rule__DmxOrExpression__Group_1_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOrExpressionAccess().getGroup_1_0()); 
             }
-            // InternalAsm.g:6399:2: ( rule__DmxOrExpression__Group_1_0__0 )
-            // InternalAsm.g:6399:3: rule__DmxOrExpression__Group_1_0__0
+            // InternalAsm.g:6568:2: ( rule__DmxOrExpression__Group_1_0__0 )
+            // InternalAsm.g:6568:3: rule__DmxOrExpression__Group_1_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxOrExpression__Group_1_0__0();
@@ -22123,14 +22660,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group_1__1"
-    // InternalAsm.g:6407:1: rule__DmxOrExpression__Group_1__1 : rule__DmxOrExpression__Group_1__1__Impl ;
+    // InternalAsm.g:6576:1: rule__DmxOrExpression__Group_1__1 : rule__DmxOrExpression__Group_1__1__Impl ;
     public final void rule__DmxOrExpression__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6411:1: ( rule__DmxOrExpression__Group_1__1__Impl )
-            // InternalAsm.g:6412:2: rule__DmxOrExpression__Group_1__1__Impl
+            // InternalAsm.g:6580:1: ( rule__DmxOrExpression__Group_1__1__Impl )
+            // InternalAsm.g:6581:2: rule__DmxOrExpression__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxOrExpression__Group_1__1__Impl();
@@ -22156,23 +22693,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group_1__1__Impl"
-    // InternalAsm.g:6418:1: rule__DmxOrExpression__Group_1__1__Impl : ( ( rule__DmxOrExpression__RightOperandAssignment_1_1 ) ) ;
+    // InternalAsm.g:6587:1: rule__DmxOrExpression__Group_1__1__Impl : ( ( rule__DmxOrExpression__RightOperandAssignment_1_1 ) ) ;
     public final void rule__DmxOrExpression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6422:1: ( ( ( rule__DmxOrExpression__RightOperandAssignment_1_1 ) ) )
-            // InternalAsm.g:6423:1: ( ( rule__DmxOrExpression__RightOperandAssignment_1_1 ) )
+            // InternalAsm.g:6591:1: ( ( ( rule__DmxOrExpression__RightOperandAssignment_1_1 ) ) )
+            // InternalAsm.g:6592:1: ( ( rule__DmxOrExpression__RightOperandAssignment_1_1 ) )
             {
-            // InternalAsm.g:6423:1: ( ( rule__DmxOrExpression__RightOperandAssignment_1_1 ) )
-            // InternalAsm.g:6424:2: ( rule__DmxOrExpression__RightOperandAssignment_1_1 )
+            // InternalAsm.g:6592:1: ( ( rule__DmxOrExpression__RightOperandAssignment_1_1 ) )
+            // InternalAsm.g:6593:2: ( rule__DmxOrExpression__RightOperandAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOrExpressionAccess().getRightOperandAssignment_1_1()); 
             }
-            // InternalAsm.g:6425:2: ( rule__DmxOrExpression__RightOperandAssignment_1_1 )
-            // InternalAsm.g:6425:3: rule__DmxOrExpression__RightOperandAssignment_1_1
+            // InternalAsm.g:6594:2: ( rule__DmxOrExpression__RightOperandAssignment_1_1 )
+            // InternalAsm.g:6594:3: rule__DmxOrExpression__RightOperandAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxOrExpression__RightOperandAssignment_1_1();
@@ -22207,14 +22744,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group_1_0__0"
-    // InternalAsm.g:6434:1: rule__DmxOrExpression__Group_1_0__0 : rule__DmxOrExpression__Group_1_0__0__Impl ;
+    // InternalAsm.g:6603:1: rule__DmxOrExpression__Group_1_0__0 : rule__DmxOrExpression__Group_1_0__0__Impl ;
     public final void rule__DmxOrExpression__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6438:1: ( rule__DmxOrExpression__Group_1_0__0__Impl )
-            // InternalAsm.g:6439:2: rule__DmxOrExpression__Group_1_0__0__Impl
+            // InternalAsm.g:6607:1: ( rule__DmxOrExpression__Group_1_0__0__Impl )
+            // InternalAsm.g:6608:2: rule__DmxOrExpression__Group_1_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxOrExpression__Group_1_0__0__Impl();
@@ -22240,23 +22777,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group_1_0__0__Impl"
-    // InternalAsm.g:6445:1: rule__DmxOrExpression__Group_1_0__0__Impl : ( ( rule__DmxOrExpression__Group_1_0_0__0 ) ) ;
+    // InternalAsm.g:6614:1: rule__DmxOrExpression__Group_1_0__0__Impl : ( ( rule__DmxOrExpression__Group_1_0_0__0 ) ) ;
     public final void rule__DmxOrExpression__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6449:1: ( ( ( rule__DmxOrExpression__Group_1_0_0__0 ) ) )
-            // InternalAsm.g:6450:1: ( ( rule__DmxOrExpression__Group_1_0_0__0 ) )
+            // InternalAsm.g:6618:1: ( ( ( rule__DmxOrExpression__Group_1_0_0__0 ) ) )
+            // InternalAsm.g:6619:1: ( ( rule__DmxOrExpression__Group_1_0_0__0 ) )
             {
-            // InternalAsm.g:6450:1: ( ( rule__DmxOrExpression__Group_1_0_0__0 ) )
-            // InternalAsm.g:6451:2: ( rule__DmxOrExpression__Group_1_0_0__0 )
+            // InternalAsm.g:6619:1: ( ( rule__DmxOrExpression__Group_1_0_0__0 ) )
+            // InternalAsm.g:6620:2: ( rule__DmxOrExpression__Group_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOrExpressionAccess().getGroup_1_0_0()); 
             }
-            // InternalAsm.g:6452:2: ( rule__DmxOrExpression__Group_1_0_0__0 )
-            // InternalAsm.g:6452:3: rule__DmxOrExpression__Group_1_0_0__0
+            // InternalAsm.g:6621:2: ( rule__DmxOrExpression__Group_1_0_0__0 )
+            // InternalAsm.g:6621:3: rule__DmxOrExpression__Group_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxOrExpression__Group_1_0_0__0();
@@ -22291,16 +22828,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group_1_0_0__0"
-    // InternalAsm.g:6461:1: rule__DmxOrExpression__Group_1_0_0__0 : rule__DmxOrExpression__Group_1_0_0__0__Impl rule__DmxOrExpression__Group_1_0_0__1 ;
+    // InternalAsm.g:6630:1: rule__DmxOrExpression__Group_1_0_0__0 : rule__DmxOrExpression__Group_1_0_0__0__Impl rule__DmxOrExpression__Group_1_0_0__1 ;
     public final void rule__DmxOrExpression__Group_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6465:1: ( rule__DmxOrExpression__Group_1_0_0__0__Impl rule__DmxOrExpression__Group_1_0_0__1 )
-            // InternalAsm.g:6466:2: rule__DmxOrExpression__Group_1_0_0__0__Impl rule__DmxOrExpression__Group_1_0_0__1
+            // InternalAsm.g:6634:1: ( rule__DmxOrExpression__Group_1_0_0__0__Impl rule__DmxOrExpression__Group_1_0_0__1 )
+            // InternalAsm.g:6635:2: rule__DmxOrExpression__Group_1_0_0__0__Impl rule__DmxOrExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_42);
+            pushFollow(FOLLOW_46);
             rule__DmxOrExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -22329,23 +22866,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group_1_0_0__0__Impl"
-    // InternalAsm.g:6473:1: rule__DmxOrExpression__Group_1_0_0__0__Impl : ( () ) ;
+    // InternalAsm.g:6642:1: rule__DmxOrExpression__Group_1_0_0__0__Impl : ( () ) ;
     public final void rule__DmxOrExpression__Group_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6477:1: ( ( () ) )
-            // InternalAsm.g:6478:1: ( () )
+            // InternalAsm.g:6646:1: ( ( () ) )
+            // InternalAsm.g:6647:1: ( () )
             {
-            // InternalAsm.g:6478:1: ( () )
-            // InternalAsm.g:6479:2: ()
+            // InternalAsm.g:6647:1: ( () )
+            // InternalAsm.g:6648:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOrExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()); 
             }
-            // InternalAsm.g:6480:2: ()
-            // InternalAsm.g:6480:3: 
+            // InternalAsm.g:6649:2: ()
+            // InternalAsm.g:6649:3: 
             {
             }
 
@@ -22370,14 +22907,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group_1_0_0__1"
-    // InternalAsm.g:6488:1: rule__DmxOrExpression__Group_1_0_0__1 : rule__DmxOrExpression__Group_1_0_0__1__Impl ;
+    // InternalAsm.g:6657:1: rule__DmxOrExpression__Group_1_0_0__1 : rule__DmxOrExpression__Group_1_0_0__1__Impl ;
     public final void rule__DmxOrExpression__Group_1_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6492:1: ( rule__DmxOrExpression__Group_1_0_0__1__Impl )
-            // InternalAsm.g:6493:2: rule__DmxOrExpression__Group_1_0_0__1__Impl
+            // InternalAsm.g:6661:1: ( rule__DmxOrExpression__Group_1_0_0__1__Impl )
+            // InternalAsm.g:6662:2: rule__DmxOrExpression__Group_1_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxOrExpression__Group_1_0_0__1__Impl();
@@ -22403,23 +22940,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__Group_1_0_0__1__Impl"
-    // InternalAsm.g:6499:1: rule__DmxOrExpression__Group_1_0_0__1__Impl : ( ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 ) ) ;
+    // InternalAsm.g:6668:1: rule__DmxOrExpression__Group_1_0_0__1__Impl : ( ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 ) ) ;
     public final void rule__DmxOrExpression__Group_1_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6503:1: ( ( ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 ) ) )
-            // InternalAsm.g:6504:1: ( ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalAsm.g:6672:1: ( ( ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 ) ) )
+            // InternalAsm.g:6673:1: ( ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 ) )
             {
-            // InternalAsm.g:6504:1: ( ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 ) )
-            // InternalAsm.g:6505:2: ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 )
+            // InternalAsm.g:6673:1: ( ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalAsm.g:6674:2: ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOrExpressionAccess().getOperatorAssignment_1_0_0_1()); 
             }
-            // InternalAsm.g:6506:2: ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 )
-            // InternalAsm.g:6506:3: rule__DmxOrExpression__OperatorAssignment_1_0_0_1
+            // InternalAsm.g:6675:2: ( rule__DmxOrExpression__OperatorAssignment_1_0_0_1 )
+            // InternalAsm.g:6675:3: rule__DmxOrExpression__OperatorAssignment_1_0_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxOrExpression__OperatorAssignment_1_0_0_1();
@@ -22454,16 +22991,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group__0"
-    // InternalAsm.g:6515:1: rule__DmxAndExpression__Group__0 : rule__DmxAndExpression__Group__0__Impl rule__DmxAndExpression__Group__1 ;
+    // InternalAsm.g:6684:1: rule__DmxAndExpression__Group__0 : rule__DmxAndExpression__Group__0__Impl rule__DmxAndExpression__Group__1 ;
     public final void rule__DmxAndExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6519:1: ( rule__DmxAndExpression__Group__0__Impl rule__DmxAndExpression__Group__1 )
-            // InternalAsm.g:6520:2: rule__DmxAndExpression__Group__0__Impl rule__DmxAndExpression__Group__1
+            // InternalAsm.g:6688:1: ( rule__DmxAndExpression__Group__0__Impl rule__DmxAndExpression__Group__1 )
+            // InternalAsm.g:6689:2: rule__DmxAndExpression__Group__0__Impl rule__DmxAndExpression__Group__1
             {
-            pushFollow(FOLLOW_44);
+            pushFollow(FOLLOW_48);
             rule__DmxAndExpression__Group__0__Impl();
 
             state._fsp--;
@@ -22492,17 +23029,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group__0__Impl"
-    // InternalAsm.g:6527:1: rule__DmxAndExpression__Group__0__Impl : ( ruleDmxEqualityExpression ) ;
+    // InternalAsm.g:6696:1: rule__DmxAndExpression__Group__0__Impl : ( ruleDmxEqualityExpression ) ;
     public final void rule__DmxAndExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6531:1: ( ( ruleDmxEqualityExpression ) )
-            // InternalAsm.g:6532:1: ( ruleDmxEqualityExpression )
+            // InternalAsm.g:6700:1: ( ( ruleDmxEqualityExpression ) )
+            // InternalAsm.g:6701:1: ( ruleDmxEqualityExpression )
             {
-            // InternalAsm.g:6532:1: ( ruleDmxEqualityExpression )
-            // InternalAsm.g:6533:2: ruleDmxEqualityExpression
+            // InternalAsm.g:6701:1: ( ruleDmxEqualityExpression )
+            // InternalAsm.g:6702:2: ruleDmxEqualityExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAndExpressionAccess().getDmxEqualityExpressionParserRuleCall_0()); 
@@ -22537,14 +23074,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group__1"
-    // InternalAsm.g:6542:1: rule__DmxAndExpression__Group__1 : rule__DmxAndExpression__Group__1__Impl ;
+    // InternalAsm.g:6711:1: rule__DmxAndExpression__Group__1 : rule__DmxAndExpression__Group__1__Impl ;
     public final void rule__DmxAndExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6546:1: ( rule__DmxAndExpression__Group__1__Impl )
-            // InternalAsm.g:6547:2: rule__DmxAndExpression__Group__1__Impl
+            // InternalAsm.g:6715:1: ( rule__DmxAndExpression__Group__1__Impl )
+            // InternalAsm.g:6716:2: rule__DmxAndExpression__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxAndExpression__Group__1__Impl();
@@ -22570,22 +23107,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group__1__Impl"
-    // InternalAsm.g:6553:1: rule__DmxAndExpression__Group__1__Impl : ( ( rule__DmxAndExpression__Group_1__0 )* ) ;
+    // InternalAsm.g:6722:1: rule__DmxAndExpression__Group__1__Impl : ( ( rule__DmxAndExpression__Group_1__0 )* ) ;
     public final void rule__DmxAndExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6557:1: ( ( ( rule__DmxAndExpression__Group_1__0 )* ) )
-            // InternalAsm.g:6558:1: ( ( rule__DmxAndExpression__Group_1__0 )* )
+            // InternalAsm.g:6726:1: ( ( ( rule__DmxAndExpression__Group_1__0 )* ) )
+            // InternalAsm.g:6727:1: ( ( rule__DmxAndExpression__Group_1__0 )* )
             {
-            // InternalAsm.g:6558:1: ( ( rule__DmxAndExpression__Group_1__0 )* )
-            // InternalAsm.g:6559:2: ( rule__DmxAndExpression__Group_1__0 )*
+            // InternalAsm.g:6727:1: ( ( rule__DmxAndExpression__Group_1__0 )* )
+            // InternalAsm.g:6728:2: ( rule__DmxAndExpression__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAndExpressionAccess().getGroup_1()); 
             }
-            // InternalAsm.g:6560:2: ( rule__DmxAndExpression__Group_1__0 )*
+            // InternalAsm.g:6729:2: ( rule__DmxAndExpression__Group_1__0 )*
             loop65:
             do {
                 int alt65=2;
@@ -22613,9 +23150,9 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
                 switch (alt65) {
             	case 1 :
-            	    // InternalAsm.g:6560:3: rule__DmxAndExpression__Group_1__0
+            	    // InternalAsm.g:6729:3: rule__DmxAndExpression__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_45);
+            	    pushFollow(FOLLOW_49);
             	    rule__DmxAndExpression__Group_1__0();
 
             	    state._fsp--;
@@ -22654,16 +23191,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group_1__0"
-    // InternalAsm.g:6569:1: rule__DmxAndExpression__Group_1__0 : rule__DmxAndExpression__Group_1__0__Impl rule__DmxAndExpression__Group_1__1 ;
+    // InternalAsm.g:6738:1: rule__DmxAndExpression__Group_1__0 : rule__DmxAndExpression__Group_1__0__Impl rule__DmxAndExpression__Group_1__1 ;
     public final void rule__DmxAndExpression__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6573:1: ( rule__DmxAndExpression__Group_1__0__Impl rule__DmxAndExpression__Group_1__1 )
-            // InternalAsm.g:6574:2: rule__DmxAndExpression__Group_1__0__Impl rule__DmxAndExpression__Group_1__1
+            // InternalAsm.g:6742:1: ( rule__DmxAndExpression__Group_1__0__Impl rule__DmxAndExpression__Group_1__1 )
+            // InternalAsm.g:6743:2: rule__DmxAndExpression__Group_1__0__Impl rule__DmxAndExpression__Group_1__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_41);
             rule__DmxAndExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -22692,23 +23229,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group_1__0__Impl"
-    // InternalAsm.g:6581:1: rule__DmxAndExpression__Group_1__0__Impl : ( ( rule__DmxAndExpression__Group_1_0__0 ) ) ;
+    // InternalAsm.g:6750:1: rule__DmxAndExpression__Group_1__0__Impl : ( ( rule__DmxAndExpression__Group_1_0__0 ) ) ;
     public final void rule__DmxAndExpression__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6585:1: ( ( ( rule__DmxAndExpression__Group_1_0__0 ) ) )
-            // InternalAsm.g:6586:1: ( ( rule__DmxAndExpression__Group_1_0__0 ) )
+            // InternalAsm.g:6754:1: ( ( ( rule__DmxAndExpression__Group_1_0__0 ) ) )
+            // InternalAsm.g:6755:1: ( ( rule__DmxAndExpression__Group_1_0__0 ) )
             {
-            // InternalAsm.g:6586:1: ( ( rule__DmxAndExpression__Group_1_0__0 ) )
-            // InternalAsm.g:6587:2: ( rule__DmxAndExpression__Group_1_0__0 )
+            // InternalAsm.g:6755:1: ( ( rule__DmxAndExpression__Group_1_0__0 ) )
+            // InternalAsm.g:6756:2: ( rule__DmxAndExpression__Group_1_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAndExpressionAccess().getGroup_1_0()); 
             }
-            // InternalAsm.g:6588:2: ( rule__DmxAndExpression__Group_1_0__0 )
-            // InternalAsm.g:6588:3: rule__DmxAndExpression__Group_1_0__0
+            // InternalAsm.g:6757:2: ( rule__DmxAndExpression__Group_1_0__0 )
+            // InternalAsm.g:6757:3: rule__DmxAndExpression__Group_1_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxAndExpression__Group_1_0__0();
@@ -22743,14 +23280,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group_1__1"
-    // InternalAsm.g:6596:1: rule__DmxAndExpression__Group_1__1 : rule__DmxAndExpression__Group_1__1__Impl ;
+    // InternalAsm.g:6765:1: rule__DmxAndExpression__Group_1__1 : rule__DmxAndExpression__Group_1__1__Impl ;
     public final void rule__DmxAndExpression__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6600:1: ( rule__DmxAndExpression__Group_1__1__Impl )
-            // InternalAsm.g:6601:2: rule__DmxAndExpression__Group_1__1__Impl
+            // InternalAsm.g:6769:1: ( rule__DmxAndExpression__Group_1__1__Impl )
+            // InternalAsm.g:6770:2: rule__DmxAndExpression__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxAndExpression__Group_1__1__Impl();
@@ -22776,23 +23313,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group_1__1__Impl"
-    // InternalAsm.g:6607:1: rule__DmxAndExpression__Group_1__1__Impl : ( ( rule__DmxAndExpression__RightOperandAssignment_1_1 ) ) ;
+    // InternalAsm.g:6776:1: rule__DmxAndExpression__Group_1__1__Impl : ( ( rule__DmxAndExpression__RightOperandAssignment_1_1 ) ) ;
     public final void rule__DmxAndExpression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6611:1: ( ( ( rule__DmxAndExpression__RightOperandAssignment_1_1 ) ) )
-            // InternalAsm.g:6612:1: ( ( rule__DmxAndExpression__RightOperandAssignment_1_1 ) )
+            // InternalAsm.g:6780:1: ( ( ( rule__DmxAndExpression__RightOperandAssignment_1_1 ) ) )
+            // InternalAsm.g:6781:1: ( ( rule__DmxAndExpression__RightOperandAssignment_1_1 ) )
             {
-            // InternalAsm.g:6612:1: ( ( rule__DmxAndExpression__RightOperandAssignment_1_1 ) )
-            // InternalAsm.g:6613:2: ( rule__DmxAndExpression__RightOperandAssignment_1_1 )
+            // InternalAsm.g:6781:1: ( ( rule__DmxAndExpression__RightOperandAssignment_1_1 ) )
+            // InternalAsm.g:6782:2: ( rule__DmxAndExpression__RightOperandAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAndExpressionAccess().getRightOperandAssignment_1_1()); 
             }
-            // InternalAsm.g:6614:2: ( rule__DmxAndExpression__RightOperandAssignment_1_1 )
-            // InternalAsm.g:6614:3: rule__DmxAndExpression__RightOperandAssignment_1_1
+            // InternalAsm.g:6783:2: ( rule__DmxAndExpression__RightOperandAssignment_1_1 )
+            // InternalAsm.g:6783:3: rule__DmxAndExpression__RightOperandAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxAndExpression__RightOperandAssignment_1_1();
@@ -22827,14 +23364,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group_1_0__0"
-    // InternalAsm.g:6623:1: rule__DmxAndExpression__Group_1_0__0 : rule__DmxAndExpression__Group_1_0__0__Impl ;
+    // InternalAsm.g:6792:1: rule__DmxAndExpression__Group_1_0__0 : rule__DmxAndExpression__Group_1_0__0__Impl ;
     public final void rule__DmxAndExpression__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6627:1: ( rule__DmxAndExpression__Group_1_0__0__Impl )
-            // InternalAsm.g:6628:2: rule__DmxAndExpression__Group_1_0__0__Impl
+            // InternalAsm.g:6796:1: ( rule__DmxAndExpression__Group_1_0__0__Impl )
+            // InternalAsm.g:6797:2: rule__DmxAndExpression__Group_1_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxAndExpression__Group_1_0__0__Impl();
@@ -22860,23 +23397,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group_1_0__0__Impl"
-    // InternalAsm.g:6634:1: rule__DmxAndExpression__Group_1_0__0__Impl : ( ( rule__DmxAndExpression__Group_1_0_0__0 ) ) ;
+    // InternalAsm.g:6803:1: rule__DmxAndExpression__Group_1_0__0__Impl : ( ( rule__DmxAndExpression__Group_1_0_0__0 ) ) ;
     public final void rule__DmxAndExpression__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6638:1: ( ( ( rule__DmxAndExpression__Group_1_0_0__0 ) ) )
-            // InternalAsm.g:6639:1: ( ( rule__DmxAndExpression__Group_1_0_0__0 ) )
+            // InternalAsm.g:6807:1: ( ( ( rule__DmxAndExpression__Group_1_0_0__0 ) ) )
+            // InternalAsm.g:6808:1: ( ( rule__DmxAndExpression__Group_1_0_0__0 ) )
             {
-            // InternalAsm.g:6639:1: ( ( rule__DmxAndExpression__Group_1_0_0__0 ) )
-            // InternalAsm.g:6640:2: ( rule__DmxAndExpression__Group_1_0_0__0 )
+            // InternalAsm.g:6808:1: ( ( rule__DmxAndExpression__Group_1_0_0__0 ) )
+            // InternalAsm.g:6809:2: ( rule__DmxAndExpression__Group_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAndExpressionAccess().getGroup_1_0_0()); 
             }
-            // InternalAsm.g:6641:2: ( rule__DmxAndExpression__Group_1_0_0__0 )
-            // InternalAsm.g:6641:3: rule__DmxAndExpression__Group_1_0_0__0
+            // InternalAsm.g:6810:2: ( rule__DmxAndExpression__Group_1_0_0__0 )
+            // InternalAsm.g:6810:3: rule__DmxAndExpression__Group_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxAndExpression__Group_1_0_0__0();
@@ -22911,16 +23448,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group_1_0_0__0"
-    // InternalAsm.g:6650:1: rule__DmxAndExpression__Group_1_0_0__0 : rule__DmxAndExpression__Group_1_0_0__0__Impl rule__DmxAndExpression__Group_1_0_0__1 ;
+    // InternalAsm.g:6819:1: rule__DmxAndExpression__Group_1_0_0__0 : rule__DmxAndExpression__Group_1_0_0__0__Impl rule__DmxAndExpression__Group_1_0_0__1 ;
     public final void rule__DmxAndExpression__Group_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6654:1: ( rule__DmxAndExpression__Group_1_0_0__0__Impl rule__DmxAndExpression__Group_1_0_0__1 )
-            // InternalAsm.g:6655:2: rule__DmxAndExpression__Group_1_0_0__0__Impl rule__DmxAndExpression__Group_1_0_0__1
+            // InternalAsm.g:6823:1: ( rule__DmxAndExpression__Group_1_0_0__0__Impl rule__DmxAndExpression__Group_1_0_0__1 )
+            // InternalAsm.g:6824:2: rule__DmxAndExpression__Group_1_0_0__0__Impl rule__DmxAndExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_44);
+            pushFollow(FOLLOW_48);
             rule__DmxAndExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -22949,23 +23486,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group_1_0_0__0__Impl"
-    // InternalAsm.g:6662:1: rule__DmxAndExpression__Group_1_0_0__0__Impl : ( () ) ;
+    // InternalAsm.g:6831:1: rule__DmxAndExpression__Group_1_0_0__0__Impl : ( () ) ;
     public final void rule__DmxAndExpression__Group_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6666:1: ( ( () ) )
-            // InternalAsm.g:6667:1: ( () )
+            // InternalAsm.g:6835:1: ( ( () ) )
+            // InternalAsm.g:6836:1: ( () )
             {
-            // InternalAsm.g:6667:1: ( () )
-            // InternalAsm.g:6668:2: ()
+            // InternalAsm.g:6836:1: ( () )
+            // InternalAsm.g:6837:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAndExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()); 
             }
-            // InternalAsm.g:6669:2: ()
-            // InternalAsm.g:6669:3: 
+            // InternalAsm.g:6838:2: ()
+            // InternalAsm.g:6838:3: 
             {
             }
 
@@ -22990,14 +23527,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group_1_0_0__1"
-    // InternalAsm.g:6677:1: rule__DmxAndExpression__Group_1_0_0__1 : rule__DmxAndExpression__Group_1_0_0__1__Impl ;
+    // InternalAsm.g:6846:1: rule__DmxAndExpression__Group_1_0_0__1 : rule__DmxAndExpression__Group_1_0_0__1__Impl ;
     public final void rule__DmxAndExpression__Group_1_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6681:1: ( rule__DmxAndExpression__Group_1_0_0__1__Impl )
-            // InternalAsm.g:6682:2: rule__DmxAndExpression__Group_1_0_0__1__Impl
+            // InternalAsm.g:6850:1: ( rule__DmxAndExpression__Group_1_0_0__1__Impl )
+            // InternalAsm.g:6851:2: rule__DmxAndExpression__Group_1_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxAndExpression__Group_1_0_0__1__Impl();
@@ -23023,23 +23560,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__Group_1_0_0__1__Impl"
-    // InternalAsm.g:6688:1: rule__DmxAndExpression__Group_1_0_0__1__Impl : ( ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 ) ) ;
+    // InternalAsm.g:6857:1: rule__DmxAndExpression__Group_1_0_0__1__Impl : ( ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 ) ) ;
     public final void rule__DmxAndExpression__Group_1_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6692:1: ( ( ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 ) ) )
-            // InternalAsm.g:6693:1: ( ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalAsm.g:6861:1: ( ( ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 ) ) )
+            // InternalAsm.g:6862:1: ( ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 ) )
             {
-            // InternalAsm.g:6693:1: ( ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 ) )
-            // InternalAsm.g:6694:2: ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 )
+            // InternalAsm.g:6862:1: ( ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalAsm.g:6863:2: ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAndExpressionAccess().getOperatorAssignment_1_0_0_1()); 
             }
-            // InternalAsm.g:6695:2: ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 )
-            // InternalAsm.g:6695:3: rule__DmxAndExpression__OperatorAssignment_1_0_0_1
+            // InternalAsm.g:6864:2: ( rule__DmxAndExpression__OperatorAssignment_1_0_0_1 )
+            // InternalAsm.g:6864:3: rule__DmxAndExpression__OperatorAssignment_1_0_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxAndExpression__OperatorAssignment_1_0_0_1();
@@ -23074,16 +23611,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group__0"
-    // InternalAsm.g:6704:1: rule__DmxEqualityExpression__Group__0 : rule__DmxEqualityExpression__Group__0__Impl rule__DmxEqualityExpression__Group__1 ;
+    // InternalAsm.g:6873:1: rule__DmxEqualityExpression__Group__0 : rule__DmxEqualityExpression__Group__0__Impl rule__DmxEqualityExpression__Group__1 ;
     public final void rule__DmxEqualityExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6708:1: ( rule__DmxEqualityExpression__Group__0__Impl rule__DmxEqualityExpression__Group__1 )
-            // InternalAsm.g:6709:2: rule__DmxEqualityExpression__Group__0__Impl rule__DmxEqualityExpression__Group__1
+            // InternalAsm.g:6877:1: ( rule__DmxEqualityExpression__Group__0__Impl rule__DmxEqualityExpression__Group__1 )
+            // InternalAsm.g:6878:2: rule__DmxEqualityExpression__Group__0__Impl rule__DmxEqualityExpression__Group__1
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_50);
             rule__DmxEqualityExpression__Group__0__Impl();
 
             state._fsp--;
@@ -23112,17 +23649,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group__0__Impl"
-    // InternalAsm.g:6716:1: rule__DmxEqualityExpression__Group__0__Impl : ( ruleDmxRelationalExpression ) ;
+    // InternalAsm.g:6885:1: rule__DmxEqualityExpression__Group__0__Impl : ( ruleDmxRelationalExpression ) ;
     public final void rule__DmxEqualityExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6720:1: ( ( ruleDmxRelationalExpression ) )
-            // InternalAsm.g:6721:1: ( ruleDmxRelationalExpression )
+            // InternalAsm.g:6889:1: ( ( ruleDmxRelationalExpression ) )
+            // InternalAsm.g:6890:1: ( ruleDmxRelationalExpression )
             {
-            // InternalAsm.g:6721:1: ( ruleDmxRelationalExpression )
-            // InternalAsm.g:6722:2: ruleDmxRelationalExpression
+            // InternalAsm.g:6890:1: ( ruleDmxRelationalExpression )
+            // InternalAsm.g:6891:2: ruleDmxRelationalExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxEqualityExpressionAccess().getDmxRelationalExpressionParserRuleCall_0()); 
@@ -23157,14 +23694,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group__1"
-    // InternalAsm.g:6731:1: rule__DmxEqualityExpression__Group__1 : rule__DmxEqualityExpression__Group__1__Impl ;
+    // InternalAsm.g:6900:1: rule__DmxEqualityExpression__Group__1 : rule__DmxEqualityExpression__Group__1__Impl ;
     public final void rule__DmxEqualityExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6735:1: ( rule__DmxEqualityExpression__Group__1__Impl )
-            // InternalAsm.g:6736:2: rule__DmxEqualityExpression__Group__1__Impl
+            // InternalAsm.g:6904:1: ( rule__DmxEqualityExpression__Group__1__Impl )
+            // InternalAsm.g:6905:2: rule__DmxEqualityExpression__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxEqualityExpression__Group__1__Impl();
@@ -23190,22 +23727,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group__1__Impl"
-    // InternalAsm.g:6742:1: rule__DmxEqualityExpression__Group__1__Impl : ( ( rule__DmxEqualityExpression__Group_1__0 )* ) ;
+    // InternalAsm.g:6911:1: rule__DmxEqualityExpression__Group__1__Impl : ( ( rule__DmxEqualityExpression__Group_1__0 )* ) ;
     public final void rule__DmxEqualityExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6746:1: ( ( ( rule__DmxEqualityExpression__Group_1__0 )* ) )
-            // InternalAsm.g:6747:1: ( ( rule__DmxEqualityExpression__Group_1__0 )* )
+            // InternalAsm.g:6915:1: ( ( ( rule__DmxEqualityExpression__Group_1__0 )* ) )
+            // InternalAsm.g:6916:1: ( ( rule__DmxEqualityExpression__Group_1__0 )* )
             {
-            // InternalAsm.g:6747:1: ( ( rule__DmxEqualityExpression__Group_1__0 )* )
-            // InternalAsm.g:6748:2: ( rule__DmxEqualityExpression__Group_1__0 )*
+            // InternalAsm.g:6916:1: ( ( rule__DmxEqualityExpression__Group_1__0 )* )
+            // InternalAsm.g:6917:2: ( rule__DmxEqualityExpression__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxEqualityExpressionAccess().getGroup_1()); 
             }
-            // InternalAsm.g:6749:2: ( rule__DmxEqualityExpression__Group_1__0 )*
+            // InternalAsm.g:6918:2: ( rule__DmxEqualityExpression__Group_1__0 )*
             loop66:
             do {
                 int alt66=2;
@@ -23248,9 +23785,9 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
                 switch (alt66) {
             	case 1 :
-            	    // InternalAsm.g:6749:3: rule__DmxEqualityExpression__Group_1__0
+            	    // InternalAsm.g:6918:3: rule__DmxEqualityExpression__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_47);
+            	    pushFollow(FOLLOW_51);
             	    rule__DmxEqualityExpression__Group_1__0();
 
             	    state._fsp--;
@@ -23289,16 +23826,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group_1__0"
-    // InternalAsm.g:6758:1: rule__DmxEqualityExpression__Group_1__0 : rule__DmxEqualityExpression__Group_1__0__Impl rule__DmxEqualityExpression__Group_1__1 ;
+    // InternalAsm.g:6927:1: rule__DmxEqualityExpression__Group_1__0 : rule__DmxEqualityExpression__Group_1__0__Impl rule__DmxEqualityExpression__Group_1__1 ;
     public final void rule__DmxEqualityExpression__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6762:1: ( rule__DmxEqualityExpression__Group_1__0__Impl rule__DmxEqualityExpression__Group_1__1 )
-            // InternalAsm.g:6763:2: rule__DmxEqualityExpression__Group_1__0__Impl rule__DmxEqualityExpression__Group_1__1
+            // InternalAsm.g:6931:1: ( rule__DmxEqualityExpression__Group_1__0__Impl rule__DmxEqualityExpression__Group_1__1 )
+            // InternalAsm.g:6932:2: rule__DmxEqualityExpression__Group_1__0__Impl rule__DmxEqualityExpression__Group_1__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_41);
             rule__DmxEqualityExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -23327,23 +23864,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group_1__0__Impl"
-    // InternalAsm.g:6770:1: rule__DmxEqualityExpression__Group_1__0__Impl : ( ( rule__DmxEqualityExpression__Group_1_0__0 ) ) ;
+    // InternalAsm.g:6939:1: rule__DmxEqualityExpression__Group_1__0__Impl : ( ( rule__DmxEqualityExpression__Group_1_0__0 ) ) ;
     public final void rule__DmxEqualityExpression__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6774:1: ( ( ( rule__DmxEqualityExpression__Group_1_0__0 ) ) )
-            // InternalAsm.g:6775:1: ( ( rule__DmxEqualityExpression__Group_1_0__0 ) )
+            // InternalAsm.g:6943:1: ( ( ( rule__DmxEqualityExpression__Group_1_0__0 ) ) )
+            // InternalAsm.g:6944:1: ( ( rule__DmxEqualityExpression__Group_1_0__0 ) )
             {
-            // InternalAsm.g:6775:1: ( ( rule__DmxEqualityExpression__Group_1_0__0 ) )
-            // InternalAsm.g:6776:2: ( rule__DmxEqualityExpression__Group_1_0__0 )
+            // InternalAsm.g:6944:1: ( ( rule__DmxEqualityExpression__Group_1_0__0 ) )
+            // InternalAsm.g:6945:2: ( rule__DmxEqualityExpression__Group_1_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxEqualityExpressionAccess().getGroup_1_0()); 
             }
-            // InternalAsm.g:6777:2: ( rule__DmxEqualityExpression__Group_1_0__0 )
-            // InternalAsm.g:6777:3: rule__DmxEqualityExpression__Group_1_0__0
+            // InternalAsm.g:6946:2: ( rule__DmxEqualityExpression__Group_1_0__0 )
+            // InternalAsm.g:6946:3: rule__DmxEqualityExpression__Group_1_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxEqualityExpression__Group_1_0__0();
@@ -23378,14 +23915,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group_1__1"
-    // InternalAsm.g:6785:1: rule__DmxEqualityExpression__Group_1__1 : rule__DmxEqualityExpression__Group_1__1__Impl ;
+    // InternalAsm.g:6954:1: rule__DmxEqualityExpression__Group_1__1 : rule__DmxEqualityExpression__Group_1__1__Impl ;
     public final void rule__DmxEqualityExpression__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6789:1: ( rule__DmxEqualityExpression__Group_1__1__Impl )
-            // InternalAsm.g:6790:2: rule__DmxEqualityExpression__Group_1__1__Impl
+            // InternalAsm.g:6958:1: ( rule__DmxEqualityExpression__Group_1__1__Impl )
+            // InternalAsm.g:6959:2: rule__DmxEqualityExpression__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxEqualityExpression__Group_1__1__Impl();
@@ -23411,23 +23948,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group_1__1__Impl"
-    // InternalAsm.g:6796:1: rule__DmxEqualityExpression__Group_1__1__Impl : ( ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 ) ) ;
+    // InternalAsm.g:6965:1: rule__DmxEqualityExpression__Group_1__1__Impl : ( ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 ) ) ;
     public final void rule__DmxEqualityExpression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6800:1: ( ( ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 ) ) )
-            // InternalAsm.g:6801:1: ( ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 ) )
+            // InternalAsm.g:6969:1: ( ( ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 ) ) )
+            // InternalAsm.g:6970:1: ( ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 ) )
             {
-            // InternalAsm.g:6801:1: ( ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 ) )
-            // InternalAsm.g:6802:2: ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 )
+            // InternalAsm.g:6970:1: ( ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 ) )
+            // InternalAsm.g:6971:2: ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxEqualityExpressionAccess().getRightOperandAssignment_1_1()); 
             }
-            // InternalAsm.g:6803:2: ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 )
-            // InternalAsm.g:6803:3: rule__DmxEqualityExpression__RightOperandAssignment_1_1
+            // InternalAsm.g:6972:2: ( rule__DmxEqualityExpression__RightOperandAssignment_1_1 )
+            // InternalAsm.g:6972:3: rule__DmxEqualityExpression__RightOperandAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxEqualityExpression__RightOperandAssignment_1_1();
@@ -23462,14 +23999,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group_1_0__0"
-    // InternalAsm.g:6812:1: rule__DmxEqualityExpression__Group_1_0__0 : rule__DmxEqualityExpression__Group_1_0__0__Impl ;
+    // InternalAsm.g:6981:1: rule__DmxEqualityExpression__Group_1_0__0 : rule__DmxEqualityExpression__Group_1_0__0__Impl ;
     public final void rule__DmxEqualityExpression__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6816:1: ( rule__DmxEqualityExpression__Group_1_0__0__Impl )
-            // InternalAsm.g:6817:2: rule__DmxEqualityExpression__Group_1_0__0__Impl
+            // InternalAsm.g:6985:1: ( rule__DmxEqualityExpression__Group_1_0__0__Impl )
+            // InternalAsm.g:6986:2: rule__DmxEqualityExpression__Group_1_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxEqualityExpression__Group_1_0__0__Impl();
@@ -23495,23 +24032,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group_1_0__0__Impl"
-    // InternalAsm.g:6823:1: rule__DmxEqualityExpression__Group_1_0__0__Impl : ( ( rule__DmxEqualityExpression__Group_1_0_0__0 ) ) ;
+    // InternalAsm.g:6992:1: rule__DmxEqualityExpression__Group_1_0__0__Impl : ( ( rule__DmxEqualityExpression__Group_1_0_0__0 ) ) ;
     public final void rule__DmxEqualityExpression__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6827:1: ( ( ( rule__DmxEqualityExpression__Group_1_0_0__0 ) ) )
-            // InternalAsm.g:6828:1: ( ( rule__DmxEqualityExpression__Group_1_0_0__0 ) )
+            // InternalAsm.g:6996:1: ( ( ( rule__DmxEqualityExpression__Group_1_0_0__0 ) ) )
+            // InternalAsm.g:6997:1: ( ( rule__DmxEqualityExpression__Group_1_0_0__0 ) )
             {
-            // InternalAsm.g:6828:1: ( ( rule__DmxEqualityExpression__Group_1_0_0__0 ) )
-            // InternalAsm.g:6829:2: ( rule__DmxEqualityExpression__Group_1_0_0__0 )
+            // InternalAsm.g:6997:1: ( ( rule__DmxEqualityExpression__Group_1_0_0__0 ) )
+            // InternalAsm.g:6998:2: ( rule__DmxEqualityExpression__Group_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxEqualityExpressionAccess().getGroup_1_0_0()); 
             }
-            // InternalAsm.g:6830:2: ( rule__DmxEqualityExpression__Group_1_0_0__0 )
-            // InternalAsm.g:6830:3: rule__DmxEqualityExpression__Group_1_0_0__0
+            // InternalAsm.g:6999:2: ( rule__DmxEqualityExpression__Group_1_0_0__0 )
+            // InternalAsm.g:6999:3: rule__DmxEqualityExpression__Group_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxEqualityExpression__Group_1_0_0__0();
@@ -23546,16 +24083,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group_1_0_0__0"
-    // InternalAsm.g:6839:1: rule__DmxEqualityExpression__Group_1_0_0__0 : rule__DmxEqualityExpression__Group_1_0_0__0__Impl rule__DmxEqualityExpression__Group_1_0_0__1 ;
+    // InternalAsm.g:7008:1: rule__DmxEqualityExpression__Group_1_0_0__0 : rule__DmxEqualityExpression__Group_1_0_0__0__Impl rule__DmxEqualityExpression__Group_1_0_0__1 ;
     public final void rule__DmxEqualityExpression__Group_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6843:1: ( rule__DmxEqualityExpression__Group_1_0_0__0__Impl rule__DmxEqualityExpression__Group_1_0_0__1 )
-            // InternalAsm.g:6844:2: rule__DmxEqualityExpression__Group_1_0_0__0__Impl rule__DmxEqualityExpression__Group_1_0_0__1
+            // InternalAsm.g:7012:1: ( rule__DmxEqualityExpression__Group_1_0_0__0__Impl rule__DmxEqualityExpression__Group_1_0_0__1 )
+            // InternalAsm.g:7013:2: rule__DmxEqualityExpression__Group_1_0_0__0__Impl rule__DmxEqualityExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_50);
             rule__DmxEqualityExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -23584,23 +24121,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group_1_0_0__0__Impl"
-    // InternalAsm.g:6851:1: rule__DmxEqualityExpression__Group_1_0_0__0__Impl : ( () ) ;
+    // InternalAsm.g:7020:1: rule__DmxEqualityExpression__Group_1_0_0__0__Impl : ( () ) ;
     public final void rule__DmxEqualityExpression__Group_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6855:1: ( ( () ) )
-            // InternalAsm.g:6856:1: ( () )
+            // InternalAsm.g:7024:1: ( ( () ) )
+            // InternalAsm.g:7025:1: ( () )
             {
-            // InternalAsm.g:6856:1: ( () )
-            // InternalAsm.g:6857:2: ()
+            // InternalAsm.g:7025:1: ( () )
+            // InternalAsm.g:7026:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxEqualityExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()); 
             }
-            // InternalAsm.g:6858:2: ()
-            // InternalAsm.g:6858:3: 
+            // InternalAsm.g:7027:2: ()
+            // InternalAsm.g:7027:3: 
             {
             }
 
@@ -23625,14 +24162,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group_1_0_0__1"
-    // InternalAsm.g:6866:1: rule__DmxEqualityExpression__Group_1_0_0__1 : rule__DmxEqualityExpression__Group_1_0_0__1__Impl ;
+    // InternalAsm.g:7035:1: rule__DmxEqualityExpression__Group_1_0_0__1 : rule__DmxEqualityExpression__Group_1_0_0__1__Impl ;
     public final void rule__DmxEqualityExpression__Group_1_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6870:1: ( rule__DmxEqualityExpression__Group_1_0_0__1__Impl )
-            // InternalAsm.g:6871:2: rule__DmxEqualityExpression__Group_1_0_0__1__Impl
+            // InternalAsm.g:7039:1: ( rule__DmxEqualityExpression__Group_1_0_0__1__Impl )
+            // InternalAsm.g:7040:2: rule__DmxEqualityExpression__Group_1_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxEqualityExpression__Group_1_0_0__1__Impl();
@@ -23658,23 +24195,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__Group_1_0_0__1__Impl"
-    // InternalAsm.g:6877:1: rule__DmxEqualityExpression__Group_1_0_0__1__Impl : ( ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 ) ) ;
+    // InternalAsm.g:7046:1: rule__DmxEqualityExpression__Group_1_0_0__1__Impl : ( ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 ) ) ;
     public final void rule__DmxEqualityExpression__Group_1_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6881:1: ( ( ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 ) ) )
-            // InternalAsm.g:6882:1: ( ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalAsm.g:7050:1: ( ( ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 ) ) )
+            // InternalAsm.g:7051:1: ( ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 ) )
             {
-            // InternalAsm.g:6882:1: ( ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 ) )
-            // InternalAsm.g:6883:2: ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 )
+            // InternalAsm.g:7051:1: ( ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalAsm.g:7052:2: ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxEqualityExpressionAccess().getOperatorAssignment_1_0_0_1()); 
             }
-            // InternalAsm.g:6884:2: ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 )
-            // InternalAsm.g:6884:3: rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1
+            // InternalAsm.g:7053:2: ( rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 )
+            // InternalAsm.g:7053:3: rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1();
@@ -23709,16 +24246,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group__0"
-    // InternalAsm.g:6893:1: rule__DmxRelationalExpression__Group__0 : rule__DmxRelationalExpression__Group__0__Impl rule__DmxRelationalExpression__Group__1 ;
+    // InternalAsm.g:7062:1: rule__DmxRelationalExpression__Group__0 : rule__DmxRelationalExpression__Group__0__Impl rule__DmxRelationalExpression__Group__1 ;
     public final void rule__DmxRelationalExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6897:1: ( rule__DmxRelationalExpression__Group__0__Impl rule__DmxRelationalExpression__Group__1 )
-            // InternalAsm.g:6898:2: rule__DmxRelationalExpression__Group__0__Impl rule__DmxRelationalExpression__Group__1
+            // InternalAsm.g:7066:1: ( rule__DmxRelationalExpression__Group__0__Impl rule__DmxRelationalExpression__Group__1 )
+            // InternalAsm.g:7067:2: rule__DmxRelationalExpression__Group__0__Impl rule__DmxRelationalExpression__Group__1
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_52);
             rule__DmxRelationalExpression__Group__0__Impl();
 
             state._fsp--;
@@ -23747,17 +24284,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group__0__Impl"
-    // InternalAsm.g:6905:1: rule__DmxRelationalExpression__Group__0__Impl : ( ruleDmxOtherOperatorExpression ) ;
+    // InternalAsm.g:7074:1: rule__DmxRelationalExpression__Group__0__Impl : ( ruleDmxOtherOperatorExpression ) ;
     public final void rule__DmxRelationalExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6909:1: ( ( ruleDmxOtherOperatorExpression ) )
-            // InternalAsm.g:6910:1: ( ruleDmxOtherOperatorExpression )
+            // InternalAsm.g:7078:1: ( ( ruleDmxOtherOperatorExpression ) )
+            // InternalAsm.g:7079:1: ( ruleDmxOtherOperatorExpression )
             {
-            // InternalAsm.g:6910:1: ( ruleDmxOtherOperatorExpression )
-            // InternalAsm.g:6911:2: ruleDmxOtherOperatorExpression
+            // InternalAsm.g:7079:1: ( ruleDmxOtherOperatorExpression )
+            // InternalAsm.g:7080:2: ruleDmxOtherOperatorExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getDmxOtherOperatorExpressionParserRuleCall_0()); 
@@ -23792,14 +24329,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group__1"
-    // InternalAsm.g:6920:1: rule__DmxRelationalExpression__Group__1 : rule__DmxRelationalExpression__Group__1__Impl ;
+    // InternalAsm.g:7089:1: rule__DmxRelationalExpression__Group__1 : rule__DmxRelationalExpression__Group__1__Impl ;
     public final void rule__DmxRelationalExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6924:1: ( rule__DmxRelationalExpression__Group__1__Impl )
-            // InternalAsm.g:6925:2: rule__DmxRelationalExpression__Group__1__Impl
+            // InternalAsm.g:7093:1: ( rule__DmxRelationalExpression__Group__1__Impl )
+            // InternalAsm.g:7094:2: rule__DmxRelationalExpression__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group__1__Impl();
@@ -23825,31 +24362,31 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group__1__Impl"
-    // InternalAsm.g:6931:1: rule__DmxRelationalExpression__Group__1__Impl : ( ( rule__DmxRelationalExpression__Alternatives_1 )* ) ;
+    // InternalAsm.g:7100:1: rule__DmxRelationalExpression__Group__1__Impl : ( ( rule__DmxRelationalExpression__Alternatives_1 )* ) ;
     public final void rule__DmxRelationalExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6935:1: ( ( ( rule__DmxRelationalExpression__Alternatives_1 )* ) )
-            // InternalAsm.g:6936:1: ( ( rule__DmxRelationalExpression__Alternatives_1 )* )
+            // InternalAsm.g:7104:1: ( ( ( rule__DmxRelationalExpression__Alternatives_1 )* ) )
+            // InternalAsm.g:7105:1: ( ( rule__DmxRelationalExpression__Alternatives_1 )* )
             {
-            // InternalAsm.g:6936:1: ( ( rule__DmxRelationalExpression__Alternatives_1 )* )
-            // InternalAsm.g:6937:2: ( rule__DmxRelationalExpression__Alternatives_1 )*
+            // InternalAsm.g:7105:1: ( ( rule__DmxRelationalExpression__Alternatives_1 )* )
+            // InternalAsm.g:7106:2: ( rule__DmxRelationalExpression__Alternatives_1 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getAlternatives_1()); 
             }
-            // InternalAsm.g:6938:2: ( rule__DmxRelationalExpression__Alternatives_1 )*
+            // InternalAsm.g:7107:2: ( rule__DmxRelationalExpression__Alternatives_1 )*
             loop67:
             do {
                 int alt67=2;
                 alt67 = dfa67.predict(input);
                 switch (alt67) {
             	case 1 :
-            	    // InternalAsm.g:6938:3: rule__DmxRelationalExpression__Alternatives_1
+            	    // InternalAsm.g:7107:3: rule__DmxRelationalExpression__Alternatives_1
             	    {
-            	    pushFollow(FOLLOW_49);
+            	    pushFollow(FOLLOW_53);
             	    rule__DmxRelationalExpression__Alternatives_1();
 
             	    state._fsp--;
@@ -23888,14 +24425,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_0__0"
-    // InternalAsm.g:6947:1: rule__DmxRelationalExpression__Group_1_0__0 : rule__DmxRelationalExpression__Group_1_0__0__Impl rule__DmxRelationalExpression__Group_1_0__1 ;
+    // InternalAsm.g:7116:1: rule__DmxRelationalExpression__Group_1_0__0 : rule__DmxRelationalExpression__Group_1_0__0__Impl rule__DmxRelationalExpression__Group_1_0__1 ;
     public final void rule__DmxRelationalExpression__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6951:1: ( rule__DmxRelationalExpression__Group_1_0__0__Impl rule__DmxRelationalExpression__Group_1_0__1 )
-            // InternalAsm.g:6952:2: rule__DmxRelationalExpression__Group_1_0__0__Impl rule__DmxRelationalExpression__Group_1_0__1
+            // InternalAsm.g:7120:1: ( rule__DmxRelationalExpression__Group_1_0__0__Impl rule__DmxRelationalExpression__Group_1_0__1 )
+            // InternalAsm.g:7121:2: rule__DmxRelationalExpression__Group_1_0__0__Impl rule__DmxRelationalExpression__Group_1_0__1
             {
             pushFollow(FOLLOW_5);
             rule__DmxRelationalExpression__Group_1_0__0__Impl();
@@ -23926,23 +24463,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_0__0__Impl"
-    // InternalAsm.g:6959:1: rule__DmxRelationalExpression__Group_1_0__0__Impl : ( ( rule__DmxRelationalExpression__Group_1_0_0__0 ) ) ;
+    // InternalAsm.g:7128:1: rule__DmxRelationalExpression__Group_1_0__0__Impl : ( ( rule__DmxRelationalExpression__Group_1_0_0__0 ) ) ;
     public final void rule__DmxRelationalExpression__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6963:1: ( ( ( rule__DmxRelationalExpression__Group_1_0_0__0 ) ) )
-            // InternalAsm.g:6964:1: ( ( rule__DmxRelationalExpression__Group_1_0_0__0 ) )
+            // InternalAsm.g:7132:1: ( ( ( rule__DmxRelationalExpression__Group_1_0_0__0 ) ) )
+            // InternalAsm.g:7133:1: ( ( rule__DmxRelationalExpression__Group_1_0_0__0 ) )
             {
-            // InternalAsm.g:6964:1: ( ( rule__DmxRelationalExpression__Group_1_0_0__0 ) )
-            // InternalAsm.g:6965:2: ( rule__DmxRelationalExpression__Group_1_0_0__0 )
+            // InternalAsm.g:7133:1: ( ( rule__DmxRelationalExpression__Group_1_0_0__0 ) )
+            // InternalAsm.g:7134:2: ( rule__DmxRelationalExpression__Group_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getGroup_1_0_0()); 
             }
-            // InternalAsm.g:6966:2: ( rule__DmxRelationalExpression__Group_1_0_0__0 )
-            // InternalAsm.g:6966:3: rule__DmxRelationalExpression__Group_1_0_0__0
+            // InternalAsm.g:7135:2: ( rule__DmxRelationalExpression__Group_1_0_0__0 )
+            // InternalAsm.g:7135:3: rule__DmxRelationalExpression__Group_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group_1_0_0__0();
@@ -23977,14 +24514,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_0__1"
-    // InternalAsm.g:6974:1: rule__DmxRelationalExpression__Group_1_0__1 : rule__DmxRelationalExpression__Group_1_0__1__Impl ;
+    // InternalAsm.g:7143:1: rule__DmxRelationalExpression__Group_1_0__1 : rule__DmxRelationalExpression__Group_1_0__1__Impl ;
     public final void rule__DmxRelationalExpression__Group_1_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6978:1: ( rule__DmxRelationalExpression__Group_1_0__1__Impl )
-            // InternalAsm.g:6979:2: rule__DmxRelationalExpression__Group_1_0__1__Impl
+            // InternalAsm.g:7147:1: ( rule__DmxRelationalExpression__Group_1_0__1__Impl )
+            // InternalAsm.g:7148:2: rule__DmxRelationalExpression__Group_1_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group_1_0__1__Impl();
@@ -24010,23 +24547,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_0__1__Impl"
-    // InternalAsm.g:6985:1: rule__DmxRelationalExpression__Group_1_0__1__Impl : ( ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 ) ) ;
+    // InternalAsm.g:7154:1: rule__DmxRelationalExpression__Group_1_0__1__Impl : ( ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 ) ) ;
     public final void rule__DmxRelationalExpression__Group_1_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:6989:1: ( ( ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 ) ) )
-            // InternalAsm.g:6990:1: ( ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 ) )
+            // InternalAsm.g:7158:1: ( ( ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 ) ) )
+            // InternalAsm.g:7159:1: ( ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 ) )
             {
-            // InternalAsm.g:6990:1: ( ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 ) )
-            // InternalAsm.g:6991:2: ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 )
+            // InternalAsm.g:7159:1: ( ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 ) )
+            // InternalAsm.g:7160:2: ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getTypeAssignment_1_0_1()); 
             }
-            // InternalAsm.g:6992:2: ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 )
-            // InternalAsm.g:6992:3: rule__DmxRelationalExpression__TypeAssignment_1_0_1
+            // InternalAsm.g:7161:2: ( rule__DmxRelationalExpression__TypeAssignment_1_0_1 )
+            // InternalAsm.g:7161:3: rule__DmxRelationalExpression__TypeAssignment_1_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__TypeAssignment_1_0_1();
@@ -24061,14 +24598,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_0_0__0"
-    // InternalAsm.g:7001:1: rule__DmxRelationalExpression__Group_1_0_0__0 : rule__DmxRelationalExpression__Group_1_0_0__0__Impl ;
+    // InternalAsm.g:7170:1: rule__DmxRelationalExpression__Group_1_0_0__0 : rule__DmxRelationalExpression__Group_1_0_0__0__Impl ;
     public final void rule__DmxRelationalExpression__Group_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7005:1: ( rule__DmxRelationalExpression__Group_1_0_0__0__Impl )
-            // InternalAsm.g:7006:2: rule__DmxRelationalExpression__Group_1_0_0__0__Impl
+            // InternalAsm.g:7174:1: ( rule__DmxRelationalExpression__Group_1_0_0__0__Impl )
+            // InternalAsm.g:7175:2: rule__DmxRelationalExpression__Group_1_0_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group_1_0_0__0__Impl();
@@ -24094,23 +24631,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_0_0__0__Impl"
-    // InternalAsm.g:7012:1: rule__DmxRelationalExpression__Group_1_0_0__0__Impl : ( ( rule__DmxRelationalExpression__Group_1_0_0_0__0 ) ) ;
+    // InternalAsm.g:7181:1: rule__DmxRelationalExpression__Group_1_0_0__0__Impl : ( ( rule__DmxRelationalExpression__Group_1_0_0_0__0 ) ) ;
     public final void rule__DmxRelationalExpression__Group_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7016:1: ( ( ( rule__DmxRelationalExpression__Group_1_0_0_0__0 ) ) )
-            // InternalAsm.g:7017:1: ( ( rule__DmxRelationalExpression__Group_1_0_0_0__0 ) )
+            // InternalAsm.g:7185:1: ( ( ( rule__DmxRelationalExpression__Group_1_0_0_0__0 ) ) )
+            // InternalAsm.g:7186:1: ( ( rule__DmxRelationalExpression__Group_1_0_0_0__0 ) )
             {
-            // InternalAsm.g:7017:1: ( ( rule__DmxRelationalExpression__Group_1_0_0_0__0 ) )
-            // InternalAsm.g:7018:2: ( rule__DmxRelationalExpression__Group_1_0_0_0__0 )
+            // InternalAsm.g:7186:1: ( ( rule__DmxRelationalExpression__Group_1_0_0_0__0 ) )
+            // InternalAsm.g:7187:2: ( rule__DmxRelationalExpression__Group_1_0_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getGroup_1_0_0_0()); 
             }
-            // InternalAsm.g:7019:2: ( rule__DmxRelationalExpression__Group_1_0_0_0__0 )
-            // InternalAsm.g:7019:3: rule__DmxRelationalExpression__Group_1_0_0_0__0
+            // InternalAsm.g:7188:2: ( rule__DmxRelationalExpression__Group_1_0_0_0__0 )
+            // InternalAsm.g:7188:3: rule__DmxRelationalExpression__Group_1_0_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group_1_0_0_0__0();
@@ -24145,16 +24682,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_0_0_0__0"
-    // InternalAsm.g:7028:1: rule__DmxRelationalExpression__Group_1_0_0_0__0 : rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl rule__DmxRelationalExpression__Group_1_0_0_0__1 ;
+    // InternalAsm.g:7197:1: rule__DmxRelationalExpression__Group_1_0_0_0__0 : rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl rule__DmxRelationalExpression__Group_1_0_0_0__1 ;
     public final void rule__DmxRelationalExpression__Group_1_0_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7032:1: ( rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl rule__DmxRelationalExpression__Group_1_0_0_0__1 )
-            // InternalAsm.g:7033:2: rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl rule__DmxRelationalExpression__Group_1_0_0_0__1
+            // InternalAsm.g:7201:1: ( rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl rule__DmxRelationalExpression__Group_1_0_0_0__1 )
+            // InternalAsm.g:7202:2: rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl rule__DmxRelationalExpression__Group_1_0_0_0__1
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_54);
             rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl();
 
             state._fsp--;
@@ -24183,23 +24720,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl"
-    // InternalAsm.g:7040:1: rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl : ( () ) ;
+    // InternalAsm.g:7209:1: rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl : ( () ) ;
     public final void rule__DmxRelationalExpression__Group_1_0_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7044:1: ( ( () ) )
-            // InternalAsm.g:7045:1: ( () )
+            // InternalAsm.g:7213:1: ( ( () ) )
+            // InternalAsm.g:7214:1: ( () )
             {
-            // InternalAsm.g:7045:1: ( () )
-            // InternalAsm.g:7046:2: ()
+            // InternalAsm.g:7214:1: ( () )
+            // InternalAsm.g:7215:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getDmxInstanceOfExpressionExpressionAction_1_0_0_0_0()); 
             }
-            // InternalAsm.g:7047:2: ()
-            // InternalAsm.g:7047:3: 
+            // InternalAsm.g:7216:2: ()
+            // InternalAsm.g:7216:3: 
             {
             }
 
@@ -24224,14 +24761,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_0_0_0__1"
-    // InternalAsm.g:7055:1: rule__DmxRelationalExpression__Group_1_0_0_0__1 : rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl ;
+    // InternalAsm.g:7224:1: rule__DmxRelationalExpression__Group_1_0_0_0__1 : rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl ;
     public final void rule__DmxRelationalExpression__Group_1_0_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7059:1: ( rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl )
-            // InternalAsm.g:7060:2: rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl
+            // InternalAsm.g:7228:1: ( rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl )
+            // InternalAsm.g:7229:2: rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl();
@@ -24257,17 +24794,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl"
-    // InternalAsm.g:7066:1: rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl : ( ruleDmxOpInstanceOf ) ;
+    // InternalAsm.g:7235:1: rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl : ( ruleDmxOpInstanceOf ) ;
     public final void rule__DmxRelationalExpression__Group_1_0_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7070:1: ( ( ruleDmxOpInstanceOf ) )
-            // InternalAsm.g:7071:1: ( ruleDmxOpInstanceOf )
+            // InternalAsm.g:7239:1: ( ( ruleDmxOpInstanceOf ) )
+            // InternalAsm.g:7240:1: ( ruleDmxOpInstanceOf )
             {
-            // InternalAsm.g:7071:1: ( ruleDmxOpInstanceOf )
-            // InternalAsm.g:7072:2: ruleDmxOpInstanceOf
+            // InternalAsm.g:7240:1: ( ruleDmxOpInstanceOf )
+            // InternalAsm.g:7241:2: ruleDmxOpInstanceOf
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getDmxOpInstanceOfParserRuleCall_1_0_0_0_1()); 
@@ -24302,16 +24839,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_1__0"
-    // InternalAsm.g:7082:1: rule__DmxRelationalExpression__Group_1_1__0 : rule__DmxRelationalExpression__Group_1_1__0__Impl rule__DmxRelationalExpression__Group_1_1__1 ;
+    // InternalAsm.g:7251:1: rule__DmxRelationalExpression__Group_1_1__0 : rule__DmxRelationalExpression__Group_1_1__0__Impl rule__DmxRelationalExpression__Group_1_1__1 ;
     public final void rule__DmxRelationalExpression__Group_1_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7086:1: ( rule__DmxRelationalExpression__Group_1_1__0__Impl rule__DmxRelationalExpression__Group_1_1__1 )
-            // InternalAsm.g:7087:2: rule__DmxRelationalExpression__Group_1_1__0__Impl rule__DmxRelationalExpression__Group_1_1__1
+            // InternalAsm.g:7255:1: ( rule__DmxRelationalExpression__Group_1_1__0__Impl rule__DmxRelationalExpression__Group_1_1__1 )
+            // InternalAsm.g:7256:2: rule__DmxRelationalExpression__Group_1_1__0__Impl rule__DmxRelationalExpression__Group_1_1__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_41);
             rule__DmxRelationalExpression__Group_1_1__0__Impl();
 
             state._fsp--;
@@ -24340,23 +24877,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_1__0__Impl"
-    // InternalAsm.g:7094:1: rule__DmxRelationalExpression__Group_1_1__0__Impl : ( ( rule__DmxRelationalExpression__Group_1_1_0__0 ) ) ;
+    // InternalAsm.g:7263:1: rule__DmxRelationalExpression__Group_1_1__0__Impl : ( ( rule__DmxRelationalExpression__Group_1_1_0__0 ) ) ;
     public final void rule__DmxRelationalExpression__Group_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7098:1: ( ( ( rule__DmxRelationalExpression__Group_1_1_0__0 ) ) )
-            // InternalAsm.g:7099:1: ( ( rule__DmxRelationalExpression__Group_1_1_0__0 ) )
+            // InternalAsm.g:7267:1: ( ( ( rule__DmxRelationalExpression__Group_1_1_0__0 ) ) )
+            // InternalAsm.g:7268:1: ( ( rule__DmxRelationalExpression__Group_1_1_0__0 ) )
             {
-            // InternalAsm.g:7099:1: ( ( rule__DmxRelationalExpression__Group_1_1_0__0 ) )
-            // InternalAsm.g:7100:2: ( rule__DmxRelationalExpression__Group_1_1_0__0 )
+            // InternalAsm.g:7268:1: ( ( rule__DmxRelationalExpression__Group_1_1_0__0 ) )
+            // InternalAsm.g:7269:2: ( rule__DmxRelationalExpression__Group_1_1_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getGroup_1_1_0()); 
             }
-            // InternalAsm.g:7101:2: ( rule__DmxRelationalExpression__Group_1_1_0__0 )
-            // InternalAsm.g:7101:3: rule__DmxRelationalExpression__Group_1_1_0__0
+            // InternalAsm.g:7270:2: ( rule__DmxRelationalExpression__Group_1_1_0__0 )
+            // InternalAsm.g:7270:3: rule__DmxRelationalExpression__Group_1_1_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group_1_1_0__0();
@@ -24391,14 +24928,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_1__1"
-    // InternalAsm.g:7109:1: rule__DmxRelationalExpression__Group_1_1__1 : rule__DmxRelationalExpression__Group_1_1__1__Impl ;
+    // InternalAsm.g:7278:1: rule__DmxRelationalExpression__Group_1_1__1 : rule__DmxRelationalExpression__Group_1_1__1__Impl ;
     public final void rule__DmxRelationalExpression__Group_1_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7113:1: ( rule__DmxRelationalExpression__Group_1_1__1__Impl )
-            // InternalAsm.g:7114:2: rule__DmxRelationalExpression__Group_1_1__1__Impl
+            // InternalAsm.g:7282:1: ( rule__DmxRelationalExpression__Group_1_1__1__Impl )
+            // InternalAsm.g:7283:2: rule__DmxRelationalExpression__Group_1_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group_1_1__1__Impl();
@@ -24424,23 +24961,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_1__1__Impl"
-    // InternalAsm.g:7120:1: rule__DmxRelationalExpression__Group_1_1__1__Impl : ( ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 ) ) ;
+    // InternalAsm.g:7289:1: rule__DmxRelationalExpression__Group_1_1__1__Impl : ( ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 ) ) ;
     public final void rule__DmxRelationalExpression__Group_1_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7124:1: ( ( ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 ) ) )
-            // InternalAsm.g:7125:1: ( ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 ) )
+            // InternalAsm.g:7293:1: ( ( ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 ) ) )
+            // InternalAsm.g:7294:1: ( ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 ) )
             {
-            // InternalAsm.g:7125:1: ( ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 ) )
-            // InternalAsm.g:7126:2: ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 )
+            // InternalAsm.g:7294:1: ( ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 ) )
+            // InternalAsm.g:7295:2: ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getRightOperandAssignment_1_1_1()); 
             }
-            // InternalAsm.g:7127:2: ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 )
-            // InternalAsm.g:7127:3: rule__DmxRelationalExpression__RightOperandAssignment_1_1_1
+            // InternalAsm.g:7296:2: ( rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 )
+            // InternalAsm.g:7296:3: rule__DmxRelationalExpression__RightOperandAssignment_1_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__RightOperandAssignment_1_1_1();
@@ -24475,14 +25012,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_1_0__0"
-    // InternalAsm.g:7136:1: rule__DmxRelationalExpression__Group_1_1_0__0 : rule__DmxRelationalExpression__Group_1_1_0__0__Impl ;
+    // InternalAsm.g:7305:1: rule__DmxRelationalExpression__Group_1_1_0__0 : rule__DmxRelationalExpression__Group_1_1_0__0__Impl ;
     public final void rule__DmxRelationalExpression__Group_1_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7140:1: ( rule__DmxRelationalExpression__Group_1_1_0__0__Impl )
-            // InternalAsm.g:7141:2: rule__DmxRelationalExpression__Group_1_1_0__0__Impl
+            // InternalAsm.g:7309:1: ( rule__DmxRelationalExpression__Group_1_1_0__0__Impl )
+            // InternalAsm.g:7310:2: rule__DmxRelationalExpression__Group_1_1_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group_1_1_0__0__Impl();
@@ -24508,23 +25045,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_1_0__0__Impl"
-    // InternalAsm.g:7147:1: rule__DmxRelationalExpression__Group_1_1_0__0__Impl : ( ( rule__DmxRelationalExpression__Group_1_1_0_0__0 ) ) ;
+    // InternalAsm.g:7316:1: rule__DmxRelationalExpression__Group_1_1_0__0__Impl : ( ( rule__DmxRelationalExpression__Group_1_1_0_0__0 ) ) ;
     public final void rule__DmxRelationalExpression__Group_1_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7151:1: ( ( ( rule__DmxRelationalExpression__Group_1_1_0_0__0 ) ) )
-            // InternalAsm.g:7152:1: ( ( rule__DmxRelationalExpression__Group_1_1_0_0__0 ) )
+            // InternalAsm.g:7320:1: ( ( ( rule__DmxRelationalExpression__Group_1_1_0_0__0 ) ) )
+            // InternalAsm.g:7321:1: ( ( rule__DmxRelationalExpression__Group_1_1_0_0__0 ) )
             {
-            // InternalAsm.g:7152:1: ( ( rule__DmxRelationalExpression__Group_1_1_0_0__0 ) )
-            // InternalAsm.g:7153:2: ( rule__DmxRelationalExpression__Group_1_1_0_0__0 )
+            // InternalAsm.g:7321:1: ( ( rule__DmxRelationalExpression__Group_1_1_0_0__0 ) )
+            // InternalAsm.g:7322:2: ( rule__DmxRelationalExpression__Group_1_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getGroup_1_1_0_0()); 
             }
-            // InternalAsm.g:7154:2: ( rule__DmxRelationalExpression__Group_1_1_0_0__0 )
-            // InternalAsm.g:7154:3: rule__DmxRelationalExpression__Group_1_1_0_0__0
+            // InternalAsm.g:7323:2: ( rule__DmxRelationalExpression__Group_1_1_0_0__0 )
+            // InternalAsm.g:7323:3: rule__DmxRelationalExpression__Group_1_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group_1_1_0_0__0();
@@ -24559,16 +25096,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_1_0_0__0"
-    // InternalAsm.g:7163:1: rule__DmxRelationalExpression__Group_1_1_0_0__0 : rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl rule__DmxRelationalExpression__Group_1_1_0_0__1 ;
+    // InternalAsm.g:7332:1: rule__DmxRelationalExpression__Group_1_1_0_0__0 : rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl rule__DmxRelationalExpression__Group_1_1_0_0__1 ;
     public final void rule__DmxRelationalExpression__Group_1_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7167:1: ( rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl rule__DmxRelationalExpression__Group_1_1_0_0__1 )
-            // InternalAsm.g:7168:2: rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl rule__DmxRelationalExpression__Group_1_1_0_0__1
+            // InternalAsm.g:7336:1: ( rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl rule__DmxRelationalExpression__Group_1_1_0_0__1 )
+            // InternalAsm.g:7337:2: rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl rule__DmxRelationalExpression__Group_1_1_0_0__1
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_52);
             rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl();
 
             state._fsp--;
@@ -24597,23 +25134,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl"
-    // InternalAsm.g:7175:1: rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl : ( () ) ;
+    // InternalAsm.g:7344:1: rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl : ( () ) ;
     public final void rule__DmxRelationalExpression__Group_1_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7179:1: ( ( () ) )
-            // InternalAsm.g:7180:1: ( () )
+            // InternalAsm.g:7348:1: ( ( () ) )
+            // InternalAsm.g:7349:1: ( () )
             {
-            // InternalAsm.g:7180:1: ( () )
-            // InternalAsm.g:7181:2: ()
+            // InternalAsm.g:7349:1: ( () )
+            // InternalAsm.g:7350:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_1_0_0_0()); 
             }
-            // InternalAsm.g:7182:2: ()
-            // InternalAsm.g:7182:3: 
+            // InternalAsm.g:7351:2: ()
+            // InternalAsm.g:7351:3: 
             {
             }
 
@@ -24638,14 +25175,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_1_0_0__1"
-    // InternalAsm.g:7190:1: rule__DmxRelationalExpression__Group_1_1_0_0__1 : rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl ;
+    // InternalAsm.g:7359:1: rule__DmxRelationalExpression__Group_1_1_0_0__1 : rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl ;
     public final void rule__DmxRelationalExpression__Group_1_1_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7194:1: ( rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl )
-            // InternalAsm.g:7195:2: rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl
+            // InternalAsm.g:7363:1: ( rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl )
+            // InternalAsm.g:7364:2: rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl();
@@ -24671,23 +25208,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl"
-    // InternalAsm.g:7201:1: rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl : ( ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 ) ) ;
+    // InternalAsm.g:7370:1: rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl : ( ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 ) ) ;
     public final void rule__DmxRelationalExpression__Group_1_1_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7205:1: ( ( ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 ) ) )
-            // InternalAsm.g:7206:1: ( ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 ) )
+            // InternalAsm.g:7374:1: ( ( ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 ) ) )
+            // InternalAsm.g:7375:1: ( ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 ) )
             {
-            // InternalAsm.g:7206:1: ( ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 ) )
-            // InternalAsm.g:7207:2: ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 )
+            // InternalAsm.g:7375:1: ( ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 ) )
+            // InternalAsm.g:7376:2: ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getOperatorAssignment_1_1_0_0_1()); 
             }
-            // InternalAsm.g:7208:2: ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 )
-            // InternalAsm.g:7208:3: rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1
+            // InternalAsm.g:7377:2: ( rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 )
+            // InternalAsm.g:7377:3: rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1();
@@ -24722,16 +25259,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group__0"
-    // InternalAsm.g:7217:1: rule__DmxOtherOperatorExpression__Group__0 : rule__DmxOtherOperatorExpression__Group__0__Impl rule__DmxOtherOperatorExpression__Group__1 ;
+    // InternalAsm.g:7386:1: rule__DmxOtherOperatorExpression__Group__0 : rule__DmxOtherOperatorExpression__Group__0__Impl rule__DmxOtherOperatorExpression__Group__1 ;
     public final void rule__DmxOtherOperatorExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7221:1: ( rule__DmxOtherOperatorExpression__Group__0__Impl rule__DmxOtherOperatorExpression__Group__1 )
-            // InternalAsm.g:7222:2: rule__DmxOtherOperatorExpression__Group__0__Impl rule__DmxOtherOperatorExpression__Group__1
+            // InternalAsm.g:7390:1: ( rule__DmxOtherOperatorExpression__Group__0__Impl rule__DmxOtherOperatorExpression__Group__1 )
+            // InternalAsm.g:7391:2: rule__DmxOtherOperatorExpression__Group__0__Impl rule__DmxOtherOperatorExpression__Group__1
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_55);
             rule__DmxOtherOperatorExpression__Group__0__Impl();
 
             state._fsp--;
@@ -24760,17 +25297,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group__0__Impl"
-    // InternalAsm.g:7229:1: rule__DmxOtherOperatorExpression__Group__0__Impl : ( ruleDmxAdditiveExpression ) ;
+    // InternalAsm.g:7398:1: rule__DmxOtherOperatorExpression__Group__0__Impl : ( ruleDmxAdditiveExpression ) ;
     public final void rule__DmxOtherOperatorExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7233:1: ( ( ruleDmxAdditiveExpression ) )
-            // InternalAsm.g:7234:1: ( ruleDmxAdditiveExpression )
+            // InternalAsm.g:7402:1: ( ( ruleDmxAdditiveExpression ) )
+            // InternalAsm.g:7403:1: ( ruleDmxAdditiveExpression )
             {
-            // InternalAsm.g:7234:1: ( ruleDmxAdditiveExpression )
-            // InternalAsm.g:7235:2: ruleDmxAdditiveExpression
+            // InternalAsm.g:7403:1: ( ruleDmxAdditiveExpression )
+            // InternalAsm.g:7404:2: ruleDmxAdditiveExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOtherOperatorExpressionAccess().getDmxAdditiveExpressionParserRuleCall_0()); 
@@ -24805,14 +25342,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group__1"
-    // InternalAsm.g:7244:1: rule__DmxOtherOperatorExpression__Group__1 : rule__DmxOtherOperatorExpression__Group__1__Impl ;
+    // InternalAsm.g:7413:1: rule__DmxOtherOperatorExpression__Group__1 : rule__DmxOtherOperatorExpression__Group__1__Impl ;
     public final void rule__DmxOtherOperatorExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7248:1: ( rule__DmxOtherOperatorExpression__Group__1__Impl )
-            // InternalAsm.g:7249:2: rule__DmxOtherOperatorExpression__Group__1__Impl
+            // InternalAsm.g:7417:1: ( rule__DmxOtherOperatorExpression__Group__1__Impl )
+            // InternalAsm.g:7418:2: rule__DmxOtherOperatorExpression__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxOtherOperatorExpression__Group__1__Impl();
@@ -24838,22 +25375,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group__1__Impl"
-    // InternalAsm.g:7255:1: rule__DmxOtherOperatorExpression__Group__1__Impl : ( ( rule__DmxOtherOperatorExpression__Group_1__0 )* ) ;
+    // InternalAsm.g:7424:1: rule__DmxOtherOperatorExpression__Group__1__Impl : ( ( rule__DmxOtherOperatorExpression__Group_1__0 )* ) ;
     public final void rule__DmxOtherOperatorExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7259:1: ( ( ( rule__DmxOtherOperatorExpression__Group_1__0 )* ) )
-            // InternalAsm.g:7260:1: ( ( rule__DmxOtherOperatorExpression__Group_1__0 )* )
+            // InternalAsm.g:7428:1: ( ( ( rule__DmxOtherOperatorExpression__Group_1__0 )* ) )
+            // InternalAsm.g:7429:1: ( ( rule__DmxOtherOperatorExpression__Group_1__0 )* )
             {
-            // InternalAsm.g:7260:1: ( ( rule__DmxOtherOperatorExpression__Group_1__0 )* )
-            // InternalAsm.g:7261:2: ( rule__DmxOtherOperatorExpression__Group_1__0 )*
+            // InternalAsm.g:7429:1: ( ( rule__DmxOtherOperatorExpression__Group_1__0 )* )
+            // InternalAsm.g:7430:2: ( rule__DmxOtherOperatorExpression__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOtherOperatorExpressionAccess().getGroup_1()); 
             }
-            // InternalAsm.g:7262:2: ( rule__DmxOtherOperatorExpression__Group_1__0 )*
+            // InternalAsm.g:7431:2: ( rule__DmxOtherOperatorExpression__Group_1__0 )*
             loop68:
             do {
                 int alt68=2;
@@ -24896,9 +25433,9 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
                 switch (alt68) {
             	case 1 :
-            	    // InternalAsm.g:7262:3: rule__DmxOtherOperatorExpression__Group_1__0
+            	    // InternalAsm.g:7431:3: rule__DmxOtherOperatorExpression__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_52);
+            	    pushFollow(FOLLOW_56);
             	    rule__DmxOtherOperatorExpression__Group_1__0();
 
             	    state._fsp--;
@@ -24937,16 +25474,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group_1__0"
-    // InternalAsm.g:7271:1: rule__DmxOtherOperatorExpression__Group_1__0 : rule__DmxOtherOperatorExpression__Group_1__0__Impl rule__DmxOtherOperatorExpression__Group_1__1 ;
+    // InternalAsm.g:7440:1: rule__DmxOtherOperatorExpression__Group_1__0 : rule__DmxOtherOperatorExpression__Group_1__0__Impl rule__DmxOtherOperatorExpression__Group_1__1 ;
     public final void rule__DmxOtherOperatorExpression__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7275:1: ( rule__DmxOtherOperatorExpression__Group_1__0__Impl rule__DmxOtherOperatorExpression__Group_1__1 )
-            // InternalAsm.g:7276:2: rule__DmxOtherOperatorExpression__Group_1__0__Impl rule__DmxOtherOperatorExpression__Group_1__1
+            // InternalAsm.g:7444:1: ( rule__DmxOtherOperatorExpression__Group_1__0__Impl rule__DmxOtherOperatorExpression__Group_1__1 )
+            // InternalAsm.g:7445:2: rule__DmxOtherOperatorExpression__Group_1__0__Impl rule__DmxOtherOperatorExpression__Group_1__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_41);
             rule__DmxOtherOperatorExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -24975,23 +25512,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group_1__0__Impl"
-    // InternalAsm.g:7283:1: rule__DmxOtherOperatorExpression__Group_1__0__Impl : ( ( rule__DmxOtherOperatorExpression__Group_1_0__0 ) ) ;
+    // InternalAsm.g:7452:1: rule__DmxOtherOperatorExpression__Group_1__0__Impl : ( ( rule__DmxOtherOperatorExpression__Group_1_0__0 ) ) ;
     public final void rule__DmxOtherOperatorExpression__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7287:1: ( ( ( rule__DmxOtherOperatorExpression__Group_1_0__0 ) ) )
-            // InternalAsm.g:7288:1: ( ( rule__DmxOtherOperatorExpression__Group_1_0__0 ) )
+            // InternalAsm.g:7456:1: ( ( ( rule__DmxOtherOperatorExpression__Group_1_0__0 ) ) )
+            // InternalAsm.g:7457:1: ( ( rule__DmxOtherOperatorExpression__Group_1_0__0 ) )
             {
-            // InternalAsm.g:7288:1: ( ( rule__DmxOtherOperatorExpression__Group_1_0__0 ) )
-            // InternalAsm.g:7289:2: ( rule__DmxOtherOperatorExpression__Group_1_0__0 )
+            // InternalAsm.g:7457:1: ( ( rule__DmxOtherOperatorExpression__Group_1_0__0 ) )
+            // InternalAsm.g:7458:2: ( rule__DmxOtherOperatorExpression__Group_1_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOtherOperatorExpressionAccess().getGroup_1_0()); 
             }
-            // InternalAsm.g:7290:2: ( rule__DmxOtherOperatorExpression__Group_1_0__0 )
-            // InternalAsm.g:7290:3: rule__DmxOtherOperatorExpression__Group_1_0__0
+            // InternalAsm.g:7459:2: ( rule__DmxOtherOperatorExpression__Group_1_0__0 )
+            // InternalAsm.g:7459:3: rule__DmxOtherOperatorExpression__Group_1_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxOtherOperatorExpression__Group_1_0__0();
@@ -25026,14 +25563,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group_1__1"
-    // InternalAsm.g:7298:1: rule__DmxOtherOperatorExpression__Group_1__1 : rule__DmxOtherOperatorExpression__Group_1__1__Impl ;
+    // InternalAsm.g:7467:1: rule__DmxOtherOperatorExpression__Group_1__1 : rule__DmxOtherOperatorExpression__Group_1__1__Impl ;
     public final void rule__DmxOtherOperatorExpression__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7302:1: ( rule__DmxOtherOperatorExpression__Group_1__1__Impl )
-            // InternalAsm.g:7303:2: rule__DmxOtherOperatorExpression__Group_1__1__Impl
+            // InternalAsm.g:7471:1: ( rule__DmxOtherOperatorExpression__Group_1__1__Impl )
+            // InternalAsm.g:7472:2: rule__DmxOtherOperatorExpression__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxOtherOperatorExpression__Group_1__1__Impl();
@@ -25059,23 +25596,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group_1__1__Impl"
-    // InternalAsm.g:7309:1: rule__DmxOtherOperatorExpression__Group_1__1__Impl : ( ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 ) ) ;
+    // InternalAsm.g:7478:1: rule__DmxOtherOperatorExpression__Group_1__1__Impl : ( ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 ) ) ;
     public final void rule__DmxOtherOperatorExpression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7313:1: ( ( ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 ) ) )
-            // InternalAsm.g:7314:1: ( ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 ) )
+            // InternalAsm.g:7482:1: ( ( ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 ) ) )
+            // InternalAsm.g:7483:1: ( ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 ) )
             {
-            // InternalAsm.g:7314:1: ( ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 ) )
-            // InternalAsm.g:7315:2: ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 )
+            // InternalAsm.g:7483:1: ( ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 ) )
+            // InternalAsm.g:7484:2: ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOtherOperatorExpressionAccess().getRightOperandAssignment_1_1()); 
             }
-            // InternalAsm.g:7316:2: ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 )
-            // InternalAsm.g:7316:3: rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1
+            // InternalAsm.g:7485:2: ( rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 )
+            // InternalAsm.g:7485:3: rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1();
@@ -25110,14 +25647,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group_1_0__0"
-    // InternalAsm.g:7325:1: rule__DmxOtherOperatorExpression__Group_1_0__0 : rule__DmxOtherOperatorExpression__Group_1_0__0__Impl ;
+    // InternalAsm.g:7494:1: rule__DmxOtherOperatorExpression__Group_1_0__0 : rule__DmxOtherOperatorExpression__Group_1_0__0__Impl ;
     public final void rule__DmxOtherOperatorExpression__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7329:1: ( rule__DmxOtherOperatorExpression__Group_1_0__0__Impl )
-            // InternalAsm.g:7330:2: rule__DmxOtherOperatorExpression__Group_1_0__0__Impl
+            // InternalAsm.g:7498:1: ( rule__DmxOtherOperatorExpression__Group_1_0__0__Impl )
+            // InternalAsm.g:7499:2: rule__DmxOtherOperatorExpression__Group_1_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxOtherOperatorExpression__Group_1_0__0__Impl();
@@ -25143,23 +25680,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group_1_0__0__Impl"
-    // InternalAsm.g:7336:1: rule__DmxOtherOperatorExpression__Group_1_0__0__Impl : ( ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 ) ) ;
+    // InternalAsm.g:7505:1: rule__DmxOtherOperatorExpression__Group_1_0__0__Impl : ( ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 ) ) ;
     public final void rule__DmxOtherOperatorExpression__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7340:1: ( ( ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 ) ) )
-            // InternalAsm.g:7341:1: ( ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 ) )
+            // InternalAsm.g:7509:1: ( ( ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 ) ) )
+            // InternalAsm.g:7510:1: ( ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 ) )
             {
-            // InternalAsm.g:7341:1: ( ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 ) )
-            // InternalAsm.g:7342:2: ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 )
+            // InternalAsm.g:7510:1: ( ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 ) )
+            // InternalAsm.g:7511:2: ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOtherOperatorExpressionAccess().getGroup_1_0_0()); 
             }
-            // InternalAsm.g:7343:2: ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 )
-            // InternalAsm.g:7343:3: rule__DmxOtherOperatorExpression__Group_1_0_0__0
+            // InternalAsm.g:7512:2: ( rule__DmxOtherOperatorExpression__Group_1_0_0__0 )
+            // InternalAsm.g:7512:3: rule__DmxOtherOperatorExpression__Group_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxOtherOperatorExpression__Group_1_0_0__0();
@@ -25194,16 +25731,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group_1_0_0__0"
-    // InternalAsm.g:7352:1: rule__DmxOtherOperatorExpression__Group_1_0_0__0 : rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl rule__DmxOtherOperatorExpression__Group_1_0_0__1 ;
+    // InternalAsm.g:7521:1: rule__DmxOtherOperatorExpression__Group_1_0_0__0 : rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl rule__DmxOtherOperatorExpression__Group_1_0_0__1 ;
     public final void rule__DmxOtherOperatorExpression__Group_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7356:1: ( rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl rule__DmxOtherOperatorExpression__Group_1_0_0__1 )
-            // InternalAsm.g:7357:2: rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl rule__DmxOtherOperatorExpression__Group_1_0_0__1
+            // InternalAsm.g:7525:1: ( rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl rule__DmxOtherOperatorExpression__Group_1_0_0__1 )
+            // InternalAsm.g:7526:2: rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl rule__DmxOtherOperatorExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_55);
             rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -25232,23 +25769,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl"
-    // InternalAsm.g:7364:1: rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl : ( () ) ;
+    // InternalAsm.g:7533:1: rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl : ( () ) ;
     public final void rule__DmxOtherOperatorExpression__Group_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7368:1: ( ( () ) )
-            // InternalAsm.g:7369:1: ( () )
+            // InternalAsm.g:7537:1: ( ( () ) )
+            // InternalAsm.g:7538:1: ( () )
             {
-            // InternalAsm.g:7369:1: ( () )
-            // InternalAsm.g:7370:2: ()
+            // InternalAsm.g:7538:1: ( () )
+            // InternalAsm.g:7539:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOtherOperatorExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()); 
             }
-            // InternalAsm.g:7371:2: ()
-            // InternalAsm.g:7371:3: 
+            // InternalAsm.g:7540:2: ()
+            // InternalAsm.g:7540:3: 
             {
             }
 
@@ -25273,14 +25810,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group_1_0_0__1"
-    // InternalAsm.g:7379:1: rule__DmxOtherOperatorExpression__Group_1_0_0__1 : rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl ;
+    // InternalAsm.g:7548:1: rule__DmxOtherOperatorExpression__Group_1_0_0__1 : rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl ;
     public final void rule__DmxOtherOperatorExpression__Group_1_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7383:1: ( rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl )
-            // InternalAsm.g:7384:2: rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl
+            // InternalAsm.g:7552:1: ( rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl )
+            // InternalAsm.g:7553:2: rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl();
@@ -25306,23 +25843,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl"
-    // InternalAsm.g:7390:1: rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl : ( ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 ) ) ;
+    // InternalAsm.g:7559:1: rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl : ( ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 ) ) ;
     public final void rule__DmxOtherOperatorExpression__Group_1_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7394:1: ( ( ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 ) ) )
-            // InternalAsm.g:7395:1: ( ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalAsm.g:7563:1: ( ( ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 ) ) )
+            // InternalAsm.g:7564:1: ( ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 ) )
             {
-            // InternalAsm.g:7395:1: ( ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 ) )
-            // InternalAsm.g:7396:2: ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 )
+            // InternalAsm.g:7564:1: ( ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalAsm.g:7565:2: ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOtherOperatorExpressionAccess().getOperatorAssignment_1_0_0_1()); 
             }
-            // InternalAsm.g:7397:2: ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 )
-            // InternalAsm.g:7397:3: rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1
+            // InternalAsm.g:7566:2: ( rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 )
+            // InternalAsm.g:7566:3: rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1();
@@ -25357,16 +25894,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group__0"
-    // InternalAsm.g:7406:1: rule__DmxAdditiveExpression__Group__0 : rule__DmxAdditiveExpression__Group__0__Impl rule__DmxAdditiveExpression__Group__1 ;
+    // InternalAsm.g:7575:1: rule__DmxAdditiveExpression__Group__0 : rule__DmxAdditiveExpression__Group__0__Impl rule__DmxAdditiveExpression__Group__1 ;
     public final void rule__DmxAdditiveExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7410:1: ( rule__DmxAdditiveExpression__Group__0__Impl rule__DmxAdditiveExpression__Group__1 )
-            // InternalAsm.g:7411:2: rule__DmxAdditiveExpression__Group__0__Impl rule__DmxAdditiveExpression__Group__1
+            // InternalAsm.g:7579:1: ( rule__DmxAdditiveExpression__Group__0__Impl rule__DmxAdditiveExpression__Group__1 )
+            // InternalAsm.g:7580:2: rule__DmxAdditiveExpression__Group__0__Impl rule__DmxAdditiveExpression__Group__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_57);
             rule__DmxAdditiveExpression__Group__0__Impl();
 
             state._fsp--;
@@ -25395,17 +25932,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group__0__Impl"
-    // InternalAsm.g:7418:1: rule__DmxAdditiveExpression__Group__0__Impl : ( ruleDmxMultiplicativeExpression ) ;
+    // InternalAsm.g:7587:1: rule__DmxAdditiveExpression__Group__0__Impl : ( ruleDmxMultiplicativeExpression ) ;
     public final void rule__DmxAdditiveExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7422:1: ( ( ruleDmxMultiplicativeExpression ) )
-            // InternalAsm.g:7423:1: ( ruleDmxMultiplicativeExpression )
+            // InternalAsm.g:7591:1: ( ( ruleDmxMultiplicativeExpression ) )
+            // InternalAsm.g:7592:1: ( ruleDmxMultiplicativeExpression )
             {
-            // InternalAsm.g:7423:1: ( ruleDmxMultiplicativeExpression )
-            // InternalAsm.g:7424:2: ruleDmxMultiplicativeExpression
+            // InternalAsm.g:7592:1: ( ruleDmxMultiplicativeExpression )
+            // InternalAsm.g:7593:2: ruleDmxMultiplicativeExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAdditiveExpressionAccess().getDmxMultiplicativeExpressionParserRuleCall_0()); 
@@ -25440,14 +25977,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group__1"
-    // InternalAsm.g:7433:1: rule__DmxAdditiveExpression__Group__1 : rule__DmxAdditiveExpression__Group__1__Impl ;
+    // InternalAsm.g:7602:1: rule__DmxAdditiveExpression__Group__1 : rule__DmxAdditiveExpression__Group__1__Impl ;
     public final void rule__DmxAdditiveExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7437:1: ( rule__DmxAdditiveExpression__Group__1__Impl )
-            // InternalAsm.g:7438:2: rule__DmxAdditiveExpression__Group__1__Impl
+            // InternalAsm.g:7606:1: ( rule__DmxAdditiveExpression__Group__1__Impl )
+            // InternalAsm.g:7607:2: rule__DmxAdditiveExpression__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxAdditiveExpression__Group__1__Impl();
@@ -25473,22 +26010,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group__1__Impl"
-    // InternalAsm.g:7444:1: rule__DmxAdditiveExpression__Group__1__Impl : ( ( rule__DmxAdditiveExpression__Group_1__0 )* ) ;
+    // InternalAsm.g:7613:1: rule__DmxAdditiveExpression__Group__1__Impl : ( ( rule__DmxAdditiveExpression__Group_1__0 )* ) ;
     public final void rule__DmxAdditiveExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7448:1: ( ( ( rule__DmxAdditiveExpression__Group_1__0 )* ) )
-            // InternalAsm.g:7449:1: ( ( rule__DmxAdditiveExpression__Group_1__0 )* )
+            // InternalAsm.g:7617:1: ( ( ( rule__DmxAdditiveExpression__Group_1__0 )* ) )
+            // InternalAsm.g:7618:1: ( ( rule__DmxAdditiveExpression__Group_1__0 )* )
             {
-            // InternalAsm.g:7449:1: ( ( rule__DmxAdditiveExpression__Group_1__0 )* )
-            // InternalAsm.g:7450:2: ( rule__DmxAdditiveExpression__Group_1__0 )*
+            // InternalAsm.g:7618:1: ( ( rule__DmxAdditiveExpression__Group_1__0 )* )
+            // InternalAsm.g:7619:2: ( rule__DmxAdditiveExpression__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAdditiveExpressionAccess().getGroup_1()); 
             }
-            // InternalAsm.g:7451:2: ( rule__DmxAdditiveExpression__Group_1__0 )*
+            // InternalAsm.g:7620:2: ( rule__DmxAdditiveExpression__Group_1__0 )*
             loop69:
             do {
                 int alt69=2;
@@ -25516,9 +26053,9 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
                 switch (alt69) {
             	case 1 :
-            	    // InternalAsm.g:7451:3: rule__DmxAdditiveExpression__Group_1__0
+            	    // InternalAsm.g:7620:3: rule__DmxAdditiveExpression__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_54);
+            	    pushFollow(FOLLOW_58);
             	    rule__DmxAdditiveExpression__Group_1__0();
 
             	    state._fsp--;
@@ -25557,16 +26094,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group_1__0"
-    // InternalAsm.g:7460:1: rule__DmxAdditiveExpression__Group_1__0 : rule__DmxAdditiveExpression__Group_1__0__Impl rule__DmxAdditiveExpression__Group_1__1 ;
+    // InternalAsm.g:7629:1: rule__DmxAdditiveExpression__Group_1__0 : rule__DmxAdditiveExpression__Group_1__0__Impl rule__DmxAdditiveExpression__Group_1__1 ;
     public final void rule__DmxAdditiveExpression__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7464:1: ( rule__DmxAdditiveExpression__Group_1__0__Impl rule__DmxAdditiveExpression__Group_1__1 )
-            // InternalAsm.g:7465:2: rule__DmxAdditiveExpression__Group_1__0__Impl rule__DmxAdditiveExpression__Group_1__1
+            // InternalAsm.g:7633:1: ( rule__DmxAdditiveExpression__Group_1__0__Impl rule__DmxAdditiveExpression__Group_1__1 )
+            // InternalAsm.g:7634:2: rule__DmxAdditiveExpression__Group_1__0__Impl rule__DmxAdditiveExpression__Group_1__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_41);
             rule__DmxAdditiveExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -25595,23 +26132,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group_1__0__Impl"
-    // InternalAsm.g:7472:1: rule__DmxAdditiveExpression__Group_1__0__Impl : ( ( rule__DmxAdditiveExpression__Group_1_0__0 ) ) ;
+    // InternalAsm.g:7641:1: rule__DmxAdditiveExpression__Group_1__0__Impl : ( ( rule__DmxAdditiveExpression__Group_1_0__0 ) ) ;
     public final void rule__DmxAdditiveExpression__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7476:1: ( ( ( rule__DmxAdditiveExpression__Group_1_0__0 ) ) )
-            // InternalAsm.g:7477:1: ( ( rule__DmxAdditiveExpression__Group_1_0__0 ) )
+            // InternalAsm.g:7645:1: ( ( ( rule__DmxAdditiveExpression__Group_1_0__0 ) ) )
+            // InternalAsm.g:7646:1: ( ( rule__DmxAdditiveExpression__Group_1_0__0 ) )
             {
-            // InternalAsm.g:7477:1: ( ( rule__DmxAdditiveExpression__Group_1_0__0 ) )
-            // InternalAsm.g:7478:2: ( rule__DmxAdditiveExpression__Group_1_0__0 )
+            // InternalAsm.g:7646:1: ( ( rule__DmxAdditiveExpression__Group_1_0__0 ) )
+            // InternalAsm.g:7647:2: ( rule__DmxAdditiveExpression__Group_1_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAdditiveExpressionAccess().getGroup_1_0()); 
             }
-            // InternalAsm.g:7479:2: ( rule__DmxAdditiveExpression__Group_1_0__0 )
-            // InternalAsm.g:7479:3: rule__DmxAdditiveExpression__Group_1_0__0
+            // InternalAsm.g:7648:2: ( rule__DmxAdditiveExpression__Group_1_0__0 )
+            // InternalAsm.g:7648:3: rule__DmxAdditiveExpression__Group_1_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxAdditiveExpression__Group_1_0__0();
@@ -25646,14 +26183,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group_1__1"
-    // InternalAsm.g:7487:1: rule__DmxAdditiveExpression__Group_1__1 : rule__DmxAdditiveExpression__Group_1__1__Impl ;
+    // InternalAsm.g:7656:1: rule__DmxAdditiveExpression__Group_1__1 : rule__DmxAdditiveExpression__Group_1__1__Impl ;
     public final void rule__DmxAdditiveExpression__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7491:1: ( rule__DmxAdditiveExpression__Group_1__1__Impl )
-            // InternalAsm.g:7492:2: rule__DmxAdditiveExpression__Group_1__1__Impl
+            // InternalAsm.g:7660:1: ( rule__DmxAdditiveExpression__Group_1__1__Impl )
+            // InternalAsm.g:7661:2: rule__DmxAdditiveExpression__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxAdditiveExpression__Group_1__1__Impl();
@@ -25679,23 +26216,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group_1__1__Impl"
-    // InternalAsm.g:7498:1: rule__DmxAdditiveExpression__Group_1__1__Impl : ( ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 ) ) ;
+    // InternalAsm.g:7667:1: rule__DmxAdditiveExpression__Group_1__1__Impl : ( ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 ) ) ;
     public final void rule__DmxAdditiveExpression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7502:1: ( ( ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 ) ) )
-            // InternalAsm.g:7503:1: ( ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 ) )
+            // InternalAsm.g:7671:1: ( ( ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 ) ) )
+            // InternalAsm.g:7672:1: ( ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 ) )
             {
-            // InternalAsm.g:7503:1: ( ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 ) )
-            // InternalAsm.g:7504:2: ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 )
+            // InternalAsm.g:7672:1: ( ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 ) )
+            // InternalAsm.g:7673:2: ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAdditiveExpressionAccess().getRightOperandAssignment_1_1()); 
             }
-            // InternalAsm.g:7505:2: ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 )
-            // InternalAsm.g:7505:3: rule__DmxAdditiveExpression__RightOperandAssignment_1_1
+            // InternalAsm.g:7674:2: ( rule__DmxAdditiveExpression__RightOperandAssignment_1_1 )
+            // InternalAsm.g:7674:3: rule__DmxAdditiveExpression__RightOperandAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxAdditiveExpression__RightOperandAssignment_1_1();
@@ -25730,14 +26267,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group_1_0__0"
-    // InternalAsm.g:7514:1: rule__DmxAdditiveExpression__Group_1_0__0 : rule__DmxAdditiveExpression__Group_1_0__0__Impl ;
+    // InternalAsm.g:7683:1: rule__DmxAdditiveExpression__Group_1_0__0 : rule__DmxAdditiveExpression__Group_1_0__0__Impl ;
     public final void rule__DmxAdditiveExpression__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7518:1: ( rule__DmxAdditiveExpression__Group_1_0__0__Impl )
-            // InternalAsm.g:7519:2: rule__DmxAdditiveExpression__Group_1_0__0__Impl
+            // InternalAsm.g:7687:1: ( rule__DmxAdditiveExpression__Group_1_0__0__Impl )
+            // InternalAsm.g:7688:2: rule__DmxAdditiveExpression__Group_1_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxAdditiveExpression__Group_1_0__0__Impl();
@@ -25763,23 +26300,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group_1_0__0__Impl"
-    // InternalAsm.g:7525:1: rule__DmxAdditiveExpression__Group_1_0__0__Impl : ( ( rule__DmxAdditiveExpression__Group_1_0_0__0 ) ) ;
+    // InternalAsm.g:7694:1: rule__DmxAdditiveExpression__Group_1_0__0__Impl : ( ( rule__DmxAdditiveExpression__Group_1_0_0__0 ) ) ;
     public final void rule__DmxAdditiveExpression__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7529:1: ( ( ( rule__DmxAdditiveExpression__Group_1_0_0__0 ) ) )
-            // InternalAsm.g:7530:1: ( ( rule__DmxAdditiveExpression__Group_1_0_0__0 ) )
+            // InternalAsm.g:7698:1: ( ( ( rule__DmxAdditiveExpression__Group_1_0_0__0 ) ) )
+            // InternalAsm.g:7699:1: ( ( rule__DmxAdditiveExpression__Group_1_0_0__0 ) )
             {
-            // InternalAsm.g:7530:1: ( ( rule__DmxAdditiveExpression__Group_1_0_0__0 ) )
-            // InternalAsm.g:7531:2: ( rule__DmxAdditiveExpression__Group_1_0_0__0 )
+            // InternalAsm.g:7699:1: ( ( rule__DmxAdditiveExpression__Group_1_0_0__0 ) )
+            // InternalAsm.g:7700:2: ( rule__DmxAdditiveExpression__Group_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAdditiveExpressionAccess().getGroup_1_0_0()); 
             }
-            // InternalAsm.g:7532:2: ( rule__DmxAdditiveExpression__Group_1_0_0__0 )
-            // InternalAsm.g:7532:3: rule__DmxAdditiveExpression__Group_1_0_0__0
+            // InternalAsm.g:7701:2: ( rule__DmxAdditiveExpression__Group_1_0_0__0 )
+            // InternalAsm.g:7701:3: rule__DmxAdditiveExpression__Group_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxAdditiveExpression__Group_1_0_0__0();
@@ -25814,16 +26351,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group_1_0_0__0"
-    // InternalAsm.g:7541:1: rule__DmxAdditiveExpression__Group_1_0_0__0 : rule__DmxAdditiveExpression__Group_1_0_0__0__Impl rule__DmxAdditiveExpression__Group_1_0_0__1 ;
+    // InternalAsm.g:7710:1: rule__DmxAdditiveExpression__Group_1_0_0__0 : rule__DmxAdditiveExpression__Group_1_0_0__0__Impl rule__DmxAdditiveExpression__Group_1_0_0__1 ;
     public final void rule__DmxAdditiveExpression__Group_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7545:1: ( rule__DmxAdditiveExpression__Group_1_0_0__0__Impl rule__DmxAdditiveExpression__Group_1_0_0__1 )
-            // InternalAsm.g:7546:2: rule__DmxAdditiveExpression__Group_1_0_0__0__Impl rule__DmxAdditiveExpression__Group_1_0_0__1
+            // InternalAsm.g:7714:1: ( rule__DmxAdditiveExpression__Group_1_0_0__0__Impl rule__DmxAdditiveExpression__Group_1_0_0__1 )
+            // InternalAsm.g:7715:2: rule__DmxAdditiveExpression__Group_1_0_0__0__Impl rule__DmxAdditiveExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_57);
             rule__DmxAdditiveExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -25852,23 +26389,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group_1_0_0__0__Impl"
-    // InternalAsm.g:7553:1: rule__DmxAdditiveExpression__Group_1_0_0__0__Impl : ( () ) ;
+    // InternalAsm.g:7722:1: rule__DmxAdditiveExpression__Group_1_0_0__0__Impl : ( () ) ;
     public final void rule__DmxAdditiveExpression__Group_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7557:1: ( ( () ) )
-            // InternalAsm.g:7558:1: ( () )
+            // InternalAsm.g:7726:1: ( ( () ) )
+            // InternalAsm.g:7727:1: ( () )
             {
-            // InternalAsm.g:7558:1: ( () )
-            // InternalAsm.g:7559:2: ()
+            // InternalAsm.g:7727:1: ( () )
+            // InternalAsm.g:7728:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAdditiveExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()); 
             }
-            // InternalAsm.g:7560:2: ()
-            // InternalAsm.g:7560:3: 
+            // InternalAsm.g:7729:2: ()
+            // InternalAsm.g:7729:3: 
             {
             }
 
@@ -25893,14 +26430,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group_1_0_0__1"
-    // InternalAsm.g:7568:1: rule__DmxAdditiveExpression__Group_1_0_0__1 : rule__DmxAdditiveExpression__Group_1_0_0__1__Impl ;
+    // InternalAsm.g:7737:1: rule__DmxAdditiveExpression__Group_1_0_0__1 : rule__DmxAdditiveExpression__Group_1_0_0__1__Impl ;
     public final void rule__DmxAdditiveExpression__Group_1_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7572:1: ( rule__DmxAdditiveExpression__Group_1_0_0__1__Impl )
-            // InternalAsm.g:7573:2: rule__DmxAdditiveExpression__Group_1_0_0__1__Impl
+            // InternalAsm.g:7741:1: ( rule__DmxAdditiveExpression__Group_1_0_0__1__Impl )
+            // InternalAsm.g:7742:2: rule__DmxAdditiveExpression__Group_1_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxAdditiveExpression__Group_1_0_0__1__Impl();
@@ -25926,23 +26463,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__Group_1_0_0__1__Impl"
-    // InternalAsm.g:7579:1: rule__DmxAdditiveExpression__Group_1_0_0__1__Impl : ( ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 ) ) ;
+    // InternalAsm.g:7748:1: rule__DmxAdditiveExpression__Group_1_0_0__1__Impl : ( ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 ) ) ;
     public final void rule__DmxAdditiveExpression__Group_1_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7583:1: ( ( ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 ) ) )
-            // InternalAsm.g:7584:1: ( ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalAsm.g:7752:1: ( ( ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 ) ) )
+            // InternalAsm.g:7753:1: ( ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 ) )
             {
-            // InternalAsm.g:7584:1: ( ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 ) )
-            // InternalAsm.g:7585:2: ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 )
+            // InternalAsm.g:7753:1: ( ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalAsm.g:7754:2: ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAdditiveExpressionAccess().getOperatorAssignment_1_0_0_1()); 
             }
-            // InternalAsm.g:7586:2: ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 )
-            // InternalAsm.g:7586:3: rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1
+            // InternalAsm.g:7755:2: ( rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 )
+            // InternalAsm.g:7755:3: rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1();
@@ -25977,16 +26514,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group__0"
-    // InternalAsm.g:7595:1: rule__DmxMultiplicativeExpression__Group__0 : rule__DmxMultiplicativeExpression__Group__0__Impl rule__DmxMultiplicativeExpression__Group__1 ;
+    // InternalAsm.g:7764:1: rule__DmxMultiplicativeExpression__Group__0 : rule__DmxMultiplicativeExpression__Group__0__Impl rule__DmxMultiplicativeExpression__Group__1 ;
     public final void rule__DmxMultiplicativeExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7599:1: ( rule__DmxMultiplicativeExpression__Group__0__Impl rule__DmxMultiplicativeExpression__Group__1 )
-            // InternalAsm.g:7600:2: rule__DmxMultiplicativeExpression__Group__0__Impl rule__DmxMultiplicativeExpression__Group__1
+            // InternalAsm.g:7768:1: ( rule__DmxMultiplicativeExpression__Group__0__Impl rule__DmxMultiplicativeExpression__Group__1 )
+            // InternalAsm.g:7769:2: rule__DmxMultiplicativeExpression__Group__0__Impl rule__DmxMultiplicativeExpression__Group__1
             {
-            pushFollow(FOLLOW_55);
+            pushFollow(FOLLOW_59);
             rule__DmxMultiplicativeExpression__Group__0__Impl();
 
             state._fsp--;
@@ -26015,17 +26552,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group__0__Impl"
-    // InternalAsm.g:7607:1: rule__DmxMultiplicativeExpression__Group__0__Impl : ( ruleDmxUnaryOperation ) ;
+    // InternalAsm.g:7776:1: rule__DmxMultiplicativeExpression__Group__0__Impl : ( ruleDmxUnaryOperation ) ;
     public final void rule__DmxMultiplicativeExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7611:1: ( ( ruleDmxUnaryOperation ) )
-            // InternalAsm.g:7612:1: ( ruleDmxUnaryOperation )
+            // InternalAsm.g:7780:1: ( ( ruleDmxUnaryOperation ) )
+            // InternalAsm.g:7781:1: ( ruleDmxUnaryOperation )
             {
-            // InternalAsm.g:7612:1: ( ruleDmxUnaryOperation )
-            // InternalAsm.g:7613:2: ruleDmxUnaryOperation
+            // InternalAsm.g:7781:1: ( ruleDmxUnaryOperation )
+            // InternalAsm.g:7782:2: ruleDmxUnaryOperation
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxMultiplicativeExpressionAccess().getDmxUnaryOperationParserRuleCall_0()); 
@@ -26060,14 +26597,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group__1"
-    // InternalAsm.g:7622:1: rule__DmxMultiplicativeExpression__Group__1 : rule__DmxMultiplicativeExpression__Group__1__Impl ;
+    // InternalAsm.g:7791:1: rule__DmxMultiplicativeExpression__Group__1 : rule__DmxMultiplicativeExpression__Group__1__Impl ;
     public final void rule__DmxMultiplicativeExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7626:1: ( rule__DmxMultiplicativeExpression__Group__1__Impl )
-            // InternalAsm.g:7627:2: rule__DmxMultiplicativeExpression__Group__1__Impl
+            // InternalAsm.g:7795:1: ( rule__DmxMultiplicativeExpression__Group__1__Impl )
+            // InternalAsm.g:7796:2: rule__DmxMultiplicativeExpression__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxMultiplicativeExpression__Group__1__Impl();
@@ -26093,22 +26630,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group__1__Impl"
-    // InternalAsm.g:7633:1: rule__DmxMultiplicativeExpression__Group__1__Impl : ( ( rule__DmxMultiplicativeExpression__Group_1__0 )* ) ;
+    // InternalAsm.g:7802:1: rule__DmxMultiplicativeExpression__Group__1__Impl : ( ( rule__DmxMultiplicativeExpression__Group_1__0 )* ) ;
     public final void rule__DmxMultiplicativeExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7637:1: ( ( ( rule__DmxMultiplicativeExpression__Group_1__0 )* ) )
-            // InternalAsm.g:7638:1: ( ( rule__DmxMultiplicativeExpression__Group_1__0 )* )
+            // InternalAsm.g:7806:1: ( ( ( rule__DmxMultiplicativeExpression__Group_1__0 )* ) )
+            // InternalAsm.g:7807:1: ( ( rule__DmxMultiplicativeExpression__Group_1__0 )* )
             {
-            // InternalAsm.g:7638:1: ( ( rule__DmxMultiplicativeExpression__Group_1__0 )* )
-            // InternalAsm.g:7639:2: ( rule__DmxMultiplicativeExpression__Group_1__0 )*
+            // InternalAsm.g:7807:1: ( ( rule__DmxMultiplicativeExpression__Group_1__0 )* )
+            // InternalAsm.g:7808:2: ( rule__DmxMultiplicativeExpression__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxMultiplicativeExpressionAccess().getGroup_1()); 
             }
-            // InternalAsm.g:7640:2: ( rule__DmxMultiplicativeExpression__Group_1__0 )*
+            // InternalAsm.g:7809:2: ( rule__DmxMultiplicativeExpression__Group_1__0 )*
             loop70:
             do {
                 int alt70=2;
@@ -26162,9 +26699,9 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
                 switch (alt70) {
             	case 1 :
-            	    // InternalAsm.g:7640:3: rule__DmxMultiplicativeExpression__Group_1__0
+            	    // InternalAsm.g:7809:3: rule__DmxMultiplicativeExpression__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_56);
+            	    pushFollow(FOLLOW_60);
             	    rule__DmxMultiplicativeExpression__Group_1__0();
 
             	    state._fsp--;
@@ -26203,16 +26740,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group_1__0"
-    // InternalAsm.g:7649:1: rule__DmxMultiplicativeExpression__Group_1__0 : rule__DmxMultiplicativeExpression__Group_1__0__Impl rule__DmxMultiplicativeExpression__Group_1__1 ;
+    // InternalAsm.g:7818:1: rule__DmxMultiplicativeExpression__Group_1__0 : rule__DmxMultiplicativeExpression__Group_1__0__Impl rule__DmxMultiplicativeExpression__Group_1__1 ;
     public final void rule__DmxMultiplicativeExpression__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7653:1: ( rule__DmxMultiplicativeExpression__Group_1__0__Impl rule__DmxMultiplicativeExpression__Group_1__1 )
-            // InternalAsm.g:7654:2: rule__DmxMultiplicativeExpression__Group_1__0__Impl rule__DmxMultiplicativeExpression__Group_1__1
+            // InternalAsm.g:7822:1: ( rule__DmxMultiplicativeExpression__Group_1__0__Impl rule__DmxMultiplicativeExpression__Group_1__1 )
+            // InternalAsm.g:7823:2: rule__DmxMultiplicativeExpression__Group_1__0__Impl rule__DmxMultiplicativeExpression__Group_1__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_41);
             rule__DmxMultiplicativeExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -26241,23 +26778,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group_1__0__Impl"
-    // InternalAsm.g:7661:1: rule__DmxMultiplicativeExpression__Group_1__0__Impl : ( ( rule__DmxMultiplicativeExpression__Group_1_0__0 ) ) ;
+    // InternalAsm.g:7830:1: rule__DmxMultiplicativeExpression__Group_1__0__Impl : ( ( rule__DmxMultiplicativeExpression__Group_1_0__0 ) ) ;
     public final void rule__DmxMultiplicativeExpression__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7665:1: ( ( ( rule__DmxMultiplicativeExpression__Group_1_0__0 ) ) )
-            // InternalAsm.g:7666:1: ( ( rule__DmxMultiplicativeExpression__Group_1_0__0 ) )
+            // InternalAsm.g:7834:1: ( ( ( rule__DmxMultiplicativeExpression__Group_1_0__0 ) ) )
+            // InternalAsm.g:7835:1: ( ( rule__DmxMultiplicativeExpression__Group_1_0__0 ) )
             {
-            // InternalAsm.g:7666:1: ( ( rule__DmxMultiplicativeExpression__Group_1_0__0 ) )
-            // InternalAsm.g:7667:2: ( rule__DmxMultiplicativeExpression__Group_1_0__0 )
+            // InternalAsm.g:7835:1: ( ( rule__DmxMultiplicativeExpression__Group_1_0__0 ) )
+            // InternalAsm.g:7836:2: ( rule__DmxMultiplicativeExpression__Group_1_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxMultiplicativeExpressionAccess().getGroup_1_0()); 
             }
-            // InternalAsm.g:7668:2: ( rule__DmxMultiplicativeExpression__Group_1_0__0 )
-            // InternalAsm.g:7668:3: rule__DmxMultiplicativeExpression__Group_1_0__0
+            // InternalAsm.g:7837:2: ( rule__DmxMultiplicativeExpression__Group_1_0__0 )
+            // InternalAsm.g:7837:3: rule__DmxMultiplicativeExpression__Group_1_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxMultiplicativeExpression__Group_1_0__0();
@@ -26292,14 +26829,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group_1__1"
-    // InternalAsm.g:7676:1: rule__DmxMultiplicativeExpression__Group_1__1 : rule__DmxMultiplicativeExpression__Group_1__1__Impl ;
+    // InternalAsm.g:7845:1: rule__DmxMultiplicativeExpression__Group_1__1 : rule__DmxMultiplicativeExpression__Group_1__1__Impl ;
     public final void rule__DmxMultiplicativeExpression__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7680:1: ( rule__DmxMultiplicativeExpression__Group_1__1__Impl )
-            // InternalAsm.g:7681:2: rule__DmxMultiplicativeExpression__Group_1__1__Impl
+            // InternalAsm.g:7849:1: ( rule__DmxMultiplicativeExpression__Group_1__1__Impl )
+            // InternalAsm.g:7850:2: rule__DmxMultiplicativeExpression__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxMultiplicativeExpression__Group_1__1__Impl();
@@ -26325,23 +26862,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group_1__1__Impl"
-    // InternalAsm.g:7687:1: rule__DmxMultiplicativeExpression__Group_1__1__Impl : ( ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 ) ) ;
+    // InternalAsm.g:7856:1: rule__DmxMultiplicativeExpression__Group_1__1__Impl : ( ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 ) ) ;
     public final void rule__DmxMultiplicativeExpression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7691:1: ( ( ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 ) ) )
-            // InternalAsm.g:7692:1: ( ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 ) )
+            // InternalAsm.g:7860:1: ( ( ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 ) ) )
+            // InternalAsm.g:7861:1: ( ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 ) )
             {
-            // InternalAsm.g:7692:1: ( ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 ) )
-            // InternalAsm.g:7693:2: ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 )
+            // InternalAsm.g:7861:1: ( ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 ) )
+            // InternalAsm.g:7862:2: ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxMultiplicativeExpressionAccess().getRightOperandAssignment_1_1()); 
             }
-            // InternalAsm.g:7694:2: ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 )
-            // InternalAsm.g:7694:3: rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1
+            // InternalAsm.g:7863:2: ( rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 )
+            // InternalAsm.g:7863:3: rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1();
@@ -26376,14 +26913,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group_1_0__0"
-    // InternalAsm.g:7703:1: rule__DmxMultiplicativeExpression__Group_1_0__0 : rule__DmxMultiplicativeExpression__Group_1_0__0__Impl ;
+    // InternalAsm.g:7872:1: rule__DmxMultiplicativeExpression__Group_1_0__0 : rule__DmxMultiplicativeExpression__Group_1_0__0__Impl ;
     public final void rule__DmxMultiplicativeExpression__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7707:1: ( rule__DmxMultiplicativeExpression__Group_1_0__0__Impl )
-            // InternalAsm.g:7708:2: rule__DmxMultiplicativeExpression__Group_1_0__0__Impl
+            // InternalAsm.g:7876:1: ( rule__DmxMultiplicativeExpression__Group_1_0__0__Impl )
+            // InternalAsm.g:7877:2: rule__DmxMultiplicativeExpression__Group_1_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxMultiplicativeExpression__Group_1_0__0__Impl();
@@ -26409,23 +26946,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group_1_0__0__Impl"
-    // InternalAsm.g:7714:1: rule__DmxMultiplicativeExpression__Group_1_0__0__Impl : ( ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 ) ) ;
+    // InternalAsm.g:7883:1: rule__DmxMultiplicativeExpression__Group_1_0__0__Impl : ( ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 ) ) ;
     public final void rule__DmxMultiplicativeExpression__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7718:1: ( ( ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 ) ) )
-            // InternalAsm.g:7719:1: ( ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 ) )
+            // InternalAsm.g:7887:1: ( ( ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 ) ) )
+            // InternalAsm.g:7888:1: ( ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 ) )
             {
-            // InternalAsm.g:7719:1: ( ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 ) )
-            // InternalAsm.g:7720:2: ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 )
+            // InternalAsm.g:7888:1: ( ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 ) )
+            // InternalAsm.g:7889:2: ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxMultiplicativeExpressionAccess().getGroup_1_0_0()); 
             }
-            // InternalAsm.g:7721:2: ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 )
-            // InternalAsm.g:7721:3: rule__DmxMultiplicativeExpression__Group_1_0_0__0
+            // InternalAsm.g:7890:2: ( rule__DmxMultiplicativeExpression__Group_1_0_0__0 )
+            // InternalAsm.g:7890:3: rule__DmxMultiplicativeExpression__Group_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxMultiplicativeExpression__Group_1_0_0__0();
@@ -26460,16 +26997,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group_1_0_0__0"
-    // InternalAsm.g:7730:1: rule__DmxMultiplicativeExpression__Group_1_0_0__0 : rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl rule__DmxMultiplicativeExpression__Group_1_0_0__1 ;
+    // InternalAsm.g:7899:1: rule__DmxMultiplicativeExpression__Group_1_0_0__0 : rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl rule__DmxMultiplicativeExpression__Group_1_0_0__1 ;
     public final void rule__DmxMultiplicativeExpression__Group_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7734:1: ( rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl rule__DmxMultiplicativeExpression__Group_1_0_0__1 )
-            // InternalAsm.g:7735:2: rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl rule__DmxMultiplicativeExpression__Group_1_0_0__1
+            // InternalAsm.g:7903:1: ( rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl rule__DmxMultiplicativeExpression__Group_1_0_0__1 )
+            // InternalAsm.g:7904:2: rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl rule__DmxMultiplicativeExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_55);
+            pushFollow(FOLLOW_59);
             rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -26498,23 +27035,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl"
-    // InternalAsm.g:7742:1: rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl : ( () ) ;
+    // InternalAsm.g:7911:1: rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl : ( () ) ;
     public final void rule__DmxMultiplicativeExpression__Group_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7746:1: ( ( () ) )
-            // InternalAsm.g:7747:1: ( () )
+            // InternalAsm.g:7915:1: ( ( () ) )
+            // InternalAsm.g:7916:1: ( () )
             {
-            // InternalAsm.g:7747:1: ( () )
-            // InternalAsm.g:7748:2: ()
+            // InternalAsm.g:7916:1: ( () )
+            // InternalAsm.g:7917:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxMultiplicativeExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()); 
             }
-            // InternalAsm.g:7749:2: ()
-            // InternalAsm.g:7749:3: 
+            // InternalAsm.g:7918:2: ()
+            // InternalAsm.g:7918:3: 
             {
             }
 
@@ -26539,14 +27076,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group_1_0_0__1"
-    // InternalAsm.g:7757:1: rule__DmxMultiplicativeExpression__Group_1_0_0__1 : rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl ;
+    // InternalAsm.g:7926:1: rule__DmxMultiplicativeExpression__Group_1_0_0__1 : rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl ;
     public final void rule__DmxMultiplicativeExpression__Group_1_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7761:1: ( rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl )
-            // InternalAsm.g:7762:2: rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl
+            // InternalAsm.g:7930:1: ( rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl )
+            // InternalAsm.g:7931:2: rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl();
@@ -26572,23 +27109,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl"
-    // InternalAsm.g:7768:1: rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl : ( ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 ) ) ;
+    // InternalAsm.g:7937:1: rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl : ( ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 ) ) ;
     public final void rule__DmxMultiplicativeExpression__Group_1_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7772:1: ( ( ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 ) ) )
-            // InternalAsm.g:7773:1: ( ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalAsm.g:7941:1: ( ( ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 ) ) )
+            // InternalAsm.g:7942:1: ( ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 ) )
             {
-            // InternalAsm.g:7773:1: ( ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 ) )
-            // InternalAsm.g:7774:2: ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 )
+            // InternalAsm.g:7942:1: ( ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 ) )
+            // InternalAsm.g:7943:2: ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxMultiplicativeExpressionAccess().getOperatorAssignment_1_0_0_1()); 
             }
-            // InternalAsm.g:7775:2: ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 )
-            // InternalAsm.g:7775:3: rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1
+            // InternalAsm.g:7944:2: ( rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 )
+            // InternalAsm.g:7944:3: rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1();
@@ -26623,16 +27160,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUnaryOperation__Group_0__0"
-    // InternalAsm.g:7784:1: rule__DmxUnaryOperation__Group_0__0 : rule__DmxUnaryOperation__Group_0__0__Impl rule__DmxUnaryOperation__Group_0__1 ;
+    // InternalAsm.g:7953:1: rule__DmxUnaryOperation__Group_0__0 : rule__DmxUnaryOperation__Group_0__0__Impl rule__DmxUnaryOperation__Group_0__1 ;
     public final void rule__DmxUnaryOperation__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7788:1: ( rule__DmxUnaryOperation__Group_0__0__Impl rule__DmxUnaryOperation__Group_0__1 )
-            // InternalAsm.g:7789:2: rule__DmxUnaryOperation__Group_0__0__Impl rule__DmxUnaryOperation__Group_0__1
+            // InternalAsm.g:7957:1: ( rule__DmxUnaryOperation__Group_0__0__Impl rule__DmxUnaryOperation__Group_0__1 )
+            // InternalAsm.g:7958:2: rule__DmxUnaryOperation__Group_0__0__Impl rule__DmxUnaryOperation__Group_0__1
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_61);
             rule__DmxUnaryOperation__Group_0__0__Impl();
 
             state._fsp--;
@@ -26661,23 +27198,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUnaryOperation__Group_0__0__Impl"
-    // InternalAsm.g:7796:1: rule__DmxUnaryOperation__Group_0__0__Impl : ( () ) ;
+    // InternalAsm.g:7965:1: rule__DmxUnaryOperation__Group_0__0__Impl : ( () ) ;
     public final void rule__DmxUnaryOperation__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7800:1: ( ( () ) )
-            // InternalAsm.g:7801:1: ( () )
+            // InternalAsm.g:7969:1: ( ( () ) )
+            // InternalAsm.g:7970:1: ( () )
             {
-            // InternalAsm.g:7801:1: ( () )
-            // InternalAsm.g:7802:2: ()
+            // InternalAsm.g:7970:1: ( () )
+            // InternalAsm.g:7971:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxUnaryOperationAccess().getDmxUnaryOperationAction_0_0()); 
             }
-            // InternalAsm.g:7803:2: ()
-            // InternalAsm.g:7803:3: 
+            // InternalAsm.g:7972:2: ()
+            // InternalAsm.g:7972:3: 
             {
             }
 
@@ -26702,16 +27239,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUnaryOperation__Group_0__1"
-    // InternalAsm.g:7811:1: rule__DmxUnaryOperation__Group_0__1 : rule__DmxUnaryOperation__Group_0__1__Impl rule__DmxUnaryOperation__Group_0__2 ;
+    // InternalAsm.g:7980:1: rule__DmxUnaryOperation__Group_0__1 : rule__DmxUnaryOperation__Group_0__1__Impl rule__DmxUnaryOperation__Group_0__2 ;
     public final void rule__DmxUnaryOperation__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7815:1: ( rule__DmxUnaryOperation__Group_0__1__Impl rule__DmxUnaryOperation__Group_0__2 )
-            // InternalAsm.g:7816:2: rule__DmxUnaryOperation__Group_0__1__Impl rule__DmxUnaryOperation__Group_0__2
+            // InternalAsm.g:7984:1: ( rule__DmxUnaryOperation__Group_0__1__Impl rule__DmxUnaryOperation__Group_0__2 )
+            // InternalAsm.g:7985:2: rule__DmxUnaryOperation__Group_0__1__Impl rule__DmxUnaryOperation__Group_0__2
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_41);
             rule__DmxUnaryOperation__Group_0__1__Impl();
 
             state._fsp--;
@@ -26740,23 +27277,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUnaryOperation__Group_0__1__Impl"
-    // InternalAsm.g:7823:1: rule__DmxUnaryOperation__Group_0__1__Impl : ( ( rule__DmxUnaryOperation__OperatorAssignment_0_1 ) ) ;
+    // InternalAsm.g:7992:1: rule__DmxUnaryOperation__Group_0__1__Impl : ( ( rule__DmxUnaryOperation__OperatorAssignment_0_1 ) ) ;
     public final void rule__DmxUnaryOperation__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7827:1: ( ( ( rule__DmxUnaryOperation__OperatorAssignment_0_1 ) ) )
-            // InternalAsm.g:7828:1: ( ( rule__DmxUnaryOperation__OperatorAssignment_0_1 ) )
+            // InternalAsm.g:7996:1: ( ( ( rule__DmxUnaryOperation__OperatorAssignment_0_1 ) ) )
+            // InternalAsm.g:7997:1: ( ( rule__DmxUnaryOperation__OperatorAssignment_0_1 ) )
             {
-            // InternalAsm.g:7828:1: ( ( rule__DmxUnaryOperation__OperatorAssignment_0_1 ) )
-            // InternalAsm.g:7829:2: ( rule__DmxUnaryOperation__OperatorAssignment_0_1 )
+            // InternalAsm.g:7997:1: ( ( rule__DmxUnaryOperation__OperatorAssignment_0_1 ) )
+            // InternalAsm.g:7998:2: ( rule__DmxUnaryOperation__OperatorAssignment_0_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxUnaryOperationAccess().getOperatorAssignment_0_1()); 
             }
-            // InternalAsm.g:7830:2: ( rule__DmxUnaryOperation__OperatorAssignment_0_1 )
-            // InternalAsm.g:7830:3: rule__DmxUnaryOperation__OperatorAssignment_0_1
+            // InternalAsm.g:7999:2: ( rule__DmxUnaryOperation__OperatorAssignment_0_1 )
+            // InternalAsm.g:7999:3: rule__DmxUnaryOperation__OperatorAssignment_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxUnaryOperation__OperatorAssignment_0_1();
@@ -26791,14 +27328,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUnaryOperation__Group_0__2"
-    // InternalAsm.g:7838:1: rule__DmxUnaryOperation__Group_0__2 : rule__DmxUnaryOperation__Group_0__2__Impl ;
+    // InternalAsm.g:8007:1: rule__DmxUnaryOperation__Group_0__2 : rule__DmxUnaryOperation__Group_0__2__Impl ;
     public final void rule__DmxUnaryOperation__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7842:1: ( rule__DmxUnaryOperation__Group_0__2__Impl )
-            // InternalAsm.g:7843:2: rule__DmxUnaryOperation__Group_0__2__Impl
+            // InternalAsm.g:8011:1: ( rule__DmxUnaryOperation__Group_0__2__Impl )
+            // InternalAsm.g:8012:2: rule__DmxUnaryOperation__Group_0__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxUnaryOperation__Group_0__2__Impl();
@@ -26824,23 +27361,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUnaryOperation__Group_0__2__Impl"
-    // InternalAsm.g:7849:1: rule__DmxUnaryOperation__Group_0__2__Impl : ( ( rule__DmxUnaryOperation__OperandAssignment_0_2 ) ) ;
+    // InternalAsm.g:8018:1: rule__DmxUnaryOperation__Group_0__2__Impl : ( ( rule__DmxUnaryOperation__OperandAssignment_0_2 ) ) ;
     public final void rule__DmxUnaryOperation__Group_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7853:1: ( ( ( rule__DmxUnaryOperation__OperandAssignment_0_2 ) ) )
-            // InternalAsm.g:7854:1: ( ( rule__DmxUnaryOperation__OperandAssignment_0_2 ) )
+            // InternalAsm.g:8022:1: ( ( ( rule__DmxUnaryOperation__OperandAssignment_0_2 ) ) )
+            // InternalAsm.g:8023:1: ( ( rule__DmxUnaryOperation__OperandAssignment_0_2 ) )
             {
-            // InternalAsm.g:7854:1: ( ( rule__DmxUnaryOperation__OperandAssignment_0_2 ) )
-            // InternalAsm.g:7855:2: ( rule__DmxUnaryOperation__OperandAssignment_0_2 )
+            // InternalAsm.g:8023:1: ( ( rule__DmxUnaryOperation__OperandAssignment_0_2 ) )
+            // InternalAsm.g:8024:2: ( rule__DmxUnaryOperation__OperandAssignment_0_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxUnaryOperationAccess().getOperandAssignment_0_2()); 
             }
-            // InternalAsm.g:7856:2: ( rule__DmxUnaryOperation__OperandAssignment_0_2 )
-            // InternalAsm.g:7856:3: rule__DmxUnaryOperation__OperandAssignment_0_2
+            // InternalAsm.g:8025:2: ( rule__DmxUnaryOperation__OperandAssignment_0_2 )
+            // InternalAsm.g:8025:3: rule__DmxUnaryOperation__OperandAssignment_0_2
             {
             pushFollow(FOLLOW_2);
             rule__DmxUnaryOperation__OperandAssignment_0_2();
@@ -26875,16 +27412,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group__0"
-    // InternalAsm.g:7865:1: rule__DmxCastExpression__Group__0 : rule__DmxCastExpression__Group__0__Impl rule__DmxCastExpression__Group__1 ;
+    // InternalAsm.g:8034:1: rule__DmxCastExpression__Group__0 : rule__DmxCastExpression__Group__0__Impl rule__DmxCastExpression__Group__1 ;
     public final void rule__DmxCastExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7869:1: ( rule__DmxCastExpression__Group__0__Impl rule__DmxCastExpression__Group__1 )
-            // InternalAsm.g:7870:2: rule__DmxCastExpression__Group__0__Impl rule__DmxCastExpression__Group__1
+            // InternalAsm.g:8038:1: ( rule__DmxCastExpression__Group__0__Impl rule__DmxCastExpression__Group__1 )
+            // InternalAsm.g:8039:2: rule__DmxCastExpression__Group__0__Impl rule__DmxCastExpression__Group__1
             {
-            pushFollow(FOLLOW_58);
+            pushFollow(FOLLOW_62);
             rule__DmxCastExpression__Group__0__Impl();
 
             state._fsp--;
@@ -26913,17 +27450,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group__0__Impl"
-    // InternalAsm.g:7877:1: rule__DmxCastExpression__Group__0__Impl : ( ruleDmxNavigableMemberReference ) ;
+    // InternalAsm.g:8046:1: rule__DmxCastExpression__Group__0__Impl : ( ruleDmxNavigableMemberReference ) ;
     public final void rule__DmxCastExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7881:1: ( ( ruleDmxNavigableMemberReference ) )
-            // InternalAsm.g:7882:1: ( ruleDmxNavigableMemberReference )
+            // InternalAsm.g:8050:1: ( ( ruleDmxNavigableMemberReference ) )
+            // InternalAsm.g:8051:1: ( ruleDmxNavigableMemberReference )
             {
-            // InternalAsm.g:7882:1: ( ruleDmxNavigableMemberReference )
-            // InternalAsm.g:7883:2: ruleDmxNavigableMemberReference
+            // InternalAsm.g:8051:1: ( ruleDmxNavigableMemberReference )
+            // InternalAsm.g:8052:2: ruleDmxNavigableMemberReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxCastExpressionAccess().getDmxNavigableMemberReferenceParserRuleCall_0()); 
@@ -26958,14 +27495,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group__1"
-    // InternalAsm.g:7892:1: rule__DmxCastExpression__Group__1 : rule__DmxCastExpression__Group__1__Impl ;
+    // InternalAsm.g:8061:1: rule__DmxCastExpression__Group__1 : rule__DmxCastExpression__Group__1__Impl ;
     public final void rule__DmxCastExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7896:1: ( rule__DmxCastExpression__Group__1__Impl )
-            // InternalAsm.g:7897:2: rule__DmxCastExpression__Group__1__Impl
+            // InternalAsm.g:8065:1: ( rule__DmxCastExpression__Group__1__Impl )
+            // InternalAsm.g:8066:2: rule__DmxCastExpression__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxCastExpression__Group__1__Impl();
@@ -26991,22 +27528,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group__1__Impl"
-    // InternalAsm.g:7903:1: rule__DmxCastExpression__Group__1__Impl : ( ( rule__DmxCastExpression__Group_1__0 )? ) ;
+    // InternalAsm.g:8072:1: rule__DmxCastExpression__Group__1__Impl : ( ( rule__DmxCastExpression__Group_1__0 )? ) ;
     public final void rule__DmxCastExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7907:1: ( ( ( rule__DmxCastExpression__Group_1__0 )? ) )
-            // InternalAsm.g:7908:1: ( ( rule__DmxCastExpression__Group_1__0 )? )
+            // InternalAsm.g:8076:1: ( ( ( rule__DmxCastExpression__Group_1__0 )? ) )
+            // InternalAsm.g:8077:1: ( ( rule__DmxCastExpression__Group_1__0 )? )
             {
-            // InternalAsm.g:7908:1: ( ( rule__DmxCastExpression__Group_1__0 )? )
-            // InternalAsm.g:7909:2: ( rule__DmxCastExpression__Group_1__0 )?
+            // InternalAsm.g:8077:1: ( ( rule__DmxCastExpression__Group_1__0 )? )
+            // InternalAsm.g:8078:2: ( rule__DmxCastExpression__Group_1__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxCastExpressionAccess().getGroup_1()); 
             }
-            // InternalAsm.g:7910:2: ( rule__DmxCastExpression__Group_1__0 )?
+            // InternalAsm.g:8079:2: ( rule__DmxCastExpression__Group_1__0 )?
             int alt71=2;
             int LA71_0 = input.LA(1);
 
@@ -27026,7 +27563,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
             switch (alt71) {
                 case 1 :
-                    // InternalAsm.g:7910:3: rule__DmxCastExpression__Group_1__0
+                    // InternalAsm.g:8079:3: rule__DmxCastExpression__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxCastExpression__Group_1__0();
@@ -27064,14 +27601,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group_1__0"
-    // InternalAsm.g:7919:1: rule__DmxCastExpression__Group_1__0 : rule__DmxCastExpression__Group_1__0__Impl rule__DmxCastExpression__Group_1__1 ;
+    // InternalAsm.g:8088:1: rule__DmxCastExpression__Group_1__0 : rule__DmxCastExpression__Group_1__0__Impl rule__DmxCastExpression__Group_1__1 ;
     public final void rule__DmxCastExpression__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7923:1: ( rule__DmxCastExpression__Group_1__0__Impl rule__DmxCastExpression__Group_1__1 )
-            // InternalAsm.g:7924:2: rule__DmxCastExpression__Group_1__0__Impl rule__DmxCastExpression__Group_1__1
+            // InternalAsm.g:8092:1: ( rule__DmxCastExpression__Group_1__0__Impl rule__DmxCastExpression__Group_1__1 )
+            // InternalAsm.g:8093:2: rule__DmxCastExpression__Group_1__0__Impl rule__DmxCastExpression__Group_1__1
             {
             pushFollow(FOLLOW_5);
             rule__DmxCastExpression__Group_1__0__Impl();
@@ -27102,23 +27639,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group_1__0__Impl"
-    // InternalAsm.g:7931:1: rule__DmxCastExpression__Group_1__0__Impl : ( ( rule__DmxCastExpression__Group_1_0__0 ) ) ;
+    // InternalAsm.g:8100:1: rule__DmxCastExpression__Group_1__0__Impl : ( ( rule__DmxCastExpression__Group_1_0__0 ) ) ;
     public final void rule__DmxCastExpression__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7935:1: ( ( ( rule__DmxCastExpression__Group_1_0__0 ) ) )
-            // InternalAsm.g:7936:1: ( ( rule__DmxCastExpression__Group_1_0__0 ) )
+            // InternalAsm.g:8104:1: ( ( ( rule__DmxCastExpression__Group_1_0__0 ) ) )
+            // InternalAsm.g:8105:1: ( ( rule__DmxCastExpression__Group_1_0__0 ) )
             {
-            // InternalAsm.g:7936:1: ( ( rule__DmxCastExpression__Group_1_0__0 ) )
-            // InternalAsm.g:7937:2: ( rule__DmxCastExpression__Group_1_0__0 )
+            // InternalAsm.g:8105:1: ( ( rule__DmxCastExpression__Group_1_0__0 ) )
+            // InternalAsm.g:8106:2: ( rule__DmxCastExpression__Group_1_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxCastExpressionAccess().getGroup_1_0()); 
             }
-            // InternalAsm.g:7938:2: ( rule__DmxCastExpression__Group_1_0__0 )
-            // InternalAsm.g:7938:3: rule__DmxCastExpression__Group_1_0__0
+            // InternalAsm.g:8107:2: ( rule__DmxCastExpression__Group_1_0__0 )
+            // InternalAsm.g:8107:3: rule__DmxCastExpression__Group_1_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxCastExpression__Group_1_0__0();
@@ -27153,14 +27690,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group_1__1"
-    // InternalAsm.g:7946:1: rule__DmxCastExpression__Group_1__1 : rule__DmxCastExpression__Group_1__1__Impl ;
+    // InternalAsm.g:8115:1: rule__DmxCastExpression__Group_1__1 : rule__DmxCastExpression__Group_1__1__Impl ;
     public final void rule__DmxCastExpression__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7950:1: ( rule__DmxCastExpression__Group_1__1__Impl )
-            // InternalAsm.g:7951:2: rule__DmxCastExpression__Group_1__1__Impl
+            // InternalAsm.g:8119:1: ( rule__DmxCastExpression__Group_1__1__Impl )
+            // InternalAsm.g:8120:2: rule__DmxCastExpression__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxCastExpression__Group_1__1__Impl();
@@ -27186,23 +27723,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group_1__1__Impl"
-    // InternalAsm.g:7957:1: rule__DmxCastExpression__Group_1__1__Impl : ( ( rule__DmxCastExpression__TypeAssignment_1_1 ) ) ;
+    // InternalAsm.g:8126:1: rule__DmxCastExpression__Group_1__1__Impl : ( ( rule__DmxCastExpression__TypeAssignment_1_1 ) ) ;
     public final void rule__DmxCastExpression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7961:1: ( ( ( rule__DmxCastExpression__TypeAssignment_1_1 ) ) )
-            // InternalAsm.g:7962:1: ( ( rule__DmxCastExpression__TypeAssignment_1_1 ) )
+            // InternalAsm.g:8130:1: ( ( ( rule__DmxCastExpression__TypeAssignment_1_1 ) ) )
+            // InternalAsm.g:8131:1: ( ( rule__DmxCastExpression__TypeAssignment_1_1 ) )
             {
-            // InternalAsm.g:7962:1: ( ( rule__DmxCastExpression__TypeAssignment_1_1 ) )
-            // InternalAsm.g:7963:2: ( rule__DmxCastExpression__TypeAssignment_1_1 )
+            // InternalAsm.g:8131:1: ( ( rule__DmxCastExpression__TypeAssignment_1_1 ) )
+            // InternalAsm.g:8132:2: ( rule__DmxCastExpression__TypeAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxCastExpressionAccess().getTypeAssignment_1_1()); 
             }
-            // InternalAsm.g:7964:2: ( rule__DmxCastExpression__TypeAssignment_1_1 )
-            // InternalAsm.g:7964:3: rule__DmxCastExpression__TypeAssignment_1_1
+            // InternalAsm.g:8133:2: ( rule__DmxCastExpression__TypeAssignment_1_1 )
+            // InternalAsm.g:8133:3: rule__DmxCastExpression__TypeAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxCastExpression__TypeAssignment_1_1();
@@ -27237,14 +27774,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group_1_0__0"
-    // InternalAsm.g:7973:1: rule__DmxCastExpression__Group_1_0__0 : rule__DmxCastExpression__Group_1_0__0__Impl ;
+    // InternalAsm.g:8142:1: rule__DmxCastExpression__Group_1_0__0 : rule__DmxCastExpression__Group_1_0__0__Impl ;
     public final void rule__DmxCastExpression__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7977:1: ( rule__DmxCastExpression__Group_1_0__0__Impl )
-            // InternalAsm.g:7978:2: rule__DmxCastExpression__Group_1_0__0__Impl
+            // InternalAsm.g:8146:1: ( rule__DmxCastExpression__Group_1_0__0__Impl )
+            // InternalAsm.g:8147:2: rule__DmxCastExpression__Group_1_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxCastExpression__Group_1_0__0__Impl();
@@ -27270,23 +27807,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group_1_0__0__Impl"
-    // InternalAsm.g:7984:1: rule__DmxCastExpression__Group_1_0__0__Impl : ( ( rule__DmxCastExpression__Group_1_0_0__0 ) ) ;
+    // InternalAsm.g:8153:1: rule__DmxCastExpression__Group_1_0__0__Impl : ( ( rule__DmxCastExpression__Group_1_0_0__0 ) ) ;
     public final void rule__DmxCastExpression__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:7988:1: ( ( ( rule__DmxCastExpression__Group_1_0_0__0 ) ) )
-            // InternalAsm.g:7989:1: ( ( rule__DmxCastExpression__Group_1_0_0__0 ) )
+            // InternalAsm.g:8157:1: ( ( ( rule__DmxCastExpression__Group_1_0_0__0 ) ) )
+            // InternalAsm.g:8158:1: ( ( rule__DmxCastExpression__Group_1_0_0__0 ) )
             {
-            // InternalAsm.g:7989:1: ( ( rule__DmxCastExpression__Group_1_0_0__0 ) )
-            // InternalAsm.g:7990:2: ( rule__DmxCastExpression__Group_1_0_0__0 )
+            // InternalAsm.g:8158:1: ( ( rule__DmxCastExpression__Group_1_0_0__0 ) )
+            // InternalAsm.g:8159:2: ( rule__DmxCastExpression__Group_1_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxCastExpressionAccess().getGroup_1_0_0()); 
             }
-            // InternalAsm.g:7991:2: ( rule__DmxCastExpression__Group_1_0_0__0 )
-            // InternalAsm.g:7991:3: rule__DmxCastExpression__Group_1_0_0__0
+            // InternalAsm.g:8160:2: ( rule__DmxCastExpression__Group_1_0_0__0 )
+            // InternalAsm.g:8160:3: rule__DmxCastExpression__Group_1_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxCastExpression__Group_1_0_0__0();
@@ -27321,16 +27858,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group_1_0_0__0"
-    // InternalAsm.g:8000:1: rule__DmxCastExpression__Group_1_0_0__0 : rule__DmxCastExpression__Group_1_0_0__0__Impl rule__DmxCastExpression__Group_1_0_0__1 ;
+    // InternalAsm.g:8169:1: rule__DmxCastExpression__Group_1_0_0__0 : rule__DmxCastExpression__Group_1_0_0__0__Impl rule__DmxCastExpression__Group_1_0_0__1 ;
     public final void rule__DmxCastExpression__Group_1_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8004:1: ( rule__DmxCastExpression__Group_1_0_0__0__Impl rule__DmxCastExpression__Group_1_0_0__1 )
-            // InternalAsm.g:8005:2: rule__DmxCastExpression__Group_1_0_0__0__Impl rule__DmxCastExpression__Group_1_0_0__1
+            // InternalAsm.g:8173:1: ( rule__DmxCastExpression__Group_1_0_0__0__Impl rule__DmxCastExpression__Group_1_0_0__1 )
+            // InternalAsm.g:8174:2: rule__DmxCastExpression__Group_1_0_0__0__Impl rule__DmxCastExpression__Group_1_0_0__1
             {
-            pushFollow(FOLLOW_58);
+            pushFollow(FOLLOW_62);
             rule__DmxCastExpression__Group_1_0_0__0__Impl();
 
             state._fsp--;
@@ -27359,23 +27896,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group_1_0_0__0__Impl"
-    // InternalAsm.g:8012:1: rule__DmxCastExpression__Group_1_0_0__0__Impl : ( () ) ;
+    // InternalAsm.g:8181:1: rule__DmxCastExpression__Group_1_0_0__0__Impl : ( () ) ;
     public final void rule__DmxCastExpression__Group_1_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8016:1: ( ( () ) )
-            // InternalAsm.g:8017:1: ( () )
+            // InternalAsm.g:8185:1: ( ( () ) )
+            // InternalAsm.g:8186:1: ( () )
             {
-            // InternalAsm.g:8017:1: ( () )
-            // InternalAsm.g:8018:2: ()
+            // InternalAsm.g:8186:1: ( () )
+            // InternalAsm.g:8187:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxCastExpressionAccess().getDmxCastExpressionTargetAction_1_0_0_0()); 
             }
-            // InternalAsm.g:8019:2: ()
-            // InternalAsm.g:8019:3: 
+            // InternalAsm.g:8188:2: ()
+            // InternalAsm.g:8188:3: 
             {
             }
 
@@ -27400,14 +27937,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group_1_0_0__1"
-    // InternalAsm.g:8027:1: rule__DmxCastExpression__Group_1_0_0__1 : rule__DmxCastExpression__Group_1_0_0__1__Impl ;
+    // InternalAsm.g:8196:1: rule__DmxCastExpression__Group_1_0_0__1 : rule__DmxCastExpression__Group_1_0_0__1__Impl ;
     public final void rule__DmxCastExpression__Group_1_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8031:1: ( rule__DmxCastExpression__Group_1_0_0__1__Impl )
-            // InternalAsm.g:8032:2: rule__DmxCastExpression__Group_1_0_0__1__Impl
+            // InternalAsm.g:8200:1: ( rule__DmxCastExpression__Group_1_0_0__1__Impl )
+            // InternalAsm.g:8201:2: rule__DmxCastExpression__Group_1_0_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxCastExpression__Group_1_0_0__1__Impl();
@@ -27433,17 +27970,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__Group_1_0_0__1__Impl"
-    // InternalAsm.g:8038:1: rule__DmxCastExpression__Group_1_0_0__1__Impl : ( ruleDmxOpCast ) ;
+    // InternalAsm.g:8207:1: rule__DmxCastExpression__Group_1_0_0__1__Impl : ( ruleDmxOpCast ) ;
     public final void rule__DmxCastExpression__Group_1_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8042:1: ( ( ruleDmxOpCast ) )
-            // InternalAsm.g:8043:1: ( ruleDmxOpCast )
+            // InternalAsm.g:8211:1: ( ( ruleDmxOpCast ) )
+            // InternalAsm.g:8212:1: ( ruleDmxOpCast )
             {
-            // InternalAsm.g:8043:1: ( ruleDmxOpCast )
-            // InternalAsm.g:8044:2: ruleDmxOpCast
+            // InternalAsm.g:8212:1: ( ruleDmxOpCast )
+            // InternalAsm.g:8213:2: ruleDmxOpCast
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxCastExpressionAccess().getDmxOpCastParserRuleCall_1_0_0_1()); 
@@ -27478,16 +28015,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxSelfExpression__Group__0"
-    // InternalAsm.g:8054:1: rule__DmxSelfExpression__Group__0 : rule__DmxSelfExpression__Group__0__Impl rule__DmxSelfExpression__Group__1 ;
+    // InternalAsm.g:8223:1: rule__DmxSelfExpression__Group__0 : rule__DmxSelfExpression__Group__0__Impl rule__DmxSelfExpression__Group__1 ;
     public final void rule__DmxSelfExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8058:1: ( rule__DmxSelfExpression__Group__0__Impl rule__DmxSelfExpression__Group__1 )
-            // InternalAsm.g:8059:2: rule__DmxSelfExpression__Group__0__Impl rule__DmxSelfExpression__Group__1
+            // InternalAsm.g:8227:1: ( rule__DmxSelfExpression__Group__0__Impl rule__DmxSelfExpression__Group__1 )
+            // InternalAsm.g:8228:2: rule__DmxSelfExpression__Group__0__Impl rule__DmxSelfExpression__Group__1
             {
-            pushFollow(FOLLOW_59);
+            pushFollow(FOLLOW_63);
             rule__DmxSelfExpression__Group__0__Impl();
 
             state._fsp--;
@@ -27516,23 +28053,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxSelfExpression__Group__0__Impl"
-    // InternalAsm.g:8066:1: rule__DmxSelfExpression__Group__0__Impl : ( () ) ;
+    // InternalAsm.g:8235:1: rule__DmxSelfExpression__Group__0__Impl : ( () ) ;
     public final void rule__DmxSelfExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8070:1: ( ( () ) )
-            // InternalAsm.g:8071:1: ( () )
+            // InternalAsm.g:8239:1: ( ( () ) )
+            // InternalAsm.g:8240:1: ( () )
             {
-            // InternalAsm.g:8071:1: ( () )
-            // InternalAsm.g:8072:2: ()
+            // InternalAsm.g:8240:1: ( () )
+            // InternalAsm.g:8241:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxSelfExpressionAccess().getDmxSelfExpressionAction_0()); 
             }
-            // InternalAsm.g:8073:2: ()
-            // InternalAsm.g:8073:3: 
+            // InternalAsm.g:8242:2: ()
+            // InternalAsm.g:8242:3: 
             {
             }
 
@@ -27557,14 +28094,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxSelfExpression__Group__1"
-    // InternalAsm.g:8081:1: rule__DmxSelfExpression__Group__1 : rule__DmxSelfExpression__Group__1__Impl ;
+    // InternalAsm.g:8250:1: rule__DmxSelfExpression__Group__1 : rule__DmxSelfExpression__Group__1__Impl ;
     public final void rule__DmxSelfExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8085:1: ( rule__DmxSelfExpression__Group__1__Impl )
-            // InternalAsm.g:8086:2: rule__DmxSelfExpression__Group__1__Impl
+            // InternalAsm.g:8254:1: ( rule__DmxSelfExpression__Group__1__Impl )
+            // InternalAsm.g:8255:2: rule__DmxSelfExpression__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxSelfExpression__Group__1__Impl();
@@ -27590,23 +28127,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxSelfExpression__Group__1__Impl"
-    // InternalAsm.g:8092:1: rule__DmxSelfExpression__Group__1__Impl : ( ( rule__DmxSelfExpression__Alternatives_1 ) ) ;
+    // InternalAsm.g:8261:1: rule__DmxSelfExpression__Group__1__Impl : ( ( rule__DmxSelfExpression__Alternatives_1 ) ) ;
     public final void rule__DmxSelfExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8096:1: ( ( ( rule__DmxSelfExpression__Alternatives_1 ) ) )
-            // InternalAsm.g:8097:1: ( ( rule__DmxSelfExpression__Alternatives_1 ) )
+            // InternalAsm.g:8265:1: ( ( ( rule__DmxSelfExpression__Alternatives_1 ) ) )
+            // InternalAsm.g:8266:1: ( ( rule__DmxSelfExpression__Alternatives_1 ) )
             {
-            // InternalAsm.g:8097:1: ( ( rule__DmxSelfExpression__Alternatives_1 ) )
-            // InternalAsm.g:8098:2: ( rule__DmxSelfExpression__Alternatives_1 )
+            // InternalAsm.g:8266:1: ( ( rule__DmxSelfExpression__Alternatives_1 ) )
+            // InternalAsm.g:8267:2: ( rule__DmxSelfExpression__Alternatives_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxSelfExpressionAccess().getAlternatives_1()); 
             }
-            // InternalAsm.g:8099:2: ( rule__DmxSelfExpression__Alternatives_1 )
-            // InternalAsm.g:8099:3: rule__DmxSelfExpression__Alternatives_1
+            // InternalAsm.g:8268:2: ( rule__DmxSelfExpression__Alternatives_1 )
+            // InternalAsm.g:8268:3: rule__DmxSelfExpression__Alternatives_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxSelfExpression__Alternatives_1();
@@ -27641,16 +28178,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxReturnExpression__Group__0"
-    // InternalAsm.g:8108:1: rule__DmxReturnExpression__Group__0 : rule__DmxReturnExpression__Group__0__Impl rule__DmxReturnExpression__Group__1 ;
+    // InternalAsm.g:8277:1: rule__DmxReturnExpression__Group__0 : rule__DmxReturnExpression__Group__0__Impl rule__DmxReturnExpression__Group__1 ;
     public final void rule__DmxReturnExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8112:1: ( rule__DmxReturnExpression__Group__0__Impl rule__DmxReturnExpression__Group__1 )
-            // InternalAsm.g:8113:2: rule__DmxReturnExpression__Group__0__Impl rule__DmxReturnExpression__Group__1
+            // InternalAsm.g:8281:1: ( rule__DmxReturnExpression__Group__0__Impl rule__DmxReturnExpression__Group__1 )
+            // InternalAsm.g:8282:2: rule__DmxReturnExpression__Group__0__Impl rule__DmxReturnExpression__Group__1
             {
-            pushFollow(FOLLOW_60);
+            pushFollow(FOLLOW_64);
             rule__DmxReturnExpression__Group__0__Impl();
 
             state._fsp--;
@@ -27679,23 +28216,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxReturnExpression__Group__0__Impl"
-    // InternalAsm.g:8120:1: rule__DmxReturnExpression__Group__0__Impl : ( () ) ;
+    // InternalAsm.g:8289:1: rule__DmxReturnExpression__Group__0__Impl : ( () ) ;
     public final void rule__DmxReturnExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8124:1: ( ( () ) )
-            // InternalAsm.g:8125:1: ( () )
+            // InternalAsm.g:8293:1: ( ( () ) )
+            // InternalAsm.g:8294:1: ( () )
             {
-            // InternalAsm.g:8125:1: ( () )
-            // InternalAsm.g:8126:2: ()
+            // InternalAsm.g:8294:1: ( () )
+            // InternalAsm.g:8295:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxReturnExpressionAccess().getDmxReturnExpressionAction_0()); 
             }
-            // InternalAsm.g:8127:2: ()
-            // InternalAsm.g:8127:3: 
+            // InternalAsm.g:8296:2: ()
+            // InternalAsm.g:8296:3: 
             {
             }
 
@@ -27720,14 +28257,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxReturnExpression__Group__1"
-    // InternalAsm.g:8135:1: rule__DmxReturnExpression__Group__1 : rule__DmxReturnExpression__Group__1__Impl rule__DmxReturnExpression__Group__2 ;
+    // InternalAsm.g:8304:1: rule__DmxReturnExpression__Group__1 : rule__DmxReturnExpression__Group__1__Impl rule__DmxReturnExpression__Group__2 ;
     public final void rule__DmxReturnExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8139:1: ( rule__DmxReturnExpression__Group__1__Impl rule__DmxReturnExpression__Group__2 )
-            // InternalAsm.g:8140:2: rule__DmxReturnExpression__Group__1__Impl rule__DmxReturnExpression__Group__2
+            // InternalAsm.g:8308:1: ( rule__DmxReturnExpression__Group__1__Impl rule__DmxReturnExpression__Group__2 )
+            // InternalAsm.g:8309:2: rule__DmxReturnExpression__Group__1__Impl rule__DmxReturnExpression__Group__2
             {
             pushFollow(FOLLOW_25);
             rule__DmxReturnExpression__Group__1__Impl();
@@ -27758,23 +28295,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxReturnExpression__Group__1__Impl"
-    // InternalAsm.g:8147:1: rule__DmxReturnExpression__Group__1__Impl : ( ( rule__DmxReturnExpression__Alternatives_1 ) ) ;
+    // InternalAsm.g:8316:1: rule__DmxReturnExpression__Group__1__Impl : ( ( rule__DmxReturnExpression__Alternatives_1 ) ) ;
     public final void rule__DmxReturnExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8151:1: ( ( ( rule__DmxReturnExpression__Alternatives_1 ) ) )
-            // InternalAsm.g:8152:1: ( ( rule__DmxReturnExpression__Alternatives_1 ) )
+            // InternalAsm.g:8320:1: ( ( ( rule__DmxReturnExpression__Alternatives_1 ) ) )
+            // InternalAsm.g:8321:1: ( ( rule__DmxReturnExpression__Alternatives_1 ) )
             {
-            // InternalAsm.g:8152:1: ( ( rule__DmxReturnExpression__Alternatives_1 ) )
-            // InternalAsm.g:8153:2: ( rule__DmxReturnExpression__Alternatives_1 )
+            // InternalAsm.g:8321:1: ( ( rule__DmxReturnExpression__Alternatives_1 ) )
+            // InternalAsm.g:8322:2: ( rule__DmxReturnExpression__Alternatives_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxReturnExpressionAccess().getAlternatives_1()); 
             }
-            // InternalAsm.g:8154:2: ( rule__DmxReturnExpression__Alternatives_1 )
-            // InternalAsm.g:8154:3: rule__DmxReturnExpression__Alternatives_1
+            // InternalAsm.g:8323:2: ( rule__DmxReturnExpression__Alternatives_1 )
+            // InternalAsm.g:8323:3: rule__DmxReturnExpression__Alternatives_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxReturnExpression__Alternatives_1();
@@ -27809,14 +28346,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxReturnExpression__Group__2"
-    // InternalAsm.g:8162:1: rule__DmxReturnExpression__Group__2 : rule__DmxReturnExpression__Group__2__Impl ;
+    // InternalAsm.g:8331:1: rule__DmxReturnExpression__Group__2 : rule__DmxReturnExpression__Group__2__Impl ;
     public final void rule__DmxReturnExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8166:1: ( rule__DmxReturnExpression__Group__2__Impl )
-            // InternalAsm.g:8167:2: rule__DmxReturnExpression__Group__2__Impl
+            // InternalAsm.g:8335:1: ( rule__DmxReturnExpression__Group__2__Impl )
+            // InternalAsm.g:8336:2: rule__DmxReturnExpression__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxReturnExpression__Group__2__Impl();
@@ -27842,27 +28379,27 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxReturnExpression__Group__2__Impl"
-    // InternalAsm.g:8173:1: rule__DmxReturnExpression__Group__2__Impl : ( ( rule__DmxReturnExpression__ExpressionAssignment_2 )? ) ;
+    // InternalAsm.g:8342:1: rule__DmxReturnExpression__Group__2__Impl : ( ( rule__DmxReturnExpression__ExpressionAssignment_2 )? ) ;
     public final void rule__DmxReturnExpression__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8177:1: ( ( ( rule__DmxReturnExpression__ExpressionAssignment_2 )? ) )
-            // InternalAsm.g:8178:1: ( ( rule__DmxReturnExpression__ExpressionAssignment_2 )? )
+            // InternalAsm.g:8346:1: ( ( ( rule__DmxReturnExpression__ExpressionAssignment_2 )? ) )
+            // InternalAsm.g:8347:1: ( ( rule__DmxReturnExpression__ExpressionAssignment_2 )? )
             {
-            // InternalAsm.g:8178:1: ( ( rule__DmxReturnExpression__ExpressionAssignment_2 )? )
-            // InternalAsm.g:8179:2: ( rule__DmxReturnExpression__ExpressionAssignment_2 )?
+            // InternalAsm.g:8347:1: ( ( rule__DmxReturnExpression__ExpressionAssignment_2 )? )
+            // InternalAsm.g:8348:2: ( rule__DmxReturnExpression__ExpressionAssignment_2 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxReturnExpressionAccess().getExpressionAssignment_2()); 
             }
-            // InternalAsm.g:8180:2: ( rule__DmxReturnExpression__ExpressionAssignment_2 )?
+            // InternalAsm.g:8349:2: ( rule__DmxReturnExpression__ExpressionAssignment_2 )?
             int alt72=2;
             alt72 = dfa72.predict(input);
             switch (alt72) {
                 case 1 :
-                    // InternalAsm.g:8180:3: rule__DmxReturnExpression__ExpressionAssignment_2
+                    // InternalAsm.g:8349:3: rule__DmxReturnExpression__ExpressionAssignment_2
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxReturnExpression__ExpressionAssignment_2();
@@ -27900,16 +28437,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRaiseExpression__Group__0"
-    // InternalAsm.g:8189:1: rule__DmxRaiseExpression__Group__0 : rule__DmxRaiseExpression__Group__0__Impl rule__DmxRaiseExpression__Group__1 ;
+    // InternalAsm.g:8358:1: rule__DmxRaiseExpression__Group__0 : rule__DmxRaiseExpression__Group__0__Impl rule__DmxRaiseExpression__Group__1 ;
     public final void rule__DmxRaiseExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8193:1: ( rule__DmxRaiseExpression__Group__0__Impl rule__DmxRaiseExpression__Group__1 )
-            // InternalAsm.g:8194:2: rule__DmxRaiseExpression__Group__0__Impl rule__DmxRaiseExpression__Group__1
+            // InternalAsm.g:8362:1: ( rule__DmxRaiseExpression__Group__0__Impl rule__DmxRaiseExpression__Group__1 )
+            // InternalAsm.g:8363:2: rule__DmxRaiseExpression__Group__0__Impl rule__DmxRaiseExpression__Group__1
             {
-            pushFollow(FOLLOW_61);
+            pushFollow(FOLLOW_65);
             rule__DmxRaiseExpression__Group__0__Impl();
 
             state._fsp--;
@@ -27938,23 +28475,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRaiseExpression__Group__0__Impl"
-    // InternalAsm.g:8201:1: rule__DmxRaiseExpression__Group__0__Impl : ( () ) ;
+    // InternalAsm.g:8370:1: rule__DmxRaiseExpression__Group__0__Impl : ( () ) ;
     public final void rule__DmxRaiseExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8205:1: ( ( () ) )
-            // InternalAsm.g:8206:1: ( () )
+            // InternalAsm.g:8374:1: ( ( () ) )
+            // InternalAsm.g:8375:1: ( () )
             {
-            // InternalAsm.g:8206:1: ( () )
-            // InternalAsm.g:8207:2: ()
+            // InternalAsm.g:8375:1: ( () )
+            // InternalAsm.g:8376:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRaiseExpressionAccess().getDmxRaiseExpressionAction_0()); 
             }
-            // InternalAsm.g:8208:2: ()
-            // InternalAsm.g:8208:3: 
+            // InternalAsm.g:8377:2: ()
+            // InternalAsm.g:8377:3: 
             {
             }
 
@@ -27979,14 +28516,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRaiseExpression__Group__1"
-    // InternalAsm.g:8216:1: rule__DmxRaiseExpression__Group__1 : rule__DmxRaiseExpression__Group__1__Impl rule__DmxRaiseExpression__Group__2 ;
+    // InternalAsm.g:8385:1: rule__DmxRaiseExpression__Group__1 : rule__DmxRaiseExpression__Group__1__Impl rule__DmxRaiseExpression__Group__2 ;
     public final void rule__DmxRaiseExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8220:1: ( rule__DmxRaiseExpression__Group__1__Impl rule__DmxRaiseExpression__Group__2 )
-            // InternalAsm.g:8221:2: rule__DmxRaiseExpression__Group__1__Impl rule__DmxRaiseExpression__Group__2
+            // InternalAsm.g:8389:1: ( rule__DmxRaiseExpression__Group__1__Impl rule__DmxRaiseExpression__Group__2 )
+            // InternalAsm.g:8390:2: rule__DmxRaiseExpression__Group__1__Impl rule__DmxRaiseExpression__Group__2
             {
             pushFollow(FOLLOW_25);
             rule__DmxRaiseExpression__Group__1__Impl();
@@ -28017,23 +28554,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRaiseExpression__Group__1__Impl"
-    // InternalAsm.g:8228:1: rule__DmxRaiseExpression__Group__1__Impl : ( ( rule__DmxRaiseExpression__Alternatives_1 ) ) ;
+    // InternalAsm.g:8397:1: rule__DmxRaiseExpression__Group__1__Impl : ( ( rule__DmxRaiseExpression__Alternatives_1 ) ) ;
     public final void rule__DmxRaiseExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8232:1: ( ( ( rule__DmxRaiseExpression__Alternatives_1 ) ) )
-            // InternalAsm.g:8233:1: ( ( rule__DmxRaiseExpression__Alternatives_1 ) )
+            // InternalAsm.g:8401:1: ( ( ( rule__DmxRaiseExpression__Alternatives_1 ) ) )
+            // InternalAsm.g:8402:1: ( ( rule__DmxRaiseExpression__Alternatives_1 ) )
             {
-            // InternalAsm.g:8233:1: ( ( rule__DmxRaiseExpression__Alternatives_1 ) )
-            // InternalAsm.g:8234:2: ( rule__DmxRaiseExpression__Alternatives_1 )
+            // InternalAsm.g:8402:1: ( ( rule__DmxRaiseExpression__Alternatives_1 ) )
+            // InternalAsm.g:8403:2: ( rule__DmxRaiseExpression__Alternatives_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRaiseExpressionAccess().getAlternatives_1()); 
             }
-            // InternalAsm.g:8235:2: ( rule__DmxRaiseExpression__Alternatives_1 )
-            // InternalAsm.g:8235:3: rule__DmxRaiseExpression__Alternatives_1
+            // InternalAsm.g:8404:2: ( rule__DmxRaiseExpression__Alternatives_1 )
+            // InternalAsm.g:8404:3: rule__DmxRaiseExpression__Alternatives_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxRaiseExpression__Alternatives_1();
@@ -28068,14 +28605,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRaiseExpression__Group__2"
-    // InternalAsm.g:8243:1: rule__DmxRaiseExpression__Group__2 : rule__DmxRaiseExpression__Group__2__Impl ;
+    // InternalAsm.g:8412:1: rule__DmxRaiseExpression__Group__2 : rule__DmxRaiseExpression__Group__2__Impl ;
     public final void rule__DmxRaiseExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8247:1: ( rule__DmxRaiseExpression__Group__2__Impl )
-            // InternalAsm.g:8248:2: rule__DmxRaiseExpression__Group__2__Impl
+            // InternalAsm.g:8416:1: ( rule__DmxRaiseExpression__Group__2__Impl )
+            // InternalAsm.g:8417:2: rule__DmxRaiseExpression__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxRaiseExpression__Group__2__Impl();
@@ -28101,23 +28638,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRaiseExpression__Group__2__Impl"
-    // InternalAsm.g:8254:1: rule__DmxRaiseExpression__Group__2__Impl : ( ( rule__DmxRaiseExpression__ExpressionAssignment_2 ) ) ;
+    // InternalAsm.g:8423:1: rule__DmxRaiseExpression__Group__2__Impl : ( ( rule__DmxRaiseExpression__ExpressionAssignment_2 ) ) ;
     public final void rule__DmxRaiseExpression__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8258:1: ( ( ( rule__DmxRaiseExpression__ExpressionAssignment_2 ) ) )
-            // InternalAsm.g:8259:1: ( ( rule__DmxRaiseExpression__ExpressionAssignment_2 ) )
+            // InternalAsm.g:8427:1: ( ( ( rule__DmxRaiseExpression__ExpressionAssignment_2 ) ) )
+            // InternalAsm.g:8428:1: ( ( rule__DmxRaiseExpression__ExpressionAssignment_2 ) )
             {
-            // InternalAsm.g:8259:1: ( ( rule__DmxRaiseExpression__ExpressionAssignment_2 ) )
-            // InternalAsm.g:8260:2: ( rule__DmxRaiseExpression__ExpressionAssignment_2 )
+            // InternalAsm.g:8428:1: ( ( rule__DmxRaiseExpression__ExpressionAssignment_2 ) )
+            // InternalAsm.g:8429:2: ( rule__DmxRaiseExpression__ExpressionAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRaiseExpressionAccess().getExpressionAssignment_2()); 
             }
-            // InternalAsm.g:8261:2: ( rule__DmxRaiseExpression__ExpressionAssignment_2 )
-            // InternalAsm.g:8261:3: rule__DmxRaiseExpression__ExpressionAssignment_2
+            // InternalAsm.g:8430:2: ( rule__DmxRaiseExpression__ExpressionAssignment_2 )
+            // InternalAsm.g:8430:3: rule__DmxRaiseExpression__ExpressionAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__DmxRaiseExpression__ExpressionAssignment_2();
@@ -28152,14 +28689,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxParenthesizedExpression__Group__0"
-    // InternalAsm.g:8270:1: rule__DmxParenthesizedExpression__Group__0 : rule__DmxParenthesizedExpression__Group__0__Impl rule__DmxParenthesizedExpression__Group__1 ;
+    // InternalAsm.g:8439:1: rule__DmxParenthesizedExpression__Group__0 : rule__DmxParenthesizedExpression__Group__0__Impl rule__DmxParenthesizedExpression__Group__1 ;
     public final void rule__DmxParenthesizedExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8274:1: ( rule__DmxParenthesizedExpression__Group__0__Impl rule__DmxParenthesizedExpression__Group__1 )
-            // InternalAsm.g:8275:2: rule__DmxParenthesizedExpression__Group__0__Impl rule__DmxParenthesizedExpression__Group__1
+            // InternalAsm.g:8443:1: ( rule__DmxParenthesizedExpression__Group__0__Impl rule__DmxParenthesizedExpression__Group__1 )
+            // InternalAsm.g:8444:2: rule__DmxParenthesizedExpression__Group__0__Impl rule__DmxParenthesizedExpression__Group__1
             {
             pushFollow(FOLLOW_25);
             rule__DmxParenthesizedExpression__Group__0__Impl();
@@ -28190,17 +28727,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxParenthesizedExpression__Group__0__Impl"
-    // InternalAsm.g:8282:1: rule__DmxParenthesizedExpression__Group__0__Impl : ( '(' ) ;
+    // InternalAsm.g:8451:1: rule__DmxParenthesizedExpression__Group__0__Impl : ( '(' ) ;
     public final void rule__DmxParenthesizedExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8286:1: ( ( '(' ) )
-            // InternalAsm.g:8287:1: ( '(' )
+            // InternalAsm.g:8455:1: ( ( '(' ) )
+            // InternalAsm.g:8456:1: ( '(' )
             {
-            // InternalAsm.g:8287:1: ( '(' )
-            // InternalAsm.g:8288:2: '('
+            // InternalAsm.g:8456:1: ( '(' )
+            // InternalAsm.g:8457:2: '('
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxParenthesizedExpressionAccess().getLeftParenthesisKeyword_0()); 
@@ -28231,16 +28768,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxParenthesizedExpression__Group__1"
-    // InternalAsm.g:8297:1: rule__DmxParenthesizedExpression__Group__1 : rule__DmxParenthesizedExpression__Group__1__Impl rule__DmxParenthesizedExpression__Group__2 ;
+    // InternalAsm.g:8466:1: rule__DmxParenthesizedExpression__Group__1 : rule__DmxParenthesizedExpression__Group__1__Impl rule__DmxParenthesizedExpression__Group__2 ;
     public final void rule__DmxParenthesizedExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8301:1: ( rule__DmxParenthesizedExpression__Group__1__Impl rule__DmxParenthesizedExpression__Group__2 )
-            // InternalAsm.g:8302:2: rule__DmxParenthesizedExpression__Group__1__Impl rule__DmxParenthesizedExpression__Group__2
+            // InternalAsm.g:8470:1: ( rule__DmxParenthesizedExpression__Group__1__Impl rule__DmxParenthesizedExpression__Group__2 )
+            // InternalAsm.g:8471:2: rule__DmxParenthesizedExpression__Group__1__Impl rule__DmxParenthesizedExpression__Group__2
             {
-            pushFollow(FOLLOW_62);
+            pushFollow(FOLLOW_31);
             rule__DmxParenthesizedExpression__Group__1__Impl();
 
             state._fsp--;
@@ -28269,17 +28806,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxParenthesizedExpression__Group__1__Impl"
-    // InternalAsm.g:8309:1: rule__DmxParenthesizedExpression__Group__1__Impl : ( ruleDExpression ) ;
+    // InternalAsm.g:8478:1: rule__DmxParenthesizedExpression__Group__1__Impl : ( ruleDExpression ) ;
     public final void rule__DmxParenthesizedExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8313:1: ( ( ruleDExpression ) )
-            // InternalAsm.g:8314:1: ( ruleDExpression )
+            // InternalAsm.g:8482:1: ( ( ruleDExpression ) )
+            // InternalAsm.g:8483:1: ( ruleDExpression )
             {
-            // InternalAsm.g:8314:1: ( ruleDExpression )
-            // InternalAsm.g:8315:2: ruleDExpression
+            // InternalAsm.g:8483:1: ( ruleDExpression )
+            // InternalAsm.g:8484:2: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxParenthesizedExpressionAccess().getDExpressionParserRuleCall_1()); 
@@ -28314,14 +28851,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxParenthesizedExpression__Group__2"
-    // InternalAsm.g:8324:1: rule__DmxParenthesizedExpression__Group__2 : rule__DmxParenthesizedExpression__Group__2__Impl ;
+    // InternalAsm.g:8493:1: rule__DmxParenthesizedExpression__Group__2 : rule__DmxParenthesizedExpression__Group__2__Impl ;
     public final void rule__DmxParenthesizedExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8328:1: ( rule__DmxParenthesizedExpression__Group__2__Impl )
-            // InternalAsm.g:8329:2: rule__DmxParenthesizedExpression__Group__2__Impl
+            // InternalAsm.g:8497:1: ( rule__DmxParenthesizedExpression__Group__2__Impl )
+            // InternalAsm.g:8498:2: rule__DmxParenthesizedExpression__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxParenthesizedExpression__Group__2__Impl();
@@ -28347,17 +28884,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxParenthesizedExpression__Group__2__Impl"
-    // InternalAsm.g:8335:1: rule__DmxParenthesizedExpression__Group__2__Impl : ( ')' ) ;
+    // InternalAsm.g:8504:1: rule__DmxParenthesizedExpression__Group__2__Impl : ( ')' ) ;
     public final void rule__DmxParenthesizedExpression__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8339:1: ( ( ')' ) )
-            // InternalAsm.g:8340:1: ( ')' )
+            // InternalAsm.g:8508:1: ( ( ')' ) )
+            // InternalAsm.g:8509:1: ( ')' )
             {
-            // InternalAsm.g:8340:1: ( ')' )
-            // InternalAsm.g:8341:2: ')'
+            // InternalAsm.g:8509:1: ( ')' )
+            // InternalAsm.g:8510:2: ')'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxParenthesizedExpressionAccess().getRightParenthesisKeyword_2()); 
@@ -28388,14 +28925,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group__0"
-    // InternalAsm.g:8351:1: rule__DmxFunctionCall__Group__0 : rule__DmxFunctionCall__Group__0__Impl rule__DmxFunctionCall__Group__1 ;
+    // InternalAsm.g:8520:1: rule__DmxFunctionCall__Group__0 : rule__DmxFunctionCall__Group__0__Impl rule__DmxFunctionCall__Group__1 ;
     public final void rule__DmxFunctionCall__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8355:1: ( rule__DmxFunctionCall__Group__0__Impl rule__DmxFunctionCall__Group__1 )
-            // InternalAsm.g:8356:2: rule__DmxFunctionCall__Group__0__Impl rule__DmxFunctionCall__Group__1
+            // InternalAsm.g:8524:1: ( rule__DmxFunctionCall__Group__0__Impl rule__DmxFunctionCall__Group__1 )
+            // InternalAsm.g:8525:2: rule__DmxFunctionCall__Group__0__Impl rule__DmxFunctionCall__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__DmxFunctionCall__Group__0__Impl();
@@ -28426,23 +28963,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group__0__Impl"
-    // InternalAsm.g:8363:1: rule__DmxFunctionCall__Group__0__Impl : ( () ) ;
+    // InternalAsm.g:8532:1: rule__DmxFunctionCall__Group__0__Impl : ( () ) ;
     public final void rule__DmxFunctionCall__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8367:1: ( ( () ) )
-            // InternalAsm.g:8368:1: ( () )
+            // InternalAsm.g:8536:1: ( ( () ) )
+            // InternalAsm.g:8537:1: ( () )
             {
-            // InternalAsm.g:8368:1: ( () )
-            // InternalAsm.g:8369:2: ()
+            // InternalAsm.g:8537:1: ( () )
+            // InternalAsm.g:8538:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getDmxFunctionCallAction_0()); 
             }
-            // InternalAsm.g:8370:2: ()
-            // InternalAsm.g:8370:3: 
+            // InternalAsm.g:8539:2: ()
+            // InternalAsm.g:8539:3: 
             {
             }
 
@@ -28467,14 +29004,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group__1"
-    // InternalAsm.g:8378:1: rule__DmxFunctionCall__Group__1 : rule__DmxFunctionCall__Group__1__Impl rule__DmxFunctionCall__Group__2 ;
+    // InternalAsm.g:8547:1: rule__DmxFunctionCall__Group__1 : rule__DmxFunctionCall__Group__1__Impl rule__DmxFunctionCall__Group__2 ;
     public final void rule__DmxFunctionCall__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8382:1: ( rule__DmxFunctionCall__Group__1__Impl rule__DmxFunctionCall__Group__2 )
-            // InternalAsm.g:8383:2: rule__DmxFunctionCall__Group__1__Impl rule__DmxFunctionCall__Group__2
+            // InternalAsm.g:8551:1: ( rule__DmxFunctionCall__Group__1__Impl rule__DmxFunctionCall__Group__2 )
+            // InternalAsm.g:8552:2: rule__DmxFunctionCall__Group__1__Impl rule__DmxFunctionCall__Group__2
             {
             pushFollow(FOLLOW_16);
             rule__DmxFunctionCall__Group__1__Impl();
@@ -28505,23 +29042,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group__1__Impl"
-    // InternalAsm.g:8390:1: rule__DmxFunctionCall__Group__1__Impl : ( ( rule__DmxFunctionCall__FunctionAssignment_1 ) ) ;
+    // InternalAsm.g:8559:1: rule__DmxFunctionCall__Group__1__Impl : ( ( rule__DmxFunctionCall__FunctionAssignment_1 ) ) ;
     public final void rule__DmxFunctionCall__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8394:1: ( ( ( rule__DmxFunctionCall__FunctionAssignment_1 ) ) )
-            // InternalAsm.g:8395:1: ( ( rule__DmxFunctionCall__FunctionAssignment_1 ) )
+            // InternalAsm.g:8563:1: ( ( ( rule__DmxFunctionCall__FunctionAssignment_1 ) ) )
+            // InternalAsm.g:8564:1: ( ( rule__DmxFunctionCall__FunctionAssignment_1 ) )
             {
-            // InternalAsm.g:8395:1: ( ( rule__DmxFunctionCall__FunctionAssignment_1 ) )
-            // InternalAsm.g:8396:2: ( rule__DmxFunctionCall__FunctionAssignment_1 )
+            // InternalAsm.g:8564:1: ( ( rule__DmxFunctionCall__FunctionAssignment_1 ) )
+            // InternalAsm.g:8565:2: ( rule__DmxFunctionCall__FunctionAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getFunctionAssignment_1()); 
             }
-            // InternalAsm.g:8397:2: ( rule__DmxFunctionCall__FunctionAssignment_1 )
-            // InternalAsm.g:8397:3: rule__DmxFunctionCall__FunctionAssignment_1
+            // InternalAsm.g:8566:2: ( rule__DmxFunctionCall__FunctionAssignment_1 )
+            // InternalAsm.g:8566:3: rule__DmxFunctionCall__FunctionAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxFunctionCall__FunctionAssignment_1();
@@ -28556,16 +29093,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group__2"
-    // InternalAsm.g:8405:1: rule__DmxFunctionCall__Group__2 : rule__DmxFunctionCall__Group__2__Impl rule__DmxFunctionCall__Group__3 ;
+    // InternalAsm.g:8574:1: rule__DmxFunctionCall__Group__2 : rule__DmxFunctionCall__Group__2__Impl rule__DmxFunctionCall__Group__3 ;
     public final void rule__DmxFunctionCall__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8409:1: ( rule__DmxFunctionCall__Group__2__Impl rule__DmxFunctionCall__Group__3 )
-            // InternalAsm.g:8410:2: rule__DmxFunctionCall__Group__2__Impl rule__DmxFunctionCall__Group__3
+            // InternalAsm.g:8578:1: ( rule__DmxFunctionCall__Group__2__Impl rule__DmxFunctionCall__Group__3 )
+            // InternalAsm.g:8579:2: rule__DmxFunctionCall__Group__2__Impl rule__DmxFunctionCall__Group__3
             {
-            pushFollow(FOLLOW_63);
+            pushFollow(FOLLOW_66);
             rule__DmxFunctionCall__Group__2__Impl();
 
             state._fsp--;
@@ -28594,17 +29131,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group__2__Impl"
-    // InternalAsm.g:8417:1: rule__DmxFunctionCall__Group__2__Impl : ( '(' ) ;
+    // InternalAsm.g:8586:1: rule__DmxFunctionCall__Group__2__Impl : ( '(' ) ;
     public final void rule__DmxFunctionCall__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8421:1: ( ( '(' ) )
-            // InternalAsm.g:8422:1: ( '(' )
+            // InternalAsm.g:8590:1: ( ( '(' ) )
+            // InternalAsm.g:8591:1: ( '(' )
             {
-            // InternalAsm.g:8422:1: ( '(' )
-            // InternalAsm.g:8423:2: '('
+            // InternalAsm.g:8591:1: ( '(' )
+            // InternalAsm.g:8592:2: '('
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getLeftParenthesisKeyword_2()); 
@@ -28635,16 +29172,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group__3"
-    // InternalAsm.g:8432:1: rule__DmxFunctionCall__Group__3 : rule__DmxFunctionCall__Group__3__Impl rule__DmxFunctionCall__Group__4 ;
+    // InternalAsm.g:8601:1: rule__DmxFunctionCall__Group__3 : rule__DmxFunctionCall__Group__3__Impl rule__DmxFunctionCall__Group__4 ;
     public final void rule__DmxFunctionCall__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8436:1: ( rule__DmxFunctionCall__Group__3__Impl rule__DmxFunctionCall__Group__4 )
-            // InternalAsm.g:8437:2: rule__DmxFunctionCall__Group__3__Impl rule__DmxFunctionCall__Group__4
+            // InternalAsm.g:8605:1: ( rule__DmxFunctionCall__Group__3__Impl rule__DmxFunctionCall__Group__4 )
+            // InternalAsm.g:8606:2: rule__DmxFunctionCall__Group__3__Impl rule__DmxFunctionCall__Group__4
             {
-            pushFollow(FOLLOW_63);
+            pushFollow(FOLLOW_66);
             rule__DmxFunctionCall__Group__3__Impl();
 
             state._fsp--;
@@ -28673,22 +29210,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group__3__Impl"
-    // InternalAsm.g:8444:1: rule__DmxFunctionCall__Group__3__Impl : ( ( rule__DmxFunctionCall__Group_3__0 )? ) ;
+    // InternalAsm.g:8613:1: rule__DmxFunctionCall__Group__3__Impl : ( ( rule__DmxFunctionCall__Group_3__0 )? ) ;
     public final void rule__DmxFunctionCall__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8448:1: ( ( ( rule__DmxFunctionCall__Group_3__0 )? ) )
-            // InternalAsm.g:8449:1: ( ( rule__DmxFunctionCall__Group_3__0 )? )
+            // InternalAsm.g:8617:1: ( ( ( rule__DmxFunctionCall__Group_3__0 )? ) )
+            // InternalAsm.g:8618:1: ( ( rule__DmxFunctionCall__Group_3__0 )? )
             {
-            // InternalAsm.g:8449:1: ( ( rule__DmxFunctionCall__Group_3__0 )? )
-            // InternalAsm.g:8450:2: ( rule__DmxFunctionCall__Group_3__0 )?
+            // InternalAsm.g:8618:1: ( ( rule__DmxFunctionCall__Group_3__0 )? )
+            // InternalAsm.g:8619:2: ( rule__DmxFunctionCall__Group_3__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getGroup_3()); 
             }
-            // InternalAsm.g:8451:2: ( rule__DmxFunctionCall__Group_3__0 )?
+            // InternalAsm.g:8620:2: ( rule__DmxFunctionCall__Group_3__0 )?
             int alt73=2;
             int LA73_0 = input.LA(1);
 
@@ -28697,7 +29234,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
             switch (alt73) {
                 case 1 :
-                    // InternalAsm.g:8451:3: rule__DmxFunctionCall__Group_3__0
+                    // InternalAsm.g:8620:3: rule__DmxFunctionCall__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxFunctionCall__Group_3__0();
@@ -28735,14 +29272,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group__4"
-    // InternalAsm.g:8459:1: rule__DmxFunctionCall__Group__4 : rule__DmxFunctionCall__Group__4__Impl ;
+    // InternalAsm.g:8628:1: rule__DmxFunctionCall__Group__4 : rule__DmxFunctionCall__Group__4__Impl ;
     public final void rule__DmxFunctionCall__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8463:1: ( rule__DmxFunctionCall__Group__4__Impl )
-            // InternalAsm.g:8464:2: rule__DmxFunctionCall__Group__4__Impl
+            // InternalAsm.g:8632:1: ( rule__DmxFunctionCall__Group__4__Impl )
+            // InternalAsm.g:8633:2: rule__DmxFunctionCall__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxFunctionCall__Group__4__Impl();
@@ -28768,17 +29305,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group__4__Impl"
-    // InternalAsm.g:8470:1: rule__DmxFunctionCall__Group__4__Impl : ( ')' ) ;
+    // InternalAsm.g:8639:1: rule__DmxFunctionCall__Group__4__Impl : ( ')' ) ;
     public final void rule__DmxFunctionCall__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8474:1: ( ( ')' ) )
-            // InternalAsm.g:8475:1: ( ')' )
+            // InternalAsm.g:8643:1: ( ( ')' ) )
+            // InternalAsm.g:8644:1: ( ')' )
             {
-            // InternalAsm.g:8475:1: ( ')' )
-            // InternalAsm.g:8476:2: ')'
+            // InternalAsm.g:8644:1: ( ')' )
+            // InternalAsm.g:8645:2: ')'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getRightParenthesisKeyword_4()); 
@@ -28809,14 +29346,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group_3__0"
-    // InternalAsm.g:8486:1: rule__DmxFunctionCall__Group_3__0 : rule__DmxFunctionCall__Group_3__0__Impl rule__DmxFunctionCall__Group_3__1 ;
+    // InternalAsm.g:8655:1: rule__DmxFunctionCall__Group_3__0 : rule__DmxFunctionCall__Group_3__0__Impl rule__DmxFunctionCall__Group_3__1 ;
     public final void rule__DmxFunctionCall__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8490:1: ( rule__DmxFunctionCall__Group_3__0__Impl rule__DmxFunctionCall__Group_3__1 )
-            // InternalAsm.g:8491:2: rule__DmxFunctionCall__Group_3__0__Impl rule__DmxFunctionCall__Group_3__1
+            // InternalAsm.g:8659:1: ( rule__DmxFunctionCall__Group_3__0__Impl rule__DmxFunctionCall__Group_3__1 )
+            // InternalAsm.g:8660:2: rule__DmxFunctionCall__Group_3__0__Impl rule__DmxFunctionCall__Group_3__1
             {
             pushFollow(FOLLOW_22);
             rule__DmxFunctionCall__Group_3__0__Impl();
@@ -28847,23 +29384,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group_3__0__Impl"
-    // InternalAsm.g:8498:1: rule__DmxFunctionCall__Group_3__0__Impl : ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 ) ) ;
+    // InternalAsm.g:8667:1: rule__DmxFunctionCall__Group_3__0__Impl : ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 ) ) ;
     public final void rule__DmxFunctionCall__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8502:1: ( ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 ) ) )
-            // InternalAsm.g:8503:1: ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 ) )
+            // InternalAsm.g:8671:1: ( ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 ) ) )
+            // InternalAsm.g:8672:1: ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 ) )
             {
-            // InternalAsm.g:8503:1: ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 ) )
-            // InternalAsm.g:8504:2: ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 )
+            // InternalAsm.g:8672:1: ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 ) )
+            // InternalAsm.g:8673:2: ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getFunctionCallArgumentsAssignment_3_0()); 
             }
-            // InternalAsm.g:8505:2: ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 )
-            // InternalAsm.g:8505:3: rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0
+            // InternalAsm.g:8674:2: ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 )
+            // InternalAsm.g:8674:3: rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0
             {
             pushFollow(FOLLOW_2);
             rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0();
@@ -28898,14 +29435,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group_3__1"
-    // InternalAsm.g:8513:1: rule__DmxFunctionCall__Group_3__1 : rule__DmxFunctionCall__Group_3__1__Impl ;
+    // InternalAsm.g:8682:1: rule__DmxFunctionCall__Group_3__1 : rule__DmxFunctionCall__Group_3__1__Impl ;
     public final void rule__DmxFunctionCall__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8517:1: ( rule__DmxFunctionCall__Group_3__1__Impl )
-            // InternalAsm.g:8518:2: rule__DmxFunctionCall__Group_3__1__Impl
+            // InternalAsm.g:8686:1: ( rule__DmxFunctionCall__Group_3__1__Impl )
+            // InternalAsm.g:8687:2: rule__DmxFunctionCall__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxFunctionCall__Group_3__1__Impl();
@@ -28931,22 +29468,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group_3__1__Impl"
-    // InternalAsm.g:8524:1: rule__DmxFunctionCall__Group_3__1__Impl : ( ( rule__DmxFunctionCall__Group_3_1__0 )* ) ;
+    // InternalAsm.g:8693:1: rule__DmxFunctionCall__Group_3__1__Impl : ( ( rule__DmxFunctionCall__Group_3_1__0 )* ) ;
     public final void rule__DmxFunctionCall__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8528:1: ( ( ( rule__DmxFunctionCall__Group_3_1__0 )* ) )
-            // InternalAsm.g:8529:1: ( ( rule__DmxFunctionCall__Group_3_1__0 )* )
+            // InternalAsm.g:8697:1: ( ( ( rule__DmxFunctionCall__Group_3_1__0 )* ) )
+            // InternalAsm.g:8698:1: ( ( rule__DmxFunctionCall__Group_3_1__0 )* )
             {
-            // InternalAsm.g:8529:1: ( ( rule__DmxFunctionCall__Group_3_1__0 )* )
-            // InternalAsm.g:8530:2: ( rule__DmxFunctionCall__Group_3_1__0 )*
+            // InternalAsm.g:8698:1: ( ( rule__DmxFunctionCall__Group_3_1__0 )* )
+            // InternalAsm.g:8699:2: ( rule__DmxFunctionCall__Group_3_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getGroup_3_1()); 
             }
-            // InternalAsm.g:8531:2: ( rule__DmxFunctionCall__Group_3_1__0 )*
+            // InternalAsm.g:8700:2: ( rule__DmxFunctionCall__Group_3_1__0 )*
             loop74:
             do {
                 int alt74=2;
@@ -28959,7 +29496,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
                 switch (alt74) {
             	case 1 :
-            	    // InternalAsm.g:8531:3: rule__DmxFunctionCall__Group_3_1__0
+            	    // InternalAsm.g:8700:3: rule__DmxFunctionCall__Group_3_1__0
             	    {
             	    pushFollow(FOLLOW_23);
             	    rule__DmxFunctionCall__Group_3_1__0();
@@ -29000,14 +29537,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group_3_1__0"
-    // InternalAsm.g:8540:1: rule__DmxFunctionCall__Group_3_1__0 : rule__DmxFunctionCall__Group_3_1__0__Impl rule__DmxFunctionCall__Group_3_1__1 ;
+    // InternalAsm.g:8709:1: rule__DmxFunctionCall__Group_3_1__0 : rule__DmxFunctionCall__Group_3_1__0__Impl rule__DmxFunctionCall__Group_3_1__1 ;
     public final void rule__DmxFunctionCall__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8544:1: ( rule__DmxFunctionCall__Group_3_1__0__Impl rule__DmxFunctionCall__Group_3_1__1 )
-            // InternalAsm.g:8545:2: rule__DmxFunctionCall__Group_3_1__0__Impl rule__DmxFunctionCall__Group_3_1__1
+            // InternalAsm.g:8713:1: ( rule__DmxFunctionCall__Group_3_1__0__Impl rule__DmxFunctionCall__Group_3_1__1 )
+            // InternalAsm.g:8714:2: rule__DmxFunctionCall__Group_3_1__0__Impl rule__DmxFunctionCall__Group_3_1__1
             {
             pushFollow(FOLLOW_25);
             rule__DmxFunctionCall__Group_3_1__0__Impl();
@@ -29038,17 +29575,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group_3_1__0__Impl"
-    // InternalAsm.g:8552:1: rule__DmxFunctionCall__Group_3_1__0__Impl : ( ',' ) ;
+    // InternalAsm.g:8721:1: rule__DmxFunctionCall__Group_3_1__0__Impl : ( ',' ) ;
     public final void rule__DmxFunctionCall__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8556:1: ( ( ',' ) )
-            // InternalAsm.g:8557:1: ( ',' )
+            // InternalAsm.g:8725:1: ( ( ',' ) )
+            // InternalAsm.g:8726:1: ( ',' )
             {
-            // InternalAsm.g:8557:1: ( ',' )
-            // InternalAsm.g:8558:2: ','
+            // InternalAsm.g:8726:1: ( ',' )
+            // InternalAsm.g:8727:2: ','
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getCommaKeyword_3_1_0()); 
@@ -29079,14 +29616,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group_3_1__1"
-    // InternalAsm.g:8567:1: rule__DmxFunctionCall__Group_3_1__1 : rule__DmxFunctionCall__Group_3_1__1__Impl ;
+    // InternalAsm.g:8736:1: rule__DmxFunctionCall__Group_3_1__1 : rule__DmxFunctionCall__Group_3_1__1__Impl ;
     public final void rule__DmxFunctionCall__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8571:1: ( rule__DmxFunctionCall__Group_3_1__1__Impl )
-            // InternalAsm.g:8572:2: rule__DmxFunctionCall__Group_3_1__1__Impl
+            // InternalAsm.g:8740:1: ( rule__DmxFunctionCall__Group_3_1__1__Impl )
+            // InternalAsm.g:8741:2: rule__DmxFunctionCall__Group_3_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxFunctionCall__Group_3_1__1__Impl();
@@ -29112,23 +29649,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__Group_3_1__1__Impl"
-    // InternalAsm.g:8578:1: rule__DmxFunctionCall__Group_3_1__1__Impl : ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 ) ) ;
+    // InternalAsm.g:8747:1: rule__DmxFunctionCall__Group_3_1__1__Impl : ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 ) ) ;
     public final void rule__DmxFunctionCall__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8582:1: ( ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 ) ) )
-            // InternalAsm.g:8583:1: ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 ) )
+            // InternalAsm.g:8751:1: ( ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 ) ) )
+            // InternalAsm.g:8752:1: ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 ) )
             {
-            // InternalAsm.g:8583:1: ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 ) )
-            // InternalAsm.g:8584:2: ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 )
+            // InternalAsm.g:8752:1: ( ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 ) )
+            // InternalAsm.g:8753:2: ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getFunctionCallArgumentsAssignment_3_1_1()); 
             }
-            // InternalAsm.g:8585:2: ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 )
-            // InternalAsm.g:8585:3: rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1
+            // InternalAsm.g:8754:2: ( rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 )
+            // InternalAsm.g:8754:3: rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1();
@@ -29163,16 +29700,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group__0"
-    // InternalAsm.g:8594:1: rule__DmxConstructorCall__Group__0 : rule__DmxConstructorCall__Group__0__Impl rule__DmxConstructorCall__Group__1 ;
+    // InternalAsm.g:8763:1: rule__DmxConstructorCall__Group__0 : rule__DmxConstructorCall__Group__0__Impl rule__DmxConstructorCall__Group__1 ;
     public final void rule__DmxConstructorCall__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8598:1: ( rule__DmxConstructorCall__Group__0__Impl rule__DmxConstructorCall__Group__1 )
-            // InternalAsm.g:8599:2: rule__DmxConstructorCall__Group__0__Impl rule__DmxConstructorCall__Group__1
+            // InternalAsm.g:8767:1: ( rule__DmxConstructorCall__Group__0__Impl rule__DmxConstructorCall__Group__1 )
+            // InternalAsm.g:8768:2: rule__DmxConstructorCall__Group__0__Impl rule__DmxConstructorCall__Group__1
             {
-            pushFollow(FOLLOW_64);
+            pushFollow(FOLLOW_67);
             rule__DmxConstructorCall__Group__0__Impl();
 
             state._fsp--;
@@ -29201,23 +29738,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group__0__Impl"
-    // InternalAsm.g:8606:1: rule__DmxConstructorCall__Group__0__Impl : ( () ) ;
+    // InternalAsm.g:8775:1: rule__DmxConstructorCall__Group__0__Impl : ( () ) ;
     public final void rule__DmxConstructorCall__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8610:1: ( ( () ) )
-            // InternalAsm.g:8611:1: ( () )
+            // InternalAsm.g:8779:1: ( ( () ) )
+            // InternalAsm.g:8780:1: ( () )
             {
-            // InternalAsm.g:8611:1: ( () )
-            // InternalAsm.g:8612:2: ()
+            // InternalAsm.g:8780:1: ( () )
+            // InternalAsm.g:8781:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getDmxConstructorCallAction_0()); 
             }
-            // InternalAsm.g:8613:2: ()
-            // InternalAsm.g:8613:3: 
+            // InternalAsm.g:8782:2: ()
+            // InternalAsm.g:8782:3: 
             {
             }
 
@@ -29242,14 +29779,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group__1"
-    // InternalAsm.g:8621:1: rule__DmxConstructorCall__Group__1 : rule__DmxConstructorCall__Group__1__Impl rule__DmxConstructorCall__Group__2 ;
+    // InternalAsm.g:8790:1: rule__DmxConstructorCall__Group__1 : rule__DmxConstructorCall__Group__1__Impl rule__DmxConstructorCall__Group__2 ;
     public final void rule__DmxConstructorCall__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8625:1: ( rule__DmxConstructorCall__Group__1__Impl rule__DmxConstructorCall__Group__2 )
-            // InternalAsm.g:8626:2: rule__DmxConstructorCall__Group__1__Impl rule__DmxConstructorCall__Group__2
+            // InternalAsm.g:8794:1: ( rule__DmxConstructorCall__Group__1__Impl rule__DmxConstructorCall__Group__2 )
+            // InternalAsm.g:8795:2: rule__DmxConstructorCall__Group__1__Impl rule__DmxConstructorCall__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__DmxConstructorCall__Group__1__Impl();
@@ -29280,17 +29817,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group__1__Impl"
-    // InternalAsm.g:8633:1: rule__DmxConstructorCall__Group__1__Impl : ( ruleDmxOpConstructor ) ;
+    // InternalAsm.g:8802:1: rule__DmxConstructorCall__Group__1__Impl : ( ruleDmxOpConstructor ) ;
     public final void rule__DmxConstructorCall__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8637:1: ( ( ruleDmxOpConstructor ) )
-            // InternalAsm.g:8638:1: ( ruleDmxOpConstructor )
+            // InternalAsm.g:8806:1: ( ( ruleDmxOpConstructor ) )
+            // InternalAsm.g:8807:1: ( ruleDmxOpConstructor )
             {
-            // InternalAsm.g:8638:1: ( ruleDmxOpConstructor )
-            // InternalAsm.g:8639:2: ruleDmxOpConstructor
+            // InternalAsm.g:8807:1: ( ruleDmxOpConstructor )
+            // InternalAsm.g:8808:2: ruleDmxOpConstructor
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getDmxOpConstructorParserRuleCall_1()); 
@@ -29325,14 +29862,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group__2"
-    // InternalAsm.g:8648:1: rule__DmxConstructorCall__Group__2 : rule__DmxConstructorCall__Group__2__Impl rule__DmxConstructorCall__Group__3 ;
+    // InternalAsm.g:8817:1: rule__DmxConstructorCall__Group__2 : rule__DmxConstructorCall__Group__2__Impl rule__DmxConstructorCall__Group__3 ;
     public final void rule__DmxConstructorCall__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8652:1: ( rule__DmxConstructorCall__Group__2__Impl rule__DmxConstructorCall__Group__3 )
-            // InternalAsm.g:8653:2: rule__DmxConstructorCall__Group__2__Impl rule__DmxConstructorCall__Group__3
+            // InternalAsm.g:8821:1: ( rule__DmxConstructorCall__Group__2__Impl rule__DmxConstructorCall__Group__3 )
+            // InternalAsm.g:8822:2: rule__DmxConstructorCall__Group__2__Impl rule__DmxConstructorCall__Group__3
             {
             pushFollow(FOLLOW_16);
             rule__DmxConstructorCall__Group__2__Impl();
@@ -29363,23 +29900,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group__2__Impl"
-    // InternalAsm.g:8660:1: rule__DmxConstructorCall__Group__2__Impl : ( ( rule__DmxConstructorCall__ConstructorAssignment_2 ) ) ;
+    // InternalAsm.g:8829:1: rule__DmxConstructorCall__Group__2__Impl : ( ( rule__DmxConstructorCall__ConstructorAssignment_2 ) ) ;
     public final void rule__DmxConstructorCall__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8664:1: ( ( ( rule__DmxConstructorCall__ConstructorAssignment_2 ) ) )
-            // InternalAsm.g:8665:1: ( ( rule__DmxConstructorCall__ConstructorAssignment_2 ) )
+            // InternalAsm.g:8833:1: ( ( ( rule__DmxConstructorCall__ConstructorAssignment_2 ) ) )
+            // InternalAsm.g:8834:1: ( ( rule__DmxConstructorCall__ConstructorAssignment_2 ) )
             {
-            // InternalAsm.g:8665:1: ( ( rule__DmxConstructorCall__ConstructorAssignment_2 ) )
-            // InternalAsm.g:8666:2: ( rule__DmxConstructorCall__ConstructorAssignment_2 )
+            // InternalAsm.g:8834:1: ( ( rule__DmxConstructorCall__ConstructorAssignment_2 ) )
+            // InternalAsm.g:8835:2: ( rule__DmxConstructorCall__ConstructorAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getConstructorAssignment_2()); 
             }
-            // InternalAsm.g:8667:2: ( rule__DmxConstructorCall__ConstructorAssignment_2 )
-            // InternalAsm.g:8667:3: rule__DmxConstructorCall__ConstructorAssignment_2
+            // InternalAsm.g:8836:2: ( rule__DmxConstructorCall__ConstructorAssignment_2 )
+            // InternalAsm.g:8836:3: rule__DmxConstructorCall__ConstructorAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__DmxConstructorCall__ConstructorAssignment_2();
@@ -29414,14 +29951,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group__3"
-    // InternalAsm.g:8675:1: rule__DmxConstructorCall__Group__3 : rule__DmxConstructorCall__Group__3__Impl ;
+    // InternalAsm.g:8844:1: rule__DmxConstructorCall__Group__3 : rule__DmxConstructorCall__Group__3__Impl ;
     public final void rule__DmxConstructorCall__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8679:1: ( rule__DmxConstructorCall__Group__3__Impl )
-            // InternalAsm.g:8680:2: rule__DmxConstructorCall__Group__3__Impl
+            // InternalAsm.g:8848:1: ( rule__DmxConstructorCall__Group__3__Impl )
+            // InternalAsm.g:8849:2: rule__DmxConstructorCall__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxConstructorCall__Group__3__Impl();
@@ -29447,22 +29984,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group__3__Impl"
-    // InternalAsm.g:8686:1: rule__DmxConstructorCall__Group__3__Impl : ( ( rule__DmxConstructorCall__Group_3__0 )? ) ;
+    // InternalAsm.g:8855:1: rule__DmxConstructorCall__Group__3__Impl : ( ( rule__DmxConstructorCall__Group_3__0 )? ) ;
     public final void rule__DmxConstructorCall__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8690:1: ( ( ( rule__DmxConstructorCall__Group_3__0 )? ) )
-            // InternalAsm.g:8691:1: ( ( rule__DmxConstructorCall__Group_3__0 )? )
+            // InternalAsm.g:8859:1: ( ( ( rule__DmxConstructorCall__Group_3__0 )? ) )
+            // InternalAsm.g:8860:1: ( ( rule__DmxConstructorCall__Group_3__0 )? )
             {
-            // InternalAsm.g:8691:1: ( ( rule__DmxConstructorCall__Group_3__0 )? )
-            // InternalAsm.g:8692:2: ( rule__DmxConstructorCall__Group_3__0 )?
+            // InternalAsm.g:8860:1: ( ( rule__DmxConstructorCall__Group_3__0 )? )
+            // InternalAsm.g:8861:2: ( rule__DmxConstructorCall__Group_3__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getGroup_3()); 
             }
-            // InternalAsm.g:8693:2: ( rule__DmxConstructorCall__Group_3__0 )?
+            // InternalAsm.g:8862:2: ( rule__DmxConstructorCall__Group_3__0 )?
             int alt75=2;
             int LA75_0 = input.LA(1);
 
@@ -29471,7 +30008,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
             switch (alt75) {
                 case 1 :
-                    // InternalAsm.g:8693:3: rule__DmxConstructorCall__Group_3__0
+                    // InternalAsm.g:8862:3: rule__DmxConstructorCall__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxConstructorCall__Group_3__0();
@@ -29509,16 +30046,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3__0"
-    // InternalAsm.g:8702:1: rule__DmxConstructorCall__Group_3__0 : rule__DmxConstructorCall__Group_3__0__Impl rule__DmxConstructorCall__Group_3__1 ;
+    // InternalAsm.g:8871:1: rule__DmxConstructorCall__Group_3__0 : rule__DmxConstructorCall__Group_3__0__Impl rule__DmxConstructorCall__Group_3__1 ;
     public final void rule__DmxConstructorCall__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8706:1: ( rule__DmxConstructorCall__Group_3__0__Impl rule__DmxConstructorCall__Group_3__1 )
-            // InternalAsm.g:8707:2: rule__DmxConstructorCall__Group_3__0__Impl rule__DmxConstructorCall__Group_3__1
+            // InternalAsm.g:8875:1: ( rule__DmxConstructorCall__Group_3__0__Impl rule__DmxConstructorCall__Group_3__1 )
+            // InternalAsm.g:8876:2: rule__DmxConstructorCall__Group_3__0__Impl rule__DmxConstructorCall__Group_3__1
             {
-            pushFollow(FOLLOW_63);
+            pushFollow(FOLLOW_66);
             rule__DmxConstructorCall__Group_3__0__Impl();
 
             state._fsp--;
@@ -29547,23 +30084,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3__0__Impl"
-    // InternalAsm.g:8714:1: rule__DmxConstructorCall__Group_3__0__Impl : ( ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 ) ) ;
+    // InternalAsm.g:8883:1: rule__DmxConstructorCall__Group_3__0__Impl : ( ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 ) ) ;
     public final void rule__DmxConstructorCall__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8718:1: ( ( ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 ) ) )
-            // InternalAsm.g:8719:1: ( ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 ) )
+            // InternalAsm.g:8887:1: ( ( ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 ) ) )
+            // InternalAsm.g:8888:1: ( ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 ) )
             {
-            // InternalAsm.g:8719:1: ( ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 ) )
-            // InternalAsm.g:8720:2: ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 )
+            // InternalAsm.g:8888:1: ( ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 ) )
+            // InternalAsm.g:8889:2: ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getExplicitConstructorCallAssignment_3_0()); 
             }
-            // InternalAsm.g:8721:2: ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 )
-            // InternalAsm.g:8721:3: rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0
+            // InternalAsm.g:8890:2: ( rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 )
+            // InternalAsm.g:8890:3: rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0
             {
             pushFollow(FOLLOW_2);
             rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0();
@@ -29598,16 +30135,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3__1"
-    // InternalAsm.g:8729:1: rule__DmxConstructorCall__Group_3__1 : rule__DmxConstructorCall__Group_3__1__Impl rule__DmxConstructorCall__Group_3__2 ;
+    // InternalAsm.g:8898:1: rule__DmxConstructorCall__Group_3__1 : rule__DmxConstructorCall__Group_3__1__Impl rule__DmxConstructorCall__Group_3__2 ;
     public final void rule__DmxConstructorCall__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8733:1: ( rule__DmxConstructorCall__Group_3__1__Impl rule__DmxConstructorCall__Group_3__2 )
-            // InternalAsm.g:8734:2: rule__DmxConstructorCall__Group_3__1__Impl rule__DmxConstructorCall__Group_3__2
+            // InternalAsm.g:8902:1: ( rule__DmxConstructorCall__Group_3__1__Impl rule__DmxConstructorCall__Group_3__2 )
+            // InternalAsm.g:8903:2: rule__DmxConstructorCall__Group_3__1__Impl rule__DmxConstructorCall__Group_3__2
             {
-            pushFollow(FOLLOW_63);
+            pushFollow(FOLLOW_66);
             rule__DmxConstructorCall__Group_3__1__Impl();
 
             state._fsp--;
@@ -29636,22 +30173,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3__1__Impl"
-    // InternalAsm.g:8741:1: rule__DmxConstructorCall__Group_3__1__Impl : ( ( rule__DmxConstructorCall__Group_3_1__0 )? ) ;
+    // InternalAsm.g:8910:1: rule__DmxConstructorCall__Group_3__1__Impl : ( ( rule__DmxConstructorCall__Group_3_1__0 )? ) ;
     public final void rule__DmxConstructorCall__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8745:1: ( ( ( rule__DmxConstructorCall__Group_3_1__0 )? ) )
-            // InternalAsm.g:8746:1: ( ( rule__DmxConstructorCall__Group_3_1__0 )? )
+            // InternalAsm.g:8914:1: ( ( ( rule__DmxConstructorCall__Group_3_1__0 )? ) )
+            // InternalAsm.g:8915:1: ( ( rule__DmxConstructorCall__Group_3_1__0 )? )
             {
-            // InternalAsm.g:8746:1: ( ( rule__DmxConstructorCall__Group_3_1__0 )? )
-            // InternalAsm.g:8747:2: ( rule__DmxConstructorCall__Group_3_1__0 )?
+            // InternalAsm.g:8915:1: ( ( rule__DmxConstructorCall__Group_3_1__0 )? )
+            // InternalAsm.g:8916:2: ( rule__DmxConstructorCall__Group_3_1__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getGroup_3_1()); 
             }
-            // InternalAsm.g:8748:2: ( rule__DmxConstructorCall__Group_3_1__0 )?
+            // InternalAsm.g:8917:2: ( rule__DmxConstructorCall__Group_3_1__0 )?
             int alt76=2;
             int LA76_0 = input.LA(1);
 
@@ -29660,7 +30197,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
             switch (alt76) {
                 case 1 :
-                    // InternalAsm.g:8748:3: rule__DmxConstructorCall__Group_3_1__0
+                    // InternalAsm.g:8917:3: rule__DmxConstructorCall__Group_3_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxConstructorCall__Group_3_1__0();
@@ -29698,14 +30235,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3__2"
-    // InternalAsm.g:8756:1: rule__DmxConstructorCall__Group_3__2 : rule__DmxConstructorCall__Group_3__2__Impl ;
+    // InternalAsm.g:8925:1: rule__DmxConstructorCall__Group_3__2 : rule__DmxConstructorCall__Group_3__2__Impl ;
     public final void rule__DmxConstructorCall__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8760:1: ( rule__DmxConstructorCall__Group_3__2__Impl )
-            // InternalAsm.g:8761:2: rule__DmxConstructorCall__Group_3__2__Impl
+            // InternalAsm.g:8929:1: ( rule__DmxConstructorCall__Group_3__2__Impl )
+            // InternalAsm.g:8930:2: rule__DmxConstructorCall__Group_3__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxConstructorCall__Group_3__2__Impl();
@@ -29731,17 +30268,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3__2__Impl"
-    // InternalAsm.g:8767:1: rule__DmxConstructorCall__Group_3__2__Impl : ( ')' ) ;
+    // InternalAsm.g:8936:1: rule__DmxConstructorCall__Group_3__2__Impl : ( ')' ) ;
     public final void rule__DmxConstructorCall__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8771:1: ( ( ')' ) )
-            // InternalAsm.g:8772:1: ( ')' )
+            // InternalAsm.g:8940:1: ( ( ')' ) )
+            // InternalAsm.g:8941:1: ( ')' )
             {
-            // InternalAsm.g:8772:1: ( ')' )
-            // InternalAsm.g:8773:2: ')'
+            // InternalAsm.g:8941:1: ( ')' )
+            // InternalAsm.g:8942:2: ')'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getRightParenthesisKeyword_3_2()); 
@@ -29772,14 +30309,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3_1__0"
-    // InternalAsm.g:8783:1: rule__DmxConstructorCall__Group_3_1__0 : rule__DmxConstructorCall__Group_3_1__0__Impl rule__DmxConstructorCall__Group_3_1__1 ;
+    // InternalAsm.g:8952:1: rule__DmxConstructorCall__Group_3_1__0 : rule__DmxConstructorCall__Group_3_1__0__Impl rule__DmxConstructorCall__Group_3_1__1 ;
     public final void rule__DmxConstructorCall__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8787:1: ( rule__DmxConstructorCall__Group_3_1__0__Impl rule__DmxConstructorCall__Group_3_1__1 )
-            // InternalAsm.g:8788:2: rule__DmxConstructorCall__Group_3_1__0__Impl rule__DmxConstructorCall__Group_3_1__1
+            // InternalAsm.g:8956:1: ( rule__DmxConstructorCall__Group_3_1__0__Impl rule__DmxConstructorCall__Group_3_1__1 )
+            // InternalAsm.g:8957:2: rule__DmxConstructorCall__Group_3_1__0__Impl rule__DmxConstructorCall__Group_3_1__1
             {
             pushFollow(FOLLOW_22);
             rule__DmxConstructorCall__Group_3_1__0__Impl();
@@ -29810,23 +30347,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3_1__0__Impl"
-    // InternalAsm.g:8795:1: rule__DmxConstructorCall__Group_3_1__0__Impl : ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 ) ) ;
+    // InternalAsm.g:8964:1: rule__DmxConstructorCall__Group_3_1__0__Impl : ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 ) ) ;
     public final void rule__DmxConstructorCall__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8799:1: ( ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 ) ) )
-            // InternalAsm.g:8800:1: ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 ) )
+            // InternalAsm.g:8968:1: ( ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 ) ) )
+            // InternalAsm.g:8969:1: ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 ) )
             {
-            // InternalAsm.g:8800:1: ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 ) )
-            // InternalAsm.g:8801:2: ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 )
+            // InternalAsm.g:8969:1: ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 ) )
+            // InternalAsm.g:8970:2: ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getArgumentsAssignment_3_1_0()); 
             }
-            // InternalAsm.g:8802:2: ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 )
-            // InternalAsm.g:8802:3: rule__DmxConstructorCall__ArgumentsAssignment_3_1_0
+            // InternalAsm.g:8971:2: ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 )
+            // InternalAsm.g:8971:3: rule__DmxConstructorCall__ArgumentsAssignment_3_1_0
             {
             pushFollow(FOLLOW_2);
             rule__DmxConstructorCall__ArgumentsAssignment_3_1_0();
@@ -29861,14 +30398,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3_1__1"
-    // InternalAsm.g:8810:1: rule__DmxConstructorCall__Group_3_1__1 : rule__DmxConstructorCall__Group_3_1__1__Impl ;
+    // InternalAsm.g:8979:1: rule__DmxConstructorCall__Group_3_1__1 : rule__DmxConstructorCall__Group_3_1__1__Impl ;
     public final void rule__DmxConstructorCall__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8814:1: ( rule__DmxConstructorCall__Group_3_1__1__Impl )
-            // InternalAsm.g:8815:2: rule__DmxConstructorCall__Group_3_1__1__Impl
+            // InternalAsm.g:8983:1: ( rule__DmxConstructorCall__Group_3_1__1__Impl )
+            // InternalAsm.g:8984:2: rule__DmxConstructorCall__Group_3_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxConstructorCall__Group_3_1__1__Impl();
@@ -29894,22 +30431,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3_1__1__Impl"
-    // InternalAsm.g:8821:1: rule__DmxConstructorCall__Group_3_1__1__Impl : ( ( rule__DmxConstructorCall__Group_3_1_1__0 )* ) ;
+    // InternalAsm.g:8990:1: rule__DmxConstructorCall__Group_3_1__1__Impl : ( ( rule__DmxConstructorCall__Group_3_1_1__0 )* ) ;
     public final void rule__DmxConstructorCall__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8825:1: ( ( ( rule__DmxConstructorCall__Group_3_1_1__0 )* ) )
-            // InternalAsm.g:8826:1: ( ( rule__DmxConstructorCall__Group_3_1_1__0 )* )
+            // InternalAsm.g:8994:1: ( ( ( rule__DmxConstructorCall__Group_3_1_1__0 )* ) )
+            // InternalAsm.g:8995:1: ( ( rule__DmxConstructorCall__Group_3_1_1__0 )* )
             {
-            // InternalAsm.g:8826:1: ( ( rule__DmxConstructorCall__Group_3_1_1__0 )* )
-            // InternalAsm.g:8827:2: ( rule__DmxConstructorCall__Group_3_1_1__0 )*
+            // InternalAsm.g:8995:1: ( ( rule__DmxConstructorCall__Group_3_1_1__0 )* )
+            // InternalAsm.g:8996:2: ( rule__DmxConstructorCall__Group_3_1_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getGroup_3_1_1()); 
             }
-            // InternalAsm.g:8828:2: ( rule__DmxConstructorCall__Group_3_1_1__0 )*
+            // InternalAsm.g:8997:2: ( rule__DmxConstructorCall__Group_3_1_1__0 )*
             loop77:
             do {
                 int alt77=2;
@@ -29922,7 +30459,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
                 switch (alt77) {
             	case 1 :
-            	    // InternalAsm.g:8828:3: rule__DmxConstructorCall__Group_3_1_1__0
+            	    // InternalAsm.g:8997:3: rule__DmxConstructorCall__Group_3_1_1__0
             	    {
             	    pushFollow(FOLLOW_23);
             	    rule__DmxConstructorCall__Group_3_1_1__0();
@@ -29963,14 +30500,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3_1_1__0"
-    // InternalAsm.g:8837:1: rule__DmxConstructorCall__Group_3_1_1__0 : rule__DmxConstructorCall__Group_3_1_1__0__Impl rule__DmxConstructorCall__Group_3_1_1__1 ;
+    // InternalAsm.g:9006:1: rule__DmxConstructorCall__Group_3_1_1__0 : rule__DmxConstructorCall__Group_3_1_1__0__Impl rule__DmxConstructorCall__Group_3_1_1__1 ;
     public final void rule__DmxConstructorCall__Group_3_1_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8841:1: ( rule__DmxConstructorCall__Group_3_1_1__0__Impl rule__DmxConstructorCall__Group_3_1_1__1 )
-            // InternalAsm.g:8842:2: rule__DmxConstructorCall__Group_3_1_1__0__Impl rule__DmxConstructorCall__Group_3_1_1__1
+            // InternalAsm.g:9010:1: ( rule__DmxConstructorCall__Group_3_1_1__0__Impl rule__DmxConstructorCall__Group_3_1_1__1 )
+            // InternalAsm.g:9011:2: rule__DmxConstructorCall__Group_3_1_1__0__Impl rule__DmxConstructorCall__Group_3_1_1__1
             {
             pushFollow(FOLLOW_25);
             rule__DmxConstructorCall__Group_3_1_1__0__Impl();
@@ -30001,17 +30538,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3_1_1__0__Impl"
-    // InternalAsm.g:8849:1: rule__DmxConstructorCall__Group_3_1_1__0__Impl : ( ',' ) ;
+    // InternalAsm.g:9018:1: rule__DmxConstructorCall__Group_3_1_1__0__Impl : ( ',' ) ;
     public final void rule__DmxConstructorCall__Group_3_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8853:1: ( ( ',' ) )
-            // InternalAsm.g:8854:1: ( ',' )
+            // InternalAsm.g:9022:1: ( ( ',' ) )
+            // InternalAsm.g:9023:1: ( ',' )
             {
-            // InternalAsm.g:8854:1: ( ',' )
-            // InternalAsm.g:8855:2: ','
+            // InternalAsm.g:9023:1: ( ',' )
+            // InternalAsm.g:9024:2: ','
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getCommaKeyword_3_1_1_0()); 
@@ -30042,14 +30579,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3_1_1__1"
-    // InternalAsm.g:8864:1: rule__DmxConstructorCall__Group_3_1_1__1 : rule__DmxConstructorCall__Group_3_1_1__1__Impl ;
+    // InternalAsm.g:9033:1: rule__DmxConstructorCall__Group_3_1_1__1 : rule__DmxConstructorCall__Group_3_1_1__1__Impl ;
     public final void rule__DmxConstructorCall__Group_3_1_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8868:1: ( rule__DmxConstructorCall__Group_3_1_1__1__Impl )
-            // InternalAsm.g:8869:2: rule__DmxConstructorCall__Group_3_1_1__1__Impl
+            // InternalAsm.g:9037:1: ( rule__DmxConstructorCall__Group_3_1_1__1__Impl )
+            // InternalAsm.g:9038:2: rule__DmxConstructorCall__Group_3_1_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxConstructorCall__Group_3_1_1__1__Impl();
@@ -30075,23 +30612,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__Group_3_1_1__1__Impl"
-    // InternalAsm.g:8875:1: rule__DmxConstructorCall__Group_3_1_1__1__Impl : ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 ) ) ;
+    // InternalAsm.g:9044:1: rule__DmxConstructorCall__Group_3_1_1__1__Impl : ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 ) ) ;
     public final void rule__DmxConstructorCall__Group_3_1_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8879:1: ( ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 ) ) )
-            // InternalAsm.g:8880:1: ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 ) )
+            // InternalAsm.g:9048:1: ( ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 ) ) )
+            // InternalAsm.g:9049:1: ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 ) )
             {
-            // InternalAsm.g:8880:1: ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 ) )
-            // InternalAsm.g:8881:2: ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 )
+            // InternalAsm.g:9049:1: ( ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 ) )
+            // InternalAsm.g:9050:2: ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getArgumentsAssignment_3_1_1_1()); 
             }
-            // InternalAsm.g:8882:2: ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 )
-            // InternalAsm.g:8882:3: rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1
+            // InternalAsm.g:9051:2: ( rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 )
+            // InternalAsm.g:9051:3: rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1();
@@ -30126,16 +30663,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__0"
-    // InternalAsm.g:8891:1: rule__DmxStaticReference__Group__0 : rule__DmxStaticReference__Group__0__Impl rule__DmxStaticReference__Group__1 ;
+    // InternalAsm.g:9060:1: rule__DmxStaticReference__Group__0 : rule__DmxStaticReference__Group__0__Impl rule__DmxStaticReference__Group__1 ;
     public final void rule__DmxStaticReference__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8895:1: ( rule__DmxStaticReference__Group__0__Impl rule__DmxStaticReference__Group__1 )
-            // InternalAsm.g:8896:2: rule__DmxStaticReference__Group__0__Impl rule__DmxStaticReference__Group__1
+            // InternalAsm.g:9064:1: ( rule__DmxStaticReference__Group__0__Impl rule__DmxStaticReference__Group__1 )
+            // InternalAsm.g:9065:2: rule__DmxStaticReference__Group__0__Impl rule__DmxStaticReference__Group__1
             {
-            pushFollow(FOLLOW_65);
+            pushFollow(FOLLOW_68);
             rule__DmxStaticReference__Group__0__Impl();
 
             state._fsp--;
@@ -30164,23 +30701,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__0__Impl"
-    // InternalAsm.g:8903:1: rule__DmxStaticReference__Group__0__Impl : ( () ) ;
+    // InternalAsm.g:9072:1: rule__DmxStaticReference__Group__0__Impl : ( () ) ;
     public final void rule__DmxStaticReference__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8907:1: ( ( () ) )
-            // InternalAsm.g:8908:1: ( () )
+            // InternalAsm.g:9076:1: ( ( () ) )
+            // InternalAsm.g:9077:1: ( () )
             {
-            // InternalAsm.g:8908:1: ( () )
-            // InternalAsm.g:8909:2: ()
+            // InternalAsm.g:9077:1: ( () )
+            // InternalAsm.g:9078:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getDmxStaticReferenceAction_0()); 
             }
-            // InternalAsm.g:8910:2: ()
-            // InternalAsm.g:8910:3: 
+            // InternalAsm.g:9079:2: ()
+            // InternalAsm.g:9079:3: 
             {
             }
 
@@ -30205,14 +30742,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__1"
-    // InternalAsm.g:8918:1: rule__DmxStaticReference__Group__1 : rule__DmxStaticReference__Group__1__Impl rule__DmxStaticReference__Group__2 ;
+    // InternalAsm.g:9087:1: rule__DmxStaticReference__Group__1 : rule__DmxStaticReference__Group__1__Impl rule__DmxStaticReference__Group__2 ;
     public final void rule__DmxStaticReference__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8922:1: ( rule__DmxStaticReference__Group__1__Impl rule__DmxStaticReference__Group__2 )
-            // InternalAsm.g:8923:2: rule__DmxStaticReference__Group__1__Impl rule__DmxStaticReference__Group__2
+            // InternalAsm.g:9091:1: ( rule__DmxStaticReference__Group__1__Impl rule__DmxStaticReference__Group__2 )
+            // InternalAsm.g:9092:2: rule__DmxStaticReference__Group__1__Impl rule__DmxStaticReference__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__DmxStaticReference__Group__1__Impl();
@@ -30243,17 +30780,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__1__Impl"
-    // InternalAsm.g:8930:1: rule__DmxStaticReference__Group__1__Impl : ( '[' ) ;
+    // InternalAsm.g:9099:1: rule__DmxStaticReference__Group__1__Impl : ( '[' ) ;
     public final void rule__DmxStaticReference__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8934:1: ( ( '[' ) )
-            // InternalAsm.g:8935:1: ( '[' )
+            // InternalAsm.g:9103:1: ( ( '[' ) )
+            // InternalAsm.g:9104:1: ( '[' )
             {
-            // InternalAsm.g:8935:1: ( '[' )
-            // InternalAsm.g:8936:2: '['
+            // InternalAsm.g:9104:1: ( '[' )
+            // InternalAsm.g:9105:2: '['
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getLeftSquareBracketKeyword_1()); 
@@ -30284,16 +30821,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__2"
-    // InternalAsm.g:8945:1: rule__DmxStaticReference__Group__2 : rule__DmxStaticReference__Group__2__Impl rule__DmxStaticReference__Group__3 ;
+    // InternalAsm.g:9114:1: rule__DmxStaticReference__Group__2 : rule__DmxStaticReference__Group__2__Impl rule__DmxStaticReference__Group__3 ;
     public final void rule__DmxStaticReference__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8949:1: ( rule__DmxStaticReference__Group__2__Impl rule__DmxStaticReference__Group__3 )
-            // InternalAsm.g:8950:2: rule__DmxStaticReference__Group__2__Impl rule__DmxStaticReference__Group__3
+            // InternalAsm.g:9118:1: ( rule__DmxStaticReference__Group__2__Impl rule__DmxStaticReference__Group__3 )
+            // InternalAsm.g:9119:2: rule__DmxStaticReference__Group__2__Impl rule__DmxStaticReference__Group__3
             {
-            pushFollow(FOLLOW_66);
+            pushFollow(FOLLOW_69);
             rule__DmxStaticReference__Group__2__Impl();
 
             state._fsp--;
@@ -30322,23 +30859,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__2__Impl"
-    // InternalAsm.g:8957:1: rule__DmxStaticReference__Group__2__Impl : ( ( rule__DmxStaticReference__TargetAssignment_2 ) ) ;
+    // InternalAsm.g:9126:1: rule__DmxStaticReference__Group__2__Impl : ( ( rule__DmxStaticReference__TargetAssignment_2 ) ) ;
     public final void rule__DmxStaticReference__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8961:1: ( ( ( rule__DmxStaticReference__TargetAssignment_2 ) ) )
-            // InternalAsm.g:8962:1: ( ( rule__DmxStaticReference__TargetAssignment_2 ) )
+            // InternalAsm.g:9130:1: ( ( ( rule__DmxStaticReference__TargetAssignment_2 ) ) )
+            // InternalAsm.g:9131:1: ( ( rule__DmxStaticReference__TargetAssignment_2 ) )
             {
-            // InternalAsm.g:8962:1: ( ( rule__DmxStaticReference__TargetAssignment_2 ) )
-            // InternalAsm.g:8963:2: ( rule__DmxStaticReference__TargetAssignment_2 )
+            // InternalAsm.g:9131:1: ( ( rule__DmxStaticReference__TargetAssignment_2 ) )
+            // InternalAsm.g:9132:2: ( rule__DmxStaticReference__TargetAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getTargetAssignment_2()); 
             }
-            // InternalAsm.g:8964:2: ( rule__DmxStaticReference__TargetAssignment_2 )
-            // InternalAsm.g:8964:3: rule__DmxStaticReference__TargetAssignment_2
+            // InternalAsm.g:9133:2: ( rule__DmxStaticReference__TargetAssignment_2 )
+            // InternalAsm.g:9133:3: rule__DmxStaticReference__TargetAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__DmxStaticReference__TargetAssignment_2();
@@ -30373,16 +30910,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__3"
-    // InternalAsm.g:8972:1: rule__DmxStaticReference__Group__3 : rule__DmxStaticReference__Group__3__Impl rule__DmxStaticReference__Group__4 ;
+    // InternalAsm.g:9141:1: rule__DmxStaticReference__Group__3 : rule__DmxStaticReference__Group__3__Impl rule__DmxStaticReference__Group__4 ;
     public final void rule__DmxStaticReference__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8976:1: ( rule__DmxStaticReference__Group__3__Impl rule__DmxStaticReference__Group__4 )
-            // InternalAsm.g:8977:2: rule__DmxStaticReference__Group__3__Impl rule__DmxStaticReference__Group__4
+            // InternalAsm.g:9145:1: ( rule__DmxStaticReference__Group__3__Impl rule__DmxStaticReference__Group__4 )
+            // InternalAsm.g:9146:2: rule__DmxStaticReference__Group__3__Impl rule__DmxStaticReference__Group__4
             {
-            pushFollow(FOLLOW_66);
+            pushFollow(FOLLOW_69);
             rule__DmxStaticReference__Group__3__Impl();
 
             state._fsp--;
@@ -30411,22 +30948,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__3__Impl"
-    // InternalAsm.g:8984:1: rule__DmxStaticReference__Group__3__Impl : ( ( rule__DmxStaticReference__Group_3__0 )? ) ;
+    // InternalAsm.g:9153:1: rule__DmxStaticReference__Group__3__Impl : ( ( rule__DmxStaticReference__Group_3__0 )? ) ;
     public final void rule__DmxStaticReference__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:8988:1: ( ( ( rule__DmxStaticReference__Group_3__0 )? ) )
-            // InternalAsm.g:8989:1: ( ( rule__DmxStaticReference__Group_3__0 )? )
+            // InternalAsm.g:9157:1: ( ( ( rule__DmxStaticReference__Group_3__0 )? ) )
+            // InternalAsm.g:9158:1: ( ( rule__DmxStaticReference__Group_3__0 )? )
             {
-            // InternalAsm.g:8989:1: ( ( rule__DmxStaticReference__Group_3__0 )? )
-            // InternalAsm.g:8990:2: ( rule__DmxStaticReference__Group_3__0 )?
+            // InternalAsm.g:9158:1: ( ( rule__DmxStaticReference__Group_3__0 )? )
+            // InternalAsm.g:9159:2: ( rule__DmxStaticReference__Group_3__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getGroup_3()); 
             }
-            // InternalAsm.g:8991:2: ( rule__DmxStaticReference__Group_3__0 )?
+            // InternalAsm.g:9160:2: ( rule__DmxStaticReference__Group_3__0 )?
             int alt78=2;
             int LA78_0 = input.LA(1);
 
@@ -30435,7 +30972,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
             switch (alt78) {
                 case 1 :
-                    // InternalAsm.g:8991:3: rule__DmxStaticReference__Group_3__0
+                    // InternalAsm.g:9160:3: rule__DmxStaticReference__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxStaticReference__Group_3__0();
@@ -30473,16 +31010,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__4"
-    // InternalAsm.g:8999:1: rule__DmxStaticReference__Group__4 : rule__DmxStaticReference__Group__4__Impl rule__DmxStaticReference__Group__5 ;
+    // InternalAsm.g:9168:1: rule__DmxStaticReference__Group__4 : rule__DmxStaticReference__Group__4__Impl rule__DmxStaticReference__Group__5 ;
     public final void rule__DmxStaticReference__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9003:1: ( rule__DmxStaticReference__Group__4__Impl rule__DmxStaticReference__Group__5 )
-            // InternalAsm.g:9004:2: rule__DmxStaticReference__Group__4__Impl rule__DmxStaticReference__Group__5
+            // InternalAsm.g:9172:1: ( rule__DmxStaticReference__Group__4__Impl rule__DmxStaticReference__Group__5 )
+            // InternalAsm.g:9173:2: rule__DmxStaticReference__Group__4__Impl rule__DmxStaticReference__Group__5
             {
-            pushFollow(FOLLOW_66);
+            pushFollow(FOLLOW_69);
             rule__DmxStaticReference__Group__4__Impl();
 
             state._fsp--;
@@ -30511,22 +31048,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__4__Impl"
-    // InternalAsm.g:9011:1: rule__DmxStaticReference__Group__4__Impl : ( ( rule__DmxStaticReference__Group_4__0 )? ) ;
+    // InternalAsm.g:9180:1: rule__DmxStaticReference__Group__4__Impl : ( ( rule__DmxStaticReference__Group_4__0 )? ) ;
     public final void rule__DmxStaticReference__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9015:1: ( ( ( rule__DmxStaticReference__Group_4__0 )? ) )
-            // InternalAsm.g:9016:1: ( ( rule__DmxStaticReference__Group_4__0 )? )
+            // InternalAsm.g:9184:1: ( ( ( rule__DmxStaticReference__Group_4__0 )? ) )
+            // InternalAsm.g:9185:1: ( ( rule__DmxStaticReference__Group_4__0 )? )
             {
-            // InternalAsm.g:9016:1: ( ( rule__DmxStaticReference__Group_4__0 )? )
-            // InternalAsm.g:9017:2: ( rule__DmxStaticReference__Group_4__0 )?
+            // InternalAsm.g:9185:1: ( ( rule__DmxStaticReference__Group_4__0 )? )
+            // InternalAsm.g:9186:2: ( rule__DmxStaticReference__Group_4__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getGroup_4()); 
             }
-            // InternalAsm.g:9018:2: ( rule__DmxStaticReference__Group_4__0 )?
+            // InternalAsm.g:9187:2: ( rule__DmxStaticReference__Group_4__0 )?
             int alt79=2;
             int LA79_0 = input.LA(1);
 
@@ -30535,7 +31072,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
             switch (alt79) {
                 case 1 :
-                    // InternalAsm.g:9018:3: rule__DmxStaticReference__Group_4__0
+                    // InternalAsm.g:9187:3: rule__DmxStaticReference__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxStaticReference__Group_4__0();
@@ -30573,14 +31110,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__5"
-    // InternalAsm.g:9026:1: rule__DmxStaticReference__Group__5 : rule__DmxStaticReference__Group__5__Impl ;
+    // InternalAsm.g:9195:1: rule__DmxStaticReference__Group__5 : rule__DmxStaticReference__Group__5__Impl ;
     public final void rule__DmxStaticReference__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9030:1: ( rule__DmxStaticReference__Group__5__Impl )
-            // InternalAsm.g:9031:2: rule__DmxStaticReference__Group__5__Impl
+            // InternalAsm.g:9199:1: ( rule__DmxStaticReference__Group__5__Impl )
+            // InternalAsm.g:9200:2: rule__DmxStaticReference__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxStaticReference__Group__5__Impl();
@@ -30606,23 +31143,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group__5__Impl"
-    // InternalAsm.g:9037:1: rule__DmxStaticReference__Group__5__Impl : ( ( ']' ) ) ;
+    // InternalAsm.g:9206:1: rule__DmxStaticReference__Group__5__Impl : ( ( ']' ) ) ;
     public final void rule__DmxStaticReference__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9041:1: ( ( ( ']' ) ) )
-            // InternalAsm.g:9042:1: ( ( ']' ) )
+            // InternalAsm.g:9210:1: ( ( ( ']' ) ) )
+            // InternalAsm.g:9211:1: ( ( ']' ) )
             {
-            // InternalAsm.g:9042:1: ( ( ']' ) )
-            // InternalAsm.g:9043:2: ( ']' )
+            // InternalAsm.g:9211:1: ( ( ']' ) )
+            // InternalAsm.g:9212:2: ( ']' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getRightSquareBracketKeyword_5()); 
             }
-            // InternalAsm.g:9044:2: ( ']' )
-            // InternalAsm.g:9044:3: ']'
+            // InternalAsm.g:9213:2: ( ']' )
+            // InternalAsm.g:9213:3: ']'
             {
             match(input,103,FOLLOW_2); if (state.failed) return ;
 
@@ -30653,14 +31190,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group_3__0"
-    // InternalAsm.g:9053:1: rule__DmxStaticReference__Group_3__0 : rule__DmxStaticReference__Group_3__0__Impl rule__DmxStaticReference__Group_3__1 ;
+    // InternalAsm.g:9222:1: rule__DmxStaticReference__Group_3__0 : rule__DmxStaticReference__Group_3__0__Impl rule__DmxStaticReference__Group_3__1 ;
     public final void rule__DmxStaticReference__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9057:1: ( rule__DmxStaticReference__Group_3__0__Impl rule__DmxStaticReference__Group_3__1 )
-            // InternalAsm.g:9058:2: rule__DmxStaticReference__Group_3__0__Impl rule__DmxStaticReference__Group_3__1
+            // InternalAsm.g:9226:1: ( rule__DmxStaticReference__Group_3__0__Impl rule__DmxStaticReference__Group_3__1 )
+            // InternalAsm.g:9227:2: rule__DmxStaticReference__Group_3__0__Impl rule__DmxStaticReference__Group_3__1
             {
             pushFollow(FOLLOW_5);
             rule__DmxStaticReference__Group_3__0__Impl();
@@ -30691,17 +31228,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group_3__0__Impl"
-    // InternalAsm.g:9065:1: rule__DmxStaticReference__Group_3__0__Impl : ( '#' ) ;
+    // InternalAsm.g:9234:1: rule__DmxStaticReference__Group_3__0__Impl : ( '#' ) ;
     public final void rule__DmxStaticReference__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9069:1: ( ( '#' ) )
-            // InternalAsm.g:9070:1: ( '#' )
+            // InternalAsm.g:9238:1: ( ( '#' ) )
+            // InternalAsm.g:9239:1: ( '#' )
             {
-            // InternalAsm.g:9070:1: ( '#' )
-            // InternalAsm.g:9071:2: '#'
+            // InternalAsm.g:9239:1: ( '#' )
+            // InternalAsm.g:9240:2: '#'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getNumberSignKeyword_3_0()); 
@@ -30732,14 +31269,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group_3__1"
-    // InternalAsm.g:9080:1: rule__DmxStaticReference__Group_3__1 : rule__DmxStaticReference__Group_3__1__Impl ;
+    // InternalAsm.g:9249:1: rule__DmxStaticReference__Group_3__1 : rule__DmxStaticReference__Group_3__1__Impl ;
     public final void rule__DmxStaticReference__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9084:1: ( rule__DmxStaticReference__Group_3__1__Impl )
-            // InternalAsm.g:9085:2: rule__DmxStaticReference__Group_3__1__Impl
+            // InternalAsm.g:9253:1: ( rule__DmxStaticReference__Group_3__1__Impl )
+            // InternalAsm.g:9254:2: rule__DmxStaticReference__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxStaticReference__Group_3__1__Impl();
@@ -30765,23 +31302,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group_3__1__Impl"
-    // InternalAsm.g:9091:1: rule__DmxStaticReference__Group_3__1__Impl : ( ( rule__DmxStaticReference__MemberAssignment_3_1 ) ) ;
+    // InternalAsm.g:9260:1: rule__DmxStaticReference__Group_3__1__Impl : ( ( rule__DmxStaticReference__MemberAssignment_3_1 ) ) ;
     public final void rule__DmxStaticReference__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9095:1: ( ( ( rule__DmxStaticReference__MemberAssignment_3_1 ) ) )
-            // InternalAsm.g:9096:1: ( ( rule__DmxStaticReference__MemberAssignment_3_1 ) )
+            // InternalAsm.g:9264:1: ( ( ( rule__DmxStaticReference__MemberAssignment_3_1 ) ) )
+            // InternalAsm.g:9265:1: ( ( rule__DmxStaticReference__MemberAssignment_3_1 ) )
             {
-            // InternalAsm.g:9096:1: ( ( rule__DmxStaticReference__MemberAssignment_3_1 ) )
-            // InternalAsm.g:9097:2: ( rule__DmxStaticReference__MemberAssignment_3_1 )
+            // InternalAsm.g:9265:1: ( ( rule__DmxStaticReference__MemberAssignment_3_1 ) )
+            // InternalAsm.g:9266:2: ( rule__DmxStaticReference__MemberAssignment_3_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getMemberAssignment_3_1()); 
             }
-            // InternalAsm.g:9098:2: ( rule__DmxStaticReference__MemberAssignment_3_1 )
-            // InternalAsm.g:9098:3: rule__DmxStaticReference__MemberAssignment_3_1
+            // InternalAsm.g:9267:2: ( rule__DmxStaticReference__MemberAssignment_3_1 )
+            // InternalAsm.g:9267:3: rule__DmxStaticReference__MemberAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxStaticReference__MemberAssignment_3_1();
@@ -30816,16 +31353,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group_4__0"
-    // InternalAsm.g:9107:1: rule__DmxStaticReference__Group_4__0 : rule__DmxStaticReference__Group_4__0__Impl rule__DmxStaticReference__Group_4__1 ;
+    // InternalAsm.g:9276:1: rule__DmxStaticReference__Group_4__0 : rule__DmxStaticReference__Group_4__0__Impl rule__DmxStaticReference__Group_4__1 ;
     public final void rule__DmxStaticReference__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9111:1: ( rule__DmxStaticReference__Group_4__0__Impl rule__DmxStaticReference__Group_4__1 )
-            // InternalAsm.g:9112:2: rule__DmxStaticReference__Group_4__0__Impl rule__DmxStaticReference__Group_4__1
+            // InternalAsm.g:9280:1: ( rule__DmxStaticReference__Group_4__0__Impl rule__DmxStaticReference__Group_4__1 )
+            // InternalAsm.g:9281:2: rule__DmxStaticReference__Group_4__0__Impl rule__DmxStaticReference__Group_4__1
             {
-            pushFollow(FOLLOW_67);
+            pushFollow(FOLLOW_70);
             rule__DmxStaticReference__Group_4__0__Impl();
 
             state._fsp--;
@@ -30854,17 +31391,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group_4__0__Impl"
-    // InternalAsm.g:9119:1: rule__DmxStaticReference__Group_4__0__Impl : ( '|' ) ;
+    // InternalAsm.g:9288:1: rule__DmxStaticReference__Group_4__0__Impl : ( '|' ) ;
     public final void rule__DmxStaticReference__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9123:1: ( ( '|' ) )
-            // InternalAsm.g:9124:1: ( '|' )
+            // InternalAsm.g:9292:1: ( ( '|' ) )
+            // InternalAsm.g:9293:1: ( '|' )
             {
-            // InternalAsm.g:9124:1: ( '|' )
-            // InternalAsm.g:9125:2: '|'
+            // InternalAsm.g:9293:1: ( '|' )
+            // InternalAsm.g:9294:2: '|'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getVerticalLineKeyword_4_0()); 
@@ -30895,14 +31432,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group_4__1"
-    // InternalAsm.g:9134:1: rule__DmxStaticReference__Group_4__1 : rule__DmxStaticReference__Group_4__1__Impl ;
+    // InternalAsm.g:9303:1: rule__DmxStaticReference__Group_4__1 : rule__DmxStaticReference__Group_4__1__Impl ;
     public final void rule__DmxStaticReference__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9138:1: ( rule__DmxStaticReference__Group_4__1__Impl )
-            // InternalAsm.g:9139:2: rule__DmxStaticReference__Group_4__1__Impl
+            // InternalAsm.g:9307:1: ( rule__DmxStaticReference__Group_4__1__Impl )
+            // InternalAsm.g:9308:2: rule__DmxStaticReference__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxStaticReference__Group_4__1__Impl();
@@ -30928,23 +31465,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__Group_4__1__Impl"
-    // InternalAsm.g:9145:1: rule__DmxStaticReference__Group_4__1__Impl : ( ( rule__DmxStaticReference__Alternatives_4_1 ) ) ;
+    // InternalAsm.g:9314:1: rule__DmxStaticReference__Group_4__1__Impl : ( ( rule__DmxStaticReference__Alternatives_4_1 ) ) ;
     public final void rule__DmxStaticReference__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9149:1: ( ( ( rule__DmxStaticReference__Alternatives_4_1 ) ) )
-            // InternalAsm.g:9150:1: ( ( rule__DmxStaticReference__Alternatives_4_1 ) )
+            // InternalAsm.g:9318:1: ( ( ( rule__DmxStaticReference__Alternatives_4_1 ) ) )
+            // InternalAsm.g:9319:1: ( ( rule__DmxStaticReference__Alternatives_4_1 ) )
             {
-            // InternalAsm.g:9150:1: ( ( rule__DmxStaticReference__Alternatives_4_1 ) )
-            // InternalAsm.g:9151:2: ( rule__DmxStaticReference__Alternatives_4_1 )
+            // InternalAsm.g:9319:1: ( ( rule__DmxStaticReference__Alternatives_4_1 ) )
+            // InternalAsm.g:9320:2: ( rule__DmxStaticReference__Alternatives_4_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getAlternatives_4_1()); 
             }
-            // InternalAsm.g:9152:2: ( rule__DmxStaticReference__Alternatives_4_1 )
-            // InternalAsm.g:9152:3: rule__DmxStaticReference__Alternatives_4_1
+            // InternalAsm.g:9321:2: ( rule__DmxStaticReference__Alternatives_4_1 )
+            // InternalAsm.g:9321:3: rule__DmxStaticReference__Alternatives_4_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxStaticReference__Alternatives_4_1();
@@ -30979,14 +31516,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__Group__0"
-    // InternalAsm.g:9161:1: rule__DmxContextReference__Group__0 : rule__DmxContextReference__Group__0__Impl rule__DmxContextReference__Group__1 ;
+    // InternalAsm.g:9330:1: rule__DmxContextReference__Group__0 : rule__DmxContextReference__Group__0__Impl rule__DmxContextReference__Group__1 ;
     public final void rule__DmxContextReference__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9165:1: ( rule__DmxContextReference__Group__0__Impl rule__DmxContextReference__Group__1 )
-            // InternalAsm.g:9166:2: rule__DmxContextReference__Group__0__Impl rule__DmxContextReference__Group__1
+            // InternalAsm.g:9334:1: ( rule__DmxContextReference__Group__0__Impl rule__DmxContextReference__Group__1 )
+            // InternalAsm.g:9335:2: rule__DmxContextReference__Group__0__Impl rule__DmxContextReference__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__DmxContextReference__Group__0__Impl();
@@ -31017,23 +31554,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__Group__0__Impl"
-    // InternalAsm.g:9173:1: rule__DmxContextReference__Group__0__Impl : ( () ) ;
+    // InternalAsm.g:9342:1: rule__DmxContextReference__Group__0__Impl : ( () ) ;
     public final void rule__DmxContextReference__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9177:1: ( ( () ) )
-            // InternalAsm.g:9178:1: ( () )
+            // InternalAsm.g:9346:1: ( ( () ) )
+            // InternalAsm.g:9347:1: ( () )
             {
-            // InternalAsm.g:9178:1: ( () )
-            // InternalAsm.g:9179:2: ()
+            // InternalAsm.g:9347:1: ( () )
+            // InternalAsm.g:9348:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getDmxContextReferenceAction_0()); 
             }
-            // InternalAsm.g:9180:2: ()
-            // InternalAsm.g:9180:3: 
+            // InternalAsm.g:9349:2: ()
+            // InternalAsm.g:9349:3: 
             {
             }
 
@@ -31058,16 +31595,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__Group__1"
-    // InternalAsm.g:9188:1: rule__DmxContextReference__Group__1 : rule__DmxContextReference__Group__1__Impl rule__DmxContextReference__Group__2 ;
+    // InternalAsm.g:9357:1: rule__DmxContextReference__Group__1 : rule__DmxContextReference__Group__1__Impl rule__DmxContextReference__Group__2 ;
     public final void rule__DmxContextReference__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9192:1: ( rule__DmxContextReference__Group__1__Impl rule__DmxContextReference__Group__2 )
-            // InternalAsm.g:9193:2: rule__DmxContextReference__Group__1__Impl rule__DmxContextReference__Group__2
+            // InternalAsm.g:9361:1: ( rule__DmxContextReference__Group__1__Impl rule__DmxContextReference__Group__2 )
+            // InternalAsm.g:9362:2: rule__DmxContextReference__Group__1__Impl rule__DmxContextReference__Group__2
             {
-            pushFollow(FOLLOW_68);
+            pushFollow(FOLLOW_71);
             rule__DmxContextReference__Group__1__Impl();
 
             state._fsp--;
@@ -31096,23 +31633,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__Group__1__Impl"
-    // InternalAsm.g:9200:1: rule__DmxContextReference__Group__1__Impl : ( ( rule__DmxContextReference__TargetAssignment_1 ) ) ;
+    // InternalAsm.g:9369:1: rule__DmxContextReference__Group__1__Impl : ( ( rule__DmxContextReference__TargetAssignment_1 ) ) ;
     public final void rule__DmxContextReference__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9204:1: ( ( ( rule__DmxContextReference__TargetAssignment_1 ) ) )
-            // InternalAsm.g:9205:1: ( ( rule__DmxContextReference__TargetAssignment_1 ) )
+            // InternalAsm.g:9373:1: ( ( ( rule__DmxContextReference__TargetAssignment_1 ) ) )
+            // InternalAsm.g:9374:1: ( ( rule__DmxContextReference__TargetAssignment_1 ) )
             {
-            // InternalAsm.g:9205:1: ( ( rule__DmxContextReference__TargetAssignment_1 ) )
-            // InternalAsm.g:9206:2: ( rule__DmxContextReference__TargetAssignment_1 )
+            // InternalAsm.g:9374:1: ( ( rule__DmxContextReference__TargetAssignment_1 ) )
+            // InternalAsm.g:9375:2: ( rule__DmxContextReference__TargetAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getTargetAssignment_1()); 
             }
-            // InternalAsm.g:9207:2: ( rule__DmxContextReference__TargetAssignment_1 )
-            // InternalAsm.g:9207:3: rule__DmxContextReference__TargetAssignment_1
+            // InternalAsm.g:9376:2: ( rule__DmxContextReference__TargetAssignment_1 )
+            // InternalAsm.g:9376:3: rule__DmxContextReference__TargetAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxContextReference__TargetAssignment_1();
@@ -31147,14 +31684,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__Group__2"
-    // InternalAsm.g:9215:1: rule__DmxContextReference__Group__2 : rule__DmxContextReference__Group__2__Impl ;
+    // InternalAsm.g:9384:1: rule__DmxContextReference__Group__2 : rule__DmxContextReference__Group__2__Impl ;
     public final void rule__DmxContextReference__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9219:1: ( rule__DmxContextReference__Group__2__Impl )
-            // InternalAsm.g:9220:2: rule__DmxContextReference__Group__2__Impl
+            // InternalAsm.g:9388:1: ( rule__DmxContextReference__Group__2__Impl )
+            // InternalAsm.g:9389:2: rule__DmxContextReference__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxContextReference__Group__2__Impl();
@@ -31180,22 +31717,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__Group__2__Impl"
-    // InternalAsm.g:9226:1: rule__DmxContextReference__Group__2__Impl : ( ( rule__DmxContextReference__Alternatives_2 )? ) ;
+    // InternalAsm.g:9395:1: rule__DmxContextReference__Group__2__Impl : ( ( rule__DmxContextReference__Alternatives_2 )? ) ;
     public final void rule__DmxContextReference__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9230:1: ( ( ( rule__DmxContextReference__Alternatives_2 )? ) )
-            // InternalAsm.g:9231:1: ( ( rule__DmxContextReference__Alternatives_2 )? )
+            // InternalAsm.g:9399:1: ( ( ( rule__DmxContextReference__Alternatives_2 )? ) )
+            // InternalAsm.g:9400:1: ( ( rule__DmxContextReference__Alternatives_2 )? )
             {
-            // InternalAsm.g:9231:1: ( ( rule__DmxContextReference__Alternatives_2 )? )
-            // InternalAsm.g:9232:2: ( rule__DmxContextReference__Alternatives_2 )?
+            // InternalAsm.g:9400:1: ( ( rule__DmxContextReference__Alternatives_2 )? )
+            // InternalAsm.g:9401:2: ( rule__DmxContextReference__Alternatives_2 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getAlternatives_2()); 
             }
-            // InternalAsm.g:9233:2: ( rule__DmxContextReference__Alternatives_2 )?
+            // InternalAsm.g:9402:2: ( rule__DmxContextReference__Alternatives_2 )?
             int alt80=2;
             int LA80_0 = input.LA(1);
 
@@ -31211,7 +31748,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
             switch (alt80) {
                 case 1 :
-                    // InternalAsm.g:9233:3: rule__DmxContextReference__Alternatives_2
+                    // InternalAsm.g:9402:3: rule__DmxContextReference__Alternatives_2
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxContextReference__Alternatives_2();
@@ -31249,16 +31786,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__Group_2_1__0"
-    // InternalAsm.g:9242:1: rule__DmxContextReference__Group_2_1__0 : rule__DmxContextReference__Group_2_1__0__Impl rule__DmxContextReference__Group_2_1__1 ;
+    // InternalAsm.g:9411:1: rule__DmxContextReference__Group_2_1__0 : rule__DmxContextReference__Group_2_1__0__Impl rule__DmxContextReference__Group_2_1__1 ;
     public final void rule__DmxContextReference__Group_2_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9246:1: ( rule__DmxContextReference__Group_2_1__0__Impl rule__DmxContextReference__Group_2_1__1 )
-            // InternalAsm.g:9247:2: rule__DmxContextReference__Group_2_1__0__Impl rule__DmxContextReference__Group_2_1__1
+            // InternalAsm.g:9415:1: ( rule__DmxContextReference__Group_2_1__0__Impl rule__DmxContextReference__Group_2_1__1 )
+            // InternalAsm.g:9416:2: rule__DmxContextReference__Group_2_1__0__Impl rule__DmxContextReference__Group_2_1__1
             {
-            pushFollow(FOLLOW_69);
+            pushFollow(FOLLOW_72);
             rule__DmxContextReference__Group_2_1__0__Impl();
 
             state._fsp--;
@@ -31287,17 +31824,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__Group_2_1__0__Impl"
-    // InternalAsm.g:9254:1: rule__DmxContextReference__Group_2_1__0__Impl : ( '.' ) ;
+    // InternalAsm.g:9423:1: rule__DmxContextReference__Group_2_1__0__Impl : ( '.' ) ;
     public final void rule__DmxContextReference__Group_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9258:1: ( ( '.' ) )
-            // InternalAsm.g:9259:1: ( '.' )
+            // InternalAsm.g:9427:1: ( ( '.' ) )
+            // InternalAsm.g:9428:1: ( '.' )
             {
-            // InternalAsm.g:9259:1: ( '.' )
-            // InternalAsm.g:9260:2: '.'
+            // InternalAsm.g:9428:1: ( '.' )
+            // InternalAsm.g:9429:2: '.'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getFullStopKeyword_2_1_0()); 
@@ -31328,14 +31865,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__Group_2_1__1"
-    // InternalAsm.g:9269:1: rule__DmxContextReference__Group_2_1__1 : rule__DmxContextReference__Group_2_1__1__Impl ;
+    // InternalAsm.g:9438:1: rule__DmxContextReference__Group_2_1__1 : rule__DmxContextReference__Group_2_1__1__Impl ;
     public final void rule__DmxContextReference__Group_2_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9273:1: ( rule__DmxContextReference__Group_2_1__1__Impl )
-            // InternalAsm.g:9274:2: rule__DmxContextReference__Group_2_1__1__Impl
+            // InternalAsm.g:9442:1: ( rule__DmxContextReference__Group_2_1__1__Impl )
+            // InternalAsm.g:9443:2: rule__DmxContextReference__Group_2_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxContextReference__Group_2_1__1__Impl();
@@ -31361,23 +31898,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__Group_2_1__1__Impl"
-    // InternalAsm.g:9280:1: rule__DmxContextReference__Group_2_1__1__Impl : ( ( rule__DmxContextReference__AllAssignment_2_1_1 ) ) ;
+    // InternalAsm.g:9449:1: rule__DmxContextReference__Group_2_1__1__Impl : ( ( rule__DmxContextReference__AllAssignment_2_1_1 ) ) ;
     public final void rule__DmxContextReference__Group_2_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9284:1: ( ( ( rule__DmxContextReference__AllAssignment_2_1_1 ) ) )
-            // InternalAsm.g:9285:1: ( ( rule__DmxContextReference__AllAssignment_2_1_1 ) )
+            // InternalAsm.g:9453:1: ( ( ( rule__DmxContextReference__AllAssignment_2_1_1 ) ) )
+            // InternalAsm.g:9454:1: ( ( rule__DmxContextReference__AllAssignment_2_1_1 ) )
             {
-            // InternalAsm.g:9285:1: ( ( rule__DmxContextReference__AllAssignment_2_1_1 ) )
-            // InternalAsm.g:9286:2: ( rule__DmxContextReference__AllAssignment_2_1_1 )
+            // InternalAsm.g:9454:1: ( ( rule__DmxContextReference__AllAssignment_2_1_1 ) )
+            // InternalAsm.g:9455:2: ( rule__DmxContextReference__AllAssignment_2_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getAllAssignment_2_1_1()); 
             }
-            // InternalAsm.g:9287:2: ( rule__DmxContextReference__AllAssignment_2_1_1 )
-            // InternalAsm.g:9287:3: rule__DmxContextReference__AllAssignment_2_1_1
+            // InternalAsm.g:9456:2: ( rule__DmxContextReference__AllAssignment_2_1_1 )
+            // InternalAsm.g:9456:3: rule__DmxContextReference__AllAssignment_2_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxContextReference__AllAssignment_2_1_1();
@@ -31412,16 +31949,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__0"
-    // InternalAsm.g:9296:1: rule__DmxIfExpression__Group__0 : rule__DmxIfExpression__Group__0__Impl rule__DmxIfExpression__Group__1 ;
+    // InternalAsm.g:9465:1: rule__DmxIfExpression__Group__0 : rule__DmxIfExpression__Group__0__Impl rule__DmxIfExpression__Group__1 ;
     public final void rule__DmxIfExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9300:1: ( rule__DmxIfExpression__Group__0__Impl rule__DmxIfExpression__Group__1 )
-            // InternalAsm.g:9301:2: rule__DmxIfExpression__Group__0__Impl rule__DmxIfExpression__Group__1
+            // InternalAsm.g:9469:1: ( rule__DmxIfExpression__Group__0__Impl rule__DmxIfExpression__Group__1 )
+            // InternalAsm.g:9470:2: rule__DmxIfExpression__Group__0__Impl rule__DmxIfExpression__Group__1
             {
-            pushFollow(FOLLOW_70);
+            pushFollow(FOLLOW_73);
             rule__DmxIfExpression__Group__0__Impl();
 
             state._fsp--;
@@ -31450,23 +31987,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__0__Impl"
-    // InternalAsm.g:9308:1: rule__DmxIfExpression__Group__0__Impl : ( () ) ;
+    // InternalAsm.g:9477:1: rule__DmxIfExpression__Group__0__Impl : ( () ) ;
     public final void rule__DmxIfExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9312:1: ( ( () ) )
-            // InternalAsm.g:9313:1: ( () )
+            // InternalAsm.g:9481:1: ( ( () ) )
+            // InternalAsm.g:9482:1: ( () )
             {
-            // InternalAsm.g:9313:1: ( () )
-            // InternalAsm.g:9314:2: ()
+            // InternalAsm.g:9482:1: ( () )
+            // InternalAsm.g:9483:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getDmxIfExpressionAction_0()); 
             }
-            // InternalAsm.g:9315:2: ()
-            // InternalAsm.g:9315:3: 
+            // InternalAsm.g:9484:2: ()
+            // InternalAsm.g:9484:3: 
             {
             }
 
@@ -31491,14 +32028,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__1"
-    // InternalAsm.g:9323:1: rule__DmxIfExpression__Group__1 : rule__DmxIfExpression__Group__1__Impl rule__DmxIfExpression__Group__2 ;
+    // InternalAsm.g:9492:1: rule__DmxIfExpression__Group__1 : rule__DmxIfExpression__Group__1__Impl rule__DmxIfExpression__Group__2 ;
     public final void rule__DmxIfExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9327:1: ( rule__DmxIfExpression__Group__1__Impl rule__DmxIfExpression__Group__2 )
-            // InternalAsm.g:9328:2: rule__DmxIfExpression__Group__1__Impl rule__DmxIfExpression__Group__2
+            // InternalAsm.g:9496:1: ( rule__DmxIfExpression__Group__1__Impl rule__DmxIfExpression__Group__2 )
+            // InternalAsm.g:9497:2: rule__DmxIfExpression__Group__1__Impl rule__DmxIfExpression__Group__2
             {
             pushFollow(FOLLOW_25);
             rule__DmxIfExpression__Group__1__Impl();
@@ -31529,17 +32066,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__1__Impl"
-    // InternalAsm.g:9335:1: rule__DmxIfExpression__Group__1__Impl : ( 'if' ) ;
+    // InternalAsm.g:9504:1: rule__DmxIfExpression__Group__1__Impl : ( 'if' ) ;
     public final void rule__DmxIfExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9339:1: ( ( 'if' ) )
-            // InternalAsm.g:9340:1: ( 'if' )
+            // InternalAsm.g:9508:1: ( ( 'if' ) )
+            // InternalAsm.g:9509:1: ( 'if' )
             {
-            // InternalAsm.g:9340:1: ( 'if' )
-            // InternalAsm.g:9341:2: 'if'
+            // InternalAsm.g:9509:1: ( 'if' )
+            // InternalAsm.g:9510:2: 'if'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getIfKeyword_1()); 
@@ -31570,16 +32107,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__2"
-    // InternalAsm.g:9350:1: rule__DmxIfExpression__Group__2 : rule__DmxIfExpression__Group__2__Impl rule__DmxIfExpression__Group__3 ;
+    // InternalAsm.g:9519:1: rule__DmxIfExpression__Group__2 : rule__DmxIfExpression__Group__2__Impl rule__DmxIfExpression__Group__3 ;
     public final void rule__DmxIfExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9354:1: ( rule__DmxIfExpression__Group__2__Impl rule__DmxIfExpression__Group__3 )
-            // InternalAsm.g:9355:2: rule__DmxIfExpression__Group__2__Impl rule__DmxIfExpression__Group__3
+            // InternalAsm.g:9523:1: ( rule__DmxIfExpression__Group__2__Impl rule__DmxIfExpression__Group__3 )
+            // InternalAsm.g:9524:2: rule__DmxIfExpression__Group__2__Impl rule__DmxIfExpression__Group__3
             {
-            pushFollow(FOLLOW_71);
+            pushFollow(FOLLOW_74);
             rule__DmxIfExpression__Group__2__Impl();
 
             state._fsp--;
@@ -31608,23 +32145,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__2__Impl"
-    // InternalAsm.g:9362:1: rule__DmxIfExpression__Group__2__Impl : ( ( rule__DmxIfExpression__IfAssignment_2 ) ) ;
+    // InternalAsm.g:9531:1: rule__DmxIfExpression__Group__2__Impl : ( ( rule__DmxIfExpression__IfAssignment_2 ) ) ;
     public final void rule__DmxIfExpression__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9366:1: ( ( ( rule__DmxIfExpression__IfAssignment_2 ) ) )
-            // InternalAsm.g:9367:1: ( ( rule__DmxIfExpression__IfAssignment_2 ) )
+            // InternalAsm.g:9535:1: ( ( ( rule__DmxIfExpression__IfAssignment_2 ) ) )
+            // InternalAsm.g:9536:1: ( ( rule__DmxIfExpression__IfAssignment_2 ) )
             {
-            // InternalAsm.g:9367:1: ( ( rule__DmxIfExpression__IfAssignment_2 ) )
-            // InternalAsm.g:9368:2: ( rule__DmxIfExpression__IfAssignment_2 )
+            // InternalAsm.g:9536:1: ( ( rule__DmxIfExpression__IfAssignment_2 ) )
+            // InternalAsm.g:9537:2: ( rule__DmxIfExpression__IfAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getIfAssignment_2()); 
             }
-            // InternalAsm.g:9369:2: ( rule__DmxIfExpression__IfAssignment_2 )
-            // InternalAsm.g:9369:3: rule__DmxIfExpression__IfAssignment_2
+            // InternalAsm.g:9538:2: ( rule__DmxIfExpression__IfAssignment_2 )
+            // InternalAsm.g:9538:3: rule__DmxIfExpression__IfAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__DmxIfExpression__IfAssignment_2();
@@ -31659,14 +32196,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__3"
-    // InternalAsm.g:9377:1: rule__DmxIfExpression__Group__3 : rule__DmxIfExpression__Group__3__Impl rule__DmxIfExpression__Group__4 ;
+    // InternalAsm.g:9546:1: rule__DmxIfExpression__Group__3 : rule__DmxIfExpression__Group__3__Impl rule__DmxIfExpression__Group__4 ;
     public final void rule__DmxIfExpression__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9381:1: ( rule__DmxIfExpression__Group__3__Impl rule__DmxIfExpression__Group__4 )
-            // InternalAsm.g:9382:2: rule__DmxIfExpression__Group__3__Impl rule__DmxIfExpression__Group__4
+            // InternalAsm.g:9550:1: ( rule__DmxIfExpression__Group__3__Impl rule__DmxIfExpression__Group__4 )
+            // InternalAsm.g:9551:2: rule__DmxIfExpression__Group__3__Impl rule__DmxIfExpression__Group__4
             {
             pushFollow(FOLLOW_25);
             rule__DmxIfExpression__Group__3__Impl();
@@ -31697,17 +32234,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__3__Impl"
-    // InternalAsm.g:9389:1: rule__DmxIfExpression__Group__3__Impl : ( 'then' ) ;
+    // InternalAsm.g:9558:1: rule__DmxIfExpression__Group__3__Impl : ( 'then' ) ;
     public final void rule__DmxIfExpression__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9393:1: ( ( 'then' ) )
-            // InternalAsm.g:9394:1: ( 'then' )
+            // InternalAsm.g:9562:1: ( ( 'then' ) )
+            // InternalAsm.g:9563:1: ( 'then' )
             {
-            // InternalAsm.g:9394:1: ( 'then' )
-            // InternalAsm.g:9395:2: 'then'
+            // InternalAsm.g:9563:1: ( 'then' )
+            // InternalAsm.g:9564:2: 'then'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getThenKeyword_3()); 
@@ -31738,16 +32275,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__4"
-    // InternalAsm.g:9404:1: rule__DmxIfExpression__Group__4 : rule__DmxIfExpression__Group__4__Impl rule__DmxIfExpression__Group__5 ;
+    // InternalAsm.g:9573:1: rule__DmxIfExpression__Group__4 : rule__DmxIfExpression__Group__4__Impl rule__DmxIfExpression__Group__5 ;
     public final void rule__DmxIfExpression__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9408:1: ( rule__DmxIfExpression__Group__4__Impl rule__DmxIfExpression__Group__5 )
-            // InternalAsm.g:9409:2: rule__DmxIfExpression__Group__4__Impl rule__DmxIfExpression__Group__5
+            // InternalAsm.g:9577:1: ( rule__DmxIfExpression__Group__4__Impl rule__DmxIfExpression__Group__5 )
+            // InternalAsm.g:9578:2: rule__DmxIfExpression__Group__4__Impl rule__DmxIfExpression__Group__5
             {
-            pushFollow(FOLLOW_72);
+            pushFollow(FOLLOW_75);
             rule__DmxIfExpression__Group__4__Impl();
 
             state._fsp--;
@@ -31776,23 +32313,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__4__Impl"
-    // InternalAsm.g:9416:1: rule__DmxIfExpression__Group__4__Impl : ( ( rule__DmxIfExpression__ThenAssignment_4 ) ) ;
+    // InternalAsm.g:9585:1: rule__DmxIfExpression__Group__4__Impl : ( ( rule__DmxIfExpression__ThenAssignment_4 ) ) ;
     public final void rule__DmxIfExpression__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9420:1: ( ( ( rule__DmxIfExpression__ThenAssignment_4 ) ) )
-            // InternalAsm.g:9421:1: ( ( rule__DmxIfExpression__ThenAssignment_4 ) )
+            // InternalAsm.g:9589:1: ( ( ( rule__DmxIfExpression__ThenAssignment_4 ) ) )
+            // InternalAsm.g:9590:1: ( ( rule__DmxIfExpression__ThenAssignment_4 ) )
             {
-            // InternalAsm.g:9421:1: ( ( rule__DmxIfExpression__ThenAssignment_4 ) )
-            // InternalAsm.g:9422:2: ( rule__DmxIfExpression__ThenAssignment_4 )
+            // InternalAsm.g:9590:1: ( ( rule__DmxIfExpression__ThenAssignment_4 ) )
+            // InternalAsm.g:9591:2: ( rule__DmxIfExpression__ThenAssignment_4 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getThenAssignment_4()); 
             }
-            // InternalAsm.g:9423:2: ( rule__DmxIfExpression__ThenAssignment_4 )
-            // InternalAsm.g:9423:3: rule__DmxIfExpression__ThenAssignment_4
+            // InternalAsm.g:9592:2: ( rule__DmxIfExpression__ThenAssignment_4 )
+            // InternalAsm.g:9592:3: rule__DmxIfExpression__ThenAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__DmxIfExpression__ThenAssignment_4();
@@ -31827,16 +32364,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__5"
-    // InternalAsm.g:9431:1: rule__DmxIfExpression__Group__5 : rule__DmxIfExpression__Group__5__Impl rule__DmxIfExpression__Group__6 ;
+    // InternalAsm.g:9600:1: rule__DmxIfExpression__Group__5 : rule__DmxIfExpression__Group__5__Impl rule__DmxIfExpression__Group__6 ;
     public final void rule__DmxIfExpression__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9435:1: ( rule__DmxIfExpression__Group__5__Impl rule__DmxIfExpression__Group__6 )
-            // InternalAsm.g:9436:2: rule__DmxIfExpression__Group__5__Impl rule__DmxIfExpression__Group__6
+            // InternalAsm.g:9604:1: ( rule__DmxIfExpression__Group__5__Impl rule__DmxIfExpression__Group__6 )
+            // InternalAsm.g:9605:2: rule__DmxIfExpression__Group__5__Impl rule__DmxIfExpression__Group__6
             {
-            pushFollow(FOLLOW_72);
+            pushFollow(FOLLOW_75);
             rule__DmxIfExpression__Group__5__Impl();
 
             state._fsp--;
@@ -31865,22 +32402,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__5__Impl"
-    // InternalAsm.g:9443:1: rule__DmxIfExpression__Group__5__Impl : ( ( rule__DmxIfExpression__Group_5__0 )? ) ;
+    // InternalAsm.g:9612:1: rule__DmxIfExpression__Group__5__Impl : ( ( rule__DmxIfExpression__Group_5__0 )? ) ;
     public final void rule__DmxIfExpression__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9447:1: ( ( ( rule__DmxIfExpression__Group_5__0 )? ) )
-            // InternalAsm.g:9448:1: ( ( rule__DmxIfExpression__Group_5__0 )? )
+            // InternalAsm.g:9616:1: ( ( ( rule__DmxIfExpression__Group_5__0 )? ) )
+            // InternalAsm.g:9617:1: ( ( rule__DmxIfExpression__Group_5__0 )? )
             {
-            // InternalAsm.g:9448:1: ( ( rule__DmxIfExpression__Group_5__0 )? )
-            // InternalAsm.g:9449:2: ( rule__DmxIfExpression__Group_5__0 )?
+            // InternalAsm.g:9617:1: ( ( rule__DmxIfExpression__Group_5__0 )? )
+            // InternalAsm.g:9618:2: ( rule__DmxIfExpression__Group_5__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getGroup_5()); 
             }
-            // InternalAsm.g:9450:2: ( rule__DmxIfExpression__Group_5__0 )?
+            // InternalAsm.g:9619:2: ( rule__DmxIfExpression__Group_5__0 )?
             int alt81=2;
             int LA81_0 = input.LA(1);
 
@@ -31889,7 +32426,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
             switch (alt81) {
                 case 1 :
-                    // InternalAsm.g:9450:3: rule__DmxIfExpression__Group_5__0
+                    // InternalAsm.g:9619:3: rule__DmxIfExpression__Group_5__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DmxIfExpression__Group_5__0();
@@ -31927,14 +32464,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__6"
-    // InternalAsm.g:9458:1: rule__DmxIfExpression__Group__6 : rule__DmxIfExpression__Group__6__Impl ;
+    // InternalAsm.g:9627:1: rule__DmxIfExpression__Group__6 : rule__DmxIfExpression__Group__6__Impl ;
     public final void rule__DmxIfExpression__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9462:1: ( rule__DmxIfExpression__Group__6__Impl )
-            // InternalAsm.g:9463:2: rule__DmxIfExpression__Group__6__Impl
+            // InternalAsm.g:9631:1: ( rule__DmxIfExpression__Group__6__Impl )
+            // InternalAsm.g:9632:2: rule__DmxIfExpression__Group__6__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxIfExpression__Group__6__Impl();
@@ -31960,17 +32497,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group__6__Impl"
-    // InternalAsm.g:9469:1: rule__DmxIfExpression__Group__6__Impl : ( 'end' ) ;
+    // InternalAsm.g:9638:1: rule__DmxIfExpression__Group__6__Impl : ( 'end' ) ;
     public final void rule__DmxIfExpression__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9473:1: ( ( 'end' ) )
-            // InternalAsm.g:9474:1: ( 'end' )
+            // InternalAsm.g:9642:1: ( ( 'end' ) )
+            // InternalAsm.g:9643:1: ( 'end' )
             {
-            // InternalAsm.g:9474:1: ( 'end' )
-            // InternalAsm.g:9475:2: 'end'
+            // InternalAsm.g:9643:1: ( 'end' )
+            // InternalAsm.g:9644:2: 'end'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getEndKeyword_6()); 
@@ -32001,14 +32538,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group_5__0"
-    // InternalAsm.g:9485:1: rule__DmxIfExpression__Group_5__0 : rule__DmxIfExpression__Group_5__0__Impl rule__DmxIfExpression__Group_5__1 ;
+    // InternalAsm.g:9654:1: rule__DmxIfExpression__Group_5__0 : rule__DmxIfExpression__Group_5__0__Impl rule__DmxIfExpression__Group_5__1 ;
     public final void rule__DmxIfExpression__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9489:1: ( rule__DmxIfExpression__Group_5__0__Impl rule__DmxIfExpression__Group_5__1 )
-            // InternalAsm.g:9490:2: rule__DmxIfExpression__Group_5__0__Impl rule__DmxIfExpression__Group_5__1
+            // InternalAsm.g:9658:1: ( rule__DmxIfExpression__Group_5__0__Impl rule__DmxIfExpression__Group_5__1 )
+            // InternalAsm.g:9659:2: rule__DmxIfExpression__Group_5__0__Impl rule__DmxIfExpression__Group_5__1
             {
             pushFollow(FOLLOW_25);
             rule__DmxIfExpression__Group_5__0__Impl();
@@ -32039,23 +32576,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group_5__0__Impl"
-    // InternalAsm.g:9497:1: rule__DmxIfExpression__Group_5__0__Impl : ( ( 'else' ) ) ;
+    // InternalAsm.g:9666:1: rule__DmxIfExpression__Group_5__0__Impl : ( ( 'else' ) ) ;
     public final void rule__DmxIfExpression__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9501:1: ( ( ( 'else' ) ) )
-            // InternalAsm.g:9502:1: ( ( 'else' ) )
+            // InternalAsm.g:9670:1: ( ( ( 'else' ) ) )
+            // InternalAsm.g:9671:1: ( ( 'else' ) )
             {
-            // InternalAsm.g:9502:1: ( ( 'else' ) )
-            // InternalAsm.g:9503:2: ( 'else' )
+            // InternalAsm.g:9671:1: ( ( 'else' ) )
+            // InternalAsm.g:9672:2: ( 'else' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getElseKeyword_5_0()); 
             }
-            // InternalAsm.g:9504:2: ( 'else' )
-            // InternalAsm.g:9504:3: 'else'
+            // InternalAsm.g:9673:2: ( 'else' )
+            // InternalAsm.g:9673:3: 'else'
             {
             match(input,108,FOLLOW_2); if (state.failed) return ;
 
@@ -32086,14 +32623,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group_5__1"
-    // InternalAsm.g:9512:1: rule__DmxIfExpression__Group_5__1 : rule__DmxIfExpression__Group_5__1__Impl ;
+    // InternalAsm.g:9681:1: rule__DmxIfExpression__Group_5__1 : rule__DmxIfExpression__Group_5__1__Impl ;
     public final void rule__DmxIfExpression__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9516:1: ( rule__DmxIfExpression__Group_5__1__Impl )
-            // InternalAsm.g:9517:2: rule__DmxIfExpression__Group_5__1__Impl
+            // InternalAsm.g:9685:1: ( rule__DmxIfExpression__Group_5__1__Impl )
+            // InternalAsm.g:9686:2: rule__DmxIfExpression__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxIfExpression__Group_5__1__Impl();
@@ -32119,23 +32656,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__Group_5__1__Impl"
-    // InternalAsm.g:9523:1: rule__DmxIfExpression__Group_5__1__Impl : ( ( rule__DmxIfExpression__ElseAssignment_5_1 ) ) ;
+    // InternalAsm.g:9692:1: rule__DmxIfExpression__Group_5__1__Impl : ( ( rule__DmxIfExpression__ElseAssignment_5_1 ) ) ;
     public final void rule__DmxIfExpression__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9527:1: ( ( ( rule__DmxIfExpression__ElseAssignment_5_1 ) ) )
-            // InternalAsm.g:9528:1: ( ( rule__DmxIfExpression__ElseAssignment_5_1 ) )
+            // InternalAsm.g:9696:1: ( ( ( rule__DmxIfExpression__ElseAssignment_5_1 ) ) )
+            // InternalAsm.g:9697:1: ( ( rule__DmxIfExpression__ElseAssignment_5_1 ) )
             {
-            // InternalAsm.g:9528:1: ( ( rule__DmxIfExpression__ElseAssignment_5_1 ) )
-            // InternalAsm.g:9529:2: ( rule__DmxIfExpression__ElseAssignment_5_1 )
+            // InternalAsm.g:9697:1: ( ( rule__DmxIfExpression__ElseAssignment_5_1 ) )
+            // InternalAsm.g:9698:2: ( rule__DmxIfExpression__ElseAssignment_5_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getElseAssignment_5_1()); 
             }
-            // InternalAsm.g:9530:2: ( rule__DmxIfExpression__ElseAssignment_5_1 )
-            // InternalAsm.g:9530:3: rule__DmxIfExpression__ElseAssignment_5_1
+            // InternalAsm.g:9699:2: ( rule__DmxIfExpression__ElseAssignment_5_1 )
+            // InternalAsm.g:9699:3: rule__DmxIfExpression__ElseAssignment_5_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxIfExpression__ElseAssignment_5_1();
@@ -32170,14 +32707,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group__0"
-    // InternalAsm.g:9539:1: rule__DmxForLoopExpression__Group__0 : rule__DmxForLoopExpression__Group__0__Impl rule__DmxForLoopExpression__Group__1 ;
+    // InternalAsm.g:9708:1: rule__DmxForLoopExpression__Group__0 : rule__DmxForLoopExpression__Group__0__Impl rule__DmxForLoopExpression__Group__1 ;
     public final void rule__DmxForLoopExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9543:1: ( rule__DmxForLoopExpression__Group__0__Impl rule__DmxForLoopExpression__Group__1 )
-            // InternalAsm.g:9544:2: rule__DmxForLoopExpression__Group__0__Impl rule__DmxForLoopExpression__Group__1
+            // InternalAsm.g:9712:1: ( rule__DmxForLoopExpression__Group__0__Impl rule__DmxForLoopExpression__Group__1 )
+            // InternalAsm.g:9713:2: rule__DmxForLoopExpression__Group__0__Impl rule__DmxForLoopExpression__Group__1
             {
             pushFollow(FOLLOW_25);
             rule__DmxForLoopExpression__Group__0__Impl();
@@ -32208,23 +32745,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group__0__Impl"
-    // InternalAsm.g:9551:1: rule__DmxForLoopExpression__Group__0__Impl : ( ( rule__DmxForLoopExpression__Group_0__0 ) ) ;
+    // InternalAsm.g:9720:1: rule__DmxForLoopExpression__Group__0__Impl : ( ( rule__DmxForLoopExpression__Group_0__0 ) ) ;
     public final void rule__DmxForLoopExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9555:1: ( ( ( rule__DmxForLoopExpression__Group_0__0 ) ) )
-            // InternalAsm.g:9556:1: ( ( rule__DmxForLoopExpression__Group_0__0 ) )
+            // InternalAsm.g:9724:1: ( ( ( rule__DmxForLoopExpression__Group_0__0 ) ) )
+            // InternalAsm.g:9725:1: ( ( rule__DmxForLoopExpression__Group_0__0 ) )
             {
-            // InternalAsm.g:9556:1: ( ( rule__DmxForLoopExpression__Group_0__0 ) )
-            // InternalAsm.g:9557:2: ( rule__DmxForLoopExpression__Group_0__0 )
+            // InternalAsm.g:9725:1: ( ( rule__DmxForLoopExpression__Group_0__0 ) )
+            // InternalAsm.g:9726:2: ( rule__DmxForLoopExpression__Group_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getGroup_0()); 
             }
-            // InternalAsm.g:9558:2: ( rule__DmxForLoopExpression__Group_0__0 )
-            // InternalAsm.g:9558:3: rule__DmxForLoopExpression__Group_0__0
+            // InternalAsm.g:9727:2: ( rule__DmxForLoopExpression__Group_0__0 )
+            // InternalAsm.g:9727:3: rule__DmxForLoopExpression__Group_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxForLoopExpression__Group_0__0();
@@ -32259,16 +32796,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group__1"
-    // InternalAsm.g:9566:1: rule__DmxForLoopExpression__Group__1 : rule__DmxForLoopExpression__Group__1__Impl rule__DmxForLoopExpression__Group__2 ;
+    // InternalAsm.g:9735:1: rule__DmxForLoopExpression__Group__1 : rule__DmxForLoopExpression__Group__1__Impl rule__DmxForLoopExpression__Group__2 ;
     public final void rule__DmxForLoopExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9570:1: ( rule__DmxForLoopExpression__Group__1__Impl rule__DmxForLoopExpression__Group__2 )
-            // InternalAsm.g:9571:2: rule__DmxForLoopExpression__Group__1__Impl rule__DmxForLoopExpression__Group__2
+            // InternalAsm.g:9739:1: ( rule__DmxForLoopExpression__Group__1__Impl rule__DmxForLoopExpression__Group__2 )
+            // InternalAsm.g:9740:2: rule__DmxForLoopExpression__Group__1__Impl rule__DmxForLoopExpression__Group__2
             {
-            pushFollow(FOLLOW_73);
+            pushFollow(FOLLOW_76);
             rule__DmxForLoopExpression__Group__1__Impl();
 
             state._fsp--;
@@ -32297,23 +32834,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group__1__Impl"
-    // InternalAsm.g:9578:1: rule__DmxForLoopExpression__Group__1__Impl : ( ( rule__DmxForLoopExpression__ForExpressionAssignment_1 ) ) ;
+    // InternalAsm.g:9747:1: rule__DmxForLoopExpression__Group__1__Impl : ( ( rule__DmxForLoopExpression__ForExpressionAssignment_1 ) ) ;
     public final void rule__DmxForLoopExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9582:1: ( ( ( rule__DmxForLoopExpression__ForExpressionAssignment_1 ) ) )
-            // InternalAsm.g:9583:1: ( ( rule__DmxForLoopExpression__ForExpressionAssignment_1 ) )
+            // InternalAsm.g:9751:1: ( ( ( rule__DmxForLoopExpression__ForExpressionAssignment_1 ) ) )
+            // InternalAsm.g:9752:1: ( ( rule__DmxForLoopExpression__ForExpressionAssignment_1 ) )
             {
-            // InternalAsm.g:9583:1: ( ( rule__DmxForLoopExpression__ForExpressionAssignment_1 ) )
-            // InternalAsm.g:9584:2: ( rule__DmxForLoopExpression__ForExpressionAssignment_1 )
+            // InternalAsm.g:9752:1: ( ( rule__DmxForLoopExpression__ForExpressionAssignment_1 ) )
+            // InternalAsm.g:9753:2: ( rule__DmxForLoopExpression__ForExpressionAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getForExpressionAssignment_1()); 
             }
-            // InternalAsm.g:9585:2: ( rule__DmxForLoopExpression__ForExpressionAssignment_1 )
-            // InternalAsm.g:9585:3: rule__DmxForLoopExpression__ForExpressionAssignment_1
+            // InternalAsm.g:9754:2: ( rule__DmxForLoopExpression__ForExpressionAssignment_1 )
+            // InternalAsm.g:9754:3: rule__DmxForLoopExpression__ForExpressionAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxForLoopExpression__ForExpressionAssignment_1();
@@ -32348,14 +32885,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group__2"
-    // InternalAsm.g:9593:1: rule__DmxForLoopExpression__Group__2 : rule__DmxForLoopExpression__Group__2__Impl rule__DmxForLoopExpression__Group__3 ;
+    // InternalAsm.g:9762:1: rule__DmxForLoopExpression__Group__2 : rule__DmxForLoopExpression__Group__2__Impl rule__DmxForLoopExpression__Group__3 ;
     public final void rule__DmxForLoopExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9597:1: ( rule__DmxForLoopExpression__Group__2__Impl rule__DmxForLoopExpression__Group__3 )
-            // InternalAsm.g:9598:2: rule__DmxForLoopExpression__Group__2__Impl rule__DmxForLoopExpression__Group__3
+            // InternalAsm.g:9766:1: ( rule__DmxForLoopExpression__Group__2__Impl rule__DmxForLoopExpression__Group__3 )
+            // InternalAsm.g:9767:2: rule__DmxForLoopExpression__Group__2__Impl rule__DmxForLoopExpression__Group__3
             {
             pushFollow(FOLLOW_25);
             rule__DmxForLoopExpression__Group__2__Impl();
@@ -32386,17 +32923,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group__2__Impl"
-    // InternalAsm.g:9605:1: rule__DmxForLoopExpression__Group__2__Impl : ( 'do' ) ;
+    // InternalAsm.g:9774:1: rule__DmxForLoopExpression__Group__2__Impl : ( 'do' ) ;
     public final void rule__DmxForLoopExpression__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9609:1: ( ( 'do' ) )
-            // InternalAsm.g:9610:1: ( 'do' )
+            // InternalAsm.g:9778:1: ( ( 'do' ) )
+            // InternalAsm.g:9779:1: ( 'do' )
             {
-            // InternalAsm.g:9610:1: ( 'do' )
-            // InternalAsm.g:9611:2: 'do'
+            // InternalAsm.g:9779:1: ( 'do' )
+            // InternalAsm.g:9780:2: 'do'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getDoKeyword_2()); 
@@ -32427,16 +32964,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group__3"
-    // InternalAsm.g:9620:1: rule__DmxForLoopExpression__Group__3 : rule__DmxForLoopExpression__Group__3__Impl rule__DmxForLoopExpression__Group__4 ;
+    // InternalAsm.g:9789:1: rule__DmxForLoopExpression__Group__3 : rule__DmxForLoopExpression__Group__3__Impl rule__DmxForLoopExpression__Group__4 ;
     public final void rule__DmxForLoopExpression__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9624:1: ( rule__DmxForLoopExpression__Group__3__Impl rule__DmxForLoopExpression__Group__4 )
-            // InternalAsm.g:9625:2: rule__DmxForLoopExpression__Group__3__Impl rule__DmxForLoopExpression__Group__4
+            // InternalAsm.g:9793:1: ( rule__DmxForLoopExpression__Group__3__Impl rule__DmxForLoopExpression__Group__4 )
+            // InternalAsm.g:9794:2: rule__DmxForLoopExpression__Group__3__Impl rule__DmxForLoopExpression__Group__4
             {
-            pushFollow(FOLLOW_74);
+            pushFollow(FOLLOW_77);
             rule__DmxForLoopExpression__Group__3__Impl();
 
             state._fsp--;
@@ -32465,23 +33002,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group__3__Impl"
-    // InternalAsm.g:9632:1: rule__DmxForLoopExpression__Group__3__Impl : ( ( rule__DmxForLoopExpression__EachExpressionAssignment_3 ) ) ;
+    // InternalAsm.g:9801:1: rule__DmxForLoopExpression__Group__3__Impl : ( ( rule__DmxForLoopExpression__EachExpressionAssignment_3 ) ) ;
     public final void rule__DmxForLoopExpression__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9636:1: ( ( ( rule__DmxForLoopExpression__EachExpressionAssignment_3 ) ) )
-            // InternalAsm.g:9637:1: ( ( rule__DmxForLoopExpression__EachExpressionAssignment_3 ) )
+            // InternalAsm.g:9805:1: ( ( ( rule__DmxForLoopExpression__EachExpressionAssignment_3 ) ) )
+            // InternalAsm.g:9806:1: ( ( rule__DmxForLoopExpression__EachExpressionAssignment_3 ) )
             {
-            // InternalAsm.g:9637:1: ( ( rule__DmxForLoopExpression__EachExpressionAssignment_3 ) )
-            // InternalAsm.g:9638:2: ( rule__DmxForLoopExpression__EachExpressionAssignment_3 )
+            // InternalAsm.g:9806:1: ( ( rule__DmxForLoopExpression__EachExpressionAssignment_3 ) )
+            // InternalAsm.g:9807:2: ( rule__DmxForLoopExpression__EachExpressionAssignment_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getEachExpressionAssignment_3()); 
             }
-            // InternalAsm.g:9639:2: ( rule__DmxForLoopExpression__EachExpressionAssignment_3 )
-            // InternalAsm.g:9639:3: rule__DmxForLoopExpression__EachExpressionAssignment_3
+            // InternalAsm.g:9808:2: ( rule__DmxForLoopExpression__EachExpressionAssignment_3 )
+            // InternalAsm.g:9808:3: rule__DmxForLoopExpression__EachExpressionAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__DmxForLoopExpression__EachExpressionAssignment_3();
@@ -32516,14 +33053,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group__4"
-    // InternalAsm.g:9647:1: rule__DmxForLoopExpression__Group__4 : rule__DmxForLoopExpression__Group__4__Impl ;
+    // InternalAsm.g:9816:1: rule__DmxForLoopExpression__Group__4 : rule__DmxForLoopExpression__Group__4__Impl ;
     public final void rule__DmxForLoopExpression__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9651:1: ( rule__DmxForLoopExpression__Group__4__Impl )
-            // InternalAsm.g:9652:2: rule__DmxForLoopExpression__Group__4__Impl
+            // InternalAsm.g:9820:1: ( rule__DmxForLoopExpression__Group__4__Impl )
+            // InternalAsm.g:9821:2: rule__DmxForLoopExpression__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxForLoopExpression__Group__4__Impl();
@@ -32549,17 +33086,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group__4__Impl"
-    // InternalAsm.g:9658:1: rule__DmxForLoopExpression__Group__4__Impl : ( 'end' ) ;
+    // InternalAsm.g:9827:1: rule__DmxForLoopExpression__Group__4__Impl : ( 'end' ) ;
     public final void rule__DmxForLoopExpression__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9662:1: ( ( 'end' ) )
-            // InternalAsm.g:9663:1: ( 'end' )
+            // InternalAsm.g:9831:1: ( ( 'end' ) )
+            // InternalAsm.g:9832:1: ( 'end' )
             {
-            // InternalAsm.g:9663:1: ( 'end' )
-            // InternalAsm.g:9664:2: 'end'
+            // InternalAsm.g:9832:1: ( 'end' )
+            // InternalAsm.g:9833:2: 'end'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getEndKeyword_4()); 
@@ -32590,14 +33127,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group_0__0"
-    // InternalAsm.g:9674:1: rule__DmxForLoopExpression__Group_0__0 : rule__DmxForLoopExpression__Group_0__0__Impl ;
+    // InternalAsm.g:9843:1: rule__DmxForLoopExpression__Group_0__0 : rule__DmxForLoopExpression__Group_0__0__Impl ;
     public final void rule__DmxForLoopExpression__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9678:1: ( rule__DmxForLoopExpression__Group_0__0__Impl )
-            // InternalAsm.g:9679:2: rule__DmxForLoopExpression__Group_0__0__Impl
+            // InternalAsm.g:9847:1: ( rule__DmxForLoopExpression__Group_0__0__Impl )
+            // InternalAsm.g:9848:2: rule__DmxForLoopExpression__Group_0__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxForLoopExpression__Group_0__0__Impl();
@@ -32623,23 +33160,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group_0__0__Impl"
-    // InternalAsm.g:9685:1: rule__DmxForLoopExpression__Group_0__0__Impl : ( ( rule__DmxForLoopExpression__Group_0_0__0 ) ) ;
+    // InternalAsm.g:9854:1: rule__DmxForLoopExpression__Group_0__0__Impl : ( ( rule__DmxForLoopExpression__Group_0_0__0 ) ) ;
     public final void rule__DmxForLoopExpression__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9689:1: ( ( ( rule__DmxForLoopExpression__Group_0_0__0 ) ) )
-            // InternalAsm.g:9690:1: ( ( rule__DmxForLoopExpression__Group_0_0__0 ) )
+            // InternalAsm.g:9858:1: ( ( ( rule__DmxForLoopExpression__Group_0_0__0 ) ) )
+            // InternalAsm.g:9859:1: ( ( rule__DmxForLoopExpression__Group_0_0__0 ) )
             {
-            // InternalAsm.g:9690:1: ( ( rule__DmxForLoopExpression__Group_0_0__0 ) )
-            // InternalAsm.g:9691:2: ( rule__DmxForLoopExpression__Group_0_0__0 )
+            // InternalAsm.g:9859:1: ( ( rule__DmxForLoopExpression__Group_0_0__0 ) )
+            // InternalAsm.g:9860:2: ( rule__DmxForLoopExpression__Group_0_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getGroup_0_0()); 
             }
-            // InternalAsm.g:9692:2: ( rule__DmxForLoopExpression__Group_0_0__0 )
-            // InternalAsm.g:9692:3: rule__DmxForLoopExpression__Group_0_0__0
+            // InternalAsm.g:9861:2: ( rule__DmxForLoopExpression__Group_0_0__0 )
+            // InternalAsm.g:9861:3: rule__DmxForLoopExpression__Group_0_0__0
             {
             pushFollow(FOLLOW_2);
             rule__DmxForLoopExpression__Group_0_0__0();
@@ -32674,16 +33211,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group_0_0__0"
-    // InternalAsm.g:9701:1: rule__DmxForLoopExpression__Group_0_0__0 : rule__DmxForLoopExpression__Group_0_0__0__Impl rule__DmxForLoopExpression__Group_0_0__1 ;
+    // InternalAsm.g:9870:1: rule__DmxForLoopExpression__Group_0_0__0 : rule__DmxForLoopExpression__Group_0_0__0__Impl rule__DmxForLoopExpression__Group_0_0__1 ;
     public final void rule__DmxForLoopExpression__Group_0_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9705:1: ( rule__DmxForLoopExpression__Group_0_0__0__Impl rule__DmxForLoopExpression__Group_0_0__1 )
-            // InternalAsm.g:9706:2: rule__DmxForLoopExpression__Group_0_0__0__Impl rule__DmxForLoopExpression__Group_0_0__1
+            // InternalAsm.g:9874:1: ( rule__DmxForLoopExpression__Group_0_0__0__Impl rule__DmxForLoopExpression__Group_0_0__1 )
+            // InternalAsm.g:9875:2: rule__DmxForLoopExpression__Group_0_0__0__Impl rule__DmxForLoopExpression__Group_0_0__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_41);
             rule__DmxForLoopExpression__Group_0_0__0__Impl();
 
             state._fsp--;
@@ -32712,23 +33249,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group_0_0__0__Impl"
-    // InternalAsm.g:9713:1: rule__DmxForLoopExpression__Group_0_0__0__Impl : ( () ) ;
+    // InternalAsm.g:9882:1: rule__DmxForLoopExpression__Group_0_0__0__Impl : ( () ) ;
     public final void rule__DmxForLoopExpression__Group_0_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9717:1: ( ( () ) )
-            // InternalAsm.g:9718:1: ( () )
+            // InternalAsm.g:9886:1: ( ( () ) )
+            // InternalAsm.g:9887:1: ( () )
             {
-            // InternalAsm.g:9718:1: ( () )
-            // InternalAsm.g:9719:2: ()
+            // InternalAsm.g:9887:1: ( () )
+            // InternalAsm.g:9888:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getDmxForLoopExpressionAction_0_0_0()); 
             }
-            // InternalAsm.g:9720:2: ()
-            // InternalAsm.g:9720:3: 
+            // InternalAsm.g:9889:2: ()
+            // InternalAsm.g:9889:3: 
             {
             }
 
@@ -32753,14 +33290,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group_0_0__1"
-    // InternalAsm.g:9728:1: rule__DmxForLoopExpression__Group_0_0__1 : rule__DmxForLoopExpression__Group_0_0__1__Impl rule__DmxForLoopExpression__Group_0_0__2 ;
+    // InternalAsm.g:9897:1: rule__DmxForLoopExpression__Group_0_0__1 : rule__DmxForLoopExpression__Group_0_0__1__Impl rule__DmxForLoopExpression__Group_0_0__2 ;
     public final void rule__DmxForLoopExpression__Group_0_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9732:1: ( rule__DmxForLoopExpression__Group_0_0__1__Impl rule__DmxForLoopExpression__Group_0_0__2 )
-            // InternalAsm.g:9733:2: rule__DmxForLoopExpression__Group_0_0__1__Impl rule__DmxForLoopExpression__Group_0_0__2
+            // InternalAsm.g:9901:1: ( rule__DmxForLoopExpression__Group_0_0__1__Impl rule__DmxForLoopExpression__Group_0_0__2 )
+            // InternalAsm.g:9902:2: rule__DmxForLoopExpression__Group_0_0__1__Impl rule__DmxForLoopExpression__Group_0_0__2
             {
             pushFollow(FOLLOW_5);
             rule__DmxForLoopExpression__Group_0_0__1__Impl();
@@ -32791,17 +33328,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group_0_0__1__Impl"
-    // InternalAsm.g:9740:1: rule__DmxForLoopExpression__Group_0_0__1__Impl : ( 'for' ) ;
+    // InternalAsm.g:9909:1: rule__DmxForLoopExpression__Group_0_0__1__Impl : ( 'for' ) ;
     public final void rule__DmxForLoopExpression__Group_0_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9744:1: ( ( 'for' ) )
-            // InternalAsm.g:9745:1: ( 'for' )
+            // InternalAsm.g:9913:1: ( ( 'for' ) )
+            // InternalAsm.g:9914:1: ( 'for' )
             {
-            // InternalAsm.g:9745:1: ( 'for' )
-            // InternalAsm.g:9746:2: 'for'
+            // InternalAsm.g:9914:1: ( 'for' )
+            // InternalAsm.g:9915:2: 'for'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getForKeyword_0_0_1()); 
@@ -32832,14 +33369,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group_0_0__2"
-    // InternalAsm.g:9755:1: rule__DmxForLoopExpression__Group_0_0__2 : rule__DmxForLoopExpression__Group_0_0__2__Impl rule__DmxForLoopExpression__Group_0_0__3 ;
+    // InternalAsm.g:9924:1: rule__DmxForLoopExpression__Group_0_0__2 : rule__DmxForLoopExpression__Group_0_0__2__Impl rule__DmxForLoopExpression__Group_0_0__3 ;
     public final void rule__DmxForLoopExpression__Group_0_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9759:1: ( rule__DmxForLoopExpression__Group_0_0__2__Impl rule__DmxForLoopExpression__Group_0_0__3 )
-            // InternalAsm.g:9760:2: rule__DmxForLoopExpression__Group_0_0__2__Impl rule__DmxForLoopExpression__Group_0_0__3
+            // InternalAsm.g:9928:1: ( rule__DmxForLoopExpression__Group_0_0__2__Impl rule__DmxForLoopExpression__Group_0_0__3 )
+            // InternalAsm.g:9929:2: rule__DmxForLoopExpression__Group_0_0__2__Impl rule__DmxForLoopExpression__Group_0_0__3
             {
             pushFollow(FOLLOW_26);
             rule__DmxForLoopExpression__Group_0_0__2__Impl();
@@ -32870,23 +33407,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group_0_0__2__Impl"
-    // InternalAsm.g:9767:1: rule__DmxForLoopExpression__Group_0_0__2__Impl : ( ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 ) ) ;
+    // InternalAsm.g:9936:1: rule__DmxForLoopExpression__Group_0_0__2__Impl : ( ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 ) ) ;
     public final void rule__DmxForLoopExpression__Group_0_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9771:1: ( ( ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 ) ) )
-            // InternalAsm.g:9772:1: ( ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 ) )
+            // InternalAsm.g:9940:1: ( ( ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 ) ) )
+            // InternalAsm.g:9941:1: ( ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 ) )
             {
-            // InternalAsm.g:9772:1: ( ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 ) )
-            // InternalAsm.g:9773:2: ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 )
+            // InternalAsm.g:9941:1: ( ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 ) )
+            // InternalAsm.g:9942:2: ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getDeclaredParamAssignment_0_0_2()); 
             }
-            // InternalAsm.g:9774:2: ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 )
-            // InternalAsm.g:9774:3: rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2
+            // InternalAsm.g:9943:2: ( rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 )
+            // InternalAsm.g:9943:3: rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2
             {
             pushFollow(FOLLOW_2);
             rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2();
@@ -32921,14 +33458,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group_0_0__3"
-    // InternalAsm.g:9782:1: rule__DmxForLoopExpression__Group_0_0__3 : rule__DmxForLoopExpression__Group_0_0__3__Impl ;
+    // InternalAsm.g:9951:1: rule__DmxForLoopExpression__Group_0_0__3 : rule__DmxForLoopExpression__Group_0_0__3__Impl ;
     public final void rule__DmxForLoopExpression__Group_0_0__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9786:1: ( rule__DmxForLoopExpression__Group_0_0__3__Impl )
-            // InternalAsm.g:9787:2: rule__DmxForLoopExpression__Group_0_0__3__Impl
+            // InternalAsm.g:9955:1: ( rule__DmxForLoopExpression__Group_0_0__3__Impl )
+            // InternalAsm.g:9956:2: rule__DmxForLoopExpression__Group_0_0__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxForLoopExpression__Group_0_0__3__Impl();
@@ -32954,17 +33491,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__Group_0_0__3__Impl"
-    // InternalAsm.g:9793:1: rule__DmxForLoopExpression__Group_0_0__3__Impl : ( ':' ) ;
+    // InternalAsm.g:9962:1: rule__DmxForLoopExpression__Group_0_0__3__Impl : ( ':' ) ;
     public final void rule__DmxForLoopExpression__Group_0_0__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9797:1: ( ( ':' ) )
-            // InternalAsm.g:9798:1: ( ':' )
+            // InternalAsm.g:9966:1: ( ( ':' ) )
+            // InternalAsm.g:9967:1: ( ':' )
             {
-            // InternalAsm.g:9798:1: ( ':' )
-            // InternalAsm.g:9799:2: ':'
+            // InternalAsm.g:9967:1: ( ':' )
+            // InternalAsm.g:9968:2: ':'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getColonKeyword_0_0_3()); 
@@ -32995,16 +33532,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__Group__0"
-    // InternalAsm.g:9809:1: rule__DMultiplicity__Group__0 : rule__DMultiplicity__Group__0__Impl rule__DMultiplicity__Group__1 ;
+    // InternalAsm.g:9978:1: rule__DMultiplicity__Group__0 : rule__DMultiplicity__Group__0__Impl rule__DMultiplicity__Group__1 ;
     public final void rule__DMultiplicity__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9813:1: ( rule__DMultiplicity__Group__0__Impl rule__DMultiplicity__Group__1 )
-            // InternalAsm.g:9814:2: rule__DMultiplicity__Group__0__Impl rule__DMultiplicity__Group__1
+            // InternalAsm.g:9982:1: ( rule__DMultiplicity__Group__0__Impl rule__DMultiplicity__Group__1 )
+            // InternalAsm.g:9983:2: rule__DMultiplicity__Group__0__Impl rule__DMultiplicity__Group__1
             {
-            pushFollow(FOLLOW_75);
+            pushFollow(FOLLOW_78);
             rule__DMultiplicity__Group__0__Impl();
 
             state._fsp--;
@@ -33033,17 +33570,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__Group__0__Impl"
-    // InternalAsm.g:9821:1: rule__DMultiplicity__Group__0__Impl : ( '(' ) ;
+    // InternalAsm.g:9990:1: rule__DMultiplicity__Group__0__Impl : ( '(' ) ;
     public final void rule__DMultiplicity__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9825:1: ( ( '(' ) )
-            // InternalAsm.g:9826:1: ( '(' )
+            // InternalAsm.g:9994:1: ( ( '(' ) )
+            // InternalAsm.g:9995:1: ( '(' )
             {
-            // InternalAsm.g:9826:1: ( '(' )
-            // InternalAsm.g:9827:2: '('
+            // InternalAsm.g:9995:1: ( '(' )
+            // InternalAsm.g:9996:2: '('
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDMultiplicityAccess().getLeftParenthesisKeyword_0()); 
@@ -33074,16 +33611,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__Group__1"
-    // InternalAsm.g:9836:1: rule__DMultiplicity__Group__1 : rule__DMultiplicity__Group__1__Impl rule__DMultiplicity__Group__2 ;
+    // InternalAsm.g:10005:1: rule__DMultiplicity__Group__1 : rule__DMultiplicity__Group__1__Impl rule__DMultiplicity__Group__2 ;
     public final void rule__DMultiplicity__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9840:1: ( rule__DMultiplicity__Group__1__Impl rule__DMultiplicity__Group__2 )
-            // InternalAsm.g:9841:2: rule__DMultiplicity__Group__1__Impl rule__DMultiplicity__Group__2
+            // InternalAsm.g:10009:1: ( rule__DMultiplicity__Group__1__Impl rule__DMultiplicity__Group__2 )
+            // InternalAsm.g:10010:2: rule__DMultiplicity__Group__1__Impl rule__DMultiplicity__Group__2
             {
-            pushFollow(FOLLOW_76);
+            pushFollow(FOLLOW_79);
             rule__DMultiplicity__Group__1__Impl();
 
             state._fsp--;
@@ -33112,23 +33649,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__Group__1__Impl"
-    // InternalAsm.g:9848:1: rule__DMultiplicity__Group__1__Impl : ( ( rule__DMultiplicity__MinOccursAssignment_1 ) ) ;
+    // InternalAsm.g:10017:1: rule__DMultiplicity__Group__1__Impl : ( ( rule__DMultiplicity__MinOccursAssignment_1 ) ) ;
     public final void rule__DMultiplicity__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9852:1: ( ( ( rule__DMultiplicity__MinOccursAssignment_1 ) ) )
-            // InternalAsm.g:9853:1: ( ( rule__DMultiplicity__MinOccursAssignment_1 ) )
+            // InternalAsm.g:10021:1: ( ( ( rule__DMultiplicity__MinOccursAssignment_1 ) ) )
+            // InternalAsm.g:10022:1: ( ( rule__DMultiplicity__MinOccursAssignment_1 ) )
             {
-            // InternalAsm.g:9853:1: ( ( rule__DMultiplicity__MinOccursAssignment_1 ) )
-            // InternalAsm.g:9854:2: ( rule__DMultiplicity__MinOccursAssignment_1 )
+            // InternalAsm.g:10022:1: ( ( rule__DMultiplicity__MinOccursAssignment_1 ) )
+            // InternalAsm.g:10023:2: ( rule__DMultiplicity__MinOccursAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDMultiplicityAccess().getMinOccursAssignment_1()); 
             }
-            // InternalAsm.g:9855:2: ( rule__DMultiplicity__MinOccursAssignment_1 )
-            // InternalAsm.g:9855:3: rule__DMultiplicity__MinOccursAssignment_1
+            // InternalAsm.g:10024:2: ( rule__DMultiplicity__MinOccursAssignment_1 )
+            // InternalAsm.g:10024:3: rule__DMultiplicity__MinOccursAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__DMultiplicity__MinOccursAssignment_1();
@@ -33163,16 +33700,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__Group__2"
-    // InternalAsm.g:9863:1: rule__DMultiplicity__Group__2 : rule__DMultiplicity__Group__2__Impl rule__DMultiplicity__Group__3 ;
+    // InternalAsm.g:10032:1: rule__DMultiplicity__Group__2 : rule__DMultiplicity__Group__2__Impl rule__DMultiplicity__Group__3 ;
     public final void rule__DMultiplicity__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9867:1: ( rule__DMultiplicity__Group__2__Impl rule__DMultiplicity__Group__3 )
-            // InternalAsm.g:9868:2: rule__DMultiplicity__Group__2__Impl rule__DMultiplicity__Group__3
+            // InternalAsm.g:10036:1: ( rule__DMultiplicity__Group__2__Impl rule__DMultiplicity__Group__3 )
+            // InternalAsm.g:10037:2: rule__DMultiplicity__Group__2__Impl rule__DMultiplicity__Group__3
             {
-            pushFollow(FOLLOW_77);
+            pushFollow(FOLLOW_80);
             rule__DMultiplicity__Group__2__Impl();
 
             state._fsp--;
@@ -33201,17 +33738,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__Group__2__Impl"
-    // InternalAsm.g:9875:1: rule__DMultiplicity__Group__2__Impl : ( '..' ) ;
+    // InternalAsm.g:10044:1: rule__DMultiplicity__Group__2__Impl : ( '..' ) ;
     public final void rule__DMultiplicity__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9879:1: ( ( '..' ) )
-            // InternalAsm.g:9880:1: ( '..' )
+            // InternalAsm.g:10048:1: ( ( '..' ) )
+            // InternalAsm.g:10049:1: ( '..' )
             {
-            // InternalAsm.g:9880:1: ( '..' )
-            // InternalAsm.g:9881:2: '..'
+            // InternalAsm.g:10049:1: ( '..' )
+            // InternalAsm.g:10050:2: '..'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDMultiplicityAccess().getFullStopFullStopKeyword_2()); 
@@ -33242,16 +33779,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__Group__3"
-    // InternalAsm.g:9890:1: rule__DMultiplicity__Group__3 : rule__DMultiplicity__Group__3__Impl rule__DMultiplicity__Group__4 ;
+    // InternalAsm.g:10059:1: rule__DMultiplicity__Group__3 : rule__DMultiplicity__Group__3__Impl rule__DMultiplicity__Group__4 ;
     public final void rule__DMultiplicity__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9894:1: ( rule__DMultiplicity__Group__3__Impl rule__DMultiplicity__Group__4 )
-            // InternalAsm.g:9895:2: rule__DMultiplicity__Group__3__Impl rule__DMultiplicity__Group__4
+            // InternalAsm.g:10063:1: ( rule__DMultiplicity__Group__3__Impl rule__DMultiplicity__Group__4 )
+            // InternalAsm.g:10064:2: rule__DMultiplicity__Group__3__Impl rule__DMultiplicity__Group__4
             {
-            pushFollow(FOLLOW_62);
+            pushFollow(FOLLOW_31);
             rule__DMultiplicity__Group__3__Impl();
 
             state._fsp--;
@@ -33280,23 +33817,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__Group__3__Impl"
-    // InternalAsm.g:9902:1: rule__DMultiplicity__Group__3__Impl : ( ( rule__DMultiplicity__MaxOccursAssignment_3 ) ) ;
+    // InternalAsm.g:10071:1: rule__DMultiplicity__Group__3__Impl : ( ( rule__DMultiplicity__MaxOccursAssignment_3 ) ) ;
     public final void rule__DMultiplicity__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9906:1: ( ( ( rule__DMultiplicity__MaxOccursAssignment_3 ) ) )
-            // InternalAsm.g:9907:1: ( ( rule__DMultiplicity__MaxOccursAssignment_3 ) )
+            // InternalAsm.g:10075:1: ( ( ( rule__DMultiplicity__MaxOccursAssignment_3 ) ) )
+            // InternalAsm.g:10076:1: ( ( rule__DMultiplicity__MaxOccursAssignment_3 ) )
             {
-            // InternalAsm.g:9907:1: ( ( rule__DMultiplicity__MaxOccursAssignment_3 ) )
-            // InternalAsm.g:9908:2: ( rule__DMultiplicity__MaxOccursAssignment_3 )
+            // InternalAsm.g:10076:1: ( ( rule__DMultiplicity__MaxOccursAssignment_3 ) )
+            // InternalAsm.g:10077:2: ( rule__DMultiplicity__MaxOccursAssignment_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDMultiplicityAccess().getMaxOccursAssignment_3()); 
             }
-            // InternalAsm.g:9909:2: ( rule__DMultiplicity__MaxOccursAssignment_3 )
-            // InternalAsm.g:9909:3: rule__DMultiplicity__MaxOccursAssignment_3
+            // InternalAsm.g:10078:2: ( rule__DMultiplicity__MaxOccursAssignment_3 )
+            // InternalAsm.g:10078:3: rule__DMultiplicity__MaxOccursAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__DMultiplicity__MaxOccursAssignment_3();
@@ -33331,14 +33868,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__Group__4"
-    // InternalAsm.g:9917:1: rule__DMultiplicity__Group__4 : rule__DMultiplicity__Group__4__Impl ;
+    // InternalAsm.g:10086:1: rule__DMultiplicity__Group__4 : rule__DMultiplicity__Group__4__Impl ;
     public final void rule__DMultiplicity__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9921:1: ( rule__DMultiplicity__Group__4__Impl )
-            // InternalAsm.g:9922:2: rule__DMultiplicity__Group__4__Impl
+            // InternalAsm.g:10090:1: ( rule__DMultiplicity__Group__4__Impl )
+            // InternalAsm.g:10091:2: rule__DMultiplicity__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DMultiplicity__Group__4__Impl();
@@ -33364,17 +33901,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__Group__4__Impl"
-    // InternalAsm.g:9928:1: rule__DMultiplicity__Group__4__Impl : ( ')' ) ;
+    // InternalAsm.g:10097:1: rule__DMultiplicity__Group__4__Impl : ( ')' ) ;
     public final void rule__DMultiplicity__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9932:1: ( ( ')' ) )
-            // InternalAsm.g:9933:1: ( ')' )
+            // InternalAsm.g:10101:1: ( ( ')' ) )
+            // InternalAsm.g:10102:1: ( ')' )
             {
-            // InternalAsm.g:9933:1: ( ')' )
-            // InternalAsm.g:9934:2: ')'
+            // InternalAsm.g:10102:1: ( ')' )
+            // InternalAsm.g:10103:2: ')'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDMultiplicityAccess().getRightParenthesisKeyword_4()); 
@@ -33405,16 +33942,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxBooleanLiteral__Group__0"
-    // InternalAsm.g:9944:1: rule__DmxBooleanLiteral__Group__0 : rule__DmxBooleanLiteral__Group__0__Impl rule__DmxBooleanLiteral__Group__1 ;
+    // InternalAsm.g:10113:1: rule__DmxBooleanLiteral__Group__0 : rule__DmxBooleanLiteral__Group__0__Impl rule__DmxBooleanLiteral__Group__1 ;
     public final void rule__DmxBooleanLiteral__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9948:1: ( rule__DmxBooleanLiteral__Group__0__Impl rule__DmxBooleanLiteral__Group__1 )
-            // InternalAsm.g:9949:2: rule__DmxBooleanLiteral__Group__0__Impl rule__DmxBooleanLiteral__Group__1
+            // InternalAsm.g:10117:1: ( rule__DmxBooleanLiteral__Group__0__Impl rule__DmxBooleanLiteral__Group__1 )
+            // InternalAsm.g:10118:2: rule__DmxBooleanLiteral__Group__0__Impl rule__DmxBooleanLiteral__Group__1
             {
-            pushFollow(FOLLOW_78);
+            pushFollow(FOLLOW_81);
             rule__DmxBooleanLiteral__Group__0__Impl();
 
             state._fsp--;
@@ -33443,23 +33980,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxBooleanLiteral__Group__0__Impl"
-    // InternalAsm.g:9956:1: rule__DmxBooleanLiteral__Group__0__Impl : ( () ) ;
+    // InternalAsm.g:10125:1: rule__DmxBooleanLiteral__Group__0__Impl : ( () ) ;
     public final void rule__DmxBooleanLiteral__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9960:1: ( ( () ) )
-            // InternalAsm.g:9961:1: ( () )
+            // InternalAsm.g:10129:1: ( ( () ) )
+            // InternalAsm.g:10130:1: ( () )
             {
-            // InternalAsm.g:9961:1: ( () )
-            // InternalAsm.g:9962:2: ()
+            // InternalAsm.g:10130:1: ( () )
+            // InternalAsm.g:10131:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxBooleanLiteralAccess().getDmxBooleanLiteralAction_0()); 
             }
-            // InternalAsm.g:9963:2: ()
-            // InternalAsm.g:9963:3: 
+            // InternalAsm.g:10132:2: ()
+            // InternalAsm.g:10132:3: 
             {
             }
 
@@ -33484,14 +34021,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxBooleanLiteral__Group__1"
-    // InternalAsm.g:9971:1: rule__DmxBooleanLiteral__Group__1 : rule__DmxBooleanLiteral__Group__1__Impl ;
+    // InternalAsm.g:10140:1: rule__DmxBooleanLiteral__Group__1 : rule__DmxBooleanLiteral__Group__1__Impl ;
     public final void rule__DmxBooleanLiteral__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9975:1: ( rule__DmxBooleanLiteral__Group__1__Impl )
-            // InternalAsm.g:9976:2: rule__DmxBooleanLiteral__Group__1__Impl
+            // InternalAsm.g:10144:1: ( rule__DmxBooleanLiteral__Group__1__Impl )
+            // InternalAsm.g:10145:2: rule__DmxBooleanLiteral__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxBooleanLiteral__Group__1__Impl();
@@ -33517,23 +34054,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxBooleanLiteral__Group__1__Impl"
-    // InternalAsm.g:9982:1: rule__DmxBooleanLiteral__Group__1__Impl : ( ( rule__DmxBooleanLiteral__Alternatives_1 ) ) ;
+    // InternalAsm.g:10151:1: rule__DmxBooleanLiteral__Group__1__Impl : ( ( rule__DmxBooleanLiteral__Alternatives_1 ) ) ;
     public final void rule__DmxBooleanLiteral__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:9986:1: ( ( ( rule__DmxBooleanLiteral__Alternatives_1 ) ) )
-            // InternalAsm.g:9987:1: ( ( rule__DmxBooleanLiteral__Alternatives_1 ) )
+            // InternalAsm.g:10155:1: ( ( ( rule__DmxBooleanLiteral__Alternatives_1 ) ) )
+            // InternalAsm.g:10156:1: ( ( rule__DmxBooleanLiteral__Alternatives_1 ) )
             {
-            // InternalAsm.g:9987:1: ( ( rule__DmxBooleanLiteral__Alternatives_1 ) )
-            // InternalAsm.g:9988:2: ( rule__DmxBooleanLiteral__Alternatives_1 )
+            // InternalAsm.g:10156:1: ( ( rule__DmxBooleanLiteral__Alternatives_1 ) )
+            // InternalAsm.g:10157:2: ( rule__DmxBooleanLiteral__Alternatives_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxBooleanLiteralAccess().getAlternatives_1()); 
             }
-            // InternalAsm.g:9989:2: ( rule__DmxBooleanLiteral__Alternatives_1 )
-            // InternalAsm.g:9989:3: rule__DmxBooleanLiteral__Alternatives_1
+            // InternalAsm.g:10158:2: ( rule__DmxBooleanLiteral__Alternatives_1 )
+            // InternalAsm.g:10158:3: rule__DmxBooleanLiteral__Alternatives_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxBooleanLiteral__Alternatives_1();
@@ -33568,16 +34105,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNaturalLiteral__Group__0"
-    // InternalAsm.g:9998:1: rule__DmxNaturalLiteral__Group__0 : rule__DmxNaturalLiteral__Group__0__Impl rule__DmxNaturalLiteral__Group__1 ;
+    // InternalAsm.g:10167:1: rule__DmxNaturalLiteral__Group__0 : rule__DmxNaturalLiteral__Group__0__Impl rule__DmxNaturalLiteral__Group__1 ;
     public final void rule__DmxNaturalLiteral__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10002:1: ( rule__DmxNaturalLiteral__Group__0__Impl rule__DmxNaturalLiteral__Group__1 )
-            // InternalAsm.g:10003:2: rule__DmxNaturalLiteral__Group__0__Impl rule__DmxNaturalLiteral__Group__1
+            // InternalAsm.g:10171:1: ( rule__DmxNaturalLiteral__Group__0__Impl rule__DmxNaturalLiteral__Group__1 )
+            // InternalAsm.g:10172:2: rule__DmxNaturalLiteral__Group__0__Impl rule__DmxNaturalLiteral__Group__1
             {
-            pushFollow(FOLLOW_75);
+            pushFollow(FOLLOW_78);
             rule__DmxNaturalLiteral__Group__0__Impl();
 
             state._fsp--;
@@ -33606,23 +34143,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNaturalLiteral__Group__0__Impl"
-    // InternalAsm.g:10010:1: rule__DmxNaturalLiteral__Group__0__Impl : ( () ) ;
+    // InternalAsm.g:10179:1: rule__DmxNaturalLiteral__Group__0__Impl : ( () ) ;
     public final void rule__DmxNaturalLiteral__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10014:1: ( ( () ) )
-            // InternalAsm.g:10015:1: ( () )
+            // InternalAsm.g:10183:1: ( ( () ) )
+            // InternalAsm.g:10184:1: ( () )
             {
-            // InternalAsm.g:10015:1: ( () )
-            // InternalAsm.g:10016:2: ()
+            // InternalAsm.g:10184:1: ( () )
+            // InternalAsm.g:10185:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNaturalLiteralAccess().getDmxNaturalLiteralAction_0()); 
             }
-            // InternalAsm.g:10017:2: ()
-            // InternalAsm.g:10017:3: 
+            // InternalAsm.g:10186:2: ()
+            // InternalAsm.g:10186:3: 
             {
             }
 
@@ -33647,14 +34184,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNaturalLiteral__Group__1"
-    // InternalAsm.g:10025:1: rule__DmxNaturalLiteral__Group__1 : rule__DmxNaturalLiteral__Group__1__Impl ;
+    // InternalAsm.g:10194:1: rule__DmxNaturalLiteral__Group__1 : rule__DmxNaturalLiteral__Group__1__Impl ;
     public final void rule__DmxNaturalLiteral__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10029:1: ( rule__DmxNaturalLiteral__Group__1__Impl )
-            // InternalAsm.g:10030:2: rule__DmxNaturalLiteral__Group__1__Impl
+            // InternalAsm.g:10198:1: ( rule__DmxNaturalLiteral__Group__1__Impl )
+            // InternalAsm.g:10199:2: rule__DmxNaturalLiteral__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxNaturalLiteral__Group__1__Impl();
@@ -33680,23 +34217,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNaturalLiteral__Group__1__Impl"
-    // InternalAsm.g:10036:1: rule__DmxNaturalLiteral__Group__1__Impl : ( ( rule__DmxNaturalLiteral__ValueAssignment_1 ) ) ;
+    // InternalAsm.g:10205:1: rule__DmxNaturalLiteral__Group__1__Impl : ( ( rule__DmxNaturalLiteral__ValueAssignment_1 ) ) ;
     public final void rule__DmxNaturalLiteral__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10040:1: ( ( ( rule__DmxNaturalLiteral__ValueAssignment_1 ) ) )
-            // InternalAsm.g:10041:1: ( ( rule__DmxNaturalLiteral__ValueAssignment_1 ) )
+            // InternalAsm.g:10209:1: ( ( ( rule__DmxNaturalLiteral__ValueAssignment_1 ) ) )
+            // InternalAsm.g:10210:1: ( ( rule__DmxNaturalLiteral__ValueAssignment_1 ) )
             {
-            // InternalAsm.g:10041:1: ( ( rule__DmxNaturalLiteral__ValueAssignment_1 ) )
-            // InternalAsm.g:10042:2: ( rule__DmxNaturalLiteral__ValueAssignment_1 )
+            // InternalAsm.g:10210:1: ( ( rule__DmxNaturalLiteral__ValueAssignment_1 ) )
+            // InternalAsm.g:10211:2: ( rule__DmxNaturalLiteral__ValueAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNaturalLiteralAccess().getValueAssignment_1()); 
             }
-            // InternalAsm.g:10043:2: ( rule__DmxNaturalLiteral__ValueAssignment_1 )
-            // InternalAsm.g:10043:3: rule__DmxNaturalLiteral__ValueAssignment_1
+            // InternalAsm.g:10212:2: ( rule__DmxNaturalLiteral__ValueAssignment_1 )
+            // InternalAsm.g:10212:3: rule__DmxNaturalLiteral__ValueAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxNaturalLiteral__ValueAssignment_1();
@@ -33731,16 +34268,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxDecimalLiteral__Group__0"
-    // InternalAsm.g:10052:1: rule__DmxDecimalLiteral__Group__0 : rule__DmxDecimalLiteral__Group__0__Impl rule__DmxDecimalLiteral__Group__1 ;
+    // InternalAsm.g:10221:1: rule__DmxDecimalLiteral__Group__0 : rule__DmxDecimalLiteral__Group__0__Impl rule__DmxDecimalLiteral__Group__1 ;
     public final void rule__DmxDecimalLiteral__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10056:1: ( rule__DmxDecimalLiteral__Group__0__Impl rule__DmxDecimalLiteral__Group__1 )
-            // InternalAsm.g:10057:2: rule__DmxDecimalLiteral__Group__0__Impl rule__DmxDecimalLiteral__Group__1
+            // InternalAsm.g:10225:1: ( rule__DmxDecimalLiteral__Group__0__Impl rule__DmxDecimalLiteral__Group__1 )
+            // InternalAsm.g:10226:2: rule__DmxDecimalLiteral__Group__0__Impl rule__DmxDecimalLiteral__Group__1
             {
-            pushFollow(FOLLOW_75);
+            pushFollow(FOLLOW_78);
             rule__DmxDecimalLiteral__Group__0__Impl();
 
             state._fsp--;
@@ -33769,23 +34306,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxDecimalLiteral__Group__0__Impl"
-    // InternalAsm.g:10064:1: rule__DmxDecimalLiteral__Group__0__Impl : ( () ) ;
+    // InternalAsm.g:10233:1: rule__DmxDecimalLiteral__Group__0__Impl : ( () ) ;
     public final void rule__DmxDecimalLiteral__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10068:1: ( ( () ) )
-            // InternalAsm.g:10069:1: ( () )
+            // InternalAsm.g:10237:1: ( ( () ) )
+            // InternalAsm.g:10238:1: ( () )
             {
-            // InternalAsm.g:10069:1: ( () )
-            // InternalAsm.g:10070:2: ()
+            // InternalAsm.g:10238:1: ( () )
+            // InternalAsm.g:10239:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxDecimalLiteralAccess().getDmxDecimalLiteralAction_0()); 
             }
-            // InternalAsm.g:10071:2: ()
-            // InternalAsm.g:10071:3: 
+            // InternalAsm.g:10240:2: ()
+            // InternalAsm.g:10240:3: 
             {
             }
 
@@ -33810,14 +34347,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxDecimalLiteral__Group__1"
-    // InternalAsm.g:10079:1: rule__DmxDecimalLiteral__Group__1 : rule__DmxDecimalLiteral__Group__1__Impl ;
+    // InternalAsm.g:10248:1: rule__DmxDecimalLiteral__Group__1 : rule__DmxDecimalLiteral__Group__1__Impl ;
     public final void rule__DmxDecimalLiteral__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10083:1: ( rule__DmxDecimalLiteral__Group__1__Impl )
-            // InternalAsm.g:10084:2: rule__DmxDecimalLiteral__Group__1__Impl
+            // InternalAsm.g:10252:1: ( rule__DmxDecimalLiteral__Group__1__Impl )
+            // InternalAsm.g:10253:2: rule__DmxDecimalLiteral__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxDecimalLiteral__Group__1__Impl();
@@ -33843,23 +34380,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxDecimalLiteral__Group__1__Impl"
-    // InternalAsm.g:10090:1: rule__DmxDecimalLiteral__Group__1__Impl : ( ( rule__DmxDecimalLiteral__ValueAssignment_1 ) ) ;
+    // InternalAsm.g:10259:1: rule__DmxDecimalLiteral__Group__1__Impl : ( ( rule__DmxDecimalLiteral__ValueAssignment_1 ) ) ;
     public final void rule__DmxDecimalLiteral__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10094:1: ( ( ( rule__DmxDecimalLiteral__ValueAssignment_1 ) ) )
-            // InternalAsm.g:10095:1: ( ( rule__DmxDecimalLiteral__ValueAssignment_1 ) )
+            // InternalAsm.g:10263:1: ( ( ( rule__DmxDecimalLiteral__ValueAssignment_1 ) ) )
+            // InternalAsm.g:10264:1: ( ( rule__DmxDecimalLiteral__ValueAssignment_1 ) )
             {
-            // InternalAsm.g:10095:1: ( ( rule__DmxDecimalLiteral__ValueAssignment_1 ) )
-            // InternalAsm.g:10096:2: ( rule__DmxDecimalLiteral__ValueAssignment_1 )
+            // InternalAsm.g:10264:1: ( ( rule__DmxDecimalLiteral__ValueAssignment_1 ) )
+            // InternalAsm.g:10265:2: ( rule__DmxDecimalLiteral__ValueAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxDecimalLiteralAccess().getValueAssignment_1()); 
             }
-            // InternalAsm.g:10097:2: ( rule__DmxDecimalLiteral__ValueAssignment_1 )
-            // InternalAsm.g:10097:3: rule__DmxDecimalLiteral__ValueAssignment_1
+            // InternalAsm.g:10266:2: ( rule__DmxDecimalLiteral__ValueAssignment_1 )
+            // InternalAsm.g:10266:3: rule__DmxDecimalLiteral__ValueAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxDecimalLiteral__ValueAssignment_1();
@@ -33894,16 +34431,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStringLiteral__Group__0"
-    // InternalAsm.g:10106:1: rule__DmxStringLiteral__Group__0 : rule__DmxStringLiteral__Group__0__Impl rule__DmxStringLiteral__Group__1 ;
+    // InternalAsm.g:10275:1: rule__DmxStringLiteral__Group__0 : rule__DmxStringLiteral__Group__0__Impl rule__DmxStringLiteral__Group__1 ;
     public final void rule__DmxStringLiteral__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10110:1: ( rule__DmxStringLiteral__Group__0__Impl rule__DmxStringLiteral__Group__1 )
-            // InternalAsm.g:10111:2: rule__DmxStringLiteral__Group__0__Impl rule__DmxStringLiteral__Group__1
+            // InternalAsm.g:10279:1: ( rule__DmxStringLiteral__Group__0__Impl rule__DmxStringLiteral__Group__1 )
+            // InternalAsm.g:10280:2: rule__DmxStringLiteral__Group__0__Impl rule__DmxStringLiteral__Group__1
             {
-            pushFollow(FOLLOW_79);
+            pushFollow(FOLLOW_82);
             rule__DmxStringLiteral__Group__0__Impl();
 
             state._fsp--;
@@ -33932,23 +34469,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStringLiteral__Group__0__Impl"
-    // InternalAsm.g:10118:1: rule__DmxStringLiteral__Group__0__Impl : ( () ) ;
+    // InternalAsm.g:10287:1: rule__DmxStringLiteral__Group__0__Impl : ( () ) ;
     public final void rule__DmxStringLiteral__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10122:1: ( ( () ) )
-            // InternalAsm.g:10123:1: ( () )
+            // InternalAsm.g:10291:1: ( ( () ) )
+            // InternalAsm.g:10292:1: ( () )
             {
-            // InternalAsm.g:10123:1: ( () )
-            // InternalAsm.g:10124:2: ()
+            // InternalAsm.g:10292:1: ( () )
+            // InternalAsm.g:10293:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStringLiteralAccess().getDmxStringLiteralAction_0()); 
             }
-            // InternalAsm.g:10125:2: ()
-            // InternalAsm.g:10125:3: 
+            // InternalAsm.g:10294:2: ()
+            // InternalAsm.g:10294:3: 
             {
             }
 
@@ -33973,14 +34510,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStringLiteral__Group__1"
-    // InternalAsm.g:10133:1: rule__DmxStringLiteral__Group__1 : rule__DmxStringLiteral__Group__1__Impl ;
+    // InternalAsm.g:10302:1: rule__DmxStringLiteral__Group__1 : rule__DmxStringLiteral__Group__1__Impl ;
     public final void rule__DmxStringLiteral__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10137:1: ( rule__DmxStringLiteral__Group__1__Impl )
-            // InternalAsm.g:10138:2: rule__DmxStringLiteral__Group__1__Impl
+            // InternalAsm.g:10306:1: ( rule__DmxStringLiteral__Group__1__Impl )
+            // InternalAsm.g:10307:2: rule__DmxStringLiteral__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxStringLiteral__Group__1__Impl();
@@ -34006,23 +34543,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStringLiteral__Group__1__Impl"
-    // InternalAsm.g:10144:1: rule__DmxStringLiteral__Group__1__Impl : ( ( rule__DmxStringLiteral__ValueAssignment_1 ) ) ;
+    // InternalAsm.g:10313:1: rule__DmxStringLiteral__Group__1__Impl : ( ( rule__DmxStringLiteral__ValueAssignment_1 ) ) ;
     public final void rule__DmxStringLiteral__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10148:1: ( ( ( rule__DmxStringLiteral__ValueAssignment_1 ) ) )
-            // InternalAsm.g:10149:1: ( ( rule__DmxStringLiteral__ValueAssignment_1 ) )
+            // InternalAsm.g:10317:1: ( ( ( rule__DmxStringLiteral__ValueAssignment_1 ) ) )
+            // InternalAsm.g:10318:1: ( ( rule__DmxStringLiteral__ValueAssignment_1 ) )
             {
-            // InternalAsm.g:10149:1: ( ( rule__DmxStringLiteral__ValueAssignment_1 ) )
-            // InternalAsm.g:10150:2: ( rule__DmxStringLiteral__ValueAssignment_1 )
+            // InternalAsm.g:10318:1: ( ( rule__DmxStringLiteral__ValueAssignment_1 ) )
+            // InternalAsm.g:10319:2: ( rule__DmxStringLiteral__ValueAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStringLiteralAccess().getValueAssignment_1()); 
             }
-            // InternalAsm.g:10151:2: ( rule__DmxStringLiteral__ValueAssignment_1 )
-            // InternalAsm.g:10151:3: rule__DmxStringLiteral__ValueAssignment_1
+            // InternalAsm.g:10320:2: ( rule__DmxStringLiteral__ValueAssignment_1 )
+            // InternalAsm.g:10320:3: rule__DmxStringLiteral__ValueAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxStringLiteral__ValueAssignment_1();
@@ -34057,16 +34594,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUndefinedLiteral__Group__0"
-    // InternalAsm.g:10160:1: rule__DmxUndefinedLiteral__Group__0 : rule__DmxUndefinedLiteral__Group__0__Impl rule__DmxUndefinedLiteral__Group__1 ;
+    // InternalAsm.g:10329:1: rule__DmxUndefinedLiteral__Group__0 : rule__DmxUndefinedLiteral__Group__0__Impl rule__DmxUndefinedLiteral__Group__1 ;
     public final void rule__DmxUndefinedLiteral__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10164:1: ( rule__DmxUndefinedLiteral__Group__0__Impl rule__DmxUndefinedLiteral__Group__1 )
-            // InternalAsm.g:10165:2: rule__DmxUndefinedLiteral__Group__0__Impl rule__DmxUndefinedLiteral__Group__1
+            // InternalAsm.g:10333:1: ( rule__DmxUndefinedLiteral__Group__0__Impl rule__DmxUndefinedLiteral__Group__1 )
+            // InternalAsm.g:10334:2: rule__DmxUndefinedLiteral__Group__0__Impl rule__DmxUndefinedLiteral__Group__1
             {
-            pushFollow(FOLLOW_80);
+            pushFollow(FOLLOW_83);
             rule__DmxUndefinedLiteral__Group__0__Impl();
 
             state._fsp--;
@@ -34095,23 +34632,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUndefinedLiteral__Group__0__Impl"
-    // InternalAsm.g:10172:1: rule__DmxUndefinedLiteral__Group__0__Impl : ( () ) ;
+    // InternalAsm.g:10341:1: rule__DmxUndefinedLiteral__Group__0__Impl : ( () ) ;
     public final void rule__DmxUndefinedLiteral__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10176:1: ( ( () ) )
-            // InternalAsm.g:10177:1: ( () )
+            // InternalAsm.g:10345:1: ( ( () ) )
+            // InternalAsm.g:10346:1: ( () )
             {
-            // InternalAsm.g:10177:1: ( () )
-            // InternalAsm.g:10178:2: ()
+            // InternalAsm.g:10346:1: ( () )
+            // InternalAsm.g:10347:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxUndefinedLiteralAccess().getDmxUndefinedLiteralAction_0()); 
             }
-            // InternalAsm.g:10179:2: ()
-            // InternalAsm.g:10179:3: 
+            // InternalAsm.g:10348:2: ()
+            // InternalAsm.g:10348:3: 
             {
             }
 
@@ -34136,14 +34673,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUndefinedLiteral__Group__1"
-    // InternalAsm.g:10187:1: rule__DmxUndefinedLiteral__Group__1 : rule__DmxUndefinedLiteral__Group__1__Impl ;
+    // InternalAsm.g:10356:1: rule__DmxUndefinedLiteral__Group__1 : rule__DmxUndefinedLiteral__Group__1__Impl ;
     public final void rule__DmxUndefinedLiteral__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10191:1: ( rule__DmxUndefinedLiteral__Group__1__Impl )
-            // InternalAsm.g:10192:2: rule__DmxUndefinedLiteral__Group__1__Impl
+            // InternalAsm.g:10360:1: ( rule__DmxUndefinedLiteral__Group__1__Impl )
+            // InternalAsm.g:10361:2: rule__DmxUndefinedLiteral__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DmxUndefinedLiteral__Group__1__Impl();
@@ -34169,23 +34706,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUndefinedLiteral__Group__1__Impl"
-    // InternalAsm.g:10198:1: rule__DmxUndefinedLiteral__Group__1__Impl : ( ( rule__DmxUndefinedLiteral__Alternatives_1 ) ) ;
+    // InternalAsm.g:10367:1: rule__DmxUndefinedLiteral__Group__1__Impl : ( ( rule__DmxUndefinedLiteral__Alternatives_1 ) ) ;
     public final void rule__DmxUndefinedLiteral__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10202:1: ( ( ( rule__DmxUndefinedLiteral__Alternatives_1 ) ) )
-            // InternalAsm.g:10203:1: ( ( rule__DmxUndefinedLiteral__Alternatives_1 ) )
+            // InternalAsm.g:10371:1: ( ( ( rule__DmxUndefinedLiteral__Alternatives_1 ) ) )
+            // InternalAsm.g:10372:1: ( ( rule__DmxUndefinedLiteral__Alternatives_1 ) )
             {
-            // InternalAsm.g:10203:1: ( ( rule__DmxUndefinedLiteral__Alternatives_1 ) )
-            // InternalAsm.g:10204:2: ( rule__DmxUndefinedLiteral__Alternatives_1 )
+            // InternalAsm.g:10372:1: ( ( rule__DmxUndefinedLiteral__Alternatives_1 ) )
+            // InternalAsm.g:10373:2: ( rule__DmxUndefinedLiteral__Alternatives_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxUndefinedLiteralAccess().getAlternatives_1()); 
             }
-            // InternalAsm.g:10205:2: ( rule__DmxUndefinedLiteral__Alternatives_1 )
-            // InternalAsm.g:10205:3: rule__DmxUndefinedLiteral__Alternatives_1
+            // InternalAsm.g:10374:2: ( rule__DmxUndefinedLiteral__Alternatives_1 )
+            // InternalAsm.g:10374:3: rule__DmxUndefinedLiteral__Alternatives_1
             {
             pushFollow(FOLLOW_2);
             rule__DmxUndefinedLiteral__Alternatives_1();
@@ -34220,16 +34757,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__0"
-    // InternalAsm.g:10214:1: rule__DECIMAL__Group__0 : rule__DECIMAL__Group__0__Impl rule__DECIMAL__Group__1 ;
+    // InternalAsm.g:10383:1: rule__DECIMAL__Group__0 : rule__DECIMAL__Group__0__Impl rule__DECIMAL__Group__1 ;
     public final void rule__DECIMAL__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10218:1: ( rule__DECIMAL__Group__0__Impl rule__DECIMAL__Group__1 )
-            // InternalAsm.g:10219:2: rule__DECIMAL__Group__0__Impl rule__DECIMAL__Group__1
+            // InternalAsm.g:10387:1: ( rule__DECIMAL__Group__0__Impl rule__DECIMAL__Group__1 )
+            // InternalAsm.g:10388:2: rule__DECIMAL__Group__0__Impl rule__DECIMAL__Group__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_39);
             rule__DECIMAL__Group__0__Impl();
 
             state._fsp--;
@@ -34258,17 +34795,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__0__Impl"
-    // InternalAsm.g:10226:1: rule__DECIMAL__Group__0__Impl : ( RULE_NATURAL ) ;
+    // InternalAsm.g:10395:1: rule__DECIMAL__Group__0__Impl : ( RULE_NATURAL ) ;
     public final void rule__DECIMAL__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10230:1: ( ( RULE_NATURAL ) )
-            // InternalAsm.g:10231:1: ( RULE_NATURAL )
+            // InternalAsm.g:10399:1: ( ( RULE_NATURAL ) )
+            // InternalAsm.g:10400:1: ( RULE_NATURAL )
             {
-            // InternalAsm.g:10231:1: ( RULE_NATURAL )
-            // InternalAsm.g:10232:2: RULE_NATURAL
+            // InternalAsm.g:10400:1: ( RULE_NATURAL )
+            // InternalAsm.g:10401:2: RULE_NATURAL
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDECIMALAccess().getNATURALTerminalRuleCall_0()); 
@@ -34299,16 +34836,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__1"
-    // InternalAsm.g:10241:1: rule__DECIMAL__Group__1 : rule__DECIMAL__Group__1__Impl rule__DECIMAL__Group__2 ;
+    // InternalAsm.g:10410:1: rule__DECIMAL__Group__1 : rule__DECIMAL__Group__1__Impl rule__DECIMAL__Group__2 ;
     public final void rule__DECIMAL__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10245:1: ( rule__DECIMAL__Group__1__Impl rule__DECIMAL__Group__2 )
-            // InternalAsm.g:10246:2: rule__DECIMAL__Group__1__Impl rule__DECIMAL__Group__2
+            // InternalAsm.g:10414:1: ( rule__DECIMAL__Group__1__Impl rule__DECIMAL__Group__2 )
+            // InternalAsm.g:10415:2: rule__DECIMAL__Group__1__Impl rule__DECIMAL__Group__2
             {
-            pushFollow(FOLLOW_75);
+            pushFollow(FOLLOW_78);
             rule__DECIMAL__Group__1__Impl();
 
             state._fsp--;
@@ -34337,17 +34874,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__1__Impl"
-    // InternalAsm.g:10253:1: rule__DECIMAL__Group__1__Impl : ( '.' ) ;
+    // InternalAsm.g:10422:1: rule__DECIMAL__Group__1__Impl : ( '.' ) ;
     public final void rule__DECIMAL__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10257:1: ( ( '.' ) )
-            // InternalAsm.g:10258:1: ( '.' )
+            // InternalAsm.g:10426:1: ( ( '.' ) )
+            // InternalAsm.g:10427:1: ( '.' )
             {
-            // InternalAsm.g:10258:1: ( '.' )
-            // InternalAsm.g:10259:2: '.'
+            // InternalAsm.g:10427:1: ( '.' )
+            // InternalAsm.g:10428:2: '.'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDECIMALAccess().getFullStopKeyword_1()); 
@@ -34378,16 +34915,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__2"
-    // InternalAsm.g:10268:1: rule__DECIMAL__Group__2 : rule__DECIMAL__Group__2__Impl rule__DECIMAL__Group__3 ;
+    // InternalAsm.g:10437:1: rule__DECIMAL__Group__2 : rule__DECIMAL__Group__2__Impl rule__DECIMAL__Group__3 ;
     public final void rule__DECIMAL__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10272:1: ( rule__DECIMAL__Group__2__Impl rule__DECIMAL__Group__3 )
-            // InternalAsm.g:10273:2: rule__DECIMAL__Group__2__Impl rule__DECIMAL__Group__3
+            // InternalAsm.g:10441:1: ( rule__DECIMAL__Group__2__Impl rule__DECIMAL__Group__3 )
+            // InternalAsm.g:10442:2: rule__DECIMAL__Group__2__Impl rule__DECIMAL__Group__3
             {
-            pushFollow(FOLLOW_81);
+            pushFollow(FOLLOW_84);
             rule__DECIMAL__Group__2__Impl();
 
             state._fsp--;
@@ -34416,17 +34953,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__2__Impl"
-    // InternalAsm.g:10280:1: rule__DECIMAL__Group__2__Impl : ( RULE_NATURAL ) ;
+    // InternalAsm.g:10449:1: rule__DECIMAL__Group__2__Impl : ( RULE_NATURAL ) ;
     public final void rule__DECIMAL__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10284:1: ( ( RULE_NATURAL ) )
-            // InternalAsm.g:10285:1: ( RULE_NATURAL )
+            // InternalAsm.g:10453:1: ( ( RULE_NATURAL ) )
+            // InternalAsm.g:10454:1: ( RULE_NATURAL )
             {
-            // InternalAsm.g:10285:1: ( RULE_NATURAL )
-            // InternalAsm.g:10286:2: RULE_NATURAL
+            // InternalAsm.g:10454:1: ( RULE_NATURAL )
+            // InternalAsm.g:10455:2: RULE_NATURAL
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDECIMALAccess().getNATURALTerminalRuleCall_2()); 
@@ -34457,14 +34994,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__3"
-    // InternalAsm.g:10295:1: rule__DECIMAL__Group__3 : rule__DECIMAL__Group__3__Impl ;
+    // InternalAsm.g:10464:1: rule__DECIMAL__Group__3 : rule__DECIMAL__Group__3__Impl ;
     public final void rule__DECIMAL__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10299:1: ( rule__DECIMAL__Group__3__Impl )
-            // InternalAsm.g:10300:2: rule__DECIMAL__Group__3__Impl
+            // InternalAsm.g:10468:1: ( rule__DECIMAL__Group__3__Impl )
+            // InternalAsm.g:10469:2: rule__DECIMAL__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DECIMAL__Group__3__Impl();
@@ -34490,22 +35027,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group__3__Impl"
-    // InternalAsm.g:10306:1: rule__DECIMAL__Group__3__Impl : ( ( rule__DECIMAL__Group_3__0 )? ) ;
+    // InternalAsm.g:10475:1: rule__DECIMAL__Group__3__Impl : ( ( rule__DECIMAL__Group_3__0 )? ) ;
     public final void rule__DECIMAL__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10310:1: ( ( ( rule__DECIMAL__Group_3__0 )? ) )
-            // InternalAsm.g:10311:1: ( ( rule__DECIMAL__Group_3__0 )? )
+            // InternalAsm.g:10479:1: ( ( ( rule__DECIMAL__Group_3__0 )? ) )
+            // InternalAsm.g:10480:1: ( ( rule__DECIMAL__Group_3__0 )? )
             {
-            // InternalAsm.g:10311:1: ( ( rule__DECIMAL__Group_3__0 )? )
-            // InternalAsm.g:10312:2: ( rule__DECIMAL__Group_3__0 )?
+            // InternalAsm.g:10480:1: ( ( rule__DECIMAL__Group_3__0 )? )
+            // InternalAsm.g:10481:2: ( rule__DECIMAL__Group_3__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDECIMALAccess().getGroup_3()); 
             }
-            // InternalAsm.g:10313:2: ( rule__DECIMAL__Group_3__0 )?
+            // InternalAsm.g:10482:2: ( rule__DECIMAL__Group_3__0 )?
             int alt82=2;
             int LA82_0 = input.LA(1);
 
@@ -34514,7 +35051,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
             switch (alt82) {
                 case 1 :
-                    // InternalAsm.g:10313:3: rule__DECIMAL__Group_3__0
+                    // InternalAsm.g:10482:3: rule__DECIMAL__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DECIMAL__Group_3__0();
@@ -34552,16 +35089,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group_3__0"
-    // InternalAsm.g:10322:1: rule__DECIMAL__Group_3__0 : rule__DECIMAL__Group_3__0__Impl rule__DECIMAL__Group_3__1 ;
+    // InternalAsm.g:10491:1: rule__DECIMAL__Group_3__0 : rule__DECIMAL__Group_3__0__Impl rule__DECIMAL__Group_3__1 ;
     public final void rule__DECIMAL__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10326:1: ( rule__DECIMAL__Group_3__0__Impl rule__DECIMAL__Group_3__1 )
-            // InternalAsm.g:10327:2: rule__DECIMAL__Group_3__0__Impl rule__DECIMAL__Group_3__1
+            // InternalAsm.g:10495:1: ( rule__DECIMAL__Group_3__0__Impl rule__DECIMAL__Group_3__1 )
+            // InternalAsm.g:10496:2: rule__DECIMAL__Group_3__0__Impl rule__DECIMAL__Group_3__1
             {
-            pushFollow(FOLLOW_82);
+            pushFollow(FOLLOW_85);
             rule__DECIMAL__Group_3__0__Impl();
 
             state._fsp--;
@@ -34590,23 +35127,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group_3__0__Impl"
-    // InternalAsm.g:10334:1: rule__DECIMAL__Group_3__0__Impl : ( ( rule__DECIMAL__Alternatives_3_0 ) ) ;
+    // InternalAsm.g:10503:1: rule__DECIMAL__Group_3__0__Impl : ( ( rule__DECIMAL__Alternatives_3_0 ) ) ;
     public final void rule__DECIMAL__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10338:1: ( ( ( rule__DECIMAL__Alternatives_3_0 ) ) )
-            // InternalAsm.g:10339:1: ( ( rule__DECIMAL__Alternatives_3_0 ) )
+            // InternalAsm.g:10507:1: ( ( ( rule__DECIMAL__Alternatives_3_0 ) ) )
+            // InternalAsm.g:10508:1: ( ( rule__DECIMAL__Alternatives_3_0 ) )
             {
-            // InternalAsm.g:10339:1: ( ( rule__DECIMAL__Alternatives_3_0 ) )
-            // InternalAsm.g:10340:2: ( rule__DECIMAL__Alternatives_3_0 )
+            // InternalAsm.g:10508:1: ( ( rule__DECIMAL__Alternatives_3_0 ) )
+            // InternalAsm.g:10509:2: ( rule__DECIMAL__Alternatives_3_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDECIMALAccess().getAlternatives_3_0()); 
             }
-            // InternalAsm.g:10341:2: ( rule__DECIMAL__Alternatives_3_0 )
-            // InternalAsm.g:10341:3: rule__DECIMAL__Alternatives_3_0
+            // InternalAsm.g:10510:2: ( rule__DECIMAL__Alternatives_3_0 )
+            // InternalAsm.g:10510:3: rule__DECIMAL__Alternatives_3_0
             {
             pushFollow(FOLLOW_2);
             rule__DECIMAL__Alternatives_3_0();
@@ -34641,16 +35178,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group_3__1"
-    // InternalAsm.g:10349:1: rule__DECIMAL__Group_3__1 : rule__DECIMAL__Group_3__1__Impl rule__DECIMAL__Group_3__2 ;
+    // InternalAsm.g:10518:1: rule__DECIMAL__Group_3__1 : rule__DECIMAL__Group_3__1__Impl rule__DECIMAL__Group_3__2 ;
     public final void rule__DECIMAL__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10353:1: ( rule__DECIMAL__Group_3__1__Impl rule__DECIMAL__Group_3__2 )
-            // InternalAsm.g:10354:2: rule__DECIMAL__Group_3__1__Impl rule__DECIMAL__Group_3__2
+            // InternalAsm.g:10522:1: ( rule__DECIMAL__Group_3__1__Impl rule__DECIMAL__Group_3__2 )
+            // InternalAsm.g:10523:2: rule__DECIMAL__Group_3__1__Impl rule__DECIMAL__Group_3__2
             {
-            pushFollow(FOLLOW_82);
+            pushFollow(FOLLOW_85);
             rule__DECIMAL__Group_3__1__Impl();
 
             state._fsp--;
@@ -34679,22 +35216,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group_3__1__Impl"
-    // InternalAsm.g:10361:1: rule__DECIMAL__Group_3__1__Impl : ( ( rule__DECIMAL__Alternatives_3_1 )? ) ;
+    // InternalAsm.g:10530:1: rule__DECIMAL__Group_3__1__Impl : ( ( rule__DECIMAL__Alternatives_3_1 )? ) ;
     public final void rule__DECIMAL__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10365:1: ( ( ( rule__DECIMAL__Alternatives_3_1 )? ) )
-            // InternalAsm.g:10366:1: ( ( rule__DECIMAL__Alternatives_3_1 )? )
+            // InternalAsm.g:10534:1: ( ( ( rule__DECIMAL__Alternatives_3_1 )? ) )
+            // InternalAsm.g:10535:1: ( ( rule__DECIMAL__Alternatives_3_1 )? )
             {
-            // InternalAsm.g:10366:1: ( ( rule__DECIMAL__Alternatives_3_1 )? )
-            // InternalAsm.g:10367:2: ( rule__DECIMAL__Alternatives_3_1 )?
+            // InternalAsm.g:10535:1: ( ( rule__DECIMAL__Alternatives_3_1 )? )
+            // InternalAsm.g:10536:2: ( rule__DECIMAL__Alternatives_3_1 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDECIMALAccess().getAlternatives_3_1()); 
             }
-            // InternalAsm.g:10368:2: ( rule__DECIMAL__Alternatives_3_1 )?
+            // InternalAsm.g:10537:2: ( rule__DECIMAL__Alternatives_3_1 )?
             int alt83=2;
             int LA83_0 = input.LA(1);
 
@@ -34703,7 +35240,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
             switch (alt83) {
                 case 1 :
-                    // InternalAsm.g:10368:3: rule__DECIMAL__Alternatives_3_1
+                    // InternalAsm.g:10537:3: rule__DECIMAL__Alternatives_3_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__DECIMAL__Alternatives_3_1();
@@ -34741,14 +35278,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group_3__2"
-    // InternalAsm.g:10376:1: rule__DECIMAL__Group_3__2 : rule__DECIMAL__Group_3__2__Impl ;
+    // InternalAsm.g:10545:1: rule__DECIMAL__Group_3__2 : rule__DECIMAL__Group_3__2__Impl ;
     public final void rule__DECIMAL__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10380:1: ( rule__DECIMAL__Group_3__2__Impl )
-            // InternalAsm.g:10381:2: rule__DECIMAL__Group_3__2__Impl
+            // InternalAsm.g:10549:1: ( rule__DECIMAL__Group_3__2__Impl )
+            // InternalAsm.g:10550:2: rule__DECIMAL__Group_3__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DECIMAL__Group_3__2__Impl();
@@ -34774,17 +35311,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DECIMAL__Group_3__2__Impl"
-    // InternalAsm.g:10387:1: rule__DECIMAL__Group_3__2__Impl : ( RULE_NATURAL ) ;
+    // InternalAsm.g:10556:1: rule__DECIMAL__Group_3__2__Impl : ( RULE_NATURAL ) ;
     public final void rule__DECIMAL__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10391:1: ( ( RULE_NATURAL ) )
-            // InternalAsm.g:10392:1: ( RULE_NATURAL )
+            // InternalAsm.g:10560:1: ( ( RULE_NATURAL ) )
+            // InternalAsm.g:10561:1: ( RULE_NATURAL )
             {
-            // InternalAsm.g:10392:1: ( RULE_NATURAL )
-            // InternalAsm.g:10393:2: RULE_NATURAL
+            // InternalAsm.g:10561:1: ( RULE_NATURAL )
+            // InternalAsm.g:10562:2: RULE_NATURAL
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDECIMALAccess().getNATURALTerminalRuleCall_3_2()); 
@@ -34815,16 +35352,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedNameWithWildcard__Group__0"
-    // InternalAsm.g:10403:1: rule__DQualifiedNameWithWildcard__Group__0 : rule__DQualifiedNameWithWildcard__Group__0__Impl rule__DQualifiedNameWithWildcard__Group__1 ;
+    // InternalAsm.g:10572:1: rule__DQualifiedNameWithWildcard__Group__0 : rule__DQualifiedNameWithWildcard__Group__0__Impl rule__DQualifiedNameWithWildcard__Group__1 ;
     public final void rule__DQualifiedNameWithWildcard__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10407:1: ( rule__DQualifiedNameWithWildcard__Group__0__Impl rule__DQualifiedNameWithWildcard__Group__1 )
-            // InternalAsm.g:10408:2: rule__DQualifiedNameWithWildcard__Group__0__Impl rule__DQualifiedNameWithWildcard__Group__1
+            // InternalAsm.g:10576:1: ( rule__DQualifiedNameWithWildcard__Group__0__Impl rule__DQualifiedNameWithWildcard__Group__1 )
+            // InternalAsm.g:10577:2: rule__DQualifiedNameWithWildcard__Group__0__Impl rule__DQualifiedNameWithWildcard__Group__1
             {
-            pushFollow(FOLLOW_83);
+            pushFollow(FOLLOW_86);
             rule__DQualifiedNameWithWildcard__Group__0__Impl();
 
             state._fsp--;
@@ -34853,17 +35390,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedNameWithWildcard__Group__0__Impl"
-    // InternalAsm.g:10415:1: rule__DQualifiedNameWithWildcard__Group__0__Impl : ( ruleDQualifiedName ) ;
+    // InternalAsm.g:10584:1: rule__DQualifiedNameWithWildcard__Group__0__Impl : ( ruleDQualifiedName ) ;
     public final void rule__DQualifiedNameWithWildcard__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10419:1: ( ( ruleDQualifiedName ) )
-            // InternalAsm.g:10420:1: ( ruleDQualifiedName )
+            // InternalAsm.g:10588:1: ( ( ruleDQualifiedName ) )
+            // InternalAsm.g:10589:1: ( ruleDQualifiedName )
             {
-            // InternalAsm.g:10420:1: ( ruleDQualifiedName )
-            // InternalAsm.g:10421:2: ruleDQualifiedName
+            // InternalAsm.g:10589:1: ( ruleDQualifiedName )
+            // InternalAsm.g:10590:2: ruleDQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQualifiedNameWithWildcardAccess().getDQualifiedNameParserRuleCall_0()); 
@@ -34898,14 +35435,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedNameWithWildcard__Group__1"
-    // InternalAsm.g:10430:1: rule__DQualifiedNameWithWildcard__Group__1 : rule__DQualifiedNameWithWildcard__Group__1__Impl ;
+    // InternalAsm.g:10599:1: rule__DQualifiedNameWithWildcard__Group__1 : rule__DQualifiedNameWithWildcard__Group__1__Impl ;
     public final void rule__DQualifiedNameWithWildcard__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10434:1: ( rule__DQualifiedNameWithWildcard__Group__1__Impl )
-            // InternalAsm.g:10435:2: rule__DQualifiedNameWithWildcard__Group__1__Impl
+            // InternalAsm.g:10603:1: ( rule__DQualifiedNameWithWildcard__Group__1__Impl )
+            // InternalAsm.g:10604:2: rule__DQualifiedNameWithWildcard__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DQualifiedNameWithWildcard__Group__1__Impl();
@@ -34931,22 +35468,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedNameWithWildcard__Group__1__Impl"
-    // InternalAsm.g:10441:1: rule__DQualifiedNameWithWildcard__Group__1__Impl : ( ( '.*' )? ) ;
+    // InternalAsm.g:10610:1: rule__DQualifiedNameWithWildcard__Group__1__Impl : ( ( '.*' )? ) ;
     public final void rule__DQualifiedNameWithWildcard__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10445:1: ( ( ( '.*' )? ) )
-            // InternalAsm.g:10446:1: ( ( '.*' )? )
+            // InternalAsm.g:10614:1: ( ( ( '.*' )? ) )
+            // InternalAsm.g:10615:1: ( ( '.*' )? )
             {
-            // InternalAsm.g:10446:1: ( ( '.*' )? )
-            // InternalAsm.g:10447:2: ( '.*' )?
+            // InternalAsm.g:10615:1: ( ( '.*' )? )
+            // InternalAsm.g:10616:2: ( '.*' )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQualifiedNameWithWildcardAccess().getFullStopAsteriskKeyword_1()); 
             }
-            // InternalAsm.g:10448:2: ( '.*' )?
+            // InternalAsm.g:10617:2: ( '.*' )?
             int alt84=2;
             int LA84_0 = input.LA(1);
 
@@ -34955,7 +35492,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             }
             switch (alt84) {
                 case 1 :
-                    // InternalAsm.g:10448:3: '.*'
+                    // InternalAsm.g:10617:3: '.*'
                     {
                     match(input,111,FOLLOW_2); if (state.failed) return ;
 
@@ -34989,16 +35526,16 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedName__Group__0"
-    // InternalAsm.g:10457:1: rule__DQualifiedName__Group__0 : rule__DQualifiedName__Group__0__Impl rule__DQualifiedName__Group__1 ;
+    // InternalAsm.g:10626:1: rule__DQualifiedName__Group__0 : rule__DQualifiedName__Group__0__Impl rule__DQualifiedName__Group__1 ;
     public final void rule__DQualifiedName__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10461:1: ( rule__DQualifiedName__Group__0__Impl rule__DQualifiedName__Group__1 )
-            // InternalAsm.g:10462:2: rule__DQualifiedName__Group__0__Impl rule__DQualifiedName__Group__1
+            // InternalAsm.g:10630:1: ( rule__DQualifiedName__Group__0__Impl rule__DQualifiedName__Group__1 )
+            // InternalAsm.g:10631:2: rule__DQualifiedName__Group__0__Impl rule__DQualifiedName__Group__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_39);
             rule__DQualifiedName__Group__0__Impl();
 
             state._fsp--;
@@ -35027,17 +35564,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedName__Group__0__Impl"
-    // InternalAsm.g:10469:1: rule__DQualifiedName__Group__0__Impl : ( RULE_ID ) ;
+    // InternalAsm.g:10638:1: rule__DQualifiedName__Group__0__Impl : ( RULE_ID ) ;
     public final void rule__DQualifiedName__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10473:1: ( ( RULE_ID ) )
-            // InternalAsm.g:10474:1: ( RULE_ID )
+            // InternalAsm.g:10642:1: ( ( RULE_ID ) )
+            // InternalAsm.g:10643:1: ( RULE_ID )
             {
-            // InternalAsm.g:10474:1: ( RULE_ID )
-            // InternalAsm.g:10475:2: RULE_ID
+            // InternalAsm.g:10643:1: ( RULE_ID )
+            // InternalAsm.g:10644:2: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQualifiedNameAccess().getIDTerminalRuleCall_0()); 
@@ -35068,14 +35605,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedName__Group__1"
-    // InternalAsm.g:10484:1: rule__DQualifiedName__Group__1 : rule__DQualifiedName__Group__1__Impl ;
+    // InternalAsm.g:10653:1: rule__DQualifiedName__Group__1 : rule__DQualifiedName__Group__1__Impl ;
     public final void rule__DQualifiedName__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10488:1: ( rule__DQualifiedName__Group__1__Impl )
-            // InternalAsm.g:10489:2: rule__DQualifiedName__Group__1__Impl
+            // InternalAsm.g:10657:1: ( rule__DQualifiedName__Group__1__Impl )
+            // InternalAsm.g:10658:2: rule__DQualifiedName__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DQualifiedName__Group__1__Impl();
@@ -35101,22 +35638,22 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedName__Group__1__Impl"
-    // InternalAsm.g:10495:1: rule__DQualifiedName__Group__1__Impl : ( ( rule__DQualifiedName__Group_1__0 )* ) ;
+    // InternalAsm.g:10664:1: rule__DQualifiedName__Group__1__Impl : ( ( rule__DQualifiedName__Group_1__0 )* ) ;
     public final void rule__DQualifiedName__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10499:1: ( ( ( rule__DQualifiedName__Group_1__0 )* ) )
-            // InternalAsm.g:10500:1: ( ( rule__DQualifiedName__Group_1__0 )* )
+            // InternalAsm.g:10668:1: ( ( ( rule__DQualifiedName__Group_1__0 )* ) )
+            // InternalAsm.g:10669:1: ( ( rule__DQualifiedName__Group_1__0 )* )
             {
-            // InternalAsm.g:10500:1: ( ( rule__DQualifiedName__Group_1__0 )* )
-            // InternalAsm.g:10501:2: ( rule__DQualifiedName__Group_1__0 )*
+            // InternalAsm.g:10669:1: ( ( rule__DQualifiedName__Group_1__0 )* )
+            // InternalAsm.g:10670:2: ( rule__DQualifiedName__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQualifiedNameAccess().getGroup_1()); 
             }
-            // InternalAsm.g:10502:2: ( rule__DQualifiedName__Group_1__0 )*
+            // InternalAsm.g:10671:2: ( rule__DQualifiedName__Group_1__0 )*
             loop85:
             do {
                 int alt85=2;
@@ -35129,9 +35666,9 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
                 switch (alt85) {
             	case 1 :
-            	    // InternalAsm.g:10502:3: rule__DQualifiedName__Group_1__0
+            	    // InternalAsm.g:10671:3: rule__DQualifiedName__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_36);
+            	    pushFollow(FOLLOW_40);
             	    rule__DQualifiedName__Group_1__0();
 
             	    state._fsp--;
@@ -35170,14 +35707,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedName__Group_1__0"
-    // InternalAsm.g:10511:1: rule__DQualifiedName__Group_1__0 : rule__DQualifiedName__Group_1__0__Impl rule__DQualifiedName__Group_1__1 ;
+    // InternalAsm.g:10680:1: rule__DQualifiedName__Group_1__0 : rule__DQualifiedName__Group_1__0__Impl rule__DQualifiedName__Group_1__1 ;
     public final void rule__DQualifiedName__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10515:1: ( rule__DQualifiedName__Group_1__0__Impl rule__DQualifiedName__Group_1__1 )
-            // InternalAsm.g:10516:2: rule__DQualifiedName__Group_1__0__Impl rule__DQualifiedName__Group_1__1
+            // InternalAsm.g:10684:1: ( rule__DQualifiedName__Group_1__0__Impl rule__DQualifiedName__Group_1__1 )
+            // InternalAsm.g:10685:2: rule__DQualifiedName__Group_1__0__Impl rule__DQualifiedName__Group_1__1
             {
             pushFollow(FOLLOW_5);
             rule__DQualifiedName__Group_1__0__Impl();
@@ -35208,17 +35745,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedName__Group_1__0__Impl"
-    // InternalAsm.g:10523:1: rule__DQualifiedName__Group_1__0__Impl : ( '.' ) ;
+    // InternalAsm.g:10692:1: rule__DQualifiedName__Group_1__0__Impl : ( '.' ) ;
     public final void rule__DQualifiedName__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10527:1: ( ( '.' ) )
-            // InternalAsm.g:10528:1: ( '.' )
+            // InternalAsm.g:10696:1: ( ( '.' ) )
+            // InternalAsm.g:10697:1: ( '.' )
             {
-            // InternalAsm.g:10528:1: ( '.' )
-            // InternalAsm.g:10529:2: '.'
+            // InternalAsm.g:10697:1: ( '.' )
+            // InternalAsm.g:10698:2: '.'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQualifiedNameAccess().getFullStopKeyword_1_0()); 
@@ -35249,14 +35786,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedName__Group_1__1"
-    // InternalAsm.g:10538:1: rule__DQualifiedName__Group_1__1 : rule__DQualifiedName__Group_1__1__Impl ;
+    // InternalAsm.g:10707:1: rule__DQualifiedName__Group_1__1 : rule__DQualifiedName__Group_1__1__Impl ;
     public final void rule__DQualifiedName__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10542:1: ( rule__DQualifiedName__Group_1__1__Impl )
-            // InternalAsm.g:10543:2: rule__DQualifiedName__Group_1__1__Impl
+            // InternalAsm.g:10711:1: ( rule__DQualifiedName__Group_1__1__Impl )
+            // InternalAsm.g:10712:2: rule__DQualifiedName__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DQualifiedName__Group_1__1__Impl();
@@ -35282,17 +35819,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DQualifiedName__Group_1__1__Impl"
-    // InternalAsm.g:10549:1: rule__DQualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
+    // InternalAsm.g:10718:1: rule__DQualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
     public final void rule__DQualifiedName__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10553:1: ( ( RULE_ID ) )
-            // InternalAsm.g:10554:1: ( RULE_ID )
+            // InternalAsm.g:10722:1: ( ( RULE_ID ) )
+            // InternalAsm.g:10723:1: ( RULE_ID )
             {
-            // InternalAsm.g:10554:1: ( RULE_ID )
-            // InternalAsm.g:10555:2: RULE_ID
+            // InternalAsm.g:10723:1: ( RULE_ID )
+            // InternalAsm.g:10724:2: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
@@ -35323,17 +35860,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SApplication__ImportsAssignment_0"
-    // InternalAsm.g:10565:1: rule__SApplication__ImportsAssignment_0 : ( ruleDImport ) ;
+    // InternalAsm.g:10734:1: rule__SApplication__ImportsAssignment_0 : ( ruleDImport ) ;
     public final void rule__SApplication__ImportsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10569:1: ( ( ruleDImport ) )
-            // InternalAsm.g:10570:2: ( ruleDImport )
+            // InternalAsm.g:10738:1: ( ( ruleDImport ) )
+            // InternalAsm.g:10739:2: ( ruleDImport )
             {
-            // InternalAsm.g:10570:2: ( ruleDImport )
-            // InternalAsm.g:10571:3: ruleDImport
+            // InternalAsm.g:10739:2: ( ruleDImport )
+            // InternalAsm.g:10740:3: ruleDImport
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSApplicationAccess().getImportsDImportParserRuleCall_0_0()); 
@@ -35368,17 +35905,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SApplication__NameAssignment_2"
-    // InternalAsm.g:10580:1: rule__SApplication__NameAssignment_2 : ( ruleDQualifiedName ) ;
+    // InternalAsm.g:10749:1: rule__SApplication__NameAssignment_2 : ( ruleDQualifiedName ) ;
     public final void rule__SApplication__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10584:1: ( ( ruleDQualifiedName ) )
-            // InternalAsm.g:10585:2: ( ruleDQualifiedName )
+            // InternalAsm.g:10753:1: ( ( ruleDQualifiedName ) )
+            // InternalAsm.g:10754:2: ( ruleDQualifiedName )
             {
-            // InternalAsm.g:10585:2: ( ruleDQualifiedName )
-            // InternalAsm.g:10586:3: ruleDQualifiedName
+            // InternalAsm.g:10754:2: ( ruleDQualifiedName )
+            // InternalAsm.g:10755:3: ruleDQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSApplicationAccess().getNameDQualifiedNameParserRuleCall_2_0()); 
@@ -35413,23 +35950,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SApplication__ModelAssignment_5"
-    // InternalAsm.g:10595:1: rule__SApplication__ModelAssignment_5 : ( ( ruleDQualifiedName ) ) ;
+    // InternalAsm.g:10764:1: rule__SApplication__ModelAssignment_5 : ( ( ruleDQualifiedName ) ) ;
     public final void rule__SApplication__ModelAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10599:1: ( ( ( ruleDQualifiedName ) ) )
-            // InternalAsm.g:10600:2: ( ( ruleDQualifiedName ) )
+            // InternalAsm.g:10768:1: ( ( ( ruleDQualifiedName ) ) )
+            // InternalAsm.g:10769:2: ( ( ruleDQualifiedName ) )
             {
-            // InternalAsm.g:10600:2: ( ( ruleDQualifiedName ) )
-            // InternalAsm.g:10601:3: ( ruleDQualifiedName )
+            // InternalAsm.g:10769:2: ( ( ruleDQualifiedName ) )
+            // InternalAsm.g:10770:3: ( ruleDQualifiedName )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSApplicationAccess().getModelSInformationModelCrossReference_5_0()); 
             }
-            // InternalAsm.g:10602:3: ( ruleDQualifiedName )
-            // InternalAsm.g:10603:4: ruleDQualifiedName
+            // InternalAsm.g:10771:3: ( ruleDQualifiedName )
+            // InternalAsm.g:10772:4: ruleDQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSApplicationAccess().getModelSInformationModelDQualifiedNameParserRuleCall_5_0_1()); 
@@ -35470,17 +36007,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SApplication__ActorsAssignment_6"
-    // InternalAsm.g:10614:1: rule__SApplication__ActorsAssignment_6 : ( ruleSActor ) ;
+    // InternalAsm.g:10783:1: rule__SApplication__ActorsAssignment_6 : ( ruleSActor ) ;
     public final void rule__SApplication__ActorsAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10618:1: ( ( ruleSActor ) )
-            // InternalAsm.g:10619:2: ( ruleSActor )
+            // InternalAsm.g:10787:1: ( ( ruleSActor ) )
+            // InternalAsm.g:10788:2: ( ruleSActor )
             {
-            // InternalAsm.g:10619:2: ( ruleSActor )
-            // InternalAsm.g:10620:3: ruleSActor
+            // InternalAsm.g:10788:2: ( ruleSActor )
+            // InternalAsm.g:10789:3: ruleSActor
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSApplicationAccess().getActorsSActorParserRuleCall_6_0()); 
@@ -35515,17 +36052,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SServiceInterface__ImportsAssignment_0"
-    // InternalAsm.g:10629:1: rule__SServiceInterface__ImportsAssignment_0 : ( ruleDImport ) ;
+    // InternalAsm.g:10798:1: rule__SServiceInterface__ImportsAssignment_0 : ( ruleDImport ) ;
     public final void rule__SServiceInterface__ImportsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10633:1: ( ( ruleDImport ) )
-            // InternalAsm.g:10634:2: ( ruleDImport )
+            // InternalAsm.g:10802:1: ( ( ruleDImport ) )
+            // InternalAsm.g:10803:2: ( ruleDImport )
             {
-            // InternalAsm.g:10634:2: ( ruleDImport )
-            // InternalAsm.g:10635:3: ruleDImport
+            // InternalAsm.g:10803:2: ( ruleDImport )
+            // InternalAsm.g:10804:3: ruleDImport
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceInterfaceAccess().getImportsDImportParserRuleCall_0_0()); 
@@ -35560,17 +36097,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SServiceInterface__NameAssignment_3"
-    // InternalAsm.g:10644:1: rule__SServiceInterface__NameAssignment_3 : ( ruleDQualifiedName ) ;
+    // InternalAsm.g:10813:1: rule__SServiceInterface__NameAssignment_3 : ( ruleDQualifiedName ) ;
     public final void rule__SServiceInterface__NameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10648:1: ( ( ruleDQualifiedName ) )
-            // InternalAsm.g:10649:2: ( ruleDQualifiedName )
+            // InternalAsm.g:10817:1: ( ( ruleDQualifiedName ) )
+            // InternalAsm.g:10818:2: ( ruleDQualifiedName )
             {
-            // InternalAsm.g:10649:2: ( ruleDQualifiedName )
-            // InternalAsm.g:10650:3: ruleDQualifiedName
+            // InternalAsm.g:10818:2: ( ruleDQualifiedName )
+            // InternalAsm.g:10819:3: ruleDQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceInterfaceAccess().getNameDQualifiedNameParserRuleCall_3_0()); 
@@ -35605,23 +36142,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SServiceInterface__InterfaceAssignment_6"
-    // InternalAsm.g:10659:1: rule__SServiceInterface__InterfaceAssignment_6 : ( ( ruleDQualifiedName ) ) ;
+    // InternalAsm.g:10828:1: rule__SServiceInterface__InterfaceAssignment_6 : ( ( ruleDQualifiedName ) ) ;
     public final void rule__SServiceInterface__InterfaceAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10663:1: ( ( ( ruleDQualifiedName ) ) )
-            // InternalAsm.g:10664:2: ( ( ruleDQualifiedName ) )
+            // InternalAsm.g:10832:1: ( ( ( ruleDQualifiedName ) ) )
+            // InternalAsm.g:10833:2: ( ( ruleDQualifiedName ) )
             {
-            // InternalAsm.g:10664:2: ( ( ruleDQualifiedName ) )
-            // InternalAsm.g:10665:3: ( ruleDQualifiedName )
+            // InternalAsm.g:10833:2: ( ( ruleDQualifiedName ) )
+            // InternalAsm.g:10834:3: ( ruleDQualifiedName )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceInterfaceAccess().getInterfaceSInformationModelCrossReference_6_0()); 
             }
-            // InternalAsm.g:10666:3: ( ruleDQualifiedName )
-            // InternalAsm.g:10667:4: ruleDQualifiedName
+            // InternalAsm.g:10835:3: ( ruleDQualifiedName )
+            // InternalAsm.g:10836:4: ruleDQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceInterfaceAccess().getInterfaceSInformationModelDQualifiedNameParserRuleCall_6_0_1()); 
@@ -35662,23 +36199,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SServiceInterface__CoreAssignment_9"
-    // InternalAsm.g:10678:1: rule__SServiceInterface__CoreAssignment_9 : ( ( ruleDQualifiedName ) ) ;
+    // InternalAsm.g:10847:1: rule__SServiceInterface__CoreAssignment_9 : ( ( ruleDQualifiedName ) ) ;
     public final void rule__SServiceInterface__CoreAssignment_9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10682:1: ( ( ( ruleDQualifiedName ) ) )
-            // InternalAsm.g:10683:2: ( ( ruleDQualifiedName ) )
+            // InternalAsm.g:10851:1: ( ( ( ruleDQualifiedName ) ) )
+            // InternalAsm.g:10852:2: ( ( ruleDQualifiedName ) )
             {
-            // InternalAsm.g:10683:2: ( ( ruleDQualifiedName ) )
-            // InternalAsm.g:10684:3: ( ruleDQualifiedName )
+            // InternalAsm.g:10852:2: ( ( ruleDQualifiedName ) )
+            // InternalAsm.g:10853:3: ( ruleDQualifiedName )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceInterfaceAccess().getCoreSInformationModelCrossReference_9_0()); 
             }
-            // InternalAsm.g:10685:3: ( ruleDQualifiedName )
-            // InternalAsm.g:10686:4: ruleDQualifiedName
+            // InternalAsm.g:10854:3: ( ruleDQualifiedName )
+            // InternalAsm.g:10855:4: ruleDQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceInterfaceAccess().getCoreSInformationModelDQualifiedNameParserRuleCall_9_0_1()); 
@@ -35719,17 +36256,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SServiceInterface__ExceptionsAssignment_10"
-    // InternalAsm.g:10697:1: rule__SServiceInterface__ExceptionsAssignment_10 : ( ruleSException ) ;
+    // InternalAsm.g:10866:1: rule__SServiceInterface__ExceptionsAssignment_10 : ( ruleSException ) ;
     public final void rule__SServiceInterface__ExceptionsAssignment_10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10701:1: ( ( ruleSException ) )
-            // InternalAsm.g:10702:2: ( ruleSException )
+            // InternalAsm.g:10870:1: ( ( ruleSException ) )
+            // InternalAsm.g:10871:2: ( ruleSException )
             {
-            // InternalAsm.g:10702:2: ( ruleSException )
-            // InternalAsm.g:10703:3: ruleSException
+            // InternalAsm.g:10871:2: ( ruleSException )
+            // InternalAsm.g:10872:3: ruleSException
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceInterfaceAccess().getExceptionsSExceptionParserRuleCall_10_0()); 
@@ -35764,17 +36301,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SServiceInterface__OperationsAssignment_11"
-    // InternalAsm.g:10712:1: rule__SServiceInterface__OperationsAssignment_11 : ( ruleSServiceOperation ) ;
+    // InternalAsm.g:10881:1: rule__SServiceInterface__OperationsAssignment_11 : ( ruleSServiceOperation ) ;
     public final void rule__SServiceInterface__OperationsAssignment_11() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10716:1: ( ( ruleSServiceOperation ) )
-            // InternalAsm.g:10717:2: ( ruleSServiceOperation )
+            // InternalAsm.g:10885:1: ( ( ruleSServiceOperation ) )
+            // InternalAsm.g:10886:2: ( ruleSServiceOperation )
             {
-            // InternalAsm.g:10717:2: ( ruleSServiceOperation )
-            // InternalAsm.g:10718:3: ruleSServiceOperation
+            // InternalAsm.g:10886:2: ( ruleSServiceOperation )
+            // InternalAsm.g:10887:3: ruleSServiceOperation
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceInterfaceAccess().getOperationsSServiceOperationParserRuleCall_11_0()); 
@@ -35809,17 +36346,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SWatchdog__NameAssignment_1"
-    // InternalAsm.g:10727:1: rule__SWatchdog__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalAsm.g:10896:1: rule__SWatchdog__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__SWatchdog__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10731:1: ( ( RULE_ID ) )
-            // InternalAsm.g:10732:2: ( RULE_ID )
+            // InternalAsm.g:10900:1: ( ( RULE_ID ) )
+            // InternalAsm.g:10901:2: ( RULE_ID )
             {
-            // InternalAsm.g:10732:2: ( RULE_ID )
-            // InternalAsm.g:10733:3: RULE_ID
+            // InternalAsm.g:10901:2: ( RULE_ID )
+            // InternalAsm.g:10902:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSWatchdogAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -35850,17 +36387,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SHuman__NameAssignment_1"
-    // InternalAsm.g:10742:1: rule__SHuman__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalAsm.g:10911:1: rule__SHuman__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__SHuman__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10746:1: ( ( RULE_ID ) )
-            // InternalAsm.g:10747:2: ( RULE_ID )
+            // InternalAsm.g:10915:1: ( ( RULE_ID ) )
+            // InternalAsm.g:10916:2: ( RULE_ID )
             {
-            // InternalAsm.g:10747:2: ( RULE_ID )
-            // InternalAsm.g:10748:3: RULE_ID
+            // InternalAsm.g:10916:2: ( RULE_ID )
+            // InternalAsm.g:10917:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSHumanAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -35891,17 +36428,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SServiceOperation__NameAssignment_1"
-    // InternalAsm.g:10757:1: rule__SServiceOperation__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalAsm.g:10926:1: rule__SServiceOperation__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__SServiceOperation__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10761:1: ( ( RULE_ID ) )
-            // InternalAsm.g:10762:2: ( RULE_ID )
+            // InternalAsm.g:10930:1: ( ( RULE_ID ) )
+            // InternalAsm.g:10931:2: ( RULE_ID )
             {
-            // InternalAsm.g:10762:2: ( RULE_ID )
-            // InternalAsm.g:10763:3: RULE_ID
+            // InternalAsm.g:10931:2: ( RULE_ID )
+            // InternalAsm.g:10932:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceOperationAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -35932,17 +36469,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SServiceOperation__ParametersAssignment_3_0"
-    // InternalAsm.g:10772:1: rule__SServiceOperation__ParametersAssignment_3_0 : ( ruleSServiceParameter ) ;
+    // InternalAsm.g:10941:1: rule__SServiceOperation__ParametersAssignment_3_0 : ( ruleSServiceParameter ) ;
     public final void rule__SServiceOperation__ParametersAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10776:1: ( ( ruleSServiceParameter ) )
-            // InternalAsm.g:10777:2: ( ruleSServiceParameter )
+            // InternalAsm.g:10945:1: ( ( ruleSServiceParameter ) )
+            // InternalAsm.g:10946:2: ( ruleSServiceParameter )
             {
-            // InternalAsm.g:10777:2: ( ruleSServiceParameter )
-            // InternalAsm.g:10778:3: ruleSServiceParameter
+            // InternalAsm.g:10946:2: ( ruleSServiceParameter )
+            // InternalAsm.g:10947:3: ruleSServiceParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceOperationAccess().getParametersSServiceParameterParserRuleCall_3_0_0()); 
@@ -35977,17 +36514,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SServiceOperation__ParametersAssignment_3_1_1"
-    // InternalAsm.g:10787:1: rule__SServiceOperation__ParametersAssignment_3_1_1 : ( ruleSServiceParameter ) ;
+    // InternalAsm.g:10956:1: rule__SServiceOperation__ParametersAssignment_3_1_1 : ( ruleSServiceParameter ) ;
     public final void rule__SServiceOperation__ParametersAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10791:1: ( ( ruleSServiceParameter ) )
-            // InternalAsm.g:10792:2: ( ruleSServiceParameter )
+            // InternalAsm.g:10960:1: ( ( ruleSServiceParameter ) )
+            // InternalAsm.g:10961:2: ( ruleSServiceParameter )
             {
-            // InternalAsm.g:10792:2: ( ruleSServiceParameter )
-            // InternalAsm.g:10793:3: ruleSServiceParameter
+            // InternalAsm.g:10961:2: ( ruleSServiceParameter )
+            // InternalAsm.g:10962:3: ruleSServiceParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceOperationAccess().getParametersSServiceParameterParserRuleCall_3_1_1_0()); 
@@ -36022,23 +36559,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SServiceOperation__RaisesAssignment_5_1"
-    // InternalAsm.g:10802:1: rule__SServiceOperation__RaisesAssignment_5_1 : ( ( RULE_ID ) ) ;
+    // InternalAsm.g:10971:1: rule__SServiceOperation__RaisesAssignment_5_1 : ( ( RULE_ID ) ) ;
     public final void rule__SServiceOperation__RaisesAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10806:1: ( ( ( RULE_ID ) ) )
-            // InternalAsm.g:10807:2: ( ( RULE_ID ) )
+            // InternalAsm.g:10975:1: ( ( ( RULE_ID ) ) )
+            // InternalAsm.g:10976:2: ( ( RULE_ID ) )
             {
-            // InternalAsm.g:10807:2: ( ( RULE_ID ) )
-            // InternalAsm.g:10808:3: ( RULE_ID )
+            // InternalAsm.g:10976:2: ( ( RULE_ID ) )
+            // InternalAsm.g:10977:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceOperationAccess().getRaisesSExceptionCrossReference_5_1_0()); 
             }
-            // InternalAsm.g:10809:3: ( RULE_ID )
-            // InternalAsm.g:10810:4: RULE_ID
+            // InternalAsm.g:10978:3: ( RULE_ID )
+            // InternalAsm.g:10979:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceOperationAccess().getRaisesSExceptionIDTerminalRuleCall_5_1_0_1()); 
@@ -36075,23 +36612,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SServiceOperation__RaisesAssignment_5_2_1"
-    // InternalAsm.g:10821:1: rule__SServiceOperation__RaisesAssignment_5_2_1 : ( ( RULE_ID ) ) ;
+    // InternalAsm.g:10990:1: rule__SServiceOperation__RaisesAssignment_5_2_1 : ( ( RULE_ID ) ) ;
     public final void rule__SServiceOperation__RaisesAssignment_5_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10825:1: ( ( ( RULE_ID ) ) )
-            // InternalAsm.g:10826:2: ( ( RULE_ID ) )
+            // InternalAsm.g:10994:1: ( ( ( RULE_ID ) ) )
+            // InternalAsm.g:10995:2: ( ( RULE_ID ) )
             {
-            // InternalAsm.g:10826:2: ( ( RULE_ID ) )
-            // InternalAsm.g:10827:3: ( RULE_ID )
+            // InternalAsm.g:10995:2: ( ( RULE_ID ) )
+            // InternalAsm.g:10996:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceOperationAccess().getRaisesSExceptionCrossReference_5_2_1_0()); 
             }
-            // InternalAsm.g:10828:3: ( RULE_ID )
-            // InternalAsm.g:10829:4: RULE_ID
+            // InternalAsm.g:10997:3: ( RULE_ID )
+            // InternalAsm.g:10998:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceOperationAccess().getRaisesSExceptionIDTerminalRuleCall_5_2_1_0_1()); 
@@ -36128,17 +36665,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SServiceOperation__GuardsAssignment_7_1"
-    // InternalAsm.g:10840:1: rule__SServiceOperation__GuardsAssignment_7_1 : ( ruleDExpression ) ;
+    // InternalAsm.g:11009:1: rule__SServiceOperation__GuardsAssignment_7_1 : ( ruleDExpression ) ;
     public final void rule__SServiceOperation__GuardsAssignment_7_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10844:1: ( ( ruleDExpression ) )
-            // InternalAsm.g:10845:2: ( ruleDExpression )
+            // InternalAsm.g:11013:1: ( ( ruleDExpression ) )
+            // InternalAsm.g:11014:2: ( ruleDExpression )
             {
-            // InternalAsm.g:10845:2: ( ruleDExpression )
-            // InternalAsm.g:10846:3: ruleDExpression
+            // InternalAsm.g:11014:2: ( ruleDExpression )
+            // InternalAsm.g:11015:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceOperationAccess().getGuardsDExpressionParserRuleCall_7_1_0()); 
@@ -36173,17 +36710,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SServiceOperation__EffectsAssignment_8_1"
-    // InternalAsm.g:10855:1: rule__SServiceOperation__EffectsAssignment_8_1 : ( ruleDExpression ) ;
+    // InternalAsm.g:11024:1: rule__SServiceOperation__EffectsAssignment_8_1 : ( ruleDExpression ) ;
     public final void rule__SServiceOperation__EffectsAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10859:1: ( ( ruleDExpression ) )
-            // InternalAsm.g:10860:2: ( ruleDExpression )
+            // InternalAsm.g:11028:1: ( ( ruleDExpression ) )
+            // InternalAsm.g:11029:2: ( ruleDExpression )
             {
-            // InternalAsm.g:10860:2: ( ruleDExpression )
-            // InternalAsm.g:10861:3: ruleDExpression
+            // InternalAsm.g:11029:2: ( ruleDExpression )
+            // InternalAsm.g:11030:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceOperationAccess().getEffectsDExpressionParserRuleCall_8_1_0()); 
@@ -36218,17 +36755,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SServiceParameter__DirectionAssignment_0"
-    // InternalAsm.g:10870:1: rule__SServiceParameter__DirectionAssignment_0 : ( ruleSDirection ) ;
+    // InternalAsm.g:11039:1: rule__SServiceParameter__DirectionAssignment_0 : ( ruleSDirection ) ;
     public final void rule__SServiceParameter__DirectionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10874:1: ( ( ruleSDirection ) )
-            // InternalAsm.g:10875:2: ( ruleSDirection )
+            // InternalAsm.g:11043:1: ( ( ruleSDirection ) )
+            // InternalAsm.g:11044:2: ( ruleSDirection )
             {
-            // InternalAsm.g:10875:2: ( ruleSDirection )
-            // InternalAsm.g:10876:3: ruleSDirection
+            // InternalAsm.g:11044:2: ( ruleSDirection )
+            // InternalAsm.g:11045:3: ruleSDirection
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceParameterAccess().getDirectionSDirectionEnumRuleCall_0_0()); 
@@ -36263,17 +36800,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SServiceParameter__NameAssignment_1"
-    // InternalAsm.g:10885:1: rule__SServiceParameter__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalAsm.g:11054:1: rule__SServiceParameter__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__SServiceParameter__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10889:1: ( ( RULE_ID ) )
-            // InternalAsm.g:10890:2: ( RULE_ID )
+            // InternalAsm.g:11058:1: ( ( RULE_ID ) )
+            // InternalAsm.g:11059:2: ( RULE_ID )
             {
-            // InternalAsm.g:10890:2: ( RULE_ID )
-            // InternalAsm.g:10891:3: RULE_ID
+            // InternalAsm.g:11059:2: ( RULE_ID )
+            // InternalAsm.g:11060:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceParameterAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -36304,23 +36841,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SServiceParameter__TypeAssignment_3"
-    // InternalAsm.g:10900:1: rule__SServiceParameter__TypeAssignment_3 : ( ( RULE_ID ) ) ;
+    // InternalAsm.g:11069:1: rule__SServiceParameter__TypeAssignment_3 : ( ( RULE_ID ) ) ;
     public final void rule__SServiceParameter__TypeAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10904:1: ( ( ( RULE_ID ) ) )
-            // InternalAsm.g:10905:2: ( ( RULE_ID ) )
+            // InternalAsm.g:11073:1: ( ( ( RULE_ID ) ) )
+            // InternalAsm.g:11074:2: ( ( RULE_ID ) )
             {
-            // InternalAsm.g:10905:2: ( ( RULE_ID ) )
-            // InternalAsm.g:10906:3: ( RULE_ID )
+            // InternalAsm.g:11074:2: ( ( RULE_ID ) )
+            // InternalAsm.g:11075:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceParameterAccess().getTypeDTypeCrossReference_3_0()); 
             }
-            // InternalAsm.g:10907:3: ( RULE_ID )
-            // InternalAsm.g:10908:4: RULE_ID
+            // InternalAsm.g:11076:3: ( RULE_ID )
+            // InternalAsm.g:11077:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceParameterAccess().getTypeDTypeIDTerminalRuleCall_3_0_1()); 
@@ -36357,17 +36894,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SServiceParameter__MultiplicityAssignment_4"
-    // InternalAsm.g:10919:1: rule__SServiceParameter__MultiplicityAssignment_4 : ( ruleDMultiplicity ) ;
+    // InternalAsm.g:11088:1: rule__SServiceParameter__MultiplicityAssignment_4 : ( ruleDMultiplicity ) ;
     public final void rule__SServiceParameter__MultiplicityAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10923:1: ( ( ruleDMultiplicity ) )
-            // InternalAsm.g:10924:2: ( ruleDMultiplicity )
+            // InternalAsm.g:11092:1: ( ( ruleDMultiplicity ) )
+            // InternalAsm.g:11093:2: ( ruleDMultiplicity )
             {
-            // InternalAsm.g:10924:2: ( ruleDMultiplicity )
-            // InternalAsm.g:10925:3: ruleDMultiplicity
+            // InternalAsm.g:11093:2: ( ruleDMultiplicity )
+            // InternalAsm.g:11094:3: ruleDMultiplicity
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceParameterAccess().getMultiplicityDMultiplicityParserRuleCall_4_0()); 
@@ -36402,17 +36939,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SServiceParameter__DescriptionAssignment_5"
-    // InternalAsm.g:10934:1: rule__SServiceParameter__DescriptionAssignment_5 : ( ruleDRichText ) ;
+    // InternalAsm.g:11103:1: rule__SServiceParameter__DescriptionAssignment_5 : ( ruleDRichText ) ;
     public final void rule__SServiceParameter__DescriptionAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10938:1: ( ( ruleDRichText ) )
-            // InternalAsm.g:10939:2: ( ruleDRichText )
+            // InternalAsm.g:11107:1: ( ( ruleDRichText ) )
+            // InternalAsm.g:11108:2: ( ruleDRichText )
             {
-            // InternalAsm.g:10939:2: ( ruleDRichText )
-            // InternalAsm.g:10940:3: ruleDRichText
+            // InternalAsm.g:11108:2: ( ruleDRichText )
+            // InternalAsm.g:11109:3: ruleDRichText
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSServiceParameterAccess().getDescriptionDRichTextParserRuleCall_5_0()); 
@@ -36447,17 +36984,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SException__NameAssignment_1"
-    // InternalAsm.g:10949:1: rule__SException__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalAsm.g:11118:1: rule__SException__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__SException__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10953:1: ( ( RULE_ID ) )
-            // InternalAsm.g:10954:2: ( RULE_ID )
+            // InternalAsm.g:11122:1: ( ( RULE_ID ) )
+            // InternalAsm.g:11123:2: ( RULE_ID )
             {
-            // InternalAsm.g:10954:2: ( RULE_ID )
-            // InternalAsm.g:10955:3: RULE_ID
+            // InternalAsm.g:11123:2: ( RULE_ID )
+            // InternalAsm.g:11124:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSExceptionAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -36488,17 +37025,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SException__DescriptionAssignment_2"
-    // InternalAsm.g:10964:1: rule__SException__DescriptionAssignment_2 : ( ruleDRichText ) ;
+    // InternalAsm.g:11133:1: rule__SException__DescriptionAssignment_2 : ( ruleDRichText ) ;
     public final void rule__SException__DescriptionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10968:1: ( ( ruleDRichText ) )
-            // InternalAsm.g:10969:2: ( ruleDRichText )
+            // InternalAsm.g:11137:1: ( ( ruleDRichText ) )
+            // InternalAsm.g:11138:2: ( ruleDRichText )
             {
-            // InternalAsm.g:10969:2: ( ruleDRichText )
-            // InternalAsm.g:10970:3: ruleDRichText
+            // InternalAsm.g:11138:2: ( ruleDRichText )
+            // InternalAsm.g:11139:3: ruleDRichText
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSExceptionAccess().getDescriptionDRichTextParserRuleCall_2_0()); 
@@ -36533,17 +37070,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DImport__ImportedNamespaceAssignment_1"
-    // InternalAsm.g:10979:1: rule__DImport__ImportedNamespaceAssignment_1 : ( ruleDQualifiedNameWithWildcard ) ;
+    // InternalAsm.g:11148:1: rule__DImport__ImportedNamespaceAssignment_1 : ( ruleDQualifiedNameWithWildcard ) ;
     public final void rule__DImport__ImportedNamespaceAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10983:1: ( ( ruleDQualifiedNameWithWildcard ) )
-            // InternalAsm.g:10984:2: ( ruleDQualifiedNameWithWildcard )
+            // InternalAsm.g:11152:1: ( ( ruleDQualifiedNameWithWildcard ) )
+            // InternalAsm.g:11153:2: ( ruleDQualifiedNameWithWildcard )
             {
-            // InternalAsm.g:10984:2: ( ruleDQualifiedNameWithWildcard )
-            // InternalAsm.g:10985:3: ruleDQualifiedNameWithWildcard
+            // InternalAsm.g:11153:2: ( ruleDQualifiedNameWithWildcard )
+            // InternalAsm.g:11154:3: ruleDQualifiedNameWithWildcard
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDImportAccess().getImportedNamespaceDQualifiedNameWithWildcardParserRuleCall_1_0()); 
@@ -36578,17 +37115,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTest__NameAssignment_1"
-    // InternalAsm.g:10994:1: rule__DmxTest__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalAsm.g:11163:1: rule__DmxTest__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__DmxTest__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:10998:1: ( ( RULE_ID ) )
-            // InternalAsm.g:10999:2: ( RULE_ID )
+            // InternalAsm.g:11167:1: ( ( RULE_ID ) )
+            // InternalAsm.g:11168:2: ( RULE_ID )
             {
-            // InternalAsm.g:10999:2: ( RULE_ID )
-            // InternalAsm.g:11000:3: RULE_ID
+            // InternalAsm.g:11168:2: ( RULE_ID )
+            // InternalAsm.g:11169:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTestAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -36619,17 +37156,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTest__ContextAssignment_2_1"
-    // InternalAsm.g:11009:1: rule__DmxTest__ContextAssignment_2_1 : ( ruleDmxTestContext ) ;
+    // InternalAsm.g:11178:1: rule__DmxTest__ContextAssignment_2_1 : ( ruleDmxTestContext ) ;
     public final void rule__DmxTest__ContextAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11013:1: ( ( ruleDmxTestContext ) )
-            // InternalAsm.g:11014:2: ( ruleDmxTestContext )
+            // InternalAsm.g:11182:1: ( ( ruleDmxTestContext ) )
+            // InternalAsm.g:11183:2: ( ruleDmxTestContext )
             {
-            // InternalAsm.g:11014:2: ( ruleDmxTestContext )
-            // InternalAsm.g:11015:3: ruleDmxTestContext
+            // InternalAsm.g:11183:2: ( ruleDmxTestContext )
+            // InternalAsm.g:11184:3: ruleDmxTestContext
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTestAccess().getContextDmxTestContextParserRuleCall_2_1_0()); 
@@ -36664,17 +37201,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTest__ContextAssignment_2_2_1"
-    // InternalAsm.g:11024:1: rule__DmxTest__ContextAssignment_2_2_1 : ( ruleDmxTestContext ) ;
+    // InternalAsm.g:11193:1: rule__DmxTest__ContextAssignment_2_2_1 : ( ruleDmxTestContext ) ;
     public final void rule__DmxTest__ContextAssignment_2_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11028:1: ( ( ruleDmxTestContext ) )
-            // InternalAsm.g:11029:2: ( ruleDmxTestContext )
+            // InternalAsm.g:11197:1: ( ( ruleDmxTestContext ) )
+            // InternalAsm.g:11198:2: ( ruleDmxTestContext )
             {
-            // InternalAsm.g:11029:2: ( ruleDmxTestContext )
-            // InternalAsm.g:11030:3: ruleDmxTestContext
+            // InternalAsm.g:11198:2: ( ruleDmxTestContext )
+            // InternalAsm.g:11199:3: ruleDmxTestContext
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTestAccess().getContextDmxTestContextParserRuleCall_2_2_1_0()); 
@@ -36709,17 +37246,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTest__ExprAssignment_4"
-    // InternalAsm.g:11039:1: rule__DmxTest__ExprAssignment_4 : ( ruleDExpression ) ;
+    // InternalAsm.g:11208:1: rule__DmxTest__ExprAssignment_4 : ( ruleDExpression ) ;
     public final void rule__DmxTest__ExprAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11043:1: ( ( ruleDExpression ) )
-            // InternalAsm.g:11044:2: ( ruleDExpression )
+            // InternalAsm.g:11212:1: ( ( ruleDExpression ) )
+            // InternalAsm.g:11213:2: ( ruleDExpression )
             {
-            // InternalAsm.g:11044:2: ( ruleDExpression )
-            // InternalAsm.g:11045:3: ruleDExpression
+            // InternalAsm.g:11213:2: ( ruleDExpression )
+            // InternalAsm.g:11214:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTestAccess().getExprDExpressionParserRuleCall_4_0()); 
@@ -36754,17 +37291,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTestContext__NameAssignment_0"
-    // InternalAsm.g:11054:1: rule__DmxTestContext__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalAsm.g:11223:1: rule__DmxTestContext__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__DmxTestContext__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11058:1: ( ( RULE_ID ) )
-            // InternalAsm.g:11059:2: ( RULE_ID )
+            // InternalAsm.g:11227:1: ( ( RULE_ID ) )
+            // InternalAsm.g:11228:2: ( RULE_ID )
             {
-            // InternalAsm.g:11059:2: ( RULE_ID )
-            // InternalAsm.g:11060:3: RULE_ID
+            // InternalAsm.g:11228:2: ( RULE_ID )
+            // InternalAsm.g:11229:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTestContextAccess().getNameIDTerminalRuleCall_0_0()); 
@@ -36795,23 +37332,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTestContext__TypeAssignment_2"
-    // InternalAsm.g:11069:1: rule__DmxTestContext__TypeAssignment_2 : ( ( RULE_ID ) ) ;
+    // InternalAsm.g:11238:1: rule__DmxTestContext__TypeAssignment_2 : ( ( RULE_ID ) ) ;
     public final void rule__DmxTestContext__TypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11073:1: ( ( ( RULE_ID ) ) )
-            // InternalAsm.g:11074:2: ( ( RULE_ID ) )
+            // InternalAsm.g:11242:1: ( ( ( RULE_ID ) ) )
+            // InternalAsm.g:11243:2: ( ( RULE_ID ) )
             {
-            // InternalAsm.g:11074:2: ( ( RULE_ID ) )
-            // InternalAsm.g:11075:3: ( RULE_ID )
+            // InternalAsm.g:11243:2: ( ( RULE_ID ) )
+            // InternalAsm.g:11244:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTestContextAccess().getTypeDTypeCrossReference_2_0()); 
             }
-            // InternalAsm.g:11076:3: ( RULE_ID )
-            // InternalAsm.g:11077:4: RULE_ID
+            // InternalAsm.g:11245:3: ( RULE_ID )
+            // InternalAsm.g:11246:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTestContextAccess().getTypeDTypeIDTerminalRuleCall_2_0_1()); 
@@ -36848,17 +37385,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTestContext__MultiplicityAssignment_3"
-    // InternalAsm.g:11088:1: rule__DmxTestContext__MultiplicityAssignment_3 : ( ruleDMultiplicity ) ;
+    // InternalAsm.g:11257:1: rule__DmxTestContext__MultiplicityAssignment_3 : ( ruleDMultiplicity ) ;
     public final void rule__DmxTestContext__MultiplicityAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11092:1: ( ( ruleDMultiplicity ) )
-            // InternalAsm.g:11093:2: ( ruleDMultiplicity )
+            // InternalAsm.g:11261:1: ( ( ruleDMultiplicity ) )
+            // InternalAsm.g:11262:2: ( ruleDMultiplicity )
             {
-            // InternalAsm.g:11093:2: ( ruleDMultiplicity )
-            // InternalAsm.g:11094:3: ruleDMultiplicity
+            // InternalAsm.g:11262:2: ( ruleDMultiplicity )
+            // InternalAsm.g:11263:3: ruleDMultiplicity
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTestContextAccess().getMultiplicityDMultiplicityParserRuleCall_3_0()); 
@@ -36892,18 +37429,149 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DmxTestContext__MultiplicityAssignment_3"
 
 
+    // $ANTLR start "rule__DmxBaseTypeSet__NameAssignment_0"
+    // InternalAsm.g:11272:1: rule__DmxBaseTypeSet__NameAssignment_0 : ( RULE_ID ) ;
+    public final void rule__DmxBaseTypeSet__NameAssignment_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:11276:1: ( ( RULE_ID ) )
+            // InternalAsm.g:11277:2: ( RULE_ID )
+            {
+            // InternalAsm.g:11277:2: ( RULE_ID )
+            // InternalAsm.g:11278:3: RULE_ID
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getNameIDTerminalRuleCall_0_0()); 
+            }
+            match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getNameIDTerminalRuleCall_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__NameAssignment_0"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__MembersAssignment_3"
+    // InternalAsm.g:11287:1: rule__DmxBaseTypeSet__MembersAssignment_3 : ( ruleDmxBaseType ) ;
+    public final void rule__DmxBaseTypeSet__MembersAssignment_3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:11291:1: ( ( ruleDmxBaseType ) )
+            // InternalAsm.g:11292:2: ( ruleDmxBaseType )
+            {
+            // InternalAsm.g:11292:2: ( ruleDmxBaseType )
+            // InternalAsm.g:11293:3: ruleDmxBaseType
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getMembersDmxBaseTypeEnumRuleCall_3_0()); 
+            }
+            pushFollow(FOLLOW_2);
+            ruleDmxBaseType();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getMembersDmxBaseTypeEnumRuleCall_3_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__MembersAssignment_3"
+
+
+    // $ANTLR start "rule__DmxBaseTypeSet__MembersAssignment_4_1"
+    // InternalAsm.g:11302:1: rule__DmxBaseTypeSet__MembersAssignment_4_1 : ( ruleDmxBaseType ) ;
+    public final void rule__DmxBaseTypeSet__MembersAssignment_4_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:11306:1: ( ( ruleDmxBaseType ) )
+            // InternalAsm.g:11307:2: ( ruleDmxBaseType )
+            {
+            // InternalAsm.g:11307:2: ( ruleDmxBaseType )
+            // InternalAsm.g:11308:3: ruleDmxBaseType
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxBaseTypeSetAccess().getMembersDmxBaseTypeEnumRuleCall_4_1_0()); 
+            }
+            pushFollow(FOLLOW_2);
+            ruleDmxBaseType();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxBaseTypeSetAccess().getMembersDmxBaseTypeEnumRuleCall_4_1_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxBaseTypeSet__MembersAssignment_4_1"
+
+
     // $ANTLR start "rule__DmxArchetype__NameAssignment_1"
-    // InternalAsm.g:11103:1: rule__DmxArchetype__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalAsm.g:11317:1: rule__DmxArchetype__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__DmxArchetype__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11107:1: ( ( RULE_ID ) )
-            // InternalAsm.g:11108:2: ( RULE_ID )
+            // InternalAsm.g:11321:1: ( ( RULE_ID ) )
+            // InternalAsm.g:11322:2: ( RULE_ID )
             {
-            // InternalAsm.g:11108:2: ( RULE_ID )
-            // InternalAsm.g:11109:3: RULE_ID
+            // InternalAsm.g:11322:2: ( RULE_ID )
+            // InternalAsm.g:11323:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -36934,17 +37602,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__BaseTypeAssignment_3"
-    // InternalAsm.g:11118:1: rule__DmxArchetype__BaseTypeAssignment_3 : ( ruleDmxBaseType ) ;
+    // InternalAsm.g:11332:1: rule__DmxArchetype__BaseTypeAssignment_3 : ( ruleDmxBaseType ) ;
     public final void rule__DmxArchetype__BaseTypeAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11122:1: ( ( ruleDmxBaseType ) )
-            // InternalAsm.g:11123:2: ( ruleDmxBaseType )
+            // InternalAsm.g:11336:1: ( ( ruleDmxBaseType ) )
+            // InternalAsm.g:11337:2: ( ruleDmxBaseType )
             {
-            // InternalAsm.g:11123:2: ( ruleDmxBaseType )
-            // InternalAsm.g:11124:3: ruleDmxBaseType
+            // InternalAsm.g:11337:2: ( ruleDmxBaseType )
+            // InternalAsm.g:11338:3: ruleDmxBaseType
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeAccess().getBaseTypeDmxBaseTypeEnumRuleCall_3_0()); 
@@ -36979,17 +37647,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxArchetype__DescriptionAssignment_4"
-    // InternalAsm.g:11133:1: rule__DmxArchetype__DescriptionAssignment_4 : ( ruleDRichText ) ;
+    // InternalAsm.g:11347:1: rule__DmxArchetype__DescriptionAssignment_4 : ( ruleDRichText ) ;
     public final void rule__DmxArchetype__DescriptionAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11137:1: ( ( ruleDRichText ) )
-            // InternalAsm.g:11138:2: ( ruleDRichText )
+            // InternalAsm.g:11351:1: ( ( ruleDRichText ) )
+            // InternalAsm.g:11352:2: ( ruleDRichText )
             {
-            // InternalAsm.g:11138:2: ( ruleDRichText )
-            // InternalAsm.g:11139:3: ruleDRichText
+            // InternalAsm.g:11352:2: ( ruleDRichText )
+            // InternalAsm.g:11353:3: ruleDRichText
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxArchetypeAccess().getDescriptionDRichTextParserRuleCall_4_0()); 
@@ -37023,25 +37691,25 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DmxArchetype__DescriptionAssignment_4"
 
 
-    // $ANTLR start "rule__DmxFunction__NameAssignment_1"
-    // InternalAsm.g:11148:1: rule__DmxFunction__NameAssignment_1 : ( RULE_ID ) ;
-    public final void rule__DmxFunction__NameAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__NameAssignment_1"
+    // InternalAsm.g:11362:1: rule__DmxFilter__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__DmxFilter__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11152:1: ( ( RULE_ID ) )
-            // InternalAsm.g:11153:2: ( RULE_ID )
+            // InternalAsm.g:11366:1: ( ( RULE_ID ) )
+            // InternalAsm.g:11367:2: ( RULE_ID )
             {
-            // InternalAsm.g:11153:2: ( RULE_ID )
-            // InternalAsm.g:11154:3: RULE_ID
+            // InternalAsm.g:11367:2: ( RULE_ID )
+            // InternalAsm.g:11368:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getNameIDTerminalRuleCall_1_0()); 
+               before(grammarAccess.getDmxFilterAccess().getNameIDTerminalRuleCall_1_0()); 
             }
             match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getNameIDTerminalRuleCall_1_0()); 
+               after(grammarAccess.getDmxFilterAccess().getNameIDTerminalRuleCall_1_0()); 
             }
 
             }
@@ -37061,32 +37729,32 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__NameAssignment_1"
+    // $ANTLR end "rule__DmxFilter__NameAssignment_1"
 
 
-    // $ANTLR start "rule__DmxFunction__ParametersAssignment_3_0"
-    // InternalAsm.g:11163:1: rule__DmxFunction__ParametersAssignment_3_0 : ( ruleDmxFunctionParameter ) ;
-    public final void rule__DmxFunction__ParametersAssignment_3_0() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__ParametersAssignment_3_0"
+    // InternalAsm.g:11377:1: rule__DmxFilter__ParametersAssignment_3_0 : ( ruleDmxFilterParameter ) ;
+    public final void rule__DmxFilter__ParametersAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11167:1: ( ( ruleDmxFunctionParameter ) )
-            // InternalAsm.g:11168:2: ( ruleDmxFunctionParameter )
+            // InternalAsm.g:11381:1: ( ( ruleDmxFilterParameter ) )
+            // InternalAsm.g:11382:2: ( ruleDmxFilterParameter )
             {
-            // InternalAsm.g:11168:2: ( ruleDmxFunctionParameter )
-            // InternalAsm.g:11169:3: ruleDmxFunctionParameter
+            // InternalAsm.g:11382:2: ( ruleDmxFilterParameter )
+            // InternalAsm.g:11383:3: ruleDmxFilterParameter
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getParametersDmxFunctionParameterParserRuleCall_3_0_0()); 
+               before(grammarAccess.getDmxFilterAccess().getParametersDmxFilterParameterParserRuleCall_3_0_0()); 
             }
             pushFollow(FOLLOW_2);
-            ruleDmxFunctionParameter();
+            ruleDmxFilterParameter();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getParametersDmxFunctionParameterParserRuleCall_3_0_0()); 
+               after(grammarAccess.getDmxFilterAccess().getParametersDmxFilterParameterParserRuleCall_3_0_0()); 
             }
 
             }
@@ -37106,32 +37774,32 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__ParametersAssignment_3_0"
+    // $ANTLR end "rule__DmxFilter__ParametersAssignment_3_0"
 
 
-    // $ANTLR start "rule__DmxFunction__ParametersAssignment_3_1_1"
-    // InternalAsm.g:11178:1: rule__DmxFunction__ParametersAssignment_3_1_1 : ( ruleDmxFunctionParameter ) ;
-    public final void rule__DmxFunction__ParametersAssignment_3_1_1() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__ParametersAssignment_3_1_1"
+    // InternalAsm.g:11392:1: rule__DmxFilter__ParametersAssignment_3_1_1 : ( ruleDmxFilterParameter ) ;
+    public final void rule__DmxFilter__ParametersAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11182:1: ( ( ruleDmxFunctionParameter ) )
-            // InternalAsm.g:11183:2: ( ruleDmxFunctionParameter )
+            // InternalAsm.g:11396:1: ( ( ruleDmxFilterParameter ) )
+            // InternalAsm.g:11397:2: ( ruleDmxFilterParameter )
             {
-            // InternalAsm.g:11183:2: ( ruleDmxFunctionParameter )
-            // InternalAsm.g:11184:3: ruleDmxFunctionParameter
+            // InternalAsm.g:11397:2: ( ruleDmxFilterParameter )
+            // InternalAsm.g:11398:3: ruleDmxFilterParameter
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getParametersDmxFunctionParameterParserRuleCall_3_1_1_0()); 
+               before(grammarAccess.getDmxFilterAccess().getParametersDmxFilterParameterParserRuleCall_3_1_1_0()); 
             }
             pushFollow(FOLLOW_2);
-            ruleDmxFunctionParameter();
+            ruleDmxFilterParameter();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getParametersDmxFunctionParameterParserRuleCall_3_1_1_0()); 
+               after(grammarAccess.getDmxFilterAccess().getParametersDmxFilterParameterParserRuleCall_3_1_1_0()); 
             }
 
             }
@@ -37151,24 +37819,114 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__ParametersAssignment_3_1_1"
+    // $ANTLR end "rule__DmxFilter__ParametersAssignment_3_1_1"
 
 
-    // $ANTLR start "rule__DmxFunction__BaseTypeAssignment_6"
-    // InternalAsm.g:11193:1: rule__DmxFunction__BaseTypeAssignment_6 : ( ruleDmxBaseType ) ;
-    public final void rule__DmxFunction__BaseTypeAssignment_6() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilter__TypeDescAssignment_6"
+    // InternalAsm.g:11407:1: rule__DmxFilter__TypeDescAssignment_6 : ( ruleDmxFilterTypeDescriptor ) ;
+    public final void rule__DmxFilter__TypeDescAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11197:1: ( ( ruleDmxBaseType ) )
-            // InternalAsm.g:11198:2: ( ruleDmxBaseType )
+            // InternalAsm.g:11411:1: ( ( ruleDmxFilterTypeDescriptor ) )
+            // InternalAsm.g:11412:2: ( ruleDmxFilterTypeDescriptor )
             {
-            // InternalAsm.g:11198:2: ( ruleDmxBaseType )
-            // InternalAsm.g:11199:3: ruleDmxBaseType
+            // InternalAsm.g:11412:2: ( ruleDmxFilterTypeDescriptor )
+            // InternalAsm.g:11413:3: ruleDmxFilterTypeDescriptor
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getBaseTypeDmxBaseTypeEnumRuleCall_6_0()); 
+               before(grammarAccess.getDmxFilterAccess().getTypeDescDmxFilterTypeDescriptorParserRuleCall_6_0()); 
+            }
+            pushFollow(FOLLOW_2);
+            ruleDmxFilterTypeDescriptor();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterAccess().getTypeDescDmxFilterTypeDescriptorParserRuleCall_6_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__TypeDescAssignment_6"
+
+
+    // $ANTLR start "rule__DmxFilter__WithTypeSetAssignment_7_1"
+    // InternalAsm.g:11422:1: rule__DmxFilter__WithTypeSetAssignment_7_1 : ( ruleDmxBaseTypeSet ) ;
+    public final void rule__DmxFilter__WithTypeSetAssignment_7_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:11426:1: ( ( ruleDmxBaseTypeSet ) )
+            // InternalAsm.g:11427:2: ( ruleDmxBaseTypeSet )
+            {
+            // InternalAsm.g:11427:2: ( ruleDmxBaseTypeSet )
+            // InternalAsm.g:11428:3: ruleDmxBaseTypeSet
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterAccess().getWithTypeSetDmxBaseTypeSetParserRuleCall_7_1_0()); 
+            }
+            pushFollow(FOLLOW_2);
+            ruleDmxBaseTypeSet();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterAccess().getWithTypeSetDmxBaseTypeSetParserRuleCall_7_1_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilter__WithTypeSetAssignment_7_1"
+
+
+    // $ANTLR start "rule__DmxFilterTypeDescriptor__SingleAssignment_0_0"
+    // InternalAsm.g:11437:1: rule__DmxFilterTypeDescriptor__SingleAssignment_0_0 : ( ruleDmxBaseType ) ;
+    public final void rule__DmxFilterTypeDescriptor__SingleAssignment_0_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:11441:1: ( ( ruleDmxBaseType ) )
+            // InternalAsm.g:11442:2: ( ruleDmxBaseType )
+            {
+            // InternalAsm.g:11442:2: ( ruleDmxBaseType )
+            // InternalAsm.g:11443:3: ruleDmxBaseType
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterTypeDescriptorAccess().getSingleDmxBaseTypeEnumRuleCall_0_0_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleDmxBaseType();
@@ -37176,7 +37934,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getBaseTypeDmxBaseTypeEnumRuleCall_6_0()); 
+               after(grammarAccess.getDmxFilterTypeDescriptorAccess().getSingleDmxBaseTypeEnumRuleCall_0_0_0()); 
             }
 
             }
@@ -37196,81 +37954,40 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunction__BaseTypeAssignment_6"
+    // $ANTLR end "rule__DmxFilterTypeDescriptor__SingleAssignment_0_0"
 
 
-    // $ANTLR start "rule__DmxFunction__BaseTypeCollectionAssignment_7"
-    // InternalAsm.g:11208:1: rule__DmxFunction__BaseTypeCollectionAssignment_7 : ( ( '*' ) ) ;
-    public final void rule__DmxFunction__BaseTypeCollectionAssignment_7() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:11212:1: ( ( ( '*' ) ) )
-            // InternalAsm.g:11213:2: ( ( '*' ) )
-            {
-            // InternalAsm.g:11213:2: ( ( '*' ) )
-            // InternalAsm.g:11214:3: ( '*' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getBaseTypeCollectionAsteriskKeyword_7_0()); 
-            }
-            // InternalAsm.g:11215:3: ( '*' )
-            // InternalAsm.g:11216:4: '*'
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionAccess().getBaseTypeCollectionAsteriskKeyword_7_0()); 
-            }
-            match(input,30,FOLLOW_2); if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getBaseTypeCollectionAsteriskKeyword_7_0()); 
-            }
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionAccess().getBaseTypeCollectionAsteriskKeyword_7_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunction__BaseTypeCollectionAssignment_7"
-
-
-    // $ANTLR start "rule__DmxFunctionParameter__NameAssignment_0"
-    // InternalAsm.g:11227:1: rule__DmxFunctionParameter__NameAssignment_0 : ( RULE_ID ) ;
-    public final void rule__DmxFunctionParameter__NameAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1"
+    // InternalAsm.g:11452:1: rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1 : ( ( RULE_ID ) ) ;
+    public final void rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11231:1: ( ( RULE_ID ) )
-            // InternalAsm.g:11232:2: ( RULE_ID )
+            // InternalAsm.g:11456:1: ( ( ( RULE_ID ) ) )
+            // InternalAsm.g:11457:2: ( ( RULE_ID ) )
             {
-            // InternalAsm.g:11232:2: ( RULE_ID )
-            // InternalAsm.g:11233:3: RULE_ID
+            // InternalAsm.g:11457:2: ( ( RULE_ID ) )
+            // InternalAsm.g:11458:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionParameterAccess().getNameIDTerminalRuleCall_0_0()); 
+               before(grammarAccess.getDmxFilterTypeDescriptorAccess().getMultipleDmxBaseTypeSetCrossReference_0_1_0()); 
+            }
+            // InternalAsm.g:11459:3: ( RULE_ID )
+            // InternalAsm.g:11460:4: RULE_ID
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterTypeDescriptorAccess().getMultipleDmxBaseTypeSetIDTerminalRuleCall_0_1_0_1()); 
             }
             match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionParameterAccess().getNameIDTerminalRuleCall_0_0()); 
+               after(grammarAccess.getDmxFilterTypeDescriptorAccess().getMultipleDmxBaseTypeSetIDTerminalRuleCall_0_1_0_1()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterTypeDescriptorAccess().getMultipleDmxBaseTypeSetCrossReference_0_1_0()); 
             }
 
             }
@@ -37290,32 +38007,126 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunctionParameter__NameAssignment_0"
+    // $ANTLR end "rule__DmxFilterTypeDescriptor__MultipleAssignment_0_1"
 
 
-    // $ANTLR start "rule__DmxFunctionParameter__BaseTypeAssignment_2"
-    // InternalAsm.g:11242:1: rule__DmxFunctionParameter__BaseTypeAssignment_2 : ( ruleDmxBaseType ) ;
-    public final void rule__DmxFunctionParameter__BaseTypeAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__DmxFilterTypeDescriptor__CollectionAssignment_1"
+    // InternalAsm.g:11471:1: rule__DmxFilterTypeDescriptor__CollectionAssignment_1 : ( ( '*' ) ) ;
+    public final void rule__DmxFilterTypeDescriptor__CollectionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11246:1: ( ( ruleDmxBaseType ) )
-            // InternalAsm.g:11247:2: ( ruleDmxBaseType )
+            // InternalAsm.g:11475:1: ( ( ( '*' ) ) )
+            // InternalAsm.g:11476:2: ( ( '*' ) )
             {
-            // InternalAsm.g:11247:2: ( ruleDmxBaseType )
-            // InternalAsm.g:11248:3: ruleDmxBaseType
+            // InternalAsm.g:11476:2: ( ( '*' ) )
+            // InternalAsm.g:11477:3: ( '*' )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeDmxBaseTypeEnumRuleCall_2_0()); 
+               before(grammarAccess.getDmxFilterTypeDescriptorAccess().getCollectionAsteriskKeyword_1_0()); 
+            }
+            // InternalAsm.g:11478:3: ( '*' )
+            // InternalAsm.g:11479:4: '*'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterTypeDescriptorAccess().getCollectionAsteriskKeyword_1_0()); 
+            }
+            match(input,30,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterTypeDescriptorAccess().getCollectionAsteriskKeyword_1_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterTypeDescriptorAccess().getCollectionAsteriskKeyword_1_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilterTypeDescriptor__CollectionAssignment_1"
+
+
+    // $ANTLR start "rule__DmxFilterParameter__NameAssignment_0"
+    // InternalAsm.g:11490:1: rule__DmxFilterParameter__NameAssignment_0 : ( RULE_ID ) ;
+    public final void rule__DmxFilterParameter__NameAssignment_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:11494:1: ( ( RULE_ID ) )
+            // InternalAsm.g:11495:2: ( RULE_ID )
+            {
+            // InternalAsm.g:11495:2: ( RULE_ID )
+            // InternalAsm.g:11496:3: RULE_ID
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterParameterAccess().getNameIDTerminalRuleCall_0_0()); 
+            }
+            match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDmxFilterParameterAccess().getNameIDTerminalRuleCall_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DmxFilterParameter__NameAssignment_0"
+
+
+    // $ANTLR start "rule__DmxFilterParameter__TypeDescAssignment_2"
+    // InternalAsm.g:11505:1: rule__DmxFilterParameter__TypeDescAssignment_2 : ( ruleDmxFilterTypeDescriptor ) ;
+    public final void rule__DmxFilterParameter__TypeDescAssignment_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalAsm.g:11509:1: ( ( ruleDmxFilterTypeDescriptor ) )
+            // InternalAsm.g:11510:2: ( ruleDmxFilterTypeDescriptor )
+            {
+            // InternalAsm.g:11510:2: ( ruleDmxFilterTypeDescriptor )
+            // InternalAsm.g:11511:3: ruleDmxFilterTypeDescriptor
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDmxFilterParameterAccess().getTypeDescDmxFilterTypeDescriptorParserRuleCall_2_0()); 
             }
             pushFollow(FOLLOW_2);
-            ruleDmxBaseType();
+            ruleDmxFilterTypeDescriptor();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeDmxBaseTypeEnumRuleCall_2_0()); 
+               after(grammarAccess.getDmxFilterParameterAccess().getTypeDescDmxFilterTypeDescriptorParserRuleCall_2_0()); 
             }
 
             }
@@ -37335,213 +38146,21 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DmxFunctionParameter__BaseTypeAssignment_2"
-
-
-    // $ANTLR start "rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3"
-    // InternalAsm.g:11257:1: rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3 : ( ( '*' ) ) ;
-    public final void rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:11261:1: ( ( ( '*' ) ) )
-            // InternalAsm.g:11262:2: ( ( '*' ) )
-            {
-            // InternalAsm.g:11262:2: ( ( '*' ) )
-            // InternalAsm.g:11263:3: ( '*' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeCollectionAsteriskKeyword_3_0()); 
-            }
-            // InternalAsm.g:11264:3: ( '*' )
-            // InternalAsm.g:11265:4: '*'
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeCollectionAsteriskKeyword_3_0()); 
-            }
-            match(input,30,FOLLOW_2); if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeCollectionAsteriskKeyword_3_0()); 
-            }
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionParameterAccess().getBaseTypeCollectionAsteriskKeyword_3_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxFunctionParameter__BaseTypeCollectionAssignment_3"
-
-
-    // $ANTLR start "rule__DmxIterator__NameAssignment_1"
-    // InternalAsm.g:11276:1: rule__DmxIterator__NameAssignment_1 : ( RULE_ID ) ;
-    public final void rule__DmxIterator__NameAssignment_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:11280:1: ( ( RULE_ID ) )
-            // InternalAsm.g:11281:2: ( RULE_ID )
-            {
-            // InternalAsm.g:11281:2: ( RULE_ID )
-            // InternalAsm.g:11282:3: RULE_ID
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorAccess().getNameIDTerminalRuleCall_1_0()); 
-            }
-            match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorAccess().getNameIDTerminalRuleCall_1_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxIterator__NameAssignment_1"
-
-
-    // $ANTLR start "rule__DmxIterator__BaseTypeAssignment_3"
-    // InternalAsm.g:11291:1: rule__DmxIterator__BaseTypeAssignment_3 : ( ruleDmxBaseType ) ;
-    public final void rule__DmxIterator__BaseTypeAssignment_3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:11295:1: ( ( ruleDmxBaseType ) )
-            // InternalAsm.g:11296:2: ( ruleDmxBaseType )
-            {
-            // InternalAsm.g:11296:2: ( ruleDmxBaseType )
-            // InternalAsm.g:11297:3: ruleDmxBaseType
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorAccess().getBaseTypeDmxBaseTypeEnumRuleCall_3_0()); 
-            }
-            pushFollow(FOLLOW_2);
-            ruleDmxBaseType();
-
-            state._fsp--;
-            if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorAccess().getBaseTypeDmxBaseTypeEnumRuleCall_3_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxIterator__BaseTypeAssignment_3"
-
-
-    // $ANTLR start "rule__DmxIterator__BaseTypeCollectionAssignment_4"
-    // InternalAsm.g:11306:1: rule__DmxIterator__BaseTypeCollectionAssignment_4 : ( ( '*' ) ) ;
-    public final void rule__DmxIterator__BaseTypeCollectionAssignment_4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalAsm.g:11310:1: ( ( ( '*' ) ) )
-            // InternalAsm.g:11311:2: ( ( '*' ) )
-            {
-            // InternalAsm.g:11311:2: ( ( '*' ) )
-            // InternalAsm.g:11312:3: ( '*' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorAccess().getBaseTypeCollectionAsteriskKeyword_4_0()); 
-            }
-            // InternalAsm.g:11313:3: ( '*' )
-            // InternalAsm.g:11314:4: '*'
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxIteratorAccess().getBaseTypeCollectionAsteriskKeyword_4_0()); 
-            }
-            match(input,30,FOLLOW_2); if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorAccess().getBaseTypeCollectionAsteriskKeyword_4_0()); 
-            }
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxIteratorAccess().getBaseTypeCollectionAsteriskKeyword_4_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DmxIterator__BaseTypeCollectionAssignment_4"
+    // $ANTLR end "rule__DmxFilterParameter__TypeDescAssignment_2"
 
 
     // $ANTLR start "rule__DRichText__SegmentsAssignment_0"
-    // InternalAsm.g:11325:1: rule__DRichText__SegmentsAssignment_0 : ( ruleDmxTextOnly ) ;
+    // InternalAsm.g:11520:1: rule__DRichText__SegmentsAssignment_0 : ( ruleDmxTextOnly ) ;
     public final void rule__DRichText__SegmentsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11329:1: ( ( ruleDmxTextOnly ) )
-            // InternalAsm.g:11330:2: ( ruleDmxTextOnly )
+            // InternalAsm.g:11524:1: ( ( ruleDmxTextOnly ) )
+            // InternalAsm.g:11525:2: ( ruleDmxTextOnly )
             {
-            // InternalAsm.g:11330:2: ( ruleDmxTextOnly )
-            // InternalAsm.g:11331:3: ruleDmxTextOnly
+            // InternalAsm.g:11525:2: ( ruleDmxTextOnly )
+            // InternalAsm.g:11526:3: ruleDmxTextOnly
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsDmxTextOnlyParserRuleCall_0_0()); 
@@ -37576,17 +38195,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__SegmentsAssignment_1_0"
-    // InternalAsm.g:11340:1: rule__DRichText__SegmentsAssignment_1_0 : ( ruleDmxTextStart ) ;
+    // InternalAsm.g:11535:1: rule__DRichText__SegmentsAssignment_1_0 : ( ruleDmxTextStart ) ;
     public final void rule__DRichText__SegmentsAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11344:1: ( ( ruleDmxTextStart ) )
-            // InternalAsm.g:11345:2: ( ruleDmxTextStart )
+            // InternalAsm.g:11539:1: ( ( ruleDmxTextStart ) )
+            // InternalAsm.g:11540:2: ( ruleDmxTextStart )
             {
-            // InternalAsm.g:11345:2: ( ruleDmxTextStart )
-            // InternalAsm.g:11346:3: ruleDmxTextStart
+            // InternalAsm.g:11540:2: ( ruleDmxTextStart )
+            // InternalAsm.g:11541:3: ruleDmxTextStart
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsDmxTextStartParserRuleCall_1_0_0()); 
@@ -37621,17 +38240,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__SegmentsAssignment_1_1"
-    // InternalAsm.g:11355:1: rule__DRichText__SegmentsAssignment_1_1 : ( ruleDExpression ) ;
+    // InternalAsm.g:11550:1: rule__DRichText__SegmentsAssignment_1_1 : ( ruleDExpression ) ;
     public final void rule__DRichText__SegmentsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11359:1: ( ( ruleDExpression ) )
-            // InternalAsm.g:11360:2: ( ruleDExpression )
+            // InternalAsm.g:11554:1: ( ( ruleDExpression ) )
+            // InternalAsm.g:11555:2: ( ruleDExpression )
             {
-            // InternalAsm.g:11360:2: ( ruleDExpression )
-            // InternalAsm.g:11361:3: ruleDExpression
+            // InternalAsm.g:11555:2: ( ruleDExpression )
+            // InternalAsm.g:11556:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsDExpressionParserRuleCall_1_1_0()); 
@@ -37666,17 +38285,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__SegmentsAssignment_1_2_0"
-    // InternalAsm.g:11370:1: rule__DRichText__SegmentsAssignment_1_2_0 : ( ruleDmxTextMiddle ) ;
+    // InternalAsm.g:11565:1: rule__DRichText__SegmentsAssignment_1_2_0 : ( ruleDmxTextMiddle ) ;
     public final void rule__DRichText__SegmentsAssignment_1_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11374:1: ( ( ruleDmxTextMiddle ) )
-            // InternalAsm.g:11375:2: ( ruleDmxTextMiddle )
+            // InternalAsm.g:11569:1: ( ( ruleDmxTextMiddle ) )
+            // InternalAsm.g:11570:2: ( ruleDmxTextMiddle )
             {
-            // InternalAsm.g:11375:2: ( ruleDmxTextMiddle )
-            // InternalAsm.g:11376:3: ruleDmxTextMiddle
+            // InternalAsm.g:11570:2: ( ruleDmxTextMiddle )
+            // InternalAsm.g:11571:3: ruleDmxTextMiddle
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsDmxTextMiddleParserRuleCall_1_2_0_0()); 
@@ -37711,17 +38330,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__SegmentsAssignment_1_2_1"
-    // InternalAsm.g:11385:1: rule__DRichText__SegmentsAssignment_1_2_1 : ( ruleDExpression ) ;
+    // InternalAsm.g:11580:1: rule__DRichText__SegmentsAssignment_1_2_1 : ( ruleDExpression ) ;
     public final void rule__DRichText__SegmentsAssignment_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11389:1: ( ( ruleDExpression ) )
-            // InternalAsm.g:11390:2: ( ruleDExpression )
+            // InternalAsm.g:11584:1: ( ( ruleDExpression ) )
+            // InternalAsm.g:11585:2: ( ruleDExpression )
             {
-            // InternalAsm.g:11390:2: ( ruleDExpression )
-            // InternalAsm.g:11391:3: ruleDExpression
+            // InternalAsm.g:11585:2: ( ruleDExpression )
+            // InternalAsm.g:11586:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsDExpressionParserRuleCall_1_2_1_0()); 
@@ -37756,17 +38375,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DRichText__SegmentsAssignment_1_3"
-    // InternalAsm.g:11400:1: rule__DRichText__SegmentsAssignment_1_3 : ( ruleDmxTextEnd ) ;
+    // InternalAsm.g:11595:1: rule__DRichText__SegmentsAssignment_1_3 : ( ruleDmxTextEnd ) ;
     public final void rule__DRichText__SegmentsAssignment_1_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11404:1: ( ( ruleDmxTextEnd ) )
-            // InternalAsm.g:11405:2: ( ruleDmxTextEnd )
+            // InternalAsm.g:11599:1: ( ( ruleDmxTextEnd ) )
+            // InternalAsm.g:11600:2: ( ruleDmxTextEnd )
             {
-            // InternalAsm.g:11405:2: ( ruleDmxTextEnd )
-            // InternalAsm.g:11406:3: ruleDmxTextEnd
+            // InternalAsm.g:11600:2: ( ruleDmxTextEnd )
+            // InternalAsm.g:11601:3: ruleDmxTextEnd
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDRichTextAccess().getSegmentsDmxTextEndParserRuleCall_1_3_0()); 
@@ -37801,17 +38420,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTextOnly__ValueAssignment"
-    // InternalAsm.g:11415:1: rule__DmxTextOnly__ValueAssignment : ( RULE_PLAIN_TEXT_ONLY ) ;
+    // InternalAsm.g:11610:1: rule__DmxTextOnly__ValueAssignment : ( RULE_PLAIN_TEXT_ONLY ) ;
     public final void rule__DmxTextOnly__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11419:1: ( ( RULE_PLAIN_TEXT_ONLY ) )
-            // InternalAsm.g:11420:2: ( RULE_PLAIN_TEXT_ONLY )
+            // InternalAsm.g:11614:1: ( ( RULE_PLAIN_TEXT_ONLY ) )
+            // InternalAsm.g:11615:2: ( RULE_PLAIN_TEXT_ONLY )
             {
-            // InternalAsm.g:11420:2: ( RULE_PLAIN_TEXT_ONLY )
-            // InternalAsm.g:11421:3: RULE_PLAIN_TEXT_ONLY
+            // InternalAsm.g:11615:2: ( RULE_PLAIN_TEXT_ONLY )
+            // InternalAsm.g:11616:3: RULE_PLAIN_TEXT_ONLY
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTextOnlyAccess().getValuePLAIN_TEXT_ONLYTerminalRuleCall_0()); 
@@ -37842,17 +38461,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTextStart__ValueAssignment"
-    // InternalAsm.g:11430:1: rule__DmxTextStart__ValueAssignment : ( RULE_PLAIN_TEXT_START ) ;
+    // InternalAsm.g:11625:1: rule__DmxTextStart__ValueAssignment : ( RULE_PLAIN_TEXT_START ) ;
     public final void rule__DmxTextStart__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11434:1: ( ( RULE_PLAIN_TEXT_START ) )
-            // InternalAsm.g:11435:2: ( RULE_PLAIN_TEXT_START )
+            // InternalAsm.g:11629:1: ( ( RULE_PLAIN_TEXT_START ) )
+            // InternalAsm.g:11630:2: ( RULE_PLAIN_TEXT_START )
             {
-            // InternalAsm.g:11435:2: ( RULE_PLAIN_TEXT_START )
-            // InternalAsm.g:11436:3: RULE_PLAIN_TEXT_START
+            // InternalAsm.g:11630:2: ( RULE_PLAIN_TEXT_START )
+            // InternalAsm.g:11631:3: RULE_PLAIN_TEXT_START
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTextStartAccess().getValuePLAIN_TEXT_STARTTerminalRuleCall_0()); 
@@ -37883,17 +38502,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTextMiddle__ValueAssignment"
-    // InternalAsm.g:11445:1: rule__DmxTextMiddle__ValueAssignment : ( RULE_PLAIN_TEXT_MIDDLE ) ;
+    // InternalAsm.g:11640:1: rule__DmxTextMiddle__ValueAssignment : ( RULE_PLAIN_TEXT_MIDDLE ) ;
     public final void rule__DmxTextMiddle__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11449:1: ( ( RULE_PLAIN_TEXT_MIDDLE ) )
-            // InternalAsm.g:11450:2: ( RULE_PLAIN_TEXT_MIDDLE )
+            // InternalAsm.g:11644:1: ( ( RULE_PLAIN_TEXT_MIDDLE ) )
+            // InternalAsm.g:11645:2: ( RULE_PLAIN_TEXT_MIDDLE )
             {
-            // InternalAsm.g:11450:2: ( RULE_PLAIN_TEXT_MIDDLE )
-            // InternalAsm.g:11451:3: RULE_PLAIN_TEXT_MIDDLE
+            // InternalAsm.g:11645:2: ( RULE_PLAIN_TEXT_MIDDLE )
+            // InternalAsm.g:11646:3: RULE_PLAIN_TEXT_MIDDLE
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTextMiddleAccess().getValuePLAIN_TEXT_MIDDLETerminalRuleCall_0()); 
@@ -37924,17 +38543,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTextEnd__ValueAssignment"
-    // InternalAsm.g:11460:1: rule__DmxTextEnd__ValueAssignment : ( RULE_PLAIN_TEXT_END ) ;
+    // InternalAsm.g:11655:1: rule__DmxTextEnd__ValueAssignment : ( RULE_PLAIN_TEXT_END ) ;
     public final void rule__DmxTextEnd__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11464:1: ( ( RULE_PLAIN_TEXT_END ) )
-            // InternalAsm.g:11465:2: ( RULE_PLAIN_TEXT_END )
+            // InternalAsm.g:11659:1: ( ( RULE_PLAIN_TEXT_END ) )
+            // InternalAsm.g:11660:2: ( RULE_PLAIN_TEXT_END )
             {
-            // InternalAsm.g:11465:2: ( RULE_PLAIN_TEXT_END )
-            // InternalAsm.g:11466:3: RULE_PLAIN_TEXT_END
+            // InternalAsm.g:11660:2: ( RULE_PLAIN_TEXT_END )
+            // InternalAsm.g:11661:3: RULE_PLAIN_TEXT_END
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxTextEndAccess().getValuePLAIN_TEXT_ENDTerminalRuleCall_0()); 
@@ -37965,23 +38584,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2"
-    // InternalAsm.g:11475:1: rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 : ( ( RULE_ID ) ) ;
+    // InternalAsm.g:11670:1: rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2 : ( ( RULE_ID ) ) ;
     public final void rule__DmxNavigableMemberReference__AssignToMemberAssignment_1_0_0_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11479:1: ( ( ( RULE_ID ) ) )
-            // InternalAsm.g:11480:2: ( ( RULE_ID ) )
+            // InternalAsm.g:11674:1: ( ( ( RULE_ID ) ) )
+            // InternalAsm.g:11675:2: ( ( RULE_ID ) )
             {
-            // InternalAsm.g:11480:2: ( ( RULE_ID ) )
-            // InternalAsm.g:11481:3: ( RULE_ID )
+            // InternalAsm.g:11675:2: ( ( RULE_ID ) )
+            // InternalAsm.g:11676:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getAssignToMemberDNavigableMemberCrossReference_1_0_0_0_2_0()); 
             }
-            // InternalAsm.g:11482:3: ( RULE_ID )
-            // InternalAsm.g:11483:4: RULE_ID
+            // InternalAsm.g:11677:3: ( RULE_ID )
+            // InternalAsm.g:11678:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getAssignToMemberDNavigableMemberIDTerminalRuleCall_1_0_0_0_2_0_1()); 
@@ -38018,17 +38637,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__ValueAssignment_1_0_1"
-    // InternalAsm.g:11494:1: rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 : ( ruleDmxOrExpression ) ;
+    // InternalAsm.g:11689:1: rule__DmxNavigableMemberReference__ValueAssignment_1_0_1 : ( ruleDmxOrExpression ) ;
     public final void rule__DmxNavigableMemberReference__ValueAssignment_1_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11498:1: ( ( ruleDmxOrExpression ) )
-            // InternalAsm.g:11499:2: ( ruleDmxOrExpression )
+            // InternalAsm.g:11693:1: ( ( ruleDmxOrExpression ) )
+            // InternalAsm.g:11694:2: ( ruleDmxOrExpression )
             {
-            // InternalAsm.g:11499:2: ( ruleDmxOrExpression )
-            // InternalAsm.g:11500:3: ruleDmxOrExpression
+            // InternalAsm.g:11694:2: ( ruleDmxOrExpression )
+            // InternalAsm.g:11695:3: ruleDmxOrExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getValueDmxOrExpressionParserRuleCall_1_0_1_0()); 
@@ -38063,23 +38682,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__MemberAssignment_1_1_1"
-    // InternalAsm.g:11509:1: rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 : ( ( RULE_ID ) ) ;
+    // InternalAsm.g:11704:1: rule__DmxNavigableMemberReference__MemberAssignment_1_1_1 : ( ( RULE_ID ) ) ;
     public final void rule__DmxNavigableMemberReference__MemberAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11513:1: ( ( ( RULE_ID ) ) )
-            // InternalAsm.g:11514:2: ( ( RULE_ID ) )
+            // InternalAsm.g:11708:1: ( ( ( RULE_ID ) ) )
+            // InternalAsm.g:11709:2: ( ( RULE_ID ) )
             {
-            // InternalAsm.g:11514:2: ( ( RULE_ID ) )
-            // InternalAsm.g:11515:3: ( RULE_ID )
+            // InternalAsm.g:11709:2: ( ( RULE_ID ) )
+            // InternalAsm.g:11710:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getMemberDNavigableMemberCrossReference_1_1_1_0()); 
             }
-            // InternalAsm.g:11516:3: ( RULE_ID )
-            // InternalAsm.g:11517:4: RULE_ID
+            // InternalAsm.g:11711:3: ( RULE_ID )
+            // InternalAsm.g:11712:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getMemberDNavigableMemberIDTerminalRuleCall_1_1_1_0_1()); 
@@ -38116,23 +38735,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0"
-    // InternalAsm.g:11528:1: rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 : ( ( '(' ) ) ;
+    // InternalAsm.g:11723:1: rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0 : ( ( '(' ) ) ;
     public final void rule__DmxNavigableMemberReference__ExplicitOperationCallAssignment_1_1_2_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11532:1: ( ( ( '(' ) ) )
-            // InternalAsm.g:11533:2: ( ( '(' ) )
+            // InternalAsm.g:11727:1: ( ( ( '(' ) ) )
+            // InternalAsm.g:11728:2: ( ( '(' ) )
             {
-            // InternalAsm.g:11533:2: ( ( '(' ) )
-            // InternalAsm.g:11534:3: ( '(' )
+            // InternalAsm.g:11728:2: ( ( '(' ) )
+            // InternalAsm.g:11729:3: ( '(' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0_0()); 
             }
-            // InternalAsm.g:11535:3: ( '(' )
-            // InternalAsm.g:11536:4: '('
+            // InternalAsm.g:11730:3: ( '(' )
+            // InternalAsm.g:11731:4: '('
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_2_0_0_0()); 
@@ -38169,17 +38788,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0"
-    // InternalAsm.g:11547:1: rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 : ( ruleDmxPredicate ) ;
+    // InternalAsm.g:11742:1: rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0 : ( ruleDmxPredicate ) ;
     public final void rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11551:1: ( ( ruleDmxPredicate ) )
-            // InternalAsm.g:11552:2: ( ruleDmxPredicate )
+            // InternalAsm.g:11746:1: ( ( ruleDmxPredicate ) )
+            // InternalAsm.g:11747:2: ( ruleDmxPredicate )
             {
-            // InternalAsm.g:11552:2: ( ruleDmxPredicate )
-            // InternalAsm.g:11553:3: ruleDmxPredicate
+            // InternalAsm.g:11747:2: ( ruleDmxPredicate )
+            // InternalAsm.g:11748:3: ruleDmxPredicate
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getMemberCallArgumentsDmxPredicateParserRuleCall_1_1_2_0_1_0_0()); 
@@ -38214,17 +38833,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1"
-    // InternalAsm.g:11562:1: rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 : ( ruleDmxPredicate ) ;
+    // InternalAsm.g:11757:1: rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1 : ( ruleDmxPredicate ) ;
     public final void rule__DmxNavigableMemberReference__MemberCallArgumentsAssignment_1_1_2_0_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11566:1: ( ( ruleDmxPredicate ) )
-            // InternalAsm.g:11567:2: ( ruleDmxPredicate )
+            // InternalAsm.g:11761:1: ( ( ruleDmxPredicate ) )
+            // InternalAsm.g:11762:2: ( ruleDmxPredicate )
             {
-            // InternalAsm.g:11567:2: ( ruleDmxPredicate )
-            // InternalAsm.g:11568:3: ruleDmxPredicate
+            // InternalAsm.g:11762:2: ( ruleDmxPredicate )
+            // InternalAsm.g:11763:3: ruleDmxPredicate
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getMemberCallArgumentsDmxPredicateParserRuleCall_1_1_2_0_1_1_1_0()); 
@@ -38259,23 +38878,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNavigableMemberReference__BeforeAssignment_1_1_2_1"
-    // InternalAsm.g:11577:1: rule__DmxNavigableMemberReference__BeforeAssignment_1_1_2_1 : ( ( '@before' ) ) ;
+    // InternalAsm.g:11772:1: rule__DmxNavigableMemberReference__BeforeAssignment_1_1_2_1 : ( ( '@before' ) ) ;
     public final void rule__DmxNavigableMemberReference__BeforeAssignment_1_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11581:1: ( ( ( '@before' ) ) )
-            // InternalAsm.g:11582:2: ( ( '@before' ) )
+            // InternalAsm.g:11776:1: ( ( ( '@before' ) ) )
+            // InternalAsm.g:11777:2: ( ( '@before' ) )
             {
-            // InternalAsm.g:11582:2: ( ( '@before' ) )
-            // InternalAsm.g:11583:3: ( '@before' )
+            // InternalAsm.g:11777:2: ( ( '@before' ) )
+            // InternalAsm.g:11778:3: ( '@before' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getBeforeBeforeKeyword_1_1_2_1_0()); 
             }
-            // InternalAsm.g:11584:3: ( '@before' )
-            // InternalAsm.g:11585:4: '@before'
+            // InternalAsm.g:11779:3: ( '@before' )
+            // InternalAsm.g:11780:4: '@before'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNavigableMemberReferenceAccess().getBeforeBeforeKeyword_1_1_2_1_0()); 
@@ -38312,23 +38931,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAssignment__AssignToMemberAssignment_1"
-    // InternalAsm.g:11596:1: rule__DmxAssignment__AssignToMemberAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalAsm.g:11791:1: rule__DmxAssignment__AssignToMemberAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__DmxAssignment__AssignToMemberAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11600:1: ( ( ( RULE_ID ) ) )
-            // InternalAsm.g:11601:2: ( ( RULE_ID ) )
+            // InternalAsm.g:11795:1: ( ( ( RULE_ID ) ) )
+            // InternalAsm.g:11796:2: ( ( RULE_ID ) )
             {
-            // InternalAsm.g:11601:2: ( ( RULE_ID ) )
-            // InternalAsm.g:11602:3: ( RULE_ID )
+            // InternalAsm.g:11796:2: ( ( RULE_ID ) )
+            // InternalAsm.g:11797:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAssignmentAccess().getAssignToMemberDNavigableMemberCrossReference_1_0()); 
             }
-            // InternalAsm.g:11603:3: ( RULE_ID )
-            // InternalAsm.g:11604:4: RULE_ID
+            // InternalAsm.g:11798:3: ( RULE_ID )
+            // InternalAsm.g:11799:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAssignmentAccess().getAssignToMemberDNavigableMemberIDTerminalRuleCall_1_0_1()); 
@@ -38365,17 +38984,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAssignment__ValueAssignment_3"
-    // InternalAsm.g:11615:1: rule__DmxAssignment__ValueAssignment_3 : ( ruleDmxOrExpression ) ;
+    // InternalAsm.g:11810:1: rule__DmxAssignment__ValueAssignment_3 : ( ruleDmxOrExpression ) ;
     public final void rule__DmxAssignment__ValueAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11619:1: ( ( ruleDmxOrExpression ) )
-            // InternalAsm.g:11620:2: ( ruleDmxOrExpression )
+            // InternalAsm.g:11814:1: ( ( ruleDmxOrExpression ) )
+            // InternalAsm.g:11815:2: ( ruleDmxOrExpression )
             {
-            // InternalAsm.g:11620:2: ( ruleDmxOrExpression )
-            // InternalAsm.g:11621:3: ruleDmxOrExpression
+            // InternalAsm.g:11815:2: ( ruleDmxOrExpression )
+            // InternalAsm.g:11816:3: ruleDmxOrExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAssignmentAccess().getValueDmxOrExpressionParserRuleCall_3_0()); 
@@ -38410,17 +39029,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxPredicate__CorrelationVariableAssignment_0_1"
-    // InternalAsm.g:11630:1: rule__DmxPredicate__CorrelationVariableAssignment_0_1 : ( ruleDmxCorrelationVariable ) ;
+    // InternalAsm.g:11825:1: rule__DmxPredicate__CorrelationVariableAssignment_0_1 : ( ruleDmxCorrelationVariable ) ;
     public final void rule__DmxPredicate__CorrelationVariableAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11634:1: ( ( ruleDmxCorrelationVariable ) )
-            // InternalAsm.g:11635:2: ( ruleDmxCorrelationVariable )
+            // InternalAsm.g:11829:1: ( ( ruleDmxCorrelationVariable ) )
+            // InternalAsm.g:11830:2: ( ruleDmxCorrelationVariable )
             {
-            // InternalAsm.g:11635:2: ( ruleDmxCorrelationVariable )
-            // InternalAsm.g:11636:3: ruleDmxCorrelationVariable
+            // InternalAsm.g:11830:2: ( ruleDmxCorrelationVariable )
+            // InternalAsm.g:11831:3: ruleDmxCorrelationVariable
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxPredicateAccess().getCorrelationVariableDmxCorrelationVariableParserRuleCall_0_1_0()); 
@@ -38455,17 +39074,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxPredicate__ValueAssignment_0_3"
-    // InternalAsm.g:11645:1: rule__DmxPredicate__ValueAssignment_0_3 : ( ruleDmxOrExpression ) ;
+    // InternalAsm.g:11840:1: rule__DmxPredicate__ValueAssignment_0_3 : ( ruleDmxOrExpression ) ;
     public final void rule__DmxPredicate__ValueAssignment_0_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11649:1: ( ( ruleDmxOrExpression ) )
-            // InternalAsm.g:11650:2: ( ruleDmxOrExpression )
+            // InternalAsm.g:11844:1: ( ( ruleDmxOrExpression ) )
+            // InternalAsm.g:11845:2: ( ruleDmxOrExpression )
             {
-            // InternalAsm.g:11650:2: ( ruleDmxOrExpression )
-            // InternalAsm.g:11651:3: ruleDmxOrExpression
+            // InternalAsm.g:11845:2: ( ruleDmxOrExpression )
+            // InternalAsm.g:11846:3: ruleDmxOrExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxPredicateAccess().getValueDmxOrExpressionParserRuleCall_0_3_0()); 
@@ -38500,17 +39119,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCorrelationVariable__NameAssignment"
-    // InternalAsm.g:11660:1: rule__DmxCorrelationVariable__NameAssignment : ( RULE_ID ) ;
+    // InternalAsm.g:11855:1: rule__DmxCorrelationVariable__NameAssignment : ( RULE_ID ) ;
     public final void rule__DmxCorrelationVariable__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11664:1: ( ( RULE_ID ) )
-            // InternalAsm.g:11665:2: ( RULE_ID )
+            // InternalAsm.g:11859:1: ( ( RULE_ID ) )
+            // InternalAsm.g:11860:2: ( RULE_ID )
             {
-            // InternalAsm.g:11665:2: ( RULE_ID )
-            // InternalAsm.g:11666:3: RULE_ID
+            // InternalAsm.g:11860:2: ( RULE_ID )
+            // InternalAsm.g:11861:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxCorrelationVariableAccess().getNameIDTerminalRuleCall_0()); 
@@ -38541,17 +39160,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__OperatorAssignment_1_0_0_1"
-    // InternalAsm.g:11675:1: rule__DmxOrExpression__OperatorAssignment_1_0_0_1 : ( ruleDmxOpOr ) ;
+    // InternalAsm.g:11870:1: rule__DmxOrExpression__OperatorAssignment_1_0_0_1 : ( ruleDmxOpOr ) ;
     public final void rule__DmxOrExpression__OperatorAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11679:1: ( ( ruleDmxOpOr ) )
-            // InternalAsm.g:11680:2: ( ruleDmxOpOr )
+            // InternalAsm.g:11874:1: ( ( ruleDmxOpOr ) )
+            // InternalAsm.g:11875:2: ( ruleDmxOpOr )
             {
-            // InternalAsm.g:11680:2: ( ruleDmxOpOr )
-            // InternalAsm.g:11681:3: ruleDmxOpOr
+            // InternalAsm.g:11875:2: ( ruleDmxOpOr )
+            // InternalAsm.g:11876:3: ruleDmxOpOr
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOrExpressionAccess().getOperatorDmxOpOrEnumRuleCall_1_0_0_1_0()); 
@@ -38586,17 +39205,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOrExpression__RightOperandAssignment_1_1"
-    // InternalAsm.g:11690:1: rule__DmxOrExpression__RightOperandAssignment_1_1 : ( ruleDmxAndExpression ) ;
+    // InternalAsm.g:11885:1: rule__DmxOrExpression__RightOperandAssignment_1_1 : ( ruleDmxAndExpression ) ;
     public final void rule__DmxOrExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11694:1: ( ( ruleDmxAndExpression ) )
-            // InternalAsm.g:11695:2: ( ruleDmxAndExpression )
+            // InternalAsm.g:11889:1: ( ( ruleDmxAndExpression ) )
+            // InternalAsm.g:11890:2: ( ruleDmxAndExpression )
             {
-            // InternalAsm.g:11695:2: ( ruleDmxAndExpression )
-            // InternalAsm.g:11696:3: ruleDmxAndExpression
+            // InternalAsm.g:11890:2: ( ruleDmxAndExpression )
+            // InternalAsm.g:11891:3: ruleDmxAndExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOrExpressionAccess().getRightOperandDmxAndExpressionParserRuleCall_1_1_0()); 
@@ -38631,17 +39250,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__OperatorAssignment_1_0_0_1"
-    // InternalAsm.g:11705:1: rule__DmxAndExpression__OperatorAssignment_1_0_0_1 : ( ruleDmxOpAnd ) ;
+    // InternalAsm.g:11900:1: rule__DmxAndExpression__OperatorAssignment_1_0_0_1 : ( ruleDmxOpAnd ) ;
     public final void rule__DmxAndExpression__OperatorAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11709:1: ( ( ruleDmxOpAnd ) )
-            // InternalAsm.g:11710:2: ( ruleDmxOpAnd )
+            // InternalAsm.g:11904:1: ( ( ruleDmxOpAnd ) )
+            // InternalAsm.g:11905:2: ( ruleDmxOpAnd )
             {
-            // InternalAsm.g:11710:2: ( ruleDmxOpAnd )
-            // InternalAsm.g:11711:3: ruleDmxOpAnd
+            // InternalAsm.g:11905:2: ( ruleDmxOpAnd )
+            // InternalAsm.g:11906:3: ruleDmxOpAnd
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAndExpressionAccess().getOperatorDmxOpAndEnumRuleCall_1_0_0_1_0()); 
@@ -38676,17 +39295,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAndExpression__RightOperandAssignment_1_1"
-    // InternalAsm.g:11720:1: rule__DmxAndExpression__RightOperandAssignment_1_1 : ( ruleDmxEqualityExpression ) ;
+    // InternalAsm.g:11915:1: rule__DmxAndExpression__RightOperandAssignment_1_1 : ( ruleDmxEqualityExpression ) ;
     public final void rule__DmxAndExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11724:1: ( ( ruleDmxEqualityExpression ) )
-            // InternalAsm.g:11725:2: ( ruleDmxEqualityExpression )
+            // InternalAsm.g:11919:1: ( ( ruleDmxEqualityExpression ) )
+            // InternalAsm.g:11920:2: ( ruleDmxEqualityExpression )
             {
-            // InternalAsm.g:11725:2: ( ruleDmxEqualityExpression )
-            // InternalAsm.g:11726:3: ruleDmxEqualityExpression
+            // InternalAsm.g:11920:2: ( ruleDmxEqualityExpression )
+            // InternalAsm.g:11921:3: ruleDmxEqualityExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAndExpressionAccess().getRightOperandDmxEqualityExpressionParserRuleCall_1_1_0()); 
@@ -38721,17 +39340,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1"
-    // InternalAsm.g:11735:1: rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 : ( ruleDmxOpEquality ) ;
+    // InternalAsm.g:11930:1: rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1 : ( ruleDmxOpEquality ) ;
     public final void rule__DmxEqualityExpression__OperatorAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11739:1: ( ( ruleDmxOpEquality ) )
-            // InternalAsm.g:11740:2: ( ruleDmxOpEquality )
+            // InternalAsm.g:11934:1: ( ( ruleDmxOpEquality ) )
+            // InternalAsm.g:11935:2: ( ruleDmxOpEquality )
             {
-            // InternalAsm.g:11740:2: ( ruleDmxOpEquality )
-            // InternalAsm.g:11741:3: ruleDmxOpEquality
+            // InternalAsm.g:11935:2: ( ruleDmxOpEquality )
+            // InternalAsm.g:11936:3: ruleDmxOpEquality
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxEqualityExpressionAccess().getOperatorDmxOpEqualityEnumRuleCall_1_0_0_1_0()); 
@@ -38766,17 +39385,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxEqualityExpression__RightOperandAssignment_1_1"
-    // InternalAsm.g:11750:1: rule__DmxEqualityExpression__RightOperandAssignment_1_1 : ( ruleDmxRelationalExpression ) ;
+    // InternalAsm.g:11945:1: rule__DmxEqualityExpression__RightOperandAssignment_1_1 : ( ruleDmxRelationalExpression ) ;
     public final void rule__DmxEqualityExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11754:1: ( ( ruleDmxRelationalExpression ) )
-            // InternalAsm.g:11755:2: ( ruleDmxRelationalExpression )
+            // InternalAsm.g:11949:1: ( ( ruleDmxRelationalExpression ) )
+            // InternalAsm.g:11950:2: ( ruleDmxRelationalExpression )
             {
-            // InternalAsm.g:11755:2: ( ruleDmxRelationalExpression )
-            // InternalAsm.g:11756:3: ruleDmxRelationalExpression
+            // InternalAsm.g:11950:2: ( ruleDmxRelationalExpression )
+            // InternalAsm.g:11951:3: ruleDmxRelationalExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxEqualityExpressionAccess().getRightOperandDmxRelationalExpressionParserRuleCall_1_1_0()); 
@@ -38811,23 +39430,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__TypeAssignment_1_0_1"
-    // InternalAsm.g:11765:1: rule__DmxRelationalExpression__TypeAssignment_1_0_1 : ( ( RULE_ID ) ) ;
+    // InternalAsm.g:11960:1: rule__DmxRelationalExpression__TypeAssignment_1_0_1 : ( ( RULE_ID ) ) ;
     public final void rule__DmxRelationalExpression__TypeAssignment_1_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11769:1: ( ( ( RULE_ID ) ) )
-            // InternalAsm.g:11770:2: ( ( RULE_ID ) )
+            // InternalAsm.g:11964:1: ( ( ( RULE_ID ) ) )
+            // InternalAsm.g:11965:2: ( ( RULE_ID ) )
             {
-            // InternalAsm.g:11770:2: ( ( RULE_ID ) )
-            // InternalAsm.g:11771:3: ( RULE_ID )
+            // InternalAsm.g:11965:2: ( ( RULE_ID ) )
+            // InternalAsm.g:11966:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getTypeDTypeCrossReference_1_0_1_0()); 
             }
-            // InternalAsm.g:11772:3: ( RULE_ID )
-            // InternalAsm.g:11773:4: RULE_ID
+            // InternalAsm.g:11967:3: ( RULE_ID )
+            // InternalAsm.g:11968:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getTypeDTypeIDTerminalRuleCall_1_0_1_0_1()); 
@@ -38864,17 +39483,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1"
-    // InternalAsm.g:11784:1: rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 : ( ruleOpCompare ) ;
+    // InternalAsm.g:11979:1: rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1 : ( ruleOpCompare ) ;
     public final void rule__DmxRelationalExpression__OperatorAssignment_1_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11788:1: ( ( ruleOpCompare ) )
-            // InternalAsm.g:11789:2: ( ruleOpCompare )
+            // InternalAsm.g:11983:1: ( ( ruleOpCompare ) )
+            // InternalAsm.g:11984:2: ( ruleOpCompare )
             {
-            // InternalAsm.g:11789:2: ( ruleOpCompare )
-            // InternalAsm.g:11790:3: ruleOpCompare
+            // InternalAsm.g:11984:2: ( ruleOpCompare )
+            // InternalAsm.g:11985:3: ruleOpCompare
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getOperatorOpCompareEnumRuleCall_1_1_0_0_1_0()); 
@@ -38909,17 +39528,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRelationalExpression__RightOperandAssignment_1_1_1"
-    // InternalAsm.g:11799:1: rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 : ( ruleDmxOtherOperatorExpression ) ;
+    // InternalAsm.g:11994:1: rule__DmxRelationalExpression__RightOperandAssignment_1_1_1 : ( ruleDmxOtherOperatorExpression ) ;
     public final void rule__DmxRelationalExpression__RightOperandAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11803:1: ( ( ruleDmxOtherOperatorExpression ) )
-            // InternalAsm.g:11804:2: ( ruleDmxOtherOperatorExpression )
+            // InternalAsm.g:11998:1: ( ( ruleDmxOtherOperatorExpression ) )
+            // InternalAsm.g:11999:2: ( ruleDmxOtherOperatorExpression )
             {
-            // InternalAsm.g:11804:2: ( ruleDmxOtherOperatorExpression )
-            // InternalAsm.g:11805:3: ruleDmxOtherOperatorExpression
+            // InternalAsm.g:11999:2: ( ruleDmxOtherOperatorExpression )
+            // InternalAsm.g:12000:3: ruleDmxOtherOperatorExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRelationalExpressionAccess().getRightOperandDmxOtherOperatorExpressionParserRuleCall_1_1_1_0()); 
@@ -38954,17 +39573,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1"
-    // InternalAsm.g:11814:1: rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 : ( ruleOpOther ) ;
+    // InternalAsm.g:12009:1: rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1 : ( ruleOpOther ) ;
     public final void rule__DmxOtherOperatorExpression__OperatorAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11818:1: ( ( ruleOpOther ) )
-            // InternalAsm.g:11819:2: ( ruleOpOther )
+            // InternalAsm.g:12013:1: ( ( ruleOpOther ) )
+            // InternalAsm.g:12014:2: ( ruleOpOther )
             {
-            // InternalAsm.g:11819:2: ( ruleOpOther )
-            // InternalAsm.g:11820:3: ruleOpOther
+            // InternalAsm.g:12014:2: ( ruleOpOther )
+            // InternalAsm.g:12015:3: ruleOpOther
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOtherOperatorExpressionAccess().getOperatorOpOtherEnumRuleCall_1_0_0_1_0()); 
@@ -38999,17 +39618,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1"
-    // InternalAsm.g:11829:1: rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 : ( ruleDmxAdditiveExpression ) ;
+    // InternalAsm.g:12024:1: rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1 : ( ruleDmxAdditiveExpression ) ;
     public final void rule__DmxOtherOperatorExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11833:1: ( ( ruleDmxAdditiveExpression ) )
-            // InternalAsm.g:11834:2: ( ruleDmxAdditiveExpression )
+            // InternalAsm.g:12028:1: ( ( ruleDmxAdditiveExpression ) )
+            // InternalAsm.g:12029:2: ( ruleDmxAdditiveExpression )
             {
-            // InternalAsm.g:11834:2: ( ruleDmxAdditiveExpression )
-            // InternalAsm.g:11835:3: ruleDmxAdditiveExpression
+            // InternalAsm.g:12029:2: ( ruleDmxAdditiveExpression )
+            // InternalAsm.g:12030:3: ruleDmxAdditiveExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxOtherOperatorExpressionAccess().getRightOperandDmxAdditiveExpressionParserRuleCall_1_1_0()); 
@@ -39044,17 +39663,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1"
-    // InternalAsm.g:11844:1: rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 : ( ruleOpAdd ) ;
+    // InternalAsm.g:12039:1: rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1 : ( ruleOpAdd ) ;
     public final void rule__DmxAdditiveExpression__OperatorAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11848:1: ( ( ruleOpAdd ) )
-            // InternalAsm.g:11849:2: ( ruleOpAdd )
+            // InternalAsm.g:12043:1: ( ( ruleOpAdd ) )
+            // InternalAsm.g:12044:2: ( ruleOpAdd )
             {
-            // InternalAsm.g:11849:2: ( ruleOpAdd )
-            // InternalAsm.g:11850:3: ruleOpAdd
+            // InternalAsm.g:12044:2: ( ruleOpAdd )
+            // InternalAsm.g:12045:3: ruleOpAdd
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAdditiveExpressionAccess().getOperatorOpAddEnumRuleCall_1_0_0_1_0()); 
@@ -39089,17 +39708,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxAdditiveExpression__RightOperandAssignment_1_1"
-    // InternalAsm.g:11859:1: rule__DmxAdditiveExpression__RightOperandAssignment_1_1 : ( ruleDmxMultiplicativeExpression ) ;
+    // InternalAsm.g:12054:1: rule__DmxAdditiveExpression__RightOperandAssignment_1_1 : ( ruleDmxMultiplicativeExpression ) ;
     public final void rule__DmxAdditiveExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11863:1: ( ( ruleDmxMultiplicativeExpression ) )
-            // InternalAsm.g:11864:2: ( ruleDmxMultiplicativeExpression )
+            // InternalAsm.g:12058:1: ( ( ruleDmxMultiplicativeExpression ) )
+            // InternalAsm.g:12059:2: ( ruleDmxMultiplicativeExpression )
             {
-            // InternalAsm.g:11864:2: ( ruleDmxMultiplicativeExpression )
-            // InternalAsm.g:11865:3: ruleDmxMultiplicativeExpression
+            // InternalAsm.g:12059:2: ( ruleDmxMultiplicativeExpression )
+            // InternalAsm.g:12060:3: ruleDmxMultiplicativeExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxAdditiveExpressionAccess().getRightOperandDmxMultiplicativeExpressionParserRuleCall_1_1_0()); 
@@ -39134,17 +39753,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1"
-    // InternalAsm.g:11874:1: rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 : ( ruleOpMulti ) ;
+    // InternalAsm.g:12069:1: rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1 : ( ruleOpMulti ) ;
     public final void rule__DmxMultiplicativeExpression__OperatorAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11878:1: ( ( ruleOpMulti ) )
-            // InternalAsm.g:11879:2: ( ruleOpMulti )
+            // InternalAsm.g:12073:1: ( ( ruleOpMulti ) )
+            // InternalAsm.g:12074:2: ( ruleOpMulti )
             {
-            // InternalAsm.g:11879:2: ( ruleOpMulti )
-            // InternalAsm.g:11880:3: ruleOpMulti
+            // InternalAsm.g:12074:2: ( ruleOpMulti )
+            // InternalAsm.g:12075:3: ruleOpMulti
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxMultiplicativeExpressionAccess().getOperatorOpMultiEnumRuleCall_1_0_0_1_0()); 
@@ -39179,17 +39798,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1"
-    // InternalAsm.g:11889:1: rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 : ( ruleDmxUnaryOperation ) ;
+    // InternalAsm.g:12084:1: rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1 : ( ruleDmxUnaryOperation ) ;
     public final void rule__DmxMultiplicativeExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11893:1: ( ( ruleDmxUnaryOperation ) )
-            // InternalAsm.g:11894:2: ( ruleDmxUnaryOperation )
+            // InternalAsm.g:12088:1: ( ( ruleDmxUnaryOperation ) )
+            // InternalAsm.g:12089:2: ( ruleDmxUnaryOperation )
             {
-            // InternalAsm.g:11894:2: ( ruleDmxUnaryOperation )
-            // InternalAsm.g:11895:3: ruleDmxUnaryOperation
+            // InternalAsm.g:12089:2: ( ruleDmxUnaryOperation )
+            // InternalAsm.g:12090:3: ruleDmxUnaryOperation
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxMultiplicativeExpressionAccess().getRightOperandDmxUnaryOperationParserRuleCall_1_1_0()); 
@@ -39224,17 +39843,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUnaryOperation__OperatorAssignment_0_1"
-    // InternalAsm.g:11904:1: rule__DmxUnaryOperation__OperatorAssignment_0_1 : ( ruleOpUnary ) ;
+    // InternalAsm.g:12099:1: rule__DmxUnaryOperation__OperatorAssignment_0_1 : ( ruleOpUnary ) ;
     public final void rule__DmxUnaryOperation__OperatorAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11908:1: ( ( ruleOpUnary ) )
-            // InternalAsm.g:11909:2: ( ruleOpUnary )
+            // InternalAsm.g:12103:1: ( ( ruleOpUnary ) )
+            // InternalAsm.g:12104:2: ( ruleOpUnary )
             {
-            // InternalAsm.g:11909:2: ( ruleOpUnary )
-            // InternalAsm.g:11910:3: ruleOpUnary
+            // InternalAsm.g:12104:2: ( ruleOpUnary )
+            // InternalAsm.g:12105:3: ruleOpUnary
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxUnaryOperationAccess().getOperatorOpUnaryEnumRuleCall_0_1_0()); 
@@ -39269,17 +39888,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxUnaryOperation__OperandAssignment_0_2"
-    // InternalAsm.g:11919:1: rule__DmxUnaryOperation__OperandAssignment_0_2 : ( ruleDmxUnaryOperation ) ;
+    // InternalAsm.g:12114:1: rule__DmxUnaryOperation__OperandAssignment_0_2 : ( ruleDmxUnaryOperation ) ;
     public final void rule__DmxUnaryOperation__OperandAssignment_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11923:1: ( ( ruleDmxUnaryOperation ) )
-            // InternalAsm.g:11924:2: ( ruleDmxUnaryOperation )
+            // InternalAsm.g:12118:1: ( ( ruleDmxUnaryOperation ) )
+            // InternalAsm.g:12119:2: ( ruleDmxUnaryOperation )
             {
-            // InternalAsm.g:11924:2: ( ruleDmxUnaryOperation )
-            // InternalAsm.g:11925:3: ruleDmxUnaryOperation
+            // InternalAsm.g:12119:2: ( ruleDmxUnaryOperation )
+            // InternalAsm.g:12120:3: ruleDmxUnaryOperation
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxUnaryOperationAccess().getOperandDmxUnaryOperationParserRuleCall_0_2_0()); 
@@ -39314,23 +39933,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxCastExpression__TypeAssignment_1_1"
-    // InternalAsm.g:11934:1: rule__DmxCastExpression__TypeAssignment_1_1 : ( ( RULE_ID ) ) ;
+    // InternalAsm.g:12129:1: rule__DmxCastExpression__TypeAssignment_1_1 : ( ( RULE_ID ) ) ;
     public final void rule__DmxCastExpression__TypeAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11938:1: ( ( ( RULE_ID ) ) )
-            // InternalAsm.g:11939:2: ( ( RULE_ID ) )
+            // InternalAsm.g:12133:1: ( ( ( RULE_ID ) ) )
+            // InternalAsm.g:12134:2: ( ( RULE_ID ) )
             {
-            // InternalAsm.g:11939:2: ( ( RULE_ID ) )
-            // InternalAsm.g:11940:3: ( RULE_ID )
+            // InternalAsm.g:12134:2: ( ( RULE_ID ) )
+            // InternalAsm.g:12135:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxCastExpressionAccess().getTypeDTypeCrossReference_1_1_0()); 
             }
-            // InternalAsm.g:11941:3: ( RULE_ID )
-            // InternalAsm.g:11942:4: RULE_ID
+            // InternalAsm.g:12136:3: ( RULE_ID )
+            // InternalAsm.g:12137:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxCastExpressionAccess().getTypeDTypeIDTerminalRuleCall_1_1_0_1()); 
@@ -39367,17 +39986,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxReturnExpression__ExpressionAssignment_2"
-    // InternalAsm.g:11953:1: rule__DmxReturnExpression__ExpressionAssignment_2 : ( ruleDExpression ) ;
+    // InternalAsm.g:12148:1: rule__DmxReturnExpression__ExpressionAssignment_2 : ( ruleDExpression ) ;
     public final void rule__DmxReturnExpression__ExpressionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11957:1: ( ( ruleDExpression ) )
-            // InternalAsm.g:11958:2: ( ruleDExpression )
+            // InternalAsm.g:12152:1: ( ( ruleDExpression ) )
+            // InternalAsm.g:12153:2: ( ruleDExpression )
             {
-            // InternalAsm.g:11958:2: ( ruleDExpression )
-            // InternalAsm.g:11959:3: ruleDExpression
+            // InternalAsm.g:12153:2: ( ruleDExpression )
+            // InternalAsm.g:12154:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxReturnExpressionAccess().getExpressionDExpressionParserRuleCall_2_0()); 
@@ -39412,17 +40031,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxRaiseExpression__ExpressionAssignment_2"
-    // InternalAsm.g:11968:1: rule__DmxRaiseExpression__ExpressionAssignment_2 : ( ruleDExpression ) ;
+    // InternalAsm.g:12163:1: rule__DmxRaiseExpression__ExpressionAssignment_2 : ( ruleDExpression ) ;
     public final void rule__DmxRaiseExpression__ExpressionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11972:1: ( ( ruleDExpression ) )
-            // InternalAsm.g:11973:2: ( ruleDExpression )
+            // InternalAsm.g:12167:1: ( ( ruleDExpression ) )
+            // InternalAsm.g:12168:2: ( ruleDExpression )
             {
-            // InternalAsm.g:11973:2: ( ruleDExpression )
-            // InternalAsm.g:11974:3: ruleDExpression
+            // InternalAsm.g:12168:2: ( ruleDExpression )
+            // InternalAsm.g:12169:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxRaiseExpressionAccess().getExpressionDExpressionParserRuleCall_2_0()); 
@@ -39457,36 +40076,36 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__FunctionAssignment_1"
-    // InternalAsm.g:11983:1: rule__DmxFunctionCall__FunctionAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalAsm.g:12178:1: rule__DmxFunctionCall__FunctionAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__DmxFunctionCall__FunctionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:11987:1: ( ( ( RULE_ID ) ) )
-            // InternalAsm.g:11988:2: ( ( RULE_ID ) )
+            // InternalAsm.g:12182:1: ( ( ( RULE_ID ) ) )
+            // InternalAsm.g:12183:2: ( ( RULE_ID ) )
             {
-            // InternalAsm.g:11988:2: ( ( RULE_ID ) )
-            // InternalAsm.g:11989:3: ( RULE_ID )
+            // InternalAsm.g:12183:2: ( ( RULE_ID ) )
+            // InternalAsm.g:12184:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionCallAccess().getFunctionDmxFunctionCrossReference_1_0()); 
+               before(grammarAccess.getDmxFunctionCallAccess().getFunctionDmxFilterCrossReference_1_0()); 
             }
-            // InternalAsm.g:11990:3: ( RULE_ID )
-            // InternalAsm.g:11991:4: RULE_ID
+            // InternalAsm.g:12185:3: ( RULE_ID )
+            // InternalAsm.g:12186:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxFunctionCallAccess().getFunctionDmxFunctionIDTerminalRuleCall_1_0_1()); 
+               before(grammarAccess.getDmxFunctionCallAccess().getFunctionDmxFilterIDTerminalRuleCall_1_0_1()); 
             }
             match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionCallAccess().getFunctionDmxFunctionIDTerminalRuleCall_1_0_1()); 
+               after(grammarAccess.getDmxFunctionCallAccess().getFunctionDmxFilterIDTerminalRuleCall_1_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxFunctionCallAccess().getFunctionDmxFunctionCrossReference_1_0()); 
+               after(grammarAccess.getDmxFunctionCallAccess().getFunctionDmxFilterCrossReference_1_0()); 
             }
 
             }
@@ -39510,17 +40129,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0"
-    // InternalAsm.g:12002:1: rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 : ( ruleDExpression ) ;
+    // InternalAsm.g:12197:1: rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0 : ( ruleDExpression ) ;
     public final void rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12006:1: ( ( ruleDExpression ) )
-            // InternalAsm.g:12007:2: ( ruleDExpression )
+            // InternalAsm.g:12201:1: ( ( ruleDExpression ) )
+            // InternalAsm.g:12202:2: ( ruleDExpression )
             {
-            // InternalAsm.g:12007:2: ( ruleDExpression )
-            // InternalAsm.g:12008:3: ruleDExpression
+            // InternalAsm.g:12202:2: ( ruleDExpression )
+            // InternalAsm.g:12203:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getFunctionCallArgumentsDExpressionParserRuleCall_3_0_0()); 
@@ -39555,17 +40174,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1"
-    // InternalAsm.g:12017:1: rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 : ( ruleDExpression ) ;
+    // InternalAsm.g:12212:1: rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1 : ( ruleDExpression ) ;
     public final void rule__DmxFunctionCall__FunctionCallArgumentsAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12021:1: ( ( ruleDExpression ) )
-            // InternalAsm.g:12022:2: ( ruleDExpression )
+            // InternalAsm.g:12216:1: ( ( ruleDExpression ) )
+            // InternalAsm.g:12217:2: ( ruleDExpression )
             {
-            // InternalAsm.g:12022:2: ( ruleDExpression )
-            // InternalAsm.g:12023:3: ruleDExpression
+            // InternalAsm.g:12217:2: ( ruleDExpression )
+            // InternalAsm.g:12218:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxFunctionCallAccess().getFunctionCallArgumentsDExpressionParserRuleCall_3_1_1_0()); 
@@ -39600,23 +40219,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__ConstructorAssignment_2"
-    // InternalAsm.g:12032:1: rule__DmxConstructorCall__ConstructorAssignment_2 : ( ( RULE_ID ) ) ;
+    // InternalAsm.g:12227:1: rule__DmxConstructorCall__ConstructorAssignment_2 : ( ( RULE_ID ) ) ;
     public final void rule__DmxConstructorCall__ConstructorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12036:1: ( ( ( RULE_ID ) ) )
-            // InternalAsm.g:12037:2: ( ( RULE_ID ) )
+            // InternalAsm.g:12231:1: ( ( ( RULE_ID ) ) )
+            // InternalAsm.g:12232:2: ( ( RULE_ID ) )
             {
-            // InternalAsm.g:12037:2: ( ( RULE_ID ) )
-            // InternalAsm.g:12038:3: ( RULE_ID )
+            // InternalAsm.g:12232:2: ( ( RULE_ID ) )
+            // InternalAsm.g:12233:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getConstructorDComplexTypeCrossReference_2_0()); 
             }
-            // InternalAsm.g:12039:3: ( RULE_ID )
-            // InternalAsm.g:12040:4: RULE_ID
+            // InternalAsm.g:12234:3: ( RULE_ID )
+            // InternalAsm.g:12235:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getConstructorDComplexTypeIDTerminalRuleCall_2_0_1()); 
@@ -39653,23 +40272,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0"
-    // InternalAsm.g:12051:1: rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 : ( ( '(' ) ) ;
+    // InternalAsm.g:12246:1: rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0 : ( ( '(' ) ) ;
     public final void rule__DmxConstructorCall__ExplicitConstructorCallAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12055:1: ( ( ( '(' ) ) )
-            // InternalAsm.g:12056:2: ( ( '(' ) )
+            // InternalAsm.g:12250:1: ( ( ( '(' ) ) )
+            // InternalAsm.g:12251:2: ( ( '(' ) )
             {
-            // InternalAsm.g:12056:2: ( ( '(' ) )
-            // InternalAsm.g:12057:3: ( '(' )
+            // InternalAsm.g:12251:2: ( ( '(' ) )
+            // InternalAsm.g:12252:3: ( '(' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getExplicitConstructorCallLeftParenthesisKeyword_3_0_0()); 
             }
-            // InternalAsm.g:12058:3: ( '(' )
-            // InternalAsm.g:12059:4: '('
+            // InternalAsm.g:12253:3: ( '(' )
+            // InternalAsm.g:12254:4: '('
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getExplicitConstructorCallLeftParenthesisKeyword_3_0_0()); 
@@ -39706,17 +40325,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__ArgumentsAssignment_3_1_0"
-    // InternalAsm.g:12070:1: rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 : ( ruleDExpression ) ;
+    // InternalAsm.g:12265:1: rule__DmxConstructorCall__ArgumentsAssignment_3_1_0 : ( ruleDExpression ) ;
     public final void rule__DmxConstructorCall__ArgumentsAssignment_3_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12074:1: ( ( ruleDExpression ) )
-            // InternalAsm.g:12075:2: ( ruleDExpression )
+            // InternalAsm.g:12269:1: ( ( ruleDExpression ) )
+            // InternalAsm.g:12270:2: ( ruleDExpression )
             {
-            // InternalAsm.g:12075:2: ( ruleDExpression )
-            // InternalAsm.g:12076:3: ruleDExpression
+            // InternalAsm.g:12270:2: ( ruleDExpression )
+            // InternalAsm.g:12271:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getArgumentsDExpressionParserRuleCall_3_1_0_0()); 
@@ -39751,17 +40370,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1"
-    // InternalAsm.g:12085:1: rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 : ( ruleDExpression ) ;
+    // InternalAsm.g:12280:1: rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1 : ( ruleDExpression ) ;
     public final void rule__DmxConstructorCall__ArgumentsAssignment_3_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12089:1: ( ( ruleDExpression ) )
-            // InternalAsm.g:12090:2: ( ruleDExpression )
+            // InternalAsm.g:12284:1: ( ( ruleDExpression ) )
+            // InternalAsm.g:12285:2: ( ruleDExpression )
             {
-            // InternalAsm.g:12090:2: ( ruleDExpression )
-            // InternalAsm.g:12091:3: ruleDExpression
+            // InternalAsm.g:12285:2: ( ruleDExpression )
+            // InternalAsm.g:12286:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxConstructorCallAccess().getArgumentsDExpressionParserRuleCall_3_1_1_1_0()); 
@@ -39796,23 +40415,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__TargetAssignment_2"
-    // InternalAsm.g:12100:1: rule__DmxStaticReference__TargetAssignment_2 : ( ( ruleDQualifiedName ) ) ;
+    // InternalAsm.g:12295:1: rule__DmxStaticReference__TargetAssignment_2 : ( ( ruleDQualifiedName ) ) ;
     public final void rule__DmxStaticReference__TargetAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12104:1: ( ( ( ruleDQualifiedName ) ) )
-            // InternalAsm.g:12105:2: ( ( ruleDQualifiedName ) )
+            // InternalAsm.g:12299:1: ( ( ( ruleDQualifiedName ) ) )
+            // InternalAsm.g:12300:2: ( ( ruleDQualifiedName ) )
             {
-            // InternalAsm.g:12105:2: ( ( ruleDQualifiedName ) )
-            // InternalAsm.g:12106:3: ( ruleDQualifiedName )
+            // InternalAsm.g:12300:2: ( ( ruleDQualifiedName ) )
+            // InternalAsm.g:12301:3: ( ruleDQualifiedName )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getTargetIStaticReferenceTargetCrossReference_2_0()); 
             }
-            // InternalAsm.g:12107:3: ( ruleDQualifiedName )
-            // InternalAsm.g:12108:4: ruleDQualifiedName
+            // InternalAsm.g:12302:3: ( ruleDQualifiedName )
+            // InternalAsm.g:12303:4: ruleDQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getTargetIStaticReferenceTargetDQualifiedNameParserRuleCall_2_0_1()); 
@@ -39853,23 +40472,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__MemberAssignment_3_1"
-    // InternalAsm.g:12119:1: rule__DmxStaticReference__MemberAssignment_3_1 : ( ( RULE_ID ) ) ;
+    // InternalAsm.g:12314:1: rule__DmxStaticReference__MemberAssignment_3_1 : ( ( RULE_ID ) ) ;
     public final void rule__DmxStaticReference__MemberAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12123:1: ( ( ( RULE_ID ) ) )
-            // InternalAsm.g:12124:2: ( ( RULE_ID ) )
+            // InternalAsm.g:12318:1: ( ( ( RULE_ID ) ) )
+            // InternalAsm.g:12319:2: ( ( RULE_ID ) )
             {
-            // InternalAsm.g:12124:2: ( ( RULE_ID ) )
-            // InternalAsm.g:12125:3: ( RULE_ID )
+            // InternalAsm.g:12319:2: ( ( RULE_ID ) )
+            // InternalAsm.g:12320:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getMemberDNavigableMemberCrossReference_3_1_0()); 
             }
-            // InternalAsm.g:12126:3: ( RULE_ID )
-            // InternalAsm.g:12127:4: RULE_ID
+            // InternalAsm.g:12321:3: ( RULE_ID )
+            // InternalAsm.g:12322:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getMemberDNavigableMemberIDTerminalRuleCall_3_1_0_1()); 
@@ -39906,17 +40525,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__DisplayNameAssignment_4_1_0"
-    // InternalAsm.g:12138:1: rule__DmxStaticReference__DisplayNameAssignment_4_1_0 : ( RULE_ID ) ;
+    // InternalAsm.g:12333:1: rule__DmxStaticReference__DisplayNameAssignment_4_1_0 : ( RULE_ID ) ;
     public final void rule__DmxStaticReference__DisplayNameAssignment_4_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12142:1: ( ( RULE_ID ) )
-            // InternalAsm.g:12143:2: ( RULE_ID )
+            // InternalAsm.g:12337:1: ( ( RULE_ID ) )
+            // InternalAsm.g:12338:2: ( RULE_ID )
             {
-            // InternalAsm.g:12143:2: ( RULE_ID )
-            // InternalAsm.g:12144:3: RULE_ID
+            // InternalAsm.g:12338:2: ( RULE_ID )
+            // InternalAsm.g:12339:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getDisplayNameIDTerminalRuleCall_4_1_0_0()); 
@@ -39947,23 +40566,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStaticReference__PluralAssignment_4_1_1"
-    // InternalAsm.g:12153:1: rule__DmxStaticReference__PluralAssignment_4_1_1 : ( ( '*' ) ) ;
+    // InternalAsm.g:12348:1: rule__DmxStaticReference__PluralAssignment_4_1_1 : ( ( '*' ) ) ;
     public final void rule__DmxStaticReference__PluralAssignment_4_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12157:1: ( ( ( '*' ) ) )
-            // InternalAsm.g:12158:2: ( ( '*' ) )
+            // InternalAsm.g:12352:1: ( ( ( '*' ) ) )
+            // InternalAsm.g:12353:2: ( ( '*' ) )
             {
-            // InternalAsm.g:12158:2: ( ( '*' ) )
-            // InternalAsm.g:12159:3: ( '*' )
+            // InternalAsm.g:12353:2: ( ( '*' ) )
+            // InternalAsm.g:12354:3: ( '*' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getPluralAsteriskKeyword_4_1_1_0()); 
             }
-            // InternalAsm.g:12160:3: ( '*' )
-            // InternalAsm.g:12161:4: '*'
+            // InternalAsm.g:12355:3: ( '*' )
+            // InternalAsm.g:12356:4: '*'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStaticReferenceAccess().getPluralAsteriskKeyword_4_1_1_0()); 
@@ -40000,23 +40619,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__TargetAssignment_1"
-    // InternalAsm.g:12172:1: rule__DmxContextReference__TargetAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalAsm.g:12367:1: rule__DmxContextReference__TargetAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__DmxContextReference__TargetAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12176:1: ( ( ( RULE_ID ) ) )
-            // InternalAsm.g:12177:2: ( ( RULE_ID ) )
+            // InternalAsm.g:12371:1: ( ( ( RULE_ID ) ) )
+            // InternalAsm.g:12372:2: ( ( RULE_ID ) )
             {
-            // InternalAsm.g:12177:2: ( ( RULE_ID ) )
-            // InternalAsm.g:12178:3: ( RULE_ID )
+            // InternalAsm.g:12372:2: ( ( RULE_ID ) )
+            // InternalAsm.g:12373:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getTargetDNamedElementCrossReference_1_0()); 
             }
-            // InternalAsm.g:12179:3: ( RULE_ID )
-            // InternalAsm.g:12180:4: RULE_ID
+            // InternalAsm.g:12374:3: ( RULE_ID )
+            // InternalAsm.g:12375:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getTargetDNamedElementIDTerminalRuleCall_1_0_1()); 
@@ -40053,23 +40672,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__BeforeAssignment_2_0"
-    // InternalAsm.g:12191:1: rule__DmxContextReference__BeforeAssignment_2_0 : ( ( '@before' ) ) ;
+    // InternalAsm.g:12386:1: rule__DmxContextReference__BeforeAssignment_2_0 : ( ( '@before' ) ) ;
     public final void rule__DmxContextReference__BeforeAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12195:1: ( ( ( '@before' ) ) )
-            // InternalAsm.g:12196:2: ( ( '@before' ) )
+            // InternalAsm.g:12390:1: ( ( ( '@before' ) ) )
+            // InternalAsm.g:12391:2: ( ( '@before' ) )
             {
-            // InternalAsm.g:12196:2: ( ( '@before' ) )
-            // InternalAsm.g:12197:3: ( '@before' )
+            // InternalAsm.g:12391:2: ( ( '@before' ) )
+            // InternalAsm.g:12392:3: ( '@before' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getBeforeBeforeKeyword_2_0_0()); 
             }
-            // InternalAsm.g:12198:3: ( '@before' )
-            // InternalAsm.g:12199:4: '@before'
+            // InternalAsm.g:12393:3: ( '@before' )
+            // InternalAsm.g:12394:4: '@before'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getBeforeBeforeKeyword_2_0_0()); 
@@ -40106,23 +40725,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxContextReference__AllAssignment_2_1_1"
-    // InternalAsm.g:12210:1: rule__DmxContextReference__AllAssignment_2_1_1 : ( ( 'all' ) ) ;
+    // InternalAsm.g:12405:1: rule__DmxContextReference__AllAssignment_2_1_1 : ( ( 'all' ) ) ;
     public final void rule__DmxContextReference__AllAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12214:1: ( ( ( 'all' ) ) )
-            // InternalAsm.g:12215:2: ( ( 'all' ) )
+            // InternalAsm.g:12409:1: ( ( ( 'all' ) ) )
+            // InternalAsm.g:12410:2: ( ( 'all' ) )
             {
-            // InternalAsm.g:12215:2: ( ( 'all' ) )
-            // InternalAsm.g:12216:3: ( 'all' )
+            // InternalAsm.g:12410:2: ( ( 'all' ) )
+            // InternalAsm.g:12411:3: ( 'all' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getAllAllKeyword_2_1_1_0()); 
             }
-            // InternalAsm.g:12217:3: ( 'all' )
-            // InternalAsm.g:12218:4: 'all'
+            // InternalAsm.g:12412:3: ( 'all' )
+            // InternalAsm.g:12413:4: 'all'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxContextReferenceAccess().getAllAllKeyword_2_1_1_0()); 
@@ -40159,17 +40778,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__IfAssignment_2"
-    // InternalAsm.g:12229:1: rule__DmxIfExpression__IfAssignment_2 : ( ruleDExpression ) ;
+    // InternalAsm.g:12424:1: rule__DmxIfExpression__IfAssignment_2 : ( ruleDExpression ) ;
     public final void rule__DmxIfExpression__IfAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12233:1: ( ( ruleDExpression ) )
-            // InternalAsm.g:12234:2: ( ruleDExpression )
+            // InternalAsm.g:12428:1: ( ( ruleDExpression ) )
+            // InternalAsm.g:12429:2: ( ruleDExpression )
             {
-            // InternalAsm.g:12234:2: ( ruleDExpression )
-            // InternalAsm.g:12235:3: ruleDExpression
+            // InternalAsm.g:12429:2: ( ruleDExpression )
+            // InternalAsm.g:12430:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getIfDExpressionParserRuleCall_2_0()); 
@@ -40204,17 +40823,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__ThenAssignment_4"
-    // InternalAsm.g:12244:1: rule__DmxIfExpression__ThenAssignment_4 : ( ruleDExpression ) ;
+    // InternalAsm.g:12439:1: rule__DmxIfExpression__ThenAssignment_4 : ( ruleDExpression ) ;
     public final void rule__DmxIfExpression__ThenAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12248:1: ( ( ruleDExpression ) )
-            // InternalAsm.g:12249:2: ( ruleDExpression )
+            // InternalAsm.g:12443:1: ( ( ruleDExpression ) )
+            // InternalAsm.g:12444:2: ( ruleDExpression )
             {
-            // InternalAsm.g:12249:2: ( ruleDExpression )
-            // InternalAsm.g:12250:3: ruleDExpression
+            // InternalAsm.g:12444:2: ( ruleDExpression )
+            // InternalAsm.g:12445:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getThenDExpressionParserRuleCall_4_0()); 
@@ -40249,17 +40868,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxIfExpression__ElseAssignment_5_1"
-    // InternalAsm.g:12259:1: rule__DmxIfExpression__ElseAssignment_5_1 : ( ruleDExpression ) ;
+    // InternalAsm.g:12454:1: rule__DmxIfExpression__ElseAssignment_5_1 : ( ruleDExpression ) ;
     public final void rule__DmxIfExpression__ElseAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12263:1: ( ( ruleDExpression ) )
-            // InternalAsm.g:12264:2: ( ruleDExpression )
+            // InternalAsm.g:12458:1: ( ( ruleDExpression ) )
+            // InternalAsm.g:12459:2: ( ruleDExpression )
             {
-            // InternalAsm.g:12264:2: ( ruleDExpression )
-            // InternalAsm.g:12265:3: ruleDExpression
+            // InternalAsm.g:12459:2: ( ruleDExpression )
+            // InternalAsm.g:12460:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxIfExpressionAccess().getElseDExpressionParserRuleCall_5_1_0()); 
@@ -40294,17 +40913,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2"
-    // InternalAsm.g:12274:1: rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 : ( RULE_ID ) ;
+    // InternalAsm.g:12469:1: rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2 : ( RULE_ID ) ;
     public final void rule__DmxForLoopExpression__DeclaredParamAssignment_0_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12278:1: ( ( RULE_ID ) )
-            // InternalAsm.g:12279:2: ( RULE_ID )
+            // InternalAsm.g:12473:1: ( ( RULE_ID ) )
+            // InternalAsm.g:12474:2: ( RULE_ID )
             {
-            // InternalAsm.g:12279:2: ( RULE_ID )
-            // InternalAsm.g:12280:3: RULE_ID
+            // InternalAsm.g:12474:2: ( RULE_ID )
+            // InternalAsm.g:12475:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getDeclaredParamIDTerminalRuleCall_0_0_2_0()); 
@@ -40335,17 +40954,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__ForExpressionAssignment_1"
-    // InternalAsm.g:12289:1: rule__DmxForLoopExpression__ForExpressionAssignment_1 : ( ruleDExpression ) ;
+    // InternalAsm.g:12484:1: rule__DmxForLoopExpression__ForExpressionAssignment_1 : ( ruleDExpression ) ;
     public final void rule__DmxForLoopExpression__ForExpressionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12293:1: ( ( ruleDExpression ) )
-            // InternalAsm.g:12294:2: ( ruleDExpression )
+            // InternalAsm.g:12488:1: ( ( ruleDExpression ) )
+            // InternalAsm.g:12489:2: ( ruleDExpression )
             {
-            // InternalAsm.g:12294:2: ( ruleDExpression )
-            // InternalAsm.g:12295:3: ruleDExpression
+            // InternalAsm.g:12489:2: ( ruleDExpression )
+            // InternalAsm.g:12490:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getForExpressionDExpressionParserRuleCall_1_0()); 
@@ -40380,17 +40999,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxForLoopExpression__EachExpressionAssignment_3"
-    // InternalAsm.g:12304:1: rule__DmxForLoopExpression__EachExpressionAssignment_3 : ( ruleDExpression ) ;
+    // InternalAsm.g:12499:1: rule__DmxForLoopExpression__EachExpressionAssignment_3 : ( ruleDExpression ) ;
     public final void rule__DmxForLoopExpression__EachExpressionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12308:1: ( ( ruleDExpression ) )
-            // InternalAsm.g:12309:2: ( ruleDExpression )
+            // InternalAsm.g:12503:1: ( ( ruleDExpression ) )
+            // InternalAsm.g:12504:2: ( ruleDExpression )
             {
-            // InternalAsm.g:12309:2: ( ruleDExpression )
-            // InternalAsm.g:12310:3: ruleDExpression
+            // InternalAsm.g:12504:2: ( ruleDExpression )
+            // InternalAsm.g:12505:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxForLoopExpressionAccess().getEachExpressionDExpressionParserRuleCall_3_0()); 
@@ -40425,17 +41044,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__MinOccursAssignment_1"
-    // InternalAsm.g:12319:1: rule__DMultiplicity__MinOccursAssignment_1 : ( RULE_NATURAL ) ;
+    // InternalAsm.g:12514:1: rule__DMultiplicity__MinOccursAssignment_1 : ( RULE_NATURAL ) ;
     public final void rule__DMultiplicity__MinOccursAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12323:1: ( ( RULE_NATURAL ) )
-            // InternalAsm.g:12324:2: ( RULE_NATURAL )
+            // InternalAsm.g:12518:1: ( ( RULE_NATURAL ) )
+            // InternalAsm.g:12519:2: ( RULE_NATURAL )
             {
-            // InternalAsm.g:12324:2: ( RULE_NATURAL )
-            // InternalAsm.g:12325:3: RULE_NATURAL
+            // InternalAsm.g:12519:2: ( RULE_NATURAL )
+            // InternalAsm.g:12520:3: RULE_NATURAL
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDMultiplicityAccess().getMinOccursNATURALTerminalRuleCall_1_0()); 
@@ -40466,17 +41085,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DMultiplicity__MaxOccursAssignment_3"
-    // InternalAsm.g:12334:1: rule__DMultiplicity__MaxOccursAssignment_3 : ( ruleMULTIPLICITY ) ;
+    // InternalAsm.g:12529:1: rule__DMultiplicity__MaxOccursAssignment_3 : ( ruleMULTIPLICITY ) ;
     public final void rule__DMultiplicity__MaxOccursAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12338:1: ( ( ruleMULTIPLICITY ) )
-            // InternalAsm.g:12339:2: ( ruleMULTIPLICITY )
+            // InternalAsm.g:12533:1: ( ( ruleMULTIPLICITY ) )
+            // InternalAsm.g:12534:2: ( ruleMULTIPLICITY )
             {
-            // InternalAsm.g:12339:2: ( ruleMULTIPLICITY )
-            // InternalAsm.g:12340:3: ruleMULTIPLICITY
+            // InternalAsm.g:12534:2: ( ruleMULTIPLICITY )
+            // InternalAsm.g:12535:3: ruleMULTIPLICITY
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDMultiplicityAccess().getMaxOccursMULTIPLICITYParserRuleCall_3_0()); 
@@ -40511,23 +41130,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxBooleanLiteral__ValueAssignment_1_0"
-    // InternalAsm.g:12349:1: rule__DmxBooleanLiteral__ValueAssignment_1_0 : ( ( 'TRUE' ) ) ;
+    // InternalAsm.g:12544:1: rule__DmxBooleanLiteral__ValueAssignment_1_0 : ( ( 'TRUE' ) ) ;
     public final void rule__DmxBooleanLiteral__ValueAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12353:1: ( ( ( 'TRUE' ) ) )
-            // InternalAsm.g:12354:2: ( ( 'TRUE' ) )
+            // InternalAsm.g:12548:1: ( ( ( 'TRUE' ) ) )
+            // InternalAsm.g:12549:2: ( ( 'TRUE' ) )
             {
-            // InternalAsm.g:12354:2: ( ( 'TRUE' ) )
-            // InternalAsm.g:12355:3: ( 'TRUE' )
+            // InternalAsm.g:12549:2: ( ( 'TRUE' ) )
+            // InternalAsm.g:12550:3: ( 'TRUE' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxBooleanLiteralAccess().getValueTRUEKeyword_1_0_0()); 
             }
-            // InternalAsm.g:12356:3: ( 'TRUE' )
-            // InternalAsm.g:12357:4: 'TRUE'
+            // InternalAsm.g:12551:3: ( 'TRUE' )
+            // InternalAsm.g:12552:4: 'TRUE'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxBooleanLiteralAccess().getValueTRUEKeyword_1_0_0()); 
@@ -40564,23 +41183,23 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxBooleanLiteral__ValueAssignment_1_1"
-    // InternalAsm.g:12368:1: rule__DmxBooleanLiteral__ValueAssignment_1_1 : ( ( 'true' ) ) ;
+    // InternalAsm.g:12563:1: rule__DmxBooleanLiteral__ValueAssignment_1_1 : ( ( 'true' ) ) ;
     public final void rule__DmxBooleanLiteral__ValueAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12372:1: ( ( ( 'true' ) ) )
-            // InternalAsm.g:12373:2: ( ( 'true' ) )
+            // InternalAsm.g:12567:1: ( ( ( 'true' ) ) )
+            // InternalAsm.g:12568:2: ( ( 'true' ) )
             {
-            // InternalAsm.g:12373:2: ( ( 'true' ) )
-            // InternalAsm.g:12374:3: ( 'true' )
+            // InternalAsm.g:12568:2: ( ( 'true' ) )
+            // InternalAsm.g:12569:3: ( 'true' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxBooleanLiteralAccess().getValueTrueKeyword_1_1_0()); 
             }
-            // InternalAsm.g:12375:3: ( 'true' )
-            // InternalAsm.g:12376:4: 'true'
+            // InternalAsm.g:12570:3: ( 'true' )
+            // InternalAsm.g:12571:4: 'true'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxBooleanLiteralAccess().getValueTrueKeyword_1_1_0()); 
@@ -40617,17 +41236,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxNaturalLiteral__ValueAssignment_1"
-    // InternalAsm.g:12387:1: rule__DmxNaturalLiteral__ValueAssignment_1 : ( RULE_NATURAL ) ;
+    // InternalAsm.g:12582:1: rule__DmxNaturalLiteral__ValueAssignment_1 : ( RULE_NATURAL ) ;
     public final void rule__DmxNaturalLiteral__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12391:1: ( ( RULE_NATURAL ) )
-            // InternalAsm.g:12392:2: ( RULE_NATURAL )
+            // InternalAsm.g:12586:1: ( ( RULE_NATURAL ) )
+            // InternalAsm.g:12587:2: ( RULE_NATURAL )
             {
-            // InternalAsm.g:12392:2: ( RULE_NATURAL )
-            // InternalAsm.g:12393:3: RULE_NATURAL
+            // InternalAsm.g:12587:2: ( RULE_NATURAL )
+            // InternalAsm.g:12588:3: RULE_NATURAL
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxNaturalLiteralAccess().getValueNATURALTerminalRuleCall_1_0()); 
@@ -40658,17 +41277,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxDecimalLiteral__ValueAssignment_1"
-    // InternalAsm.g:12402:1: rule__DmxDecimalLiteral__ValueAssignment_1 : ( ruleDECIMAL ) ;
+    // InternalAsm.g:12597:1: rule__DmxDecimalLiteral__ValueAssignment_1 : ( ruleDECIMAL ) ;
     public final void rule__DmxDecimalLiteral__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12406:1: ( ( ruleDECIMAL ) )
-            // InternalAsm.g:12407:2: ( ruleDECIMAL )
+            // InternalAsm.g:12601:1: ( ( ruleDECIMAL ) )
+            // InternalAsm.g:12602:2: ( ruleDECIMAL )
             {
-            // InternalAsm.g:12407:2: ( ruleDECIMAL )
-            // InternalAsm.g:12408:3: ruleDECIMAL
+            // InternalAsm.g:12602:2: ( ruleDECIMAL )
+            // InternalAsm.g:12603:3: ruleDECIMAL
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxDecimalLiteralAccess().getValueDECIMALParserRuleCall_1_0()); 
@@ -40703,17 +41322,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxStringLiteral__ValueAssignment_1"
-    // InternalAsm.g:12417:1: rule__DmxStringLiteral__ValueAssignment_1 : ( RULE_STRING ) ;
+    // InternalAsm.g:12612:1: rule__DmxStringLiteral__ValueAssignment_1 : ( RULE_STRING ) ;
     public final void rule__DmxStringLiteral__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAsm.g:12421:1: ( ( RULE_STRING ) )
-            // InternalAsm.g:12422:2: ( RULE_STRING )
+            // InternalAsm.g:12616:1: ( ( RULE_STRING ) )
+            // InternalAsm.g:12617:2: ( RULE_STRING )
             {
-            // InternalAsm.g:12422:2: ( RULE_STRING )
-            // InternalAsm.g:12423:3: RULE_STRING
+            // InternalAsm.g:12617:2: ( RULE_STRING )
+            // InternalAsm.g:12618:3: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDmxStringLiteralAccess().getValueSTRINGTerminalRuleCall_1_0()); 
@@ -40744,8 +41363,8 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred95_InternalAsm
     public final void synpred95_InternalAsm_fragment() throws RecognitionException {   
-        // InternalAsm.g:5561:3: ( rule__DmxNavigableMemberReference__Alternatives_1 )
-        // InternalAsm.g:5561:3: rule__DmxNavigableMemberReference__Alternatives_1
+        // InternalAsm.g:5730:3: ( rule__DmxNavigableMemberReference__Alternatives_1 )
+        // InternalAsm.g:5730:3: rule__DmxNavigableMemberReference__Alternatives_1
         {
         pushFollow(FOLLOW_2);
         rule__DmxNavigableMemberReference__Alternatives_1();
@@ -40759,8 +41378,8 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred99_InternalAsm
     public final void synpred99_InternalAsm_fragment() throws RecognitionException {   
-        // InternalAsm.g:6371:3: ( rule__DmxOrExpression__Group_1__0 )
-        // InternalAsm.g:6371:3: rule__DmxOrExpression__Group_1__0
+        // InternalAsm.g:6540:3: ( rule__DmxOrExpression__Group_1__0 )
+        // InternalAsm.g:6540:3: rule__DmxOrExpression__Group_1__0
         {
         pushFollow(FOLLOW_2);
         rule__DmxOrExpression__Group_1__0();
@@ -40774,8 +41393,8 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred100_InternalAsm
     public final void synpred100_InternalAsm_fragment() throws RecognitionException {   
-        // InternalAsm.g:6560:3: ( rule__DmxAndExpression__Group_1__0 )
-        // InternalAsm.g:6560:3: rule__DmxAndExpression__Group_1__0
+        // InternalAsm.g:6729:3: ( rule__DmxAndExpression__Group_1__0 )
+        // InternalAsm.g:6729:3: rule__DmxAndExpression__Group_1__0
         {
         pushFollow(FOLLOW_2);
         rule__DmxAndExpression__Group_1__0();
@@ -40789,8 +41408,8 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred101_InternalAsm
     public final void synpred101_InternalAsm_fragment() throws RecognitionException {   
-        // InternalAsm.g:6749:3: ( rule__DmxEqualityExpression__Group_1__0 )
-        // InternalAsm.g:6749:3: rule__DmxEqualityExpression__Group_1__0
+        // InternalAsm.g:6918:3: ( rule__DmxEqualityExpression__Group_1__0 )
+        // InternalAsm.g:6918:3: rule__DmxEqualityExpression__Group_1__0
         {
         pushFollow(FOLLOW_2);
         rule__DmxEqualityExpression__Group_1__0();
@@ -40804,8 +41423,8 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred102_InternalAsm
     public final void synpred102_InternalAsm_fragment() throws RecognitionException {   
-        // InternalAsm.g:6938:3: ( rule__DmxRelationalExpression__Alternatives_1 )
-        // InternalAsm.g:6938:3: rule__DmxRelationalExpression__Alternatives_1
+        // InternalAsm.g:7107:3: ( rule__DmxRelationalExpression__Alternatives_1 )
+        // InternalAsm.g:7107:3: rule__DmxRelationalExpression__Alternatives_1
         {
         pushFollow(FOLLOW_2);
         rule__DmxRelationalExpression__Alternatives_1();
@@ -40819,8 +41438,8 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred103_InternalAsm
     public final void synpred103_InternalAsm_fragment() throws RecognitionException {   
-        // InternalAsm.g:7262:3: ( rule__DmxOtherOperatorExpression__Group_1__0 )
-        // InternalAsm.g:7262:3: rule__DmxOtherOperatorExpression__Group_1__0
+        // InternalAsm.g:7431:3: ( rule__DmxOtherOperatorExpression__Group_1__0 )
+        // InternalAsm.g:7431:3: rule__DmxOtherOperatorExpression__Group_1__0
         {
         pushFollow(FOLLOW_2);
         rule__DmxOtherOperatorExpression__Group_1__0();
@@ -40834,8 +41453,8 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred104_InternalAsm
     public final void synpred104_InternalAsm_fragment() throws RecognitionException {   
-        // InternalAsm.g:7451:3: ( rule__DmxAdditiveExpression__Group_1__0 )
-        // InternalAsm.g:7451:3: rule__DmxAdditiveExpression__Group_1__0
+        // InternalAsm.g:7620:3: ( rule__DmxAdditiveExpression__Group_1__0 )
+        // InternalAsm.g:7620:3: rule__DmxAdditiveExpression__Group_1__0
         {
         pushFollow(FOLLOW_2);
         rule__DmxAdditiveExpression__Group_1__0();
@@ -40849,8 +41468,8 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred105_InternalAsm
     public final void synpred105_InternalAsm_fragment() throws RecognitionException {   
-        // InternalAsm.g:7640:3: ( rule__DmxMultiplicativeExpression__Group_1__0 )
-        // InternalAsm.g:7640:3: rule__DmxMultiplicativeExpression__Group_1__0
+        // InternalAsm.g:7809:3: ( rule__DmxMultiplicativeExpression__Group_1__0 )
+        // InternalAsm.g:7809:3: rule__DmxMultiplicativeExpression__Group_1__0
         {
         pushFollow(FOLLOW_2);
         rule__DmxMultiplicativeExpression__Group_1__0();
@@ -40864,8 +41483,8 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred106_InternalAsm
     public final void synpred106_InternalAsm_fragment() throws RecognitionException {   
-        // InternalAsm.g:7910:3: ( rule__DmxCastExpression__Group_1__0 )
-        // InternalAsm.g:7910:3: rule__DmxCastExpression__Group_1__0
+        // InternalAsm.g:8079:3: ( rule__DmxCastExpression__Group_1__0 )
+        // InternalAsm.g:8079:3: rule__DmxCastExpression__Group_1__0
         {
         pushFollow(FOLLOW_2);
         rule__DmxCastExpression__Group_1__0();
@@ -40879,8 +41498,8 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred107_InternalAsm
     public final void synpred107_InternalAsm_fragment() throws RecognitionException {   
-        // InternalAsm.g:8180:3: ( rule__DmxReturnExpression__ExpressionAssignment_2 )
-        // InternalAsm.g:8180:3: rule__DmxReturnExpression__ExpressionAssignment_2
+        // InternalAsm.g:8349:3: ( rule__DmxReturnExpression__ExpressionAssignment_2 )
+        // InternalAsm.g:8349:3: rule__DmxReturnExpression__ExpressionAssignment_2
         {
         pushFollow(FOLLOW_2);
         rule__DmxReturnExpression__ExpressionAssignment_2();
@@ -41132,7 +41751,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
     static final String dfa_16s = "\1\10\1\uffff\10\0\1\uffff";
     static final String dfa_17s = "\1\155\1\uffff\10\0\1\uffff";
     static final String dfa_18s = "\1\uffff\1\2\10\uffff\1\1";
-    static final String dfa_19s = "\2\uffff\1\4\1\6\1\0\1\7\1\5\1\3\1\1\1\2\1\uffff}>";
+    static final String dfa_19s = "\2\uffff\1\1\1\4\1\5\1\0\1\2\1\3\1\6\1\7\1\uffff}>";
     static final String[] dfa_20s = {
             "\2\1\10\uffff\1\2\1\3\2\1\10\uffff\1\1\6\uffff\2\1\13\uffff\11\1\1\4\1\5\1\6\1\7\1\10\1\11\6\1\15\uffff\1\1\1\uffff\2\1\1\uffff\2\1\11\uffff\1\1\5\uffff\4\1",
             "",
@@ -41169,17 +41788,17 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             this.transition = dfa_20;
         }
         public String getDescription() {
-            return "()* loopback of 6938:2: ( rule__DmxRelationalExpression__Alternatives_1 )*";
+            return "()* loopback of 7107:2: ( rule__DmxRelationalExpression__Alternatives_1 )*";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA67_4 = input.LA(1);
+                        int LA67_5 = input.LA(1);
 
                          
-                        int index67_4 = input.index();
+                        int index67_5 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred102_InternalAsm()) ) {s = 10;}
@@ -41187,14 +41806,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index67_4);
+                        input.seek(index67_5);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA67_8 = input.LA(1);
+                        int LA67_2 = input.LA(1);
 
                          
-                        int index67_8 = input.index();
+                        int index67_2 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred102_InternalAsm()) ) {s = 10;}
@@ -41202,14 +41821,14 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index67_8);
+                        input.seek(index67_2);
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA67_9 = input.LA(1);
+                        int LA67_6 = input.LA(1);
 
                          
-                        int index67_9 = input.index();
+                        int index67_6 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred102_InternalAsm()) ) {s = 10;}
@@ -41217,7 +41836,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index67_9);
+                        input.seek(index67_6);
                         if ( s>=0 ) return s;
                         break;
                     case 3 : 
@@ -41236,36 +41855,6 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
-                        int LA67_2 = input.LA(1);
-
-                         
-                        int index67_2 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred102_InternalAsm()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index67_2);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 5 : 
-                        int LA67_6 = input.LA(1);
-
-                         
-                        int index67_6 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred102_InternalAsm()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index67_6);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
                         int LA67_3 = input.LA(1);
 
                          
@@ -41280,11 +41869,11 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
                         input.seek(index67_3);
                         if ( s>=0 ) return s;
                         break;
-                    case 7 : 
-                        int LA67_5 = input.LA(1);
+                    case 5 : 
+                        int LA67_4 = input.LA(1);
 
                          
-                        int index67_5 = input.index();
+                        int index67_4 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred102_InternalAsm()) ) {s = 10;}
@@ -41292,7 +41881,37 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index67_5);
+                        input.seek(index67_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA67_8 = input.LA(1);
+
+                         
+                        int index67_8 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred102_InternalAsm()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index67_8);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA67_9 = input.LA(1);
+
+                         
+                        int index67_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred102_InternalAsm()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index67_9);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -41402,7 +42021,7 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
             this.transition = dfa_27;
         }
         public String getDescription() {
-            return "8180:2: ( rule__DmxReturnExpression__ExpressionAssignment_2 )?";
+            return "8349:2: ( rule__DmxReturnExpression__ExpressionAssignment_2 )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -41476,60 +42095,63 @@ public class InternalAsmParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000000000L,0x0000000008000000L});
     public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000000000L,0x0000000080200000L});
     public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000000000000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000008000000000L});
     public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0003FE0000000000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000000020L,0x0000000000100000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000000300L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000000000102L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000000000000002L,0x0000001000000000L});
-    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x00000067BFC00430L,0x000C424000080380L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000000000000000L,0x0001000000080000L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x00000067BFC00430L,0x000C424000180380L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x003C000000000000L});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x003C000000000002L});
-    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x00C0000000000000L});
-    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x00C0000000000002L});
-    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0700000000000000L});
-    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0700000000000002L});
-    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0xF8000000000C0000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0xF8000000000C0002L,0x0000000000000001L});
-    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x00000000000C0000L});
-    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000000000000000L,0x000000000000000EL});
-    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000000000000002L,0x000000000000000EL});
-    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0000006000000000L});
-    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0000006000000002L});
-    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000000040000000L,0x0000000000000070L});
-    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0000000040000002L,0x0000000000000070L});
-    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0000006000000000L,0x0000000000000380L});
-    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0000000000300000L});
-    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000000C00000L});
-    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0000000003000000L});
-    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x000000000C000000L});
-    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x0000000000000000L,0x0000000000100000L});
-    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x00000067BFC004F0L,0x000C424000180380L});
-    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0000000030000000L});
-    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L});
-    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0000000000000000L,0x000001A000000000L});
-    public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x0000000040000020L});
-    public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x0000000000000000L,0x0001001000000000L});
-    public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x0000000000000000L,0x0002000000000000L});
-    public static final BitSet FOLLOW_70 = new BitSet(new long[]{0x0000000000000000L,0x0000020000000000L});
-    public static final BitSet FOLLOW_71 = new BitSet(new long[]{0x0000000000000000L,0x0000040000000000L});
-    public static final BitSet FOLLOW_72 = new BitSet(new long[]{0x0000000000000000L,0x0000180000000000L});
-    public static final BitSet FOLLOW_73 = new BitSet(new long[]{0x0000000000000000L,0x0000200000000000L});
-    public static final BitSet FOLLOW_74 = new BitSet(new long[]{0x0000000000000000L,0x0000080000000000L});
-    public static final BitSet FOLLOW_75 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_76 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_77 = new BitSet(new long[]{0x0000000040000010L});
-    public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x0000000180000000L,0x000C000000000000L});
-    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0000000780000410L,0x000C000000000000L});
-    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0000001800000000L});
-    public static final BitSet FOLLOW_82 = new BitSet(new long[]{0x0000006000000010L});
-    public static final BitSet FOLLOW_83 = new BitSet(new long[]{0x0000000000000000L,0x0000800000000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000000000L,0x0000000000100000L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000000000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000000020L,0x0000000000100000L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0003FE0000000020L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000000000000L,0x0000000800000000L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000000000000300L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000000000000102L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000000000000002L,0x0000001000000000L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x00000067BFC00430L,0x000C424000080380L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000000000000L,0x0001000000080000L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x00000067BFC00430L,0x000C424000180380L});
+    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x003C000000000000L});
+    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x003C000000000002L});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x00C0000000000000L});
+    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x00C0000000000002L});
+    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0700000000000000L});
+    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0700000000000002L});
+    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0xF8000000000C0000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0xF8000000000C0002L,0x0000000000000001L});
+    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x00000000000C0000L});
+    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000000000000000L,0x000000000000000EL});
+    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0000000000000002L,0x000000000000000EL});
+    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0000006000000000L});
+    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0000006000000002L});
+    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000040000000L,0x0000000000000070L});
+    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0000000040000002L,0x0000000000000070L});
+    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0000006000000000L,0x0000000000000380L});
+    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x0000000000300000L});
+    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0000000000C00000L});
+    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0000000003000000L});
+    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x000000000C000000L});
+    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x00000067BFC004F0L,0x000C424000180380L});
+    public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x0000000030000000L});
+    public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L});
+    public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x0000000000000000L,0x000001A000000000L});
+    public static final BitSet FOLLOW_70 = new BitSet(new long[]{0x0000000040000020L});
+    public static final BitSet FOLLOW_71 = new BitSet(new long[]{0x0000000000000000L,0x0001001000000000L});
+    public static final BitSet FOLLOW_72 = new BitSet(new long[]{0x0000000000000000L,0x0002000000000000L});
+    public static final BitSet FOLLOW_73 = new BitSet(new long[]{0x0000000000000000L,0x0000020000000000L});
+    public static final BitSet FOLLOW_74 = new BitSet(new long[]{0x0000000000000000L,0x0000040000000000L});
+    public static final BitSet FOLLOW_75 = new BitSet(new long[]{0x0000000000000000L,0x0000180000000000L});
+    public static final BitSet FOLLOW_76 = new BitSet(new long[]{0x0000000000000000L,0x0000200000000000L});
+    public static final BitSet FOLLOW_77 = new BitSet(new long[]{0x0000000000000000L,0x0000080000000000L});
+    public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0000000040000010L});
+    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0000000180000000L,0x000C000000000000L});
+    public static final BitSet FOLLOW_82 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_83 = new BitSet(new long[]{0x0000000780000410L,0x000C000000000000L});
+    public static final BitSet FOLLOW_84 = new BitSet(new long[]{0x0000001800000000L});
+    public static final BitSet FOLLOW_85 = new BitSet(new long[]{0x0000006000000010L});
+    public static final BitSet FOLLOW_86 = new BitSet(new long[]{0x0000000000000000L,0x0000800000000000L});
 
 }

@@ -4,15 +4,26 @@ package com.mimacom.ddd.dm.dmx.impl;
 
 import com.mimacom.ddd.dm.base.impl.DNavigableMemberImplCustom;
 
-import com.mimacom.ddd.dm.dmx.DmxBaseType;
+import com.mimacom.ddd.dm.dmx.DmxBaseTypeSet;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
+import com.mimacom.ddd.dm.dmx.DmxFilterParameter;
+import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,53 +33,44 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxFilterImpl#getBaseType <em>Base Type</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxFilterImpl#isBaseTypeCollection <em>Base Type Collection</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxFilterImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxFilterImpl#getTypeDesc <em>Type Desc</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxFilterImpl#getWithTypeSet <em>With Type Set</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class DmxFilterImpl extends DNavigableMemberImplCustom implements DmxFilter
+public class DmxFilterImpl extends DNavigableMemberImplCustom implements DmxFilter
 {
 	/**
-	 * The default value of the '{@link #getBaseType() <em>Base Type</em>}' attribute.
+	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBaseType()
+	 * @see #getParameters()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final DmxBaseType BASE_TYPE_EDEFAULT = DmxBaseType.UNDEFINED;
+	protected EList<DmxFilterParameter> parameters;
 
 	/**
-	 * The cached value of the '{@link #getBaseType() <em>Base Type</em>}' attribute.
+	 * The cached value of the '{@link #getTypeDesc() <em>Type Desc</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBaseType()
+	 * @see #getTypeDesc()
 	 * @generated
 	 * @ordered
 	 */
-	protected DmxBaseType baseType = BASE_TYPE_EDEFAULT;
+	protected DmxFilterTypeDescriptor typeDesc;
 
 	/**
-	 * The default value of the '{@link #isBaseTypeCollection() <em>Base Type Collection</em>}' attribute.
+	 * The cached value of the '{@link #getWithTypeSet() <em>With Type Set</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isBaseTypeCollection()
+	 * @see #getWithTypeSet()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean BASE_TYPE_COLLECTION_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isBaseTypeCollection() <em>Base Type Collection</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isBaseTypeCollection()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean baseTypeCollection = BASE_TYPE_COLLECTION_EDEFAULT;
+	protected DmxBaseTypeSet withTypeSet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,9 +99,13 @@ public abstract class DmxFilterImpl extends DNavigableMemberImplCustom implement
 	 * @generated
 	 */
 	@Override
-	public DmxBaseType getBaseType()
+	public EList<DmxFilterParameter> getParameters()
 	{
-		return baseType;
+		if (parameters == null)
+		{
+			parameters = new EObjectContainmentEList<DmxFilterParameter>(DmxFilterParameter.class, this, DmxPackage.DMX_FILTER__PARAMETERS);
+		}
+		return parameters;
 	}
 
 	/**
@@ -108,12 +114,26 @@ public abstract class DmxFilterImpl extends DNavigableMemberImplCustom implement
 	 * @generated
 	 */
 	@Override
-	public void setBaseType(DmxBaseType newBaseType)
+	public DmxFilterTypeDescriptor getTypeDesc()
 	{
-		DmxBaseType oldBaseType = baseType;
-		baseType = newBaseType == null ? BASE_TYPE_EDEFAULT : newBaseType;
+		return typeDesc;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTypeDesc(DmxFilterTypeDescriptor newTypeDesc, NotificationChain msgs)
+	{
+		DmxFilterTypeDescriptor oldTypeDesc = typeDesc;
+		typeDesc = newTypeDesc;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_FILTER__BASE_TYPE, oldBaseType, baseType));
+		{
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_FILTER__TYPE_DESC, oldTypeDesc, newTypeDesc);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -122,9 +142,20 @@ public abstract class DmxFilterImpl extends DNavigableMemberImplCustom implement
 	 * @generated
 	 */
 	@Override
-	public boolean isBaseTypeCollection()
+	public void setTypeDesc(DmxFilterTypeDescriptor newTypeDesc)
 	{
-		return baseTypeCollection;
+		if (newTypeDesc != typeDesc)
+		{
+			NotificationChain msgs = null;
+			if (typeDesc != null)
+				msgs = ((InternalEObject)typeDesc).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DmxPackage.DMX_FILTER__TYPE_DESC, null, msgs);
+			if (newTypeDesc != null)
+				msgs = ((InternalEObject)newTypeDesc).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DmxPackage.DMX_FILTER__TYPE_DESC, null, msgs);
+			msgs = basicSetTypeDesc(newTypeDesc, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_FILTER__TYPE_DESC, newTypeDesc, newTypeDesc));
 	}
 
 	/**
@@ -133,12 +164,68 @@ public abstract class DmxFilterImpl extends DNavigableMemberImplCustom implement
 	 * @generated
 	 */
 	@Override
-	public void setBaseTypeCollection(boolean newBaseTypeCollection)
+	public DmxBaseTypeSet getWithTypeSet()
 	{
-		boolean oldBaseTypeCollection = baseTypeCollection;
-		baseTypeCollection = newBaseTypeCollection;
+		return withTypeSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetWithTypeSet(DmxBaseTypeSet newWithTypeSet, NotificationChain msgs)
+	{
+		DmxBaseTypeSet oldWithTypeSet = withTypeSet;
+		withTypeSet = newWithTypeSet;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_FILTER__BASE_TYPE_COLLECTION, oldBaseTypeCollection, baseTypeCollection));
+		{
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_FILTER__WITH_TYPE_SET, oldWithTypeSet, newWithTypeSet);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setWithTypeSet(DmxBaseTypeSet newWithTypeSet)
+	{
+		if (newWithTypeSet != withTypeSet)
+		{
+			NotificationChain msgs = null;
+			if (withTypeSet != null)
+				msgs = ((InternalEObject)withTypeSet).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DmxPackage.DMX_FILTER__WITH_TYPE_SET, null, msgs);
+			if (newWithTypeSet != null)
+				msgs = ((InternalEObject)newWithTypeSet).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DmxPackage.DMX_FILTER__WITH_TYPE_SET, null, msgs);
+			msgs = basicSetWithTypeSet(newWithTypeSet, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_FILTER__WITH_TYPE_SET, newWithTypeSet, newWithTypeSet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+	{
+		switch (featureID)
+		{
+			case DmxPackage.DMX_FILTER__PARAMETERS:
+				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
+			case DmxPackage.DMX_FILTER__TYPE_DESC:
+				return basicSetTypeDesc(null, msgs);
+			case DmxPackage.DMX_FILTER__WITH_TYPE_SET:
+				return basicSetWithTypeSet(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -151,10 +238,12 @@ public abstract class DmxFilterImpl extends DNavigableMemberImplCustom implement
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DMX_FILTER__BASE_TYPE:
-				return getBaseType();
-			case DmxPackage.DMX_FILTER__BASE_TYPE_COLLECTION:
-				return isBaseTypeCollection();
+			case DmxPackage.DMX_FILTER__PARAMETERS:
+				return getParameters();
+			case DmxPackage.DMX_FILTER__TYPE_DESC:
+				return getTypeDesc();
+			case DmxPackage.DMX_FILTER__WITH_TYPE_SET:
+				return getWithTypeSet();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -164,16 +253,21 @@ public abstract class DmxFilterImpl extends DNavigableMemberImplCustom implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DMX_FILTER__BASE_TYPE:
-				setBaseType((DmxBaseType)newValue);
+			case DmxPackage.DMX_FILTER__PARAMETERS:
+				getParameters().clear();
+				getParameters().addAll((Collection<? extends DmxFilterParameter>)newValue);
 				return;
-			case DmxPackage.DMX_FILTER__BASE_TYPE_COLLECTION:
-				setBaseTypeCollection((Boolean)newValue);
+			case DmxPackage.DMX_FILTER__TYPE_DESC:
+				setTypeDesc((DmxFilterTypeDescriptor)newValue);
+				return;
+			case DmxPackage.DMX_FILTER__WITH_TYPE_SET:
+				setWithTypeSet((DmxBaseTypeSet)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -189,11 +283,14 @@ public abstract class DmxFilterImpl extends DNavigableMemberImplCustom implement
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DMX_FILTER__BASE_TYPE:
-				setBaseType(BASE_TYPE_EDEFAULT);
+			case DmxPackage.DMX_FILTER__PARAMETERS:
+				getParameters().clear();
 				return;
-			case DmxPackage.DMX_FILTER__BASE_TYPE_COLLECTION:
-				setBaseTypeCollection(BASE_TYPE_COLLECTION_EDEFAULT);
+			case DmxPackage.DMX_FILTER__TYPE_DESC:
+				setTypeDesc((DmxFilterTypeDescriptor)null);
+				return;
+			case DmxPackage.DMX_FILTER__WITH_TYPE_SET:
+				setWithTypeSet((DmxBaseTypeSet)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -209,31 +306,14 @@ public abstract class DmxFilterImpl extends DNavigableMemberImplCustom implement
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DMX_FILTER__BASE_TYPE:
-				return baseType != BASE_TYPE_EDEFAULT;
-			case DmxPackage.DMX_FILTER__BASE_TYPE_COLLECTION:
-				return baseTypeCollection != BASE_TYPE_COLLECTION_EDEFAULT;
+			case DmxPackage.DMX_FILTER__PARAMETERS:
+				return parameters != null && !parameters.isEmpty();
+			case DmxPackage.DMX_FILTER__TYPE_DESC:
+				return typeDesc != null;
+			case DmxPackage.DMX_FILTER__WITH_TYPE_SET:
+				return withTypeSet != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString()
-	{
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (baseType: ");
-		result.append(baseType);
-		result.append(", baseTypeCollection: ");
-		result.append(baseTypeCollection);
-		result.append(')');
-		return result.toString();
 	}
 
 } //DmxFilterImpl

@@ -10,11 +10,11 @@ import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dmx.DmxAssignment;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
-import com.mimacom.ddd.dm.dmx.DmxIterator;
+import com.mimacom.ddd.dm.dmx.DmxFilter;
+import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
@@ -23,6 +23,7 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
 import org.eclipse.xtext.ui.editor.outline.impl.EObjectNode;
 import org.eclipse.xtext.ui.editor.outline.impl.EStructuralFeatureNode;
 import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.IntegerRange;
 
 /**
  * Customization of the default outline structure.
@@ -72,24 +73,58 @@ public class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
     return _xblockexpression;
   }
   
-  public EStructuralFeatureNode _createNode(final IOutlineNode parentNode, final DmxIterator iterator) {
+  public EStructuralFeatureNode _createNode(final IOutlineNode parentNode, final DmxFilter filter) {
     EStructuralFeatureNode _xblockexpression = null;
     {
-      final EObjectNode node = this.createEObjectNode(parentNode, iterator, this.imageDispatcher.invoke(iterator), this.textDispatcher.invoke(iterator), (this.isLeafDispatcher.invoke(iterator)).booleanValue());
-      EAttribute _dmxFilter_BaseType = DmxOutlineTreeProvider.DMX.getDmxFilter_BaseType();
-      String _name = DmxOutlineTreeProvider.DMX.getDmxFilter_BaseType().getName();
+      final EObjectNode node = this.createEObjectNode(parentNode, filter, this.imageDispatcher.invoke(filter), this.textDispatcher.invoke(filter), (this.isLeafDispatcher.invoke(filter)).booleanValue());
+      EReference _dmxFilter_TypeDesc = DmxOutlineTreeProvider.DMX.getDmxFilter_TypeDesc();
+      String _name = DmxOutlineTreeProvider.DMX.getDmxFilter_TypeDesc().getName();
       String _plus = (_name + " ");
-      String _literal = iterator.getBaseType().getLiteral();
-      String _plus_1 = (_plus + _literal);
+      String _resultTypes = this.getResultTypes(filter);
+      String _plus_1 = (_plus + _resultTypes);
       String _xifexpression = null;
-      boolean _isBaseTypeCollection = iterator.isBaseTypeCollection();
-      if (_isBaseTypeCollection) {
+      boolean _isCollection = filter.getTypeDesc().isCollection();
+      if (_isCollection) {
         _xifexpression = "*";
       } else {
         _xifexpression = "";
       }
       String _plus_2 = (_plus_1 + _xifexpression);
-      _xblockexpression = this.createEStructuralFeatureNode(node, iterator, _dmxFilter_BaseType, DmxOutlineTreeProvider.FEATURE_IMAGE, _plus_2, true);
+      _xblockexpression = this.createEStructuralFeatureNode(node, filter, _dmxFilter_TypeDesc, DmxOutlineTreeProvider.FEATURE_IMAGE, _plus_2, true);
+    }
+    return _xblockexpression;
+  }
+  
+  private String getResultTypes(final DmxFilter filter) {
+    String _xblockexpression = null;
+    {
+      final DmxFilterTypeDescriptor desc = filter.getTypeDesc();
+      if ((desc == null)) {
+        return "null";
+      }
+      String _xifexpression = null;
+      boolean _isMultiTyped = desc.isMultiTyped();
+      if (_isMultiTyped) {
+        String _xblockexpression_1 = null;
+        {
+          String _literal = filter.getTypeDesc().getMultiple().getMembers().get(0).getLiteral();
+          final StringBuilder b = new StringBuilder(_literal);
+          int _size = filter.getTypeDesc().getMultiple().getMembers().size();
+          int _minus = (_size - 1);
+          IntegerRange _upTo = new IntegerRange(1, _minus);
+          for (final Integer i : _upTo) {
+            {
+              b.append(",");
+              b.append(filter.getTypeDesc().getMultiple().getMembers().get((i).intValue()));
+            }
+          }
+          _xblockexpression_1 = b.toString();
+        }
+        _xifexpression = _xblockexpression_1;
+      } else {
+        _xifexpression = desc.getSingle().getLiteral();
+      }
+      _xblockexpression = _xifexpression;
     }
     return _xblockexpression;
   }

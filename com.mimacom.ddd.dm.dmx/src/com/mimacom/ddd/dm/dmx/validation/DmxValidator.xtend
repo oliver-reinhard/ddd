@@ -5,52 +5,65 @@ package com.mimacom.ddd.dm.dmx.validation
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.BasePackage
+import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DFeature
+import com.mimacom.ddd.dm.dmx.DmxContextReference
+import com.mimacom.ddd.dm.dmx.DmxFilter
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DmxPackage
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer
 import org.eclipse.xtext.validation.Check
-import com.mimacom.ddd.dm.dmx.DmxContextReference
-import com.mimacom.ddd.dm.base.DComplexType
 
 /**
  * This class contains custom validation rules. 
- *
+ * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 class DmxValidator extends AbstractDmxValidator {
-	
+
 	@Inject extension DmxTypeComputer
-	
+
 	static val BASE = BasePackage.eINSTANCE
 	static val DMX = DmxPackage.eINSTANCE
-	
+
+	@Check
+	def checkFilterParameters(DmxFilter f) {
+		if (f.typeDesc.isMultiTyped) {
+			if (f.parameters.size == 0) {
+				error("For a multi-typed return type, there must be a matching first parameter.", f, BASE.DNamedElement_Name, 0)
+			} else if (!f.parameters.get(0)?.typeDesc.isMultiTyped) {
+				error("For a multi-typed return type, the first parameter must have the same type.", f, DMX.dmxFilter_Parameters, 0)
+			}
+		}
+	}
+
 	@Check
 	def checkUseOfAllQualifier(DmxContextReference ref) {
 		if (ref.all && !(ref.target instanceof DComplexType)) {
 			error("'all' qualifier is only supported after a static type reference.", ref, DMX.dmxContextReference_All)
 		}
 	}
-	
+
 	@Check
 	def checkNavigationOfStaticTypeReference(DmxMemberNavigation nav) {
-		if(nav.member instanceof DFeature) {
+		if (nav.member instanceof DFeature) {
 			val preceding = nav.precedingNavigationSegment
 			if (preceding instanceof DmxContextReference && (preceding as DmxContextReference).target instanceof DComplexType) {
-				error("Cannot navigate a feature from a static type reference. Use [[Type#feature]] syntax inside a RichString.", nav, DMX.dmxMemberNavigation_Member)
+				error("Cannot navigate a feature from a static type reference. Use [[Type#feature]] syntax inside a RichString.", nav,
+					DMX.dmxMemberNavigation_Member)
 			}
 		}
 	}
-	
+
 	@Check
 	def checkFeatureNavigationOfCollection(DmxMemberNavigation nav) {
 		val member = nav.member
-		if(member instanceof DFeature) {
+		if (member instanceof DFeature) {
 			val preceding = nav.precedingNavigationSegment
 			if (preceding !== null && preceding.typeFor.isCollection) {
 				error("Cannot navigate a feature of a collection of objects.", nav, DMX.dmxMemberNavigation_Member)
 			}
 		}
 	}
-	
+
 }

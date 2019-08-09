@@ -140,7 +140,7 @@ public class EsmSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) ('FALSE' | 'false') (rule start)
 	 *     (rule start) (ambiguity) ('SELF' | 'self') (rule start)
 	 *     (rule start) (ambiguity) ('UNDEFINED' | 'undefined') (rule start)
-	 *     (rule start) (ambiguity) function=[DmxFunction|ID]
+	 *     (rule start) (ambiguity) function=[DmxFilter|ID]
 	 *     (rule start) (ambiguity) operator=OpUnary
 	 *     (rule start) (ambiguity) segments+=DmxTextOnly
 	 *     (rule start) (ambiguity) segments+=DmxTextStart
@@ -169,7 +169,7 @@ public class EsmSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) ('FALSE' | 'false') ')' (rule start)
 	 *     (rule start) (ambiguity) ('SELF' | 'self') ')' (rule start)
 	 *     (rule start) (ambiguity) ('UNDEFINED' | 'undefined') ')' (rule start)
-	 *     (rule start) (ambiguity) function=[DmxFunction|ID]
+	 *     (rule start) (ambiguity) function=[DmxFilter|ID]
 	 *     (rule start) (ambiguity) operator=OpUnary
 	 *     (rule start) (ambiguity) segments+=DmxTextOnly
 	 *     (rule start) (ambiguity) segments+=DmxTextStart

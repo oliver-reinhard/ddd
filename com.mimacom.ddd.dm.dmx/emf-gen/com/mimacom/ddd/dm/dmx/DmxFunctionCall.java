@@ -30,12 +30,12 @@ public interface DmxFunctionCall extends DExpression
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Function</em>' reference.
-	 * @see #setFunction(DmxFunction)
+	 * @see #setFunction(DmxFilter)
 	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFunctionCall_Function()
 	 * @model
 	 * @generated
 	 */
-	DmxFunction getFunction();
+	DmxFilter getFunction();
 
 	/**
 	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxFunctionCall#getFunction <em>Function</em>}' reference.
@@ -45,7 +45,7 @@ public interface DmxFunctionCall extends DExpression
 	 * @see #getFunction()
 	 * @generated
 	 */
-	void setFunction(DmxFunction value);
+	void setFunction(DmxFilter value);
 
 	/**
 	 * Returns the value of the '<em><b>Function Call Arguments</b></em>' containment reference list.

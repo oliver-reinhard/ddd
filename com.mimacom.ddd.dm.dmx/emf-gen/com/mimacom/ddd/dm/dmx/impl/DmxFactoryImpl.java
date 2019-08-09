@@ -67,10 +67,11 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 		{
 			case DmxPackage.DMX_NAMESPACE: return createDmxNamespace();
 			case DmxPackage.DMX_TEST: return createDmxTest();
+			case DmxPackage.DMX_BASE_TYPE_SET: return createDmxBaseTypeSet();
 			case DmxPackage.DMX_ARCHETYPE: return createDmxArchetype();
-			case DmxPackage.DMX_FUNCTION: return createDmxFunction();
-			case DmxPackage.DMX_FUNCTION_PARAMETER: return createDmxFunctionParameter();
-			case DmxPackage.DMX_ITERATOR: return createDmxIterator();
+			case DmxPackage.DMX_FILTER: return createDmxFilter();
+			case DmxPackage.DMX_FILTER_TYPE_DESCRIPTOR: return createDmxFilterTypeDescriptor();
+			case DmxPackage.DMX_FILTER_PARAMETER: return createDmxFilterParameter();
 			case DmxPackage.DMX_ASSIGNMENT: return createDmxAssignment();
 			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE: return createDmxPredicateWithCorrelationVariable();
 			case DmxPackage.DMX_MEMBER_NAVIGATION: return createDmxMemberNavigation();
@@ -170,6 +171,18 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
+	public DmxBaseTypeSet createDmxBaseTypeSet()
+	{
+		DmxBaseTypeSetImpl dmxBaseTypeSet = new DmxBaseTypeSetImpl();
+		return dmxBaseTypeSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public DmxArchetype createDmxArchetype()
 	{
 		DmxArchetypeImpl dmxArchetype = new DmxArchetypeImpl();
@@ -182,10 +195,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DmxFunction createDmxFunction()
+	public DmxFilter createDmxFilter()
 	{
-		DmxFunctionImpl dmxFunction = new DmxFunctionImpl();
-		return dmxFunction;
+		DmxFilterImpl dmxFilter = new DmxFilterImpl();
+		return dmxFilter;
 	}
 
 	/**
@@ -194,10 +207,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DmxFunctionParameter createDmxFunctionParameter()
+	public DmxFilterTypeDescriptor createDmxFilterTypeDescriptor()
 	{
-		DmxFunctionParameterImpl dmxFunctionParameter = new DmxFunctionParameterImpl();
-		return dmxFunctionParameter;
+		DmxFilterTypeDescriptorImplCustom dmxFilterTypeDescriptor = new DmxFilterTypeDescriptorImplCustom();
+		return dmxFilterTypeDescriptor;
 	}
 
 	/**
@@ -206,10 +219,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DmxIterator createDmxIterator()
+	public DmxFilterParameter createDmxFilterParameter()
 	{
-		DmxIteratorImpl dmxIterator = new DmxIteratorImpl();
-		return dmxIterator;
+		DmxFilterParameterImpl dmxFilterParameter = new DmxFilterParameterImpl();
+		return dmxFilterParameter;
 	}
 
 	/**

@@ -105,6 +105,13 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DmxPackage.DMX_BASE_TYPE_SET:
+			{
+				DmxBaseTypeSet dmxBaseTypeSet = (DmxBaseTypeSet)theEObject;
+				T result = caseDmxBaseTypeSet(dmxBaseTypeSet);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DmxPackage.DMX_ARCHETYPE:
 			{
 				DmxArchetype dmxArchetype = (DmxArchetype)theEObject;
@@ -128,30 +135,17 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DMX_FUNCTION:
+			case DmxPackage.DMX_FILTER_TYPE_DESCRIPTOR:
 			{
-				DmxFunction dmxFunction = (DmxFunction)theEObject;
-				T result = caseDmxFunction(dmxFunction);
-				if (result == null) result = caseDmxFilter(dmxFunction);
-				if (result == null) result = caseDNavigableMember(dmxFunction);
-				if (result == null) result = caseDNamedElement(dmxFunction);
+				DmxFilterTypeDescriptor dmxFilterTypeDescriptor = (DmxFilterTypeDescriptor)theEObject;
+				T result = caseDmxFilterTypeDescriptor(dmxFilterTypeDescriptor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DMX_FUNCTION_PARAMETER:
+			case DmxPackage.DMX_FILTER_PARAMETER:
 			{
-				DmxFunctionParameter dmxFunctionParameter = (DmxFunctionParameter)theEObject;
-				T result = caseDmxFunctionParameter(dmxFunctionParameter);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DmxPackage.DMX_ITERATOR:
-			{
-				DmxIterator dmxIterator = (DmxIterator)theEObject;
-				T result = caseDmxIterator(dmxIterator);
-				if (result == null) result = caseDmxFilter(dmxIterator);
-				if (result == null) result = caseDNavigableMember(dmxIterator);
-				if (result == null) result = caseDNamedElement(dmxIterator);
+				DmxFilterParameter dmxFilterParameter = (DmxFilterParameter)theEObject;
+				T result = caseDmxFilterParameter(dmxFilterParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -392,6 +386,22 @@ public class DmxSwitch<T> extends Switch<T>
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Base Type Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Base Type Set</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxBaseTypeSet(DmxBaseTypeSet object)
+	{
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Archetype</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -424,49 +434,33 @@ public class DmxSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Function</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Filter Type Descriptor</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Function</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Filter Type Descriptor</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDmxFunction(DmxFunction object)
+	public T caseDmxFilterTypeDescriptor(DmxFilterTypeDescriptor object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Function Parameter</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Filter Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Function Parameter</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Filter Parameter</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDmxFunctionParameter(DmxFunctionParameter object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Iterator</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Iterator</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDmxIterator(DmxIterator object)
+	public T caseDmxFilterParameter(DmxFilterParameter object)
 	{
 		return null;
 	}

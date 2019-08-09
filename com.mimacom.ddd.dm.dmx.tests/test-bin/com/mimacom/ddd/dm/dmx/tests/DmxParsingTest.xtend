@@ -4,6 +4,7 @@
 package com.mimacom.ddd.dm.dmx.tests
 
 import com.google.inject.Inject
+import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DNamedElement
 import com.mimacom.ddd.dm.dmx.DmxNamespace
 import com.mimacom.ddd.dm.dmx.impl.DmxAssignmentImpl
@@ -11,8 +12,8 @@ import com.mimacom.ddd.dm.dmx.impl.DmxBooleanLiteralImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxConstructorCallImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxContextReferenceImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxDecimalLiteralImpl
+import com.mimacom.ddd.dm.dmx.impl.DmxFilterImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxFunctionCallImpl
-import com.mimacom.ddd.dm.dmx.impl.DmxFunctionImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxMemberNavigationImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxNaturalLiteralImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxRaiseExpressionImpl
@@ -28,7 +29,6 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 
 import static org.junit.Assert.*
-import com.mimacom.ddd.dm.base.DEntityType
 
 @ExtendWith(InjectionExtension)
 @InjectWith(DmxInjectorProvider)
@@ -107,10 +107,10 @@ class DmxParsingTest {
 		assertEquals(DmxFunctionCallImpl, e5.class)
 		// actual value of 'e5.function' cross reference is a proxy that gets resolved upon access => Exception => use basicGetFunction
 		assertTrue((e5 as DmxFunctionCallImpl).basicGetFunction.eIsProxy)
-		assertEquals(DmxFunctionImpl, (e5 as DmxFunctionCallImpl).basicGetFunction.class) 
+		assertEquals(DmxFilterImpl, (e5 as DmxFunctionCallImpl).basicGetFunction.class) 
 		assertEquals(0, (e5 as DmxFunctionCallImpl).functionCallArguments.size)
 		val e6 = tests.get(6).expr
-		assertEquals(DmxFunctionImpl, (e6 as DmxFunctionCallImpl).basicGetFunction.class)
+		assertEquals(DmxFilterImpl, (e6 as DmxFunctionCallImpl).basicGetFunction.class)
 		assertEquals(1, (e6 as DmxFunctionCallImpl).functionCallArguments.size)
 		assertEquals(DmxNaturalLiteralImpl, (e6 as DmxFunctionCallImpl).functionCallArguments.get(0).class)
 		val e7 = tests.get(7).expr
