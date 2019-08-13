@@ -113,6 +113,33 @@ public interface DmxFactory extends EFactory
 	DmxMemberNavigation createDmxMemberNavigation();
 
 	/**
+	 * Returns a new object of class '<em>Call Arguments</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Call Arguments</em>'.
+	 * @generated
+	 */
+	DmxCallArguments createDmxCallArguments();
+
+	/**
+	 * Returns a new object of class '<em>Function Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Function Call</em>'.
+	 * @generated
+	 */
+	DmxFunctionCall createDmxFunctionCall();
+
+	/**
+	 * Returns a new object of class '<em>Constructor Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Constructor Call</em>'.
+	 * @generated
+	 */
+	DmxConstructorCall createDmxConstructorCall();
+
+	/**
 	 * Returns a new object of class '<em>Binary Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -176,24 +203,6 @@ public interface DmxFactory extends EFactory
 	DmxRaiseExpression createDmxRaiseExpression();
 
 	/**
-	 * Returns a new object of class '<em>Function Call</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Function Call</em>'.
-	 * @generated
-	 */
-	DmxFunctionCall createDmxFunctionCall();
-
-	/**
-	 * Returns a new object of class '<em>Constructor Call</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Constructor Call</em>'.
-	 * @generated
-	 */
-	DmxConstructorCall createDmxConstructorCall();
-
-	/**
 	 * Returns a new object of class '<em>Static Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -219,15 +228,6 @@ public interface DmxFactory extends EFactory
 	 * @generated
 	 */
 	DmxIfExpression createDmxIfExpression();
-
-	/**
-	 * Returns a new object of class '<em>For Loop Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>For Loop Expression</em>'.
-	 * @generated
-	 */
-	DmxForLoopExpression createDmxForLoopExpression();
 
 	/**
 	 * Returns a new object of class '<em>Boolean Literal</em>'.

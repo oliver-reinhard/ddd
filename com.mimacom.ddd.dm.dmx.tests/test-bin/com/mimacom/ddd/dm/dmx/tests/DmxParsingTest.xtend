@@ -7,6 +7,7 @@ import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DNamedElement
 import com.mimacom.ddd.dm.dmx.DmxNamespace
+import com.mimacom.ddd.dm.dmx.DmxUtil
 import com.mimacom.ddd.dm.dmx.impl.DmxAssignmentImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxBooleanLiteralImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxConstructorCallImpl
@@ -34,6 +35,7 @@ import static org.junit.Assert.*
 @InjectWith(DmxInjectorProvider)
 class DmxParsingTest {
 	@Inject extension ParseHelper<DmxNamespace> parseHelper
+	@Inject extension DmxUtil
 	
 	@Test
 	def void testLiterals() {
@@ -108,11 +110,11 @@ class DmxParsingTest {
 		// actual value of 'e5.function' cross reference is a proxy that gets resolved upon access => Exception => use basicGetFunction
 		assertTrue((e5 as DmxFunctionCallImpl).basicGetFunction.eIsProxy)
 		assertEquals(DmxFilterImpl, (e5 as DmxFunctionCallImpl).basicGetFunction.class) 
-		assertEquals(0, (e5 as DmxFunctionCallImpl).functionCallArguments.size)
+		assertEquals(0, (e5 as DmxFunctionCallImpl).nullSafeCallArguments.size)
 		val e6 = tests.get(6).expr
 		assertEquals(DmxFilterImpl, (e6 as DmxFunctionCallImpl).basicGetFunction.class)
-		assertEquals(1, (e6 as DmxFunctionCallImpl).functionCallArguments.size)
-		assertEquals(DmxNaturalLiteralImpl, (e6 as DmxFunctionCallImpl).functionCallArguments.get(0).class)
+		assertEquals(1, (e6 as DmxFunctionCallImpl).nullSafeCallArguments.size)
+		assertEquals(DmxNaturalLiteralImpl, (e6 as DmxFunctionCallImpl).nullSafeCallArguments.get(0).class)
 		val e7 = tests.get(7).expr
 		assertEquals(DmxConstructorCallImpl, e7.class)
 		// actual value of 'e7.constructor' cross reference is a proxy that gets resolved upon access => Exception
@@ -123,8 +125,8 @@ class DmxParsingTest {
 		assertEquals(DmxConstructorCallImpl, e8.class)
 		assertTrue((e8 as DmxConstructorCallImpl).basicGetConstructor instanceof DEntityType) 
 		assertTrue((e8 as DmxConstructorCallImpl).explicitConstructorCall)
-		assertEquals(1, (e8 as DmxConstructorCallImpl).arguments.size)
-		assertEquals(DmxNaturalLiteralImpl, (e8 as DmxConstructorCallImpl).arguments.get(0).class)
+		assertEquals(1, (e8 as DmxConstructorCallImpl).nullSafeCallArguments.size)
+		assertEquals(DmxNaturalLiteralImpl, (e8 as DmxConstructorCallImpl).nullSafeCallArguments.get(0).class)
 		val e9 = tests.get(9).expr
 		assertEquals(DmxContextReferenceImpl, e9.class)
 		// actual value of 'e9.contextElement' cross reference is a proxy that gets resolved upon access => Exception

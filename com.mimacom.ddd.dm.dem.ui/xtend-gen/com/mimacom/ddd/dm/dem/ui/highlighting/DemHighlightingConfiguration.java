@@ -19,7 +19,7 @@ public class DemHighlightingConfiguration extends DefaultHighlightingConfigurati
   public TextStyle nameTextStyle() {
     final TextStyle textStyle = new TextStyle();
     textStyle.setStyle(SWT.BOLD);
-    RGB _rGB = new RGB(3, 119, 145);
+    RGB _rGB = new RGB(29, 32, 136);
     textStyle.setColor(_rGB);
     return textStyle;
   }

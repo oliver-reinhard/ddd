@@ -3,15 +3,11 @@
  */
 package com.mimacom.ddd.dm.dmx.validation
 
-import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DFeature
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxFilter
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
-import com.mimacom.ddd.dm.dmx.DmxPackage
-import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer
 import org.eclipse.xtext.validation.Check
 
 /**
@@ -19,12 +15,7 @@ import org.eclipse.xtext.validation.Check
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
-class DmxValidator extends AbstractDmxValidator {
-
-	@Inject extension DmxTypeComputer
-
-	static val BASE = BasePackage.eINSTANCE
-	static val DMX = DmxPackage.eINSTANCE
+class DmxValidator extends DmxTypeCheckingValidator {
 
 	@Check
 	def checkFilterParameters(DmxFilter f) {
@@ -49,21 +40,9 @@ class DmxValidator extends AbstractDmxValidator {
 		if (nav.member instanceof DFeature) {
 			val preceding = nav.precedingNavigationSegment
 			if (preceding instanceof DmxContextReference && (preceding as DmxContextReference).target instanceof DComplexType) {
-				error("Cannot navigate a feature from a static type reference. Use [[Type#feature]] syntax inside a RichString.", nav,
+				error("Cannot navigate a feature from a static type reference. Use [[Type#feature]] syntax inside RichStrings.", nav,
 					DMX.dmxMemberNavigation_Member)
 			}
 		}
 	}
-
-	@Check
-	def checkFeatureNavigationOfCollection(DmxMemberNavigation nav) {
-		val member = nav.member
-		if (member instanceof DFeature) {
-			val preceding = nav.precedingNavigationSegment
-			if (preceding !== null && preceding.typeFor.isCollection) {
-				error("Cannot navigate a feature of a collection of objects.", nav, DMX.dmxMemberNavigation_Member)
-			}
-		}
-	}
-
 }

@@ -178,6 +178,31 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DmxPackage.DMX_CALL_ARGUMENTS:
+			{
+				DmxCallArguments dmxCallArguments = (DmxCallArguments)theEObject;
+				T result = caseDmxCallArguments(dmxCallArguments);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DmxPackage.DMX_FUNCTION_CALL:
+			{
+				DmxFunctionCall dmxFunctionCall = (DmxFunctionCall)theEObject;
+				T result = caseDmxFunctionCall(dmxFunctionCall);
+				if (result == null) result = caseDExpression(dmxFunctionCall);
+				if (result == null) result = caseIRichTextSegment(dmxFunctionCall);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DmxPackage.DMX_CONSTRUCTOR_CALL:
+			{
+				DmxConstructorCall dmxConstructorCall = (DmxConstructorCall)theEObject;
+				T result = caseDmxConstructorCall(dmxConstructorCall);
+				if (result == null) result = caseDExpression(dmxConstructorCall);
+				if (result == null) result = caseIRichTextSegment(dmxConstructorCall);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DmxPackage.DMX_BINARY_OPERATION:
 			{
 				DmxBinaryOperation dmxBinaryOperation = (DmxBinaryOperation)theEObject;
@@ -241,24 +266,6 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DmxPackage.DMX_FUNCTION_CALL:
-			{
-				DmxFunctionCall dmxFunctionCall = (DmxFunctionCall)theEObject;
-				T result = caseDmxFunctionCall(dmxFunctionCall);
-				if (result == null) result = caseDExpression(dmxFunctionCall);
-				if (result == null) result = caseIRichTextSegment(dmxFunctionCall);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DmxPackage.DMX_CONSTRUCTOR_CALL:
-			{
-				DmxConstructorCall dmxConstructorCall = (DmxConstructorCall)theEObject;
-				T result = caseDmxConstructorCall(dmxConstructorCall);
-				if (result == null) result = caseDExpression(dmxConstructorCall);
-				if (result == null) result = caseIRichTextSegment(dmxConstructorCall);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case DmxPackage.DMX_STATIC_REFERENCE:
 			{
 				DmxStaticReference dmxStaticReference = (DmxStaticReference)theEObject;
@@ -283,15 +290,6 @@ public class DmxSwitch<T> extends Switch<T>
 				T result = caseDmxIfExpression(dmxIfExpression);
 				if (result == null) result = caseDExpression(dmxIfExpression);
 				if (result == null) result = caseIRichTextSegment(dmxIfExpression);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DmxPackage.DMX_FOR_LOOP_EXPRESSION:
-			{
-				DmxForLoopExpression dmxForLoopExpression = (DmxForLoopExpression)theEObject;
-				T result = caseDmxForLoopExpression(dmxForLoopExpression);
-				if (result == null) result = caseDExpression(dmxForLoopExpression);
-				if (result == null) result = caseIRichTextSegment(dmxForLoopExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -514,6 +512,54 @@ public class DmxSwitch<T> extends Switch<T>
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Call Arguments</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Call Arguments</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxCallArguments(DmxCallArguments object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Function Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Function Call</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxFunctionCall(DmxFunctionCall object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Constructor Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Constructor Call</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxConstructorCall(DmxConstructorCall object)
+	{
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Binary Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -626,38 +672,6 @@ public class DmxSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Function Call</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Function Call</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDmxFunctionCall(DmxFunctionCall object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Constructor Call</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Constructor Call</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDmxConstructorCall(DmxConstructorCall object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Static Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -701,22 +715,6 @@ public class DmxSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDmxIfExpression(DmxIfExpression object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>For Loop Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>For Loop Expression</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDmxForLoopExpression(DmxForLoopExpression object)
 	{
 		return null;
 	}

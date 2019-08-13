@@ -11,6 +11,7 @@ import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral;
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxStringLiteral;
+import com.mimacom.ddd.dm.dmx.DmxUnaryOperation;
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
@@ -39,6 +40,13 @@ public class DmxLabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public String text(final DmxBinaryOperation e) {
+    String _simpleName = this.simpleName(e);
+    String _plus = (_simpleName + " ");
+    String _name = e.getOperator().getName();
+    return (_plus + _name);
+  }
+  
+  public String text(final DmxUnaryOperation e) {
     String _simpleName = this.simpleName(e);
     String _plus = (_simpleName + " ");
     String _name = e.getOperator().getName();

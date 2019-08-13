@@ -10,6 +10,7 @@ import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.dmx.DmxNamespace;
 import com.mimacom.ddd.dm.dmx.DmxTest;
+import com.mimacom.ddd.dm.dmx.DmxUtil;
 import com.mimacom.ddd.dm.dmx.impl.DmxAssignmentImpl;
 import com.mimacom.ddd.dm.dmx.impl.DmxBooleanLiteralImpl;
 import com.mimacom.ddd.dm.dmx.impl.DmxConstructorCallImpl;
@@ -46,6 +47,10 @@ public class DmxParsingTest {
   @Inject
   @Extension
   private ParseHelper<DmxNamespace> parseHelper;
+  
+  @Inject
+  @Extension
+  private DmxUtil _dmxUtil;
   
   @Test
   public void testLiterals() {
@@ -147,11 +152,11 @@ public class DmxParsingTest {
       Assert.assertEquals(DmxFunctionCallImpl.class, e5.getClass());
       Assert.assertTrue(((DmxFunctionCallImpl) e5).basicGetFunction().eIsProxy());
       Assert.assertEquals(DmxFilterImpl.class, ((DmxFunctionCallImpl) e5).basicGetFunction().getClass());
-      Assert.assertEquals(0, ((DmxFunctionCallImpl) e5).getFunctionCallArguments().size());
+      Assert.assertEquals(0, this._dmxUtil.nullSafeCallArguments(((DmxFunctionCallImpl) e5)).size());
       final DExpression e6 = tests.get(6).getExpr();
       Assert.assertEquals(DmxFilterImpl.class, ((DmxFunctionCallImpl) e6).basicGetFunction().getClass());
-      Assert.assertEquals(1, ((DmxFunctionCallImpl) e6).getFunctionCallArguments().size());
-      Assert.assertEquals(DmxNaturalLiteralImpl.class, ((DmxFunctionCallImpl) e6).getFunctionCallArguments().get(0).getClass());
+      Assert.assertEquals(1, this._dmxUtil.nullSafeCallArguments(((DmxFunctionCallImpl) e6)).size());
+      Assert.assertEquals(DmxNaturalLiteralImpl.class, this._dmxUtil.nullSafeCallArguments(((DmxFunctionCallImpl) e6)).get(0).getClass());
       final DExpression e7 = tests.get(7).getExpr();
       Assert.assertEquals(DmxConstructorCallImpl.class, e7.getClass());
       Assert.assertTrue(((DmxConstructorCallImpl) e7).basicGetConstructor().eIsProxy());
@@ -163,8 +168,8 @@ public class DmxParsingTest {
       DComplexType _basicGetConstructor_1 = ((DmxConstructorCallImpl) e8).basicGetConstructor();
       Assert.assertTrue((_basicGetConstructor_1 instanceof DEntityType));
       Assert.assertTrue(((DmxConstructorCallImpl) e8).isExplicitConstructorCall());
-      Assert.assertEquals(1, ((DmxConstructorCallImpl) e8).getArguments().size());
-      Assert.assertEquals(DmxNaturalLiteralImpl.class, ((DmxConstructorCallImpl) e8).getArguments().get(0).getClass());
+      Assert.assertEquals(1, this._dmxUtil.nullSafeCallArguments(((DmxConstructorCallImpl) e8)).size());
+      Assert.assertEquals(DmxNaturalLiteralImpl.class, this._dmxUtil.nullSafeCallArguments(((DmxConstructorCallImpl) e8)).get(0).getClass());
       final DExpression e9 = tests.get(9).getExpr();
       Assert.assertEquals(DmxContextReferenceImpl.class, e9.getClass());
       Assert.assertTrue(((DmxContextReferenceImpl) e9).basicGetTarget().eIsProxy());

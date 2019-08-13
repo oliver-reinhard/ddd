@@ -28,6 +28,7 @@ import com.mimacom.ddd.dm.dmx.DmxAssignment;
 import com.mimacom.ddd.dm.dmx.DmxBaseTypeSet;
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation;
 import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral;
+import com.mimacom.ddd.dm.dmx.DmxCallArguments;
 import com.mimacom.ddd.dm.dmx.DmxCastExpression;
 import com.mimacom.ddd.dm.dmx.DmxConstructorCall;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
@@ -35,7 +36,6 @@ import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxFilterParameter;
 import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor;
-import com.mimacom.ddd.dm.dmx.DmxForLoopExpression;
 import com.mimacom.ddd.dm.dmx.DmxFunctionCall;
 import com.mimacom.ddd.dm.dmx.DmxIfExpression;
 import com.mimacom.ddd.dm.dmx.DmxInstanceOfExpression;
@@ -185,7 +185,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 						|| rule == grammarAccess.getDmxNavigableMemberReferenceRule()
 						|| action == grammarAccess.getDmxNavigableMemberReferenceAccess().getDmxAssignmentPrecedingNavigationSegmentAction_1_0_0_0_0()
 						|| action == grammarAccess.getDmxNavigableMemberReferenceAccess().getDmxMemberNavigationPrecedingNavigationSegmentAction_1_1_0_0_0()
-						|| rule == grammarAccess.getDmxPredicateRule()
+						|| rule == grammarAccess.getDmxPredicateWithCorrelationVariableRule()
 						|| rule == grammarAccess.getDmxOrExpressionRule()
 						|| action == grammarAccess.getDmxOrExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()
 						|| rule == grammarAccess.getDmxAndExpressionRule()
@@ -219,6 +219,16 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 			case DmxPackage.DMX_BOOLEAN_LITERAL:
 				sequence_DmxBooleanLiteral(context, (DmxBooleanLiteral) semanticObject); 
 				return; 
+			case DmxPackage.DMX_CALL_ARGUMENTS:
+				if (rule == grammarAccess.getDmxCallArgumentsRule()) {
+					sequence_DmxCallArguments(context, (DmxCallArguments) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getDmxFunctionCallArgumentsRule()) {
+					sequence_DmxFunctionCallArguments(context, (DmxCallArguments) semanticObject); 
+					return; 
+				}
+				else break;
 			case DmxPackage.DMX_CAST_EXPRESSION:
 				sequence_DmxCastExpression(context, (DmxCastExpression) semanticObject); 
 				return; 
@@ -240,9 +250,6 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 			case DmxPackage.DMX_FILTER_TYPE_DESCRIPTOR:
 				sequence_DmxFilterTypeDescriptor(context, (DmxFilterTypeDescriptor) semanticObject); 
 				return; 
-			case DmxPackage.DMX_FOR_LOOP_EXPRESSION:
-				sequence_DmxForLoopExpression(context, (DmxForLoopExpression) semanticObject); 
-				return; 
 			case DmxPackage.DMX_FUNCTION_CALL:
 				sequence_DmxFunctionCall(context, (DmxFunctionCall) semanticObject); 
 				return; 
@@ -262,7 +269,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 				sequence_DmxNaturalLiteral(context, (DmxNaturalLiteral) semanticObject); 
 				return; 
 			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE:
-				sequence_DmxPredicate(context, (DmxPredicateWithCorrelationVariable) semanticObject); 
+				sequence_DmxPredicateWithCorrelationVariable(context, (DmxPredicateWithCorrelationVariable) semanticObject); 
 				return; 
 			case DmxPackage.DMX_RAISE_EXPRESSION:
 				sequence_DmxRaiseExpression(context, (DmxRaiseExpression) semanticObject); 
@@ -600,8 +607,8 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     (
 	 *         (deductionRule=SGrabComplexTypeRule | deductionRule=SDitchComplexTypeRule | deductionRule=SMorphComplexTypeRule | deductionRule=SFuseComplexTypeRule) 
 	 *         description=DRichText? 
-	 *         constraints+=DConstraint? 
-	 *         (features+=Feature? constraints+=DConstraint?)*
+	 *         features+=Feature? 
+	 *         (constraints+=DConstraint? features+=Feature?)*
 	 *     )
 	 */
 	protected void sequence_SComplexTypeFeatures_SDetailTypeDeduction(ISerializationContext context, SDetailTypeDeduction semanticObject) {

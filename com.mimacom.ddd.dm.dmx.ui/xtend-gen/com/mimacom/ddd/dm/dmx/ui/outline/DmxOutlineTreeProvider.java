@@ -3,6 +3,7 @@
  */
 package com.mimacom.ddd.dm.dmx.ui.outline;
 
+import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DMultiplicity;
@@ -15,6 +16,7 @@ import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
+import com.mimacom.ddd.dm.dmx.DmxUtil;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
@@ -22,7 +24,7 @@ import org.eclipse.xtext.ui.editor.outline.IOutlineNode;
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
 import org.eclipse.xtext.ui.editor.outline.impl.EObjectNode;
 import org.eclipse.xtext.ui.editor.outline.impl.EStructuralFeatureNode;
-import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IntegerRange;
 
 /**
@@ -32,6 +34,10 @@ import org.eclipse.xtext.xbase.lib.IntegerRange;
  */
 @SuppressWarnings("all")
 public class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
+  @Inject
+  @Extension
+  private DmxUtil _dmxUtil;
+  
   private static final DmxPackage DMX = DmxPackage.eINSTANCE;
   
   private static final ImageDescriptor NULL_IMAGE = ((ImageDescriptor) null);
@@ -138,10 +144,10 @@ public class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
         this.createEStructuralFeatureNode(parentNode, pred, DmxOutlineTreeProvider.DMX.getDmxPredicateWithCorrelationVariable_CorrelationVariable(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDmxPredicateWithCorrelationVariable_CorrelationVariable().getName(), false);
       }
       EStructuralFeatureNode _xifexpression = null;
-      DExpression _value = pred.getValue();
-      boolean _tripleNotEquals_1 = (_value != null);
+      DExpression _predicate = pred.getPredicate();
+      boolean _tripleNotEquals_1 = (_predicate != null);
       if (_tripleNotEquals_1) {
-        _xifexpression = this.createEStructuralFeatureNode(parentNode, pred, DmxOutlineTreeProvider.DMX.getDmxPredicateWithCorrelationVariable_Value(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDmxPredicateWithCorrelationVariable_Value().getName(), false);
+        _xifexpression = this.createEStructuralFeatureNode(parentNode, pred, DmxOutlineTreeProvider.DMX.getDmxPredicateWithCorrelationVariable_Predicate(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDmxPredicateWithCorrelationVariable_Predicate().getName(), false);
       }
       _xblockexpression = _xifexpression;
     }
@@ -160,10 +166,10 @@ public class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
         this.createEStructuralFeatureNode(parentNode, nav, DmxOutlineTreeProvider.DMX.getDmxMemberNavigation_PrecedingNavigationSegment(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDmxMemberNavigation_PrecedingNavigationSegment().getName(), false);
       }
       EStructuralFeatureNode _xifexpression = null;
-      int _length = ((Object[])Conversions.unwrapArray(nav.getMemberCallArguments(), Object.class)).length;
-      boolean _greaterThan = (_length > 0);
+      int _size = this._dmxUtil.nullSafeCallArguments(nav).size();
+      boolean _greaterThan = (_size > 0);
       if (_greaterThan) {
-        _xifexpression = this.createEStructuralFeatureNode(parentNode, nav, DmxOutlineTreeProvider.DMX.getDmxMemberNavigation_MemberCallArguments(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDmxMemberNavigation_MemberCallArguments().getName(), false);
+        _xifexpression = this.createEStructuralFeatureNode(parentNode, nav, DmxOutlineTreeProvider.DMX.getDmxMemberNavigation_CallArguments(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDmxMemberNavigation_CallArguments().getName(), false);
       }
       _xblockexpression = _xifexpression;
     }

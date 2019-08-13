@@ -76,7 +76,7 @@ DmxFilterParameter:
  */
 
 DExpression returns DExpression :
-	DmxAssignment | DmxPredicate | DRichText;
+	DmxAssignment | DmxPredicateWithCorrelationVariable | DRichText;
 	
 DRichText:
 	segments+=DmxTextOnly
@@ -103,17 +103,23 @@ DmxNavigableMemberReference returns DExpression:
 	| 	=> ({DmxMemberNavigation.precedingNavigationSegment=current} '.')
 		member=[DNavigableMember|ID] 
 		(
-			(	=> explicitOperationCall?='(' // => boolean => has 0.n explicit arguments
-				(
-					memberCallArguments+=DmxPredicate (',' memberCallArguments+=DmxPredicate)*
-				)?
-				')'
-			)
-			|
-			before?="@before"
-		)?
+			(
+				(	=> explicitOperationCall?='(' // => boolean => has 0.n explicit arguments
+					callArguments=DmxCallArguments
+					')'
+				)
+				|
+				before?="@before"
+			)?
+		)
 	)*;
 
+DmxCallArguments:
+	{DmxCallArguments} 
+	(
+		arguments+=DmxPredicateWithCorrelationVariable (',' arguments+=DmxPredicateWithCorrelationVariable)*
+	)?	;
+	
 DmxAssignment returns DExpression :
 	{DmxAssignment}
 	assignToMember=[DNavigableMember|ID] DmxOpSingleAssign value=DmxOrExpression;
@@ -121,11 +127,11 @@ DmxAssignment returns DExpression :
 DmxOpSingleAssign:
 	':=';
 
-DmxPredicate returns DExpression :
+DmxPredicateWithCorrelationVariable returns DExpression :
 	(	{DmxPredicateWithCorrelationVariable} 
 		correlationVariable=DmxCorrelationVariable
 		'|'
-		value=DmxOrExpression
+		predicate=DmxOrExpression
 	|	DmxOrExpression
 	);
 
@@ -211,8 +217,7 @@ DmxPrimaryExpression returns DExpression:
 	DmxConstructorCall |
 	DmxStaticReference |
 	DmxContextReference |
-	DmxIfExpression |
-	DmxForLoopExpression;
+	DmxIfExpression;
 	
 DmxLiteralExpression returns DExpression:
 	DmxBooleanLiteral |
@@ -240,18 +245,21 @@ DmxFunctionCall returns DExpression:
 	{DmxFunctionCall}
 	function=[DmxFilter|ID]
 	'('
-		(
-			functionCallArguments+=DExpression (',' functionCallArguments+=DExpression)*
-		)?
+		callArguments=DmxFunctionCallArguments
 	')';
-	
+
+DmxFunctionCallArguments returns DmxCallArguments:
+	{DmxCallArguments} 
+	(
+		arguments+=DExpression (',' arguments+=DExpression)*
+	)?	;
+		
 DmxConstructorCall returns DExpression:
 	{DmxConstructorCall}
-	DmxOpConstructor constructor=[DComplexType|ID]
+	DmxOpConstructor 
+	constructor=[DComplexType|ID]
 	(=> explicitConstructorCall?='(' // => boolean => has 0.n explicit arguments
-		(
-			arguments+=DExpression (',' arguments+=DExpression)*
-		)?
+		callArguments=DmxFunctionCallArguments
 	')')?;
 
 DmxOpConstructor:
@@ -277,12 +285,6 @@ DmxIfExpression returns DExpression:
 	'if' if=DExpression
 	'then' then=DExpression
 	(=> 'else' else=DExpression)?
-	'end';
-	
-DmxForLoopExpression returns DExpression:
-	=>({DmxForLoopExpression}
-	'for' declaredParam=ID ':') forExpression=DExpression 'do'
-	eachExpression=DExpression
 	'end';
 	
 DMultiplicity:

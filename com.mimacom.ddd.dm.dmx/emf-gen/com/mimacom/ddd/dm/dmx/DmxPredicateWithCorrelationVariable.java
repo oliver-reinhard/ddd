@@ -16,7 +16,7 @@ import com.mimacom.ddd.dm.base.INavigableMemberContainer;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable#getCorrelationVariable <em>Correlation Variable</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable#getValue <em>Value</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable#getPredicate <em>Predicate</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxPredicateWithCorrelationVariable()
@@ -48,25 +48,25 @@ public interface DmxPredicateWithCorrelationVariable extends DExpression, INavig
 	void setCorrelationVariable(DContext value);
 
 	/**
-	 * Returns the value of the '<em><b>Value</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Predicate</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value</em>' containment reference.
-	 * @see #setValue(DExpression)
-	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxPredicateWithCorrelationVariable_Value()
+	 * @return the value of the '<em>Predicate</em>' containment reference.
+	 * @see #setPredicate(DExpression)
+	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxPredicateWithCorrelationVariable_Predicate()
 	 * @model containment="true"
 	 * @generated
 	 */
-	DExpression getValue();
+	DExpression getPredicate();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable#getValue <em>Value</em>}' containment reference.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable#getPredicate <em>Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value</em>' containment reference.
-	 * @see #getValue()
+	 * @param value the new value of the '<em>Predicate</em>' containment reference.
+	 * @see #getPredicate()
 	 * @generated
 	 */
-	void setValue(DExpression value);
+	void setPredicate(DExpression value);
 
 } // DmxPredicateWithCorrelationVariable

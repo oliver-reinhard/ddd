@@ -84,17 +84,30 @@ abstract class AbstractDmxTypeDescriptor<T extends DType> {
 	def IScope getNavigableMembersAndIteratorsScope(EObject context, DmxIndex index) {
 		return getNavigableMembersAndIteratorsScope(context, index, null)
 	}
+	
+	def displayName() {
+		val StringBuilder sb = new StringBuilder
+		if (collection) sb.append('collection of ')
+		if (typeName !== null) {
+			sb.append(typeName)
+		} else {
+			sb.append(baseType.literal)
+		}
+		sb.toString
+	}
 
 	override toString() {
 		val StringBuilder sb = new StringBuilder('[')
 		sb.append(this.class.simpleName)
-		sb.append(']')
+		sb.append('] : ')
 		val name = typeName
 		if (name !== null) {
-			sb.append(" : ")
 			sb.append(name)
 			if (collection) sb.append('*')
+			sb.append(" is ")
 		}
+		sb.append(baseType.literal)
+		if (collection) sb.append('*')
 		sb.toString
 	}
 

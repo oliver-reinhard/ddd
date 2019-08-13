@@ -11,6 +11,7 @@ import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral
 import com.mimacom.ddd.dm.dmx.DmxStringLiteral
+import com.mimacom.ddd.dm.dmx.DmxUnaryOperation
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
@@ -37,6 +38,10 @@ class DmxLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(DmxBinaryOperation e) {
+		return e.simpleName + " " + e.operator.getName
+	}
+
+	def text(DmxUnaryOperation e) {
 		return e.simpleName + " " + e.operator.getName
 	}
 

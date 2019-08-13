@@ -2,7 +2,9 @@ package com.mimacom.ddd.dm.dmx
 
 import com.google.common.collect.Lists
 import com.mimacom.ddd.dm.base.DComplexType
+import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DFeature
+import java.util.Collections
 import java.util.LinkedHashSet
 import java.util.List
 import java.util.Set
@@ -31,5 +33,20 @@ class DmxUtil {
 			features.addAll(t.features)
 		}
 		return features
+	}
+	
+	def List<DExpression> nullSafeCallArguments(DmxMemberNavigation nav) {
+		if (nav.callArguments === null) return Collections.EMPTY_LIST
+		return nav.callArguments.arguments
+	}
+	
+	def List<DExpression> nullSafeCallArguments(DmxFunctionCall call) {
+		if (call.callArguments === null) return Collections.EMPTY_LIST
+		return call.callArguments.arguments
+	}
+	
+	def List<DExpression> nullSafeCallArguments(DmxConstructorCall call) {
+		if (call.callArguments === null) return Collections.EMPTY_LIST
+		return call.callArguments.arguments
 	}
 }

@@ -75,6 +75,9 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 			case DmxPackage.DMX_ASSIGNMENT: return createDmxAssignment();
 			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE: return createDmxPredicateWithCorrelationVariable();
 			case DmxPackage.DMX_MEMBER_NAVIGATION: return createDmxMemberNavigation();
+			case DmxPackage.DMX_CALL_ARGUMENTS: return createDmxCallArguments();
+			case DmxPackage.DMX_FUNCTION_CALL: return createDmxFunctionCall();
+			case DmxPackage.DMX_CONSTRUCTOR_CALL: return createDmxConstructorCall();
 			case DmxPackage.DMX_BINARY_OPERATION: return createDmxBinaryOperation();
 			case DmxPackage.DMX_INSTANCE_OF_EXPRESSION: return createDmxInstanceOfExpression();
 			case DmxPackage.DMX_UNARY_OPERATION: return createDmxUnaryOperation();
@@ -82,12 +85,9 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 			case DmxPackage.DMX_SELF_EXPRESSION: return createDmxSelfExpression();
 			case DmxPackage.DMX_RETURN_EXPRESSION: return createDmxReturnExpression();
 			case DmxPackage.DMX_RAISE_EXPRESSION: return createDmxRaiseExpression();
-			case DmxPackage.DMX_FUNCTION_CALL: return createDmxFunctionCall();
-			case DmxPackage.DMX_CONSTRUCTOR_CALL: return createDmxConstructorCall();
 			case DmxPackage.DMX_STATIC_REFERENCE: return createDmxStaticReference();
 			case DmxPackage.DMX_CONTEXT_REFERENCE: return createDmxContextReference();
 			case DmxPackage.DMX_IF_EXPRESSION: return createDmxIfExpression();
-			case DmxPackage.DMX_FOR_LOOP_EXPRESSION: return createDmxForLoopExpression();
 			case DmxPackage.DMX_BOOLEAN_LITERAL: return createDmxBooleanLiteral();
 			case DmxPackage.DMX_STRING_LITERAL: return createDmxStringLiteral();
 			case DmxPackage.DMX_NATURAL_LITERAL: return createDmxNaturalLiteral();
@@ -267,6 +267,42 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
+	public DmxCallArguments createDmxCallArguments()
+	{
+		DmxCallArgumentsImpl dmxCallArguments = new DmxCallArgumentsImpl();
+		return dmxCallArguments;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DmxFunctionCall createDmxFunctionCall()
+	{
+		DmxFunctionCallImpl dmxFunctionCall = new DmxFunctionCallImpl();
+		return dmxFunctionCall;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DmxConstructorCall createDmxConstructorCall()
+	{
+		DmxConstructorCallImpl dmxConstructorCall = new DmxConstructorCallImpl();
+		return dmxConstructorCall;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public DmxBinaryOperation createDmxBinaryOperation()
 	{
 		DmxBinaryOperationImpl dmxBinaryOperation = new DmxBinaryOperationImpl();
@@ -351,30 +387,6 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DmxFunctionCall createDmxFunctionCall()
-	{
-		DmxFunctionCallImpl dmxFunctionCall = new DmxFunctionCallImpl();
-		return dmxFunctionCall;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DmxConstructorCall createDmxConstructorCall()
-	{
-		DmxConstructorCallImpl dmxConstructorCall = new DmxConstructorCallImpl();
-		return dmxConstructorCall;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public DmxStaticReference createDmxStaticReference()
 	{
 		DmxStaticReferenceImpl dmxStaticReference = new DmxStaticReferenceImpl();
@@ -403,18 +415,6 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	{
 		DmxIfExpressionImpl dmxIfExpression = new DmxIfExpressionImpl();
 		return dmxIfExpression;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DmxForLoopExpression createDmxForLoopExpression()
-	{
-		DmxForLoopExpressionImpl dmxForLoopExpression = new DmxForLoopExpressionImpl();
-		return dmxForLoopExpression;
 	}
 
 	/**

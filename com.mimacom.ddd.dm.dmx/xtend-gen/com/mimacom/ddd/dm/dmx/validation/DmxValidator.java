@@ -3,8 +3,6 @@
  */
 package com.mimacom.ddd.dm.dmx.validation;
 
-import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
@@ -14,11 +12,8 @@ import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxFilterParameter;
 import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
-import com.mimacom.ddd.dm.dmx.DmxPackage;
-import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer;
-import com.mimacom.ddd.dm.dmx.validation.AbstractDmxValidator;
+import com.mimacom.ddd.dm.dmx.validation.DmxTypeCheckingValidator;
 import org.eclipse.xtext.validation.Check;
-import org.eclipse.xtext.xbase.lib.Extension;
 
 /**
  * This class contains custom validation rules.
@@ -26,15 +21,7 @@ import org.eclipse.xtext.xbase.lib.Extension;
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 @SuppressWarnings("all")
-public class DmxValidator extends AbstractDmxValidator {
-  @Inject
-  @Extension
-  private DmxTypeComputer _dmxTypeComputer;
-  
-  private static final BasePackage BASE = BasePackage.eINSTANCE;
-  
-  private static final DmxPackage DMX = DmxPackage.eINSTANCE;
-  
+public class DmxValidator extends DmxTypeCheckingValidator {
   @Check
   public void checkFilterParameters(final DmxFilter f) {
     boolean _isMultiTyped = f.getTypeDesc().isMultiTyped();
@@ -42,7 +29,7 @@ public class DmxValidator extends AbstractDmxValidator {
       int _size = f.getParameters().size();
       boolean _equals = (_size == 0);
       if (_equals) {
-        this.error("For a multi-typed return type, there must be a matching first parameter.", f, DmxValidator.BASE.getDNamedElement_Name(), 0);
+        this.error("For a multi-typed return type, there must be a matching first parameter.", f, DmxTypeCheckingValidator.BASE.getDNamedElement_Name(), 0);
       } else {
         DmxFilterParameter _get = f.getParameters().get(0);
         DmxFilterTypeDescriptor _typeDesc = null;
@@ -52,7 +39,7 @@ public class DmxValidator extends AbstractDmxValidator {
         boolean _isMultiTyped_1 = _typeDesc.isMultiTyped();
         boolean _not = (!_isMultiTyped_1);
         if (_not) {
-          this.error("For a multi-typed return type, the first parameter must have the same type.", f, DmxValidator.DMX.getDmxFilter_Parameters(), 0);
+          this.error("For a multi-typed return type, the first parameter must have the same type.", f, DmxTypeCheckingValidator.DMX.getDmxFilter_Parameters(), 0);
         }
       }
     }
@@ -61,7 +48,7 @@ public class DmxValidator extends AbstractDmxValidator {
   @Check
   public void checkUseOfAllQualifier(final DmxContextReference ref) {
     if ((ref.isAll() && (!(ref.getTarget() instanceof DComplexType)))) {
-      this.error("\'all\' qualifier is only supported after a static type reference.", ref, DmxValidator.DMX.getDmxContextReference_All());
+      this.error("\'all\' qualifier is only supported after a static type reference.", ref, DmxTypeCheckingValidator.DMX.getDmxContextReference_All());
     }
   }
   
@@ -71,19 +58,8 @@ public class DmxValidator extends AbstractDmxValidator {
     if ((_member instanceof DFeature)) {
       final DExpression preceding = nav.getPrecedingNavigationSegment();
       if (((preceding instanceof DmxContextReference) && (((DmxContextReference) preceding).getTarget() instanceof DComplexType))) {
-        this.error("Cannot navigate a feature from a static type reference. Use [[Type#feature]] syntax inside a RichString.", nav, 
-          DmxValidator.DMX.getDmxMemberNavigation_Member());
-      }
-    }
-  }
-  
-  @Check
-  public void checkFeatureNavigationOfCollection(final DmxMemberNavigation nav) {
-    final DNavigableMember member = nav.getMember();
-    if ((member instanceof DFeature)) {
-      final DExpression preceding = nav.getPrecedingNavigationSegment();
-      if (((preceding != null) && this._dmxTypeComputer.typeFor(preceding).isCollection())) {
-        this.error("Cannot navigate a feature of a collection of objects.", nav, DmxValidator.DMX.getDmxMemberNavigation_Member());
+        this.error("Cannot navigate a feature from a static type reference. Use [[Type#feature]] syntax inside RichStrings.", nav, 
+          DmxTypeCheckingValidator.DMX.getDmxMemberNavigation_Member());
       }
     }
   }

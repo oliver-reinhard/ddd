@@ -7,23 +7,17 @@ import com.mimacom.ddd.dm.base.DNavigableMember;
 
 import com.mimacom.ddd.dm.base.impl.DExpressionImpl;
 
+import com.mimacom.ddd.dm.dmx.DmxCallArguments;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxMemberNavigationImpl#getMember <em>Member</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxMemberNavigationImpl#getPrecedingNavigationSegment <em>Preceding Navigation Segment</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxMemberNavigationImpl#isExplicitOperationCall <em>Explicit Operation Call</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxMemberNavigationImpl#getMemberCallArguments <em>Member Call Arguments</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxMemberNavigationImpl#getCallArguments <em>Call Arguments</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxMemberNavigationImpl#isBefore <em>Before</em>}</li>
  * </ul>
  *
@@ -85,14 +79,14 @@ public class DmxMemberNavigationImpl extends DExpressionImpl implements DmxMembe
 	protected boolean explicitOperationCall = EXPLICIT_OPERATION_CALL_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getMemberCallArguments() <em>Member Call Arguments</em>}' containment reference list.
+	 * The cached value of the '{@link #getCallArguments() <em>Call Arguments</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMemberCallArguments()
+	 * @see #getCallArguments()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DExpression> memberCallArguments;
+	protected DmxCallArguments callArguments;
 
 	/**
 	 * The default value of the '{@link #isBefore() <em>Before</em>}' attribute.
@@ -261,13 +255,48 @@ public class DmxMemberNavigationImpl extends DExpressionImpl implements DmxMembe
 	 * @generated
 	 */
 	@Override
-	public EList<DExpression> getMemberCallArguments()
+	public DmxCallArguments getCallArguments()
 	{
-		if (memberCallArguments == null)
+		return callArguments;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCallArguments(DmxCallArguments newCallArguments, NotificationChain msgs)
+	{
+		DmxCallArguments oldCallArguments = callArguments;
+		callArguments = newCallArguments;
+		if (eNotificationRequired())
 		{
-			memberCallArguments = new EObjectContainmentEList<DExpression>(DExpression.class, this, DmxPackage.DMX_MEMBER_NAVIGATION__MEMBER_CALL_ARGUMENTS);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_MEMBER_NAVIGATION__CALL_ARGUMENTS, oldCallArguments, newCallArguments);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return memberCallArguments;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCallArguments(DmxCallArguments newCallArguments)
+	{
+		if (newCallArguments != callArguments)
+		{
+			NotificationChain msgs = null;
+			if (callArguments != null)
+				msgs = ((InternalEObject)callArguments).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DmxPackage.DMX_MEMBER_NAVIGATION__CALL_ARGUMENTS, null, msgs);
+			if (newCallArguments != null)
+				msgs = ((InternalEObject)newCallArguments).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DmxPackage.DMX_MEMBER_NAVIGATION__CALL_ARGUMENTS, null, msgs);
+			msgs = basicSetCallArguments(newCallArguments, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_MEMBER_NAVIGATION__CALL_ARGUMENTS, newCallArguments, newCallArguments));
 	}
 
 	/**
@@ -307,8 +336,8 @@ public class DmxMemberNavigationImpl extends DExpressionImpl implements DmxMembe
 		{
 			case DmxPackage.DMX_MEMBER_NAVIGATION__PRECEDING_NAVIGATION_SEGMENT:
 				return basicSetPrecedingNavigationSegment(null, msgs);
-			case DmxPackage.DMX_MEMBER_NAVIGATION__MEMBER_CALL_ARGUMENTS:
-				return ((InternalEList<?>)getMemberCallArguments()).basicRemove(otherEnd, msgs);
+			case DmxPackage.DMX_MEMBER_NAVIGATION__CALL_ARGUMENTS:
+				return basicSetCallArguments(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -330,8 +359,8 @@ public class DmxMemberNavigationImpl extends DExpressionImpl implements DmxMembe
 				return getPrecedingNavigationSegment();
 			case DmxPackage.DMX_MEMBER_NAVIGATION__EXPLICIT_OPERATION_CALL:
 				return isExplicitOperationCall();
-			case DmxPackage.DMX_MEMBER_NAVIGATION__MEMBER_CALL_ARGUMENTS:
-				return getMemberCallArguments();
+			case DmxPackage.DMX_MEMBER_NAVIGATION__CALL_ARGUMENTS:
+				return getCallArguments();
 			case DmxPackage.DMX_MEMBER_NAVIGATION__BEFORE:
 				return isBefore();
 		}
@@ -343,7 +372,6 @@ public class DmxMemberNavigationImpl extends DExpressionImpl implements DmxMembe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
@@ -358,9 +386,8 @@ public class DmxMemberNavigationImpl extends DExpressionImpl implements DmxMembe
 			case DmxPackage.DMX_MEMBER_NAVIGATION__EXPLICIT_OPERATION_CALL:
 				setExplicitOperationCall((Boolean)newValue);
 				return;
-			case DmxPackage.DMX_MEMBER_NAVIGATION__MEMBER_CALL_ARGUMENTS:
-				getMemberCallArguments().clear();
-				getMemberCallArguments().addAll((Collection<? extends DExpression>)newValue);
+			case DmxPackage.DMX_MEMBER_NAVIGATION__CALL_ARGUMENTS:
+				setCallArguments((DmxCallArguments)newValue);
 				return;
 			case DmxPackage.DMX_MEMBER_NAVIGATION__BEFORE:
 				setBefore((Boolean)newValue);
@@ -388,8 +415,8 @@ public class DmxMemberNavigationImpl extends DExpressionImpl implements DmxMembe
 			case DmxPackage.DMX_MEMBER_NAVIGATION__EXPLICIT_OPERATION_CALL:
 				setExplicitOperationCall(EXPLICIT_OPERATION_CALL_EDEFAULT);
 				return;
-			case DmxPackage.DMX_MEMBER_NAVIGATION__MEMBER_CALL_ARGUMENTS:
-				getMemberCallArguments().clear();
+			case DmxPackage.DMX_MEMBER_NAVIGATION__CALL_ARGUMENTS:
+				setCallArguments((DmxCallArguments)null);
 				return;
 			case DmxPackage.DMX_MEMBER_NAVIGATION__BEFORE:
 				setBefore(BEFORE_EDEFAULT);
@@ -414,8 +441,8 @@ public class DmxMemberNavigationImpl extends DExpressionImpl implements DmxMembe
 				return precedingNavigationSegment != null;
 			case DmxPackage.DMX_MEMBER_NAVIGATION__EXPLICIT_OPERATION_CALL:
 				return explicitOperationCall != EXPLICIT_OPERATION_CALL_EDEFAULT;
-			case DmxPackage.DMX_MEMBER_NAVIGATION__MEMBER_CALL_ARGUMENTS:
-				return memberCallArguments != null && !memberCallArguments.isEmpty();
+			case DmxPackage.DMX_MEMBER_NAVIGATION__CALL_ARGUMENTS:
+				return callArguments != null;
 			case DmxPackage.DMX_MEMBER_NAVIGATION__BEFORE:
 				return before != BEFORE_EDEFAULT;
 		}

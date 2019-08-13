@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxPredicateWithCorrelationVariableImpl#getCorrelationVariable <em>Correlation Variable</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxPredicateWithCorrelationVariableImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxPredicateWithCorrelationVariableImpl#getPredicate <em>Predicate</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,14 +45,14 @@ public class DmxPredicateWithCorrelationVariableImpl extends DExpressionImpl imp
 	protected DContext correlationVariable;
 
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
+	 * The cached value of the '{@link #getPredicate() <em>Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getPredicate()
 	 * @generated
 	 * @ordered
 	 */
-	protected DExpression value;
+	protected DExpression predicate;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -131,9 +131,9 @@ public class DmxPredicateWithCorrelationVariableImpl extends DExpressionImpl imp
 	 * @generated
 	 */
 	@Override
-	public DExpression getValue()
+	public DExpression getPredicate()
 	{
-		return value;
+		return predicate;
 	}
 
 	/**
@@ -141,13 +141,13 @@ public class DmxPredicateWithCorrelationVariableImpl extends DExpressionImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValue(DExpression newValue, NotificationChain msgs)
+	public NotificationChain basicSetPredicate(DExpression newPredicate, NotificationChain msgs)
 	{
-		DExpression oldValue = value;
-		value = newValue;
+		DExpression oldPredicate = predicate;
+		predicate = newPredicate;
 		if (eNotificationRequired())
 		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__VALUE, oldValue, newValue);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__PREDICATE, oldPredicate, newPredicate);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -159,20 +159,20 @@ public class DmxPredicateWithCorrelationVariableImpl extends DExpressionImpl imp
 	 * @generated
 	 */
 	@Override
-	public void setValue(DExpression newValue)
+	public void setPredicate(DExpression newPredicate)
 	{
-		if (newValue != value)
+		if (newPredicate != predicate)
 		{
 			NotificationChain msgs = null;
-			if (value != null)
-				msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__VALUE, null, msgs);
-			if (newValue != null)
-				msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__VALUE, null, msgs);
-			msgs = basicSetValue(newValue, msgs);
+			if (predicate != null)
+				msgs = ((InternalEObject)predicate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__PREDICATE, null, msgs);
+			if (newPredicate != null)
+				msgs = ((InternalEObject)newPredicate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__PREDICATE, null, msgs);
+			msgs = basicSetPredicate(newPredicate, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__VALUE, newValue, newValue));
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__PREDICATE, newPredicate, newPredicate));
 	}
 
 	/**
@@ -187,8 +187,8 @@ public class DmxPredicateWithCorrelationVariableImpl extends DExpressionImpl imp
 		{
 			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__CORRELATION_VARIABLE:
 				return basicSetCorrelationVariable(null, msgs);
-			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__VALUE:
-				return basicSetValue(null, msgs);
+			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__PREDICATE:
+				return basicSetPredicate(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -205,8 +205,8 @@ public class DmxPredicateWithCorrelationVariableImpl extends DExpressionImpl imp
 		{
 			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__CORRELATION_VARIABLE:
 				return getCorrelationVariable();
-			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__VALUE:
-				return getValue();
+			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__PREDICATE:
+				return getPredicate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -224,8 +224,8 @@ public class DmxPredicateWithCorrelationVariableImpl extends DExpressionImpl imp
 			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__CORRELATION_VARIABLE:
 				setCorrelationVariable((DContext)newValue);
 				return;
-			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__VALUE:
-				setValue((DExpression)newValue);
+			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__PREDICATE:
+				setPredicate((DExpression)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -244,8 +244,8 @@ public class DmxPredicateWithCorrelationVariableImpl extends DExpressionImpl imp
 			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__CORRELATION_VARIABLE:
 				setCorrelationVariable((DContext)null);
 				return;
-			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__VALUE:
-				setValue((DExpression)null);
+			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__PREDICATE:
+				setPredicate((DExpression)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -263,8 +263,8 @@ public class DmxPredicateWithCorrelationVariableImpl extends DExpressionImpl imp
 		{
 			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__CORRELATION_VARIABLE:
 				return correlationVariable != null;
-			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__VALUE:
-				return value != null;
+			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__PREDICATE:
+				return predicate != null;
 		}
 		return super.eIsSet(featureID);
 	}

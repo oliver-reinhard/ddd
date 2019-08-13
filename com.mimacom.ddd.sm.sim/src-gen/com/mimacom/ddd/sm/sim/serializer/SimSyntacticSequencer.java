@@ -181,7 +181,6 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) '[' target=[IStaticReferenceTarget|DQualifiedName]
-	 *     (rule start) (ambiguity) 'for' declaredParam=ID
 	 *     (rule start) (ambiguity) 'if' if=DExpression
 	 *     (rule start) (ambiguity) ('FALSE' | 'false') (rule start)
 	 *     (rule start) (ambiguity) ('RAISE' | 'raise') expression=DExpression
@@ -218,7 +217,6 @@ public class SimSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) '[' target=[IStaticReferenceTarget|DQualifiedName]
-	 *     (rule start) (ambiguity) 'for' declaredParam=ID
 	 *     (rule start) (ambiguity) 'if' if=DExpression
 	 *     (rule start) (ambiguity) ('FALSE' | 'false') ')' (rule start)
 	 *     (rule start) (ambiguity) ('RAISE' | 'raise') expression=DExpression

@@ -18,7 +18,7 @@ class DemHighlightingConfiguration extends DefaultHighlightingConfiguration {
 	def TextStyle nameTextStyle() {
 		val textStyle = new TextStyle();
 		textStyle.style = SWT.BOLD;
-		textStyle.color = new RGB(3, 119, 145)
+		textStyle.color = new RGB(29, 32, 136)
 		return textStyle;
 	}
 }

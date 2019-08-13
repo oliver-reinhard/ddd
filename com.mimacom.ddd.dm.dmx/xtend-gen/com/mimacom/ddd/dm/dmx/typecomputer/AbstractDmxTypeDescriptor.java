@@ -105,20 +105,43 @@ public abstract class AbstractDmxTypeDescriptor<T extends DType> {
     return this.getNavigableMembersAndIteratorsScope(context, index, null);
   }
   
+  public String displayName() {
+    String _xblockexpression = null;
+    {
+      final StringBuilder sb = new StringBuilder();
+      if (this.collection) {
+        sb.append("collection of ");
+      }
+      String _typeName = this.typeName();
+      boolean _tripleNotEquals = (_typeName != null);
+      if (_tripleNotEquals) {
+        sb.append(this.typeName());
+      } else {
+        sb.append(this.baseType.getLiteral());
+      }
+      _xblockexpression = sb.toString();
+    }
+    return _xblockexpression;
+  }
+  
   @Override
   public String toString() {
     String _xblockexpression = null;
     {
       final StringBuilder sb = new StringBuilder("[");
       sb.append(this.getClass().getSimpleName());
-      sb.append("]");
+      sb.append("] : ");
       final String name = this.typeName();
       if ((name != null)) {
-        sb.append(" : ");
         sb.append(name);
         if (this.collection) {
           sb.append("*");
         }
+        sb.append(" is ");
+      }
+      sb.append(this.baseType.getLiteral());
+      if (this.collection) {
+        sb.append("*");
       }
       _xblockexpression = sb.toString();
     }

@@ -702,7 +702,8 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 	//	super::DmxPrimaryExpression (=> ({DmxAssignment.precedingNavigationSegment=current} '.'
 	//	assignToMember=[DNavigableMember] DmxOpSingleAssign) value=DmxOrExpression
 	//	| => ({DmxMemberNavigation.precedingNavigationSegment=current} '.') member=[DNavigableMember] (=>
-	//	explicitOperationCall?='(' (memberCallArguments+=DmxPredicate (',' memberCallArguments+=DmxPredicate)*)?
+	//	explicitOperationCall?='(' // => boolean => has 0.n explicit arguments
+	//	callArguments=DmxCallArguments
 	//	')'
 	//	| before?="@before")?)*;
 	public DmxGrammarAccess.DmxNavigableMemberReferenceElements getDmxNavigableMemberReferenceAccess() {
@@ -711,6 +712,17 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDmxNavigableMemberReferenceRule() {
 		return getDmxNavigableMemberReferenceAccess().getRule();
+	}
+	
+	//DmxCallArguments:
+	//	{DmxCallArguments} (arguments+=DmxPredicateWithCorrelationVariable (','
+	//	arguments+=DmxPredicateWithCorrelationVariable)*)?;
+	public DmxGrammarAccess.DmxCallArgumentsElements getDmxCallArgumentsAccess() {
+		return gaDmx.getDmxCallArgumentsAccess();
+	}
+	
+	public ParserRule getDmxCallArgumentsRule() {
+		return getDmxCallArgumentsAccess().getRule();
 	}
 	
 	//DmxAssignment DExpression:
@@ -733,17 +745,17 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		return getDmxOpSingleAssignAccess().getRule();
 	}
 	
-	//DmxPredicate DExpression:
+	//DmxPredicateWithCorrelationVariable DExpression:
 	//	{DmxPredicateWithCorrelationVariable} correlationVariable=DmxCorrelationVariable
 	//	'|'
-	//	value=DmxOrExpression
+	//	predicate=DmxOrExpression
 	//	| DmxOrExpression;
-	public DmxGrammarAccess.DmxPredicateElements getDmxPredicateAccess() {
-		return gaDmx.getDmxPredicateAccess();
+	public DmxGrammarAccess.DmxPredicateWithCorrelationVariableElements getDmxPredicateWithCorrelationVariableAccess() {
+		return gaDmx.getDmxPredicateWithCorrelationVariableAccess();
 	}
 	
-	public ParserRule getDmxPredicateRule() {
-		return getDmxPredicateAccess().getRule();
+	public ParserRule getDmxPredicateWithCorrelationVariableRule() {
+		return getDmxPredicateWithCorrelationVariableAccess().getRule();
 	}
 	
 	//DmxCorrelationVariable DContext:
@@ -1005,7 +1017,8 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DmxFunctionCall DExpression:
 	//	{DmxFunctionCall} function=[DmxFilter]
-	//	'(' (functionCallArguments+=super::DExpression (',' functionCallArguments+=super::DExpression)*)?
+	//	'('
+	//	callArguments=DmxFunctionCallArguments
 	//	')';
 	public DmxGrammarAccess.DmxFunctionCallElements getDmxFunctionCallAccess() {
 		return gaDmx.getDmxFunctionCallAccess();
@@ -1015,9 +1028,20 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		return getDmxFunctionCallAccess().getRule();
 	}
 	
+	//DmxFunctionCallArguments DmxCallArguments:
+	//	{DmxCallArguments} (arguments+=super::DExpression (',' arguments+=super::DExpression)*)?;
+	public DmxGrammarAccess.DmxFunctionCallArgumentsElements getDmxFunctionCallArgumentsAccess() {
+		return gaDmx.getDmxFunctionCallArgumentsAccess();
+	}
+	
+	public ParserRule getDmxFunctionCallArgumentsRule() {
+		return getDmxFunctionCallArgumentsAccess().getRule();
+	}
+	
 	//DmxConstructorCall DExpression:
-	//	{DmxConstructorCall} DmxOpConstructor constructor=[DComplexType] (=> explicitConstructorCall?='('
-	//	(arguments+=super::DExpression (',' arguments+=super::DExpression)*)?
+	//	{DmxConstructorCall} DmxOpConstructor
+	//	constructor=[DComplexType] (=> explicitConstructorCall?='(' // => boolean => has 0.n explicit arguments
+	//	callArguments=DmxFunctionCallArguments
 	//	')')?;
 	public DmxGrammarAccess.DmxConstructorCallElements getDmxConstructorCallAccess() {
 		return gaDmx.getDmxConstructorCallAccess();
@@ -1073,19 +1097,6 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDmxIfExpressionRule() {
 		return getDmxIfExpressionAccess().getRule();
-	}
-	
-	//DmxForLoopExpression DExpression:
-	//	=> ({DmxForLoopExpression}
-	//	'for' declaredParam=ID ':') forExpression=super::DExpression 'do'
-	//	eachExpression=super::DExpression
-	//	'end';
-	public DmxGrammarAccess.DmxForLoopExpressionElements getDmxForLoopExpressionAccess() {
-		return gaDmx.getDmxForLoopExpressionAccess();
-	}
-	
-	public ParserRule getDmxForLoopExpressionRule() {
-		return getDmxForLoopExpressionAccess().getRule();
 	}
 	
 	//DMultiplicity:

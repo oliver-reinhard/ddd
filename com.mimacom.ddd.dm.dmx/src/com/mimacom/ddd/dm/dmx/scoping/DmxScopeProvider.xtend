@@ -119,7 +119,7 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 			
 		} else if (container instanceof DmxMemberNavigation) {
 			// a function or iterator call opens a new scope where the navigable members are in the precedingNavigationStep:
-			if (container.memberCallArguments.contains(context)) {
+			if (container.nullSafeCallArguments.contains(context)) {
 				val typeDescriptor = container.precedingNavigationSegment.typeFor
 				scope = typeDescriptor.getNavigableMembersScope(outerScope)
 			}

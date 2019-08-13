@@ -1916,10 +1916,10 @@ public class InternalEsmLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEsm.g:10115:9: ( ( '^' )? ( RULE_LETTER | '_' ) ( RULE_LETTER | '_' | '0' .. '9' )* )
-            // InternalEsm.g:10115:11: ( '^' )? ( RULE_LETTER | '_' ) ( RULE_LETTER | '_' | '0' .. '9' )*
+            // InternalEsm.g:10303:9: ( ( '^' )? ( RULE_LETTER | '_' ) ( RULE_LETTER | '_' | '0' .. '9' )* )
+            // InternalEsm.g:10303:11: ( '^' )? ( RULE_LETTER | '_' ) ( RULE_LETTER | '_' | '0' .. '9' )*
             {
-            // InternalEsm.g:10115:11: ( '^' )?
+            // InternalEsm.g:10303:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1928,7 +1928,7 @@ public class InternalEsmLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalEsm.g:10115:11: '^'
+                    // InternalEsm.g:10303:11: '^'
                     {
                     match('^'); 
 
@@ -1946,7 +1946,7 @@ public class InternalEsmLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalEsm.g:10115:34: ( RULE_LETTER | '_' | '0' .. '9' )*
+            // InternalEsm.g:10303:34: ( RULE_LETTER | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -1995,11 +1995,11 @@ public class InternalEsmLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEsm.g:10117:13: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
-            // InternalEsm.g:10117:15: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+            // InternalEsm.g:10305:13: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
+            // InternalEsm.g:10305:15: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
             {
             match('\"'); 
-            // InternalEsm.g:10117:19: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+            // InternalEsm.g:10305:19: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
             loop3:
             do {
                 int alt3=3;
@@ -2015,7 +2015,7 @@ public class InternalEsmLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalEsm.g:10117:20: '\\\\' .
+            	    // InternalEsm.g:10305:20: '\\\\' .
             	    {
             	    match('\\'); 
             	    matchAny(); 
@@ -2023,7 +2023,7 @@ public class InternalEsmLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // InternalEsm.g:10117:27: ~ ( ( '\\\\' | '\"' ) )
+            	    // InternalEsm.g:10305:27: ~ ( ( '\\\\' | '\"' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2060,10 +2060,10 @@ public class InternalEsmLexer extends Lexer {
         try {
             int _type = RULE_NATURAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEsm.g:10119:14: ( ( '0' .. '9' )+ )
-            // InternalEsm.g:10119:16: ( '0' .. '9' )+
+            // InternalEsm.g:10307:14: ( ( '0' .. '9' )+ )
+            // InternalEsm.g:10307:16: ( '0' .. '9' )+
             {
-            // InternalEsm.g:10119:16: ( '0' .. '9' )+
+            // InternalEsm.g:10307:16: ( '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -2077,7 +2077,7 @@ public class InternalEsmLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalEsm.g:10119:17: '0' .. '9'
+            	    // InternalEsm.g:10307:17: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2107,8 +2107,8 @@ public class InternalEsmLexer extends Lexer {
     // $ANTLR start "RULE_LETTER"
     public final void mRULE_LETTER() throws RecognitionException {
         try {
-            // InternalEsm.g:10121:22: ( ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u00FF' ) )
-            // InternalEsm.g:10121:24: ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u00FF' )
+            // InternalEsm.g:10309:22: ( ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u00FF' ) )
+            // InternalEsm.g:10309:24: ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u00FF' )
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z')||(input.LA(1)>='\u00C0' && input.LA(1)<='\u00D6')||(input.LA(1)>='\u00D8' && input.LA(1)<='\u00F6')||(input.LA(1)>='\u00F8' && input.LA(1)<='\u00FF') ) {
                 input.consume();
@@ -2131,8 +2131,8 @@ public class InternalEsmLexer extends Lexer {
     // $ANTLR start "RULE_PLAIN_TEXT"
     public final void mRULE_PLAIN_TEXT() throws RecognitionException {
         try {
-            // InternalEsm.g:10123:26: (~ ( ( '\\u00BB' | ']' | '[' ) ) )
-            // InternalEsm.g:10123:28: ~ ( ( '\\u00BB' | ']' | '[' ) )
+            // InternalEsm.g:10311:26: (~ ( ( '\\u00BB' | ']' | '[' ) ) )
+            // InternalEsm.g:10311:28: ~ ( ( '\\u00BB' | ']' | '[' ) )
             {
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='Z')||input.LA(1)=='\\'||(input.LA(1)>='^' && input.LA(1)<='\u00BA')||(input.LA(1)>='\u00BC' && input.LA(1)<='\uFFFF') ) {
                 input.consume();
@@ -2157,11 +2157,11 @@ public class InternalEsmLexer extends Lexer {
         try {
             int _type = RULE_PLAIN_TEXT_ONLY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEsm.g:10125:22: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB' )
-            // InternalEsm.g:10125:24: '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB'
+            // InternalEsm.g:10313:22: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB' )
+            // InternalEsm.g:10313:24: '\\u00AB' ( RULE_PLAIN_TEXT )* '\\u00BB'
             {
             match('\u00AB'); 
-            // InternalEsm.g:10125:33: ( RULE_PLAIN_TEXT )*
+            // InternalEsm.g:10313:33: ( RULE_PLAIN_TEXT )*
             loop5:
             do {
                 int alt5=2;
@@ -2174,7 +2174,7 @@ public class InternalEsmLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalEsm.g:10125:33: RULE_PLAIN_TEXT
+            	    // InternalEsm.g:10313:33: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2203,11 +2203,11 @@ public class InternalEsmLexer extends Lexer {
         try {
             int _type = RULE_PLAIN_TEXT_START;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEsm.g:10127:23: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '[' )
-            // InternalEsm.g:10127:25: '\\u00AB' ( RULE_PLAIN_TEXT )* '['
+            // InternalEsm.g:10315:23: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '[' )
+            // InternalEsm.g:10315:25: '\\u00AB' ( RULE_PLAIN_TEXT )* '['
             {
             match('\u00AB'); 
-            // InternalEsm.g:10127:34: ( RULE_PLAIN_TEXT )*
+            // InternalEsm.g:10315:34: ( RULE_PLAIN_TEXT )*
             loop6:
             do {
                 int alt6=2;
@@ -2220,7 +2220,7 @@ public class InternalEsmLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalEsm.g:10127:34: RULE_PLAIN_TEXT
+            	    // InternalEsm.g:10315:34: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2249,11 +2249,11 @@ public class InternalEsmLexer extends Lexer {
         try {
             int _type = RULE_PLAIN_TEXT_MIDDLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEsm.g:10129:24: ( ']' ( RULE_PLAIN_TEXT )* '[' )
-            // InternalEsm.g:10129:26: ']' ( RULE_PLAIN_TEXT )* '['
+            // InternalEsm.g:10317:24: ( ']' ( RULE_PLAIN_TEXT )* '[' )
+            // InternalEsm.g:10317:26: ']' ( RULE_PLAIN_TEXT )* '['
             {
             match(']'); 
-            // InternalEsm.g:10129:30: ( RULE_PLAIN_TEXT )*
+            // InternalEsm.g:10317:30: ( RULE_PLAIN_TEXT )*
             loop7:
             do {
                 int alt7=2;
@@ -2266,7 +2266,7 @@ public class InternalEsmLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalEsm.g:10129:30: RULE_PLAIN_TEXT
+            	    // InternalEsm.g:10317:30: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2295,11 +2295,11 @@ public class InternalEsmLexer extends Lexer {
         try {
             int _type = RULE_PLAIN_TEXT_END;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEsm.g:10131:21: ( ']' ( RULE_PLAIN_TEXT )* '\\u00BB' )
-            // InternalEsm.g:10131:23: ']' ( RULE_PLAIN_TEXT )* '\\u00BB'
+            // InternalEsm.g:10319:21: ( ']' ( RULE_PLAIN_TEXT )* '\\u00BB' )
+            // InternalEsm.g:10319:23: ']' ( RULE_PLAIN_TEXT )* '\\u00BB'
             {
             match(']'); 
-            // InternalEsm.g:10131:27: ( RULE_PLAIN_TEXT )*
+            // InternalEsm.g:10319:27: ( RULE_PLAIN_TEXT )*
             loop8:
             do {
                 int alt8=2;
@@ -2312,7 +2312,7 @@ public class InternalEsmLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalEsm.g:10131:27: RULE_PLAIN_TEXT
+            	    // InternalEsm.g:10319:27: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2341,12 +2341,12 @@ public class InternalEsmLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEsm.g:10133:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalEsm.g:10133:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalEsm.g:10321:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalEsm.g:10321:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalEsm.g:10133:24: ( options {greedy=false; } : . )*
+            // InternalEsm.g:10321:24: ( options {greedy=false; } : . )*
             loop9:
             do {
                 int alt9=2;
@@ -2371,7 +2371,7 @@ public class InternalEsmLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalEsm.g:10133:52: .
+            	    // InternalEsm.g:10321:52: .
             	    {
             	    matchAny(); 
 
@@ -2401,12 +2401,12 @@ public class InternalEsmLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEsm.g:10135:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalEsm.g:10135:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalEsm.g:10323:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalEsm.g:10323:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalEsm.g:10135:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalEsm.g:10323:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop10:
             do {
                 int alt10=2;
@@ -2419,7 +2419,7 @@ public class InternalEsmLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalEsm.g:10135:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalEsm.g:10323:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2439,7 +2439,7 @@ public class InternalEsmLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalEsm.g:10135:40: ( ( '\\r' )? '\\n' )?
+            // InternalEsm.g:10323:40: ( ( '\\r' )? '\\n' )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -2448,9 +2448,9 @@ public class InternalEsmLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // InternalEsm.g:10135:41: ( '\\r' )? '\\n'
+                    // InternalEsm.g:10323:41: ( '\\r' )? '\\n'
                     {
-                    // InternalEsm.g:10135:41: ( '\\r' )?
+                    // InternalEsm.g:10323:41: ( '\\r' )?
                     int alt11=2;
                     int LA11_0 = input.LA(1);
 
@@ -2459,7 +2459,7 @@ public class InternalEsmLexer extends Lexer {
                     }
                     switch (alt11) {
                         case 1 :
-                            // InternalEsm.g:10135:41: '\\r'
+                            // InternalEsm.g:10323:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2491,10 +2491,10 @@ public class InternalEsmLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEsm.g:10137:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalEsm.g:10137:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalEsm.g:10325:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalEsm.g:10325:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalEsm.g:10137:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalEsm.g:10325:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt13=0;
             loop13:
             do {
@@ -2548,8 +2548,8 @@ public class InternalEsmLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEsm.g:10139:16: ( . )
-            // InternalEsm.g:10139:18: .
+            // InternalEsm.g:10327:16: ( . )
+            // InternalEsm.g:10327:18: .
             {
             matchAny(); 
 

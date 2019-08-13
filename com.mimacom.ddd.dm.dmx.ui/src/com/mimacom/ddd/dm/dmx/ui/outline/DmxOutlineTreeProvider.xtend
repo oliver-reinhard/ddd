@@ -3,6 +3,7 @@
  */
 package com.mimacom.ddd.dm.dmx.ui.outline
 
+import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DContext
 import com.mimacom.ddd.dm.dmx.DmxAssignment
 import com.mimacom.ddd.dm.dmx.DmxContextReference
@@ -10,6 +11,7 @@ import com.mimacom.ddd.dm.dmx.DmxFilter
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DmxPackage
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable
+import com.mimacom.ddd.dm.dmx.DmxUtil
 import org.eclipse.jface.resource.ImageDescriptor
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
@@ -20,6 +22,8 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
  * See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#outline
  */
 class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
+	
+	@Inject extension DmxUtil
 	
 	static val DMX = DmxPackage.eINSTANCE
 	static val NULL_IMAGE = null as ImageDescriptor
@@ -67,8 +71,8 @@ class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		if (pred.correlationVariable !== null) {
 			createEStructuralFeatureNode(parentNode, pred, DMX.dmxPredicateWithCorrelationVariable_CorrelationVariable, FEATURE_IMAGE, DMX.dmxPredicateWithCorrelationVariable_CorrelationVariable.name, false)
 		}
-		if (pred.value !== null) {
-			createEStructuralFeatureNode(parentNode, pred, DMX.dmxPredicateWithCorrelationVariable_Value, FEATURE_IMAGE, DMX.dmxPredicateWithCorrelationVariable_Value.name, false)
+		if (pred.predicate !== null) {
+			createEStructuralFeatureNode(parentNode, pred, DMX.dmxPredicateWithCorrelationVariable_Predicate, FEATURE_IMAGE, DMX.dmxPredicateWithCorrelationVariable_Predicate.name, false)
 		}
 //		createEObjectNode(parentNode, pred.value)
 	}
@@ -80,8 +84,8 @@ class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		if (nav.precedingNavigationSegment !== null) {
 			createEStructuralFeatureNode(parentNode, nav, DMX.dmxMemberNavigation_PrecedingNavigationSegment, FEATURE_IMAGE, DMX.dmxMemberNavigation_PrecedingNavigationSegment.name, false)
 		}
-		if (nav.memberCallArguments.length > 0) {
-			createEStructuralFeatureNode(parentNode, nav, DMX.dmxMemberNavigation_MemberCallArguments, FEATURE_IMAGE, DMX.dmxMemberNavigation_MemberCallArguments.name, false)
+		if (nav.nullSafeCallArguments.size > 0) {
+			createEStructuralFeatureNode(parentNode, nav, DMX.dmxMemberNavigation_CallArguments, FEATURE_IMAGE, DMX.dmxMemberNavigation_CallArguments.name, false)
 		}
 	}
 	

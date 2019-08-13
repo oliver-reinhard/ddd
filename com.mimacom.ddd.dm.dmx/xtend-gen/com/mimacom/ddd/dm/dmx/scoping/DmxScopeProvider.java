@@ -154,7 +154,7 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
         scope = this.getEContainerNavigableMembersScopeSwitch(((INavigableMemberContainer)container), outerScope);
       } else {
         if ((container instanceof DmxMemberNavigation)) {
-          boolean _contains = ((DmxMemberNavigation)container).getMemberCallArguments().contains(context);
+          boolean _contains = this._dmxUtil.nullSafeCallArguments(((DmxMemberNavigation)container)).contains(context);
           if (_contains) {
             final AbstractDmxTypeDescriptor<?> typeDescriptor = this._dmxTypeComputer.typeFor(((DmxMemberNavigation)container).getPrecedingNavigationSegment());
             scope = typeDescriptor.getNavigableMembersScope(outerScope);

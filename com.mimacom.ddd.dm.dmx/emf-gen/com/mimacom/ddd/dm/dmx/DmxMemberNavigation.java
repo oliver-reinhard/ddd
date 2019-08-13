@@ -5,8 +5,6 @@ package com.mimacom.ddd.dm.dmx;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Member Navigation</b></em>'.
@@ -19,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.mimacom.ddd.dm.dmx.DmxMemberNavigation#getMember <em>Member</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.DmxMemberNavigation#getPrecedingNavigationSegment <em>Preceding Navigation Segment</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.DmxMemberNavigation#isExplicitOperationCall <em>Explicit Operation Call</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dmx.DmxMemberNavigation#getMemberCallArguments <em>Member Call Arguments</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.DmxMemberNavigation#getCallArguments <em>Call Arguments</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.DmxMemberNavigation#isBefore <em>Before</em>}</li>
  * </ul>
  *
@@ -96,16 +94,26 @@ public interface DmxMemberNavigation extends DExpression
 	void setExplicitOperationCall(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Member Call Arguments</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DExpression}.
+	 * Returns the value of the '<em><b>Call Arguments</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Member Call Arguments</em>' containment reference list.
-	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxMemberNavigation_MemberCallArguments()
+	 * @return the value of the '<em>Call Arguments</em>' containment reference.
+	 * @see #setCallArguments(DmxCallArguments)
+	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxMemberNavigation_CallArguments()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<DExpression> getMemberCallArguments();
+	DmxCallArguments getCallArguments();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxMemberNavigation#getCallArguments <em>Call Arguments</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Call Arguments</em>' containment reference.
+	 * @see #getCallArguments()
+	 * @generated
+	 */
+	void setCallArguments(DmxCallArguments value);
 
 	/**
 	 * Returns the value of the '<em><b>Before</b></em>' attribute.

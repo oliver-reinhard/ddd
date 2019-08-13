@@ -2,28 +2,20 @@
  */
 package com.mimacom.ddd.dm.dmx.impl;
 
-import com.mimacom.ddd.dm.base.DExpression;
-
 import com.mimacom.ddd.dm.base.impl.DExpressionImpl;
 
+import com.mimacom.ddd.dm.dmx.DmxCallArguments;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxFunctionCall;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +26,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxFunctionCallImpl#getFunction <em>Function</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxFunctionCallImpl#getFunctionCallArguments <em>Function Call Arguments</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxFunctionCallImpl#getCallArguments <em>Call Arguments</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,14 +44,14 @@ public class DmxFunctionCallImpl extends DExpressionImpl implements DmxFunctionC
 	protected DmxFilter function;
 
 	/**
-	 * The cached value of the '{@link #getFunctionCallArguments() <em>Function Call Arguments</em>}' containment reference list.
+	 * The cached value of the '{@link #getCallArguments() <em>Call Arguments</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFunctionCallArguments()
+	 * @see #getCallArguments()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DExpression> functionCallArguments;
+	protected DmxCallArguments callArguments;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,13 +125,48 @@ public class DmxFunctionCallImpl extends DExpressionImpl implements DmxFunctionC
 	 * @generated
 	 */
 	@Override
-	public EList<DExpression> getFunctionCallArguments()
+	public DmxCallArguments getCallArguments()
 	{
-		if (functionCallArguments == null)
+		return callArguments;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCallArguments(DmxCallArguments newCallArguments, NotificationChain msgs)
+	{
+		DmxCallArguments oldCallArguments = callArguments;
+		callArguments = newCallArguments;
+		if (eNotificationRequired())
 		{
-			functionCallArguments = new EObjectContainmentEList<DExpression>(DExpression.class, this, DmxPackage.DMX_FUNCTION_CALL__FUNCTION_CALL_ARGUMENTS);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_FUNCTION_CALL__CALL_ARGUMENTS, oldCallArguments, newCallArguments);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return functionCallArguments;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCallArguments(DmxCallArguments newCallArguments)
+	{
+		if (newCallArguments != callArguments)
+		{
+			NotificationChain msgs = null;
+			if (callArguments != null)
+				msgs = ((InternalEObject)callArguments).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DmxPackage.DMX_FUNCTION_CALL__CALL_ARGUMENTS, null, msgs);
+			if (newCallArguments != null)
+				msgs = ((InternalEObject)newCallArguments).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DmxPackage.DMX_FUNCTION_CALL__CALL_ARGUMENTS, null, msgs);
+			msgs = basicSetCallArguments(newCallArguments, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DmxPackage.DMX_FUNCTION_CALL__CALL_ARGUMENTS, newCallArguments, newCallArguments));
 	}
 
 	/**
@@ -152,8 +179,8 @@ public class DmxFunctionCallImpl extends DExpressionImpl implements DmxFunctionC
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DMX_FUNCTION_CALL__FUNCTION_CALL_ARGUMENTS:
-				return ((InternalEList<?>)getFunctionCallArguments()).basicRemove(otherEnd, msgs);
+			case DmxPackage.DMX_FUNCTION_CALL__CALL_ARGUMENTS:
+				return basicSetCallArguments(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -171,8 +198,8 @@ public class DmxFunctionCallImpl extends DExpressionImpl implements DmxFunctionC
 			case DmxPackage.DMX_FUNCTION_CALL__FUNCTION:
 				if (resolve) return getFunction();
 				return basicGetFunction();
-			case DmxPackage.DMX_FUNCTION_CALL__FUNCTION_CALL_ARGUMENTS:
-				return getFunctionCallArguments();
+			case DmxPackage.DMX_FUNCTION_CALL__CALL_ARGUMENTS:
+				return getCallArguments();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -182,7 +209,6 @@ public class DmxFunctionCallImpl extends DExpressionImpl implements DmxFunctionC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
@@ -191,9 +217,8 @@ public class DmxFunctionCallImpl extends DExpressionImpl implements DmxFunctionC
 			case DmxPackage.DMX_FUNCTION_CALL__FUNCTION:
 				setFunction((DmxFilter)newValue);
 				return;
-			case DmxPackage.DMX_FUNCTION_CALL__FUNCTION_CALL_ARGUMENTS:
-				getFunctionCallArguments().clear();
-				getFunctionCallArguments().addAll((Collection<? extends DExpression>)newValue);
+			case DmxPackage.DMX_FUNCTION_CALL__CALL_ARGUMENTS:
+				setCallArguments((DmxCallArguments)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -212,8 +237,8 @@ public class DmxFunctionCallImpl extends DExpressionImpl implements DmxFunctionC
 			case DmxPackage.DMX_FUNCTION_CALL__FUNCTION:
 				setFunction((DmxFilter)null);
 				return;
-			case DmxPackage.DMX_FUNCTION_CALL__FUNCTION_CALL_ARGUMENTS:
-				getFunctionCallArguments().clear();
+			case DmxPackage.DMX_FUNCTION_CALL__CALL_ARGUMENTS:
+				setCallArguments((DmxCallArguments)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -231,8 +256,8 @@ public class DmxFunctionCallImpl extends DExpressionImpl implements DmxFunctionC
 		{
 			case DmxPackage.DMX_FUNCTION_CALL__FUNCTION:
 				return function != null;
-			case DmxPackage.DMX_FUNCTION_CALL__FUNCTION_CALL_ARGUMENTS:
-				return functionCallArguments != null && !functionCallArguments.isEmpty();
+			case DmxPackage.DMX_FUNCTION_CALL__CALL_ARGUMENTS:
+				return callArguments != null;
 		}
 		return super.eIsSet(featureID);
 	}
