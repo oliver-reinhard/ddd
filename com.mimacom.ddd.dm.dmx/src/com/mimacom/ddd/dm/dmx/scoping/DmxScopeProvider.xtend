@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EReference
 import org.eclipse.emf.ecore.EcoreFactory
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
+import com.mimacom.ddd.dm.dmx.DmxCallArguments
 
 /**
  * This class contains custom scoping for expressions and {@link DComplexType} feature inheritance.
@@ -52,7 +53,8 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 			return scope
 		
 		} else if (reference == DMX.dmxMemberNavigation_Member) {
-			// This is a scoping along (the types of) a NAVIGATION expression tree:
+			// This is scoping along (the types of) a NAVIGATION expression tree: the members in scope are those
+			// of the preceding navigation segment:
 			if (context instanceof DmxMemberNavigation) {
 				val preceding = context.precedingNavigationSegment
 				val typeDescriptor = preceding.typeFor
@@ -116,12 +118,15 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 		
 		} else if (container instanceof INavigableMemberContainer) {
 			scope = getEContainerNavigableMembersScopeSwitch(container, outerScope)
-			
-		} else if (container instanceof DmxMemberNavigation) {
-			// a function or iterator call opens a new scope where the navigable members are in the precedingNavigationStep:
-			if (container.nullSafeCallArguments.contains(context)) {
-				val typeDescriptor = container.precedingNavigationSegment.typeFor
-				scope = typeDescriptor.getNavigableMembersScope(outerScope)
+		
+		} else if (container instanceof DmxCallArguments) {
+			if (container.arguments.contains(context)) {
+				// "move up" directly to the containing DmxMemberNavigation, don't use recursion:
+				container = container.eContainer
+				if (container instanceof DmxMemberNavigation) {
+					val typeDescriptor = container.precedingNavigationSegment.typeFor
+					scope = typeDescriptor.getNavigableMembersScope(outerScope)
+				}
 			}
 		}
 		return getEContainersNavigableMembersScopes(container, scope) // recursion

@@ -37,6 +37,7 @@ import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral
 import com.mimacom.ddd.dm.dmx.DmxUtil
 import java.util.List
 import org.eclipse.emf.ecore.EObject
+import com.mimacom.ddd.dm.dmx.DmxCallArguments
 
 @Singleton
 class DmxTypeComputer {
@@ -87,22 +88,25 @@ class DmxTypeComputer {
 				// this only occurs when the context is accessd from within the memberCallArguments of a DmxMemberNavigation 
 				// => find precedingNavigationSegment of "calling" DmxMemberNavigation that contains memberCallArguments
 				var EObject prev = target
-				var container = prev.eContainer
+				var container = target.eContainer
 				var isCorrelationVariable = target.isCorrelationVariable(container)
-				while (! (container === null ||
-					container instanceof DmxMemberNavigation && (container as DmxMemberNavigation).nullSafeCallArguments.contains(prev))) {
+				while (! (container === null ||	container instanceof DmxCallArguments && (container as DmxCallArguments).arguments.contains(prev))) {
 					prev = container
-					container = prev.eContainer
+					container = container.eContainer
 					isCorrelationVariable = isCorrelationVariable || target.isCorrelationVariable(container)
 				}
-				if (container instanceof DmxMemberNavigation) {
-					val desc = container.precedingNavigationSegment.typeFor
-					if (isCorrelationVariable) {
-						// the type derived vor correlation Varibles inside a DmxPredicateWithCorrelationVariable block is usually the type of the collection on which the
-						// enclosing iterator is applied => is a collection type, but correlation variable is a single object
-						desc.collection = false
+				if (container instanceof DmxCallArguments) {
+					// "move up" to the containing DmxMemberNavigation:
+					container = container.eContainer
+					if (container instanceof DmxMemberNavigation) {
+						val desc = container.precedingNavigationSegment.typeFor
+						if (isCorrelationVariable) {
+							// the type derived vor correlation Varibles inside a DmxPredicateWithCorrelationVariable block is usually the type of the collection on which the
+							// enclosing iterator is applied => is a collection type, but correlation variable is a single object
+							desc.collection = false
+						}
+						return desc
 					}
-					return desc
 				}
 				return UNDEFINED
 			}

@@ -114,7 +114,7 @@ public class DmxTypeCheckingValidator extends AbstractDmxValidator {
           int _size = actualParameters.size();
           boolean _lessThan = (aIndex < _size);
           if (_lessThan) {
-            this.expectFilterParameterType(((DmxFilter)formal), fIndex, actualParameters, aIndex);
+            this.expectFilterParameterType(((DmxFilter)formal), fIndex, actualParameters, aIndex, DmxTypeCheckingValidator.DMX.getDmxMemberNavigation_CallArguments());
           } else {
             int _size_1 = actualParameters.size();
             boolean _equals = (aIndex == _size_1);
@@ -141,7 +141,7 @@ public class DmxTypeCheckingValidator extends AbstractDmxValidator {
           int _size = actualParameters.size();
           boolean _lessThan = (fIndex < _size);
           if (_lessThan) {
-            this.expectFilterParameterType(formal, fIndex, actualParameters, aIndex);
+            this.expectFilterParameterType(formal, fIndex, actualParameters, aIndex, DmxTypeCheckingValidator.DMX.getDmxFunctionCall_CallArguments());
           } else {
             int _size_1 = actualParameters.size();
             boolean _equals = (fIndex == _size_1);
@@ -155,12 +155,12 @@ public class DmxTypeCheckingValidator extends AbstractDmxValidator {
     }
   }
   
-  protected boolean expectFilterParameterType(final DmxFilter formal, final int fIndex, final List<DExpression> actualParameters, final int aIndex) {
+  protected boolean expectFilterParameterType(final DmxFilter formal, final int fIndex, final List<DExpression> actualParameters, final int aIndex, final EReference ref) {
     boolean _xblockexpression = false;
     {
       final DmxFilterTypeDescriptor formalParamTypeDesc = formal.getParameters().get(fIndex).getTypeDesc();
-      final AbstractDmxTypeDescriptor<?> actualType = this.getTypeAndCheckNotNull(actualParameters.get(aIndex), DmxTypeCheckingValidator.DMX.getDmxCallArguments_Arguments());
-      _xblockexpression = this.expectType(actualType, this._dmxTypeComputer.getTypeDescriptors(formalParamTypeDesc), DmxTypeCheckingValidator.DMX.getDmxCallArguments_Arguments());
+      final AbstractDmxTypeDescriptor<?> actualType = this.getTypeAndCheckNotNull(actualParameters.get(aIndex), ref);
+      _xblockexpression = this.expectType(actualType, this._dmxTypeComputer.getTypeDescriptors(formalParamTypeDesc), ref);
     }
     return _xblockexpression;
   }

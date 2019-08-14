@@ -20,6 +20,7 @@ import com.mimacom.ddd.dm.dmx.DmxBaseType;
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation;
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperator;
 import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral;
+import com.mimacom.ddd.dm.dmx.DmxCallArguments;
 import com.mimacom.ddd.dm.dmx.DmxCastExpression;
 import com.mimacom.ddd.dm.dmx.DmxConstructorCall;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
@@ -115,22 +116,24 @@ public class DmxTypeComputer {
         return this.getTypeDescriptor(((DContext)target).getType(), ((DContext)target).isCollection());
       } else {
         EObject prev = target;
-        EObject container = prev.eContainer();
+        EObject container = ((DContext)target).eContainer();
         boolean isCorrelationVariable = this.isCorrelationVariable(((DContext)target), container);
-        while ((!((container == null) || 
-          ((container instanceof DmxMemberNavigation) && this.util.nullSafeCallArguments(((DmxMemberNavigation) container)).contains(prev))))) {
+        while ((!((container == null) || ((container instanceof DmxCallArguments) && ((DmxCallArguments) container).getArguments().contains(prev))))) {
           {
             prev = container;
-            container = prev.eContainer();
+            container = container.eContainer();
             isCorrelationVariable = (isCorrelationVariable || this.isCorrelationVariable(((DContext)target), container));
           }
         }
-        if ((container instanceof DmxMemberNavigation)) {
-          final AbstractDmxTypeDescriptor<?> desc = this.typeFor(((DmxMemberNavigation)container).getPrecedingNavigationSegment());
-          if (isCorrelationVariable) {
-            desc.collection = false;
+        if ((container instanceof DmxCallArguments)) {
+          container = ((DmxCallArguments)container).eContainer();
+          if ((container instanceof DmxMemberNavigation)) {
+            final AbstractDmxTypeDescriptor<?> desc = this.typeFor(((DmxMemberNavigation)container).getPrecedingNavigationSegment());
+            if (isCorrelationVariable) {
+              desc.collection = false;
+            }
+            return desc;
           }
-          return desc;
         }
         return DmxTypeComputer.UNDEFINED;
       }

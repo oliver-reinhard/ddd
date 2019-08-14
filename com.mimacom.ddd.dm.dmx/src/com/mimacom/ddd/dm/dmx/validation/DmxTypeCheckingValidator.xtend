@@ -90,7 +90,7 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 			for (var fIndex = 1; fIndex < formal.parameters.size; fIndex++) {
 				val aIndex = fIndex - 1
 				if (aIndex < actualParameters.size) {
-					expectFilterParameterType(formal, fIndex, actualParameters, aIndex)
+					expectFilterParameterType(formal, fIndex, actualParameters, aIndex, DMX.dmxMemberNavigation_CallArguments)
 
 				} else if (aIndex == actualParameters.size) {
 					errorParameterValuesMissing(actual, actual.callArguments, aIndex)
@@ -108,7 +108,7 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 			for (var fIndex = 0; fIndex < formal.parameters.size; fIndex++) {
 				val aIndex = fIndex
 				if (fIndex < actualParameters.size) {
-					expectFilterParameterType(formal, fIndex, actualParameters, aIndex)
+					expectFilterParameterType(formal, fIndex, actualParameters, aIndex, DMX.dmxFunctionCall_CallArguments)
 
 				} else if (fIndex == actualParameters.size) {
 					errorParameterValuesMissing(actual, actual.callArguments, aIndex)
@@ -118,10 +118,10 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 		}
 	}
 	
-	protected def boolean expectFilterParameterType(DmxFilter formal, int fIndex, List<DExpression> actualParameters, int aIndex) {
+	protected def boolean expectFilterParameterType(DmxFilter formal, int fIndex, List<DExpression> actualParameters, int aIndex, EReference ref) {
 		val formalParamTypeDesc = formal.parameters.get(fIndex).typeDesc
-		val actualType = getTypeAndCheckNotNull(actualParameters.get(aIndex), DMX.dmxCallArguments_Arguments)
-		expectType(actualType, formalParamTypeDesc.typeDescriptors, DMX.dmxCallArguments_Arguments)
+		val actualType = getTypeAndCheckNotNull(actualParameters.get(aIndex), ref)
+		expectType(actualType, formalParamTypeDesc.typeDescriptors, ref)
 	}
 	
 	protected def void errorParameterValuesMissing(EObject context, DmxCallArguments actualParameters, int aIndex) {

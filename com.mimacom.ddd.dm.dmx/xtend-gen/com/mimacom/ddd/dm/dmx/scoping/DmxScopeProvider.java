@@ -19,6 +19,7 @@ import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.dmx.DmxAssignment;
+import com.mimacom.ddd.dm.dmx.DmxCallArguments;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
@@ -153,11 +154,14 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
       if ((container instanceof INavigableMemberContainer)) {
         scope = this.getEContainerNavigableMembersScopeSwitch(((INavigableMemberContainer)container), outerScope);
       } else {
-        if ((container instanceof DmxMemberNavigation)) {
-          boolean _contains = this._dmxUtil.nullSafeCallArguments(((DmxMemberNavigation)container)).contains(context);
+        if ((container instanceof DmxCallArguments)) {
+          boolean _contains = ((DmxCallArguments)container).getArguments().contains(context);
           if (_contains) {
-            final AbstractDmxTypeDescriptor<?> typeDescriptor = this._dmxTypeComputer.typeFor(((DmxMemberNavigation)container).getPrecedingNavigationSegment());
-            scope = typeDescriptor.getNavigableMembersScope(outerScope);
+            container = ((DmxCallArguments)container).eContainer();
+            if ((container instanceof DmxMemberNavigation)) {
+              final AbstractDmxTypeDescriptor<?> typeDescriptor = this._dmxTypeComputer.typeFor(((DmxMemberNavigation)container).getPrecedingNavigationSegment());
+              scope = typeDescriptor.getNavigableMembersScope(outerScope);
+            }
           }
         }
       }
