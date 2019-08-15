@@ -15,6 +15,7 @@ import com.mimacom.ddd.dm.dmx.DmxUnaryOperation
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+import com.mimacom.ddd.dm.dmx.DmxCallArguments
 
 /**
  * Provides labels for EObjects.
@@ -63,6 +64,10 @@ class DmxLabelProvider extends DefaultEObjectLabelProvider {
 
 	def text(DmxUndefinedLiteral e) {
 		return e.simpleName
+	}
+	
+	def text(DmxCallArguments d) {
+		"DmxCallArguments"
 	}
 
 	protected def simpleName(Object obj) {

@@ -8,6 +8,7 @@ import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation;
 import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral;
+import com.mimacom.ddd.dm.dmx.DmxCallArguments;
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxStringLiteral;
@@ -83,6 +84,10 @@ public class DmxLabelProvider extends DefaultEObjectLabelProvider {
   
   public String text(final DmxUndefinedLiteral e) {
     return this.simpleName(e);
+  }
+  
+  public String text(final DmxCallArguments d) {
+    return "DmxCallArguments";
   }
   
   protected String simpleName(final Object obj) {

@@ -91,9 +91,9 @@ public class DmxTypeComputer {
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxMemberNavigation expr) {
     final DNavigableMember member = expr.getMember();
-    final DExpression preceding = expr.getPrecedingNavigationSegment();
     if ((member instanceof DmxFilter)) {
       if ((((DmxFilter)member).getTypeDesc().isCompatible(DmxBaseType.COMPLEX) || ((DmxFilter)member).getTypeDesc().isMultiTyped())) {
+        final DExpression preceding = expr.getPrecedingNavigationSegment();
         final AbstractDmxTypeDescriptor<?> precedingType = this.typeFor(preceding);
         return this.getTypeDescriptor(precedingType.type, ((DmxFilter)member).getTypeDesc().isCollection());
       } else {
@@ -267,7 +267,17 @@ public class DmxTypeComputer {
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxSelfExpression expr) {
-    throw new UnsupportedOperationException();
+    DmxUndefinedDescriptor _xblockexpression = null;
+    {
+      final EObject container = expr.eContainer();
+      if ((container instanceof DmxMemberNavigation)) {
+        if ((Objects.equal(((DmxMemberNavigation)container).getPrecedingNavigationSegment(), expr) && (((DmxMemberNavigation)container).getMember() != null))) {
+          return this.typeFor(((DExpression)container));
+        }
+      }
+      _xblockexpression = DmxTypeComputer.UNDEFINED;
+    }
+    return _xblockexpression;
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxInstanceOfExpression expr) {

@@ -59,11 +59,11 @@ class DmxTypeComputer {
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxMemberNavigation expr) {
 		val member = expr.member
-		val preceding = expr.precedingNavigationSegment
 
 		if (member instanceof DmxFilter) {
 			if (member.typeDesc.isCompatible(DmxBaseType.COMPLEX /* ignore collection property */ ) || member.typeDesc.isMultiTyped) {
 				// propagate type from preceding navigation segment: (this may differ from the actually decared type of the first parameter
+				val preceding = expr.precedingNavigationSegment
 				val precedingType = preceding.typeFor // recursion
 				return getTypeDescriptor(precedingType.type, member.typeDesc.collection)
 
@@ -176,7 +176,13 @@ class DmxTypeComputer {
 	}
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxSelfExpression expr) {
-		throw new UnsupportedOperationException // TODO
+		val container = expr.eContainer
+		if (container instanceof DmxMemberNavigation) {
+			if (container.precedingNavigationSegment == expr && container.member !== null) {
+				return container.typeFor // recursion
+			}
+		}
+		UNDEFINED
 	}
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxInstanceOfExpression expr) {

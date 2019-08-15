@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EcoreFactory
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
 import com.mimacom.ddd.dm.dmx.DmxCallArguments
+import com.mimacom.ddd.dm.dmx.DmxSelfExpression
 
 /**
  * This class contains custom scoping for expressions and {@link DComplexType} feature inheritance.
@@ -57,9 +58,16 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 			// of the preceding navigation segment:
 			if (context instanceof DmxMemberNavigation) {
 				val preceding = context.precedingNavigationSegment
-				val typeDescriptor = preceding.typeFor
-				val scope = typeDescriptor.getNavigableMembersAndIteratorsScope(context, index)
-				return scope
+				if (preceding instanceof DmxSelfExpression) {
+				 	// Resort to classic scoping along the eContainer CONTAINMENT hiearchy:
+					val outer = getDefaultScopeForType(context, BASE.IStaticReferenceTarget)
+					val scope = getEContainersNavigableMembersScopes(context, outer)	
+					return scope
+				} else {
+					val typeDescriptor = preceding.typeFor
+					val scope = typeDescriptor.getNavigableMembersAndIteratorsScope(context, index)
+					return scope
+				}
 			}
 
 		} else if (reference == DMX.dmxAssignment_AssignToMember) {
@@ -161,65 +169,4 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 		list.addAll(event.notifications)
 		return Scopes.scopeFor(list, outerScope)
 	}
-	
-	/*
-	 * Obsolete
-	 */
-	/* Returns all DNavigableMember elements of the given navigation member element along the semantic EXPRESSION eContainer hierarchy. */
-//	final protected def IScope getPrecedingNavigableMembersScopes(EObject member, IScope outerScope) {
-//		val preceding = EcoreUtil2.getContainerOfType(member.eContainer, INavigableMemberContainer)
-//		if (preceding === null) return outerScope
-//		getEContainerNavigableMembersScopeSwitch(preceding, outerScope)
-//	}
-
-//	protected def IScope getNavigableMemberReferencesScope(EObject precedingNavigationStep) {
-//		// NOTE: memberContainerReference is the predecessor in a NAVIGATION, i.e. the object that OWNS the member that shall be
-//		// nagivated in this step, NOT the eContainer that owns the expression!
-//	
-//		if (precedingNavigationStep instanceof DmxContextReference) {
-//			if (precedingNavigationStep.all) {
-//				return getDefaultScopeForType(precedingNavigationStep, DMX.dmxIterator)
-//			}
-//			val memberContainer = precedingNavigationStep.target
-//			val targetType = switch memberContainer {
-//				DNavigableMember: memberContainer.getType 
-//				DEnumeration: memberContainer // memberContainer.type is always null !
-//				default: null
-//			}
-//			val scope = switch targetType {
-//				DEnumeration: Scopes.scopeFor(targetType.literals) // type is null
-//				DComplexType: getOwnAndInheritedFeaturesScope(targetType)
-//				DQuery: Scopes.scopeFor(targetType.parameters)
-//				DService: Scopes.scopeFor(targetType.parameters)
-//				DDomainEvent: getDomainEventNavigableMemberScope(targetType, IScope.NULLSCOPE)
-//				default: IScope.NULLSCOPE
-//			}
-//			return scope
-//
-//		} else if (precedingNavigationStep instanceof DSelfExpression) {
-//			return getEContainersNavigableMembersScopes(precedingNavigationStep, IScope.NULLSCOPE)
-//
-//		} else if (precedingNavigationStep instanceof DmxMemberNavigation) {
-//			val member = precedingNavigationStep.getMember
-//			if (member instanceof DNavigableMember) {
-//				val type = member.getType
-//				if (type instanceof DComplexType) {
-//					return getOwnAndInheritedFeaturesScope(type)
-//				}
-//			}
-//
-//		//
-//		// TODO still needed?
-//		//
-//		} else if (precedingNavigationStep instanceof DFunctionCall) {
-//			val filter = precedingNavigationStep.function
-//			if (filter instanceof DmxFunction) {
-//				val type = filter.getType
-//				if (type instanceof DComplexType) {
-//					return getOwnAndInheritedFeaturesScope(type)
-//				}
-//			} 
-//		}
-//		return IScope.NULLSCOPE
-//	}
 }
