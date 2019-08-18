@@ -710,6 +710,97 @@ public interface DmxPackage extends EPackage
 	int DMX_PREDICATE_WITH_CORRELATION_VARIABLE_OPERATION_COUNT = BasePackage.DEXPRESSION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxCorrelationVariableImpl <em>Correlation Variable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxCorrelationVariableImpl
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxCorrelationVariable()
+	 * @generated
+	 */
+	int DMX_CORRELATION_VARIABLE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_CORRELATION_VARIABLE__NAME = BasePackage.DNAVIGABLE_MEMBER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_CORRELATION_VARIABLE__ALIASES = BasePackage.DNAVIGABLE_MEMBER__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_CORRELATION_VARIABLE__DESCRIPTION = BasePackage.DNAVIGABLE_MEMBER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_CORRELATION_VARIABLE__TYPE = BasePackage.DNAVIGABLE_MEMBER__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_CORRELATION_VARIABLE__MULTIPLICITY = BasePackage.DNAVIGABLE_MEMBER__MULTIPLICITY;
+
+	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_CORRELATION_VARIABLE__OPTIONAL = BasePackage.DNAVIGABLE_MEMBER__OPTIONAL;
+
+	/**
+	 * The feature id for the '<em><b>Collection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_CORRELATION_VARIABLE__COLLECTION = BasePackage.DNAVIGABLE_MEMBER__COLLECTION;
+
+	/**
+	 * The number of structural features of the '<em>Correlation Variable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_CORRELATION_VARIABLE_FEATURE_COUNT = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Correlation Variable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_CORRELATION_VARIABLE_OPERATION_COUNT = BasePackage.DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxMemberNavigationImpl <em>Member Navigation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -717,7 +808,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxMemberNavigation()
 	 * @generated
 	 */
-	int DMX_MEMBER_NAVIGATION = 9;
+	int DMX_MEMBER_NAVIGATION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Member</b></em>' reference.
@@ -790,7 +881,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxCallArguments()
 	 * @generated
 	 */
-	int DMX_CALL_ARGUMENTS = 10;
+	int DMX_CALL_ARGUMENTS = 11;
 
 	/**
 	 * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
@@ -827,7 +918,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxFunctionCall()
 	 * @generated
 	 */
-	int DMX_FUNCTION_CALL = 11;
+	int DMX_FUNCTION_CALL = 12;
 
 	/**
 	 * The feature id for the '<em><b>Function</b></em>' reference.
@@ -873,7 +964,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxConstructorCall()
 	 * @generated
 	 */
-	int DMX_CONSTRUCTOR_CALL = 12;
+	int DMX_CONSTRUCTOR_CALL = 13;
 
 	/**
 	 * The feature id for the '<em><b>Constructor</b></em>' reference.
@@ -928,7 +1019,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxBinaryOperation()
 	 * @generated
 	 */
-	int DMX_BINARY_OPERATION = 13;
+	int DMX_BINARY_OPERATION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Left Operand</b></em>' containment reference.
@@ -983,7 +1074,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxInstanceOfExpression()
 	 * @generated
 	 */
-	int DMX_INSTANCE_OF_EXPRESSION = 14;
+	int DMX_INSTANCE_OF_EXPRESSION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1029,7 +1120,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxUnaryOperation()
 	 * @generated
 	 */
-	int DMX_UNARY_OPERATION = 15;
+	int DMX_UNARY_OPERATION = 16;
 
 	/**
 	 * The feature id for the '<em><b>Operand</b></em>' containment reference.
@@ -1075,7 +1166,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxCastExpression()
 	 * @generated
 	 */
-	int DMX_CAST_EXPRESSION = 16;
+	int DMX_CAST_EXPRESSION = 17;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' containment reference.
@@ -1114,71 +1205,6 @@ public interface DmxPackage extends EPackage
 	int DMX_CAST_EXPRESSION_OPERATION_COUNT = BasePackage.DEXPRESSION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxSelfExpressionImpl <em>Self Expression</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.dmx.impl.DmxSelfExpressionImpl
-	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxSelfExpression()
-	 * @generated
-	 */
-	int DMX_SELF_EXPRESSION = 17;
-
-	/**
-	 * The number of structural features of the '<em>Self Expression</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_SELF_EXPRESSION_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Self Expression</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_SELF_EXPRESSION_OPERATION_COUNT = BasePackage.DEXPRESSION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxReturnExpressionImpl <em>Return Expression</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.dmx.impl.DmxReturnExpressionImpl
-	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxReturnExpression()
-	 * @generated
-	 */
-	int DMX_RETURN_EXPRESSION = 18;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_RETURN_EXPRESSION__EXPRESSION = BasePackage.DEXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Return Expression</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_RETURN_EXPRESSION_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Return Expression</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_RETURN_EXPRESSION_OPERATION_COUNT = BasePackage.DEXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxRaiseExpressionImpl <em>Raise Expression</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1186,7 +1212,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxRaiseExpression()
 	 * @generated
 	 */
-	int DMX_RAISE_EXPRESSION = 19;
+	int DMX_RAISE_EXPRESSION = 18;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1223,7 +1249,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxStaticReference()
 	 * @generated
 	 */
-	int DMX_STATIC_REFERENCE = 20;
+	int DMX_STATIC_REFERENCE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -1287,7 +1313,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxContextReference()
 	 * @generated
 	 */
-	int DMX_CONTEXT_REFERENCE = 21;
+	int DMX_CONTEXT_REFERENCE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -1342,7 +1368,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxIfExpression()
 	 * @generated
 	 */
-	int DMX_IF_EXPRESSION = 22;
+	int DMX_IF_EXPRESSION = 21;
 
 	/**
 	 * The feature id for the '<em><b>If</b></em>' containment reference.
@@ -1397,7 +1423,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxBooleanLiteral()
 	 * @generated
 	 */
-	int DMX_BOOLEAN_LITERAL = 23;
+	int DMX_BOOLEAN_LITERAL = 22;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1434,7 +1460,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxStringLiteral()
 	 * @generated
 	 */
-	int DMX_STRING_LITERAL = 24;
+	int DMX_STRING_LITERAL = 23;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1471,7 +1497,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxNaturalLiteral()
 	 * @generated
 	 */
-	int DMX_NATURAL_LITERAL = 25;
+	int DMX_NATURAL_LITERAL = 24;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1508,7 +1534,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxDecimalLiteral()
 	 * @generated
 	 */
-	int DMX_DECIMAL_LITERAL = 26;
+	int DMX_DECIMAL_LITERAL = 25;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1545,7 +1571,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxDateLiteral()
 	 * @generated
 	 */
-	int DMX_DATE_LITERAL = 27;
+	int DMX_DATE_LITERAL = 26;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1582,7 +1608,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxUndefinedLiteral()
 	 * @generated
 	 */
-	int DMX_UNDEFINED_LITERAL = 28;
+	int DMX_UNDEFINED_LITERAL = 27;
 
 	/**
 	 * The number of structural features of the '<em>Undefined Literal</em>' class.
@@ -1610,7 +1636,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxBaseType()
 	 * @generated
 	 */
-	int DMX_BASE_TYPE = 29;
+	int DMX_BASE_TYPE = 28;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.DmxBinaryOperator <em>Binary Operator</em>}' enum.
@@ -1620,7 +1646,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxBinaryOperator()
 	 * @generated
 	 */
-	int DMX_BINARY_OPERATOR = 30;
+	int DMX_BINARY_OPERATOR = 29;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.DmxUnaryOperator <em>Unary Operator</em>}' enum.
@@ -1630,7 +1656,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxUnaryOperator()
 	 * @generated
 	 */
-	int DMX_UNARY_OPERATOR = 31;
+	int DMX_UNARY_OPERATOR = 30;
 
 
 	/**
@@ -1997,6 +2023,16 @@ public interface DmxPackage extends EPackage
 	EReference getDmxPredicateWithCorrelationVariable_Predicate();
 
 	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxCorrelationVariable <em>Correlation Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Correlation Variable</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxCorrelationVariable
+	 * @generated
+	 */
+	EClass getDmxCorrelationVariable();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxMemberNavigation <em>Member Navigation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2295,37 +2331,6 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 */
 	EReference getDmxCastExpression_Type();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxSelfExpression <em>Self Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Self Expression</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxSelfExpression
-	 * @generated
-	 */
-	EClass getDmxSelfExpression();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxReturnExpression <em>Return Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Return Expression</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxReturnExpression
-	 * @generated
-	 */
-	EClass getDmxReturnExpression();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.dmx.DmxReturnExpression#getExpression <em>Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Expression</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxReturnExpression#getExpression()
-	 * @see #getDmxReturnExpression()
-	 * @generated
-	 */
-	EReference getDmxReturnExpression_Expression();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxRaiseExpression <em>Raise Expression</em>}'.
@@ -2948,6 +2953,16 @@ public interface DmxPackage extends EPackage
 		EReference DMX_PREDICATE_WITH_CORRELATION_VARIABLE__PREDICATE = eINSTANCE.getDmxPredicateWithCorrelationVariable_Predicate();
 
 		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxCorrelationVariableImpl <em>Correlation Variable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxCorrelationVariableImpl
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxCorrelationVariable()
+		 * @generated
+		 */
+		EClass DMX_CORRELATION_VARIABLE = eINSTANCE.getDmxCorrelationVariable();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxMemberNavigationImpl <em>Member Navigation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3186,34 +3201,6 @@ public interface DmxPackage extends EPackage
 		 * @generated
 		 */
 		EReference DMX_CAST_EXPRESSION__TYPE = eINSTANCE.getDmxCastExpression_Type();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxSelfExpressionImpl <em>Self Expression</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.dmx.impl.DmxSelfExpressionImpl
-		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxSelfExpression()
-		 * @generated
-		 */
-		EClass DMX_SELF_EXPRESSION = eINSTANCE.getDmxSelfExpression();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxReturnExpressionImpl <em>Return Expression</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.dmx.impl.DmxReturnExpressionImpl
-		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxReturnExpression()
-		 * @generated
-		 */
-		EClass DMX_RETURN_EXPRESSION = eINSTANCE.getDmxReturnExpression();
-
-		/**
-		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DMX_RETURN_EXPRESSION__EXPRESSION = eINSTANCE.getDmxReturnExpression_Expression();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxRaiseExpressionImpl <em>Raise Expression</em>}' class.

@@ -26,6 +26,7 @@ import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DMessage;
 import com.mimacom.ddd.dm.base.DMultiplicity;
+import com.mimacom.ddd.dm.base.DMultiplicityShorthand;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.DNavigableMember;
@@ -309,6 +310,13 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass dContextEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass dDomainEventEClass = null;
 
 	/**
@@ -317,13 +325,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	private EClass dCaseConjunctionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dContextEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -373,6 +374,13 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	private EEnum dAssociationKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum dMultiplicityShorthandEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -1224,6 +1232,17 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getDMultiplicity_Shorthand()
+	{
+		return (EAttribute)dMultiplicityEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDAttribute()
 	{
 		return dAttributeEClass;
@@ -1293,6 +1312,17 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EClass getDQueryParameter()
 	{
 		return dQueryParameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDContext()
+	{
+		return dContextEClass;
 	}
 
 	/**
@@ -1392,17 +1422,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EReference getDCaseConjunction_Predicates()
 	{
 		return (EReference)dCaseConjunctionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDContext()
-	{
-		return dContextEClass;
 	}
 
 	/**
@@ -1513,6 +1532,17 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EEnum getDAssociationKind()
 	{
 		return dAssociationKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getDMultiplicityShorthand()
+	{
+		return dMultiplicityShorthandEEnum;
 	}
 
 	/**
@@ -1647,6 +1677,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dMultiplicityEClass = createEClass(DMULTIPLICITY);
 		createEAttribute(dMultiplicityEClass, DMULTIPLICITY__MIN_OCCURS);
 		createEAttribute(dMultiplicityEClass, DMULTIPLICITY__MAX_OCCURS);
+		createEAttribute(dMultiplicityEClass, DMULTIPLICITY__SHORTHAND);
 
 		dAttributeEClass = createEClass(DATTRIBUTE);
 		createEAttribute(dAttributeEClass, DATTRIBUTE__DETAIL);
@@ -1658,6 +1689,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		dQueryParameterEClass = createEClass(DQUERY_PARAMETER);
 
+		dContextEClass = createEClass(DCONTEXT);
+
 		dDomainEventEClass = createEClass(DDOMAIN_EVENT);
 		createEReference(dDomainEventEClass, DDOMAIN_EVENT__CONTEXT);
 		createEReference(dDomainEventEClass, DDOMAIN_EVENT__TRIGGER);
@@ -1668,8 +1701,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dCaseConjunctionEClass = createEClass(DCASE_CONJUNCTION);
 		createEReference(dCaseConjunctionEClass, DCASE_CONJUNCTION__SELECTOR);
 		createEReference(dCaseConjunctionEClass, DCASE_CONJUNCTION__PREDICATES);
-
-		dContextEClass = createEClass(DCONTEXT);
 
 		dNotificationEClass = createEClass(DNOTIFICATION);
 		createEReference(dNotificationEClass, DNOTIFICATION__MESSAGE);
@@ -1687,6 +1718,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		// Create enums
 		dEntityOriginEEnum = createEEnum(DENTITY_ORIGIN);
 		dAssociationKindEEnum = createEEnum(DASSOCIATION_KIND);
+		dMultiplicityShorthandEEnum = createEEnum(DMULTIPLICITY_SHORTHAND);
 	}
 
 	/**
@@ -1759,11 +1791,11 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dQueryEClass.getESuperTypes().add(this.getINavigableMemberContainer());
 		dQueryParameterEClass.getESuperTypes().add(this.getDNavigableMember());
 		dQueryParameterEClass.getESuperTypes().add(this.getIDeducibleElement());
+		dContextEClass.getESuperTypes().add(this.getDNavigableMember());
 		dDomainEventEClass.getESuperTypes().add(this.getDNamedElement());
 		dDomainEventEClass.getESuperTypes().add(this.getINavigableMemberContainer());
 		dDomainEventEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
 		dCaseConjunctionEClass.getESuperTypes().add(this.getDNamedElement());
-		dContextEClass.getESuperTypes().add(this.getDNavigableMember());
 		dNotificationEClass.getESuperTypes().add(this.getDNavigableMember());
 		dNotificationEClass.getESuperTypes().add(this.getINavigableMemberContainer());
 		dMessageEClass.getESuperTypes().add(this.getDNavigableMember());
@@ -1875,6 +1907,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dMultiplicityEClass, DMultiplicity.class, "DMultiplicity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDMultiplicity_MinOccurs(), ecorePackage.getEInt(), "minOccurs", null, 0, 1, DMultiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDMultiplicity_MaxOccurs(), ecorePackage.getEInt(), "maxOccurs", null, 0, 1, DMultiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDMultiplicity_Shorthand(), this.getDMultiplicityShorthand(), "shorthand", null, 0, 1, DMultiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dAttributeEClass, DAttribute.class, "DAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDAttribute_Detail(), ecorePackage.getEBoolean(), "detail", null, 0, 1, DAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1886,6 +1919,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		initEClass(dQueryParameterEClass, DQueryParameter.class, "DQueryParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(dContextEClass, DContext.class, "DContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(dDomainEventEClass, DDomainEvent.class, "DDomainEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDDomainEvent_Context(), this.getDContext(), null, "context", null, 1, -1, DDomainEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDDomainEvent_Trigger(), this.getDActor(), null, "trigger", null, 1, 1, DDomainEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1896,8 +1931,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dCaseConjunctionEClass, DCaseConjunction.class, "DCaseConjunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDCaseConjunction_Selector(), this.getDExpression(), null, "selector", null, 0, 1, DCaseConjunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDCaseConjunction_Predicates(), this.getDNamedPredicate(), null, "predicates", null, 0, -1, DCaseConjunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dContextEClass, DContext.class, "DContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dNotificationEClass, DNotification.class, "DNotification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDNotification_Message(), this.getDMessage(), null, "message", null, 0, 1, DNotification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1923,6 +1956,12 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		addEEnumLiteral(dAssociationKindEEnum, DAssociationKind.REFERENCE);
 		addEEnumLiteral(dAssociationKindEEnum, DAssociationKind.COMPOSITE);
 		addEEnumLiteral(dAssociationKindEEnum, DAssociationKind.INVERSE_COMPOSITE);
+
+		initEEnum(dMultiplicityShorthandEEnum, DMultiplicityShorthand.class, "DMultiplicityShorthand");
+		addEEnumLiteral(dMultiplicityShorthandEEnum, DMultiplicityShorthand.NONE);
+		addEEnumLiteral(dMultiplicityShorthandEEnum, DMultiplicityShorthand.ZERO_OR_ONE);
+		addEEnumLiteral(dMultiplicityShorthandEEnum, DMultiplicityShorthand.ONE_OR_MORE);
+		addEEnumLiteral(dMultiplicityShorthandEEnum, DMultiplicityShorthand.ZERO_OR_MORE);
 
 		// Create resource
 		createResource(eNS_URI);

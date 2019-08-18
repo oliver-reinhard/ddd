@@ -49,7 +49,6 @@ DExpression returns DExpression :
 @Override 
 DmxPrimaryExpression returns DExpression:
 	DmxLiteralExpression |
-	DmxSelfExpression |
 	DmxParenthesizedExpression |
 	DmxFunctionCall |
 	DmxContextReference |

@@ -77,11 +77,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DmxPredicateWithCorrelationVariable"
       eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression ../../com.mimacom.ddd.dm.base/model/base.ecore#//INavigableMemberContainer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="correlationVariable" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DContext"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="correlationVariable" eType="#//DmxCorrelationVariable"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="predicate" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DmxCorrelationVariable" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember"/>
   <eClassifiers xsi:type="ecore:EClass" name="DmxMemberNavigation" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="member" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="precedingNavigationSegment"
@@ -156,11 +157,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DType"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DmxSelfExpression" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DmxReturnExpression" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DmxRaiseExpression" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"

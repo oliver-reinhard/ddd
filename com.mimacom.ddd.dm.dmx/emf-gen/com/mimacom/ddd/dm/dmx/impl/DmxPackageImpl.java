@@ -15,6 +15,7 @@ import com.mimacom.ddd.dm.dmx.DmxCallArguments;
 import com.mimacom.ddd.dm.dmx.DmxCastExpression;
 import com.mimacom.ddd.dm.dmx.DmxConstructorCall;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
+import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxDateLiteral;
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxFactory;
@@ -30,8 +31,6 @@ import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxRaiseExpression;
-import com.mimacom.ddd.dm.dmx.DmxReturnExpression;
-import com.mimacom.ddd.dm.dmx.DmxSelfExpression;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
 import com.mimacom.ddd.dm.dmx.DmxStringLiteral;
 import com.mimacom.ddd.dm.dmx.DmxTest;
@@ -124,6 +123,13 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass dmxCorrelationVariableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass dmxMemberNavigationEClass = null;
 
 	/**
@@ -174,20 +180,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	private EClass dmxCastExpressionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dmxSelfExpressionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dmxReturnExpressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -726,6 +718,17 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
+	public EClass getDmxCorrelationVariable()
+	{
+		return dmxCorrelationVariableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDmxMemberNavigation()
 	{
 		return dmxMemberNavigationEClass;
@@ -1026,39 +1029,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	public EReference getDmxCastExpression_Type()
 	{
 		return (EReference)dmxCastExpressionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDmxSelfExpression()
-	{
-		return dmxSelfExpressionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDmxReturnExpression()
-	{
-		return dmxReturnExpressionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDmxReturnExpression_Expression()
-	{
-		return (EReference)dmxReturnExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1454,6 +1424,8 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		createEReference(dmxPredicateWithCorrelationVariableEClass, DMX_PREDICATE_WITH_CORRELATION_VARIABLE__CORRELATION_VARIABLE);
 		createEReference(dmxPredicateWithCorrelationVariableEClass, DMX_PREDICATE_WITH_CORRELATION_VARIABLE__PREDICATE);
 
+		dmxCorrelationVariableEClass = createEClass(DMX_CORRELATION_VARIABLE);
+
 		dmxMemberNavigationEClass = createEClass(DMX_MEMBER_NAVIGATION);
 		createEReference(dmxMemberNavigationEClass, DMX_MEMBER_NAVIGATION__MEMBER);
 		createEReference(dmxMemberNavigationEClass, DMX_MEMBER_NAVIGATION__PRECEDING_NAVIGATION_SEGMENT);
@@ -1489,11 +1461,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		dmxCastExpressionEClass = createEClass(DMX_CAST_EXPRESSION);
 		createEReference(dmxCastExpressionEClass, DMX_CAST_EXPRESSION__TARGET);
 		createEReference(dmxCastExpressionEClass, DMX_CAST_EXPRESSION__TYPE);
-
-		dmxSelfExpressionEClass = createEClass(DMX_SELF_EXPRESSION);
-
-		dmxReturnExpressionEClass = createEClass(DMX_RETURN_EXPRESSION);
-		createEReference(dmxReturnExpressionEClass, DMX_RETURN_EXPRESSION__EXPRESSION);
 
 		dmxRaiseExpressionEClass = createEClass(DMX_RAISE_EXPRESSION);
 		createEReference(dmxRaiseExpressionEClass, DMX_RAISE_EXPRESSION__EXPRESSION);
@@ -1577,6 +1544,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		dmxAssignmentEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxPredicateWithCorrelationVariableEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxPredicateWithCorrelationVariableEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
+		dmxCorrelationVariableEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
 		dmxMemberNavigationEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxFunctionCallEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxConstructorCallEClass.getESuperTypes().add(theBasePackage.getDExpression());
@@ -1584,8 +1552,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		dmxInstanceOfExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxUnaryOperationEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxCastExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dmxSelfExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dmxReturnExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxRaiseExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxStaticReferenceEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxContextReferenceEClass.getESuperTypes().add(theBasePackage.getDExpression());
@@ -1643,8 +1609,10 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		initEReference(getDmxAssignment_Value(), theBasePackage.getDExpression(), null, "value", null, 0, 1, DmxAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dmxPredicateWithCorrelationVariableEClass, DmxPredicateWithCorrelationVariable.class, "DmxPredicateWithCorrelationVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDmxPredicateWithCorrelationVariable_CorrelationVariable(), theBasePackage.getDContext(), null, "correlationVariable", null, 0, 1, DmxPredicateWithCorrelationVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDmxPredicateWithCorrelationVariable_CorrelationVariable(), this.getDmxCorrelationVariable(), null, "correlationVariable", null, 0, 1, DmxPredicateWithCorrelationVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDmxPredicateWithCorrelationVariable_Predicate(), theBasePackage.getDExpression(), null, "predicate", null, 0, 1, DmxPredicateWithCorrelationVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dmxCorrelationVariableEClass, DmxCorrelationVariable.class, "DmxCorrelationVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dmxMemberNavigationEClass, DmxMemberNavigation.class, "DmxMemberNavigation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDmxMemberNavigation_Member(), theBasePackage.getDNavigableMember(), null, "member", null, 0, 1, DmxMemberNavigation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1681,11 +1649,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		initEClass(dmxCastExpressionEClass, DmxCastExpression.class, "DmxCastExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDmxCastExpression_Target(), theBasePackage.getDExpression(), null, "target", null, 0, 1, DmxCastExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDmxCastExpression_Type(), theBasePackage.getDType(), null, "type", null, 0, 1, DmxCastExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dmxSelfExpressionEClass, DmxSelfExpression.class, "DmxSelfExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(dmxReturnExpressionEClass, DmxReturnExpression.class, "DmxReturnExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDmxReturnExpression_Expression(), theBasePackage.getDExpression(), null, "expression", null, 0, 1, DmxReturnExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dmxRaiseExpressionEClass, DmxRaiseExpression.class, "DmxRaiseExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDmxRaiseExpression_Expression(), theBasePackage.getDExpression(), null, "expression", null, 0, 1, DmxRaiseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

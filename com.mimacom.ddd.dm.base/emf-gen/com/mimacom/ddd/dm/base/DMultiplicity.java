@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.DMultiplicity#getMinOccurs <em>Min Occurs</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DMultiplicity#getMaxOccurs <em>Max Occurs</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DMultiplicity#getShorthand <em>Shorthand</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.base.BasePackage#getDMultiplicity()
@@ -66,5 +67,30 @@ public interface DMultiplicity extends EObject
 	 * @generated
 	 */
 	void setMaxOccurs(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Shorthand</b></em>' attribute.
+	 * The literals are from the enumeration {@link com.mimacom.ddd.dm.base.DMultiplicityShorthand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Shorthand</em>' attribute.
+	 * @see com.mimacom.ddd.dm.base.DMultiplicityShorthand
+	 * @see #setShorthand(DMultiplicityShorthand)
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getDMultiplicity_Shorthand()
+	 * @model
+	 * @generated
+	 */
+	DMultiplicityShorthand getShorthand();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.DMultiplicity#getShorthand <em>Shorthand</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Shorthand</em>' attribute.
+	 * @see com.mimacom.ddd.dm.base.DMultiplicityShorthand
+	 * @see #getShorthand()
+	 * @generated
+	 */
+	void setShorthand(DMultiplicityShorthand value);
 
 } // DMultiplicity

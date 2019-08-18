@@ -1,6 +1,5 @@
 package com.mimacom.ddd.dm.dmx.typecomputer;
 
-import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -20,10 +19,10 @@ import com.mimacom.ddd.dm.dmx.DmxBaseType;
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation;
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperator;
 import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral;
-import com.mimacom.ddd.dm.dmx.DmxCallArguments;
 import com.mimacom.ddd.dm.dmx.DmxCastExpression;
 import com.mimacom.ddd.dm.dmx.DmxConstructorCall;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
+import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor;
@@ -34,8 +33,6 @@ import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxRaiseExpression;
-import com.mimacom.ddd.dm.dmx.DmxReturnExpression;
-import com.mimacom.ddd.dm.dmx.DmxSelfExpression;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
 import com.mimacom.ddd.dm.dmx.DmxStringLiteral;
 import com.mimacom.ddd.dm.dmx.DmxUnaryOperation;
@@ -110,53 +107,50 @@ public class DmxTypeComputer {
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxContextReference expr) {
     final DNamedElement target = expr.getTarget();
     if ((target instanceof DContext)) {
-      DType _type = ((DContext)target).getType();
-      boolean _tripleNotEquals = (_type != null);
-      if (_tripleNotEquals) {
-        return this.getTypeDescriptor(((DContext)target).getType(), ((DContext)target).isCollection());
-      } else {
-        EObject prev = target;
-        EObject container = ((DContext)target).eContainer();
-        boolean isCorrelationVariable = this.isCorrelationVariable(((DContext)target), container);
-        while ((!((container == null) || ((container instanceof DmxCallArguments) && ((DmxCallArguments) container).getArguments().contains(prev))))) {
-          {
-            prev = container;
-            container = container.eContainer();
-            isCorrelationVariable = (isCorrelationVariable || this.isCorrelationVariable(((DContext)target), container));
-          }
-        }
-        if ((container instanceof DmxCallArguments)) {
-          container = ((DmxCallArguments)container).eContainer();
-          if ((container instanceof DmxMemberNavigation)) {
-            final AbstractDmxTypeDescriptor<?> desc = this.typeFor(((DmxMemberNavigation)container).getPrecedingNavigationSegment());
-            if (isCorrelationVariable) {
-              desc.collection = false;
-            }
-            return desc;
-          }
-        }
-        return DmxTypeComputer.UNDEFINED;
-      }
+      return this.getTypeDescriptor(((DContext)target).getType(), ((DContext)target).isCollection());
     } else {
-      if ((target instanceof DAggregate)) {
-        return this.getTypeDescriptor(target, false);
+      if ((target instanceof DmxCorrelationVariable)) {
+        final AbstractDmxTypeDescriptor<?> desc = this.typeFor(target);
+        return desc;
       } else {
-        if ((target instanceof DNotification)) {
+        if ((target instanceof DAggregate)) {
           return this.getTypeDescriptor(target, false);
         } else {
-          if ((target instanceof DNavigableMember)) {
-            return this.getTypeDescriptor(((DNavigableMember)target).getType(), expr.isAll());
+          if ((target instanceof DNotification)) {
+            return this.getTypeDescriptor(target, false);
           } else {
-            return this.getTypeDescriptor(target, expr.isAll());
+            if ((target instanceof DNavigableMember)) {
+              return this.getTypeDescriptor(((DNavigableMember)target).getType(), expr.isAll());
+            } else {
+              return this.getTypeDescriptor(target, expr.isAll());
+            }
           }
         }
       }
     }
   }
   
-  private boolean isCorrelationVariable(final DContext target, final EObject container) {
-    return ((container instanceof DmxPredicateWithCorrelationVariable) && 
-      Objects.equal(((DmxPredicateWithCorrelationVariable) container).getCorrelationVariable(), target));
+  protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxCorrelationVariable target) {
+    EObject container = target.eContainer();
+    while ((container != null)) {
+      {
+        if ((container instanceof DmxMemberNavigation)) {
+          DNavigableMember _member = ((DmxMemberNavigation)container).getMember();
+          if ((_member instanceof DmxFilter)) {
+            final DExpression preceding = ((DmxMemberNavigation)container).getPrecedingNavigationSegment();
+            final AbstractDmxTypeDescriptor<?> desc = this.typeFor(preceding);
+            desc.collection = false;
+            return desc;
+          }
+        } else {
+          if ((container instanceof DType)) {
+            return this.getTypeDescriptor(container, false);
+          }
+        }
+        container = container.eContainer();
+      }
+    }
+    return DmxTypeComputer.UNDEFINED;
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxStaticReference expr) {
@@ -266,20 +260,6 @@ public class DmxTypeComputer {
     return this.getTypeDescriptor(expr.getType(), false);
   }
   
-  protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxSelfExpression expr) {
-    DmxUndefinedDescriptor _xblockexpression = null;
-    {
-      final EObject container = expr.eContainer();
-      if ((container instanceof DmxMemberNavigation)) {
-        if ((Objects.equal(((DmxMemberNavigation)container).getPrecedingNavigationSegment(), expr) && (((DmxMemberNavigation)container).getMember() != null))) {
-          return this.typeFor(((DExpression)container));
-        }
-      }
-      _xblockexpression = DmxTypeComputer.UNDEFINED;
-    }
-    return _xblockexpression;
-  }
-  
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxInstanceOfExpression expr) {
     throw new UnsupportedOperationException();
   }
@@ -313,10 +293,6 @@ public class DmxTypeComputer {
       _xblockexpression = DmxTypeComputer.UNDEFINED;
     }
     return _xblockexpression;
-  }
-  
-  protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxReturnExpression expr) {
-    throw new UnsupportedOperationException();
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxRaiseExpression expr) {
@@ -477,7 +453,7 @@ public class DmxTypeComputer {
     return _switchResult;
   }
   
-  public AbstractDmxTypeDescriptor<?> typeFor(final DExpression expr) {
+  public AbstractDmxTypeDescriptor<?> typeFor(final EObject expr) {
     if (expr instanceof DmxBinaryOperation) {
       return _typeFor((DmxBinaryOperation)expr);
     } else if (expr instanceof DmxBooleanLiteral) {
@@ -488,6 +464,8 @@ public class DmxTypeComputer {
       return _typeFor((DmxConstructorCall)expr);
     } else if (expr instanceof DmxContextReference) {
       return _typeFor((DmxContextReference)expr);
+    } else if (expr instanceof DmxCorrelationVariable) {
+      return _typeFor((DmxCorrelationVariable)expr);
     } else if (expr instanceof DmxDecimalLiteral) {
       return _typeFor((DmxDecimalLiteral)expr);
     } else if (expr instanceof DmxFunctionCall) {
@@ -504,10 +482,6 @@ public class DmxTypeComputer {
       return _typeFor((DmxPredicateWithCorrelationVariable)expr);
     } else if (expr instanceof DmxRaiseExpression) {
       return _typeFor((DmxRaiseExpression)expr);
-    } else if (expr instanceof DmxReturnExpression) {
-      return _typeFor((DmxReturnExpression)expr);
-    } else if (expr instanceof DmxSelfExpression) {
-      return _typeFor((DmxSelfExpression)expr);
     } else if (expr instanceof DmxStaticReference) {
       return _typeFor((DmxStaticReference)expr);
     } else if (expr instanceof DmxStringLiteral) {

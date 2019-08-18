@@ -397,6 +397,15 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case BasePackage.DCONTEXT:
+			{
+				DContext dContext = (DContext)theEObject;
+				T result = caseDContext(dContext);
+				if (result == null) result = caseDNavigableMember(dContext);
+				if (result == null) result = caseDNamedElement(dContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case BasePackage.DDOMAIN_EVENT:
 			{
 				DDomainEvent dDomainEvent = (DDomainEvent)theEObject;
@@ -413,15 +422,6 @@ public class BaseSwitch<T> extends Switch<T>
 				DCaseConjunction dCaseConjunction = (DCaseConjunction)theEObject;
 				T result = caseDCaseConjunction(dCaseConjunction);
 				if (result == null) result = caseDNamedElement(dCaseConjunction);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BasePackage.DCONTEXT:
-			{
-				DContext dContext = (DContext)theEObject;
-				T result = caseDContext(dContext);
-				if (result == null) result = caseDNavigableMember(dContext);
-				if (result == null) result = caseDNamedElement(dContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1023,6 +1023,22 @@ public class BaseSwitch<T> extends Switch<T>
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DContext</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DContext</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDContext(DContext object)
+	{
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>DDomain Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1050,22 +1066,6 @@ public class BaseSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDCaseConjunction(DCaseConjunction object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DContext</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DContext</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDContext(DContext object)
 	{
 		return null;
 	}

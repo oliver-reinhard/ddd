@@ -134,6 +134,11 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 				return createDmxPredicateWithCorrelationVariableAdapter();
 			}
 			@Override
+			public Adapter caseDmxCorrelationVariable(DmxCorrelationVariable object)
+			{
+				return createDmxCorrelationVariableAdapter();
+			}
+			@Override
 			public Adapter caseDmxMemberNavigation(DmxMemberNavigation object)
 			{
 				return createDmxMemberNavigationAdapter();
@@ -172,16 +177,6 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseDmxCastExpression(DmxCastExpression object)
 			{
 				return createDmxCastExpressionAdapter();
-			}
-			@Override
-			public Adapter caseDmxSelfExpression(DmxSelfExpression object)
-			{
-				return createDmxSelfExpressionAdapter();
-			}
-			@Override
-			public Adapter caseDmxReturnExpression(DmxReturnExpression object)
-			{
-				return createDmxReturnExpressionAdapter();
 			}
 			@Override
 			public Adapter caseDmxRaiseExpression(DmxRaiseExpression object)
@@ -456,6 +451,21 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxCorrelationVariable <em>Correlation Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dmx.DmxCorrelationVariable
+	 * @generated
+	 */
+	public Adapter createDmxCorrelationVariableAdapter()
+	{
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxMemberNavigation <em>Member Navigation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -571,36 +581,6 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDmxCastExpressionAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxSelfExpression <em>Self Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DmxSelfExpression
-	 * @generated
-	 */
-	public Adapter createDmxSelfExpressionAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxReturnExpression <em>Return Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DmxReturnExpression
-	 * @generated
-	 */
-	public Adapter createDmxReturnExpressionAdapter()
 	{
 		return null;
 	}

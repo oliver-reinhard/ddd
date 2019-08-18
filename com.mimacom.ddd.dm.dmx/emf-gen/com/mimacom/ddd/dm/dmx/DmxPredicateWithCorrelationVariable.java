@@ -2,7 +2,6 @@
  */
 package com.mimacom.ddd.dm.dmx;
 
-import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
@@ -30,12 +29,12 @@ public interface DmxPredicateWithCorrelationVariable extends DExpression, INavig
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Correlation Variable</em>' containment reference.
-	 * @see #setCorrelationVariable(DContext)
+	 * @see #setCorrelationVariable(DmxCorrelationVariable)
 	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxPredicateWithCorrelationVariable_CorrelationVariable()
 	 * @model containment="true"
 	 * @generated
 	 */
-	DContext getCorrelationVariable();
+	DmxCorrelationVariable getCorrelationVariable();
 
 	/**
 	 * Sets the value of the '{@link com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable#getCorrelationVariable <em>Correlation Variable</em>}' containment reference.
@@ -45,7 +44,7 @@ public interface DmxPredicateWithCorrelationVariable extends DExpression, INavig
 	 * @see #getCorrelationVariable()
 	 * @generated
 	 */
-	void setCorrelationVariable(DContext value);
+	void setCorrelationVariable(DmxCorrelationVariable value);
 
 	/**
 	 * Returns the value of the '<em><b>Predicate</b></em>' containment reference.

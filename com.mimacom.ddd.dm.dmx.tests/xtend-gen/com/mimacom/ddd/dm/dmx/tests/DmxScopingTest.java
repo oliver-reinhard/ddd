@@ -16,7 +16,6 @@ import com.mimacom.ddd.dm.dmx.DmxBinaryOperation;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
-import com.mimacom.ddd.dm.dmx.DmxSelfExpression;
 import com.mimacom.ddd.dm.dmx.tests.DmxInjectorProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -308,38 +307,42 @@ public class DmxScopingTest {
     }
   }
   
-  protected void checkExpression3(final DExpression e, final String expectedScopeStr) {
-    Assert.assertTrue((e instanceof DmxBinaryOperation));
-    final DExpression left = ((DmxBinaryOperation) e).getLeftOperand();
-    Assert.assertTrue((left instanceof DmxMemberNavigation));
-    final DmxMemberNavigation member = ((DmxMemberNavigation) left);
-    final Procedure1<DmxMemberNavigation> _function = (DmxMemberNavigation it) -> {
-      this.assertScope(it, this.epackage.getDmxMemberNavigation_Member(), expectedScopeStr);
-    };
-    ObjectExtensions.<DmxMemberNavigation>operator_doubleArrow(member, _function);
-    DExpression _precedingNavigationSegment = member.getPrecedingNavigationSegment();
-    Assert.assertTrue((_precedingNavigationSegment instanceof DmxSelfExpression));
+  protected DmxMemberNavigation checkExpression3(final DExpression e, final String expectedScopeStr) {
+    DmxMemberNavigation _xblockexpression = null;
+    {
+      Assert.assertTrue((e instanceof DmxBinaryOperation));
+      final DExpression left = ((DmxBinaryOperation) e).getLeftOperand();
+      Assert.assertTrue((left instanceof DmxMemberNavigation));
+      final DmxMemberNavigation member = ((DmxMemberNavigation) left);
+      final Procedure1<DmxMemberNavigation> _function = (DmxMemberNavigation it) -> {
+        this.assertScope(it, this.epackage.getDmxMemberNavigation_Member(), expectedScopeStr);
+      };
+      _xblockexpression = ObjectExtensions.<DmxMemberNavigation>operator_doubleArrow(member, _function);
+    }
+    return _xblockexpression;
   }
   
-  protected void checkExpression4(final DExpression e, final String expectedScopeStr1, final String expectedScopeStr2) {
-    Assert.assertTrue((e instanceof DmxBinaryOperation));
-    final DExpression left = ((DmxBinaryOperation) e).getLeftOperand();
-    Assert.assertTrue((left instanceof DmxMemberNavigation));
-    final DmxMemberNavigation member1 = ((DmxMemberNavigation) left);
-    final Procedure1<DmxMemberNavigation> _function = (DmxMemberNavigation it) -> {
-      this.assertScope(it, this.epackage.getDmxMemberNavigation_Member(), expectedScopeStr1);
-    };
-    ObjectExtensions.<DmxMemberNavigation>operator_doubleArrow(member1, _function);
-    DExpression _precedingNavigationSegment = member1.getPrecedingNavigationSegment();
-    Assert.assertTrue((_precedingNavigationSegment instanceof DmxMemberNavigation));
-    DExpression _precedingNavigationSegment_1 = member1.getPrecedingNavigationSegment();
-    final DmxMemberNavigation member2 = ((DmxMemberNavigation) _precedingNavigationSegment_1);
-    final Procedure1<DmxMemberNavigation> _function_1 = (DmxMemberNavigation it) -> {
-      this.assertScope(it, this.epackage.getDmxMemberNavigation_Member(), expectedScopeStr2);
-    };
-    ObjectExtensions.<DmxMemberNavigation>operator_doubleArrow(member2, _function_1);
-    DExpression _precedingNavigationSegment_2 = member2.getPrecedingNavigationSegment();
-    Assert.assertTrue((_precedingNavigationSegment_2 instanceof DmxSelfExpression));
+  protected DmxMemberNavigation checkExpression4(final DExpression e, final String expectedScopeStr1, final String expectedScopeStr2) {
+    DmxMemberNavigation _xblockexpression = null;
+    {
+      Assert.assertTrue((e instanceof DmxBinaryOperation));
+      final DExpression left = ((DmxBinaryOperation) e).getLeftOperand();
+      Assert.assertTrue((left instanceof DmxMemberNavigation));
+      final DmxMemberNavigation member1 = ((DmxMemberNavigation) left);
+      final Procedure1<DmxMemberNavigation> _function = (DmxMemberNavigation it) -> {
+        this.assertScope(it, this.epackage.getDmxMemberNavigation_Member(), expectedScopeStr1);
+      };
+      ObjectExtensions.<DmxMemberNavigation>operator_doubleArrow(member1, _function);
+      DExpression _precedingNavigationSegment = member1.getPrecedingNavigationSegment();
+      Assert.assertTrue((_precedingNavigationSegment instanceof DmxMemberNavigation));
+      DExpression _precedingNavigationSegment_1 = member1.getPrecedingNavigationSegment();
+      final DmxMemberNavigation member2 = ((DmxMemberNavigation) _precedingNavigationSegment_1);
+      final Procedure1<DmxMemberNavigation> _function_1 = (DmxMemberNavigation it) -> {
+        this.assertScope(it, this.epackage.getDmxMemberNavigation_Member(), expectedScopeStr2);
+      };
+      _xblockexpression = ObjectExtensions.<DmxMemberNavigation>operator_doubleArrow(member2, _function_1);
+    }
+    return _xblockexpression;
   }
   
   private void assertScope(final EObject context, final EReference reference, final CharSequence expected) {

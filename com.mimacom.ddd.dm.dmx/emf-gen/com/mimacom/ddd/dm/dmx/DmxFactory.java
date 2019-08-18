@@ -104,6 +104,15 @@ public interface DmxFactory extends EFactory
 	DmxPredicateWithCorrelationVariable createDmxPredicateWithCorrelationVariable();
 
 	/**
+	 * Returns a new object of class '<em>Correlation Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Correlation Variable</em>'.
+	 * @generated
+	 */
+	DmxCorrelationVariable createDmxCorrelationVariable();
+
+	/**
 	 * Returns a new object of class '<em>Member Navigation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -174,24 +183,6 @@ public interface DmxFactory extends EFactory
 	 * @generated
 	 */
 	DmxCastExpression createDmxCastExpression();
-
-	/**
-	 * Returns a new object of class '<em>Self Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Self Expression</em>'.
-	 * @generated
-	 */
-	DmxSelfExpression createDmxSelfExpression();
-
-	/**
-	 * Returns a new object of class '<em>Return Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Return Expression</em>'.
-	 * @generated
-	 */
-	DmxReturnExpression createDmxReturnExpression();
 
 	/**
 	 * Returns a new object of class '<em>Raise Expression</em>'.

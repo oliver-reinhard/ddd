@@ -11,6 +11,7 @@ import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dmx.DmxAssignment;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
+import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
@@ -138,7 +139,7 @@ public class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
   public EStructuralFeatureNode _createChildren(final IOutlineNode parentNode, final DmxPredicateWithCorrelationVariable pred) {
     EStructuralFeatureNode _xblockexpression = null;
     {
-      DContext _correlationVariable = pred.getCorrelationVariable();
+      DmxCorrelationVariable _correlationVariable = pred.getCorrelationVariable();
       boolean _tripleNotEquals = (_correlationVariable != null);
       if (_tripleNotEquals) {
         this.createEStructuralFeatureNode(parentNode, pred, DmxOutlineTreeProvider.DMX.getDmxPredicateWithCorrelationVariable_CorrelationVariable(), DmxOutlineTreeProvider.FEATURE_IMAGE, DmxOutlineTreeProvider.DMX.getDmxPredicateWithCorrelationVariable_CorrelationVariable().getName(), false);

@@ -9,9 +9,8 @@ import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation
-import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
-import com.mimacom.ddd.dm.dmx.DmxSelfExpression
 import com.mimacom.ddd.dm.dmx.DmxContextReference
+import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DmxPackage
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
@@ -182,7 +181,7 @@ class DmxScopingTest {
 		assertTrue(left instanceof DmxMemberNavigation)
 		val member = left as DmxMemberNavigation
 		member => [assertScope(epackage.dmxMemberNavigation_Member, expectedScopeStr)]
-		assertTrue(member.precedingNavigationSegment instanceof DmxSelfExpression)
+//		assertTrue(member.precedingNavigationSegment instanceof DmxSelfExpression)
 	}
 	
 	protected def  checkExpression4(DExpression e, String expectedScopeStr1, String expectedScopeStr2) {
@@ -194,7 +193,7 @@ class DmxScopingTest {
 		assertTrue(member1.precedingNavigationSegment instanceof DmxMemberNavigation)
 		val member2 = member1.precedingNavigationSegment as DmxMemberNavigation
 		member2 => [assertScope(epackage.dmxMemberNavigation_Member, expectedScopeStr2)]
-		assertTrue(member2.precedingNavigationSegment instanceof DmxSelfExpression)
+//		assertTrue(member2.precedingNavigationSegment instanceof DmxSelfExpression)
 	}
 	
 	def private assertScope(EObject context, EReference reference, CharSequence expected) {

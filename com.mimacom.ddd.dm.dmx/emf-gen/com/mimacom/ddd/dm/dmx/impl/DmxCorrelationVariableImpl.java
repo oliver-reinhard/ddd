@@ -2,28 +2,28 @@
  */
 package com.mimacom.ddd.dm.dmx.impl;
 
-import com.mimacom.ddd.dm.base.impl.DExpressionImpl;
+import com.mimacom.ddd.dm.base.impl.DNavigableMemberImplCustom;
 
+import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
-import com.mimacom.ddd.dm.dmx.DmxSelfExpression;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Self Expression</b></em>'.
+ * An implementation of the model object '<em><b>Correlation Variable</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class DmxSelfExpressionImpl extends DExpressionImpl implements DmxSelfExpression
+public class DmxCorrelationVariableImpl extends DNavigableMemberImplCustom implements DmxCorrelationVariable
 {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DmxSelfExpressionImpl()
+	protected DmxCorrelationVariableImpl()
 	{
 		super();
 	}
@@ -36,7 +36,7 @@ public class DmxSelfExpressionImpl extends DExpressionImpl implements DmxSelfExp
 	@Override
 	protected EClass eStaticClass()
 	{
-		return DmxPackage.Literals.DMX_SELF_EXPRESSION;
+		return DmxPackage.Literals.DMX_CORRELATION_VARIABLE;
 	}
 
-} //DmxSelfExpressionImpl
+} //DmxCorrelationVariableImpl

@@ -4,6 +4,7 @@ package com.mimacom.ddd.dm.base.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DMultiplicity;
+import com.mimacom.ddd.dm.base.DMultiplicityShorthand;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DMultiplicityImpl#getMinOccurs <em>Min Occurs</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DMultiplicityImpl#getMaxOccurs <em>Max Occurs</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DMultiplicityImpl#getShorthand <em>Shorthand</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,6 +69,26 @@ public class DMultiplicityImpl extends MinimalEObjectImpl.Container implements D
 	 * @ordered
 	 */
 	protected int maxOccurs = MAX_OCCURS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getShorthand() <em>Shorthand</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getShorthand()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final DMultiplicityShorthand SHORTHAND_EDEFAULT = DMultiplicityShorthand.NONE;
+
+	/**
+	 * The cached value of the '{@link #getShorthand() <em>Shorthand</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getShorthand()
+	 * @generated
+	 * @ordered
+	 */
+	protected DMultiplicityShorthand shorthand = SHORTHAND_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,6 +167,31 @@ public class DMultiplicityImpl extends MinimalEObjectImpl.Container implements D
 	 * @generated
 	 */
 	@Override
+	public DMultiplicityShorthand getShorthand()
+	{
+		return shorthand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setShorthand(DMultiplicityShorthand newShorthand)
+	{
+		DMultiplicityShorthand oldShorthand = shorthand;
+		shorthand = newShorthand == null ? SHORTHAND_EDEFAULT : newShorthand;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DMULTIPLICITY__SHORTHAND, oldShorthand, shorthand));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
 		switch (featureID)
@@ -153,6 +200,8 @@ public class DMultiplicityImpl extends MinimalEObjectImpl.Container implements D
 				return getMinOccurs();
 			case BasePackage.DMULTIPLICITY__MAX_OCCURS:
 				return getMaxOccurs();
+			case BasePackage.DMULTIPLICITY__SHORTHAND:
+				return getShorthand();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -172,6 +221,9 @@ public class DMultiplicityImpl extends MinimalEObjectImpl.Container implements D
 				return;
 			case BasePackage.DMULTIPLICITY__MAX_OCCURS:
 				setMaxOccurs((Integer)newValue);
+				return;
+			case BasePackage.DMULTIPLICITY__SHORTHAND:
+				setShorthand((DMultiplicityShorthand)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -193,6 +245,9 @@ public class DMultiplicityImpl extends MinimalEObjectImpl.Container implements D
 			case BasePackage.DMULTIPLICITY__MAX_OCCURS:
 				setMaxOccurs(MAX_OCCURS_EDEFAULT);
 				return;
+			case BasePackage.DMULTIPLICITY__SHORTHAND:
+				setShorthand(SHORTHAND_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -211,6 +266,8 @@ public class DMultiplicityImpl extends MinimalEObjectImpl.Container implements D
 				return minOccurs != MIN_OCCURS_EDEFAULT;
 			case BasePackage.DMULTIPLICITY__MAX_OCCURS:
 				return maxOccurs != MAX_OCCURS_EDEFAULT;
+			case BasePackage.DMULTIPLICITY__SHORTHAND:
+				return shorthand != SHORTHAND_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -230,6 +287,8 @@ public class DMultiplicityImpl extends MinimalEObjectImpl.Container implements D
 		result.append(minOccurs);
 		result.append(", maxOccurs: ");
 		result.append(maxOccurs);
+		result.append(", shorthand: ");
+		result.append(shorthand);
 		result.append(')');
 		return result.toString();
 	}

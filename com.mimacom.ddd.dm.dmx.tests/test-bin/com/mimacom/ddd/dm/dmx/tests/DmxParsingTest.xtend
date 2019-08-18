@@ -18,8 +18,6 @@ import com.mimacom.ddd.dm.dmx.impl.DmxFunctionCallImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxMemberNavigationImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxNaturalLiteralImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxRaiseExpressionImpl
-import com.mimacom.ddd.dm.dmx.impl.DmxReturnExpressionImpl
-import com.mimacom.ddd.dm.dmx.impl.DmxSelfExpressionImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxStringLiteralImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxUndefinedLiteralImpl
 import org.eclipse.xtext.testing.InjectWith
@@ -90,14 +88,6 @@ class DmxParsingTest {
 		Assertions.assertTrue(errors.isEmpty, '''Primaries errors: «errors.join("; ")»''')
 		val tests = result.tests
 		
-		val e0 = tests.get(0).expr
-		assertEquals(DmxSelfExpressionImpl, e0.class)
-		val e1 = tests.get(1).expr
-		assertEquals(DmxReturnExpressionImpl, e1.class)
-		assertEquals(null, (e1 as DmxReturnExpressionImpl).expression)
-		val e2 = tests.get(2).expr
-		assertEquals(DmxReturnExpressionImpl, e2.class)
-		assertEquals(DmxNaturalLiteralImpl, (e2 as DmxReturnExpressionImpl).expression.class)
 		val e3 = tests.get(3).expr
 		assertEquals(DmxRaiseExpressionImpl, e3.class)
 		assertEquals(DmxStringLiteralImpl, (e3 as DmxRaiseExpressionImpl).expression.class)
@@ -153,7 +143,7 @@ class DmxParsingTest {
 		assertEquals(DmxMemberNavigationImpl, e0.class)
 		// actual value of 'e0.member' cross reference is a proxy that gets resolved upon access => Exception
 		assertTrue((e0 as DmxMemberNavigationImpl).basicGetMember.eIsProxy)
-		assertEquals(DmxSelfExpressionImpl, (e0 as DmxMemberNavigationImpl).precedingNavigationSegment.class)
+//		assertEquals(DmxSelfExpressionImpl, (e0 as DmxMemberNavigationImpl).precedingNavigationSegment.class)
 		
 		val e1 = tests.get(1).expr
 		// DMemberFeatureCall -- memberContainer --> DMemberFeatureCall -- memberContainer --> DSelfExpression
@@ -163,7 +153,7 @@ class DmxParsingTest {
 		assertEquals(DmxMemberNavigationImpl, e1_1.precedingNavigationSegment.class)
 		val e1_2 = e1_1.precedingNavigationSegment as DmxMemberNavigationImpl
 		assertTrue(e1_2.basicGetMember.eIsProxy)
-		assertEquals(DmxSelfExpressionImpl, e1_2.precedingNavigationSegment.class)
+//		assertEquals(DmxSelfExpressionImpl, e1_2.precedingNavigationSegment.class)
 		
 		val e2 = tests.get(2).expr
 		// DMemberFeatureCall -- memberContainer --> DContextReference
@@ -215,7 +205,7 @@ class DmxParsingTest {
 		val e1 = tests.get(1).expr
 		assertEquals(DmxAssignmentImpl, e1.class)
 		assertTrue((e1 as DmxAssignmentImpl).basicGetAssignToMember.eIsProxy)
-		assertEquals(DmxSelfExpressionImpl, (e1 as DmxAssignmentImpl).precedingNavigationSegment.class)
+//		assertEquals(DmxSelfExpressionImpl, (e1 as DmxAssignmentImpl).precedingNavigationSegment.class)
 		assertEquals(DmxNaturalLiteralImpl, (e1 as DmxAssignmentImpl).value.class)
 		
 		val e2 = tests.get(2).expr

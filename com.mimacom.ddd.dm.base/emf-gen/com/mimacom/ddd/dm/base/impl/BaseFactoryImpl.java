@@ -81,9 +81,9 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 			case BasePackage.DATTRIBUTE: return createDAttribute();
 			case BasePackage.DQUERY: return createDQuery();
 			case BasePackage.DQUERY_PARAMETER: return createDQueryParameter();
+			case BasePackage.DCONTEXT: return createDContext();
 			case BasePackage.DDOMAIN_EVENT: return createDDomainEvent();
 			case BasePackage.DCASE_CONJUNCTION: return createDCaseConjunction();
-			case BasePackage.DCONTEXT: return createDContext();
 			case BasePackage.DNOTIFICATION: return createDNotification();
 			case BasePackage.DMESSAGE: return createDMessage();
 			case BasePackage.DHUMAN_ACTOR_ROLE: return createDHumanActorRole();
@@ -107,6 +107,8 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 				return createDEntityOriginFromString(eDataType, initialValue);
 			case BasePackage.DASSOCIATION_KIND:
 				return createDAssociationKindFromString(eDataType, initialValue);
+			case BasePackage.DMULTIPLICITY_SHORTHAND:
+				return createDMultiplicityShorthandFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -126,6 +128,8 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 				return convertDEntityOriginToString(eDataType, instanceValue);
 			case BasePackage.DASSOCIATION_KIND:
 				return convertDAssociationKindToString(eDataType, instanceValue);
+			case BasePackage.DMULTIPLICITY_SHORTHAND:
+				return convertDMultiplicityShorthandToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -283,7 +287,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	@Override
 	public DMultiplicity createDMultiplicity()
 	{
-		DMultiplicityImpl dMultiplicity = new DMultiplicityImpl();
+		DMultiplicityImplCustom dMultiplicity = new DMultiplicityImplCustom();
 		return dMultiplicity;
 	}
 
@@ -329,6 +333,18 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * @generated
 	 */
 	@Override
+	public DContext createDContext()
+	{
+		DContextImpl dContext = new DContextImpl();
+		return dContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public DDomainEvent createDDomainEvent()
 	{
 		DDomainEventImpl dDomainEvent = new DDomainEventImpl();
@@ -345,18 +361,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		DCaseConjunctionImpl dCaseConjunction = new DCaseConjunctionImpl();
 		return dCaseConjunction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DContext createDContext()
-	{
-		DContextImpl dContext = new DContextImpl();
-		return dContext;
 	}
 
 	/**
@@ -447,6 +451,28 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * @generated
 	 */
 	public String convertDAssociationKindToString(EDataType eDataType, Object instanceValue)
+	{
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DMultiplicityShorthand createDMultiplicityShorthandFromString(EDataType eDataType, String initialValue)
+	{
+		DMultiplicityShorthand result = DMultiplicityShorthand.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDMultiplicityShorthandToString(EDataType eDataType, Object instanceValue)
 	{
 		return instanceValue == null ? null : instanceValue.toString();
 	}

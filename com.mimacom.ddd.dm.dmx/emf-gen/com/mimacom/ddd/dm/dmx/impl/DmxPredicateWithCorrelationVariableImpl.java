@@ -2,11 +2,11 @@
  */
 package com.mimacom.ddd.dm.dmx.impl;
 
-import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DExpression;
 
 import com.mimacom.ddd.dm.base.impl.DExpressionImpl;
 
+import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
 
@@ -42,7 +42,7 @@ public class DmxPredicateWithCorrelationVariableImpl extends DExpressionImpl imp
 	 * @generated
 	 * @ordered
 	 */
-	protected DContext correlationVariable;
+	protected DmxCorrelationVariable correlationVariable;
 
 	/**
 	 * The cached value of the '{@link #getPredicate() <em>Predicate</em>}' containment reference.
@@ -81,7 +81,7 @@ public class DmxPredicateWithCorrelationVariableImpl extends DExpressionImpl imp
 	 * @generated
 	 */
 	@Override
-	public DContext getCorrelationVariable()
+	public DmxCorrelationVariable getCorrelationVariable()
 	{
 		return correlationVariable;
 	}
@@ -91,9 +91,9 @@ public class DmxPredicateWithCorrelationVariableImpl extends DExpressionImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCorrelationVariable(DContext newCorrelationVariable, NotificationChain msgs)
+	public NotificationChain basicSetCorrelationVariable(DmxCorrelationVariable newCorrelationVariable, NotificationChain msgs)
 	{
-		DContext oldCorrelationVariable = correlationVariable;
+		DmxCorrelationVariable oldCorrelationVariable = correlationVariable;
 		correlationVariable = newCorrelationVariable;
 		if (eNotificationRequired())
 		{
@@ -109,7 +109,7 @@ public class DmxPredicateWithCorrelationVariableImpl extends DExpressionImpl imp
 	 * @generated
 	 */
 	@Override
-	public void setCorrelationVariable(DContext newCorrelationVariable)
+	public void setCorrelationVariable(DmxCorrelationVariable newCorrelationVariable)
 	{
 		if (newCorrelationVariable != correlationVariable)
 		{
@@ -222,7 +222,7 @@ public class DmxPredicateWithCorrelationVariableImpl extends DExpressionImpl imp
 		switch (featureID)
 		{
 			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__CORRELATION_VARIABLE:
-				setCorrelationVariable((DContext)newValue);
+				setCorrelationVariable((DmxCorrelationVariable)newValue);
 				return;
 			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__PREDICATE:
 				setPredicate((DExpression)newValue);
@@ -242,7 +242,7 @@ public class DmxPredicateWithCorrelationVariableImpl extends DExpressionImpl imp
 		switch (featureID)
 		{
 			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__CORRELATION_VARIABLE:
-				setCorrelationVariable((DContext)null);
+				setCorrelationVariable((DmxCorrelationVariable)null);
 				return;
 			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE__PREDICATE:
 				setPredicate((DExpression)null);

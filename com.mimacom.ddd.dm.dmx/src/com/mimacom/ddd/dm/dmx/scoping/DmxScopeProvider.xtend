@@ -13,6 +13,7 @@ import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.INavigableMemberContainer
 import com.mimacom.ddd.dm.dmx.DmxAssignment
+import com.mimacom.ddd.dm.dmx.DmxCallArguments
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DmxPackage
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable
@@ -27,8 +28,6 @@ import org.eclipse.emf.ecore.EReference
 import org.eclipse.emf.ecore.EcoreFactory
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
-import com.mimacom.ddd.dm.dmx.DmxCallArguments
-import com.mimacom.ddd.dm.dmx.DmxSelfExpression
 
 /**
  * This class contains custom scoping for expressions and {@link DComplexType} feature inheritance.
@@ -58,16 +57,9 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 			// of the preceding navigation segment:
 			if (context instanceof DmxMemberNavigation) {
 				val preceding = context.precedingNavigationSegment
-				if (preceding instanceof DmxSelfExpression) {
-				 	// Resort to classic scoping along the eContainer CONTAINMENT hiearchy:
-					val outer = getDefaultScopeForType(context, BASE.IStaticReferenceTarget)
-					val scope = getEContainersNavigableMembersScopes(context, outer)	
-					return scope
-				} else {
-					val typeDescriptor = preceding.typeFor
-					val scope = typeDescriptor.getNavigableMembersAndIteratorsScope(context, index)
-					return scope
-				}
+				val typeDescriptor = preceding.typeFor
+				val scope = typeDescriptor.getNavigableMembersAndIteratorsScope(context, index)
+				return scope
 			}
 
 		} else if (reference == DMX.dmxAssignment_AssignToMember) {

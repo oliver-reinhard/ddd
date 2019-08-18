@@ -490,7 +490,7 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 		return getDmxPredicateWithCorrelationVariableAccess().getRule();
 	}
 	
-	//DmxCorrelationVariable DContext:
+	//DmxCorrelationVariable:
 	//	name=ID;
 	public DmxGrammarAccess.DmxCorrelationVariableElements getDmxCorrelationVariableAccess() {
 		return gaDmx.getDmxCorrelationVariableAccess();
@@ -500,7 +500,7 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 		return getDmxCorrelationVariableAccess().getRule();
 	}
 	
-	////	(':' type=[DType])?;
+	////	(':' type=[DType])? => type is always NULL!
 	//DmxOrExpression DExpression:
 	//	DmxAndExpression (=> ({DmxBinaryOperation.leftOperand=current} operator=DmxOpOr) rightOperand=DmxAndExpression)*;
 	public DmxGrammarAccess.DmxOrExpressionElements getDmxOrExpressionAccess() {
@@ -698,8 +698,8 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxPrimaryExpression DExpression:
-	//	DmxLiteralExpression | DmxSelfExpression | DmxReturnExpression | DmxRaiseExpression | DmxParenthesizedExpression |
-	//	DmxFunctionCall | DmxConstructorCall | DmxStaticReference | DmxContextReference | DmxIfExpression;
+	//	DmxLiteralExpression | DmxParenthesizedExpression | DmxFunctionCall | DmxConstructorCall | DmxStaticReference |
+	//	DmxContextReference | DmxIfExpression;
 	public DmxGrammarAccess.DmxPrimaryExpressionElements getDmxPrimaryExpressionAccess() {
 		return gaDmx.getDmxPrimaryExpressionAccess();
 	}
@@ -716,36 +716,6 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDmxLiteralExpressionRule() {
 		return getDmxLiteralExpressionAccess().getRule();
-	}
-	
-	//DmxSelfExpression DExpression:
-	//	{DmxSelfExpression} ('SELF' | 'self');
-	public DmxGrammarAccess.DmxSelfExpressionElements getDmxSelfExpressionAccess() {
-		return gaDmx.getDmxSelfExpressionAccess();
-	}
-	
-	public ParserRule getDmxSelfExpressionRule() {
-		return getDmxSelfExpressionAccess().getRule();
-	}
-	
-	//DmxReturnExpression DExpression:
-	//	{DmxReturnExpression} ('RETURN' | 'return') -> expression=DExpression?;
-	public DmxGrammarAccess.DmxReturnExpressionElements getDmxReturnExpressionAccess() {
-		return gaDmx.getDmxReturnExpressionAccess();
-	}
-	
-	public ParserRule getDmxReturnExpressionRule() {
-		return getDmxReturnExpressionAccess().getRule();
-	}
-	
-	//DmxRaiseExpression DExpression:
-	//	{DmxRaiseExpression} ('RAISE' | 'raise') expression=DExpression;
-	public DmxGrammarAccess.DmxRaiseExpressionElements getDmxRaiseExpressionAccess() {
-		return gaDmx.getDmxRaiseExpressionAccess();
-	}
-	
-	public ParserRule getDmxRaiseExpressionRule() {
-		return getDmxRaiseExpressionAccess().getRule();
 	}
 	
 	//DmxParenthesizedExpression DExpression:
@@ -843,13 +813,23 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DMultiplicity:
-	//	'(' minOccurs=NATURAL '..' maxOccurs=MULTIPLICITY ')';
+	//	shorthand=DMultiplicityShorthand | '(' minOccurs=NATURAL '..' maxOccurs=MULTIPLICITY ')';
 	public DmxGrammarAccess.DMultiplicityElements getDMultiplicityAccess() {
 		return gaDmx.getDMultiplicityAccess();
 	}
 	
 	public ParserRule getDMultiplicityRule() {
 		return getDMultiplicityAccess().getRule();
+	}
+	
+	//enum DMultiplicityShorthand:
+	//	ZERO_OR_ONE='?' | ONE_OR_MORE='+' | ZERO_OR_MORE='*';
+	public DmxGrammarAccess.DMultiplicityShorthandElements getDMultiplicityShorthandAccess() {
+		return gaDmx.getDMultiplicityShorthandAccess();
+	}
+	
+	public EnumRule getDMultiplicityShorthandRule() {
+		return getDMultiplicityShorthandAccess().getRule();
 	}
 	
 	//MULTIPLICITY ecore::EInt:

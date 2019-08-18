@@ -32,6 +32,7 @@ import com.mimacom.ddd.dm.dmx.DmxCallArguments;
 import com.mimacom.ddd.dm.dmx.DmxCastExpression;
 import com.mimacom.ddd.dm.dmx.DmxConstructorCall;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
+import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxFilterParameter;
@@ -44,9 +45,6 @@ import com.mimacom.ddd.dm.dmx.DmxNamespace;
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
-import com.mimacom.ddd.dm.dmx.DmxRaiseExpression;
-import com.mimacom.ddd.dm.dmx.DmxReturnExpression;
-import com.mimacom.ddd.dm.dmx.DmxSelfExpression;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
 import com.mimacom.ddd.dm.dmx.DmxStringLiteral;
 import com.mimacom.ddd.dm.dmx.DmxTest;
@@ -107,15 +105,8 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 				sequence_DAttribute(context, (DAttribute) semanticObject); 
 				return; 
 			case BasePackage.DCONTEXT:
-				if (rule == grammarAccess.getDmxCorrelationVariableRule()) {
-					sequence_DmxCorrelationVariable(context, (DContext) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getDmxTestContextRule()) {
-					sequence_DmxTestContext(context, (DContext) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_DmxTestContext(context, (DContext) semanticObject); 
+				return; 
 			case BasePackage.DDETAIL_TYPE:
 				sequence_DComplexType_DDetailType(context, (DDetailType) semanticObject); 
 				return; 
@@ -238,6 +229,9 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 			case DmxPackage.DMX_CONTEXT_REFERENCE:
 				sequence_DmxContextReference(context, (DmxContextReference) semanticObject); 
 				return; 
+			case DmxPackage.DMX_CORRELATION_VARIABLE:
+				sequence_DmxCorrelationVariable(context, (DmxCorrelationVariable) semanticObject); 
+				return; 
 			case DmxPackage.DMX_DECIMAL_LITERAL:
 				sequence_DmxDecimalLiteral(context, (DmxDecimalLiteral) semanticObject); 
 				return; 
@@ -270,15 +264,6 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 				return; 
 			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE:
 				sequence_DmxPredicateWithCorrelationVariable(context, (DmxPredicateWithCorrelationVariable) semanticObject); 
-				return; 
-			case DmxPackage.DMX_RAISE_EXPRESSION:
-				sequence_DmxRaiseExpression(context, (DmxRaiseExpression) semanticObject); 
-				return; 
-			case DmxPackage.DMX_RETURN_EXPRESSION:
-				sequence_DmxReturnExpression(context, (DmxReturnExpression) semanticObject); 
-				return; 
-			case DmxPackage.DMX_SELF_EXPRESSION:
-				sequence_DmxSelfExpression(context, (DmxSelfExpression) semanticObject); 
 				return; 
 			case DmxPackage.DMX_STATIC_REFERENCE:
 				sequence_DmxStaticReference(context, (DmxStaticReference) semanticObject); 

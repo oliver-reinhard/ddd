@@ -11,6 +11,7 @@ import com.mimacom.ddd.dm.base.DLiteral
 import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DNotification
 import com.mimacom.ddd.dm.base.DPrimitive
+import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.dmx.DmxArchetype
 import com.mimacom.ddd.dm.dmx.DmxBaseType
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation
@@ -18,6 +19,7 @@ import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral
 import com.mimacom.ddd.dm.dmx.DmxCastExpression
 import com.mimacom.ddd.dm.dmx.DmxConstructorCall
 import com.mimacom.ddd.dm.dmx.DmxContextReference
+import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral
 import com.mimacom.ddd.dm.dmx.DmxFilter
 import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor
@@ -28,16 +30,12 @@ import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable
 import com.mimacom.ddd.dm.dmx.DmxRaiseExpression
-import com.mimacom.ddd.dm.dmx.DmxReturnExpression
-import com.mimacom.ddd.dm.dmx.DmxSelfExpression
 import com.mimacom.ddd.dm.dmx.DmxStaticReference
 import com.mimacom.ddd.dm.dmx.DmxStringLiteral
 import com.mimacom.ddd.dm.dmx.DmxUnaryOperation
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral
 import com.mimacom.ddd.dm.dmx.DmxUtil
 import java.util.List
-import org.eclipse.emf.ecore.EObject
-import com.mimacom.ddd.dm.dmx.DmxCallArguments
 
 @Singleton
 class DmxTypeComputer {
@@ -62,7 +60,7 @@ class DmxTypeComputer {
 
 		if (member instanceof DmxFilter) {
 			if (member.typeDesc.isCompatible(DmxBaseType.COMPLEX /* ignore collection property */ ) || member.typeDesc.isMultiTyped) {
-				// propagate type from preceding navigation segment: (this may differ from the actually decared type of the first parameter
+				// propagate type from preceding navigation segment: (this may differ from the actually decared type of the first parameter)
 				val preceding = expr.precedingNavigationSegment
 				val precedingType = preceding.typeFor // recursion
 				return getTypeDescriptor(precedingType.type, member.typeDesc.collection)
@@ -82,34 +80,11 @@ class DmxTypeComputer {
 		val target = expr.target
 
 		if (target instanceof DContext) {
-			if (target.type !== null) {
-				return getTypeDescriptor(target.type, target.isCollection)
-			} else {
-				// this only occurs when the context is accessd from within the memberCallArguments of a DmxMemberNavigation 
-				// => find precedingNavigationSegment of "calling" DmxMemberNavigation that contains memberCallArguments
-				var EObject prev = target
-				var container = target.eContainer
-				var isCorrelationVariable = target.isCorrelationVariable(container)
-				while (! (container === null ||	container instanceof DmxCallArguments && (container as DmxCallArguments).arguments.contains(prev))) {
-					prev = container
-					container = container.eContainer
-					isCorrelationVariable = isCorrelationVariable || target.isCorrelationVariable(container)
-				}
-				if (container instanceof DmxCallArguments) {
-					// "move up" to the containing DmxMemberNavigation:
-					container = container.eContainer
-					if (container instanceof DmxMemberNavigation) {
-						val desc = container.precedingNavigationSegment.typeFor
-						if (isCorrelationVariable) {
-							// the type derived vor correlation Varibles inside a DmxPredicateWithCorrelationVariable block is usually the type of the collection on which the
-							// enclosing iterator is applied => is a collection type, but correlation variable is a single object
-							desc.collection = false
-						}
-						return desc
-					}
-				}
-				return UNDEFINED
-			}
+			return getTypeDescriptor(target.type, target.isCollection)
+			
+		} else if (target instanceof DmxCorrelationVariable) {
+			val desc =  target.typeFor
+			return desc
 
 		} else if (target instanceof DAggregate) {
 			return getTypeDescriptor(target, false)
@@ -125,9 +100,29 @@ class DmxTypeComputer {
 		}
 	}
 
-	private def boolean isCorrelationVariable(DContext target, EObject container) {
-		(container instanceof DmxPredicateWithCorrelationVariable) &&
-			(container as DmxPredicateWithCorrelationVariable).correlationVariable == target
+	def  dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxCorrelationVariable target) {
+		// Correlation variables only occur inside DmxPredicateWithCorrelationVariable.
+		// Predicates occur in
+		// - filters (DFilter)
+		// - constraints on DType
+		// which determine the type of the correlation variable.
+		var container = target.eContainer
+			while (container !== null) {
+				 if (container instanceof DmxMemberNavigation) {
+				 	if (container.member instanceof DmxFilter) {
+					 	val preceding = container.precedingNavigationSegment
+						val desc = preceding.typeFor // recursion
+						// the type derived vor correlation Varibles inside a DmxPredicateWithCorrelationVariable block is usually the type of the collection on which the
+						// enclosing iterator is applied => is a collection type, but correlation variable is a single object:
+						desc.collection = false
+						return desc
+				 	}
+				 } else if (container instanceof DType) {
+				 	return container.getTypeDescriptor(false)
+				 }
+				container = container.eContainer
+			}
+			return UNDEFINED	
 	}
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxStaticReference expr) {
@@ -175,16 +170,6 @@ class DmxTypeComputer {
 		getTypeDescriptor(expr.type, false)
 	}
 
-	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxSelfExpression expr) {
-		val container = expr.eContainer
-		if (container instanceof DmxMemberNavigation) {
-			if (container.precedingNavigationSegment == expr && container.member !== null) {
-				return container.typeFor // recursion
-			}
-		}
-		UNDEFINED
-	}
-
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxInstanceOfExpression expr) {
 		throw new UnsupportedOperationException // TODO
 	}
@@ -212,10 +197,6 @@ class DmxTypeComputer {
 			}
 		}
 		UNDEFINED
-	}
-
-	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxReturnExpression expr) {
-		throw new UnsupportedOperationException // TODO
 	}
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxRaiseExpression expr) {

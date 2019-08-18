@@ -43,12 +43,10 @@ public class EsmParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDmxUnaryOperationAccess().getAlternatives(), "rule__DmxUnaryOperation__Alternatives");
 			builder.put(grammarAccess.getDmxOpCastAccess().getAlternatives(), "rule__DmxOpCast__Alternatives");
 			builder.put(grammarAccess.getDmxLiteralExpressionAccess().getAlternatives(), "rule__DmxLiteralExpression__Alternatives");
-			builder.put(grammarAccess.getDmxSelfExpressionAccess().getAlternatives_1(), "rule__DmxSelfExpression__Alternatives_1");
-			builder.put(grammarAccess.getDmxReturnExpressionAccess().getAlternatives_1(), "rule__DmxReturnExpression__Alternatives_1");
-			builder.put(grammarAccess.getDmxRaiseExpressionAccess().getAlternatives_1(), "rule__DmxRaiseExpression__Alternatives_1");
 			builder.put(grammarAccess.getDmxOpConstructorAccess().getAlternatives(), "rule__DmxOpConstructor__Alternatives");
 			builder.put(grammarAccess.getDmxStaticReferenceAccess().getAlternatives_4_1(), "rule__DmxStaticReference__Alternatives_4_1");
 			builder.put(grammarAccess.getDmxContextReferenceAccess().getAlternatives_2(), "rule__DmxContextReference__Alternatives_2");
+			builder.put(grammarAccess.getDMultiplicityAccess().getAlternatives(), "rule__DMultiplicity__Alternatives");
 			builder.put(grammarAccess.getMULTIPLICITYAccess().getAlternatives(), "rule__MULTIPLICITY__Alternatives");
 			builder.put(grammarAccess.getDmxBooleanLiteralAccess().getAlternatives_1(), "rule__DmxBooleanLiteral__Alternatives_1");
 			builder.put(grammarAccess.getDmxUndefinedLiteralAccess().getAlternatives_1(), "rule__DmxUndefinedLiteral__Alternatives_1");
@@ -63,6 +61,7 @@ public class EsmParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOpAddAccess().getAlternatives(), "rule__OpAdd__Alternatives");
 			builder.put(grammarAccess.getOpMultiAccess().getAlternatives(), "rule__OpMulti__Alternatives");
 			builder.put(grammarAccess.getOpUnaryAccess().getAlternatives(), "rule__OpUnary__Alternatives");
+			builder.put(grammarAccess.getDMultiplicityShorthandAccess().getAlternatives(), "rule__DMultiplicityShorthand__Alternatives");
 			builder.put(grammarAccess.getDDomainAccess().getGroup(), "rule__DDomain__Group__0");
 			builder.put(grammarAccess.getDDomainAccess().getGroup_3(), "rule__DDomain__Group_3__0");
 			builder.put(grammarAccess.getDEntityStateModelAccess().getGroup(), "rule__DEntityStateModel__Group__0");
@@ -136,9 +135,6 @@ public class EsmParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDmxCastExpressionAccess().getGroup_1(), "rule__DmxCastExpression__Group_1__0");
 			builder.put(grammarAccess.getDmxCastExpressionAccess().getGroup_1_0(), "rule__DmxCastExpression__Group_1_0__0");
 			builder.put(grammarAccess.getDmxCastExpressionAccess().getGroup_1_0_0(), "rule__DmxCastExpression__Group_1_0_0__0");
-			builder.put(grammarAccess.getDmxSelfExpressionAccess().getGroup(), "rule__DmxSelfExpression__Group__0");
-			builder.put(grammarAccess.getDmxReturnExpressionAccess().getGroup(), "rule__DmxReturnExpression__Group__0");
-			builder.put(grammarAccess.getDmxRaiseExpressionAccess().getGroup(), "rule__DmxRaiseExpression__Group__0");
 			builder.put(grammarAccess.getDmxParenthesizedExpressionAccess().getGroup(), "rule__DmxParenthesizedExpression__Group__0");
 			builder.put(grammarAccess.getDmxFunctionCallAccess().getGroup(), "rule__DmxFunctionCall__Group__0");
 			builder.put(grammarAccess.getDmxFunctionCallArgumentsAccess().getGroup(), "rule__DmxFunctionCallArguments__Group__0");
@@ -153,7 +149,7 @@ public class EsmParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDmxContextReferenceAccess().getGroup_2_1(), "rule__DmxContextReference__Group_2_1__0");
 			builder.put(grammarAccess.getDmxIfExpressionAccess().getGroup(), "rule__DmxIfExpression__Group__0");
 			builder.put(grammarAccess.getDmxIfExpressionAccess().getGroup_5(), "rule__DmxIfExpression__Group_5__0");
-			builder.put(grammarAccess.getDMultiplicityAccess().getGroup(), "rule__DMultiplicity__Group__0");
+			builder.put(grammarAccess.getDMultiplicityAccess().getGroup_1(), "rule__DMultiplicity__Group_1__0");
 			builder.put(grammarAccess.getDmxBooleanLiteralAccess().getGroup(), "rule__DmxBooleanLiteral__Group__0");
 			builder.put(grammarAccess.getDmxNaturalLiteralAccess().getGroup(), "rule__DmxNaturalLiteral__Group__0");
 			builder.put(grammarAccess.getDmxDecimalLiteralAccess().getGroup(), "rule__DmxDecimalLiteral__Group__0");
@@ -252,8 +248,6 @@ public class EsmParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDmxUnaryOperationAccess().getOperatorAssignment_0_1(), "rule__DmxUnaryOperation__OperatorAssignment_0_1");
 			builder.put(grammarAccess.getDmxUnaryOperationAccess().getOperandAssignment_0_2(), "rule__DmxUnaryOperation__OperandAssignment_0_2");
 			builder.put(grammarAccess.getDmxCastExpressionAccess().getTypeAssignment_1_1(), "rule__DmxCastExpression__TypeAssignment_1_1");
-			builder.put(grammarAccess.getDmxReturnExpressionAccess().getExpressionAssignment_2(), "rule__DmxReturnExpression__ExpressionAssignment_2");
-			builder.put(grammarAccess.getDmxRaiseExpressionAccess().getExpressionAssignment_2(), "rule__DmxRaiseExpression__ExpressionAssignment_2");
 			builder.put(grammarAccess.getDmxFunctionCallAccess().getFunctionAssignment_1(), "rule__DmxFunctionCall__FunctionAssignment_1");
 			builder.put(grammarAccess.getDmxFunctionCallAccess().getCallArgumentsAssignment_3(), "rule__DmxFunctionCall__CallArgumentsAssignment_3");
 			builder.put(grammarAccess.getDmxFunctionCallArgumentsAccess().getArgumentsAssignment_1_0(), "rule__DmxFunctionCallArguments__ArgumentsAssignment_1_0");
@@ -271,8 +265,9 @@ public class EsmParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDmxIfExpressionAccess().getIfAssignment_2(), "rule__DmxIfExpression__IfAssignment_2");
 			builder.put(grammarAccess.getDmxIfExpressionAccess().getThenAssignment_4(), "rule__DmxIfExpression__ThenAssignment_4");
 			builder.put(grammarAccess.getDmxIfExpressionAccess().getElseAssignment_5_1(), "rule__DmxIfExpression__ElseAssignment_5_1");
-			builder.put(grammarAccess.getDMultiplicityAccess().getMinOccursAssignment_1(), "rule__DMultiplicity__MinOccursAssignment_1");
-			builder.put(grammarAccess.getDMultiplicityAccess().getMaxOccursAssignment_3(), "rule__DMultiplicity__MaxOccursAssignment_3");
+			builder.put(grammarAccess.getDMultiplicityAccess().getShorthandAssignment_0(), "rule__DMultiplicity__ShorthandAssignment_0");
+			builder.put(grammarAccess.getDMultiplicityAccess().getMinOccursAssignment_1_1(), "rule__DMultiplicity__MinOccursAssignment_1_1");
+			builder.put(grammarAccess.getDMultiplicityAccess().getMaxOccursAssignment_1_3(), "rule__DMultiplicity__MaxOccursAssignment_1_3");
 			builder.put(grammarAccess.getDmxBooleanLiteralAccess().getValueAssignment_1_0(), "rule__DmxBooleanLiteral__ValueAssignment_1_0");
 			builder.put(grammarAccess.getDmxBooleanLiteralAccess().getValueAssignment_1_1(), "rule__DmxBooleanLiteral__ValueAssignment_1_1");
 			builder.put(grammarAccess.getDmxNaturalLiteralAccess().getValueAssignment_1(), "rule__DmxNaturalLiteral__ValueAssignment_1");

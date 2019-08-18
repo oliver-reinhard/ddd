@@ -167,6 +167,15 @@ public interface BaseFactory extends EFactory
 	DQueryParameter createDQueryParameter();
 
 	/**
+	 * Returns a new object of class '<em>DContext</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DContext</em>'.
+	 * @generated
+	 */
+	DContext createDContext();
+
+	/**
 	 * Returns a new object of class '<em>DDomain Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -183,15 +192,6 @@ public interface BaseFactory extends EFactory
 	 * @generated
 	 */
 	DCaseConjunction createDCaseConjunction();
-
-	/**
-	 * Returns a new object of class '<em>DContext</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DContext</em>'.
-	 * @generated
-	 */
-	DContext createDContext();
 
 	/**
 	 * Returns a new object of class '<em>DNotification</em>'.

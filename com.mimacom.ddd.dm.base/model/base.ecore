@@ -132,6 +132,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="DMultiplicity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minOccurs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxOccurs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="shorthand" eType="#//DMultiplicityShorthand"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DMultiplicityShorthand">
+    <eLiterals name="NONE"/>
+    <eLiterals name="ZERO_OR_ONE" value="1"/>
+    <eLiterals name="ONE_OR_MORE" value="2"/>
+    <eLiterals name="ZERO_OR_MORE" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DAttribute" eSuperTypes="#//DFeature">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="detail" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

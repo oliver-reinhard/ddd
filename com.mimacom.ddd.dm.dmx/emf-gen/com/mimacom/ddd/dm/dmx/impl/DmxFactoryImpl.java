@@ -74,6 +74,7 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 			case DmxPackage.DMX_FILTER_PARAMETER: return createDmxFilterParameter();
 			case DmxPackage.DMX_ASSIGNMENT: return createDmxAssignment();
 			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE: return createDmxPredicateWithCorrelationVariable();
+			case DmxPackage.DMX_CORRELATION_VARIABLE: return createDmxCorrelationVariable();
 			case DmxPackage.DMX_MEMBER_NAVIGATION: return createDmxMemberNavigation();
 			case DmxPackage.DMX_CALL_ARGUMENTS: return createDmxCallArguments();
 			case DmxPackage.DMX_FUNCTION_CALL: return createDmxFunctionCall();
@@ -82,8 +83,6 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 			case DmxPackage.DMX_INSTANCE_OF_EXPRESSION: return createDmxInstanceOfExpression();
 			case DmxPackage.DMX_UNARY_OPERATION: return createDmxUnaryOperation();
 			case DmxPackage.DMX_CAST_EXPRESSION: return createDmxCastExpression();
-			case DmxPackage.DMX_SELF_EXPRESSION: return createDmxSelfExpression();
-			case DmxPackage.DMX_RETURN_EXPRESSION: return createDmxReturnExpression();
 			case DmxPackage.DMX_RAISE_EXPRESSION: return createDmxRaiseExpression();
 			case DmxPackage.DMX_STATIC_REFERENCE: return createDmxStaticReference();
 			case DmxPackage.DMX_CONTEXT_REFERENCE: return createDmxContextReference();
@@ -255,6 +254,18 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
+	public DmxCorrelationVariable createDmxCorrelationVariable()
+	{
+		DmxCorrelationVariableImpl dmxCorrelationVariable = new DmxCorrelationVariableImpl();
+		return dmxCorrelationVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public DmxMemberNavigation createDmxMemberNavigation()
 	{
 		DmxMemberNavigationImpl dmxMemberNavigation = new DmxMemberNavigationImpl();
@@ -343,30 +354,6 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	{
 		DmxCastExpressionImpl dmxCastExpression = new DmxCastExpressionImpl();
 		return dmxCastExpression;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DmxSelfExpression createDmxSelfExpression()
-	{
-		DmxSelfExpressionImpl dmxSelfExpression = new DmxSelfExpressionImpl();
-		return dmxSelfExpression;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DmxReturnExpression createDmxReturnExpression()
-	{
-		DmxReturnExpressionImpl dmxReturnExpression = new DmxReturnExpressionImpl();
-		return dmxReturnExpression;
 	}
 
 	/**

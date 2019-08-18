@@ -169,6 +169,15 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DmxPackage.DMX_CORRELATION_VARIABLE:
+			{
+				DmxCorrelationVariable dmxCorrelationVariable = (DmxCorrelationVariable)theEObject;
+				T result = caseDmxCorrelationVariable(dmxCorrelationVariable);
+				if (result == null) result = caseDNavigableMember(dmxCorrelationVariable);
+				if (result == null) result = caseDNamedElement(dmxCorrelationVariable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DmxPackage.DMX_MEMBER_NAVIGATION:
 			{
 				DmxMemberNavigation dmxMemberNavigation = (DmxMemberNavigation)theEObject;
@@ -236,24 +245,6 @@ public class DmxSwitch<T> extends Switch<T>
 				T result = caseDmxCastExpression(dmxCastExpression);
 				if (result == null) result = caseDExpression(dmxCastExpression);
 				if (result == null) result = caseIRichTextSegment(dmxCastExpression);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DmxPackage.DMX_SELF_EXPRESSION:
-			{
-				DmxSelfExpression dmxSelfExpression = (DmxSelfExpression)theEObject;
-				T result = caseDmxSelfExpression(dmxSelfExpression);
-				if (result == null) result = caseDExpression(dmxSelfExpression);
-				if (result == null) result = caseIRichTextSegment(dmxSelfExpression);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DmxPackage.DMX_RETURN_EXPRESSION:
-			{
-				DmxReturnExpression dmxReturnExpression = (DmxReturnExpression)theEObject;
-				T result = caseDmxReturnExpression(dmxReturnExpression);
-				if (result == null) result = caseDExpression(dmxReturnExpression);
-				if (result == null) result = caseIRichTextSegment(dmxReturnExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -496,6 +487,22 @@ public class DmxSwitch<T> extends Switch<T>
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Correlation Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Correlation Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxCorrelationVariable(DmxCorrelationVariable object)
+	{
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Member Navigation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -619,38 +626,6 @@ public class DmxSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDmxCastExpression(DmxCastExpression object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Self Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Self Expression</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDmxSelfExpression(DmxSelfExpression object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Return Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Return Expression</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDmxReturnExpression(DmxReturnExpression object)
 	{
 		return null;
 	}

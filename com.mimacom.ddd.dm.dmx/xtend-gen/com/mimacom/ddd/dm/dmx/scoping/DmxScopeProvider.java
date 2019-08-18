@@ -10,7 +10,6 @@ import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DActor;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DComplexType;
-import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DDomainEvent;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DExpression;
@@ -20,11 +19,11 @@ import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.dmx.DmxAssignment;
 import com.mimacom.ddd.dm.dmx.DmxCallArguments;
+import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
-import com.mimacom.ddd.dm.dmx.DmxSelfExpression;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
 import com.mimacom.ddd.dm.dmx.DmxTest;
 import com.mimacom.ddd.dm.dmx.DmxUtil;
@@ -79,15 +78,9 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
       if (_equals_1) {
         if ((context instanceof DmxMemberNavigation)) {
           final DExpression preceding = ((DmxMemberNavigation)context).getPrecedingNavigationSegment();
-          if ((preceding instanceof DmxSelfExpression)) {
-            final IScope outer_1 = this.getDefaultScopeForType(context, DmxScopeProvider.BASE.getIStaticReferenceTarget());
-            final IScope scope_1 = this.getEContainersNavigableMembersScopes(context, outer_1);
-            return scope_1;
-          } else {
-            final AbstractDmxTypeDescriptor<?> typeDescriptor = this._dmxTypeComputer.typeFor(preceding);
-            final IScope scope_2 = typeDescriptor.getNavigableMembersAndIteratorsScope(context, this.index);
-            return scope_2;
-          }
+          final AbstractDmxTypeDescriptor<?> typeDescriptor = this._dmxTypeComputer.typeFor(preceding);
+          final IScope scope_1 = typeDescriptor.getNavigableMembersAndIteratorsScope(context, this.index);
+          return scope_1;
         }
       } else {
         EReference _dmxAssignment_AssignToMember = DmxScopeProvider.DMX.getDmxAssignment_AssignToMember();
@@ -96,22 +89,22 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
           if ((context instanceof DmxAssignment)) {
             final DExpression preceding_1 = ((DmxAssignment)context).getPrecedingNavigationSegment();
             final AbstractDmxTypeDescriptor<?> typeDescriptor_1 = this._dmxTypeComputer.typeFor(preceding_1);
-            final IScope scope_3 = typeDescriptor_1.getNavigableMembersScope();
-            return scope_3;
+            final IScope scope_2 = typeDescriptor_1.getNavigableMembersScope();
+            return scope_2;
           } else {
             if ((context instanceof DmxMemberNavigation)) {
               final DExpression preceding_2 = ((DmxMemberNavigation)context).getPrecedingNavigationSegment();
               final AbstractDmxTypeDescriptor<?> typeDescriptor_2 = this._dmxTypeComputer.typeFor(preceding_2);
-              final IScope scope_4 = typeDescriptor_2.getNavigableMembersScope();
-              return scope_4;
+              final IScope scope_3 = typeDescriptor_2.getNavigableMembersScope();
+              return scope_3;
             }
           }
         } else {
           EReference _dmxStaticReference_Target = DmxScopeProvider.DMX.getDmxStaticReference_Target();
           boolean _equals_3 = Objects.equal(reference, _dmxStaticReference_Target);
           if (_equals_3) {
-            final IScope scope_5 = this.getDefaultScopeForType(context, DmxScopeProvider.BASE.getIStaticReferenceTarget());
-            return scope_5;
+            final IScope scope_4 = this.getDefaultScopeForType(context, DmxScopeProvider.BASE.getIStaticReferenceTarget());
+            return scope_4;
           } else {
             EReference _dmxStaticReference_Member = DmxScopeProvider.DMX.getDmxStaticReference_Member();
             boolean _equals_4 = Objects.equal(reference, _dmxStaticReference_Member);
@@ -119,8 +112,8 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
               if ((context instanceof DmxStaticReference)) {
                 final IStaticReferenceTarget target = ((DmxStaticReference)context).getTarget();
                 if ((target instanceof INavigableMemberContainer)) {
-                  final IScope scope_6 = this.getEContainerNavigableMembersScopeSwitch(((INavigableMemberContainer)target), IScope.NULLSCOPE);
-                  return scope_6;
+                  final IScope scope_5 = this.getEContainerNavigableMembersScopeSwitch(((INavigableMemberContainer)target), IScope.NULLSCOPE);
+                  return scope_5;
                 }
               }
             } else {
@@ -128,8 +121,8 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
               boolean _equals_5 = Objects.equal(reference, _dmxFunctionCall_Function);
               if (_equals_5) {
                 final List<DmxFilter> allFilters = this.index.allVisibleFilters(context);
-                final IScope scope_7 = Scopes.scopeFor(allFilters, super.getScope(context, reference));
-                return scope_7;
+                final IScope scope_6 = Scopes.scopeFor(allFilters, super.getScope(context, reference));
+                return scope_6;
               }
             }
           }
@@ -215,7 +208,7 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
     if (!_matched) {
       if (container instanceof DmxPredicateWithCorrelationVariable) {
         _matched=true;
-        _switchResult = Scopes.scopeFor(Lists.<DContext>newArrayList(((DmxPredicateWithCorrelationVariable)container).getCorrelationVariable()), outerScope);
+        _switchResult = Scopes.scopeFor(Lists.<DmxCorrelationVariable>newArrayList(((DmxPredicateWithCorrelationVariable)container).getCorrelationVariable()), outerScope);
       }
     }
     if (!_matched) {

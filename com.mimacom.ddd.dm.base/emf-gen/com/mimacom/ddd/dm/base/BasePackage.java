@@ -2179,13 +2179,22 @@ public interface BasePackage extends EPackage
 	int DMULTIPLICITY__MAX_OCCURS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Shorthand</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMULTIPLICITY__SHORTHAND = 2;
+
+	/**
 	 * The number of structural features of the '<em>DMultiplicity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMULTIPLICITY_FEATURE_COUNT = 2;
+	int DMULTIPLICITY_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>DMultiplicity</em>' class.
@@ -2560,6 +2569,97 @@ public interface BasePackage extends EPackage
 	int DQUERY_PARAMETER_OPERATION_COUNT = DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DContextImpl <em>DContext</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.impl.DContextImpl
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDContext()
+	 * @generated
+	 */
+	int DCONTEXT = 34;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCONTEXT__NAME = DNAVIGABLE_MEMBER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCONTEXT__ALIASES = DNAVIGABLE_MEMBER__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCONTEXT__DESCRIPTION = DNAVIGABLE_MEMBER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCONTEXT__TYPE = DNAVIGABLE_MEMBER__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCONTEXT__MULTIPLICITY = DNAVIGABLE_MEMBER__MULTIPLICITY;
+
+	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCONTEXT__OPTIONAL = DNAVIGABLE_MEMBER__OPTIONAL;
+
+	/**
+	 * The feature id for the '<em><b>Collection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCONTEXT__COLLECTION = DNAVIGABLE_MEMBER__COLLECTION;
+
+	/**
+	 * The number of structural features of the '<em>DContext</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCONTEXT_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>DContext</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCONTEXT_OPERATION_COUNT = DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DDomainEventImpl <em>DDomain Event</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2567,7 +2667,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDomainEvent()
 	 * @generated
 	 */
-	int DDOMAIN_EVENT = 34;
+	int DDOMAIN_EVENT = 35;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2667,7 +2767,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDCaseConjunction()
 	 * @generated
 	 */
-	int DCASE_CONJUNCTION = 35;
+	int DCASE_CONJUNCTION = 36;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2731,97 +2831,6 @@ public interface BasePackage extends EPackage
 	 * @ordered
 	 */
 	int DCASE_CONJUNCTION_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DContextImpl <em>DContext</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.impl.DContextImpl
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDContext()
-	 * @generated
-	 */
-	int DCONTEXT = 36;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DCONTEXT__NAME = DNAVIGABLE_MEMBER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DCONTEXT__ALIASES = DNAVIGABLE_MEMBER__ALIASES;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DCONTEXT__DESCRIPTION = DNAVIGABLE_MEMBER__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DCONTEXT__TYPE = DNAVIGABLE_MEMBER__TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DCONTEXT__MULTIPLICITY = DNAVIGABLE_MEMBER__MULTIPLICITY;
-
-	/**
-	 * The feature id for the '<em><b>Optional</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DCONTEXT__OPTIONAL = DNAVIGABLE_MEMBER__OPTIONAL;
-
-	/**
-	 * The feature id for the '<em><b>Collection</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DCONTEXT__COLLECTION = DNAVIGABLE_MEMBER__COLLECTION;
-
-	/**
-	 * The number of structural features of the '<em>DContext</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DCONTEXT_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>DContext</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DCONTEXT_OPERATION_COUNT = DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DNotificationImpl <em>DNotification</em>}' class.
@@ -3216,6 +3225,16 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	int DASSOCIATION_KIND = 43;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DMultiplicityShorthand <em>DMultiplicity Shorthand</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.DMultiplicityShorthand
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDMultiplicityShorthand()
+	 * @generated
+	 */
+	int DMULTIPLICITY_SHORTHAND = 44;
 
 
 	/**
@@ -3968,6 +3987,17 @@ public interface BasePackage extends EPackage
 	EAttribute getDMultiplicity_MaxOccurs();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DMultiplicity#getShorthand <em>Shorthand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Shorthand</em>'.
+	 * @see com.mimacom.ddd.dm.base.DMultiplicity#getShorthand()
+	 * @see #getDMultiplicity()
+	 * @generated
+	 */
+	EAttribute getDMultiplicity_Shorthand();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DAttribute <em>DAttribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4040,6 +4070,16 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EClass getDQueryParameter();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DContext <em>DContext</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>DContext</em>'.
+	 * @see com.mimacom.ddd.dm.base.DContext
+	 * @generated
+	 */
+	EClass getDContext();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DDomainEvent <em>DDomain Event</em>}'.
@@ -4137,16 +4177,6 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EReference getDCaseConjunction_Predicates();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DContext <em>DContext</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DContext</em>'.
-	 * @see com.mimacom.ddd.dm.base.DContext
-	 * @generated
-	 */
-	EClass getDContext();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DNotification <em>DNotification</em>}'.
@@ -4250,6 +4280,16 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EEnum getDAssociationKind();
+
+	/**
+	 * Returns the meta object for enum '{@link com.mimacom.ddd.dm.base.DMultiplicityShorthand <em>DMultiplicity Shorthand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>DMultiplicity Shorthand</em>'.
+	 * @see com.mimacom.ddd.dm.base.DMultiplicityShorthand
+	 * @generated
+	 */
+	EEnum getDMultiplicityShorthand();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -4906,6 +4946,14 @@ public interface BasePackage extends EPackage
 		EAttribute DMULTIPLICITY__MAX_OCCURS = eINSTANCE.getDMultiplicity_MaxOccurs();
 
 		/**
+		 * The meta object literal for the '<em><b>Shorthand</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DMULTIPLICITY__SHORTHAND = eINSTANCE.getDMultiplicity_Shorthand();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DAttributeImpl <em>DAttribute</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4966,6 +5014,16 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EClass DQUERY_PARAMETER = eINSTANCE.getDQueryParameter();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DContextImpl <em>DContext</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.impl.DContextImpl
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDContext()
+		 * @generated
+		 */
+		EClass DCONTEXT = eINSTANCE.getDContext();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DDomainEventImpl <em>DDomain Event</em>}' class.
@@ -5042,16 +5100,6 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EReference DCASE_CONJUNCTION__PREDICATES = eINSTANCE.getDCaseConjunction_Predicates();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DContextImpl <em>DContext</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.impl.DContextImpl
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDContext()
-		 * @generated
-		 */
-		EClass DCONTEXT = eINSTANCE.getDContext();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DNotificationImpl <em>DNotification</em>}' class.
@@ -5146,6 +5194,16 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EEnum DASSOCIATION_KIND = eINSTANCE.getDAssociationKind();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.DMultiplicityShorthand <em>DMultiplicity Shorthand</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.DMultiplicityShorthand
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDMultiplicityShorthand()
+		 * @generated
+		 */
+		EEnum DMULTIPLICITY_SHORTHAND = eINSTANCE.getDMultiplicityShorthand();
 
 	}
 

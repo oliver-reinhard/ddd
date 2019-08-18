@@ -21,8 +21,6 @@ import com.mimacom.ddd.dm.dmx.impl.DmxFunctionCallImpl;
 import com.mimacom.ddd.dm.dmx.impl.DmxMemberNavigationImpl;
 import com.mimacom.ddd.dm.dmx.impl.DmxNaturalLiteralImpl;
 import com.mimacom.ddd.dm.dmx.impl.DmxRaiseExpressionImpl;
-import com.mimacom.ddd.dm.dmx.impl.DmxReturnExpressionImpl;
-import com.mimacom.ddd.dm.dmx.impl.DmxSelfExpressionImpl;
 import com.mimacom.ddd.dm.dmx.impl.DmxStringLiteralImpl;
 import com.mimacom.ddd.dm.dmx.impl.DmxUndefinedLiteralImpl;
 import com.mimacom.ddd.dm.dmx.tests.DmxInjectorProvider;
@@ -134,14 +132,6 @@ public class DmxParsingTest {
       _builder_1.append(_join);
       Assertions.assertTrue(_isEmpty, _builder_1.toString());
       final EList<DmxTest> tests = result.getTests();
-      final DExpression e0 = tests.get(0).getExpr();
-      Assert.assertEquals(DmxSelfExpressionImpl.class, e0.getClass());
-      final DExpression e1 = tests.get(1).getExpr();
-      Assert.assertEquals(DmxReturnExpressionImpl.class, e1.getClass());
-      Assert.assertEquals(null, ((DmxReturnExpressionImpl) e1).getExpression());
-      final DExpression e2 = tests.get(2).getExpr();
-      Assert.assertEquals(DmxReturnExpressionImpl.class, e2.getClass());
-      Assert.assertEquals(DmxNaturalLiteralImpl.class, ((DmxReturnExpressionImpl) e2).getExpression().getClass());
       final DExpression e3 = tests.get(3).getExpr();
       Assert.assertEquals(DmxRaiseExpressionImpl.class, e3.getClass());
       Assert.assertEquals(DmxStringLiteralImpl.class, ((DmxRaiseExpressionImpl) e3).getExpression().getClass());
@@ -205,7 +195,6 @@ public class DmxParsingTest {
       final DExpression e0 = tests.get(0).getExpr();
       Assert.assertEquals(DmxMemberNavigationImpl.class, e0.getClass());
       Assert.assertTrue(((DmxMemberNavigationImpl) e0).basicGetMember().eIsProxy());
-      Assert.assertEquals(DmxSelfExpressionImpl.class, ((DmxMemberNavigationImpl) e0).getPrecedingNavigationSegment().getClass());
       final DExpression e1 = tests.get(1).getExpr();
       Assert.assertEquals(DmxMemberNavigationImpl.class, e1.getClass());
       final DmxMemberNavigationImpl e1_1 = ((DmxMemberNavigationImpl) e1);
@@ -214,7 +203,6 @@ public class DmxParsingTest {
       DExpression _precedingNavigationSegment = e1_1.getPrecedingNavigationSegment();
       final DmxMemberNavigationImpl e1_2 = ((DmxMemberNavigationImpl) _precedingNavigationSegment);
       Assert.assertTrue(e1_2.basicGetMember().eIsProxy());
-      Assert.assertEquals(DmxSelfExpressionImpl.class, e1_2.getPrecedingNavigationSegment().getClass());
       final DExpression e2 = tests.get(2).getExpr();
       Assert.assertEquals(DmxMemberNavigationImpl.class, e2.getClass());
       final DmxMemberNavigationImpl e2_1 = ((DmxMemberNavigationImpl) e2);
@@ -274,7 +262,6 @@ public class DmxParsingTest {
       final DExpression e1 = tests.get(1).getExpr();
       Assert.assertEquals(DmxAssignmentImpl.class, e1.getClass());
       Assert.assertTrue(((DmxAssignmentImpl) e1).basicGetAssignToMember().eIsProxy());
-      Assert.assertEquals(DmxSelfExpressionImpl.class, ((DmxAssignmentImpl) e1).getPrecedingNavigationSegment().getClass());
       Assert.assertEquals(DmxNaturalLiteralImpl.class, ((DmxAssignmentImpl) e1).getValue().getClass());
       final DExpression e2 = tests.get(2).getExpr();
       Assert.assertEquals(DmxAssignmentImpl.class, e2.getClass());

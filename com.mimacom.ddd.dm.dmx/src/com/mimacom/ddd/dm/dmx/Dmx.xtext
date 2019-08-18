@@ -135,9 +135,9 @@ DmxPredicateWithCorrelationVariable returns DExpression :
 	|	DmxOrExpression
 	);
 
-DmxCorrelationVariable returns DContext:
+DmxCorrelationVariable:
 	name=ID;
-//	(':' type=[DType])?;
+	//	(':' type=[DType])? => type is always NULL!
 	
 DmxOrExpression returns DExpression:
 	DmxAndExpression
@@ -209,9 +209,6 @@ DmxOpCast:
 	
 DmxPrimaryExpression returns DExpression:
 	DmxLiteralExpression |
-	DmxSelfExpression |
-	DmxReturnExpression |
-	DmxRaiseExpression |
 	DmxParenthesizedExpression |
 	DmxFunctionCall |
 	DmxConstructorCall |
@@ -225,18 +222,6 @@ DmxLiteralExpression returns DExpression:
 	DmxNaturalLiteral |
 	DmxDecimalLiteral |
 	DmxUndefinedLiteral;
-	
-DmxSelfExpression returns DExpression :
-	{DmxSelfExpression}
-	('SELF' | 'self');
-		
-DmxReturnExpression returns DExpression :
-	{DmxReturnExpression}
-	('RETURN' | 'return') (->expression=DExpression)?;
-	
-DmxRaiseExpression returns DExpression :
-	{DmxRaiseExpression}
-	('RAISE' | 'raise') expression=DExpression;
 	
 DmxParenthesizedExpression returns DExpression:
 	'(' DExpression ')';
@@ -280,7 +265,7 @@ DmxContextReference returns DExpression:
 	|	'.' all?='all'
 	)?;
 	
-DmxIfExpression returns DExpression:
+DmxIfExpression returns DExpression: 
 	{DmxIfExpression}
 	'if' if=DExpression
 	'then' then=DExpression
@@ -288,7 +273,10 @@ DmxIfExpression returns DExpression:
 	'end';
 	
 DMultiplicity:
-	'(' minOccurs=NATURAL '..' maxOccurs=MULTIPLICITY ')';
+	shorthand=DMultiplicityShorthand | '(' minOccurs=NATURAL '..' maxOccurs=MULTIPLICITY ')';
+	
+enum DMultiplicityShorthand: 
+	ZERO_OR_ONE='?' | ONE_OR_MORE='+' | ZERO_OR_MORE='*';
 	
 MULTIPLICITY returns ecore::EInt:
 	NATURAL | '*';

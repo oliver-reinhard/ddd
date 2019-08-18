@@ -19,6 +19,7 @@ import com.mimacom.ddd.dm.dmx.DmxCallArguments;
 import com.mimacom.ddd.dm.dmx.DmxCastExpression;
 import com.mimacom.ddd.dm.dmx.DmxConstructorCall;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
+import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxFilterParameter;
@@ -31,9 +32,6 @@ import com.mimacom.ddd.dm.dmx.DmxNamespace;
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
-import com.mimacom.ddd.dm.dmx.DmxRaiseExpression;
-import com.mimacom.ddd.dm.dmx.DmxReturnExpression;
-import com.mimacom.ddd.dm.dmx.DmxSelfExpression;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
 import com.mimacom.ddd.dm.dmx.DmxStringLiteral;
 import com.mimacom.ddd.dm.dmx.DmxTest;
@@ -66,15 +64,8 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		if (epackage == BasePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
 			case BasePackage.DCONTEXT:
-				if (rule == grammarAccess.getDmxCorrelationVariableRule()) {
-					sequence_DmxCorrelationVariable(context, (DContext) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getDmxTestContextRule()) {
-					sequence_DmxTestContext(context, (DContext) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_DmxTestContext(context, (DContext) semanticObject); 
+				return; 
 			case BasePackage.DIMPORT:
 				sequence_DImport(context, (DImport) semanticObject); 
 				return; 
@@ -170,6 +161,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DmxPackage.DMX_CONTEXT_REFERENCE:
 				sequence_DmxContextReference(context, (DmxContextReference) semanticObject); 
 				return; 
+			case DmxPackage.DMX_CORRELATION_VARIABLE:
+				sequence_DmxCorrelationVariable(context, (DmxCorrelationVariable) semanticObject); 
+				return; 
 			case DmxPackage.DMX_DECIMAL_LITERAL:
 				sequence_DmxDecimalLiteral(context, (DmxDecimalLiteral) semanticObject); 
 				return; 
@@ -202,15 +196,6 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DmxPackage.DMX_PREDICATE_WITH_CORRELATION_VARIABLE:
 				sequence_DmxPredicateWithCorrelationVariable(context, (DmxPredicateWithCorrelationVariable) semanticObject); 
-				return; 
-			case DmxPackage.DMX_RAISE_EXPRESSION:
-				sequence_DmxRaiseExpression(context, (DmxRaiseExpression) semanticObject); 
-				return; 
-			case DmxPackage.DMX_RETURN_EXPRESSION:
-				sequence_DmxReturnExpression(context, (DmxReturnExpression) semanticObject); 
-				return; 
-			case DmxPackage.DMX_SELF_EXPRESSION:
-				sequence_DmxSelfExpression(context, (DmxSelfExpression) semanticObject); 
 				return; 
 			case DmxPackage.DMX_STATIC_REFERENCE:
 				sequence_DmxStaticReference(context, (DmxStaticReference) semanticObject); 
@@ -255,19 +240,10 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DMultiplicity returns DMultiplicity
 	 *
 	 * Constraint:
-	 *     (minOccurs=NATURAL maxOccurs=MULTIPLICITY)
+	 *     (shorthand=DMultiplicityShorthand | (minOccurs=NATURAL maxOccurs=MULTIPLICITY))
 	 */
 	protected void sequence_DMultiplicity(ISerializationContext context, DMultiplicity semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DMULTIPLICITY__MIN_OCCURS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DMULTIPLICITY__MIN_OCCURS));
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DMULTIPLICITY__MAX_OCCURS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DMULTIPLICITY__MAX_OCCURS));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDMultiplicityAccess().getMinOccursNATURALTerminalRuleCall_1_0(), semanticObject.getMinOccurs());
-		feeder.accept(grammarAccess.getDMultiplicityAccess().getMaxOccursMULTIPLICITYParserRuleCall_3_0(), semanticObject.getMaxOccurs());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -607,12 +583,12 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DmxCorrelationVariable returns DContext
+	 *     DmxCorrelationVariable returns DmxCorrelationVariable
 	 *
 	 * Constraint:
 	 *     name=ID
 	 */
-	protected void sequence_DmxCorrelationVariable(ISerializationContext context, DContext semanticObject) {
+	protected void sequence_DmxCorrelationVariable(ISerializationContext context, DmxCorrelationVariable semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DNAMED_ELEMENT__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DNAMED_ELEMENT__NAME));
@@ -950,49 +926,6 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DExpression returns DmxRaiseExpression
-	 *     DmxNavigableMemberReference returns DmxRaiseExpression
-	 *     DmxNavigableMemberReference.DmxAssignment_1_0_0_0_0 returns DmxRaiseExpression
-	 *     DmxNavigableMemberReference.DmxMemberNavigation_1_1_0_0_0 returns DmxRaiseExpression
-	 *     DmxPredicateWithCorrelationVariable returns DmxRaiseExpression
-	 *     DmxOrExpression returns DmxRaiseExpression
-	 *     DmxOrExpression.DmxBinaryOperation_1_0_0_0 returns DmxRaiseExpression
-	 *     DmxAndExpression returns DmxRaiseExpression
-	 *     DmxAndExpression.DmxBinaryOperation_1_0_0_0 returns DmxRaiseExpression
-	 *     DmxEqualityExpression returns DmxRaiseExpression
-	 *     DmxEqualityExpression.DmxBinaryOperation_1_0_0_0 returns DmxRaiseExpression
-	 *     DmxRelationalExpression returns DmxRaiseExpression
-	 *     DmxRelationalExpression.DmxInstanceOfExpression_1_0_0_0_0 returns DmxRaiseExpression
-	 *     DmxRelationalExpression.DmxBinaryOperation_1_1_0_0_0 returns DmxRaiseExpression
-	 *     DmxOtherOperatorExpression returns DmxRaiseExpression
-	 *     DmxOtherOperatorExpression.DmxBinaryOperation_1_0_0_0 returns DmxRaiseExpression
-	 *     DmxAdditiveExpression returns DmxRaiseExpression
-	 *     DmxAdditiveExpression.DmxBinaryOperation_1_0_0_0 returns DmxRaiseExpression
-	 *     DmxMultiplicativeExpression returns DmxRaiseExpression
-	 *     DmxMultiplicativeExpression.DmxBinaryOperation_1_0_0_0 returns DmxRaiseExpression
-	 *     DmxUnaryOperation returns DmxRaiseExpression
-	 *     DmxCastExpression returns DmxRaiseExpression
-	 *     DmxCastExpression.DmxCastExpression_1_0_0_0 returns DmxRaiseExpression
-	 *     DmxPrimaryExpression returns DmxRaiseExpression
-	 *     DmxRaiseExpression returns DmxRaiseExpression
-	 *     DmxParenthesizedExpression returns DmxRaiseExpression
-	 *
-	 * Constraint:
-	 *     expression=DExpression
-	 */
-	protected void sequence_DmxRaiseExpression(ISerializationContext context, DmxRaiseExpression semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DmxPackage.Literals.DMX_RAISE_EXPRESSION__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmxPackage.Literals.DMX_RAISE_EXPRESSION__EXPRESSION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDmxRaiseExpressionAccess().getExpressionDExpressionParserRuleCall_2_0(), semanticObject.getExpression());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     DExpression returns DmxInstanceOfExpression
 	 *     DmxNavigableMemberReference returns DmxInstanceOfExpression
 	 *     DmxNavigableMemberReference.DmxAssignment_1_0_0_0_0 returns DmxInstanceOfExpression
@@ -1033,80 +966,6 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		feeder.accept(grammarAccess.getDmxRelationalExpressionAccess().getDmxInstanceOfExpressionExpressionAction_1_0_0_0_0(), semanticObject.getExpression());
 		feeder.accept(grammarAccess.getDmxRelationalExpressionAccess().getTypeDTypeIDTerminalRuleCall_1_0_1_0_1(), semanticObject.eGet(DmxPackage.Literals.DMX_INSTANCE_OF_EXPRESSION__TYPE, false));
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DExpression returns DmxReturnExpression
-	 *     DmxNavigableMemberReference returns DmxReturnExpression
-	 *     DmxNavigableMemberReference.DmxAssignment_1_0_0_0_0 returns DmxReturnExpression
-	 *     DmxNavigableMemberReference.DmxMemberNavigation_1_1_0_0_0 returns DmxReturnExpression
-	 *     DmxPredicateWithCorrelationVariable returns DmxReturnExpression
-	 *     DmxOrExpression returns DmxReturnExpression
-	 *     DmxOrExpression.DmxBinaryOperation_1_0_0_0 returns DmxReturnExpression
-	 *     DmxAndExpression returns DmxReturnExpression
-	 *     DmxAndExpression.DmxBinaryOperation_1_0_0_0 returns DmxReturnExpression
-	 *     DmxEqualityExpression returns DmxReturnExpression
-	 *     DmxEqualityExpression.DmxBinaryOperation_1_0_0_0 returns DmxReturnExpression
-	 *     DmxRelationalExpression returns DmxReturnExpression
-	 *     DmxRelationalExpression.DmxInstanceOfExpression_1_0_0_0_0 returns DmxReturnExpression
-	 *     DmxRelationalExpression.DmxBinaryOperation_1_1_0_0_0 returns DmxReturnExpression
-	 *     DmxOtherOperatorExpression returns DmxReturnExpression
-	 *     DmxOtherOperatorExpression.DmxBinaryOperation_1_0_0_0 returns DmxReturnExpression
-	 *     DmxAdditiveExpression returns DmxReturnExpression
-	 *     DmxAdditiveExpression.DmxBinaryOperation_1_0_0_0 returns DmxReturnExpression
-	 *     DmxMultiplicativeExpression returns DmxReturnExpression
-	 *     DmxMultiplicativeExpression.DmxBinaryOperation_1_0_0_0 returns DmxReturnExpression
-	 *     DmxUnaryOperation returns DmxReturnExpression
-	 *     DmxCastExpression returns DmxReturnExpression
-	 *     DmxCastExpression.DmxCastExpression_1_0_0_0 returns DmxReturnExpression
-	 *     DmxPrimaryExpression returns DmxReturnExpression
-	 *     DmxReturnExpression returns DmxReturnExpression
-	 *     DmxParenthesizedExpression returns DmxReturnExpression
-	 *
-	 * Constraint:
-	 *     expression=DExpression?
-	 */
-	protected void sequence_DmxReturnExpression(ISerializationContext context, DmxReturnExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DExpression returns DmxSelfExpression
-	 *     DmxNavigableMemberReference returns DmxSelfExpression
-	 *     DmxNavigableMemberReference.DmxAssignment_1_0_0_0_0 returns DmxSelfExpression
-	 *     DmxNavigableMemberReference.DmxMemberNavigation_1_1_0_0_0 returns DmxSelfExpression
-	 *     DmxPredicateWithCorrelationVariable returns DmxSelfExpression
-	 *     DmxOrExpression returns DmxSelfExpression
-	 *     DmxOrExpression.DmxBinaryOperation_1_0_0_0 returns DmxSelfExpression
-	 *     DmxAndExpression returns DmxSelfExpression
-	 *     DmxAndExpression.DmxBinaryOperation_1_0_0_0 returns DmxSelfExpression
-	 *     DmxEqualityExpression returns DmxSelfExpression
-	 *     DmxEqualityExpression.DmxBinaryOperation_1_0_0_0 returns DmxSelfExpression
-	 *     DmxRelationalExpression returns DmxSelfExpression
-	 *     DmxRelationalExpression.DmxInstanceOfExpression_1_0_0_0_0 returns DmxSelfExpression
-	 *     DmxRelationalExpression.DmxBinaryOperation_1_1_0_0_0 returns DmxSelfExpression
-	 *     DmxOtherOperatorExpression returns DmxSelfExpression
-	 *     DmxOtherOperatorExpression.DmxBinaryOperation_1_0_0_0 returns DmxSelfExpression
-	 *     DmxAdditiveExpression returns DmxSelfExpression
-	 *     DmxAdditiveExpression.DmxBinaryOperation_1_0_0_0 returns DmxSelfExpression
-	 *     DmxMultiplicativeExpression returns DmxSelfExpression
-	 *     DmxMultiplicativeExpression.DmxBinaryOperation_1_0_0_0 returns DmxSelfExpression
-	 *     DmxUnaryOperation returns DmxSelfExpression
-	 *     DmxCastExpression returns DmxSelfExpression
-	 *     DmxCastExpression.DmxCastExpression_1_0_0_0 returns DmxSelfExpression
-	 *     DmxPrimaryExpression returns DmxSelfExpression
-	 *     DmxSelfExpression returns DmxSelfExpression
-	 *     DmxParenthesizedExpression returns DmxSelfExpression
-	 *
-	 * Constraint:
-	 *     {DmxSelfExpression}
-	 */
-	protected void sequence_DmxSelfExpression(ISerializationContext context, DmxSelfExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -245,6 +245,11 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createDQueryParameterAdapter();
 			}
 			@Override
+			public Adapter caseDContext(DContext object)
+			{
+				return createDContextAdapter();
+			}
+			@Override
 			public Adapter caseDDomainEvent(DDomainEvent object)
 			{
 				return createDDomainEventAdapter();
@@ -253,11 +258,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseDCaseConjunction(DCaseConjunction object)
 			{
 				return createDCaseConjunctionAdapter();
-			}
-			@Override
-			public Adapter caseDContext(DContext object)
-			{
-				return createDContextAdapter();
 			}
 			@Override
 			public Adapter caseDNotification(DNotification object)
@@ -817,6 +817,21 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DContext <em>DContext</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DContext
+	 * @generated
+	 */
+	public Adapter createDContextAdapter()
+	{
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DDomainEvent <em>DDomain Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -842,21 +857,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDCaseConjunctionAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DContext <em>DContext</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DContext
-	 * @generated
-	 */
-	public Adapter createDContextAdapter()
 	{
 		return null;
 	}
