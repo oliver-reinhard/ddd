@@ -1419,9 +1419,20 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getDCaseConjunction_Otherwise()
+	{
+		return (EAttribute)dCaseConjunctionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getDCaseConjunction_Predicates()
 	{
-		return (EReference)dCaseConjunctionEClass.getEStructuralFeatures().get(1);
+		return (EReference)dCaseConjunctionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1700,6 +1711,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		dCaseConjunctionEClass = createEClass(DCASE_CONJUNCTION);
 		createEReference(dCaseConjunctionEClass, DCASE_CONJUNCTION__SELECTOR);
+		createEAttribute(dCaseConjunctionEClass, DCASE_CONJUNCTION__OTHERWISE);
 		createEReference(dCaseConjunctionEClass, DCASE_CONJUNCTION__PREDICATES);
 
 		dNotificationEClass = createEClass(DNOTIFICATION);
@@ -1930,6 +1942,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		initEClass(dCaseConjunctionEClass, DCaseConjunction.class, "DCaseConjunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDCaseConjunction_Selector(), this.getDExpression(), null, "selector", null, 0, 1, DCaseConjunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDCaseConjunction_Otherwise(), ecorePackage.getEBoolean(), "otherwise", null, 0, 1, DCaseConjunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDCaseConjunction_Predicates(), this.getDNamedPredicate(), null, "predicates", null, 0, -1, DCaseConjunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dNotificationEClass, DNotification.class, "DNotification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

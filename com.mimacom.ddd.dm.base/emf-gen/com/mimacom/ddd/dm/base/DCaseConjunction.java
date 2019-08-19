@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.DCaseConjunction#getSelector <em>Selector</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DCaseConjunction#isOtherwise <em>Otherwise</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DCaseConjunction#getPredicates <em>Predicates</em>}</li>
  * </ul>
  *
@@ -44,6 +45,28 @@ public interface DCaseConjunction extends DNamedElement
 	 * @generated
 	 */
 	void setSelector(DExpression value);
+
+	/**
+	 * Returns the value of the '<em><b>Otherwise</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Otherwise</em>' attribute.
+	 * @see #setOtherwise(boolean)
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getDCaseConjunction_Otherwise()
+	 * @model
+	 * @generated
+	 */
+	boolean isOtherwise();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.base.DCaseConjunction#isOtherwise <em>Otherwise</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Otherwise</em>' attribute.
+	 * @see #isOtherwise()
+	 * @generated
+	 */
+	void setOtherwise(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Predicates</b></em>' containment reference list.

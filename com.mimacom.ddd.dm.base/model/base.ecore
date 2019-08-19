@@ -167,6 +167,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="DCaseConjunction" eSuperTypes="#//DNamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="selector" eType="#//DExpression"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="otherwise" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="predicates" upperBound="-1"
         eType="#//DNamedPredicate" containment="true"/>
   </eClassifiers>

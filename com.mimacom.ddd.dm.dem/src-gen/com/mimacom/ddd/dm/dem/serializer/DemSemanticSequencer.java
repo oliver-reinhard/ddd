@@ -259,7 +259,7 @@ public class DemSemanticSequencer extends DmxSemanticSequencer {
 	 *     DCaseConjunction returns DCaseConjunction
 	 *
 	 * Constraint:
-	 *     (name=ID aliases+=ID* selector=DExpression predicates+=DNamedPredicate+)
+	 *     (name=ID aliases+=ID* (selector=DExpression | otherwise?='otherwise') predicates+=DNamedPredicate+)
 	 */
 	protected void sequence_DCaseConjunction(ISerializationContext context, DCaseConjunction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

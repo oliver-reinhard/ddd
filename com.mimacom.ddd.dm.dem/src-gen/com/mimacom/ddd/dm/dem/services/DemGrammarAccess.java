@@ -334,23 +334,28 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAliasKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cAliasesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cAliasesIDTerminalRuleCall_2_1_0 = (RuleCall)cAliasesAssignment_2_1.eContents().get(0);
-		private final Keyword cWhenKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cSelectorAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cSelectorDExpressionParserRuleCall_4_0 = (RuleCall)cSelectorAssignment_4.eContents().get(0);
-		private final Keyword cColonKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cPredicatesAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cPredicatesDNamedPredicateParserRuleCall_6_0 = (RuleCall)cPredicatesAssignment_6.eContents().get(0);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Group cGroup_3_0 = (Group)cAlternatives_3.eContents().get(0);
+		private final Keyword cWhenKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
+		private final Assignment cSelectorAssignment_3_0_1 = (Assignment)cGroup_3_0.eContents().get(1);
+		private final RuleCall cSelectorDExpressionParserRuleCall_3_0_1_0 = (RuleCall)cSelectorAssignment_3_0_1.eContents().get(0);
+		private final Assignment cOtherwiseAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
+		private final Keyword cOtherwiseOtherwiseKeyword_3_1_0 = (Keyword)cOtherwiseAssignment_3_1.eContents().get(0);
+		private final Keyword cColonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cPredicatesAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cPredicatesDNamedPredicateParserRuleCall_5_0 = (RuleCall)cPredicatesAssignment_5.eContents().get(0);
 		
 		//DCaseConjunction:
 		//	'case'
-		//	name=ID ('alias' aliases+=ID)*
-		//	'when'
+		//	name=ID ('alias' aliases+=ID)* ('when'
 		//	selector=DExpression
+		//	| otherwise?='otherwise')
 		//	':'
 		//	predicates+=DNamedPredicate+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'case' name=ID ('alias' aliases+=ID)* 'when' selector=DExpression ':' predicates+=DNamedPredicate+
+		//'case' name=ID ('alias' aliases+=ID)* ('when' selector=DExpression | otherwise?='otherwise') ':'
+		//predicates+=DNamedPredicate+
 		public Group getGroup() { return cGroup; }
 		
 		//'case'
@@ -374,23 +379,35 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getAliasesIDTerminalRuleCall_2_1_0() { return cAliasesIDTerminalRuleCall_2_1_0; }
 		
+		//'when' selector=DExpression | otherwise?='otherwise'
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+		
+		//'when' selector=DExpression
+		public Group getGroup_3_0() { return cGroup_3_0; }
+		
 		//'when'
-		public Keyword getWhenKeyword_3() { return cWhenKeyword_3; }
+		public Keyword getWhenKeyword_3_0_0() { return cWhenKeyword_3_0_0; }
 		
 		//selector=DExpression
-		public Assignment getSelectorAssignment_4() { return cSelectorAssignment_4; }
+		public Assignment getSelectorAssignment_3_0_1() { return cSelectorAssignment_3_0_1; }
 		
 		//DExpression
-		public RuleCall getSelectorDExpressionParserRuleCall_4_0() { return cSelectorDExpressionParserRuleCall_4_0; }
+		public RuleCall getSelectorDExpressionParserRuleCall_3_0_1_0() { return cSelectorDExpressionParserRuleCall_3_0_1_0; }
+		
+		//otherwise?='otherwise'
+		public Assignment getOtherwiseAssignment_3_1() { return cOtherwiseAssignment_3_1; }
+		
+		//'otherwise'
+		public Keyword getOtherwiseOtherwiseKeyword_3_1_0() { return cOtherwiseOtherwiseKeyword_3_1_0; }
 		
 		//':'
-		public Keyword getColonKeyword_5() { return cColonKeyword_5; }
+		public Keyword getColonKeyword_4() { return cColonKeyword_4; }
 		
 		//predicates+=DNamedPredicate+
-		public Assignment getPredicatesAssignment_6() { return cPredicatesAssignment_6; }
+		public Assignment getPredicatesAssignment_5() { return cPredicatesAssignment_5; }
 		
 		//DNamedPredicate
-		public RuleCall getPredicatesDNamedPredicateParserRuleCall_6_0() { return cPredicatesDNamedPredicateParserRuleCall_6_0; }
+		public RuleCall getPredicatesDNamedPredicateParserRuleCall_5_0() { return cPredicatesDNamedPredicateParserRuleCall_5_0; }
 	}
 	public class DNotificationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dem.Dem.DNotification");
@@ -808,9 +825,9 @@ public class DemGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DCaseConjunction:
 	//	'case'
-	//	name=ID ('alias' aliases+=ID)*
-	//	'when'
+	//	name=ID ('alias' aliases+=ID)* ('when'
 	//	selector=DExpression
+	//	| otherwise?='otherwise')
 	//	':'
 	//	predicates+=DNamedPredicate+;
 	public DCaseConjunctionElements getDCaseConjunctionAccess() {

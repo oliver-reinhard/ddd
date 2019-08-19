@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DCaseConjunctionImpl#getSelector <em>Selector</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DCaseConjunctionImpl#isOtherwise <em>Otherwise</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DCaseConjunctionImpl#getPredicates <em>Predicates</em>}</li>
  * </ul>
  *
@@ -47,6 +48,26 @@ public class DCaseConjunctionImpl extends DNamedElementImpl implements DCaseConj
 	 * @ordered
 	 */
 	protected DExpression selector;
+
+	/**
+	 * The default value of the '{@link #isOtherwise() <em>Otherwise</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isOtherwise()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean OTHERWISE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isOtherwise() <em>Otherwise</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isOtherwise()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean otherwise = OTHERWISE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getPredicates() <em>Predicates</em>}' containment reference list.
@@ -135,6 +156,31 @@ public class DCaseConjunctionImpl extends DNamedElementImpl implements DCaseConj
 	 * @generated
 	 */
 	@Override
+	public boolean isOtherwise()
+	{
+		return otherwise;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setOtherwise(boolean newOtherwise)
+	{
+		boolean oldOtherwise = otherwise;
+		otherwise = newOtherwise;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.DCASE_CONJUNCTION__OTHERWISE, oldOtherwise, otherwise));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<DNamedPredicate> getPredicates()
 	{
 		if (predicates == null)
@@ -174,6 +220,8 @@ public class DCaseConjunctionImpl extends DNamedElementImpl implements DCaseConj
 		{
 			case BasePackage.DCASE_CONJUNCTION__SELECTOR:
 				return getSelector();
+			case BasePackage.DCASE_CONJUNCTION__OTHERWISE:
+				return isOtherwise();
 			case BasePackage.DCASE_CONJUNCTION__PREDICATES:
 				return getPredicates();
 		}
@@ -193,6 +241,9 @@ public class DCaseConjunctionImpl extends DNamedElementImpl implements DCaseConj
 		{
 			case BasePackage.DCASE_CONJUNCTION__SELECTOR:
 				setSelector((DExpression)newValue);
+				return;
+			case BasePackage.DCASE_CONJUNCTION__OTHERWISE:
+				setOtherwise((Boolean)newValue);
 				return;
 			case BasePackage.DCASE_CONJUNCTION__PREDICATES:
 				getPredicates().clear();
@@ -215,6 +266,9 @@ public class DCaseConjunctionImpl extends DNamedElementImpl implements DCaseConj
 			case BasePackage.DCASE_CONJUNCTION__SELECTOR:
 				setSelector((DExpression)null);
 				return;
+			case BasePackage.DCASE_CONJUNCTION__OTHERWISE:
+				setOtherwise(OTHERWISE_EDEFAULT);
+				return;
 			case BasePackage.DCASE_CONJUNCTION__PREDICATES:
 				getPredicates().clear();
 				return;
@@ -234,10 +288,29 @@ public class DCaseConjunctionImpl extends DNamedElementImpl implements DCaseConj
 		{
 			case BasePackage.DCASE_CONJUNCTION__SELECTOR:
 				return selector != null;
+			case BasePackage.DCASE_CONJUNCTION__OTHERWISE:
+				return otherwise != OTHERWISE_EDEFAULT;
 			case BasePackage.DCASE_CONJUNCTION__PREDICATES:
 				return predicates != null && !predicates.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString()
+	{
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (otherwise: ");
+		result.append(otherwise);
+		result.append(')');
+		return result.toString();
 	}
 
 } //DCaseConjunctionImpl

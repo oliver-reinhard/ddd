@@ -2806,13 +2806,22 @@ public interface BasePackage extends EPackage
 	int DCASE_CONJUNCTION__SELECTOR = DNAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Otherwise</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCASE_CONJUNCTION__OTHERWISE = DNAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Predicates</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DCASE_CONJUNCTION__PREDICATES = DNAMED_ELEMENT_FEATURE_COUNT + 1;
+	int DCASE_CONJUNCTION__PREDICATES = DNAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>DCase Conjunction</em>' class.
@@ -2821,7 +2830,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DCASE_CONJUNCTION_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 2;
+	int DCASE_CONJUNCTION_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>DCase Conjunction</em>' class.
@@ -4168,6 +4177,17 @@ public interface BasePackage extends EPackage
 	EReference getDCaseConjunction_Selector();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.base.DCaseConjunction#isOtherwise <em>Otherwise</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Otherwise</em>'.
+	 * @see com.mimacom.ddd.dm.base.DCaseConjunction#isOtherwise()
+	 * @see #getDCaseConjunction()
+	 * @generated
+	 */
+	EAttribute getDCaseConjunction_Otherwise();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DCaseConjunction#getPredicates <em>Predicates</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5092,6 +5112,14 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EReference DCASE_CONJUNCTION__SELECTOR = eINSTANCE.getDCaseConjunction_Selector();
+
+		/**
+		 * The meta object literal for the '<em><b>Otherwise</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DCASE_CONJUNCTION__OTHERWISE = eINSTANCE.getDCaseConjunction_Otherwise();
 
 		/**
 		 * The meta object literal for the '<em><b>Predicates</b></em>' containment reference list feature.

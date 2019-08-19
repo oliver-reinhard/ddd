@@ -24,7 +24,7 @@
 '>'=56
 '>='=54
 '?'=66
-'@before'=105
+'@before'=106
 'AND'=46
 'AS'=20
 'BOOLEAN'=34
@@ -41,7 +41,7 @@
 'SERVICE'=41
 'TEXT'=36
 'TIMEPOINT'=38
-'TRUE'=107
+'TRUE'=108
 'UNDEFINED'=27
 'VOID'=33
 'XOR'=44
@@ -51,7 +51,7 @@
 ']'=98
 'actor'=83
 'alias'=68
-'all'=106
+'all'=107
 'and'=47
 'archetype'=91
 'as'=21
@@ -75,6 +75,7 @@
 'not'=65
 'notifications'=75
 'or'=43
+'otherwise'=105
 'postconditions'=77
 'preconditions'=76
 'service'=84
@@ -82,7 +83,7 @@
 'then'=101
 'to'=81
 'triggered'=73
-'true'=108
+'true'=109
 'undefined'=28
 'when'=80
 'with'=94
@@ -112,6 +113,7 @@ T__105=105
 T__106=106
 T__107=107
 T__108=108
+T__109=109
 T__17=17
 T__18=18
 T__19=19

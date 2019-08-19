@@ -3,7 +3,16 @@
  */
 package com.mimacom.ddd.dm.dem.validation;
 
+import com.google.common.collect.Iterables;
+import com.mimacom.ddd.dm.base.BasePackage;
+import com.mimacom.ddd.dm.base.DCaseConjunction;
+import com.mimacom.ddd.dm.base.DDomainEvent;
 import com.mimacom.ddd.dm.dem.validation.AbstractDemValidator;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * This class contains custom validation rules.
@@ -12,4 +21,30 @@ import com.mimacom.ddd.dm.dem.validation.AbstractDemValidator;
  */
 @SuppressWarnings("all")
 public class DemValidator extends AbstractDemValidator {
+  private static final BasePackage BASE = BasePackage.eINSTANCE;
+  
+  @Check
+  public void checkOtherwiseClause(final DDomainEvent event) {
+    final Iterable<DCaseConjunction> caseConjunctions = Iterables.<DCaseConjunction>filter(event.getPostconditionsDNF(), DCaseConjunction.class);
+    final Function1<DCaseConjunction, Boolean> _function = (DCaseConjunction it) -> {
+      return Boolean.valueOf(it.isOtherwise());
+    };
+    final int countOtherwise = IterableExtensions.size(IterableExtensions.<DCaseConjunction>filter(caseConjunctions, _function));
+    if ((countOtherwise == 1)) {
+      for (int i = 0; (i < IterableExtensions.size(caseConjunctions)); i++) {
+        if ((((DCaseConjunction[])Conversions.unwrapArray(caseConjunctions, DCaseConjunction.class))[i].isOtherwise() && (i != (IterableExtensions.size(caseConjunctions) - 1)))) {
+          this.error("The \'otherwise\' clause must be last", ((EObject[])Conversions.unwrapArray(caseConjunctions, EObject.class))[i], DemValidator.BASE.getDNamedElement_Name());
+        }
+      }
+    } else {
+      if ((countOtherwise > 1)) {
+        for (int i = 0; (i < IterableExtensions.size(caseConjunctions)); i++) {
+          boolean _isOtherwise = ((DCaseConjunction[])Conversions.unwrapArray(caseConjunctions, DCaseConjunction.class))[i].isOtherwise();
+          if (_isOtherwise) {
+            this.error("There can only be one \'otherwise\' clause ", ((EObject[])Conversions.unwrapArray(caseConjunctions, EObject.class))[i], DemValidator.BASE.getDNamedElement_Name());
+          }
+        }
+      }
+    }
+  }
 }

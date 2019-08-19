@@ -3,6 +3,10 @@
  */
 package com.mimacom.ddd.dm.dem.validation
 
+import com.mimacom.ddd.dm.base.BasePackage
+import com.mimacom.ddd.dm.base.DCaseConjunction
+import com.mimacom.ddd.dm.base.DDomainEvent
+import org.eclipse.xtext.validation.Check
 
 /**
  * This class contains custom validation rules. 
@@ -11,15 +15,24 @@ package com.mimacom.ddd.dm.dem.validation
  */
 class DemValidator extends AbstractDemValidator {
 	
-//	public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					DemPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
+	static val BASE = BasePackage.eINSTANCE
 	
+	@Check
+	def checkOtherwiseClause(DDomainEvent event) {
+		val caseConjunctions =  event.postconditionsDNF.filter(DCaseConjunction)
+		val countOtherwise = caseConjunctions.filter[otherwise].size
+		if (countOtherwise == 1) {
+			for(var i=0; i<caseConjunctions.size; i++) {
+				if (caseConjunctions.get(i).otherwise && i !=caseConjunctions.size-1) {
+					error ("The 'otherwise' clause must be last", caseConjunctions.get(i), BASE.DNamedElement_Name)
+				}
+			}
+		} else if (countOtherwise > 1) {
+			for(var i=0; i<caseConjunctions.size; i++) {
+				if (caseConjunctions.get(i).otherwise) {
+					error ("There can only be one 'otherwise' clause ", caseConjunctions.get(i), BASE.DNamedElement_Name)
+				}
+			}
+		}
+	}
 }

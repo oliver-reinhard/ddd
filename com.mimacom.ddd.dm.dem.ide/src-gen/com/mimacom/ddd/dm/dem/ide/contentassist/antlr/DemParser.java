@@ -33,6 +33,7 @@ public class DemParser extends AbstractContentAssistParser {
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, DemGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getDDomainAccess().getAlternatives_5(), "rule__DDomain__Alternatives_5");
 			builder.put(grammarAccess.getDDomainEventAccess().getAlternatives_10_1(), "rule__DDomainEvent__Alternatives_10_1");
+			builder.put(grammarAccess.getDCaseConjunctionAccess().getAlternatives_3(), "rule__DCaseConjunction__Alternatives_3");
 			builder.put(grammarAccess.getDActorAccess().getAlternatives(), "rule__DActor__Alternatives");
 			builder.put(grammarAccess.getDmxFilterTypeDescriptorAccess().getAlternatives_0(), "rule__DmxFilterTypeDescriptor__Alternatives_0");
 			builder.put(grammarAccess.getDExpressionAccess().getAlternatives(), "rule__DExpression__Alternatives");
@@ -77,6 +78,7 @@ public class DemParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDNamedPredicateAccess().getGroup_1(), "rule__DNamedPredicate__Group_1__0");
 			builder.put(grammarAccess.getDCaseConjunctionAccess().getGroup(), "rule__DCaseConjunction__Group__0");
 			builder.put(grammarAccess.getDCaseConjunctionAccess().getGroup_2(), "rule__DCaseConjunction__Group_2__0");
+			builder.put(grammarAccess.getDCaseConjunctionAccess().getGroup_3_0(), "rule__DCaseConjunction__Group_3_0__0");
 			builder.put(grammarAccess.getDNotificationAccess().getGroup(), "rule__DNotification__Group__0");
 			builder.put(grammarAccess.getDNotificationAccess().getGroup_1(), "rule__DNotification__Group_1__0");
 			builder.put(grammarAccess.getDMessageAccess().getGroup(), "rule__DMessage__Group__0");
@@ -198,8 +200,9 @@ public class DemParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDNamedPredicateAccess().getDescriptionAssignment_4(), "rule__DNamedPredicate__DescriptionAssignment_4");
 			builder.put(grammarAccess.getDCaseConjunctionAccess().getNameAssignment_1(), "rule__DCaseConjunction__NameAssignment_1");
 			builder.put(grammarAccess.getDCaseConjunctionAccess().getAliasesAssignment_2_1(), "rule__DCaseConjunction__AliasesAssignment_2_1");
-			builder.put(grammarAccess.getDCaseConjunctionAccess().getSelectorAssignment_4(), "rule__DCaseConjunction__SelectorAssignment_4");
-			builder.put(grammarAccess.getDCaseConjunctionAccess().getPredicatesAssignment_6(), "rule__DCaseConjunction__PredicatesAssignment_6");
+			builder.put(grammarAccess.getDCaseConjunctionAccess().getSelectorAssignment_3_0_1(), "rule__DCaseConjunction__SelectorAssignment_3_0_1");
+			builder.put(grammarAccess.getDCaseConjunctionAccess().getOtherwiseAssignment_3_1(), "rule__DCaseConjunction__OtherwiseAssignment_3_1");
+			builder.put(grammarAccess.getDCaseConjunctionAccess().getPredicatesAssignment_5(), "rule__DCaseConjunction__PredicatesAssignment_5");
 			builder.put(grammarAccess.getDNotificationAccess().getNameAssignment_0(), "rule__DNotification__NameAssignment_0");
 			builder.put(grammarAccess.getDNotificationAccess().getAliasesAssignment_1_1(), "rule__DNotification__AliasesAssignment_1_1");
 			builder.put(grammarAccess.getDNotificationAccess().getMessageAssignment_3(), "rule__DNotification__MessageAssignment_3");

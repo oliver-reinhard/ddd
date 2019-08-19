@@ -44,8 +44,10 @@ DCaseConjunction:
 	'case'
 	name=ID
 	('alias' aliases+=ID)*
-	'when'
-	selector=DExpression
+	(	'when'
+		selector=DExpression
+	|	otherwise?='otherwise'
+	)
 	':'
 	(predicates+=DNamedPredicate)+
 ;

@@ -178,20 +178,30 @@ public class DemFormatter extends DmxFormatter {
   }
   
   protected void _format(final DCaseConjunction c, @Extension final IFormattableDocument document) {
-    final ISemanticRegion when = this.textRegionExtensions.regionFor(c).keyword(this._demGrammarAccess.getDCaseConjunctionAccess().getWhenKeyword_3());
-    final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
-      it.newLine();
-    };
-    document.prepend(when, _function);
-    final ISemanticRegion colon = this.textRegionExtensions.regionFor(c).keyword(this._demGrammarAccess.getDCaseConjunctionAccess().getColonKeyword_5());
-    final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
+    boolean _isOtherwise = c.isOtherwise();
+    boolean _not = (!_isOtherwise);
+    if (_not) {
+      final ISemanticRegion when = this.textRegionExtensions.regionFor(c).keyword(this._demGrammarAccess.getDCaseConjunctionAccess().getWhenKeyword_3_0_0());
+      final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
+        it.newLine();
+      };
+      document.prepend(when, _function);
+    } else {
+      final ISemanticRegion otherwise = this.textRegionExtensions.regionFor(c).keyword(this._demGrammarAccess.getDCaseConjunctionAccess().getOtherwiseOtherwiseKeyword_3_1_0());
+      final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
+        it.newLine();
+      };
+      document.prepend(otherwise, _function_1);
+    }
+    final ISemanticRegion colon = this.textRegionExtensions.regionFor(c).keyword(this._demGrammarAccess.getDCaseConjunctionAccess().getColonKeyword_4());
+    final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
       it.noSpace();
     };
-    document.prepend(colon, _function_1);
-    final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
-      it.newLine();
+    document.prepend(colon, _function_2);
+    final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
+      it.setNewLines(2);
     };
-    document.append(colon, _function_2);
+    document.append(colon, _function_3);
     this.format(c.getPredicates(), document);
   }
   

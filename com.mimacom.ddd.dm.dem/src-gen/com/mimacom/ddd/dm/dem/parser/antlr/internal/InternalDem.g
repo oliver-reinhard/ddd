@@ -606,39 +606,58 @@ ruleDCaseConjunction returns [EObject current=null]
 				)
 			)
 		)*
-		otherlv_4='when'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getDCaseConjunctionAccess().getWhenKeyword_3());
-		}
 		(
 			(
+				otherlv_4='when'
 				{
-					newCompositeNode(grammarAccess.getDCaseConjunctionAccess().getSelectorDExpressionParserRuleCall_4_0());
+					newLeafNode(otherlv_4, grammarAccess.getDCaseConjunctionAccess().getWhenKeyword_3_0_0());
 				}
-				lv_selector_5_0=ruleDExpression
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDCaseConjunctionRule());
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getDCaseConjunctionAccess().getSelectorDExpressionParserRuleCall_3_0_1_0());
+						}
+						lv_selector_5_0=ruleDExpression
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getDCaseConjunctionRule());
+							}
+							set(
+								$current,
+								"selector",
+								lv_selector_5_0,
+								"com.mimacom.ddd.dm.dmx.Dmx.DExpression");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+			    |
+			(
+				(
+					lv_otherwise_6_0='otherwise'
+					{
+						newLeafNode(lv_otherwise_6_0, grammarAccess.getDCaseConjunctionAccess().getOtherwiseOtherwiseKeyword_3_1_0());
 					}
-					set(
-						$current,
-						"selector",
-						lv_selector_5_0,
-						"com.mimacom.ddd.dm.dmx.Dmx.DExpression");
-					afterParserOrEnumRuleCall();
-				}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getDCaseConjunctionRule());
+						}
+						setWithLastConsumed($current, "otherwise", true, "otherwise");
+					}
+				)
 			)
 		)
-		otherlv_6=':'
+		otherlv_7=':'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getDCaseConjunctionAccess().getColonKeyword_5());
+			newLeafNode(otherlv_7, grammarAccess.getDCaseConjunctionAccess().getColonKeyword_4());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDCaseConjunctionAccess().getPredicatesDNamedPredicateParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getDCaseConjunctionAccess().getPredicatesDNamedPredicateParserRuleCall_5_0());
 				}
-				lv_predicates_7_0=ruleDNamedPredicate
+				lv_predicates_8_0=ruleDNamedPredicate
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDCaseConjunctionRule());
@@ -646,7 +665,7 @@ ruleDCaseConjunction returns [EObject current=null]
 					add(
 						$current,
 						"predicates",
-						lv_predicates_7_0,
+						lv_predicates_8_0,
 						"com.mimacom.ddd.dm.dem.Dem.DNamedPredicate");
 					afterParserOrEnumRuleCall();
 				}

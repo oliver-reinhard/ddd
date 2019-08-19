@@ -89,11 +89,16 @@ class DemFormatter extends  DmxFormatter {
 	}
 	
 	def dispatch void format(DCaseConjunction c, extension IFormattableDocument document) {
-			val when = c.regionFor.keyword(DCaseConjunctionAccess.whenKeyword_3)
-			when.prepend[newLine]
-			val colon = c.regionFor.keyword(DCaseConjunctionAccess.colonKeyword_5)
+			if (! c.otherwise) {
+				val when = c.regionFor.keyword(DCaseConjunctionAccess.whenKeyword_3_0_0)
+				when.prepend[newLine]
+			} else {
+				val otherwise = c.regionFor.keyword(DCaseConjunctionAccess.otherwiseOtherwiseKeyword_3_1_0)
+				otherwise.prepend[newLine]
+			}
+			val colon = c.regionFor.keyword(DCaseConjunctionAccess.colonKeyword_4)
 			colon.prepend[noSpace]
-			colon.append[newLine]
+			colon.append[newLines=2]
 			format(c.predicates, document)
 	}
 	
