@@ -70,7 +70,7 @@ class DimFormatter extends DmxFormatter {
 	}
 	
 	def dispatch void format(DComplexType type, extension IFormattableDocument document) {
-		val open = type.regionFor.keyword(DEntityTypeAccess.leftCurlyBracketKeyword_2)
+		val open = type.regionFor.keyword(DEntityTypeAccess.leftCurlyBracketKeyword_3)
 		val close = type.regionFor.keyword(DEntityTypeAccess.rightCurlyBracketKeyword_6)
 		open.append[newLine]
 		interior(open, close) [indent]

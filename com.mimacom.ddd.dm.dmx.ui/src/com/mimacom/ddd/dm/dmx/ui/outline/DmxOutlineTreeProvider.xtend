@@ -47,7 +47,7 @@ class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	def _createNode(IOutlineNode parentNode, DmxFilter filter) {
 		// DmxContextReference has NO childeren => customise _createNode
 		val node = createEObjectNode(parentNode, filter, imageDispatcher.invoke(filter),	textDispatcher.invoke(filter), isLeafDispatcher.invoke(filter));
-		createEStructuralFeatureNode(node, filter, DMX.dmxFilter_TypeDesc, FEATURE_IMAGE, DMX.dmxFilter_TypeDesc.name + " " + filter.resultTypes +  if (filter.typeDesc.collection) "*" else "", true)
+		createEStructuralFeatureNode(node, filter, DMX.dmxFilter_TypeDesc, FEATURE_IMAGE, DMX.dmxFilter_TypeDesc.name + " " + filter.resultTypes +  if (filter?.typeDesc.collection) "*" else "", true)
 	}
 	
 	private def String getResultTypes(DmxFilter filter) {

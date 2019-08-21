@@ -24,12 +24,8 @@ class DmxValidator extends DmxTypeCheckingValidator {
 
 	@Check
 	def checkFilterParameters(DmxFilter f) {
-		if (f.typeDesc.isMultiTyped) {
-			if (f.parameters.size == 0) {
-				error("For a multi-typed return type, there must be a matching first parameter.", f, BASE.DNamedElement_Name, 0)
-			} else if (!f.parameters.get(0)?.typeDesc.isMultiTyped) {
-				error("For a multi-typed return type, the first parameter must have the same type.", f, DMX.dmxFilter_Parameters, 0)
-			}
+		if (f.typeDesc.isMultiTyped && ! f.parameters.exists[t|t.typeDesc !== null && t.typeDesc.isMultiTyped]) {
+			error("For a multi-typed return type, there must be a parameter supporting the same types.", f, BASE.DNamedElement_Name, 0)
 		}
 	}
 
@@ -53,16 +49,16 @@ class DmxValidator extends DmxTypeCheckingValidator {
 	@Check
 	def checkNoStateFeature(DEntityType e) {
 		val superTypes = e.typeHierarchy
-		if (! e.states.empty || superTypes.exists(t | t instanceof DEntityType && ! (t as DEntityType).states.empty)) {
+		if (! e.states.empty || superTypes.exists(t|t instanceof DEntityType && ! (t as DEntityType).states.empty)) {
 			for (f : e.features) {
 				if (f.name == util.ENTITY_TYPE_STATE_FILTER_NAME) {
 					error("Cannot declare a 'state' feature while states are declared for this type or for one of its super types.", f, BASE.DNamedElement_Name)
 				}
 			}
 			if (e.superType !== null && e.superType.allFeatures.exists[name == util.ENTITY_TYPE_STATE_FILTER_NAME]) {
-					error("Cannot have an inherited 'state' feature while states are declared for this type.", e, BASE.DNamedElement_Name)
+				error("Cannot have an inherited 'state' feature while states are declared for this type.", e, BASE.DNamedElement_Name)
 			}
 		}
-		
+
 	}
 }

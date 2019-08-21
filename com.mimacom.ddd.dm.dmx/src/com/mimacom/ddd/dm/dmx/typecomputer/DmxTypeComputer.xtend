@@ -60,11 +60,33 @@ class DmxTypeComputer {
 		val member = expr.member
 
 		if (member instanceof DmxFilter) {
-			if (member.typeDesc.isCompatible(DmxBaseType.COMPLEX /* ignore collection property */ ) || member.typeDesc.isMultiTyped) {
-				// propagate type from preceding navigation segment: (this may differ from the actually decared type of the first parameter)
-				val preceding = expr.precedingNavigationSegment
-				val precedingTypeDesc = preceding.typeFor // recursion
-				return getTypeDescriptor(precedingTypeDesc.type, member.typeDesc.collection)
+			val returnType = member.typeDesc
+			if (returnType.isCompatible(DmxBaseType.COMPLEX /* ignore collection property */ ) || member.typeDesc.isMultiTyped) {
+//				// propagate type from preceding navigation segment: (this may differ from the actually decared type of the first parameter)
+//				val preceding = expr.precedingNavigationSegment
+//				val precedingTypeDesc = preceding.typeFor // recursion
+//				return getTypeDescriptor(precedingTypeDesc.type, member.typeDesc.collection)
+
+				// propagate actual type of the first COMPLEX declared parameter (if compatible) or the first multi-valued declared parameter:
+				val actualParameters = expr.nullSafeCallArguments
+				for(var i=0; i< member.parameters.size; i++ ) {
+					val paramDeclaredType = member.parameters.get(i).typeDesc
+					if (returnType.isCompatible(DmxBaseType.COMPLEX) && (paramDeclaredType).isCompatible(DmxBaseType.COMPLEX) || paramDeclaredType.isMultiTyped) {
+						var AbstractDmxTypeDescriptor<?> paramActualType
+						 if (i == 0) {
+							val preceding = expr.precedingNavigationSegment
+							paramActualType = preceding.typeFor // recursion
+						} else if (i-1 < actualParameters.size) {  // -1 because first parameter value is implicit (navigation chain)
+							 paramActualType = actualParameters.get(i-1).typeFor // recursion
+						} else {
+							return UNDEFINED
+						}
+						if (paramDeclaredType.isCompatible(paramActualType.baseType,  paramActualType.collection)) {
+							return getTypeDescriptor(paramActualType.type, returnType.collection)
+						}
+						return UNDEFINED
+					}
+				}
 
 			} else if (member.typeDesc.isCompatible(DmxBaseType.STATE)) {
 			// propagate type from preceding navigation segment: (this must be an DEntityType)
@@ -191,7 +213,7 @@ class DmxTypeComputer {
 		BOOLEAN
 	}
 
-	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxFunctionCall expr) {
+	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxFunctionCall expr) { // explicit function call
 		val DmxFilter filter = expr.function
 		if (filter !== null) {
 			val returnType = filter.typeDesc
@@ -199,13 +221,20 @@ class DmxTypeComputer {
 				// return type cannot (and does not) depend on parameters:
 				return getTypeDescriptor(returnType.single, returnType.collection)
 			}
-			if (returnType.isCompatible(DmxBaseType.COMPLEX /* ignore collection property */ ) || returnType.isMultiTyped) {
-				// propagate actual type of first parameter (if compatible); this may differ from the decared type of the first parameter
-				if (expr.nullSafeCallArguments.size > 0) {
-					val param0ActualType = expr.nullSafeCallArguments.get(0).typeFor // recursion
-					val param0DeclaredType = filter.parameters.get(0).typeDesc
-					if (param0DeclaredType.isCompatible(param0ActualType.baseType,  param0ActualType.collection)) {
-						return param0ActualType
+			val actualParameters = expr.nullSafeCallArguments
+			
+			if (returnType.isCompatible(DmxBaseType.COMPLEX /* ignore collection property */) || returnType.isMultiTyped) {
+				// propagate actual type of the first COMPLEX declared parameter (if compatible) or the first multi-valued declared parameter:
+				for(var i=0; i< filter.parameters.size; i++ ) {
+					val paramDeclaredType = filter.parameters.get(i).typeDesc
+					if (returnType.isCompatible(DmxBaseType.COMPLEX) && (paramDeclaredType).isCompatible(DmxBaseType.COMPLEX) || paramDeclaredType.isMultiTyped) {
+						if (i < actualParameters.size) {
+							val paramActualType = actualParameters.get(i).typeFor // recursion
+							if (paramDeclaredType.isCompatible(paramActualType.baseType,  paramActualType.collection)) {
+								return getTypeDescriptor(paramActualType.type, returnType.collection)
+							}
+						}
+						return UNDEFINED
 					}
 				}
 	

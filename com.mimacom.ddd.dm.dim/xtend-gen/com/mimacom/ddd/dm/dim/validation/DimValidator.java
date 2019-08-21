@@ -54,6 +54,8 @@ public class DimValidator extends AbstractDimValidator {
   @Extension
   private DimUtil _dimUtil;
   
+  private final String NAME_ALL_UPPERCASE = "Name should be all upercase";
+  
   @Check
   public void checkDomainDeclaresOnlyValueTypes(final DDomain d) {
     EList<DType> _types = d.getTypes();
@@ -304,7 +306,7 @@ public class DimValidator extends AbstractDimValidator {
     boolean _equals = literal.getName().equals(literal.getName().toUpperCase());
     boolean _not = (!_equals);
     if (_not) {
-      this.warning("Name should be all upercase", BasePackage.Literals.DNAMED_ELEMENT__NAME);
+      this.warning(this.NAME_ALL_UPPERCASE, BasePackage.Literals.DNAMED_ELEMENT__NAME);
     }
   }
   
@@ -313,7 +315,7 @@ public class DimValidator extends AbstractDimValidator {
     boolean _equals = state.getName().equals(state.getName().toUpperCase());
     boolean _not = (!_equals);
     if (_not) {
-      this.warning("Name should be all upercase", BasePackage.Literals.DNAMED_ELEMENT__NAME);
+      this.warning(this.NAME_ALL_UPPERCASE, BasePackage.Literals.DNAMED_ELEMENT__NAME);
     }
   }
   
@@ -322,7 +324,7 @@ public class DimValidator extends AbstractDimValidator {
     boolean _equals = event.getName().equals(event.getName().toUpperCase());
     boolean _not = (!_equals);
     if (_not) {
-      this.warning("Name should be all upercase", BasePackage.Literals.DNAMED_ELEMENT__NAME);
+      this.warning(this.NAME_ALL_UPPERCASE, BasePackage.Literals.DNAMED_ELEMENT__NAME);
     }
   }
 }

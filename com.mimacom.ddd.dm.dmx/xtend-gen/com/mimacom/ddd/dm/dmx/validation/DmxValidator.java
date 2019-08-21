@@ -13,7 +13,6 @@ import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxFilterParameter;
-import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxUtil;
 import com.mimacom.ddd.dm.dmx.validation.DmxTypeCheckingValidator;
@@ -37,24 +36,10 @@ public class DmxValidator extends DmxTypeCheckingValidator {
   
   @Check
   public void checkFilterParameters(final DmxFilter f) {
-    boolean _isMultiTyped = f.getTypeDesc().isMultiTyped();
-    if (_isMultiTyped) {
-      int _size = f.getParameters().size();
-      boolean _equals = (_size == 0);
-      if (_equals) {
-        this.error("For a multi-typed return type, there must be a matching first parameter.", f, DmxTypeCheckingValidator.BASE.getDNamedElement_Name(), 0);
-      } else {
-        DmxFilterParameter _get = f.getParameters().get(0);
-        DmxFilterTypeDescriptor _typeDesc = null;
-        if (_get!=null) {
-          _typeDesc=_get.getTypeDesc();
-        }
-        boolean _isMultiTyped_1 = _typeDesc.isMultiTyped();
-        boolean _not = (!_isMultiTyped_1);
-        if (_not) {
-          this.error("For a multi-typed return type, the first parameter must have the same type.", f, DmxTypeCheckingValidator.DMX.getDmxFilter_Parameters(), 0);
-        }
-      }
+    if ((f.getTypeDesc().isMultiTyped() && (!IterableExtensions.<DmxFilterParameter>exists(f.getParameters(), ((Function1<DmxFilterParameter, Boolean>) (DmxFilterParameter t) -> {
+      return Boolean.valueOf(((t.getTypeDesc() != null) && t.getTypeDesc().isMultiTyped()));
+    }))))) {
+      this.error("For a multi-typed return type, there must be a parameter supporting the same types.", f, DmxTypeCheckingValidator.BASE.getDNamedElement_Name(), 0);
     }
   }
   

@@ -90,7 +90,11 @@ public class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
       String _resultTypes = this.getResultTypes(filter);
       String _plus_1 = (_plus + _resultTypes);
       String _xifexpression = null;
-      boolean _isCollection = filter.getTypeDesc().isCollection();
+      DmxFilterTypeDescriptor _typeDesc = null;
+      if (filter!=null) {
+        _typeDesc=filter.getTypeDesc();
+      }
+      boolean _isCollection = _typeDesc.isCollection();
       if (_isCollection) {
         _xifexpression = "*";
       } else {

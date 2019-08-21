@@ -91,16 +91,40 @@ public class DmxTypeComputer {
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxMemberNavigation expr) {
     final DNavigableMember member = expr.getMember();
     if ((member instanceof DmxFilter)) {
-      if ((((DmxFilter)member).getTypeDesc().isCompatible(DmxBaseType.COMPLEX) || ((DmxFilter)member).getTypeDesc().isMultiTyped())) {
-        final DExpression preceding = expr.getPrecedingNavigationSegment();
-        final AbstractDmxTypeDescriptor<?> precedingTypeDesc = this.typeFor(preceding);
-        return this.getTypeDescriptor(precedingTypeDesc.type, ((DmxFilter)member).getTypeDesc().isCollection());
+      final DmxFilterTypeDescriptor returnType = ((DmxFilter)member).getTypeDesc();
+      if ((returnType.isCompatible(DmxBaseType.COMPLEX) || ((DmxFilter)member).getTypeDesc().isMultiTyped())) {
+        final List<DExpression> actualParameters = this.util.nullSafeCallArguments(expr);
+        for (int i = 0; (i < ((DmxFilter)member).getParameters().size()); i++) {
+          {
+            final DmxFilterTypeDescriptor paramDeclaredType = ((DmxFilter)member).getParameters().get(i).getTypeDesc();
+            if (((returnType.isCompatible(DmxBaseType.COMPLEX) && paramDeclaredType.isCompatible(DmxBaseType.COMPLEX)) || paramDeclaredType.isMultiTyped())) {
+              AbstractDmxTypeDescriptor<?> paramActualType = null;
+              if ((i == 0)) {
+                final DExpression preceding = expr.getPrecedingNavigationSegment();
+                paramActualType = this.typeFor(preceding);
+              } else {
+                int _size = actualParameters.size();
+                boolean _lessThan = ((i - 1) < _size);
+                if (_lessThan) {
+                  paramActualType = this.typeFor(actualParameters.get((i - 1)));
+                } else {
+                  return DmxTypeComputer.UNDEFINED;
+                }
+              }
+              boolean _isCompatible = paramDeclaredType.isCompatible(paramActualType.baseType, paramActualType.collection);
+              if (_isCompatible) {
+                return this.getTypeDescriptor(paramActualType.type, returnType.isCollection());
+              }
+              return DmxTypeComputer.UNDEFINED;
+            }
+          }
+        }
       } else {
         boolean _isCompatible = ((DmxFilter)member).getTypeDesc().isCompatible(DmxBaseType.STATE);
         if (_isCompatible) {
-          final DExpression preceding_1 = expr.getPrecedingNavigationSegment();
-          final AbstractDmxTypeDescriptor<?> precedingTypeDesc_1 = this.typeFor(preceding_1);
-          final DType precedingType = precedingTypeDesc_1.type;
+          final DExpression preceding = expr.getPrecedingNavigationSegment();
+          final AbstractDmxTypeDescriptor<?> precedingTypeDesc = this.typeFor(preceding);
+          final DType precedingType = precedingTypeDesc.type;
           if ((precedingType instanceof DEntityType)) {
             boolean _isEmpty = ((DEntityType)precedingType).getStates().isEmpty();
             boolean _not = (!_isEmpty);
@@ -296,15 +320,23 @@ public class DmxTypeComputer {
         if (_equals) {
           return this.getTypeDescriptor(returnType.getSingle(), returnType.isCollection());
         }
+        final List<DExpression> actualParameters = this.util.nullSafeCallArguments(expr);
         if ((returnType.isCompatible(DmxBaseType.COMPLEX) || returnType.isMultiTyped())) {
-          int _size_1 = this.util.nullSafeCallArguments(expr).size();
-          boolean _greaterThan = (_size_1 > 0);
-          if (_greaterThan) {
-            final AbstractDmxTypeDescriptor<?> param0ActualType = this.typeFor(this.util.nullSafeCallArguments(expr).get(0));
-            final DmxFilterTypeDescriptor param0DeclaredType = filter.getParameters().get(0).getTypeDesc();
-            boolean _isCompatible = param0DeclaredType.isCompatible(param0ActualType.baseType, param0ActualType.collection);
-            if (_isCompatible) {
-              return param0ActualType;
+          for (int i = 0; (i < filter.getParameters().size()); i++) {
+            {
+              final DmxFilterTypeDescriptor paramDeclaredType = filter.getParameters().get(i).getTypeDesc();
+              if (((returnType.isCompatible(DmxBaseType.COMPLEX) && paramDeclaredType.isCompatible(DmxBaseType.COMPLEX)) || paramDeclaredType.isMultiTyped())) {
+                int _size_1 = actualParameters.size();
+                boolean _lessThan = (i < _size_1);
+                if (_lessThan) {
+                  final AbstractDmxTypeDescriptor<?> paramActualType = this.typeFor(actualParameters.get(i));
+                  boolean _isCompatible = paramDeclaredType.isCompatible(paramActualType.baseType, paramActualType.collection);
+                  if (_isCompatible) {
+                    return this.getTypeDescriptor(paramActualType.type, returnType.isCollection());
+                  }
+                }
+                return DmxTypeComputer.UNDEFINED;
+              }
             }
           }
         } else {

@@ -42,6 +42,8 @@ import static com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScope
 class DimValidator extends AbstractDimValidator {
 
 	@Inject extension DimUtil
+	
+	val NAME_ALL_UPPERCASE = "Name should be all upercase"
 
 	@Check
 	def checkDomainDeclaresOnlyValueTypes(DDomain d) {
@@ -250,19 +252,19 @@ class DimValidator extends AbstractDimValidator {
 // // Naming: Elements whose names should be ALL UPPERCASE
 	@Check def void checkLiteralIsUppercase(DLiteral literal) {
 		if (! literal.name.equals(literal.name.toUpperCase)) {
-			warning("Name should be all upercase", BasePackage.Literals::DNAMED_ELEMENT__NAME)
+			warning(NAME_ALL_UPPERCASE, BasePackage.Literals::DNAMED_ELEMENT__NAME)
 		}
 	}
 	
 	@Check def void checkStateNameIsUppercase(DState state) {
 		if (! state.name.equals(state.name.toUpperCase)) {
-			warning("Name should be all upercase", BasePackage.Literals::DNAMED_ELEMENT__NAME)
+			warning(NAME_ALL_UPPERCASE, BasePackage.Literals::DNAMED_ELEMENT__NAME)
 		}
 	}
 	
 	@Check def void checkStateEventNameIsUppercase(DStateEvent event) {
 		if (! event.name.equals(event.name.toUpperCase)) {
-			warning("Name should be all upercase", BasePackage.Literals::DNAMED_ELEMENT__NAME)
+			warning(NAME_ALL_UPPERCASE, BasePackage.Literals::DNAMED_ELEMENT__NAME)
 		}
 	}
 }
