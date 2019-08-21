@@ -81,6 +81,8 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 			case BasePackage.DATTRIBUTE: return createDAttribute();
 			case BasePackage.DQUERY: return createDQuery();
 			case BasePackage.DQUERY_PARAMETER: return createDQueryParameter();
+			case BasePackage.DSTATE: return createDState();
+			case BasePackage.DSTATE_EVENT: return createDStateEvent();
 			case BasePackage.DCONTEXT: return createDContext();
 			case BasePackage.DDOMAIN_EVENT: return createDDomainEvent();
 			case BasePackage.DCASE_CONJUNCTION: return createDCaseConjunction();
@@ -325,6 +327,30 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		DQueryParameterImpl dQueryParameter = new DQueryParameterImpl();
 		return dQueryParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DState createDState()
+	{
+		DStateImpl dState = new DStateImpl();
+		return dState;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DStateEvent createDStateEvent()
+	{
+		DStateEventImpl dStateEvent = new DStateEventImpl();
+		return dStateEvent;
 	}
 
 	/**

@@ -21,6 +21,8 @@ import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.DState;
+import com.mimacom.ddd.dm.base.DStateEvent;
 import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.dim.serializer.DimSemanticSequencer;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
@@ -142,6 +144,12 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 				return; 
 			case BasePackage.DRICH_TEXT:
 				sequence_DRichText(context, (DRichText) semanticObject); 
+				return; 
+			case BasePackage.DSTATE:
+				sequence_DState(context, (DState) semanticObject); 
+				return; 
+			case BasePackage.DSTATE_EVENT:
+				sequence_DStateEvent(context, (DStateEvent) semanticObject); 
 				return; 
 			case BasePackage.DTEXT_SEGMENT:
 				if (rule == grammarAccess.getDmxTextEndRule()) {
@@ -453,7 +461,9 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *         aliases+=ID* 
 	 *         superType=[DComplexType|ID]? 
 	 *         description=DRichText? 
-	 *         (features+=Feature | constraints+=DConstraint)*
+	 *         features+=Feature? 
+	 *         (constraints+=DConstraint? features+=Feature?)* 
+	 *         (features+=DFeature | constraints+=DConstraint)*
 	 *     )
 	 */
 	protected void sequence_DComplexType_DDetailType(ISerializationContext context, DDetailType semanticObject) {

@@ -1181,6 +1181,24 @@ public interface SimPackage extends EPackage
 	int SENTITY_TYPE_DEDUCTION__ORIGIN = BasePackage.DENTITY_TYPE__ORIGIN;
 
 	/**
+	 * The feature id for the '<em><b>States</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTITY_TYPE_DEDUCTION__STATES = BasePackage.DENTITY_TYPE__STATES;
+
+	/**
+	 * The feature id for the '<em><b>Events</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTITY_TYPE_DEDUCTION__EVENTS = BasePackage.DENTITY_TYPE__EVENTS;
+
+	/**
 	 * The feature id for the '<em><b>Deduction Rule</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

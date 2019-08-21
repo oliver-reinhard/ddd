@@ -293,7 +293,8 @@ public class SusGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum DmxBaseType:
-	//	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | COMPLEX | NOTIFICATION /*sent* */ | SERVICE /*invoked* */;
+	//	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | STATE /*transition*/ | STATE_EVENT | COMPLEX | NOTIFICATION
+	//	/*sent* */ | SERVICE /*invoked* */;
 	public DmxGrammarAccess.DmxBaseTypeElements getDmxBaseTypeAccess() {
 		return gaDmx.getDmxBaseTypeAccess();
 	}

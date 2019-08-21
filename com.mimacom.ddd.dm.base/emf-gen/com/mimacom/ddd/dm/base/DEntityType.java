@@ -2,6 +2,7 @@
  */
 package com.mimacom.ddd.dm.base;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +15,8 @@ package com.mimacom.ddd.dm.base;
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.DEntityType#isRoot <em>Root</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DEntityType#getOrigin <em>Origin</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DEntityType#getStates <em>States</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.DEntityType#getEvents <em>Events</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.base.BasePackage#getDEntityType()
@@ -68,5 +71,29 @@ public interface DEntityType extends DComplexType, IIdentityType
 	 * @generated
 	 */
 	void setOrigin(DEntityOrigin value);
+
+	/**
+	 * Returns the value of the '<em><b>States</b></em>' containment reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DState}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>States</em>' containment reference list.
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getDEntityType_States()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DState> getStates();
+
+	/**
+	 * Returns the value of the '<em><b>Events</b></em>' containment reference list.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DStateEvent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Events</em>' containment reference list.
+	 * @see com.mimacom.ddd.dm.base.BasePackage#getDEntityType_Events()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DStateEvent> getEvents();
 
 } // DEntityType

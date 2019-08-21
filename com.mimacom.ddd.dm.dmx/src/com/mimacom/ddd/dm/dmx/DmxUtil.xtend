@@ -11,6 +11,8 @@ import java.util.Set
 
 class DmxUtil {
 	
+	public val ENTITY_TYPE_STATE_FILTER_NAME = "state"
+	
 	/*
 	 * Returns all the supertypes of the given type.
 	 */

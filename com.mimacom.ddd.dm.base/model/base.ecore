@@ -60,8 +60,6 @@
         eType="#//DImport" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregates" upperBound="-1"
         eType="#//DAggregate" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="stateModels" upperBound="-1"
-        eType="#//IEntityStateModel" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
         eType="#//DDomainEvent" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
@@ -105,15 +103,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="DEntityType" eSuperTypes="#//DComplexType #//IIdentityType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="root" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="origin" eType="#//DEntityOrigin"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
+        eType="#//DState" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
+        eType="#//DStateEvent" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DEntityOrigin">
     <eLiterals name="GENERIC_ENTITY"/>
     <eLiterals name="PHYSICAL_OBJECT" value="1"/>
     <eLiterals name="VIRTUAL_CONCEPT" value="2"/>
     <eLiterals name="RELATIONSHIP" value="3"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IEntityStateModel" abstract="true" interface="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="forType" eType="#//DEntityType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DFeature" abstract="true" eSuperTypes="#//DNavigableMember #//IDeducibleElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="DAssociation" eSuperTypes="#//DFeature">
@@ -151,6 +150,8 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DQueryParameter" eSuperTypes="#//DNavigableMember #//IDeducibleElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DState" eSuperTypes="#//DNavigableMember"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DStateEvent" eSuperTypes="#//DNamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="DContext" eSuperTypes="#//DNavigableMember"/>
   <eClassifiers xsi:type="ecore:EClass" name="DDomainEvent" eSuperTypes="#//DNamedElement #//INavigableMemberContainer #//IStaticReferenceTarget">
     <eStructuralFeatures xsi:type="ecore:EReference" name="context" lowerBound="1"

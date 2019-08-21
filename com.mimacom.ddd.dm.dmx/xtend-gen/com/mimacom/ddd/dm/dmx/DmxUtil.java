@@ -16,6 +16,8 @@ import java.util.Set;
 
 @SuppressWarnings("all")
 public class DmxUtil {
+  public final String ENTITY_TYPE_STATE_FILTER_NAME = "state";
+  
   /**
    * Returns all the supertypes of the given type.
    */

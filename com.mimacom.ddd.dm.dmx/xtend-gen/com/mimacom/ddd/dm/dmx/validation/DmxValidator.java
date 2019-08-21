@@ -3,7 +3,10 @@
  */
 package com.mimacom.ddd.dm.dmx.validation;
 
+import com.google.common.base.Objects;
+import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DComplexType;
+import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DNavigableMember;
@@ -12,8 +15,14 @@ import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxFilterParameter;
 import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
+import com.mimacom.ddd.dm.dmx.DmxUtil;
 import com.mimacom.ddd.dm.dmx.validation.DmxTypeCheckingValidator;
+import java.util.Set;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * This class contains custom validation rules.
@@ -22,6 +31,10 @@ import org.eclipse.xtext.validation.Check;
  */
 @SuppressWarnings("all")
 public class DmxValidator extends DmxTypeCheckingValidator {
+  @Inject
+  @Extension
+  private DmxUtil util;
+  
   @Check
   public void checkFilterParameters(final DmxFilter f) {
     boolean _isMultiTyped = f.getTypeDesc().isMultiTyped();
@@ -58,8 +71,30 @@ public class DmxValidator extends DmxTypeCheckingValidator {
     if ((_member instanceof DFeature)) {
       final DExpression preceding = nav.getPrecedingNavigationSegment();
       if (((preceding instanceof DmxContextReference) && (((DmxContextReference) preceding).getTarget() instanceof DComplexType))) {
-        this.error("Cannot navigate a feature from a static type reference. Use [[Type#feature]] syntax inside RichStrings.", nav, 
-          DmxTypeCheckingValidator.DMX.getDmxMemberNavigation_Member());
+        this.error("Cannot navigate a feature from a static type reference. Use [[Type#feature]] syntax inside RichStrings.", nav, DmxTypeCheckingValidator.DMX.getDmxMemberNavigation_Member());
+      }
+    }
+  }
+  
+  @Check
+  public void checkNoStateFeature(final DEntityType e) {
+    final Set<DComplexType> superTypes = this.util.typeHierarchy(e);
+    if (((!e.getStates().isEmpty()) || IterableExtensions.<DComplexType>exists(superTypes, ((Function1<DComplexType, Boolean>) (DComplexType t) -> {
+      return Boolean.valueOf(((t instanceof DEntityType) && (!((DEntityType) t).getStates().isEmpty())));
+    })))) {
+      EList<DFeature> _features = e.getFeatures();
+      for (final DFeature f : _features) {
+        String _name = f.getName();
+        boolean _equals = Objects.equal(_name, this.util.ENTITY_TYPE_STATE_FILTER_NAME);
+        if (_equals) {
+          this.error("Cannot declare a \'state\' feature while states are declared for this type or for one of its super types.", f, DmxTypeCheckingValidator.BASE.getDNamedElement_Name());
+        }
+      }
+      if (((e.getSuperType() != null) && IterableExtensions.<DFeature>exists(this.util.allFeatures(e.getSuperType()), ((Function1<DFeature, Boolean>) (DFeature it) -> {
+        String _name_1 = it.getName();
+        return Boolean.valueOf(Objects.equal(_name_1, this.util.ENTITY_TYPE_STATE_FILTER_NAME));
+      })))) {
+        this.error("Cannot have an inherited \'state\' feature while states are declared for this type.", e, DmxTypeCheckingValidator.BASE.getDNamedElement_Name());
       }
     }
   }

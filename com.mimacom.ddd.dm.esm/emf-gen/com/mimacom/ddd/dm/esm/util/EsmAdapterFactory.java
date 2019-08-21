@@ -4,9 +4,6 @@
 package com.mimacom.ddd.dm.esm.util;
 
 import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.IEntityStateModel;
-import com.mimacom.ddd.dm.base.INamespace;
-import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
 import com.mimacom.ddd.dm.esm.*;
 
@@ -81,44 +78,29 @@ public class EsmAdapterFactory extends AdapterFactoryImpl
 		new EsmSwitch<Adapter>()
 		{
 			@Override
-			public Adapter caseDEntityStateModel(DEntityStateModel object)
+			public Adapter caseEsmDomain(EsmDomain object)
 			{
-				return createDEntityStateModelAdapter();
+				return createEsmDomainAdapter();
 			}
 			@Override
-			public Adapter caseDState(DState object)
+			public Adapter caseEsmEntityStateModel(EsmEntityStateModel object)
 			{
-				return createDStateAdapter();
+				return createEsmEntityStateModelAdapter();
 			}
 			@Override
-			public Adapter caseDEvent(DEvent object)
+			public Adapter caseEsmState(EsmState object)
 			{
-				return createDEventAdapter();
+				return createEsmStateAdapter();
 			}
 			@Override
-			public Adapter caseDTransition(DTransition object)
+			public Adapter caseEsmTransition(EsmTransition object)
 			{
-				return createDTransitionAdapter();
+				return createEsmTransitionAdapter();
 			}
 			@Override
 			public Adapter caseDNamedElement(DNamedElement object)
 			{
 				return createDNamedElementAdapter();
-			}
-			@Override
-			public Adapter caseIEntityStateModel(IEntityStateModel object)
-			{
-				return createIEntityStateModelAdapter();
-			}
-			@Override
-			public Adapter caseINamespace(INamespace object)
-			{
-				return createINamespaceAdapter();
-			}
-			@Override
-			public Adapter caseINavigableMemberContainer(INavigableMemberContainer object)
-			{
-				return createINavigableMemberContainerAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object)
@@ -143,61 +125,61 @@ public class EsmAdapterFactory extends AdapterFactoryImpl
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.esm.DEntityStateModel <em>DEntity State Model</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.esm.EsmDomain <em>Domain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.esm.DEntityStateModel
+	 * @see com.mimacom.ddd.dm.esm.EsmDomain
 	 * @generated
 	 */
-	public Adapter createDEntityStateModelAdapter()
+	public Adapter createEsmDomainAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.esm.DState <em>DState</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.esm.EsmEntityStateModel <em>Entity State Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.esm.DState
+	 * @see com.mimacom.ddd.dm.esm.EsmEntityStateModel
 	 * @generated
 	 */
-	public Adapter createDStateAdapter()
+	public Adapter createEsmEntityStateModelAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.esm.DEvent <em>DEvent</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.esm.EsmState <em>State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.esm.DEvent
+	 * @see com.mimacom.ddd.dm.esm.EsmState
 	 * @generated
 	 */
-	public Adapter createDEventAdapter()
+	public Adapter createEsmStateAdapter()
 	{
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.esm.DTransition <em>DTransition</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.esm.EsmTransition <em>Transition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.esm.DTransition
+	 * @see com.mimacom.ddd.dm.esm.EsmTransition
 	 * @generated
 	 */
-	public Adapter createDTransitionAdapter()
+	public Adapter createEsmTransitionAdapter()
 	{
 		return null;
 	}
@@ -213,51 +195,6 @@ public class EsmAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDNamedElementAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IEntityStateModel <em>IEntity State Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.IEntityStateModel
-	 * @generated
-	 */
-	public Adapter createIEntityStateModelAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INamespace <em>INamespace</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.INamespace
-	 * @generated
-	 */
-	public Adapter createINamespaceAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INavigableMemberContainer <em>INavigable Member Container</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.INavigableMemberContainer
-	 * @generated
-	 */
-	public Adapter createINavigableMemberContainerAdapter()
 	{
 		return null;
 	}

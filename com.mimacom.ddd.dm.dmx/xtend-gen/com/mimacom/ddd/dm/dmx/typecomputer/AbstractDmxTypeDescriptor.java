@@ -45,11 +45,11 @@ public abstract class AbstractDmxTypeDescriptor<T extends DType> {
   }
   
   public boolean canAssignTo(final AbstractDmxTypeDescriptor<?> other) {
-    return (((this.type != null) && this.type.equals(other.type)) && (this.collection == other.collection));
+    return ((((this.type != null) && (other != null)) && this.type.equals(other.type)) && (this.collection == other.collection));
   }
   
   public boolean isCompatibleWith(final AbstractDmxTypeDescriptor<?> other) {
-    return (((this.baseType != null) && this.baseType.equals(other.baseType)) && (this.collection == other.collection));
+    return ((((this.baseType != null) && (other != null)) && this.baseType.equals(other.baseType)) && (this.collection == other.collection));
   }
   
   public List<DNavigableMember> getNavigableMembers() {

@@ -21,6 +21,8 @@ import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.base.DState;
+import com.mimacom.ddd.dm.base.DStateEvent;
 import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.dim.services.DimGrammarAccess;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
@@ -58,6 +60,8 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
+import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
+import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
 @SuppressWarnings("all")
 public class DimSemanticSequencer extends DmxSemanticSequencer {
@@ -120,6 +124,12 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case BasePackage.DRICH_TEXT:
 				sequence_DRichText(context, (DRichText) semanticObject); 
+				return; 
+			case BasePackage.DSTATE:
+				sequence_DState(context, (DState) semanticObject); 
+				return; 
+			case BasePackage.DSTATE_EVENT:
+				sequence_DStateEvent(context, (DStateEvent) semanticObject); 
 				return; 
 			case BasePackage.DTEXT_SEGMENT:
 				if (rule == grammarAccess.getDmxTextEndRule()) {
@@ -353,6 +363,7 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 *         aliases+=ID* 
 	 *         superType=[DComplexType|ID]? 
 	 *         description=DRichText? 
+	 *         (states+=DState states+=DState* (events+=DStateEvent events+=DStateEvent*)?)? 
 	 *         (features+=DFeature | constraints+=DConstraint)*
 	 *     )
 	 */
@@ -453,6 +464,42 @@ public class DimSemanticSequencer extends DmxSemanticSequencer {
 	 */
 	protected void sequence_DQuery(ISerializationContext context, DQuery semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DStateEvent returns DStateEvent
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_DStateEvent(ISerializationContext context, DStateEvent semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DNAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DNAMED_ELEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDStateEventAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DState returns DState
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_DState(ISerializationContext context, DState semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DNAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DNAMED_ELEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDStateAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	

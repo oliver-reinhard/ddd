@@ -78,7 +78,20 @@ DEntityType:
 		|	origin=DEntityOriginRelationship
 		) 
 	)
-	DComplexType;
+	DComplexType
+	'{'
+	(	'states' 
+		'{'
+		states+=DState (',' states+=DState)*
+		'}'
+		(	'events'
+			'{'
+			events+=DStateEvent (',' events+=DStateEvent)*
+			'}'
+		)?
+	)?
+	(features+=DFeature | constraints+=DConstraint)*
+	'}';
 	
 enum DEntityOriginGeneric returns DEntityOrigin:
 	GENERIC_ENTITY='entity';	
@@ -89,19 +102,25 @@ enum DEntityOriginConcept returns DEntityOrigin:
 enum DEntityOriginRelationship returns DEntityOrigin:
 	RELATIONSHIP='relationship';	
 
+DState:
+	name=ID;
+
+DStateEvent:
+	name=ID;
+
 DDetailType:
 	(abstract?='abstract')?
 	'detail'
-	DComplexType;
+	DComplexType
+	'{'
+	(features+=DFeature | constraints+=DConstraint)*
+	'}';
 
 fragment DComplexType:
 	name=ID
 	('alias' aliases+=ID)*
 	('extends' superType=[DComplexType|ID])?
-	(description=DRichText)?
-	'{'
-		(features+=DFeature | constraints+=DConstraint)*
-	'}';
+	(description=DRichText)?;
 	
 DFeature:
 	DAssociation |  DAttribute | DQuery;

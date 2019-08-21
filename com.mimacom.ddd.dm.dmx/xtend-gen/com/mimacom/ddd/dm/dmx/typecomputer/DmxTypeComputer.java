@@ -6,6 +6,7 @@ import com.google.inject.Singleton;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DContext;
+import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DLiteral;
@@ -13,6 +14,7 @@ import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DPrimitive;
+import com.mimacom.ddd.dm.base.DState;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dmx.DmxArchetype;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;
@@ -32,7 +34,6 @@ import com.mimacom.ddd.dm.dmx.DmxInstanceOfExpression;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
-import com.mimacom.ddd.dm.dmx.DmxRaiseExpression;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
 import com.mimacom.ddd.dm.dmx.DmxStringLiteral;
 import com.mimacom.ddd.dm.dmx.DmxUnaryOperation;
@@ -46,6 +47,7 @@ import com.mimacom.ddd.dm.dmx.typecomputer.DmxComplexTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxEnumerationDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxNotificationDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxPrimitiveDescriptor;
+import com.mimacom.ddd.dm.dmx.typecomputer.DmxStateDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxUndefinedDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxVoidDescriptor;
 import java.util.ArrayList;
@@ -91,14 +93,33 @@ public class DmxTypeComputer {
     if ((member instanceof DmxFilter)) {
       if ((((DmxFilter)member).getTypeDesc().isCompatible(DmxBaseType.COMPLEX) || ((DmxFilter)member).getTypeDesc().isMultiTyped())) {
         final DExpression preceding = expr.getPrecedingNavigationSegment();
-        final AbstractDmxTypeDescriptor<?> precedingType = this.typeFor(preceding);
-        return this.getTypeDescriptor(precedingType.type, ((DmxFilter)member).getTypeDesc().isCollection());
+        final AbstractDmxTypeDescriptor<?> precedingTypeDesc = this.typeFor(preceding);
+        return this.getTypeDescriptor(precedingTypeDesc.type, ((DmxFilter)member).getTypeDesc().isCollection());
       } else {
-        return this.getTypeDescriptor(((DmxFilter)member).getTypeDesc().getSingle(), ((DmxFilter)member).getTypeDesc().isCollection());
+        boolean _isCompatible = ((DmxFilter)member).getTypeDesc().isCompatible(DmxBaseType.STATE);
+        if (_isCompatible) {
+          final DExpression preceding_1 = expr.getPrecedingNavigationSegment();
+          final AbstractDmxTypeDescriptor<?> precedingTypeDesc_1 = this.typeFor(preceding_1);
+          final DType precedingType = precedingTypeDesc_1.type;
+          if ((precedingType instanceof DEntityType)) {
+            boolean _isEmpty = ((DEntityType)precedingType).getStates().isEmpty();
+            boolean _not = (!_isEmpty);
+            if (_not) {
+              return this.getTypeDescriptor(((DEntityType)precedingType).getStates().get(0), false);
+            }
+          }
+          return DmxTypeComputer.UNDEFINED;
+        } else {
+          return this.getTypeDescriptor(((DmxFilter)member).getTypeDesc().getSingle(), ((DmxFilter)member).getTypeDesc().isCollection());
+        }
       }
     } else {
       if ((member instanceof DLiteral)) {
         return this.getTypeDescriptor(((DLiteral)member).eContainer(), ((DLiteral)member).isCollection());
+      } else {
+        if ((member instanceof DState)) {
+          return this.getTypeDescriptor(member, false);
+        }
       }
     }
     return this.getTypeDescriptor(member.getType(), member.isCollection());
@@ -154,7 +175,7 @@ public class DmxTypeComputer {
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxStaticReference expr) {
-    throw new UnsupportedOperationException();
+    return DmxTypeComputer.VOID;
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxPredicateWithCorrelationVariable expr) {
@@ -261,7 +282,7 @@ public class DmxTypeComputer {
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxInstanceOfExpression expr) {
-    throw new UnsupportedOperationException();
+    return DmxTypeComputer.BOOLEAN;
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxFunctionCall expr) {
@@ -293,10 +314,6 @@ public class DmxTypeComputer {
       _xblockexpression = DmxTypeComputer.UNDEFINED;
     }
     return _xblockexpression;
-  }
-  
-  protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxRaiseExpression expr) {
-    throw new UnsupportedOperationException();
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxConstructorCall expr) {
@@ -373,6 +390,12 @@ public class DmxTypeComputer {
       }
     }
     if (!_matched) {
+      if (obj instanceof DState) {
+        _matched=true;
+        _switchResult = new DmxStateDescriptor(((DState)obj));
+      }
+    }
+    if (!_matched) {
       if (obj instanceof DAggregate) {
         _matched=true;
         _switchResult = new DmxAggregateDescriptor(((DAggregate)obj));
@@ -442,6 +465,8 @@ public class DmxTypeComputer {
           }
           _switchResult = _xifexpression_4;
           break;
+        case STATE:
+          throw new IllegalArgumentException("State type descriptors must be created based on a DState object");
         default:
           String _string = t.toString();
           throw new IllegalArgumentException(_string);
@@ -480,8 +505,6 @@ public class DmxTypeComputer {
       return _typeFor((DmxNaturalLiteral)expr);
     } else if (expr instanceof DmxPredicateWithCorrelationVariable) {
       return _typeFor((DmxPredicateWithCorrelationVariable)expr);
-    } else if (expr instanceof DmxRaiseExpression) {
-      return _typeFor((DmxRaiseExpression)expr);
     } else if (expr instanceof DmxStaticReference) {
       return _typeFor((DmxStaticReference)expr);
     } else if (expr instanceof DmxStringLiteral) {

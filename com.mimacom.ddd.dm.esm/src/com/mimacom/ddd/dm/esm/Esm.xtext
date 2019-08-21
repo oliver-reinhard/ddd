@@ -4,39 +4,34 @@ import "http://www.mimacom.com/ddd/dm/base"
 import "http://www.mimacom.com/ddd/dm/dmx" 
 import "http://www.mimacom.com/ddd/dm/esm"
 
-DDomain:
+EsmDomain:
 	(imports+=DImport)*
 	'domain'
 	name=DQualifiedName
 	('alias' aliases+=ID)*
 	(description=DRichText)?
-	stateModels+=DEntityStateModel;
+	stateModel=EsmEntityStateModel;
 	
-DEntityStateModel:
+EsmEntityStateModel:
 	'state' 'model' 
 	name=DQualifiedName
 	'for'
 	 forType=[DEntityType|ID]
 	(description=DRichText)?
 	'states' 
-	(states+=DState)+
-	'events'
-	(events+=DEvent)+
+	(states+=EsmState)+
 	'transitions'
-	(transition+=DTransition)+;
+	(transition+=EsmTransition)+;
 
-DState:
-	name=ID
+EsmState:
+	state=[DState]
 	('when' expression=DExpression)?;
 
-DEvent:
-	name=ID;
-
-DTransition:
-	from=[DState]
+EsmTransition:
+	from=[EsmState]
 	'to'
-	to=[DState]
-	'as' event=[DEvent]
+	to=[EsmState]
+	'as' event=[DStateEvent]
 	(	'when'
 		guard=DExpression
 	)?;

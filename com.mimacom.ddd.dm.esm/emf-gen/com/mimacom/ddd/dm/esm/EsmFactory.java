@@ -24,40 +24,40 @@ public interface EsmFactory extends EFactory
 	EsmFactory eINSTANCE = com.mimacom.ddd.dm.esm.impl.EsmFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>DEntity State Model</em>'.
+	 * Returns a new object of class '<em>Domain</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DEntity State Model</em>'.
+	 * @return a new object of class '<em>Domain</em>'.
 	 * @generated
 	 */
-	DEntityStateModel createDEntityStateModel();
+	EsmDomain createEsmDomain();
 
 	/**
-	 * Returns a new object of class '<em>DState</em>'.
+	 * Returns a new object of class '<em>Entity State Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DState</em>'.
+	 * @return a new object of class '<em>Entity State Model</em>'.
 	 * @generated
 	 */
-	DState createDState();
+	EsmEntityStateModel createEsmEntityStateModel();
 
 	/**
-	 * Returns a new object of class '<em>DEvent</em>'.
+	 * Returns a new object of class '<em>State</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DEvent</em>'.
+	 * @return a new object of class '<em>State</em>'.
 	 * @generated
 	 */
-	DEvent createDEvent();
+	EsmState createEsmState();
 
 	/**
-	 * Returns a new object of class '<em>DTransition</em>'.
+	 * Returns a new object of class '<em>Transition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DTransition</em>'.
+	 * @return a new object of class '<em>Transition</em>'.
 	 * @generated
 	 */
-	DTransition createDTransition();
+	EsmTransition createEsmTransition();
 
 	/**
 	 * Returns the package supported by this factory.

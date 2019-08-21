@@ -100,6 +100,26 @@ public enum DmxBaseType implements Enumerator
 	ENUM(101, "ENUM", "ENUM"),
 
 	/**
+	 * The '<em><b>STATE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #STATE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	STATE(102, "STATE", "STATE"),
+
+	/**
+	 * The '<em><b>STATE EVENT</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #STATE_EVENT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	STATE_EVENT(103, "STATE_EVENT", "STATE_EVENT"),
+
+	/**
 	 * The '<em><b>COMPLEX</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -107,7 +127,7 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	COMPLEX(102, "COMPLEX", "COMPLEX"),
+	COMPLEX(104, "COMPLEX", "COMPLEX"),
 
 	/**
 	 * The '<em><b>AGGREGATE</b></em>' literal object.
@@ -117,7 +137,7 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	AGGREGATE(103, "AGGREGATE", "AGGREGATE"),
+	AGGREGATE(105, "AGGREGATE", "AGGREGATE"),
 
 	/**
 	 * The '<em><b>NOTIFICATION</b></em>' literal object.
@@ -127,7 +147,7 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	NOTIFICATION(104, "NOTIFICATION", "NOTIFICATION"),
+	NOTIFICATION(106, "NOTIFICATION", "NOTIFICATION"),
 
 	/**
 	 * The '<em><b>SERVICE</b></em>' literal object.
@@ -137,7 +157,7 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	SERVICE(105, "SERVICE", "SERVICE");
+	SERVICE(107, "SERVICE", "SERVICE");
 
 	/**
 	 * The '<em><b>UNDEFINED</b></em>' literal value.
@@ -228,6 +248,28 @@ public enum DmxBaseType implements Enumerator
 	public static final int ENUM_VALUE = 101;
 
 	/**
+	 * The '<em><b>STATE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #STATE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STATE_VALUE = 102;
+
+	/**
+	 * The '<em><b>STATE EVENT</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #STATE_EVENT
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STATE_EVENT_VALUE = 103;
+
+	/**
 	 * The '<em><b>COMPLEX</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -236,7 +278,7 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMPLEX_VALUE = 102;
+	public static final int COMPLEX_VALUE = 104;
 
 	/**
 	 * The '<em><b>AGGREGATE</b></em>' literal value.
@@ -247,7 +289,7 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int AGGREGATE_VALUE = 103;
+	public static final int AGGREGATE_VALUE = 105;
 
 	/**
 	 * The '<em><b>NOTIFICATION</b></em>' literal value.
@@ -258,7 +300,7 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NOTIFICATION_VALUE = 104;
+	public static final int NOTIFICATION_VALUE = 106;
 
 	/**
 	 * The '<em><b>SERVICE</b></em>' literal value.
@@ -269,7 +311,7 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SERVICE_VALUE = 105;
+	public static final int SERVICE_VALUE = 107;
 
 	/**
 	 * An array of all the '<em><b>Base Type</b></em>' enumerators.
@@ -288,6 +330,8 @@ public enum DmxBaseType implements Enumerator
 			IDENTIFIER,
 			TIMEPOINT,
 			ENUM,
+			STATE,
+			STATE_EVENT,
 			COMPLEX,
 			AGGREGATE,
 			NOTIFICATION,
@@ -364,6 +408,8 @@ public enum DmxBaseType implements Enumerator
 			case IDENTIFIER_VALUE: return IDENTIFIER;
 			case TIMEPOINT_VALUE: return TIMEPOINT;
 			case ENUM_VALUE: return ENUM;
+			case STATE_VALUE: return STATE;
+			case STATE_EVENT_VALUE: return STATE_EVENT;
 			case COMPLEX_VALUE: return COMPLEX;
 			case AGGREGATE_VALUE: return AGGREGATE;
 			case NOTIFICATION_VALUE: return NOTIFICATION;

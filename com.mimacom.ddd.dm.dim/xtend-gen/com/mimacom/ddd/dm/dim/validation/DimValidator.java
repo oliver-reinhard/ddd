@@ -26,6 +26,8 @@ import com.mimacom.ddd.dm.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQueryParameter;
+import com.mimacom.ddd.dm.base.DState;
+import com.mimacom.ddd.dm.base.DStateEvent;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IValueType;
 import com.mimacom.ddd.dm.dim.DimUtil;
@@ -300,6 +302,24 @@ public class DimValidator extends AbstractDimValidator {
   @Check
   public void checkLiteralIsUppercase(final DLiteral literal) {
     boolean _equals = literal.getName().equals(literal.getName().toUpperCase());
+    boolean _not = (!_equals);
+    if (_not) {
+      this.warning("Name should be all upercase", BasePackage.Literals.DNAMED_ELEMENT__NAME);
+    }
+  }
+  
+  @Check
+  public void checkStateNameIsUppercase(final DState state) {
+    boolean _equals = state.getName().equals(state.getName().toUpperCase());
+    boolean _not = (!_equals);
+    if (_not) {
+      this.warning("Name should be all upercase", BasePackage.Literals.DNAMED_ELEMENT__NAME);
+    }
+  }
+  
+  @Check
+  public void checkStateEventNameIsUppercase(final DStateEvent event) {
+    boolean _equals = event.getName().equals(event.getName().toUpperCase());
     boolean _not = (!_equals);
     if (_not) {
       this.warning("Name should be all upercase", BasePackage.Literals.DNAMED_ELEMENT__NAME);

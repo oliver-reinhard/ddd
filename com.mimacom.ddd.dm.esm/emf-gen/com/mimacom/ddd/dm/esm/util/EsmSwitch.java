@@ -4,9 +4,6 @@
 package com.mimacom.ddd.dm.esm.util;
 
 import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.IEntityStateModel;
-import com.mimacom.ddd.dm.base.INamespace;
-import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
 import com.mimacom.ddd.dm.esm.*;
 
@@ -78,35 +75,33 @@ public class EsmSwitch<T> extends Switch<T>
 	{
 		switch (classifierID)
 		{
-			case EsmPackage.DENTITY_STATE_MODEL:
+			case EsmPackage.ESM_DOMAIN:
 			{
-				DEntityStateModel dEntityStateModel = (DEntityStateModel)theEObject;
-				T result = caseDEntityStateModel(dEntityStateModel);
-				if (result == null) result = caseDNamedElement(dEntityStateModel);
-				if (result == null) result = caseIEntityStateModel(dEntityStateModel);
-				if (result == null) result = caseINavigableMemberContainer(dEntityStateModel);
-				if (result == null) result = caseINamespace(dEntityStateModel);
+				EsmDomain esmDomain = (EsmDomain)theEObject;
+				T result = caseEsmDomain(esmDomain);
+				if (result == null) result = caseDNamedElement(esmDomain);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EsmPackage.DSTATE:
+			case EsmPackage.ESM_ENTITY_STATE_MODEL:
 			{
-				DState dState = (DState)theEObject;
-				T result = caseDState(dState);
+				EsmEntityStateModel esmEntityStateModel = (EsmEntityStateModel)theEObject;
+				T result = caseEsmEntityStateModel(esmEntityStateModel);
+				if (result == null) result = caseDNamedElement(esmEntityStateModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EsmPackage.DEVENT:
+			case EsmPackage.ESM_STATE:
 			{
-				DEvent dEvent = (DEvent)theEObject;
-				T result = caseDEvent(dEvent);
+				EsmState esmState = (EsmState)theEObject;
+				T result = caseEsmState(esmState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EsmPackage.DTRANSITION:
+			case EsmPackage.ESM_TRANSITION:
 			{
-				DTransition dTransition = (DTransition)theEObject;
-				T result = caseDTransition(dTransition);
+				EsmTransition esmTransition = (EsmTransition)theEObject;
+				T result = caseEsmTransition(esmTransition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -115,65 +110,65 @@ public class EsmSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DEntity State Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Domain</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DEntity State Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Domain</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDEntityStateModel(DEntityStateModel object)
+	public T caseEsmDomain(EsmDomain object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DState</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Entity State Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DState</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Entity State Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDState(DState object)
+	public T caseEsmEntityStateModel(EsmEntityStateModel object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DEvent</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>State</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DEvent</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>State</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDEvent(DEvent object)
+	public T caseEsmState(EsmState object)
 	{
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DTransition</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Transition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DTransition</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Transition</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDTransition(DTransition object)
+	public T caseEsmTransition(EsmTransition object)
 	{
 		return null;
 	}
@@ -190,54 +185,6 @@ public class EsmSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDNamedElement(DNamedElement object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IEntity State Model</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IEntity State Model</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIEntityStateModel(IEntityStateModel object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>INamespace</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>INamespace</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseINamespace(INamespace object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>INavigable Member Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>INavigable Member Container</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseINavigableMemberContainer(INavigableMemberContainer object)
 	{
 		return null;
 	}

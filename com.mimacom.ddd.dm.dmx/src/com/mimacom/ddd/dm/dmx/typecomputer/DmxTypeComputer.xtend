@@ -6,11 +6,13 @@ import com.google.inject.Singleton
 import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DContext
+import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DLiteral
 import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DNotification
 import com.mimacom.ddd.dm.base.DPrimitive
+import com.mimacom.ddd.dm.base.DState
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.dmx.DmxArchetype
 import com.mimacom.ddd.dm.dmx.DmxBaseType
@@ -29,7 +31,6 @@ import com.mimacom.ddd.dm.dmx.DmxInstanceOfExpression
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable
-import com.mimacom.ddd.dm.dmx.DmxRaiseExpression
 import com.mimacom.ddd.dm.dmx.DmxStaticReference
 import com.mimacom.ddd.dm.dmx.DmxStringLiteral
 import com.mimacom.ddd.dm.dmx.DmxUnaryOperation
@@ -62,9 +63,22 @@ class DmxTypeComputer {
 			if (member.typeDesc.isCompatible(DmxBaseType.COMPLEX /* ignore collection property */ ) || member.typeDesc.isMultiTyped) {
 				// propagate type from preceding navigation segment: (this may differ from the actually decared type of the first parameter)
 				val preceding = expr.precedingNavigationSegment
-				val precedingType = preceding.typeFor // recursion
-				return getTypeDescriptor(precedingType.type, member.typeDesc.collection)
+				val precedingTypeDesc = preceding.typeFor // recursion
+				return getTypeDescriptor(precedingTypeDesc.type, member.typeDesc.collection)
 
+			} else if (member.typeDesc.isCompatible(DmxBaseType.STATE)) {
+			// propagate type from preceding navigation segment: (this must be an DEntityType)
+				val preceding = expr.precedingNavigationSegment
+				val precedingTypeDesc = preceding.typeFor // recursion
+				val precedingType = precedingTypeDesc.type
+				if (precedingType instanceof DEntityType) {
+					if (! precedingType.states.empty) {
+						// take the first state to construct a matching type descriptor:
+						return getTypeDescriptor(precedingType.states.get(0), false)
+					}
+				}
+				return UNDEFINED
+				
 			} else {
 				return getTypeDescriptor(member.typeDesc.single, member.typeDesc.collection)
 			}
@@ -72,6 +86,9 @@ class DmxTypeComputer {
 		} else if (member instanceof DLiteral) {
 			// Type of a literal is always null => its type is its containing DEnumeration
 			return getTypeDescriptor(member.eContainer, member.isCollection)
+			
+		} else if (member instanceof DState) {
+			return getTypeDescriptor(member, false)
 		}
 		return getTypeDescriptor(member.type, member.isCollection)
 	}
@@ -126,7 +143,7 @@ class DmxTypeComputer {
 	}
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxStaticReference expr) {
-		throw new UnsupportedOperationException // TODO
+		VOID
 	}
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxPredicateWithCorrelationVariable expr) {
@@ -171,7 +188,7 @@ class DmxTypeComputer {
 	}
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxInstanceOfExpression expr) {
-		throw new UnsupportedOperationException // TODO
+		BOOLEAN
 	}
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxFunctionCall expr) {
@@ -197,10 +214,6 @@ class DmxTypeComputer {
 			}
 		}
 		UNDEFINED
-	}
-
-	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxRaiseExpression expr) {
-		throw new UnsupportedOperationException // TODO
 	}
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxConstructorCall expr) {
@@ -251,6 +264,7 @@ class DmxTypeComputer {
 			DPrimitive: new DmxPrimitiveDescriptor(obj, collection)
 			DEnumeration: new DmxEnumerationDescriptor(obj)
 			DComplexType: new DmxComplexTypeDescriptor(obj, collection, util)
+			DState: new DmxStateDescriptor(obj)
 			DAggregate: new DmxAggregateDescriptor(obj)
 			DNotification: new DmxNotificationDescriptor(obj)
 			default: UNDEFINED
@@ -265,6 +279,7 @@ class DmxTypeComputer {
 			case DmxBaseType::TEXT: if (collection) TEXT_COLLECTION else TEXT
 			case DmxBaseType::IDENTIFIER: if (collection) IDENTIFIER_COLLECTION else IDENTIFIER
 			case DmxBaseType::TIMEPOINT: if (collection) TIMEPOINT_COLLECTION else TIMEPOINT
+			case DmxBaseType::STATE:  throw new IllegalArgumentException("State type descriptors must be created based on a DState object")
 			default: throw new IllegalArgumentException(t.toString)
 		}
 	}

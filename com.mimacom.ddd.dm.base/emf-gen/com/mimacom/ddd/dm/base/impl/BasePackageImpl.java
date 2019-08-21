@@ -37,11 +37,12 @@ import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DService;
 import com.mimacom.ddd.dm.base.DSimpleType;
+import com.mimacom.ddd.dm.base.DState;
+import com.mimacom.ddd.dm.base.DStateEvent;
 import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
-import com.mimacom.ddd.dm.base.IEntityStateModel;
 import com.mimacom.ddd.dm.base.IIdentityType;
 import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
@@ -261,13 +262,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass iEntityStateModelEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass dFeatureEClass = null;
 
 	/**
@@ -304,6 +298,20 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	private EClass dQueryParameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dStateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dStateEventEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -814,7 +822,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDDomain_StateModels()
+	public EReference getDDomain_Events()
 	{
 		return (EReference)dDomainEClass.getEStructuralFeatures().get(2);
 	}
@@ -825,20 +833,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDDomain_Events()
-	{
-		return (EReference)dDomainEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getDDomain_Actors()
 	{
-		return (EReference)dDomainEClass.getEStructuralFeatures().get(4);
+		return (EReference)dDomainEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1111,9 +1108,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getIEntityStateModel()
+	public EReference getDEntityType_States()
 	{
-		return iEntityStateModelEClass;
+		return (EReference)dEntityTypeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1122,9 +1119,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getIEntityStateModel_ForType()
+	public EReference getDEntityType_Events()
 	{
-		return (EReference)iEntityStateModelEClass.getEStructuralFeatures().get(0);
+		return (EReference)dEntityTypeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1312,6 +1309,28 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EClass getDQueryParameter()
 	{
 		return dQueryParameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDState()
+	{
+		return dStateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDStateEvent()
+	{
+		return dStateEventEClass;
 	}
 
 	/**
@@ -1634,7 +1653,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dDomainEClass = createEClass(DDOMAIN);
 		createEReference(dDomainEClass, DDOMAIN__IMPORTS);
 		createEReference(dDomainEClass, DDOMAIN__AGGREGATES);
-		createEReference(dDomainEClass, DDOMAIN__STATE_MODELS);
 		createEReference(dDomainEClass, DDOMAIN__EVENTS);
 		createEReference(dDomainEClass, DDOMAIN__ACTORS);
 
@@ -1673,9 +1691,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dEntityTypeEClass = createEClass(DENTITY_TYPE);
 		createEAttribute(dEntityTypeEClass, DENTITY_TYPE__ROOT);
 		createEAttribute(dEntityTypeEClass, DENTITY_TYPE__ORIGIN);
-
-		iEntityStateModelEClass = createEClass(IENTITY_STATE_MODEL);
-		createEReference(iEntityStateModelEClass, IENTITY_STATE_MODEL__FOR_TYPE);
+		createEReference(dEntityTypeEClass, DENTITY_TYPE__STATES);
+		createEReference(dEntityTypeEClass, DENTITY_TYPE__EVENTS);
 
 		dFeatureEClass = createEClass(DFEATURE);
 
@@ -1699,6 +1716,10 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		createEReference(dQueryEClass, DQUERY__RETURNS);
 
 		dQueryParameterEClass = createEClass(DQUERY_PARAMETER);
+
+		dStateEClass = createEClass(DSTATE);
+
+		dStateEventEClass = createEClass(DSTATE_EVENT);
 
 		dContextEClass = createEClass(DCONTEXT);
 
@@ -1803,6 +1824,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dQueryEClass.getESuperTypes().add(this.getINavigableMemberContainer());
 		dQueryParameterEClass.getESuperTypes().add(this.getDNavigableMember());
 		dQueryParameterEClass.getESuperTypes().add(this.getIDeducibleElement());
+		dStateEClass.getESuperTypes().add(this.getDNavigableMember());
+		dStateEventEClass.getESuperTypes().add(this.getDNamedElement());
 		dContextEClass.getESuperTypes().add(this.getDNavigableMember());
 		dDomainEventEClass.getESuperTypes().add(this.getDNamedElement());
 		dDomainEventEClass.getESuperTypes().add(this.getINavigableMemberContainer());
@@ -1864,7 +1887,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dDomainEClass, DDomain.class, "DDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDDomain_Imports(), this.getDImport(), null, "imports", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDDomain_Aggregates(), this.getDAggregate(), null, "aggregates", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDDomain_StateModels(), this.getIEntityStateModel(), null, "stateModels", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDDomain_Events(), this.getDDomainEvent(), null, "events", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDDomain_Actors(), this.getDActor(), null, "actors", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1903,9 +1925,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dEntityTypeEClass, DEntityType.class, "DEntityType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDEntityType_Root(), ecorePackage.getEBoolean(), "root", null, 0, 1, DEntityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDEntityType_Origin(), this.getDEntityOrigin(), "origin", null, 0, 1, DEntityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(iEntityStateModelEClass, IEntityStateModel.class, "IEntityStateModel", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIEntityStateModel_ForType(), this.getDEntityType(), null, "forType", null, 0, 1, IEntityStateModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDEntityType_States(), this.getDState(), null, "states", null, 0, -1, DEntityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDEntityType_Events(), this.getDStateEvent(), null, "events", null, 0, -1, DEntityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dFeatureEClass, DFeature.class, "DFeature", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1930,6 +1951,10 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEReference(getDQuery_Returns(), this.getDExpression(), null, "returns", null, 0, 1, DQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dQueryParameterEClass, DQueryParameter.class, "DQueryParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dStateEClass, DState.class, "DState", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dStateEventEClass, DStateEvent.class, "DStateEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dContextEClass, DContext.class, "DContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

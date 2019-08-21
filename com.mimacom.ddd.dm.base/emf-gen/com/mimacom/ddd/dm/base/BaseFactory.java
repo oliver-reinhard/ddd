@@ -167,6 +167,24 @@ public interface BaseFactory extends EFactory
 	DQueryParameter createDQueryParameter();
 
 	/**
+	 * Returns a new object of class '<em>DState</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DState</em>'.
+	 * @generated
+	 */
+	DState createDState();
+
+	/**
+	 * Returns a new object of class '<em>DState Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DState Event</em>'.
+	 * @generated
+	 */
+	DStateEvent createDStateEvent();
+
+	/**
 	 * Returns a new object of class '<em>DContext</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

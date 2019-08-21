@@ -43,11 +43,11 @@ abstract class AbstractDmxTypeDescriptor<T extends DType> {
 	}
 
 	def boolean canAssignTo(AbstractDmxTypeDescriptor<?> other) {
-		type !== null && type.equals(other.type) && collection == other.collection
+		type !== null && other !== null && type.equals(other.type) && collection == other.collection
 	}
 
 	def boolean isCompatibleWith(AbstractDmxTypeDescriptor<?> other) {
-		baseType !== null && baseType.equals(other.baseType) && collection == other.collection
+		baseType !== null && other !== null && baseType.equals(other.baseType) && collection == other.collection
 	}
 
 	def List<DNavigableMember> getNavigableMembers() {

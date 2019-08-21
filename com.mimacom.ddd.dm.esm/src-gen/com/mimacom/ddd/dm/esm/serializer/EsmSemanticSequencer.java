@@ -6,7 +6,6 @@ package com.mimacom.ddd.dm.esm.serializer;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DContext;
-import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DRichText;
@@ -39,11 +38,11 @@ import com.mimacom.ddd.dm.dmx.DmxTest;
 import com.mimacom.ddd.dm.dmx.DmxUnaryOperation;
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.serializer.DmxSemanticSequencer;
-import com.mimacom.ddd.dm.esm.DEntityStateModel;
-import com.mimacom.ddd.dm.esm.DEvent;
-import com.mimacom.ddd.dm.esm.DState;
-import com.mimacom.ddd.dm.esm.DTransition;
+import com.mimacom.ddd.dm.esm.EsmDomain;
+import com.mimacom.ddd.dm.esm.EsmEntityStateModel;
 import com.mimacom.ddd.dm.esm.EsmPackage;
+import com.mimacom.ddd.dm.esm.EsmState;
+import com.mimacom.ddd.dm.esm.EsmTransition;
 import com.mimacom.ddd.dm.esm.services.EsmGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -71,9 +70,6 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 			switch (semanticObject.eClass().getClassifierID()) {
 			case BasePackage.DCONTEXT:
 				sequence_DmxTestContext(context, (DContext) semanticObject); 
-				return; 
-			case BasePackage.DDOMAIN:
-				sequence_DDomain(context, (DDomain) semanticObject); 
 				return; 
 			case BasePackage.DIMPORT:
 				sequence_DImport(context, (DImport) semanticObject); 
@@ -224,95 +220,22 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 			}
 		else if (epackage == EsmPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case EsmPackage.DENTITY_STATE_MODEL:
-				sequence_DEntityStateModel(context, (DEntityStateModel) semanticObject); 
+			case EsmPackage.ESM_DOMAIN:
+				sequence_EsmDomain(context, (EsmDomain) semanticObject); 
 				return; 
-			case EsmPackage.DEVENT:
-				sequence_DEvent(context, (DEvent) semanticObject); 
+			case EsmPackage.ESM_ENTITY_STATE_MODEL:
+				sequence_EsmEntityStateModel(context, (EsmEntityStateModel) semanticObject); 
 				return; 
-			case EsmPackage.DSTATE:
-				sequence_DState(context, (DState) semanticObject); 
+			case EsmPackage.ESM_STATE:
+				sequence_EsmState(context, (EsmState) semanticObject); 
 				return; 
-			case EsmPackage.DTRANSITION:
-				sequence_DTransition(context, (DTransition) semanticObject); 
+			case EsmPackage.ESM_TRANSITION:
+				sequence_EsmTransition(context, (EsmTransition) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
-	
-	/**
-	 * Contexts:
-	 *     DDomain returns DDomain
-	 *
-	 * Constraint:
-	 *     (imports+=DImport* name=DQualifiedName aliases+=ID* description=DRichText? stateModels+=DEntityStateModel)
-	 */
-	protected void sequence_DDomain(ISerializationContext context, DDomain semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DEntityStateModel returns DEntityStateModel
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=DQualifiedName 
-	 *         forType=[DEntityType|ID] 
-	 *         description=DRichText? 
-	 *         states+=DState+ 
-	 *         events+=DEvent+ 
-	 *         transition+=DTransition+
-	 *     )
-	 */
-	protected void sequence_DEntityStateModel(ISerializationContext context, DEntityStateModel semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DEvent returns DEvent
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_DEvent(ISerializationContext context, DEvent semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EsmPackage.Literals.DEVENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsmPackage.Literals.DEVENT__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDEventAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DState returns DState
-	 *
-	 * Constraint:
-	 *     (name=ID expression=DExpression?)
-	 */
-	protected void sequence_DState(ISerializationContext context, DState semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DTransition returns DTransition
-	 *
-	 * Constraint:
-	 *     (from=[DState|ID] to=[DState|ID] event=[DEvent|ID] guard=DExpression?)
-	 */
-	protected void sequence_DTransition(ISerializationContext context, DTransition semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
 	
 	/**
 	 * Contexts:
@@ -359,6 +282,54 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 		feeder.accept(grammarAccess.getDmxNavigableMemberReferenceAccess().getAssignToMemberDNavigableMemberIDTerminalRuleCall_1_0_0_0_2_0_1(), semanticObject.eGet(DmxPackage.Literals.DMX_ASSIGNMENT__ASSIGN_TO_MEMBER, false));
 		feeder.accept(grammarAccess.getDmxNavigableMemberReferenceAccess().getValueDmxOrExpressionParserRuleCall_1_0_1_0(), semanticObject.getValue());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     EsmDomain returns EsmDomain
+	 *
+	 * Constraint:
+	 *     (imports+=DImport* name=DQualifiedName aliases+=ID* description=DRichText? stateModel=EsmEntityStateModel)
+	 */
+	protected void sequence_EsmDomain(ISerializationContext context, EsmDomain semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     EsmEntityStateModel returns EsmEntityStateModel
+	 *
+	 * Constraint:
+	 *     (name=DQualifiedName forType=[DEntityType|ID] description=DRichText? states+=EsmState+ transition+=EsmTransition+)
+	 */
+	protected void sequence_EsmEntityStateModel(ISerializationContext context, EsmEntityStateModel semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     EsmState returns EsmState
+	 *
+	 * Constraint:
+	 *     (state=[DState|ID] expression=DExpression?)
+	 */
+	protected void sequence_EsmState(ISerializationContext context, EsmState semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     EsmTransition returns EsmTransition
+	 *
+	 * Constraint:
+	 *     (from=[EsmState|ID] to=[EsmState|ID] event=[DStateEvent|ID] guard=DExpression?)
+	 */
+	protected void sequence_EsmTransition(ISerializationContext context, EsmTransition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

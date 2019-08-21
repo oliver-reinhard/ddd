@@ -2130,21 +2130,33 @@ rule__DmxBaseType__Alternatives
 	)
 	|
 	(
-		{ before(grammarAccess.getDmxBaseTypeAccess().getCOMPLEXEnumLiteralDeclaration_6()); }
+		{ before(grammarAccess.getDmxBaseTypeAccess().getSTATEEnumLiteralDeclaration_6()); }
+		('STATE')
+		{ after(grammarAccess.getDmxBaseTypeAccess().getSTATEEnumLiteralDeclaration_6()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getDmxBaseTypeAccess().getSTATE_EVENTEnumLiteralDeclaration_7()); }
+		('STATE_EVENT')
+		{ after(grammarAccess.getDmxBaseTypeAccess().getSTATE_EVENTEnumLiteralDeclaration_7()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getDmxBaseTypeAccess().getCOMPLEXEnumLiteralDeclaration_8()); }
 		('COMPLEX')
-		{ after(grammarAccess.getDmxBaseTypeAccess().getCOMPLEXEnumLiteralDeclaration_6()); }
+		{ after(grammarAccess.getDmxBaseTypeAccess().getCOMPLEXEnumLiteralDeclaration_8()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getDmxBaseTypeAccess().getNOTIFICATIONEnumLiteralDeclaration_7()); }
+		{ before(grammarAccess.getDmxBaseTypeAccess().getNOTIFICATIONEnumLiteralDeclaration_9()); }
 		('NOTIFICATION')
-		{ after(grammarAccess.getDmxBaseTypeAccess().getNOTIFICATIONEnumLiteralDeclaration_7()); }
+		{ after(grammarAccess.getDmxBaseTypeAccess().getNOTIFICATIONEnumLiteralDeclaration_9()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getDmxBaseTypeAccess().getSERVICEEnumLiteralDeclaration_8()); }
+		{ before(grammarAccess.getDmxBaseTypeAccess().getSERVICEEnumLiteralDeclaration_10()); }
 		('SERVICE')
-		{ after(grammarAccess.getDmxBaseTypeAccess().getSERVICEEnumLiteralDeclaration_8()); }
+		{ after(grammarAccess.getDmxBaseTypeAccess().getSERVICEEnumLiteralDeclaration_10()); }
 	)
 ;
 finally {

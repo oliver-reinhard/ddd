@@ -4,9 +4,10 @@
 package com.mimacom.ddd.dm.esm.impl;
 
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DState;
 
-import com.mimacom.ddd.dm.esm.DState;
 import com.mimacom.ddd.dm.esm.EsmPackage;
+import com.mimacom.ddd.dm.esm.EsmState;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -19,39 +20,29 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>DState</b></em>'.
+ * An implementation of the model object '<em><b>State</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.esm.impl.DStateImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.esm.impl.DStateImpl#getExpression <em>Expression</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmStateImpl#getState <em>State</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmStateImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DStateImpl extends MinimalEObjectImpl.Container implements DState
+public class EsmStateImpl extends MinimalEObjectImpl.Container implements EsmState
 {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getState() <em>State</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getState()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
+	protected DState state;
 
 	/**
 	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
@@ -68,7 +59,7 @@ public class DStateImpl extends MinimalEObjectImpl.Container implements DState
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DStateImpl()
+	protected EsmStateImpl()
 	{
 		super();
 	}
@@ -81,7 +72,7 @@ public class DStateImpl extends MinimalEObjectImpl.Container implements DState
 	@Override
 	protected EClass eStaticClass()
 	{
-		return EsmPackage.Literals.DSTATE;
+		return EsmPackage.Literals.ESM_STATE;
 	}
 
 	/**
@@ -90,9 +81,29 @@ public class DStateImpl extends MinimalEObjectImpl.Container implements DState
 	 * @generated
 	 */
 	@Override
-	public String getName()
+	public DState getState()
 	{
-		return name;
+		if (state != null && state.eIsProxy())
+		{
+			InternalEObject oldState = (InternalEObject)state;
+			state = (DState)eResolveProxy(oldState);
+			if (state != oldState)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsmPackage.ESM_STATE__STATE, oldState, state));
+			}
+		}
+		return state;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DState basicGetState()
+	{
+		return state;
 	}
 
 	/**
@@ -101,12 +112,12 @@ public class DStateImpl extends MinimalEObjectImpl.Container implements DState
 	 * @generated
 	 */
 	@Override
-	public void setName(String newName)
+	public void setState(DState newState)
 	{
-		String oldName = name;
-		name = newName;
+		DState oldState = state;
+		state = newState;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsmPackage.DSTATE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsmPackage.ESM_STATE__STATE, oldState, state));
 	}
 
 	/**
@@ -131,7 +142,7 @@ public class DStateImpl extends MinimalEObjectImpl.Container implements DState
 		expression = newExpression;
 		if (eNotificationRequired())
 		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsmPackage.DSTATE__EXPRESSION, oldExpression, newExpression);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsmPackage.ESM_STATE__EXPRESSION, oldExpression, newExpression);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -149,14 +160,14 @@ public class DStateImpl extends MinimalEObjectImpl.Container implements DState
 		{
 			NotificationChain msgs = null;
 			if (expression != null)
-				msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsmPackage.DSTATE__EXPRESSION, null, msgs);
+				msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsmPackage.ESM_STATE__EXPRESSION, null, msgs);
 			if (newExpression != null)
-				msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsmPackage.DSTATE__EXPRESSION, null, msgs);
+				msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsmPackage.ESM_STATE__EXPRESSION, null, msgs);
 			msgs = basicSetExpression(newExpression, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsmPackage.DSTATE__EXPRESSION, newExpression, newExpression));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsmPackage.ESM_STATE__EXPRESSION, newExpression, newExpression));
 	}
 
 	/**
@@ -169,7 +180,7 @@ public class DStateImpl extends MinimalEObjectImpl.Container implements DState
 	{
 		switch (featureID)
 		{
-			case EsmPackage.DSTATE__EXPRESSION:
+			case EsmPackage.ESM_STATE__EXPRESSION:
 				return basicSetExpression(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -185,9 +196,10 @@ public class DStateImpl extends MinimalEObjectImpl.Container implements DState
 	{
 		switch (featureID)
 		{
-			case EsmPackage.DSTATE__NAME:
-				return getName();
-			case EsmPackage.DSTATE__EXPRESSION:
+			case EsmPackage.ESM_STATE__STATE:
+				if (resolve) return getState();
+				return basicGetState();
+			case EsmPackage.ESM_STATE__EXPRESSION:
 				return getExpression();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -203,10 +215,10 @@ public class DStateImpl extends MinimalEObjectImpl.Container implements DState
 	{
 		switch (featureID)
 		{
-			case EsmPackage.DSTATE__NAME:
-				setName((String)newValue);
+			case EsmPackage.ESM_STATE__STATE:
+				setState((DState)newValue);
 				return;
-			case EsmPackage.DSTATE__EXPRESSION:
+			case EsmPackage.ESM_STATE__EXPRESSION:
 				setExpression((DExpression)newValue);
 				return;
 		}
@@ -223,10 +235,10 @@ public class DStateImpl extends MinimalEObjectImpl.Container implements DState
 	{
 		switch (featureID)
 		{
-			case EsmPackage.DSTATE__NAME:
-				setName(NAME_EDEFAULT);
+			case EsmPackage.ESM_STATE__STATE:
+				setState((DState)null);
 				return;
-			case EsmPackage.DSTATE__EXPRESSION:
+			case EsmPackage.ESM_STATE__EXPRESSION:
 				setExpression((DExpression)null);
 				return;
 		}
@@ -243,29 +255,12 @@ public class DStateImpl extends MinimalEObjectImpl.Container implements DState
 	{
 		switch (featureID)
 		{
-			case EsmPackage.DSTATE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case EsmPackage.DSTATE__EXPRESSION:
+			case EsmPackage.ESM_STATE__STATE:
+				return state != null;
+			case EsmPackage.ESM_STATE__EXPRESSION:
 				return expression != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString()
-	{
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
-	}
-
-} //DStateImpl
+} //EsmStateImpl

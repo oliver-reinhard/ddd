@@ -70,7 +70,7 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 						} else {
 							UNDEFINED
 						}
-					expectType(actualParameters.get(aIndex), expectedType, DMX.dmxCallArguments_Arguments)
+					expectType(actualParameters.get(aIndex), expectedType, DMX.dmxMemberNavigation_CallArguments)
 
 				} else if (aIndex == actualParameters.size) {
 					errorParameterValuesMissing(actual, actual.callArguments, aIndex)

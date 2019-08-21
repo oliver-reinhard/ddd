@@ -59,6 +59,7 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSQueryParameterDeductionAccess().getAlternatives_1(), "rule__SQueryParameterDeduction__Alternatives_1");
 			builder.put(grammarAccess.getDDomainAccess().getAlternatives_5(), "rule__DDomain__Alternatives_5");
 			builder.put(grammarAccess.getDTypeAccess().getAlternatives(), "rule__DType__Alternatives");
+			builder.put(grammarAccess.getDDetailTypeAccess().getAlternatives_4(), "rule__DDetailType__Alternatives_4");
 			builder.put(grammarAccess.getDFeatureAccess().getAlternatives(), "rule__DFeature__Alternatives");
 			builder.put(grammarAccess.getDAssociationAccess().getAlternatives_3(), "rule__DAssociation__Alternatives_3");
 			builder.put(grammarAccess.getDmxFilterTypeDescriptorAccess().getAlternatives_0(), "rule__DmxFilterTypeDescriptor__Alternatives_0");
@@ -427,7 +428,11 @@ public class SimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDLiteralAccess().getNameAssignment_0(), "rule__DLiteral__NameAssignment_0");
 			builder.put(grammarAccess.getDLiteralAccess().getAliasesAssignment_1_1(), "rule__DLiteral__AliasesAssignment_1_1");
 			builder.put(grammarAccess.getDLiteralAccess().getDescriptionAssignment_2(), "rule__DLiteral__DescriptionAssignment_2");
+			builder.put(grammarAccess.getDStateAccess().getNameAssignment(), "rule__DState__NameAssignment");
+			builder.put(grammarAccess.getDStateEventAccess().getNameAssignment(), "rule__DStateEvent__NameAssignment");
 			builder.put(grammarAccess.getDDetailTypeAccess().getAbstractAssignment_0(), "rule__DDetailType__AbstractAssignment_0");
+			builder.put(grammarAccess.getDDetailTypeAccess().getFeaturesAssignment_4_0(), "rule__DDetailType__FeaturesAssignment_4_0");
+			builder.put(grammarAccess.getDDetailTypeAccess().getConstraintsAssignment_4_1(), "rule__DDetailType__ConstraintsAssignment_4_1");
 			builder.put(grammarAccess.getDAssociationAccess().getDerivedAssignment_0(), "rule__DAssociation__DerivedAssignment_0");
 			builder.put(grammarAccess.getDAssociationAccess().getNameAssignment_1(), "rule__DAssociation__NameAssignment_1");
 			builder.put(grammarAccess.getDAssociationAccess().getAliasesAssignment_2_1(), "rule__DAssociation__AliasesAssignment_2_1");

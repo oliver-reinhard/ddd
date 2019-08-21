@@ -4,95 +4,96 @@
 package com.mimacom.ddd.dm.esm;
 
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DStateEvent;
 
 import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>DTransition</b></em>'.
+ * A representation of the model object '<em><b>Transition</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.esm.DTransition#getFrom <em>From</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.esm.DTransition#getTo <em>To</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.esm.DTransition#getEvent <em>Event</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.esm.DTransition#getGuard <em>Guard</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.esm.EsmTransition#getFrom <em>From</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.esm.EsmTransition#getTo <em>To</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.esm.EsmTransition#getEvent <em>Event</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.esm.EsmTransition#getGuard <em>Guard</em>}</li>
  * </ul>
  *
- * @see com.mimacom.ddd.dm.esm.EsmPackage#getDTransition()
+ * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmTransition()
  * @model
  * @generated
  */
-public interface DTransition extends EObject
+public interface EsmTransition extends EObject
 {
 	/**
 	 * Returns the value of the '<em><b>From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>From</em>' reference.
-	 * @see #setFrom(DState)
-	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getDTransition_From()
+	 * @see #setFrom(EsmState)
+	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmTransition_From()
 	 * @model
 	 * @generated
 	 */
-	DState getFrom();
+	EsmState getFrom();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.esm.DTransition#getFrom <em>From</em>}' reference.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.esm.EsmTransition#getFrom <em>From</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>From</em>' reference.
 	 * @see #getFrom()
 	 * @generated
 	 */
-	void setFrom(DState value);
+	void setFrom(EsmState value);
 
 	/**
 	 * Returns the value of the '<em><b>To</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>To</em>' reference.
-	 * @see #setTo(DState)
-	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getDTransition_To()
+	 * @see #setTo(EsmState)
+	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmTransition_To()
 	 * @model
 	 * @generated
 	 */
-	DState getTo();
+	EsmState getTo();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.esm.DTransition#getTo <em>To</em>}' reference.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.esm.EsmTransition#getTo <em>To</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>To</em>' reference.
 	 * @see #getTo()
 	 * @generated
 	 */
-	void setTo(DState value);
+	void setTo(EsmState value);
 
 	/**
 	 * Returns the value of the '<em><b>Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Event</em>' reference.
-	 * @see #setEvent(DEvent)
-	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getDTransition_Event()
+	 * @see #setEvent(DStateEvent)
+	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmTransition_Event()
 	 * @model
 	 * @generated
 	 */
-	DEvent getEvent();
+	DStateEvent getEvent();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.esm.DTransition#getEvent <em>Event</em>}' reference.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.esm.EsmTransition#getEvent <em>Event</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Event</em>' reference.
 	 * @see #getEvent()
 	 * @generated
 	 */
-	void setEvent(DEvent value);
+	void setEvent(DStateEvent value);
 
 	/**
 	 * Returns the value of the '<em><b>Guard</b></em>' containment reference.
@@ -100,14 +101,14 @@ public interface DTransition extends EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Guard</em>' containment reference.
 	 * @see #setGuard(DExpression)
-	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getDTransition_Guard()
+	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmTransition_Guard()
 	 * @model containment="true"
 	 * @generated
 	 */
 	DExpression getGuard();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.esm.DTransition#getGuard <em>Guard</em>}' containment reference.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.esm.EsmTransition#getGuard <em>Guard</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Guard</em>' containment reference.
@@ -116,4 +117,4 @@ public interface DTransition extends EObject
 	 */
 	void setGuard(DExpression value);
 
-} // DTransition
+} // EsmTransition

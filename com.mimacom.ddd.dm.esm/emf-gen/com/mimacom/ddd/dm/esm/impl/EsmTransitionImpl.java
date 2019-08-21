@@ -4,11 +4,11 @@
 package com.mimacom.ddd.dm.esm.impl;
 
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DStateEvent;
 
-import com.mimacom.ddd.dm.esm.DEvent;
-import com.mimacom.ddd.dm.esm.DState;
-import com.mimacom.ddd.dm.esm.DTransition;
 import com.mimacom.ddd.dm.esm.EsmPackage;
+import com.mimacom.ddd.dm.esm.EsmState;
+import com.mimacom.ddd.dm.esm.EsmTransition;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -21,21 +21,21 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>DTransition</b></em>'.
+ * An implementation of the model object '<em><b>Transition</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.esm.impl.DTransitionImpl#getFrom <em>From</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.esm.impl.DTransitionImpl#getTo <em>To</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.esm.impl.DTransitionImpl#getEvent <em>Event</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.esm.impl.DTransitionImpl#getGuard <em>Guard</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmTransitionImpl#getFrom <em>From</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmTransitionImpl#getTo <em>To</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmTransitionImpl#getEvent <em>Event</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmTransitionImpl#getGuard <em>Guard</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTransition
+public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements EsmTransition
 {
 	/**
 	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference.
@@ -45,7 +45,7 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 	 * @generated
 	 * @ordered
 	 */
-	protected DState from;
+	protected EsmState from;
 
 	/**
 	 * The cached value of the '{@link #getTo() <em>To</em>}' reference.
@@ -55,7 +55,7 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 	 * @generated
 	 * @ordered
 	 */
-	protected DState to;
+	protected EsmState to;
 
 	/**
 	 * The cached value of the '{@link #getEvent() <em>Event</em>}' reference.
@@ -65,7 +65,7 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 	 * @generated
 	 * @ordered
 	 */
-	protected DEvent event;
+	protected DStateEvent event;
 
 	/**
 	 * The cached value of the '{@link #getGuard() <em>Guard</em>}' containment reference.
@@ -82,7 +82,7 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DTransitionImpl()
+	protected EsmTransitionImpl()
 	{
 		super();
 	}
@@ -95,7 +95,7 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 	@Override
 	protected EClass eStaticClass()
 	{
-		return EsmPackage.Literals.DTRANSITION;
+		return EsmPackage.Literals.ESM_TRANSITION;
 	}
 
 	/**
@@ -104,16 +104,16 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 	 * @generated
 	 */
 	@Override
-	public DState getFrom()
+	public EsmState getFrom()
 	{
 		if (from != null && from.eIsProxy())
 		{
 			InternalEObject oldFrom = (InternalEObject)from;
-			from = (DState)eResolveProxy(oldFrom);
+			from = (EsmState)eResolveProxy(oldFrom);
 			if (from != oldFrom)
 			{
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsmPackage.DTRANSITION__FROM, oldFrom, from));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsmPackage.ESM_TRANSITION__FROM, oldFrom, from));
 			}
 		}
 		return from;
@@ -124,7 +124,7 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DState basicGetFrom()
+	public EsmState basicGetFrom()
 	{
 		return from;
 	}
@@ -135,12 +135,12 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 	 * @generated
 	 */
 	@Override
-	public void setFrom(DState newFrom)
+	public void setFrom(EsmState newFrom)
 	{
-		DState oldFrom = from;
+		EsmState oldFrom = from;
 		from = newFrom;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsmPackage.DTRANSITION__FROM, oldFrom, from));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsmPackage.ESM_TRANSITION__FROM, oldFrom, from));
 	}
 
 	/**
@@ -149,16 +149,16 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 	 * @generated
 	 */
 	@Override
-	public DState getTo()
+	public EsmState getTo()
 	{
 		if (to != null && to.eIsProxy())
 		{
 			InternalEObject oldTo = (InternalEObject)to;
-			to = (DState)eResolveProxy(oldTo);
+			to = (EsmState)eResolveProxy(oldTo);
 			if (to != oldTo)
 			{
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsmPackage.DTRANSITION__TO, oldTo, to));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsmPackage.ESM_TRANSITION__TO, oldTo, to));
 			}
 		}
 		return to;
@@ -169,7 +169,7 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DState basicGetTo()
+	public EsmState basicGetTo()
 	{
 		return to;
 	}
@@ -180,12 +180,12 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 	 * @generated
 	 */
 	@Override
-	public void setTo(DState newTo)
+	public void setTo(EsmState newTo)
 	{
-		DState oldTo = to;
+		EsmState oldTo = to;
 		to = newTo;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsmPackage.DTRANSITION__TO, oldTo, to));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsmPackage.ESM_TRANSITION__TO, oldTo, to));
 	}
 
 	/**
@@ -194,16 +194,16 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 	 * @generated
 	 */
 	@Override
-	public DEvent getEvent()
+	public DStateEvent getEvent()
 	{
 		if (event != null && event.eIsProxy())
 		{
 			InternalEObject oldEvent = (InternalEObject)event;
-			event = (DEvent)eResolveProxy(oldEvent);
+			event = (DStateEvent)eResolveProxy(oldEvent);
 			if (event != oldEvent)
 			{
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsmPackage.DTRANSITION__EVENT, oldEvent, event));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsmPackage.ESM_TRANSITION__EVENT, oldEvent, event));
 			}
 		}
 		return event;
@@ -214,7 +214,7 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DEvent basicGetEvent()
+	public DStateEvent basicGetEvent()
 	{
 		return event;
 	}
@@ -225,12 +225,12 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 	 * @generated
 	 */
 	@Override
-	public void setEvent(DEvent newEvent)
+	public void setEvent(DStateEvent newEvent)
 	{
-		DEvent oldEvent = event;
+		DStateEvent oldEvent = event;
 		event = newEvent;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsmPackage.DTRANSITION__EVENT, oldEvent, event));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsmPackage.ESM_TRANSITION__EVENT, oldEvent, event));
 	}
 
 	/**
@@ -255,7 +255,7 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 		guard = newGuard;
 		if (eNotificationRequired())
 		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsmPackage.DTRANSITION__GUARD, oldGuard, newGuard);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsmPackage.ESM_TRANSITION__GUARD, oldGuard, newGuard);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -273,14 +273,14 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 		{
 			NotificationChain msgs = null;
 			if (guard != null)
-				msgs = ((InternalEObject)guard).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsmPackage.DTRANSITION__GUARD, null, msgs);
+				msgs = ((InternalEObject)guard).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsmPackage.ESM_TRANSITION__GUARD, null, msgs);
 			if (newGuard != null)
-				msgs = ((InternalEObject)newGuard).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsmPackage.DTRANSITION__GUARD, null, msgs);
+				msgs = ((InternalEObject)newGuard).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsmPackage.ESM_TRANSITION__GUARD, null, msgs);
 			msgs = basicSetGuard(newGuard, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsmPackage.DTRANSITION__GUARD, newGuard, newGuard));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsmPackage.ESM_TRANSITION__GUARD, newGuard, newGuard));
 	}
 
 	/**
@@ -293,7 +293,7 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 	{
 		switch (featureID)
 		{
-			case EsmPackage.DTRANSITION__GUARD:
+			case EsmPackage.ESM_TRANSITION__GUARD:
 				return basicSetGuard(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -309,16 +309,16 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 	{
 		switch (featureID)
 		{
-			case EsmPackage.DTRANSITION__FROM:
+			case EsmPackage.ESM_TRANSITION__FROM:
 				if (resolve) return getFrom();
 				return basicGetFrom();
-			case EsmPackage.DTRANSITION__TO:
+			case EsmPackage.ESM_TRANSITION__TO:
 				if (resolve) return getTo();
 				return basicGetTo();
-			case EsmPackage.DTRANSITION__EVENT:
+			case EsmPackage.ESM_TRANSITION__EVENT:
 				if (resolve) return getEvent();
 				return basicGetEvent();
-			case EsmPackage.DTRANSITION__GUARD:
+			case EsmPackage.ESM_TRANSITION__GUARD:
 				return getGuard();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -334,16 +334,16 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 	{
 		switch (featureID)
 		{
-			case EsmPackage.DTRANSITION__FROM:
-				setFrom((DState)newValue);
+			case EsmPackage.ESM_TRANSITION__FROM:
+				setFrom((EsmState)newValue);
 				return;
-			case EsmPackage.DTRANSITION__TO:
-				setTo((DState)newValue);
+			case EsmPackage.ESM_TRANSITION__TO:
+				setTo((EsmState)newValue);
 				return;
-			case EsmPackage.DTRANSITION__EVENT:
-				setEvent((DEvent)newValue);
+			case EsmPackage.ESM_TRANSITION__EVENT:
+				setEvent((DStateEvent)newValue);
 				return;
-			case EsmPackage.DTRANSITION__GUARD:
+			case EsmPackage.ESM_TRANSITION__GUARD:
 				setGuard((DExpression)newValue);
 				return;
 		}
@@ -360,16 +360,16 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 	{
 		switch (featureID)
 		{
-			case EsmPackage.DTRANSITION__FROM:
-				setFrom((DState)null);
+			case EsmPackage.ESM_TRANSITION__FROM:
+				setFrom((EsmState)null);
 				return;
-			case EsmPackage.DTRANSITION__TO:
-				setTo((DState)null);
+			case EsmPackage.ESM_TRANSITION__TO:
+				setTo((EsmState)null);
 				return;
-			case EsmPackage.DTRANSITION__EVENT:
-				setEvent((DEvent)null);
+			case EsmPackage.ESM_TRANSITION__EVENT:
+				setEvent((DStateEvent)null);
 				return;
-			case EsmPackage.DTRANSITION__GUARD:
+			case EsmPackage.ESM_TRANSITION__GUARD:
 				setGuard((DExpression)null);
 				return;
 		}
@@ -386,16 +386,16 @@ public class DTransitionImpl extends MinimalEObjectImpl.Container implements DTr
 	{
 		switch (featureID)
 		{
-			case EsmPackage.DTRANSITION__FROM:
+			case EsmPackage.ESM_TRANSITION__FROM:
 				return from != null;
-			case EsmPackage.DTRANSITION__TO:
+			case EsmPackage.ESM_TRANSITION__TO:
 				return to != null;
-			case EsmPackage.DTRANSITION__EVENT:
+			case EsmPackage.ESM_TRANSITION__EVENT:
 				return event != null;
-			case EsmPackage.DTRANSITION__GUARD:
+			case EsmPackage.ESM_TRANSITION__GUARD:
 				return guard != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //DTransitionImpl
+} //EsmTransitionImpl

@@ -4312,6 +4312,100 @@ ruleDDetailType returns [EObject current=null]
 			$current = $this_DComplexType_2.current;
 			afterParserOrEnumRuleCall();
 		}
+		otherlv_3='{'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getDDetailTypeAccess().getLeftCurlyBracketKeyword_3());
+		}
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getDDetailTypeAccess().getFeaturesDFeatureParserRuleCall_4_0_0());
+					}
+					lv_features_4_0=ruleDFeature
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDDetailTypeRule());
+						}
+						add(
+							$current,
+							"features",
+							lv_features_4_0,
+							"com.mimacom.ddd.dm.dim.Dim.DFeature");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			    |
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getDDetailTypeAccess().getConstraintsDConstraintParserRuleCall_4_1_0());
+					}
+					lv_constraints_5_0=ruleDConstraint
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDDetailTypeRule());
+						}
+						add(
+							$current,
+							"constraints",
+							lv_constraints_5_0,
+							"com.mimacom.ddd.dm.dim.Dim.DConstraint");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+		otherlv_6='}'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getDDetailTypeAccess().getRightCurlyBracketKeyword_5());
+		}
+	)
+;
+
+// Entry rule entryRuleDFeature
+entryRuleDFeature returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDFeatureRule()); }
+	iv_ruleDFeature=ruleDFeature
+	{ $current=$iv_ruleDFeature.current; }
+	EOF;
+
+// Rule DFeature
+ruleDFeature returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getDFeatureAccess().getDAssociationParserRuleCall_0());
+		}
+		this_DAssociation_0=ruleDAssociation
+		{
+			$current = $this_DAssociation_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getDFeatureAccess().getDAttributeParserRuleCall_1());
+		}
+		this_DAttribute_1=ruleDAttribute
+		{
+			$current = $this_DAttribute_1.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getDFeatureAccess().getDQueryParserRuleCall_2());
+		}
+		this_DQuery_2=ruleDQuery
+		{
+			$current = $this_DQuery_2.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -8510,26 +8604,42 @@ ruleDmxBaseType returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_6='COMPLEX'
+			enumLiteral_6='STATE'
 			{
-				$current = grammarAccess.getDmxBaseTypeAccess().getCOMPLEXEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_6, grammarAccess.getDmxBaseTypeAccess().getCOMPLEXEnumLiteralDeclaration_6());
+				$current = grammarAccess.getDmxBaseTypeAccess().getSTATEEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_6, grammarAccess.getDmxBaseTypeAccess().getSTATEEnumLiteralDeclaration_6());
 			}
 		)
 		    |
 		(
-			enumLiteral_7='NOTIFICATION'
+			enumLiteral_7='STATE_EVENT'
 			{
-				$current = grammarAccess.getDmxBaseTypeAccess().getNOTIFICATIONEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_7, grammarAccess.getDmxBaseTypeAccess().getNOTIFICATIONEnumLiteralDeclaration_7());
+				$current = grammarAccess.getDmxBaseTypeAccess().getSTATE_EVENTEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_7, grammarAccess.getDmxBaseTypeAccess().getSTATE_EVENTEnumLiteralDeclaration_7());
 			}
 		)
 		    |
 		(
-			enumLiteral_8='SERVICE'
+			enumLiteral_8='COMPLEX'
 			{
-				$current = grammarAccess.getDmxBaseTypeAccess().getSERVICEEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_8, grammarAccess.getDmxBaseTypeAccess().getSERVICEEnumLiteralDeclaration_8());
+				$current = grammarAccess.getDmxBaseTypeAccess().getCOMPLEXEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_8, grammarAccess.getDmxBaseTypeAccess().getCOMPLEXEnumLiteralDeclaration_8());
+			}
+		)
+		    |
+		(
+			enumLiteral_9='NOTIFICATION'
+			{
+				$current = grammarAccess.getDmxBaseTypeAccess().getNOTIFICATIONEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_9, grammarAccess.getDmxBaseTypeAccess().getNOTIFICATIONEnumLiteralDeclaration_9());
+			}
+		)
+		    |
+		(
+			enumLiteral_10='SERVICE'
+			{
+				$current = grammarAccess.getDmxBaseTypeAccess().getSERVICEEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_10, grammarAccess.getDmxBaseTypeAccess().getSERVICEEnumLiteralDeclaration_10());
 			}
 		)
 	)

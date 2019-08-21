@@ -328,13 +328,6 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case BasePackage.IENTITY_STATE_MODEL:
-			{
-				IEntityStateModel iEntityStateModel = (IEntityStateModel)theEObject;
-				T result = caseIEntityStateModel(iEntityStateModel);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case BasePackage.DFEATURE:
 			{
 				DFeature dFeature = (DFeature)theEObject;
@@ -394,6 +387,23 @@ public class BaseSwitch<T> extends Switch<T>
 				if (result == null) result = caseDNavigableMember(dQueryParameter);
 				if (result == null) result = caseIDeducibleElement(dQueryParameter);
 				if (result == null) result = caseDNamedElement(dQueryParameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.DSTATE:
+			{
+				DState dState = (DState)theEObject;
+				T result = caseDState(dState);
+				if (result == null) result = caseDNavigableMember(dState);
+				if (result == null) result = caseDNamedElement(dState);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasePackage.DSTATE_EVENT:
+			{
+				DStateEvent dStateEvent = (DStateEvent)theEObject;
+				T result = caseDStateEvent(dStateEvent);
+				if (result == null) result = caseDNamedElement(dStateEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -911,22 +921,6 @@ public class BaseSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IEntity State Model</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IEntity State Model</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIEntityStateModel(IEntityStateModel object)
-	{
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>DFeature</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1018,6 +1012,38 @@ public class BaseSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDQueryParameter(DQueryParameter object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DState</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DState</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDState(DState object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DState Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DState Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDStateEvent(DStateEvent object)
 	{
 		return null;
 	}

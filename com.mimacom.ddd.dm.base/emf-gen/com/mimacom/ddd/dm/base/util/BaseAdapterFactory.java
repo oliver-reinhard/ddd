@@ -210,11 +210,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createDEntityTypeAdapter();
 			}
 			@Override
-			public Adapter caseIEntityStateModel(IEntityStateModel object)
-			{
-				return createIEntityStateModelAdapter();
-			}
-			@Override
 			public Adapter caseDFeature(DFeature object)
 			{
 				return createDFeatureAdapter();
@@ -243,6 +238,16 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseDQueryParameter(DQueryParameter object)
 			{
 				return createDQueryParameterAdapter();
+			}
+			@Override
+			public Adapter caseDState(DState object)
+			{
+				return createDStateAdapter();
+			}
+			@Override
+			public Adapter caseDStateEvent(DStateEvent object)
+			{
+				return createDStateEventAdapter();
 			}
 			@Override
 			public Adapter caseDContext(DContext object)
@@ -712,21 +717,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IEntityStateModel <em>IEntity State Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.IEntityStateModel
-	 * @generated
-	 */
-	public Adapter createIEntityStateModelAdapter()
-	{
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DFeature <em>DFeature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -812,6 +802,36 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDQueryParameterAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DState <em>DState</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DState
+	 * @generated
+	 */
+	public Adapter createDStateAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DStateEvent <em>DState Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DStateEvent
+	 * @generated
+	 */
+	public Adapter createDStateEventAdapter()
 	{
 		return null;
 	}

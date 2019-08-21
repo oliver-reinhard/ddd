@@ -4,8 +4,8 @@
 package com.mimacom.ddd.dm.esm.scoping
 
 import com.mimacom.ddd.dm.base.INavigableMemberContainer
-import com.mimacom.ddd.dm.esm.DEntityStateModel
-import com.mimacom.ddd.dm.esm.DTransition
+import com.mimacom.ddd.dm.esm.EsmEntityStateModel
+import com.mimacom.ddd.dm.esm.EsmTransition
 import com.mimacom.ddd.dm.esm.EsmPackage
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
@@ -26,15 +26,17 @@ class EsmScopeProvider extends AbstractEsmScopeProvider {
 
 	override getScope(EObject context, EReference reference) {
 
-		if (context instanceof DTransition) {
-			if (reference == ESM.DTransition_From || reference == ESM.DTransition_To) {
-				val sm = EcoreUtil2.getContainerOfType(context, DEntityStateModel)
+		if (context instanceof EsmTransition) {
+			if (reference == ESM.esmTransition_From || reference == ESM.esmTransition_To) {
+				val sm = EcoreUtil2.getContainerOfType(context, EsmEntityStateModel)
 				return Scopes.scopeFor(sm.states)
 			}
 			
-			if (reference == ESM.DTransition_Event) {
-				val sm = EcoreUtil2.getContainerOfType(context, DEntityStateModel)
-				return Scopes.scopeFor(sm.events)
+			if (reference == ESM.esmTransition_Event) {
+				val sm = EcoreUtil2.getContainerOfType(context, EsmEntityStateModel)
+				if (! sm.forType?.events.empty) {
+					return Scopes.scopeFor(sm.forType?.events)
+				}
 			}
 		}
 		super.getScope(context, reference)
@@ -42,7 +44,7 @@ class EsmScopeProvider extends AbstractEsmScopeProvider {
 
 	protected override IScope getEContainerNavigableMembersScopeSwitch(INavigableMemberContainer container, IScope outerScope) {
 		val scope = switch container {
-			DEntityStateModel: Scopes.scopeFor(container.getForType.features, outerScope)
+			EsmEntityStateModel: Scopes.scopeFor(container.getForType.features, outerScope)
 			default: super.getEContainerNavigableMembersScopeSwitch(container, outerScope)
 		}
 		return scope	

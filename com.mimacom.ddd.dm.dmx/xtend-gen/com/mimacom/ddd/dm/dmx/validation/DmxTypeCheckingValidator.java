@@ -89,7 +89,7 @@ public class DmxTypeCheckingValidator extends AbstractDmxValidator {
               _xifexpression = DmxTypeComputer.UNDEFINED;
             }
             final AbstractDmxTypeDescriptor<?> expectedType = _xifexpression;
-            this.expectType(actualParameters.get(aIndex), expectedType, DmxTypeCheckingValidator.DMX.getDmxCallArguments_Arguments());
+            this.expectType(actualParameters.get(aIndex), expectedType, DmxTypeCheckingValidator.DMX.getDmxMemberNavigation_CallArguments());
           } else {
             int _size_1 = actualParameters.size();
             boolean _equals = (aIndex == _size_1);

@@ -2268,18 +2268,24 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cIDENTIFIERIDENTIFIERKeyword_4_0 = (Keyword)cIDENTIFIEREnumLiteralDeclaration_4.eContents().get(0);
 		private final EnumLiteralDeclaration cTIMEPOINTEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
 		private final Keyword cTIMEPOINTTIMEPOINTKeyword_5_0 = (Keyword)cTIMEPOINTEnumLiteralDeclaration_5.eContents().get(0);
-		private final EnumLiteralDeclaration cCOMPLEXEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
-		private final Keyword cCOMPLEXCOMPLEXKeyword_6_0 = (Keyword)cCOMPLEXEnumLiteralDeclaration_6.eContents().get(0);
-		private final EnumLiteralDeclaration cNOTIFICATIONEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
-		private final Keyword cNOTIFICATIONNOTIFICATIONKeyword_7_0 = (Keyword)cNOTIFICATIONEnumLiteralDeclaration_7.eContents().get(0);
-		private final EnumLiteralDeclaration cSERVICEEnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
-		private final Keyword cSERVICESERVICEKeyword_8_0 = (Keyword)cSERVICEEnumLiteralDeclaration_8.eContents().get(0);
+		private final EnumLiteralDeclaration cSTATEEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
+		private final Keyword cSTATESTATEKeyword_6_0 = (Keyword)cSTATEEnumLiteralDeclaration_6.eContents().get(0);
+		private final EnumLiteralDeclaration cSTATE_EVENTEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
+		private final Keyword cSTATE_EVENTSTATE_EVENTKeyword_7_0 = (Keyword)cSTATE_EVENTEnumLiteralDeclaration_7.eContents().get(0);
+		private final EnumLiteralDeclaration cCOMPLEXEnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
+		private final Keyword cCOMPLEXCOMPLEXKeyword_8_0 = (Keyword)cCOMPLEXEnumLiteralDeclaration_8.eContents().get(0);
+		private final EnumLiteralDeclaration cNOTIFICATIONEnumLiteralDeclaration_9 = (EnumLiteralDeclaration)cAlternatives.eContents().get(9);
+		private final Keyword cNOTIFICATIONNOTIFICATIONKeyword_9_0 = (Keyword)cNOTIFICATIONEnumLiteralDeclaration_9.eContents().get(0);
+		private final EnumLiteralDeclaration cSERVICEEnumLiteralDeclaration_10 = (EnumLiteralDeclaration)cAlternatives.eContents().get(10);
+		private final Keyword cSERVICESERVICEKeyword_10_0 = (Keyword)cSERVICEEnumLiteralDeclaration_10.eContents().get(0);
 		
 		//enum DmxBaseType:
-		//	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | COMPLEX | NOTIFICATION /*sent* */ | SERVICE /*invoked* */;
+		//	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | STATE /*transition*/ | STATE_EVENT | COMPLEX | NOTIFICATION
+		//	/*sent* */ | SERVICE /*invoked* */;
 		public EnumRule getRule() { return rule; }
 		
-		//VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | COMPLEX | NOTIFICATION /*sent* */ | SERVICE
+		//VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | STATE /*transition*/ | STATE_EVENT | COMPLEX | NOTIFICATION
+		///*sent* */ | SERVICE
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//VOID
@@ -2318,23 +2324,35 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		//"TIMEPOINT"
 		public Keyword getTIMEPOINTTIMEPOINTKeyword_5_0() { return cTIMEPOINTTIMEPOINTKeyword_5_0; }
 		
+		//STATE
+		public EnumLiteralDeclaration getSTATEEnumLiteralDeclaration_6() { return cSTATEEnumLiteralDeclaration_6; }
+		
+		//"STATE"
+		public Keyword getSTATESTATEKeyword_6_0() { return cSTATESTATEKeyword_6_0; }
+		
+		//STATE_EVENT
+		public EnumLiteralDeclaration getSTATE_EVENTEnumLiteralDeclaration_7() { return cSTATE_EVENTEnumLiteralDeclaration_7; }
+		
+		//"STATE_EVENT"
+		public Keyword getSTATE_EVENTSTATE_EVENTKeyword_7_0() { return cSTATE_EVENTSTATE_EVENTKeyword_7_0; }
+		
 		//COMPLEX
-		public EnumLiteralDeclaration getCOMPLEXEnumLiteralDeclaration_6() { return cCOMPLEXEnumLiteralDeclaration_6; }
+		public EnumLiteralDeclaration getCOMPLEXEnumLiteralDeclaration_8() { return cCOMPLEXEnumLiteralDeclaration_8; }
 		
 		//"COMPLEX"
-		public Keyword getCOMPLEXCOMPLEXKeyword_6_0() { return cCOMPLEXCOMPLEXKeyword_6_0; }
+		public Keyword getCOMPLEXCOMPLEXKeyword_8_0() { return cCOMPLEXCOMPLEXKeyword_8_0; }
 		
 		//NOTIFICATION
-		public EnumLiteralDeclaration getNOTIFICATIONEnumLiteralDeclaration_7() { return cNOTIFICATIONEnumLiteralDeclaration_7; }
+		public EnumLiteralDeclaration getNOTIFICATIONEnumLiteralDeclaration_9() { return cNOTIFICATIONEnumLiteralDeclaration_9; }
 		
 		//"NOTIFICATION"
-		public Keyword getNOTIFICATIONNOTIFICATIONKeyword_7_0() { return cNOTIFICATIONNOTIFICATIONKeyword_7_0; }
+		public Keyword getNOTIFICATIONNOTIFICATIONKeyword_9_0() { return cNOTIFICATIONNOTIFICATIONKeyword_9_0; }
 		
 		//SERVICE
-		public EnumLiteralDeclaration getSERVICEEnumLiteralDeclaration_8() { return cSERVICEEnumLiteralDeclaration_8; }
+		public EnumLiteralDeclaration getSERVICEEnumLiteralDeclaration_10() { return cSERVICEEnumLiteralDeclaration_10; }
 		
 		//"SERVICE"
-		public Keyword getSERVICESERVICEKeyword_8_0() { return cSERVICESERVICEKeyword_8_0; }
+		public Keyword getSERVICESERVICEKeyword_10_0() { return cSERVICESERVICEKeyword_10_0; }
 	}
 	public class DmxOpOrElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DmxOpOr");
@@ -2929,7 +2947,8 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum DmxBaseType:
-	//	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | COMPLEX | NOTIFICATION /*sent* */ | SERVICE /*invoked* */;
+	//	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | STATE /*transition*/ | STATE_EVENT | COMPLEX | NOTIFICATION
+	//	/*sent* */ | SERVICE /*invoked* */;
 	public DmxBaseTypeElements getDmxBaseTypeAccess() {
 		return eDmxBaseType;
 	}

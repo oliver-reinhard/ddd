@@ -24,6 +24,8 @@ import com.mimacom.ddd.dm.base.DNamedPredicate
 import com.mimacom.ddd.dm.base.DNotification
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQueryParameter
+import com.mimacom.ddd.dm.base.DState
+import com.mimacom.ddd.dm.base.DStateEvent
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.base.IValueType
 import com.mimacom.ddd.dm.dim.DimUtil
@@ -248,6 +250,18 @@ class DimValidator extends AbstractDimValidator {
 // // Naming: Elements whose names should be ALL UPPERCASE
 	@Check def void checkLiteralIsUppercase(DLiteral literal) {
 		if (! literal.name.equals(literal.name.toUpperCase)) {
+			warning("Name should be all upercase", BasePackage.Literals::DNAMED_ELEMENT__NAME)
+		}
+	}
+	
+	@Check def void checkStateNameIsUppercase(DState state) {
+		if (! state.name.equals(state.name.toUpperCase)) {
+			warning("Name should be all upercase", BasePackage.Literals::DNAMED_ELEMENT__NAME)
+		}
+	}
+	
+	@Check def void checkStateEventNameIsUppercase(DStateEvent event) {
+		if (! event.name.equals(event.name.toUpperCase)) {
 			warning("Name should be all upercase", BasePackage.Literals::DNAMED_ELEMENT__NAME)
 		}
 	}

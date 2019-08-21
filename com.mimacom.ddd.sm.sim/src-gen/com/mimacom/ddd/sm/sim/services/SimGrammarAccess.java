@@ -3377,10 +3377,32 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		return getDEntityOriginRelationshipAccess().getRule();
 	}
 	
+	//DState:
+	//	name=ID;
+	public DimGrammarAccess.DStateElements getDStateAccess() {
+		return gaDim.getDStateAccess();
+	}
+	
+	public ParserRule getDStateRule() {
+		return getDStateAccess().getRule();
+	}
+	
+	//DStateEvent:
+	//	name=ID;
+	public DimGrammarAccess.DStateEventElements getDStateEventAccess() {
+		return gaDim.getDStateEventAccess();
+	}
+	
+	public ParserRule getDStateEventRule() {
+		return getDStateEventAccess().getRule();
+	}
+	
 	//DDetailType:
 	//	abstract?='abstract'?
 	//	'detail'
-	//	super::DComplexType;
+	//	super::DComplexType
+	//	'{' (features+=DFeature | constraints+=DConstraint)*
+	//	'}';
 	public DimGrammarAccess.DDetailTypeElements getDDetailTypeAccess() {
 		return gaDim.getDDetailTypeAccess();
 	}
@@ -3515,7 +3537,8 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum DmxBaseType:
-	//	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | COMPLEX | NOTIFICATION /*sent* */ | SERVICE /*invoked* */;
+	//	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | STATE /*transition*/ | STATE_EVENT | COMPLEX | NOTIFICATION
+	//	/*sent* */ | SERVICE /*invoked* */;
 	public DmxGrammarAccess.DmxBaseTypeElements getDmxBaseTypeAccess() {
 		return gaDmx.getDmxBaseTypeAccess();
 	}

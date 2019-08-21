@@ -4,49 +4,50 @@
 package com.mimacom.ddd.dm.esm;
 
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DState;
 
 import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>DState</b></em>'.
+ * A representation of the model object '<em><b>State</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.esm.DState#getName <em>Name</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.esm.DState#getExpression <em>Expression</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.esm.EsmState#getState <em>State</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.esm.EsmState#getExpression <em>Expression</em>}</li>
  * </ul>
  *
- * @see com.mimacom.ddd.dm.esm.EsmPackage#getDState()
+ * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmState()
  * @model
  * @generated
  */
-public interface DState extends EObject
+public interface EsmState extends EObject
 {
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>State</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getDState_Name()
+	 * @return the value of the '<em>State</em>' reference.
+	 * @see #setState(DState)
+	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmState_State()
 	 * @model
 	 * @generated
 	 */
-	String getName();
+	DState getState();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.esm.DState#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.esm.EsmState#getState <em>State</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
+	 * @param value the new value of the '<em>State</em>' reference.
+	 * @see #getState()
 	 * @generated
 	 */
-	void setName(String value);
+	void setState(DState value);
 
 	/**
 	 * Returns the value of the '<em><b>Expression</b></em>' containment reference.
@@ -54,14 +55,14 @@ public interface DState extends EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Expression</em>' containment reference.
 	 * @see #setExpression(DExpression)
-	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getDState_Expression()
+	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmState_Expression()
 	 * @model containment="true"
 	 * @generated
 	 */
 	DExpression getExpression();
 
 	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.esm.DState#getExpression <em>Expression</em>}' containment reference.
+	 * Sets the value of the '{@link com.mimacom.ddd.dm.esm.EsmState#getExpression <em>Expression</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Expression</em>' containment reference.
@@ -70,4 +71,4 @@ public interface DState extends EObject
 	 */
 	void setExpression(DExpression value);
 
-} // DState
+} // EsmState

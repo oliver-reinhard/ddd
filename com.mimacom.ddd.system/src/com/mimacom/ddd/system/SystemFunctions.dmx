@@ -1,7 +1,8 @@
 namespace dm.filters
 
 filter exists(collection : T*, predicate: BOOLEAN): BOOLEAN 	with T in (NUMBER, TEXT, TIMEPOINT, COMPLEX)
-filter unique(collection : T*, predicate: BOOLEAN): BOOLEAN 	with T in (NUMBER, TEXT, TIMEPOINT, COMPLEX)  // like exists but returns true only if there is exactly 1 result
+filter forAll(collection : T*, predicate: BOOLEAN): BOOLEAN 	with T in (NUMBER, TEXT, TIMEPOINT, COMPLEX)
+filter unique(collection : T*, predicate: BOOLEAN): BOOLEAN 	with T in (NUMBER, TEXT, TIMEPOINT, COMPLEX)	// like exists but returns true only if there is exactly 1 result
 filter select(collection : T*, predicate: BOOLEAN): T* 			with T in (NUMBER, TEXT, TIMEPOINT, COMPLEX)
 filter one   (collection : T*, predicate: BOOLEAN): T 			with T in (NUMBER, TEXT, TIMEPOINT, COMPLEX)	// like select but returns exactly 1 result
 filter reject(collection : T*, predicate: BOOLEAN): T* 			with T in (NUMBER, TEXT, TIMEPOINT, COMPLEX)
@@ -19,5 +20,8 @@ filter avg(collection : NUMBER*): NUMBER
 filter length(arg : TEXT): NUMBER
 filter now(): TIMEPOINT
 
-filter delivered(arg : NOTIFICATION): BOOLEAN  // always returns true
+filter state(entity : COMPLEX) : STATE
+filter transition(from : STATE, event : STATE_EVENT) : STATE
+
+filter delivered(arg : NOTIFICATION): BOOLEAN 	// always returns true
 filter invoked(arg : SERVICE): BOOLEAN  		// always returns true

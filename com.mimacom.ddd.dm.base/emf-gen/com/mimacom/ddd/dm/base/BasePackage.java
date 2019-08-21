@@ -732,22 +732,13 @@ public interface BasePackage extends EPackage
 	int DDOMAIN__AGGREGATES = DNAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>State Models</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DDOMAIN__STATE_MODELS = DNAMED_ELEMENT_FEATURE_COUNT + 5;
-
-	/**
 	 * The feature id for the '<em><b>Events</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN__EVENTS = DNAMED_ELEMENT_FEATURE_COUNT + 6;
+	int DDOMAIN__EVENTS = DNAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Actors</b></em>' containment reference list.
@@ -756,7 +747,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN__ACTORS = DNAMED_ELEMENT_FEATURE_COUNT + 7;
+	int DDOMAIN__ACTORS = DNAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>DDomain</em>' class.
@@ -765,7 +756,7 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DDOMAIN_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 8;
+	int DDOMAIN_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>DDomain</em>' class.
@@ -1842,13 +1833,31 @@ public interface BasePackage extends EPackage
 	int DENTITY_TYPE__ORIGIN = DCOMPLEX_TYPE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>States</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DENTITY_TYPE__STATES = DCOMPLEX_TYPE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Events</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DENTITY_TYPE__EVENTS = DCOMPLEX_TYPE_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>DEntity Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DENTITY_TYPE_FEATURE_COUNT = DCOMPLEX_TYPE_FEATURE_COUNT + 2;
+	int DENTITY_TYPE_FEATURE_COUNT = DCOMPLEX_TYPE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>DEntity Type</em>' class.
@@ -1860,43 +1869,6 @@ public interface BasePackage extends EPackage
 	int DENTITY_TYPE_OPERATION_COUNT = DCOMPLEX_TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.IEntityStateModel <em>IEntity State Model</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.base.IEntityStateModel
-	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIEntityStateModel()
-	 * @generated
-	 */
-	int IENTITY_STATE_MODEL = 27;
-
-	/**
-	 * The feature id for the '<em><b>For Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IENTITY_STATE_MODEL__FOR_TYPE = 0;
-
-	/**
-	 * The number of structural features of the '<em>IEntity State Model</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IENTITY_STATE_MODEL_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>IEntity State Model</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IENTITY_STATE_MODEL_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DFeatureImpl <em>DFeature</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1904,7 +1876,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDFeature()
 	 * @generated
 	 */
-	int DFEATURE = 28;
+	int DFEATURE = 27;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2013,7 +1985,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDAssociation()
 	 * @generated
 	 */
-	int DASSOCIATION = 29;
+	int DASSOCIATION = 28;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2158,7 +2130,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDMultiplicity()
 	 * @generated
 	 */
-	int DMULTIPLICITY = 30;
+	int DMULTIPLICITY = 29;
 
 	/**
 	 * The feature id for the '<em><b>Min Occurs</b></em>' attribute.
@@ -2213,7 +2185,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDAttribute()
 	 * @generated
 	 */
-	int DATTRIBUTE = 31;
+	int DATTRIBUTE = 30;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2340,7 +2312,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDQuery()
 	 * @generated
 	 */
-	int DQUERY = 32;
+	int DQUERY = 31;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2467,7 +2439,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDQueryParameter()
 	 * @generated
 	 */
-	int DQUERY_PARAMETER = 33;
+	int DQUERY_PARAMETER = 32;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2569,6 +2541,152 @@ public interface BasePackage extends EPackage
 	int DQUERY_PARAMETER_OPERATION_COUNT = DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DStateImpl <em>DState</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.impl.DStateImpl
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDState()
+	 * @generated
+	 */
+	int DSTATE = 33;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSTATE__NAME = DNAVIGABLE_MEMBER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSTATE__ALIASES = DNAVIGABLE_MEMBER__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSTATE__DESCRIPTION = DNAVIGABLE_MEMBER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSTATE__TYPE = DNAVIGABLE_MEMBER__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSTATE__MULTIPLICITY = DNAVIGABLE_MEMBER__MULTIPLICITY;
+
+	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSTATE__OPTIONAL = DNAVIGABLE_MEMBER__OPTIONAL;
+
+	/**
+	 * The feature id for the '<em><b>Collection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSTATE__COLLECTION = DNAVIGABLE_MEMBER__COLLECTION;
+
+	/**
+	 * The number of structural features of the '<em>DState</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSTATE_FEATURE_COUNT = DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>DState</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSTATE_OPERATION_COUNT = DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DStateEventImpl <em>DState Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.base.impl.DStateEventImpl
+	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDStateEvent()
+	 * @generated
+	 */
+	int DSTATE_EVENT = 34;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSTATE_EVENT__NAME = DNAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSTATE_EVENT__ALIASES = DNAMED_ELEMENT__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSTATE_EVENT__DESCRIPTION = DNAMED_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The number of structural features of the '<em>DState Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSTATE_EVENT_FEATURE_COUNT = DNAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>DState Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSTATE_EVENT_OPERATION_COUNT = DNAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.impl.DContextImpl <em>DContext</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2576,7 +2694,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDContext()
 	 * @generated
 	 */
-	int DCONTEXT = 34;
+	int DCONTEXT = 35;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2667,7 +2785,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDDomainEvent()
 	 * @generated
 	 */
-	int DDOMAIN_EVENT = 35;
+	int DDOMAIN_EVENT = 36;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2767,7 +2885,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDCaseConjunction()
 	 * @generated
 	 */
-	int DCASE_CONJUNCTION = 36;
+	int DCASE_CONJUNCTION = 37;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2849,7 +2967,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDNotification()
 	 * @generated
 	 */
-	int DNOTIFICATION = 37;
+	int DNOTIFICATION = 38;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2958,7 +3076,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDMessage()
 	 * @generated
 	 */
-	int DMESSAGE = 38;
+	int DMESSAGE = 39;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3049,7 +3167,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDActor()
 	 * @generated
 	 */
-	int DACTOR = 39;
+	int DACTOR = 40;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3104,7 +3222,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDHumanActorRole()
 	 * @generated
 	 */
-	int DHUMAN_ACTOR_ROLE = 40;
+	int DHUMAN_ACTOR_ROLE = 41;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3168,7 +3286,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDService()
 	 * @generated
 	 */
-	int DSERVICE = 41;
+	int DSERVICE = 42;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3223,7 +3341,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDEntityOrigin()
 	 * @generated
 	 */
-	int DENTITY_ORIGIN = 42;
+	int DENTITY_ORIGIN = 43;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DAssociationKind <em>DAssociation Kind</em>}' enum.
@@ -3233,7 +3351,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDAssociationKind()
 	 * @generated
 	 */
-	int DASSOCIATION_KIND = 43;
+	int DASSOCIATION_KIND = 44;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.base.DMultiplicityShorthand <em>DMultiplicity Shorthand</em>}' enum.
@@ -3243,7 +3361,7 @@ public interface BasePackage extends EPackage
 	 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDMultiplicityShorthand()
 	 * @generated
 	 */
-	int DMULTIPLICITY_SHORTHAND = 44;
+	int DMULTIPLICITY_SHORTHAND = 45;
 
 
 	/**
@@ -3595,17 +3713,6 @@ public interface BasePackage extends EPackage
 	EReference getDDomain_Aggregates();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DDomain#getStateModels <em>State Models</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>State Models</em>'.
-	 * @see com.mimacom.ddd.dm.base.DDomain#getStateModels()
-	 * @see #getDDomain()
-	 * @generated
-	 */
-	EReference getDDomain_StateModels();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DDomain#getEvents <em>Events</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3880,25 +3987,26 @@ public interface BasePackage extends EPackage
 	EAttribute getDEntityType_Origin();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.IEntityStateModel <em>IEntity State Model</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DEntityType#getStates <em>States</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>IEntity State Model</em>'.
-	 * @see com.mimacom.ddd.dm.base.IEntityStateModel
+	 * @return the meta object for the containment reference list '<em>States</em>'.
+	 * @see com.mimacom.ddd.dm.base.DEntityType#getStates()
+	 * @see #getDEntityType()
 	 * @generated
 	 */
-	EClass getIEntityStateModel();
+	EReference getDEntityType_States();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.base.IEntityStateModel#getForType <em>For Type</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.base.DEntityType#getEvents <em>Events</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>For Type</em>'.
-	 * @see com.mimacom.ddd.dm.base.IEntityStateModel#getForType()
-	 * @see #getIEntityStateModel()
+	 * @return the meta object for the containment reference list '<em>Events</em>'.
+	 * @see com.mimacom.ddd.dm.base.DEntityType#getEvents()
+	 * @see #getDEntityType()
 	 * @generated
 	 */
-	EReference getIEntityStateModel_ForType();
+	EReference getDEntityType_Events();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DFeature <em>DFeature</em>}'.
@@ -4079,6 +4187,26 @@ public interface BasePackage extends EPackage
 	 * @generated
 	 */
 	EClass getDQueryParameter();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DState <em>DState</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>DState</em>'.
+	 * @see com.mimacom.ddd.dm.base.DState
+	 * @generated
+	 */
+	EClass getDState();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DStateEvent <em>DState Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>DState Event</em>'.
+	 * @see com.mimacom.ddd.dm.base.DStateEvent
+	 * @generated
+	 */
+	EClass getDStateEvent();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.base.DContext <em>DContext</em>}'.
@@ -4630,14 +4758,6 @@ public interface BasePackage extends EPackage
 		EReference DDOMAIN__AGGREGATES = eINSTANCE.getDDomain_Aggregates();
 
 		/**
-		 * The meta object literal for the '<em><b>State Models</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DDOMAIN__STATE_MODELS = eINSTANCE.getDDomain_StateModels();
-
-		/**
 		 * The meta object literal for the '<em><b>Events</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4870,22 +4990,20 @@ public interface BasePackage extends EPackage
 		EAttribute DENTITY_TYPE__ORIGIN = eINSTANCE.getDEntityType_Origin();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.IEntityStateModel <em>IEntity State Model</em>}' class.
+		 * The meta object literal for the '<em><b>States</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.base.IEntityStateModel
-		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getIEntityStateModel()
 		 * @generated
 		 */
-		EClass IENTITY_STATE_MODEL = eINSTANCE.getIEntityStateModel();
+		EReference DENTITY_TYPE__STATES = eINSTANCE.getDEntityType_States();
 
 		/**
-		 * The meta object literal for the '<em><b>For Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Events</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference IENTITY_STATE_MODEL__FOR_TYPE = eINSTANCE.getIEntityStateModel_ForType();
+		EReference DENTITY_TYPE__EVENTS = eINSTANCE.getDEntityType_Events();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DFeatureImpl <em>DFeature</em>}' class.
@@ -5034,6 +5152,26 @@ public interface BasePackage extends EPackage
 		 * @generated
 		 */
 		EClass DQUERY_PARAMETER = eINSTANCE.getDQueryParameter();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DStateImpl <em>DState</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.impl.DStateImpl
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDState()
+		 * @generated
+		 */
+		EClass DSTATE = eINSTANCE.getDState();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DStateEventImpl <em>DState Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.base.impl.DStateEventImpl
+		 * @see com.mimacom.ddd.dm.base.impl.BasePackageImpl#getDStateEvent()
+		 * @generated
+		 */
+		EClass DSTATE_EVENT = eINSTANCE.getDStateEvent();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.base.impl.DContextImpl <em>DContext</em>}' class.

@@ -15,7 +15,6 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getAggregates <em>Aggregates</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getStateModels <em>State Models</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getEvents <em>Events</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getActors <em>Actors</em>}</li>
  * </ul>
@@ -49,18 +48,6 @@ public interface DDomain extends DNamedElement, ITypeContainer, IStaticReference
 	 * @generated
 	 */
 	EList<DAggregate> getAggregates();
-
-	/**
-	 * Returns the value of the '<em><b>State Models</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.IEntityStateModel}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>State Models</em>' containment reference list.
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomain_StateModels()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<IEntityStateModel> getStateModels();
 
 	/**
 	 * Returns the value of the '<em><b>Events</b></em>' containment reference list.

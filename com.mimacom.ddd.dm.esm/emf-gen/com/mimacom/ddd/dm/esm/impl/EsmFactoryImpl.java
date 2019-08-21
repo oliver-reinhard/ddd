@@ -65,10 +65,10 @@ public class EsmFactoryImpl extends EFactoryImpl implements EsmFactory
 	{
 		switch (eClass.getClassifierID())
 		{
-			case EsmPackage.DENTITY_STATE_MODEL: return createDEntityStateModel();
-			case EsmPackage.DSTATE: return createDState();
-			case EsmPackage.DEVENT: return createDEvent();
-			case EsmPackage.DTRANSITION: return createDTransition();
+			case EsmPackage.ESM_DOMAIN: return createEsmDomain();
+			case EsmPackage.ESM_ENTITY_STATE_MODEL: return createEsmEntityStateModel();
+			case EsmPackage.ESM_STATE: return createEsmState();
+			case EsmPackage.ESM_TRANSITION: return createEsmTransition();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -80,10 +80,10 @@ public class EsmFactoryImpl extends EFactoryImpl implements EsmFactory
 	 * @generated
 	 */
 	@Override
-	public DEntityStateModel createDEntityStateModel()
+	public EsmDomain createEsmDomain()
 	{
-		DEntityStateModelImpl dEntityStateModel = new DEntityStateModelImpl();
-		return dEntityStateModel;
+		EsmDomainImpl esmDomain = new EsmDomainImpl();
+		return esmDomain;
 	}
 
 	/**
@@ -92,10 +92,10 @@ public class EsmFactoryImpl extends EFactoryImpl implements EsmFactory
 	 * @generated
 	 */
 	@Override
-	public DState createDState()
+	public EsmEntityStateModel createEsmEntityStateModel()
 	{
-		DStateImpl dState = new DStateImpl();
-		return dState;
+		EsmEntityStateModelImpl esmEntityStateModel = new EsmEntityStateModelImpl();
+		return esmEntityStateModel;
 	}
 
 	/**
@@ -104,10 +104,10 @@ public class EsmFactoryImpl extends EFactoryImpl implements EsmFactory
 	 * @generated
 	 */
 	@Override
-	public DEvent createDEvent()
+	public EsmState createEsmState()
 	{
-		DEventImpl dEvent = new DEventImpl();
-		return dEvent;
+		EsmStateImpl esmState = new EsmStateImpl();
+		return esmState;
 	}
 
 	/**
@@ -116,10 +116,10 @@ public class EsmFactoryImpl extends EFactoryImpl implements EsmFactory
 	 * @generated
 	 */
 	@Override
-	public DTransition createDTransition()
+	public EsmTransition createEsmTransition()
 	{
-		DTransitionImpl dTransition = new DTransitionImpl();
-		return dTransition;
+		EsmTransitionImpl esmTransition = new EsmTransitionImpl();
+		return esmTransition;
 	}
 
 	/**

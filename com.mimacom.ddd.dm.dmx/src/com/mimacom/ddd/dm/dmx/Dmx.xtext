@@ -38,7 +38,7 @@ DmxTestContext returns DContext:
  * Language base: archetypes & filters
  */
 enum DmxBaseType:
-	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | COMPLEX | NOTIFICATION /*sent* */ | SERVICE /*invoked* */;
+	VOID | BOOLEAN | NUMBER | TEXT | IDENTIFIER | TIMEPOINT | STATE /*transition*/| STATE_EVENT | COMPLEX | NOTIFICATION /*sent* */ | SERVICE /*invoked* */;
 	
 DmxBaseTypeSet:
 	name=ID
@@ -120,7 +120,7 @@ DmxCallArguments:
 		arguments+=DmxPredicateWithCorrelationVariable (',' arguments+=DmxPredicateWithCorrelationVariable)*
 	)?	;
 	
-DmxAssignment returns DExpression :
+DmxAssignment returns DExpression : 
 	{DmxAssignment}
 	assignToMember=[DNavigableMember|ID] DmxOpSingleAssign value=DmxOrExpression;
 
