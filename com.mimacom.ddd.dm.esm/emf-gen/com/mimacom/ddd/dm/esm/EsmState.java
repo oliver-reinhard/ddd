@@ -3,72 +3,17 @@
  */
 package com.mimacom.ddd.dm.esm;
 
-import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DState;
-
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>State</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link com.mimacom.ddd.dm.esm.EsmState#getState <em>State</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.esm.EsmState#getExpression <em>Expression</em>}</li>
- * </ul>
  *
  * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmState()
  * @model
  * @generated
  */
-public interface EsmState extends EObject
+public interface EsmState extends IEsmState
 {
-	/**
-	 * Returns the value of the '<em><b>State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>State</em>' reference.
-	 * @see #setState(DState)
-	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmState_State()
-	 * @model
-	 * @generated
-	 */
-	DState getState();
-
-	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.esm.EsmState#getState <em>State</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>State</em>' reference.
-	 * @see #getState()
-	 * @generated
-	 */
-	void setState(DState value);
-
-	/**
-	 * Returns the value of the '<em><b>Expression</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Expression</em>' containment reference.
-	 * @see #setExpression(DExpression)
-	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmState_Expression()
-	 * @model containment="true"
-	 * @generated
-	 */
-	DExpression getExpression();
-
-	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.esm.EsmState#getExpression <em>Expression</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Expression</em>' containment reference.
-	 * @see #getExpression()
-	 * @generated
-	 */
-	void setExpression(DExpression value);
-
 } // EsmState

@@ -1,5 +1,6 @@
 package com.mimacom.ddd.dm.dim.ui.plantuml
 
+import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DAttribute
@@ -13,10 +14,10 @@ import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DType
+import com.mimacom.ddd.dm.dim.DimUtil
 import com.mimacom.ddd.dm.dim.ui.internal.DimActivator
 import java.util.Map
 import net.sourceforge.plantuml.text.AbstractDiagramTextProvider
-import org.eclipse.emf.ecore.EObject
 import org.eclipse.jface.viewers.ISelection
 import org.eclipse.ui.IEditorInput
 import org.eclipse.ui.IEditorPart
@@ -25,10 +26,10 @@ import org.eclipse.xtext.ui.editor.XtextEditor
 import org.eclipse.xtext.ui.editor.model.XtextDocument
 
 class DimDiagramTextProvider extends AbstractDiagramTextProvider {
+
+	@Inject extension DimUtil
 	
-	// @Inject extension DmsUtil // TODO injector not working, bundle setup seems ok => DimDiagramTextProvider not created via injector? 
-	
-	def DmsDiagramTextProvider() {
+	new () {
         editorType = typeof(XtextEditor)
     }
     
@@ -122,16 +123,6 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 			«ENDFOR»
         '''
        return result
-	}
-	
-	def String domainName(EObject obj) {
-			val d = EcoreUtil2.getContainerOfType(obj, DDomain) // global types are not owned by a domain => null
-			return if (d !== null) d.name else "default" 
-	}
-	
-	def String aggregateName(EObject obj) {
-			val a = EcoreUtil2.getContainerOfType(obj, DAggregate)// global types are not owned by a domain => null
-			return if (a !== null) a.name else "default" 
 	}
 	
 	def  generateAggregateQueries(DAggregate a) '''	

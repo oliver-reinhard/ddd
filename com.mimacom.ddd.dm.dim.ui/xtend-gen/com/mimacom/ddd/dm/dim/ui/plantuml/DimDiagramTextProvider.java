@@ -1,6 +1,7 @@
 package com.mimacom.ddd.dm.dim.ui.plantuml;
 
 import com.google.common.base.Objects;
+import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAssociationKind;
@@ -19,6 +20,7 @@ import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.dim.DimUtil;
 import com.mimacom.ddd.dm.dim.ui.internal.DimActivator;
 import java.util.Arrays;
 import java.util.List;
@@ -36,12 +38,17 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.model.XtextDocument;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
+import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
 public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
-  public void DmsDiagramTextProvider() {
+  @Inject
+  @Extension
+  private DimUtil _dimUtil;
+  
+  public DimDiagramTextProvider() {
     this.setEditorType(XtextEditor.class);
   }
   
@@ -88,7 +95,7 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     };
     final Iterable<DAssociation> allAssociations = IterableExtensions.<DAssociation>filter(EcoreUtil2.<DAssociation>eAllOfType(domain, DAssociation.class), _function);
     final Function1<DAssociation, Boolean> _function_1 = (DAssociation it) -> {
-      return Boolean.valueOf(((!Objects.equal(it.getTargetType().eContainer(), it.eContainer().eContainer())) && Objects.equal(this.domainName(it.getTargetType()), domain.getName())));
+      return Boolean.valueOf(((!Objects.equal(it.getTargetType().eContainer(), it.eContainer().eContainer())) && Objects.equal(this._dimUtil.domainName(it.getTargetType()), domain.getName())));
     };
     final Function1<DAssociation, DEntityType> _function_2 = (DAssociation it) -> {
       return it.getTargetType();
@@ -100,14 +107,14 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     };
     final Iterable<DAggregate> allAggregatesReferencedWithinDomain = IterableExtensions.<DEntityType, DAggregate>map(allEntitiesReferencedWithinDomain, _function_3);
     final Function1<DAssociation, Boolean> _function_4 = (DAssociation it) -> {
-      return Boolean.valueOf(((!Objects.equal(it.getTargetType().eContainer(), it.eContainer().eContainer())) && (!Objects.equal(this.domainName(it.getTargetType()), domain.getName()))));
+      return Boolean.valueOf(((!Objects.equal(it.getTargetType().eContainer(), it.eContainer().eContainer())) && (!Objects.equal(this._dimUtil.domainName(it.getTargetType()), domain.getName()))));
     };
     final Function1<DAssociation, DEntityType> _function_5 = (DAssociation it) -> {
       return it.getTargetType();
     };
     final Iterable<DEntityType> allEntitiesReferencedOutsideDomain = IterableExtensions.<DAssociation, DEntityType>map(IterableExtensions.<DAssociation>filter(allAssociations, _function_4), _function_5);
     final Function1<DEntityType, String> _function_6 = (DEntityType it) -> {
-      return this.domainName(it);
+      return this._dimUtil.domainName(it);
     };
     final Iterable<String> allDomainsReferencedOutsideDomain = IterableExtensions.<DEntityType, String>map(allEntitiesReferencedOutsideDomain, _function_6);
     final Function1<DAttribute, Boolean> _function_7 = (DAttribute it) -> {
@@ -158,7 +165,7 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     {
       for(final DAggregate a : allAggregates) {
         _builder.append("package ");
-        String _aggregateName = this.aggregateName(a);
+        String _aggregateName = this._dimUtil.aggregateName(a);
         _builder.append(_aggregateName);
         _builder.append(" <<Rectangle>> {");
         _builder.newLineIfNotEmpty();
@@ -191,7 +198,7 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     {
       for(final DAggregate awa : allAggregatesReferencedWithinDomain) {
         _builder.append("package ");
-        String _aggregateName_1 = this.aggregateName(awa);
+        String _aggregateName_1 = this._dimUtil.aggregateName(awa);
         _builder.append(_aggregateName_1);
         _builder.append(" <<Rectangle>> {");
         _builder.newLineIfNotEmpty();
@@ -247,17 +254,17 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     _builder.newLine();
     {
       for(final DComplexType s : allSubtypes) {
-        String _aggregateName_2 = this.aggregateName(s);
+        String _aggregateName_2 = this._dimUtil.aggregateName(s);
         _builder.append(_aggregateName_2);
         _builder.append(".");
         String _name = s.getName();
         _builder.append(_name);
         _builder.append(" --|> ");
-        String _aggregateName_3 = this.aggregateName(s.getSuperType());
+        String _aggregateName_3 = this._dimUtil.aggregateName(s.getSuperType());
         _builder.append(_aggregateName_3);
         {
-          String _aggregateName_4 = this.aggregateName(s);
-          String _aggregateName_5 = this.aggregateName(s.getSuperType());
+          String _aggregateName_4 = this._dimUtil.aggregateName(s);
+          String _aggregateName_5 = this._dimUtil.aggregateName(s.getSuperType());
           boolean _tripleEquals = (_aggregateName_4 == _aggregateName_5);
           if (_tripleEquals) {
             _builder.append(".");
@@ -270,28 +277,6 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     }
     final String result = _builder.toString();
     return result;
-  }
-  
-  public String domainName(final EObject obj) {
-    final DDomain d = EcoreUtil2.<DDomain>getContainerOfType(obj, DDomain.class);
-    String _xifexpression = null;
-    if ((d != null)) {
-      _xifexpression = d.getName();
-    } else {
-      _xifexpression = "default";
-    }
-    return _xifexpression;
-  }
-  
-  public String aggregateName(final EObject obj) {
-    final DAggregate a = EcoreUtil2.<DAggregate>getContainerOfType(obj, DAggregate.class);
-    String _xifexpression = null;
-    if ((a != null)) {
-      _xifexpression = a.getName();
-    } else {
-      _xifexpression = "default";
-    }
-    return _xifexpression;
   }
   
   public CharSequence generateAggregateQueries(final DAggregate a) {
@@ -335,7 +320,7 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
       }
     }
     _builder.append("class ");
-    String _aggregateName = this.aggregateName(c);
+    String _aggregateName = this._dimUtil.aggregateName(c);
     _builder.append(_aggregateName);
     _builder.append(".");
     String _name = c.getName();
@@ -362,7 +347,7 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
   protected CharSequence _generateType(final DPrimitive p) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("class ");
-    String _aggregateName = this.aggregateName(p);
+    String _aggregateName = this._dimUtil.aggregateName(p);
     _builder.append(_aggregateName);
     _builder.append(".");
     String _name = p.getName();
@@ -377,7 +362,7 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
   protected CharSequence _generateType(final DEnumeration e) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("enum ");
-    String _aggregateName = this.aggregateName(e);
+    String _aggregateName = this._dimUtil.aggregateName(e);
     _builder.append(_aggregateName);
     _builder.append(".");
     String _name = e.getName();
@@ -586,7 +571,7 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
   
   public CharSequence generateLink(final String sourceArrowhead, final DType source, final DType target, final String targetRole, final String targetArrowhead) {
     StringConcatenation _builder = new StringConcatenation();
-    String _aggregateName = this.aggregateName(source);
+    String _aggregateName = this._dimUtil.aggregateName(source);
     _builder.append(_aggregateName);
     _builder.append(".");
     String _name = source.getName();
@@ -605,22 +590,22 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
   }
   
   public String getTargetName(final DType source, final DType target) {
-    String _domainName = this.domainName(source);
-    String _domainName_1 = this.domainName(target);
+    String _domainName = this._dimUtil.domainName(source);
+    String _domainName_1 = this._dimUtil.domainName(target);
     boolean _equals = Objects.equal(_domainName, _domainName_1);
     if (_equals) {
-      String _aggregateName = this.aggregateName(source);
-      String _aggregateName_1 = this.aggregateName(target);
+      String _aggregateName = this._dimUtil.aggregateName(source);
+      String _aggregateName_1 = this._dimUtil.aggregateName(target);
       boolean _equals_1 = Objects.equal(_aggregateName, _aggregateName_1);
       if (_equals_1) {
-        String _aggregateName_2 = this.aggregateName(target);
+        String _aggregateName_2 = this._dimUtil.aggregateName(target);
         String _plus = (_aggregateName_2 + ".");
         String _name = target.getName();
         return (_plus + _name);
       }
-      return this.aggregateName(target);
+      return this._dimUtil.aggregateName(target);
     }
-    return this.domainName(target);
+    return this._dimUtil.domainName(target);
   }
   
   public String generateMultiplicity(final DNavigableMember member) {

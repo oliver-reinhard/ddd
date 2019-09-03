@@ -177,9 +177,19 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 					expectType(rightType, COMPARABLE_TYPES, DMX.dmxBinaryOperation_LeftOperand)
 				}
 			}
-			case ADD: { // TODO consider STRING
-				expectNumber(expr.leftOperand, DMX.dmxBinaryOperation_LeftOperand)
-				expectNumber(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
+			case ADD: { 
+				val expectedType = getTypeAndCheckNotNull(expr, DMX.dmxBinaryOperation_LeftOperand)
+				if (expectedType == NUMBER) {
+					expectNumber(expr.leftOperand, DMX.dmxBinaryOperation_LeftOperand)
+					expectNumber(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
+				} else if (expectedType == TIMEPOINT) {
+					expectType(expr.leftOperand, TIMEPOINT, DMX.dmxBinaryOperation_LeftOperand)
+					expectNumber(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
+				} else if (expectedType == TEXT) {
+					expectType(expr.leftOperand, TEXT, DMX.dmxBinaryOperation_LeftOperand)
+					val rightType = getTypeAndCheckNotNull(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
+					expectType(rightType, COMPARABLE_TYPES, DMX.dmxBinaryOperation_LeftOperand)
+				} 
 			}
 			case SUBTRACT,
 			case MULTIPLY,

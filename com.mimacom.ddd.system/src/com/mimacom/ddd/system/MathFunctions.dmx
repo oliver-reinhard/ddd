@@ -4,6 +4,8 @@ filter abs(arg : NUMBER): NUMBER
 filter acos(arg : NUMBER): NUMBER 
 filter asin(arg : NUMBER): NUMBER 
 filter atan(arg : NUMBER): NUMBER 
+filter avg(collection : NUMBER*): NUMBER 
+filter avg(collection : COMPLEX*, selector: NUMBER): NUMBER
 filter ceil(arg : NUMBER): NUMBER 
 filter cos(arg : NUMBER): NUMBER 
 filter cosh(arg : NUMBER): NUMBER 
@@ -13,8 +15,10 @@ filter floor(arg : NUMBER): NUMBER
 filter inc(arg : NUMBER): NUMBER  
 filter log(arg : NUMBER): NUMBER 
 filter log10(arg : NUMBER): NUMBER 
-filter max(arg : NUMBER*): NUMBER 
-filter min(arg : NUMBER*): NUMBER 
+filter min(collection : T*): T 							with T in (NUMBER, TIMEPOINT)
+filter min(collection : COMPLEX*, selector: T): T 		with T in (NUMBER, TIMEPOINT)
+filter max(collection : T*): T 							with T in (NUMBER, TIMEPOINT)
+filter max(collection : COMPLEX*, selector: T): T 		with T in (NUMBER, TIMEPOINT)
 filter power(base : NUMBER, exp : NUMBER): NUMBER
 filter random(): NUMBER
 filter round(arg : NUMBER, decimals : NUMBER): NUMBER
@@ -22,6 +26,7 @@ filter sign(arg : NUMBER): NUMBER
 filter sin(arg : NUMBER): NUMBER
 filter sinh(arg : NUMBER): NUMBER
 filter sqrt(arg : NUMBER): NUMBER
-filter sum(arg : NUMBER): NUMBER
+filter sum(collection : NUMBER*): NUMBER 
+filter sum(collection : COMPLEX*, selector: NUMBER): NUMBER
 filter tan(arg : NUMBER): NUMBER
 filter tanh(arg : NUMBER): NUMBER

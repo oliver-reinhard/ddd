@@ -25,6 +25,10 @@ public class EsmSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a;
 	protected AbstractElementAlias match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p;
 	protected AbstractElementAlias match_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1;
+	protected AbstractElementAlias match_EsmCompositeState_StateKeyword_2_q;
+	protected AbstractElementAlias match_EsmConcurrentState_StateKeyword_2_q;
+	protected AbstractElementAlias match_EsmDerivedState_StateKeyword_2_q;
+	protected AbstractElementAlias match_EsmNormalState_StateKeyword_0_0_1_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -33,6 +37,10 @@ public class EsmSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_a = new TokenAlias(true, true, grammarAccess.getDmxParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
 		match_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p = new TokenAlias(true, false, grammarAccess.getDmxParenthesizedExpressionAccess().getLeftParenthesisKeyword_0());
 		match_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDmxUndefinedLiteralAccess().getUNDEFINEDKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDmxUndefinedLiteralAccess().getUndefinedKeyword_1_1()));
+		match_EsmCompositeState_StateKeyword_2_q = new TokenAlias(false, true, grammarAccess.getEsmCompositeStateAccess().getStateKeyword_2());
+		match_EsmConcurrentState_StateKeyword_2_q = new TokenAlias(false, true, grammarAccess.getEsmConcurrentStateAccess().getStateKeyword_2());
+		match_EsmDerivedState_StateKeyword_2_q = new TokenAlias(false, true, grammarAccess.getEsmDerivedStateAccess().getStateKeyword_2());
+		match_EsmNormalState_StateKeyword_0_0_1_q = new TokenAlias(false, true, grammarAccess.getEsmNormalStateAccess().getStateKeyword_0_0_1());
 	}
 	
 	@Override
@@ -102,6 +110,14 @@ public class EsmSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_DmxParenthesizedExpression_LeftParenthesisKeyword_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1.equals(syntax))
 				emit_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_EsmCompositeState_StateKeyword_2_q.equals(syntax))
+				emit_EsmCompositeState_StateKeyword_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_EsmConcurrentState_StateKeyword_2_q.equals(syntax))
+				emit_EsmConcurrentState_StateKeyword_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_EsmDerivedState_StateKeyword_2_q.equals(syntax))
+				emit_EsmDerivedState_StateKeyword_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_EsmNormalState_StateKeyword_0_0_1_q.equals(syntax))
+				emit_EsmNormalState_StateKeyword_0_0_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -185,6 +201,53 @@ public class EsmSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) (rule start)
 	 */
 	protected void emit_DmxUndefinedLiteral_UNDEFINEDKeyword_1_0_or_UndefinedKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'state'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) 'composite' (ambiguity) state=[DState|ID]
+	 *     kind=EsmStateKind (ambiguity) state=[DState|ID]
+	 */
+	protected void emit_EsmCompositeState_StateKeyword_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'state'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) 'concurrent' (ambiguity) state=[DState|ID]
+	 *     kind=EsmStateKind (ambiguity) state=[DState|ID]
+	 */
+	protected void emit_EsmConcurrentState_StateKeyword_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'state'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) 'derived' (ambiguity) state=[DState|ID]
+	 *     kind=EsmStateKind (ambiguity) state=[DState|ID]
+	 */
+	protected void emit_EsmDerivedState_StateKeyword_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'state'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     kind=EsmStateKind (ambiguity) state=[DState|ID]
+	 */
+	protected void emit_EsmNormalState_StateKeyword_0_0_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

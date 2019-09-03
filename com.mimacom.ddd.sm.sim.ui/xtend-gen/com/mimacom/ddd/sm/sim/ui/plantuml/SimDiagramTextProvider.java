@@ -1,6 +1,7 @@
 package com.mimacom.ddd.sm.sim.ui.plantuml;
 
 import com.google.common.base.Objects;
+import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAssociationKind;
@@ -16,6 +17,7 @@ import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.dim.DimUtil;
 import com.mimacom.ddd.sm.sim.SAggregateDeduction;
 import com.mimacom.ddd.sm.sim.SAssociationDeduction;
 import com.mimacom.ddd.sm.sim.SAttributeDeduction;
@@ -39,12 +41,17 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.model.XtextDocument;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
+import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
 public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
-  public void DmsDiagramTextProvider() {
+  @Inject
+  @Extension
+  private DimUtil _dimUtil;
+  
+  public SimDiagramTextProvider() {
     this.setEditorType(XtextEditor.class);
   }
   
@@ -157,7 +164,7 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     {
       for(final DAggregate a : allAggregates) {
         _builder.append("package ");
-        String _aggregateName = this.aggregateName(a);
+        String _aggregateName = this._dimUtil.aggregateName(a);
         _builder.append(_aggregateName);
         _builder.append(" <<Rectangle>> {");
         _builder.newLineIfNotEmpty();
@@ -210,17 +217,17 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     _builder.append("            ");
     {
       for(final DComplexType s : allSubtypes) {
-        String _aggregateName_1 = this.aggregateName(s);
+        String _aggregateName_1 = this._dimUtil.aggregateName(s);
         _builder.append(_aggregateName_1, "            ");
         _builder.append(".");
         String _name = s.getName();
         _builder.append(_name, "            ");
         _builder.append(" --|> ");
-        String _aggregateName_2 = this.aggregateName(s.getSuperType());
+        String _aggregateName_2 = this._dimUtil.aggregateName(s.getSuperType());
         _builder.append(_aggregateName_2, "            ");
         {
-          String _aggregateName_3 = this.aggregateName(s);
-          String _aggregateName_4 = this.aggregateName(s.getSuperType());
+          String _aggregateName_3 = this._dimUtil.aggregateName(s);
+          String _aggregateName_4 = this._dimUtil.aggregateName(s.getSuperType());
           boolean _tripleEquals = (_aggregateName_3 == _aggregateName_4);
           if (_tripleEquals) {
             _builder.append(".");
@@ -240,20 +247,6 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     String _xifexpression = null;
     if ((d != null)) {
       _xifexpression = d.getName();
-    } else {
-      _xifexpression = "undefined";
-    }
-    return _xifexpression;
-  }
-  
-  /**
-   * Copied from DimUtil due to flawed extension injection. TODO
-   */
-  public String aggregateName(final EObject obj) {
-    final DAggregate a = EcoreUtil2.<DAggregate>getContainerOfType(obj, DAggregate.class);
-    String _xifexpression = null;
-    if ((a != null)) {
-      _xifexpression = a.getName();
     } else {
       _xifexpression = "undefined";
     }
@@ -494,7 +487,7 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     String _xifexpression = null;
     EObject _eContainer = t.eContainer();
     if ((_eContainer instanceof DAggregate)) {
-      _xifexpression = this.aggregateName(t);
+      _xifexpression = this._dimUtil.aggregateName(t);
     }
     _builder.append(_xifexpression);
     _builder.append(".");
@@ -508,13 +501,13 @@ public class SimDiagramTextProvider extends AbstractDiagramTextProvider {
     String _modelName_1 = this.modelName(target);
     boolean _equals = Objects.equal(_modelName, _modelName_1);
     if (_equals) {
-      String _aggregateName = this.aggregateName(source);
-      String _aggregateName_1 = this.aggregateName(target);
+      String _aggregateName = this._dimUtil.aggregateName(source);
+      String _aggregateName_1 = this._dimUtil.aggregateName(target);
       boolean _equals_1 = Objects.equal(_aggregateName, _aggregateName_1);
       if (_equals_1) {
         return this.qualifiedlName(target);
       }
-      return this.aggregateName(target);
+      return this._dimUtil.aggregateName(target);
     }
     return this.modelName(target);
   }

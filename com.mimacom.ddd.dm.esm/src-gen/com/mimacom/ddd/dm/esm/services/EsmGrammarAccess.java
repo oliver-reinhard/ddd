@@ -10,6 +10,7 @@ import java.util.List;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
+import org.eclipse.xtext.EnumLiteralDeclaration;
 import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
@@ -18,6 +19,7 @@ import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
+import org.eclipse.xtext.service.AbstractElementFinder.AbstractEnumRuleElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
@@ -102,29 +104,33 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cForKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cForTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final CrossReference cForTypeDEntityTypeCrossReference_4_0 = (CrossReference)cForTypeAssignment_4.eContents().get(0);
-		private final RuleCall cForTypeDEntityTypeIDTerminalRuleCall_4_0_1 = (RuleCall)cForTypeDEntityTypeCrossReference_4_0.eContents().get(1);
+		private final RuleCall cForTypeDEntityTypeDQualifiedNameParserRuleCall_4_0_1 = (RuleCall)cForTypeDEntityTypeCrossReference_4_0.eContents().get(1);
 		private final Assignment cDescriptionAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cDescriptionDRichTextParserRuleCall_5_0 = (RuleCall)cDescriptionAssignment_5.eContents().get(0);
-		private final Keyword cStatesKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cStatesAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cStatesEsmStateParserRuleCall_7_0 = (RuleCall)cStatesAssignment_7.eContents().get(0);
-		private final Keyword cTransitionsKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cTransitionAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cTransitionEsmTransitionParserRuleCall_9_0 = (RuleCall)cTransitionAssignment_9.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cDirectionKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cDirectionAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cDirectionEsmLayoutDirectionEnumRuleCall_7_1_0 = (RuleCall)cDirectionAssignment_7_1.eContents().get(0);
+		private final Assignment cStatesAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cStatesEsmStateParserRuleCall_8_0 = (RuleCall)cStatesAssignment_8.eContents().get(0);
+		private final Assignment cTransitionsAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cTransitionsEsmTransitionParserRuleCall_9_0 = (RuleCall)cTransitionsAssignment_9.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//EsmEntityStateModel:
 		//	'state' 'model'
 		//	name=DQualifiedName
 		//	'for'
-		//	forType=[DEntityType] description=DRichText?
-		//	'states'
+		//	forType=[DEntityType|DQualifiedName] description=DRichText?
+		//	'{' ('direction' direction=EsmLayoutDirection)?
 		//	states+=EsmState+
-		//	'transitions'
-		//	transition+=EsmTransition+;
+		//	transitions+=EsmTransition+
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'state' 'model' name=DQualifiedName 'for' forType=[DEntityType] description=DRichText? 'states' states+=EsmState+
-		//'transitions' transition+=EsmTransition+
+		//'state' 'model' name=DQualifiedName 'for' forType=[DEntityType|DQualifiedName] description=DRichText? '{' ('direction'
+		//direction=EsmLayoutDirection)? states+=EsmState+ transitions+=EsmTransition+ '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'state'
@@ -142,14 +148,14 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		//'for'
 		public Keyword getForKeyword_3() { return cForKeyword_3; }
 		
-		//forType=[DEntityType]
+		//forType=[DEntityType|DQualifiedName]
 		public Assignment getForTypeAssignment_4() { return cForTypeAssignment_4; }
 		
-		//[DEntityType]
+		//[DEntityType|DQualifiedName]
 		public CrossReference getForTypeDEntityTypeCrossReference_4_0() { return cForTypeDEntityTypeCrossReference_4_0; }
 		
-		//ID
-		public RuleCall getForTypeDEntityTypeIDTerminalRuleCall_4_0_1() { return cForTypeDEntityTypeIDTerminalRuleCall_4_0_1; }
+		//DQualifiedName
+		public RuleCall getForTypeDEntityTypeDQualifiedNameParserRuleCall_4_0_1() { return cForTypeDEntityTypeDQualifiedNameParserRuleCall_4_0_1; }
 		
 		//description=DRichText?
 		public Assignment getDescriptionAssignment_5() { return cDescriptionAssignment_5; }
@@ -157,137 +163,35 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		//DRichText
 		public RuleCall getDescriptionDRichTextParserRuleCall_5_0() { return cDescriptionDRichTextParserRuleCall_5_0; }
 		
-		//'states'
-		public Keyword getStatesKeyword_6() { return cStatesKeyword_6; }
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_6() { return cLeftCurlyBracketKeyword_6; }
+		
+		//('direction' direction=EsmLayoutDirection)?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'direction'
+		public Keyword getDirectionKeyword_7_0() { return cDirectionKeyword_7_0; }
+		
+		//direction=EsmLayoutDirection
+		public Assignment getDirectionAssignment_7_1() { return cDirectionAssignment_7_1; }
+		
+		//EsmLayoutDirection
+		public RuleCall getDirectionEsmLayoutDirectionEnumRuleCall_7_1_0() { return cDirectionEsmLayoutDirectionEnumRuleCall_7_1_0; }
 		
 		//states+=EsmState+
-		public Assignment getStatesAssignment_7() { return cStatesAssignment_7; }
+		public Assignment getStatesAssignment_8() { return cStatesAssignment_8; }
 		
 		//EsmState
-		public RuleCall getStatesEsmStateParserRuleCall_7_0() { return cStatesEsmStateParserRuleCall_7_0; }
+		public RuleCall getStatesEsmStateParserRuleCall_8_0() { return cStatesEsmStateParserRuleCall_8_0; }
 		
-		//'transitions'
-		public Keyword getTransitionsKeyword_8() { return cTransitionsKeyword_8; }
-		
-		//transition+=EsmTransition+
-		public Assignment getTransitionAssignment_9() { return cTransitionAssignment_9; }
+		//transitions+=EsmTransition+
+		public Assignment getTransitionsAssignment_9() { return cTransitionsAssignment_9; }
 		
 		//EsmTransition
-		public RuleCall getTransitionEsmTransitionParserRuleCall_9_0() { return cTransitionEsmTransitionParserRuleCall_9_0; }
-	}
-	public class EsmStateElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.esm.Esm.EsmState");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cStateAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cStateDStateCrossReference_0_0 = (CrossReference)cStateAssignment_0.eContents().get(0);
-		private final RuleCall cStateDStateIDTerminalRuleCall_0_0_1 = (RuleCall)cStateDStateCrossReference_0_0.eContents().get(1);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cWhenKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cExpressionAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cExpressionDExpressionParserRuleCall_1_1_0 = (RuleCall)cExpressionAssignment_1_1.eContents().get(0);
+		public RuleCall getTransitionsEsmTransitionParserRuleCall_9_0() { return cTransitionsEsmTransitionParserRuleCall_9_0; }
 		
-		//EsmState:
-		//	state=[DState] ('when' expression=DExpression)?;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//state=[DState] ('when' expression=DExpression)?
-		public Group getGroup() { return cGroup; }
-		
-		//state=[DState]
-		public Assignment getStateAssignment_0() { return cStateAssignment_0; }
-		
-		//[DState]
-		public CrossReference getStateDStateCrossReference_0_0() { return cStateDStateCrossReference_0_0; }
-		
-		//ID
-		public RuleCall getStateDStateIDTerminalRuleCall_0_0_1() { return cStateDStateIDTerminalRuleCall_0_0_1; }
-		
-		//('when' expression=DExpression)?
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'when'
-		public Keyword getWhenKeyword_1_0() { return cWhenKeyword_1_0; }
-		
-		//expression=DExpression
-		public Assignment getExpressionAssignment_1_1() { return cExpressionAssignment_1_1; }
-		
-		//DExpression
-		public RuleCall getExpressionDExpressionParserRuleCall_1_1_0() { return cExpressionDExpressionParserRuleCall_1_1_0; }
-	}
-	public class EsmTransitionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.esm.Esm.EsmTransition");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cFromAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cFromEsmStateCrossReference_0_0 = (CrossReference)cFromAssignment_0.eContents().get(0);
-		private final RuleCall cFromEsmStateIDTerminalRuleCall_0_0_1 = (RuleCall)cFromEsmStateCrossReference_0_0.eContents().get(1);
-		private final Keyword cToKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cToAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cToEsmStateCrossReference_2_0 = (CrossReference)cToAssignment_2.eContents().get(0);
-		private final RuleCall cToEsmStateIDTerminalRuleCall_2_0_1 = (RuleCall)cToEsmStateCrossReference_2_0.eContents().get(1);
-		private final Keyword cAsKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cEventAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cEventDStateEventCrossReference_4_0 = (CrossReference)cEventAssignment_4.eContents().get(0);
-		private final RuleCall cEventDStateEventIDTerminalRuleCall_4_0_1 = (RuleCall)cEventDStateEventCrossReference_4_0.eContents().get(1);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cWhenKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cGuardAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cGuardDExpressionParserRuleCall_5_1_0 = (RuleCall)cGuardAssignment_5_1.eContents().get(0);
-		
-		//EsmTransition:
-		//	from=[EsmState]
-		//	'to'
-		//	to=[EsmState]
-		//	'as' event=[DStateEvent] ('when'
-		//	guard=DExpression)?;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//from=[EsmState] 'to' to=[EsmState] 'as' event=[DStateEvent] ('when' guard=DExpression)?
-		public Group getGroup() { return cGroup; }
-		
-		//from=[EsmState]
-		public Assignment getFromAssignment_0() { return cFromAssignment_0; }
-		
-		//[EsmState]
-		public CrossReference getFromEsmStateCrossReference_0_0() { return cFromEsmStateCrossReference_0_0; }
-		
-		//ID
-		public RuleCall getFromEsmStateIDTerminalRuleCall_0_0_1() { return cFromEsmStateIDTerminalRuleCall_0_0_1; }
-		
-		//'to'
-		public Keyword getToKeyword_1() { return cToKeyword_1; }
-		
-		//to=[EsmState]
-		public Assignment getToAssignment_2() { return cToAssignment_2; }
-		
-		//[EsmState]
-		public CrossReference getToEsmStateCrossReference_2_0() { return cToEsmStateCrossReference_2_0; }
-		
-		//ID
-		public RuleCall getToEsmStateIDTerminalRuleCall_2_0_1() { return cToEsmStateIDTerminalRuleCall_2_0_1; }
-		
-		//'as'
-		public Keyword getAsKeyword_3() { return cAsKeyword_3; }
-		
-		//event=[DStateEvent]
-		public Assignment getEventAssignment_4() { return cEventAssignment_4; }
-		
-		//[DStateEvent]
-		public CrossReference getEventDStateEventCrossReference_4_0() { return cEventDStateEventCrossReference_4_0; }
-		
-		//ID
-		public RuleCall getEventDStateEventIDTerminalRuleCall_4_0_1() { return cEventDStateEventIDTerminalRuleCall_4_0_1; }
-		
-		//('when' guard=DExpression)?
-		public Group getGroup_5() { return cGroup_5; }
-		
-		//'when'
-		public Keyword getWhenKeyword_5_0() { return cWhenKeyword_5_0; }
-		
-		//guard=DExpression
-		public Assignment getGuardAssignment_5_1() { return cGuardAssignment_5_1; }
-		
-		//DExpression
-		public RuleCall getGuardDExpressionParserRuleCall_5_1_0() { return cGuardDExpressionParserRuleCall_5_1_0; }
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
 	}
 	public class DExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.esm.Esm.DExpression");
@@ -308,6 +212,457 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DRichText
 		public RuleCall getDRichTextParserRuleCall_1() { return cDRichTextParserRuleCall_1; }
+	}
+	public class EsmStateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.esm.Esm.EsmState");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cEsmNormalStateParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cEsmDerivedStateParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cEsmCompositeStateParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cEsmConcurrentStateParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		
+		//EsmState IEsmState:
+		//	EsmNormalState | EsmDerivedState | EsmCompositeState | EsmConcurrentState;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//EsmNormalState | EsmDerivedState | EsmCompositeState | EsmConcurrentState
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//EsmNormalState
+		public RuleCall getEsmNormalStateParserRuleCall_0() { return cEsmNormalStateParserRuleCall_0; }
+		
+		//EsmDerivedState
+		public RuleCall getEsmDerivedStateParserRuleCall_1() { return cEsmDerivedStateParserRuleCall_1; }
+		
+		//EsmCompositeState
+		public RuleCall getEsmCompositeStateParserRuleCall_2() { return cEsmCompositeStateParserRuleCall_2; }
+		
+		//EsmConcurrentState
+		public RuleCall getEsmConcurrentStateParserRuleCall_3() { return cEsmConcurrentStateParserRuleCall_3; }
+	}
+	public class EsmNormalStateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.esm.Esm.EsmNormalState");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Group cGroup_0_0 = (Group)cAlternatives_0.eContents().get(0);
+		private final Assignment cKindAssignment_0_0_0 = (Assignment)cGroup_0_0.eContents().get(0);
+		private final RuleCall cKindEsmStateKindEnumRuleCall_0_0_0_0 = (RuleCall)cKindAssignment_0_0_0.eContents().get(0);
+		private final Keyword cStateKeyword_0_0_1 = (Keyword)cGroup_0_0.eContents().get(1);
+		private final Keyword cStateKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Assignment cStateAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cStateDStateCrossReference_1_0 = (CrossReference)cStateAssignment_1.eContents().get(0);
+		private final RuleCall cStateDStateIDTerminalRuleCall_1_0_1 = (RuleCall)cStateDStateCrossReference_1_0.eContents().get(1);
+		private final Assignment cDescriptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDescriptionDRichTextParserRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
+		
+		//EsmNormalState EsmState:
+		//	(kind=EsmStateKind 'state'?
+		//	| 'state') state=[DState] description=DRichText?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//(kind=EsmStateKind 'state'? | 'state') state=[DState] description=DRichText?
+		public Group getGroup() { return cGroup; }
+		
+		//kind=EsmStateKind 'state'? | 'state'
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
+		//kind=EsmStateKind 'state'?
+		public Group getGroup_0_0() { return cGroup_0_0; }
+		
+		//kind=EsmStateKind
+		public Assignment getKindAssignment_0_0_0() { return cKindAssignment_0_0_0; }
+		
+		//EsmStateKind
+		public RuleCall getKindEsmStateKindEnumRuleCall_0_0_0_0() { return cKindEsmStateKindEnumRuleCall_0_0_0_0; }
+		
+		//'state'?
+		public Keyword getStateKeyword_0_0_1() { return cStateKeyword_0_0_1; }
+		
+		//'state'
+		public Keyword getStateKeyword_0_1() { return cStateKeyword_0_1; }
+		
+		//state=[DState]
+		public Assignment getStateAssignment_1() { return cStateAssignment_1; }
+		
+		//[DState]
+		public CrossReference getStateDStateCrossReference_1_0() { return cStateDStateCrossReference_1_0; }
+		
+		//ID
+		public RuleCall getStateDStateIDTerminalRuleCall_1_0_1() { return cStateDStateIDTerminalRuleCall_1_0_1; }
+		
+		//description=DRichText?
+		public Assignment getDescriptionAssignment_2() { return cDescriptionAssignment_2; }
+		
+		//DRichText
+		public RuleCall getDescriptionDRichTextParserRuleCall_2_0() { return cDescriptionDRichTextParserRuleCall_2_0; }
+	}
+	public class EsmDerivedStateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.esm.Esm.EsmDerivedState");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDerivedKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cKindAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cKindEsmStateKindEnumRuleCall_1_0 = (RuleCall)cKindAssignment_1.eContents().get(0);
+		private final Keyword cStateKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cStateAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cStateDStateCrossReference_3_0 = (CrossReference)cStateAssignment_3.eContents().get(0);
+		private final RuleCall cStateDStateIDTerminalRuleCall_3_0_1 = (RuleCall)cStateDStateCrossReference_3_0.eContents().get(1);
+		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDescriptionDRichTextParserRuleCall_4_0 = (RuleCall)cDescriptionAssignment_4.eContents().get(0);
+		private final Keyword cWhenKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cExpressionAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cExpressionDExpressionParserRuleCall_6_0 = (RuleCall)cExpressionAssignment_6.eContents().get(0);
+		
+		//EsmDerivedState:
+		//	'derived'
+		//	kind=EsmStateKind?
+		//	'state'?
+		//	state=[DState] description=DRichText?
+		//	'when' expression=DExpression;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'derived' kind=EsmStateKind? 'state'? state=[DState] description=DRichText? 'when' expression=DExpression
+		public Group getGroup() { return cGroup; }
+		
+		//'derived'
+		public Keyword getDerivedKeyword_0() { return cDerivedKeyword_0; }
+		
+		//kind=EsmStateKind?
+		public Assignment getKindAssignment_1() { return cKindAssignment_1; }
+		
+		//EsmStateKind
+		public RuleCall getKindEsmStateKindEnumRuleCall_1_0() { return cKindEsmStateKindEnumRuleCall_1_0; }
+		
+		//'state'?
+		public Keyword getStateKeyword_2() { return cStateKeyword_2; }
+		
+		//state=[DState]
+		public Assignment getStateAssignment_3() { return cStateAssignment_3; }
+		
+		//[DState]
+		public CrossReference getStateDStateCrossReference_3_0() { return cStateDStateCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getStateDStateIDTerminalRuleCall_3_0_1() { return cStateDStateIDTerminalRuleCall_3_0_1; }
+		
+		//description=DRichText?
+		public Assignment getDescriptionAssignment_4() { return cDescriptionAssignment_4; }
+		
+		//DRichText
+		public RuleCall getDescriptionDRichTextParserRuleCall_4_0() { return cDescriptionDRichTextParserRuleCall_4_0; }
+		
+		//'when'
+		public Keyword getWhenKeyword_5() { return cWhenKeyword_5; }
+		
+		//expression=DExpression
+		public Assignment getExpressionAssignment_6() { return cExpressionAssignment_6; }
+		
+		//DExpression
+		public RuleCall getExpressionDExpressionParserRuleCall_6_0() { return cExpressionDExpressionParserRuleCall_6_0; }
+	}
+	public class EsmCompositeStateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.esm.Esm.EsmCompositeState");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCompositeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cKindAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cKindEsmStateKindEnumRuleCall_1_0 = (RuleCall)cKindAssignment_1.eContents().get(0);
+		private final Keyword cStateKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cStateAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cStateDStateCrossReference_3_0 = (CrossReference)cStateAssignment_3.eContents().get(0);
+		private final RuleCall cStateDStateIDTerminalRuleCall_3_0_1 = (RuleCall)cStateDStateCrossReference_3_0.eContents().get(1);
+		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDescriptionDRichTextParserRuleCall_4_0 = (RuleCall)cDescriptionAssignment_4.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cDirectionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cDirectionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cDirectionEsmLayoutDirectionEnumRuleCall_6_1_0 = (RuleCall)cDirectionAssignment_6_1.eContents().get(0);
+		private final Assignment cStatesAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cStatesEsmStateParserRuleCall_7_0 = (RuleCall)cStatesAssignment_7.eContents().get(0);
+		private final Assignment cTransitionsAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cTransitionsEsmTransitionParserRuleCall_8_0 = (RuleCall)cTransitionsAssignment_8.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		
+		//EsmCompositeState:
+		//	'composite'
+		//	kind=EsmStateKind?
+		//	'state'?
+		//	state=[DState] description=DRichText?
+		//	'{' ('direction' direction=EsmLayoutDirection)?
+		//	states+=EsmState+
+		//	transitions+=EsmTransition+
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'composite' kind=EsmStateKind? 'state'? state=[DState] description=DRichText? '{' ('direction'
+		//direction=EsmLayoutDirection)? states+=EsmState+ transitions+=EsmTransition+ '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'composite'
+		public Keyword getCompositeKeyword_0() { return cCompositeKeyword_0; }
+		
+		//kind=EsmStateKind?
+		public Assignment getKindAssignment_1() { return cKindAssignment_1; }
+		
+		//EsmStateKind
+		public RuleCall getKindEsmStateKindEnumRuleCall_1_0() { return cKindEsmStateKindEnumRuleCall_1_0; }
+		
+		//'state'?
+		public Keyword getStateKeyword_2() { return cStateKeyword_2; }
+		
+		//state=[DState]
+		public Assignment getStateAssignment_3() { return cStateAssignment_3; }
+		
+		//[DState]
+		public CrossReference getStateDStateCrossReference_3_0() { return cStateDStateCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getStateDStateIDTerminalRuleCall_3_0_1() { return cStateDStateIDTerminalRuleCall_3_0_1; }
+		
+		//description=DRichText?
+		public Assignment getDescriptionAssignment_4() { return cDescriptionAssignment_4; }
+		
+		//DRichText
+		public RuleCall getDescriptionDRichTextParserRuleCall_4_0() { return cDescriptionDRichTextParserRuleCall_4_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
+		
+		//('direction' direction=EsmLayoutDirection)?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'direction'
+		public Keyword getDirectionKeyword_6_0() { return cDirectionKeyword_6_0; }
+		
+		//direction=EsmLayoutDirection
+		public Assignment getDirectionAssignment_6_1() { return cDirectionAssignment_6_1; }
+		
+		//EsmLayoutDirection
+		public RuleCall getDirectionEsmLayoutDirectionEnumRuleCall_6_1_0() { return cDirectionEsmLayoutDirectionEnumRuleCall_6_1_0; }
+		
+		//states+=EsmState+
+		public Assignment getStatesAssignment_7() { return cStatesAssignment_7; }
+		
+		//EsmState
+		public RuleCall getStatesEsmStateParserRuleCall_7_0() { return cStatesEsmStateParserRuleCall_7_0; }
+		
+		//transitions+=EsmTransition+
+		public Assignment getTransitionsAssignment_8() { return cTransitionsAssignment_8; }
+		
+		//EsmTransition
+		public RuleCall getTransitionsEsmTransitionParserRuleCall_8_0() { return cTransitionsEsmTransitionParserRuleCall_8_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+	}
+	public class EsmConcurrentStateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.esm.Esm.EsmConcurrentState");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cConcurrentKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cKindAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cKindEsmStateKindEnumRuleCall_1_0 = (RuleCall)cKindAssignment_1.eContents().get(0);
+		private final Keyword cStateKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cStateAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cStateDStateCrossReference_3_0 = (CrossReference)cStateAssignment_3.eContents().get(0);
+		private final RuleCall cStateDStateIDTerminalRuleCall_3_0_1 = (RuleCall)cStateDStateCrossReference_3_0.eContents().get(1);
+		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDescriptionDRichTextParserRuleCall_4_0 = (RuleCall)cDescriptionAssignment_4.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cSubStatesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cSubStatesEsmSubStateModelParserRuleCall_6_0 = (RuleCall)cSubStatesAssignment_6.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		
+		//EsmConcurrentState:
+		//	'concurrent'
+		//	kind=EsmStateKind?
+		//	'state'?
+		//	state=[DState] description=DRichText?
+		//	'{'
+		//	// direction is always 'right' (PlantUML only supports horizontal dividers between regions)
+		//	subStates+=EsmSubStateModel+
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'concurrent' kind=EsmStateKind? 'state'? state=[DState] description=DRichText? '{' // direction is always 'right' (PlantUML only supports horizontal dividers between regions)
+		//subStates+=EsmSubStateModel+ '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'concurrent'
+		public Keyword getConcurrentKeyword_0() { return cConcurrentKeyword_0; }
+		
+		//kind=EsmStateKind?
+		public Assignment getKindAssignment_1() { return cKindAssignment_1; }
+		
+		//EsmStateKind
+		public RuleCall getKindEsmStateKindEnumRuleCall_1_0() { return cKindEsmStateKindEnumRuleCall_1_0; }
+		
+		//'state'?
+		public Keyword getStateKeyword_2() { return cStateKeyword_2; }
+		
+		//state=[DState]
+		public Assignment getStateAssignment_3() { return cStateAssignment_3; }
+		
+		//[DState]
+		public CrossReference getStateDStateCrossReference_3_0() { return cStateDStateCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getStateDStateIDTerminalRuleCall_3_0_1() { return cStateDStateIDTerminalRuleCall_3_0_1; }
+		
+		//description=DRichText?
+		public Assignment getDescriptionAssignment_4() { return cDescriptionAssignment_4; }
+		
+		//DRichText
+		public RuleCall getDescriptionDRichTextParserRuleCall_4_0() { return cDescriptionDRichTextParserRuleCall_4_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
+		
+		//// direction is always 'right' (PlantUML only supports horizontal dividers between regions)
+		//subStates+=EsmSubStateModel+
+		public Assignment getSubStatesAssignment_6() { return cSubStatesAssignment_6; }
+		
+		//EsmSubStateModel
+		public RuleCall getSubStatesEsmSubStateModelParserRuleCall_6_0() { return cSubStatesEsmSubStateModelParserRuleCall_6_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+	}
+	public class EsmSubStateModelElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.esm.Esm.EsmSubStateModel");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSubstateKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cStatesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cStatesEsmStateParserRuleCall_2_0 = (RuleCall)cStatesAssignment_2.eContents().get(0);
+		private final Assignment cTransitionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTransitionsEsmTransitionParserRuleCall_3_0 = (RuleCall)cTransitionsAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//EsmSubStateModel:
+		//	'substate'
+		//	'{'
+		//	states+=EsmState+
+		//	transitions+=EsmTransition+
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'substate' '{' states+=EsmState+ transitions+=EsmTransition+ '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'substate'
+		public Keyword getSubstateKeyword_0() { return cSubstateKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//states+=EsmState+
+		public Assignment getStatesAssignment_2() { return cStatesAssignment_2; }
+		
+		//EsmState
+		public RuleCall getStatesEsmStateParserRuleCall_2_0() { return cStatesEsmStateParserRuleCall_2_0; }
+		
+		//transitions+=EsmTransition+
+		public Assignment getTransitionsAssignment_3() { return cTransitionsAssignment_3; }
+		
+		//EsmTransition
+		public RuleCall getTransitionsEsmTransitionParserRuleCall_3_0() { return cTransitionsEsmTransitionParserRuleCall_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class EsmTransitionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.esm.Esm.EsmTransition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTransitionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cDirectionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cDirectionEsmLayoutDirectionEnumRuleCall_1_0 = (RuleCall)cDirectionAssignment_1.eContents().get(0);
+		private final Keyword cFromKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cFromAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cFromDStateCrossReference_3_0 = (CrossReference)cFromAssignment_3.eContents().get(0);
+		private final RuleCall cFromDStateIDTerminalRuleCall_3_0_1 = (RuleCall)cFromDStateCrossReference_3_0.eContents().get(1);
+		private final Keyword cToKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cToAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final CrossReference cToDStateCrossReference_5_0 = (CrossReference)cToAssignment_5.eContents().get(0);
+		private final RuleCall cToDStateIDTerminalRuleCall_5_0_1 = (RuleCall)cToDStateCrossReference_5_0.eContents().get(1);
+		private final Keyword cAsKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cEventAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final CrossReference cEventDStateEventCrossReference_7_0 = (CrossReference)cEventAssignment_7.eContents().get(0);
+		private final RuleCall cEventDStateEventIDTerminalRuleCall_7_0_1 = (RuleCall)cEventDStateEventCrossReference_7_0.eContents().get(1);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cWhenKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cGuardAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cGuardDExpressionParserRuleCall_8_1_0 = (RuleCall)cGuardAssignment_8_1.eContents().get(0);
+		
+		//EsmTransition:
+		//	'transition'
+		//	direction=EsmLayoutDirection?
+		//	'from'
+		//	from=[DState]
+		//	'to'
+		//	to=[DState]
+		//	'as' event=[DStateEvent] ('when'
+		//	guard=DExpression)?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'transition' direction=EsmLayoutDirection? 'from' from=[DState] 'to' to=[DState] 'as' event=[DStateEvent] ('when'
+		//guard=DExpression)?
+		public Group getGroup() { return cGroup; }
+		
+		//'transition'
+		public Keyword getTransitionKeyword_0() { return cTransitionKeyword_0; }
+		
+		//direction=EsmLayoutDirection?
+		public Assignment getDirectionAssignment_1() { return cDirectionAssignment_1; }
+		
+		//EsmLayoutDirection
+		public RuleCall getDirectionEsmLayoutDirectionEnumRuleCall_1_0() { return cDirectionEsmLayoutDirectionEnumRuleCall_1_0; }
+		
+		//'from'
+		public Keyword getFromKeyword_2() { return cFromKeyword_2; }
+		
+		//from=[DState]
+		public Assignment getFromAssignment_3() { return cFromAssignment_3; }
+		
+		//[DState]
+		public CrossReference getFromDStateCrossReference_3_0() { return cFromDStateCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getFromDStateIDTerminalRuleCall_3_0_1() { return cFromDStateIDTerminalRuleCall_3_0_1; }
+		
+		//'to'
+		public Keyword getToKeyword_4() { return cToKeyword_4; }
+		
+		//to=[DState]
+		public Assignment getToAssignment_5() { return cToAssignment_5; }
+		
+		//[DState]
+		public CrossReference getToDStateCrossReference_5_0() { return cToDStateCrossReference_5_0; }
+		
+		//ID
+		public RuleCall getToDStateIDTerminalRuleCall_5_0_1() { return cToDStateIDTerminalRuleCall_5_0_1; }
+		
+		//'as'
+		public Keyword getAsKeyword_6() { return cAsKeyword_6; }
+		
+		//event=[DStateEvent]
+		public Assignment getEventAssignment_7() { return cEventAssignment_7; }
+		
+		//[DStateEvent]
+		public CrossReference getEventDStateEventCrossReference_7_0() { return cEventDStateEventCrossReference_7_0; }
+		
+		//ID
+		public RuleCall getEventDStateEventIDTerminalRuleCall_7_0_1() { return cEventDStateEventIDTerminalRuleCall_7_0_1; }
+		
+		//('when' guard=DExpression)?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'when'
+		public Keyword getWhenKeyword_8_0() { return cWhenKeyword_8_0; }
+		
+		//guard=DExpression
+		public Assignment getGuardAssignment_8_1() { return cGuardAssignment_8_1; }
+		
+		//DExpression
+		public RuleCall getGuardDExpressionParserRuleCall_8_1_0() { return cGuardDExpressionParserRuleCall_8_1_0; }
 	}
 	public class DmxPrimaryExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.esm.Esm.DmxPrimaryExpression");
@@ -342,12 +697,89 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getDmxIfExpressionParserRuleCall_4() { return cDmxIfExpressionParserRuleCall_4; }
 	}
 	
+	public class EsmStateKindElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.esm.Esm.EsmStateKind");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cINITIALEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cINITIALInitialKeyword_0_0 = (Keyword)cINITIALEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cFINALEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cFINALFinalKeyword_1_0 = (Keyword)cFINALEnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum EsmStateKind:
+		//	INITIAL='initial' | FINAL='final';
+		public EnumRule getRule() { return rule; }
+		
+		//INITIAL='initial' | FINAL='final'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//INITIAL='initial'
+		public EnumLiteralDeclaration getINITIALEnumLiteralDeclaration_0() { return cINITIALEnumLiteralDeclaration_0; }
+		
+		//'initial'
+		public Keyword getINITIALInitialKeyword_0_0() { return cINITIALInitialKeyword_0_0; }
+		
+		//FINAL='final'
+		public EnumLiteralDeclaration getFINALEnumLiteralDeclaration_1() { return cFINALEnumLiteralDeclaration_1; }
+		
+		//'final'
+		public Keyword getFINALFinalKeyword_1_0() { return cFINALFinalKeyword_1_0; }
+	}
+	public class EsmLayoutDirectionElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.esm.Esm.EsmLayoutDirection");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cDOWNEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cDOWNDownKeyword_0_0 = (Keyword)cDOWNEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cLEFTEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cLEFTLeftKeyword_1_0 = (Keyword)cLEFTEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cUPEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cUPUpKeyword_2_0 = (Keyword)cUPEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cRIGHTEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cRIGHTRightKeyword_3_0 = (Keyword)cRIGHTEnumLiteralDeclaration_3.eContents().get(0);
+		
+		//enum EsmLayoutDirection:
+		//	DOWN="down" | LEFT="left" | UP="up" | RIGHT="right";
+		public EnumRule getRule() { return rule; }
+		
+		//DOWN="down" | LEFT="left" | UP="up" | RIGHT="right"
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//DOWN="down"
+		public EnumLiteralDeclaration getDOWNEnumLiteralDeclaration_0() { return cDOWNEnumLiteralDeclaration_0; }
+		
+		//"down"
+		public Keyword getDOWNDownKeyword_0_0() { return cDOWNDownKeyword_0_0; }
+		
+		//LEFT="left"
+		public EnumLiteralDeclaration getLEFTEnumLiteralDeclaration_1() { return cLEFTEnumLiteralDeclaration_1; }
+		
+		//"left"
+		public Keyword getLEFTLeftKeyword_1_0() { return cLEFTLeftKeyword_1_0; }
+		
+		//UP="up"
+		public EnumLiteralDeclaration getUPEnumLiteralDeclaration_2() { return cUPEnumLiteralDeclaration_2; }
+		
+		//"up"
+		public Keyword getUPUpKeyword_2_0() { return cUPUpKeyword_2_0; }
+		
+		//RIGHT="right"
+		public EnumLiteralDeclaration getRIGHTEnumLiteralDeclaration_3() { return cRIGHTEnumLiteralDeclaration_3; }
+		
+		//"right"
+		public Keyword getRIGHTRightKeyword_3_0() { return cRIGHTRightKeyword_3_0; }
+	}
 	
 	private final EsmDomainElements pEsmDomain;
 	private final EsmEntityStateModelElements pEsmEntityStateModel;
-	private final EsmStateElements pEsmState;
-	private final EsmTransitionElements pEsmTransition;
 	private final DExpressionElements pDExpression;
+	private final EsmStateElements pEsmState;
+	private final EsmStateKindElements eEsmStateKind;
+	private final EsmNormalStateElements pEsmNormalState;
+	private final EsmDerivedStateElements pEsmDerivedState;
+	private final EsmCompositeStateElements pEsmCompositeState;
+	private final EsmConcurrentStateElements pEsmConcurrentState;
+	private final EsmSubStateModelElements pEsmSubStateModel;
+	private final EsmTransitionElements pEsmTransition;
+	private final EsmLayoutDirectionElements eEsmLayoutDirection;
 	private final DmxPrimaryExpressionElements pDmxPrimaryExpression;
 	
 	private final Grammar grammar;
@@ -361,9 +793,16 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaDmx = gaDmx;
 		this.pEsmDomain = new EsmDomainElements();
 		this.pEsmEntityStateModel = new EsmEntityStateModelElements();
-		this.pEsmState = new EsmStateElements();
-		this.pEsmTransition = new EsmTransitionElements();
 		this.pDExpression = new DExpressionElements();
+		this.pEsmState = new EsmStateElements();
+		this.eEsmStateKind = new EsmStateKindElements();
+		this.pEsmNormalState = new EsmNormalStateElements();
+		this.pEsmDerivedState = new EsmDerivedStateElements();
+		this.pEsmCompositeState = new EsmCompositeStateElements();
+		this.pEsmConcurrentState = new EsmConcurrentStateElements();
+		this.pEsmSubStateModel = new EsmSubStateModelElements();
+		this.pEsmTransition = new EsmTransitionElements();
+		this.eEsmLayoutDirection = new EsmLayoutDirectionElements();
 		this.pDmxPrimaryExpression = new DmxPrimaryExpressionElements();
 	}
 	
@@ -412,41 +851,17 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 	//	'state' 'model'
 	//	name=DQualifiedName
 	//	'for'
-	//	forType=[DEntityType] description=DRichText?
-	//	'states'
+	//	forType=[DEntityType|DQualifiedName] description=DRichText?
+	//	'{' ('direction' direction=EsmLayoutDirection)?
 	//	states+=EsmState+
-	//	'transitions'
-	//	transition+=EsmTransition+;
+	//	transitions+=EsmTransition+
+	//	'}';
 	public EsmEntityStateModelElements getEsmEntityStateModelAccess() {
 		return pEsmEntityStateModel;
 	}
 	
 	public ParserRule getEsmEntityStateModelRule() {
 		return getEsmEntityStateModelAccess().getRule();
-	}
-	
-	//EsmState:
-	//	state=[DState] ('when' expression=DExpression)?;
-	public EsmStateElements getEsmStateAccess() {
-		return pEsmState;
-	}
-	
-	public ParserRule getEsmStateRule() {
-		return getEsmStateAccess().getRule();
-	}
-	
-	//EsmTransition:
-	//	from=[EsmState]
-	//	'to'
-	//	to=[EsmState]
-	//	'as' event=[DStateEvent] ('when'
-	//	guard=DExpression)?;
-	public EsmTransitionElements getEsmTransitionAccess() {
-		return pEsmTransition;
-	}
-	
-	public ParserRule getEsmTransitionRule() {
-		return getEsmTransitionAccess().getRule();
 	}
 	
 	//@Override
@@ -458,6 +873,126 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDExpressionRule() {
 		return getDExpressionAccess().getRule();
+	}
+	
+	//EsmState IEsmState:
+	//	EsmNormalState | EsmDerivedState | EsmCompositeState | EsmConcurrentState;
+	public EsmStateElements getEsmStateAccess() {
+		return pEsmState;
+	}
+	
+	public ParserRule getEsmStateRule() {
+		return getEsmStateAccess().getRule();
+	}
+	
+	//enum EsmStateKind:
+	//	INITIAL='initial' | FINAL='final';
+	public EsmStateKindElements getEsmStateKindAccess() {
+		return eEsmStateKind;
+	}
+	
+	public EnumRule getEsmStateKindRule() {
+		return getEsmStateKindAccess().getRule();
+	}
+	
+	//EsmNormalState EsmState:
+	//	(kind=EsmStateKind 'state'?
+	//	| 'state') state=[DState] description=DRichText?;
+	public EsmNormalStateElements getEsmNormalStateAccess() {
+		return pEsmNormalState;
+	}
+	
+	public ParserRule getEsmNormalStateRule() {
+		return getEsmNormalStateAccess().getRule();
+	}
+	
+	//EsmDerivedState:
+	//	'derived'
+	//	kind=EsmStateKind?
+	//	'state'?
+	//	state=[DState] description=DRichText?
+	//	'when' expression=DExpression;
+	public EsmDerivedStateElements getEsmDerivedStateAccess() {
+		return pEsmDerivedState;
+	}
+	
+	public ParserRule getEsmDerivedStateRule() {
+		return getEsmDerivedStateAccess().getRule();
+	}
+	
+	//EsmCompositeState:
+	//	'composite'
+	//	kind=EsmStateKind?
+	//	'state'?
+	//	state=[DState] description=DRichText?
+	//	'{' ('direction' direction=EsmLayoutDirection)?
+	//	states+=EsmState+
+	//	transitions+=EsmTransition+
+	//	'}';
+	public EsmCompositeStateElements getEsmCompositeStateAccess() {
+		return pEsmCompositeState;
+	}
+	
+	public ParserRule getEsmCompositeStateRule() {
+		return getEsmCompositeStateAccess().getRule();
+	}
+	
+	//EsmConcurrentState:
+	//	'concurrent'
+	//	kind=EsmStateKind?
+	//	'state'?
+	//	state=[DState] description=DRichText?
+	//	'{'
+	//	// direction is always 'right' (PlantUML only supports horizontal dividers between regions)
+	//	subStates+=EsmSubStateModel+
+	//	'}';
+	public EsmConcurrentStateElements getEsmConcurrentStateAccess() {
+		return pEsmConcurrentState;
+	}
+	
+	public ParserRule getEsmConcurrentStateRule() {
+		return getEsmConcurrentStateAccess().getRule();
+	}
+	
+	//EsmSubStateModel:
+	//	'substate'
+	//	'{'
+	//	states+=EsmState+
+	//	transitions+=EsmTransition+
+	//	'}';
+	public EsmSubStateModelElements getEsmSubStateModelAccess() {
+		return pEsmSubStateModel;
+	}
+	
+	public ParserRule getEsmSubStateModelRule() {
+		return getEsmSubStateModelAccess().getRule();
+	}
+	
+	//EsmTransition:
+	//	'transition'
+	//	direction=EsmLayoutDirection?
+	//	'from'
+	//	from=[DState]
+	//	'to'
+	//	to=[DState]
+	//	'as' event=[DStateEvent] ('when'
+	//	guard=DExpression)?;
+	public EsmTransitionElements getEsmTransitionAccess() {
+		return pEsmTransition;
+	}
+	
+	public ParserRule getEsmTransitionRule() {
+		return getEsmTransitionAccess().getRule();
+	}
+	
+	//enum EsmLayoutDirection:
+	//	DOWN="down" | LEFT="left" | UP="up" | RIGHT="right";
+	public EsmLayoutDirectionElements getEsmLayoutDirectionAccess() {
+		return eEsmLayoutDirection;
+	}
+	
+	public EnumRule getEsmLayoutDirectionRule() {
+		return getEsmLayoutDirectionAccess().getRule();
 	}
 	
 	//@Override

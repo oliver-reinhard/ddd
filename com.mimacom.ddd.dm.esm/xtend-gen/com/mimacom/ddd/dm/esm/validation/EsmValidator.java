@@ -3,7 +3,20 @@
  */
 package com.mimacom.ddd.dm.esm.validation;
 
+import com.google.common.collect.Lists;
+import com.mimacom.ddd.dm.base.BasePackage;
+import com.mimacom.ddd.dm.base.DEntityType;
+import com.mimacom.ddd.dm.base.DState;
+import com.mimacom.ddd.dm.base.DStateEvent;
+import com.mimacom.ddd.dm.esm.EsmEntityStateModel;
+import com.mimacom.ddd.dm.esm.EsmPackage;
+import com.mimacom.ddd.dm.esm.EsmTransition;
+import com.mimacom.ddd.dm.esm.IEsmState;
 import com.mimacom.ddd.dm.esm.validation.AbstractEsmValidator;
+import java.util.HashMap;
+import java.util.List;
+import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.validation.Check;
 
 /**
  * This class contains custom validation rules.
@@ -12,4 +25,95 @@ import com.mimacom.ddd.dm.esm.validation.AbstractEsmValidator;
  */
 @SuppressWarnings("all")
 public class EsmValidator extends AbstractEsmValidator {
+  private static final EsmPackage ESM = EsmPackage.eINSTANCE;
+  
+  private static final BasePackage BASE = BasePackage.eINSTANCE;
+  
+  @Check
+  public void checkEntityStatesMapping(final EsmEntityStateModel model) {
+    final List<IEsmState> allStates = EcoreUtil2.<IEsmState>eAllOfType(model, IEsmState.class);
+    final HashMap<DState, IEsmState> statesMap = new HashMap<DState, IEsmState>();
+    for (final IEsmState s : allStates) {
+      DState _state = s.getState();
+      boolean _tripleNotEquals = (_state != null);
+      if (_tripleNotEquals) {
+        final IEsmState previous = statesMap.put(s.getState(), s);
+        if ((previous != null)) {
+          final String msg = "Multiple state definitions refer to the same entity state";
+          this.error(msg, s, EsmValidator.ESM.getIEsmState_State());
+          this.error(msg, previous, EsmValidator.ESM.getIEsmState_State());
+        }
+      }
+    }
+    DEntityType _forType = model.getForType();
+    boolean _tripleNotEquals_1 = (_forType != null);
+    if (_tripleNotEquals_1) {
+      final List<DState> entityStates = Lists.<DState>newLinkedList();
+      entityStates.addAll(model.getForType().getStates());
+      for (final IEsmState s_1 : allStates) {
+        DState _state_1 = s_1.getState();
+        boolean _tripleNotEquals_2 = (_state_1 != null);
+        if (_tripleNotEquals_2) {
+          entityStates.remove(s_1.getState());
+        }
+      }
+      boolean _isEmpty = entityStates.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        final StringBuilder b = new StringBuilder("The following entity states are not being referenced: ");
+        boolean first = true;
+        for (final DState unreferencedState : entityStates) {
+          {
+            if (first) {
+              first = false;
+            } else {
+              b.append(", ");
+            }
+            b.append(unreferencedState.getName());
+          }
+        }
+        this.error(b.toString(), model, EsmValidator.BASE.getDNamedElement_Name());
+      }
+    }
+  }
+  
+  @Check
+  public void checkEntityEventsMapping(final EsmEntityStateModel model) {
+    DEntityType _forType = model.getForType();
+    boolean _tripleNotEquals = (_forType != null);
+    if (_tripleNotEquals) {
+      final List<EsmTransition> allTransitions = EcoreUtil2.<EsmTransition>eAllOfType(model, EsmTransition.class);
+      final List<DStateEvent> events = Lists.<DStateEvent>newLinkedList();
+      events.addAll(model.getForType().getEvents());
+      for (final EsmTransition t : allTransitions) {
+        DStateEvent _event = t.getEvent();
+        boolean _tripleNotEquals_1 = (_event != null);
+        if (_tripleNotEquals_1) {
+          events.remove(t.getEvent());
+        }
+      }
+      boolean _isEmpty = events.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        final StringBuilder b = new StringBuilder("The following entity events are not being referenced: ");
+        boolean first = true;
+        for (final DStateEvent unreferencedEvent : events) {
+          {
+            if (first) {
+              first = false;
+            } else {
+              b.append(", ");
+            }
+            b.append(unreferencedEvent.getName());
+          }
+        }
+        this.error(b.toString(), model, EsmValidator.BASE.getDNamedElement_Name());
+      }
+    }
+  }
+  
+  @Check
+  public Object checkUnlinkedStates(final EsmEntityStateModel model) {
+    return null;
+  }
 }

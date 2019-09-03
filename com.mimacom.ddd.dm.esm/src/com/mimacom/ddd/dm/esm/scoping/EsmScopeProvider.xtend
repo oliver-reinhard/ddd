@@ -3,10 +3,14 @@
  */
 package com.mimacom.ddd.dm.esm.scoping
 
+import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.INavigableMemberContainer
+import com.mimacom.ddd.dm.dmx.DmxUtil
 import com.mimacom.ddd.dm.esm.EsmEntityStateModel
-import com.mimacom.ddd.dm.esm.EsmTransition
 import com.mimacom.ddd.dm.esm.EsmPackage
+import com.mimacom.ddd.dm.esm.EsmTransition
+import com.mimacom.ddd.dm.esm.IEsmState
+import com.mimacom.ddd.dm.esm.IEsmStateModel
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.EcoreUtil2
@@ -21,32 +25,71 @@ import org.eclipse.xtext.scoping.Scopes
  */
 class EsmScopeProvider extends AbstractEsmScopeProvider {
 
+	@Inject extension DmxUtil
+
 //	static val BASE = BasePackage.eINSTANCE
 	static val ESM = EsmPackage.eINSTANCE
 
 	override getScope(EObject context, EReference reference) {
 
-		if (context instanceof EsmTransition) {
-			if (reference == ESM.esmTransition_From || reference == ESM.esmTransition_To) {
-				val sm = EcoreUtil2.getContainerOfType(context, EsmEntityStateModel)
-				return Scopes.scopeFor(sm.states)
+		if (reference == ESM.IEsmState_State) {
+			if (context instanceof IEsmState) {
+				return getEntityStatesScope(context)
 			}
-			
+
+		} else if (context instanceof EsmTransition) {
+			if (reference == ESM.esmTransition_From) {
+				return getLocalStatesScope(context)
+			}
+			if (reference == ESM.esmTransition_To) {
+				return getStatesScope(context, IScope.NULLSCOPE)
+			}
 			if (reference == ESM.esmTransition_Event) {
 				val sm = EcoreUtil2.getContainerOfType(context, EsmEntityStateModel)
-				if (! sm.forType?.events.empty) {
-					return Scopes.scopeFor(sm.forType?.events)
+				if (sm !== null && sm.forType !== null && ! sm.forType.events.empty) {
+					return Scopes.scopeFor(sm.forType.events)
 				}
 			}
 		}
 		super.getScope(context, reference)
 	}
 
+	protected def getEntityStatesScope(EObject context) {
+		val sm = EcoreUtil2.getContainerOfType(context, EsmEntityStateModel)
+		if (sm !== null && sm.forType !== null && ! sm.forType.states.empty) {
+			return Scopes.scopeFor(sm.forType.states)
+		}
+		return IScope.NULLSCOPE
+	}
+
+	// Considers only the states  locally declared at context
+	protected def IScope getLocalStatesScope(EObject context) {
+		val sm = EcoreUtil2.getContainerOfType(context, IEsmStateModel)
+		if (sm !== null && ! sm.states.empty) {
+			return Scopes.scopeFor(sm.states.map[s|s.state])
+		}
+		return IScope.NULLSCOPE
+	}
+
+	// Considers the states declared from context up to the EsmEntityStateModel
+	protected def IScope getStatesScope(EObject context, IScope outer) {
+		val sm = EcoreUtil2.getContainerOfType(context, IEsmStateModel)
+		if (sm !== null) {
+			if (! (sm instanceof EsmEntityStateModel)) {
+				return Scopes.scopeFor(sm.states.map[s|s.state], getStatesScope(sm.eContainer, outer)) // recursion
+			}
+			if (! sm.states.empty) {
+				return Scopes.scopeFor(sm.states.map[s|s.state])
+			}
+		}
+		return IScope.NULLSCOPE
+	}
+
 	protected override IScope getEContainerNavigableMembersScopeSwitch(INavigableMemberContainer container, IScope outerScope) {
 		val scope = switch container {
-			EsmEntityStateModel: Scopes.scopeFor(container.getForType.features, outerScope)
+			EsmEntityStateModel: Scopes.scopeFor(container.forType.allFeatures, outerScope)
 			default: super.getEContainerNavigableMembersScopeSwitch(container, outerScope)
 		}
-		return scope	
+		return scope
 	}
 }

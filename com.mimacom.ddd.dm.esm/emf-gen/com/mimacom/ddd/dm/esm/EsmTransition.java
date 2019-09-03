@@ -4,9 +4,8 @@
 package com.mimacom.ddd.dm.esm;
 
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DState;
 import com.mimacom.ddd.dm.base.DStateEvent;
-
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,19 +26,19 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface EsmTransition extends EObject
+public interface EsmTransition extends IEsmLayout
 {
 	/**
 	 * Returns the value of the '<em><b>From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>From</em>' reference.
-	 * @see #setFrom(EsmState)
+	 * @see #setFrom(DState)
 	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmTransition_From()
 	 * @model
 	 * @generated
 	 */
-	EsmState getFrom();
+	DState getFrom();
 
 	/**
 	 * Sets the value of the '{@link com.mimacom.ddd.dm.esm.EsmTransition#getFrom <em>From</em>}' reference.
@@ -49,19 +48,19 @@ public interface EsmTransition extends EObject
 	 * @see #getFrom()
 	 * @generated
 	 */
-	void setFrom(EsmState value);
+	void setFrom(DState value);
 
 	/**
 	 * Returns the value of the '<em><b>To</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>To</em>' reference.
-	 * @see #setTo(EsmState)
+	 * @see #setTo(DState)
 	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmTransition_To()
 	 * @model
 	 * @generated
 	 */
-	EsmState getTo();
+	DState getTo();
 
 	/**
 	 * Sets the value of the '{@link com.mimacom.ddd.dm.esm.EsmTransition#getTo <em>To</em>}' reference.
@@ -71,7 +70,7 @@ public interface EsmTransition extends EObject
 	 * @see #getTo()
 	 * @generated
 	 */
-	void setTo(EsmState value);
+	void setTo(DState value);
 
 	/**
 	 * Returns the value of the '<em><b>Event</b></em>' reference.

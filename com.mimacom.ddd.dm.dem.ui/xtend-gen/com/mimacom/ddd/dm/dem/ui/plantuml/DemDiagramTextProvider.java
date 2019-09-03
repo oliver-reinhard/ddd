@@ -23,7 +23,7 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
 public class DemDiagramTextProvider extends AbstractDiagramTextProvider {
-  public void DemDiagramTextProvider() {
+  public DemDiagramTextProvider() {
     this.setEditorType(XtextEditor.class);
   }
   

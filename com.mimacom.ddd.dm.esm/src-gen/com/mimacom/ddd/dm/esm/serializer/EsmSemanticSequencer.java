@@ -38,10 +38,14 @@ import com.mimacom.ddd.dm.dmx.DmxTest;
 import com.mimacom.ddd.dm.dmx.DmxUnaryOperation;
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.serializer.DmxSemanticSequencer;
+import com.mimacom.ddd.dm.esm.EsmCompositeState;
+import com.mimacom.ddd.dm.esm.EsmConcurrentState;
+import com.mimacom.ddd.dm.esm.EsmDerivedState;
 import com.mimacom.ddd.dm.esm.EsmDomain;
 import com.mimacom.ddd.dm.esm.EsmEntityStateModel;
 import com.mimacom.ddd.dm.esm.EsmPackage;
 import com.mimacom.ddd.dm.esm.EsmState;
+import com.mimacom.ddd.dm.esm.EsmSubStateModel;
 import com.mimacom.ddd.dm.esm.EsmTransition;
 import com.mimacom.ddd.dm.esm.services.EsmGrammarAccess;
 import java.util.Set;
@@ -220,6 +224,15 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 			}
 		else if (epackage == EsmPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case EsmPackage.ESM_COMPOSITE_STATE:
+				sequence_EsmCompositeState(context, (EsmCompositeState) semanticObject); 
+				return; 
+			case EsmPackage.ESM_CONCURRENT_STATE:
+				sequence_EsmConcurrentState(context, (EsmConcurrentState) semanticObject); 
+				return; 
+			case EsmPackage.ESM_DERIVED_STATE:
+				sequence_EsmDerivedState(context, (EsmDerivedState) semanticObject); 
+				return; 
 			case EsmPackage.ESM_DOMAIN:
 				sequence_EsmDomain(context, (EsmDomain) semanticObject); 
 				return; 
@@ -227,7 +240,10 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 				sequence_EsmEntityStateModel(context, (EsmEntityStateModel) semanticObject); 
 				return; 
 			case EsmPackage.ESM_STATE:
-				sequence_EsmState(context, (EsmState) semanticObject); 
+				sequence_EsmNormalState(context, (EsmState) semanticObject); 
+				return; 
+			case EsmPackage.ESM_SUB_STATE_MODEL:
+				sequence_EsmSubStateModel(context, (EsmSubStateModel) semanticObject); 
 				return; 
 			case EsmPackage.ESM_TRANSITION:
 				sequence_EsmTransition(context, (EsmTransition) semanticObject); 
@@ -287,6 +303,52 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     EsmState returns EsmCompositeState
+	 *     EsmCompositeState returns EsmCompositeState
+	 *
+	 * Constraint:
+	 *     (
+	 *         kind=EsmStateKind? 
+	 *         state=[DState|ID] 
+	 *         description=DRichText? 
+	 *         direction=EsmLayoutDirection? 
+	 *         states+=EsmState+ 
+	 *         transitions+=EsmTransition+
+	 *     )
+	 */
+	protected void sequence_EsmCompositeState(ISerializationContext context, EsmCompositeState semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     EsmState returns EsmConcurrentState
+	 *     EsmConcurrentState returns EsmConcurrentState
+	 *
+	 * Constraint:
+	 *     (kind=EsmStateKind? state=[DState|ID] description=DRichText? subStates+=EsmSubStateModel+)
+	 */
+	protected void sequence_EsmConcurrentState(ISerializationContext context, EsmConcurrentState semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     EsmState returns EsmDerivedState
+	 *     EsmDerivedState returns EsmDerivedState
+	 *
+	 * Constraint:
+	 *     (kind=EsmStateKind? state=[DState|ID] description=DRichText? expression=DExpression)
+	 */
+	protected void sequence_EsmDerivedState(ISerializationContext context, EsmDerivedState semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     EsmDomain returns EsmDomain
 	 *
 	 * Constraint:
@@ -302,7 +364,14 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 	 *     EsmEntityStateModel returns EsmEntityStateModel
 	 *
 	 * Constraint:
-	 *     (name=DQualifiedName forType=[DEntityType|ID] description=DRichText? states+=EsmState+ transition+=EsmTransition+)
+	 *     (
+	 *         name=DQualifiedName 
+	 *         forType=[DEntityType|DQualifiedName] 
+	 *         description=DRichText? 
+	 *         direction=EsmLayoutDirection? 
+	 *         states+=EsmState+ 
+	 *         transitions+=EsmTransition+
+	 *     )
 	 */
 	protected void sequence_EsmEntityStateModel(ISerializationContext context, EsmEntityStateModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -312,11 +381,24 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 	/**
 	 * Contexts:
 	 *     EsmState returns EsmState
+	 *     EsmNormalState returns EsmState
 	 *
 	 * Constraint:
-	 *     (state=[DState|ID] expression=DExpression?)
+	 *     (kind=EsmStateKind? state=[DState|ID] description=DRichText?)
 	 */
-	protected void sequence_EsmState(ISerializationContext context, EsmState semanticObject) {
+	protected void sequence_EsmNormalState(ISerializationContext context, EsmState semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     EsmSubStateModel returns EsmSubStateModel
+	 *
+	 * Constraint:
+	 *     (states+=EsmState+ transitions+=EsmTransition+)
+	 */
+	protected void sequence_EsmSubStateModel(ISerializationContext context, EsmSubStateModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -326,7 +408,7 @@ public class EsmSemanticSequencer extends DmxSemanticSequencer {
 	 *     EsmTransition returns EsmTransition
 	 *
 	 * Constraint:
-	 *     (from=[EsmState|ID] to=[EsmState|ID] event=[DStateEvent|ID] guard=DExpression?)
+	 *     (direction=EsmLayoutDirection? from=[DState|ID] to=[DState|ID] event=[DStateEvent|ID] guard=DExpression?)
 	 */
 	protected void sequence_EsmTransition(ISerializationContext context, EsmTransition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

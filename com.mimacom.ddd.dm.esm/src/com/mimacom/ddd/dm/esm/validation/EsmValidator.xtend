@@ -3,23 +3,98 @@
  */
 package com.mimacom.ddd.dm.esm.validation
 
+import com.google.common.collect.Lists
+import com.mimacom.ddd.dm.base.BasePackage
+import com.mimacom.ddd.dm.base.DState
+import com.mimacom.ddd.dm.base.DStateEvent
+import com.mimacom.ddd.dm.esm.EsmEntityStateModel
+import com.mimacom.ddd.dm.esm.EsmPackage
+import com.mimacom.ddd.dm.esm.EsmTransition
+import com.mimacom.ddd.dm.esm.IEsmState
+import java.util.HashMap
+import java.util.List
+import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.xtext.validation.Check
 
 /**
  * This class contains custom validation rules. 
- *
+ * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 class EsmValidator extends AbstractEsmValidator {
-	
-//	public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					EsmPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
-	
+
+	static val ESM = EsmPackage.eINSTANCE
+	static val BASE = BasePackage.eINSTANCE
+
+	@Check
+	def checkEntityStatesMapping(EsmEntityStateModel model) {
+		// find duplicate references to entity states
+		val allStates = EcoreUtil2.eAllOfType(model, IEsmState)
+		val statesMap = new HashMap<DState, IEsmState>
+		for (s : allStates) {
+			if (s.state !== null) {
+				val previous = statesMap.put(s.state, s)
+				if (previous !== null) {
+					val msg = "Multiple state definitions refer to the same entity state"
+					error(msg, s, ESM.IEsmState_State)
+					error(msg, previous, ESM.IEsmState_State)
+				}
+			}
+		}
+		// find orphan entity states
+		if (model.forType !== null) {
+			val List<DState> entityStates = Lists.newLinkedList
+			entityStates.addAll(model.forType.states)
+			for (s : allStates) {
+				if (s.state !== null) {
+					entityStates.remove(s.state)
+				}
+			}
+			if (! entityStates.empty) {
+				val b = new StringBuilder("The following entity states are not being referenced: ")
+				var first = true;
+				for (unreferencedState : entityStates) {
+					if (first) {
+						first = false
+					} else {
+						b.append(', ')
+					}
+					b.append(unreferencedState.name)
+				}
+				error(b.toString, model, BASE.DNamedElement_Name)
+			}
+		}
+	}
+
+	@Check
+	def checkEntityEventsMapping(EsmEntityStateModel model) {
+		// Multiple transitions for the same event are permitted!
+		if (model.forType !== null) {
+			val allTransitions = EcoreUtil2.eAllOfType(model, EsmTransition)
+			val List<DStateEvent> events = Lists.newLinkedList
+			events.addAll(model.forType.events)
+			for (t : allTransitions) {
+				if (t.event !== null) {
+					events.remove(t.event)
+				}
+			}
+			if (! events.empty) {
+				val b = new StringBuilder("The following entity events are not being referenced: ")
+				var first = true;
+				for (unreferencedEvent : events) {
+					if (first) {
+						first = false
+					} else {
+						b.append(', ')
+					}
+					b.append(unreferencedEvent.name)
+				}
+				error(b.toString, model, BASE.DNamedElement_Name)
+			}
+		}
+	}
+
+	@Check
+	def checkUnlinkedStates(EsmEntityStateModel model) {
+	}
 }

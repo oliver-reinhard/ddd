@@ -66,7 +66,7 @@ public class DimUtil extends DmxUtil {
     if ((a != null)) {
       _xifexpression = a.getName();
     } else {
-      _xifexpression = "NO_AGGREGATE";
+      _xifexpression = "default";
     }
     return _xifexpression;
   }

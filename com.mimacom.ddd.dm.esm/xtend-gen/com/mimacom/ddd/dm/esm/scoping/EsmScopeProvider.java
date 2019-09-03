@@ -4,19 +4,24 @@
 package com.mimacom.ddd.dm.esm.scoping;
 
 import com.google.common.base.Objects;
-import com.mimacom.ddd.dm.base.DEntityType;
-import com.mimacom.ddd.dm.base.DStateEvent;
+import com.google.inject.Inject;
+import com.mimacom.ddd.dm.base.DState;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.dmx.DmxUtil;
 import com.mimacom.ddd.dm.esm.EsmEntityStateModel;
 import com.mimacom.ddd.dm.esm.EsmPackage;
 import com.mimacom.ddd.dm.esm.EsmTransition;
+import com.mimacom.ddd.dm.esm.IEsmState;
+import com.mimacom.ddd.dm.esm.IEsmStateModel;
 import com.mimacom.ddd.dm.esm.scoping.AbstractEsmScopeProvider;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
+import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 
 /**
  * This class contains custom scoping description.
@@ -26,35 +31,41 @@ import org.eclipse.xtext.scoping.Scopes;
  */
 @SuppressWarnings("all")
 public class EsmScopeProvider extends AbstractEsmScopeProvider {
+  @Inject
+  @Extension
+  private DmxUtil _dmxUtil;
+  
   private static final EsmPackage ESM = EsmPackage.eINSTANCE;
   
   @Override
   public IScope getScope(final EObject context, final EReference reference) {
     IScope _xblockexpression = null;
     {
-      if ((context instanceof EsmTransition)) {
-        if ((Objects.equal(reference, EsmScopeProvider.ESM.getEsmTransition_From()) || Objects.equal(reference, EsmScopeProvider.ESM.getEsmTransition_To()))) {
-          final EsmEntityStateModel sm = EcoreUtil2.<EsmEntityStateModel>getContainerOfType(context, EsmEntityStateModel.class);
-          return Scopes.scopeFor(sm.getStates());
+      EReference _iEsmState_State = EsmScopeProvider.ESM.getIEsmState_State();
+      boolean _equals = Objects.equal(reference, _iEsmState_State);
+      if (_equals) {
+        if ((context instanceof IEsmState)) {
+          return this.getEntityStatesScope(context);
         }
-        EReference _esmTransition_Event = EsmScopeProvider.ESM.getEsmTransition_Event();
-        boolean _equals = Objects.equal(reference, _esmTransition_Event);
-        if (_equals) {
-          final EsmEntityStateModel sm_1 = EcoreUtil2.<EsmEntityStateModel>getContainerOfType(context, EsmEntityStateModel.class);
-          DEntityType _forType = sm_1.getForType();
-          EList<DStateEvent> _events = null;
-          if (_forType!=null) {
-            _events=_forType.getEvents();
+      } else {
+        if ((context instanceof EsmTransition)) {
+          EReference _esmTransition_From = EsmScopeProvider.ESM.getEsmTransition_From();
+          boolean _equals_1 = Objects.equal(reference, _esmTransition_From);
+          if (_equals_1) {
+            return this.getLocalStatesScope(context);
           }
-          boolean _isEmpty = _events.isEmpty();
-          boolean _not = (!_isEmpty);
-          if (_not) {
-            DEntityType _forType_1 = sm_1.getForType();
-            EList<DStateEvent> _events_1 = null;
-            if (_forType_1!=null) {
-              _events_1=_forType_1.getEvents();
+          EReference _esmTransition_To = EsmScopeProvider.ESM.getEsmTransition_To();
+          boolean _equals_2 = Objects.equal(reference, _esmTransition_To);
+          if (_equals_2) {
+            return this.getStatesScope(context, IScope.NULLSCOPE);
+          }
+          EReference _esmTransition_Event = EsmScopeProvider.ESM.getEsmTransition_Event();
+          boolean _equals_3 = Objects.equal(reference, _esmTransition_Event);
+          if (_equals_3) {
+            final EsmEntityStateModel sm = EcoreUtil2.<EsmEntityStateModel>getContainerOfType(context, EsmEntityStateModel.class);
+            if ((((sm != null) && (sm.getForType() != null)) && (!sm.getForType().getEvents().isEmpty()))) {
+              return Scopes.scopeFor(sm.getForType().getEvents());
             }
-            return Scopes.scopeFor(_events_1);
           }
         }
       }
@@ -63,13 +74,53 @@ public class EsmScopeProvider extends AbstractEsmScopeProvider {
     return _xblockexpression;
   }
   
+  protected IScope getEntityStatesScope(final EObject context) {
+    final EsmEntityStateModel sm = EcoreUtil2.<EsmEntityStateModel>getContainerOfType(context, EsmEntityStateModel.class);
+    if ((((sm != null) && (sm.getForType() != null)) && (!sm.getForType().getStates().isEmpty()))) {
+      return Scopes.scopeFor(sm.getForType().getStates());
+    }
+    return IScope.NULLSCOPE;
+  }
+  
+  protected IScope getLocalStatesScope(final EObject context) {
+    final IEsmStateModel sm = EcoreUtil2.<IEsmStateModel>getContainerOfType(context, IEsmStateModel.class);
+    if (((sm != null) && (!sm.getStates().isEmpty()))) {
+      final Function1<IEsmState, DState> _function = (IEsmState s) -> {
+        return s.getState();
+      };
+      return Scopes.scopeFor(ListExtensions.<IEsmState, DState>map(sm.getStates(), _function));
+    }
+    return IScope.NULLSCOPE;
+  }
+  
+  protected IScope getStatesScope(final EObject context, final IScope outer) {
+    final IEsmStateModel sm = EcoreUtil2.<IEsmStateModel>getContainerOfType(context, IEsmStateModel.class);
+    if ((sm != null)) {
+      if ((!(sm instanceof EsmEntityStateModel))) {
+        final Function1<IEsmState, DState> _function = (IEsmState s) -> {
+          return s.getState();
+        };
+        return Scopes.scopeFor(ListExtensions.<IEsmState, DState>map(sm.getStates(), _function), this.getStatesScope(sm.eContainer(), outer));
+      }
+      boolean _isEmpty = sm.getStates().isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        final Function1<IEsmState, DState> _function_1 = (IEsmState s) -> {
+          return s.getState();
+        };
+        return Scopes.scopeFor(ListExtensions.<IEsmState, DState>map(sm.getStates(), _function_1));
+      }
+    }
+    return IScope.NULLSCOPE;
+  }
+  
   @Override
   protected IScope getEContainerNavigableMembersScopeSwitch(final INavigableMemberContainer container, final IScope outerScope) {
     IScope _switchResult = null;
     boolean _matched = false;
     if (container instanceof EsmEntityStateModel) {
       _matched=true;
-      _switchResult = Scopes.scopeFor(((EsmEntityStateModel)container).getForType().getFeatures(), outerScope);
+      _switchResult = Scopes.scopeFor(this._dmxUtil.allFeatures(((EsmEntityStateModel)container).getForType()), outerScope);
     }
     if (!_matched) {
       _switchResult = super.getEContainerNavigableMembersScopeSwitch(container, outerScope);

@@ -16,30 +16,85 @@ EsmEntityStateModel:
 	'state' 'model' 
 	name=DQualifiedName
 	'for'
-	 forType=[DEntityType|ID]
+	 forType=[DEntityType|DQualifiedName]
 	(description=DRichText)?
-	'states' 
+	'{'
+	('direction' direction=EsmLayoutDirection)?
 	(states+=EsmState)+
-	'transitions'
-	(transition+=EsmTransition)+;
+	(transitions+=EsmTransition)+
+	'}';
 
-EsmState:
-	state=[DState]
-	('when' expression=DExpression)?;
-
-EsmTransition:
-	from=[EsmState]
-	'to'
-	to=[EsmState]
-	'as' event=[DStateEvent]
-	(	'when'
-		guard=DExpression
-	)?;
-	
-	
 @Override 
 DExpression returns DExpression :
 	DmxOrExpression | DRichText;
+	
+EsmState returns IEsmState:
+	EsmNormalState | EsmDerivedState | EsmCompositeState | EsmConcurrentState;
+
+enum EsmStateKind:
+	INITIAL='initial' | FINAL='final';
+		
+EsmNormalState returns EsmState:
+	(	kind=EsmStateKind ('state')?
+	|	'state'
+	)
+	state=[DState|ID]
+	(description=DRichText)?;
+	
+EsmDerivedState:
+	'derived' 
+	(kind=EsmStateKind)?
+	('state')?
+	state=[DState|ID]
+	(description=DRichText)?
+	'when' expression=DExpression;
+
+EsmCompositeState:
+	'composite'
+	(kind=EsmStateKind)?
+	('state')?
+	state=[DState|ID]
+	(description=DRichText)? 
+	'{'
+	('direction' direction=EsmLayoutDirection)?
+	(states+=EsmState)+
+	(transitions+=EsmTransition)+
+	'}';
+	
+EsmConcurrentState:
+	'concurrent'
+	(kind=EsmStateKind)?
+	('state')?
+	state=[DState|ID]
+	(description=DRichText)? 
+	'{'
+	// direction is always 'right' (PlantUML only supports horizontal dividers between regions)
+	(subStates+=EsmSubStateModel)+
+	'}';
+
+EsmSubStateModel:
+	'substate' 
+	'{'
+	// direction is always 'right' (PlantUML only supports horizontal dividers between regions)
+	(states+=EsmState)+
+	(transitions+=EsmTransition)+
+	'}';
+
+
+EsmTransition:
+	'transition'
+	(direction=EsmLayoutDirection)?
+	'from'
+	from=[DState|ID]
+	'to'
+	to=[DState|ID]
+	'as' event=[DStateEvent|ID]
+	(	'when'
+		guard=DExpression
+	)?;
+
+enum EsmLayoutDirection:
+	DOWN="down" | LEFT="left" | UP="up" | RIGHT="right";
 	
 @Override 
 DmxPrimaryExpression returns DExpression:

@@ -30,6 +30,9 @@ class DmxUtil {
 	 * Returns the names of all the features of the given type: its own as well as the inherited ones.
 	 */
 	def List<DFeature> allFeatures(DComplexType type) {
+		if (type === null) {
+			return Collections.EMPTY_LIST
+		}
 		val features = Lists.newArrayList(type.features)
 		for (t : type.typeHierarchy) {
 			features.addAll(t.features)

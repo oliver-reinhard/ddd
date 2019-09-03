@@ -101,12 +101,12 @@ public class DmxTypeComputer {
               AbstractDmxTypeDescriptor<?> paramActualType = null;
               if ((i == 0)) {
                 final DExpression preceding = expr.getPrecedingNavigationSegment();
-                paramActualType = this.typeFor(preceding);
+                paramActualType = this.typeForAndCheckNotNull(preceding);
               } else {
                 int _size = actualParameters.size();
                 boolean _lessThan = ((i - 1) < _size);
                 if (_lessThan) {
-                  paramActualType = this.typeFor(actualParameters.get((i - 1)));
+                  paramActualType = this.typeForAndCheckNotNull(actualParameters.get((i - 1)));
                 } else {
                   return DmxTypeComputer.UNDEFINED;
                 }
@@ -123,7 +123,7 @@ public class DmxTypeComputer {
         boolean _isCompatible = ((DmxFilter)member).getTypeDesc().isCompatible(DmxBaseType.STATE);
         if (_isCompatible) {
           final DExpression preceding = expr.getPrecedingNavigationSegment();
-          final AbstractDmxTypeDescriptor<?> precedingTypeDesc = this.typeFor(preceding);
+          final AbstractDmxTypeDescriptor<?> precedingTypeDesc = this.typeForAndCheckNotNull(preceding);
           final DType precedingType = precedingTypeDesc.type;
           if ((precedingType instanceof DEntityType)) {
             boolean _isEmpty = ((DEntityType)precedingType).getStates().isEmpty();
@@ -183,7 +183,7 @@ public class DmxTypeComputer {
           DNavigableMember _member = ((DmxMemberNavigation)container).getMember();
           if ((_member instanceof DmxFilter)) {
             final DExpression preceding = ((DmxMemberNavigation)container).getPrecedingNavigationSegment();
-            final AbstractDmxTypeDescriptor<?> desc = this.typeFor(preceding);
+            final AbstractDmxTypeDescriptor<?> desc = this.typeForAndCheckNotNull(preceding);
             desc.collection = false;
             return desc;
           }
@@ -248,8 +248,25 @@ public class DmxTypeComputer {
           _switchResult = DmxTypeComputer.BOOLEAN;
           break;
         case ADD:
-          _switchResult = DmxTypeComputer.NUMBER;
-          break;
+          final AbstractDmxTypeDescriptor<?> leftType = this.typeForAndCheckNotNull(expr.getLeftOperand());
+          DmxBaseTypeDescriptor _switchResult_1 = null;
+          final DmxBaseType _switchValue = leftType.baseType;
+          if (_switchValue != null) {
+            switch (_switchValue) {
+              case TIMEPOINT:
+                _switchResult_1 = DmxTypeComputer.TIMEPOINT;
+                break;
+              case TEXT:
+                _switchResult_1 = DmxTypeComputer.TEXT;
+                break;
+              default:
+                _switchResult_1 = DmxTypeComputer.NUMBER;
+                break;
+            }
+          } else {
+            _switchResult_1 = DmxTypeComputer.NUMBER;
+          }
+          return _switchResult_1;
         case SUBTRACT:
           _switchResult = DmxTypeComputer.NUMBER;
           break;
@@ -329,7 +346,7 @@ public class DmxTypeComputer {
                 int _size_1 = actualParameters.size();
                 boolean _lessThan = (i < _size_1);
                 if (_lessThan) {
-                  final AbstractDmxTypeDescriptor<?> paramActualType = this.typeFor(actualParameters.get(i));
+                  final AbstractDmxTypeDescriptor<?> paramActualType = this.typeForAndCheckNotNull(actualParameters.get(i));
                   boolean _isCompatible = paramDeclaredType.isCompatible(paramActualType.baseType, paramActualType.collection);
                   if (_isCompatible) {
                     return this.getTypeDescriptor(paramActualType.type, returnType.isCollection());
@@ -508,6 +525,18 @@ public class DmxTypeComputer {
       throw new IllegalArgumentException(_string);
     }
     return _switchResult;
+  }
+  
+  private AbstractDmxTypeDescriptor<?> typeForAndCheckNotNull(final DExpression expr) {
+    AbstractDmxTypeDescriptor<?> _typeFor = null;
+    if (expr!=null) {
+      _typeFor=this.typeFor(expr);
+    }
+    final AbstractDmxTypeDescriptor<?> type = _typeFor;
+    if ((type == null)) {
+      return DmxTypeComputer.UNDEFINED;
+    }
+    return type;
   }
   
   public AbstractDmxTypeDescriptor<?> typeFor(final EObject expr) {

@@ -6,6 +6,7 @@ package com.mimacom.ddd.dm.esm.impl;
 import com.mimacom.ddd.dm.esm.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -68,9 +69,51 @@ public class EsmFactoryImpl extends EFactoryImpl implements EsmFactory
 			case EsmPackage.ESM_DOMAIN: return createEsmDomain();
 			case EsmPackage.ESM_ENTITY_STATE_MODEL: return createEsmEntityStateModel();
 			case EsmPackage.ESM_STATE: return createEsmState();
+			case EsmPackage.ESM_DERIVED_STATE: return createEsmDerivedState();
+			case EsmPackage.ESM_COMPOSITE_STATE: return createEsmCompositeState();
+			case EsmPackage.ESM_CONCURRENT_STATE: return createEsmConcurrentState();
+			case EsmPackage.ESM_SUB_STATE_MODEL: return createEsmSubStateModel();
 			case EsmPackage.ESM_TRANSITION: return createEsmTransition();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue)
+	{
+		switch (eDataType.getClassifierID())
+		{
+			case EsmPackage.ESM_LAYOUT_DIRECTION:
+				return createEsmLayoutDirectionFromString(eDataType, initialValue);
+			case EsmPackage.ESM_STATE_KIND:
+				return createEsmStateKindFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue)
+	{
+		switch (eDataType.getClassifierID())
+		{
+			case EsmPackage.ESM_LAYOUT_DIRECTION:
+				return convertEsmLayoutDirectionToString(eDataType, instanceValue);
+			case EsmPackage.ESM_STATE_KIND:
+				return convertEsmStateKindToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -94,7 +137,7 @@ public class EsmFactoryImpl extends EFactoryImpl implements EsmFactory
 	@Override
 	public EsmEntityStateModel createEsmEntityStateModel()
 	{
-		EsmEntityStateModelImpl esmEntityStateModel = new EsmEntityStateModelImpl();
+		EsmEntityStateModelImplCustom esmEntityStateModel = new EsmEntityStateModelImplCustom();
 		return esmEntityStateModel;
 	}
 
@@ -116,10 +159,102 @@ public class EsmFactoryImpl extends EFactoryImpl implements EsmFactory
 	 * @generated
 	 */
 	@Override
+	public EsmDerivedState createEsmDerivedState()
+	{
+		EsmDerivedStateImpl esmDerivedState = new EsmDerivedStateImpl();
+		return esmDerivedState;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EsmCompositeState createEsmCompositeState()
+	{
+		EsmCompositeStateImplCustom esmCompositeState = new EsmCompositeStateImplCustom();
+		return esmCompositeState;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EsmConcurrentState createEsmConcurrentState()
+	{
+		EsmConcurrentStateImpl esmConcurrentState = new EsmConcurrentStateImpl();
+		return esmConcurrentState;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EsmSubStateModel createEsmSubStateModel()
+	{
+		EsmSubStateModelImplCustom esmSubStateModel = new EsmSubStateModelImplCustom();
+		return esmSubStateModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EsmTransition createEsmTransition()
 	{
-		EsmTransitionImpl esmTransition = new EsmTransitionImpl();
+		EsmTransitionImplCustom esmTransition = new EsmTransitionImplCustom();
 		return esmTransition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EsmLayoutDirection createEsmLayoutDirectionFromString(EDataType eDataType, String initialValue)
+	{
+		EsmLayoutDirection result = EsmLayoutDirection.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEsmLayoutDirectionToString(EDataType eDataType, Object instanceValue)
+	{
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EsmStateKind createEsmStateKindFromString(EDataType eDataType, String initialValue)
+	{
+		EsmStateKind result = EsmStateKind.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEsmStateKindToString(EDataType eDataType, Object instanceValue)
+	{
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

@@ -4,13 +4,18 @@
 package com.mimacom.ddd.dm.esm.impl;
 
 import com.mimacom.ddd.dm.base.DEntityType;
+import com.mimacom.ddd.dm.base.INamespace;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
 import com.mimacom.ddd.dm.base.impl.DNamedElementImpl;
 
 import com.mimacom.ddd.dm.esm.EsmEntityStateModel;
+import com.mimacom.ddd.dm.esm.EsmLayoutDirection;
 import com.mimacom.ddd.dm.esm.EsmPackage;
-import com.mimacom.ddd.dm.esm.EsmState;
 import com.mimacom.ddd.dm.esm.EsmTransition;
+import com.mimacom.ddd.dm.esm.IEsmLayout;
+import com.mimacom.ddd.dm.esm.IEsmState;
+import com.mimacom.ddd.dm.esm.IEsmStateModel;
 
 import java.util.Collection;
 
@@ -35,15 +40,36 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmEntityStateModelImpl#getDirection <em>Direction</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmEntityStateModelImpl#getStates <em>States</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmEntityStateModelImpl#getTransitions <em>Transitions</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmEntityStateModelImpl#getForType <em>For Type</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmEntityStateModelImpl#getTransition <em>Transition</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEntityStateModel
 {
+	/**
+	 * The default value of the '{@link #getDirection() <em>Direction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDirection()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EsmLayoutDirection DIRECTION_EDEFAULT = EsmLayoutDirection.DEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDirection() <em>Direction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDirection()
+	 * @generated
+	 * @ordered
+	 */
+	protected EsmLayoutDirection direction = DIRECTION_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getStates() <em>States</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -52,7 +78,17 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EsmState> states;
+	protected EList<IEsmState> states;
+
+	/**
+	 * The cached value of the '{@link #getTransitions() <em>Transitions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransitions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EsmTransition> transitions;
 
 	/**
 	 * The cached value of the '{@link #getForType() <em>For Type</em>}' reference.
@@ -63,16 +99,6 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 	 * @ordered
 	 */
 	protected DEntityType forType;
-
-	/**
-	 * The cached value of the '{@link #getTransition() <em>Transition</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTransition()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<EsmTransition> transition;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -101,13 +127,53 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 	 * @generated
 	 */
 	@Override
-	public EList<EsmState> getStates()
+	public EsmLayoutDirection getDirection()
+	{
+		return direction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDirection(EsmLayoutDirection newDirection)
+	{
+		EsmLayoutDirection oldDirection = direction;
+		direction = newDirection == null ? DIRECTION_EDEFAULT : newDirection;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsmPackage.ESM_ENTITY_STATE_MODEL__DIRECTION, oldDirection, direction));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<IEsmState> getStates()
 	{
 		if (states == null)
 		{
-			states = new EObjectContainmentEList<EsmState>(EsmState.class, this, EsmPackage.ESM_ENTITY_STATE_MODEL__STATES);
+			states = new EObjectContainmentEList<IEsmState>(IEsmState.class, this, EsmPackage.ESM_ENTITY_STATE_MODEL__STATES);
 		}
 		return states;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<EsmTransition> getTransitions()
+	{
+		if (transitions == null)
+		{
+			transitions = new EObjectContainmentEList<EsmTransition>(EsmTransition.class, this, EsmPackage.ESM_ENTITY_STATE_MODEL__TRANSITIONS);
+		}
+		return transitions;
 	}
 
 	/**
@@ -161,29 +227,14 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 	 * @generated
 	 */
 	@Override
-	public EList<EsmTransition> getTransition()
-	{
-		if (transition == null)
-		{
-			transition = new EObjectContainmentEList<EsmTransition>(EsmTransition.class, this, EsmPackage.ESM_ENTITY_STATE_MODEL__TRANSITION);
-		}
-		return transition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
 		switch (featureID)
 		{
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__STATES:
 				return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
-			case EsmPackage.ESM_ENTITY_STATE_MODEL__TRANSITION:
-				return ((InternalEList<?>)getTransition()).basicRemove(otherEnd, msgs);
+			case EsmPackage.ESM_ENTITY_STATE_MODEL__TRANSITIONS:
+				return ((InternalEList<?>)getTransitions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -198,13 +249,15 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 	{
 		switch (featureID)
 		{
+			case EsmPackage.ESM_ENTITY_STATE_MODEL__DIRECTION:
+				return getDirection();
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__STATES:
 				return getStates();
+			case EsmPackage.ESM_ENTITY_STATE_MODEL__TRANSITIONS:
+				return getTransitions();
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__FOR_TYPE:
 				if (resolve) return getForType();
 				return basicGetForType();
-			case EsmPackage.ESM_ENTITY_STATE_MODEL__TRANSITION:
-				return getTransition();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -220,16 +273,19 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 	{
 		switch (featureID)
 		{
+			case EsmPackage.ESM_ENTITY_STATE_MODEL__DIRECTION:
+				setDirection((EsmLayoutDirection)newValue);
+				return;
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__STATES:
 				getStates().clear();
-				getStates().addAll((Collection<? extends EsmState>)newValue);
+				getStates().addAll((Collection<? extends IEsmState>)newValue);
+				return;
+			case EsmPackage.ESM_ENTITY_STATE_MODEL__TRANSITIONS:
+				getTransitions().clear();
+				getTransitions().addAll((Collection<? extends EsmTransition>)newValue);
 				return;
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__FOR_TYPE:
 				setForType((DEntityType)newValue);
-				return;
-			case EsmPackage.ESM_ENTITY_STATE_MODEL__TRANSITION:
-				getTransition().clear();
-				getTransition().addAll((Collection<? extends EsmTransition>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -245,14 +301,17 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 	{
 		switch (featureID)
 		{
+			case EsmPackage.ESM_ENTITY_STATE_MODEL__DIRECTION:
+				setDirection(DIRECTION_EDEFAULT);
+				return;
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__STATES:
 				getStates().clear();
 				return;
+			case EsmPackage.ESM_ENTITY_STATE_MODEL__TRANSITIONS:
+				getTransitions().clear();
+				return;
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__FOR_TYPE:
 				setForType((DEntityType)null);
-				return;
-			case EsmPackage.ESM_ENTITY_STATE_MODEL__TRANSITION:
-				getTransition().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -268,14 +327,117 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 	{
 		switch (featureID)
 		{
+			case EsmPackage.ESM_ENTITY_STATE_MODEL__DIRECTION:
+				return direction != DIRECTION_EDEFAULT;
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__STATES:
 				return states != null && !states.isEmpty();
+			case EsmPackage.ESM_ENTITY_STATE_MODEL__TRANSITIONS:
+				return transitions != null && !transitions.isEmpty();
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__FOR_TYPE:
 				return forType != null;
-			case EsmPackage.ESM_ENTITY_STATE_MODEL__TRANSITION:
-				return transition != null && !transition.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == IEsmLayout.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case EsmPackage.ESM_ENTITY_STATE_MODEL__DIRECTION: return EsmPackage.IESM_LAYOUT__DIRECTION;
+				default: return -1;
+			}
+		}
+		if (baseClass == IEsmStateModel.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case EsmPackage.ESM_ENTITY_STATE_MODEL__STATES: return EsmPackage.IESM_STATE_MODEL__STATES;
+				case EsmPackage.ESM_ENTITY_STATE_MODEL__TRANSITIONS: return EsmPackage.IESM_STATE_MODEL__TRANSITIONS;
+				default: return -1;
+			}
+		}
+		if (baseClass == INamespace.class)
+		{
+			switch (derivedFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		if (baseClass == INavigableMemberContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == IEsmLayout.class)
+		{
+			switch (baseFeatureID)
+			{
+				case EsmPackage.IESM_LAYOUT__DIRECTION: return EsmPackage.ESM_ENTITY_STATE_MODEL__DIRECTION;
+				default: return -1;
+			}
+		}
+		if (baseClass == IEsmStateModel.class)
+		{
+			switch (baseFeatureID)
+			{
+				case EsmPackage.IESM_STATE_MODEL__STATES: return EsmPackage.ESM_ENTITY_STATE_MODEL__STATES;
+				case EsmPackage.IESM_STATE_MODEL__TRANSITIONS: return EsmPackage.ESM_ENTITY_STATE_MODEL__TRANSITIONS;
+				default: return -1;
+			}
+		}
+		if (baseClass == INamespace.class)
+		{
+			switch (baseFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		if (baseClass == INavigableMemberContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString()
+	{
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (direction: ");
+		result.append(direction);
+		result.append(')');
+		return result.toString();
 	}
 
 } //EsmEntityStateModelImpl

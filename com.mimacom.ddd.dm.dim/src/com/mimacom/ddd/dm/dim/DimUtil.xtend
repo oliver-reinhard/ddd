@@ -50,7 +50,7 @@ class DimUtil extends DmxUtil {
 	
 	def String aggregateName(EObject obj) {
 			val a = obj.aggregate
-			return if (a !== null) a.name else "NO_AGGREGATE" 
+			return if (a !== null) a.name else "default" 
 	}
 	
 	/*

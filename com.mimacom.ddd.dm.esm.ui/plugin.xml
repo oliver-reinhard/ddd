@@ -459,4 +459,11 @@
 			<newWizardShortcut id="com.mimacom.ddd.dm.esm.ui.wizard.EsmNewFileWizard"/>
 		</perspectiveExtension>
 	</extension>
+ <extension
+       point="net.sourceforge.plantuml.eclipse.diagramTextProvider">
+    <diagramTextProvider
+          priority="100"
+          providerClass="com.mimacom.ddd.dm.esm.ui.plantuml.EsmDiagramTextProviderWrapper">
+    </diagramTextProvider>
+ </extension>
 </plugin>

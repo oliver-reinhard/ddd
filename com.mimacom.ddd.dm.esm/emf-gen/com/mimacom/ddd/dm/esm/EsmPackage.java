@@ -5,7 +5,9 @@ package com.mimacom.ddd.dm.esm;
 
 import com.mimacom.ddd.dm.base.BasePackage;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -123,6 +125,80 @@ public interface EsmPackage extends EPackage
 	int ESM_DOMAIN_FEATURE_COUNT = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.esm.IEsmLayout <em>IEsm Layout</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.esm.IEsmLayout
+	 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getIEsmLayout()
+	 * @generated
+	 */
+	int IESM_LAYOUT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Direction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IESM_LAYOUT__DIRECTION = 0;
+
+	/**
+	 * The number of structural features of the '<em>IEsm Layout</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IESM_LAYOUT_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.esm.IEsmStateModel <em>IEsm State Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.esm.IEsmStateModel
+	 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getIEsmStateModel()
+	 * @generated
+	 */
+	int IESM_STATE_MODEL = 2;
+
+	/**
+	 * The feature id for the '<em><b>Direction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IESM_STATE_MODEL__DIRECTION = IESM_LAYOUT__DIRECTION;
+
+	/**
+	 * The feature id for the '<em><b>States</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IESM_STATE_MODEL__STATES = IESM_LAYOUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IESM_STATE_MODEL__TRANSITIONS = IESM_LAYOUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>IEsm State Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IESM_STATE_MODEL_FEATURE_COUNT = IESM_LAYOUT_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.esm.impl.EsmEntityStateModelImpl <em>Entity State Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,7 +206,7 @@ public interface EsmPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getEsmEntityStateModel()
 	 * @generated
 	 */
-	int ESM_ENTITY_STATE_MODEL = 1;
+	int ESM_ENTITY_STATE_MODEL = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -160,13 +236,31 @@ public interface EsmPackage extends EPackage
 	int ESM_ENTITY_STATE_MODEL__DESCRIPTION = BasePackage.DNAMED_ELEMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Direction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_ENTITY_STATE_MODEL__DIRECTION = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>States</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_ENTITY_STATE_MODEL__STATES = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int ESM_ENTITY_STATE_MODEL__STATES = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_ENTITY_STATE_MODEL__TRANSITIONS = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>For Type</b></em>' reference.
@@ -175,16 +269,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_ENTITY_STATE_MODEL__FOR_TYPE = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Transition</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESM_ENTITY_STATE_MODEL__TRANSITION = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 2;
+	int ESM_ENTITY_STATE_MODEL__FOR_TYPE = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Entity State Model</em>' class.
@@ -193,7 +278,53 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_ENTITY_STATE_MODEL_FEATURE_COUNT = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 3;
+	int ESM_ENTITY_STATE_MODEL_FEATURE_COUNT = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.esm.impl.IEsmStateImpl <em>IEsm State</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.esm.impl.IEsmStateImpl
+	 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getIEsmState()
+	 * @generated
+	 */
+	int IESM_STATE = 4;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IESM_STATE__STATE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IESM_STATE__KIND = 1;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IESM_STATE__DESCRIPTION = 2;
+
+	/**
+	 * The number of structural features of the '<em>IEsm State</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IESM_STATE_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.esm.impl.EsmStateImpl <em>State</em>}' class.
@@ -203,7 +334,7 @@ public interface EsmPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getEsmState()
 	 * @generated
 	 */
-	int ESM_STATE = 2;
+	int ESM_STATE = 5;
 
 	/**
 	 * The feature id for the '<em><b>State</b></em>' reference.
@@ -212,16 +343,25 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_STATE__STATE = 0;
+	int ESM_STATE__STATE = IESM_STATE__STATE;
 
 	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * The feature id for the '<em><b>Kind</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_STATE__EXPRESSION = 1;
+	int ESM_STATE__KIND = IESM_STATE__KIND;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_STATE__DESCRIPTION = IESM_STATE__DESCRIPTION;
 
 	/**
 	 * The number of structural features of the '<em>State</em>' class.
@@ -230,7 +370,236 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_STATE_FEATURE_COUNT = 2;
+	int ESM_STATE_FEATURE_COUNT = IESM_STATE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.esm.impl.EsmDerivedStateImpl <em>Derived State</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.esm.impl.EsmDerivedStateImpl
+	 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getEsmDerivedState()
+	 * @generated
+	 */
+	int ESM_DERIVED_STATE = 6;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_DERIVED_STATE__STATE = ESM_STATE__STATE;
+
+	/**
+	 * The feature id for the '<em><b>Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_DERIVED_STATE__KIND = ESM_STATE__KIND;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_DERIVED_STATE__DESCRIPTION = ESM_STATE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_DERIVED_STATE__EXPRESSION = ESM_STATE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Derived State</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_DERIVED_STATE_FEATURE_COUNT = ESM_STATE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.esm.impl.EsmCompositeStateImpl <em>Composite State</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.esm.impl.EsmCompositeStateImpl
+	 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getEsmCompositeState()
+	 * @generated
+	 */
+	int ESM_COMPOSITE_STATE = 7;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_COMPOSITE_STATE__STATE = IESM_STATE__STATE;
+
+	/**
+	 * The feature id for the '<em><b>Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_COMPOSITE_STATE__KIND = IESM_STATE__KIND;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_COMPOSITE_STATE__DESCRIPTION = IESM_STATE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Direction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_COMPOSITE_STATE__DIRECTION = IESM_STATE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>States</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_COMPOSITE_STATE__STATES = IESM_STATE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_COMPOSITE_STATE__TRANSITIONS = IESM_STATE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Composite State</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_COMPOSITE_STATE_FEATURE_COUNT = IESM_STATE_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.esm.impl.EsmConcurrentStateImpl <em>Concurrent State</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.esm.impl.EsmConcurrentStateImpl
+	 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getEsmConcurrentState()
+	 * @generated
+	 */
+	int ESM_CONCURRENT_STATE = 8;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_CONCURRENT_STATE__STATE = IESM_STATE__STATE;
+
+	/**
+	 * The feature id for the '<em><b>Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_CONCURRENT_STATE__KIND = IESM_STATE__KIND;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_CONCURRENT_STATE__DESCRIPTION = IESM_STATE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Sub States</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_CONCURRENT_STATE__SUB_STATES = IESM_STATE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Concurrent State</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_CONCURRENT_STATE_FEATURE_COUNT = IESM_STATE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.esm.impl.EsmSubStateModelImpl <em>Sub State Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.esm.impl.EsmSubStateModelImpl
+	 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getEsmSubStateModel()
+	 * @generated
+	 */
+	int ESM_SUB_STATE_MODEL = 9;
+
+	/**
+	 * The feature id for the '<em><b>Direction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_SUB_STATE_MODEL__DIRECTION = IESM_STATE_MODEL__DIRECTION;
+
+	/**
+	 * The feature id for the '<em><b>States</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_SUB_STATE_MODEL__STATES = IESM_STATE_MODEL__STATES;
+
+	/**
+	 * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_SUB_STATE_MODEL__TRANSITIONS = IESM_STATE_MODEL__TRANSITIONS;
+
+	/**
+	 * The number of structural features of the '<em>Sub State Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_SUB_STATE_MODEL_FEATURE_COUNT = IESM_STATE_MODEL_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.esm.impl.EsmTransitionImpl <em>Transition</em>}' class.
@@ -240,7 +609,16 @@ public interface EsmPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getEsmTransition()
 	 * @generated
 	 */
-	int ESM_TRANSITION = 3;
+	int ESM_TRANSITION = 10;
+
+	/**
+	 * The feature id for the '<em><b>Direction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_TRANSITION__DIRECTION = IESM_LAYOUT__DIRECTION;
 
 	/**
 	 * The feature id for the '<em><b>From</b></em>' reference.
@@ -249,7 +627,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_TRANSITION__FROM = 0;
+	int ESM_TRANSITION__FROM = IESM_LAYOUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>To</b></em>' reference.
@@ -258,7 +636,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_TRANSITION__TO = 1;
+	int ESM_TRANSITION__TO = IESM_LAYOUT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Event</b></em>' reference.
@@ -267,7 +645,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_TRANSITION__EVENT = 2;
+	int ESM_TRANSITION__EVENT = IESM_LAYOUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
@@ -276,7 +654,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_TRANSITION__GUARD = 3;
+	int ESM_TRANSITION__GUARD = IESM_LAYOUT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Transition</em>' class.
@@ -285,7 +663,27 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_TRANSITION_FEATURE_COUNT = 4;
+	int ESM_TRANSITION_FEATURE_COUNT = IESM_LAYOUT_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.esm.EsmLayoutDirection <em>Layout Direction</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.esm.EsmLayoutDirection
+	 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getEsmLayoutDirection()
+	 * @generated
+	 */
+	int ESM_LAYOUT_DIRECTION = 11;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.esm.EsmStateKind <em>State Kind</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.esm.EsmStateKind
+	 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getEsmStateKind()
+	 * @generated
+	 */
+	int ESM_STATE_KIND = 12;
 
 
 	/**
@@ -321,6 +719,59 @@ public interface EsmPackage extends EPackage
 	EReference getEsmDomain_StateModel();
 
 	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.esm.IEsmLayout <em>IEsm Layout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IEsm Layout</em>'.
+	 * @see com.mimacom.ddd.dm.esm.IEsmLayout
+	 * @generated
+	 */
+	EClass getIEsmLayout();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.esm.IEsmLayout#getDirection <em>Direction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Direction</em>'.
+	 * @see com.mimacom.ddd.dm.esm.IEsmLayout#getDirection()
+	 * @see #getIEsmLayout()
+	 * @generated
+	 */
+	EAttribute getIEsmLayout_Direction();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.esm.IEsmStateModel <em>IEsm State Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IEsm State Model</em>'.
+	 * @see com.mimacom.ddd.dm.esm.IEsmStateModel
+	 * @generated
+	 */
+	EClass getIEsmStateModel();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.esm.IEsmStateModel#getStates <em>States</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>States</em>'.
+	 * @see com.mimacom.ddd.dm.esm.IEsmStateModel#getStates()
+	 * @see #getIEsmStateModel()
+	 * @generated
+	 */
+	EReference getIEsmStateModel_States();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.esm.IEsmStateModel#getTransitions <em>Transitions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Transitions</em>'.
+	 * @see com.mimacom.ddd.dm.esm.IEsmStateModel#getTransitions()
+	 * @see #getIEsmStateModel()
+	 * @generated
+	 */
+	EReference getIEsmStateModel_Transitions();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.esm.EsmEntityStateModel <em>Entity State Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -329,17 +780,6 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 */
 	EClass getEsmEntityStateModel();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.esm.EsmEntityStateModel#getStates <em>States</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>States</em>'.
-	 * @see com.mimacom.ddd.dm.esm.EsmEntityStateModel#getStates()
-	 * @see #getEsmEntityStateModel()
-	 * @generated
-	 */
-	EReference getEsmEntityStateModel_States();
 
 	/**
 	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.esm.EsmEntityStateModel#getForType <em>For Type</em>}'.
@@ -353,15 +793,47 @@ public interface EsmPackage extends EPackage
 	EReference getEsmEntityStateModel_ForType();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.esm.EsmEntityStateModel#getTransition <em>Transition</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.esm.IEsmState <em>IEsm State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Transition</em>'.
-	 * @see com.mimacom.ddd.dm.esm.EsmEntityStateModel#getTransition()
-	 * @see #getEsmEntityStateModel()
+	 * @return the meta object for class '<em>IEsm State</em>'.
+	 * @see com.mimacom.ddd.dm.esm.IEsmState
 	 * @generated
 	 */
-	EReference getEsmEntityStateModel_Transition();
+	EClass getIEsmState();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.esm.IEsmState#getState <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>State</em>'.
+	 * @see com.mimacom.ddd.dm.esm.IEsmState#getState()
+	 * @see #getIEsmState()
+	 * @generated
+	 */
+	EReference getIEsmState_State();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.esm.IEsmState#getKind <em>Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Kind</em>'.
+	 * @see com.mimacom.ddd.dm.esm.IEsmState#getKind()
+	 * @see #getIEsmState()
+	 * @generated
+	 */
+	EAttribute getIEsmState_Kind();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.esm.IEsmState#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Description</em>'.
+	 * @see com.mimacom.ddd.dm.esm.IEsmState#getDescription()
+	 * @see #getIEsmState()
+	 * @generated
+	 */
+	EReference getIEsmState_Description();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.esm.EsmState <em>State</em>}'.
@@ -374,26 +846,66 @@ public interface EsmPackage extends EPackage
 	EClass getEsmState();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.esm.EsmState#getState <em>State</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.esm.EsmDerivedState <em>Derived State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>State</em>'.
-	 * @see com.mimacom.ddd.dm.esm.EsmState#getState()
-	 * @see #getEsmState()
+	 * @return the meta object for class '<em>Derived State</em>'.
+	 * @see com.mimacom.ddd.dm.esm.EsmDerivedState
 	 * @generated
 	 */
-	EReference getEsmState_State();
+	EClass getEsmDerivedState();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.esm.EsmState#getExpression <em>Expression</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.esm.EsmDerivedState#getExpression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Expression</em>'.
-	 * @see com.mimacom.ddd.dm.esm.EsmState#getExpression()
-	 * @see #getEsmState()
+	 * @see com.mimacom.ddd.dm.esm.EsmDerivedState#getExpression()
+	 * @see #getEsmDerivedState()
 	 * @generated
 	 */
-	EReference getEsmState_Expression();
+	EReference getEsmDerivedState_Expression();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.esm.EsmCompositeState <em>Composite State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Composite State</em>'.
+	 * @see com.mimacom.ddd.dm.esm.EsmCompositeState
+	 * @generated
+	 */
+	EClass getEsmCompositeState();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.esm.EsmConcurrentState <em>Concurrent State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Concurrent State</em>'.
+	 * @see com.mimacom.ddd.dm.esm.EsmConcurrentState
+	 * @generated
+	 */
+	EClass getEsmConcurrentState();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.esm.EsmConcurrentState#getSubStates <em>Sub States</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sub States</em>'.
+	 * @see com.mimacom.ddd.dm.esm.EsmConcurrentState#getSubStates()
+	 * @see #getEsmConcurrentState()
+	 * @generated
+	 */
+	EReference getEsmConcurrentState_SubStates();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.esm.EsmSubStateModel <em>Sub State Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sub State Model</em>'.
+	 * @see com.mimacom.ddd.dm.esm.EsmSubStateModel
+	 * @generated
+	 */
+	EClass getEsmSubStateModel();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.esm.EsmTransition <em>Transition</em>}'.
@@ -450,6 +962,26 @@ public interface EsmPackage extends EPackage
 	EReference getEsmTransition_Guard();
 
 	/**
+	 * Returns the meta object for enum '{@link com.mimacom.ddd.dm.esm.EsmLayoutDirection <em>Layout Direction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Layout Direction</em>'.
+	 * @see com.mimacom.ddd.dm.esm.EsmLayoutDirection
+	 * @generated
+	 */
+	EEnum getEsmLayoutDirection();
+
+	/**
+	 * Returns the meta object for enum '{@link com.mimacom.ddd.dm.esm.EsmStateKind <em>State Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>State Kind</em>'.
+	 * @see com.mimacom.ddd.dm.esm.EsmStateKind
+	 * @generated
+	 */
+	EEnum getEsmStateKind();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -499,6 +1031,50 @@ public interface EsmPackage extends EPackage
 		EReference ESM_DOMAIN__STATE_MODEL = eINSTANCE.getEsmDomain_StateModel();
 
 		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.esm.IEsmLayout <em>IEsm Layout</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.esm.IEsmLayout
+		 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getIEsmLayout()
+		 * @generated
+		 */
+		EClass IESM_LAYOUT = eINSTANCE.getIEsmLayout();
+
+		/**
+		 * The meta object literal for the '<em><b>Direction</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IESM_LAYOUT__DIRECTION = eINSTANCE.getIEsmLayout_Direction();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.esm.IEsmStateModel <em>IEsm State Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.esm.IEsmStateModel
+		 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getIEsmStateModel()
+		 * @generated
+		 */
+		EClass IESM_STATE_MODEL = eINSTANCE.getIEsmStateModel();
+
+		/**
+		 * The meta object literal for the '<em><b>States</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IESM_STATE_MODEL__STATES = eINSTANCE.getIEsmStateModel_States();
+
+		/**
+		 * The meta object literal for the '<em><b>Transitions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IESM_STATE_MODEL__TRANSITIONS = eINSTANCE.getIEsmStateModel_Transitions();
+
+		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.esm.impl.EsmEntityStateModelImpl <em>Entity State Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -509,14 +1085,6 @@ public interface EsmPackage extends EPackage
 		EClass ESM_ENTITY_STATE_MODEL = eINSTANCE.getEsmEntityStateModel();
 
 		/**
-		 * The meta object literal for the '<em><b>States</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ESM_ENTITY_STATE_MODEL__STATES = eINSTANCE.getEsmEntityStateModel_States();
-
-		/**
 		 * The meta object literal for the '<em><b>For Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -525,12 +1093,38 @@ public interface EsmPackage extends EPackage
 		EReference ESM_ENTITY_STATE_MODEL__FOR_TYPE = eINSTANCE.getEsmEntityStateModel_ForType();
 
 		/**
-		 * The meta object literal for the '<em><b>Transition</b></em>' containment reference list feature.
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.esm.impl.IEsmStateImpl <em>IEsm State</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.esm.impl.IEsmStateImpl
+		 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getIEsmState()
+		 * @generated
+		 */
+		EClass IESM_STATE = eINSTANCE.getIEsmState();
+
+		/**
+		 * The meta object literal for the '<em><b>State</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ESM_ENTITY_STATE_MODEL__TRANSITION = eINSTANCE.getEsmEntityStateModel_Transition();
+		EReference IESM_STATE__STATE = eINSTANCE.getIEsmState_State();
+
+		/**
+		 * The meta object literal for the '<em><b>Kind</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IESM_STATE__KIND = eINSTANCE.getIEsmState_Kind();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IESM_STATE__DESCRIPTION = eINSTANCE.getIEsmState_Description();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.esm.impl.EsmStateImpl <em>State</em>}' class.
@@ -543,12 +1137,14 @@ public interface EsmPackage extends EPackage
 		EClass ESM_STATE = eINSTANCE.getEsmState();
 
 		/**
-		 * The meta object literal for the '<em><b>State</b></em>' reference feature.
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.esm.impl.EsmDerivedStateImpl <em>Derived State</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.esm.impl.EsmDerivedStateImpl
+		 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getEsmDerivedState()
 		 * @generated
 		 */
-		EReference ESM_STATE__STATE = eINSTANCE.getEsmState_State();
+		EClass ESM_DERIVED_STATE = eINSTANCE.getEsmDerivedState();
 
 		/**
 		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
@@ -556,7 +1152,45 @@ public interface EsmPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ESM_STATE__EXPRESSION = eINSTANCE.getEsmState_Expression();
+		EReference ESM_DERIVED_STATE__EXPRESSION = eINSTANCE.getEsmDerivedState_Expression();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.esm.impl.EsmCompositeStateImpl <em>Composite State</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.esm.impl.EsmCompositeStateImpl
+		 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getEsmCompositeState()
+		 * @generated
+		 */
+		EClass ESM_COMPOSITE_STATE = eINSTANCE.getEsmCompositeState();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.esm.impl.EsmConcurrentStateImpl <em>Concurrent State</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.esm.impl.EsmConcurrentStateImpl
+		 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getEsmConcurrentState()
+		 * @generated
+		 */
+		EClass ESM_CONCURRENT_STATE = eINSTANCE.getEsmConcurrentState();
+
+		/**
+		 * The meta object literal for the '<em><b>Sub States</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ESM_CONCURRENT_STATE__SUB_STATES = eINSTANCE.getEsmConcurrentState_SubStates();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.esm.impl.EsmSubStateModelImpl <em>Sub State Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.esm.impl.EsmSubStateModelImpl
+		 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getEsmSubStateModel()
+		 * @generated
+		 */
+		EClass ESM_SUB_STATE_MODEL = eINSTANCE.getEsmSubStateModel();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.esm.impl.EsmTransitionImpl <em>Transition</em>}' class.
@@ -599,6 +1233,26 @@ public interface EsmPackage extends EPackage
 		 * @generated
 		 */
 		EReference ESM_TRANSITION__GUARD = eINSTANCE.getEsmTransition_Guard();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.esm.EsmLayoutDirection <em>Layout Direction</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.esm.EsmLayoutDirection
+		 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getEsmLayoutDirection()
+		 * @generated
+		 */
+		EEnum ESM_LAYOUT_DIRECTION = eINSTANCE.getEsmLayoutDirection();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.esm.EsmStateKind <em>State Kind</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.esm.EsmStateKind
+		 * @see com.mimacom.ddd.dm.esm.impl.EsmPackageImpl#getEsmStateKind()
+		 * @generated
+		 */
+		EEnum ESM_STATE_KIND = eINSTANCE.getEsmStateKind();
 
 	}
 

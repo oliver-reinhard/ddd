@@ -435,7 +435,7 @@
 	<extension point="net.sourceforge.plantuml.eclipse.diagramTextProvider">
 	   <diagramTextProvider
 	         priority="100"
-	         providerClass="com.mimacom.ddd.dm.dim.ui.plantuml.DimDiagramTextProvider">
+	         providerClass="com.mimacom.ddd.dm.dim.ui.plantuml.DimDiagramTextProviderWrapper">
 	   </diagramTextProvider>
 	</extension>
 </plugin>

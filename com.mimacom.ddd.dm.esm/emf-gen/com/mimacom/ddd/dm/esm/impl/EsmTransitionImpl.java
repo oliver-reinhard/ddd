@@ -4,10 +4,11 @@
 package com.mimacom.ddd.dm.esm.impl;
 
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DState;
 import com.mimacom.ddd.dm.base.DStateEvent;
 
+import com.mimacom.ddd.dm.esm.EsmLayoutDirection;
 import com.mimacom.ddd.dm.esm.EsmPackage;
-import com.mimacom.ddd.dm.esm.EsmState;
 import com.mimacom.ddd.dm.esm.EsmTransition;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmTransitionImpl#getDirection <em>Direction</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmTransitionImpl#getFrom <em>From</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmTransitionImpl#getTo <em>To</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmTransitionImpl#getEvent <em>Event</em>}</li>
@@ -38,6 +40,26 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements EsmTransition
 {
 	/**
+	 * The default value of the '{@link #getDirection() <em>Direction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDirection()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EsmLayoutDirection DIRECTION_EDEFAULT = EsmLayoutDirection.DEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDirection() <em>Direction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDirection()
+	 * @generated
+	 * @ordered
+	 */
+	protected EsmLayoutDirection direction = DIRECTION_EDEFAULT;
+
+	/**
 	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -45,7 +67,7 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * @generated
 	 * @ordered
 	 */
-	protected EsmState from;
+	protected DState from;
 
 	/**
 	 * The cached value of the '{@link #getTo() <em>To</em>}' reference.
@@ -55,7 +77,7 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * @generated
 	 * @ordered
 	 */
-	protected EsmState to;
+	protected DState to;
 
 	/**
 	 * The cached value of the '{@link #getEvent() <em>Event</em>}' reference.
@@ -104,12 +126,37 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * @generated
 	 */
 	@Override
-	public EsmState getFrom()
+	public EsmLayoutDirection getDirection()
+	{
+		return direction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDirection(EsmLayoutDirection newDirection)
+	{
+		EsmLayoutDirection oldDirection = direction;
+		direction = newDirection == null ? DIRECTION_EDEFAULT : newDirection;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsmPackage.ESM_TRANSITION__DIRECTION, oldDirection, direction));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DState getFrom()
 	{
 		if (from != null && from.eIsProxy())
 		{
 			InternalEObject oldFrom = (InternalEObject)from;
-			from = (EsmState)eResolveProxy(oldFrom);
+			from = (DState)eResolveProxy(oldFrom);
 			if (from != oldFrom)
 			{
 				if (eNotificationRequired())
@@ -124,7 +171,7 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EsmState basicGetFrom()
+	public DState basicGetFrom()
 	{
 		return from;
 	}
@@ -135,9 +182,9 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * @generated
 	 */
 	@Override
-	public void setFrom(EsmState newFrom)
+	public void setFrom(DState newFrom)
 	{
-		EsmState oldFrom = from;
+		DState oldFrom = from;
 		from = newFrom;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsmPackage.ESM_TRANSITION__FROM, oldFrom, from));
@@ -149,12 +196,12 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * @generated
 	 */
 	@Override
-	public EsmState getTo()
+	public DState getTo()
 	{
 		if (to != null && to.eIsProxy())
 		{
 			InternalEObject oldTo = (InternalEObject)to;
-			to = (EsmState)eResolveProxy(oldTo);
+			to = (DState)eResolveProxy(oldTo);
 			if (to != oldTo)
 			{
 				if (eNotificationRequired())
@@ -169,7 +216,7 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EsmState basicGetTo()
+	public DState basicGetTo()
 	{
 		return to;
 	}
@@ -180,9 +227,9 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * @generated
 	 */
 	@Override
-	public void setTo(EsmState newTo)
+	public void setTo(DState newTo)
 	{
-		EsmState oldTo = to;
+		DState oldTo = to;
 		to = newTo;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsmPackage.ESM_TRANSITION__TO, oldTo, to));
@@ -309,6 +356,8 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	{
 		switch (featureID)
 		{
+			case EsmPackage.ESM_TRANSITION__DIRECTION:
+				return getDirection();
 			case EsmPackage.ESM_TRANSITION__FROM:
 				if (resolve) return getFrom();
 				return basicGetFrom();
@@ -334,11 +383,14 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	{
 		switch (featureID)
 		{
+			case EsmPackage.ESM_TRANSITION__DIRECTION:
+				setDirection((EsmLayoutDirection)newValue);
+				return;
 			case EsmPackage.ESM_TRANSITION__FROM:
-				setFrom((EsmState)newValue);
+				setFrom((DState)newValue);
 				return;
 			case EsmPackage.ESM_TRANSITION__TO:
-				setTo((EsmState)newValue);
+				setTo((DState)newValue);
 				return;
 			case EsmPackage.ESM_TRANSITION__EVENT:
 				setEvent((DStateEvent)newValue);
@@ -360,11 +412,14 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	{
 		switch (featureID)
 		{
+			case EsmPackage.ESM_TRANSITION__DIRECTION:
+				setDirection(DIRECTION_EDEFAULT);
+				return;
 			case EsmPackage.ESM_TRANSITION__FROM:
-				setFrom((EsmState)null);
+				setFrom((DState)null);
 				return;
 			case EsmPackage.ESM_TRANSITION__TO:
-				setTo((EsmState)null);
+				setTo((DState)null);
 				return;
 			case EsmPackage.ESM_TRANSITION__EVENT:
 				setEvent((DStateEvent)null);
@@ -386,6 +441,8 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	{
 		switch (featureID)
 		{
+			case EsmPackage.ESM_TRANSITION__DIRECTION:
+				return direction != DIRECTION_EDEFAULT;
 			case EsmPackage.ESM_TRANSITION__FROM:
 				return from != null;
 			case EsmPackage.ESM_TRANSITION__TO:
@@ -396,6 +453,23 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 				return guard != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString()
+	{
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (direction: ");
+		result.append(direction);
+		result.append(')');
+		return result.toString();
 	}
 
 } //EsmTransitionImpl

@@ -5,8 +5,7 @@ package com.mimacom.ddd.dm.esm;
 
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DNamedElement;
-
-import org.eclipse.emf.common.util.EList;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,29 +16,15 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.esm.EsmEntityStateModel#getStates <em>States</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.EsmEntityStateModel#getForType <em>For Type</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.esm.EsmEntityStateModel#getTransition <em>Transition</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmEntityStateModel()
  * @model
  * @generated
  */
-public interface EsmEntityStateModel extends DNamedElement
+public interface EsmEntityStateModel extends DNamedElement, IEsmStateModel, INavigableMemberContainer
 {
-	/**
-	 * Returns the value of the '<em><b>States</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.esm.EsmState}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>States</em>' containment reference list.
-	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmEntityStateModel_States()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<EsmState> getStates();
-
 	/**
 	 * Returns the value of the '<em><b>For Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -61,17 +46,5 @@ public interface EsmEntityStateModel extends DNamedElement
 	 * @generated
 	 */
 	void setForType(DEntityType value);
-
-	/**
-	 * Returns the value of the '<em><b>Transition</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.esm.EsmTransition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transition</em>' containment reference list.
-	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmEntityStateModel_Transition()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<EsmTransition> getTransition();
 
 } // EsmEntityStateModel

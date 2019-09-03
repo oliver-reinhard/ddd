@@ -51,6 +51,42 @@ public interface EsmFactory extends EFactory
 	EsmState createEsmState();
 
 	/**
+	 * Returns a new object of class '<em>Derived State</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Derived State</em>'.
+	 * @generated
+	 */
+	EsmDerivedState createEsmDerivedState();
+
+	/**
+	 * Returns a new object of class '<em>Composite State</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Composite State</em>'.
+	 * @generated
+	 */
+	EsmCompositeState createEsmCompositeState();
+
+	/**
+	 * Returns a new object of class '<em>Concurrent State</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Concurrent State</em>'.
+	 * @generated
+	 */
+	EsmConcurrentState createEsmConcurrentState();
+
+	/**
+	 * Returns a new object of class '<em>Sub State Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sub State Model</em>'.
+	 * @generated
+	 */
+	EsmSubStateModel createEsmSubStateModel();
+
+	/**
 	 * Returns a new object of class '<em>Transition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

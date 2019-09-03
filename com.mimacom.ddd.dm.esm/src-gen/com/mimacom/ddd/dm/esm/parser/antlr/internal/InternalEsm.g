@@ -238,9 +238,12 @@ ruleEsmEntityStateModel returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getEsmEntityStateModelRule());
 					}
 				}
-				otherlv_4=RULE_ID
 				{
-					newLeafNode(otherlv_4, grammarAccess.getEsmEntityStateModelAccess().getForTypeDEntityTypeCrossReference_4_0());
+					newCompositeNode(grammarAccess.getEsmEntityStateModelAccess().getForTypeDEntityTypeCrossReference_4_0());
+				}
+				ruleDQualifiedName
+				{
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -263,16 +266,41 @@ ruleEsmEntityStateModel returns [EObject current=null]
 				}
 			)
 		)?
-		otherlv_6='states'
+		otherlv_6='{'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getEsmEntityStateModelAccess().getStatesKeyword_6());
+			newLeafNode(otherlv_6, grammarAccess.getEsmEntityStateModelAccess().getLeftCurlyBracketKeyword_6());
 		}
+		(
+			otherlv_7='direction'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getEsmEntityStateModelAccess().getDirectionKeyword_7_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getEsmEntityStateModelAccess().getDirectionEsmLayoutDirectionEnumRuleCall_7_1_0());
+					}
+					lv_direction_8_0=ruleEsmLayoutDirection
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getEsmEntityStateModelRule());
+						}
+						set(
+							$current,
+							"direction",
+							lv_direction_8_0,
+							"com.mimacom.ddd.dm.esm.Esm.EsmLayoutDirection");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEsmEntityStateModelAccess().getStatesEsmStateParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getEsmEntityStateModelAccess().getStatesEsmStateParserRuleCall_8_0());
 				}
-				lv_states_7_0=ruleEsmState
+				lv_states_9_0=ruleEsmState
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getEsmEntityStateModelRule());
@@ -280,183 +308,35 @@ ruleEsmEntityStateModel returns [EObject current=null]
 					add(
 						$current,
 						"states",
-						lv_states_7_0,
+						lv_states_9_0,
 						"com.mimacom.ddd.dm.esm.Esm.EsmState");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)+
-		otherlv_8='transitions'
-		{
-			newLeafNode(otherlv_8, grammarAccess.getEsmEntityStateModelAccess().getTransitionsKeyword_8());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEsmEntityStateModelAccess().getTransitionEsmTransitionParserRuleCall_9_0());
+					newCompositeNode(grammarAccess.getEsmEntityStateModelAccess().getTransitionsEsmTransitionParserRuleCall_9_0());
 				}
-				lv_transition_9_0=ruleEsmTransition
+				lv_transitions_10_0=ruleEsmTransition
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getEsmEntityStateModelRule());
 					}
 					add(
 						$current,
-						"transition",
-						lv_transition_9_0,
+						"transitions",
+						lv_transitions_10_0,
 						"com.mimacom.ddd.dm.esm.Esm.EsmTransition");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)+
-	)
-;
-
-// Entry rule entryRuleEsmState
-entryRuleEsmState returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getEsmStateRule()); }
-	iv_ruleEsmState=ruleEsmState
-	{ $current=$iv_ruleEsmState.current; }
-	EOF;
-
-// Rule EsmState
-ruleEsmState returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEsmStateRule());
-					}
-				}
-				otherlv_0=RULE_ID
-				{
-					newLeafNode(otherlv_0, grammarAccess.getEsmStateAccess().getStateDStateCrossReference_0_0());
-				}
-			)
-		)
-		(
-			otherlv_1='when'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getEsmStateAccess().getWhenKeyword_1_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getEsmStateAccess().getExpressionDExpressionParserRuleCall_1_1_0());
-					}
-					lv_expression_2_0=ruleDExpression
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getEsmStateRule());
-						}
-						set(
-							$current,
-							"expression",
-							lv_expression_2_0,
-							"com.mimacom.ddd.dm.esm.Esm.DExpression");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-	)
-;
-
-// Entry rule entryRuleEsmTransition
-entryRuleEsmTransition returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getEsmTransitionRule()); }
-	iv_ruleEsmTransition=ruleEsmTransition
-	{ $current=$iv_ruleEsmTransition.current; }
-	EOF;
-
-// Rule EsmTransition
-ruleEsmTransition returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEsmTransitionRule());
-					}
-				}
-				otherlv_0=RULE_ID
-				{
-					newLeafNode(otherlv_0, grammarAccess.getEsmTransitionAccess().getFromEsmStateCrossReference_0_0());
-				}
-			)
-		)
-		otherlv_1='to'
+		otherlv_11='}'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getEsmTransitionAccess().getToKeyword_1());
+			newLeafNode(otherlv_11, grammarAccess.getEsmEntityStateModelAccess().getRightCurlyBracketKeyword_10());
 		}
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEsmTransitionRule());
-					}
-				}
-				otherlv_2=RULE_ID
-				{
-					newLeafNode(otherlv_2, grammarAccess.getEsmTransitionAccess().getToEsmStateCrossReference_2_0());
-				}
-			)
-		)
-		otherlv_3='as'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getEsmTransitionAccess().getAsKeyword_3());
-		}
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEsmTransitionRule());
-					}
-				}
-				otherlv_4=RULE_ID
-				{
-					newLeafNode(otherlv_4, grammarAccess.getEsmTransitionAccess().getEventDStateEventCrossReference_4_0());
-				}
-			)
-		)
-		(
-			otherlv_5='when'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getEsmTransitionAccess().getWhenKeyword_5_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getEsmTransitionAccess().getGuardDExpressionParserRuleCall_5_1_0());
-					}
-					lv_guard_6_0=ruleDExpression
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getEsmTransitionRule());
-						}
-						set(
-							$current,
-							"guard",
-							lv_guard_6_0,
-							"com.mimacom.ddd.dm.esm.Esm.DExpression");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
 	)
 ;
 
@@ -493,6 +373,693 @@ ruleDExpression returns [EObject current=null]
 			$current = $this_DRichText_1.current;
 			afterParserOrEnumRuleCall();
 		}
+	)
+;
+
+// Entry rule entryRuleEsmState
+entryRuleEsmState returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEsmStateRule()); }
+	iv_ruleEsmState=ruleEsmState
+	{ $current=$iv_ruleEsmState.current; }
+	EOF;
+
+// Rule EsmState
+ruleEsmState returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getEsmStateAccess().getEsmNormalStateParserRuleCall_0());
+		}
+		this_EsmNormalState_0=ruleEsmNormalState
+		{
+			$current = $this_EsmNormalState_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getEsmStateAccess().getEsmDerivedStateParserRuleCall_1());
+		}
+		this_EsmDerivedState_1=ruleEsmDerivedState
+		{
+			$current = $this_EsmDerivedState_1.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getEsmStateAccess().getEsmCompositeStateParserRuleCall_2());
+		}
+		this_EsmCompositeState_2=ruleEsmCompositeState
+		{
+			$current = $this_EsmCompositeState_2.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getEsmStateAccess().getEsmConcurrentStateParserRuleCall_3());
+		}
+		this_EsmConcurrentState_3=ruleEsmConcurrentState
+		{
+			$current = $this_EsmConcurrentState_3.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleEsmNormalState
+entryRuleEsmNormalState returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEsmNormalStateRule()); }
+	iv_ruleEsmNormalState=ruleEsmNormalState
+	{ $current=$iv_ruleEsmNormalState.current; }
+	EOF;
+
+// Rule EsmNormalState
+ruleEsmNormalState returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getEsmNormalStateAccess().getKindEsmStateKindEnumRuleCall_0_0_0_0());
+						}
+						lv_kind_0_0=ruleEsmStateKind
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getEsmNormalStateRule());
+							}
+							set(
+								$current,
+								"kind",
+								lv_kind_0_0,
+								"com.mimacom.ddd.dm.esm.Esm.EsmStateKind");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				(
+					otherlv_1='state'
+					{
+						newLeafNode(otherlv_1, grammarAccess.getEsmNormalStateAccess().getStateKeyword_0_0_1());
+					}
+				)?
+			)
+			    |
+			otherlv_2='state'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getEsmNormalStateAccess().getStateKeyword_0_1());
+			}
+		)
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEsmNormalStateRule());
+					}
+				}
+				otherlv_3=RULE_ID
+				{
+					newLeafNode(otherlv_3, grammarAccess.getEsmNormalStateAccess().getStateDStateCrossReference_1_0());
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEsmNormalStateAccess().getDescriptionDRichTextParserRuleCall_2_0());
+				}
+				lv_description_4_0=ruleDRichText
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEsmNormalStateRule());
+					}
+					set(
+						$current,
+						"description",
+						lv_description_4_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+	)
+;
+
+// Entry rule entryRuleEsmDerivedState
+entryRuleEsmDerivedState returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEsmDerivedStateRule()); }
+	iv_ruleEsmDerivedState=ruleEsmDerivedState
+	{ $current=$iv_ruleEsmDerivedState.current; }
+	EOF;
+
+// Rule EsmDerivedState
+ruleEsmDerivedState returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='derived'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getEsmDerivedStateAccess().getDerivedKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEsmDerivedStateAccess().getKindEsmStateKindEnumRuleCall_1_0());
+				}
+				lv_kind_1_0=ruleEsmStateKind
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEsmDerivedStateRule());
+					}
+					set(
+						$current,
+						"kind",
+						lv_kind_1_0,
+						"com.mimacom.ddd.dm.esm.Esm.EsmStateKind");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			otherlv_2='state'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getEsmDerivedStateAccess().getStateKeyword_2());
+			}
+		)?
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEsmDerivedStateRule());
+					}
+				}
+				otherlv_3=RULE_ID
+				{
+					newLeafNode(otherlv_3, grammarAccess.getEsmDerivedStateAccess().getStateDStateCrossReference_3_0());
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEsmDerivedStateAccess().getDescriptionDRichTextParserRuleCall_4_0());
+				}
+				lv_description_4_0=ruleDRichText
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEsmDerivedStateRule());
+					}
+					set(
+						$current,
+						"description",
+						lv_description_4_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		otherlv_5='when'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getEsmDerivedStateAccess().getWhenKeyword_5());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEsmDerivedStateAccess().getExpressionDExpressionParserRuleCall_6_0());
+				}
+				lv_expression_6_0=ruleDExpression
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEsmDerivedStateRule());
+					}
+					set(
+						$current,
+						"expression",
+						lv_expression_6_0,
+						"com.mimacom.ddd.dm.esm.Esm.DExpression");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleEsmCompositeState
+entryRuleEsmCompositeState returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEsmCompositeStateRule()); }
+	iv_ruleEsmCompositeState=ruleEsmCompositeState
+	{ $current=$iv_ruleEsmCompositeState.current; }
+	EOF;
+
+// Rule EsmCompositeState
+ruleEsmCompositeState returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='composite'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getEsmCompositeStateAccess().getCompositeKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEsmCompositeStateAccess().getKindEsmStateKindEnumRuleCall_1_0());
+				}
+				lv_kind_1_0=ruleEsmStateKind
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEsmCompositeStateRule());
+					}
+					set(
+						$current,
+						"kind",
+						lv_kind_1_0,
+						"com.mimacom.ddd.dm.esm.Esm.EsmStateKind");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			otherlv_2='state'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getEsmCompositeStateAccess().getStateKeyword_2());
+			}
+		)?
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEsmCompositeStateRule());
+					}
+				}
+				otherlv_3=RULE_ID
+				{
+					newLeafNode(otherlv_3, grammarAccess.getEsmCompositeStateAccess().getStateDStateCrossReference_3_0());
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEsmCompositeStateAccess().getDescriptionDRichTextParserRuleCall_4_0());
+				}
+				lv_description_4_0=ruleDRichText
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEsmCompositeStateRule());
+					}
+					set(
+						$current,
+						"description",
+						lv_description_4_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		otherlv_5='{'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getEsmCompositeStateAccess().getLeftCurlyBracketKeyword_5());
+		}
+		(
+			otherlv_6='direction'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getEsmCompositeStateAccess().getDirectionKeyword_6_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getEsmCompositeStateAccess().getDirectionEsmLayoutDirectionEnumRuleCall_6_1_0());
+					}
+					lv_direction_7_0=ruleEsmLayoutDirection
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getEsmCompositeStateRule());
+						}
+						set(
+							$current,
+							"direction",
+							lv_direction_7_0,
+							"com.mimacom.ddd.dm.esm.Esm.EsmLayoutDirection");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEsmCompositeStateAccess().getStatesEsmStateParserRuleCall_7_0());
+				}
+				lv_states_8_0=ruleEsmState
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEsmCompositeStateRule());
+					}
+					add(
+						$current,
+						"states",
+						lv_states_8_0,
+						"com.mimacom.ddd.dm.esm.Esm.EsmState");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)+
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEsmCompositeStateAccess().getTransitionsEsmTransitionParserRuleCall_8_0());
+				}
+				lv_transitions_9_0=ruleEsmTransition
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEsmCompositeStateRule());
+					}
+					add(
+						$current,
+						"transitions",
+						lv_transitions_9_0,
+						"com.mimacom.ddd.dm.esm.Esm.EsmTransition");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)+
+		otherlv_10='}'
+		{
+			newLeafNode(otherlv_10, grammarAccess.getEsmCompositeStateAccess().getRightCurlyBracketKeyword_9());
+		}
+	)
+;
+
+// Entry rule entryRuleEsmConcurrentState
+entryRuleEsmConcurrentState returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEsmConcurrentStateRule()); }
+	iv_ruleEsmConcurrentState=ruleEsmConcurrentState
+	{ $current=$iv_ruleEsmConcurrentState.current; }
+	EOF;
+
+// Rule EsmConcurrentState
+ruleEsmConcurrentState returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='concurrent'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getEsmConcurrentStateAccess().getConcurrentKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEsmConcurrentStateAccess().getKindEsmStateKindEnumRuleCall_1_0());
+				}
+				lv_kind_1_0=ruleEsmStateKind
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEsmConcurrentStateRule());
+					}
+					set(
+						$current,
+						"kind",
+						lv_kind_1_0,
+						"com.mimacom.ddd.dm.esm.Esm.EsmStateKind");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			otherlv_2='state'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getEsmConcurrentStateAccess().getStateKeyword_2());
+			}
+		)?
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEsmConcurrentStateRule());
+					}
+				}
+				otherlv_3=RULE_ID
+				{
+					newLeafNode(otherlv_3, grammarAccess.getEsmConcurrentStateAccess().getStateDStateCrossReference_3_0());
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEsmConcurrentStateAccess().getDescriptionDRichTextParserRuleCall_4_0());
+				}
+				lv_description_4_0=ruleDRichText
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEsmConcurrentStateRule());
+					}
+					set(
+						$current,
+						"description",
+						lv_description_4_0,
+						"com.mimacom.ddd.dm.dmx.Dmx.DRichText");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		otherlv_5='{'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getEsmConcurrentStateAccess().getLeftCurlyBracketKeyword_5());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEsmConcurrentStateAccess().getSubStatesEsmSubStateModelParserRuleCall_6_0());
+				}
+				lv_subStates_6_0=ruleEsmSubStateModel
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEsmConcurrentStateRule());
+					}
+					add(
+						$current,
+						"subStates",
+						lv_subStates_6_0,
+						"com.mimacom.ddd.dm.esm.Esm.EsmSubStateModel");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)+
+		otherlv_7='}'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getEsmConcurrentStateAccess().getRightCurlyBracketKeyword_7());
+		}
+	)
+;
+
+// Entry rule entryRuleEsmSubStateModel
+entryRuleEsmSubStateModel returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEsmSubStateModelRule()); }
+	iv_ruleEsmSubStateModel=ruleEsmSubStateModel
+	{ $current=$iv_ruleEsmSubStateModel.current; }
+	EOF;
+
+// Rule EsmSubStateModel
+ruleEsmSubStateModel returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='substate'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getEsmSubStateModelAccess().getSubstateKeyword_0());
+		}
+		otherlv_1='{'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getEsmSubStateModelAccess().getLeftCurlyBracketKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEsmSubStateModelAccess().getStatesEsmStateParserRuleCall_2_0());
+				}
+				lv_states_2_0=ruleEsmState
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEsmSubStateModelRule());
+					}
+					add(
+						$current,
+						"states",
+						lv_states_2_0,
+						"com.mimacom.ddd.dm.esm.Esm.EsmState");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)+
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEsmSubStateModelAccess().getTransitionsEsmTransitionParserRuleCall_3_0());
+				}
+				lv_transitions_3_0=ruleEsmTransition
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEsmSubStateModelRule());
+					}
+					add(
+						$current,
+						"transitions",
+						lv_transitions_3_0,
+						"com.mimacom.ddd.dm.esm.Esm.EsmTransition");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)+
+		otherlv_4='}'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getEsmSubStateModelAccess().getRightCurlyBracketKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleEsmTransition
+entryRuleEsmTransition returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEsmTransitionRule()); }
+	iv_ruleEsmTransition=ruleEsmTransition
+	{ $current=$iv_ruleEsmTransition.current; }
+	EOF;
+
+// Rule EsmTransition
+ruleEsmTransition returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='transition'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getEsmTransitionAccess().getTransitionKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEsmTransitionAccess().getDirectionEsmLayoutDirectionEnumRuleCall_1_0());
+				}
+				lv_direction_1_0=ruleEsmLayoutDirection
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEsmTransitionRule());
+					}
+					set(
+						$current,
+						"direction",
+						lv_direction_1_0,
+						"com.mimacom.ddd.dm.esm.Esm.EsmLayoutDirection");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		otherlv_2='from'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getEsmTransitionAccess().getFromKeyword_2());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEsmTransitionRule());
+					}
+				}
+				otherlv_3=RULE_ID
+				{
+					newLeafNode(otherlv_3, grammarAccess.getEsmTransitionAccess().getFromDStateCrossReference_3_0());
+				}
+			)
+		)
+		otherlv_4='to'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getEsmTransitionAccess().getToKeyword_4());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEsmTransitionRule());
+					}
+				}
+				otherlv_5=RULE_ID
+				{
+					newLeafNode(otherlv_5, grammarAccess.getEsmTransitionAccess().getToDStateCrossReference_5_0());
+				}
+			)
+		)
+		otherlv_6='as'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getEsmTransitionAccess().getAsKeyword_6());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEsmTransitionRule());
+					}
+				}
+				otherlv_7=RULE_ID
+				{
+					newLeafNode(otherlv_7, grammarAccess.getEsmTransitionAccess().getEventDStateEventCrossReference_7_0());
+				}
+			)
+		)
+		(
+			otherlv_8='when'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getEsmTransitionAccess().getWhenKeyword_8_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getEsmTransitionAccess().getGuardDExpressionParserRuleCall_8_1_0());
+					}
+					lv_guard_9_0=ruleDExpression
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getEsmTransitionRule());
+						}
+						set(
+							$current,
+							"guard",
+							lv_guard_9_0,
+							"com.mimacom.ddd.dm.esm.Esm.DExpression");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
 	)
 ;
 
@@ -3729,6 +4296,76 @@ ruleDQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRule
 				newLeafNode(this_ID_2, grammarAccess.getDQualifiedNameAccess().getIDTerminalRuleCall_1_1());
 			}
 		)*
+	)
+;
+
+// Rule EsmStateKind
+ruleEsmStateKind returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='initial'
+			{
+				$current = grammarAccess.getEsmStateKindAccess().getINITIALEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getEsmStateKindAccess().getINITIALEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='final'
+			{
+				$current = grammarAccess.getEsmStateKindAccess().getFINALEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getEsmStateKindAccess().getFINALEnumLiteralDeclaration_1());
+			}
+		)
+	)
+;
+
+// Rule EsmLayoutDirection
+ruleEsmLayoutDirection returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='down'
+			{
+				$current = grammarAccess.getEsmLayoutDirectionAccess().getDOWNEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getEsmLayoutDirectionAccess().getDOWNEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='left'
+			{
+				$current = grammarAccess.getEsmLayoutDirectionAccess().getLEFTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getEsmLayoutDirectionAccess().getLEFTEnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='up'
+			{
+				$current = grammarAccess.getEsmLayoutDirectionAccess().getUPEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getEsmLayoutDirectionAccess().getUPEnumLiteralDeclaration_2());
+			}
+		)
+		    |
+		(
+			enumLiteral_3='right'
+			{
+				$current = grammarAccess.getEsmLayoutDirectionAccess().getRIGHTEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getEsmLayoutDirectionAccess().getRIGHTEnumLiteralDeclaration_3());
+			}
+		)
 	)
 ;
 

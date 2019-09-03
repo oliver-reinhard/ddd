@@ -8,6 +8,7 @@ import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DContext
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DEnumeration
+import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DLiteral
 import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DNotification
@@ -64,7 +65,7 @@ class DmxTypeComputer {
 			if (returnType.isCompatible(DmxBaseType.COMPLEX /* ignore collection property */ ) || member.typeDesc.isMultiTyped) {
 //				// propagate type from preceding navigation segment: (this may differ from the actually decared type of the first parameter)
 //				val preceding = expr.precedingNavigationSegment
-//				val precedingTypeDesc = preceding.typeFor // recursion
+//				val precedingTypeDesc = getTypeAndCheckNotNull(preceding) // recursion
 //				return getTypeDescriptor(precedingTypeDesc.type, member.typeDesc.collection)
 
 				// propagate actual type of the first COMPLEX declared parameter (if compatible) or the first multi-valued declared parameter:
@@ -75,9 +76,9 @@ class DmxTypeComputer {
 						var AbstractDmxTypeDescriptor<?> paramActualType
 						 if (i == 0) {
 							val preceding = expr.precedingNavigationSegment
-							paramActualType = preceding.typeFor // recursion
+							paramActualType = typeForAndCheckNotNull(preceding)// recursion
 						} else if (i-1 < actualParameters.size) {  // -1 because first parameter value is implicit (navigation chain)
-							 paramActualType = actualParameters.get(i-1).typeFor // recursion
+							 paramActualType = typeForAndCheckNotNull(actualParameters.get(i-1))// recursion
 						} else {
 							return UNDEFINED
 						}
@@ -91,7 +92,7 @@ class DmxTypeComputer {
 			} else if (member.typeDesc.isCompatible(DmxBaseType.STATE)) {
 			// propagate type from preceding navigation segment: (this must be an DEntityType)
 				val preceding = expr.precedingNavigationSegment
-				val precedingTypeDesc = preceding.typeFor // recursion
+				val precedingTypeDesc = typeForAndCheckNotNull(preceding) // recursion
 				val precedingType = precedingTypeDesc.type
 				if (precedingType instanceof DEntityType) {
 					if (! precedingType.states.empty) {
@@ -150,7 +151,7 @@ class DmxTypeComputer {
 				 if (container instanceof DmxMemberNavigation) {
 				 	if (container.member instanceof DmxFilter) {
 					 	val preceding = container.precedingNavigationSegment
-						val desc = preceding.typeFor // recursion
+						val desc = typeForAndCheckNotNull(preceding) // recursion
 						// the type derived vor correlation Varibles inside a DmxPredicateWithCorrelationVariable block is usually the type of the collection on which the
 						// enclosing iterator is applied => is a collection type, but correlation variable is a single object:
 						desc.collection = false
@@ -186,7 +187,15 @@ class DmxTypeComputer {
 			case UNTIL: BOOLEAN // TODO
 			case SINGLE_ARROW: BOOLEAN // TODO
 			case DOUBLE_ARROW: BOOLEAN // logical "implies"
-			case ADD: NUMBER // TODO consider STRING
+			case ADD: {
+				// left type determines the type of the expression and the expected type(s) of the right operand:
+				val leftType = typeForAndCheckNotNull(expr.leftOperand)
+				return switch leftType.baseType {
+					case TIMEPOINT : TIMEPOINT
+					case TEXT : TEXT
+					default:  NUMBER
+				} 
+			}
 			case SUBTRACT: NUMBER
 			case MULTIPLY: NUMBER
 			case DIVIDE: NUMBER
@@ -229,7 +238,7 @@ class DmxTypeComputer {
 					val paramDeclaredType = filter.parameters.get(i).typeDesc
 					if (returnType.isCompatible(DmxBaseType.COMPLEX) && (paramDeclaredType).isCompatible(DmxBaseType.COMPLEX) || paramDeclaredType.isMultiTyped) {
 						if (i < actualParameters.size) {
-							val paramActualType = actualParameters.get(i).typeFor // recursion
+							val paramActualType = typeForAndCheckNotNull(actualParameters.get(i)) // recursion
 							if (paramDeclaredType.isCompatible(paramActualType.baseType,  paramActualType.collection)) {
 								return getTypeDescriptor(paramActualType.type, returnType.collection)
 							}
@@ -311,5 +320,13 @@ class DmxTypeComputer {
 			case DmxBaseType::STATE:  throw new IllegalArgumentException("State type descriptors must be created based on a DState object")
 			default: throw new IllegalArgumentException(t.toString)
 		}
+	}
+
+	private def AbstractDmxTypeDescriptor<?> typeForAndCheckNotNull(DExpression expr) {
+		val type = expr?.typeFor
+		if (type === null) {
+			return DmxTypeComputer::UNDEFINED
+		}
+		return type
 	}
 }

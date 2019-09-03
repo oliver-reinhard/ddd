@@ -1,5 +1,6 @@
 package com.mimacom.ddd.sm.sim.ui.plantuml
 
+import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DAttribute
@@ -10,6 +11,8 @@ import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DType
+import com.mimacom.ddd.dm.base.IDeductionDefinition
+import com.mimacom.ddd.dm.dim.DimUtil
 import com.mimacom.ddd.sm.sim.SAggregateDeduction
 import com.mimacom.ddd.sm.sim.SAssociationDeduction
 import com.mimacom.ddd.sm.sim.SAttributeDeduction
@@ -27,13 +30,12 @@ import org.eclipse.ui.IEditorPart
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.ui.editor.XtextEditor
 import org.eclipse.xtext.ui.editor.model.XtextDocument
-import com.mimacom.ddd.dm.base.IDeductionDefinition
 
 class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 	
-	// @Inject extension DimUtil // TODO injector not working, bundle setup seems ok => ?
-	
-	def DmsDiagramTextProvider() {
+	@Inject extension DimUtil
+
+	new () {
         editorType = typeof(XtextEditor)
     }
     
@@ -101,14 +103,6 @@ class SimDiagramTextProvider extends AbstractDiagramTextProvider {
 	def String modelName(EObject obj) {
 			val d = EcoreUtil2.getContainerOfType(obj, SInformationModel)
 			return if (d !== null) d.name else "undefined" 
-	}
-	
-	/* 
-	 * Copied from DimUtil due to flawed extension injection. TODO
-	 */
-	def String aggregateName(EObject obj) {
-			val a = EcoreUtil2.getContainerOfType(obj, DAggregate)// global types are not owned by a domain => null
-			return if (a !== null) a.name else "undefined" 
 	}
 	
 	def dispatch  generateType(DComplexType c) '''	

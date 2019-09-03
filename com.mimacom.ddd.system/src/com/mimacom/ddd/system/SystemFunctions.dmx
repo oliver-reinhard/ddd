@@ -12,12 +12,6 @@ filter first(list : T*): T 					with T in (NUMBER, TEXT, TIMEPOINT, COMPLEX)
 filter last (list : T*): T 					with T in (NUMBER, TEXT, TIMEPOINT, COMPLEX)
 filter get  (list : T*, index: NUMBER): T 	with T in (NUMBER, TEXT, TIMEPOINT, COMPLEX)
 
-filter min(collection : T*): T 							with T in (NUMBER, TIMEPOINT)
-filter min(collection : COMPLEX*, selector: T): T 		with T in (NUMBER, TIMEPOINT)
-filter max(collection : T*): T 				with T in (NUMBER, TIMEPOINT, COMPLEX)
-filter sum(collection : NUMBER*): NUMBER 
-filter avg(collection : NUMBER*): NUMBER 
-
 filter length(arg : TEXT): NUMBER
 filter now(): TIMEPOINT
 

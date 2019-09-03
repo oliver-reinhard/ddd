@@ -12,9 +12,7 @@ import org.eclipse.xtext.ui.editor.model.XtextDocument
 
 class DemDiagramTextProvider extends AbstractDiagramTextProvider {
 	
-	// @Inject extension DmsUtil // TODO injector not working, bundle setup seems ok => ?
-	
-	def DemDiagramTextProvider() {
+	new() {
         editorType = typeof(XtextEditor)
     }
     

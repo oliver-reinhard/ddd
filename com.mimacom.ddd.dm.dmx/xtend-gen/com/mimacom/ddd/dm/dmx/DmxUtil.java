@@ -37,6 +37,9 @@ public class DmxUtil {
    * Returns the names of all the features of the given type: its own as well as the inherited ones.
    */
   public List<DFeature> allFeatures(final DComplexType type) {
+    if ((type == null)) {
+      return Collections.EMPTY_LIST;
+    }
     final ArrayList<DFeature> features = Lists.<DFeature>newArrayList(type.getFeatures());
     Set<DComplexType> _typeHierarchy = this.typeHierarchy(type);
     for (final DComplexType t : _typeHierarchy) {

@@ -3,6 +3,7 @@
  */
 package com.mimacom.ddd.dm.dmx.validation;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
@@ -245,8 +246,43 @@ public class DmxTypeCheckingValidator extends AbstractDmxValidator {
           case ADD:
             boolean _xblockexpression_3 = false;
             {
-              this.expectNumber(expr.getLeftOperand(), DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_LeftOperand());
-              _xblockexpression_3 = this.expectNumber(expr.getRightOperand(), DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_RightOperand());
+              final AbstractDmxTypeDescriptor<?> expectedType = this.getTypeAndCheckNotNull(expr, DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_LeftOperand());
+              boolean _xifexpression_1 = false;
+              boolean _equals = Objects.equal(expectedType, DmxTypeComputer.NUMBER);
+              if (_equals) {
+                boolean _xblockexpression_4 = false;
+                {
+                  this.expectNumber(expr.getLeftOperand(), DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_LeftOperand());
+                  _xblockexpression_4 = this.expectNumber(expr.getRightOperand(), DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_RightOperand());
+                }
+                _xifexpression_1 = _xblockexpression_4;
+              } else {
+                boolean _xifexpression_2 = false;
+                boolean _equals_1 = Objects.equal(expectedType, DmxTypeComputer.TIMEPOINT);
+                if (_equals_1) {
+                  boolean _xblockexpression_5 = false;
+                  {
+                    this.expectType(expr.getLeftOperand(), DmxTypeComputer.TIMEPOINT, DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_LeftOperand());
+                    _xblockexpression_5 = this.expectNumber(expr.getRightOperand(), DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_RightOperand());
+                  }
+                  _xifexpression_2 = _xblockexpression_5;
+                } else {
+                  boolean _xifexpression_3 = false;
+                  boolean _equals_2 = Objects.equal(expectedType, DmxTypeComputer.TEXT);
+                  if (_equals_2) {
+                    boolean _xblockexpression_6 = false;
+                    {
+                      this.expectType(expr.getLeftOperand(), DmxTypeComputer.TEXT, DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_LeftOperand());
+                      final AbstractDmxTypeDescriptor<?> rightType = this.getTypeAndCheckNotNull(expr.getRightOperand(), DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_RightOperand());
+                      _xblockexpression_6 = this.expectType(rightType, DmxTypeCheckingValidator.COMPARABLE_TYPES, DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_LeftOperand());
+                    }
+                    _xifexpression_3 = _xblockexpression_6;
+                  }
+                  _xifexpression_2 = _xifexpression_3;
+                }
+                _xifexpression_1 = _xifexpression_2;
+              }
+              _xblockexpression_3 = _xifexpression_1;
             }
             _switchResult = _xblockexpression_3;
             break;
