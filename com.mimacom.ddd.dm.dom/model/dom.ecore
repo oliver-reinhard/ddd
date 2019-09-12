@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="dom" nsURI="http://www.mimacom.com/ddd/dm/dom" nsPrefix="dom">
+  <eClassifiers xsi:type="ecore:EClass" name="DomModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DImport"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="snapshots" upperBound="-1"
+        eType="#//Snapshot" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Snapshot">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objects" upperBound="-1"
+        eType="#//DomComplexObject" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DomComplexObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DComplexType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
+        eType="#//DomField" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DomEntityObject" eSuperTypes="#//DomComplexObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DomDetailObject" eSuperTypes="#//DomComplexObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DomField">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DFeature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

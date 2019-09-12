@@ -19,7 +19,8 @@ Require-Bundle: com.mimacom.ddd.dm.base;visibility:=reexport,
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
  org.eclipse.xtext.xbase.lib;bundle-version="2.14.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: com.mimacom.ddd.dm.dmx,
+Export-Package: com.mimacom.ddd.dm.dim,
+ com.mimacom.ddd.dm.dmx,
  com.mimacom.ddd.dm.dmx.formatting2,
  com.mimacom.ddd.dm.dmx.generator,
  com.mimacom.ddd.dm.dmx.impl,
@@ -30,6 +31,8 @@ Export-Package: com.mimacom.ddd.dm.dmx,
  com.mimacom.ddd.dm.dmx.scoping,
  com.mimacom.ddd.dm.dmx.serializer,
  com.mimacom.ddd.dm.dmx.services,
+ com.mimacom.ddd.dm.dmx.typecomputer,
  com.mimacom.ddd.dm.dmx.util,
- com.mimacom.ddd.dm.dmx.validation
+ com.mimacom.ddd.dm.dmx.validation,
+ com.mimacom.ddd.sm.sim.indexing
 Import-Package: org.apache.log4j

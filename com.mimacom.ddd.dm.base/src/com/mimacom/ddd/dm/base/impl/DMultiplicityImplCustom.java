@@ -6,9 +6,9 @@ public class DMultiplicityImplCustom extends DMultiplicityImpl {
 	public int getMinOccurs() {
 		switch (getShorthand()) {
 		case ZERO_OR_ONE:
-		case ONE_OR_MORE:
-			return 0;
 		case ZERO_OR_MORE:
+			return 0;
+		case ONE_OR_MORE:
 			return 1;
 		default:
 			return super.getMinOccurs();

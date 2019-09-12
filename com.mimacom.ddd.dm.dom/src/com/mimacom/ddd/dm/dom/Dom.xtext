@@ -1,0 +1,53 @@
+grammar com.mimacom.ddd.dm.dom.Dom with  com.mimacom.ddd.dm.dmx.Dmx
+
+import "http://www.mimacom.com/ddd/dm/dom"
+import "http://www.mimacom.com/ddd/dm/base" 
+
+DomModel:
+	(imports+=DImport)*
+	'domain'
+	name=DQualifiedName
+	(snapshots+=Snapshot)+;
+
+///* REMOVE */
+//DImport:
+//	'import' importedNamespace=DQualifiedNameWithWildcard;
+//	
+//DQualifiedNameWithWildcard: 
+//	DQualifiedName '.*'?;
+//
+//DQualifiedName:
+//	ID ('.' ID)*;
+//
+///* END REMOVE */
+
+Snapshot:
+	'snapshot' name=ID
+	'{'
+	(objects+=DomComplexObject)*
+	'}';
+
+DomComplexObject:
+	DomEntityObject | DomDetailObject;
+
+DomEntityObject:
+	'entity' name=ID
+	'=' ref=[DEntityType|ID]
+	DomFieldListStartSymbol
+	(fields+=DomField)*
+	'}';
+
+DomField:
+//	'field' 
+	ref=[DFeature|ID] "=" value=DmxOrExpression
+;
+
+DomDetailObject:
+	'detail' name=ID
+	':' ref=[DDetailType|ID]
+	DomFieldListStartSymbol
+	(fields+=DomField)*
+	'}';
+
+DomFieldListStartSymbol:
+	'{';

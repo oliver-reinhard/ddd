@@ -68,7 +68,7 @@ class DimValidator extends AbstractDimValidator {
 		val topLevelRoots = roots.filter[superType.aggregate != a]
 		if (topLevelRoots.size > 1) {
 			for (r : roots) {
-				error('Aggregate can only declare a single root or relationship or a a single hierarchy thereof', r,
+				error('Aggregate can only declare a single root / main entity or relationship or a a single hierarchy thereof', r,
 					BasePackage.Literals.DNAMED_ELEMENT__NAME)
 			}
 		}

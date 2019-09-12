@@ -7,7 +7,7 @@ public class DNavigableMemberImplCustom extends DNavigableMemberImpl {
 	@Override
 	public boolean isOptional() {
 		final DMultiplicity multi = getMultiplicity();
-		return  multi != null && multi.getMinOccurs() > 0;
+		return  multi != null && multi.getMinOccurs() == 0;
 	}
 	
 	@Override

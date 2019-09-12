@@ -91,7 +91,7 @@ public class DimValidator extends AbstractDimValidator {
     boolean _greaterThan = (_size > 1);
     if (_greaterThan) {
       for (final DEntityType r : roots) {
-        this.error("Aggregate can only declare a single root or relationship or a a single hierarchy thereof", r, 
+        this.error("Aggregate can only declare a single root / main entity or relationship or a a single hierarchy thereof", r, 
           BasePackage.Literals.DNAMED_ELEMENT__NAME);
       }
     }
