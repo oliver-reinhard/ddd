@@ -8,7 +8,8 @@ import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DFeature
 import com.mimacom.ddd.dm.dmx.DmxUtil
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer
-import com.mimacom.ddd.dm.dom.DomDetailObject
+import com.mimacom.ddd.dm.dom.DomComplexObject
+import com.mimacom.ddd.dm.dom.DomField
 import java.text.SimpleDateFormat
 import java.util.Date
 import org.eclipse.emf.ecore.EObject
@@ -28,8 +29,8 @@ class DomProposalProvider extends AbstractDomProposalProvider {
 
 	override complete_DomField(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		super.complete_DomField(model, ruleCall, context, acceptor)
-		proposeAllMandatoryFieldsNotPresentYet(model, false, acceptor, context)
-		if (model instanceof DomDetailObject) {
+		proposeAllMandatoryFieldsNotYetPresent(model, false, acceptor, context)
+		if (model instanceof DomComplexObject) {
 			if (model.ref !== null) {
 				for (feature : model.ref.allFeatures) {
 					if (! model.fields.map[ref].contains(feature)) { // propose only fields that are not  present yet
@@ -51,29 +52,43 @@ class DomProposalProvider extends AbstractDomProposalProvider {
 
 	override complete_DomFieldListStartSymbol(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		super.complete_DomFieldListStartSymbol(model, ruleCall, context, acceptor)
-		proposeAllMandatoryFieldsNotPresentYet(model, true, acceptor, context)
+		proposeAllMandatoryFieldsNotYetPresent(model, true, acceptor, context)
 	}
 
-	protected def void proposeAllMandatoryFieldsNotPresentYet(EObject model, boolean surroundWithBraces, ICompletionProposalAcceptor acceptor, ContentAssistContext context) {
-		if (model instanceof DomDetailObject) {
+	protected def void proposeAllMandatoryFieldsNotYetPresent(EObject model, boolean surroundWithBraces, ICompletionProposalAcceptor acceptor, ContentAssistContext context) {
+		if (model instanceof DomComplexObject) {
 			if (model.ref !== null) {
 				val features = model.ref.allFeatures.filter[! (optional || model.fields.map[ref].contains(it))]
 				val proposal = new StringBuilder()
 				if (surroundWithBraces) {
 					proposal.append("{\n")
 				}
+				var indent = calcIndent(model)
 				for (var i=0; i<features.size; i++) {
 					val feature = features.get(i)
-					val field = '''«IF i>0 || surroundWithBraces»		«ENDIF»«feature.name» = «feature.typedLiteral»
+					val field = '''«IF i>0 || surroundWithBraces»«indent»	«ENDIF»«feature.name» = «feature.typedLiteral»
 					'''
 					proposal.append(field)
 				}
 				if (surroundWithBraces) {
-					proposal.append("\t}\n")
+					proposal.append(indent)
+					proposal.append("}")
 				}
 				acceptor.accept(createCompletionProposal(proposal.toString, "All mandatory fields", null, context))
 			}
 		}
+	}
+	
+	protected def String calcIndent(DomComplexObject container) {
+		var indent = ""
+		var EObject c = container
+		while (c instanceof DomComplexObject || c instanceof DomField) {
+			if (c instanceof DomComplexObject) {
+				indent += "\t"
+			}
+			c = c.eContainer
+		}
+		return indent
 	}
 
 	def String typedLiteral(DFeature f) {
@@ -87,7 +102,7 @@ class DomProposalProvider extends AbstractDomProposalProvider {
 				case NUMBER: "1"
 				case TEXT: "\"\""
 				case TIMEPOINT: "\"" + formatter.format(new Date()) + "\""
-				case COMPLEX: typeDescriptor.type.name + " "
+				case COMPLEX: "detail " + typeDescriptor.type.name + " { }"
 				default: "unknownType"
 			}
 		}

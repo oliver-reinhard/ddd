@@ -30,5 +30,6 @@ Export-Package: com.mimacom.ddd.dm.dom,
  com.mimacom.ddd.dm.dom.scoping,
  com.mimacom.ddd.dm.dom.serializer,
  com.mimacom.ddd.dm.dom.services,
- com.mimacom.ddd.dm.dom.validation
+ com.mimacom.ddd.dm.dom.validation,
+ com.mimacom.ddd.dm.dom.formatting2
 Import-Package: org.apache.log4j

@@ -38,12 +38,13 @@ import com.mimacom.ddd.dm.dmx.DmxTest;
 import com.mimacom.ddd.dm.dmx.DmxUnaryOperation;
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.serializer.DmxSemanticSequencer;
-import com.mimacom.ddd.dm.dom.DomDetailObject;
-import com.mimacom.ddd.dm.dom.DomEntityObject;
+import com.mimacom.ddd.dm.dom.DomDetail;
+import com.mimacom.ddd.dm.dom.DomEntity;
 import com.mimacom.ddd.dm.dom.DomField;
 import com.mimacom.ddd.dm.dom.DomModel;
+import com.mimacom.ddd.dm.dom.DomNamedComplexObject;
 import com.mimacom.ddd.dm.dom.DomPackage;
-import com.mimacom.ddd.dm.dom.Snapshot;
+import com.mimacom.ddd.dm.dom.DomSnapshot;
 import com.mimacom.ddd.dm.dom.services.DomGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -110,7 +111,8 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 					sequence_DmxAssignment(context, (DmxAssignment) semanticObject); 
 					return; 
 				}
-				else if (rule == grammarAccess.getDExpressionRule()
+				else if (rule == grammarAccess.getDomFieldValueRule()
+						|| rule == grammarAccess.getDExpressionRule()
 						|| rule == grammarAccess.getDmxNavigableMemberReferenceRule()
 						|| action == grammarAccess.getDmxNavigableMemberReferenceAccess().getDmxAssignmentPrecedingNavigationSegmentAction_1_0_0_0_0()
 						|| action == grammarAccess.getDmxNavigableMemberReferenceAccess().getDmxMemberNavigationPrecedingNavigationSegmentAction_1_1_0_0_0()
@@ -221,11 +223,11 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 			}
 		else if (epackage == DomPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case DomPackage.DOM_DETAIL_OBJECT:
-				sequence_DomDetailObject(context, (DomDetailObject) semanticObject); 
+			case DomPackage.DOM_DETAIL:
+				sequence_DomComplexObject(context, (DomDetail) semanticObject); 
 				return; 
-			case DomPackage.DOM_ENTITY_OBJECT:
-				sequence_DomEntityObject(context, (DomEntityObject) semanticObject); 
+			case DomPackage.DOM_ENTITY:
+				sequence_DomComplexObject(context, (DomEntity) semanticObject); 
 				return; 
 			case DomPackage.DOM_FIELD:
 				sequence_DomField(context, (DomField) semanticObject); 
@@ -233,8 +235,11 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 			case DomPackage.DOM_MODEL:
 				sequence_DomModel(context, (DomModel) semanticObject); 
 				return; 
-			case DomPackage.SNAPSHOT:
-				sequence_Snapshot(context, (Snapshot) semanticObject); 
+			case DomPackage.DOM_NAMED_COMPLEX_OBJECT:
+				sequence_DomNamedComplexObject(context, (DomNamedComplexObject) semanticObject); 
+				return; 
+			case DomPackage.DOM_SNAPSHOT:
+				sequence_DomSnapshot(context, (DomSnapshot) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -243,26 +248,25 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     DomComplexObject returns DomDetailObject
-	 *     DomDetailObject returns DomDetailObject
+	 *     DomDetail returns DomDetail
+	 *     DomFieldValue returns DomDetail
 	 *
 	 * Constraint:
-	 *     (name=ID ref=[DDetailType|ID] fields+=DomField*)
+	 *     (ref=[DDetailType|ID] fields+=DomField*)
 	 */
-	protected void sequence_DomDetailObject(ISerializationContext context, DomDetailObject semanticObject) {
+	protected void sequence_DomComplexObject(ISerializationContext context, DomDetail semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     DomComplexObject returns DomEntityObject
-	 *     DomEntityObject returns DomEntityObject
+	 *     DomEntity returns DomEntity
 	 *
 	 * Constraint:
-	 *     (name=ID ref=[DEntityType|ID] fields+=DomField*)
+	 *     (ref=[DDetailType|ID] fields+=DomField*)
 	 */
-	protected void sequence_DomEntityObject(ISerializationContext context, DomEntityObject semanticObject) {
+	protected void sequence_DomComplexObject(ISerializationContext context, DomEntity semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -272,7 +276,7 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 	 *     DomField returns DomField
 	 *
 	 * Constraint:
-	 *     (ref=[DFeature|ID] value=DmxOrExpression)
+	 *     (ref=[DFeature|ID] value=DomFieldValue)
 	 */
 	protected void sequence_DomField(ISerializationContext context, DomField semanticObject) {
 		if (errorAcceptor != null) {
@@ -283,7 +287,7 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDomFieldAccess().getRefDFeatureIDTerminalRuleCall_0_0_1(), semanticObject.eGet(DomPackage.Literals.DOM_FIELD__REF, false));
-		feeder.accept(grammarAccess.getDomFieldAccess().getValueDmxOrExpressionParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getDomFieldAccess().getValueDomFieldValueParserRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -293,7 +297,7 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 	 *     DomModel returns DomModel
 	 *
 	 * Constraint:
-	 *     (imports+=DImport* name=DQualifiedName snapshots+=Snapshot+)
+	 *     (imports+=DImport* name=DQualifiedName snapshots+=DomSnapshot+)
 	 */
 	protected void sequence_DomModel(ISerializationContext context, DomModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -302,12 +306,25 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Snapshot returns Snapshot
+	 *     DomObject returns DomNamedComplexObject
+	 *     DomNamedComplexObject returns DomNamedComplexObject
 	 *
 	 * Constraint:
-	 *     (name=ID objects+=DomComplexObject*)
+	 *     (name=ID (object=DomEntity | object=DomDetail))
 	 */
-	protected void sequence_Snapshot(ISerializationContext context, Snapshot semanticObject) {
+	protected void sequence_DomNamedComplexObject(ISerializationContext context, DomNamedComplexObject semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DomSnapshot returns DomSnapshot
+	 *
+	 * Constraint:
+	 *     (name=ID objects+=DomObject*)
+	 */
+	protected void sequence_DomSnapshot(ISerializationContext context, DomSnapshot semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

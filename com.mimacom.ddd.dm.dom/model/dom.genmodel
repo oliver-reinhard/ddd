@@ -16,18 +16,16 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dom.ecore#//Snapshot/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dom.ecore#//Snapshot/objects"/>
     </genClasses>
-    <genClasses ecoreClass="dom.ecore#//DomObject">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dom.ecore#//DomObject/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dom.ecore#//DomObject/fields"/>
+    <genClasses ecoreClass="dom.ecore#//DomComplexObject">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dom.ecore#//DomComplexObject/ref"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dom.ecore#//DomComplexObject/fields"/>
     </genClasses>
-    <genClasses ecoreClass="dom.ecore#//DomEntityObject">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dom.ecore#//DomEntityObject/ref"/>
-    </genClasses>
+    <genClasses ecoreClass="dom.ecore#//DomEntityObject"/>
+    <genClasses ecoreClass="dom.ecore#//DomDetailObject"/>
     <genClasses ecoreClass="dom.ecore#//DomField">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dom.ecore#//DomField/ref"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dom.ecore#//DomField/value"/>
     </genClasses>
-    <genClasses ecoreClass="dom.ecore#//DomDetailObject">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dom.ecore#//DomDetailObject/ref"/>
-    </genClasses>
+    <genClasses ecoreClass="dom.ecore#//DomDetail"/>
   </genPackages>
 </genmodel:GenModel>

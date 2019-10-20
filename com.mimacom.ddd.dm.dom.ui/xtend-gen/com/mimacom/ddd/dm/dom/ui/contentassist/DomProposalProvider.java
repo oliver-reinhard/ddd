@@ -13,7 +13,7 @@ import com.mimacom.ddd.dm.dmx.DmxBaseType;
 import com.mimacom.ddd.dm.dmx.DmxUtil;
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer;
-import com.mimacom.ddd.dm.dom.DomDetailObject;
+import com.mimacom.ddd.dm.dom.DomComplexObject;
 import com.mimacom.ddd.dm.dom.DomField;
 import com.mimacom.ddd.dm.dom.ui.contentassist.AbstractDomProposalProvider;
 import java.text.SimpleDateFormat;
@@ -48,17 +48,17 @@ public class DomProposalProvider extends AbstractDomProposalProvider {
   @Override
   public void complete_DomField(final EObject model, final RuleCall ruleCall, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     super.complete_DomField(model, ruleCall, context, acceptor);
-    this.proposeAllMandatoryFieldsNotPresentYet(model, false, acceptor, context);
-    if ((model instanceof DomDetailObject)) {
-      DComplexType _ref = ((DomDetailObject)model).getRef();
+    this.proposeAllMandatoryFieldsNotYetPresent(model, false, acceptor, context);
+    if ((model instanceof DomComplexObject)) {
+      DComplexType _ref = ((DomComplexObject)model).getRef();
       boolean _tripleNotEquals = (_ref != null);
       if (_tripleNotEquals) {
-        List<DFeature> _allFeatures = this._dmxUtil.allFeatures(((DomDetailObject)model).getRef());
+        List<DFeature> _allFeatures = this._dmxUtil.allFeatures(((DomComplexObject)model).getRef());
         for (final DFeature feature : _allFeatures) {
           final Function1<DomField, DFeature> _function = (DomField it) -> {
             return it.getRef();
           };
-          boolean _contains = ListExtensions.<DomField, DFeature>map(((DomDetailObject)model).getFields(), _function).contains(feature);
+          boolean _contains = ListExtensions.<DomField, DFeature>map(((DomComplexObject)model).getFields(), _function).contains(feature);
           boolean _not = (!_contains);
           if (_not) {
             String _name = feature.getName();
@@ -90,31 +90,33 @@ public class DomProposalProvider extends AbstractDomProposalProvider {
   @Override
   public void complete_DomFieldListStartSymbol(final EObject model, final RuleCall ruleCall, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     super.complete_DomFieldListStartSymbol(model, ruleCall, context, acceptor);
-    this.proposeAllMandatoryFieldsNotPresentYet(model, true, acceptor, context);
+    this.proposeAllMandatoryFieldsNotYetPresent(model, true, acceptor, context);
   }
   
-  protected void proposeAllMandatoryFieldsNotPresentYet(final EObject model, final boolean surroundWithBraces, final ICompletionProposalAcceptor acceptor, final ContentAssistContext context) {
-    if ((model instanceof DomDetailObject)) {
-      DComplexType _ref = ((DomDetailObject)model).getRef();
+  protected void proposeAllMandatoryFieldsNotYetPresent(final EObject model, final boolean surroundWithBraces, final ICompletionProposalAcceptor acceptor, final ContentAssistContext context) {
+    if ((model instanceof DomComplexObject)) {
+      DComplexType _ref = ((DomComplexObject)model).getRef();
       boolean _tripleNotEquals = (_ref != null);
       if (_tripleNotEquals) {
         final Function1<DFeature, Boolean> _function = (DFeature it) -> {
-          return Boolean.valueOf((!(it.isOptional() || ListExtensions.<DomField, DFeature>map(((DomDetailObject)model).getFields(), ((Function1<DomField, DFeature>) (DomField it_1) -> {
+          return Boolean.valueOf((!(it.isOptional() || ListExtensions.<DomField, DFeature>map(((DomComplexObject)model).getFields(), ((Function1<DomField, DFeature>) (DomField it_1) -> {
             return it_1.getRef();
           })).contains(it))));
         };
-        final Iterable<DFeature> features = IterableExtensions.<DFeature>filter(this._dmxUtil.allFeatures(((DomDetailObject)model).getRef()), _function);
+        final Iterable<DFeature> features = IterableExtensions.<DFeature>filter(this._dmxUtil.allFeatures(((DomComplexObject)model).getRef()), _function);
         final StringBuilder proposal = new StringBuilder();
         if (surroundWithBraces) {
           proposal.append("{\n");
         }
+        String indent = this.calcIndent(((DomComplexObject)model));
         for (int i = 0; (i < IterableExtensions.size(features)); i++) {
           {
             final DFeature feature = ((DFeature[])Conversions.unwrapArray(features, DFeature.class))[i];
             StringConcatenation _builder = new StringConcatenation();
             {
               if (((i > 0) || surroundWithBraces)) {
-                _builder.append("\t\t");
+                _builder.append(indent);
+                _builder.append("\t");
               }
             }
             String _name = feature.getName();
@@ -128,11 +130,27 @@ public class DomProposalProvider extends AbstractDomProposalProvider {
           }
         }
         if (surroundWithBraces) {
-          proposal.append("\t}\n");
+          proposal.append(indent);
+          proposal.append("}");
         }
         acceptor.accept(this.createCompletionProposal(proposal.toString(), "All mandatory fields", null, context));
       }
     }
+  }
+  
+  protected String calcIndent(final DomComplexObject container) {
+    String indent = "";
+    EObject c = container;
+    while (((c instanceof DomComplexObject) || (c instanceof DomField))) {
+      {
+        if ((c instanceof DomComplexObject)) {
+          String _indent = indent;
+          indent = (_indent + "\t");
+        }
+        c = c.eContainer();
+      }
+    }
+    return indent;
   }
   
   public String typedLiteral(final DFeature f) {
@@ -174,7 +192,8 @@ public class DomProposalProvider extends AbstractDomProposalProvider {
               break;
             case COMPLEX:
               String _name_2 = typeDescriptor.type().getName();
-              _switchResult = (_name_2 + " ");
+              String _plus_2 = ("detail " + _name_2);
+              _switchResult = (_plus_2 + " { }");
               break;
             default:
               _switchResult = "unknownType";

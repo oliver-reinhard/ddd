@@ -26,9 +26,8 @@ class DemFormatter extends  DmxFormatter {
 		domain.regionFor.assignment(DDomainAccess.nameAssignment_2).append[newLines = 2]
 		
 		for (i : domain.imports) {
-			i.append[newLine]
+			i.append[if (i == domain.imports.last) newLines=2 else newLine]
 		}
-//		domain.imports.last.append[newLines = 2]
 		
 		for (event : domain.events) {
 			event.format
@@ -55,7 +54,8 @@ class DemFormatter extends  DmxFormatter {
 		
 		// Trigger
 		event.regionFor.keyword(DDomainEventAccess.triggeredKeyword_7_0).prepend[newLines=2]
- 		event.regionFor.assignment(DDomainEventAccess.triggerAssignment_7_2).append[newLines = 2]
+		event.regionFor.keyword(DDomainEventAccess.byKeyword_7_1).append[newLine]
+ 		event.regionFor.assignment(DDomainEventAccess.triggerAssignment_7_2).surround[indent].append[newLines = 2]
 		
 		// Notifications
 		event.regionFor.keyword(DDomainEventAccess.notificationsKeyword_8_0).append[newLine]

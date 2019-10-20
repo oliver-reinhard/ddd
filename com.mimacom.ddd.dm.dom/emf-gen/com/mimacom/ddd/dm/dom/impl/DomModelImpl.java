@@ -7,7 +7,7 @@ import com.mimacom.ddd.dm.base.DImport;
 
 import com.mimacom.ddd.dm.dom.DomModel;
 import com.mimacom.ddd.dm.dom.DomPackage;
-import com.mimacom.ddd.dm.dom.Snapshot;
+import com.mimacom.ddd.dm.dom.DomSnapshot;
 
 import java.util.Collection;
 
@@ -80,7 +80,7 @@ public class DomModelImpl extends MinimalEObjectImpl.Container implements DomMod
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Snapshot> snapshots;
+	protected EList<DomSnapshot> snapshots;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -149,11 +149,11 @@ public class DomModelImpl extends MinimalEObjectImpl.Container implements DomMod
 	 * @generated
 	 */
 	@Override
-	public EList<Snapshot> getSnapshots()
+	public EList<DomSnapshot> getSnapshots()
 	{
 		if (snapshots == null)
 		{
-			snapshots = new EObjectContainmentEList<Snapshot>(Snapshot.class, this, DomPackage.DOM_MODEL__SNAPSHOTS);
+			snapshots = new EObjectContainmentEList<DomSnapshot>(DomSnapshot.class, this, DomPackage.DOM_MODEL__SNAPSHOTS);
 		}
 		return snapshots;
 	}
@@ -216,7 +216,7 @@ public class DomModelImpl extends MinimalEObjectImpl.Container implements DomMod
 				return;
 			case DomPackage.DOM_MODEL__SNAPSHOTS:
 				getSnapshots().clear();
-				getSnapshots().addAll((Collection<? extends Snapshot>)newValue);
+				getSnapshots().addAll((Collection<? extends DomSnapshot>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

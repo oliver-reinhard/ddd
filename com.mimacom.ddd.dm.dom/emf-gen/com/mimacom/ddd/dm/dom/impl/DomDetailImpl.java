@@ -3,26 +3,26 @@
  */
 package com.mimacom.ddd.dm.dom.impl;
 
-import com.mimacom.ddd.dm.dom.DomEntityObject;
+import com.mimacom.ddd.dm.dom.DomDetail;
 import com.mimacom.ddd.dm.dom.DomPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Entity Object</b></em>'.
+ * An implementation of the model object '<em><b>Detail</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class DomEntityObjectImpl extends DomComplexObjectImpl implements DomEntityObject
+public class DomDetailImpl extends DomComplexObjectImpl implements DomDetail
 {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DomEntityObjectImpl()
+	protected DomDetailImpl()
 	{
 		super();
 	}
@@ -35,7 +35,7 @@ public class DomEntityObjectImpl extends DomComplexObjectImpl implements DomEnti
 	@Override
 	protected EClass eStaticClass()
 	{
-		return DomPackage.Literals.DOM_ENTITY_OBJECT;
+		return DomPackage.Literals.DOM_DETAIL;
 	}
 
-} //DomEntityObjectImpl
+} //DomDetailImpl

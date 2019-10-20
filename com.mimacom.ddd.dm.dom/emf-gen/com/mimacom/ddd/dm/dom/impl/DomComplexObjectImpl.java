@@ -5,6 +5,8 @@ package com.mimacom.ddd.dm.dom.impl;
 
 import com.mimacom.ddd.dm.base.DComplexType;
 
+import com.mimacom.ddd.dm.base.impl.DExpressionImpl;
+
 import com.mimacom.ddd.dm.dom.DomComplexObject;
 import com.mimacom.ddd.dm.dom.DomField;
 import com.mimacom.ddd.dm.dom.DomPackage;
@@ -20,7 +22,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -34,13 +35,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.dom.impl.DomComplexObjectImpl#getRef <em>Ref</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dom.impl.DomComplexObjectImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dom.impl.DomComplexObjectImpl#getFields <em>Fields</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DomComplexObjectImpl extends MinimalEObjectImpl.Container implements DomComplexObject
+public abstract class DomComplexObjectImpl extends DExpressionImpl implements DomComplexObject
 {
 	/**
 	 * The cached value of the '{@link #getRef() <em>Ref</em>}' reference.
@@ -51,26 +51,6 @@ public class DomComplexObjectImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected DComplexType ref;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
@@ -154,31 +134,6 @@ public class DomComplexObjectImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@Override
-	public String getName()
-	{
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setName(String newName)
-	{
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DomPackage.DOM_COMPLEX_OBJECT__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<DomField> getFields()
 	{
 		if (fields == null)
@@ -217,8 +172,6 @@ public class DomComplexObjectImpl extends MinimalEObjectImpl.Container implement
 			case DomPackage.DOM_COMPLEX_OBJECT__REF:
 				if (resolve) return getRef();
 				return basicGetRef();
-			case DomPackage.DOM_COMPLEX_OBJECT__NAME:
-				return getName();
 			case DomPackage.DOM_COMPLEX_OBJECT__FIELDS:
 				return getFields();
 		}
@@ -238,9 +191,6 @@ public class DomComplexObjectImpl extends MinimalEObjectImpl.Container implement
 		{
 			case DomPackage.DOM_COMPLEX_OBJECT__REF:
 				setRef((DComplexType)newValue);
-				return;
-			case DomPackage.DOM_COMPLEX_OBJECT__NAME:
-				setName((String)newValue);
 				return;
 			case DomPackage.DOM_COMPLEX_OBJECT__FIELDS:
 				getFields().clear();
@@ -263,9 +213,6 @@ public class DomComplexObjectImpl extends MinimalEObjectImpl.Container implement
 			case DomPackage.DOM_COMPLEX_OBJECT__REF:
 				setRef((DComplexType)null);
 				return;
-			case DomPackage.DOM_COMPLEX_OBJECT__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case DomPackage.DOM_COMPLEX_OBJECT__FIELDS:
 				getFields().clear();
 				return;
@@ -285,29 +232,10 @@ public class DomComplexObjectImpl extends MinimalEObjectImpl.Container implement
 		{
 			case DomPackage.DOM_COMPLEX_OBJECT__REF:
 				return ref != null;
-			case DomPackage.DOM_COMPLEX_OBJECT__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DomPackage.DOM_COMPLEX_OBJECT__FIELDS:
 				return fields != null && !fields.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString()
-	{
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
 	}
 
 } //DomComplexObjectImpl

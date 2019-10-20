@@ -65,7 +65,7 @@ public interface DomModel extends EObject
 
 	/**
 	 * Returns the value of the '<em><b>Snapshots</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.dom.Snapshot}.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.dom.DomSnapshot}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Snapshots</em>' containment reference list.
@@ -73,6 +73,6 @@ public interface DomModel extends EObject
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Snapshot> getSnapshots();
+	EList<DomSnapshot> getSnapshots();
 
 } // DomModel

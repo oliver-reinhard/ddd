@@ -4,10 +4,10 @@
 package com.mimacom.ddd.dm.dom;
 
 import com.mimacom.ddd.dm.base.DComplexType;
+import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
 import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,15 +19,14 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.dom.DomComplexObject#getRef <em>Ref</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dom.DomComplexObject#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dom.DomComplexObject#getFields <em>Fields</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.dom.DomPackage#getDomComplexObject()
- * @model
+ * @model abstract="true"
  * @generated
  */
-public interface DomComplexObject extends EObject
+public interface DomComplexObject extends DExpression, INavigableMemberContainer
 {
 	/**
 	 * Returns the value of the '<em><b>Ref</b></em>' reference.
@@ -50,28 +49,6 @@ public interface DomComplexObject extends EObject
 	 * @generated
 	 */
 	void setRef(DComplexType value);
-
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see com.mimacom.ddd.dm.dom.DomPackage#getDomComplexObject_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.dm.dom.DomComplexObject#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Fields</b></em>' containment reference list.

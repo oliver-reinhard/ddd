@@ -39,34 +39,7 @@ public interface DomFactory extends EFactory
 	 * @return a new object of class '<em>Snapshot</em>'.
 	 * @generated
 	 */
-	Snapshot createSnapshot();
-
-	/**
-	 * Returns a new object of class '<em>Complex Object</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Complex Object</em>'.
-	 * @generated
-	 */
-	DomComplexObject createDomComplexObject();
-
-	/**
-	 * Returns a new object of class '<em>Entity Object</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Entity Object</em>'.
-	 * @generated
-	 */
-	DomEntityObject createDomEntityObject();
-
-	/**
-	 * Returns a new object of class '<em>Detail Object</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Detail Object</em>'.
-	 * @generated
-	 */
-	DomDetailObject createDomDetailObject();
+	DomSnapshot createDomSnapshot();
 
 	/**
 	 * Returns a new object of class '<em>Field</em>'.
@@ -76,6 +49,33 @@ public interface DomFactory extends EFactory
 	 * @generated
 	 */
 	DomField createDomField();
+
+	/**
+	 * Returns a new object of class '<em>Named Complex Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Named Complex Object</em>'.
+	 * @generated
+	 */
+	DomNamedComplexObject createDomNamedComplexObject();
+
+	/**
+	 * Returns a new object of class '<em>Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Entity</em>'.
+	 * @generated
+	 */
+	DomEntity createDomEntity();
+
+	/**
+	 * Returns a new object of class '<em>Detail</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Detail</em>'.
+	 * @generated
+	 */
+	DomDetail createDomDetail();
 
 	/**
 	 * Returns the package supported by this factory.

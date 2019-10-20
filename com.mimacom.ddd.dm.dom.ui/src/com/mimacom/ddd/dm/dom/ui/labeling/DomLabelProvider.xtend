@@ -4,6 +4,9 @@
 package com.mimacom.ddd.dm.dom.ui.labeling
 
 import com.google.inject.Inject
+import com.mimacom.ddd.dm.dom.DomField
+import com.mimacom.ddd.dm.dom.DomNamedComplexObject
+import com.mimacom.ddd.dm.dom.DomUtil
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 
@@ -14,16 +17,21 @@ import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
  */
 class DomLabelProvider extends DefaultEObjectLabelProvider {
 
+	@Inject extension DomUtil
+	
 	@Inject
 	new(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
 
-	// Labels and icons can be computed like this:
 	
-//	def text(Greeting ele) {
-//		'A greeting to ' + ele.name
-//	}
+	def text(DomNamedComplexObject o) {
+		return o.label
+	}
+	
+	def text(DomField f) {
+		return f.label
+	}
 //
 //	def image(Greeting ele) {
 //		'Greeting.gif'

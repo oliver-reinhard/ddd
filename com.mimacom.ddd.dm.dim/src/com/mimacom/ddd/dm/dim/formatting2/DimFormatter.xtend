@@ -22,7 +22,7 @@ class DimFormatter extends DmxFormatter {
 		domain.description.format
 		
 		for (i : domain.imports) {
-			i.append[newLine]
+			i.append[if (i == domain.imports.last) newLines=2 else newLine]
 		}
 		domain.imports.last.append[newLines = 2]
 		

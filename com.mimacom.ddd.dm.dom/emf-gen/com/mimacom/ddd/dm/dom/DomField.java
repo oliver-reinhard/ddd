@@ -5,8 +5,7 @@ package com.mimacom.ddd.dm.dom;
 
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
-
-import org.eclipse.emf.ecore.EObject;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface DomField extends EObject
+public interface DomField extends DNavigableMember
 {
 	/**
 	 * Returns the value of the '<em><b>Ref</b></em>' reference.

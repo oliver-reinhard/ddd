@@ -3,9 +3,9 @@
  */
 package com.mimacom.ddd.dm.dom.impl;
 
-import com.mimacom.ddd.dm.dom.DomComplexObject;
+import com.mimacom.ddd.dm.dom.DomObject;
 import com.mimacom.ddd.dm.dom.DomPackage;
-import com.mimacom.ddd.dm.dom.Snapshot;
+import com.mimacom.ddd.dm.dom.DomSnapshot;
 
 import java.util.Collection;
 
@@ -31,13 +31,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.dom.impl.SnapshotImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dom.impl.SnapshotImpl#getObjects <em>Objects</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dom.impl.DomSnapshotImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dom.impl.DomSnapshotImpl#getObjects <em>Objects</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SnapshotImpl extends MinimalEObjectImpl.Container implements Snapshot
+public class DomSnapshotImpl extends MinimalEObjectImpl.Container implements DomSnapshot
 {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -67,14 +67,14 @@ public class SnapshotImpl extends MinimalEObjectImpl.Container implements Snapsh
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DomComplexObject> objects;
+	protected EList<DomObject> objects;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SnapshotImpl()
+	protected DomSnapshotImpl()
 	{
 		super();
 	}
@@ -87,7 +87,7 @@ public class SnapshotImpl extends MinimalEObjectImpl.Container implements Snapsh
 	@Override
 	protected EClass eStaticClass()
 	{
-		return DomPackage.Literals.SNAPSHOT;
+		return DomPackage.Literals.DOM_SNAPSHOT;
 	}
 
 	/**
@@ -112,7 +112,7 @@ public class SnapshotImpl extends MinimalEObjectImpl.Container implements Snapsh
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DomPackage.SNAPSHOT__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, DomPackage.DOM_SNAPSHOT__NAME, oldName, name));
 	}
 
 	/**
@@ -121,11 +121,11 @@ public class SnapshotImpl extends MinimalEObjectImpl.Container implements Snapsh
 	 * @generated
 	 */
 	@Override
-	public EList<DomComplexObject> getObjects()
+	public EList<DomObject> getObjects()
 	{
 		if (objects == null)
 		{
-			objects = new EObjectContainmentEList<DomComplexObject>(DomComplexObject.class, this, DomPackage.SNAPSHOT__OBJECTS);
+			objects = new EObjectContainmentEList<DomObject>(DomObject.class, this, DomPackage.DOM_SNAPSHOT__OBJECTS);
 		}
 		return objects;
 	}
@@ -140,7 +140,7 @@ public class SnapshotImpl extends MinimalEObjectImpl.Container implements Snapsh
 	{
 		switch (featureID)
 		{
-			case DomPackage.SNAPSHOT__OBJECTS:
+			case DomPackage.DOM_SNAPSHOT__OBJECTS:
 				return ((InternalEList<?>)getObjects()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -156,9 +156,9 @@ public class SnapshotImpl extends MinimalEObjectImpl.Container implements Snapsh
 	{
 		switch (featureID)
 		{
-			case DomPackage.SNAPSHOT__NAME:
+			case DomPackage.DOM_SNAPSHOT__NAME:
 				return getName();
-			case DomPackage.SNAPSHOT__OBJECTS:
+			case DomPackage.DOM_SNAPSHOT__OBJECTS:
 				return getObjects();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -175,12 +175,12 @@ public class SnapshotImpl extends MinimalEObjectImpl.Container implements Snapsh
 	{
 		switch (featureID)
 		{
-			case DomPackage.SNAPSHOT__NAME:
+			case DomPackage.DOM_SNAPSHOT__NAME:
 				setName((String)newValue);
 				return;
-			case DomPackage.SNAPSHOT__OBJECTS:
+			case DomPackage.DOM_SNAPSHOT__OBJECTS:
 				getObjects().clear();
-				getObjects().addAll((Collection<? extends DomComplexObject>)newValue);
+				getObjects().addAll((Collection<? extends DomObject>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -196,10 +196,10 @@ public class SnapshotImpl extends MinimalEObjectImpl.Container implements Snapsh
 	{
 		switch (featureID)
 		{
-			case DomPackage.SNAPSHOT__NAME:
+			case DomPackage.DOM_SNAPSHOT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case DomPackage.SNAPSHOT__OBJECTS:
+			case DomPackage.DOM_SNAPSHOT__OBJECTS:
 				getObjects().clear();
 				return;
 		}
@@ -216,9 +216,9 @@ public class SnapshotImpl extends MinimalEObjectImpl.Container implements Snapsh
 	{
 		switch (featureID)
 		{
-			case DomPackage.SNAPSHOT__NAME:
+			case DomPackage.DOM_SNAPSHOT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case DomPackage.SNAPSHOT__OBJECTS:
+			case DomPackage.DOM_SNAPSHOT__OBJECTS:
 				return objects != null && !objects.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -241,4 +241,4 @@ public class SnapshotImpl extends MinimalEObjectImpl.Container implements Snapsh
 		return result.toString();
 	}
 
-} //SnapshotImpl
+} //DomSnapshotImpl

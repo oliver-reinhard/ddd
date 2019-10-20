@@ -3,6 +3,13 @@
  */
 package com.mimacom.ddd.dm.dom.util;
 
+import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.INamespace;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.IRichTextSegment;
+
 import com.mimacom.ddd.dm.dom.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -81,9 +88,14 @@ public class DomAdapterFactory extends AdapterFactoryImpl
 				return createDomModelAdapter();
 			}
 			@Override
-			public Adapter caseSnapshot(Snapshot object)
+			public Adapter caseDomSnapshot(DomSnapshot object)
 			{
-				return createSnapshotAdapter();
+				return createDomSnapshotAdapter();
+			}
+			@Override
+			public Adapter caseDomObject(DomObject object)
+			{
+				return createDomObjectAdapter();
 			}
 			@Override
 			public Adapter caseDomComplexObject(DomComplexObject object)
@@ -91,19 +103,54 @@ public class DomAdapterFactory extends AdapterFactoryImpl
 				return createDomComplexObjectAdapter();
 			}
 			@Override
-			public Adapter caseDomEntityObject(DomEntityObject object)
-			{
-				return createDomEntityObjectAdapter();
-			}
-			@Override
-			public Adapter caseDomDetailObject(DomDetailObject object)
-			{
-				return createDomDetailObjectAdapter();
-			}
-			@Override
 			public Adapter caseDomField(DomField object)
 			{
 				return createDomFieldAdapter();
+			}
+			@Override
+			public Adapter caseDomNamedComplexObject(DomNamedComplexObject object)
+			{
+				return createDomNamedComplexObjectAdapter();
+			}
+			@Override
+			public Adapter caseDomEntity(DomEntity object)
+			{
+				return createDomEntityAdapter();
+			}
+			@Override
+			public Adapter caseDomDetail(DomDetail object)
+			{
+				return createDomDetailAdapter();
+			}
+			@Override
+			public Adapter caseINamespace(INamespace object)
+			{
+				return createINamespaceAdapter();
+			}
+			@Override
+			public Adapter caseINavigableMemberContainer(INavigableMemberContainer object)
+			{
+				return createINavigableMemberContainerAdapter();
+			}
+			@Override
+			public Adapter caseDNamedElement(DNamedElement object)
+			{
+				return createDNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseDNavigableMember(DNavigableMember object)
+			{
+				return createDNavigableMemberAdapter();
+			}
+			@Override
+			public Adapter caseIRichTextSegment(IRichTextSegment object)
+			{
+				return createIRichTextSegmentAdapter();
+			}
+			@Override
+			public Adapter caseDExpression(DExpression object)
+			{
+				return createDExpressionAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object)
@@ -143,16 +190,31 @@ public class DomAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dom.Snapshot <em>Snapshot</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dom.DomSnapshot <em>Snapshot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dom.Snapshot
+	 * @see com.mimacom.ddd.dm.dom.DomSnapshot
 	 * @generated
 	 */
-	public Adapter createSnapshotAdapter()
+	public Adapter createDomSnapshotAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dom.DomObject <em>Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dom.DomObject
+	 * @generated
+	 */
+	public Adapter createDomObjectAdapter()
 	{
 		return null;
 	}
@@ -173,36 +235,6 @@ public class DomAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dom.DomEntityObject <em>Entity Object</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dom.DomEntityObject
-	 * @generated
-	 */
-	public Adapter createDomEntityObjectAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dom.DomDetailObject <em>Detail Object</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dom.DomDetailObject
-	 * @generated
-	 */
-	public Adapter createDomDetailObjectAdapter()
-	{
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dom.DomField <em>Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -213,6 +245,141 @@ public class DomAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDomFieldAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dom.DomNamedComplexObject <em>Named Complex Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dom.DomNamedComplexObject
+	 * @generated
+	 */
+	public Adapter createDomNamedComplexObjectAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dom.DomEntity <em>Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dom.DomEntity
+	 * @generated
+	 */
+	public Adapter createDomEntityAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dom.DomDetail <em>Detail</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dom.DomDetail
+	 * @generated
+	 */
+	public Adapter createDomDetailAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INamespace <em>INamespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.INamespace
+	 * @generated
+	 */
+	public Adapter createINamespaceAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INavigableMemberContainer <em>INavigable Member Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.INavigableMemberContainer
+	 * @generated
+	 */
+	public Adapter createINavigableMemberContainerAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamedElement <em>DNamed Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DNamedElement
+	 * @generated
+	 */
+	public Adapter createDNamedElementAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNavigableMember <em>DNavigable Member</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DNavigableMember
+	 * @generated
+	 */
+	public Adapter createDNavigableMemberAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IRichTextSegment <em>IRich Text Segment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IRichTextSegment
+	 * @generated
+	 */
+	public Adapter createIRichTextSegmentAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DExpression <em>DExpression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DExpression
+	 * @generated
+	 */
+	public Adapter createDExpressionAdapter()
 	{
 		return null;
 	}

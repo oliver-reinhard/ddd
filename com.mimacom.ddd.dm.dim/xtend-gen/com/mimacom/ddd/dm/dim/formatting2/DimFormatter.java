@@ -3,6 +3,7 @@
  */
 package com.mimacom.ddd.dm.dim.formatting2;
 
+import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DComplexType;
@@ -42,7 +43,13 @@ public class DimFormatter extends DmxFormatter {
     EList<DImport> _imports = domain.getImports();
     for (final DImport i : _imports) {
       final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
-        it.newLine();
+        DImport _last = IterableExtensions.<DImport>last(domain.getImports());
+        boolean _equals = Objects.equal(i, _last);
+        if (_equals) {
+          it.setNewLines(2);
+        } else {
+          it.newLine();
+        }
       };
       document.<DImport>append(i, _function);
     }

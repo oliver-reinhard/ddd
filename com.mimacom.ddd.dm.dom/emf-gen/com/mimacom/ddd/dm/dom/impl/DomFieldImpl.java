@@ -6,6 +6,8 @@ package com.mimacom.ddd.dm.dom.impl;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
 
+import com.mimacom.ddd.dm.base.impl.DNavigableMemberImplCustom;
+
 import com.mimacom.ddd.dm.dom.DomField;
 import com.mimacom.ddd.dm.dom.DomPackage;
 
@@ -16,7 +18,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +33,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class DomFieldImpl extends MinimalEObjectImpl.Container implements DomField
+public class DomFieldImpl extends DNavigableMemberImplCustom implements DomField
 {
 	/**
 	 * The cached value of the '{@link #getRef() <em>Ref</em>}' reference.

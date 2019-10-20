@@ -7,24 +7,28 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="snapshots" upperBound="-1"
-        eType="#//Snapshot" containment="true"/>
+        eType="#//DomSnapshot" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Snapshot">
+  <eClassifiers xsi:type="ecore:EClass" name="DomSnapshot" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//INavigableMemberContainer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="objects" upperBound="-1"
-        eType="#//DomComplexObject" containment="true"/>
+        eType="#//DomObject" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DomComplexObject">
+  <eClassifiers xsi:type="ecore:EClass" name="DomObject" abstract="true" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DomComplexObject" abstract="true" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression ../../com.mimacom.ddd.dm.base/model/base.ecore#//INavigableMemberContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DComplexType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
         eType="#//DomField" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DomEntityObject" eSuperTypes="#//DomComplexObject"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DomDetailObject" eSuperTypes="#//DomComplexObject"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DomField">
+  <eClassifiers xsi:type="ecore:EClass" name="DomField" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DFeature"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DomNamedComplexObject" eSuperTypes="#//DomObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="object" eType="#//DomComplexObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DomEntity" eSuperTypes="#//DomComplexObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DomDetail" eSuperTypes="#//DomComplexObject"/>
 </ecore:EPackage>

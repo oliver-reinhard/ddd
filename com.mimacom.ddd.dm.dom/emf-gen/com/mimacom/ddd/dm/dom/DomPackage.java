@@ -3,6 +3,8 @@
  */
 package com.mimacom.ddd.dm.dom;
 
+import com.mimacom.ddd.dm.base.BasePackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -104,14 +106,14 @@ public interface DomPackage extends EPackage
 	int DOM_MODEL_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.dom.impl.SnapshotImpl <em>Snapshot</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.dom.impl.DomSnapshotImpl <em>Snapshot</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.dom.impl.SnapshotImpl
-	 * @see com.mimacom.ddd.dm.dom.impl.DomPackageImpl#getSnapshot()
+	 * @see com.mimacom.ddd.dm.dom.impl.DomSnapshotImpl
+	 * @see com.mimacom.ddd.dm.dom.impl.DomPackageImpl#getDomSnapshot()
 	 * @generated
 	 */
-	int SNAPSHOT = 1;
+	int DOM_SNAPSHOT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -120,7 +122,7 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SNAPSHOT__NAME = 0;
+	int DOM_SNAPSHOT__NAME = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Objects</b></em>' containment reference list.
@@ -129,7 +131,7 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SNAPSHOT__OBJECTS = 1;
+	int DOM_SNAPSHOT__OBJECTS = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Snapshot</em>' class.
@@ -138,7 +140,89 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int SNAPSHOT_FEATURE_COUNT = 2;
+	int DOM_SNAPSHOT_FEATURE_COUNT = BasePackage.INAVIGABLE_MEMBER_CONTAINER_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.dom.impl.DomObjectImpl <em>Object</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.dom.impl.DomObjectImpl
+	 * @see com.mimacom.ddd.dm.dom.impl.DomPackageImpl#getDomObject()
+	 * @generated
+	 */
+	int DOM_OBJECT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_OBJECT__NAME = BasePackage.DNAVIGABLE_MEMBER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_OBJECT__ALIASES = BasePackage.DNAVIGABLE_MEMBER__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_OBJECT__DESCRIPTION = BasePackage.DNAVIGABLE_MEMBER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_OBJECT__TYPE = BasePackage.DNAVIGABLE_MEMBER__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_OBJECT__MULTIPLICITY = BasePackage.DNAVIGABLE_MEMBER__MULTIPLICITY;
+
+	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_OBJECT__OPTIONAL = BasePackage.DNAVIGABLE_MEMBER__OPTIONAL;
+
+	/**
+	 * The feature id for the '<em><b>Collection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_OBJECT__COLLECTION = BasePackage.DNAVIGABLE_MEMBER__COLLECTION;
+
+	/**
+	 * The number of structural features of the '<em>Object</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_OBJECT_FEATURE_COUNT = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dom.impl.DomComplexObjectImpl <em>Complex Object</em>}' class.
@@ -148,7 +232,7 @@ public interface DomPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dom.impl.DomPackageImpl#getDomComplexObject()
 	 * @generated
 	 */
-	int DOM_COMPLEX_OBJECT = 2;
+	int DOM_COMPLEX_OBJECT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' reference.
@@ -157,16 +241,7 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_COMPLEX_OBJECT__REF = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOM_COMPLEX_OBJECT__NAME = 1;
+	int DOM_COMPLEX_OBJECT__REF = BasePackage.DEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
@@ -175,7 +250,7 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_COMPLEX_OBJECT__FIELDS = 2;
+	int DOM_COMPLEX_OBJECT__FIELDS = BasePackage.DEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Complex Object</em>' class.
@@ -184,99 +259,7 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_COMPLEX_OBJECT_FEATURE_COUNT = 3;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.dom.impl.DomEntityObjectImpl <em>Entity Object</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.dom.impl.DomEntityObjectImpl
-	 * @see com.mimacom.ddd.dm.dom.impl.DomPackageImpl#getDomEntityObject()
-	 * @generated
-	 */
-	int DOM_ENTITY_OBJECT = 3;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOM_ENTITY_OBJECT__REF = DOM_COMPLEX_OBJECT__REF;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOM_ENTITY_OBJECT__NAME = DOM_COMPLEX_OBJECT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOM_ENTITY_OBJECT__FIELDS = DOM_COMPLEX_OBJECT__FIELDS;
-
-	/**
-	 * The number of structural features of the '<em>Entity Object</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOM_ENTITY_OBJECT_FEATURE_COUNT = DOM_COMPLEX_OBJECT_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.dom.impl.DomDetailObjectImpl <em>Detail Object</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.dom.impl.DomDetailObjectImpl
-	 * @see com.mimacom.ddd.dm.dom.impl.DomPackageImpl#getDomDetailObject()
-	 * @generated
-	 */
-	int DOM_DETAIL_OBJECT = 4;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOM_DETAIL_OBJECT__REF = DOM_COMPLEX_OBJECT__REF;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOM_DETAIL_OBJECT__NAME = DOM_COMPLEX_OBJECT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOM_DETAIL_OBJECT__FIELDS = DOM_COMPLEX_OBJECT__FIELDS;
-
-	/**
-	 * The number of structural features of the '<em>Detail Object</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOM_DETAIL_OBJECT_FEATURE_COUNT = DOM_COMPLEX_OBJECT_FEATURE_COUNT + 0;
+	int DOM_COMPLEX_OBJECT_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dom.impl.DomFieldImpl <em>Field</em>}' class.
@@ -286,7 +269,70 @@ public interface DomPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dom.impl.DomPackageImpl#getDomField()
 	 * @generated
 	 */
-	int DOM_FIELD = 5;
+	int DOM_FIELD = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_FIELD__NAME = BasePackage.DNAVIGABLE_MEMBER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_FIELD__ALIASES = BasePackage.DNAVIGABLE_MEMBER__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_FIELD__DESCRIPTION = BasePackage.DNAVIGABLE_MEMBER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_FIELD__TYPE = BasePackage.DNAVIGABLE_MEMBER__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_FIELD__MULTIPLICITY = BasePackage.DNAVIGABLE_MEMBER__MULTIPLICITY;
+
+	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_FIELD__OPTIONAL = BasePackage.DNAVIGABLE_MEMBER__OPTIONAL;
+
+	/**
+	 * The feature id for the '<em><b>Collection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_FIELD__COLLECTION = BasePackage.DNAVIGABLE_MEMBER__COLLECTION;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' reference.
@@ -295,7 +341,7 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_FIELD__REF = 0;
+	int DOM_FIELD__REF = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -304,7 +350,7 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_FIELD__VALUE = 1;
+	int DOM_FIELD__VALUE = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Field</em>' class.
@@ -313,7 +359,172 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_FIELD_FEATURE_COUNT = 2;
+	int DOM_FIELD_FEATURE_COUNT = BasePackage.DNAVIGABLE_MEMBER_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.dom.impl.DomNamedComplexObjectImpl <em>Named Complex Object</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.dom.impl.DomNamedComplexObjectImpl
+	 * @see com.mimacom.ddd.dm.dom.impl.DomPackageImpl#getDomNamedComplexObject()
+	 * @generated
+	 */
+	int DOM_NAMED_COMPLEX_OBJECT = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_NAMED_COMPLEX_OBJECT__NAME = DOM_OBJECT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_NAMED_COMPLEX_OBJECT__ALIASES = DOM_OBJECT__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_NAMED_COMPLEX_OBJECT__DESCRIPTION = DOM_OBJECT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_NAMED_COMPLEX_OBJECT__TYPE = DOM_OBJECT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_NAMED_COMPLEX_OBJECT__MULTIPLICITY = DOM_OBJECT__MULTIPLICITY;
+
+	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_NAMED_COMPLEX_OBJECT__OPTIONAL = DOM_OBJECT__OPTIONAL;
+
+	/**
+	 * The feature id for the '<em><b>Collection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_NAMED_COMPLEX_OBJECT__COLLECTION = DOM_OBJECT__COLLECTION;
+
+	/**
+	 * The feature id for the '<em><b>Object</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_NAMED_COMPLEX_OBJECT__OBJECT = DOM_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Named Complex Object</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_NAMED_COMPLEX_OBJECT_FEATURE_COUNT = DOM_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.dom.impl.DomEntityImpl <em>Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.dom.impl.DomEntityImpl
+	 * @see com.mimacom.ddd.dm.dom.impl.DomPackageImpl#getDomEntity()
+	 * @generated
+	 */
+	int DOM_ENTITY = 6;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_ENTITY__REF = DOM_COMPLEX_OBJECT__REF;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_ENTITY__FIELDS = DOM_COMPLEX_OBJECT__FIELDS;
+
+	/**
+	 * The number of structural features of the '<em>Entity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_ENTITY_FEATURE_COUNT = DOM_COMPLEX_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.dom.impl.DomDetailImpl <em>Detail</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.dom.impl.DomDetailImpl
+	 * @see com.mimacom.ddd.dm.dom.impl.DomPackageImpl#getDomDetail()
+	 * @generated
+	 */
+	int DOM_DETAIL = 7;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_DETAIL__REF = DOM_COMPLEX_OBJECT__REF;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_DETAIL__FIELDS = DOM_COMPLEX_OBJECT__FIELDS;
+
+	/**
+	 * The number of structural features of the '<em>Detail</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_DETAIL_FEATURE_COUNT = DOM_COMPLEX_OBJECT_FEATURE_COUNT + 0;
 
 
 	/**
@@ -360,36 +571,46 @@ public interface DomPackage extends EPackage
 	EReference getDomModel_Snapshots();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dom.Snapshot <em>Snapshot</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dom.DomSnapshot <em>Snapshot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Snapshot</em>'.
-	 * @see com.mimacom.ddd.dm.dom.Snapshot
+	 * @see com.mimacom.ddd.dm.dom.DomSnapshot
 	 * @generated
 	 */
-	EClass getSnapshot();
+	EClass getDomSnapshot();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dom.Snapshot#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dom.DomSnapshot#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.mimacom.ddd.dm.dom.Snapshot#getName()
-	 * @see #getSnapshot()
+	 * @see com.mimacom.ddd.dm.dom.DomSnapshot#getName()
+	 * @see #getDomSnapshot()
 	 * @generated
 	 */
-	EAttribute getSnapshot_Name();
+	EAttribute getDomSnapshot_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.dom.Snapshot#getObjects <em>Objects</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.dom.DomSnapshot#getObjects <em>Objects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Objects</em>'.
-	 * @see com.mimacom.ddd.dm.dom.Snapshot#getObjects()
-	 * @see #getSnapshot()
+	 * @see com.mimacom.ddd.dm.dom.DomSnapshot#getObjects()
+	 * @see #getDomSnapshot()
 	 * @generated
 	 */
-	EReference getSnapshot_Objects();
+	EReference getDomSnapshot_Objects();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dom.DomObject <em>Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Object</em>'.
+	 * @see com.mimacom.ddd.dm.dom.DomObject
+	 * @generated
+	 */
+	EClass getDomObject();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dom.DomComplexObject <em>Complex Object</em>}'.
@@ -413,17 +634,6 @@ public interface DomPackage extends EPackage
 	EReference getDomComplexObject_Ref();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dom.DomComplexObject#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.mimacom.ddd.dm.dom.DomComplexObject#getName()
-	 * @see #getDomComplexObject()
-	 * @generated
-	 */
-	EAttribute getDomComplexObject_Name();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.dom.DomComplexObject#getFields <em>Fields</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -433,26 +643,6 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 */
 	EReference getDomComplexObject_Fields();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dom.DomEntityObject <em>Entity Object</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Entity Object</em>'.
-	 * @see com.mimacom.ddd.dm.dom.DomEntityObject
-	 * @generated
-	 */
-	EClass getDomEntityObject();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dom.DomDetailObject <em>Detail Object</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Detail Object</em>'.
-	 * @see com.mimacom.ddd.dm.dom.DomDetailObject
-	 * @generated
-	 */
-	EClass getDomDetailObject();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dom.DomField <em>Field</em>}'.
@@ -485,6 +675,47 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 */
 	EReference getDomField_Value();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dom.DomNamedComplexObject <em>Named Complex Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Named Complex Object</em>'.
+	 * @see com.mimacom.ddd.dm.dom.DomNamedComplexObject
+	 * @generated
+	 */
+	EClass getDomNamedComplexObject();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.dom.DomNamedComplexObject#getObject <em>Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Object</em>'.
+	 * @see com.mimacom.ddd.dm.dom.DomNamedComplexObject#getObject()
+	 * @see #getDomNamedComplexObject()
+	 * @generated
+	 */
+	EReference getDomNamedComplexObject_Object();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dom.DomEntity <em>Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Entity</em>'.
+	 * @see com.mimacom.ddd.dm.dom.DomEntity
+	 * @generated
+	 */
+	EClass getDomEntity();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dom.DomDetail <em>Detail</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Detail</em>'.
+	 * @see com.mimacom.ddd.dm.dom.DomDetail
+	 * @generated
+	 */
+	EClass getDomDetail();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -544,14 +775,14 @@ public interface DomPackage extends EPackage
 		EReference DOM_MODEL__SNAPSHOTS = eINSTANCE.getDomModel_Snapshots();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dom.impl.SnapshotImpl <em>Snapshot</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dom.impl.DomSnapshotImpl <em>Snapshot</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.dom.impl.SnapshotImpl
-		 * @see com.mimacom.ddd.dm.dom.impl.DomPackageImpl#getSnapshot()
+		 * @see com.mimacom.ddd.dm.dom.impl.DomSnapshotImpl
+		 * @see com.mimacom.ddd.dm.dom.impl.DomPackageImpl#getDomSnapshot()
 		 * @generated
 		 */
-		EClass SNAPSHOT = eINSTANCE.getSnapshot();
+		EClass DOM_SNAPSHOT = eINSTANCE.getDomSnapshot();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -559,7 +790,7 @@ public interface DomPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SNAPSHOT__NAME = eINSTANCE.getSnapshot_Name();
+		EAttribute DOM_SNAPSHOT__NAME = eINSTANCE.getDomSnapshot_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Objects</b></em>' containment reference list feature.
@@ -567,7 +798,17 @@ public interface DomPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SNAPSHOT__OBJECTS = eINSTANCE.getSnapshot_Objects();
+		EReference DOM_SNAPSHOT__OBJECTS = eINSTANCE.getDomSnapshot_Objects();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dom.impl.DomObjectImpl <em>Object</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.dom.impl.DomObjectImpl
+		 * @see com.mimacom.ddd.dm.dom.impl.DomPackageImpl#getDomObject()
+		 * @generated
+		 */
+		EClass DOM_OBJECT = eINSTANCE.getDomObject();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dom.impl.DomComplexObjectImpl <em>Complex Object</em>}' class.
@@ -588,40 +829,12 @@ public interface DomPackage extends EPackage
 		EReference DOM_COMPLEX_OBJECT__REF = eINSTANCE.getDomComplexObject_Ref();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DOM_COMPLEX_OBJECT__NAME = eINSTANCE.getDomComplexObject_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Fields</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference DOM_COMPLEX_OBJECT__FIELDS = eINSTANCE.getDomComplexObject_Fields();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dom.impl.DomEntityObjectImpl <em>Entity Object</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.dom.impl.DomEntityObjectImpl
-		 * @see com.mimacom.ddd.dm.dom.impl.DomPackageImpl#getDomEntityObject()
-		 * @generated
-		 */
-		EClass DOM_ENTITY_OBJECT = eINSTANCE.getDomEntityObject();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dom.impl.DomDetailObjectImpl <em>Detail Object</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.dom.impl.DomDetailObjectImpl
-		 * @see com.mimacom.ddd.dm.dom.impl.DomPackageImpl#getDomDetailObject()
-		 * @generated
-		 */
-		EClass DOM_DETAIL_OBJECT = eINSTANCE.getDomDetailObject();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dom.impl.DomFieldImpl <em>Field</em>}' class.
@@ -648,6 +861,44 @@ public interface DomPackage extends EPackage
 		 * @generated
 		 */
 		EReference DOM_FIELD__VALUE = eINSTANCE.getDomField_Value();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dom.impl.DomNamedComplexObjectImpl <em>Named Complex Object</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.dom.impl.DomNamedComplexObjectImpl
+		 * @see com.mimacom.ddd.dm.dom.impl.DomPackageImpl#getDomNamedComplexObject()
+		 * @generated
+		 */
+		EClass DOM_NAMED_COMPLEX_OBJECT = eINSTANCE.getDomNamedComplexObject();
+
+		/**
+		 * The meta object literal for the '<em><b>Object</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOM_NAMED_COMPLEX_OBJECT__OBJECT = eINSTANCE.getDomNamedComplexObject_Object();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dom.impl.DomEntityImpl <em>Entity</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.dom.impl.DomEntityImpl
+		 * @see com.mimacom.ddd.dm.dom.impl.DomPackageImpl#getDomEntity()
+		 * @generated
+		 */
+		EClass DOM_ENTITY = eINSTANCE.getDomEntity();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dom.impl.DomDetailImpl <em>Detail</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.dom.impl.DomDetailImpl
+		 * @see com.mimacom.ddd.dm.dom.impl.DomPackageImpl#getDomDetail()
+		 * @generated
+		 */
+		EClass DOM_DETAIL = eINSTANCE.getDomDetail();
 
 	}
 

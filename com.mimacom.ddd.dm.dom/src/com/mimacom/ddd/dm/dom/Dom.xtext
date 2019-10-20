@@ -7,47 +7,41 @@ DomModel:
 	(imports+=DImport)*
 	'domain'
 	name=DQualifiedName
-	(snapshots+=Snapshot)+;
+	(snapshots+=DomSnapshot)+;
 
-///* REMOVE */
-//DImport:
-//	'import' importedNamespace=DQualifiedNameWithWildcard;
-//	
-//DQualifiedNameWithWildcard: 
-//	DQualifiedName '.*'?;
-//
-//DQualifiedName:
-//	ID ('.' ID)*;
-//
-///* END REMOVE */
-
-Snapshot:
+DomSnapshot:
 	'snapshot' name=ID
 	'{'
-	(objects+=DomComplexObject)*
+	(objects+=DomObject)*
 	'}';
 
-DomComplexObject:
-	DomEntityObject | DomDetailObject;
+DomObject:
+	DomNamedComplexObject;
+	
+DomNamedComplexObject:
+	name=ID
+	'=' 
+	object=(DomEntity | DomDetail);
 
-DomEntityObject:
-	'entity' name=ID
-	'=' ref=[DEntityType|ID]
+DomEntity:
+	'entity' 
+	DomComplexObject;
+
+DomDetail:
+	'detail' 
+	DomComplexObject;
+
+fragment DomComplexObject:
+	ref=[DDetailType|ID]
 	DomFieldListStartSymbol
 	(fields+=DomField)*
 	'}';
-
+	
 DomField:
-//	'field' 
-	ref=[DFeature|ID] "=" value=DmxOrExpression
-;
-
-DomDetailObject:
-	'detail' name=ID
-	':' ref=[DDetailType|ID]
-	DomFieldListStartSymbol
-	(fields+=DomField)*
-	'}';
+	ref=[DFeature|ID] "=" value=DomFieldValue;
+	
+DomFieldValue returns DExpression:
+	DmxOrExpression | DomDetail;
 
 DomFieldListStartSymbol:
 	'{';

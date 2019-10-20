@@ -66,11 +66,11 @@ public class DomFactoryImpl extends EFactoryImpl implements DomFactory
 		switch (eClass.getClassifierID())
 		{
 			case DomPackage.DOM_MODEL: return createDomModel();
-			case DomPackage.SNAPSHOT: return createSnapshot();
-			case DomPackage.DOM_COMPLEX_OBJECT: return createDomComplexObject();
-			case DomPackage.DOM_ENTITY_OBJECT: return createDomEntityObject();
-			case DomPackage.DOM_DETAIL_OBJECT: return createDomDetailObject();
+			case DomPackage.DOM_SNAPSHOT: return createDomSnapshot();
 			case DomPackage.DOM_FIELD: return createDomField();
+			case DomPackage.DOM_NAMED_COMPLEX_OBJECT: return createDomNamedComplexObject();
+			case DomPackage.DOM_ENTITY: return createDomEntity();
+			case DomPackage.DOM_DETAIL: return createDomDetail();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -94,46 +94,10 @@ public class DomFactoryImpl extends EFactoryImpl implements DomFactory
 	 * @generated
 	 */
 	@Override
-	public Snapshot createSnapshot()
+	public DomSnapshot createDomSnapshot()
 	{
-		SnapshotImpl snapshot = new SnapshotImpl();
-		return snapshot;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DomComplexObject createDomComplexObject()
-	{
-		DomComplexObjectImpl domComplexObject = new DomComplexObjectImpl();
-		return domComplexObject;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DomEntityObject createDomEntityObject()
-	{
-		DomEntityObjectImpl domEntityObject = new DomEntityObjectImpl();
-		return domEntityObject;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DomDetailObject createDomDetailObject()
-	{
-		DomDetailObjectImpl domDetailObject = new DomDetailObjectImpl();
-		return domDetailObject;
+		DomSnapshotImpl domSnapshot = new DomSnapshotImpl();
+		return domSnapshot;
 	}
 
 	/**
@@ -146,6 +110,42 @@ public class DomFactoryImpl extends EFactoryImpl implements DomFactory
 	{
 		DomFieldImpl domField = new DomFieldImpl();
 		return domField;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DomNamedComplexObject createDomNamedComplexObject()
+	{
+		DomNamedComplexObjectImpl domNamedComplexObject = new DomNamedComplexObjectImpl();
+		return domNamedComplexObject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DomEntity createDomEntity()
+	{
+		DomEntityImpl domEntity = new DomEntityImpl();
+		return domEntity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DomDetail createDomDetail()
+	{
+		DomDetailImpl domDetail = new DomDetailImpl();
+		return domDetail;
 	}
 
 	/**

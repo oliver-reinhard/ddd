@@ -6,13 +6,15 @@ package com.mimacom.ddd.dm.dom.impl;
 import com.mimacom.ddd.dm.base.BasePackage;
 
 import com.mimacom.ddd.dm.dom.DomComplexObject;
-import com.mimacom.ddd.dm.dom.DomDetailObject;
-import com.mimacom.ddd.dm.dom.DomEntityObject;
+import com.mimacom.ddd.dm.dom.DomDetail;
+import com.mimacom.ddd.dm.dom.DomEntity;
 import com.mimacom.ddd.dm.dom.DomFactory;
 import com.mimacom.ddd.dm.dom.DomField;
 import com.mimacom.ddd.dm.dom.DomModel;
+import com.mimacom.ddd.dm.dom.DomNamedComplexObject;
+import com.mimacom.ddd.dm.dom.DomObject;
 import com.mimacom.ddd.dm.dom.DomPackage;
-import com.mimacom.ddd.dm.dom.Snapshot;
+import com.mimacom.ddd.dm.dom.DomSnapshot;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -41,7 +43,14 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass snapshotEClass = null;
+	private EClass domSnapshotEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass domObjectEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -55,21 +64,28 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass domEntityObjectEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass domDetailObjectEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass domFieldEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass domNamedComplexObjectEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass domEntityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass domDetailEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -187,9 +203,9 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSnapshot()
+	public EClass getDomSnapshot()
 	{
-		return snapshotEClass;
+		return domSnapshotEClass;
 	}
 
 	/**
@@ -198,9 +214,9 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSnapshot_Name()
+	public EAttribute getDomSnapshot_Name()
 	{
-		return (EAttribute)snapshotEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)domSnapshotEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -209,9 +225,20 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSnapshot_Objects()
+	public EReference getDomSnapshot_Objects()
 	{
-		return (EReference)snapshotEClass.getEStructuralFeatures().get(1);
+		return (EReference)domSnapshotEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDomObject()
+	{
+		return domObjectEClass;
 	}
 
 	/**
@@ -242,42 +269,9 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDomComplexObject_Name()
-	{
-		return (EAttribute)domComplexObjectEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getDomComplexObject_Fields()
 	{
-		return (EReference)domComplexObjectEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDomEntityObject()
-	{
-		return domEntityObjectEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDomDetailObject()
-	{
-		return domDetailObjectEClass;
+		return (EReference)domComplexObjectEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -319,6 +313,50 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * @generated
 	 */
 	@Override
+	public EClass getDomNamedComplexObject()
+	{
+		return domNamedComplexObjectEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDomNamedComplexObject_Object()
+	{
+		return (EReference)domNamedComplexObjectEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDomEntity()
+	{
+		return domEntityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDomDetail()
+	{
+		return domDetailEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public DomFactory getDomFactory()
 	{
 		return (DomFactory)getEFactoryInstance();
@@ -349,22 +387,26 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 		createEAttribute(domModelEClass, DOM_MODEL__NAME);
 		createEReference(domModelEClass, DOM_MODEL__SNAPSHOTS);
 
-		snapshotEClass = createEClass(SNAPSHOT);
-		createEAttribute(snapshotEClass, SNAPSHOT__NAME);
-		createEReference(snapshotEClass, SNAPSHOT__OBJECTS);
+		domSnapshotEClass = createEClass(DOM_SNAPSHOT);
+		createEAttribute(domSnapshotEClass, DOM_SNAPSHOT__NAME);
+		createEReference(domSnapshotEClass, DOM_SNAPSHOT__OBJECTS);
+
+		domObjectEClass = createEClass(DOM_OBJECT);
 
 		domComplexObjectEClass = createEClass(DOM_COMPLEX_OBJECT);
 		createEReference(domComplexObjectEClass, DOM_COMPLEX_OBJECT__REF);
-		createEAttribute(domComplexObjectEClass, DOM_COMPLEX_OBJECT__NAME);
 		createEReference(domComplexObjectEClass, DOM_COMPLEX_OBJECT__FIELDS);
-
-		domEntityObjectEClass = createEClass(DOM_ENTITY_OBJECT);
-
-		domDetailObjectEClass = createEClass(DOM_DETAIL_OBJECT);
 
 		domFieldEClass = createEClass(DOM_FIELD);
 		createEReference(domFieldEClass, DOM_FIELD__REF);
 		createEReference(domFieldEClass, DOM_FIELD__VALUE);
+
+		domNamedComplexObjectEClass = createEClass(DOM_NAMED_COMPLEX_OBJECT);
+		createEReference(domNamedComplexObjectEClass, DOM_NAMED_COMPLEX_OBJECT__OBJECT);
+
+		domEntityEClass = createEClass(DOM_ENTITY);
+
+		domDetailEClass = createEClass(DOM_DETAIL);
 	}
 
 	/**
@@ -399,31 +441,41 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		domEntityObjectEClass.getESuperTypes().add(this.getDomComplexObject());
-		domDetailObjectEClass.getESuperTypes().add(this.getDomComplexObject());
+		domSnapshotEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
+		domObjectEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
+		domComplexObjectEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		domComplexObjectEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
+		domFieldEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
+		domNamedComplexObjectEClass.getESuperTypes().add(this.getDomObject());
+		domEntityEClass.getESuperTypes().add(this.getDomComplexObject());
+		domDetailEClass.getESuperTypes().add(this.getDomComplexObject());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(domModelEClass, DomModel.class, "DomModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDomModel_Imports(), theBasePackage.getDImport(), null, "imports", null, 0, -1, DomModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDomModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDomModel_Snapshots(), this.getSnapshot(), null, "snapshots", null, 0, -1, DomModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomModel_Snapshots(), this.getDomSnapshot(), null, "snapshots", null, 0, -1, DomModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(snapshotEClass, Snapshot.class, "Snapshot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSnapshot_Name(), ecorePackage.getEString(), "name", null, 0, 1, Snapshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSnapshot_Objects(), this.getDomComplexObject(), null, "objects", null, 0, -1, Snapshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(domSnapshotEClass, DomSnapshot.class, "DomSnapshot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDomSnapshot_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomSnapshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomSnapshot_Objects(), this.getDomObject(), null, "objects", null, 0, -1, DomSnapshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(domComplexObjectEClass, DomComplexObject.class, "DomComplexObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(domObjectEClass, DomObject.class, "DomObject", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(domComplexObjectEClass, DomComplexObject.class, "DomComplexObject", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDomComplexObject_Ref(), theBasePackage.getDComplexType(), null, "ref", null, 0, 1, DomComplexObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDomComplexObject_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomComplexObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDomComplexObject_Fields(), this.getDomField(), null, "fields", null, 0, -1, DomComplexObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(domEntityObjectEClass, DomEntityObject.class, "DomEntityObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(domDetailObjectEClass, DomDetailObject.class, "DomDetailObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(domFieldEClass, DomField.class, "DomField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDomField_Ref(), theBasePackage.getDFeature(), null, "ref", null, 0, 1, DomField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDomField_Value(), theBasePackage.getDExpression(), null, "value", null, 0, 1, DomField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(domNamedComplexObjectEClass, DomNamedComplexObject.class, "DomNamedComplexObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDomNamedComplexObject_Object(), this.getDomComplexObject(), null, "object", null, 0, 1, DomNamedComplexObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(domEntityEClass, DomEntity.class, "DomEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(domDetailEClass, DomDetail.class, "DomDetail", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -3,26 +3,28 @@
  */
 package com.mimacom.ddd.dm.dom.impl;
 
-import com.mimacom.ddd.dm.dom.DomDetailObject;
+import com.mimacom.ddd.dm.base.impl.DNavigableMemberImplCustom;
+
+import com.mimacom.ddd.dm.dom.DomObject;
 import com.mimacom.ddd.dm.dom.DomPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Detail Object</b></em>'.
+ * An implementation of the model object '<em><b>Object</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class DomDetailObjectImpl extends DomComplexObjectImpl implements DomDetailObject
+public abstract class DomObjectImpl extends DNavigableMemberImplCustom implements DomObject
 {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DomDetailObjectImpl()
+	protected DomObjectImpl()
 	{
 		super();
 	}
@@ -35,7 +37,7 @@ public class DomDetailObjectImpl extends DomComplexObjectImpl implements DomDeta
 	@Override
 	protected EClass eStaticClass()
 	{
-		return DomPackage.Literals.DOM_DETAIL_OBJECT;
+		return DomPackage.Literals.DOM_OBJECT;
 	}
 
-} //DomDetailObjectImpl
+} //DomObjectImpl

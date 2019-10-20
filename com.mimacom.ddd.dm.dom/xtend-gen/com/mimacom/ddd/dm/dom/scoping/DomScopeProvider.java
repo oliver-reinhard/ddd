@@ -6,9 +6,11 @@ package com.mimacom.ddd.dm.dom.scoping;
 import com.google.common.base.Objects;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DDetailType;
-import com.mimacom.ddd.dm.dom.DomDetailObject;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.dom.DomComplexObject;
 import com.mimacom.ddd.dm.dom.DomField;
 import com.mimacom.ddd.dm.dom.DomPackage;
+import com.mimacom.ddd.dm.dom.DomSnapshot;
 import com.mimacom.ddd.dm.dom.scoping.AbstractDomScopeProvider;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -33,11 +35,11 @@ public class DomScopeProvider extends AbstractDomScopeProvider {
       boolean _equals = Objects.equal(reference, _domField_Ref);
       if (_equals) {
         if ((context instanceof DomField)) {
-          final EObject parent = ((DomField)context).eContainer();
-          if ((parent instanceof DomDetailObject)) {
-            DComplexType _ref = ((DomDetailObject)parent).getRef();
+          final EObject container = ((DomField)context).eContainer();
+          if ((container instanceof DomComplexObject)) {
+            DComplexType _ref = ((DomComplexObject)container).getRef();
             if ((_ref instanceof DDetailType)) {
-              return Scopes.scopeFor(((DomDetailObject)parent).getRef().getFeatures());
+              return Scopes.scopeFor(((DomComplexObject)container).getRef().getFeatures());
             }
           }
         }
@@ -45,5 +47,26 @@ public class DomScopeProvider extends AbstractDomScopeProvider {
       _xblockexpression = super.getScope(context, reference);
     }
     return _xblockexpression;
+  }
+  
+  @Override
+  protected IScope getEContainerNavigableMembersScopeSwitch(final INavigableMemberContainer container, final IScope outerScope) {
+    IScope _switchResult = null;
+    boolean _matched = false;
+    if (container instanceof DomSnapshot) {
+      _matched=true;
+      _switchResult = Scopes.scopeFor(((DomSnapshot)container).getObjects(), outerScope);
+    }
+    if (!_matched) {
+      if (container instanceof DomComplexObject) {
+        _matched=true;
+        _switchResult = Scopes.scopeFor(((DomComplexObject)container).getFields(), outerScope);
+      }
+    }
+    if (!_matched) {
+      _switchResult = super.getEContainerNavigableMembersScopeSwitch(container, outerScope);
+    }
+    final IScope scope = _switchResult;
+    return scope;
   }
 }

@@ -4,11 +4,14 @@
 package com.mimacom.ddd.dm.dom.scoping
 
 import com.mimacom.ddd.dm.base.DDetailType
-import com.mimacom.ddd.dm.dom.DomDetailObject
+import com.mimacom.ddd.dm.base.INavigableMemberContainer
+import com.mimacom.ddd.dm.dom.DomComplexObject
 import com.mimacom.ddd.dm.dom.DomField
 import com.mimacom.ddd.dm.dom.DomPackage
+import com.mimacom.ddd.dm.dom.DomSnapshot
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
 
 /**
@@ -25,15 +28,24 @@ class DomScopeProvider extends AbstractDomScopeProvider {
 		
 		if (reference == DOM.domField_Ref) {
 			if (context instanceof DomField) {
-				val parent = context.eContainer
-				if (parent instanceof DomDetailObject) {
-					if (parent.ref instanceof DDetailType) {
-						return Scopes.scopeFor(parent.ref.features)
+				val container = context.eContainer
+				if (container instanceof DomComplexObject) {
+					if (container.ref instanceof DDetailType) {
+						return Scopes.scopeFor(container.ref.features)
 					}
 				}
 			}
 		}
 		super.getScope(context, reference)
+	}
+	
+	override protected getEContainerNavigableMembersScopeSwitch(INavigableMemberContainer container, IScope outerScope) {
+		val scope = switch container {
+			DomSnapshot: Scopes.scopeFor(container.objects, outerScope)
+			DomComplexObject: Scopes.scopeFor(container.fields, outerScope)
+			default: super.getEContainerNavigableMembersScopeSwitch(container, outerScope)
+		}
+		return scope
 	}
 	
 }
