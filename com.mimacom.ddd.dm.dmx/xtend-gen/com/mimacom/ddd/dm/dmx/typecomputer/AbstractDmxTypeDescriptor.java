@@ -7,22 +7,28 @@ import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.indexing.DmxIndex;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
+import org.eclipse.xtext.util.internal.Nullable;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 
 @SuppressWarnings("all")
-public abstract class AbstractDmxTypeDescriptor<T extends DType> {
+public abstract class AbstractDmxTypeDescriptor<T extends DType> implements Cloneable {
   protected final DmxBaseType baseType;
   
   protected final T type;
   
   protected boolean collection;
   
-  public AbstractDmxTypeDescriptor(final DmxBaseType baseType, final T type, final Boolean collection) {
+  public AbstractDmxTypeDescriptor(final DmxBaseType baseType, @Nullable final T type, final boolean collection) {
+    if ((baseType == null)) {
+      throw new NullPointerException("baseType");
+    }
     this.baseType = baseType;
     this.type = type;
-    this.collection = (collection).booleanValue();
+    this.collection = collection;
   }
   
   public DmxBaseType baseType() {
@@ -37,6 +43,20 @@ public abstract class AbstractDmxTypeDescriptor<T extends DType> {
     return this.collection;
   }
   
+  @Override
+  public boolean equals(final Object other) {
+    if (((other == null) || (other.getClass() != this.getClass()))) {
+      return false;
+    }
+    final AbstractDmxTypeDescriptor<?> obj = ((AbstractDmxTypeDescriptor<?>) other);
+    return (((this.baseType == obj.baseType) && (((this.type == null) && (obj.type == null)) || this.type.equals(obj.type))) && (this.collection == obj.collection));
+  }
+  
+  @Override
+  public int hashCode() {
+    return Objects.hash(this.baseType, this.type, Boolean.valueOf(this.collection));
+  }
+  
   /**
    * Used to adjust value for special cases.
    */
@@ -44,12 +64,15 @@ public abstract class AbstractDmxTypeDescriptor<T extends DType> {
     return this.collection = value;
   }
   
+  /**
+   * Check whether "other := this" is acceptable.
+   */
   public boolean canAssignTo(final AbstractDmxTypeDescriptor<?> other) {
     return ((((this.type != null) && (other != null)) && this.type.equals(other.type)) && (this.collection == other.collection));
   }
   
   public boolean isCompatibleWith(final AbstractDmxTypeDescriptor<?> other) {
-    return ((((this.baseType != null) && (other != null)) && this.baseType.equals(other.baseType)) && (this.collection == other.collection));
+    return (((other != null) && this.baseType.equals(other.baseType)) && (this.collection == other.collection));
   }
   
   public List<DNavigableMember> getNavigableMembers() {
@@ -156,5 +179,15 @@ public abstract class AbstractDmxTypeDescriptor<T extends DType> {
       _xifexpression = null;
     }
     return _xifexpression;
+  }
+  
+  @Override
+  public AbstractDmxTypeDescriptor<?> clone() {
+    try {
+      Object _clone = super.clone();
+      return ((AbstractDmxTypeDescriptor<?>) _clone);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
 }

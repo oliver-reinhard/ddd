@@ -70,14 +70,14 @@ public class DmxValidator extends DmxTypeCheckingValidator {
       EList<DFeature> _features = e.getFeatures();
       for (final DFeature f : _features) {
         String _name = f.getName();
-        boolean _equals = Objects.equal(_name, this.util.ENTITY_TYPE_STATE_FILTER_NAME);
+        boolean _equals = Objects.equal(_name, DmxUtil.ENTITY_TYPE_STATE_FILTER_NAME);
         if (_equals) {
           this.error("Cannot declare a \'state\' feature while states are declared for this type or for one of its super types.", f, DmxTypeCheckingValidator.BASE.getDNamedElement_Name());
         }
       }
       if (((e.getSuperType() != null) && IterableExtensions.<DFeature>exists(this.util.allFeatures(e.getSuperType()), ((Function1<DFeature, Boolean>) (DFeature it) -> {
         String _name_1 = it.getName();
-        return Boolean.valueOf(Objects.equal(_name_1, this.util.ENTITY_TYPE_STATE_FILTER_NAME));
+        return Boolean.valueOf(Objects.equal(_name_1, DmxUtil.ENTITY_TYPE_STATE_FILTER_NAME));
       })))) {
         this.error("Cannot have an inherited \'state\' feature while states are declared for this type.", e, DmxTypeCheckingValidator.BASE.getDNamedElement_Name());
       }

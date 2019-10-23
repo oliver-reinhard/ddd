@@ -22,11 +22,16 @@ public class DmxComplexTypeDescriptor extends AbstractDmxTypeDescriptor<DComplex
   private DmxUtil util;
   
   public DmxComplexTypeDescriptor(final DComplexType type, final boolean collection, final DmxUtil util) {
-    super(DmxBaseType.COMPLEX, type, Boolean.valueOf(collection));
+    super(DmxBaseType.COMPLEX, type, collection);
     if ((type == null)) {
       throw new NullPointerException("type");
     }
     this.util = util;
+  }
+  
+  @Override
+  public boolean isCompatibleWith(final AbstractDmxTypeDescriptor<?> other) {
+    return this.canAssignTo(other);
   }
   
   /**
@@ -53,13 +58,16 @@ public class DmxComplexTypeDescriptor extends AbstractDmxTypeDescriptor<DComplex
     if ((!(this.type instanceof DEntityType))) {
       final Function1<DmxFilter, Boolean> _function = (DmxFilter it) -> {
         String _name = it.getName();
-        return Boolean.valueOf((!Objects.equal(_name, this.util.ENTITY_TYPE_STATE_FILTER_NAME)));
+        return Boolean.valueOf((!Objects.equal(_name, DmxUtil.ENTITY_TYPE_STATE_FILTER_NAME)));
       };
       return IterableExtensions.<DmxFilter>toList(IterableExtensions.<DmxFilter>filter(iterators, _function));
     }
     return iterators;
   }
   
+  /**
+   * Check whether "other := this" is acceptable.
+   */
   @Override
   public boolean canAssignTo(final AbstractDmxTypeDescriptor<?> other) {
     return (super.canAssignTo(other) || ((other != null) && this.util.typeHierarchy(this.type).contains(other.type)));

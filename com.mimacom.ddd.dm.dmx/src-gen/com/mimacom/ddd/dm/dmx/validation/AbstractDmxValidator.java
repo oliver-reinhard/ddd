@@ -5,16 +5,29 @@ package com.mimacom.ddd.dm.dmx.validation;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.validation.AbstractDeclarativeValidator;
+import org.eclipse.xtext.validation.Check;
+
+import com.mimacom.ddd.dm.base.DQuery;
+import com.mimacom.ddd.dm.dmx.DmxAssignment;
+import com.mimacom.ddd.dm.dmx.DmxPackage;
 
 public abstract class AbstractDmxValidator extends AbstractDeclarativeValidator {
-	
+
 	@Override
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>();
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/dm/dmx"));
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.mimacom.com/ddd/dm/base"));
 		return result;
+	}
+
+	@Check
+	protected void checkAssignmentToQuery(DmxAssignment expr) {
+		if (expr.getAssignToMember() instanceof DQuery) {
+			error("Query is not a valid assignment target", expr, DmxPackage.eINSTANCE.getDmxAssignment_AssignToMember());
+		}
 	}
 }

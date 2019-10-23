@@ -7,6 +7,6 @@ import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
 @SuppressWarnings("all")
 public class DmxBaseTypeDescriptor extends AbstractDmxTypeDescriptor<DPrimitive> {
   public DmxBaseTypeDescriptor(final DmxBaseType baseType, final boolean collection) {
-    super(baseType, null, Boolean.valueOf(collection));
+    super(baseType, null, collection);
   }
 }

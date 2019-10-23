@@ -170,6 +170,16 @@ public enum DmxBinaryOperator implements Enumerator
 	GREATER(14, "GREATER", "GREATER"),
 
 	/**
+	 * The '<em><b>IN</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #IN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	IN(15, "IN", "IN"),
+
+	/**
 	 * The '<em><b>UNTIL</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -177,7 +187,7 @@ public enum DmxBinaryOperator implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	UNTIL(15, "UNTIL", "UNTIL"),
+	UNTIL(16, "UNTIL", "UNTIL"),
 
 	/**
 	 * The '<em><b>SINGLE ARROW</b></em>' literal object.
@@ -187,7 +197,7 @@ public enum DmxBinaryOperator implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	SINGLE_ARROW(16, "SINGLE_ARROW", "SINGLE_ARROW"),
+	SINGLE_ARROW(17, "SINGLE_ARROW", "SINGLE_ARROW"),
 
 	/**
 	 * The '<em><b>DOUBLE ARROW</b></em>' literal object.
@@ -197,7 +207,7 @@ public enum DmxBinaryOperator implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	DOUBLE_ARROW(17, "DOUBLE_ARROW", "DOUBLE_ARROW");
+	DOUBLE_ARROW(18, "DOUBLE_ARROW", "DOUBLE_ARROW");
 
 	/**
 	 * The '<em><b>ADD</b></em>' literal value.
@@ -365,6 +375,17 @@ public enum DmxBinaryOperator implements Enumerator
 	public static final int GREATER_VALUE = 14;
 
 	/**
+	 * The '<em><b>IN</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #IN
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int IN_VALUE = 15;
+
+	/**
 	 * The '<em><b>UNTIL</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -373,7 +394,7 @@ public enum DmxBinaryOperator implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int UNTIL_VALUE = 15;
+	public static final int UNTIL_VALUE = 16;
 
 	/**
 	 * The '<em><b>SINGLE ARROW</b></em>' literal value.
@@ -384,7 +405,7 @@ public enum DmxBinaryOperator implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SINGLE_ARROW_VALUE = 16;
+	public static final int SINGLE_ARROW_VALUE = 17;
 
 	/**
 	 * The '<em><b>DOUBLE ARROW</b></em>' literal value.
@@ -395,7 +416,7 @@ public enum DmxBinaryOperator implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DOUBLE_ARROW_VALUE = 17;
+	public static final int DOUBLE_ARROW_VALUE = 18;
 
 	/**
 	 * An array of all the '<em><b>Binary Operator</b></em>' enumerators.
@@ -421,6 +442,7 @@ public enum DmxBinaryOperator implements Enumerator
 			LESS_OR_EQUAL,
 			GREATER_OR_EQUAL,
 			GREATER,
+			IN,
 			UNTIL,
 			SINGLE_ARROW,
 			DOUBLE_ARROW,
@@ -503,6 +525,7 @@ public enum DmxBinaryOperator implements Enumerator
 			case LESS_OR_EQUAL_VALUE: return LESS_OR_EQUAL;
 			case GREATER_OR_EQUAL_VALUE: return GREATER_OR_EQUAL;
 			case GREATER_VALUE: return GREATER;
+			case IN_VALUE: return IN;
 			case UNTIL_VALUE: return UNTIL;
 			case SINGLE_ARROW_VALUE: return SINGLE_ARROW;
 			case DOUBLE_ARROW_VALUE: return DOUBLE_ARROW;

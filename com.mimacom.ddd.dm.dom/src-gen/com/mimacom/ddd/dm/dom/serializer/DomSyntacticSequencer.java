@@ -137,7 +137,10 @@ public class DomSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) '[' target=[IStaticReferenceTarget|DQualifiedName]
+	 *     (rule start) (ambiguity) 'detail' ref=[DDetailType|ID]
 	 *     (rule start) (ambiguity) 'if' if=DExpression
+	 *     (rule start) (ambiguity) '{' '}' (rule start)
+	 *     (rule start) (ambiguity) '{' elements+=DExpression
 	 *     (rule start) (ambiguity) ('FALSE' | 'false') (rule start)
 	 *     (rule start) (ambiguity) ('UNDEFINED' | 'undefined') (rule start)
 	 *     (rule start) (ambiguity) DmxOpConstructor constructor=[DComplexType|ID]
@@ -169,7 +172,10 @@ public class DomSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) '[' target=[IStaticReferenceTarget|DQualifiedName]
+	 *     (rule start) (ambiguity) 'detail' ref=[DDetailType|ID]
 	 *     (rule start) (ambiguity) 'if' if=DExpression
+	 *     (rule start) (ambiguity) '{' '}' ')' (rule start)
+	 *     (rule start) (ambiguity) '{' elements+=DExpression
 	 *     (rule start) (ambiguity) ('FALSE' | 'false') ')' (rule start)
 	 *     (rule start) (ambiguity) ('UNDEFINED' | 'undefined') ')' (rule start)
 	 *     (rule start) (ambiguity) DmxOpConstructor constructor=[DComplexType|ID]

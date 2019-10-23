@@ -185,13 +185,13 @@ public interface DmxFactory extends EFactory
 	DmxCastExpression createDmxCastExpression();
 
 	/**
-	 * Returns a new object of class '<em>Raise Expression</em>'.
+	 * Returns a new object of class '<em>List Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Raise Expression</em>'.
+	 * @return a new object of class '<em>List Expression</em>'.
 	 * @generated
 	 */
-	DmxRaiseExpression createDmxRaiseExpression();
+	DmxListExpression createDmxListExpression();
 
 	/**
 	 * Returns a new object of class '<em>Static Reference</em>'.

@@ -6,8 +6,8 @@ import com.mimacom.ddd.dm.dmx.DmxBaseType
 import java.util.List
 
 class DmxEnumerationDescriptor extends AbstractDmxTypeDescriptor<DEnumeration> {
-	new(DEnumeration enumeration) {
-		super(DmxBaseType.ENUM, enumeration,  false)
+	new(DEnumeration enumeration, boolean collection) {
+		super(DmxBaseType.ENUM, enumeration,  collection)
 	}
 	
 	override getNavigableMembers() {

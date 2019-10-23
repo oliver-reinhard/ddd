@@ -177,7 +177,7 @@ DmxOtherOperatorExpression returns DExpression:
 	(=>({DmxBinaryOperation.leftOperand=current} operator=OpOther) rightOperand=DmxAdditiveExpression)*;
 
 enum OpOther returns DmxBinaryOperator:
-	UNTIL='..' | SINGLE_ARROW= '->' | DOUBLE_ARROW='=>';
+	IN='IN' | IN='in' | UNTIL='..' | SINGLE_ARROW= '->' | DOUBLE_ARROW='=>';
 
 DmxAdditiveExpression returns DExpression:
 	DmxMultiplicativeExpression
@@ -210,6 +210,7 @@ DmxOpCast:
 DmxPrimaryExpression returns DExpression:
 	DmxLiteralExpression |
 	DmxParenthesizedExpression |
+	DmxListExpression |
 	DmxFunctionCall |
 	DmxConstructorCall |
 	DmxStaticReference |
@@ -225,6 +226,14 @@ DmxLiteralExpression returns DExpression:
 	
 DmxParenthesizedExpression returns DExpression:
 	'(' DExpression ')';
+	
+DmxListExpression returns DExpression:
+	{DmxListExpression}
+	'{'
+	(	
+		elements+=DExpression (',' elements+=DExpression)*
+	)?
+	'}';
 
 DmxFunctionCall returns DExpression:
 	{DmxFunctionCall}

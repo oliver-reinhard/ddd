@@ -121,7 +121,9 @@ public class DomSwitch<T> extends Switch<T>
 				DomField domField = (DomField)theEObject;
 				T result = caseDomField(domField);
 				if (result == null) result = caseDNavigableMember(domField);
+				if (result == null) result = caseDExpression(domField);
 				if (result == null) result = caseDNamedElement(domField);
+				if (result == null) result = caseIRichTextSegment(domField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

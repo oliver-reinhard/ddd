@@ -7,17 +7,20 @@ import com.mimacom.ddd.dm.dmx.DmxFilter
 import com.mimacom.ddd.dm.dmx.indexing.DmxIndex
 import java.util.Collections
 import java.util.List
+import java.util.Objects
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
+import org.eclipse.xtext.util.internal.Nullable
 
-abstract class AbstractDmxTypeDescriptor<T extends DType> {
+abstract class AbstractDmxTypeDescriptor<T extends DType> implements Cloneable {
 
 	protected val DmxBaseType baseType
 	protected val T type
 	protected var boolean collection
 
-	new(DmxBaseType baseType, T type, Boolean collection) {
+	new(DmxBaseType baseType, @Nullable T type, boolean collection) {
+		if (baseType === null) throw new NullPointerException("baseType")
 		this.baseType = baseType
 		this.type = type
 		this.collection = collection
@@ -34,20 +37,31 @@ abstract class AbstractDmxTypeDescriptor<T extends DType> {
 	def boolean isCollection() {
 		collection
 	}
-   
-   /**
-    * Used to adjust value for special cases.
-    */
+
+	override equals(Object other) {
+		if (other === null || other.class !== this.class) return false
+		val obj = other as AbstractDmxTypeDescriptor<?>
+		return baseType === obj.baseType && (type === null && obj.type === null || type.equals(obj.type)) && collection == obj.collection
+	}
+
+	override int hashCode() {
+		return Objects.hash(baseType, type, collection);
+	}
+
+	/**
+	 * Used to adjust value for special cases.
+	 */
 	def boolean setCollection(boolean value) {
 		collection = value
 	}
 
+	/* Check whether "other := this" is acceptable. */
 	def boolean canAssignTo(AbstractDmxTypeDescriptor<?> other) {
 		type !== null && other !== null && type.equals(other.type) && collection == other.collection
 	}
 
 	def boolean isCompatibleWith(AbstractDmxTypeDescriptor<?> other) {
-		baseType !== null && other !== null && baseType.equals(other.baseType) && collection == other.collection
+		other !== null && baseType.equals(other.baseType) && collection == other.collection
 	}
 
 	def List<DNavigableMember> getNavigableMembers() {
@@ -67,7 +81,7 @@ abstract class AbstractDmxTypeDescriptor<T extends DType> {
 			Scopes.scopeFor(members, nonNullOuter)
 		}
 	}
-	
+
 	def IScope getNavigableMembersScope() {
 		getNavigableMembersScope(null)
 	}
@@ -84,7 +98,7 @@ abstract class AbstractDmxTypeDescriptor<T extends DType> {
 	def IScope getNavigableMembersAndIteratorsScope(EObject context, DmxIndex index) {
 		return getNavigableMembersAndIteratorsScope(context, index, null)
 	}
-	
+
 	def displayName() {
 		val StringBuilder sb = new StringBuilder
 		if (collection) sb.append('collection of ')
@@ -113,5 +127,9 @@ abstract class AbstractDmxTypeDescriptor<T extends DType> {
 
 	protected def String typeName() {
 		if (type !== null) type.name else null
+	}
+
+	override AbstractDmxTypeDescriptor<?> clone() {
+		return super.clone() as AbstractDmxTypeDescriptor<?>;
 	}
 }

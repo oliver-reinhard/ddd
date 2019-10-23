@@ -540,12 +540,14 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		//EsmSubStateModel:
 		//	'substate'
 		//	'{'
+		//	// direction is always 'right' (PlantUML only supports horizontal dividers between regions)
 		//	states+=EsmState+
 		//	transitions+=EsmTransition+
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'substate' '{' states+=EsmState+ transitions+=EsmTransition+ '}'
+		//'substate' '{' // direction is always 'right' (PlantUML only supports horizontal dividers between regions)
+		//states+=EsmState+ transitions+=EsmTransition+ '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'substate'
@@ -554,6 +556,7 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
+		//// direction is always 'right' (PlantUML only supports horizontal dividers between regions)
 		//states+=EsmState+
 		public Assignment getStatesAssignment_2() { return cStatesAssignment_2; }
 		
@@ -957,6 +960,7 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 	//EsmSubStateModel:
 	//	'substate'
 	//	'{'
+	//	// direction is always 'right' (PlantUML only supports horizontal dividers between regions)
 	//	states+=EsmState+
 	//	transitions+=EsmTransition+
 	//	'}';
@@ -1364,7 +1368,7 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum OpOther returns DmxBinaryOperator:
-	//	UNTIL='..' | SINGLE_ARROW='->' | DOUBLE_ARROW='=>';
+	//	IN | IN='in' | UNTIL='..' | SINGLE_ARROW='->' | DOUBLE_ARROW='=>';
 	public DmxGrammarAccess.OpOtherElements getOpOtherAccess() {
 		return gaDmx.getOpOtherAccess();
 	}
@@ -1473,6 +1477,18 @@ public class EsmGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDmxParenthesizedExpressionRule() {
 		return getDmxParenthesizedExpressionAccess().getRule();
+	}
+	
+	//DmxListExpression DExpression:
+	//	{DmxListExpression}
+	//	'{' (elements+=super::DExpression (',' elements+=super::DExpression)*)?
+	//	'}';
+	public DmxGrammarAccess.DmxListExpressionElements getDmxListExpressionAccess() {
+		return gaDmx.getDmxListExpressionAccess();
+	}
+	
+	public ParserRule getDmxListExpressionRule() {
+		return getDmxListExpressionAccess().getRule();
 	}
 	
 	//DmxFunctionCall DExpression:

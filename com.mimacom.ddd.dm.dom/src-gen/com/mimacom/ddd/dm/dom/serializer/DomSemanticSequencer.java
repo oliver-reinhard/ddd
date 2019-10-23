@@ -27,6 +27,7 @@ import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.DmxFunctionCall;
 import com.mimacom.ddd.dm.dmx.DmxIfExpression;
 import com.mimacom.ddd.dm.dmx.DmxInstanceOfExpression;
+import com.mimacom.ddd.dm.dmx.DmxListExpression;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxNamespace;
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
@@ -111,8 +112,7 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 					sequence_DmxAssignment(context, (DmxAssignment) semanticObject); 
 					return; 
 				}
-				else if (rule == grammarAccess.getDomFieldValueRule()
-						|| rule == grammarAccess.getDExpressionRule()
+				else if (rule == grammarAccess.getDExpressionRule()
 						|| rule == grammarAccess.getDmxNavigableMemberReferenceRule()
 						|| action == grammarAccess.getDmxNavigableMemberReferenceAccess().getDmxAssignmentPrecedingNavigationSegmentAction_1_0_0_0_0()
 						|| action == grammarAccess.getDmxNavigableMemberReferenceAccess().getDmxMemberNavigationPrecedingNavigationSegmentAction_1_1_0_0_0()
@@ -193,6 +193,9 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 			case DmxPackage.DMX_INSTANCE_OF_EXPRESSION:
 				sequence_DmxRelationalExpression(context, (DmxInstanceOfExpression) semanticObject); 
 				return; 
+			case DmxPackage.DMX_LIST_EXPRESSION:
+				sequence_DmxListExpression(context, (DmxListExpression) semanticObject); 
+				return; 
 			case DmxPackage.DMX_MEMBER_NAVIGATION:
 				sequence_DmxNavigableMemberReference(context, (DmxMemberNavigation) semanticObject); 
 				return; 
@@ -249,7 +252,32 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 	/**
 	 * Contexts:
 	 *     DomDetail returns DomDetail
-	 *     DomFieldValue returns DomDetail
+	 *     DmxLiteralExpression returns DomDetail
+	 *     DExpression returns DomDetail
+	 *     DmxNavigableMemberReference returns DomDetail
+	 *     DmxNavigableMemberReference.DmxAssignment_1_0_0_0_0 returns DomDetail
+	 *     DmxNavigableMemberReference.DmxMemberNavigation_1_1_0_0_0 returns DomDetail
+	 *     DmxPredicateWithCorrelationVariable returns DomDetail
+	 *     DmxOrExpression returns DomDetail
+	 *     DmxOrExpression.DmxBinaryOperation_1_0_0_0 returns DomDetail
+	 *     DmxAndExpression returns DomDetail
+	 *     DmxAndExpression.DmxBinaryOperation_1_0_0_0 returns DomDetail
+	 *     DmxEqualityExpression returns DomDetail
+	 *     DmxEqualityExpression.DmxBinaryOperation_1_0_0_0 returns DomDetail
+	 *     DmxRelationalExpression returns DomDetail
+	 *     DmxRelationalExpression.DmxInstanceOfExpression_1_0_0_0_0 returns DomDetail
+	 *     DmxRelationalExpression.DmxBinaryOperation_1_1_0_0_0 returns DomDetail
+	 *     DmxOtherOperatorExpression returns DomDetail
+	 *     DmxOtherOperatorExpression.DmxBinaryOperation_1_0_0_0 returns DomDetail
+	 *     DmxAdditiveExpression returns DomDetail
+	 *     DmxAdditiveExpression.DmxBinaryOperation_1_0_0_0 returns DomDetail
+	 *     DmxMultiplicativeExpression returns DomDetail
+	 *     DmxMultiplicativeExpression.DmxBinaryOperation_1_0_0_0 returns DomDetail
+	 *     DmxUnaryOperation returns DomDetail
+	 *     DmxCastExpression returns DomDetail
+	 *     DmxCastExpression.DmxCastExpression_1_0_0_0 returns DomDetail
+	 *     DmxPrimaryExpression returns DomDetail
+	 *     DmxParenthesizedExpression returns DomDetail
 	 *
 	 * Constraint:
 	 *     (ref=[DDetailType|ID] fields+=DomField*)
@@ -276,7 +304,7 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 	 *     DomField returns DomField
 	 *
 	 * Constraint:
-	 *     (ref=[DFeature|ID] value=DomFieldValue)
+	 *     (ref=[DFeature|ID] value=DExpression)
 	 */
 	protected void sequence_DomField(ISerializationContext context, DomField semanticObject) {
 		if (errorAcceptor != null) {
@@ -287,7 +315,7 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDomFieldAccess().getRefDFeatureIDTerminalRuleCall_0_0_1(), semanticObject.eGet(DomPackage.Literals.DOM_FIELD__REF, false));
-		feeder.accept(grammarAccess.getDomFieldAccess().getValueDomFieldValueParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getDomFieldAccess().getValueDExpressionParserRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

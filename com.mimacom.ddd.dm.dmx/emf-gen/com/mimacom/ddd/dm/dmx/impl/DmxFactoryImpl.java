@@ -83,7 +83,7 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 			case DmxPackage.DMX_INSTANCE_OF_EXPRESSION: return createDmxInstanceOfExpression();
 			case DmxPackage.DMX_UNARY_OPERATION: return createDmxUnaryOperation();
 			case DmxPackage.DMX_CAST_EXPRESSION: return createDmxCastExpression();
-			case DmxPackage.DMX_RAISE_EXPRESSION: return createDmxRaiseExpression();
+			case DmxPackage.DMX_LIST_EXPRESSION: return createDmxListExpression();
 			case DmxPackage.DMX_STATIC_REFERENCE: return createDmxStaticReference();
 			case DmxPackage.DMX_CONTEXT_REFERENCE: return createDmxContextReference();
 			case DmxPackage.DMX_IF_EXPRESSION: return createDmxIfExpression();
@@ -362,10 +362,10 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	 * @generated
 	 */
 	@Override
-	public DmxRaiseExpression createDmxRaiseExpression()
+	public DmxListExpression createDmxListExpression()
 	{
-		DmxRaiseExpressionImpl dmxRaiseExpression = new DmxRaiseExpressionImpl();
-		return dmxRaiseExpression;
+		DmxListExpressionImpl dmxListExpression = new DmxListExpressionImpl();
+		return dmxListExpression;
 	}
 
 	/**

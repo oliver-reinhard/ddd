@@ -8,14 +8,25 @@ import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
 import java.util.List;
+import java.util.Objects;
 
 @SuppressWarnings("all")
 public class DmxNotificationDescriptor extends AbstractDmxTypeDescriptor<DType> {
   protected final DNotification notification;
   
-  public DmxNotificationDescriptor(final DNotification notification) {
-    super(DmxBaseType.NOTIFICATION, null, Boolean.valueOf(false));
+  public DmxNotificationDescriptor(final DNotification notification, final boolean collection) {
+    super(DmxBaseType.NOTIFICATION, null, collection);
     this.notification = notification;
+  }
+  
+  @Override
+  public boolean equals(final Object other) {
+    return (super.equals(other) && ((this.notification == null) || this.notification.equals(((DmxNotificationDescriptor) other).notification)));
+  }
+  
+  @Override
+  public int hashCode() {
+    return Objects.hash(this.baseType, this.type, Boolean.valueOf(this.collection), this.notification);
   }
   
   @Override

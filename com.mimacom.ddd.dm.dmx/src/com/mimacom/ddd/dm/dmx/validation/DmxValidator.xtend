@@ -51,11 +51,11 @@ class DmxValidator extends DmxTypeCheckingValidator {
 		val superTypes = e.typeHierarchy
 		if (! e.states.empty || superTypes.exists(t|t instanceof DEntityType && ! (t as DEntityType).states.empty)) {
 			for (f : e.features) {
-				if (f.name == util.ENTITY_TYPE_STATE_FILTER_NAME) {
+				if (f.name == DmxUtil::ENTITY_TYPE_STATE_FILTER_NAME) {
 					error("Cannot declare a 'state' feature while states are declared for this type or for one of its super types.", f, BASE.DNamedElement_Name)
 				}
 			}
-			if (e.superType !== null && e.superType.allFeatures.exists[name == util.ENTITY_TYPE_STATE_FILTER_NAME]) {
+			if (e.superType !== null && e.superType.allFeatures.exists[name == DmxUtil::ENTITY_TYPE_STATE_FILTER_NAME]) {
 				error("Cannot have an inherited 'state' feature while states are declared for this type.", e, BASE.DNamedElement_Name)
 			}
 		}

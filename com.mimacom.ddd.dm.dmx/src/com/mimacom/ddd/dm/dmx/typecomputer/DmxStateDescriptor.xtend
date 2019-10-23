@@ -6,8 +6,8 @@ import com.mimacom.ddd.dm.base.DEntityType
 
 class DmxStateDescriptor extends AbstractDmxTypeDescriptor<DEntityType> {
 	
-	new(DState state) {
-		super(DmxBaseType.STATE, state.eContainer as DEntityType,  false)
+	new(DState state, boolean collection) {
+		super(DmxBaseType.STATE, state?.eContainer as DEntityType,  collection)
 		if (state === null) {
 			throw new NullPointerException("state")
 		}
@@ -18,7 +18,7 @@ class DmxStateDescriptor extends AbstractDmxTypeDescriptor<DEntityType> {
 	}
 
 	override boolean isCompatibleWith(AbstractDmxTypeDescriptor<?> other) {
-		other instanceof DmxStateDescriptor && type !== null && type.equals(other.type)
+		other instanceof DmxStateDescriptor && type !== null && type.equals(other.type) && collection == other.collection
 	}
 	
 	override protected typeName() {

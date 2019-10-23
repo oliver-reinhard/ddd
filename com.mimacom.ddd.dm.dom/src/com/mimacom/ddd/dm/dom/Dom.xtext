@@ -38,10 +38,16 @@ fragment DomComplexObject:
 	'}';
 	
 DomField:
-	ref=[DFeature|ID] "=" value=DomFieldValue;
+	ref=[DFeature|ID] "=" value=DExpression;
 	
-DomFieldValue returns DExpression:
-	DmxOrExpression | DomDetail;
+@Override 
+DmxLiteralExpression returns DExpression:
+	DmxBooleanLiteral |
+	DmxStringLiteral |
+	DmxNaturalLiteral |
+	DmxDecimalLiteral |
+	DmxUndefinedLiteral |
+	DomDetail;
 
 DomFieldListStartSymbol:
 	'{';

@@ -11,17 +11,21 @@ public class DmxPrimitiveDescriptor extends AbstractDmxTypeDescriptor<DPrimitive
   public DmxPrimitiveDescriptor(final DPrimitive type, final boolean collection) {
     super(new Function0<DmxBaseType>() {
       public DmxBaseType apply() {
+        DmxBaseType _xifexpression = null;
         DPrimitive _redefines = type.getRedefines();
-        DmxBaseType _baseType = null;
-        if (((DmxArchetype) _redefines)!=null) {
-          _baseType=((DmxArchetype) _redefines).getBaseType();
+        boolean _tripleEquals = (_redefines == null);
+        if (_tripleEquals) {
+          _xifexpression = DmxBaseType.VOID;
+        } else {
+          DPrimitive _redefines_1 = type.getRedefines();
+          _xifexpression = ((DmxArchetype) _redefines_1).getBaseType();
         }
-        return _baseType;
+        return _xifexpression;
       }
-    }.apply(), type, Boolean.valueOf(collection));
+    }.apply(), type, collection);
   }
   
   public DmxPrimitiveDescriptor(final DmxArchetype type, final boolean collection) {
-    super(type.getBaseType(), type, Boolean.valueOf(collection));
+    super(type.getBaseType(), type, collection);
   }
 }

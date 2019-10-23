@@ -108,7 +108,7 @@ public class DomFactoryImpl extends EFactoryImpl implements DomFactory
 	@Override
 	public DomField createDomField()
 	{
-		DomFieldImpl domField = new DomFieldImpl();
+		DomFieldImplCustom domField = new DomFieldImplCustom();
 		return domField;
 	}
 
@@ -120,7 +120,7 @@ public class DomFactoryImpl extends EFactoryImpl implements DomFactory
 	@Override
 	public DomNamedComplexObject createDomNamedComplexObject()
 	{
-		DomNamedComplexObjectImpl domNamedComplexObject = new DomNamedComplexObjectImpl();
+		DomNamedComplexObjectImplCustom domNamedComplexObject = new DomNamedComplexObjectImplCustom();
 		return domNamedComplexObject;
 	}
 

@@ -7,8 +7,8 @@ import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
 
 @SuppressWarnings("all")
 public class DmxStateDescriptor extends AbstractDmxTypeDescriptor<DEntityType> {
-  public DmxStateDescriptor(final DState state) {
-    super(DmxBaseType.STATE, ((DEntityType) state.eContainer()), Boolean.valueOf(false));
+  public DmxStateDescriptor(final DState state, final boolean collection) {
+    super(DmxBaseType.STATE, ((DEntityType) state.eContainer()), collection);
     if ((state == null)) {
       throw new NullPointerException("state");
     }
@@ -21,7 +21,7 @@ public class DmxStateDescriptor extends AbstractDmxTypeDescriptor<DEntityType> {
   
   @Override
   public boolean isCompatibleWith(final AbstractDmxTypeDescriptor<?> other) {
-    return (((other instanceof DmxStateDescriptor) && (this.type != null)) && this.type.equals(other.type));
+    return ((((other instanceof DmxStateDescriptor) && (this.type != null)) && this.type.equals(other.type)) && (this.collection == other.collection));
   }
   
   @Override

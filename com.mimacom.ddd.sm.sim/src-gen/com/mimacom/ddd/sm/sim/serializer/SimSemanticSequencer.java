@@ -42,6 +42,7 @@ import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.DmxFunctionCall;
 import com.mimacom.ddd.dm.dmx.DmxIfExpression;
 import com.mimacom.ddd.dm.dmx.DmxInstanceOfExpression;
+import com.mimacom.ddd.dm.dmx.DmxListExpression;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxNamespace;
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
@@ -260,6 +261,9 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 				return; 
 			case DmxPackage.DMX_INSTANCE_OF_EXPRESSION:
 				sequence_DmxRelationalExpression(context, (DmxInstanceOfExpression) semanticObject); 
+				return; 
+			case DmxPackage.DMX_LIST_EXPRESSION:
+				sequence_DmxListExpression(context, (DmxListExpression) semanticObject); 
 				return; 
 			case DmxPackage.DMX_MEMBER_NAVIGATION:
 				sequence_DmxNavigableMemberReference(context, (DmxMemberNavigation) semanticObject); 

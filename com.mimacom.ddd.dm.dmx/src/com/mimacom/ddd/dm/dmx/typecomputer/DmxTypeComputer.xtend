@@ -1,21 +1,17 @@
 package com.mimacom.ddd.dm.dmx.typecomputer
 
-import com.google.common.collect.Lists
+import com.google.common.collect.Sets
 import com.google.inject.Inject
 import com.google.inject.Singleton
 import com.mimacom.ddd.dm.base.DAggregate
-import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DContext
 import com.mimacom.ddd.dm.base.DEntityType
-import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DLiteral
 import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DNotification
-import com.mimacom.ddd.dm.base.DPrimitive
 import com.mimacom.ddd.dm.base.DState
 import com.mimacom.ddd.dm.base.DType
-import com.mimacom.ddd.dm.dmx.DmxArchetype
 import com.mimacom.ddd.dm.dmx.DmxBaseType
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation
 import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral
@@ -25,10 +21,10 @@ import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral
 import com.mimacom.ddd.dm.dmx.DmxFilter
-import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor
 import com.mimacom.ddd.dm.dmx.DmxFunctionCall
 import com.mimacom.ddd.dm.dmx.DmxIfExpression
 import com.mimacom.ddd.dm.dmx.DmxInstanceOfExpression
+import com.mimacom.ddd.dm.dmx.DmxListExpression
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable
@@ -37,25 +33,15 @@ import com.mimacom.ddd.dm.dmx.DmxStringLiteral
 import com.mimacom.ddd.dm.dmx.DmxUnaryOperation
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral
 import com.mimacom.ddd.dm.dmx.DmxUtil
-import java.util.List
+
+import static com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider.*
+import com.mimacom.ddd.dm.dmx.DmxAssignment
 
 @Singleton
 class DmxTypeComputer {
 
 	@Inject extension DmxUtil util
-
-	public static val VOID = new DmxVoidDescriptor
-	public static val UNDEFINED = new DmxUndefinedDescriptor
-	public static val BOOLEAN = new DmxBaseTypeDescriptor(DmxBaseType.BOOLEAN, false)
-	public static val BOOLEAN_COLLECTION = new DmxBaseTypeDescriptor(DmxBaseType.BOOLEAN, true)
-	public static val NUMBER = new DmxBaseTypeDescriptor(DmxBaseType.NUMBER, false)
-	public static val NUMBER_COLLECTION = new DmxBaseTypeDescriptor(DmxBaseType.NUMBER, true)
-	public static val TEXT = new DmxBaseTypeDescriptor(DmxBaseType.TEXT, false)
-	public static val TEXT_COLLECTION = new DmxBaseTypeDescriptor(DmxBaseType.TEXT, true)
-	public static val IDENTIFIER = new DmxBaseTypeDescriptor(DmxBaseType.IDENTIFIER, false)
-	public static val IDENTIFIER_COLLECTION = new DmxBaseTypeDescriptor(DmxBaseType.IDENTIFIER, true)
-	public static val TIMEPOINT = new DmxBaseTypeDescriptor(DmxBaseType.TIMEPOINT, false)
-	public static val TIMEPOINT_COLLECTION = new DmxBaseTypeDescriptor(DmxBaseType.TIMEPOINT, true)
+	@Inject extension DmxTypeDescriptorProvider
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxMemberNavigation expr) {
 		val member = expr.member
@@ -117,6 +103,11 @@ class DmxTypeComputer {
 	}
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxContextReference expr) {
+		return typeForSwitch(expr)
+	}
+		
+	/* Non-dispatching; use to override */
+	def AbstractDmxTypeDescriptor<?> typeForSwitch(DmxContextReference expr) {
 		val target = expr.target
 
 		if (target instanceof DContext) {
@@ -154,8 +145,7 @@ class DmxTypeComputer {
 						val desc = typeForAndCheckNotNull(preceding) // recursion
 						// the type derived vor correlation Varibles inside a DmxPredicateWithCorrelationVariable block is usually the type of the collection on which the
 						// enclosing iterator is applied => is a collection type, but correlation variable is a single object:
-						desc.collection = false
-						return desc
+						return desc.toFromCollection(false)
 				 	}
 				 } else if (container instanceof DType) {
 				 	return container.getTypeDescriptor(false)
@@ -184,6 +174,7 @@ class DmxTypeComputer {
 			case LESS_OR_EQUAL: BOOLEAN
 			case GREATER_OR_EQUAL: BOOLEAN
 			case GREATER: BOOLEAN
+			case IN: BOOLEAN
 			case UNTIL: BOOLEAN // TODO
 			case SINGLE_ARROW: BOOLEAN // TODO
 			case DOUBLE_ARROW: BOOLEAN // logical "implies"
@@ -254,6 +245,29 @@ class DmxTypeComputer {
 		UNDEFINED
 	}
 
+	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxAssignment expr) { 
+		val member = expr.assignToMember
+		if (member instanceof DNavigableMember) {
+			return getTypeDescriptor(member.type, member.collection)
+
+		} else {
+			return getTypeDescriptor(member, member.collection)
+		}
+	}
+
+	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxListExpression expr) {
+		if (expr.elements.empty) return UNDEFINED
+		val typeDescs = Sets.newHashSet
+		for (e : expr.elements) {
+			typeDescs.add(typeForAndCheckNotNull(e))
+		}
+		if (typeDescs.size == 1) {
+			val result =  typeDescs.head.morphToFromCollection(true)
+			return result
+		}
+		return AMBIGUOUS
+	}
+
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxConstructorCall expr) {
 		getTypeDescriptor(expr.constructor, false)
 	}
@@ -282,51 +296,13 @@ class DmxTypeComputer {
 		UNDEFINED
 	}
 	
-	
-	def List<AbstractDmxTypeDescriptor<?>> getTypeDescriptors(DmxFilterTypeDescriptor desc) {
-		val result = Lists.newArrayList
-		if (desc.multiTyped) {
-			for(d : desc.multiple.members) {
-				result.add(getBaseTypeDescriptor(d, desc.collection))
-			}
-		} else {
-			result.add(getBaseTypeDescriptor(desc.single, desc.collection))
-		}
-		return result
-	}
-
-	def AbstractDmxTypeDescriptor<?> getTypeDescriptor(Object obj, boolean collection) {
-		switch obj {
-			DmxBaseType: getBaseTypeDescriptor(obj, collection)
-			DmxArchetype: new DmxPrimitiveDescriptor(obj, collection)
-			DPrimitive: new DmxPrimitiveDescriptor(obj, collection)
-			DEnumeration: new DmxEnumerationDescriptor(obj)
-			DComplexType: new DmxComplexTypeDescriptor(obj, collection, util)
-			DState: new DmxStateDescriptor(obj)
-			DAggregate: new DmxAggregateDescriptor(obj)
-			DNotification: new DmxNotificationDescriptor(obj)
-			default: UNDEFINED
-		}
-	}
-
-	private def AbstractDmxTypeDescriptor<?> getBaseTypeDescriptor(DmxBaseType t, boolean collection) {
-		switch t {
-			case DmxBaseType::VOID: VOID
-			case DmxBaseType::BOOLEAN: if (collection) BOOLEAN_COLLECTION else BOOLEAN
-			case DmxBaseType::NUMBER: if (collection) NUMBER_COLLECTION else NUMBER
-			case DmxBaseType::TEXT: if (collection) TEXT_COLLECTION else TEXT
-			case DmxBaseType::IDENTIFIER: if (collection) IDENTIFIER_COLLECTION else IDENTIFIER
-			case DmxBaseType::TIMEPOINT: if (collection) TIMEPOINT_COLLECTION else TIMEPOINT
-			case DmxBaseType::STATE:  throw new IllegalArgumentException("State type descriptors must be created based on a DState object")
-			default: throw new IllegalArgumentException(t.toString)
-		}
-	}
-
 	private def AbstractDmxTypeDescriptor<?> typeForAndCheckNotNull(DExpression expr) {
 		val type = expr?.typeFor
 		if (type === null) {
-			return DmxTypeComputer::UNDEFINED
+			return UNDEFINED
 		}
 		return type
 	}
+	
+	
 }

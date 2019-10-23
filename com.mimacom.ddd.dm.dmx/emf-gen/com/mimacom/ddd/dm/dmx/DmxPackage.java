@@ -1205,41 +1205,41 @@ public interface DmxPackage extends EPackage
 	int DMX_CAST_EXPRESSION_OPERATION_COUNT = BasePackage.DEXPRESSION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxRaiseExpressionImpl <em>Raise Expression</em>}' class.
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxListExpressionImpl <em>List Expression</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.dmx.impl.DmxRaiseExpressionImpl
-	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxRaiseExpression()
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxListExpressionImpl
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxListExpression()
 	 * @generated
 	 */
-	int DMX_RAISE_EXPRESSION = 18;
+	int DMX_LIST_EXPRESSION = 18;
 
 	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_RAISE_EXPRESSION__EXPRESSION = BasePackage.DEXPRESSION_FEATURE_COUNT + 0;
+	int DMX_LIST_EXPRESSION__ELEMENTS = BasePackage.DEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Raise Expression</em>' class.
+	 * The number of structural features of the '<em>List Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_RAISE_EXPRESSION_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 1;
+	int DMX_LIST_EXPRESSION_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Raise Expression</em>' class.
+	 * The number of operations of the '<em>List Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_RAISE_EXPRESSION_OPERATION_COUNT = BasePackage.DEXPRESSION_OPERATION_COUNT + 0;
+	int DMX_LIST_EXPRESSION_OPERATION_COUNT = BasePackage.DEXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxStaticReferenceImpl <em>Static Reference</em>}' class.
@@ -2333,25 +2333,25 @@ public interface DmxPackage extends EPackage
 	EReference getDmxCastExpression_Type();
 
 	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxRaiseExpression <em>Raise Expression</em>}'.
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxListExpression <em>List Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Raise Expression</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxRaiseExpression
+	 * @return the meta object for class '<em>List Expression</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxListExpression
 	 * @generated
 	 */
-	EClass getDmxRaiseExpression();
+	EClass getDmxListExpression();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.dmx.DmxRaiseExpression#getExpression <em>Expression</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.dmx.DmxListExpression#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Expression</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxRaiseExpression#getExpression()
-	 * @see #getDmxRaiseExpression()
+	 * @return the meta object for the containment reference list '<em>Elements</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxListExpression#getElements()
+	 * @see #getDmxListExpression()
 	 * @generated
 	 */
-	EReference getDmxRaiseExpression_Expression();
+	EReference getDmxListExpression_Elements();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxStaticReference <em>Static Reference</em>}'.
@@ -3203,22 +3203,22 @@ public interface DmxPackage extends EPackage
 		EReference DMX_CAST_EXPRESSION__TYPE = eINSTANCE.getDmxCastExpression_Type();
 
 		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxRaiseExpressionImpl <em>Raise Expression</em>}' class.
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxListExpressionImpl <em>List Expression</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.dmx.impl.DmxRaiseExpressionImpl
-		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxRaiseExpression()
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxListExpressionImpl
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxListExpression()
 		 * @generated
 		 */
-		EClass DMX_RAISE_EXPRESSION = eINSTANCE.getDmxRaiseExpression();
+		EClass DMX_LIST_EXPRESSION = eINSTANCE.getDmxListExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DMX_RAISE_EXPRESSION__EXPRESSION = eINSTANCE.getDmxRaiseExpression_Expression();
+		EReference DMX_LIST_EXPRESSION__ELEMENTS = eINSTANCE.getDmxListExpression_Elements();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxStaticReferenceImpl <em>Static Reference</em>}' class.

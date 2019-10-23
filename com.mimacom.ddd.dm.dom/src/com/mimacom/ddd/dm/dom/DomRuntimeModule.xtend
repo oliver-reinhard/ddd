@@ -3,9 +3,16 @@
  */
 package com.mimacom.ddd.dm.dom
 
+import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer
+import com.mimacom.ddd.dm.dom.typecomputer.DomTypeComputer
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class DomRuntimeModule extends AbstractDomRuntimeModule {
+	
+	def Class<? extends DmxTypeComputer> bindITypeComputer() {
+		return DomTypeComputer
+	}
+	
 }

@@ -30,6 +30,16 @@ public enum DmxBaseType implements Enumerator
 	UNDEFINED(0, "UNDEFINED", "UNDEFINED"),
 
 	/**
+	 * The '<em><b>AMBIGUOUS</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #AMBIGUOUS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	AMBIGUOUS(1, "AMBIGUOUS", "AMBIGUOUS"),
+
+	/**
 	 * The '<em><b>VOID</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -37,7 +47,7 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	VOID(1, "VOID", "VOID"),
+	VOID(2, "VOID", "VOID"),
 
 	/**
 	 * The '<em><b>BOOLEAN</b></em>' literal object.
@@ -47,7 +57,7 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	BOOLEAN(2, "BOOLEAN", "BOOLEAN"),
+	BOOLEAN(3, "BOOLEAN", "BOOLEAN"),
 
 	/**
 	 * The '<em><b>NUMBER</b></em>' literal object.
@@ -57,7 +67,7 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	NUMBER(3, "NUMBER", "NUMBER"),
+	NUMBER(4, "NUMBER", "NUMBER"),
 
 	/**
 	 * The '<em><b>TEXT</b></em>' literal object.
@@ -67,7 +77,7 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	TEXT(4, "TEXT", "TEXT"),
+	TEXT(5, "TEXT", "TEXT"),
 
 	/**
 	 * The '<em><b>IDENTIFIER</b></em>' literal object.
@@ -77,7 +87,7 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	IDENTIFIER(5, "IDENTIFIER", "IDENTIFIER"),
+	IDENTIFIER(6, "IDENTIFIER", "IDENTIFIER"),
 
 	/**
 	 * The '<em><b>TIMEPOINT</b></em>' literal object.
@@ -87,7 +97,7 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	TIMEPOINT(6, "TIMEPOINT", "TIMEPOINT"),
+	TIMEPOINT(7, "TIMEPOINT", "TIMEPOINT"),
 
 	/**
 	 * The '<em><b>ENUM</b></em>' literal object.
@@ -171,6 +181,17 @@ public enum DmxBaseType implements Enumerator
 	public static final int UNDEFINED_VALUE = 0;
 
 	/**
+	 * The '<em><b>AMBIGUOUS</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #AMBIGUOUS
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int AMBIGUOUS_VALUE = 1;
+
+	/**
 	 * The '<em><b>VOID</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -179,7 +200,7 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int VOID_VALUE = 1;
+	public static final int VOID_VALUE = 2;
 
 	/**
 	 * The '<em><b>BOOLEAN</b></em>' literal value.
@@ -190,7 +211,7 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BOOLEAN_VALUE = 2;
+	public static final int BOOLEAN_VALUE = 3;
 
 	/**
 	 * The '<em><b>NUMBER</b></em>' literal value.
@@ -201,7 +222,7 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NUMBER_VALUE = 3;
+	public static final int NUMBER_VALUE = 4;
 
 	/**
 	 * The '<em><b>TEXT</b></em>' literal value.
@@ -212,7 +233,7 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TEXT_VALUE = 4;
+	public static final int TEXT_VALUE = 5;
 
 	/**
 	 * The '<em><b>IDENTIFIER</b></em>' literal value.
@@ -223,7 +244,7 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int IDENTIFIER_VALUE = 5;
+	public static final int IDENTIFIER_VALUE = 6;
 
 	/**
 	 * The '<em><b>TIMEPOINT</b></em>' literal value.
@@ -234,7 +255,7 @@ public enum DmxBaseType implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TIMEPOINT_VALUE = 6;
+	public static final int TIMEPOINT_VALUE = 7;
 
 	/**
 	 * The '<em><b>ENUM</b></em>' literal value.
@@ -323,6 +344,7 @@ public enum DmxBaseType implements Enumerator
 		new DmxBaseType[]
 		{
 			UNDEFINED,
+			AMBIGUOUS,
 			VOID,
 			BOOLEAN,
 			NUMBER,
@@ -401,6 +423,7 @@ public enum DmxBaseType implements Enumerator
 		switch (value)
 		{
 			case UNDEFINED_VALUE: return UNDEFINED;
+			case AMBIGUOUS_VALUE: return AMBIGUOUS;
 			case VOID_VALUE: return VOID;
 			case BOOLEAN_VALUE: return BOOLEAN;
 			case NUMBER_VALUE: return NUMBER;

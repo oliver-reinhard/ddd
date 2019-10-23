@@ -446,6 +446,7 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 		domComplexObjectEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		domComplexObjectEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
 		domFieldEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
+		domFieldEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		domNamedComplexObjectEClass.getESuperTypes().add(this.getDomObject());
 		domEntityEClass.getESuperTypes().add(this.getDomComplexObject());
 		domDetailEClass.getESuperTypes().add(this.getDomComplexObject());

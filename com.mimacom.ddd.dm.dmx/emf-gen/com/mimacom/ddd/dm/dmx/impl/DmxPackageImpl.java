@@ -25,12 +25,12 @@ import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.DmxFunctionCall;
 import com.mimacom.ddd.dm.dmx.DmxIfExpression;
 import com.mimacom.ddd.dm.dmx.DmxInstanceOfExpression;
+import com.mimacom.ddd.dm.dmx.DmxListExpression;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxNamespace;
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
-import com.mimacom.ddd.dm.dmx.DmxRaiseExpression;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
 import com.mimacom.ddd.dm.dmx.DmxStringLiteral;
 import com.mimacom.ddd.dm.dmx.DmxTest;
@@ -186,7 +186,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dmxRaiseExpressionEClass = null;
+	private EClass dmxListExpressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1037,9 +1037,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDmxRaiseExpression()
+	public EClass getDmxListExpression()
 	{
-		return dmxRaiseExpressionEClass;
+		return dmxListExpressionEClass;
 	}
 
 	/**
@@ -1048,9 +1048,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDmxRaiseExpression_Expression()
+	public EReference getDmxListExpression_Elements()
 	{
-		return (EReference)dmxRaiseExpressionEClass.getEStructuralFeatures().get(0);
+		return (EReference)dmxListExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1462,8 +1462,8 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		createEReference(dmxCastExpressionEClass, DMX_CAST_EXPRESSION__TARGET);
 		createEReference(dmxCastExpressionEClass, DMX_CAST_EXPRESSION__TYPE);
 
-		dmxRaiseExpressionEClass = createEClass(DMX_RAISE_EXPRESSION);
-		createEReference(dmxRaiseExpressionEClass, DMX_RAISE_EXPRESSION__EXPRESSION);
+		dmxListExpressionEClass = createEClass(DMX_LIST_EXPRESSION);
+		createEReference(dmxListExpressionEClass, DMX_LIST_EXPRESSION__ELEMENTS);
 
 		dmxStaticReferenceEClass = createEClass(DMX_STATIC_REFERENCE);
 		createEReference(dmxStaticReferenceEClass, DMX_STATIC_REFERENCE__TARGET);
@@ -1552,7 +1552,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		dmxInstanceOfExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxUnaryOperationEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxCastExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dmxRaiseExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxListExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxStaticReferenceEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxContextReferenceEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxIfExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
@@ -1650,8 +1650,8 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		initEReference(getDmxCastExpression_Target(), theBasePackage.getDExpression(), null, "target", null, 0, 1, DmxCastExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDmxCastExpression_Type(), theBasePackage.getDType(), null, "type", null, 0, 1, DmxCastExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dmxRaiseExpressionEClass, DmxRaiseExpression.class, "DmxRaiseExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDmxRaiseExpression_Expression(), theBasePackage.getDExpression(), null, "expression", null, 0, 1, DmxRaiseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dmxListExpressionEClass, DmxListExpression.class, "DmxListExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDmxListExpression_Elements(), theBasePackage.getDExpression(), null, "elements", null, 0, -1, DmxListExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dmxStaticReferenceEClass, DmxStaticReference.class, "DmxStaticReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDmxStaticReference_Target(), theBasePackage.getIStaticReferenceTarget(), null, "target", null, 0, 1, DmxStaticReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1689,6 +1689,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		// Initialize enums and add enum literals
 		initEEnum(dmxBaseTypeEEnum, DmxBaseType.class, "DmxBaseType");
 		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.UNDEFINED);
+		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.AMBIGUOUS);
 		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.VOID);
 		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.BOOLEAN);
 		addEEnumLiteral(dmxBaseTypeEEnum, DmxBaseType.NUMBER);
@@ -1719,6 +1720,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.LESS_OR_EQUAL);
 		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.GREATER_OR_EQUAL);
 		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.GREATER);
+		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.IN);
 		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.UNTIL);
 		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.SINGLE_ARROW);
 		addEEnumLiteral(dmxBinaryOperatorEEnum, DmxBinaryOperator.DOUBLE_ARROW);

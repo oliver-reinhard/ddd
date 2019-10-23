@@ -133,6 +133,9 @@ public class SusParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDmxCastExpressionAccess().getGroup_1_0(), "rule__DmxCastExpression__Group_1_0__0");
 			builder.put(grammarAccess.getDmxCastExpressionAccess().getGroup_1_0_0(), "rule__DmxCastExpression__Group_1_0_0__0");
 			builder.put(grammarAccess.getDmxParenthesizedExpressionAccess().getGroup(), "rule__DmxParenthesizedExpression__Group__0");
+			builder.put(grammarAccess.getDmxListExpressionAccess().getGroup(), "rule__DmxListExpression__Group__0");
+			builder.put(grammarAccess.getDmxListExpressionAccess().getGroup_2(), "rule__DmxListExpression__Group_2__0");
+			builder.put(grammarAccess.getDmxListExpressionAccess().getGroup_2_1(), "rule__DmxListExpression__Group_2_1__0");
 			builder.put(grammarAccess.getDmxFunctionCallAccess().getGroup(), "rule__DmxFunctionCall__Group__0");
 			builder.put(grammarAccess.getDmxFunctionCallArgumentsAccess().getGroup(), "rule__DmxFunctionCallArguments__Group__0");
 			builder.put(grammarAccess.getDmxFunctionCallArgumentsAccess().getGroup_1(), "rule__DmxFunctionCallArguments__Group_1__0");
@@ -235,6 +238,8 @@ public class SusParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDmxUnaryOperationAccess().getOperatorAssignment_0_1(), "rule__DmxUnaryOperation__OperatorAssignment_0_1");
 			builder.put(grammarAccess.getDmxUnaryOperationAccess().getOperandAssignment_0_2(), "rule__DmxUnaryOperation__OperandAssignment_0_2");
 			builder.put(grammarAccess.getDmxCastExpressionAccess().getTypeAssignment_1_1(), "rule__DmxCastExpression__TypeAssignment_1_1");
+			builder.put(grammarAccess.getDmxListExpressionAccess().getElementsAssignment_2_0(), "rule__DmxListExpression__ElementsAssignment_2_0");
+			builder.put(grammarAccess.getDmxListExpressionAccess().getElementsAssignment_2_1_1(), "rule__DmxListExpression__ElementsAssignment_2_1_1");
 			builder.put(grammarAccess.getDmxFunctionCallAccess().getFunctionAssignment_1(), "rule__DmxFunctionCall__FunctionAssignment_1");
 			builder.put(grammarAccess.getDmxFunctionCallAccess().getCallArgumentsAssignment_3(), "rule__DmxFunctionCall__CallArgumentsAssignment_3");
 			builder.put(grammarAccess.getDmxFunctionCallArgumentsAccess().getArgumentsAssignment_1_0(), "rule__DmxFunctionCallArguments__ArgumentsAssignment_1_0");

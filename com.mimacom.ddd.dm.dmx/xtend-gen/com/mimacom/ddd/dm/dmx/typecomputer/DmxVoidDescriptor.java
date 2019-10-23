@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 @SuppressWarnings("all")
 public class DmxVoidDescriptor extends AbstractDmxTypeDescriptor<DType> {
   public DmxVoidDescriptor() {
-    super(DmxBaseType.VOID, null, Boolean.valueOf(false));
+    super(DmxBaseType.VOID, null, false);
   }
   
   @Override

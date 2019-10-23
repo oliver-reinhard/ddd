@@ -2450,21 +2450,33 @@ rule__OpOther__Alternatives
 	}
 :
 	(
-		{ before(grammarAccess.getOpOtherAccess().getUNTILEnumLiteralDeclaration_0()); }
+		{ before(grammarAccess.getOpOtherAccess().getINEnumLiteralDeclaration_0()); }
+		('IN')
+		{ after(grammarAccess.getOpOtherAccess().getINEnumLiteralDeclaration_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getOpOtherAccess().getINEnumLiteralDeclaration_1()); }
+		('in')
+		{ after(grammarAccess.getOpOtherAccess().getINEnumLiteralDeclaration_1()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getOpOtherAccess().getUNTILEnumLiteralDeclaration_2()); }
 		('..')
-		{ after(grammarAccess.getOpOtherAccess().getUNTILEnumLiteralDeclaration_0()); }
+		{ after(grammarAccess.getOpOtherAccess().getUNTILEnumLiteralDeclaration_2()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getOpOtherAccess().getSINGLE_ARROWEnumLiteralDeclaration_1()); }
+		{ before(grammarAccess.getOpOtherAccess().getSINGLE_ARROWEnumLiteralDeclaration_3()); }
 		('->')
-		{ after(grammarAccess.getOpOtherAccess().getSINGLE_ARROWEnumLiteralDeclaration_1()); }
+		{ after(grammarAccess.getOpOtherAccess().getSINGLE_ARROWEnumLiteralDeclaration_3()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getOpOtherAccess().getDOUBLE_ARROWEnumLiteralDeclaration_2()); }
+		{ before(grammarAccess.getOpOtherAccess().getDOUBLE_ARROWEnumLiteralDeclaration_4()); }
 		('=>')
-		{ after(grammarAccess.getOpOtherAccess().getDOUBLE_ARROWEnumLiteralDeclaration_2()); }
+		{ after(grammarAccess.getOpOtherAccess().getDOUBLE_ARROWEnumLiteralDeclaration_4()); }
 	)
 ;
 finally {

@@ -24,7 +24,7 @@ import com.mimacom.ddd.dm.base.DNavigableMember;
  * @model
  * @generated
  */
-public interface DomField extends DNavigableMember
+public interface DomField extends DNavigableMember, DExpression
 {
 	/**
 	 * Returns the value of the '<em><b>Ref</b></em>' reference.

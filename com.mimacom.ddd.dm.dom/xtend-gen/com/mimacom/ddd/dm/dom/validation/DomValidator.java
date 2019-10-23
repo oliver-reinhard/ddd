@@ -3,7 +3,12 @@
  */
 package com.mimacom.ddd.dm.dom.validation;
 
+import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
+import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider;
+import com.mimacom.ddd.dm.dom.DomField;
+import com.mimacom.ddd.dm.dom.DomPackage;
 import com.mimacom.ddd.dm.dom.validation.AbstractDomValidator;
+import org.eclipse.xtext.validation.Check;
 
 /**
  * This class contains custom validation rules.
@@ -12,4 +17,22 @@ import com.mimacom.ddd.dm.dom.validation.AbstractDomValidator;
  */
 @SuppressWarnings("all")
 public class DomValidator extends AbstractDomValidator {
+  protected static final DomPackage DOM = DomPackage.eINSTANCE;
+  
+  @Check
+  public Boolean checkType(final DomField expr) {
+    Boolean _xblockexpression = null;
+    {
+      final AbstractDmxTypeDescriptor<?> leftType = this.getTypeAndCheckNotNull(expr, DomValidator.DOM.getDomField_Ref());
+      Boolean _xifexpression = null;
+      boolean _isCompatibleWith = leftType.isCompatibleWith(DmxTypeDescriptorProvider.TIMEPOINT);
+      if (_isCompatibleWith) {
+        _xifexpression = this.expectTimepointValue(expr.getValue(), leftType, DomValidator.DOM.getDomField_Value());
+      } else {
+        _xifexpression = Boolean.valueOf(this.expectType(expr.getValue(), leftType, DomValidator.DOM.getDomField_Value()));
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
 }

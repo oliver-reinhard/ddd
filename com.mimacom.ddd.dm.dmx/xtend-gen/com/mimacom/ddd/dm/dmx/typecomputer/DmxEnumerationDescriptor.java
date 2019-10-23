@@ -10,8 +10,8 @@ import org.eclipse.emf.common.util.EList;
 
 @SuppressWarnings("all")
 public class DmxEnumerationDescriptor extends AbstractDmxTypeDescriptor<DEnumeration> {
-  public DmxEnumerationDescriptor(final DEnumeration enumeration) {
-    super(DmxBaseType.ENUM, enumeration, Boolean.valueOf(false));
+  public DmxEnumerationDescriptor(final DEnumeration enumeration, final boolean collection) {
+    super(DmxBaseType.ENUM, enumeration, collection);
   }
   
   @Override

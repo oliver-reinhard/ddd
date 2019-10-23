@@ -1,22 +1,19 @@
 package com.mimacom.ddd.dm.dmx.typecomputer;
 
-import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.mimacom.ddd.dm.base.DAggregate;
-import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DEntityType;
-import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DNotification;
-import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DState;
 import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.dmx.DmxArchetype;
+import com.mimacom.ddd.dm.dmx.DmxAssignment;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation;
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperator;
@@ -31,6 +28,7 @@ import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.DmxFunctionCall;
 import com.mimacom.ddd.dm.dmx.DmxIfExpression;
 import com.mimacom.ddd.dm.dmx.DmxInstanceOfExpression;
+import com.mimacom.ddd.dm.dmx.DmxListExpression;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
@@ -41,21 +39,16 @@ import com.mimacom.ddd.dm.dmx.DmxUnaryOperator;
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.DmxUtil;
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
-import com.mimacom.ddd.dm.dmx.typecomputer.DmxAggregateDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxBaseTypeDescriptor;
-import com.mimacom.ddd.dm.dmx.typecomputer.DmxComplexTypeDescriptor;
-import com.mimacom.ddd.dm.dmx.typecomputer.DmxEnumerationDescriptor;
-import com.mimacom.ddd.dm.dmx.typecomputer.DmxNotificationDescriptor;
-import com.mimacom.ddd.dm.dmx.typecomputer.DmxPrimitiveDescriptor;
-import com.mimacom.ddd.dm.dmx.typecomputer.DmxStateDescriptor;
+import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxUndefinedDescriptor;
-import com.mimacom.ddd.dm.dmx.typecomputer.DmxVoidDescriptor;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @Singleton
 @SuppressWarnings("all")
@@ -64,29 +57,9 @@ public class DmxTypeComputer {
   @Extension
   private DmxUtil util;
   
-  public static final DmxVoidDescriptor VOID = new DmxVoidDescriptor();
-  
-  public static final DmxUndefinedDescriptor UNDEFINED = new DmxUndefinedDescriptor();
-  
-  public static final DmxBaseTypeDescriptor BOOLEAN = new DmxBaseTypeDescriptor(DmxBaseType.BOOLEAN, false);
-  
-  public static final DmxBaseTypeDescriptor BOOLEAN_COLLECTION = new DmxBaseTypeDescriptor(DmxBaseType.BOOLEAN, true);
-  
-  public static final DmxBaseTypeDescriptor NUMBER = new DmxBaseTypeDescriptor(DmxBaseType.NUMBER, false);
-  
-  public static final DmxBaseTypeDescriptor NUMBER_COLLECTION = new DmxBaseTypeDescriptor(DmxBaseType.NUMBER, true);
-  
-  public static final DmxBaseTypeDescriptor TEXT = new DmxBaseTypeDescriptor(DmxBaseType.TEXT, false);
-  
-  public static final DmxBaseTypeDescriptor TEXT_COLLECTION = new DmxBaseTypeDescriptor(DmxBaseType.TEXT, true);
-  
-  public static final DmxBaseTypeDescriptor IDENTIFIER = new DmxBaseTypeDescriptor(DmxBaseType.IDENTIFIER, false);
-  
-  public static final DmxBaseTypeDescriptor IDENTIFIER_COLLECTION = new DmxBaseTypeDescriptor(DmxBaseType.IDENTIFIER, true);
-  
-  public static final DmxBaseTypeDescriptor TIMEPOINT = new DmxBaseTypeDescriptor(DmxBaseType.TIMEPOINT, false);
-  
-  public static final DmxBaseTypeDescriptor TIMEPOINT_COLLECTION = new DmxBaseTypeDescriptor(DmxBaseType.TIMEPOINT, true);
+  @Inject
+  @Extension
+  private DmxTypeDescriptorProvider _dmxTypeDescriptorProvider;
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxMemberNavigation expr) {
     final DNavigableMember member = expr.getMember();
@@ -108,14 +81,14 @@ public class DmxTypeComputer {
                 if (_lessThan) {
                   paramActualType = this.typeForAndCheckNotNull(actualParameters.get((i - 1)));
                 } else {
-                  return DmxTypeComputer.UNDEFINED;
+                  return DmxTypeDescriptorProvider.UNDEFINED;
                 }
               }
               boolean _isCompatible = paramDeclaredType.isCompatible(paramActualType.baseType, paramActualType.collection);
               if (_isCompatible) {
-                return this.getTypeDescriptor(paramActualType.type, returnType.isCollection());
+                return this._dmxTypeDescriptorProvider.getTypeDescriptor(paramActualType.type, returnType.isCollection());
               }
-              return DmxTypeComputer.UNDEFINED;
+              return DmxTypeDescriptorProvider.UNDEFINED;
             }
           }
         }
@@ -129,45 +102,52 @@ public class DmxTypeComputer {
             boolean _isEmpty = ((DEntityType)precedingType).getStates().isEmpty();
             boolean _not = (!_isEmpty);
             if (_not) {
-              return this.getTypeDescriptor(((DEntityType)precedingType).getStates().get(0), false);
+              return this._dmxTypeDescriptorProvider.getTypeDescriptor(((DEntityType)precedingType).getStates().get(0), false);
             }
           }
-          return DmxTypeComputer.UNDEFINED;
+          return DmxTypeDescriptorProvider.UNDEFINED;
         } else {
-          return this.getTypeDescriptor(((DmxFilter)member).getTypeDesc().getSingle(), ((DmxFilter)member).getTypeDesc().isCollection());
+          return this._dmxTypeDescriptorProvider.getTypeDescriptor(((DmxFilter)member).getTypeDesc().getSingle(), ((DmxFilter)member).getTypeDesc().isCollection());
         }
       }
     } else {
       if ((member instanceof DLiteral)) {
-        return this.getTypeDescriptor(((DLiteral)member).eContainer(), ((DLiteral)member).isCollection());
+        return this._dmxTypeDescriptorProvider.getTypeDescriptor(((DLiteral)member).eContainer(), ((DLiteral)member).isCollection());
       } else {
         if ((member instanceof DState)) {
-          return this.getTypeDescriptor(member, false);
+          return this._dmxTypeDescriptorProvider.getTypeDescriptor(member, false);
         }
       }
     }
-    return this.getTypeDescriptor(member.getType(), member.isCollection());
+    return this._dmxTypeDescriptorProvider.getTypeDescriptor(member.getType(), member.isCollection());
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxContextReference expr) {
+    return this.typeForSwitch(expr);
+  }
+  
+  /**
+   * Non-dispatching; use to override
+   */
+  public AbstractDmxTypeDescriptor<?> typeForSwitch(final DmxContextReference expr) {
     final DNamedElement target = expr.getTarget();
     if ((target instanceof DContext)) {
-      return this.getTypeDescriptor(((DContext)target).getType(), ((DContext)target).isCollection());
+      return this._dmxTypeDescriptorProvider.getTypeDescriptor(((DContext)target).getType(), ((DContext)target).isCollection());
     } else {
       if ((target instanceof DmxCorrelationVariable)) {
         final AbstractDmxTypeDescriptor<?> desc = this.typeFor(target);
         return desc;
       } else {
         if ((target instanceof DAggregate)) {
-          return this.getTypeDescriptor(target, false);
+          return this._dmxTypeDescriptorProvider.getTypeDescriptor(target, false);
         } else {
           if ((target instanceof DNotification)) {
-            return this.getTypeDescriptor(target, false);
+            return this._dmxTypeDescriptorProvider.getTypeDescriptor(target, false);
           } else {
             if ((target instanceof DNavigableMember)) {
-              return this.getTypeDescriptor(((DNavigableMember)target).getType(), expr.isAll());
+              return this._dmxTypeDescriptorProvider.getTypeDescriptor(((DNavigableMember)target).getType(), expr.isAll());
             } else {
-              return this.getTypeDescriptor(target, expr.isAll());
+              return this._dmxTypeDescriptorProvider.getTypeDescriptor(target, expr.isAll());
             }
           }
         }
@@ -184,26 +164,25 @@ public class DmxTypeComputer {
           if ((_member instanceof DmxFilter)) {
             final DExpression preceding = ((DmxMemberNavigation)container).getPrecedingNavigationSegment();
             final AbstractDmxTypeDescriptor<?> desc = this.typeForAndCheckNotNull(preceding);
-            desc.collection = false;
-            return desc;
+            return this._dmxTypeDescriptorProvider.toFromCollection(desc, false);
           }
         } else {
           if ((container instanceof DType)) {
-            return this.getTypeDescriptor(container, false);
+            return this._dmxTypeDescriptorProvider.getTypeDescriptor(container, false);
           }
         }
         container = container.eContainer();
       }
     }
-    return DmxTypeComputer.UNDEFINED;
+    return DmxTypeDescriptorProvider.UNDEFINED;
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxStaticReference expr) {
-    return DmxTypeComputer.VOID;
+    return DmxTypeDescriptorProvider.VOID;
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxPredicateWithCorrelationVariable expr) {
-    return DmxTypeComputer.BOOLEAN;
+    return DmxTypeDescriptorProvider.BOOLEAN;
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxBinaryOperation expr) {
@@ -212,40 +191,43 @@ public class DmxTypeComputer {
     if (_operator != null) {
       switch (_operator) {
         case OR:
-          _switchResult = DmxTypeComputer.BOOLEAN;
+          _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
           break;
         case XOR:
-          _switchResult = DmxTypeComputer.BOOLEAN;
+          _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
           break;
         case AND:
-          _switchResult = DmxTypeComputer.BOOLEAN;
+          _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
           break;
         case EQUAL:
-          _switchResult = DmxTypeComputer.BOOLEAN;
+          _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
           break;
         case NOT_EQUAL:
-          _switchResult = DmxTypeComputer.BOOLEAN;
+          _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
           break;
         case LESS:
-          _switchResult = DmxTypeComputer.BOOLEAN;
+          _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
           break;
         case LESS_OR_EQUAL:
-          _switchResult = DmxTypeComputer.BOOLEAN;
+          _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
           break;
         case GREATER_OR_EQUAL:
-          _switchResult = DmxTypeComputer.BOOLEAN;
+          _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
           break;
         case GREATER:
-          _switchResult = DmxTypeComputer.BOOLEAN;
+          _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
+          break;
+        case IN:
+          _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
           break;
         case UNTIL:
-          _switchResult = DmxTypeComputer.BOOLEAN;
+          _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
           break;
         case SINGLE_ARROW:
-          _switchResult = DmxTypeComputer.BOOLEAN;
+          _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
           break;
         case DOUBLE_ARROW:
-          _switchResult = DmxTypeComputer.BOOLEAN;
+          _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
           break;
         case ADD:
           final AbstractDmxTypeDescriptor<?> leftType = this.typeForAndCheckNotNull(expr.getLeftOperand());
@@ -254,33 +236,33 @@ public class DmxTypeComputer {
           if (_switchValue != null) {
             switch (_switchValue) {
               case TIMEPOINT:
-                _switchResult_1 = DmxTypeComputer.TIMEPOINT;
+                _switchResult_1 = DmxTypeDescriptorProvider.TIMEPOINT;
                 break;
               case TEXT:
-                _switchResult_1 = DmxTypeComputer.TEXT;
+                _switchResult_1 = DmxTypeDescriptorProvider.TEXT;
                 break;
               default:
-                _switchResult_1 = DmxTypeComputer.NUMBER;
+                _switchResult_1 = DmxTypeDescriptorProvider.NUMBER;
                 break;
             }
           } else {
-            _switchResult_1 = DmxTypeComputer.NUMBER;
+            _switchResult_1 = DmxTypeDescriptorProvider.NUMBER;
           }
           return _switchResult_1;
         case SUBTRACT:
-          _switchResult = DmxTypeComputer.NUMBER;
+          _switchResult = DmxTypeDescriptorProvider.NUMBER;
           break;
         case MULTIPLY:
-          _switchResult = DmxTypeComputer.NUMBER;
+          _switchResult = DmxTypeDescriptorProvider.NUMBER;
           break;
         case DIVIDE:
-          _switchResult = DmxTypeComputer.NUMBER;
+          _switchResult = DmxTypeDescriptorProvider.NUMBER;
           break;
         case POWER:
-          _switchResult = DmxTypeComputer.NUMBER;
+          _switchResult = DmxTypeDescriptorProvider.NUMBER;
           break;
         case MODULO:
-          _switchResult = DmxTypeComputer.NUMBER;
+          _switchResult = DmxTypeDescriptorProvider.NUMBER;
           break;
         default:
           String _literal = expr.getOperator().getLiteral();
@@ -299,13 +281,13 @@ public class DmxTypeComputer {
     if (_operator != null) {
       switch (_operator) {
         case PLUS:
-          _switchResult = DmxTypeComputer.NUMBER;
+          _switchResult = DmxTypeDescriptorProvider.NUMBER;
           break;
         case MINUS:
-          _switchResult = DmxTypeComputer.NUMBER;
+          _switchResult = DmxTypeDescriptorProvider.NUMBER;
           break;
         case NOT:
-          _switchResult = DmxTypeComputer.BOOLEAN;
+          _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
           break;
         default:
           String _literal = expr.getOperator().getLiteral();
@@ -319,11 +301,11 @@ public class DmxTypeComputer {
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxCastExpression expr) {
-    return this.getTypeDescriptor(expr.getType(), false);
+    return this._dmxTypeDescriptorProvider.getTypeDescriptor(expr.getType(), false);
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxInstanceOfExpression expr) {
-    return DmxTypeComputer.BOOLEAN;
+    return DmxTypeDescriptorProvider.BOOLEAN;
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxFunctionCall expr) {
@@ -335,7 +317,7 @@ public class DmxTypeComputer {
         int _size = filter.getParameters().size();
         boolean _equals = (_size == 0);
         if (_equals) {
-          return this.getTypeDescriptor(returnType.getSingle(), returnType.isCollection());
+          return this._dmxTypeDescriptorProvider.getTypeDescriptor(returnType.getSingle(), returnType.isCollection());
         }
         final List<DExpression> actualParameters = this.util.nullSafeCallArguments(expr);
         if ((returnType.isCompatible(DmxBaseType.COMPLEX) || returnType.isMultiTyped())) {
@@ -349,24 +331,52 @@ public class DmxTypeComputer {
                   final AbstractDmxTypeDescriptor<?> paramActualType = this.typeForAndCheckNotNull(actualParameters.get(i));
                   boolean _isCompatible = paramDeclaredType.isCompatible(paramActualType.baseType, paramActualType.collection);
                   if (_isCompatible) {
-                    return this.getTypeDescriptor(paramActualType.type, returnType.isCollection());
+                    return this._dmxTypeDescriptorProvider.getTypeDescriptor(paramActualType.type, returnType.isCollection());
                   }
                 }
-                return DmxTypeComputer.UNDEFINED;
+                return DmxTypeDescriptorProvider.UNDEFINED;
               }
             }
           }
         } else {
-          return this.getTypeDescriptor(returnType.getSingle(), returnType.isCollection());
+          return this._dmxTypeDescriptorProvider.getTypeDescriptor(returnType.getSingle(), returnType.isCollection());
         }
       }
-      _xblockexpression = DmxTypeComputer.UNDEFINED;
+      _xblockexpression = DmxTypeDescriptorProvider.UNDEFINED;
     }
     return _xblockexpression;
   }
   
+  protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxAssignment expr) {
+    final DNavigableMember member = expr.getAssignToMember();
+    if ((member instanceof DNavigableMember)) {
+      return this._dmxTypeDescriptorProvider.getTypeDescriptor(member.getType(), member.isCollection());
+    } else {
+      return this._dmxTypeDescriptorProvider.getTypeDescriptor(member, member.isCollection());
+    }
+  }
+  
+  protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxListExpression expr) {
+    boolean _isEmpty = expr.getElements().isEmpty();
+    if (_isEmpty) {
+      return DmxTypeDescriptorProvider.UNDEFINED;
+    }
+    final HashSet<AbstractDmxTypeDescriptor<?>> typeDescs = Sets.<AbstractDmxTypeDescriptor<?>>newHashSet();
+    EList<DExpression> _elements = expr.getElements();
+    for (final DExpression e : _elements) {
+      typeDescs.add(this.typeForAndCheckNotNull(e));
+    }
+    int _size = typeDescs.size();
+    boolean _equals = (_size == 1);
+    if (_equals) {
+      final AbstractDmxTypeDescriptor<?> result = this._dmxTypeDescriptorProvider.toFromCollection(IterableExtensions.<AbstractDmxTypeDescriptor<?>>head(typeDescs), true);
+      return result;
+    }
+    return DmxTypeDescriptorProvider.AMBIGUOUS;
+  }
+  
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxConstructorCall expr) {
-    return this.getTypeDescriptor(expr.getConstructor(), false);
+    return this._dmxTypeDescriptorProvider.getTypeDescriptor(expr.getConstructor(), false);
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxIfExpression expr) {
@@ -374,157 +384,23 @@ public class DmxTypeComputer {
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxBooleanLiteral expr) {
-    return DmxTypeComputer.BOOLEAN;
+    return DmxTypeDescriptorProvider.BOOLEAN;
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxStringLiteral expr) {
-    return DmxTypeComputer.TEXT;
+    return DmxTypeDescriptorProvider.TEXT;
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxNaturalLiteral expr) {
-    return DmxTypeComputer.NUMBER;
+    return DmxTypeDescriptorProvider.NUMBER;
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxDecimalLiteral expr) {
-    return DmxTypeComputer.NUMBER;
+    return DmxTypeDescriptorProvider.NUMBER;
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxUndefinedLiteral expr) {
-    return DmxTypeComputer.UNDEFINED;
-  }
-  
-  public List<AbstractDmxTypeDescriptor<?>> getTypeDescriptors(final DmxFilterTypeDescriptor desc) {
-    final ArrayList<AbstractDmxTypeDescriptor<?>> result = Lists.<AbstractDmxTypeDescriptor<?>>newArrayList();
-    boolean _isMultiTyped = desc.isMultiTyped();
-    if (_isMultiTyped) {
-      EList<DmxBaseType> _members = desc.getMultiple().getMembers();
-      for (final DmxBaseType d : _members) {
-        result.add(this.getBaseTypeDescriptor(d, desc.isCollection()));
-      }
-    } else {
-      result.add(this.getBaseTypeDescriptor(desc.getSingle(), desc.isCollection()));
-    }
-    return result;
-  }
-  
-  public AbstractDmxTypeDescriptor<?> getTypeDescriptor(final Object obj, final boolean collection) {
-    AbstractDmxTypeDescriptor<?> _switchResult = null;
-    boolean _matched = false;
-    if (obj instanceof DmxBaseType) {
-      _matched=true;
-      _switchResult = this.getBaseTypeDescriptor(((DmxBaseType)obj), collection);
-    }
-    if (!_matched) {
-      if (obj instanceof DmxArchetype) {
-        _matched=true;
-        _switchResult = new DmxPrimitiveDescriptor(((DmxArchetype)obj), collection);
-      }
-    }
-    if (!_matched) {
-      if (obj instanceof DPrimitive) {
-        _matched=true;
-        _switchResult = new DmxPrimitiveDescriptor(((DPrimitive)obj), collection);
-      }
-    }
-    if (!_matched) {
-      if (obj instanceof DEnumeration) {
-        _matched=true;
-        _switchResult = new DmxEnumerationDescriptor(((DEnumeration)obj));
-      }
-    }
-    if (!_matched) {
-      if (obj instanceof DComplexType) {
-        _matched=true;
-        _switchResult = new DmxComplexTypeDescriptor(((DComplexType)obj), collection, this.util);
-      }
-    }
-    if (!_matched) {
-      if (obj instanceof DState) {
-        _matched=true;
-        _switchResult = new DmxStateDescriptor(((DState)obj));
-      }
-    }
-    if (!_matched) {
-      if (obj instanceof DAggregate) {
-        _matched=true;
-        _switchResult = new DmxAggregateDescriptor(((DAggregate)obj));
-      }
-    }
-    if (!_matched) {
-      if (obj instanceof DNotification) {
-        _matched=true;
-        _switchResult = new DmxNotificationDescriptor(((DNotification)obj));
-      }
-    }
-    if (!_matched) {
-      _switchResult = DmxTypeComputer.UNDEFINED;
-    }
-    return _switchResult;
-  }
-  
-  private AbstractDmxTypeDescriptor<?> getBaseTypeDescriptor(final DmxBaseType t, final boolean collection) {
-    AbstractDmxTypeDescriptor<? extends DType> _switchResult = null;
-    if (t != null) {
-      switch (t) {
-        case VOID:
-          _switchResult = DmxTypeComputer.VOID;
-          break;
-        case BOOLEAN:
-          DmxBaseTypeDescriptor _xifexpression = null;
-          if (collection) {
-            _xifexpression = DmxTypeComputer.BOOLEAN_COLLECTION;
-          } else {
-            _xifexpression = DmxTypeComputer.BOOLEAN;
-          }
-          _switchResult = _xifexpression;
-          break;
-        case NUMBER:
-          DmxBaseTypeDescriptor _xifexpression_1 = null;
-          if (collection) {
-            _xifexpression_1 = DmxTypeComputer.NUMBER_COLLECTION;
-          } else {
-            _xifexpression_1 = DmxTypeComputer.NUMBER;
-          }
-          _switchResult = _xifexpression_1;
-          break;
-        case TEXT:
-          DmxBaseTypeDescriptor _xifexpression_2 = null;
-          if (collection) {
-            _xifexpression_2 = DmxTypeComputer.TEXT_COLLECTION;
-          } else {
-            _xifexpression_2 = DmxTypeComputer.TEXT;
-          }
-          _switchResult = _xifexpression_2;
-          break;
-        case IDENTIFIER:
-          DmxBaseTypeDescriptor _xifexpression_3 = null;
-          if (collection) {
-            _xifexpression_3 = DmxTypeComputer.IDENTIFIER_COLLECTION;
-          } else {
-            _xifexpression_3 = DmxTypeComputer.IDENTIFIER;
-          }
-          _switchResult = _xifexpression_3;
-          break;
-        case TIMEPOINT:
-          DmxBaseTypeDescriptor _xifexpression_4 = null;
-          if (collection) {
-            _xifexpression_4 = DmxTypeComputer.TIMEPOINT_COLLECTION;
-          } else {
-            _xifexpression_4 = DmxTypeComputer.TIMEPOINT;
-          }
-          _switchResult = _xifexpression_4;
-          break;
-        case STATE:
-          throw new IllegalArgumentException("State type descriptors must be created based on a DState object");
-        default:
-          String _string = t.toString();
-          throw new IllegalArgumentException(_string);
-      }
-    } else {
-      String _string = t.toString();
-      throw new IllegalArgumentException(_string);
-    }
-    return _switchResult;
+    return DmxTypeDescriptorProvider.UNDEFINED;
   }
   
   private AbstractDmxTypeDescriptor<?> typeForAndCheckNotNull(final DExpression expr) {
@@ -534,13 +410,15 @@ public class DmxTypeComputer {
     }
     final AbstractDmxTypeDescriptor<?> type = _typeFor;
     if ((type == null)) {
-      return DmxTypeComputer.UNDEFINED;
+      return DmxTypeDescriptorProvider.UNDEFINED;
     }
     return type;
   }
   
   public AbstractDmxTypeDescriptor<?> typeFor(final EObject expr) {
-    if (expr instanceof DmxBinaryOperation) {
+    if (expr instanceof DmxAssignment) {
+      return _typeFor((DmxAssignment)expr);
+    } else if (expr instanceof DmxBinaryOperation) {
       return _typeFor((DmxBinaryOperation)expr);
     } else if (expr instanceof DmxBooleanLiteral) {
       return _typeFor((DmxBooleanLiteral)expr);
@@ -560,6 +438,8 @@ public class DmxTypeComputer {
       return _typeFor((DmxIfExpression)expr);
     } else if (expr instanceof DmxInstanceOfExpression) {
       return _typeFor((DmxInstanceOfExpression)expr);
+    } else if (expr instanceof DmxListExpression) {
+      return _typeFor((DmxListExpression)expr);
     } else if (expr instanceof DmxMemberNavigation) {
       return _typeFor((DmxMemberNavigation)expr);
     } else if (expr instanceof DmxNaturalLiteral) {

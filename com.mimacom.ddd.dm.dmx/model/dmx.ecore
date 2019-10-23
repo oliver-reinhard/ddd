@@ -20,12 +20,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DmxBaseType">
     <eLiterals name="UNDEFINED"/>
-    <eLiterals name="VOID" value="1"/>
-    <eLiterals name="BOOLEAN" value="2" literal="BOOLEAN"/>
-    <eLiterals name="NUMBER" value="3"/>
-    <eLiterals name="TEXT" value="4"/>
-    <eLiterals name="IDENTIFIER" value="5"/>
-    <eLiterals name="TIMEPOINT" value="6"/>
+    <eLiterals name="AMBIGUOUS" value="1"/>
+    <eLiterals name="VOID" value="2"/>
+    <eLiterals name="BOOLEAN" value="3" literal="BOOLEAN"/>
+    <eLiterals name="NUMBER" value="4"/>
+    <eLiterals name="TEXT" value="5"/>
+    <eLiterals name="IDENTIFIER" value="6"/>
+    <eLiterals name="TIMEPOINT" value="7"/>
     <eLiterals name="ENUM" value="101"/>
     <eLiterals name="STATE" value="102"/>
     <eLiterals name="STATE_EVENT" value="103"/>
@@ -136,9 +137,10 @@
     <eLiterals name="LESS_OR_EQUAL" value="12"/>
     <eLiterals name="GREATER_OR_EQUAL" value="13"/>
     <eLiterals name="GREATER" value="14"/>
-    <eLiterals name="UNTIL" value="15"/>
-    <eLiterals name="SINGLE_ARROW" value="16"/>
-    <eLiterals name="DOUBLE_ARROW" value="17"/>
+    <eLiterals name="IN" value="15"/>
+    <eLiterals name="UNTIL" value="16"/>
+    <eLiterals name="SINGLE_ARROW" value="17"/>
+    <eLiterals name="DOUBLE_ARROW" value="18"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DmxInstanceOfExpression" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
@@ -159,6 +161,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DmxListExpression" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DmxStaticReference" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//IStaticReferenceTarget"/>

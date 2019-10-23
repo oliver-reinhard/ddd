@@ -179,9 +179,9 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 				return createDmxCastExpressionAdapter();
 			}
 			@Override
-			public Adapter caseDmxRaiseExpression(DmxRaiseExpression object)
+			public Adapter caseDmxListExpression(DmxListExpression object)
 			{
-				return createDmxRaiseExpressionAdapter();
+				return createDmxListExpressionAdapter();
 			}
 			@Override
 			public Adapter caseDmxStaticReference(DmxStaticReference object)
@@ -586,16 +586,16 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxRaiseExpression <em>Raise Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxListExpression <em>List Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dmx.DmxRaiseExpression
+	 * @see com.mimacom.ddd.dm.dmx.DmxListExpression
 	 * @generated
 	 */
-	public Adapter createDmxRaiseExpressionAdapter()
+	public Adapter createDmxListExpressionAdapter()
 	{
 		return null;
 	}

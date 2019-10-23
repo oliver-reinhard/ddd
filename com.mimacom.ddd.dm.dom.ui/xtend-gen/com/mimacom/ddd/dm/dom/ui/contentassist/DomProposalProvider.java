@@ -12,11 +12,11 @@ import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;
 import com.mimacom.ddd.dm.dmx.DmxUtil;
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
-import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer;
+import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider;
 import com.mimacom.ddd.dm.dom.DomComplexObject;
 import com.mimacom.ddd.dm.dom.DomField;
+import com.mimacom.ddd.dm.dom.DomUtil;
 import com.mimacom.ddd.dm.dom.ui.contentassist.AbstractDomProposalProvider;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
@@ -38,27 +38,26 @@ import org.eclipse.xtext.xbase.lib.ListExtensions;
 public class DomProposalProvider extends AbstractDomProposalProvider {
   @Inject
   @Extension
-  private DmxUtil _dmxUtil;
+  private DomUtil util;
   
   @Inject
-  private DmxTypeComputer typeComputer;
-  
-  private final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+  private DmxTypeDescriptorProvider typeDescriptorProvider;
   
   @Override
   public void complete_DomField(final EObject model, final RuleCall ruleCall, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     super.complete_DomField(model, ruleCall, context, acceptor);
-    this.proposeAllMandatoryFieldsNotYetPresent(model, false, acceptor, context);
-    if ((model instanceof DomComplexObject)) {
-      DComplexType _ref = ((DomComplexObject)model).getRef();
+    this.proposeAllMandatoryFieldsNotYetPresent(model.eContainer(), false, acceptor, context);
+    final EObject container = model.eContainer();
+    if ((container instanceof DomComplexObject)) {
+      DComplexType _ref = ((DomComplexObject)container).getRef();
       boolean _tripleNotEquals = (_ref != null);
       if (_tripleNotEquals) {
-        List<DFeature> _allFeatures = this._dmxUtil.allFeatures(((DomComplexObject)model).getRef());
+        List<DFeature> _allFeatures = this.util.allFeatures(((DomComplexObject)container).getRef());
         for (final DFeature feature : _allFeatures) {
           final Function1<DomField, DFeature> _function = (DomField it) -> {
             return it.getRef();
           };
-          boolean _contains = ListExtensions.<DomField, DFeature>map(((DomComplexObject)model).getFields(), _function).contains(feature);
+          boolean _contains = ListExtensions.<DomField, DFeature>map(((DomComplexObject)container).getFields(), _function).contains(feature);
           boolean _not = (!_contains);
           if (_not) {
             String _name = feature.getName();
@@ -103,7 +102,7 @@ public class DomProposalProvider extends AbstractDomProposalProvider {
             return it_1.getRef();
           })).contains(it))));
         };
-        final Iterable<DFeature> features = IterableExtensions.<DFeature>filter(this._dmxUtil.allFeatures(((DomComplexObject)model).getRef()), _function);
+        final Iterable<DFeature> features = IterableExtensions.<DFeature>filter(this.util.allFeatures(((DomComplexObject)model).getRef()), _function);
         final StringBuilder proposal = new StringBuilder();
         if (surroundWithBraces) {
           proposal.append("{\n");
@@ -160,7 +159,7 @@ public class DomProposalProvider extends AbstractDomProposalProvider {
     if (_tripleNotEquals) {
       String _xblockexpression = null;
       {
-        final AbstractDmxTypeDescriptor<?> typeDescriptor = this.typeComputer.getTypeDescriptor(f.getType(), false);
+        final AbstractDmxTypeDescriptor<?> typeDescriptor = this.typeDescriptorProvider.getTypeDescriptor(f.getType(), false);
         final DmxBaseType baseType = typeDescriptor.baseType();
         String _switchResult = null;
         if (baseType != null) {
@@ -186,7 +185,7 @@ public class DomProposalProvider extends AbstractDomProposalProvider {
               break;
             case TIMEPOINT:
               Date _date = new Date();
-              String _format = this.formatter.format(_date);
+              String _format = DmxUtil.TIMEPOINT_DATE_TIME_FORMAT.format(_date);
               String _plus_1 = ("\"" + _format);
               _switchResult = (_plus_1 + "\"");
               break;

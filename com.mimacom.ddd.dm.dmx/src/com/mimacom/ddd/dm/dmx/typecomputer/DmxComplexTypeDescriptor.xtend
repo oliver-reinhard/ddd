@@ -17,10 +17,12 @@ class DmxComplexTypeDescriptor extends AbstractDmxTypeDescriptor<DComplexType> {
 	
 	new(DComplexType type, boolean collection, DmxUtil util) {
 		super(DmxBaseType.COMPLEX, type,  collection)
-		if (type === null) {
-			throw new NullPointerException("type")
-		}
+		if (type === null) throw new NullPointerException("type")
 		this.util = util
+	}
+
+	override boolean isCompatibleWith(AbstractDmxTypeDescriptor<?> other) {
+		return canAssignTo(other)
 	}
 	
 	/**
@@ -41,11 +43,12 @@ class DmxComplexTypeDescriptor extends AbstractDmxTypeDescriptor<DComplexType> {
 	override getSupportedIterators(EObject context, DmxIndex index) {
 		val iterators = super.getSupportedIterators(context, index)
 		if (! (type instanceof DEntityType)) {
-			return iterators.filter[name != util.ENTITY_TYPE_STATE_FILTER_NAME].toList
+			return iterators.filter[name != DmxUtil::ENTITY_TYPE_STATE_FILTER_NAME].toList
 		}
 		return iterators
 	}
 	
+	/* Check whether "other := this" is acceptable. */
 	override canAssignTo(AbstractDmxTypeDescriptor<?> other) {
 		super.canAssignTo(other) || other !== null && util.typeHierarchy(type).contains(other.type) // TODO  would prefer to use via injector
 	}

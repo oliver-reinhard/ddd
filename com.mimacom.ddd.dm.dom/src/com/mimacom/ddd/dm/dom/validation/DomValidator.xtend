@@ -3,23 +3,30 @@
  */
 package com.mimacom.ddd.dm.dom.validation
 
+import com.mimacom.ddd.dm.dom.DomField
+import com.mimacom.ddd.dm.dom.DomPackage
+import org.eclipse.xtext.validation.Check
+
+import static com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider.*
 
 /**
  * This class contains custom validation rules. 
- *
+ * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 class DomValidator extends AbstractDomValidator {
 	
-//	public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					DomPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
-	
+	protected static val DOM = DomPackage.eINSTANCE
+
+	@Check
+	def checkType(DomField expr) {
+		val leftType = getTypeAndCheckNotNull(expr, DOM.domField_Ref)
+		if (leftType.isCompatibleWith(TIMEPOINT)) {
+			// allow string literals as Timepoints 
+			expectTimepointValue(expr.value, leftType, DOM.domField_Value)
+		} else {
+			expectType(expr.value, leftType, DOM.domField_Value)
+		}
+	}
+
 }

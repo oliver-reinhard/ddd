@@ -20,7 +20,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
         eType="#//DomField" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DomField" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember">
+  <eClassifiers xsi:type="ecore:EClass" name="DomField" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DFeature"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>

@@ -27,6 +27,7 @@ import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.DmxFunctionCall;
 import com.mimacom.ddd.dm.dmx.DmxIfExpression;
 import com.mimacom.ddd.dm.dmx.DmxInstanceOfExpression;
+import com.mimacom.ddd.dm.dmx.DmxListExpression;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxNamespace;
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
@@ -184,6 +185,9 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DmxPackage.DMX_INSTANCE_OF_EXPRESSION:
 				sequence_DmxRelationalExpression(context, (DmxInstanceOfExpression) semanticObject); 
+				return; 
+			case DmxPackage.DMX_LIST_EXPRESSION:
+				sequence_DmxListExpression(context, (DmxListExpression) semanticObject); 
 				return; 
 			case DmxPackage.DMX_MEMBER_NAVIGATION:
 				sequence_DmxNavigableMemberReference(context, (DmxMemberNavigation) semanticObject); 
@@ -779,6 +783,43 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (if=DExpression then=DExpression else=DExpression?)
 	 */
 	protected void sequence_DmxIfExpression(ISerializationContext context, DmxIfExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     DExpression returns DmxListExpression
+	 *     DmxNavigableMemberReference returns DmxListExpression
+	 *     DmxNavigableMemberReference.DmxAssignment_1_0_0_0_0 returns DmxListExpression
+	 *     DmxNavigableMemberReference.DmxMemberNavigation_1_1_0_0_0 returns DmxListExpression
+	 *     DmxPredicateWithCorrelationVariable returns DmxListExpression
+	 *     DmxOrExpression returns DmxListExpression
+	 *     DmxOrExpression.DmxBinaryOperation_1_0_0_0 returns DmxListExpression
+	 *     DmxAndExpression returns DmxListExpression
+	 *     DmxAndExpression.DmxBinaryOperation_1_0_0_0 returns DmxListExpression
+	 *     DmxEqualityExpression returns DmxListExpression
+	 *     DmxEqualityExpression.DmxBinaryOperation_1_0_0_0 returns DmxListExpression
+	 *     DmxRelationalExpression returns DmxListExpression
+	 *     DmxRelationalExpression.DmxInstanceOfExpression_1_0_0_0_0 returns DmxListExpression
+	 *     DmxRelationalExpression.DmxBinaryOperation_1_1_0_0_0 returns DmxListExpression
+	 *     DmxOtherOperatorExpression returns DmxListExpression
+	 *     DmxOtherOperatorExpression.DmxBinaryOperation_1_0_0_0 returns DmxListExpression
+	 *     DmxAdditiveExpression returns DmxListExpression
+	 *     DmxAdditiveExpression.DmxBinaryOperation_1_0_0_0 returns DmxListExpression
+	 *     DmxMultiplicativeExpression returns DmxListExpression
+	 *     DmxMultiplicativeExpression.DmxBinaryOperation_1_0_0_0 returns DmxListExpression
+	 *     DmxUnaryOperation returns DmxListExpression
+	 *     DmxCastExpression returns DmxListExpression
+	 *     DmxCastExpression.DmxCastExpression_1_0_0_0 returns DmxListExpression
+	 *     DmxPrimaryExpression returns DmxListExpression
+	 *     DmxParenthesizedExpression returns DmxListExpression
+	 *     DmxListExpression returns DmxListExpression
+	 *
+	 * Constraint:
+	 *     (elements+=DExpression elements+=DExpression*)?
+	 */
+	protected void sequence_DmxListExpression(ISerializationContext context, DmxListExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

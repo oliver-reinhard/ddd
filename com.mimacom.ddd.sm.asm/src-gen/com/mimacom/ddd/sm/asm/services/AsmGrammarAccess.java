@@ -1137,7 +1137,7 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum OpOther returns DmxBinaryOperator:
-	//	UNTIL='..' | SINGLE_ARROW='->' | DOUBLE_ARROW='=>';
+	//	IN | IN='in' | UNTIL='..' | SINGLE_ARROW='->' | DOUBLE_ARROW='=>';
 	public DmxGrammarAccess.OpOtherElements getOpOtherAccess() {
 		return gaDmx.getOpOtherAccess();
 	}
@@ -1229,8 +1229,8 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxPrimaryExpression DExpression:
-	//	DmxLiteralExpression | DmxParenthesizedExpression | DmxFunctionCall | DmxConstructorCall | DmxStaticReference |
-	//	DmxContextReference | DmxIfExpression;
+	//	DmxLiteralExpression | DmxParenthesizedExpression | DmxListExpression | DmxFunctionCall | DmxConstructorCall |
+	//	DmxStaticReference | DmxContextReference | DmxIfExpression;
 	public DmxGrammarAccess.DmxPrimaryExpressionElements getDmxPrimaryExpressionAccess() {
 		return gaDmx.getDmxPrimaryExpressionAccess();
 	}
@@ -1257,6 +1257,18 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDmxParenthesizedExpressionRule() {
 		return getDmxParenthesizedExpressionAccess().getRule();
+	}
+	
+	//DmxListExpression DExpression:
+	//	{DmxListExpression}
+	//	'{' (elements+=DExpression (',' elements+=DExpression)*)?
+	//	'}';
+	public DmxGrammarAccess.DmxListExpressionElements getDmxListExpressionAccess() {
+		return gaDmx.getDmxListExpressionAccess();
+	}
+	
+	public ParserRule getDmxListExpressionRule() {
+		return getDmxListExpressionAccess().getRule();
 	}
 	
 	//DmxFunctionCall DExpression:

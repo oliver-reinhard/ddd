@@ -7,10 +7,10 @@ import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DFeature
 import com.mimacom.ddd.dm.dmx.DmxUtil
-import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer
+import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider
 import com.mimacom.ddd.dm.dom.DomComplexObject
 import com.mimacom.ddd.dm.dom.DomField
-import java.text.SimpleDateFormat
+import com.mimacom.ddd.dm.dom.DomUtil
 import java.util.Date
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.RuleCall
@@ -23,17 +23,17 @@ import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
  */
 class DomProposalProvider extends AbstractDomProposalProvider {
 
-	@Inject extension DmxUtil
-	@Inject DmxTypeComputer typeComputer
-	val SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm")
+	@Inject extension DomUtil util
+	@Inject DmxTypeDescriptorProvider typeDescriptorProvider
 
 	override complete_DomField(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		super.complete_DomField(model, ruleCall, context, acceptor)
-		proposeAllMandatoryFieldsNotYetPresent(model, false, acceptor, context)
-		if (model instanceof DomComplexObject) {
-			if (model.ref !== null) {
-				for (feature : model.ref.allFeatures) {
-					if (! model.fields.map[ref].contains(feature)) { // propose only fields that are not  present yet
+		proposeAllMandatoryFieldsNotYetPresent(model.eContainer, false, acceptor, context)
+		val container = model.eContainer
+		if (container instanceof DomComplexObject) {
+			if (container.ref !== null) {
+				for (feature : container.ref.allFeatures) {
+					if (! container.fields.map[ref].contains(feature)) { // propose only fields that are not  present yet
 						val displayString = new StringBuilder(feature.name)
 						if (feature.type !== null) {
 							displayString.append(" - ")
@@ -93,7 +93,7 @@ class DomProposalProvider extends AbstractDomProposalProvider {
 
 	def String typedLiteral(DFeature f) {
 		if (f.type !== null) {
-			val typeDescriptor = typeComputer.getTypeDescriptor(f.type, false)
+			val typeDescriptor = typeDescriptorProvider.getTypeDescriptor(f.type, false)
 			val baseType = typeDescriptor.baseType
 			switch baseType {
 				case BOOLEAN: "true"
@@ -101,7 +101,7 @@ class DomProposalProvider extends AbstractDomProposalProvider {
 				case IDENTIFIER: "someId"
 				case NUMBER: "1"
 				case TEXT: "\"\""
-				case TIMEPOINT: "\"" + formatter.format(new Date()) + "\""
+				case TIMEPOINT: "\"" + DmxUtil::TIMEPOINT_DATE_TIME_FORMAT.format(new Date()) + "\""
 				case COMPLEX: "detail " + typeDescriptor.type.name + " { }"
 				default: "unknownType"
 			}
