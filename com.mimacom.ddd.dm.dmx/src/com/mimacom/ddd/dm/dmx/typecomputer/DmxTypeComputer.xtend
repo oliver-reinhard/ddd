@@ -174,10 +174,7 @@ class DmxTypeComputer {
 			case LESS_OR_EQUAL: BOOLEAN
 			case GREATER_OR_EQUAL: BOOLEAN
 			case GREATER: BOOLEAN
-			case IN: BOOLEAN
-			case UNTIL: BOOLEAN // TODO
-			case SINGLE_ARROW: BOOLEAN // TODO
-			case DOUBLE_ARROW: BOOLEAN // logical "implies"
+			//
 			case ADD: {
 				// left type determines the type of the expression and the expected type(s) of the right operand:
 				val leftType = typeForAndCheckNotNull(expr.leftOperand)
@@ -192,6 +189,12 @@ class DmxTypeComputer {
 			case DIVIDE: NUMBER
 			case POWER: NUMBER
 			case MODULO: NUMBER
+			//
+			case IN: BOOLEAN
+			case UNTIL: VOID
+			case SINGLE_ARROW: VOID // TODO
+			case DOUBLE_ARROW: BOOLEAN // logical "implies"
+			//
 			default: throw new IllegalArgumentException(expr.operator.literal)
 		}
 	}
@@ -262,7 +265,7 @@ class DmxTypeComputer {
 			typeDescs.add(typeForAndCheckNotNull(e))
 		}
 		if (typeDescs.size == 1) {
-			val result =  typeDescs.head.morphToFromCollection(true)
+			val result =  typeDescs.head.toFromCollection(true)
 			return result
 		}
 		return AMBIGUOUS

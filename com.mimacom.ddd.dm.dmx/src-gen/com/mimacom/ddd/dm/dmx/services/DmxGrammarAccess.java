@@ -3677,7 +3677,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal NATURAL returns ecore::EInt:
-	//	'0'..'9'+;
+	//	'0'..'9'+ | '∞';
 	public TerminalRule getNATURALRule() {
 		return tNATURAL;
 	}

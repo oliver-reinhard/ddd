@@ -13,6 +13,7 @@ import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxFilterParameter;
+import com.mimacom.ddd.dm.dmx.DmxListExpression;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxUtil;
 import com.mimacom.ddd.dm.dmx.validation.DmxTypeCheckingValidator;
@@ -80,6 +81,16 @@ public class DmxValidator extends DmxTypeCheckingValidator {
         return Boolean.valueOf(Objects.equal(_name_1, DmxUtil.ENTITY_TYPE_STATE_FILTER_NAME));
       })))) {
         this.error("Cannot have an inherited \'state\' feature while states are declared for this type.", e, DmxTypeCheckingValidator.BASE.getDNamedElement_Name());
+      }
+    }
+  }
+  
+  @Check
+  public void checkNestedLists(final DmxListExpression expr) {
+    EList<DExpression> _elements = expr.getElements();
+    for (final DExpression e : _elements) {
+      if ((e instanceof DmxListExpression)) {
+        this.error("Cannot nest lists", expr, DmxTypeCheckingValidator.DMX.getDmxListExpression_Elements());
       }
     }
   }

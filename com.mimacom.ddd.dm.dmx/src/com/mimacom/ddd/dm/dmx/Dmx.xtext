@@ -306,7 +306,7 @@ DQualifiedName:
 	
 terminal ID: '^'?(LETTER|'_') (LETTER|'_'|'0'..'9')*;
 terminal STRING:	'"' ( '\\' . | !('\\'|'"') )* '"';
-terminal NATURAL returns ecore::EInt: '0'..'9'+;
+terminal NATURAL returns ecore::EInt: '0'..'9'+ | '∞';
 terminal fragment LETTER:'a'..'z'|'A'..'Z'|'\u00c0'..'\u00d6'|'\u00d8'..'\u00f6'|'\u00f8'..'\u00ff'; // Latin characters '\uc380'..'\uc396'|'\uc398'..'\uc3b6'|'\uc3b8'..'\uc3bf'
 
 terminal fragment PLAIN_TEXT:	!('»' | ']' | '[');

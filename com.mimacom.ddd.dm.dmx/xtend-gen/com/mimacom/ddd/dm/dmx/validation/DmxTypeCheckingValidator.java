@@ -354,12 +354,12 @@ public class DmxTypeCheckingValidator extends AbstractDmxValidator {
             }
             _switchResult = Boolean.valueOf(_xblockexpression_5);
             break;
+          case UNTIL:
+            _switchResult = Boolean.valueOf(this.expectType(expr.getRightOperand(), leftType, DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_RightOperand()));
+            break;
           case SINGLE_ARROW:
             String _literal = expr.getOperator().getLiteral();
             throw new UnsupportedOperationException(_literal);
-          case UNTIL:
-            String _literal_1 = expr.getOperator().getLiteral();
-            throw new UnsupportedOperationException(_literal_1);
           default:
             break;
         }

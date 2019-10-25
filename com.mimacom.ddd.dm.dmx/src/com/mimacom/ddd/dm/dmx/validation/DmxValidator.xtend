@@ -9,6 +9,7 @@ import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DFeature
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxFilter
+import com.mimacom.ddd.dm.dmx.DmxListExpression
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DmxUtil
 import org.eclipse.xtext.validation.Check
@@ -59,6 +60,14 @@ class DmxValidator extends DmxTypeCheckingValidator {
 				error("Cannot have an inherited 'state' feature while states are declared for this type.", e, BASE.DNamedElement_Name)
 			}
 		}
-
+	}
+	
+	@Check
+	def checkNestedLists(DmxListExpression expr) {
+		for (e : expr.elements) {
+			if (e instanceof DmxListExpression) {
+				error("Cannot nest lists", expr, DMX.dmxListExpression_Elements)
+			}
+		}
 	}
 }

@@ -4,6 +4,9 @@
 package com.mimacom.ddd.dm.dom.ui.labeling;
 
 import com.google.inject.Inject;
+import com.mimacom.ddd.dm.base.DComplexType;
+import com.mimacom.ddd.dm.dom.DomDetail;
+import com.mimacom.ddd.dm.dom.DomEntity;
 import com.mimacom.ddd.dm.dom.DomField;
 import com.mimacom.ddd.dm.dom.DomNamedComplexObject;
 import com.mimacom.ddd.dm.dom.DomUtil;
@@ -33,5 +36,23 @@ public class DomLabelProvider extends DefaultEObjectLabelProvider {
   
   public String text(final DomField f) {
     return this._domUtil.label(f);
+  }
+  
+  public String text(final DomEntity e) {
+    DComplexType _ref = e.getRef();
+    String _name = null;
+    if (_ref!=null) {
+      _name=_ref.getName();
+    }
+    return ("Entity " + _name);
+  }
+  
+  public String text(final DomDetail d) {
+    DComplexType _ref = d.getRef();
+    String _name = null;
+    if (_ref!=null) {
+      _name=_ref.getName();
+    }
+    return ("Detail " + _name);
   }
 }

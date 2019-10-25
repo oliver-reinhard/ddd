@@ -4308,7 +4308,7 @@ RULE_ID : '^'? (RULE_LETTER|'_') (RULE_LETTER|'_'|'0'..'9')*;
 
 RULE_STRING : '"' ('\\' .|~(('\\'|'"')))* '"';
 
-RULE_NATURAL : ('0'..'9')+;
+RULE_NATURAL : (('0'..'9')+|'\u221E');
 
 fragment RULE_LETTER : ('a'..'z'|'A'..'Z'|'\u00C0'..'\u00D6'|'\u00D8'..'\u00F6'|'\u00F8'..'\u00FF');
 

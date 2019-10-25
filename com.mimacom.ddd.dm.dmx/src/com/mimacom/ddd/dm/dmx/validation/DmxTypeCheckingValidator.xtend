@@ -231,11 +231,11 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 					expectType(expr.rightOperand, leftType.toFromCollection(true), DMX.dmxBinaryOperation_RightOperand)
 				}
 			}
-			case SINGLE_ARROW: {
-				throw new UnsupportedOperationException(expr.operator.literal) // TODO
-			}
 			case UNTIL: {
-				throw new UnsupportedOperationException(expr.operator.literal) // TODO
+					expectType(expr.rightOperand, leftType, DMX.dmxBinaryOperation_RightOperand)
+			}
+			case SINGLE_ARROW: {
+				throw new UnsupportedOperationException(expr.operator.literal) // TODO no semantics yet
 			}
 		}
 	}

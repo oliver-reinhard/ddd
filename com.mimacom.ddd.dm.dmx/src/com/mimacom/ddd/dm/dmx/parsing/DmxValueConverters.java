@@ -7,12 +7,34 @@ import org.eclipse.xtext.conversion.ValueConverterException;
 import org.eclipse.xtext.conversion.impl.AbstractValueConverter;
 import org.eclipse.xtext.conversion.impl.INTValueConverter;
 import org.eclipse.xtext.nodemodel.INode;
+import org.eclipse.xtext.util.Strings;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
 @Singleton
 public class DmxValueConverters extends Ecore2XtextTerminalConverters {
+	
+	@ValueConverter(rule = "NATURAL")
+	public IValueConverter<Integer> NATURAL() {
+		return new AbstractValueConverter<Integer>() {
+
+			@Override
+			public Integer toValue(String string, INode node) throws ValueConverterException {
+				if (Strings.isEmpty(string)) {
+					throw new ValueConverterException("Couldn't convert empty string to NATURAL value.", node, null);
+				}
+				if (string.equals("∞")) return Integer.MAX_VALUE;
+				return terminalsIntValueConverter.toValue(string, node);
+			}
+
+			@Override
+			public String toString(Integer value) throws ValueConverterException {
+				if (value == Integer.MAX_VALUE) return "∞";
+				return value.toString();
+			}
+		};
+	}
 
 	@ValueConverter(rule = "PLAIN_TEXT_ONLY")
 	public IValueConverter<String> PLAIN_TEXT_ONLY() {

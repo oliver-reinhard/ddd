@@ -186,7 +186,7 @@ public class DmxTypeComputer {
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxBinaryOperation expr) {
-    DmxBaseTypeDescriptor _switchResult = null;
+    AbstractDmxTypeDescriptor<? extends DType> _switchResult = null;
     DmxBinaryOperator _operator = expr.getOperator();
     if (_operator != null) {
       switch (_operator) {
@@ -215,18 +215,6 @@ public class DmxTypeComputer {
           _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
           break;
         case GREATER:
-          _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
-          break;
-        case IN:
-          _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
-          break;
-        case UNTIL:
-          _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
-          break;
-        case SINGLE_ARROW:
-          _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
-          break;
-        case DOUBLE_ARROW:
           _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
           break;
         case ADD:
@@ -263,6 +251,18 @@ public class DmxTypeComputer {
           break;
         case MODULO:
           _switchResult = DmxTypeDescriptorProvider.NUMBER;
+          break;
+        case IN:
+          _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
+          break;
+        case UNTIL:
+          _switchResult = DmxTypeDescriptorProvider.VOID;
+          break;
+        case SINGLE_ARROW:
+          _switchResult = DmxTypeDescriptorProvider.VOID;
+          break;
+        case DOUBLE_ARROW:
+          _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
           break;
         default:
           String _literal = expr.getOperator().getLiteral();

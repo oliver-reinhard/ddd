@@ -4,6 +4,8 @@
 package com.mimacom.ddd.dm.dom.ui.labeling
 
 import com.google.inject.Inject
+import com.mimacom.ddd.dm.dom.DomDetail
+import com.mimacom.ddd.dm.dom.DomEntity
 import com.mimacom.ddd.dm.dom.DomField
 import com.mimacom.ddd.dm.dom.DomNamedComplexObject
 import com.mimacom.ddd.dm.dom.DomUtil
@@ -24,7 +26,6 @@ class DomLabelProvider extends DefaultEObjectLabelProvider {
 		super(delegate);
 	}
 
-	
 	def text(DomNamedComplexObject o) {
 		return o.label
 	}
@@ -32,6 +33,15 @@ class DomLabelProvider extends DefaultEObjectLabelProvider {
 	def text(DomField f) {
 		return f.label
 	}
+	
+	def text(DomEntity e) {
+		return"Entity " + e.ref?.name
+	}
+	
+	def text(DomDetail d) {
+		return"Detail " + d.ref?.name
+	}
+	
 //
 //	def image(Greeting ele) {
 //		'Greeting.gif'

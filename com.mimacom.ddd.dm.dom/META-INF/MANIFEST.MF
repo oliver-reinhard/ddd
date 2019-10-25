@@ -21,15 +21,17 @@ Require-Bundle: com.mimacom.ddd.dm.base;visibility:=reexport,
  org.eclipse.xtend.lib;bundle-version="2.14.0",
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: com.mimacom.ddd.dm.dom,
- com.mimacom.ddd.dm.dom.impl,
- com.mimacom.ddd.dm.dom.util,
+Export-Package: com.mimacom.ddd.dm.dim,
+ com.mimacom.ddd.dm.dom,
+ com.mimacom.ddd.dm.dom.formatting2,
  com.mimacom.ddd.dm.dom.generator,
+ com.mimacom.ddd.dm.dom.impl,
  com.mimacom.ddd.dm.dom.parser.antlr,
  com.mimacom.ddd.dm.dom.parser.antlr.internal,
  com.mimacom.ddd.dm.dom.scoping,
  com.mimacom.ddd.dm.dom.serializer,
  com.mimacom.ddd.dm.dom.services,
- com.mimacom.ddd.dm.dom.validation,
- com.mimacom.ddd.dm.dom.formatting2
+ com.mimacom.ddd.dm.dom.typecomputer,
+ com.mimacom.ddd.dm.dom.util,
+ com.mimacom.ddd.dm.dom.validation
 Import-Package: org.apache.log4j
