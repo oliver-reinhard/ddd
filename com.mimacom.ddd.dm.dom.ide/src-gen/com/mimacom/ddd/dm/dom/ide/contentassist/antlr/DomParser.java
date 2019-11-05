@@ -68,8 +68,8 @@ public class DomParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDomNamedComplexObjectAccess().getGroup(), "rule__DomNamedComplexObject__Group__0");
 			builder.put(grammarAccess.getDomEntityAccess().getGroup(), "rule__DomEntity__Group__0");
 			builder.put(grammarAccess.getDomDetailAccess().getGroup(), "rule__DomDetail__Group__0");
-			builder.put(grammarAccess.getDomComplexObjectAccess().getGroup(), "rule__DomComplexObject__Group__0");
-			builder.put(grammarAccess.getDomFieldAccess().getGroup(), "rule__DomField__Group__0");
+			builder.put(grammarAccess.getDmxComplexObjectAccess().getGroup(), "rule__DmxComplexObject__Group__0");
+			builder.put(grammarAccess.getDmxFieldAccess().getGroup(), "rule__DmxField__Group__0");
 			builder.put(grammarAccess.getDmxNamespaceAccess().getGroup(), "rule__DmxNamespace__Group__0");
 			builder.put(grammarAccess.getDImportAccess().getGroup(), "rule__DImport__Group__0");
 			builder.put(grammarAccess.getDmxTestAccess().getGroup(), "rule__DmxTest__Group__0");
@@ -171,10 +171,10 @@ public class DomParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDomSnapshotAccess().getObjectsAssignment_3(), "rule__DomSnapshot__ObjectsAssignment_3");
 			builder.put(grammarAccess.getDomNamedComplexObjectAccess().getNameAssignment_0(), "rule__DomNamedComplexObject__NameAssignment_0");
 			builder.put(grammarAccess.getDomNamedComplexObjectAccess().getObjectAssignment_2(), "rule__DomNamedComplexObject__ObjectAssignment_2");
-			builder.put(grammarAccess.getDomComplexObjectAccess().getRefAssignment_0(), "rule__DomComplexObject__RefAssignment_0");
-			builder.put(grammarAccess.getDomComplexObjectAccess().getFieldsAssignment_2(), "rule__DomComplexObject__FieldsAssignment_2");
-			builder.put(grammarAccess.getDomFieldAccess().getRefAssignment_0(), "rule__DomField__RefAssignment_0");
-			builder.put(grammarAccess.getDomFieldAccess().getValueAssignment_2(), "rule__DomField__ValueAssignment_2");
+			builder.put(grammarAccess.getDmxComplexObjectAccess().getTypeAssignment_0(), "rule__DmxComplexObject__TypeAssignment_0");
+			builder.put(grammarAccess.getDmxComplexObjectAccess().getFieldsAssignment_2(), "rule__DmxComplexObject__FieldsAssignment_2");
+			builder.put(grammarAccess.getDmxFieldAccess().getFeatureAssignment_0(), "rule__DmxField__FeatureAssignment_0");
+			builder.put(grammarAccess.getDmxFieldAccess().getValueAssignment_2(), "rule__DmxField__ValueAssignment_2");
 			builder.put(grammarAccess.getDmxNamespaceAccess().getImportsAssignment_0(), "rule__DmxNamespace__ImportsAssignment_0");
 			builder.put(grammarAccess.getDmxNamespaceAccess().getNameAssignment_2(), "rule__DmxNamespace__NameAssignment_2");
 			builder.put(grammarAccess.getDmxNamespaceAccess().getTypesAssignment_3(), "rule__DmxNamespace__TypesAssignment_3");

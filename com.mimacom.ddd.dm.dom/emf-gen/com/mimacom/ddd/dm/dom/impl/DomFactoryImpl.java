@@ -67,10 +67,9 @@ public class DomFactoryImpl extends EFactoryImpl implements DomFactory
 		{
 			case DomPackage.DOM_MODEL: return createDomModel();
 			case DomPackage.DOM_SNAPSHOT: return createDomSnapshot();
-			case DomPackage.DOM_FIELD: return createDomField();
-			case DomPackage.DOM_NAMED_COMPLEX_OBJECT: return createDomNamedComplexObject();
 			case DomPackage.DOM_ENTITY: return createDomEntity();
 			case DomPackage.DOM_DETAIL: return createDomDetail();
+			case DomPackage.DOM_NAMED_COMPLEX_OBJECT: return createDomNamedComplexObject();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -106,30 +105,6 @@ public class DomFactoryImpl extends EFactoryImpl implements DomFactory
 	 * @generated
 	 */
 	@Override
-	public DomField createDomField()
-	{
-		DomFieldImplCustom domField = new DomFieldImplCustom();
-		return domField;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DomNamedComplexObject createDomNamedComplexObject()
-	{
-		DomNamedComplexObjectImplCustom domNamedComplexObject = new DomNamedComplexObjectImplCustom();
-		return domNamedComplexObject;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public DomEntity createDomEntity()
 	{
 		DomEntityImpl domEntity = new DomEntityImpl();
@@ -146,6 +121,18 @@ public class DomFactoryImpl extends EFactoryImpl implements DomFactory
 	{
 		DomDetailImpl domDetail = new DomDetailImpl();
 		return domDetail;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DomNamedComplexObject createDomNamedComplexObject()
+	{
+		DomNamedComplexObjectImplCustom domNamedComplexObject = new DomNamedComplexObjectImplCustom();
+		return domNamedComplexObject;
 	}
 
 	/**

@@ -275,6 +275,24 @@ public interface DmxFactory extends EFactory
 	DmxUndefinedLiteral createDmxUndefinedLiteral();
 
 	/**
+	 * Returns a new object of class '<em>Complex Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Complex Object</em>'.
+	 * @generated
+	 */
+	DmxComplexObject createDmxComplexObject();
+
+	/**
+	 * Returns a new object of class '<em>Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Field</em>'.
+	 * @generated
+	 */
+	DmxField createDmxField();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

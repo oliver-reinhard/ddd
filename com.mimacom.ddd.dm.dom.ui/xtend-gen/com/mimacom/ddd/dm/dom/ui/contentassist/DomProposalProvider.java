@@ -10,11 +10,11 @@ import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;
+import com.mimacom.ddd.dm.dmx.DmxComplexObject;
+import com.mimacom.ddd.dm.dmx.DmxField;
 import com.mimacom.ddd.dm.dmx.DmxUtil;
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider;
-import com.mimacom.ddd.dm.dom.DomComplexObject;
-import com.mimacom.ddd.dm.dom.DomField;
 import com.mimacom.ddd.dm.dom.DomUtil;
 import com.mimacom.ddd.dm.dom.ui.contentassist.AbstractDomProposalProvider;
 import java.util.Date;
@@ -44,39 +44,39 @@ public class DomProposalProvider extends AbstractDomProposalProvider {
   private DmxTypeDescriptorProvider typeDescriptorProvider;
   
   @Override
-  public void complete_DomField(final EObject model, final RuleCall ruleCall, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-    super.complete_DomField(model, ruleCall, context, acceptor);
+  public void complete_DmxField(final EObject model, final RuleCall ruleCall, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    super.complete_DmxField(model, ruleCall, context, acceptor);
     this.proposeAllMandatoryFieldsNotYetPresent(model.eContainer(), false, acceptor, context);
     final EObject container = model.eContainer();
-    if ((container instanceof DomComplexObject)) {
-      DComplexType _ref = ((DomComplexObject)container).getRef();
-      boolean _tripleNotEquals = (_ref != null);
+    if ((container instanceof DmxComplexObject)) {
+      DComplexType _type = ((DmxComplexObject)container).getType();
+      boolean _tripleNotEquals = (_type != null);
       if (_tripleNotEquals) {
-        List<DFeature> _allFeatures = this.util.allFeatures(((DomComplexObject)container).getRef());
-        for (final DFeature feature : _allFeatures) {
-          final Function1<DomField, DFeature> _function = (DomField it) -> {
-            return it.getRef();
+        List<DFeature> _allFeatures = this.util.allFeatures(((DmxComplexObject)container).getType());
+        for (final DFeature f : _allFeatures) {
+          final Function1<DmxField, DFeature> _function = (DmxField it) -> {
+            return it.getFeature();
           };
-          boolean _contains = ListExtensions.<DomField, DFeature>map(((DomComplexObject)container).getFields(), _function).contains(feature);
+          boolean _contains = ListExtensions.<DmxField, DFeature>map(((DmxComplexObject)container).getFields(), _function).contains(f);
           boolean _not = (!_contains);
           if (_not) {
-            String _name = feature.getName();
+            String _name = f.getName();
             final StringBuilder displayString = new StringBuilder(_name);
-            DType _type = feature.getType();
-            boolean _tripleNotEquals_1 = (_type != null);
+            DType _type_1 = f.getType();
+            boolean _tripleNotEquals_1 = (_type_1 != null);
             if (_tripleNotEquals_1) {
               displayString.append(" - ");
-              displayString.append(feature.getType().getName());
+              displayString.append(f.getType().getName());
             }
-            boolean _isOptional = feature.isOptional();
+            boolean _isOptional = f.isOptional();
             if (_isOptional) {
               displayString.append(" (optional)");
             }
             StringConcatenation _builder = new StringConcatenation();
-            String _name_1 = feature.getName();
+            String _name_1 = f.getName();
             _builder.append(_name_1);
             _builder.append(" = ");
-            String _typedLiteral = this.typedLiteral(feature);
+            String _typedLiteral = this.typedLiteral(f);
             _builder.append(_typedLiteral);
             final String proposal = _builder.toString();
             acceptor.accept(this.createCompletionProposal(proposal, displayString.toString(), null, context));
@@ -93,21 +93,21 @@ public class DomProposalProvider extends AbstractDomProposalProvider {
   }
   
   protected void proposeAllMandatoryFieldsNotYetPresent(final EObject model, final boolean surroundWithBraces, final ICompletionProposalAcceptor acceptor, final ContentAssistContext context) {
-    if ((model instanceof DomComplexObject)) {
-      DComplexType _ref = ((DomComplexObject)model).getRef();
-      boolean _tripleNotEquals = (_ref != null);
+    if ((model instanceof DmxComplexObject)) {
+      DComplexType _type = ((DmxComplexObject)model).getType();
+      boolean _tripleNotEquals = (_type != null);
       if (_tripleNotEquals) {
         final Function1<DFeature, Boolean> _function = (DFeature it) -> {
-          return Boolean.valueOf((!(it.isOptional() || ListExtensions.<DomField, DFeature>map(((DomComplexObject)model).getFields(), ((Function1<DomField, DFeature>) (DomField it_1) -> {
-            return it_1.getRef();
+          return Boolean.valueOf((!(it.isOptional() || ListExtensions.<DmxField, DFeature>map(((DmxComplexObject)model).getFields(), ((Function1<DmxField, DFeature>) (DmxField it_1) -> {
+            return it_1.getFeature();
           })).contains(it))));
         };
-        final Iterable<DFeature> features = IterableExtensions.<DFeature>filter(this.util.allFeatures(((DomComplexObject)model).getRef()), _function);
+        final Iterable<DFeature> features = IterableExtensions.<DFeature>filter(this.util.allFeatures(((DmxComplexObject)model).getType()), _function);
         final StringBuilder proposal = new StringBuilder();
         if (surroundWithBraces) {
           proposal.append("{\n");
         }
-        String indent = this.calcIndent(((DomComplexObject)model));
+        String indent = this.calcIndent(((DmxComplexObject)model));
         for (int i = 0; (i < IterableExtensions.size(features)); i++) {
           {
             final DFeature feature = ((DFeature[])Conversions.unwrapArray(features, DFeature.class))[i];
@@ -137,12 +137,12 @@ public class DomProposalProvider extends AbstractDomProposalProvider {
     }
   }
   
-  protected String calcIndent(final DomComplexObject container) {
+  protected String calcIndent(final DmxComplexObject container) {
     String indent = "";
     EObject c = container;
-    while (((c instanceof DomComplexObject) || (c instanceof DomField))) {
+    while (((c instanceof DmxComplexObject) || (c instanceof DmxField))) {
       {
-        if ((c instanceof DomComplexObject)) {
+        if ((c instanceof DmxComplexObject)) {
           String _indent = indent;
           indent = (_indent + "\t");
         }

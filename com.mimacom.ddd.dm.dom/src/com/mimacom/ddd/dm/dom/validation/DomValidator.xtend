@@ -3,8 +3,9 @@
  */
 package com.mimacom.ddd.dm.dom.validation
 
-import com.mimacom.ddd.dm.dom.DomField
-import com.mimacom.ddd.dm.dom.DomPackage
+import com.mimacom.ddd.dm.base.DQuery
+import com.mimacom.ddd.dm.dmx.DmxField
+import com.mimacom.ddd.dm.dmx.DmxPackage
 import org.eclipse.xtext.validation.Check
 
 import static com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider.*
@@ -16,16 +17,23 @@ import static com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider.*
  */
 class DomValidator extends AbstractDomValidator {
 	
-	protected static val DOM = DomPackage.eINSTANCE
+	protected static val DMX = DmxPackage.eINSTANCE
 
 	@Check
-	def checkType(DomField expr) {
-		val leftType = getTypeAndCheckNotNull(expr, DOM.domField_Ref)
+	def checkType(DmxField expr) {
+		val leftType = getTypeAndCheckNotNull(expr.value, DMX.dmxField_Feature)
 		if (leftType.isCompatibleWith(TIMEPOINT)) {
 			// allow string literals as Timepoints 
-			expectTimepointValue(expr.value, leftType, DOM.domField_Value)
+			expectTimepointValue(expr.value, leftType, DMX.dmxField_Value)
 		} else {
-			expectType(expr.value, leftType, DOM.domField_Value)
+			expectType(expr.value, leftType, DMX.dmxField_Value)
+		}
+	}
+	
+	@Check
+	def checkFieldKind(DmxField f) {
+		if (f.feature !== null && f.feature instanceof DQuery) {
+			error("Cannot assign a value to a query", f,  DMX.dmxField_Feature)
 		}
 	}
 

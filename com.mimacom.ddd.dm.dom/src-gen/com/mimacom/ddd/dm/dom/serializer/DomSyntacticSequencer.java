@@ -137,7 +137,7 @@ public class DomSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) '[' target=[IStaticReferenceTarget|DQualifiedName]
-	 *     (rule start) (ambiguity) 'detail' ref=[DDetailType|ID]
+	 *     (rule start) (ambiguity) 'detail' type=[DComplexType|ID]
 	 *     (rule start) (ambiguity) 'if' if=DExpression
 	 *     (rule start) (ambiguity) '{' '}' (rule start)
 	 *     (rule start) (ambiguity) '{' elements+=DExpression
@@ -172,7 +172,7 @@ public class DomSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) '[' target=[IStaticReferenceTarget|DQualifiedName]
-	 *     (rule start) (ambiguity) 'detail' ref=[DDetailType|ID]
+	 *     (rule start) (ambiguity) 'detail' type=[DComplexType|ID]
 	 *     (rule start) (ambiguity) 'if' if=DExpression
 	 *     (rule start) (ambiguity) '{' '}' ')' (rule start)
 	 *     (rule start) (ambiguity) '{' elements+=DExpression

@@ -6,10 +6,10 @@ package com.mimacom.ddd.dm.dom.ui.contentassist
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DFeature
+import com.mimacom.ddd.dm.dmx.DmxComplexObject
+import com.mimacom.ddd.dm.dmx.DmxField
 import com.mimacom.ddd.dm.dmx.DmxUtil
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider
-import com.mimacom.ddd.dm.dom.DomComplexObject
-import com.mimacom.ddd.dm.dom.DomField
 import com.mimacom.ddd.dm.dom.DomUtil
 import java.util.Date
 import org.eclipse.emf.ecore.EObject
@@ -26,23 +26,23 @@ class DomProposalProvider extends AbstractDomProposalProvider {
 	@Inject extension DomUtil util
 	@Inject DmxTypeDescriptorProvider typeDescriptorProvider
 
-	override complete_DomField(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		super.complete_DomField(model, ruleCall, context, acceptor)
+	override complete_DmxField(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		super.complete_DmxField(model, ruleCall, context, acceptor)
 		proposeAllMandatoryFieldsNotYetPresent(model.eContainer, false, acceptor, context)
 		val container = model.eContainer
-		if (container instanceof DomComplexObject) {
-			if (container.ref !== null) {
-				for (feature : container.ref.allFeatures) {
-					if (! container.fields.map[ref].contains(feature)) { // propose only fields that are not  present yet
-						val displayString = new StringBuilder(feature.name)
-						if (feature.type !== null) {
+		if (container instanceof DmxComplexObject) {
+			if (container.type !== null) {
+				for (f : container.type.allFeatures) {
+					if (! container.fields.map[feature].contains(f)) { // propose only fields that are not  present yet
+						val displayString = new StringBuilder(f.name)
+						if (f.type !== null) {
 							displayString.append(" - ")
-							displayString.append(feature.type.name)
+							displayString.append(f.type.name)
 						}
-						if (feature.optional) {
+						if (f.optional) {
 							displayString.append(" (optional)")
 						}
-						val proposal = '''«feature.name» = «feature.typedLiteral»'''
+						val proposal = '''«f.name» = «f.typedLiteral»'''
 						acceptor.accept(createCompletionProposal(proposal, displayString.toString, null, context))
 					}
 				}
@@ -56,9 +56,10 @@ class DomProposalProvider extends AbstractDomProposalProvider {
 	}
 
 	protected def void proposeAllMandatoryFieldsNotYetPresent(EObject model, boolean surroundWithBraces, ICompletionProposalAcceptor acceptor, ContentAssistContext context) {
-		if (model instanceof DomComplexObject) {
-			if (model.ref !== null) {
-				val features = model.ref.allFeatures.filter[! (optional || model.fields.map[ref].contains(it))]
+		if (model instanceof DmxComplexObject) {
+			if (model.type !== null) {
+				// exclude optional features and features already present in fields of this complex object:
+				val features = model.type.allFeatures.filter[! (optional || model.fields.map[feature].contains(it))]
 				val proposal = new StringBuilder()
 				if (surroundWithBraces) {
 					proposal.append("{\n")
@@ -79,11 +80,11 @@ class DomProposalProvider extends AbstractDomProposalProvider {
 		}
 	}
 	
-	protected def String calcIndent(DomComplexObject container) {
+	protected def String calcIndent(DmxComplexObject container) {
 		var indent = ""
 		var EObject c = container
-		while (c instanceof DomComplexObject || c instanceof DomField) {
-			if (c instanceof DomComplexObject) {
+		while (c instanceof DmxComplexObject || c instanceof DmxField) {
+			if (c instanceof DmxComplexObject) {
 				indent += "\t"
 			}
 			c = c.eContainer

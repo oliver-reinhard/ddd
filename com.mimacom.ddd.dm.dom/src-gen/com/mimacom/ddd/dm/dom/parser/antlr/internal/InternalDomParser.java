@@ -937,23 +937,23 @@ public class InternalDomParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDomEntity"
-    // InternalDom.g:323:1: ruleDomEntity returns [EObject current=null] : (otherlv_0= 'entity' this_DomComplexObject_1= ruleDomComplexObject[$current] ) ;
+    // InternalDom.g:323:1: ruleDomEntity returns [EObject current=null] : (otherlv_0= 'entity' this_DmxComplexObject_1= ruleDmxComplexObject[$current] ) ;
     public final EObject ruleDomEntity() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        EObject this_DomComplexObject_1 = null;
+        EObject this_DmxComplexObject_1 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalDom.g:329:2: ( (otherlv_0= 'entity' this_DomComplexObject_1= ruleDomComplexObject[$current] ) )
-            // InternalDom.g:330:2: (otherlv_0= 'entity' this_DomComplexObject_1= ruleDomComplexObject[$current] )
+            // InternalDom.g:329:2: ( (otherlv_0= 'entity' this_DmxComplexObject_1= ruleDmxComplexObject[$current] ) )
+            // InternalDom.g:330:2: (otherlv_0= 'entity' this_DmxComplexObject_1= ruleDmxComplexObject[$current] )
             {
-            // InternalDom.g:330:2: (otherlv_0= 'entity' this_DomComplexObject_1= ruleDomComplexObject[$current] )
-            // InternalDom.g:331:3: otherlv_0= 'entity' this_DomComplexObject_1= ruleDomComplexObject[$current]
+            // InternalDom.g:330:2: (otherlv_0= 'entity' this_DmxComplexObject_1= ruleDmxComplexObject[$current] )
+            // InternalDom.g:331:3: otherlv_0= 'entity' this_DmxComplexObject_1= ruleDmxComplexObject[$current]
             {
             otherlv_0=(Token)match(input,22,FOLLOW_4); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -966,17 +966,17 @@ public class InternalDomParser extends AbstractInternalAntlrParser {
               			if (current==null) {
               				current = createModelElement(grammarAccess.getDomEntityRule());
               			}
-              			newCompositeNode(grammarAccess.getDomEntityAccess().getDomComplexObjectParserRuleCall_1());
+              			newCompositeNode(grammarAccess.getDomEntityAccess().getDmxComplexObjectParserRuleCall_1());
               		
             }
             pushFollow(FOLLOW_2);
-            this_DomComplexObject_1=ruleDomComplexObject(current);
+            this_DmxComplexObject_1=ruleDmxComplexObject(current);
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			current = this_DomComplexObject_1;
+              			current = this_DmxComplexObject_1;
               			afterParserOrEnumRuleCall();
               		
             }
@@ -1045,23 +1045,23 @@ public class InternalDomParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDomDetail"
-    // InternalDom.g:357:1: ruleDomDetail returns [EObject current=null] : (otherlv_0= 'detail' this_DomComplexObject_1= ruleDomComplexObject[$current] ) ;
+    // InternalDom.g:357:1: ruleDomDetail returns [EObject current=null] : (otherlv_0= 'detail' this_DmxComplexObject_1= ruleDmxComplexObject[$current] ) ;
     public final EObject ruleDomDetail() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        EObject this_DomComplexObject_1 = null;
+        EObject this_DmxComplexObject_1 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalDom.g:363:2: ( (otherlv_0= 'detail' this_DomComplexObject_1= ruleDomComplexObject[$current] ) )
-            // InternalDom.g:364:2: (otherlv_0= 'detail' this_DomComplexObject_1= ruleDomComplexObject[$current] )
+            // InternalDom.g:363:2: ( (otherlv_0= 'detail' this_DmxComplexObject_1= ruleDmxComplexObject[$current] ) )
+            // InternalDom.g:364:2: (otherlv_0= 'detail' this_DmxComplexObject_1= ruleDmxComplexObject[$current] )
             {
-            // InternalDom.g:364:2: (otherlv_0= 'detail' this_DomComplexObject_1= ruleDomComplexObject[$current] )
-            // InternalDom.g:365:3: otherlv_0= 'detail' this_DomComplexObject_1= ruleDomComplexObject[$current]
+            // InternalDom.g:364:2: (otherlv_0= 'detail' this_DmxComplexObject_1= ruleDmxComplexObject[$current] )
+            // InternalDom.g:365:3: otherlv_0= 'detail' this_DmxComplexObject_1= ruleDmxComplexObject[$current]
             {
             otherlv_0=(Token)match(input,23,FOLLOW_4); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -1074,17 +1074,17 @@ public class InternalDomParser extends AbstractInternalAntlrParser {
               			if (current==null) {
               				current = createModelElement(grammarAccess.getDomDetailRule());
               			}
-              			newCompositeNode(grammarAccess.getDomDetailAccess().getDomComplexObjectParserRuleCall_1());
+              			newCompositeNode(grammarAccess.getDomDetailAccess().getDmxComplexObjectParserRuleCall_1());
               		
             }
             pushFollow(FOLLOW_2);
-            this_DomComplexObject_1=ruleDomComplexObject(current);
+            this_DmxComplexObject_1=ruleDmxComplexObject(current);
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			current = this_DomComplexObject_1;
+              			current = this_DmxComplexObject_1;
               			afterParserOrEnumRuleCall();
               		
             }
@@ -1112,9 +1112,9 @@ public class InternalDomParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleDomDetail"
 
 
-    // $ANTLR start "ruleDomComplexObject"
-    // InternalDom.g:385:1: ruleDomComplexObject[EObject in_current] returns [EObject current=in_current] : ( ( (otherlv_0= RULE_ID ) ) ruleDomFieldListStartSymbol ( (lv_fields_2_0= ruleDomField ) )* otherlv_3= '}' ) ;
-    public final EObject ruleDomComplexObject(EObject in_current) throws RecognitionException {
+    // $ANTLR start "ruleDmxComplexObject"
+    // InternalDom.g:385:1: ruleDmxComplexObject[EObject in_current] returns [EObject current=in_current] : ( ( (otherlv_0= RULE_ID ) ) ruleDomFieldListStartSymbol ( (lv_fields_2_0= ruleDmxField ) )* otherlv_3= '}' ) ;
+    public final EObject ruleDmxComplexObject(EObject in_current) throws RecognitionException {
         EObject current = in_current;
 
         Token otherlv_0=null;
@@ -1126,11 +1126,11 @@ public class InternalDomParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDom.g:391:2: ( ( ( (otherlv_0= RULE_ID ) ) ruleDomFieldListStartSymbol ( (lv_fields_2_0= ruleDomField ) )* otherlv_3= '}' ) )
-            // InternalDom.g:392:2: ( ( (otherlv_0= RULE_ID ) ) ruleDomFieldListStartSymbol ( (lv_fields_2_0= ruleDomField ) )* otherlv_3= '}' )
+            // InternalDom.g:391:2: ( ( ( (otherlv_0= RULE_ID ) ) ruleDomFieldListStartSymbol ( (lv_fields_2_0= ruleDmxField ) )* otherlv_3= '}' ) )
+            // InternalDom.g:392:2: ( ( (otherlv_0= RULE_ID ) ) ruleDomFieldListStartSymbol ( (lv_fields_2_0= ruleDmxField ) )* otherlv_3= '}' )
             {
-            // InternalDom.g:392:2: ( ( (otherlv_0= RULE_ID ) ) ruleDomFieldListStartSymbol ( (lv_fields_2_0= ruleDomField ) )* otherlv_3= '}' )
-            // InternalDom.g:393:3: ( (otherlv_0= RULE_ID ) ) ruleDomFieldListStartSymbol ( (lv_fields_2_0= ruleDomField ) )* otherlv_3= '}'
+            // InternalDom.g:392:2: ( ( (otherlv_0= RULE_ID ) ) ruleDomFieldListStartSymbol ( (lv_fields_2_0= ruleDmxField ) )* otherlv_3= '}' )
+            // InternalDom.g:393:3: ( (otherlv_0= RULE_ID ) ) ruleDomFieldListStartSymbol ( (lv_fields_2_0= ruleDmxField ) )* otherlv_3= '}'
             {
             // InternalDom.g:393:3: ( (otherlv_0= RULE_ID ) )
             // InternalDom.g:394:4: (otherlv_0= RULE_ID )
@@ -1141,14 +1141,14 @@ public class InternalDomParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getDomComplexObjectRule());
+              						current = createModelElement(grammarAccess.getDmxComplexObjectRule());
               					}
               				
             }
             otherlv_0=(Token)match(input,RULE_ID,FOLLOW_7); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(otherlv_0, grammarAccess.getDomComplexObjectAccess().getRefDDetailTypeCrossReference_0_0());
+              					newLeafNode(otherlv_0, grammarAccess.getDmxComplexObjectAccess().getTypeDComplexTypeCrossReference_0_0());
               				
             }
 
@@ -1159,7 +1159,7 @@ public class InternalDomParser extends AbstractInternalAntlrParser {
 
             if ( state.backtracking==0 ) {
 
-              			newCompositeNode(grammarAccess.getDomComplexObjectAccess().getDomFieldListStartSymbolParserRuleCall_1());
+              			newCompositeNode(grammarAccess.getDmxComplexObjectAccess().getDomFieldListStartSymbolParserRuleCall_1());
               		
             }
             pushFollow(FOLLOW_8);
@@ -1172,7 +1172,7 @@ public class InternalDomParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalDom.g:413:3: ( (lv_fields_2_0= ruleDomField ) )*
+            // InternalDom.g:413:3: ( (lv_fields_2_0= ruleDmxField ) )*
             loop5:
             do {
                 int alt5=2;
@@ -1185,31 +1185,31 @@ public class InternalDomParser extends AbstractInternalAntlrParser {
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalDom.g:414:4: (lv_fields_2_0= ruleDomField )
+            	    // InternalDom.g:414:4: (lv_fields_2_0= ruleDmxField )
             	    {
-            	    // InternalDom.g:414:4: (lv_fields_2_0= ruleDomField )
-            	    // InternalDom.g:415:5: lv_fields_2_0= ruleDomField
+            	    // InternalDom.g:414:4: (lv_fields_2_0= ruleDmxField )
+            	    // InternalDom.g:415:5: lv_fields_2_0= ruleDmxField
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      					newCompositeNode(grammarAccess.getDomComplexObjectAccess().getFieldsDomFieldParserRuleCall_2_0());
+            	      					newCompositeNode(grammarAccess.getDmxComplexObjectAccess().getFieldsDmxFieldParserRuleCall_2_0());
             	      				
             	    }
             	    pushFollow(FOLLOW_8);
-            	    lv_fields_2_0=ruleDomField();
+            	    lv_fields_2_0=ruleDmxField();
 
             	    state._fsp--;
             	    if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      					if (current==null) {
-            	      						current = createModelElementForParent(grammarAccess.getDomComplexObjectRule());
+            	      						current = createModelElementForParent(grammarAccess.getDmxComplexObjectRule());
             	      					}
             	      					add(
             	      						current,
             	      						"fields",
             	      						lv_fields_2_0,
-            	      						"com.mimacom.ddd.dm.dom.Dom.DomField");
+            	      						"com.mimacom.ddd.dm.dom.Dom.DmxField");
             	      					afterParserOrEnumRuleCall();
             	      				
             	    }
@@ -1228,7 +1228,7 @@ public class InternalDomParser extends AbstractInternalAntlrParser {
             otherlv_3=(Token)match(input,20,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_3, grammarAccess.getDomComplexObjectAccess().getRightCurlyBracketKeyword_3());
+              			newLeafNode(otherlv_3, grammarAccess.getDmxComplexObjectAccess().getRightCurlyBracketKeyword_3());
               		
             }
 
@@ -1252,31 +1252,31 @@ public class InternalDomParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleDomComplexObject"
+    // $ANTLR end "ruleDmxComplexObject"
 
 
-    // $ANTLR start "entryRuleDomField"
-    // InternalDom.g:440:1: entryRuleDomField returns [EObject current=null] : iv_ruleDomField= ruleDomField EOF ;
-    public final EObject entryRuleDomField() throws RecognitionException {
+    // $ANTLR start "entryRuleDmxField"
+    // InternalDom.g:440:1: entryRuleDmxField returns [EObject current=null] : iv_ruleDmxField= ruleDmxField EOF ;
+    public final EObject entryRuleDmxField() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleDomField = null;
+        EObject iv_ruleDmxField = null;
 
 
         try {
-            // InternalDom.g:440:49: (iv_ruleDomField= ruleDomField EOF )
-            // InternalDom.g:441:2: iv_ruleDomField= ruleDomField EOF
+            // InternalDom.g:440:49: (iv_ruleDmxField= ruleDmxField EOF )
+            // InternalDom.g:441:2: iv_ruleDmxField= ruleDmxField EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getDomFieldRule()); 
+               newCompositeNode(grammarAccess.getDmxFieldRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleDomField=ruleDomField();
+            iv_ruleDmxField=ruleDmxField();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleDomField; 
+               current =iv_ruleDmxField; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -1292,12 +1292,12 @@ public class InternalDomParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleDomField"
+    // $ANTLR end "entryRuleDmxField"
 
 
-    // $ANTLR start "ruleDomField"
-    // InternalDom.g:447:1: ruleDomField returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleDExpression ) ) ) ;
-    public final EObject ruleDomField() throws RecognitionException {
+    // $ANTLR start "ruleDmxField"
+    // InternalDom.g:447:1: ruleDmxField returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= ruleDExpression ) ) ) ;
+    public final EObject ruleDmxField() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -1324,14 +1324,14 @@ public class InternalDomParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElement(grammarAccess.getDomFieldRule());
+              						current = createModelElement(grammarAccess.getDmxFieldRule());
               					}
               				
             }
             otherlv_0=(Token)match(input,RULE_ID,FOLLOW_9); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              					newLeafNode(otherlv_0, grammarAccess.getDomFieldAccess().getRefDFeatureCrossReference_0_0());
+              					newLeafNode(otherlv_0, grammarAccess.getDmxFieldAccess().getFeatureDFeatureCrossReference_0_0());
               				
             }
 
@@ -1343,7 +1343,7 @@ public class InternalDomParser extends AbstractInternalAntlrParser {
             otherlv_1=(Token)match(input,21,FOLLOW_11); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(otherlv_1, grammarAccess.getDomFieldAccess().getEqualsSignKeyword_1());
+              			newLeafNode(otherlv_1, grammarAccess.getDmxFieldAccess().getEqualsSignKeyword_1());
               		
             }
             // InternalDom.g:472:3: ( (lv_value_2_0= ruleDExpression ) )
@@ -1354,7 +1354,7 @@ public class InternalDomParser extends AbstractInternalAntlrParser {
             {
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getDomFieldAccess().getValueDExpressionParserRuleCall_2_0());
+              					newCompositeNode(grammarAccess.getDmxFieldAccess().getValueDExpressionParserRuleCall_2_0());
               				
             }
             pushFollow(FOLLOW_2);
@@ -1365,7 +1365,7 @@ public class InternalDomParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               					if (current==null) {
-              						current = createModelElementForParent(grammarAccess.getDomFieldRule());
+              						current = createModelElementForParent(grammarAccess.getDmxFieldRule());
               					}
               					set(
               						current,
@@ -1402,7 +1402,7 @@ public class InternalDomParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleDomField"
+    // $ANTLR end "ruleDmxField"
 
 
     // $ANTLR start "entryRuleDmxLiteralExpression"

@@ -13,12 +13,14 @@ import com.mimacom.ddd.dm.dmx.DmxBinaryOperator;
 import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral;
 import com.mimacom.ddd.dm.dmx.DmxCallArguments;
 import com.mimacom.ddd.dm.dmx.DmxCastExpression;
+import com.mimacom.ddd.dm.dmx.DmxComplexObject;
 import com.mimacom.ddd.dm.dmx.DmxConstructorCall;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxDateLiteral;
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxFactory;
+import com.mimacom.ddd.dm.dmx.DmxField;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxFilterParameter;
 import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor;
@@ -250,6 +252,20 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	private EClass dmxUndefinedLiteralEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dmxComplexObjectEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dmxFieldEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1323,6 +1339,72 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
+	public EClass getDmxComplexObject()
+	{
+		return dmxComplexObjectEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDmxComplexObject_Type()
+	{
+		return (EReference)dmxComplexObjectEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDmxComplexObject_Fields()
+	{
+		return (EReference)dmxComplexObjectEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDmxField()
+	{
+		return dmxFieldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDmxField_Feature()
+	{
+		return (EReference)dmxFieldEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDmxField_Value()
+	{
+		return (EReference)dmxFieldEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getDmxBaseType()
 	{
 		return dmxBaseTypeEEnum;
@@ -1498,6 +1580,14 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 
 		dmxUndefinedLiteralEClass = createEClass(DMX_UNDEFINED_LITERAL);
 
+		dmxComplexObjectEClass = createEClass(DMX_COMPLEX_OBJECT);
+		createEReference(dmxComplexObjectEClass, DMX_COMPLEX_OBJECT__TYPE);
+		createEReference(dmxComplexObjectEClass, DMX_COMPLEX_OBJECT__FIELDS);
+
+		dmxFieldEClass = createEClass(DMX_FIELD);
+		createEReference(dmxFieldEClass, DMX_FIELD__FEATURE);
+		createEReference(dmxFieldEClass, DMX_FIELD__VALUE);
+
 		// Create enums
 		dmxBaseTypeEEnum = createEEnum(DMX_BASE_TYPE);
 		dmxBinaryOperatorEEnum = createEEnum(DMX_BINARY_OPERATOR);
@@ -1562,6 +1652,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		dmxDecimalLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxDateLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxUndefinedLiteralEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxComplexObjectEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
+		dmxComplexObjectEClass.getESuperTypes().add(theBasePackage.getDExpression());
+		dmxFieldEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(dmxNamespaceEClass, DmxNamespace.class, "DmxNamespace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1685,6 +1778,14 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		initEAttribute(getDmxDateLiteral_Value(), ecorePackage.getEDate(), "value", null, 0, 1, DmxDateLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dmxUndefinedLiteralEClass, DmxUndefinedLiteral.class, "DmxUndefinedLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dmxComplexObjectEClass, DmxComplexObject.class, "DmxComplexObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDmxComplexObject_Type(), theBasePackage.getDComplexType(), null, "type", null, 0, 1, DmxComplexObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDmxComplexObject_Fields(), this.getDmxField(), null, "fields", null, 0, -1, DmxComplexObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dmxFieldEClass, DmxField.class, "DmxField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDmxField_Feature(), theBasePackage.getDFeature(), null, "feature", null, 0, 1, DmxField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDmxField_Value(), theBasePackage.getDExpression(), null, "value", null, 0, 1, DmxField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(dmxBaseTypeEEnum, DmxBaseType.class, "DmxBaseType");

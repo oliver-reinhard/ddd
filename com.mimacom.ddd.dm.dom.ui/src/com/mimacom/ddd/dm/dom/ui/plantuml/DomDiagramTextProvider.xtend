@@ -1,17 +1,17 @@
 package com.mimacom.ddd.dm.dom.ui.plantuml
 
 import com.google.inject.Inject
+import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DExpression
+import com.mimacom.ddd.dm.dmx.DmxComplexObject
 import com.mimacom.ddd.dm.dmx.DmxContextReference
+import com.mimacom.ddd.dm.dmx.DmxField
 import com.mimacom.ddd.dm.dmx.DmxListExpression
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxComplexTypeDescriptor
-import com.mimacom.ddd.dm.dom.DomComplexObject
 import com.mimacom.ddd.dm.dom.DomDetail
 import com.mimacom.ddd.dm.dom.DomEntity
-import com.mimacom.ddd.dm.dom.DomField
 import com.mimacom.ddd.dm.dom.DomModel
 import com.mimacom.ddd.dm.dom.DomNamedComplexObject
-import com.mimacom.ddd.dm.dom.DomObject
 import com.mimacom.ddd.dm.dom.DomSnapshot
 import com.mimacom.ddd.dm.dom.DomUtil
 import com.mimacom.ddd.dm.dom.typecomputer.DomTypeComputer
@@ -97,42 +97,30 @@ class DomDiagramTextProvider extends AbstractDiagramTextProvider {
 	}
 
 	def generateSnapshot(DomSnapshot s) {
-		val allNonComplexObjects = EcoreUtil2.eAllOfType(s, DomObject).filter[! (it instanceof DomNamedComplexObject)]
-		val allComplexObjects = EcoreUtil2.eAllOfType(s, DomComplexObject)
-		val allContainments = EcoreUtil2.eAllOfType(s, DomField).filter[value instanceof DomDetail || value instanceof DmxListExpression && (value.typeFor instanceof DmxComplexTypeDescriptor)]
-		val allReferences = EcoreUtil2.eAllOfType(s, DomField).filter[value instanceof DmxContextReference && (value.typeFor instanceof DomComplexObject)]
+//		val allNonComplexObjects = EcoreUtil2.eAllOfType(s, DomObject).filter[! (it instanceof DomNamedComplexObject)]
+		val allComplexObjects = EcoreUtil2.eAllOfType(s, DmxComplexObject)
+		val allContainments = EcoreUtil2.eAllOfType(s, DmxField).filter[value instanceof DomDetail || value instanceof DmxListExpression && (value.typeFor instanceof DmxComplexTypeDescriptor)]
+		val allReferences = EcoreUtil2.eAllOfType(s, DmxField).filter[value instanceof DmxContextReference && (value.typeFor instanceof DmxComplexTypeDescriptor)]
 		val result = '''	
 			' snapshot «s.name»
 			frame «s.name» <<Snapshot>> {
 			«FOR obj : allComplexObjects»«obj.generate»«ENDFOR»
 			«FOR ref : allContainments»«ref.generateContainment(ref.value)»«ENDFOR»
+			«FOR ref : allReferences»«ref.generateReference(ref.value as DmxContextReference)»«ENDFOR»
 			}
 		'''
 		return result
 	}
 
-	def String generate(DomComplexObject o) '''	
+	def String generate(DmxComplexObject o) '''	
 		class «o.title» as «o.id» «o.getSpot» {
-			«FOR f : o.fields»«IF f.ref !== null»«f.generateField(f.value)»«ENDIF»
+			«FOR f : o.fields»«IF f.feature !== null && !(f.feature instanceof DAssociation)»«f.generateField(f.value)»«ENDIF»
 			«ENDFOR»
 		}
 	'''
 
-	def dispatch String generateContainment(DomField f, DomDetail detail) '''
-		«(f.eContainer as DomComplexObject).id» --> «detail.id»
-	'''
-
-	def dispatch String generateContainment(DomField f, DmxListExpression expr) '''
-		«FOR detail : expr.elements»«(f.eContainer as DomComplexObject).id» --> «(detail as DomComplexObject).id»
-		«ENDFOR»
-	'''
-
-	def  String generateReference(DomField f, DmxContextReference ref) '''
-		«(f.eContainer as DomComplexObject).id» --> «(ref.target as DomComplexObject).id»
-	'''
-
-	def String title(DomComplexObject o) {
-		val className = if (o.ref !== null) o.ref.name else "?"
+	def String title(DmxComplexObject o) {
+		val className = if (o.type !== null) o.type.name else "?"
 		val instanceName = o.eContainer.name
 		return "\"" + instanceName + " : " + className + "\""
 	}
@@ -140,28 +128,42 @@ class DomDiagramTextProvider extends AbstractDiagramTextProvider {
 	def String name(EObject o) {
 		switch o {
 			DomNamedComplexObject: o.name
-			DomField: if (o.ref !== null) o.ref.name else ""
+			DmxField: if (o.feature !== null) o.feature.name else ""
 			DmxListExpression: o.eContainer.name
 			default: ""
 		}
 	}
 
-	def dispatch generateField(DomField f, DomDetail detail) {
+	def dispatch generateField(DmxField f, DmxComplexObject detail) {
 		// nothing
 	}
 
-	def dispatch generateField(DomField f, DmxListExpression expr) {
+	def dispatch generateField(DmxField f, DmxListExpression expr) {
 		if (! (expr.typeFor instanceof DmxComplexTypeDescriptor)) {
 			generateFieldImpl(f, expr)
 		}
 	}
 
-	def dispatch generateField(DomField f, DExpression value) {
+	def dispatch generateField(DmxField f, DExpression value) {
 		generateFieldImpl(f, value)
 	}
 
-	def String generateFieldImpl(DomField f, DExpression value) '''
-		«f.ref.name» = «f.fieldValueExpression»
+	def String generateFieldImpl(DmxField f, DExpression value) '''
+		«f.feature.name» = «f.fieldValueExpression»
+	'''
+
+	def dispatch String generateContainment(DmxField f, DomDetail detail) '''
+		«(f.eContainer as DmxComplexObject).id» --> «detail.id»
+	'''
+
+	def dispatch String generateContainment(DmxField f, DmxListExpression expr) '''
+		«FOR detail : expr.elements»«(f.eContainer as DmxComplexObject).id» --> «(detail as DmxComplexObject).id»
+		«ENDFOR»
+	'''
+ 
+ 	// TODO generalise association TARGET
+	def  String generateReference(DmxField f, DmxContextReference ref) '''
+		«(f.eContainer as DmxComplexObject).id» --> «(ref.target as DomNamedComplexObject).object.id» 
 	'''
 
 	def getSpot(EObject obj) {
@@ -173,7 +175,7 @@ class DomDiagramTextProvider extends AbstractDiagramTextProvider {
 		}
 	}
 
-	protected def String fieldValueExpression(DomField f) {
+	protected def String fieldValueExpression(DmxField f) {
 		try {
 			if (f.value !== null) {
 				var expr = serializer.serialize(f.value) // throws RuntimeException
@@ -189,7 +191,7 @@ class DomDiagramTextProvider extends AbstractDiagramTextProvider {
 		return ""
 	}
 
-	def String id(DomComplexObject o) {
+	def String id(DmxComplexObject o) {
 		Integer.toString(o.hashCode)
 	}
 }

@@ -39,9 +39,9 @@ public class DmxTypeDescriptorProvider {
   
   public static final DmxVoidDescriptor VOID = new DmxVoidDescriptor();
   
-  public static final DmxUndefinedDescriptor UNDEFINED = new DmxUndefinedDescriptor();
+  public static final DmxUndefinedDescriptor UNDEFINED_TYPE = new DmxUndefinedDescriptor();
   
-  public static final DmxAmbiguousDescriptor AMBIGUOUS = new DmxAmbiguousDescriptor();
+  public static final DmxAmbiguousDescriptor AMBIGUOUS_TYPE = new DmxAmbiguousDescriptor();
   
   public static final DmxBaseTypeDescriptor BOOLEAN = new DmxBaseTypeDescriptor(DmxBaseType.BOOLEAN, false);
   
@@ -113,7 +113,7 @@ public class DmxTypeDescriptorProvider {
       }
     }
     if (!_matched) {
-      _switchResult = DmxTypeDescriptorProvider.UNDEFINED;
+      _switchResult = DmxTypeDescriptorProvider.UNDEFINED_TYPE;
     }
     return _switchResult;
   }

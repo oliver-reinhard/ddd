@@ -99,7 +99,7 @@ public class DmxTypeCheckingValidator extends AbstractDmxValidator {
             if ((formalParamType != null)) {
               _xifexpression = this._dmxTypeDescriptorProvider.getTypeDescriptor(formalParamType, ((DQuery)formal).getParameters().get(fIndex).isCollection());
             } else {
-              _xifexpression = DmxTypeDescriptorProvider.UNDEFINED;
+              _xifexpression = DmxTypeDescriptorProvider.UNDEFINED_TYPE;
             }
             final AbstractDmxTypeDescriptor<?> expectedType = _xifexpression;
             this.expectType(actualParameters.get(aIndex), expectedType, DmxTypeCheckingValidator.DMX.getDmxMemberNavigation_CallArguments());
@@ -496,7 +496,7 @@ public class DmxTypeCheckingValidator extends AbstractDmxValidator {
       } else {
         this.error(errorText, ref, index, DmxTypeCheckingValidator.TYPE_MISMATCH);
       }
-      return DmxTypeDescriptorProvider.UNDEFINED;
+      return DmxTypeDescriptorProvider.UNDEFINED_TYPE;
     }
     return type;
   }

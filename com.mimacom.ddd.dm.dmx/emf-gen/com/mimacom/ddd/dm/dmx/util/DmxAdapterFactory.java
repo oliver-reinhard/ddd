@@ -229,6 +229,16 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 				return createDmxUndefinedLiteralAdapter();
 			}
 			@Override
+			public Adapter caseDmxComplexObject(DmxComplexObject object)
+			{
+				return createDmxComplexObjectAdapter();
+			}
+			@Override
+			public Adapter caseDmxField(DmxField object)
+			{
+				return createDmxFieldAdapter();
+			}
+			@Override
 			public Adapter caseDNamedElement(DNamedElement object)
 			{
 				return createDNamedElementAdapter();
@@ -731,6 +741,36 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDmxUndefinedLiteralAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxComplexObject <em>Complex Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dmx.DmxComplexObject
+	 * @generated
+	 */
+	public Adapter createDmxComplexObjectAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxField <em>Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dmx.DmxField
+	 * @generated
+	 */
+	public Adapter createDmxFieldAdapter()
 	{
 		return null;
 	}

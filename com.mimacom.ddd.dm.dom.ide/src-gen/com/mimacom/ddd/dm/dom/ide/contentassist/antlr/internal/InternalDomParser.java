@@ -664,27 +664,27 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleDomDetail"
 
 
-    // $ANTLR start "ruleDomComplexObject"
-    // InternalDom.g:205:1: ruleDomComplexObject : ( ( rule__DomComplexObject__Group__0 ) ) ;
-    public final void ruleDomComplexObject() throws RecognitionException {
+    // $ANTLR start "ruleDmxComplexObject"
+    // InternalDom.g:205:1: ruleDmxComplexObject : ( ( rule__DmxComplexObject__Group__0 ) ) ;
+    public final void ruleDmxComplexObject() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDom.g:209:2: ( ( ( rule__DomComplexObject__Group__0 ) ) )
-            // InternalDom.g:210:2: ( ( rule__DomComplexObject__Group__0 ) )
+            // InternalDom.g:209:2: ( ( ( rule__DmxComplexObject__Group__0 ) ) )
+            // InternalDom.g:210:2: ( ( rule__DmxComplexObject__Group__0 ) )
             {
-            // InternalDom.g:210:2: ( ( rule__DomComplexObject__Group__0 ) )
-            // InternalDom.g:211:3: ( rule__DomComplexObject__Group__0 )
+            // InternalDom.g:210:2: ( ( rule__DmxComplexObject__Group__0 ) )
+            // InternalDom.g:211:3: ( rule__DmxComplexObject__Group__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDomComplexObjectAccess().getGroup()); 
+               before(grammarAccess.getDmxComplexObjectAccess().getGroup()); 
             }
-            // InternalDom.g:212:3: ( rule__DomComplexObject__Group__0 )
-            // InternalDom.g:212:4: rule__DomComplexObject__Group__0
+            // InternalDom.g:212:3: ( rule__DmxComplexObject__Group__0 )
+            // InternalDom.g:212:4: rule__DmxComplexObject__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__DomComplexObject__Group__0();
+            rule__DmxComplexObject__Group__0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -692,7 +692,7 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDomComplexObjectAccess().getGroup()); 
+               after(grammarAccess.getDmxComplexObjectAccess().getGroup()); 
             }
 
             }
@@ -712,26 +712,26 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleDomComplexObject"
+    // $ANTLR end "ruleDmxComplexObject"
 
 
-    // $ANTLR start "entryRuleDomField"
-    // InternalDom.g:221:1: entryRuleDomField : ruleDomField EOF ;
-    public final void entryRuleDomField() throws RecognitionException {
+    // $ANTLR start "entryRuleDmxField"
+    // InternalDom.g:221:1: entryRuleDmxField : ruleDmxField EOF ;
+    public final void entryRuleDmxField() throws RecognitionException {
         try {
-            // InternalDom.g:222:1: ( ruleDomField EOF )
-            // InternalDom.g:223:1: ruleDomField EOF
+            // InternalDom.g:222:1: ( ruleDmxField EOF )
+            // InternalDom.g:223:1: ruleDmxField EOF
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDomFieldRule()); 
+               before(grammarAccess.getDmxFieldRule()); 
             }
             pushFollow(FOLLOW_1);
-            ruleDomField();
+            ruleDmxField();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDomFieldRule()); 
+               after(grammarAccess.getDmxFieldRule()); 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return ;
 
@@ -746,30 +746,30 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleDomField"
+    // $ANTLR end "entryRuleDmxField"
 
 
-    // $ANTLR start "ruleDomField"
-    // InternalDom.g:230:1: ruleDomField : ( ( rule__DomField__Group__0 ) ) ;
-    public final void ruleDomField() throws RecognitionException {
+    // $ANTLR start "ruleDmxField"
+    // InternalDom.g:230:1: ruleDmxField : ( ( rule__DmxField__Group__0 ) ) ;
+    public final void ruleDmxField() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDom.g:234:2: ( ( ( rule__DomField__Group__0 ) ) )
-            // InternalDom.g:235:2: ( ( rule__DomField__Group__0 ) )
+            // InternalDom.g:234:2: ( ( ( rule__DmxField__Group__0 ) ) )
+            // InternalDom.g:235:2: ( ( rule__DmxField__Group__0 ) )
             {
-            // InternalDom.g:235:2: ( ( rule__DomField__Group__0 ) )
-            // InternalDom.g:236:3: ( rule__DomField__Group__0 )
+            // InternalDom.g:235:2: ( ( rule__DmxField__Group__0 ) )
+            // InternalDom.g:236:3: ( rule__DmxField__Group__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDomFieldAccess().getGroup()); 
+               before(grammarAccess.getDmxFieldAccess().getGroup()); 
             }
-            // InternalDom.g:237:3: ( rule__DomField__Group__0 )
-            // InternalDom.g:237:4: rule__DomField__Group__0
+            // InternalDom.g:237:3: ( rule__DmxField__Group__0 )
+            // InternalDom.g:237:4: rule__DmxField__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__DomField__Group__0();
+            rule__DmxField__Group__0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -777,7 +777,7 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDomFieldAccess().getGroup()); 
+               after(grammarAccess.getDmxFieldAccess().getGroup()); 
             }
 
             }
@@ -797,7 +797,7 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleDomField"
+    // $ANTLR end "ruleDmxField"
 
 
     // $ANTLR start "entryRuleDmxLiteralExpression"
@@ -11117,28 +11117,28 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DomEntity__Group__1__Impl"
-    // InternalDom.g:2999:1: rule__DomEntity__Group__1__Impl : ( ruleDomComplexObject ) ;
+    // InternalDom.g:2999:1: rule__DomEntity__Group__1__Impl : ( ruleDmxComplexObject ) ;
     public final void rule__DomEntity__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDom.g:3003:1: ( ( ruleDomComplexObject ) )
-            // InternalDom.g:3004:1: ( ruleDomComplexObject )
+            // InternalDom.g:3003:1: ( ( ruleDmxComplexObject ) )
+            // InternalDom.g:3004:1: ( ruleDmxComplexObject )
             {
-            // InternalDom.g:3004:1: ( ruleDomComplexObject )
-            // InternalDom.g:3005:2: ruleDomComplexObject
+            // InternalDom.g:3004:1: ( ruleDmxComplexObject )
+            // InternalDom.g:3005:2: ruleDmxComplexObject
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDomEntityAccess().getDomComplexObjectParserRuleCall_1()); 
+               before(grammarAccess.getDomEntityAccess().getDmxComplexObjectParserRuleCall_1()); 
             }
             pushFollow(FOLLOW_2);
-            ruleDomComplexObject();
+            ruleDmxComplexObject();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDomEntityAccess().getDomComplexObjectParserRuleCall_1()); 
+               after(grammarAccess.getDomEntityAccess().getDmxComplexObjectParserRuleCall_1()); 
             }
 
             }
@@ -11274,28 +11274,28 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DomDetail__Group__1__Impl"
-    // InternalDom.g:3053:1: rule__DomDetail__Group__1__Impl : ( ruleDomComplexObject ) ;
+    // InternalDom.g:3053:1: rule__DomDetail__Group__1__Impl : ( ruleDmxComplexObject ) ;
     public final void rule__DomDetail__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDom.g:3057:1: ( ( ruleDomComplexObject ) )
-            // InternalDom.g:3058:1: ( ruleDomComplexObject )
+            // InternalDom.g:3057:1: ( ( ruleDmxComplexObject ) )
+            // InternalDom.g:3058:1: ( ruleDmxComplexObject )
             {
-            // InternalDom.g:3058:1: ( ruleDomComplexObject )
-            // InternalDom.g:3059:2: ruleDomComplexObject
+            // InternalDom.g:3058:1: ( ruleDmxComplexObject )
+            // InternalDom.g:3059:2: ruleDmxComplexObject
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDomDetailAccess().getDomComplexObjectParserRuleCall_1()); 
+               before(grammarAccess.getDomDetailAccess().getDmxComplexObjectParserRuleCall_1()); 
             }
             pushFollow(FOLLOW_2);
-            ruleDomComplexObject();
+            ruleDmxComplexObject();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDomDetailAccess().getDomComplexObjectParserRuleCall_1()); 
+               after(grammarAccess.getDomDetailAccess().getDmxComplexObjectParserRuleCall_1()); 
             }
 
             }
@@ -11318,23 +11318,23 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DomDetail__Group__1__Impl"
 
 
-    // $ANTLR start "rule__DomComplexObject__Group__0"
-    // InternalDom.g:3069:1: rule__DomComplexObject__Group__0 : rule__DomComplexObject__Group__0__Impl rule__DomComplexObject__Group__1 ;
-    public final void rule__DomComplexObject__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__DmxComplexObject__Group__0"
+    // InternalDom.g:3069:1: rule__DmxComplexObject__Group__0 : rule__DmxComplexObject__Group__0__Impl rule__DmxComplexObject__Group__1 ;
+    public final void rule__DmxComplexObject__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDom.g:3073:1: ( rule__DomComplexObject__Group__0__Impl rule__DomComplexObject__Group__1 )
-            // InternalDom.g:3074:2: rule__DomComplexObject__Group__0__Impl rule__DomComplexObject__Group__1
+            // InternalDom.g:3073:1: ( rule__DmxComplexObject__Group__0__Impl rule__DmxComplexObject__Group__1 )
+            // InternalDom.g:3074:2: rule__DmxComplexObject__Group__0__Impl rule__DmxComplexObject__Group__1
             {
             pushFollow(FOLLOW_8);
-            rule__DomComplexObject__Group__0__Impl();
+            rule__DmxComplexObject__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DomComplexObject__Group__1();
+            rule__DmxComplexObject__Group__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -11353,30 +11353,30 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DomComplexObject__Group__0"
+    // $ANTLR end "rule__DmxComplexObject__Group__0"
 
 
-    // $ANTLR start "rule__DomComplexObject__Group__0__Impl"
-    // InternalDom.g:3081:1: rule__DomComplexObject__Group__0__Impl : ( ( rule__DomComplexObject__RefAssignment_0 ) ) ;
-    public final void rule__DomComplexObject__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxComplexObject__Group__0__Impl"
+    // InternalDom.g:3081:1: rule__DmxComplexObject__Group__0__Impl : ( ( rule__DmxComplexObject__TypeAssignment_0 ) ) ;
+    public final void rule__DmxComplexObject__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDom.g:3085:1: ( ( ( rule__DomComplexObject__RefAssignment_0 ) ) )
-            // InternalDom.g:3086:1: ( ( rule__DomComplexObject__RefAssignment_0 ) )
+            // InternalDom.g:3085:1: ( ( ( rule__DmxComplexObject__TypeAssignment_0 ) ) )
+            // InternalDom.g:3086:1: ( ( rule__DmxComplexObject__TypeAssignment_0 ) )
             {
-            // InternalDom.g:3086:1: ( ( rule__DomComplexObject__RefAssignment_0 ) )
-            // InternalDom.g:3087:2: ( rule__DomComplexObject__RefAssignment_0 )
+            // InternalDom.g:3086:1: ( ( rule__DmxComplexObject__TypeAssignment_0 ) )
+            // InternalDom.g:3087:2: ( rule__DmxComplexObject__TypeAssignment_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDomComplexObjectAccess().getRefAssignment_0()); 
+               before(grammarAccess.getDmxComplexObjectAccess().getTypeAssignment_0()); 
             }
-            // InternalDom.g:3088:2: ( rule__DomComplexObject__RefAssignment_0 )
-            // InternalDom.g:3088:3: rule__DomComplexObject__RefAssignment_0
+            // InternalDom.g:3088:2: ( rule__DmxComplexObject__TypeAssignment_0 )
+            // InternalDom.g:3088:3: rule__DmxComplexObject__TypeAssignment_0
             {
             pushFollow(FOLLOW_2);
-            rule__DomComplexObject__RefAssignment_0();
+            rule__DmxComplexObject__TypeAssignment_0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -11384,7 +11384,7 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDomComplexObjectAccess().getRefAssignment_0()); 
+               after(grammarAccess.getDmxComplexObjectAccess().getTypeAssignment_0()); 
             }
 
             }
@@ -11404,26 +11404,26 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DomComplexObject__Group__0__Impl"
+    // $ANTLR end "rule__DmxComplexObject__Group__0__Impl"
 
 
-    // $ANTLR start "rule__DomComplexObject__Group__1"
-    // InternalDom.g:3096:1: rule__DomComplexObject__Group__1 : rule__DomComplexObject__Group__1__Impl rule__DomComplexObject__Group__2 ;
-    public final void rule__DomComplexObject__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__DmxComplexObject__Group__1"
+    // InternalDom.g:3096:1: rule__DmxComplexObject__Group__1 : rule__DmxComplexObject__Group__1__Impl rule__DmxComplexObject__Group__2 ;
+    public final void rule__DmxComplexObject__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDom.g:3100:1: ( rule__DomComplexObject__Group__1__Impl rule__DomComplexObject__Group__2 )
-            // InternalDom.g:3101:2: rule__DomComplexObject__Group__1__Impl rule__DomComplexObject__Group__2
+            // InternalDom.g:3100:1: ( rule__DmxComplexObject__Group__1__Impl rule__DmxComplexObject__Group__2 )
+            // InternalDom.g:3101:2: rule__DmxComplexObject__Group__1__Impl rule__DmxComplexObject__Group__2
             {
             pushFollow(FOLLOW_9);
-            rule__DomComplexObject__Group__1__Impl();
+            rule__DmxComplexObject__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DomComplexObject__Group__2();
+            rule__DmxComplexObject__Group__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -11442,12 +11442,12 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DomComplexObject__Group__1"
+    // $ANTLR end "rule__DmxComplexObject__Group__1"
 
 
-    // $ANTLR start "rule__DomComplexObject__Group__1__Impl"
-    // InternalDom.g:3108:1: rule__DomComplexObject__Group__1__Impl : ( ruleDomFieldListStartSymbol ) ;
-    public final void rule__DomComplexObject__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxComplexObject__Group__1__Impl"
+    // InternalDom.g:3108:1: rule__DmxComplexObject__Group__1__Impl : ( ruleDomFieldListStartSymbol ) ;
+    public final void rule__DmxComplexObject__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -11459,7 +11459,7 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
             // InternalDom.g:3114:2: ruleDomFieldListStartSymbol
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDomComplexObjectAccess().getDomFieldListStartSymbolParserRuleCall_1()); 
+               before(grammarAccess.getDmxComplexObjectAccess().getDomFieldListStartSymbolParserRuleCall_1()); 
             }
             pushFollow(FOLLOW_2);
             ruleDomFieldListStartSymbol();
@@ -11467,7 +11467,7 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDomComplexObjectAccess().getDomFieldListStartSymbolParserRuleCall_1()); 
+               after(grammarAccess.getDmxComplexObjectAccess().getDomFieldListStartSymbolParserRuleCall_1()); 
             }
 
             }
@@ -11487,26 +11487,26 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DomComplexObject__Group__1__Impl"
+    // $ANTLR end "rule__DmxComplexObject__Group__1__Impl"
 
 
-    // $ANTLR start "rule__DomComplexObject__Group__2"
-    // InternalDom.g:3123:1: rule__DomComplexObject__Group__2 : rule__DomComplexObject__Group__2__Impl rule__DomComplexObject__Group__3 ;
-    public final void rule__DomComplexObject__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__DmxComplexObject__Group__2"
+    // InternalDom.g:3123:1: rule__DmxComplexObject__Group__2 : rule__DmxComplexObject__Group__2__Impl rule__DmxComplexObject__Group__3 ;
+    public final void rule__DmxComplexObject__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDom.g:3127:1: ( rule__DomComplexObject__Group__2__Impl rule__DomComplexObject__Group__3 )
-            // InternalDom.g:3128:2: rule__DomComplexObject__Group__2__Impl rule__DomComplexObject__Group__3
+            // InternalDom.g:3127:1: ( rule__DmxComplexObject__Group__2__Impl rule__DmxComplexObject__Group__3 )
+            // InternalDom.g:3128:2: rule__DmxComplexObject__Group__2__Impl rule__DmxComplexObject__Group__3
             {
             pushFollow(FOLLOW_9);
-            rule__DomComplexObject__Group__2__Impl();
+            rule__DmxComplexObject__Group__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DomComplexObject__Group__3();
+            rule__DmxComplexObject__Group__3();
 
             state._fsp--;
             if (state.failed) return ;
@@ -11525,26 +11525,26 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DomComplexObject__Group__2"
+    // $ANTLR end "rule__DmxComplexObject__Group__2"
 
 
-    // $ANTLR start "rule__DomComplexObject__Group__2__Impl"
-    // InternalDom.g:3135:1: rule__DomComplexObject__Group__2__Impl : ( ( rule__DomComplexObject__FieldsAssignment_2 )* ) ;
-    public final void rule__DomComplexObject__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxComplexObject__Group__2__Impl"
+    // InternalDom.g:3135:1: rule__DmxComplexObject__Group__2__Impl : ( ( rule__DmxComplexObject__FieldsAssignment_2 )* ) ;
+    public final void rule__DmxComplexObject__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDom.g:3139:1: ( ( ( rule__DomComplexObject__FieldsAssignment_2 )* ) )
-            // InternalDom.g:3140:1: ( ( rule__DomComplexObject__FieldsAssignment_2 )* )
+            // InternalDom.g:3139:1: ( ( ( rule__DmxComplexObject__FieldsAssignment_2 )* ) )
+            // InternalDom.g:3140:1: ( ( rule__DmxComplexObject__FieldsAssignment_2 )* )
             {
-            // InternalDom.g:3140:1: ( ( rule__DomComplexObject__FieldsAssignment_2 )* )
-            // InternalDom.g:3141:2: ( rule__DomComplexObject__FieldsAssignment_2 )*
+            // InternalDom.g:3140:1: ( ( rule__DmxComplexObject__FieldsAssignment_2 )* )
+            // InternalDom.g:3141:2: ( rule__DmxComplexObject__FieldsAssignment_2 )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDomComplexObjectAccess().getFieldsAssignment_2()); 
+               before(grammarAccess.getDmxComplexObjectAccess().getFieldsAssignment_2()); 
             }
-            // InternalDom.g:3142:2: ( rule__DomComplexObject__FieldsAssignment_2 )*
+            // InternalDom.g:3142:2: ( rule__DmxComplexObject__FieldsAssignment_2 )*
             loop36:
             do {
                 int alt36=2;
@@ -11557,10 +11557,10 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
 
                 switch (alt36) {
             	case 1 :
-            	    // InternalDom.g:3142:3: rule__DomComplexObject__FieldsAssignment_2
+            	    // InternalDom.g:3142:3: rule__DmxComplexObject__FieldsAssignment_2
             	    {
             	    pushFollow(FOLLOW_10);
-            	    rule__DomComplexObject__FieldsAssignment_2();
+            	    rule__DmxComplexObject__FieldsAssignment_2();
 
             	    state._fsp--;
             	    if (state.failed) return ;
@@ -11574,7 +11574,7 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDomComplexObjectAccess().getFieldsAssignment_2()); 
+               after(grammarAccess.getDmxComplexObjectAccess().getFieldsAssignment_2()); 
             }
 
             }
@@ -11594,21 +11594,21 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DomComplexObject__Group__2__Impl"
+    // $ANTLR end "rule__DmxComplexObject__Group__2__Impl"
 
 
-    // $ANTLR start "rule__DomComplexObject__Group__3"
-    // InternalDom.g:3150:1: rule__DomComplexObject__Group__3 : rule__DomComplexObject__Group__3__Impl ;
-    public final void rule__DomComplexObject__Group__3() throws RecognitionException {
+    // $ANTLR start "rule__DmxComplexObject__Group__3"
+    // InternalDom.g:3150:1: rule__DmxComplexObject__Group__3 : rule__DmxComplexObject__Group__3__Impl ;
+    public final void rule__DmxComplexObject__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDom.g:3154:1: ( rule__DomComplexObject__Group__3__Impl )
-            // InternalDom.g:3155:2: rule__DomComplexObject__Group__3__Impl
+            // InternalDom.g:3154:1: ( rule__DmxComplexObject__Group__3__Impl )
+            // InternalDom.g:3155:2: rule__DmxComplexObject__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__DomComplexObject__Group__3__Impl();
+            rule__DmxComplexObject__Group__3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -11627,12 +11627,12 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DomComplexObject__Group__3"
+    // $ANTLR end "rule__DmxComplexObject__Group__3"
 
 
-    // $ANTLR start "rule__DomComplexObject__Group__3__Impl"
-    // InternalDom.g:3161:1: rule__DomComplexObject__Group__3__Impl : ( '}' ) ;
-    public final void rule__DomComplexObject__Group__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxComplexObject__Group__3__Impl"
+    // InternalDom.g:3161:1: rule__DmxComplexObject__Group__3__Impl : ( '}' ) ;
+    public final void rule__DmxComplexObject__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -11644,11 +11644,11 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
             // InternalDom.g:3167:2: '}'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDomComplexObjectAccess().getRightCurlyBracketKeyword_3()); 
+               before(grammarAccess.getDmxComplexObjectAccess().getRightCurlyBracketKeyword_3()); 
             }
             match(input,74,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDomComplexObjectAccess().getRightCurlyBracketKeyword_3()); 
+               after(grammarAccess.getDmxComplexObjectAccess().getRightCurlyBracketKeyword_3()); 
             }
 
             }
@@ -11668,26 +11668,26 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DomComplexObject__Group__3__Impl"
+    // $ANTLR end "rule__DmxComplexObject__Group__3__Impl"
 
 
-    // $ANTLR start "rule__DomField__Group__0"
-    // InternalDom.g:3177:1: rule__DomField__Group__0 : rule__DomField__Group__0__Impl rule__DomField__Group__1 ;
-    public final void rule__DomField__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__DmxField__Group__0"
+    // InternalDom.g:3177:1: rule__DmxField__Group__0 : rule__DmxField__Group__0__Impl rule__DmxField__Group__1 ;
+    public final void rule__DmxField__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDom.g:3181:1: ( rule__DomField__Group__0__Impl rule__DomField__Group__1 )
-            // InternalDom.g:3182:2: rule__DomField__Group__0__Impl rule__DomField__Group__1
+            // InternalDom.g:3181:1: ( rule__DmxField__Group__0__Impl rule__DmxField__Group__1 )
+            // InternalDom.g:3182:2: rule__DmxField__Group__0__Impl rule__DmxField__Group__1
             {
             pushFollow(FOLLOW_11);
-            rule__DomField__Group__0__Impl();
+            rule__DmxField__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DomField__Group__1();
+            rule__DmxField__Group__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -11706,30 +11706,30 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DomField__Group__0"
+    // $ANTLR end "rule__DmxField__Group__0"
 
 
-    // $ANTLR start "rule__DomField__Group__0__Impl"
-    // InternalDom.g:3189:1: rule__DomField__Group__0__Impl : ( ( rule__DomField__RefAssignment_0 ) ) ;
-    public final void rule__DomField__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxField__Group__0__Impl"
+    // InternalDom.g:3189:1: rule__DmxField__Group__0__Impl : ( ( rule__DmxField__FeatureAssignment_0 ) ) ;
+    public final void rule__DmxField__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDom.g:3193:1: ( ( ( rule__DomField__RefAssignment_0 ) ) )
-            // InternalDom.g:3194:1: ( ( rule__DomField__RefAssignment_0 ) )
+            // InternalDom.g:3193:1: ( ( ( rule__DmxField__FeatureAssignment_0 ) ) )
+            // InternalDom.g:3194:1: ( ( rule__DmxField__FeatureAssignment_0 ) )
             {
-            // InternalDom.g:3194:1: ( ( rule__DomField__RefAssignment_0 ) )
-            // InternalDom.g:3195:2: ( rule__DomField__RefAssignment_0 )
+            // InternalDom.g:3194:1: ( ( rule__DmxField__FeatureAssignment_0 ) )
+            // InternalDom.g:3195:2: ( rule__DmxField__FeatureAssignment_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDomFieldAccess().getRefAssignment_0()); 
+               before(grammarAccess.getDmxFieldAccess().getFeatureAssignment_0()); 
             }
-            // InternalDom.g:3196:2: ( rule__DomField__RefAssignment_0 )
-            // InternalDom.g:3196:3: rule__DomField__RefAssignment_0
+            // InternalDom.g:3196:2: ( rule__DmxField__FeatureAssignment_0 )
+            // InternalDom.g:3196:3: rule__DmxField__FeatureAssignment_0
             {
             pushFollow(FOLLOW_2);
-            rule__DomField__RefAssignment_0();
+            rule__DmxField__FeatureAssignment_0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -11737,7 +11737,7 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDomFieldAccess().getRefAssignment_0()); 
+               after(grammarAccess.getDmxFieldAccess().getFeatureAssignment_0()); 
             }
 
             }
@@ -11757,26 +11757,26 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DomField__Group__0__Impl"
+    // $ANTLR end "rule__DmxField__Group__0__Impl"
 
 
-    // $ANTLR start "rule__DomField__Group__1"
-    // InternalDom.g:3204:1: rule__DomField__Group__1 : rule__DomField__Group__1__Impl rule__DomField__Group__2 ;
-    public final void rule__DomField__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__DmxField__Group__1"
+    // InternalDom.g:3204:1: rule__DmxField__Group__1 : rule__DmxField__Group__1__Impl rule__DmxField__Group__2 ;
+    public final void rule__DmxField__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDom.g:3208:1: ( rule__DomField__Group__1__Impl rule__DomField__Group__2 )
-            // InternalDom.g:3209:2: rule__DomField__Group__1__Impl rule__DomField__Group__2
+            // InternalDom.g:3208:1: ( rule__DmxField__Group__1__Impl rule__DmxField__Group__2 )
+            // InternalDom.g:3209:2: rule__DmxField__Group__1__Impl rule__DmxField__Group__2
             {
             pushFollow(FOLLOW_13);
-            rule__DomField__Group__1__Impl();
+            rule__DmxField__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__DomField__Group__2();
+            rule__DmxField__Group__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -11795,12 +11795,12 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DomField__Group__1"
+    // $ANTLR end "rule__DmxField__Group__1"
 
 
-    // $ANTLR start "rule__DomField__Group__1__Impl"
-    // InternalDom.g:3216:1: rule__DomField__Group__1__Impl : ( '=' ) ;
-    public final void rule__DomField__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxField__Group__1__Impl"
+    // InternalDom.g:3216:1: rule__DmxField__Group__1__Impl : ( '=' ) ;
+    public final void rule__DmxField__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -11812,11 +11812,11 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
             // InternalDom.g:3222:2: '='
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDomFieldAccess().getEqualsSignKeyword_1()); 
+               before(grammarAccess.getDmxFieldAccess().getEqualsSignKeyword_1()); 
             }
             match(input,51,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDomFieldAccess().getEqualsSignKeyword_1()); 
+               after(grammarAccess.getDmxFieldAccess().getEqualsSignKeyword_1()); 
             }
 
             }
@@ -11836,21 +11836,21 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DomField__Group__1__Impl"
+    // $ANTLR end "rule__DmxField__Group__1__Impl"
 
 
-    // $ANTLR start "rule__DomField__Group__2"
-    // InternalDom.g:3231:1: rule__DomField__Group__2 : rule__DomField__Group__2__Impl ;
-    public final void rule__DomField__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__DmxField__Group__2"
+    // InternalDom.g:3231:1: rule__DmxField__Group__2 : rule__DmxField__Group__2__Impl ;
+    public final void rule__DmxField__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDom.g:3235:1: ( rule__DomField__Group__2__Impl )
-            // InternalDom.g:3236:2: rule__DomField__Group__2__Impl
+            // InternalDom.g:3235:1: ( rule__DmxField__Group__2__Impl )
+            // InternalDom.g:3236:2: rule__DmxField__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__DomField__Group__2__Impl();
+            rule__DmxField__Group__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -11869,30 +11869,30 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DomField__Group__2"
+    // $ANTLR end "rule__DmxField__Group__2"
 
 
-    // $ANTLR start "rule__DomField__Group__2__Impl"
-    // InternalDom.g:3242:1: rule__DomField__Group__2__Impl : ( ( rule__DomField__ValueAssignment_2 ) ) ;
-    public final void rule__DomField__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DmxField__Group__2__Impl"
+    // InternalDom.g:3242:1: rule__DmxField__Group__2__Impl : ( ( rule__DmxField__ValueAssignment_2 ) ) ;
+    public final void rule__DmxField__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDom.g:3246:1: ( ( ( rule__DomField__ValueAssignment_2 ) ) )
-            // InternalDom.g:3247:1: ( ( rule__DomField__ValueAssignment_2 ) )
+            // InternalDom.g:3246:1: ( ( ( rule__DmxField__ValueAssignment_2 ) ) )
+            // InternalDom.g:3247:1: ( ( rule__DmxField__ValueAssignment_2 ) )
             {
-            // InternalDom.g:3247:1: ( ( rule__DomField__ValueAssignment_2 ) )
-            // InternalDom.g:3248:2: ( rule__DomField__ValueAssignment_2 )
+            // InternalDom.g:3247:1: ( ( rule__DmxField__ValueAssignment_2 ) )
+            // InternalDom.g:3248:2: ( rule__DmxField__ValueAssignment_2 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDomFieldAccess().getValueAssignment_2()); 
+               before(grammarAccess.getDmxFieldAccess().getValueAssignment_2()); 
             }
-            // InternalDom.g:3249:2: ( rule__DomField__ValueAssignment_2 )
-            // InternalDom.g:3249:3: rule__DomField__ValueAssignment_2
+            // InternalDom.g:3249:2: ( rule__DmxField__ValueAssignment_2 )
+            // InternalDom.g:3249:3: rule__DmxField__ValueAssignment_2
             {
             pushFollow(FOLLOW_2);
-            rule__DomField__ValueAssignment_2();
+            rule__DmxField__ValueAssignment_2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -11900,7 +11900,7 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDomFieldAccess().getValueAssignment_2()); 
+               after(grammarAccess.getDmxFieldAccess().getValueAssignment_2()); 
             }
 
             }
@@ -11920,7 +11920,7 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DomField__Group__2__Impl"
+    // $ANTLR end "rule__DmxField__Group__2__Impl"
 
 
     // $ANTLR start "rule__DImport__Group__0"
@@ -32269,9 +32269,9 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DomNamedComplexObject__ObjectAssignment_2"
 
 
-    // $ANTLR start "rule__DomComplexObject__RefAssignment_0"
-    // InternalDom.g:9634:1: rule__DomComplexObject__RefAssignment_0 : ( ( RULE_ID ) ) ;
-    public final void rule__DomComplexObject__RefAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__DmxComplexObject__TypeAssignment_0"
+    // InternalDom.g:9634:1: rule__DmxComplexObject__TypeAssignment_0 : ( ( RULE_ID ) ) ;
+    public final void rule__DmxComplexObject__TypeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -32283,23 +32283,23 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
             // InternalDom.g:9640:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDomComplexObjectAccess().getRefDDetailTypeCrossReference_0_0()); 
+               before(grammarAccess.getDmxComplexObjectAccess().getTypeDComplexTypeCrossReference_0_0()); 
             }
             // InternalDom.g:9641:3: ( RULE_ID )
             // InternalDom.g:9642:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDomComplexObjectAccess().getRefDDetailTypeIDTerminalRuleCall_0_0_1()); 
+               before(grammarAccess.getDmxComplexObjectAccess().getTypeDComplexTypeIDTerminalRuleCall_0_0_1()); 
             }
             match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDomComplexObjectAccess().getRefDDetailTypeIDTerminalRuleCall_0_0_1()); 
+               after(grammarAccess.getDmxComplexObjectAccess().getTypeDComplexTypeIDTerminalRuleCall_0_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDomComplexObjectAccess().getRefDDetailTypeCrossReference_0_0()); 
+               after(grammarAccess.getDmxComplexObjectAccess().getTypeDComplexTypeCrossReference_0_0()); 
             }
 
             }
@@ -32319,32 +32319,32 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DomComplexObject__RefAssignment_0"
+    // $ANTLR end "rule__DmxComplexObject__TypeAssignment_0"
 
 
-    // $ANTLR start "rule__DomComplexObject__FieldsAssignment_2"
-    // InternalDom.g:9653:1: rule__DomComplexObject__FieldsAssignment_2 : ( ruleDomField ) ;
-    public final void rule__DomComplexObject__FieldsAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__DmxComplexObject__FieldsAssignment_2"
+    // InternalDom.g:9653:1: rule__DmxComplexObject__FieldsAssignment_2 : ( ruleDmxField ) ;
+    public final void rule__DmxComplexObject__FieldsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDom.g:9657:1: ( ( ruleDomField ) )
-            // InternalDom.g:9658:2: ( ruleDomField )
+            // InternalDom.g:9657:1: ( ( ruleDmxField ) )
+            // InternalDom.g:9658:2: ( ruleDmxField )
             {
-            // InternalDom.g:9658:2: ( ruleDomField )
-            // InternalDom.g:9659:3: ruleDomField
+            // InternalDom.g:9658:2: ( ruleDmxField )
+            // InternalDom.g:9659:3: ruleDmxField
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDomComplexObjectAccess().getFieldsDomFieldParserRuleCall_2_0()); 
+               before(grammarAccess.getDmxComplexObjectAccess().getFieldsDmxFieldParserRuleCall_2_0()); 
             }
             pushFollow(FOLLOW_2);
-            ruleDomField();
+            ruleDmxField();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDomComplexObjectAccess().getFieldsDomFieldParserRuleCall_2_0()); 
+               after(grammarAccess.getDmxComplexObjectAccess().getFieldsDmxFieldParserRuleCall_2_0()); 
             }
 
             }
@@ -32364,12 +32364,12 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DomComplexObject__FieldsAssignment_2"
+    // $ANTLR end "rule__DmxComplexObject__FieldsAssignment_2"
 
 
-    // $ANTLR start "rule__DomField__RefAssignment_0"
-    // InternalDom.g:9668:1: rule__DomField__RefAssignment_0 : ( ( RULE_ID ) ) ;
-    public final void rule__DomField__RefAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__DmxField__FeatureAssignment_0"
+    // InternalDom.g:9668:1: rule__DmxField__FeatureAssignment_0 : ( ( RULE_ID ) ) ;
+    public final void rule__DmxField__FeatureAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -32381,23 +32381,23 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
             // InternalDom.g:9674:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDomFieldAccess().getRefDFeatureCrossReference_0_0()); 
+               before(grammarAccess.getDmxFieldAccess().getFeatureDFeatureCrossReference_0_0()); 
             }
             // InternalDom.g:9675:3: ( RULE_ID )
             // InternalDom.g:9676:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDomFieldAccess().getRefDFeatureIDTerminalRuleCall_0_0_1()); 
+               before(grammarAccess.getDmxFieldAccess().getFeatureDFeatureIDTerminalRuleCall_0_0_1()); 
             }
             match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDomFieldAccess().getRefDFeatureIDTerminalRuleCall_0_0_1()); 
+               after(grammarAccess.getDmxFieldAccess().getFeatureDFeatureIDTerminalRuleCall_0_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDomFieldAccess().getRefDFeatureCrossReference_0_0()); 
+               after(grammarAccess.getDmxFieldAccess().getFeatureDFeatureCrossReference_0_0()); 
             }
 
             }
@@ -32417,12 +32417,12 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DomField__RefAssignment_0"
+    // $ANTLR end "rule__DmxField__FeatureAssignment_0"
 
 
-    // $ANTLR start "rule__DomField__ValueAssignment_2"
-    // InternalDom.g:9687:1: rule__DomField__ValueAssignment_2 : ( ruleDExpression ) ;
-    public final void rule__DomField__ValueAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__DmxField__ValueAssignment_2"
+    // InternalDom.g:9687:1: rule__DmxField__ValueAssignment_2 : ( ruleDExpression ) ;
+    public final void rule__DmxField__ValueAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -32434,7 +32434,7 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
             // InternalDom.g:9693:3: ruleDExpression
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDomFieldAccess().getValueDExpressionParserRuleCall_2_0()); 
+               before(grammarAccess.getDmxFieldAccess().getValueDExpressionParserRuleCall_2_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleDExpression();
@@ -32442,7 +32442,7 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDomFieldAccess().getValueDExpressionParserRuleCall_2_0()); 
+               after(grammarAccess.getDmxFieldAccess().getValueDExpressionParserRuleCall_2_0()); 
             }
 
             }
@@ -32462,7 +32462,7 @@ public class InternalDomParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DomField__ValueAssignment_2"
+    // $ANTLR end "rule__DmxField__ValueAssignment_2"
 
 
     // $ANTLR start "rule__DImport__ImportedNamespaceAssignment_1"

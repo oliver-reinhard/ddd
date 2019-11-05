@@ -3,6 +3,7 @@
  */
 package com.mimacom.ddd.dm.dom;
 
+import com.mimacom.ddd.dm.dmx.DmxComplexObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +15,6 @@ package com.mimacom.ddd.dm.dom;
  * @model
  * @generated
  */
-public interface DomEntity extends DomComplexObject
+public interface DomEntity extends DmxComplexObject
 {
 } // DomEntity

@@ -4,6 +4,7 @@ import com.google.common.collect.Sets;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.mimacom.ddd.dm.base.DAggregate;
+import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DExpression;
@@ -19,10 +20,12 @@ import com.mimacom.ddd.dm.dmx.DmxBinaryOperation;
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperator;
 import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral;
 import com.mimacom.ddd.dm.dmx.DmxCastExpression;
+import com.mimacom.ddd.dm.dmx.DmxComplexObject;
 import com.mimacom.ddd.dm.dmx.DmxConstructorCall;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral;
+import com.mimacom.ddd.dm.dmx.DmxField;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.DmxFunctionCall;
@@ -81,14 +84,14 @@ public class DmxTypeComputer {
                 if (_lessThan) {
                   paramActualType = this.typeForAndCheckNotNull(actualParameters.get((i - 1)));
                 } else {
-                  return DmxTypeDescriptorProvider.UNDEFINED;
+                  return DmxTypeDescriptorProvider.UNDEFINED_TYPE;
                 }
               }
               boolean _isCompatible = paramDeclaredType.isCompatible(paramActualType.baseType, paramActualType.collection);
               if (_isCompatible) {
                 return this._dmxTypeDescriptorProvider.getTypeDescriptor(paramActualType.type, returnType.isCollection());
               }
-              return DmxTypeDescriptorProvider.UNDEFINED;
+              return DmxTypeDescriptorProvider.UNDEFINED_TYPE;
             }
           }
         }
@@ -105,7 +108,7 @@ public class DmxTypeComputer {
               return this._dmxTypeDescriptorProvider.getTypeDescriptor(((DEntityType)precedingType).getStates().get(0), false);
             }
           }
-          return DmxTypeDescriptorProvider.UNDEFINED;
+          return DmxTypeDescriptorProvider.UNDEFINED_TYPE;
         } else {
           return this._dmxTypeDescriptorProvider.getTypeDescriptor(((DmxFilter)member).getTypeDesc().getSingle(), ((DmxFilter)member).getTypeDesc().isCollection());
         }
@@ -174,7 +177,7 @@ public class DmxTypeComputer {
         container = container.eContainer();
       }
     }
-    return DmxTypeDescriptorProvider.UNDEFINED;
+    return DmxTypeDescriptorProvider.UNDEFINED_TYPE;
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxStaticReference expr) {
@@ -334,7 +337,7 @@ public class DmxTypeComputer {
                     return this._dmxTypeDescriptorProvider.getTypeDescriptor(paramActualType.type, returnType.isCollection());
                   }
                 }
-                return DmxTypeDescriptorProvider.UNDEFINED;
+                return DmxTypeDescriptorProvider.UNDEFINED_TYPE;
               }
             }
           }
@@ -342,7 +345,7 @@ public class DmxTypeComputer {
           return this._dmxTypeDescriptorProvider.getTypeDescriptor(returnType.getSingle(), returnType.isCollection());
         }
       }
-      _xblockexpression = DmxTypeDescriptorProvider.UNDEFINED;
+      _xblockexpression = DmxTypeDescriptorProvider.UNDEFINED_TYPE;
     }
     return _xblockexpression;
   }
@@ -359,7 +362,7 @@ public class DmxTypeComputer {
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxListExpression expr) {
     boolean _isEmpty = expr.getElements().isEmpty();
     if (_isEmpty) {
-      return DmxTypeDescriptorProvider.UNDEFINED;
+      return DmxTypeDescriptorProvider.UNDEFINED_TYPE;
     }
     final HashSet<AbstractDmxTypeDescriptor<?>> typeDescs = Sets.<AbstractDmxTypeDescriptor<?>>newHashSet();
     EList<DExpression> _elements = expr.getElements();
@@ -372,7 +375,7 @@ public class DmxTypeComputer {
       final AbstractDmxTypeDescriptor<?> result = this._dmxTypeDescriptorProvider.toFromCollection(IterableExtensions.<AbstractDmxTypeDescriptor<?>>head(typeDescs), true);
       return result;
     }
-    return DmxTypeDescriptorProvider.AMBIGUOUS;
+    return DmxTypeDescriptorProvider.AMBIGUOUS_TYPE;
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxConstructorCall expr) {
@@ -400,17 +403,33 @@ public class DmxTypeComputer {
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxUndefinedLiteral expr) {
-    return DmxTypeDescriptorProvider.UNDEFINED;
+    return DmxTypeDescriptorProvider.UNDEFINED_TYPE;
   }
   
-  private AbstractDmxTypeDescriptor<?> typeForAndCheckNotNull(final DExpression expr) {
+  protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxComplexObject expr) {
+    DComplexType _type = expr.getType();
+    boolean _tripleEquals = (_type == null);
+    if (_tripleEquals) {
+      return DmxTypeDescriptorProvider.UNDEFINED_TYPE;
+    }
+    return this._dmxTypeDescriptorProvider.getTypeDescriptor(expr.getType(), false);
+  }
+  
+  protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxField expr) {
+    if (((expr.getFeature() == null) || (expr.getFeature().getType() == null))) {
+      return DmxTypeDescriptorProvider.UNDEFINED_TYPE;
+    }
+    return this._dmxTypeDescriptorProvider.getTypeDescriptor(expr.getFeature().getType(), expr.getFeature().isCollection());
+  }
+  
+  public AbstractDmxTypeDescriptor<?> typeForAndCheckNotNull(final DExpression expr) {
     AbstractDmxTypeDescriptor<?> _typeFor = null;
     if (expr!=null) {
       _typeFor=this.typeFor(expr);
     }
     final AbstractDmxTypeDescriptor<?> type = _typeFor;
     if ((type == null)) {
-      return DmxTypeDescriptorProvider.UNDEFINED;
+      return DmxTypeDescriptorProvider.UNDEFINED_TYPE;
     }
     return type;
   }
@@ -424,6 +443,8 @@ public class DmxTypeComputer {
       return _typeFor((DmxBooleanLiteral)expr);
     } else if (expr instanceof DmxCastExpression) {
       return _typeFor((DmxCastExpression)expr);
+    } else if (expr instanceof DmxComplexObject) {
+      return _typeFor((DmxComplexObject)expr);
     } else if (expr instanceof DmxConstructorCall) {
       return _typeFor((DmxConstructorCall)expr);
     } else if (expr instanceof DmxContextReference) {
@@ -432,6 +453,8 @@ public class DmxTypeComputer {
       return _typeFor((DmxCorrelationVariable)expr);
     } else if (expr instanceof DmxDecimalLiteral) {
       return _typeFor((DmxDecimalLiteral)expr);
+    } else if (expr instanceof DmxField) {
+      return _typeFor((DmxField)expr);
     } else if (expr instanceof DmxFunctionCall) {
       return _typeFor((DmxFunctionCall)expr);
     } else if (expr instanceof DmxIfExpression) {

@@ -338,6 +338,26 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DmxPackage.DMX_COMPLEX_OBJECT:
+			{
+				DmxComplexObject dmxComplexObject = (DmxComplexObject)theEObject;
+				T result = caseDmxComplexObject(dmxComplexObject);
+				if (result == null) result = caseINavigableMemberContainer(dmxComplexObject);
+				if (result == null) result = caseDExpression(dmxComplexObject);
+				if (result == null) result = caseINamespace(dmxComplexObject);
+				if (result == null) result = caseIRichTextSegment(dmxComplexObject);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DmxPackage.DMX_FIELD:
+			{
+				DmxField dmxField = (DmxField)theEObject;
+				T result = caseDmxField(dmxField);
+				if (result == null) result = caseDNavigableMember(dmxField);
+				if (result == null) result = caseDNamedElement(dmxField);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -786,6 +806,38 @@ public class DmxSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDmxUndefinedLiteral(DmxUndefinedLiteral object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Complex Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Complex Object</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxComplexObject(DmxComplexObject object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxField(DmxField object)
 	{
 		return null;
 	}

@@ -3,10 +3,11 @@
  */
 package com.mimacom.ddd.dm.dom.validation;
 
+import com.mimacom.ddd.dm.base.DQuery;
+import com.mimacom.ddd.dm.dmx.DmxField;
+import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider;
-import com.mimacom.ddd.dm.dom.DomField;
-import com.mimacom.ddd.dm.dom.DomPackage;
 import com.mimacom.ddd.dm.dom.validation.AbstractDomValidator;
 import org.eclipse.xtext.validation.Check;
 
@@ -17,22 +18,29 @@ import org.eclipse.xtext.validation.Check;
  */
 @SuppressWarnings("all")
 public class DomValidator extends AbstractDomValidator {
-  protected static final DomPackage DOM = DomPackage.eINSTANCE;
+  protected static final DmxPackage DMX = DmxPackage.eINSTANCE;
   
   @Check
-  public Boolean checkType(final DomField expr) {
+  public Boolean checkType(final DmxField expr) {
     Boolean _xblockexpression = null;
     {
-      final AbstractDmxTypeDescriptor<?> leftType = this.getTypeAndCheckNotNull(expr, DomValidator.DOM.getDomField_Ref());
+      final AbstractDmxTypeDescriptor<?> leftType = this.getTypeAndCheckNotNull(expr.getValue(), DomValidator.DMX.getDmxField_Feature());
       Boolean _xifexpression = null;
       boolean _isCompatibleWith = leftType.isCompatibleWith(DmxTypeDescriptorProvider.TIMEPOINT);
       if (_isCompatibleWith) {
-        _xifexpression = this.expectTimepointValue(expr.getValue(), leftType, DomValidator.DOM.getDomField_Value());
+        _xifexpression = this.expectTimepointValue(expr.getValue(), leftType, DomValidator.DMX.getDmxField_Value());
       } else {
-        _xifexpression = Boolean.valueOf(this.expectType(expr.getValue(), leftType, DomValidator.DOM.getDomField_Value()));
+        _xifexpression = Boolean.valueOf(this.expectType(expr.getValue(), leftType, DomValidator.DMX.getDmxField_Value()));
       }
       _xblockexpression = _xifexpression;
     }
     return _xblockexpression;
+  }
+  
+  @Check
+  public void checkFieldKind(final DmxField f) {
+    if (((f.getFeature() != null) && (f.getFeature() instanceof DQuery))) {
+      this.error("Cannot assign a value to a query", f, DomValidator.DMX.getDmxField_Feature());
+    }
   }
 }

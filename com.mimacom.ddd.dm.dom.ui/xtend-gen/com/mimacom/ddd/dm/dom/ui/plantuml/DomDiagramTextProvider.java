@@ -1,21 +1,21 @@
 package com.mimacom.ddd.dm.dom.ui.plantuml;
 
 import com.google.inject.Inject;
+import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.dmx.DmxComplexObject;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
+import com.mimacom.ddd.dm.dmx.DmxField;
 import com.mimacom.ddd.dm.dmx.DmxListExpression;
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxComplexTypeDescriptor;
-import com.mimacom.ddd.dm.dom.DomComplexObject;
 import com.mimacom.ddd.dm.dom.DomDetail;
 import com.mimacom.ddd.dm.dom.DomEntity;
-import com.mimacom.ddd.dm.dom.DomField;
 import com.mimacom.ddd.dm.dom.DomModel;
 import com.mimacom.ddd.dm.dom.DomNamedComplexObject;
-import com.mimacom.ddd.dm.dom.DomObject;
 import com.mimacom.ddd.dm.dom.DomSnapshot;
 import com.mimacom.ddd.dm.dom.DomUtil;
 import com.mimacom.ddd.dm.dom.typecomputer.DomTypeComputer;
@@ -170,19 +170,15 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
   }
   
   public String generateSnapshot(final DomSnapshot s) {
-    final Function1<DomObject, Boolean> _function = (DomObject it) -> {
-      return Boolean.valueOf((!(it instanceof DomNamedComplexObject)));
-    };
-    final Iterable<DomObject> allNonComplexObjects = IterableExtensions.<DomObject>filter(EcoreUtil2.<DomObject>eAllOfType(s, DomObject.class), _function);
-    final List<DomComplexObject> allComplexObjects = EcoreUtil2.<DomComplexObject>eAllOfType(s, DomComplexObject.class);
-    final Function1<DomField, Boolean> _function_1 = (DomField it) -> {
+    final List<DmxComplexObject> allComplexObjects = EcoreUtil2.<DmxComplexObject>eAllOfType(s, DmxComplexObject.class);
+    final Function1<DmxField, Boolean> _function = (DmxField it) -> {
       return Boolean.valueOf(((it.getValue() instanceof DomDetail) || ((it.getValue() instanceof DmxListExpression) && (this._domTypeComputer.typeFor(it.getValue()) instanceof DmxComplexTypeDescriptor))));
     };
-    final Iterable<DomField> allContainments = IterableExtensions.<DomField>filter(EcoreUtil2.<DomField>eAllOfType(s, DomField.class), _function_1);
-    final Function1<DomField, Boolean> _function_2 = (DomField it) -> {
-      return Boolean.valueOf(((it.getValue() instanceof DmxContextReference) && (this._domTypeComputer.typeFor(it.getValue()) instanceof DomComplexObject)));
+    final Iterable<DmxField> allContainments = IterableExtensions.<DmxField>filter(EcoreUtil2.<DmxField>eAllOfType(s, DmxField.class), _function);
+    final Function1<DmxField, Boolean> _function_1 = (DmxField it) -> {
+      return Boolean.valueOf(((it.getValue() instanceof DmxContextReference) && (this._domTypeComputer.typeFor(it.getValue()) instanceof DmxComplexTypeDescriptor)));
     };
-    final Iterable<DomField> allReferences = IterableExtensions.<DomField>filter(EcoreUtil2.<DomField>eAllOfType(s, DomField.class), _function_2);
+    final Iterable<DmxField> allReferences = IterableExtensions.<DmxField>filter(EcoreUtil2.<DmxField>eAllOfType(s, DmxField.class), _function_1);
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\' snapshot ");
     String _name = s.getName();
@@ -194,16 +190,24 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     _builder.append(" <<Snapshot>> {");
     _builder.newLineIfNotEmpty();
     {
-      for(final DomComplexObject obj : allComplexObjects) {
+      for(final DmxComplexObject obj : allComplexObjects) {
         String _generate = this.generate(obj);
         _builder.append(_generate);
       }
     }
     _builder.newLineIfNotEmpty();
     {
-      for(final DomField ref : allContainments) {
+      for(final DmxField ref : allContainments) {
         String _generateContainment = this.generateContainment(ref, ref.getValue());
         _builder.append(_generateContainment);
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      for(final DmxField ref_1 : allReferences) {
+        DExpression _value = ref_1.getValue();
+        String _generateReference = this.generateReference(ref_1, ((DmxContextReference) _value));
+        _builder.append(_generateReference);
       }
     }
     _builder.newLineIfNotEmpty();
@@ -213,7 +217,7 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     return result;
   }
   
-  public String generate(final DomComplexObject o) {
+  public String generate(final DmxComplexObject o) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("class ");
     String _title = this.title(o);
@@ -228,12 +232,10 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     {
-      EList<DomField> _fields = o.getFields();
-      for(final DomField f : _fields) {
+      EList<DmxField> _fields = o.getFields();
+      for(final DmxField f : _fields) {
         {
-          DFeature _ref = f.getRef();
-          boolean _tripleNotEquals = (_ref != null);
-          if (_tripleNotEquals) {
+          if (((f.getFeature() != null) && (!(f.getFeature() instanceof DAssociation)))) {
             Object _generateField = this.generateField(f, f.getValue());
             _builder.append(_generateField, "\t");
           }
@@ -246,54 +248,12 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     return _builder.toString();
   }
   
-  protected String _generateContainment(final DomField f, final DomDetail detail) {
-    StringConcatenation _builder = new StringConcatenation();
-    EObject _eContainer = f.eContainer();
-    String _id = this.id(((DomComplexObject) _eContainer));
-    _builder.append(_id);
-    _builder.append(" --> ");
-    String _id_1 = this.id(detail);
-    _builder.append(_id_1);
-    _builder.newLineIfNotEmpty();
-    return _builder.toString();
-  }
-  
-  protected String _generateContainment(final DomField f, final DmxListExpression expr) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      EList<DExpression> _elements = expr.getElements();
-      for(final DExpression detail : _elements) {
-        EObject _eContainer = f.eContainer();
-        String _id = this.id(((DomComplexObject) _eContainer));
-        _builder.append(_id);
-        _builder.append(" --> ");
-        String _id_1 = this.id(((DomComplexObject) detail));
-        _builder.append(_id_1);
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    return _builder.toString();
-  }
-  
-  public String generateReference(final DomField f, final DmxContextReference ref) {
-    StringConcatenation _builder = new StringConcatenation();
-    EObject _eContainer = f.eContainer();
-    String _id = this.id(((DomComplexObject) _eContainer));
-    _builder.append(_id);
-    _builder.append(" --> ");
-    DNamedElement _target = ref.getTarget();
-    String _id_1 = this.id(((DomComplexObject) _target));
-    _builder.append(_id_1);
-    _builder.newLineIfNotEmpty();
-    return _builder.toString();
-  }
-  
-  public String title(final DomComplexObject o) {
+  public String title(final DmxComplexObject o) {
     String _xifexpression = null;
-    DComplexType _ref = o.getRef();
-    boolean _tripleNotEquals = (_ref != null);
+    DComplexType _type = o.getType();
+    boolean _tripleNotEquals = (_type != null);
     if (_tripleNotEquals) {
-      _xifexpression = o.getRef().getName();
+      _xifexpression = o.getType().getName();
     } else {
       _xifexpression = "?";
     }
@@ -310,13 +270,13 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
       _switchResult = ((DomNamedComplexObject)o).getName();
     }
     if (!_matched) {
-      if (o instanceof DomField) {
+      if (o instanceof DmxField) {
         _matched=true;
         String _xifexpression = null;
-        DFeature _ref = ((DomField)o).getRef();
-        boolean _tripleNotEquals = (_ref != null);
+        DFeature _feature = ((DmxField)o).getFeature();
+        boolean _tripleNotEquals = (_feature != null);
         if (_tripleNotEquals) {
-          _xifexpression = ((DomField)o).getRef().getName();
+          _xifexpression = ((DmxField)o).getFeature().getName();
         } else {
           _xifexpression = "";
         }
@@ -335,11 +295,11 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     return _switchResult;
   }
   
-  protected String _generateField(final DomField f, final DomDetail detail) {
+  protected String _generateField(final DmxField f, final DmxComplexObject detail) {
     return null;
   }
   
-  protected String _generateField(final DomField f, final DmxListExpression expr) {
+  protected String _generateField(final DmxField f, final DmxListExpression expr) {
     String _xifexpression = null;
     AbstractDmxTypeDescriptor<?> _typeFor = this._domTypeComputer.typeFor(expr);
     boolean _not = (!(_typeFor instanceof DmxComplexTypeDescriptor));
@@ -349,17 +309,60 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     return _xifexpression;
   }
   
-  protected String _generateField(final DomField f, final DExpression value) {
+  protected String _generateField(final DmxField f, final DExpression value) {
     return this.generateFieldImpl(f, value);
   }
   
-  public String generateFieldImpl(final DomField f, final DExpression value) {
+  public String generateFieldImpl(final DmxField f, final DExpression value) {
     StringConcatenation _builder = new StringConcatenation();
-    String _name = f.getRef().getName();
+    String _name = f.getFeature().getName();
     _builder.append(_name);
     _builder.append(" = ");
     String _fieldValueExpression = this.fieldValueExpression(f);
     _builder.append(_fieldValueExpression);
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  protected String _generateContainment(final DmxField f, final DomDetail detail) {
+    StringConcatenation _builder = new StringConcatenation();
+    EObject _eContainer = f.eContainer();
+    String _id = this.id(((DmxComplexObject) _eContainer));
+    _builder.append(_id);
+    _builder.append(" --> ");
+    String _id_1 = this.id(detail);
+    _builder.append(_id_1);
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  protected String _generateContainment(final DmxField f, final DmxListExpression expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<DExpression> _elements = expr.getElements();
+      for(final DExpression detail : _elements) {
+        EObject _eContainer = f.eContainer();
+        String _id = this.id(((DmxComplexObject) _eContainer));
+        _builder.append(_id);
+        _builder.append(" --> ");
+        String _id_1 = this.id(((DmxComplexObject) detail));
+        _builder.append(_id_1);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder.toString();
+  }
+  
+  public String generateReference(final DmxField f, final DmxContextReference ref) {
+    StringConcatenation _builder = new StringConcatenation();
+    EObject _eContainer = f.eContainer();
+    String _id = this.id(((DmxComplexObject) _eContainer));
+    _builder.append(_id);
+    _builder.append(" --> ");
+    DNamedElement _target = ref.getTarget();
+    String _id_1 = this.id(((DomNamedComplexObject) _target).getObject());
+    _builder.append(_id_1);
+    _builder.append(" ");
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
@@ -370,7 +373,7 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     if (obj instanceof DomEntity) {
       _matched=true;
       String _xifexpression = null;
-      boolean _root = this._domUtil.root(((DomComplexObject)obj));
+      boolean _root = this._domUtil.root(((DmxComplexObject)obj));
       if (_root) {
         _xifexpression = "<< (R,#FB3333) >>";
       } else {
@@ -390,7 +393,7 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     return _switchResult;
   }
   
-  protected String fieldValueExpression(final DomField f) {
+  protected String fieldValueExpression(final DmxField f) {
     try {
       DExpression _value = f.getValue();
       boolean _tripleNotEquals = (_value != null);
@@ -415,28 +418,28 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     return "";
   }
   
-  public String id(final DomComplexObject o) {
+  public String id(final DmxComplexObject o) {
     return Integer.toString(o.hashCode());
   }
   
-  public String generateContainment(final DomField f, final DExpression detail) {
-    if (detail instanceof DomDetail) {
-      return _generateContainment(f, (DomDetail)detail);
+  public String generateField(final DmxField f, final DExpression detail) {
+    if (detail instanceof DmxComplexObject) {
+      return _generateField(f, (DmxComplexObject)detail);
     } else if (detail instanceof DmxListExpression) {
-      return _generateContainment(f, (DmxListExpression)detail);
+      return _generateField(f, (DmxListExpression)detail);
+    } else if (detail != null) {
+      return _generateField(f, detail);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(f, detail).toString());
     }
   }
   
-  public String generateField(final DomField f, final DExpression detail) {
+  public String generateContainment(final DmxField f, final DExpression detail) {
     if (detail instanceof DomDetail) {
-      return _generateField(f, (DomDetail)detail);
+      return _generateContainment(f, (DomDetail)detail);
     } else if (detail instanceof DmxListExpression) {
-      return _generateField(f, (DmxListExpression)detail);
-    } else if (detail != null) {
-      return _generateField(f, detail);
+      return _generateContainment(f, (DmxListExpression)detail);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(f, detail).toString());

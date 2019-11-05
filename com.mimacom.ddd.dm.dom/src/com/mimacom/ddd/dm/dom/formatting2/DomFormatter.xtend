@@ -4,9 +4,9 @@
 package com.mimacom.ddd.dm.dom.formatting2
 
 import com.google.inject.Inject
+import com.mimacom.ddd.dm.dmx.DmxComplexObject
+import com.mimacom.ddd.dm.dmx.DmxField
 import com.mimacom.ddd.dm.dmx.formatting2.DmxFormatter
-import com.mimacom.ddd.dm.dom.DomComplexObject
-import com.mimacom.ddd.dm.dom.DomField
 import com.mimacom.ddd.dm.dom.DomModel
 import com.mimacom.ddd.dm.dom.DomNamedComplexObject
 import com.mimacom.ddd.dm.dom.DomSnapshot
@@ -48,21 +48,21 @@ class DomFormatter extends DmxFormatter {
 		obj.object.format
 	}
 	
-	def dispatch void format(DomComplexObject obj, extension IFormattableDocument document) {
-		obj.regionFor.assignment(domComplexObjectAccess.refAssignment_0).surround[oneSpace]
-		val open = obj.regionFor.ruleCall(domComplexObjectAccess.domFieldListStartSymbolParserRuleCall_1)
-		val close = obj.regionFor.keyword(domComplexObjectAccess.rightCurlyBracketKeyword_3)
+	def dispatch void format(DmxComplexObject obj, extension IFormattableDocument document) {
+		obj.regionFor.assignment(dmxComplexObjectAccess.typeAssignment_0).surround[oneSpace]
+		val open = obj.regionFor.ruleCall(dmxComplexObjectAccess.domFieldListStartSymbolParserRuleCall_1)
+		val close = obj.regionFor.keyword(dmxComplexObjectAccess.rightCurlyBracketKeyword_3)
 		interior(open, close) [indent]
 		
 		for (f : obj.fields) {
 			f.format
 		}
-		close.prepend[newLine].append[if (obj.eContainer instanceof DomField) newLine else newLines=2]
+		close.prepend[newLine].append[if (obj.eContainer instanceof DmxField) newLine else newLines=2]
 	}
 	
-	def dispatch void format(DomField field, extension IFormattableDocument document) {
-		field.regionFor.assignment(domFieldAccess.refAssignment_0).prepend[newLine]
-		field.regionFor.keyword(domFieldAccess.equalsSignKeyword_1).surround[oneSpace]
+	def dispatch void format(DmxField field, extension IFormattableDocument document) {
+		field.regionFor.assignment(dmxFieldAccess.featureAssignment_0).prepend[newLine]
+		field.regionFor.keyword(dmxFieldAccess.equalsSignKeyword_1).surround[oneSpace]
 		field.value?.format	
 	}
 }

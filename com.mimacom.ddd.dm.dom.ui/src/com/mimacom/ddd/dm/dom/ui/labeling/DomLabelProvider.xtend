@@ -4,9 +4,9 @@
 package com.mimacom.ddd.dm.dom.ui.labeling
 
 import com.google.inject.Inject
+import com.mimacom.ddd.dm.dmx.DmxField
 import com.mimacom.ddd.dm.dom.DomDetail
 import com.mimacom.ddd.dm.dom.DomEntity
-import com.mimacom.ddd.dm.dom.DomField
 import com.mimacom.ddd.dm.dom.DomNamedComplexObject
 import com.mimacom.ddd.dm.dom.DomUtil
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
@@ -30,16 +30,16 @@ class DomLabelProvider extends DefaultEObjectLabelProvider {
 		return o.label
 	}
 	
-	def text(DomField f) {
+	def text(DmxField f) {
 		return f.label
 	}
 	
 	def text(DomEntity e) {
-		return"Entity " + e.ref?.name
+		return"Entity " + e.type?.name
 	}
 	
 	def text(DomDetail d) {
-		return"Detail " + d.ref?.name
+		return"Detail " + d.type?.name
 	}
 	
 //

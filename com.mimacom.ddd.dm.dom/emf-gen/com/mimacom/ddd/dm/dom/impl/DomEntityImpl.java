@@ -3,6 +3,8 @@
  */
 package com.mimacom.ddd.dm.dom.impl;
 
+import com.mimacom.ddd.dm.dmx.impl.DmxComplexObjectImpl;
+
 import com.mimacom.ddd.dm.dom.DomEntity;
 import com.mimacom.ddd.dm.dom.DomPackage;
 
@@ -15,7 +17,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DomEntityImpl extends DomComplexObjectImpl implements DomEntity
+public class DomEntityImpl extends DmxComplexObjectImpl implements DomEntity
 {
 	/**
 	 * <!-- begin-user-doc -->

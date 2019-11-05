@@ -3,7 +3,8 @@
  */
 package com.mimacom.ddd.dm.dom.impl;
 
-import com.mimacom.ddd.dm.dom.DomComplexObject;
+import com.mimacom.ddd.dm.dmx.DmxComplexObject;
+
 import com.mimacom.ddd.dm.dom.DomNamedComplexObject;
 import com.mimacom.ddd.dm.dom.DomPackage;
 
@@ -38,7 +39,7 @@ public class DomNamedComplexObjectImpl extends DomObjectImpl implements DomNamed
 	 * @generated
 	 * @ordered
 	 */
-	protected DomComplexObject object;
+	protected DmxComplexObject object;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,7 +68,7 @@ public class DomNamedComplexObjectImpl extends DomObjectImpl implements DomNamed
 	 * @generated
 	 */
 	@Override
-	public DomComplexObject getObject()
+	public DmxComplexObject getObject()
 	{
 		return object;
 	}
@@ -77,9 +78,9 @@ public class DomNamedComplexObjectImpl extends DomObjectImpl implements DomNamed
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetObject(DomComplexObject newObject, NotificationChain msgs)
+	public NotificationChain basicSetObject(DmxComplexObject newObject, NotificationChain msgs)
 	{
-		DomComplexObject oldObject = object;
+		DmxComplexObject oldObject = object;
 		object = newObject;
 		if (eNotificationRequired())
 		{
@@ -95,7 +96,7 @@ public class DomNamedComplexObjectImpl extends DomObjectImpl implements DomNamed
 	 * @generated
 	 */
 	@Override
-	public void setObject(DomComplexObject newObject)
+	public void setObject(DmxComplexObject newObject)
 	{
 		if (newObject != object)
 		{
@@ -154,7 +155,7 @@ public class DomNamedComplexObjectImpl extends DomObjectImpl implements DomNamed
 		switch (featureID)
 		{
 			case DomPackage.DOM_NAMED_COMPLEX_OBJECT__OBJECT:
-				setObject((DomComplexObject)newValue);
+				setObject((DmxComplexObject)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -171,7 +172,7 @@ public class DomNamedComplexObjectImpl extends DomObjectImpl implements DomNamed
 		switch (featureID)
 		{
 			case DomPackage.DOM_NAMED_COMPLEX_OBJECT__OBJECT:
-				setObject((DomComplexObject)null);
+				setObject((DmxComplexObject)null);
 				return;
 		}
 		super.eUnset(featureID);

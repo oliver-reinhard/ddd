@@ -336,11 +336,11 @@ ruleDomEntity returns [EObject current=null]
 			if ($current==null) {
 				$current = createModelElement(grammarAccess.getDomEntityRule());
 			}
-			newCompositeNode(grammarAccess.getDomEntityAccess().getDomComplexObjectParserRuleCall_1());
+			newCompositeNode(grammarAccess.getDomEntityAccess().getDmxComplexObjectParserRuleCall_1());
 		}
-		this_DomComplexObject_1=ruleDomComplexObject[$current]
+		this_DmxComplexObject_1=ruleDmxComplexObject[$current]
 		{
-			$current = $this_DomComplexObject_1.current;
+			$current = $this_DmxComplexObject_1.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -370,19 +370,19 @@ ruleDomDetail returns [EObject current=null]
 			if ($current==null) {
 				$current = createModelElement(grammarAccess.getDomDetailRule());
 			}
-			newCompositeNode(grammarAccess.getDomDetailAccess().getDomComplexObjectParserRuleCall_1());
+			newCompositeNode(grammarAccess.getDomDetailAccess().getDmxComplexObjectParserRuleCall_1());
 		}
-		this_DomComplexObject_1=ruleDomComplexObject[$current]
+		this_DmxComplexObject_1=ruleDmxComplexObject[$current]
 		{
-			$current = $this_DomComplexObject_1.current;
+			$current = $this_DmxComplexObject_1.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
 ;
 
 
-// Rule DomComplexObject
-ruleDomComplexObject[EObject in_current]  returns [EObject current=in_current]
+// Rule DmxComplexObject
+ruleDmxComplexObject[EObject in_current]  returns [EObject current=in_current]
 @init {
 	enterRule();
 }
@@ -394,17 +394,17 @@ ruleDomComplexObject[EObject in_current]  returns [EObject current=in_current]
 			(
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDomComplexObjectRule());
+						$current = createModelElement(grammarAccess.getDmxComplexObjectRule());
 					}
 				}
 				otherlv_0=RULE_ID
 				{
-					newLeafNode(otherlv_0, grammarAccess.getDomComplexObjectAccess().getRefDDetailTypeCrossReference_0_0());
+					newLeafNode(otherlv_0, grammarAccess.getDmxComplexObjectAccess().getTypeDComplexTypeCrossReference_0_0());
 				}
 			)
 		)
 		{
-			newCompositeNode(grammarAccess.getDomComplexObjectAccess().getDomFieldListStartSymbolParserRuleCall_1());
+			newCompositeNode(grammarAccess.getDmxComplexObjectAccess().getDomFieldListStartSymbolParserRuleCall_1());
 		}
 		ruleDomFieldListStartSymbol
 		{
@@ -413,38 +413,38 @@ ruleDomComplexObject[EObject in_current]  returns [EObject current=in_current]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDomComplexObjectAccess().getFieldsDomFieldParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getDmxComplexObjectAccess().getFieldsDmxFieldParserRuleCall_2_0());
 				}
-				lv_fields_2_0=ruleDomField
+				lv_fields_2_0=ruleDmxField
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDomComplexObjectRule());
+						$current = createModelElementForParent(grammarAccess.getDmxComplexObjectRule());
 					}
 					add(
 						$current,
 						"fields",
 						lv_fields_2_0,
-						"com.mimacom.ddd.dm.dom.Dom.DomField");
+						"com.mimacom.ddd.dm.dom.Dom.DmxField");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
 		otherlv_3='}'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getDomComplexObjectAccess().getRightCurlyBracketKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getDmxComplexObjectAccess().getRightCurlyBracketKeyword_3());
 		}
 	)
 ;
 
-// Entry rule entryRuleDomField
-entryRuleDomField returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDomFieldRule()); }
-	iv_ruleDomField=ruleDomField
-	{ $current=$iv_ruleDomField.current; }
+// Entry rule entryRuleDmxField
+entryRuleDmxField returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDmxFieldRule()); }
+	iv_ruleDmxField=ruleDmxField
+	{ $current=$iv_ruleDmxField.current; }
 	EOF;
 
-// Rule DomField
-ruleDomField returns [EObject current=null]
+// Rule DmxField
+ruleDmxField returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -456,28 +456,28 @@ ruleDomField returns [EObject current=null]
 			(
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDomFieldRule());
+						$current = createModelElement(grammarAccess.getDmxFieldRule());
 					}
 				}
 				otherlv_0=RULE_ID
 				{
-					newLeafNode(otherlv_0, grammarAccess.getDomFieldAccess().getRefDFeatureCrossReference_0_0());
+					newLeafNode(otherlv_0, grammarAccess.getDmxFieldAccess().getFeatureDFeatureCrossReference_0_0());
 				}
 			)
 		)
 		otherlv_1='='
 		{
-			newLeafNode(otherlv_1, grammarAccess.getDomFieldAccess().getEqualsSignKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getDmxFieldAccess().getEqualsSignKeyword_1());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDomFieldAccess().getValueDExpressionParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getDmxFieldAccess().getValueDExpressionParserRuleCall_2_0());
 				}
 				lv_value_2_0=ruleDExpression
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDomFieldRule());
+						$current = createModelElementForParent(grammarAccess.getDmxFieldRule());
 					}
 					set(
 						$current,
@@ -4651,7 +4651,7 @@ RULE_ID : '^'? (RULE_LETTER|'_') (RULE_LETTER|'_'|'0'..'9')*;
 
 RULE_STRING : '"' ('\\' .|~(('\\'|'"')))* '"';
 
-RULE_NATURAL : ('0'..'9')+;
+RULE_NATURAL : (('0'..'9')+|'\u221E');
 
 fragment RULE_LETTER : ('a'..'z'|'A'..'Z'|'\u00C0'..'\u00D6'|'\u00D8'..'\u00F6'|'\u00F8'..'\u00FF');
 

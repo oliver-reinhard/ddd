@@ -12,14 +12,17 @@ import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DNotification
 import com.mimacom.ddd.dm.base.DState
 import com.mimacom.ddd.dm.base.DType
+import com.mimacom.ddd.dm.dmx.DmxAssignment
 import com.mimacom.ddd.dm.dmx.DmxBaseType
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation
 import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral
 import com.mimacom.ddd.dm.dmx.DmxCastExpression
+import com.mimacom.ddd.dm.dmx.DmxComplexObject
 import com.mimacom.ddd.dm.dmx.DmxConstructorCall
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral
+import com.mimacom.ddd.dm.dmx.DmxField
 import com.mimacom.ddd.dm.dmx.DmxFilter
 import com.mimacom.ddd.dm.dmx.DmxFunctionCall
 import com.mimacom.ddd.dm.dmx.DmxIfExpression
@@ -35,7 +38,6 @@ import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral
 import com.mimacom.ddd.dm.dmx.DmxUtil
 
 import static com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider.*
-import com.mimacom.ddd.dm.dmx.DmxAssignment
 
 @Singleton
 class DmxTypeComputer {
@@ -66,12 +68,12 @@ class DmxTypeComputer {
 						} else if (i-1 < actualParameters.size) {  // -1 because first parameter value is implicit (navigation chain)
 							 paramActualType = typeForAndCheckNotNull(actualParameters.get(i-1))// recursion
 						} else {
-							return UNDEFINED
+							return UNDEFINED_TYPE
 						}
 						if (paramDeclaredType.isCompatible(paramActualType.baseType,  paramActualType.collection)) {
 							return getTypeDescriptor(paramActualType.type, returnType.collection)
 						}
-						return UNDEFINED
+						return UNDEFINED_TYPE
 					}
 				}
 
@@ -86,7 +88,7 @@ class DmxTypeComputer {
 						return getTypeDescriptor(precedingType.states.get(0), false)
 					}
 				}
-				return UNDEFINED
+				return UNDEFINED_TYPE
 				
 			} else {
 				return getTypeDescriptor(member.typeDesc.single, member.typeDesc.collection)
@@ -152,7 +154,7 @@ class DmxTypeComputer {
 				 }
 				container = container.eContainer
 			}
-			return UNDEFINED	
+			return UNDEFINED_TYPE	
 	}
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxStaticReference expr) {
@@ -237,7 +239,7 @@ class DmxTypeComputer {
 								return getTypeDescriptor(paramActualType.type, returnType.collection)
 							}
 						}
-						return UNDEFINED
+						return UNDEFINED_TYPE
 					}
 				}
 	
@@ -245,7 +247,7 @@ class DmxTypeComputer {
 				return getTypeDescriptor(returnType.single, returnType.collection)
 			}
 		}
-		UNDEFINED
+		UNDEFINED_TYPE
 	}
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxAssignment expr) { 
@@ -259,7 +261,7 @@ class DmxTypeComputer {
 	}
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxListExpression expr) {
-		if (expr.elements.empty) return UNDEFINED
+		if (expr.elements.empty) return UNDEFINED_TYPE
 		val typeDescs = Sets.newHashSet
 		for (e : expr.elements) {
 			typeDescs.add(typeForAndCheckNotNull(e))
@@ -268,7 +270,7 @@ class DmxTypeComputer {
 			val result =  typeDescs.head.toFromCollection(true)
 			return result
 		}
-		return AMBIGUOUS
+		return AMBIGUOUS_TYPE
 	}
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxConstructorCall expr) {
@@ -296,16 +298,24 @@ class DmxTypeComputer {
 	}
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxUndefinedLiteral expr) {
-		UNDEFINED
+		UNDEFINED_TYPE
+	}
+
+	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxComplexObject expr) {
+		if (expr.type === null) return UNDEFINED_TYPE
+		return getTypeDescriptor(expr.type, false)
+	}
+
+	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxField expr) {
+		if (expr.feature === null || expr.feature.type === null) return UNDEFINED_TYPE
+		return getTypeDescriptor(expr.feature.type, expr.feature.collection)
 	}
 	
-	private def AbstractDmxTypeDescriptor<?> typeForAndCheckNotNull(DExpression expr) {
+	def AbstractDmxTypeDescriptor<?> typeForAndCheckNotNull(DExpression expr) {
 		val type = expr?.typeFor
 		if (type === null) {
-			return UNDEFINED
+			return UNDEFINED_TYPE
 		}
 		return type
 	}
-	
-	
 }

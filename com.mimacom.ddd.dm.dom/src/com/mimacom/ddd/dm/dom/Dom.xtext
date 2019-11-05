@@ -1,6 +1,7 @@
 grammar com.mimacom.ddd.dm.dom.Dom with  com.mimacom.ddd.dm.dmx.Dmx
 
 import "http://www.mimacom.com/ddd/dm/dom"
+import "http://www.mimacom.com/ddd/dm/dmx"
 import "http://www.mimacom.com/ddd/dm/base" 
 
 DomModel:
@@ -25,20 +26,20 @@ DomNamedComplexObject:
 
 DomEntity:
 	'entity' 
-	DomComplexObject;
+	DmxComplexObject;
 
 DomDetail:
 	'detail' 
-	DomComplexObject;
+	DmxComplexObject;
 
-fragment DomComplexObject:
-	ref=[DDetailType|ID]
+fragment DmxComplexObject:
+	type=[DComplexType|ID]
 	DomFieldListStartSymbol
-	(fields+=DomField)*
+	(fields+=DmxField)*
 	'}';
 	
-DomField:
-	ref=[DFeature|ID] "=" value=DExpression;
+DmxField:
+	feature=[DFeature|ID] "=" value=DExpression;
 	
 @Override 
 DmxLiteralExpression returns DExpression:

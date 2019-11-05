@@ -8,10 +8,10 @@ import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DRichText;
+import com.mimacom.ddd.dm.dmx.DmxComplexObject;
+import com.mimacom.ddd.dm.dmx.DmxField;
 import com.mimacom.ddd.dm.dmx.DmxNamespace;
 import com.mimacom.ddd.dm.dmx.formatting2.DmxFormatter;
-import com.mimacom.ddd.dm.dom.DomComplexObject;
-import com.mimacom.ddd.dm.dom.DomField;
 import com.mimacom.ddd.dm.dom.DomModel;
 import com.mimacom.ddd.dm.dom.DomNamedComplexObject;
 import com.mimacom.ddd.dm.dom.DomObject;
@@ -88,30 +88,30 @@ public class DomFormatter extends DmxFormatter {
       it.oneSpace();
     };
     document.surround(this.textRegionExtensions.regionFor(obj).keyword(this._domGrammarAccess.getDomNamedComplexObjectAccess().getEqualsSignKeyword_1()), _function_1);
-    document.<DomComplexObject>format(obj.getObject());
+    document.<DmxComplexObject>format(obj.getObject());
   }
   
-  protected void _format(final DomComplexObject obj, @Extension final IFormattableDocument document) {
+  protected void _format(final DmxComplexObject obj, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.oneSpace();
     };
-    document.surround(this.textRegionExtensions.regionFor(obj).assignment(this._domGrammarAccess.getDomComplexObjectAccess().getRefAssignment_0()), _function);
-    final ISemanticRegion open = this.textRegionExtensions.regionFor(obj).ruleCall(this._domGrammarAccess.getDomComplexObjectAccess().getDomFieldListStartSymbolParserRuleCall_1());
-    final ISemanticRegion close = this.textRegionExtensions.regionFor(obj).keyword(this._domGrammarAccess.getDomComplexObjectAccess().getRightCurlyBracketKeyword_3());
+    document.surround(this.textRegionExtensions.regionFor(obj).assignment(this._domGrammarAccess.getDmxComplexObjectAccess().getTypeAssignment_0()), _function);
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(obj).ruleCall(this._domGrammarAccess.getDmxComplexObjectAccess().getDomFieldListStartSymbolParserRuleCall_1());
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(obj).keyword(this._domGrammarAccess.getDmxComplexObjectAccess().getRightCurlyBracketKeyword_3());
     final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
       it.indent();
     };
     document.<ISemanticRegion, ISemanticRegion>interior(open, close, _function_1);
-    EList<DomField> _fields = obj.getFields();
-    for (final DomField f : _fields) {
-      document.<DomField>format(f);
+    EList<DmxField> _fields = obj.getFields();
+    for (final DmxField f : _fields) {
+      document.<DmxField>format(f);
     }
     final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
       it.newLine();
     };
     final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
       EObject _eContainer = obj.eContainer();
-      if ((_eContainer instanceof DomField)) {
+      if ((_eContainer instanceof DmxField)) {
         it.newLine();
       } else {
         it.setNewLines(2);
@@ -120,15 +120,15 @@ public class DomFormatter extends DmxFormatter {
     document.append(document.prepend(close, _function_2), _function_3);
   }
   
-  protected void _format(final DomField field, @Extension final IFormattableDocument document) {
+  protected void _format(final DmxField field, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
     };
-    document.prepend(this.textRegionExtensions.regionFor(field).assignment(this._domGrammarAccess.getDomFieldAccess().getRefAssignment_0()), _function);
+    document.prepend(this.textRegionExtensions.regionFor(field).assignment(this._domGrammarAccess.getDmxFieldAccess().getFeatureAssignment_0()), _function);
     final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
       it.oneSpace();
     };
-    document.surround(this.textRegionExtensions.regionFor(field).keyword(this._domGrammarAccess.getDomFieldAccess().getEqualsSignKeyword_1()), _function_1);
+    document.surround(this.textRegionExtensions.regionFor(field).keyword(this._domGrammarAccess.getDmxFieldAccess().getEqualsSignKeyword_1()), _function_1);
     DExpression _value = field.getValue();
     if (_value!=null) {
       document.<DExpression>format(_value);
@@ -142,14 +142,14 @@ public class DomFormatter extends DmxFormatter {
     } else if (obj instanceof DRichText) {
       _format((DRichText)obj, document);
       return;
+    } else if (obj instanceof DmxComplexObject) {
+      _format((DmxComplexObject)obj, document);
+      return;
+    } else if (obj instanceof DmxField) {
+      _format((DmxField)obj, document);
+      return;
     } else if (obj instanceof DmxNamespace) {
       _format((DmxNamespace)obj, document);
-      return;
-    } else if (obj instanceof DomComplexObject) {
-      _format((DomComplexObject)obj, document);
-      return;
-    } else if (obj instanceof DomField) {
-      _format((DomField)obj, document);
       return;
     } else if (obj instanceof DomSnapshot) {
       _format((DomSnapshot)obj, document);

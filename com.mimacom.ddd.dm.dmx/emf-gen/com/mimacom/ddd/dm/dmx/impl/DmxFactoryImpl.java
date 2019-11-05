@@ -93,6 +93,8 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 			case DmxPackage.DMX_DECIMAL_LITERAL: return createDmxDecimalLiteral();
 			case DmxPackage.DMX_DATE_LITERAL: return createDmxDateLiteral();
 			case DmxPackage.DMX_UNDEFINED_LITERAL: return createDmxUndefinedLiteral();
+			case DmxPackage.DMX_COMPLEX_OBJECT: return createDmxComplexObject();
+			case DmxPackage.DMX_FIELD: return createDmxField();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -474,6 +476,30 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	{
 		DmxUndefinedLiteralImpl dmxUndefinedLiteral = new DmxUndefinedLiteralImpl();
 		return dmxUndefinedLiteral;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DmxComplexObject createDmxComplexObject()
+	{
+		DmxComplexObjectImpl dmxComplexObject = new DmxComplexObjectImpl();
+		return dmxComplexObject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DmxField createDmxField()
+	{
+		DmxFieldImplCustom dmxField = new DmxFieldImplCustom();
+		return dmxField;
 	}
 
 	/**

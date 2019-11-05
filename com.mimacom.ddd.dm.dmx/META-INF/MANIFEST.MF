@@ -21,6 +21,7 @@ Require-Bundle: com.mimacom.ddd.dm.base;visibility:=reexport,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.mimacom.ddd.dm.dim,
  com.mimacom.ddd.dm.dmx,
+ com.mimacom.ddd.dm.dmx.evaluator,
  com.mimacom.ddd.dm.dmx.formatting2,
  com.mimacom.ddd.dm.dmx.generator,
  com.mimacom.ddd.dm.dmx.impl,

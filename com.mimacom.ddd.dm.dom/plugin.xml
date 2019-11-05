@@ -7,4 +7,5 @@
 			class = "com.mimacom.ddd.dm.dom.DomPackage"
 			genModel = "model/dom.genmodel" />
 	</extension>
+
 </plugin>

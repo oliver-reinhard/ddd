@@ -3,6 +3,7 @@
  */
 package com.mimacom.ddd.dm.dom;
 
+import com.mimacom.ddd.dm.dmx.DmxComplexObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,12 +28,12 @@ public interface DomNamedComplexObject extends DomObject
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Object</em>' containment reference.
-	 * @see #setObject(DomComplexObject)
+	 * @see #setObject(DmxComplexObject)
 	 * @see com.mimacom.ddd.dm.dom.DomPackage#getDomNamedComplexObject_Object()
 	 * @model containment="true"
 	 * @generated
 	 */
-	DomComplexObject getObject();
+	DmxComplexObject getObject();
 
 	/**
 	 * Sets the value of the '{@link com.mimacom.ddd.dm.dom.DomNamedComplexObject#getObject <em>Object</em>}' containment reference.
@@ -42,6 +43,6 @@ public interface DomNamedComplexObject extends DomObject
 	 * @see #getObject()
 	 * @generated
 	 */
-	void setObject(DomComplexObject value);
+	void setObject(DmxComplexObject value);
 
 } // DomNamedComplexObject

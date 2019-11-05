@@ -10,6 +10,8 @@ import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IRichTextSegment;
 
+import com.mimacom.ddd.dm.dmx.DmxComplexObject;
+
 import com.mimacom.ddd.dm.dom.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -98,21 +100,6 @@ public class DomAdapterFactory extends AdapterFactoryImpl
 				return createDomObjectAdapter();
 			}
 			@Override
-			public Adapter caseDomComplexObject(DomComplexObject object)
-			{
-				return createDomComplexObjectAdapter();
-			}
-			@Override
-			public Adapter caseDomField(DomField object)
-			{
-				return createDomFieldAdapter();
-			}
-			@Override
-			public Adapter caseDomNamedComplexObject(DomNamedComplexObject object)
-			{
-				return createDomNamedComplexObjectAdapter();
-			}
-			@Override
 			public Adapter caseDomEntity(DomEntity object)
 			{
 				return createDomEntityAdapter();
@@ -121,6 +108,11 @@ public class DomAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseDomDetail(DomDetail object)
 			{
 				return createDomDetailAdapter();
+			}
+			@Override
+			public Adapter caseDomNamedComplexObject(DomNamedComplexObject object)
+			{
+				return createDomNamedComplexObjectAdapter();
 			}
 			@Override
 			public Adapter caseINamespace(INamespace object)
@@ -151,6 +143,11 @@ public class DomAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseDExpression(DExpression object)
 			{
 				return createDExpressionAdapter();
+			}
+			@Override
+			public Adapter caseDmxComplexObject(DmxComplexObject object)
+			{
+				return createDmxComplexObjectAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object)
@@ -220,51 +217,6 @@ public class DomAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dom.DomComplexObject <em>Complex Object</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dom.DomComplexObject
-	 * @generated
-	 */
-	public Adapter createDomComplexObjectAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dom.DomField <em>Field</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dom.DomField
-	 * @generated
-	 */
-	public Adapter createDomFieldAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dom.DomNamedComplexObject <em>Named Complex Object</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.dom.DomNamedComplexObject
-	 * @generated
-	 */
-	public Adapter createDomNamedComplexObjectAdapter()
-	{
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dom.DomEntity <em>Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -290,6 +242,21 @@ public class DomAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDomDetailAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dom.DomNamedComplexObject <em>Named Complex Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dom.DomNamedComplexObject
+	 * @generated
+	 */
+	public Adapter createDomNamedComplexObjectAdapter()
 	{
 		return null;
 	}
@@ -380,6 +347,21 @@ public class DomAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDExpressionAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.dmx.DmxComplexObject <em>Complex Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.dmx.DmxComplexObject
+	 * @generated
+	 */
+	public Adapter createDmxComplexObjectAdapter()
 	{
 		return null;
 	}

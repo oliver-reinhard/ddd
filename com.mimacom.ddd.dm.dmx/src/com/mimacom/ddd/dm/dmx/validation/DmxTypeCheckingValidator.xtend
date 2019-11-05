@@ -74,7 +74,7 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 					val expectedType = if (formalParamType !== null) {
 							formalParamType.getTypeDescriptor(formal.parameters.get(fIndex).collection)
 						} else {
-							UNDEFINED
+							UNDEFINED_TYPE
 						}
 					expectType(actualParameters.get(aIndex), expectedType, DMX.dmxMemberNavigation_CallArguments)
 
@@ -328,7 +328,7 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 			} else {
 				error(errorText, ref, index, TYPE_MISMATCH)
 			}
-			return UNDEFINED
+			return UNDEFINED_TYPE
 		}
 		return type
 	}

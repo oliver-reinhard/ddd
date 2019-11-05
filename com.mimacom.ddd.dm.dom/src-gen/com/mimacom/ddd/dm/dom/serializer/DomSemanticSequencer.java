@@ -21,6 +21,7 @@ import com.mimacom.ddd.dm.dmx.DmxConstructorCall;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral;
+import com.mimacom.ddd.dm.dmx.DmxField;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxFilterParameter;
 import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor;
@@ -41,7 +42,6 @@ import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.serializer.DmxSemanticSequencer;
 import com.mimacom.ddd.dm.dom.DomDetail;
 import com.mimacom.ddd.dm.dom.DomEntity;
-import com.mimacom.ddd.dm.dom.DomField;
 import com.mimacom.ddd.dm.dom.DomModel;
 import com.mimacom.ddd.dm.dom.DomNamedComplexObject;
 import com.mimacom.ddd.dm.dom.DomPackage;
@@ -175,6 +175,9 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 			case DmxPackage.DMX_DECIMAL_LITERAL:
 				sequence_DmxDecimalLiteral(context, (DmxDecimalLiteral) semanticObject); 
 				return; 
+			case DmxPackage.DMX_FIELD:
+				sequence_DmxField(context, (DmxField) semanticObject); 
+				return; 
 			case DmxPackage.DMX_FILTER:
 				sequence_DmxFilter(context, (DmxFilter) semanticObject); 
 				return; 
@@ -227,13 +230,10 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 		else if (epackage == DomPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
 			case DomPackage.DOM_DETAIL:
-				sequence_DomComplexObject(context, (DomDetail) semanticObject); 
+				sequence_DmxComplexObject(context, (DomDetail) semanticObject); 
 				return; 
 			case DomPackage.DOM_ENTITY:
-				sequence_DomComplexObject(context, (DomEntity) semanticObject); 
-				return; 
-			case DomPackage.DOM_FIELD:
-				sequence_DomField(context, (DomField) semanticObject); 
+				sequence_DmxComplexObject(context, (DomEntity) semanticObject); 
 				return; 
 			case DomPackage.DOM_MODEL:
 				sequence_DomModel(context, (DomModel) semanticObject); 
@@ -280,9 +280,9 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 	 *     DmxParenthesizedExpression returns DomDetail
 	 *
 	 * Constraint:
-	 *     (ref=[DDetailType|ID] fields+=DomField*)
+	 *     (type=[DComplexType|ID] fields+=DmxField*)
 	 */
-	protected void sequence_DomComplexObject(ISerializationContext context, DomDetail semanticObject) {
+	protected void sequence_DmxComplexObject(ISerializationContext context, DomDetail semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -292,30 +292,30 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 	 *     DomEntity returns DomEntity
 	 *
 	 * Constraint:
-	 *     (ref=[DDetailType|ID] fields+=DomField*)
+	 *     (type=[DComplexType|ID] fields+=DmxField*)
 	 */
-	protected void sequence_DomComplexObject(ISerializationContext context, DomEntity semanticObject) {
+	protected void sequence_DmxComplexObject(ISerializationContext context, DomEntity semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     DomField returns DomField
+	 *     DmxField returns DmxField
 	 *
 	 * Constraint:
-	 *     (ref=[DFeature|ID] value=DExpression)
+	 *     (feature=[DFeature|ID] value=DExpression)
 	 */
-	protected void sequence_DomField(ISerializationContext context, DomField semanticObject) {
+	protected void sequence_DmxField(ISerializationContext context, DmxField semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DomPackage.Literals.DOM_FIELD__REF) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomPackage.Literals.DOM_FIELD__REF));
-			if (transientValues.isValueTransient(semanticObject, DomPackage.Literals.DOM_FIELD__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomPackage.Literals.DOM_FIELD__VALUE));
+			if (transientValues.isValueTransient(semanticObject, DmxPackage.Literals.DMX_FIELD__FEATURE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmxPackage.Literals.DMX_FIELD__FEATURE));
+			if (transientValues.isValueTransient(semanticObject, DmxPackage.Literals.DMX_FIELD__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmxPackage.Literals.DMX_FIELD__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDomFieldAccess().getRefDFeatureIDTerminalRuleCall_0_0_1(), semanticObject.eGet(DomPackage.Literals.DOM_FIELD__REF, false));
-		feeder.accept(grammarAccess.getDomFieldAccess().getValueDExpressionParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getDmxFieldAccess().getFeatureDFeatureIDTerminalRuleCall_0_0_1(), semanticObject.eGet(DmxPackage.Literals.DMX_FIELD__FEATURE, false));
+		feeder.accept(grammarAccess.getDmxFieldAccess().getValueDExpressionParserRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
