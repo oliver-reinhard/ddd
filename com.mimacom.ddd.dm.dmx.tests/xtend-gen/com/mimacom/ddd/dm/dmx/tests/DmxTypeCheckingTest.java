@@ -92,6 +92,34 @@ public class DmxTypeCheckingTest {
   }
   
   @Test
+  public void testLists() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("namespace A");
+    _builder.newLine();
+    _builder.append("test T00 {  {}  }  // empty list");
+    _builder.newLine();
+    _builder.append("test T01 { {1} }");
+    _builder.newLine();
+    _builder.append("test T02 { {1,2} }");
+    _builder.newLine();
+    _builder.append("test T03 { {1, \"A\"} }  // ERROR: inconsistent types in list");
+    _builder.newLine();
+    final EList<DmxTest> tests = this.parse(_builder);
+    final DExpression e00 = tests.get(0).getExpr();
+    this.assertType(e00, DmxTypeDescriptorProvider.BOOLEAN);
+    this.assertNoValidationErrors(e00);
+    final DExpression e01 = tests.get(1).getExpr();
+    this.assertType(e01, DmxTypeDescriptorProvider.BOOLEAN);
+    this.assertNoValidationErrors(e01);
+    final DExpression e02 = tests.get(2).getExpr();
+    this.assertType(e02, DmxTypeDescriptorProvider.NUMBER);
+    this.assertNoValidationErrors(e02);
+    final DExpression e03 = tests.get(3).getExpr();
+    this.assertType(e03, DmxTypeDescriptorProvider.NUMBER);
+    this.assertValidationError(e03);
+  }
+  
+  @Test
   public void testEquality() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("namespace A");

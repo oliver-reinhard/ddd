@@ -76,6 +76,33 @@ class DmxTypeCheckingTest {
 	}
 	
 	@Test
+	def void testLists() {
+		val tests = parse('''
+			namespace A
+			test T00 {  {}  }  // empty list
+			test T01 { {1} }
+			test T02 { {1,2} }
+			test T03 { {1, "A"} }  // ERROR: inconsistent types in list
+		''')
+		
+		val e00 = tests.get(0).expr
+		assertType(e00, DmxTypeDescriptorProvider::BOOLEAN)
+		assertNoValidationErrors(e00)
+		
+		val e01 = tests.get(1).expr
+		assertType(e01, DmxTypeDescriptorProvider::BOOLEAN)
+		assertNoValidationErrors(e01)
+		
+		val e02 = tests.get(2).expr
+		assertType(e02, DmxTypeDescriptorProvider::NUMBER)
+		assertNoValidationErrors(e02)
+		
+		val e03 = tests.get(3).expr
+		assertType(e03, DmxTypeDescriptorProvider::NUMBER)
+		assertValidationError(e03)
+	}
+	
+	@Test
 	def void testEquality() {
 		val tests = parse('''
 			namespace A
