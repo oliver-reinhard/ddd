@@ -14,6 +14,7 @@ import com.mimacom.ddd.dm.dmx.DmxBaseType
 import com.mimacom.ddd.dm.dmx.DmxFilterTypeDescriptor
 import com.mimacom.ddd.dm.dmx.DmxUtil
 import java.util.List
+import org.eclipse.emf.ecore.EObject
 
 @Singleton
 class DmxTypeDescriptorProvider {
@@ -36,6 +37,9 @@ class DmxTypeDescriptorProvider {
 	
 
 	def AbstractDmxTypeDescriptor<?> getTypeDescriptor(Object obj, boolean collection) {
+		if (obj instanceof EObject && (obj as EObject).eIsProxy) {
+			throw new IllegalStateException("Unresolved EObject (system type?): " + obj)
+		}
 		switch obj {
 			DmxBaseType: getBaseTypeDescriptor(obj, collection)
 			DmxArchetype: new DmxPrimitiveDescriptor(obj, collection)
@@ -45,7 +49,7 @@ class DmxTypeDescriptorProvider {
 			DState: new DmxStateDescriptor(obj, collection)
 			DAggregate: new DmxAggregateDescriptor(obj, collection)
 			DNotification: new DmxNotificationDescriptor(obj, collection)
-			default: com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider.UNDEFINED_TYPE
+			default: DmxTypeDescriptorProvider.UNDEFINED_TYPE
 		}
 	}
 	
