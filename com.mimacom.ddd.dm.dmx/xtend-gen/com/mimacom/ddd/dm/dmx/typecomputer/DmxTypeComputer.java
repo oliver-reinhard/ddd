@@ -221,6 +221,7 @@ public class DmxTypeComputer {
           _switchResult = DmxTypeDescriptorProvider.BOOLEAN;
           break;
         case ADD:
+        case SUBTRACT:
           final AbstractDmxTypeDescriptor<?> leftType = this.typeForAndCheckNotNull(expr.getLeftOperand());
           DmxBaseTypeDescriptor _switchResult_1 = null;
           final DmxBaseType _switchValue = leftType.baseType;
@@ -240,9 +241,6 @@ public class DmxTypeComputer {
             _switchResult_1 = DmxTypeDescriptorProvider.NUMBER;
           }
           return _switchResult_1;
-        case SUBTRACT:
-          _switchResult = DmxTypeDescriptorProvider.NUMBER;
-          break;
         case MULTIPLY:
           _switchResult = DmxTypeDescriptorProvider.NUMBER;
           break;
@@ -351,12 +349,7 @@ public class DmxTypeComputer {
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxAssignment expr) {
-    final DNavigableMember member = expr.getAssignToMember();
-    if ((member instanceof DNavigableMember)) {
-      return this._dmxTypeDescriptorProvider.getTypeDescriptor(member.getType(), member.isCollection());
-    } else {
-      return this._dmxTypeDescriptorProvider.getTypeDescriptor(member, member.isCollection());
-    }
+    return DmxTypeDescriptorProvider.VOID;
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxListExpression expr) {

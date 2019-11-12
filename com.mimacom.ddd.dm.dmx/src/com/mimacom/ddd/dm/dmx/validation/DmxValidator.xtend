@@ -7,6 +7,8 @@ import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DFeature
+import com.mimacom.ddd.dm.base.DQuery
+import com.mimacom.ddd.dm.dmx.DmxAssignment
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxFilter
 import com.mimacom.ddd.dm.dmx.DmxListExpression
@@ -22,6 +24,15 @@ import org.eclipse.xtext.validation.Check
 class DmxValidator extends DmxTypeCheckingValidator {
 
 	@Inject extension DmxUtil util
+
+	@Check
+	def checkAssignmentTarget(DmxAssignment a) {
+		if (a.precedingNavigationSegment === null) {
+			error("Assignment target must be an attribute of a complex type.", a, DMX.dmxAssignment_AssignToMember)
+		} else if (a.assignToMember instanceof DQuery) {
+			error("Cannot assign a value to a query.", a, DMX.dmxAssignment_AssignToMember)
+		}
+	}
 
 	@Check
 	def checkFilterParameters(DmxFilter f) {
@@ -61,7 +72,7 @@ class DmxValidator extends DmxTypeCheckingValidator {
 			}
 		}
 	}
-	
+
 	@Check
 	def checkNestedLists(DmxListExpression expr) {
 		for (e : expr.elements) {

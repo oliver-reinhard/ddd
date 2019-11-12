@@ -10,6 +10,8 @@ import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.DQuery;
+import com.mimacom.ddd.dm.dmx.DmxAssignment;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxFilterParameter;
@@ -34,6 +36,20 @@ public class DmxValidator extends DmxTypeCheckingValidator {
   @Inject
   @Extension
   private DmxUtil util;
+  
+  @Check
+  public void checkAssignmentTarget(final DmxAssignment a) {
+    DExpression _precedingNavigationSegment = a.getPrecedingNavigationSegment();
+    boolean _tripleEquals = (_precedingNavigationSegment == null);
+    if (_tripleEquals) {
+      this.error("Assignment target must be an attribute of a complex type.", a, DmxTypeCheckingValidator.DMX.getDmxAssignment_AssignToMember());
+    } else {
+      DNavigableMember _assignToMember = a.getAssignToMember();
+      if ((_assignToMember instanceof DQuery)) {
+        this.error("Cannot assign a value to a query.", a, DmxTypeCheckingValidator.DMX.getDmxAssignment_AssignToMember());
+      }
+    }
+  }
   
   @Check
   public void checkFilterParameters(final DmxFilter f) {
