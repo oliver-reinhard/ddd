@@ -6,21 +6,10 @@ import org.eclipse.xtext.xtext.generator.model.project.*
 var rootPath = ".."
 var project="com.mimacom.ddd.dm.dmx"
 var genModel="platform:/resource/${project}/model/dmx.genmodel"
-//var baseGenModel="platform:/resource/com.mimacom.ddd.dm.dmx/model/base.genmodel"
+var baseGenModel="platform:/resource/com.mimacom.ddd.dm.base/model/base.genmodel"
 
 Workflow {
 	
-	// Generate EMF Models
-	bean = org.eclipse.emf.mwe.utils.StandaloneSetup {
-		scanClassPath = true
-	}
-	component = org.eclipse.emf.mwe.utils.DirectoryCleaner {
-		directory = "${rootPath}/${project}/emf-gen"
-	}
-	component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
-		genModel = "${genModel}"
-		srcPath = "platform:/resource/${project}/src"
-	}
 	bean =  org.eclipse.emf.mwe.utils.StandaloneSetup {
 	    platformUri = "${rootPath}"
 	    scanClassPath = true
@@ -53,7 +42,7 @@ Workflow {
 		language = StandardLanguage {
 			name = "${project}.Dmx"
 			fileExtensions = "dmx"
-			//referencedResource =  "${baseGenModel}"
+			referencedResource =  "${baseGenModel}"
 			referencedResource =  "${genModel}"
 
 			formatter = {
@@ -65,11 +54,16 @@ Workflow {
 			validator = {
 				// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
 				// Generates checks for @Deprecated grammar annotations, an IssueProvider and a corresponding PropertyPage
-				generateDeprecationValidation = true
+				// generateDeprecationValidation = true
 			}
 			junitSupport = {
 				junitVersion = "5"
 			}
 		}
+	}
+	
+	component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
+		genModel = "${genModel}"
+       srcPath = "${rootPath}/${project}/src"
 	}
 }
