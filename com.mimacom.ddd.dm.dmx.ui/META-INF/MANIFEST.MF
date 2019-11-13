@@ -6,7 +6,8 @@ Bundle-Vendor: My Company
 Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: com.mimacom.ddd.dm.dmx.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: com.mimacom.ddd.dm.dmx,
+Require-Bundle: com.mimacom.ddd.dm.base,
+ com.mimacom.ddd.dm.dmx,
  com.mimacom.ddd.dm.dmx.ide,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
@@ -25,6 +26,5 @@ Export-Package: com.mimacom.ddd.dm.dmx.ui,
  com.mimacom.ddd.dm.dmx.ui.internal,
  com.mimacom.ddd.dm.dmx.ui.labeling,
  com.mimacom.ddd.dm.dmx.ui.outline,
- com.mimacom.ddd.dm.dmx.ui.quickfix,
- com.mimacom.ddd.dm.dmx.validation
+ com.mimacom.ddd.dm.dmx.ui.quickfix
 Bundle-Activator: com.mimacom.ddd.dm.dmx.ui.internal.DmxActivator

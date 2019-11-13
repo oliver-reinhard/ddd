@@ -20,6 +20,8 @@
         <module>com.mimacom.ddd.dm.dmx</module>
         <module>com.mimacom.ddd.dm.dmx.ide</module>
         <module>com.mimacom.ddd.dm.dmx.tests</module>
+        <module>com.mimacom.ddd.dm.dmx.ui</module>
+        <module>com.mimacom.ddd.dm.dmx.ui.tests</module>
     </modules>
 
     <build>
