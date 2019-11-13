@@ -4,23 +4,23 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-SymbolicName: com.mimacom.ddd.dm.dmx;singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: com.mimacom.ddd.dm.base;visibility:=reexport,
- org.eclipse.xtext,
+Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase,
  org.eclipse.equinox.common;bundle-version="3.5.0",
  org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore,
  org.eclipse.xtext.util,
- org.eclipse.xtend.lib;bundle-version="2.14.0",
+ org.eclipse.xtend.lib;bundle-version="2.13.0",
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
- org.eclipse.xtext.xbase.lib;bundle-version="2.14.0"
+ org.eclipse.xtext.xbase.lib;bundle-version="2.13.0",
+ org.eclipse.emf.common,
+ com.mimacom.ddd.dm.base
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: com.mimacom.ddd.dm.dim,
- com.mimacom.ddd.dm.dmx,
+Export-Package: com.mimacom.ddd.dm.dmx,
  com.mimacom.ddd.dm.dmx.evaluator,
  com.mimacom.ddd.dm.dmx.formatting2,
  com.mimacom.ddd.dm.dmx.generator,
@@ -34,6 +34,5 @@ Export-Package: com.mimacom.ddd.dm.dim,
  com.mimacom.ddd.dm.dmx.services,
  com.mimacom.ddd.dm.dmx.typecomputer,
  com.mimacom.ddd.dm.dmx.util,
- com.mimacom.ddd.dm.dmx.validation,
- com.mimacom.ddd.sm.sim.indexing
+ com.mimacom.ddd.dm.dmx.validation
 Import-Package: org.apache.log4j

@@ -10,13 +10,6 @@ var baseGenModel="platform:/resource/com.mimacom.ddd.dm.base/model/base.genmodel
 
 Workflow {
 	
-	bean =  org.eclipse.emf.mwe.utils.StandaloneSetup {
-	    platformUri = "${rootPath}"
-	    scanClassPath = true
-	    registerGeneratedEPackage = "${project}.DmxPackage"
-	    registerGenModelFile = "${genModel}"
-	}
-	
 	component = XtextGenerator {
 		configuration = {
 			project = StandardProjectConfig {
