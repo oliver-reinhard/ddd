@@ -19,10 +19,11 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         <module>releng</module>
         <module>com.mimacom.ddd.dm.base</module>
         <module>com.mimacom.ddd.dm.dmx</module>
+        <module>com.mimacom.ddd.dm.dmx.ide</module>
     </modules>
-    
+
     <build>
         <defaultGoal>install</defaultGoal>
     </build>
-    
+
 </project>
