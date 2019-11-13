@@ -24,6 +24,10 @@ public interface DPrimitive extends DSimpleType
 	/**
 	 * Returns the value of the '<em><b>Redefines</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Redefines</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Redefines</em>' reference.
 	 * @see #setRedefines(DPrimitive)

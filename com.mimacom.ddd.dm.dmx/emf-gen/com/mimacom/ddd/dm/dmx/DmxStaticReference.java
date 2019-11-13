@@ -30,6 +30,10 @@ public interface DmxStaticReference extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(IStaticReferenceTarget)
@@ -52,6 +56,10 @@ public interface DmxStaticReference extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Member</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Member</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Member</em>' reference.
 	 * @see #setMember(DNavigableMember)
@@ -74,6 +82,10 @@ public interface DmxStaticReference extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Display Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Display Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Display Name</em>' attribute.
 	 * @see #setDisplayName(String)
@@ -96,6 +108,10 @@ public interface DmxStaticReference extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Plural</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Plural</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Plural</em>' attribute.
 	 * @see #setPlural(boolean)

@@ -27,6 +27,10 @@ public interface DAssociation extends DFeature
 	 * Returns the value of the '<em><b>Kind</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.mimacom.ddd.dm.base.DAssociationKind}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Kind</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Kind</em>' attribute.
 	 * @see com.mimacom.ddd.dm.base.DAssociationKind
@@ -51,6 +55,10 @@ public interface DAssociation extends DFeature
 	/**
 	 * Returns the value of the '<em><b>Derived</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Derived</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Derived</em>' attribute.
 	 * @see #setDerived(boolean)
@@ -73,6 +81,10 @@ public interface DAssociation extends DFeature
 	/**
 	 * Returns the value of the '<em><b>Source Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Type</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source Type</em>' reference.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDAssociation_SourceType()

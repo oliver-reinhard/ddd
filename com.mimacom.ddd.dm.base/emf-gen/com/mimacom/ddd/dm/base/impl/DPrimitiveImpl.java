@@ -63,7 +63,6 @@ public class DPrimitiveImpl extends DSimpleTypeImpl implements DPrimitive
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DPrimitive getRedefines()
 	{
 		if (redefines != null && redefines.eIsProxy())
@@ -94,7 +93,6 @@ public class DPrimitiveImpl extends DSimpleTypeImpl implements DPrimitive
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setRedefines(DPrimitive newRedefines)
 	{
 		DPrimitive oldRedefines = redefines;

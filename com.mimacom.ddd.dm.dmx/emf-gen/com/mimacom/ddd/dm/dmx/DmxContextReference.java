@@ -28,6 +28,10 @@ public interface DmxContextReference extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(DNamedElement)
@@ -50,6 +54,10 @@ public interface DmxContextReference extends DExpression
 	/**
 	 * Returns the value of the '<em><b>All</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>All</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>All</em>' attribute.
 	 * @see #setAll(boolean)
@@ -72,6 +80,10 @@ public interface DmxContextReference extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Before</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Before</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Before</em>' attribute.
 	 * @see #setBefore(boolean)

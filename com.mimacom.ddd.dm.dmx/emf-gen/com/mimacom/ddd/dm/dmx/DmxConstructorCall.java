@@ -28,6 +28,10 @@ public interface DmxConstructorCall extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Constructor</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Constructor</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Constructor</em>' reference.
 	 * @see #setConstructor(DComplexType)
@@ -50,6 +54,10 @@ public interface DmxConstructorCall extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Explicit Constructor Call</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Explicit Constructor Call</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Explicit Constructor Call</em>' attribute.
 	 * @see #setExplicitConstructorCall(boolean)
@@ -72,6 +80,10 @@ public interface DmxConstructorCall extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Call Arguments</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Call Arguments</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Call Arguments</em>' containment reference.
 	 * @see #setCallArguments(DmxCallArguments)

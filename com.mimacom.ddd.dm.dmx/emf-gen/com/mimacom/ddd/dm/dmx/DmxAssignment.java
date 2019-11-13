@@ -28,6 +28,10 @@ public interface DmxAssignment extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Preceding Navigation Segment</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Preceding Navigation Segment</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Preceding Navigation Segment</em>' containment reference.
 	 * @see #setPrecedingNavigationSegment(DExpression)
@@ -50,6 +54,10 @@ public interface DmxAssignment extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Assign To Member</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Assign To Member</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Assign To Member</em>' reference.
 	 * @see #setAssignToMember(DNavigableMember)
@@ -72,6 +80,10 @@ public interface DmxAssignment extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' containment reference.
 	 * @see #setValue(DExpression)

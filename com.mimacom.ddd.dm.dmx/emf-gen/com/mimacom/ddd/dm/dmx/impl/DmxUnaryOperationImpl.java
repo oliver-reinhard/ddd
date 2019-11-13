@@ -90,7 +90,6 @@ public class DmxUnaryOperationImpl extends DExpressionImpl implements DmxUnaryOp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DExpression getOperand()
 	{
 		return operand;
@@ -118,7 +117,6 @@ public class DmxUnaryOperationImpl extends DExpressionImpl implements DmxUnaryOp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setOperand(DExpression newOperand)
 	{
 		if (newOperand != operand)
@@ -140,7 +138,6 @@ public class DmxUnaryOperationImpl extends DExpressionImpl implements DmxUnaryOp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DmxUnaryOperator getOperator()
 	{
 		return operator;
@@ -151,7 +148,6 @@ public class DmxUnaryOperationImpl extends DExpressionImpl implements DmxUnaryOp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setOperator(DmxUnaryOperator newOperator)
 	{
 		DmxUnaryOperator oldOperator = operator;
@@ -262,7 +258,7 @@ public class DmxUnaryOperationImpl extends DExpressionImpl implements DmxUnaryOp
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (operator: ");
 		result.append(operator);
 		result.append(')');

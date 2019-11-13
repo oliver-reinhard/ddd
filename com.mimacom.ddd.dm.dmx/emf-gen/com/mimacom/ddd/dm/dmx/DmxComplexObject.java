@@ -30,6 +30,10 @@ public interface DmxComplexObject extends INavigableMemberContainer, DExpression
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' reference.
 	 * @see #setType(DComplexType)
@@ -53,6 +57,10 @@ public interface DmxComplexObject extends INavigableMemberContainer, DExpression
 	 * Returns the value of the '<em><b>Fields</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.dmx.DmxField}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fields</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Fields</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxComplexObject_Fields()

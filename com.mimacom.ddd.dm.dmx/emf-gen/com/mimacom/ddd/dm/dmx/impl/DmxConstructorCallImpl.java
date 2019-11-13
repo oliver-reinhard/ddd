@@ -101,7 +101,6 @@ public class DmxConstructorCallImpl extends DExpressionImpl implements DmxConstr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DComplexType getConstructor()
 	{
 		if (constructor != null && constructor.eIsProxy())
@@ -132,7 +131,6 @@ public class DmxConstructorCallImpl extends DExpressionImpl implements DmxConstr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setConstructor(DComplexType newConstructor)
 	{
 		DComplexType oldConstructor = constructor;
@@ -146,7 +144,6 @@ public class DmxConstructorCallImpl extends DExpressionImpl implements DmxConstr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public boolean isExplicitConstructorCall()
 	{
 		return explicitConstructorCall;
@@ -157,7 +154,6 @@ public class DmxConstructorCallImpl extends DExpressionImpl implements DmxConstr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setExplicitConstructorCall(boolean newExplicitConstructorCall)
 	{
 		boolean oldExplicitConstructorCall = explicitConstructorCall;
@@ -171,7 +167,6 @@ public class DmxConstructorCallImpl extends DExpressionImpl implements DmxConstr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DmxCallArguments getCallArguments()
 	{
 		return callArguments;
@@ -199,7 +194,6 @@ public class DmxConstructorCallImpl extends DExpressionImpl implements DmxConstr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setCallArguments(DmxCallArguments newCallArguments)
 	{
 		if (newCallArguments != callArguments)
@@ -329,7 +323,7 @@ public class DmxConstructorCallImpl extends DExpressionImpl implements DmxConstr
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (explicitConstructorCall: ");
 		result.append(explicitConstructorCall);
 		result.append(')');

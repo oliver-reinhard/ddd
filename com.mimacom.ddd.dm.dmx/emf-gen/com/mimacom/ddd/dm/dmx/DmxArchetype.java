@@ -26,6 +26,10 @@ public interface DmxArchetype extends DPrimitive
 	 * Returns the value of the '<em><b>Base Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.mimacom.ddd.dm.dmx.DmxBaseType}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Base Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Type</em>' attribute.
 	 * @see com.mimacom.ddd.dm.dmx.DmxBaseType
