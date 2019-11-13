@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Automatic-Module-Name: com.mimacom.ddd.dm.dmx.ui.tests
 Bundle-ManifestVersion: 2
 Bundle-Name: com.mimacom.ddd.dm.dmx.ui.tests
-Bundle-Vendor: My Company
+Bundle-Vendor: mimacom ag
 Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: com.mimacom.ddd.dm.dmx.ui.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
