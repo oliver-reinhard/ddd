@@ -12,5 +12,11 @@
 			<unit id="org.eclipse.xpand.sdk.feature.group" version="2.2.0.v201605260315"/>
 			<unit id="org.eclipse.xtext.sdk.feature.group" version="2.19.0.v20190902-1322"/>
 		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="http://hallvard.github.io/plantuml/"/>
+			<unit id="net.sourceforge.plantuml.ecore.feature.feature.group" version="1.1.23"/>
+			<unit id="net.sourceforge.plantuml.feature.feature.group" version="1.1.23"/>
+			<unit id="net.sourceforge.plantuml.lib.feature.feature.group" version="1.2019.0"/>
+		</location>
 	</locations>
 </target>
