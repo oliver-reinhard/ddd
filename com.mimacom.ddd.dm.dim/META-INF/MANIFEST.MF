@@ -3,7 +3,7 @@ Automatic-Module-Name: com.mimacom.ddd.dm.dim
 Bundle-ManifestVersion: 2
 Bundle-Name: com.mimacom.ddd.dm.dim
 Bundle-Vendor: My Company
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: com.mimacom.ddd.dm.dim; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.mimacom.ddd.dm.dmx;visibility:=reexport,
