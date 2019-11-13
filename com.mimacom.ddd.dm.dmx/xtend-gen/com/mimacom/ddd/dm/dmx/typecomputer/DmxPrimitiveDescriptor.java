@@ -10,6 +10,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function0;
 public class DmxPrimitiveDescriptor extends AbstractDmxTypeDescriptor<DPrimitive> {
   public DmxPrimitiveDescriptor(final DPrimitive type, final boolean collection) {
     super(new Function0<DmxBaseType>() {
+      @Override
       public DmxBaseType apply() {
         DmxBaseType _xifexpression = null;
         DPrimitive _redefines = type.getRedefines();
