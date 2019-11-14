@@ -38,6 +38,12 @@
         <module>com.mimacom.ddd.dm.dom.tests</module>
         <module>com.mimacom.ddd.dm.dom.ui</module>
         <module>com.mimacom.ddd.dm.dom.ui.tests</module>
+        <!-- dim -->
+        <module>com.mimacom.ddd.dm.dim</module>
+        <module>com.mimacom.ddd.dm.dim.ide</module>
+        <module>com.mimacom.ddd.dm.dim.tests</module>
+        <module>com.mimacom.ddd.dm.dim.ui</module>
+        <module>com.mimacom.ddd.dm.dim.ui.tests</module>
     </modules>
 
     <build>
