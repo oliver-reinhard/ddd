@@ -280,37 +280,26 @@ public class DmxTypeCheckingValidator extends AbstractDmxValidator {
             {
               final AbstractDmxTypeDescriptor<?> expectedType = this.getTypeAndCheckNotNull(expr, DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_LeftOperand());
               boolean _xifexpression_4 = false;
-              boolean _equals = Objects.equal(expectedType, DmxTypeDescriptorProvider.NUMBER);
+              boolean _equals = Objects.equal(expectedType, DmxTypeDescriptorProvider.TIMEPOINT);
               if (_equals) {
-                boolean _xblockexpression_4 = false;
-                {
-                  this.expectNumber(expr.getLeftOperand(), DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_LeftOperand());
-                  _xblockexpression_4 = this.expectNumber(expr.getRightOperand(), DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_RightOperand());
-                }
-                _xifexpression_4 = _xblockexpression_4;
+                _xifexpression_4 = this.expectNumber(expr.getRightOperand(), DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_RightOperand());
               } else {
                 boolean _xifexpression_5 = false;
-                boolean _equals_1 = Objects.equal(expectedType, DmxTypeDescriptorProvider.TIMEPOINT);
+                boolean _equals_1 = Objects.equal(expectedType, DmxTypeDescriptorProvider.TEXT);
                 if (_equals_1) {
+                  boolean _xblockexpression_4 = false;
+                  {
+                    final AbstractDmxTypeDescriptor<?> rightType = this.getTypeAndCheckNotNull(expr.getRightOperand(), DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_RightOperand());
+                    _xblockexpression_4 = this.expectType(rightType, DmxTypeCheckingValidator.COMPARABLE_TYPES, DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_LeftOperand());
+                  }
+                  _xifexpression_5 = _xblockexpression_4;
+                } else {
                   boolean _xblockexpression_5 = false;
                   {
-                    this.expectType(expr.getLeftOperand(), DmxTypeDescriptorProvider.TIMEPOINT, DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_LeftOperand());
+                    this.expectNumber(expr.getLeftOperand(), DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_LeftOperand());
                     _xblockexpression_5 = this.expectNumber(expr.getRightOperand(), DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_RightOperand());
                   }
                   _xifexpression_5 = _xblockexpression_5;
-                } else {
-                  boolean _xifexpression_6 = false;
-                  boolean _equals_2 = Objects.equal(expectedType, DmxTypeDescriptorProvider.TEXT);
-                  if (_equals_2) {
-                    boolean _xblockexpression_6 = false;
-                    {
-                      this.expectType(expr.getLeftOperand(), DmxTypeDescriptorProvider.TEXT, DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_LeftOperand());
-                      final AbstractDmxTypeDescriptor<?> rightType = this.getTypeAndCheckNotNull(expr.getRightOperand(), DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_RightOperand());
-                      _xblockexpression_6 = this.expectType(rightType, DmxTypeCheckingValidator.COMPARABLE_TYPES, DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_LeftOperand());
-                    }
-                    _xifexpression_6 = _xblockexpression_6;
-                  }
-                  _xifexpression_5 = _xifexpression_6;
                 }
                 _xifexpression_4 = _xifexpression_5;
               }
@@ -319,19 +308,30 @@ public class DmxTypeCheckingValidator extends AbstractDmxValidator {
             _switchResult = Boolean.valueOf(_xblockexpression_3);
             break;
           case SUBTRACT:
-          case MULTIPLY:
-          case DIVIDE:
-          case POWER:
-          case MODULO:
             boolean _xblockexpression_4 = false;
             {
-              this.expectNumber(expr.getLeftOperand(), DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_LeftOperand());
+              final AbstractDmxTypeDescriptor<?> expectedType = this.getTypeAndCheckNotNull(expr, DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_LeftOperand());
+              boolean _notEquals = (!Objects.equal(expectedType, DmxTypeDescriptorProvider.TIMEPOINT));
+              if (_notEquals) {
+                this.expectNumber(expr.getLeftOperand(), DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_LeftOperand());
+              }
               _xblockexpression_4 = this.expectNumber(expr.getRightOperand(), DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_RightOperand());
             }
             _switchResult = Boolean.valueOf(_xblockexpression_4);
             break;
-          case IN:
+          case MULTIPLY:
+          case DIVIDE:
+          case POWER:
+          case MODULO:
             boolean _xblockexpression_5 = false;
+            {
+              this.expectNumber(expr.getLeftOperand(), DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_LeftOperand());
+              _xblockexpression_5 = this.expectNumber(expr.getRightOperand(), DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_RightOperand());
+            }
+            _switchResult = Boolean.valueOf(_xblockexpression_5);
+            break;
+          case IN:
+            boolean _xblockexpression_6 = false;
             {
               boolean hasError = false;
               boolean _isCollection = leftType.isCollection();
@@ -350,9 +350,9 @@ public class DmxTypeCheckingValidator extends AbstractDmxValidator {
               if ((!hasError)) {
                 _xifexpression_4 = this.expectType(expr.getRightOperand(), this._dmxTypeDescriptorProvider.toFromCollection(leftType, true), DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_RightOperand());
               }
-              _xblockexpression_5 = _xifexpression_4;
+              _xblockexpression_6 = _xifexpression_4;
             }
-            _switchResult = Boolean.valueOf(_xblockexpression_5);
+            _switchResult = Boolean.valueOf(_xblockexpression_6);
             break;
           case UNTIL:
             _switchResult = Boolean.valueOf(this.expectType(expr.getRightOperand(), leftType, DmxTypeCheckingValidator.DMX.getDmxBinaryOperation_RightOperand()));
@@ -396,17 +396,18 @@ public class DmxTypeCheckingValidator extends AbstractDmxValidator {
   public Boolean checkType(final DmxAssignment expr) {
     Boolean _xblockexpression = null;
     {
-      final AbstractDmxTypeDescriptor<?> leftType = this.getTypeAndCheckNotNull(expr, DmxTypeCheckingValidator.DMX.getDmxAssignment_AssignToMember());
+      final DNavigableMember target = expr.getAssignToMember();
+      final AbstractDmxTypeDescriptor<?> targetType = this._dmxTypeDescriptorProvider.getTypeDescriptor(target.getType(), target.isCollection());
       Boolean _xifexpression = null;
-      boolean _isCompatibleWith = leftType.isCompatibleWith(DmxTypeDescriptorProvider.TIMEPOINT);
+      boolean _isCompatibleWith = targetType.isCompatibleWith(DmxTypeDescriptorProvider.TIMEPOINT);
       if (_isCompatibleWith) {
-        _xifexpression = this.expectTimepointValue(expr.getValue(), leftType, DmxTypeCheckingValidator.DMX.getDmxAssignment_Value());
+        _xifexpression = this.expectTimepointValue(expr.getValue(), targetType, DmxTypeCheckingValidator.DMX.getDmxAssignment_Value());
       } else {
         Boolean _xifexpression_1 = null;
         if (((expr.getValue() instanceof DmxListExpression) && ((DmxListExpression) expr.getValue()).getElements().isEmpty())) {
           _xifexpression_1 = null;
         } else {
-          _xifexpression_1 = Boolean.valueOf(this.expectType(expr.getValue(), leftType, DmxTypeCheckingValidator.DMX.getDmxAssignment_Value()));
+          _xifexpression_1 = Boolean.valueOf(this.expectType(expr.getValue(), targetType, DmxTypeCheckingValidator.DMX.getDmxAssignment_Value()));
         }
         _xifexpression = _xifexpression_1;
       }

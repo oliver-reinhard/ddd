@@ -173,7 +173,7 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 					// allow string literals as Timepoints 
 					expectTimepointValue(expr.rightOperand, leftType, DMX.dmxBinaryOperation_RightOperand)
 				} else if (expr.rightOperand instanceof DmxListExpression && (expr.rightOperand as DmxListExpression).elements.isEmpty) {
-					// support empty list as a comparison value
+					// support empty list as a comparison value; type compatibility not applicable (empty list has no type)
 				} else {
 					// left and right types have to be compatible but no restriction on what kind of type
 					expectType(expr.rightOperand, leftType, DMX.dmxBinaryOperation_RightOperand)
@@ -196,19 +196,23 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 			}
 			case ADD: {
 				val expectedType = getTypeAndCheckNotNull(expr, DMX.dmxBinaryOperation_LeftOperand)
-				if (expectedType == NUMBER) {
-					expectNumber(expr.leftOperand, DMX.dmxBinaryOperation_LeftOperand)
-					expectNumber(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
-				} else if (expectedType == TIMEPOINT) {
-					expectType(expr.leftOperand, TIMEPOINT, DMX.dmxBinaryOperation_LeftOperand)
+				if (expectedType == TIMEPOINT) {
 					expectNumber(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
 				} else if (expectedType == TEXT) {
-					expectType(expr.leftOperand, TEXT, DMX.dmxBinaryOperation_LeftOperand)
 					val rightType = getTypeAndCheckNotNull(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
 					expectType(rightType, COMPARABLE_TYPES, DMX.dmxBinaryOperation_LeftOperand)
+				} else  {
+					expectNumber(expr.leftOperand, DMX.dmxBinaryOperation_LeftOperand)
+					expectNumber(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
 				}
 			}
-			case SUBTRACT,
+			case SUBTRACT: {
+				val expectedType = getTypeAndCheckNotNull(expr, DMX.dmxBinaryOperation_LeftOperand)
+				if (expectedType != TIMEPOINT) {
+					expectNumber(expr.leftOperand, DMX.dmxBinaryOperation_LeftOperand)
+				} 
+				expectNumber(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
+			}
 			case MULTIPLY,
 			case DIVIDE,
 			case POWER,
@@ -257,17 +261,20 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 
 	@Check
 	def checkType(DmxAssignment expr) {
-		val leftType = getTypeAndCheckNotNull(expr, DMX.dmxAssignment_AssignToMember)
-		if (leftType.isCompatibleWith(TIMEPOINT)) {
+		val target = expr.assignToMember
+		val targetType = getTypeDescriptor(target.type, target.collection)
+		if (targetType.isCompatibleWith(TIMEPOINT)) {
 			// allow string literals as Timepoints 
-			expectTimepointValue(expr.value, leftType, DMX.dmxAssignment_Value)
+			expectTimepointValue(expr.value, targetType, DMX.dmxAssignment_Value)
 		} else if (expr.value instanceof DmxListExpression && (expr.value as DmxListExpression).elements.isEmpty) {
 			// support empty list as a value
 		} else {
 			// left and right types have to be compatible but no restriction on what kind of type
-			expectType(expr.value, leftType, DMX.dmxAssignment_Value)
+			expectType(expr.value, targetType, DMX.dmxAssignment_Value)
 		}
 	}
+	
+	// ------------------------------
 
 	protected def expectBoolean(DExpression expr, EReference ref) {
 		return expectType(expr, BOOLEAN, ref)

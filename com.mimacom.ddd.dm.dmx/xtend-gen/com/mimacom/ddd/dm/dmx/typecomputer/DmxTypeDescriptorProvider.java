@@ -28,6 +28,7 @@ import com.mimacom.ddd.dm.dmx.typecomputer.DmxVoidDescriptor;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.Extension;
 
 @Singleton
@@ -64,58 +65,65 @@ public class DmxTypeDescriptorProvider {
   public static final DmxBaseTypeDescriptor TIMEPOINT_COLLECTION = new DmxBaseTypeDescriptor(DmxBaseType.TIMEPOINT, true);
   
   public AbstractDmxTypeDescriptor<?> getTypeDescriptor(final Object obj, final boolean collection) {
-    AbstractDmxTypeDescriptor<?> _switchResult = null;
-    boolean _matched = false;
-    if (obj instanceof DmxBaseType) {
-      _matched=true;
-      _switchResult = this.getBaseTypeDescriptor(((DmxBaseType)obj), collection);
-    }
-    if (!_matched) {
-      if (obj instanceof DmxArchetype) {
-        _matched=true;
-        _switchResult = new DmxPrimitiveDescriptor(((DmxArchetype)obj), collection);
+    AbstractDmxTypeDescriptor<?> _xblockexpression = null;
+    {
+      if (((obj instanceof EObject) && ((EObject) obj).eIsProxy())) {
+        throw new IllegalStateException(("Unresolved EObject (system type?): " + obj));
       }
-    }
-    if (!_matched) {
-      if (obj instanceof DPrimitive) {
+      AbstractDmxTypeDescriptor<?> _switchResult = null;
+      boolean _matched = false;
+      if (obj instanceof DmxBaseType) {
         _matched=true;
-        _switchResult = new DmxPrimitiveDescriptor(((DPrimitive)obj), collection);
+        _switchResult = this.getBaseTypeDescriptor(((DmxBaseType)obj), collection);
       }
-    }
-    if (!_matched) {
-      if (obj instanceof DEnumeration) {
-        _matched=true;
-        _switchResult = new DmxEnumerationDescriptor(((DEnumeration)obj), collection);
+      if (!_matched) {
+        if (obj instanceof DmxArchetype) {
+          _matched=true;
+          _switchResult = new DmxPrimitiveDescriptor(((DmxArchetype)obj), collection);
+        }
       }
-    }
-    if (!_matched) {
-      if (obj instanceof DComplexType) {
-        _matched=true;
-        _switchResult = new DmxComplexTypeDescriptor(((DComplexType)obj), collection, this.util);
+      if (!_matched) {
+        if (obj instanceof DPrimitive) {
+          _matched=true;
+          _switchResult = new DmxPrimitiveDescriptor(((DPrimitive)obj), collection);
+        }
       }
-    }
-    if (!_matched) {
-      if (obj instanceof DState) {
-        _matched=true;
-        _switchResult = new DmxStateDescriptor(((DState)obj), collection);
+      if (!_matched) {
+        if (obj instanceof DEnumeration) {
+          _matched=true;
+          _switchResult = new DmxEnumerationDescriptor(((DEnumeration)obj), collection);
+        }
       }
-    }
-    if (!_matched) {
-      if (obj instanceof DAggregate) {
-        _matched=true;
-        _switchResult = new DmxAggregateDescriptor(((DAggregate)obj), collection);
+      if (!_matched) {
+        if (obj instanceof DComplexType) {
+          _matched=true;
+          _switchResult = new DmxComplexTypeDescriptor(((DComplexType)obj), collection, this.util);
+        }
       }
-    }
-    if (!_matched) {
-      if (obj instanceof DNotification) {
-        _matched=true;
-        _switchResult = new DmxNotificationDescriptor(((DNotification)obj), collection);
+      if (!_matched) {
+        if (obj instanceof DState) {
+          _matched=true;
+          _switchResult = new DmxStateDescriptor(((DState)obj), collection);
+        }
       }
+      if (!_matched) {
+        if (obj instanceof DAggregate) {
+          _matched=true;
+          _switchResult = new DmxAggregateDescriptor(((DAggregate)obj), collection);
+        }
+      }
+      if (!_matched) {
+        if (obj instanceof DNotification) {
+          _matched=true;
+          _switchResult = new DmxNotificationDescriptor(((DNotification)obj), collection);
+        }
+      }
+      if (!_matched) {
+        _switchResult = DmxTypeDescriptorProvider.UNDEFINED_TYPE;
+      }
+      _xblockexpression = _switchResult;
     }
-    if (!_matched) {
-      _switchResult = DmxTypeDescriptorProvider.UNDEFINED_TYPE;
-    }
-    return _switchResult;
+    return _xblockexpression;
   }
   
   public AbstractDmxTypeDescriptor<?> toFromCollection(final AbstractDmxTypeDescriptor<?> obj, final boolean collection) {

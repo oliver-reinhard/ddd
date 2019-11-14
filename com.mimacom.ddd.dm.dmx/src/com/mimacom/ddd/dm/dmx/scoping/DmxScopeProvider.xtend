@@ -36,7 +36,7 @@ import org.eclipse.xtext.scoping.Scopes
  * on how and when to use it.
  */
 class DmxScopeProvider extends AbstractDmxScopeProvider {
-	
+
 	@Inject extension DmxUtil
 	@Inject extension DmxTypeComputer
 	@Inject DmxIndex index
@@ -46,12 +46,12 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 
 	override IScope getScope(EObject context, EReference reference) {
 
-		 if (reference == DMX.dmxContextReference_Target) {
-		 	// This is classic scoping along the eContainer CONTAINMENT hiearchy:
+		if (reference == DMX.dmxContextReference_Target) {
+			// This is classic scoping along the eContainer CONTAINMENT hiearchy:
 			val outer = getDefaultScopeForType(context, BASE.IStaticReferenceTarget)
-			val scope = getEContainersNavigableMembersScopes(context, outer)	
+			val scope = getEContainersNavigableMembersScopes(context, outer)
 			return scope
-		
+
 		} else if (reference == DMX.dmxMemberNavigation_Member) {
 			// This is scoping along (the types of) a NAVIGATION expression tree: the members in scope are those
 			// of the preceding navigation segment:
@@ -65,16 +65,24 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 		} else if (reference == DMX.dmxAssignment_AssignToMember) {
 			if (context instanceof DmxAssignment) {
 				val preceding = context.precedingNavigationSegment
-				val typeDescriptor = preceding.typeFor
-				val scope = typeDescriptor.getNavigableMembersScope()  // exclude iterators
-				return scope
+				if (preceding !== null) {
+					val typeDescriptor = preceding.typeFor
+					val scope = typeDescriptor.getNavigableMembersScope() // exclude iterators
+					return scope
+				} else {
+					// This is not a member navigation but just a context reference => classic scoping along the eContainer CONTAINMENT hiearchy.
+					// HOWEVER, this is not a legal use of DmxAssignment => catch with a validation rule
+					val outer = getDefaultScopeForType(context, BASE.IStaticReferenceTarget)
+					val scope = getEContainersNavigableMembersScopes(context, outer)
+					return scope
+				}
 			} else if (context instanceof DmxMemberNavigation) {
 				val preceding = context.precedingNavigationSegment
 				val typeDescriptor = preceding.typeFor
 				val scope = typeDescriptor.getNavigableMembersScope() // exclude iterators
 				return scope
 			}
-			
+
 		} else if (reference == DMX.dmxStaticReference_Target) {
 			val scope = getDefaultScopeForType(context, BASE.IStaticReferenceTarget)
 			return scope
@@ -82,7 +90,7 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 		} else if (reference == DMX.dmxStaticReference_Member) {
 			if (context instanceof DmxStaticReference) {
 				val target = context.target
-				if (target instanceof INavigableMemberContainer ) {
+				if (target instanceof INavigableMemberContainer) {
 					val scope = getEContainerNavigableMembersScopeSwitch(target, IScope.NULLSCOPE)
 					return scope
 				}
@@ -96,7 +104,7 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 
 		return super.getScope(context, reference)
 	}
-	
+
 	/*
 	 * Obtains the default scope for the given reference, then narrows the result down to the given type.
 	 */
@@ -107,18 +115,18 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 		val scope = super.getScope(context, reference)
 		return scope
 	}
-	
+
 	/* Returns all DNavigableMember elements of the given navigation member element along the MODEL eContainer hierarchy. */
 	final protected def IScope getEContainersNavigableMembersScopes(EObject context, IScope outerScope) {
 		var scope = outerScope
 		var container = context.eContainer
-		
+
 		if (container === null) {
 			return scope
-		
+
 		} else if (container instanceof INavigableMemberContainer) {
 			scope = getEContainerNavigableMembersScopeSwitch(container, outerScope)
-		
+
 		} else if (container instanceof DmxCallArguments) {
 			if (container.arguments.contains(context)) {
 				// "move up" directly to the containing DmxMemberNavigation, don't use recursion:
@@ -131,7 +139,7 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 		}
 		return getEContainersNavigableMembersScopes(container, scope) // recursion
 	}
-	
+
 	/**
 	 * Overriders must ensure, that each type used as a discriminator in the switch statement implements  @INavigableMemberContainer, 
 	 * otherwise this method will never be invoked.<p>
@@ -145,7 +153,7 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 			DAggregate: Scopes.scopeFor(container.staticQueries, outerScope)
 			DDomainEvent: getDomainEventNavigableMemberScope(container, outerScope)
 			DmxPredicateWithCorrelationVariable: Scopes.scopeFor(Lists.newArrayList(container.correlationVariable), outerScope)
-			DmxTest: Scopes.scopeFor(container.context,  outerScope)
+			DmxTest: Scopes.scopeFor(container.context, outerScope)
 			default: outerScope
 		}
 		return scope
@@ -154,7 +162,7 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 	protected def IScope getDomainEventNavigableMemberScope(DDomainEvent event, IScope outerScope) {
 		val list = Lists.newArrayList()
 		list.addAll(event.context)
-		
+
 		if (event.trigger !== null) {
 			list.add(event.trigger)
 		}

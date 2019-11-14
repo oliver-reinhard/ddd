@@ -177,7 +177,8 @@ class DmxTypeComputer {
 			case GREATER_OR_EQUAL: BOOLEAN
 			case GREATER: BOOLEAN
 			//
-			case ADD: {
+			case ADD,
+			case SUBTRACT: {
 				// left type determines the type of the expression and the expected type(s) of the right operand:
 				val leftType = typeForAndCheckNotNull(expr.leftOperand)
 				return switch leftType.baseType {
@@ -186,7 +187,6 @@ class DmxTypeComputer {
 					default:  NUMBER
 				} 
 			}
-			case SUBTRACT: NUMBER
 			case MULTIPLY: NUMBER
 			case DIVIDE: NUMBER
 			case POWER: NUMBER
@@ -251,13 +251,7 @@ class DmxTypeComputer {
 	}
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxAssignment expr) { 
-		val member = expr.assignToMember
-		if (member instanceof DNavigableMember) {
-			return getTypeDescriptor(member.type, member.collection)
-
-		} else {
-			return getTypeDescriptor(member, member.collection)
-		}
+		return VOID
 	}
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxListExpression expr) {
