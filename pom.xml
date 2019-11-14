@@ -16,18 +16,28 @@
 
     <modules>
         <module>releng</module>
+        <!-- base -->
         <module>com.mimacom.ddd.dm.base</module>
+        <!-- util -->
+        <module>com.mimacom.ddd.util</module>
+        <!-- dmx -->
         <module>com.mimacom.ddd.dm.dmx</module>
         <module>com.mimacom.ddd.dm.dmx.ide</module>
         <module>com.mimacom.ddd.dm.dmx.tests</module>
         <module>com.mimacom.ddd.dm.dmx.ui</module>
         <module>com.mimacom.ddd.dm.dmx.ui.tests</module>
-        <module>com.mimacom.ddd.util</module>
+        <!-- dem -->
         <module>com.mimacom.ddd.dm.dem</module>
         <module>com.mimacom.ddd.dm.dem.ide</module>
         <module>com.mimacom.ddd.dm.dem.tests</module>
         <module>com.mimacom.ddd.dm.dem.ui</module>
         <module>com.mimacom.ddd.dm.dem.ui.tests</module>
+        <!-- dom -->
+        <module>com.mimacom.ddd.dm.dom</module>
+        <module>com.mimacom.ddd.dm.dom.ide</module>
+        <module>com.mimacom.ddd.dm.dom.tests</module>
+        <module>com.mimacom.ddd.dm.dom.ui</module>
+        <module>com.mimacom.ddd.dm.dom.ui.tests</module>
     </modules>
 
     <build>
