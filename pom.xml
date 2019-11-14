@@ -68,6 +68,8 @@
     <module>com.mimacom.ddd.sm.sus.tests</module>
     <module>com.mimacom.ddd.sm.sus.ui</module>
     <module>com.mimacom.ddd.sm.sus.ui.tests</module>
+    <!-- system -->
+    <module>com.mimacom.ddd.system</module>
   </modules>
 
   <build>
