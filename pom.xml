@@ -44,6 +44,12 @@
         <module>com.mimacom.ddd.dm.dim.tests</module>
         <module>com.mimacom.ddd.dm.dim.ui</module>
         <module>com.mimacom.ddd.dm.dim.ui.tests</module>
+        <!-- esm -->
+        <module>com.mimacom.ddd.dm.esm</module>
+        <module>com.mimacom.ddd.dm.esm.ide</module>
+        <module>com.mimacom.ddd.dm.esm.tests</module>
+        <module>com.mimacom.ddd.dm.esm.ui</module>
+        <module>com.mimacom.ddd.dm.esm.ui.tests</module>
     </modules>
 
     <build>
