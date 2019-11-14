@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-			<groupId>com.mimacom.ddd</groupId>
-			<artifactId>com.mimacom.ddd.tycho.parent</artifactId>
-			<version>0.1.0-SNAPSHOT</version>
-			<relativePath>/releng/com.mimacom.ddd.tycho.parent</relativePath>
+		<groupId>com.mimacom.ddd</groupId>
+		<artifactId>com.mimacom.ddd.tycho.plugin.parent</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+		<relativePath>../releng/com.mimacom.ddd.tycho.plugin.parent</relativePath>
 	</parent>
 
 	<artifactId>com.mimacom.ddd.dm.dmx.tests</artifactId>
