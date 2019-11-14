@@ -32,14 +32,14 @@ public class DemValidator extends AbstractDemValidator {
     final int countOtherwise = IterableExtensions.size(IterableExtensions.<DCaseConjunction>filter(caseConjunctions, _function));
     if ((countOtherwise == 1)) {
       for (int i = 0; (i < IterableExtensions.size(caseConjunctions)); i++) {
-        if ((((DCaseConjunction[])Conversions.unwrapArray(caseConjunctions, DCaseConjunction.class))[i].isOtherwise() && (i != (IterableExtensions.size(caseConjunctions) - 1)))) {
+        if (((((DCaseConjunction[])Conversions.unwrapArray(caseConjunctions, DCaseConjunction.class))[i]).isOtherwise() && (i != (IterableExtensions.size(caseConjunctions) - 1)))) {
           this.error("The \'otherwise\' clause must be last", ((EObject[])Conversions.unwrapArray(caseConjunctions, EObject.class))[i], DemValidator.BASE.getDNamedElement_Name());
         }
       }
     } else {
       if ((countOtherwise > 1)) {
         for (int i = 0; (i < IterableExtensions.size(caseConjunctions)); i++) {
-          boolean _isOtherwise = ((DCaseConjunction[])Conversions.unwrapArray(caseConjunctions, DCaseConjunction.class))[i].isOtherwise();
+          boolean _isOtherwise = (((DCaseConjunction[])Conversions.unwrapArray(caseConjunctions, DCaseConjunction.class))[i]).isOtherwise();
           if (_isOtherwise) {
             this.error("There can only be one \'otherwise\' clause ", ((EObject[])Conversions.unwrapArray(caseConjunctions, EObject.class))[i], DemValidator.BASE.getDNamedElement_Name());
           }

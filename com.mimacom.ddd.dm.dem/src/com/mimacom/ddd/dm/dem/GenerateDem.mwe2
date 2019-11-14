@@ -5,6 +5,9 @@ import org.eclipse.xtext.xtext.generator.model.project.*
 
 var rootPath = ".."
 var project="com.mimacom.ddd.dm.dem"
+var genModel="platform:/resource/${project}/model/dem.genmodel"
+var baseGenModel="platform:/resource/com.mimacom.ddd.dm.base/model/base.genmodel"
+var dmxGenModel="platform:/resource/com.mimacom.ddd.dm.dmx/model/dmx.genmodel"
 
 Workflow {
 	
@@ -33,7 +36,8 @@ Workflow {
 		language = StandardLanguage {
 			name = "${project}.Dem"
 			fileExtensions = "dem"
-			referencedResource = "platform:/resource/com.mimacom.ddd.dm.dmx/model/dmx.genmodel"
+			referencedResource =  "${baseGenModel}"
+			referencedResource =  "${dmxGenModel}"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 
