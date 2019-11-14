@@ -13,7 +13,7 @@
 	<artifactId>com.mimacom.ddd.dm.dem.ide</artifactId>
 	<packaging>eclipse-plugin</packaging>
 
-	<name>DEM IDE</name>
+	<name>DM DEM IDE</name>
 
 	<build>
 		<plugins>

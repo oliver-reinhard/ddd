@@ -13,7 +13,7 @@
 	<artifactId>com.mimacom.ddd.dm.dim.ide</artifactId>
 	<packaging>eclipse-plugin</packaging>
 
-	<name>DIM IDE</name>
+	<name>DM DIM IDE</name>
 
 	<build>
 		<plugins>

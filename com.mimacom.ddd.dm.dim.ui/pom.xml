@@ -13,7 +13,7 @@
 	<artifactId>com.mimacom.ddd.dm.dim.ui</artifactId>
 	<packaging>eclipse-plugin</packaging>
 
-	<name>DIM UI</name>
+	<name>DM DIM UI</name>
 
 	<build>
 		<plugins>

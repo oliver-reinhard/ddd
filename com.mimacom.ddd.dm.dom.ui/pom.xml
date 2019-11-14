@@ -13,7 +13,7 @@
 	<artifactId>com.mimacom.ddd.dm.dom.ui</artifactId>
 	<packaging>eclipse-plugin</packaging>
 
-	<name>DOM UI</name>
+	<name>DM DOM UI</name>
 
 	<build>
 		<plugins>

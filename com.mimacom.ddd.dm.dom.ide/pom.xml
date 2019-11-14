@@ -13,7 +13,7 @@
 	<artifactId>com.mimacom.ddd.dm.dom.ide</artifactId>
 	<packaging>eclipse-plugin</packaging>
 
-	<name>DOM IDE</name>
+	<name>DM DOM IDE</name>
 
 	<build>
 		<plugins>

@@ -12,7 +12,7 @@
 	<artifactId>com.mimacom.ddd.dm.dom.tests</artifactId>
 	<packaging>eclipse-test-plugin</packaging>
 
-	<name>DOM Tests</name>
+	<name>DM DOM Tests</name>
 
 	<build>
 		<plugins>

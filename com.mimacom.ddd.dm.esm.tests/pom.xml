@@ -12,7 +12,7 @@
 	<artifactId>com.mimacom.ddd.dm.esm.tests</artifactId>
 	<packaging>eclipse-test-plugin</packaging>
 
-	<name>ESM Tests</name>
+	<name>DM ESM Tests</name>
 
 	<build>
 		<plugins>

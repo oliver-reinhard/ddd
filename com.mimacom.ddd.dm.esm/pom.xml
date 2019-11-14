@@ -14,7 +14,7 @@
 	<artifactId>com.mimacom.ddd.dm.esm</artifactId>
 	<packaging>eclipse-plugin</packaging>
 
-	<name>ESM Core</name>
+	<name>DM ESM Core</name>
 
 
 	<build>

@@ -13,7 +13,7 @@
 	<artifactId>com.mimacom.ddd.dm.esm.ui</artifactId>
 	<packaging>eclipse-plugin</packaging>
 
-	<name>ESM UI</name>
+	<name>DM ESM UI</name>
 
 	<build>
 		<plugins>

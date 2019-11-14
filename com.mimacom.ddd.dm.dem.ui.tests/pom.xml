@@ -12,7 +12,7 @@
 	<artifactId>com.mimacom.ddd.dm.dem.ui.tests</artifactId>
 	<packaging>eclipse-test-plugin</packaging>
 
-	<name>DEM UI Tests</name>
+	<name>DM DEM UI Tests</name>
 
 	<build>
 		<plugins>

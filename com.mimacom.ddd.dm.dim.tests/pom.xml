@@ -12,7 +12,7 @@
 	<artifactId>com.mimacom.ddd.dm.dim.tests</artifactId>
 	<packaging>eclipse-test-plugin</packaging>
 
-	<name>DIM Tests</name>
+	<name>DM DIM Tests</name>
 
 	<build>
 		<plugins>
