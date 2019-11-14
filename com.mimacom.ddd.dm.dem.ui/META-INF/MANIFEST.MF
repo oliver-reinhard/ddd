@@ -36,12 +36,5 @@ Export-Package: com.mimacom.ddd.dm.dem.ui,
  com.mimacom.ddd.dm.dem.ui.plantuml,
  com.mimacom.ddd.dm.dem.ui.quickfix,
  com.mimacom.ddd.dm.dem.ui.wizard,
- com.mimacom.ddd.dm.dem.validation,
- com.mimacom.ddd.dm.dme.ui,
- com.mimacom.ddd.dm.dme.ui.contentassist,
- com.mimacom.ddd.dm.dme.ui.labeling,
- com.mimacom.ddd.dm.dme.ui.outline,
- com.mimacom.ddd.dm.dme.ui.plantuml,
- com.mimacom.ddd.dm.dme.ui.quickfix,
- com.mimacom.ddd.dm.dms.ui.plantuml
+ com.mimacom.ddd.dm.dem.validation
 Bundle-Activator: com.mimacom.ddd.dm.dem.ui.internal.DemActivator

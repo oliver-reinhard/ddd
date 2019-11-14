@@ -31,6 +31,5 @@ Export-Package: com.mimacom.ddd.dm.dim.ui,
  com.mimacom.ddd.dm.dim.ui.outline,
  com.mimacom.ddd.dm.dim.ui.plantuml,
  com.mimacom.ddd.dm.dim.ui.quickfix,
- com.mimacom.ddd.dm.dim.validation,
- com.mimacom.ddd.dm.dms.ui.plantuml
+ com.mimacom.ddd.dm.dim.validation
 Bundle-Activator: com.mimacom.ddd.dm.dim.ui.internal.DimActivator
