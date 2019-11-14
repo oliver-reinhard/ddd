@@ -62,6 +62,12 @@
     <module>com.mimacom.ddd.sm.asm.tests</module>
     <module>com.mimacom.ddd.sm.asm.ui</module>
     <module>com.mimacom.ddd.sm.asm.ui.tests</module>
+    <!-- sus -->
+    <module>com.mimacom.ddd.sm.sus</module>
+    <module>com.mimacom.ddd.sm.sus.ide</module>
+    <module>com.mimacom.ddd.sm.sus.tests</module>
+    <module>com.mimacom.ddd.sm.sus.ui</module>
+    <module>com.mimacom.ddd.sm.sus.ui.tests</module>
   </modules>
 
   <build>
