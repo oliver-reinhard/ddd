@@ -1,0 +1,23 @@
+domain D
+primitive P1 redefines Natural
+enumeration E1 { L1, L2 }
+detail A {
+	a0 : Text
+	a1 : Natural?
+	a2 : Natural
+	a3 : E1
+	a4 : Natural*
+	a5 : Timepoint
+	a6 : Boolean
+	a7 : A
+	detail b1 : B
+	detail b2 : B+
+	q0(): Natural
+	q1(p:P1) : Natural
+	q2(left:P1, right:P1) : Natural
+	q3() : B
+}
+detail B {
+	b1 : Natural
+	q5(p:P1) : Natural
+}

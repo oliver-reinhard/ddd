@@ -29,7 +29,6 @@ import org.eclipse.xtext.testing.util.ParseHelper;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -151,7 +150,7 @@ public class DmxTypeCheckingTest {
       _builder_3.append(_join_1);
       Assertions.assertTrue(_isEmpty_1, _builder_3.toString());
       final DmxNamespace result = this.dmxParseHelper.parse(input, resourceSet);
-      Assert.assertNotNull(result);
+      Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty_2 = errors.isEmpty();
       StringConcatenation _builder_4 = new StringConcatenation();

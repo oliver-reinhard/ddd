@@ -36,13 +36,11 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith(InjectionExtension.class)
 @InjectWith(DmxInjectorProvider.class)
-@Disabled("[releng] ClassCast exceptions in both tests")
 @SuppressWarnings("all")
 public class DmxScopingTest {
   @Inject

@@ -23,11 +23,9 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 
 import static org.junit.jupiter.api.Assertions.*
-import org.junit.jupiter.api.Disabled
 
 @ExtendWith(InjectionExtension)
 @InjectWith(DmxInjectorProvider)
-@Disabled("[releng] ClassCast exceptions in both tests")
 class DmxScopingTest {
 	@Inject extension ParseHelper<DDomain> parseHelper
 	@Inject extension IScopeProvider
