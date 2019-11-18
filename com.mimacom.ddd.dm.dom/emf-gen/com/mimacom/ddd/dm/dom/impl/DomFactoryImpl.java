@@ -67,8 +67,6 @@ public class DomFactoryImpl extends EFactoryImpl implements DomFactory
 		{
 			case DomPackage.DOM_MODEL: return createDomModel();
 			case DomPackage.DOM_SNAPSHOT: return createDomSnapshot();
-			case DomPackage.DOM_ENTITY: return createDomEntity();
-			case DomPackage.DOM_DETAIL: return createDomDetail();
 			case DomPackage.DOM_NAMED_COMPLEX_OBJECT: return createDomNamedComplexObject();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -97,30 +95,6 @@ public class DomFactoryImpl extends EFactoryImpl implements DomFactory
 	{
 		DomSnapshotImpl domSnapshot = new DomSnapshotImpl();
 		return domSnapshot;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DomEntity createDomEntity()
-	{
-		DomEntityImpl domEntity = new DomEntityImpl();
-		return domEntity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DomDetail createDomDetail()
-	{
-		DomDetailImpl domDetail = new DomDetailImpl();
-		return domDetail;
 	}
 
 	/**

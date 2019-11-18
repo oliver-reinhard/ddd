@@ -3,14 +3,10 @@
  */
 package com.mimacom.ddd.dm.dom.util;
 
-import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
-import com.mimacom.ddd.dm.base.IRichTextSegment;
-
-import com.mimacom.ddd.dm.dmx.DmxComplexObject;
 
 import com.mimacom.ddd.dm.dom.*;
 
@@ -107,30 +103,6 @@ public class DomSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DomPackage.DOM_ENTITY:
-			{
-				DomEntity domEntity = (DomEntity)theEObject;
-				T result = caseDomEntity(domEntity);
-				if (result == null) result = caseDmxComplexObject(domEntity);
-				if (result == null) result = caseINavigableMemberContainer(domEntity);
-				if (result == null) result = caseDExpression(domEntity);
-				if (result == null) result = caseINamespace(domEntity);
-				if (result == null) result = caseIRichTextSegment(domEntity);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DomPackage.DOM_DETAIL:
-			{
-				DomDetail domDetail = (DomDetail)theEObject;
-				T result = caseDomDetail(domDetail);
-				if (result == null) result = caseDmxComplexObject(domDetail);
-				if (result == null) result = caseINavigableMemberContainer(domDetail);
-				if (result == null) result = caseDExpression(domDetail);
-				if (result == null) result = caseINamespace(domDetail);
-				if (result == null) result = caseIRichTextSegment(domDetail);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case DomPackage.DOM_NAMED_COMPLEX_OBJECT:
 			{
 				DomNamedComplexObject domNamedComplexObject = (DomNamedComplexObject)theEObject;
@@ -189,38 +161,6 @@ public class DomSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDomObject(DomObject object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDomEntity(DomEntity object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Detail</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Detail</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDomDetail(DomDetail object)
 	{
 		return null;
 	}
@@ -301,54 +241,6 @@ public class DomSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDNavigableMember(DNavigableMember object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IRich Text Segment</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IRich Text Segment</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIRichTextSegment(IRichTextSegment object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DExpression</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DExpression</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDExpression(DExpression object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Complex Object</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Complex Object</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDmxComplexObject(DmxComplexObject object)
 	{
 		return null;
 	}

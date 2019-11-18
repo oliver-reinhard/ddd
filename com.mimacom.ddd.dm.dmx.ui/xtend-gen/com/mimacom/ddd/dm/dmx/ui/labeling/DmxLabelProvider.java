@@ -4,12 +4,15 @@
 package com.mimacom.ddd.dm.dmx.ui.labeling;
 
 import com.google.inject.Inject;
+import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation;
 import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral;
 import com.mimacom.ddd.dm.dmx.DmxCallArguments;
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral;
+import com.mimacom.ddd.dm.dmx.DmxDetail;
+import com.mimacom.ddd.dm.dmx.DmxEntity;
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral;
 import com.mimacom.ddd.dm.dmx.DmxStringLiteral;
 import com.mimacom.ddd.dm.dmx.DmxUnaryOperation;
@@ -84,6 +87,24 @@ public class DmxLabelProvider extends DefaultEObjectLabelProvider {
   
   public String text(final DmxUndefinedLiteral e) {
     return this.simpleName(e);
+  }
+  
+  public String text(final DmxEntity e) {
+    DComplexType _type = e.getType();
+    String _name = null;
+    if (_type!=null) {
+      _name=_type.getName();
+    }
+    return ("Entity " + _name);
+  }
+  
+  public String text(final DmxDetail d) {
+    DComplexType _type = d.getType();
+    String _name = null;
+    if (_type!=null) {
+      _name=_type.getName();
+    }
+    return ("Detail " + _name);
   }
   
   public String text(final DmxCallArguments d) {

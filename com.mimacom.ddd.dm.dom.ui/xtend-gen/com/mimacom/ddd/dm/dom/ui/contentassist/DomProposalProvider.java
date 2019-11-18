@@ -43,6 +43,8 @@ public class DomProposalProvider extends AbstractDomProposalProvider {
   @Inject
   private DmxTypeDescriptorProvider typeDescriptorProvider;
   
+  private static int idCurrent = 1;
+  
   @Override
   public void complete_DmxField(final EObject model, final RuleCall ruleCall, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     super.complete_DmxField(model, ruleCall, context, acceptor);
@@ -175,7 +177,7 @@ public class DomProposalProvider extends AbstractDomProposalProvider {
               _switchResult = (_plus + _name_1);
               break;
             case IDENTIFIER:
-              _switchResult = "someId";
+              _switchResult = this.nextId();
               break;
             case NUMBER:
               _switchResult = "1";
@@ -206,5 +208,10 @@ public class DomProposalProvider extends AbstractDomProposalProvider {
       _xifexpression = _xblockexpression;
     }
     return _xifexpression;
+  }
+  
+  public String nextId() {
+    DomProposalProvider.idCurrent++;
+    return Integer.toString(DomProposalProvider.idCurrent);
   }
 }

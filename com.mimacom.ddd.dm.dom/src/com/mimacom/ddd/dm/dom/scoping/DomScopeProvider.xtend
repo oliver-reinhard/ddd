@@ -3,19 +3,9 @@
  */
 package com.mimacom.ddd.dm.dom.scoping
 
-import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.BasePackage
-import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.INavigableMemberContainer
 import com.mimacom.ddd.dm.dmx.DmxComplexObject
-import com.mimacom.ddd.dm.dmx.DmxField
-import com.mimacom.ddd.dm.dmx.DmxPackage
-import com.mimacom.ddd.dm.dom.DomDetail
-import com.mimacom.ddd.dm.dom.DomEntity
 import com.mimacom.ddd.dm.dom.DomSnapshot
-import com.mimacom.ddd.dm.dom.DomUtil
-import org.eclipse.emf.ecore.EObject
-import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
 
@@ -27,40 +17,12 @@ import org.eclipse.xtext.scoping.Scopes
  */
 class DomScopeProvider extends AbstractDomScopeProvider {
 	
-	@Inject extension DomUtil util
-	
-	static val BASE = BasePackage.eINSTANCE
-	 static val DMX = DmxPackage.eINSTANCE
-
-	override getScope(EObject context, EReference reference) {
-		
-		if (reference == DMX.dmxField_Feature) {
-			if (context instanceof DmxField) {
-				val container = context.eContainer
-				if (container instanceof DmxComplexObject) {
-					if (container.type instanceof DComplexType) {
-						return Scopes.scopeFor(container.type.allFeatures)
-					}
-				}
-			}
-		} else if (reference == DMX.dmxComplexObject_Type) {
-			if (context instanceof DmxComplexObject) {
-				val scope = switch context {
-					DomEntity: getDefaultScopeForType(context, BASE.DEntityType)
-					DomDetail: getDefaultScopeForType(context, BASE.DDetailType)
-					default: super.getScope(context, reference)
-				}
-				return scope
-			}
-		}
-		return super.getScope(context, reference)
-	}
-	
 	override protected getEContainerNavigableMembersScopeSwitch(INavigableMemberContainer container, IScope outerScope) {
 		val scope = switch container {
 			DomSnapshot: Scopes.scopeFor(container.objects, outerScope)
 			DmxComplexObject: Scopes.scopeFor(container.fields, outerScope)
 			default: super.getEContainerNavigableMembersScopeSwitch(container, outerScope)
+//			default: outerScope
 		}
 		return scope
 	}

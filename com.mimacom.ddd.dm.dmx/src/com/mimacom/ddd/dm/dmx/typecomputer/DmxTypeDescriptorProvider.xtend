@@ -22,7 +22,8 @@ class DmxTypeDescriptorProvider {
 	@Inject extension DmxUtil util
 	
 	public static val VOID = new DmxVoidDescriptor
-	public static val UNDEFINED_TYPE = new DmxUndefinedDescriptor
+	public static val UNDEFINED_TYPE = new DmxUndefinedDescriptor(false)
+	public static val UNDEFINED_TYPE_COLLECTION = new DmxUndefinedDescriptor(true)
 	public static val AMBIGUOUS_TYPE = new DmxAmbiguousDescriptor
 	public static val BOOLEAN = new DmxBaseTypeDescriptor(DmxBaseType.BOOLEAN, false)
 	public static val BOOLEAN_COLLECTION = new DmxBaseTypeDescriptor(DmxBaseType.BOOLEAN, true)
@@ -38,7 +39,8 @@ class DmxTypeDescriptorProvider {
 
 	def AbstractDmxTypeDescriptor<?> getTypeDescriptor(Object obj, boolean collection) {
 		if (obj instanceof EObject && (obj as EObject).eIsProxy) {
-			throw new IllegalStateException("Unresolved EObject (system type?): " + obj)
+//			throw new IllegalStateException("Unresolved EObject (system type?): " + obj)
+			return DmxTypeDescriptorProvider.UNDEFINED_TYPE
 		}
 		switch obj {
 			DmxBaseType: getBaseTypeDescriptor(obj, collection)

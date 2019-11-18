@@ -7,8 +7,6 @@ import com.mimacom.ddd.dm.base.BasePackage;
 
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 
-import com.mimacom.ddd.dm.dom.DomDetail;
-import com.mimacom.ddd.dm.dom.DomEntity;
 import com.mimacom.ddd.dm.dom.DomFactory;
 import com.mimacom.ddd.dm.dom.DomModel;
 import com.mimacom.ddd.dm.dom.DomNamedComplexObject;
@@ -51,20 +49,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * @generated
 	 */
 	private EClass domObjectEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass domEntityEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass domDetailEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -234,28 +218,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDomEntity()
-	{
-		return domEntityEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDomDetail()
-	{
-		return domDetailEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getDomNamedComplexObject()
 	{
 		return domNamedComplexObjectEClass;
@@ -314,10 +276,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 
 		domObjectEClass = createEClass(DOM_OBJECT);
 
-		domEntityEClass = createEClass(DOM_ENTITY);
-
-		domDetailEClass = createEClass(DOM_DETAIL);
-
 		domNamedComplexObjectEClass = createEClass(DOM_NAMED_COMPLEX_OBJECT);
 		createEReference(domNamedComplexObjectEClass, DOM_NAMED_COMPLEX_OBJECT__OBJECT);
 	}
@@ -357,8 +315,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 		// Add supertypes to classes
 		domSnapshotEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
 		domObjectEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
-		domEntityEClass.getESuperTypes().add(theDmxPackage.getDmxComplexObject());
-		domDetailEClass.getESuperTypes().add(theDmxPackage.getDmxComplexObject());
 		domNamedComplexObjectEClass.getESuperTypes().add(this.getDomObject());
 
 		// Initialize classes and features; add operations and parameters
@@ -372,10 +328,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 		initEReference(getDomSnapshot_Objects(), this.getDomObject(), null, "objects", null, 0, -1, DomSnapshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(domObjectEClass, DomObject.class, "DomObject", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(domEntityEClass, DomEntity.class, "DomEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(domDetailEClass, DomDetail.class, "DomDetail", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(domNamedComplexObjectEClass, DomNamedComplexObject.class, "DomNamedComplexObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDomNamedComplexObject_Object(), theDmxPackage.getDmxComplexObject(), null, "object", null, 0, 1, DomNamedComplexObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -3,24 +3,12 @@
  */
 package com.mimacom.ddd.dm.dom.scoping;
 
-import com.google.common.base.Objects;
-import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.dmx.DmxComplexObject;
-import com.mimacom.ddd.dm.dmx.DmxField;
-import com.mimacom.ddd.dm.dmx.DmxPackage;
-import com.mimacom.ddd.dm.dom.DomDetail;
-import com.mimacom.ddd.dm.dom.DomEntity;
 import com.mimacom.ddd.dm.dom.DomSnapshot;
-import com.mimacom.ddd.dm.dom.DomUtil;
 import com.mimacom.ddd.dm.dom.scoping.AbstractDomScopeProvider;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
-import org.eclipse.xtext.xbase.lib.Extension;
 
 /**
  * This class contains custom scoping description.
@@ -30,56 +18,6 @@ import org.eclipse.xtext.xbase.lib.Extension;
  */
 @SuppressWarnings("all")
 public class DomScopeProvider extends AbstractDomScopeProvider {
-  @Inject
-  @Extension
-  private DomUtil util;
-  
-  private static final BasePackage BASE = BasePackage.eINSTANCE;
-  
-  private static final DmxPackage DMX = DmxPackage.eINSTANCE;
-  
-  @Override
-  public IScope getScope(final EObject context, final EReference reference) {
-    EReference _dmxField_Feature = DomScopeProvider.DMX.getDmxField_Feature();
-    boolean _equals = Objects.equal(reference, _dmxField_Feature);
-    if (_equals) {
-      if ((context instanceof DmxField)) {
-        final EObject container = ((DmxField)context).eContainer();
-        if ((container instanceof DmxComplexObject)) {
-          DComplexType _type = ((DmxComplexObject)container).getType();
-          if ((_type instanceof DComplexType)) {
-            return Scopes.scopeFor(this.util.allFeatures(((DmxComplexObject)container).getType()));
-          }
-        }
-      }
-    } else {
-      EReference _dmxComplexObject_Type = DomScopeProvider.DMX.getDmxComplexObject_Type();
-      boolean _equals_1 = Objects.equal(reference, _dmxComplexObject_Type);
-      if (_equals_1) {
-        if ((context instanceof DmxComplexObject)) {
-          IScope _switchResult = null;
-          boolean _matched = false;
-          if (context instanceof DomEntity) {
-            _matched=true;
-            _switchResult = this.getDefaultScopeForType(context, DomScopeProvider.BASE.getDEntityType());
-          }
-          if (!_matched) {
-            if (context instanceof DomDetail) {
-              _matched=true;
-              _switchResult = this.getDefaultScopeForType(context, DomScopeProvider.BASE.getDDetailType());
-            }
-          }
-          if (!_matched) {
-            _switchResult = super.getScope(context, reference);
-          }
-          final IScope scope = _switchResult;
-          return scope;
-        }
-      }
-    }
-    return super.getScope(context, reference);
-  }
-  
   @Override
   protected IScope getEContainerNavigableMembersScopeSwitch(final INavigableMemberContainer container, final IScope outerScope) {
     IScope _switchResult = null;

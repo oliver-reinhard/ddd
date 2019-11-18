@@ -18,7 +18,6 @@ import com.mimacom.ddd.dm.dmx.DmxBinaryOperation
 import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral
 import com.mimacom.ddd.dm.dmx.DmxCastExpression
 import com.mimacom.ddd.dm.dmx.DmxComplexObject
-import com.mimacom.ddd.dm.dmx.DmxConstructorCall
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral
@@ -105,11 +104,11 @@ class DmxTypeComputer {
 	}
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxContextReference expr) {
-		return typeForSwitch(expr)
+		return typeForContextReferenceSwitch(expr)
 	}
 		
 	/* Non-dispatching; use to override */
-	def AbstractDmxTypeDescriptor<?> typeForSwitch(DmxContextReference expr) {
+	def AbstractDmxTypeDescriptor<?> typeForContextReferenceSwitch(DmxContextReference expr) {
 		val target = expr.target
 
 		if (target instanceof DContext) {
@@ -127,10 +126,9 @@ class DmxTypeComputer {
 
 		} else if (target instanceof DNavigableMember) {
 			return getTypeDescriptor(target.type, expr.all)
-
-		} else {
-			return getTypeDescriptor(target, expr.all)
 		}
+		
+		return getTypeDescriptor(target, expr.all)
 	}
 
 	def  dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxCorrelationVariable target) {
@@ -255,7 +253,7 @@ class DmxTypeComputer {
 	}
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxListExpression expr) {
-		if (expr.elements.empty) return UNDEFINED_TYPE
+		if (expr.elements.empty) return UNDEFINED_TYPE_COLLECTION
 		val typeDescs = Sets.newHashSet
 		for (e : expr.elements) {
 			typeDescs.add(typeForAndCheckNotNull(e))
@@ -265,10 +263,6 @@ class DmxTypeComputer {
 			return result
 		}
 		return AMBIGUOUS_TYPE
-	}
-
-	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxConstructorCall expr) {
-		getTypeDescriptor(expr.constructor, false)
 	}
 
 	def dispatch AbstractDmxTypeDescriptor<?> typeFor(DmxIfExpression expr) {

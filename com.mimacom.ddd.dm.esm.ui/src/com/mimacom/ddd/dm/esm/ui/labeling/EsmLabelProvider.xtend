@@ -4,15 +4,15 @@
 package com.mimacom.ddd.dm.esm.ui.labeling
 
 import com.google.inject.Inject
+import com.mimacom.ddd.dm.dmx.ui.labeling.DmxLabelProvider
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
-import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 
 /**
  * Provides labels for EObjects.
  * 
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#label-provider
  */
-class EsmLabelProvider extends DefaultEObjectLabelProvider {
+class EsmLabelProvider extends DmxLabelProvider {
 
 	@Inject
 	new(AdapterFactoryLabelProvider delegate) {

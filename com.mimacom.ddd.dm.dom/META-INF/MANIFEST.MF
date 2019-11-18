@@ -22,7 +22,9 @@ Require-Bundle: com.mimacom.ddd.dm.base;visibility:=reexport,
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.mimacom.ddd.dm.dim,
+ com.mimacom.ddd.dm.dmx.evaluator,
  com.mimacom.ddd.dm.dom,
+ com.mimacom.ddd.dm.dom.evaluator,
  com.mimacom.ddd.dm.dom.formatting2,
  com.mimacom.ddd.dm.dom.generator,
  com.mimacom.ddd.dm.dom.impl,

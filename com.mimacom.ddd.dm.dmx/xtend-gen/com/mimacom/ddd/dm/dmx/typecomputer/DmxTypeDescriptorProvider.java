@@ -40,7 +40,9 @@ public class DmxTypeDescriptorProvider {
   
   public static final DmxVoidDescriptor VOID = new DmxVoidDescriptor();
   
-  public static final DmxUndefinedDescriptor UNDEFINED_TYPE = new DmxUndefinedDescriptor();
+  public static final DmxUndefinedDescriptor UNDEFINED_TYPE = new DmxUndefinedDescriptor(false);
+  
+  public static final DmxUndefinedDescriptor UNDEFINED_TYPE_COLLECTION = new DmxUndefinedDescriptor(true);
   
   public static final DmxAmbiguousDescriptor AMBIGUOUS_TYPE = new DmxAmbiguousDescriptor();
   
@@ -68,7 +70,7 @@ public class DmxTypeDescriptorProvider {
     AbstractDmxTypeDescriptor<?> _xblockexpression = null;
     {
       if (((obj instanceof EObject) && ((EObject) obj).eIsProxy())) {
-        throw new IllegalStateException(("Unresolved EObject (system type?): " + obj));
+        return DmxTypeDescriptorProvider.UNDEFINED_TYPE;
       }
       AbstractDmxTypeDescriptor<?> _switchResult = null;
       boolean _matched = false;

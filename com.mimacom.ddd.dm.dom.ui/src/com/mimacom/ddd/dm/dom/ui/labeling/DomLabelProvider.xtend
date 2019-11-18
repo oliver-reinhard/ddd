@@ -5,19 +5,17 @@ package com.mimacom.ddd.dm.dom.ui.labeling
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.dmx.DmxField
-import com.mimacom.ddd.dm.dom.DomDetail
-import com.mimacom.ddd.dm.dom.DomEntity
+import com.mimacom.ddd.dm.dmx.ui.labeling.DmxLabelProvider
 import com.mimacom.ddd.dm.dom.DomNamedComplexObject
 import com.mimacom.ddd.dm.dom.DomUtil
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
-import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 
 /**
  * Provides labels for EObjects.
  * 
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#label-provider
  */
-class DomLabelProvider extends DefaultEObjectLabelProvider {
+class DomLabelProvider extends DmxLabelProvider {
 
 	@Inject extension DomUtil
 	
@@ -32,14 +30,6 @@ class DomLabelProvider extends DefaultEObjectLabelProvider {
 	
 	def text(DmxField f) {
 		return f.label
-	}
-	
-	def text(DomEntity e) {
-		return"Entity " + e.type?.name
-	}
-	
-	def text(DomDetail d) {
-		return"Detail " + d.type?.name
 	}
 	
 //

@@ -24,8 +24,12 @@ Require-Bundle: com.mimacom.ddd.dm.dmx.ui;visibility:=reexport,
  org.eclipse.ui.forms
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: com.mimacom.ddd.sm.sus.ui.internal,
- com.mimacom.ddd.sm.sus.ui.quickfix,
+Export-Package: com.mimacom.ddd.sm.sus.ui,
  com.mimacom.ddd.sm.sus.ui.contentassist,
- com.mimacom.ddd.sm.sus.ui.wizard
+ com.mimacom.ddd.sm.sus.ui.internal,
+ com.mimacom.ddd.sm.sus.ui.labeling,
+ com.mimacom.ddd.sm.sus.ui.outline,
+ com.mimacom.ddd.sm.sus.ui.quickfix,
+ com.mimacom.ddd.sm.sus.ui.wizard,
+ com.mimacom.ddd.sm.sus.validation
 Bundle-Activator: com.mimacom.ddd.sm.sus.ui.internal.SusActivator

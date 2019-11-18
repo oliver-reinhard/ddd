@@ -1,38 +1,54 @@
 package com.mimacom.ddd.dm.dmx.evaluator
 
+import com.google.common.collect.Lists
 import com.google.inject.Inject
 import com.google.inject.Singleton
+import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DExpression
+import com.mimacom.ddd.dm.base.DLiteral
+import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DState
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation
 import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral
 import com.mimacom.ddd.dm.dmx.DmxCastExpression
+import com.mimacom.ddd.dm.dmx.DmxComplexObject
+import com.mimacom.ddd.dm.dmx.DmxContextReference
+import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable
 import com.mimacom.ddd.dm.dmx.DmxDateLiteral
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral
+import com.mimacom.ddd.dm.dmx.DmxField
+import com.mimacom.ddd.dm.dmx.DmxFilter
 import com.mimacom.ddd.dm.dmx.DmxInstanceOfExpression
+import com.mimacom.ddd.dm.dmx.DmxListExpression
+import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DmxNaturalLiteral
 import com.mimacom.ddd.dm.dmx.DmxStringLiteral
+import com.mimacom.ddd.dm.dmx.DmxTestContext
 import com.mimacom.ddd.dm.dmx.DmxUnaryOperation
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral
+import com.mimacom.ddd.dm.dmx.DmxUtil
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider
 import java.math.BigDecimal
 import java.util.Date
 import java.util.List
+import com.mimacom.ddd.dm.base.DAssociation
 
 @Singleton
 class DmxExpressionEvaluator {
 
 	@Inject extension DmxTypeDescriptorProvider
 	@Inject extension DmxTypeComputer
-//	@Inject extension DmxUtil util
+	@Inject extension DmxUtil util
 
-	public static final String UNDEFINED_VALUE = "UNDEFINED"
+	public static val UNDEFINED_VALUE = new DmxUndefinedValue
 	
-//	def dispatch Object valueFor(DmxMemberNavigation expr) {
-//		val member = expr.member
-//
-//		if (member instanceof DmxFilter) {
+	def dispatch Object valueFor(DmxMemberNavigation expr) {
+		val preceding = expr.precedingNavigationSegment
+		val precedingValue = preceding.valueFor
+		val member = expr.member
+
+		if (member instanceof DmxFilter) {
 //			val returnType = member.typeDesc
 //			if (returnType.isCompatible(DmxBaseType.COMPLEX /* ignore collection property */ ) || member.typeDesc.isMultiTyped) {
 ////				// propagate type from preceding navigation segment: (this may differ from the actually decared type of the first parameter)
@@ -52,12 +68,12 @@ class DmxExpressionEvaluator {
 //						} else if (i-1 < actualParameters.size) {  // -1 because first parameter value is implicit (navigation chain)
 //							 paramActualType = typeForAndCheckNotNull(actualParameters.get(i-1))// recursion
 //						} else {
-//							return UNDEFINED_TYPE
+//							return UNDEFINED_VALUE
 //						}
 //						if (paramDeclaredType.isCompatible(paramActualType.baseType,  paramActualType.collection)) {
 //							return getTypeDescriptor(paramActualType.type, returnType.collection)
 //						}
-//						return UNDEFINED_TYPE
+//						return UNDEFINED_VALUE
 //					}
 //				}
 //
@@ -72,22 +88,58 @@ class DmxExpressionEvaluator {
 //						return getTypeDescriptor(precedingType.states.get(0), false)
 //					}
 //				}
-//				return UNDEFINED_TYPE
+//				return UNDEFINED_VALUE
 //				
 //			} else {
 //				return getTypeDescriptor(member.typeDesc.single, member.typeDesc.collection)
 //			}
-//
-//		} else if (member instanceof DLiteral) {
-//			// Type of a literal is always null => its type is its containing DEnumeration
-//			return getTypeDescriptor(member.eContainer, member.isCollection)
-//			
-//		} else if (member instanceof DState) {
-//			return member
-//		}
-//		return getTypeDescriptor(member.type, member.isCollection)
-//	}
 
+		} else if (member instanceof DAttribute && precedingValue instanceof DmxComplexObject) {
+			val DmxField f = (precedingValue as DmxComplexObject).field(member as DAttribute)
+			if (f?.value !== null) {
+				return f.value.valueFor
+			}
+
+		} else if (member instanceof DAssociation && precedingValue instanceof DmxComplexObject) {
+			val DmxField f = (precedingValue as DmxComplexObject).field(member as DAssociation)
+			if (f?.value !== null) {
+				return f.value.valueFor
+			}
+
+		} else if (member instanceof DQuery && precedingValue instanceof DmxComplexObject) {
+			return member
+
+		} else if (member instanceof DLiteral) {
+			return member
+			
+		} else if (member instanceof DState) {
+			return member
+		}
+//		return getTypeDescriptor(member.type, member.isCollection)
+		return UNDEFINED_VALUE
+	}
+
+	def dispatch Object valueFor(DmxContextReference expr) {
+		return valueForContextReferenceSwitch(expr)
+	}
+		
+	/* Non-dispatching; use to override */
+	def Object valueForContextReferenceSwitch(DmxContextReference expr) {
+		val target = expr.target
+
+		if (target instanceof DmxCorrelationVariable) {
+			return UNDEFINED_VALUE
+
+		} else if (target instanceof DmxTestContext) {
+			if (target.value !== null) {
+				return target.value.valueFor
+			}
+		} 
+		
+		return UNDEFINED_VALUE
+	}
+
+	// Literal expressions
 	def dispatch Object valueFor(DExpression e) {
 		switch (e) {
 			DmxBooleanLiteral: e.value
@@ -96,7 +148,19 @@ class DmxExpressionEvaluator {
 			DmxDecimalLiteral: new BigDecimal(e.value)
 			DmxDateLiteral: e.value
 			DmxUndefinedLiteral: UNDEFINED_VALUE
+			DmxComplexObject: e
+			default: UNDEFINED_VALUE
 		}
+	}
+	
+	
+	def dispatch Object valueFor(DmxListExpression e) {
+		val list = Lists.newArrayList()
+		for (elem : e.elements) {
+			val value = elem.valueFor
+			list.add(value)
+		}
+		return list
 	}
 
 	def dispatch Object valueFor(DmxBinaryOperation expr) {
@@ -137,6 +201,13 @@ class DmxExpressionEvaluator {
 				case POWER: left.pow(right.intValue)
 				case MODULO: left.remainder(right)
 				//
+				case EQUAL: left == right
+				case NOT_EQUAL: left != right
+				case LESS: left < right
+				case LESS_OR_EQUAL: left <= right
+				case GREATER_OR_EQUAL: left >= right
+				case GREATER: left > right
+				//
 				case UNTIL: UNDEFINED_VALUE
 				case SINGLE_ARROW: UNDEFINED_VALUE
 				//
@@ -151,16 +222,28 @@ class DmxExpressionEvaluator {
 			val value = switch expr.operator {
 				case ADD: left + right
 				//
+				case EQUAL: left == right
+				case NOT_EQUAL: left != right
+				case LESS: left < right
+				case LESS_OR_EQUAL: left <= right
+				case GREATER_OR_EQUAL: left >= right
+				case GREATER: left > right
+				//
 				default: throw new IllegalArgumentException(expr.operator.literal)
 			}
 			return value
 
-		} else if (leftValue instanceof DState && rightValue instanceof DState) {
-			val left = leftValue as DState
-			val right = rightValue as DState
+		} else if (leftValue instanceof Date && rightValue instanceof Date) {
+			val left = leftValue as Date
+			val right = rightValue as Date
 
 			val value = switch expr.operator {
 				case EQUAL: left == right
+				case NOT_EQUAL: left != right
+				case LESS: left < right
+				case LESS_OR_EQUAL: left <= right
+				case GREATER_OR_EQUAL: left >= right
+				case GREATER: left > right
 				//
 				default: throw new IllegalArgumentException(expr.operator.literal)
 			}
@@ -172,7 +255,45 @@ class DmxExpressionEvaluator {
 
 			val value = switch expr.operator {
 				case ADD: new Date(left.time + right.intValue)
+				case SUBTRACT: new Date(left.time + right.intValue)
 				default: throw new IllegalArgumentException(expr.operator.literal)
+			}
+			return value
+
+		} else if (leftValue instanceof DState && rightValue instanceof DState) {
+			val left = leftValue as DState
+			val right = rightValue as DState
+
+			val value = switch expr.operator {
+				case EQUAL: left == right
+				case NOT_EQUAL: left != right
+				//
+				default: throw new IllegalArgumentException(expr.operator.literal)
+			}
+			return value
+
+		} else if (leftValue instanceof DLiteral && rightValue instanceof DLiteral) {
+			val left = leftValue as DLiteral
+			val right = rightValue as DLiteral
+
+			val value = switch expr.operator {
+				case EQUAL: left == right
+				case NOT_EQUAL: left != right
+				//
+				default: throw new IllegalArgumentException(expr.operator.literal)
+			}
+			return value
+
+		} else if (leftValue instanceof List<?> && rightValue instanceof List<?>) {
+			val left = leftValue as List<?>
+			val right = rightValue as List<?>
+
+			val value = switch expr.operator {
+				case EQUAL: left == right
+				case NOT_EQUAL: left != right
+				//
+				default:
+					throw new IllegalArgumentException(expr.operator.literal)
 			}
 			return value
 
@@ -215,14 +336,14 @@ class DmxExpressionEvaluator {
 		return UNDEFINED_VALUE
 	}
 
-	// Return Boolean
+	// Returns Boolean
 	def dispatch Object valueFor(DmxInstanceOfExpression expr) {
 		val exprTypeDesc = typeForAndCheckNotNull(expr.expression)
 		val otherTypeDesc = getTypeDescriptor(expr.type, false)
 		return exprTypeDesc.isCompatibleWith(otherTypeDesc)
 	}
 
-	private def Object valueForAndCheckNotNull(DExpression expr) {
+	protected def Object valueForAndCheckNotNull(DExpression expr) {
 		val value = expr?.valueFor
 		if (value === null) {
 			return UNDEFINED_VALUE

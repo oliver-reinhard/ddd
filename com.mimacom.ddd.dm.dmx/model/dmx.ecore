@@ -13,9 +13,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="DmxTest" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//INavigableMemberContainer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="context" upperBound="-1"
-        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DContext"
-        containment="true"/>
+        eType="#//DmxTestContext" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DmxTestContext" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DContext">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DmxBaseType">
@@ -104,13 +107,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DmxFunctionCall" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="function" eType="#//DmxFilter"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="callArguments" eType="#//DmxCallArguments"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DmxConstructorCall" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="constructor" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DComplexType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="explicitConstructorCall"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="callArguments" eType="#//DmxCallArguments"
         containment="true"/>
   </eClassifiers>
@@ -212,4 +208,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DExpression"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DmxEntity" eSuperTypes="#//DmxComplexObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DmxDetail" eSuperTypes="#//DmxComplexObject"/>
 </ecore:EPackage>

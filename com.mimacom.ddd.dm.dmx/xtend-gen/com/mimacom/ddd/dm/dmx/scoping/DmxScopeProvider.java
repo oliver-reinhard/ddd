@@ -19,7 +19,11 @@ import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.dmx.DmxAssignment;
 import com.mimacom.ddd.dm.dmx.DmxCallArguments;
+import com.mimacom.ddd.dm.dmx.DmxComplexObject;
 import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable;
+import com.mimacom.ddd.dm.dmx.DmxDetail;
+import com.mimacom.ddd.dm.dmx.DmxEntity;
+import com.mimacom.ddd.dm.dmx.DmxField;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
@@ -129,6 +133,44 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
                 final List<DmxFilter> allFilters = this.index.allVisibleFilters(context);
                 final IScope scope_7 = Scopes.scopeFor(allFilters, super.getScope(context, reference));
                 return scope_7;
+              } else {
+                EReference _dmxField_Feature = DmxScopeProvider.DMX.getDmxField_Feature();
+                boolean _equals_6 = Objects.equal(reference, _dmxField_Feature);
+                if (_equals_6) {
+                  if ((context instanceof DmxField)) {
+                    final EObject container = ((DmxField)context).eContainer();
+                    if ((container instanceof DmxComplexObject)) {
+                      DComplexType _type = ((DmxComplexObject)container).getType();
+                      if ((_type instanceof DComplexType)) {
+                        return Scopes.scopeFor(this._dmxUtil.allFeatures(((DmxComplexObject)container).getType()));
+                      }
+                    }
+                  }
+                } else {
+                  EReference _dmxComplexObject_Type = DmxScopeProvider.DMX.getDmxComplexObject_Type();
+                  boolean _equals_7 = Objects.equal(reference, _dmxComplexObject_Type);
+                  if (_equals_7) {
+                    if ((context instanceof DmxComplexObject)) {
+                      IScope _switchResult = null;
+                      boolean _matched = false;
+                      if (context instanceof DmxEntity) {
+                        _matched=true;
+                        _switchResult = this.getDefaultScopeForType(context, DmxScopeProvider.BASE.getDEntityType());
+                      }
+                      if (!_matched) {
+                        if (context instanceof DmxDetail) {
+                          _matched=true;
+                          _switchResult = this.getDefaultScopeForType(context, DmxScopeProvider.BASE.getDDetailType());
+                        }
+                      }
+                      if (!_matched) {
+                        _switchResult = super.getScope(context, reference);
+                      }
+                      final IScope scope_8 = _switchResult;
+                      return scope_8;
+                    }
+                  }
+                }
               }
             }
           }

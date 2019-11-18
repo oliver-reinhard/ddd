@@ -29,7 +29,6 @@ import org.eclipse.xtext.testing.util.ParseHelper;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -151,7 +150,7 @@ public class DmxTypeCheckingTest {
       _builder_3.append(_join_1);
       Assertions.assertTrue(_isEmpty_1, _builder_3.toString());
       final DmxNamespace result = this.dmxParseHelper.parse(input, resourceSet);
-      Assert.assertNotNull(result);
+      Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty_2 = errors.isEmpty();
       StringConcatenation _builder_4 = new StringConcatenation();
@@ -195,15 +194,15 @@ public class DmxTypeCheckingTest {
     final DExpression e01 = tests.get(1).getExpr();
     this.assertBoolean(e01);
     final DExpression e02 = tests.get(2).getExpr();
-    this.assertType(e02, DmxTypeDescriptorProvider.NUMBER);
+    this.assertNumber(e02);
     final DExpression e03 = tests.get(3).getExpr();
-    this.assertType(e03, DmxTypeDescriptorProvider.NUMBER);
+    this.assertNumber(e03);
     final DExpression e04 = tests.get(4).getExpr();
-    this.assertType(e04, DmxTypeDescriptorProvider.NUMBER);
+    this.assertNumber(e04);
     final DExpression e05 = tests.get(5).getExpr();
-    this.assertType(e05, DmxTypeDescriptorProvider.NUMBER);
+    this.assertNumber(e05);
     final DExpression e06 = tests.get(6).getExpr();
-    this.assertType(e06, DmxTypeDescriptorProvider.NUMBER);
+    this.assertNumber(e06);
     final DExpression e07 = tests.get(7).getExpr();
     this.assertType(e07, DmxTypeDescriptorProvider.TEXT);
     final DExpression e08 = tests.get(8).getExpr();
@@ -225,7 +224,7 @@ public class DmxTypeCheckingTest {
     _builder.newLine();
     _builder.append("test T04 { 8 % 3 }");
     _builder.newLine();
-    _builder.append("test T05 { 3**4 }");
+    _builder.append("test T05 { 2**4 }");
     _builder.newLine();
     _builder.append("test T06 { \"A\" + \"B\" }");
     _builder.newLine();
@@ -266,6 +265,41 @@ public class DmxTypeCheckingTest {
     final DExpression e09 = tests.get(9).getExpr();
     this.assertType(e09, DmxTypeDescriptorProvider.TIMEPOINT);
     this.assertNoValidationErrors(e09);
+  }
+  
+  @Test
+  public void testTestContextValueType() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("import D.*");
+    _builder.newLine();
+    _builder.append("namespace N");
+    _builder.newLine();
+    _builder.append("test T00 context a : Natural := 1 { a }");
+    _builder.newLine();
+    _builder.append("test T01 context a : Natural := \"a\"  { a } \t\t\t\t\t\t// ERROR");
+    _builder.newLine();
+    _builder.append("test T02 context a : A := detail A { a2 = 1 }  { a.a2 = 1 }");
+    _builder.newLine();
+    _builder.append("test T03 context a : A := detail A { a2 = \"a\" }  { a.a2 = 1 } // ERROR");
+    _builder.newLine();
+    _builder.append("test T04 context a : A+ := { detail A { a2 = 1 }}  { true }  // List");
+    _builder.newLine();
+    final EList<DmxTest> tests = this.parse(_builder);
+    final DExpression e00 = tests.get(0).getExpr();
+    this.assertNumber(e00);
+    this.assertNoValidationErrors(e00.eContainer());
+    final DExpression e01 = tests.get(1).getExpr();
+    this.assertNumber(e01);
+    this.assertHasValidationERRORS(e01.eContainer());
+    final DExpression e02 = tests.get(2).getExpr();
+    this.assertBoolean(e02);
+    this.assertNoValidationErrors(e02.eContainer());
+    final DExpression e03 = tests.get(3).getExpr();
+    this.assertBoolean(e03);
+    this.assertHasValidationERRORS(e03.eContainer());
+    final DExpression e04 = tests.get(4).getExpr();
+    this.assertBoolean(e04);
+    this.assertHasValidationERRORS(e04.eContainer());
   }
   
   @Test
@@ -452,7 +486,7 @@ public class DmxTypeCheckingTest {
     _builder.newLine();
     _builder.append("test T01 context a : Text, b : Text { a > b }");
     _builder.newLine();
-    _builder.append("test T01 context a : Timepoint, b : Timepoint { a > b }");
+    _builder.append("test T02 context a : Timepoint, b : Timepoint { a > b }");
     _builder.newLine();
     _builder.newLine();
     _builder.append("test T03 context a : Natural, b : Natural { a >= b }");
@@ -515,6 +549,8 @@ public class DmxTypeCheckingTest {
     _builder.newLine();
     _builder.append("test T03 context a : Boolean, b : Boolean { a => b }");
     _builder.newLine();
+    _builder.append("test T04 context a : Boolean { NOT a }");
+    _builder.newLine();
     final EList<DmxTest> tests = this.parse(_builder);
     this.assertNoValidationErrors(IterableExtensions.<DmxTest>head(tests).eContainer());
     final DExpression e00 = tests.get(0).getExpr();
@@ -525,6 +561,8 @@ public class DmxTypeCheckingTest {
     this.assertBoolean(e02);
     final DExpression e03 = tests.get(3).getExpr();
     this.assertBoolean(e03);
+    final DExpression e04 = tests.get(4).getExpr();
+    this.assertBoolean(e04);
   }
   
   @Test

@@ -15,7 +15,6 @@ import com.mimacom.ddd.dm.dmx.DmxTest;
 import com.mimacom.ddd.dm.dmx.DmxUtil;
 import com.mimacom.ddd.dm.dmx.impl.DmxAssignmentImpl;
 import com.mimacom.ddd.dm.dmx.impl.DmxBooleanLiteralImpl;
-import com.mimacom.ddd.dm.dmx.impl.DmxConstructorCallImpl;
 import com.mimacom.ddd.dm.dmx.impl.DmxContextReferenceImpl;
 import com.mimacom.ddd.dm.dmx.impl.DmxDecimalLiteralImpl;
 import com.mimacom.ddd.dm.dmx.impl.DmxFilterImpl;
@@ -180,28 +179,6 @@ public class DmxParsingTest {
         final DExpression e = tests.get(3).getExpr();
         Assert.assertEquals(DmxFilterImpl.class, ((DmxFunctionCallImpl) e).basicGetFunction().getClass());
         final List<DExpression> args = this._dmxUtil.nullSafeCallArguments(((DmxFunctionCallImpl) e));
-        Assert.assertEquals(2, args.size());
-        Assert.assertEquals(DmxNaturalLiteralImpl.class, args.get(0).getClass());
-        Assert.assertEquals(DmxStringLiteralImpl.class, args.get(1).getClass());
-      }
-      {
-        final DExpression e = tests.get(4).getExpr();
-        Assert.assertEquals(DmxConstructorCallImpl.class, e.getClass());
-        Assert.assertFalse(((DmxConstructorCallImpl) e).isExplicitConstructorCall());
-      }
-      {
-        final DExpression e = tests.get(5).getExpr();
-        Assert.assertEquals(DmxConstructorCallImpl.class, e.getClass());
-        Assert.assertTrue(((DmxConstructorCallImpl) e).isExplicitConstructorCall());
-        final List<DExpression> args = this._dmxUtil.nullSafeCallArguments(((DmxConstructorCallImpl) e));
-        Assert.assertEquals(1, args.size());
-        Assert.assertEquals(DmxNaturalLiteralImpl.class, args.get(0).getClass());
-      }
-      {
-        final DExpression e = tests.get(6).getExpr();
-        Assert.assertEquals(DmxConstructorCallImpl.class, e.getClass());
-        Assert.assertTrue(((DmxConstructorCallImpl) e).isExplicitConstructorCall());
-        final List<DExpression> args = this._dmxUtil.nullSafeCallArguments(((DmxConstructorCallImpl) e));
         Assert.assertEquals(2, args.size());
         Assert.assertEquals(DmxNaturalLiteralImpl.class, args.get(0).getClass());
         Assert.assertEquals(DmxStringLiteralImpl.class, args.get(1).getClass());

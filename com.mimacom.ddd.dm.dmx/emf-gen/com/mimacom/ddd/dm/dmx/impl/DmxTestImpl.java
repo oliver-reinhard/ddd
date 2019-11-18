@@ -2,11 +2,11 @@
  */
 package com.mimacom.ddd.dm.dmx.impl;
 
-import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DExpression;
 
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxTest;
+import com.mimacom.ddd.dm.dmx.DmxTestContext;
 
 import java.util.Collection;
 
@@ -69,7 +69,7 @@ public class DmxTestImpl extends MinimalEObjectImpl.Container implements DmxTest
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DContext> context;
+	protected EList<DmxTestContext> context;
 
 	/**
 	 * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -133,11 +133,11 @@ public class DmxTestImpl extends MinimalEObjectImpl.Container implements DmxTest
 	 * @generated
 	 */
 	@Override
-	public EList<DContext> getContext()
+	public EList<DmxTestContext> getContext()
 	{
 		if (context == null)
 		{
-			context = new EObjectContainmentEList<DContext>(DContext.class, this, DmxPackage.DMX_TEST__CONTEXT);
+			context = new EObjectContainmentEList<DmxTestContext>(DmxTestContext.class, this, DmxPackage.DMX_TEST__CONTEXT);
 		}
 		return context;
 	}
@@ -246,7 +246,7 @@ public class DmxTestImpl extends MinimalEObjectImpl.Container implements DmxTest
 				return;
 			case DmxPackage.DMX_TEST__CONTEXT:
 				getContext().clear();
-				getContext().addAll((Collection<? extends DContext>)newValue);
+				getContext().addAll((Collection<? extends DmxTestContext>)newValue);
 				return;
 			case DmxPackage.DMX_TEST__EXPR:
 				setExpr((DExpression)newValue);

@@ -41,6 +41,15 @@ public interface DmxFactory extends EFactory
 	DmxTest createDmxTest();
 
 	/**
+	 * Returns a new object of class '<em>Test Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Test Context</em>'.
+	 * @generated
+	 */
+	DmxTestContext createDmxTestContext();
+
+	/**
 	 * Returns a new object of class '<em>Base Type Set</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,15 +147,6 @@ public interface DmxFactory extends EFactory
 	 * @generated
 	 */
 	DmxFunctionCall createDmxFunctionCall();
-
-	/**
-	 * Returns a new object of class '<em>Constructor Call</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Constructor Call</em>'.
-	 * @generated
-	 */
-	DmxConstructorCall createDmxConstructorCall();
 
 	/**
 	 * Returns a new object of class '<em>Binary Operation</em>'.
@@ -291,6 +291,24 @@ public interface DmxFactory extends EFactory
 	 * @generated
 	 */
 	DmxField createDmxField();
+
+	/**
+	 * Returns a new object of class '<em>Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Entity</em>'.
+	 * @generated
+	 */
+	DmxEntity createDmxEntity();
+
+	/**
+	 * Returns a new object of class '<em>Detail</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Detail</em>'.
+	 * @generated
+	 */
+	DmxDetail createDmxDetail();
 
 	/**
 	 * Returns the package supported by this factory.

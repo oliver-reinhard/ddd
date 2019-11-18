@@ -7,8 +7,8 @@ import java.util.Collections
 import org.eclipse.emf.ecore.EObject
 
 class DmxUndefinedDescriptor extends AbstractDmxTypeDescriptor<DType> {
-	new() {
-		super(DmxBaseType.UNDEFINED, null, false)
+	new(boolean collection) {
+		super(DmxBaseType.UNDEFINED, null, collection)
 	}
 	
 	override getSupportedIterators(EObject context, DmxIndex index) {

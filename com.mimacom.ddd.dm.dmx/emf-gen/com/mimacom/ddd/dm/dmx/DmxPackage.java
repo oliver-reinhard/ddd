@@ -208,6 +208,106 @@ public interface DmxPackage extends EPackage
 	int DMX_TEST_OPERATION_COUNT = BasePackage.INAVIGABLE_MEMBER_CONTAINER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxTestContextImpl <em>Test Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxTestContextImpl
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxTestContext()
+	 * @generated
+	 */
+	int DMX_TEST_CONTEXT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_TEST_CONTEXT__NAME = BasePackage.DCONTEXT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_TEST_CONTEXT__ALIASES = BasePackage.DCONTEXT__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_TEST_CONTEXT__DESCRIPTION = BasePackage.DCONTEXT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_TEST_CONTEXT__TYPE = BasePackage.DCONTEXT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_TEST_CONTEXT__MULTIPLICITY = BasePackage.DCONTEXT__MULTIPLICITY;
+
+	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_TEST_CONTEXT__OPTIONAL = BasePackage.DCONTEXT__OPTIONAL;
+
+	/**
+	 * The feature id for the '<em><b>Collection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_TEST_CONTEXT__COLLECTION = BasePackage.DCONTEXT__COLLECTION;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_TEST_CONTEXT__VALUE = BasePackage.DCONTEXT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Test Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_TEST_CONTEXT_FEATURE_COUNT = BasePackage.DCONTEXT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Test Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_TEST_CONTEXT_OPERATION_COUNT = BasePackage.DCONTEXT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxBaseTypeSetImpl <em>Base Type Set</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -215,7 +315,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxBaseTypeSet()
 	 * @generated
 	 */
-	int DMX_BASE_TYPE_SET = 2;
+	int DMX_BASE_TYPE_SET = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -261,7 +361,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxArchetype()
 	 * @generated
 	 */
-	int DMX_ARCHETYPE = 3;
+	int DMX_ARCHETYPE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -370,7 +470,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxFilter()
 	 * @generated
 	 */
-	int DMX_FILTER = 4;
+	int DMX_FILTER = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -488,7 +588,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxFilterTypeDescriptor()
 	 * @generated
 	 */
-	int DMX_FILTER_TYPE_DESCRIPTOR = 5;
+	int DMX_FILTER_TYPE_DESCRIPTOR = 6;
 
 	/**
 	 * The feature id for the '<em><b>Single</b></em>' attribute.
@@ -570,7 +670,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxFilterParameter()
 	 * @generated
 	 */
-	int DMX_FILTER_PARAMETER = 6;
+	int DMX_FILTER_PARAMETER = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -616,7 +716,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxAssignment()
 	 * @generated
 	 */
-	int DMX_ASSIGNMENT = 7;
+	int DMX_ASSIGNMENT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Preceding Navigation Segment</b></em>' containment reference.
@@ -671,7 +771,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxPredicateWithCorrelationVariable()
 	 * @generated
 	 */
-	int DMX_PREDICATE_WITH_CORRELATION_VARIABLE = 8;
+	int DMX_PREDICATE_WITH_CORRELATION_VARIABLE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Correlation Variable</b></em>' containment reference.
@@ -717,7 +817,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxCorrelationVariable()
 	 * @generated
 	 */
-	int DMX_CORRELATION_VARIABLE = 9;
+	int DMX_CORRELATION_VARIABLE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -808,7 +908,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxMemberNavigation()
 	 * @generated
 	 */
-	int DMX_MEMBER_NAVIGATION = 10;
+	int DMX_MEMBER_NAVIGATION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Member</b></em>' reference.
@@ -881,7 +981,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxCallArguments()
 	 * @generated
 	 */
-	int DMX_CALL_ARGUMENTS = 11;
+	int DMX_CALL_ARGUMENTS = 12;
 
 	/**
 	 * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
@@ -918,7 +1018,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxFunctionCall()
 	 * @generated
 	 */
-	int DMX_FUNCTION_CALL = 12;
+	int DMX_FUNCTION_CALL = 13;
 
 	/**
 	 * The feature id for the '<em><b>Function</b></em>' reference.
@@ -955,61 +1055,6 @@ public interface DmxPackage extends EPackage
 	 * @ordered
 	 */
 	int DMX_FUNCTION_CALL_OPERATION_COUNT = BasePackage.DEXPRESSION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxConstructorCallImpl <em>Constructor Call</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.mimacom.ddd.dm.dmx.impl.DmxConstructorCallImpl
-	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxConstructorCall()
-	 * @generated
-	 */
-	int DMX_CONSTRUCTOR_CALL = 13;
-
-	/**
-	 * The feature id for the '<em><b>Constructor</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_CONSTRUCTOR_CALL__CONSTRUCTOR = BasePackage.DEXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Explicit Constructor Call</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_CONSTRUCTOR_CALL__EXPLICIT_CONSTRUCTOR_CALL = BasePackage.DEXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Call Arguments</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_CONSTRUCTOR_CALL__CALL_ARGUMENTS = BasePackage.DEXPRESSION_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Constructor Call</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_CONSTRUCTOR_CALL_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of operations of the '<em>Constructor Call</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_CONSTRUCTOR_CALL_OPERATION_COUNT = BasePackage.DEXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxBinaryOperationImpl <em>Binary Operation</em>}' class.
@@ -1784,6 +1829,98 @@ public interface DmxPackage extends EPackage
 	int DMX_FIELD_OPERATION_COUNT = BasePackage.DNAVIGABLE_MEMBER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxEntityImpl <em>Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxEntityImpl
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxEntity()
+	 * @generated
+	 */
+	int DMX_ENTITY = 30;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_ENTITY__TYPE = DMX_COMPLEX_OBJECT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_ENTITY__FIELDS = DMX_COMPLEX_OBJECT__FIELDS;
+
+	/**
+	 * The number of structural features of the '<em>Entity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_ENTITY_FEATURE_COUNT = DMX_COMPLEX_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Entity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_ENTITY_OPERATION_COUNT = DMX_COMPLEX_OBJECT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxDetailImpl <em>Detail</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxDetailImpl
+	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxDetail()
+	 * @generated
+	 */
+	int DMX_DETAIL = 31;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_DETAIL__TYPE = DMX_COMPLEX_OBJECT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_DETAIL__FIELDS = DMX_COMPLEX_OBJECT__FIELDS;
+
+	/**
+	 * The number of structural features of the '<em>Detail</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_DETAIL_FEATURE_COUNT = DMX_COMPLEX_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Detail</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_DETAIL_OPERATION_COUNT = DMX_COMPLEX_OBJECT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.DmxBaseType <em>Base Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1791,7 +1928,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxBaseType()
 	 * @generated
 	 */
-	int DMX_BASE_TYPE = 30;
+	int DMX_BASE_TYPE = 32;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.DmxBinaryOperator <em>Binary Operator</em>}' enum.
@@ -1801,7 +1938,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxBinaryOperator()
 	 * @generated
 	 */
-	int DMX_BINARY_OPERATOR = 31;
+	int DMX_BINARY_OPERATOR = 33;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.DmxUnaryOperator <em>Unary Operator</em>}' enum.
@@ -1811,7 +1948,7 @@ public interface DmxPackage extends EPackage
 	 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxUnaryOperator()
 	 * @generated
 	 */
-	int DMX_UNARY_OPERATOR = 32;
+	int DMX_UNARY_OPERATOR = 34;
 
 
 	/**
@@ -1899,6 +2036,27 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 */
 	EReference getDmxTest_Expr();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxTestContext <em>Test Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Test Context</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxTestContext
+	 * @generated
+	 */
+	EClass getDmxTestContext();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.dmx.DmxTestContext#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Value</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxTestContext#getValue()
+	 * @see #getDmxTestContext()
+	 * @generated
+	 */
+	EReference getDmxTestContext_Value();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxBaseTypeSet <em>Base Type Set</em>}'.
@@ -2304,49 +2462,6 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 */
 	EReference getDmxFunctionCall_CallArguments();
-
-	/**
-	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxConstructorCall <em>Constructor Call</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Constructor Call</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxConstructorCall
-	 * @generated
-	 */
-	EClass getDmxConstructorCall();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.mimacom.ddd.dm.dmx.DmxConstructorCall#getConstructor <em>Constructor</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Constructor</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxConstructorCall#getConstructor()
-	 * @see #getDmxConstructorCall()
-	 * @generated
-	 */
-	EReference getDmxConstructorCall_Constructor();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dmx.DmxConstructorCall#isExplicitConstructorCall <em>Explicit Constructor Call</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Explicit Constructor Call</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxConstructorCall#isExplicitConstructorCall()
-	 * @see #getDmxConstructorCall()
-	 * @generated
-	 */
-	EAttribute getDmxConstructorCall_ExplicitConstructorCall();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.dmx.DmxConstructorCall#getCallArguments <em>Call Arguments</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Call Arguments</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxConstructorCall#getCallArguments()
-	 * @see #getDmxConstructorCall()
-	 * @generated
-	 */
-	EReference getDmxConstructorCall_CallArguments();
 
 	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxBinaryOperation <em>Binary Operation</em>}'.
@@ -2828,6 +2943,26 @@ public interface DmxPackage extends EPackage
 	EReference getDmxField_Value();
 
 	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxEntity <em>Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Entity</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxEntity
+	 * @generated
+	 */
+	EClass getDmxEntity();
+
+	/**
+	 * Returns the meta object for class '{@link com.mimacom.ddd.dm.dmx.DmxDetail <em>Detail</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Detail</em>'.
+	 * @see com.mimacom.ddd.dm.dmx.DmxDetail
+	 * @generated
+	 */
+	EClass getDmxDetail();
+
+	/**
 	 * Returns the meta object for enum '{@link com.mimacom.ddd.dm.dmx.DmxBaseType <em>Base Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2948,6 +3083,24 @@ public interface DmxPackage extends EPackage
 		 * @generated
 		 */
 		EReference DMX_TEST__EXPR = eINSTANCE.getDmxTest_Expr();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxTestContextImpl <em>Test Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxTestContextImpl
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxTestContext()
+		 * @generated
+		 */
+		EClass DMX_TEST_CONTEXT = eINSTANCE.getDmxTestContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DMX_TEST_CONTEXT__VALUE = eINSTANCE.getDmxTestContext_Value();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxBaseTypeSetImpl <em>Base Type Set</em>}' class.
@@ -3274,40 +3427,6 @@ public interface DmxPackage extends EPackage
 		 * @generated
 		 */
 		EReference DMX_FUNCTION_CALL__CALL_ARGUMENTS = eINSTANCE.getDmxFunctionCall_CallArguments();
-
-		/**
-		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxConstructorCallImpl <em>Constructor Call</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.mimacom.ddd.dm.dmx.impl.DmxConstructorCallImpl
-		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxConstructorCall()
-		 * @generated
-		 */
-		EClass DMX_CONSTRUCTOR_CALL = eINSTANCE.getDmxConstructorCall();
-
-		/**
-		 * The meta object literal for the '<em><b>Constructor</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DMX_CONSTRUCTOR_CALL__CONSTRUCTOR = eINSTANCE.getDmxConstructorCall_Constructor();
-
-		/**
-		 * The meta object literal for the '<em><b>Explicit Constructor Call</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DMX_CONSTRUCTOR_CALL__EXPLICIT_CONSTRUCTOR_CALL = eINSTANCE.getDmxConstructorCall_ExplicitConstructorCall();
-
-		/**
-		 * The meta object literal for the '<em><b>Call Arguments</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DMX_CONSTRUCTOR_CALL__CALL_ARGUMENTS = eINSTANCE.getDmxConstructorCall_CallArguments();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxBinaryOperationImpl <em>Binary Operation</em>}' class.
@@ -3700,6 +3819,26 @@ public interface DmxPackage extends EPackage
 		 * @generated
 		 */
 		EReference DMX_FIELD__VALUE = eINSTANCE.getDmxField_Value();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxEntityImpl <em>Entity</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxEntityImpl
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxEntity()
+		 * @generated
+		 */
+		EClass DMX_ENTITY = eINSTANCE.getDmxEntity();
+
+		/**
+		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxDetailImpl <em>Detail</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxDetailImpl
+		 * @see com.mimacom.ddd.dm.dmx.impl.DmxPackageImpl#getDmxDetail()
+		 * @generated
+		 */
+		EClass DMX_DETAIL = eINSTANCE.getDmxDetail();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.dm.dmx.DmxBaseType <em>Base Type</em>}' enum.

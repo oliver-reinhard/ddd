@@ -25,8 +25,14 @@ Require-Bundle: com.mimacom.ddd.dm.dom,
  org.eclipse.ui.forms
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: com.mimacom.ddd.dm.dom.ui.contentassist,
- com.mimacom.ddd.dm.dom.ui.quickfix,
+Export-Package: com.mimacom.ddd.dm.dom.ui,
+ com.mimacom.ddd.dm.dom.ui.contentassist,
+ com.mimacom.ddd.dm.dom.ui.hover,
  com.mimacom.ddd.dm.dom.ui.internal,
- com.mimacom.ddd.dm.dom.ui.wizard
+ com.mimacom.ddd.dm.dom.ui.labeling,
+ com.mimacom.ddd.dm.dom.ui.outline,
+ com.mimacom.ddd.dm.dom.ui.plantuml,
+ com.mimacom.ddd.dm.dom.ui.quickfix,
+ com.mimacom.ddd.dm.dom.ui.wizard,
+ com.mimacom.ddd.dm.dom.validation
 Bundle-Activator: com.mimacom.ddd.dm.dom.ui.internal.DomActivator

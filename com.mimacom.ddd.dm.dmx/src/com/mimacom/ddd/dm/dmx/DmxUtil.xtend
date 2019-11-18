@@ -56,11 +56,6 @@ class DmxUtil {
 		return call.callArguments.arguments
 	}
 
-	def List<DExpression> nullSafeCallArguments(DmxConstructorCall call) {
-		if (call.callArguments === null) return Collections.EMPTY_LIST
-		return call.callArguments.arguments
-	}
-
 	def Date parseTimepoint(String value) {
 		if (value === null) {
 			return null
@@ -71,6 +66,15 @@ class DmxUtil {
 			return date
 		}
 		return parseTimepoint(trimmed, DmxUtil::TIMEPOINT_DATE_FORMAT)
+	}
+	
+	def DmxField field(DmxComplexObject obj, DFeature feature) {
+		for (f : obj.fields) {
+			if (f.feature == feature) {
+				return f
+			}
+		}
+		return null
 	}
 
 	private def Date parseTimepoint(String value, SimpleDateFormat format) {

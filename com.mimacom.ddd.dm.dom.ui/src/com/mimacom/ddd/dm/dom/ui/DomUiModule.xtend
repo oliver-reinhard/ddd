@@ -4,10 +4,16 @@
 package com.mimacom.ddd.dm.dom.ui
 
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
+import org.eclipse.xtext.ui.editor.hover.IEObjectHoverProvider
+import com.mimacom.ddd.dm.dom.ui.hover.DomEObjectHoverProvider
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.
  */
 @FinalFieldsConstructor
 class DomUiModule extends AbstractDomUiModule {
+	
+	def Class<? extends IEObjectHoverProvider> bindIEObjectHoverProvider() {
+		return DomEObjectHoverProvider
+	}
 }

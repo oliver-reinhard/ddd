@@ -25,6 +25,8 @@ class DomProposalProvider extends AbstractDomProposalProvider {
 
 	@Inject extension DomUtil util
 	@Inject DmxTypeDescriptorProvider typeDescriptorProvider
+	
+	static var int idCurrent = 1
 
 	override complete_DmxField(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		super.complete_DmxField(model, ruleCall, context, acceptor)
@@ -99,7 +101,7 @@ class DomProposalProvider extends AbstractDomProposalProvider {
 			switch baseType {
 				case BOOLEAN: "true"
 				case ENUM: typeDescriptor.type.name + "." + (typeDescriptor.type as DEnumeration).literals.head.name
-				case IDENTIFIER: "someId"
+				case IDENTIFIER: nextId
 				case NUMBER: "1"
 				case TEXT: "\"\""
 				case TIMEPOINT: "\"" + DmxUtil::TIMEPOINT_DATE_TIME_FORMAT.format(new Date()) + "\""
@@ -107,5 +109,10 @@ class DomProposalProvider extends AbstractDomProposalProvider {
 				default: "unknownType"
 			}
 		}
+	}
+	
+	def String nextId() {
+		idCurrent++
+		return Integer.toString(idCurrent)
 	}
 }

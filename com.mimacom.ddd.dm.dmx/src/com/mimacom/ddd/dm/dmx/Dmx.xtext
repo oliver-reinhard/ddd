@@ -29,10 +29,13 @@ DmxTest:
 	expr=DExpression
 	'}';
 
-DmxTestContext returns DContext:
+DmxTestContext:
 	name=ID
 	':'
-	type=[DType|ID] (multiplicity=DMultiplicity)?;	
+	type=[DType|ID] (multiplicity=DMultiplicity)?
+	(
+		':=' (value=DmxLiteralExpression | value=DmxLiteralListExpression)
+	)?;	
 	
 /* 
  * Language base: archetypes & filters
@@ -212,7 +215,6 @@ DmxPrimaryExpression returns DExpression:
 	DmxParenthesizedExpression |
 	DmxListExpression |
 	DmxFunctionCall |
-	DmxConstructorCall |
 	DmxStaticReference |
 	DmxContextReference |
 	DmxIfExpression;
@@ -222,7 +224,9 @@ DmxLiteralExpression returns DExpression:
 	DmxStringLiteral |
 	DmxNaturalLiteral |
 	DmxDecimalLiteral |
-	DmxUndefinedLiteral;
+	DmxUndefinedLiteral |
+	DmxEntity |
+	DmxDetail;
 	
 DmxParenthesizedExpression returns DExpression:
 	'(' DExpression ')';
@@ -232,6 +236,14 @@ DmxListExpression returns DExpression:
 	'{'
 	(	
 		elements+=DExpression (',' elements+=DExpression)*
+	)?
+	'}';	
+	
+DmxLiteralListExpression returns DExpression:
+	{DmxListExpression}
+	'{'
+	(	
+		elements+=DmxLiteralExpression (',' elements+=DmxLiteralExpression)*
 	)?
 	'}';
 
@@ -247,17 +259,23 @@ DmxFunctionCallArguments returns DmxCallArguments:
 	(
 		arguments+=DExpression (',' arguments+=DExpression)*
 	)?	;
-		
-DmxConstructorCall returns DExpression:
-	{DmxConstructorCall}
-	DmxOpConstructor 
-	constructor=[DComplexType|ID]
-	(=> explicitConstructorCall?='(' // => boolean => has 0.n explicit arguments
-		callArguments=DmxFunctionCallArguments
-	')')?;
 
-DmxOpConstructor:
-	'NEW' | 'new';
+DmxEntity:
+	'entity' 
+	DmxComplexObject;
+	
+DmxDetail:
+	'detail' 
+	DmxComplexObject;
+
+fragment DmxComplexObject:
+	type=[DComplexType|ID]
+	DomFieldListStartSymbol
+	(fields+=DmxField)*
+	'}';
+	
+DmxField:
+	feature=[DFeature|ID] "=" value=DExpression;
 		
 DmxStaticReference returns DExpression:
 	{DmxStaticReference}
@@ -298,6 +316,9 @@ DmxUndefinedLiteral returns DExpression: {DmxUndefinedLiteral} ('UNDEFINED' | 'u
 
 DECIMAL returns ecore::EString: NATURAL '.' NATURAL (('E'|'e')  ('+'|'-')? NATURAL)?;
 
+DomFieldListStartSymbol:
+	'{';
+	
 DQualifiedNameWithWildcard: 
 	DQualifiedName '.*'?;
 
