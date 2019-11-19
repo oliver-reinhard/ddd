@@ -9,8 +9,10 @@ import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DFeature
 import com.mimacom.ddd.dm.base.DQuery
+import com.mimacom.ddd.dm.dmx.DmxAssignment
 import com.mimacom.ddd.dm.dmx.DmxBinaryOperation
 import com.mimacom.ddd.dm.dmx.DmxCallArguments
+import com.mimacom.ddd.dm.dmx.DmxField
 import com.mimacom.ddd.dm.dmx.DmxFilter
 import com.mimacom.ddd.dm.dmx.DmxFunctionCall
 import com.mimacom.ddd.dm.dmx.DmxListExpression
@@ -18,6 +20,7 @@ import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DmxPackage
 import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable
 import com.mimacom.ddd.dm.dmx.DmxStringLiteral
+import com.mimacom.ddd.dm.dmx.DmxTestContext
 import com.mimacom.ddd.dm.dmx.DmxUnaryOperation
 import com.mimacom.ddd.dm.dmx.DmxUtil
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor
@@ -29,7 +32,6 @@ import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.validation.Check
 
 import static com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeDescriptorProvider.*
-import com.mimacom.ddd.dm.dmx.DmxAssignment
 
 /**
  * This class contains custom validation rules. 
@@ -169,15 +171,15 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 			}
 			case EQUAL,
 			case NOT_EQUAL: {
+				val rightType = getTypeAndCheckNotNull(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
 				if (leftType.isCompatibleWith(TIMEPOINT)) {
 					// allow string literals as Timepoints 
 					expectTimepointValue(expr.rightOperand, leftType, DMX.dmxBinaryOperation_RightOperand)
-				} else if (expr.rightOperand instanceof DmxListExpression && (expr.rightOperand as DmxListExpression).elements.isEmpty) {
+				} else if (leftType.collection && rightType == UNDEFINED_TYPE_COLLECTION) {
 					// support empty list as a comparison value; type compatibility not applicable (empty list has no type)
 				} else {
 					// left and right types have to be compatible but no restriction on what kind of type
 					expectType(expr.rightOperand, leftType, DMX.dmxBinaryOperation_RightOperand)
-
 				}
 			}
 			case LESS,
@@ -201,7 +203,7 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 				} else if (expectedType == TEXT) {
 					val rightType = getTypeAndCheckNotNull(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
 					expectType(rightType, COMPARABLE_TYPES, DMX.dmxBinaryOperation_LeftOperand)
-				} else  {
+				} else {
 					expectNumber(expr.leftOperand, DMX.dmxBinaryOperation_LeftOperand)
 					expectNumber(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
 				}
@@ -210,7 +212,7 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 				val expectedType = getTypeAndCheckNotNull(expr, DMX.dmxBinaryOperation_LeftOperand)
 				if (expectedType != TIMEPOINT) {
 					expectNumber(expr.leftOperand, DMX.dmxBinaryOperation_LeftOperand)
-				} 
+				}
 				expectNumber(expr.rightOperand, DMX.dmxBinaryOperation_RightOperand)
 			}
 			case MULTIPLY,
@@ -236,7 +238,7 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 				}
 			}
 			case UNTIL: {
-					expectType(expr.rightOperand, leftType, DMX.dmxBinaryOperation_RightOperand)
+				expectType(expr.rightOperand, leftType, DMX.dmxBinaryOperation_RightOperand)
 			}
 			case SINGLE_ARROW: {
 				throw new UnsupportedOperationException(expr.operator.literal) // TODO no semantics yet
@@ -260,6 +262,14 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 	}
 
 	@Check
+	def checkType(DmxTestContext expr) {
+		if (expr.value !== null) {
+			val expectedType = getTypeDescriptor(expr.type, expr.collection)
+			expectType(expr.value, expectedType, DMX.dmxTestContext_Value)
+		}
+	}
+
+	@Check
 	def checkType(DmxAssignment expr) {
 		val target = expr.assignToMember
 		val targetType = getTypeDescriptor(target.type, target.collection)
@@ -273,9 +283,32 @@ class DmxTypeCheckingValidator extends AbstractDmxValidator {
 			expectType(expr.value, targetType, DMX.dmxAssignment_Value)
 		}
 	}
-	
-	// ------------------------------
 
+	@Check
+	def checkType(DmxField expr) {
+		val featureType = typeFor(expr)
+		val valueType = getTypeAndCheckNotNull(expr.value, DMX.dmxField_Value)
+		if (featureType.isCompatibleWith(TIMEPOINT)) {
+			// allow string literals as Timepoints 
+			expectTimepointValue(expr.value, featureType, DMX.dmxField_Value)
+		} else if (featureType.isCompatibleWith(IDENTIFIER)) {
+			// allow number literals as identifiers 
+			expectType(expr.value, NUMBER, DMX.dmxField_Value)
+		} else if (featureType.collection && valueType == UNDEFINED_TYPE_COLLECTION) {
+				// support empty list as field value; type compatibility not applicable (empty list has no type)
+		} else {
+			expectType(expr.value, featureType, DMX.dmxField_Value)
+		}
+	}
+
+	@Check
+	def checkFieldKind(DmxField f) {
+		if (f.feature !== null && f.feature instanceof DQuery) {
+			error("Cannot assign a value to a query", f, DMX.dmxField_Feature)
+		}
+	}
+
+	// ------------------------------
 	protected def expectBoolean(DExpression expr, EReference ref) {
 		return expectType(expr, BOOLEAN, ref)
 	}

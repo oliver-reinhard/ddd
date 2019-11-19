@@ -1,11 +1,13 @@
 package com.mimacom.ddd.dm.dmx;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.dmx.DmxCallArguments;
-import com.mimacom.ddd.dm.dmx.DmxConstructorCall;
+import com.mimacom.ddd.dm.dmx.DmxComplexObject;
+import com.mimacom.ddd.dm.dmx.DmxField;
 import com.mimacom.ddd.dm.dmx.DmxFunctionCall;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import java.text.ParseException;
@@ -16,6 +18,7 @@ import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 
 @SuppressWarnings("all")
@@ -76,15 +79,6 @@ public class DmxUtil {
     return call.getCallArguments().getArguments();
   }
   
-  public List<DExpression> nullSafeCallArguments(final DmxConstructorCall call) {
-    DmxCallArguments _callArguments = call.getCallArguments();
-    boolean _tripleEquals = (_callArguments == null);
-    if (_tripleEquals) {
-      return Collections.EMPTY_LIST;
-    }
-    return call.getCallArguments().getArguments();
-  }
-  
   public Date parseTimepoint(final String value) {
     if ((value == null)) {
       return null;
@@ -95,6 +89,18 @@ public class DmxUtil {
       return date;
     }
     return this.parseTimepoint(trimmed, DmxUtil.TIMEPOINT_DATE_FORMAT);
+  }
+  
+  public DmxField field(final DmxComplexObject obj, final DFeature feature) {
+    EList<DmxField> _fields = obj.getFields();
+    for (final DmxField f : _fields) {
+      DFeature _feature = f.getFeature();
+      boolean _equals = Objects.equal(_feature, feature);
+      if (_equals) {
+        return f;
+      }
+    }
+    return null;
   }
   
   private Date parseTimepoint(final String value, final SimpleDateFormat format) {

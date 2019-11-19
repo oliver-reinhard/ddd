@@ -67,6 +67,7 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 		{
 			case DmxPackage.DMX_NAMESPACE: return createDmxNamespace();
 			case DmxPackage.DMX_TEST: return createDmxTest();
+			case DmxPackage.DMX_TEST_CONTEXT: return createDmxTestContext();
 			case DmxPackage.DMX_BASE_TYPE_SET: return createDmxBaseTypeSet();
 			case DmxPackage.DMX_ARCHETYPE: return createDmxArchetype();
 			case DmxPackage.DMX_FILTER: return createDmxFilter();
@@ -78,7 +79,6 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 			case DmxPackage.DMX_MEMBER_NAVIGATION: return createDmxMemberNavigation();
 			case DmxPackage.DMX_CALL_ARGUMENTS: return createDmxCallArguments();
 			case DmxPackage.DMX_FUNCTION_CALL: return createDmxFunctionCall();
-			case DmxPackage.DMX_CONSTRUCTOR_CALL: return createDmxConstructorCall();
 			case DmxPackage.DMX_BINARY_OPERATION: return createDmxBinaryOperation();
 			case DmxPackage.DMX_INSTANCE_OF_EXPRESSION: return createDmxInstanceOfExpression();
 			case DmxPackage.DMX_UNARY_OPERATION: return createDmxUnaryOperation();
@@ -95,6 +95,8 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 			case DmxPackage.DMX_UNDEFINED_LITERAL: return createDmxUndefinedLiteral();
 			case DmxPackage.DMX_COMPLEX_OBJECT: return createDmxComplexObject();
 			case DmxPackage.DMX_FIELD: return createDmxField();
+			case DmxPackage.DMX_ENTITY: return createDmxEntity();
+			case DmxPackage.DMX_DETAIL: return createDmxDetail();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -162,6 +164,17 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	{
 		DmxTestImpl dmxTest = new DmxTestImpl();
 		return dmxTest;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DmxTestContext createDmxTestContext()
+	{
+		DmxTestContextImpl dmxTestContext = new DmxTestContextImpl();
+		return dmxTestContext;
 	}
 
 	/**
@@ -283,17 +296,6 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	{
 		DmxFunctionCallImpl dmxFunctionCall = new DmxFunctionCallImpl();
 		return dmxFunctionCall;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DmxConstructorCall createDmxConstructorCall()
-	{
-		DmxConstructorCallImpl dmxConstructorCall = new DmxConstructorCallImpl();
-		return dmxConstructorCall;
 	}
 
 	/**
@@ -470,6 +472,28 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	{
 		DmxFieldImplCustom dmxField = new DmxFieldImplCustom();
 		return dmxField;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DmxEntity createDmxEntity()
+	{
+		DmxEntityImpl dmxEntity = new DmxEntityImpl();
+		return dmxEntity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DmxDetail createDmxDetail()
+	{
+		DmxDetailImpl dmxDetail = new DmxDetailImpl();
+		return dmxDetail;
 	}
 
 	/**

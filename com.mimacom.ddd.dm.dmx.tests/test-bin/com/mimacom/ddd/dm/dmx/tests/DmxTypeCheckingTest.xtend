@@ -20,11 +20,9 @@ import org.eclipse.emf.ecore.util.Diagnostician
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
-import org.junit.jupiter.api.Assertions
+import static org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
-
-import static org.junit.Assert.*
 
 @ExtendWith(InjectionExtension)
 @InjectWith(DmxInjectorProvider)
@@ -51,9 +49,9 @@ class DmxTypeCheckingTest {
 			archetype Text				is TEXT
 			archetype Timepoint	is TIMEPOINT
 			''', resourceSet)
-		Assertions.assertNotNull(systemTypes)
+		assertNotNull(systemTypes)
 		val stErrors = systemTypes.eResource.errors
-		Assertions.assertTrue(stErrors.isEmpty, '''Parse errors in system types: «stErrors.join(", ")»''')
+		assertTrue(stErrors.isEmpty, '''Parse errors in system types: «stErrors.join(", ")»''')
 		
 		// Provide custom types:
 		val customTypes = dimParseHelper.parse('''
@@ -81,15 +79,15 @@ class DmxTypeCheckingTest {
 				q5(p:P1) : Natural
 			}
 		''', resourceSet)
-		Assertions.assertNotNull(customTypes)
+		assertNotNull(customTypes)
 		val ctErrors = systemTypes.eResource.errors
-		Assertions.assertTrue(ctErrors.isEmpty, '''Parse errors in custom types: «ctErrors.join(", ")»''')
+		assertTrue(ctErrors.isEmpty, '''Parse errors in custom types: «ctErrors.join(", ")»''')
 		
 		// Parse actual expression
 		val result = dmxParseHelper.parse(input, resourceSet)
 		assertNotNull(result)
 		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Parse errors: «errors.join("; ")»''')
+		assertTrue(errors.isEmpty, '''Parse errors: «errors.join("; ")»''')
 		return result.tests
 	}
 	
@@ -116,19 +114,19 @@ class DmxTypeCheckingTest {
 		assertBoolean(e01)
 		
 		val e02 = tests.get(2).expr
-		assertType(e02, DmxTypeDescriptorProvider::NUMBER)
+		assertNumber(e02)
 		
 		val e03 = tests.get(3).expr
-		assertType(e03, DmxTypeDescriptorProvider::NUMBER)
+		assertNumber(e03)
 		
 		val e04 = tests.get(4).expr
-		assertType(e04, DmxTypeDescriptorProvider::NUMBER)
+		assertNumber(e04)
 		
 		val e05 = tests.get(5).expr
-		assertType(e05, DmxTypeDescriptorProvider::NUMBER)
+		assertNumber(e05)
 		
 		val e06 = tests.get(6).expr
-		assertType(e06, DmxTypeDescriptorProvider::NUMBER)
+		assertNumber(e06)
 		
 		val e07 = tests.get(7).expr
 		assertType(e07, DmxTypeDescriptorProvider::TEXT)
@@ -146,7 +144,7 @@ class DmxTypeCheckingTest {
 			test T02 { 1 * 2 }
 			test T03 { 1 / 2 }
 			test T04 { 8 % 3 }
-			test T05 { 3**4 }
+			test T05 { 2**4 }
 			test T06 { "A" + "B" }
 			test T07 { 1 + "A" }												// ERROR: Type mismatch
 			test T08 context t : Timepoint { t + 155 } 				// add a number value
@@ -194,6 +192,39 @@ class DmxTypeCheckingTest {
 		assertNoValidationErrors(e09)
 		
 		}
+	
+	@Test
+	def void testTestContextValueType() {
+		val tests = parse('''
+		import D.*
+		namespace N
+		test T00 context a : Natural := 1 { a }
+		test T01 context a : Natural := "a"  { a } 						// ERROR
+		test T02 context a : A := detail A { a2 = 1 }  { a.a2 = 1 }
+		test T03 context a : A := detail A { a2 = "a" }  { a.a2 = 1 } // ERROR
+		test T04 context a : A+ := { detail A { a2 = 1 }}  { true }  // List
+		''')
+		
+		val e00 = tests.get(0).expr
+		assertNumber(e00)
+		assertNoValidationErrors(e00.eContainer) // do not just validate the expression but the TestContext
+		
+		val e01 = tests.get(1).expr
+		assertNumber(e01)
+		assertHasValidationERRORS(e01.eContainer) // do not just validate the expression but the TestContext)
+		
+		val e02 = tests.get(2).expr
+		assertBoolean(e02)
+		assertNoValidationErrors(e02.eContainer) // do not just validate the expression but the TestContext)
+		
+		val e03 = tests.get(3).expr
+		assertBoolean(e03)
+		assertHasValidationERRORS(e03.eContainer) // do not just validate the expression but the TestContext)
+		
+		val e04 = tests.get(4).expr
+		assertBoolean(e04)
+		assertHasValidationERRORS(e04.eContainer) // do not just validate the expression but the TestContext)
+	}
 	
 	@Test
 	def void testTimepoints() {
@@ -367,7 +398,7 @@ class DmxTypeCheckingTest {
 			// "comparable" types:
 			test T00 context a : Natural, b : Natural { a > b }
 			test T01 context a : Text, b : Text { a > b }
-			test T01 context a : Timepoint, b : Timepoint { a > b }
+			test T02 context a : Timepoint, b : Timepoint { a > b }
 			
 			test T03 context a : Natural, b : Natural { a >= b }
 			test T04 context a : Natural, b : Natural { a ≥ b }
@@ -427,6 +458,7 @@ class DmxTypeCheckingTest {
 			test T01 context a : Boolean, b : Boolean { a OR b }
 			test T02 context a : Boolean, b : Boolean { a XOR b }
 			test T03 context a : Boolean, b : Boolean { a => b }
+			test T04 context a : Boolean { NOT a }
 		''')
 		assertNoValidationErrors(tests.head.eContainer)
 		
@@ -441,6 +473,9 @@ class DmxTypeCheckingTest {
 		
 		val e03 = tests.get(3).expr
 		assertBoolean(e03)
+		
+		val e04 = tests.get(4).expr
+		assertBoolean(e04)
 	}
 	
 	@Test
@@ -574,7 +609,7 @@ class DmxTypeCheckingTest {
 	
 	def void assertType(DExpression expr, AbstractDmxTypeDescriptor<?> expectedType) {
 		val type = expr.typeFor
-		Assertions.assertTrue((type).isCompatibleWith(expectedType), "Was: " + type.toString + ", expected: " + expectedType)
+		assertTrue((type).isCompatibleWith(expectedType), "Was: " + type.toString + ", expected: " + expectedType)
 	}
 	
 	def void assertNumber(DExpression expr) {
@@ -592,11 +627,11 @@ class DmxTypeCheckingTest {
 	def assertNoValidationErrors(EObject obj) {
 //		val result = Diagnostician.INSTANCE.validate(EcoreUtil.getRootContainer(obj)).children
 		val result = Diagnostician.INSTANCE.validate(obj).children
-		Assertions.assertTrue(result.isEmpty, '''Validation errors: «result.join("; ")»''')
+		assertTrue(result.isEmpty, '''Validation errors: «result.join("; ")»''')
 	}
 	
 	def assertHasValidationERRORS(EObject obj) {
 		val result = Diagnostician.INSTANCE.validate(obj).children
-		Assertions.assertTrue(result.size >= 1, "No validation errors")
+		assertTrue(result.size >= 1, "No validation errors")
 	}
 }

@@ -12,7 +12,7 @@ import com.mimacom.ddd.dm.dom.DomNamedComplexObject;
 @SuppressWarnings("all")
 public class DomTypeComputer extends DmxTypeComputer {
   @Override
-  public AbstractDmxTypeDescriptor<?> typeForSwitch(final DmxContextReference expr) {
+  public AbstractDmxTypeDescriptor<?> typeForContextReferenceSwitch(final DmxContextReference expr) {
     final DNamedElement target = expr.getTarget();
     if ((target instanceof DomNamedComplexObject)) {
       DmxComplexObject _object = ((DomNamedComplexObject)target).getObject();
@@ -21,6 +21,6 @@ public class DomTypeComputer extends DmxTypeComputer {
         return this.typeFor(((DomNamedComplexObject)target).getObject());
       }
     }
-    return super.typeForSwitch(expr);
+    return super.typeForContextReferenceSwitch(expr);
   }
 }

@@ -24,8 +24,12 @@ Require-Bundle: com.mimacom.ddd.sm.asm,
  org.eclipse.core.resources
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: com.mimacom.ddd.sm.asm.ui.wizard,
- com.mimacom.ddd.sm.asm.ui.internal,
+Export-Package: com.mimacom.ddd.sm.asm.ui,
  com.mimacom.ddd.sm.asm.ui.contentassist,
- com.mimacom.ddd.sm.asm.ui.quickfix
+ com.mimacom.ddd.sm.asm.ui.internal,
+ com.mimacom.ddd.sm.asm.ui.labeling,
+ com.mimacom.ddd.sm.asm.ui.outline,
+ com.mimacom.ddd.sm.asm.ui.quickfix,
+ com.mimacom.ddd.sm.asm.ui.wizard,
+ com.mimacom.ddd.sm.asm.validation
 Bundle-Activator: com.mimacom.ddd.sm.asm.ui.internal.AsmActivator

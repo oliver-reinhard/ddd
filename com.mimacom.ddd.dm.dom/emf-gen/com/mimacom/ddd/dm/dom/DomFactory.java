@@ -42,24 +42,6 @@ public interface DomFactory extends EFactory
 	DomSnapshot createDomSnapshot();
 
 	/**
-	 * Returns a new object of class '<em>Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Entity</em>'.
-	 * @generated
-	 */
-	DomEntity createDomEntity();
-
-	/**
-	 * Returns a new object of class '<em>Detail</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Detail</em>'.
-	 * @generated
-	 */
-	DomDetail createDomDetail();
-
-	/**
 	 * Returns a new object of class '<em>Named Complex Object</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

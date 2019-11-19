@@ -2,30 +2,33 @@ package com.mimacom.ddd.dm.dom.ui.plantuml;
 
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DAssociation;
+import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
-import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.dmx.DmxComplexObject;
-import com.mimacom.ddd.dm.dmx.DmxContextReference;
+import com.mimacom.ddd.dm.dmx.DmxDetail;
+import com.mimacom.ddd.dm.dmx.DmxEntity;
 import com.mimacom.ddd.dm.dmx.DmxField;
 import com.mimacom.ddd.dm.dmx.DmxListExpression;
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxComplexTypeDescriptor;
-import com.mimacom.ddd.dm.dom.DomDetail;
-import com.mimacom.ddd.dm.dom.DomEntity;
 import com.mimacom.ddd.dm.dom.DomModel;
 import com.mimacom.ddd.dm.dom.DomNamedComplexObject;
 import com.mimacom.ddd.dm.dom.DomSnapshot;
 import com.mimacom.ddd.dm.dom.DomUtil;
+import com.mimacom.ddd.dm.dom.evaluator.DomExpressionEvaluator;
 import com.mimacom.ddd.dm.dom.typecomputer.DomTypeComputer;
 import com.mimacom.ddd.dm.dom.ui.internal.DomActivator;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import net.sourceforge.plantuml.text.AbstractDiagramTextProvider;
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.Diagnostician;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IEditorInput;
@@ -51,6 +54,10 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
   @Inject
   @Extension
   private DomTypeComputer _domTypeComputer;
+  
+  @Inject
+  @Extension
+  private DomExpressionEvaluator _domExpressionEvaluator;
   
   @Inject
   private ISerializer serializer;
@@ -87,12 +94,17 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
       return _xifexpression;
     };
     final DomModel model = document.<DomModel>readOnly(_function);
-    if (((model != null) && (!model.getSnapshots().isEmpty()))) {
-      return this.snapshots(model);
+    final List<Diagnostic> result = Diagnostician.INSTANCE.validate(EcoreUtil.getRootContainer(model)).getChildren();
+    boolean _isEmpty = result.isEmpty();
+    boolean _not = (!_isEmpty);
+    if (_not) {
+      return "note \"Object model has validation errors.\" as N1";
     } else {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("note \"No objects to show.\" as N1");
-      return _builder.toString();
+      if (((model != null) && (!model.getSnapshots().isEmpty()))) {
+        return this.snapshots(model);
+      } else {
+        return "note \"No objects to show.\" as N1";
+      }
     }
   }
   
@@ -172,13 +184,14 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
   public String generateSnapshot(final DomSnapshot s) {
     final List<DmxComplexObject> allComplexObjects = EcoreUtil2.<DmxComplexObject>eAllOfType(s, DmxComplexObject.class);
     final Function1<DmxField, Boolean> _function = (DmxField it) -> {
-      return Boolean.valueOf(((it.getValue() instanceof DomDetail) || ((it.getValue() instanceof DmxListExpression) && (this._domTypeComputer.typeFor(it.getValue()) instanceof DmxComplexTypeDescriptor))));
+      return Boolean.valueOf(((it.getFeature() instanceof DAttribute) && ((DAttribute) it.getFeature()).isDetail()));
     };
-    final Iterable<DmxField> allContainments = IterableExtensions.<DmxField>filter(EcoreUtil2.<DmxField>eAllOfType(s, DmxField.class), _function);
+    final Iterable<DmxField> allDetailContainments = IterableExtensions.<DmxField>filter(EcoreUtil2.<DmxField>eAllOfType(s, DmxField.class), _function);
     final Function1<DmxField, Boolean> _function_1 = (DmxField it) -> {
-      return Boolean.valueOf(((it.getValue() instanceof DmxContextReference) && (this._domTypeComputer.typeFor(it.getValue()) instanceof DmxComplexTypeDescriptor)));
+      DFeature _feature = it.getFeature();
+      return Boolean.valueOf((_feature instanceof DAssociation));
     };
-    final Iterable<DmxField> allReferences = IterableExtensions.<DmxField>filter(EcoreUtil2.<DmxField>eAllOfType(s, DmxField.class), _function_1);
+    final Iterable<DmxField> allAssociations = IterableExtensions.<DmxField>filter(EcoreUtil2.<DmxField>eAllOfType(s, DmxField.class), _function_1);
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\' snapshot ");
     String _name = s.getName();
@@ -197,17 +210,16 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     }
     _builder.newLineIfNotEmpty();
     {
-      for(final DmxField ref : allContainments) {
-        String _generateContainment = this.generateContainment(ref, ref.getValue());
-        _builder.append(_generateContainment);
+      for(final DmxField detail : allDetailContainments) {
+        String _generateAssociation = this.generateAssociation(detail, this._domExpressionEvaluator.valueFor(detail.getValue()));
+        _builder.append(_generateAssociation);
       }
     }
     _builder.newLineIfNotEmpty();
     {
-      for(final DmxField ref_1 : allReferences) {
-        DExpression _value = ref_1.getValue();
-        String _generateReference = this.generateReference(ref_1, ((DmxContextReference) _value));
-        _builder.append(_generateReference);
+      for(final DmxField ref : allAssociations) {
+        String _generateAssociation_1 = this.generateAssociation(ref, this._domExpressionEvaluator.valueFor(ref.getValue()));
+        _builder.append(_generateAssociation_1);
       }
     }
     _builder.newLineIfNotEmpty();
@@ -235,8 +247,8 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
       EList<DmxField> _fields = o.getFields();
       for(final DmxField f : _fields) {
         {
-          if (((f.getFeature() != null) && (!(f.getFeature() instanceof DAssociation)))) {
-            Object _generateField = this.generateField(f, f.getValue());
+          if ((((f.getFeature() != null) && (f.getFeature() instanceof DAttribute)) && (!((DAttribute) f.getFeature()).isDetail()))) {
+            String _generateField = this.generateField(f, f.getValue());
             _builder.append(_generateField, "\t");
           }
         }
@@ -295,10 +307,6 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     return _switchResult;
   }
   
-  protected String _generateField(final DmxField f, final DmxComplexObject detail) {
-    return null;
-  }
-  
   protected String _generateField(final DmxField f, final DmxListExpression expr) {
     String _xifexpression = null;
     AbstractDmxTypeDescriptor<?> _typeFor = this._domTypeComputer.typeFor(expr);
@@ -324,7 +332,19 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     return _builder.toString();
   }
   
-  protected String _generateContainment(final DmxField f, final DomDetail detail) {
+  protected String _generateAssociation(final DmxField f, final DmxEntity entity) {
+    StringConcatenation _builder = new StringConcatenation();
+    EObject _eContainer = f.eContainer();
+    String _id = this.id(((DmxComplexObject) _eContainer));
+    _builder.append(_id);
+    _builder.append(" --> ");
+    String _id_1 = this.id(entity);
+    _builder.append(_id_1);
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  protected String _generateAssociation(final DmxField f, final DmxDetail detail) {
     StringConcatenation _builder = new StringConcatenation();
     EObject _eContainer = f.eContainer();
     String _id = this.id(((DmxComplexObject) _eContainer));
@@ -336,41 +356,22 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     return _builder.toString();
   }
   
-  protected String _generateContainment(final DmxField f, final DmxListExpression expr) {
+  protected String _generateAssociation(final DmxField f, final List<?> list) {
     StringConcatenation _builder = new StringConcatenation();
     {
-      EList<DExpression> _elements = expr.getElements();
-      for(final DExpression detail : _elements) {
-        EObject _eContainer = f.eContainer();
-        String _id = this.id(((DmxComplexObject) _eContainer));
-        _builder.append(_id);
-        _builder.append(" --> ");
-        String _id_1 = this.id(((DmxComplexObject) detail));
-        _builder.append(_id_1);
+      for(final Object obj : list) {
+        String _generateAssociation = this.generateAssociation(f, obj);
+        _builder.append(_generateAssociation);
         _builder.newLineIfNotEmpty();
       }
     }
     return _builder.toString();
   }
   
-  public String generateReference(final DmxField f, final DmxContextReference ref) {
-    StringConcatenation _builder = new StringConcatenation();
-    EObject _eContainer = f.eContainer();
-    String _id = this.id(((DmxComplexObject) _eContainer));
-    _builder.append(_id);
-    _builder.append(" --> ");
-    DNamedElement _target = ref.getTarget();
-    String _id_1 = this.id(((DomNamedComplexObject) _target).getObject());
-    _builder.append(_id_1);
-    _builder.append(" ");
-    _builder.newLineIfNotEmpty();
-    return _builder.toString();
-  }
-  
   public String getSpot(final EObject obj) {
     String _switchResult = null;
     boolean _matched = false;
-    if (obj instanceof DomEntity) {
+    if (obj instanceof DmxEntity) {
       _matched=true;
       String _xifexpression = null;
       boolean _root = this._domUtil.root(((DmxComplexObject)obj));
@@ -382,7 +383,7 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
       _switchResult = _xifexpression;
     }
     if (!_matched) {
-      if (obj instanceof DomDetail) {
+      if (obj instanceof DmxDetail) {
         _matched=true;
         _switchResult = "<< (D,#FAE55F) >>";
       }
@@ -422,24 +423,24 @@ public class DomDiagramTextProvider extends AbstractDiagramTextProvider {
     return Integer.toString(o.hashCode());
   }
   
-  public String generateField(final DmxField f, final DExpression detail) {
-    if (detail instanceof DmxComplexObject) {
-      return _generateField(f, (DmxComplexObject)detail);
-    } else if (detail instanceof DmxListExpression) {
-      return _generateField(f, (DmxListExpression)detail);
-    } else if (detail != null) {
-      return _generateField(f, detail);
+  public String generateField(final DmxField f, final DExpression expr) {
+    if (expr instanceof DmxListExpression) {
+      return _generateField(f, (DmxListExpression)expr);
+    } else if (expr != null) {
+      return _generateField(f, expr);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(f, detail).toString());
+        Arrays.<Object>asList(f, expr).toString());
     }
   }
   
-  public String generateContainment(final DmxField f, final DExpression detail) {
-    if (detail instanceof DomDetail) {
-      return _generateContainment(f, (DomDetail)detail);
-    } else if (detail instanceof DmxListExpression) {
-      return _generateContainment(f, (DmxListExpression)detail);
+  public String generateAssociation(final DmxField f, final Object detail) {
+    if (detail instanceof DmxDetail) {
+      return _generateAssociation(f, (DmxDetail)detail);
+    } else if (detail instanceof DmxEntity) {
+      return _generateAssociation(f, (DmxEntity)detail);
+    } else if (detail instanceof List) {
+      return _generateAssociation(f, (List<?>)detail);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(f, detail).toString());

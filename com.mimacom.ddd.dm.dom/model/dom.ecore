@@ -15,8 +15,6 @@
         eType="#//DomObject" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DomObject" abstract="true" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNavigableMember"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DomEntity" eSuperTypes="../../com.mimacom.ddd.dm.dmx/model/dmx.ecore#//DmxComplexObject"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DomDetail" eSuperTypes="../../com.mimacom.ddd.dm.dmx/model/dmx.ecore#//DmxComplexObject"/>
   <eClassifiers xsi:type="ecore:EClass" name="DomNamedComplexObject" eSuperTypes="#//DomObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="object" eType="ecore:EClass ../../com.mimacom.ddd.dm.dmx/model/dmx.ecore#//DmxComplexObject"
         containment="true"/>

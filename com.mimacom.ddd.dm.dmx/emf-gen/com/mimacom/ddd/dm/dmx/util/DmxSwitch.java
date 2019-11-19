@@ -2,6 +2,7 @@
  */
 package com.mimacom.ddd.dm.dmx.util;
 
+import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNavigableMember;
@@ -105,6 +106,16 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DmxPackage.DMX_TEST_CONTEXT:
+			{
+				DmxTestContext dmxTestContext = (DmxTestContext)theEObject;
+				T result = caseDmxTestContext(dmxTestContext);
+				if (result == null) result = caseDContext(dmxTestContext);
+				if (result == null) result = caseDNavigableMember(dmxTestContext);
+				if (result == null) result = caseDNamedElement(dmxTestContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DmxPackage.DMX_BASE_TYPE_SET:
 			{
 				DmxBaseTypeSet dmxBaseTypeSet = (DmxBaseTypeSet)theEObject;
@@ -200,15 +211,6 @@ public class DmxSwitch<T> extends Switch<T>
 				T result = caseDmxFunctionCall(dmxFunctionCall);
 				if (result == null) result = caseDExpression(dmxFunctionCall);
 				if (result == null) result = caseIRichTextSegment(dmxFunctionCall);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DmxPackage.DMX_CONSTRUCTOR_CALL:
-			{
-				DmxConstructorCall dmxConstructorCall = (DmxConstructorCall)theEObject;
-				T result = caseDmxConstructorCall(dmxConstructorCall);
-				if (result == null) result = caseDExpression(dmxConstructorCall);
-				if (result == null) result = caseIRichTextSegment(dmxConstructorCall);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -358,6 +360,30 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DmxPackage.DMX_ENTITY:
+			{
+				DmxEntity dmxEntity = (DmxEntity)theEObject;
+				T result = caseDmxEntity(dmxEntity);
+				if (result == null) result = caseDmxComplexObject(dmxEntity);
+				if (result == null) result = caseINavigableMemberContainer(dmxEntity);
+				if (result == null) result = caseDExpression(dmxEntity);
+				if (result == null) result = caseINamespace(dmxEntity);
+				if (result == null) result = caseIRichTextSegment(dmxEntity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DmxPackage.DMX_DETAIL:
+			{
+				DmxDetail dmxDetail = (DmxDetail)theEObject;
+				T result = caseDmxDetail(dmxDetail);
+				if (result == null) result = caseDmxComplexObject(dmxDetail);
+				if (result == null) result = caseINavigableMemberContainer(dmxDetail);
+				if (result == null) result = caseDExpression(dmxDetail);
+				if (result == null) result = caseINamespace(dmxDetail);
+				if (result == null) result = caseIRichTextSegment(dmxDetail);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -390,6 +416,22 @@ public class DmxSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDmxTest(DmxTest object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Test Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Test Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxTestContext(DmxTestContext object)
 	{
 		return null;
 	}
@@ -566,22 +608,6 @@ public class DmxSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDmxFunctionCall(DmxFunctionCall object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Constructor Call</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Constructor Call</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDmxConstructorCall(DmxConstructorCall object)
 	{
 		return null;
 	}
@@ -843,6 +869,38 @@ public class DmxSwitch<T> extends Switch<T>
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxEntity(DmxEntity object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Detail</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Detail</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDmxDetail(DmxDetail object)
+	{
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>DNamed Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -902,6 +960,38 @@ public class DmxSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseINavigableMemberContainer(INavigableMemberContainer object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DNavigable Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DNavigable Member</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDNavigableMember(DNavigableMember object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DContext</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DContext</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDContext(DContext object)
 	{
 		return null;
 	}
@@ -998,22 +1088,6 @@ public class DmxSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDPrimitive(DPrimitive object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DNavigable Member</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DNavigable Member</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDNavigableMember(DNavigableMember object)
 	{
 		return null;
 	}

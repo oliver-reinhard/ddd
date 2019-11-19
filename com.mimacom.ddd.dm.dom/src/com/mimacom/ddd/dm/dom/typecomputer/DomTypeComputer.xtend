@@ -9,13 +9,13 @@ import com.mimacom.ddd.dm.dom.DomNamedComplexObject
 @Singleton
 class DomTypeComputer extends DmxTypeComputer {
 
-	override AbstractDmxTypeDescriptor<?> typeForSwitch(DmxContextReference expr) {
+	override AbstractDmxTypeDescriptor<?> typeForContextReferenceSwitch(DmxContextReference expr) {
 		val target = expr.target
 		if (target instanceof DomNamedComplexObject) {
 			if (target.object !== null) {
 				return typeFor(target.object)
 			}
 		}
-		return super.typeForSwitch(expr)
+		return super.typeForContextReferenceSwitch(expr)
 	}
 }

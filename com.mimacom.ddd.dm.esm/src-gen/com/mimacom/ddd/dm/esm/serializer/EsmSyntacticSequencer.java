@@ -47,12 +47,12 @@ public class EsmSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (ruleCall.getRule() == grammarAccess.getDmxOpCastRule())
 			return getDmxOpCastToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getDmxOpConstructorRule())
-			return getDmxOpConstructorToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getDmxOpInstanceOfRule())
 			return getDmxOpInstanceOfToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getDmxOpSingleAssignRule())
 			return getDmxOpSingleAssignToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getDomFieldListStartSymbolRule())
+			return getDomFieldListStartSymbolToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -64,16 +64,6 @@ public class EsmSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "AS";
-	}
-	
-	/**
-	 * DmxOpConstructor:
-	 * 	'NEW' | 'new';
-	 */
-	protected String getDmxOpConstructorToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "NEW";
 	}
 	
 	/**
@@ -94,6 +84,16 @@ public class EsmSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return ":=";
+	}
+	
+	/**
+	 * DomFieldListStartSymbol:
+	 * 	'{';
+	 */
+	protected String getDomFieldListStartSymbolToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "{";
 	}
 	
 	@Override
@@ -140,6 +140,8 @@ public class EsmSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('*
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) 'detail' type=[DComplexType|ID]
+	 *     (rule start) (ambiguity) 'entity' type=[DComplexType|ID]
 	 *     (rule start) (ambiguity) 'if' if=DExpression
 	 *     (rule start) (ambiguity) ('FALSE' | 'false') (rule start)
 	 *     (rule start) (ambiguity) ('UNDEFINED' | 'undefined') (rule start)
@@ -168,6 +170,8 @@ public class EsmSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('+
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) 'detail' type=[DComplexType|ID]
+	 *     (rule start) (ambiguity) 'entity' type=[DComplexType|ID]
 	 *     (rule start) (ambiguity) 'if' if=DExpression
 	 *     (rule start) (ambiguity) ('FALSE' | 'false') ')' (rule start)
 	 *     (rule start) (ambiguity) ('UNDEFINED' | 'undefined') ')' (rule start)

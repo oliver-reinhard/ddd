@@ -2,23 +2,27 @@ package com.mimacom.ddd.dm.dom.ui.plantuml
 
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DAssociation
+import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.dmx.DmxComplexObject
-import com.mimacom.ddd.dm.dmx.DmxContextReference
+import com.mimacom.ddd.dm.dmx.DmxDetail
+import com.mimacom.ddd.dm.dmx.DmxEntity
 import com.mimacom.ddd.dm.dmx.DmxField
 import com.mimacom.ddd.dm.dmx.DmxListExpression
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxComplexTypeDescriptor
-import com.mimacom.ddd.dm.dom.DomDetail
-import com.mimacom.ddd.dm.dom.DomEntity
 import com.mimacom.ddd.dm.dom.DomModel
 import com.mimacom.ddd.dm.dom.DomNamedComplexObject
 import com.mimacom.ddd.dm.dom.DomSnapshot
 import com.mimacom.ddd.dm.dom.DomUtil
+import com.mimacom.ddd.dm.dom.evaluator.DomExpressionEvaluator
 import com.mimacom.ddd.dm.dom.typecomputer.DomTypeComputer
 import com.mimacom.ddd.dm.dom.ui.internal.DomActivator
+import java.util.List
 import java.util.Map
 import net.sourceforge.plantuml.text.AbstractDiagramTextProvider
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.util.Diagnostician
+import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.jface.viewers.ISelection
 import org.eclipse.ui.IEditorInput
 import org.eclipse.ui.IEditorPart
@@ -31,6 +35,7 @@ class DomDiagramTextProvider extends AbstractDiagramTextProvider {
 
 	@Inject extension DomUtil
 	@Inject extension DomTypeComputer
+	@Inject extension DomExpressionEvaluator
 	@Inject ISerializer serializer;
 
 	static val MAX_EXPR_LENGTH = 30
@@ -54,10 +59,13 @@ class DomDiagramTextProvider extends AbstractDiagramTextProvider {
 			return if (contents.head instanceof DomModel) contents.head as DomModel else null
 		]
 
-		if (model !== null && ! (model.snapshots.empty)) {
+		val result = Diagnostician.INSTANCE.validate(EcoreUtil.getRootContainer(model)).children
+		if (! result.empty) {
+			return "note \"Object model has validation errors.\" as N1"
+		} else if (model !== null && ! (model.snapshots.empty)) {
 			return snapshots(model)
 		} else {
-			return '''note "No objects to show." as N1'''
+			return "note \"No objects to show.\" as N1"
 		}
 	}
 
@@ -99,14 +107,14 @@ class DomDiagramTextProvider extends AbstractDiagramTextProvider {
 	def generateSnapshot(DomSnapshot s) {
 //		val allNonComplexObjects = EcoreUtil2.eAllOfType(s, DomObject).filter[! (it instanceof DomNamedComplexObject)]
 		val allComplexObjects = EcoreUtil2.eAllOfType(s, DmxComplexObject)
-		val allContainments = EcoreUtil2.eAllOfType(s, DmxField).filter[value instanceof DomDetail || value instanceof DmxListExpression && (value.typeFor instanceof DmxComplexTypeDescriptor)]
-		val allReferences = EcoreUtil2.eAllOfType(s, DmxField).filter[value instanceof DmxContextReference && (value.typeFor instanceof DmxComplexTypeDescriptor)]
+		val allDetailContainments = EcoreUtil2.eAllOfType(s, DmxField).filter[feature instanceof DAttribute && (feature as DAttribute).detail]
+		val allAssociations = EcoreUtil2.eAllOfType(s, DmxField).filter[feature instanceof DAssociation]
 		val result = '''	
 			' snapshot «s.name»
 			frame «s.name» <<Snapshot>> {
 			«FOR obj : allComplexObjects»«obj.generate»«ENDFOR»
-			«FOR ref : allContainments»«ref.generateContainment(ref.value)»«ENDFOR»
-			«FOR ref : allReferences»«ref.generateReference(ref.value as DmxContextReference)»«ENDFOR»
+			«FOR detail : allDetailContainments»«detail.generateAssociation(detail.value.valueFor)»«ENDFOR»
+			«FOR ref : allAssociations»«ref.generateAssociation(ref.value.valueFor)»«ENDFOR»
 			}
 		'''
 		return result
@@ -114,7 +122,7 @@ class DomDiagramTextProvider extends AbstractDiagramTextProvider {
 
 	def String generate(DmxComplexObject o) '''	
 		class «o.title» as «o.id» «o.getSpot» {
-			«FOR f : o.fields»«IF f.feature !== null && !(f.feature instanceof DAssociation)»«f.generateField(f.value)»«ENDIF»
+			«FOR f : o.fields»«IF f.feature !== null && f.feature instanceof DAttribute && ! (f.feature as DAttribute).detail»«f.generateField(f.value)»«ENDIF»
 			«ENDFOR»
 		}
 	'''
@@ -134,10 +142,6 @@ class DomDiagramTextProvider extends AbstractDiagramTextProvider {
 		}
 	}
 
-	def dispatch generateField(DmxField f, DmxComplexObject detail) {
-		// nothing
-	}
-
 	def dispatch generateField(DmxField f, DmxListExpression expr) {
 		if (! (expr.typeFor instanceof DmxComplexTypeDescriptor)) {
 			generateFieldImpl(f, expr)
@@ -152,25 +156,23 @@ class DomDiagramTextProvider extends AbstractDiagramTextProvider {
 		«f.feature.name» = «f.fieldValueExpression»
 	'''
 
-	def dispatch String generateContainment(DmxField f, DomDetail detail) '''
+	def dispatch String generateAssociation(DmxField f, DmxEntity entity) '''
+		«(f.eContainer as DmxComplexObject).id» --> «entity.id»
+	'''
+	def dispatch String generateAssociation(DmxField f, DmxDetail detail) '''
 		«(f.eContainer as DmxComplexObject).id» --> «detail.id»
 	'''
 
-	def dispatch String generateContainment(DmxField f, DmxListExpression expr) '''
-		«FOR detail : expr.elements»«(f.eContainer as DmxComplexObject).id» --> «(detail as DmxComplexObject).id»
+	def dispatch String generateAssociation(DmxField f, List<?> list) '''
+		«FOR obj : list»«f.generateAssociation(obj)»
 		«ENDFOR»
-	'''
- 
- 	// TODO generalise association TARGET
-	def  String generateReference(DmxField f, DmxContextReference ref) '''
-		«(f.eContainer as DmxComplexObject).id» --> «(ref.target as DomNamedComplexObject).object.id» 
 	'''
 
 	def getSpot(EObject obj) {
 		// Returns the "Spot Letter" to use next to the class name.
 		return switch obj {
-			DomEntity: if (obj.root) "<< (R,#FB3333) >>" else "<< (E,#F78100) >>"
-			DomDetail: "<< (D,#FAE55F) >>"
+			DmxEntity: if (obj.root) "<< (R,#FB3333) >>" else "<< (E,#F78100) >>"
+			DmxDetail: "<< (D,#FAE55F) >>"
 			default: ""
 		}
 	}

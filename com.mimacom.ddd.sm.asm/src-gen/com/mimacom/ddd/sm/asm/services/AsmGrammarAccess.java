@@ -810,10 +810,10 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		return getDmxTestAccess().getRule();
 	}
 	
-	//DmxTestContext DContext:
+	//DmxTestContext:
 	//	name=ID
 	//	':'
-	//	type=[DType] multiplicity=DMultiplicity?;
+	//	type=[DType] multiplicity=DMultiplicity? (':=' (value=DmxLiteralExpression | value=DmxLiteralListExpression))?;
 	public DmxGrammarAccess.DmxTestContextElements getDmxTestContextAccess() {
 		return gaDmx.getDmxTestContextAccess();
 	}
@@ -1229,8 +1229,8 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxPrimaryExpression DExpression:
-	//	DmxLiteralExpression | DmxParenthesizedExpression | DmxListExpression | DmxFunctionCall | DmxConstructorCall |
-	//	DmxStaticReference | DmxContextReference | DmxIfExpression;
+	//	DmxLiteralExpression | DmxParenthesizedExpression | DmxListExpression | DmxFunctionCall | DmxStaticReference |
+	//	DmxContextReference | DmxIfExpression;
 	public DmxGrammarAccess.DmxPrimaryExpressionElements getDmxPrimaryExpressionAccess() {
 		return gaDmx.getDmxPrimaryExpressionAccess();
 	}
@@ -1240,7 +1240,8 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxLiteralExpression DExpression:
-	//	DmxBooleanLiteral | DmxStringLiteral | DmxNaturalLiteral | DmxDecimalLiteral | DmxUndefinedLiteral;
+	//	DmxBooleanLiteral | DmxStringLiteral | DmxNaturalLiteral | DmxDecimalLiteral | DmxUndefinedLiteral | DmxEntity |
+	//	DmxDetail;
 	public DmxGrammarAccess.DmxLiteralExpressionElements getDmxLiteralExpressionAccess() {
 		return gaDmx.getDmxLiteralExpressionAccess();
 	}
@@ -1271,6 +1272,18 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		return getDmxListExpressionAccess().getRule();
 	}
 	
+	//DmxLiteralListExpression DExpression:
+	//	{DmxListExpression}
+	//	'{' (elements+=DmxLiteralExpression (',' elements+=DmxLiteralExpression)*)?
+	//	'}';
+	public DmxGrammarAccess.DmxLiteralListExpressionElements getDmxLiteralListExpressionAccess() {
+		return gaDmx.getDmxLiteralListExpressionAccess();
+	}
+	
+	public ParserRule getDmxLiteralListExpressionRule() {
+		return getDmxLiteralListExpressionAccess().getRule();
+	}
+	
 	//DmxFunctionCall DExpression:
 	//	{DmxFunctionCall} function=[DmxFilter]
 	//	'('
@@ -1294,27 +1307,48 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 		return getDmxFunctionCallArgumentsAccess().getRule();
 	}
 	
-	//DmxConstructorCall DExpression:
-	//	{DmxConstructorCall} DmxOpConstructor
-	//	constructor=[DComplexType] (=> explicitConstructorCall?='(' // => boolean => has 0.n explicit arguments
-	//	callArguments=DmxFunctionCallArguments
-	//	')')?;
-	public DmxGrammarAccess.DmxConstructorCallElements getDmxConstructorCallAccess() {
-		return gaDmx.getDmxConstructorCallAccess();
+	//DmxEntity:
+	//	'entity'
+	//	DmxComplexObject;
+	public DmxGrammarAccess.DmxEntityElements getDmxEntityAccess() {
+		return gaDmx.getDmxEntityAccess();
 	}
 	
-	public ParserRule getDmxConstructorCallRule() {
-		return getDmxConstructorCallAccess().getRule();
+	public ParserRule getDmxEntityRule() {
+		return getDmxEntityAccess().getRule();
 	}
 	
-	//DmxOpConstructor:
-	//	'NEW' | 'new';
-	public DmxGrammarAccess.DmxOpConstructorElements getDmxOpConstructorAccess() {
-		return gaDmx.getDmxOpConstructorAccess();
+	//DmxDetail:
+	//	'detail'
+	//	DmxComplexObject;
+	public DmxGrammarAccess.DmxDetailElements getDmxDetailAccess() {
+		return gaDmx.getDmxDetailAccess();
 	}
 	
-	public ParserRule getDmxOpConstructorRule() {
-		return getDmxOpConstructorAccess().getRule();
+	public ParserRule getDmxDetailRule() {
+		return getDmxDetailAccess().getRule();
+	}
+	
+	//fragment DmxComplexObject:
+	//	type=[DComplexType] DomFieldListStartSymbol
+	//	fields+=DmxField*
+	//	'}';
+	public DmxGrammarAccess.DmxComplexObjectElements getDmxComplexObjectAccess() {
+		return gaDmx.getDmxComplexObjectAccess();
+	}
+	
+	public ParserRule getDmxComplexObjectRule() {
+		return getDmxComplexObjectAccess().getRule();
+	}
+	
+	//DmxField:
+	//	feature=[DFeature] "=" value=DExpression;
+	public DmxGrammarAccess.DmxFieldElements getDmxFieldAccess() {
+		return gaDmx.getDmxFieldAccess();
+	}
+	
+	public ParserRule getDmxFieldRule() {
+		return getDmxFieldAccess().getRule();
 	}
 	
 	//DmxStaticReference DExpression:
@@ -1443,6 +1477,16 @@ public class AsmGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDECIMALRule() {
 		return getDECIMALAccess().getRule();
+	}
+	
+	//DomFieldListStartSymbol:
+	//	'{';
+	public DmxGrammarAccess.DomFieldListStartSymbolElements getDomFieldListStartSymbolAccess() {
+		return gaDmx.getDomFieldListStartSymbolAccess();
+	}
+	
+	public ParserRule getDomFieldListStartSymbolRule() {
+		return getDomFieldListStartSymbolAccess().getRule();
 	}
 	
 	//DQualifiedNameWithWildcard:

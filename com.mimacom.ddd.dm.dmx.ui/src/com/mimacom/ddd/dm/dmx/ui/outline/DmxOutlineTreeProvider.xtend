@@ -31,7 +31,7 @@ class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	
 	
 	def _createNode(IOutlineNode parentNode, DContext context) {
-		// DmxContextReference has NO childeren => customise _createNode
+		// DContext has NO children => customise _createNode
 		val type = if (context.type !== null) {
 			" : " + context.type.name + if (context.multiplicity !== null) {
 					"(" + context.multiplicity. minOccurs + " .. " + context.multiplicity. maxOccurs + ")"
@@ -45,7 +45,7 @@ class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	}
 	
 	def _createNode(IOutlineNode parentNode, DmxFilter filter) {
-		// DmxContextReference has NO childeren => customise _createNode
+		// DmxFilter has NO children => customise _createNode
 		val node = createEObjectNode(parentNode, filter, imageDispatcher.invoke(filter),	textDispatcher.invoke(filter), isLeafDispatcher.invoke(filter));
 		createEStructuralFeatureNode(node, filter, DMX.dmxFilter_TypeDesc, FEATURE_IMAGE, DMX.dmxFilter_TypeDesc.name + " " + filter.resultTypes +  if (filter?.typeDesc.collection) "*" else "", true)
 	}
@@ -102,7 +102,7 @@ class DmxOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	}
 	
 	def _createNode(IOutlineNode parentNode, DmxContextReference ref) {
-		// DmxContextReference has NO childeren => customise _createNode
+		// DmxContextReference has NO children => customise _createNode
 		val node = createEObjectNode(parentNode, ref, imageDispatcher.invoke(ref),	textDispatcher.invoke(ref), isLeafDispatcher.invoke(ref));
 		if (ref.target !== null) {
 			createEStructuralFeatureNode(node, ref, DMX.dmxContextReference_Target, FEATURE_IMAGE, DMX.dmxContextReference_Target.name + ": " + ref.target.name, false)

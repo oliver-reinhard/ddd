@@ -5,7 +5,6 @@ package com.mimacom.ddd.dm.dom.serializer;
 
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DRichText;
@@ -17,10 +16,11 @@ import com.mimacom.ddd.dm.dmx.DmxBinaryOperation;
 import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral;
 import com.mimacom.ddd.dm.dmx.DmxCallArguments;
 import com.mimacom.ddd.dm.dmx.DmxCastExpression;
-import com.mimacom.ddd.dm.dmx.DmxConstructorCall;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral;
+import com.mimacom.ddd.dm.dmx.DmxDetail;
+import com.mimacom.ddd.dm.dmx.DmxEntity;
 import com.mimacom.ddd.dm.dmx.DmxField;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxFilterParameter;
@@ -37,11 +37,10 @@ import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
 import com.mimacom.ddd.dm.dmx.DmxStringLiteral;
 import com.mimacom.ddd.dm.dmx.DmxTest;
+import com.mimacom.ddd.dm.dmx.DmxTestContext;
 import com.mimacom.ddd.dm.dmx.DmxUnaryOperation;
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
 import com.mimacom.ddd.dm.dmx.serializer.DmxSemanticSequencer;
-import com.mimacom.ddd.dm.dom.DomDetail;
-import com.mimacom.ddd.dm.dom.DomEntity;
 import com.mimacom.ddd.dm.dom.DomModel;
 import com.mimacom.ddd.dm.dom.DomNamedComplexObject;
 import com.mimacom.ddd.dm.dom.DomPackage;
@@ -54,8 +53,6 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
-import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
 @SuppressWarnings("all")
 public class DomSemanticSequencer extends DmxSemanticSequencer {
@@ -71,9 +68,6 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == BasePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case BasePackage.DCONTEXT:
-				sequence_DmxTestContext(context, (DContext) semanticObject); 
-				return; 
 			case BasePackage.DIMPORT:
 				sequence_DImport(context, (DImport) semanticObject); 
 				return; 
@@ -163,9 +157,6 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 			case DmxPackage.DMX_CAST_EXPRESSION:
 				sequence_DmxCastExpression(context, (DmxCastExpression) semanticObject); 
 				return; 
-			case DmxPackage.DMX_CONSTRUCTOR_CALL:
-				sequence_DmxConstructorCall(context, (DmxConstructorCall) semanticObject); 
-				return; 
 			case DmxPackage.DMX_CONTEXT_REFERENCE:
 				sequence_DmxContextReference(context, (DmxContextReference) semanticObject); 
 				return; 
@@ -174,6 +165,12 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 				return; 
 			case DmxPackage.DMX_DECIMAL_LITERAL:
 				sequence_DmxDecimalLiteral(context, (DmxDecimalLiteral) semanticObject); 
+				return; 
+			case DmxPackage.DMX_DETAIL:
+				sequence_DmxComplexObject(context, (DmxDetail) semanticObject); 
+				return; 
+			case DmxPackage.DMX_ENTITY:
+				sequence_DmxComplexObject(context, (DmxEntity) semanticObject); 
 				return; 
 			case DmxPackage.DMX_FIELD:
 				sequence_DmxField(context, (DmxField) semanticObject); 
@@ -197,8 +194,40 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 				sequence_DmxRelationalExpression(context, (DmxInstanceOfExpression) semanticObject); 
 				return; 
 			case DmxPackage.DMX_LIST_EXPRESSION:
-				sequence_DmxListExpression(context, (DmxListExpression) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getDExpressionRule()
+						|| rule == grammarAccess.getDmxNavigableMemberReferenceRule()
+						|| action == grammarAccess.getDmxNavigableMemberReferenceAccess().getDmxAssignmentPrecedingNavigationSegmentAction_1_0_0_0_0()
+						|| action == grammarAccess.getDmxNavigableMemberReferenceAccess().getDmxMemberNavigationPrecedingNavigationSegmentAction_1_1_0_0_0()
+						|| rule == grammarAccess.getDmxPredicateWithCorrelationVariableRule()
+						|| rule == grammarAccess.getDmxOrExpressionRule()
+						|| action == grammarAccess.getDmxOrExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()
+						|| rule == grammarAccess.getDmxAndExpressionRule()
+						|| action == grammarAccess.getDmxAndExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()
+						|| rule == grammarAccess.getDmxEqualityExpressionRule()
+						|| action == grammarAccess.getDmxEqualityExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()
+						|| rule == grammarAccess.getDmxRelationalExpressionRule()
+						|| action == grammarAccess.getDmxRelationalExpressionAccess().getDmxInstanceOfExpressionExpressionAction_1_0_0_0_0()
+						|| action == grammarAccess.getDmxRelationalExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_1_0_0_0()
+						|| rule == grammarAccess.getDmxOtherOperatorExpressionRule()
+						|| action == grammarAccess.getDmxOtherOperatorExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()
+						|| rule == grammarAccess.getDmxAdditiveExpressionRule()
+						|| action == grammarAccess.getDmxAdditiveExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()
+						|| rule == grammarAccess.getDmxMultiplicativeExpressionRule()
+						|| action == grammarAccess.getDmxMultiplicativeExpressionAccess().getDmxBinaryOperationLeftOperandAction_1_0_0_0()
+						|| rule == grammarAccess.getDmxUnaryOperationRule()
+						|| rule == grammarAccess.getDmxCastExpressionRule()
+						|| action == grammarAccess.getDmxCastExpressionAccess().getDmxCastExpressionTargetAction_1_0_0_0()
+						|| rule == grammarAccess.getDmxPrimaryExpressionRule()
+						|| rule == grammarAccess.getDmxParenthesizedExpressionRule()
+						|| rule == grammarAccess.getDmxListExpressionRule()) {
+					sequence_DmxListExpression(context, (DmxListExpression) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getDmxLiteralListExpressionRule()) {
+					sequence_DmxLiteralListExpression(context, (DmxListExpression) semanticObject); 
+					return; 
+				}
+				else break;
 			case DmxPackage.DMX_MEMBER_NAVIGATION:
 				sequence_DmxNavigableMemberReference(context, (DmxMemberNavigation) semanticObject); 
 				return; 
@@ -220,6 +249,9 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 			case DmxPackage.DMX_TEST:
 				sequence_DmxTest(context, (DmxTest) semanticObject); 
 				return; 
+			case DmxPackage.DMX_TEST_CONTEXT:
+				sequence_DmxTestContext(context, (DmxTestContext) semanticObject); 
+				return; 
 			case DmxPackage.DMX_UNARY_OPERATION:
 				sequence_DmxUnaryOperation(context, (DmxUnaryOperation) semanticObject); 
 				return; 
@@ -229,12 +261,6 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 			}
 		else if (epackage == DomPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case DomPackage.DOM_DETAIL:
-				sequence_DmxComplexObject(context, (DomDetail) semanticObject); 
-				return; 
-			case DomPackage.DOM_ENTITY:
-				sequence_DmxComplexObject(context, (DomEntity) semanticObject); 
-				return; 
 			case DomPackage.DOM_MODEL:
 				sequence_DomModel(context, (DomModel) semanticObject); 
 				return; 
@@ -248,77 +274,6 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
-	
-	/**
-	 * Contexts:
-	 *     DomDetail returns DomDetail
-	 *     DmxLiteralExpression returns DomDetail
-	 *     DExpression returns DomDetail
-	 *     DmxNavigableMemberReference returns DomDetail
-	 *     DmxNavigableMemberReference.DmxAssignment_1_0_0_0_0 returns DomDetail
-	 *     DmxNavigableMemberReference.DmxMemberNavigation_1_1_0_0_0 returns DomDetail
-	 *     DmxPredicateWithCorrelationVariable returns DomDetail
-	 *     DmxOrExpression returns DomDetail
-	 *     DmxOrExpression.DmxBinaryOperation_1_0_0_0 returns DomDetail
-	 *     DmxAndExpression returns DomDetail
-	 *     DmxAndExpression.DmxBinaryOperation_1_0_0_0 returns DomDetail
-	 *     DmxEqualityExpression returns DomDetail
-	 *     DmxEqualityExpression.DmxBinaryOperation_1_0_0_0 returns DomDetail
-	 *     DmxRelationalExpression returns DomDetail
-	 *     DmxRelationalExpression.DmxInstanceOfExpression_1_0_0_0_0 returns DomDetail
-	 *     DmxRelationalExpression.DmxBinaryOperation_1_1_0_0_0 returns DomDetail
-	 *     DmxOtherOperatorExpression returns DomDetail
-	 *     DmxOtherOperatorExpression.DmxBinaryOperation_1_0_0_0 returns DomDetail
-	 *     DmxAdditiveExpression returns DomDetail
-	 *     DmxAdditiveExpression.DmxBinaryOperation_1_0_0_0 returns DomDetail
-	 *     DmxMultiplicativeExpression returns DomDetail
-	 *     DmxMultiplicativeExpression.DmxBinaryOperation_1_0_0_0 returns DomDetail
-	 *     DmxUnaryOperation returns DomDetail
-	 *     DmxCastExpression returns DomDetail
-	 *     DmxCastExpression.DmxCastExpression_1_0_0_0 returns DomDetail
-	 *     DmxPrimaryExpression returns DomDetail
-	 *     DmxParenthesizedExpression returns DomDetail
-	 *
-	 * Constraint:
-	 *     (type=[DComplexType|ID] fields+=DmxField*)
-	 */
-	protected void sequence_DmxComplexObject(ISerializationContext context, DomDetail semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DomEntity returns DomEntity
-	 *
-	 * Constraint:
-	 *     (type=[DComplexType|ID] fields+=DmxField*)
-	 */
-	protected void sequence_DmxComplexObject(ISerializationContext context, DomEntity semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DmxField returns DmxField
-	 *
-	 * Constraint:
-	 *     (feature=[DFeature|ID] value=DExpression)
-	 */
-	protected void sequence_DmxField(ISerializationContext context, DmxField semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DmxPackage.Literals.DMX_FIELD__FEATURE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmxPackage.Literals.DMX_FIELD__FEATURE));
-			if (transientValues.isValueTransient(semanticObject, DmxPackage.Literals.DMX_FIELD__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmxPackage.Literals.DMX_FIELD__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDmxFieldAccess().getFeatureDFeatureIDTerminalRuleCall_0_0_1(), semanticObject.eGet(DmxPackage.Literals.DMX_FIELD__FEATURE, false));
-		feeder.accept(grammarAccess.getDmxFieldAccess().getValueDExpressionParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
 	
 	/**
 	 * Contexts:
@@ -338,7 +293,7 @@ public class DomSemanticSequencer extends DmxSemanticSequencer {
 	 *     DomNamedComplexObject returns DomNamedComplexObject
 	 *
 	 * Constraint:
-	 *     (name=ID (object=DomEntity | object=DomDetail))
+	 *     (name=ID (object=DmxEntity | object=DmxDetail))
 	 */
 	protected void sequence_DomNamedComplexObject(ISerializationContext context, DomNamedComplexObject semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

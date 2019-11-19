@@ -14,11 +14,12 @@ import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral;
 import com.mimacom.ddd.dm.dmx.DmxCallArguments;
 import com.mimacom.ddd.dm.dmx.DmxCastExpression;
 import com.mimacom.ddd.dm.dmx.DmxComplexObject;
-import com.mimacom.ddd.dm.dmx.DmxConstructorCall;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxDateLiteral;
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral;
+import com.mimacom.ddd.dm.dmx.DmxDetail;
+import com.mimacom.ddd.dm.dmx.DmxEntity;
 import com.mimacom.ddd.dm.dmx.DmxFactory;
 import com.mimacom.ddd.dm.dmx.DmxField;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
@@ -36,6 +37,7 @@ import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
 import com.mimacom.ddd.dm.dmx.DmxStringLiteral;
 import com.mimacom.ddd.dm.dmx.DmxTest;
+import com.mimacom.ddd.dm.dmx.DmxTestContext;
 import com.mimacom.ddd.dm.dmx.DmxUnaryOperation;
 import com.mimacom.ddd.dm.dmx.DmxUnaryOperator;
 import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
@@ -70,6 +72,13 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	private EClass dmxTestEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dmxTestContextEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,13 +156,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	private EClass dmxFunctionCallEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dmxConstructorCallEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -266,6 +268,20 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	private EClass dmxFieldEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dmxEntityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dmxDetailEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -432,6 +448,26 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	public EReference getDmxTest_Expr()
 	{
 		return (EReference)dmxTestEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDmxTestContext()
+	{
+		return dmxTestContextEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDmxTestContext_Value()
+	{
+		return (EReference)dmxTestContextEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -812,46 +848,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	public EReference getDmxFunctionCall_CallArguments()
 	{
 		return (EReference)dmxFunctionCallEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDmxConstructorCall()
-	{
-		return dmxConstructorCallEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDmxConstructorCall_Constructor()
-	{
-		return (EReference)dmxConstructorCallEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDmxConstructorCall_ExplicitConstructorCall()
-	{
-		return (EAttribute)dmxConstructorCallEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDmxConstructorCall_CallArguments()
-	{
-		return (EReference)dmxConstructorCallEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1309,6 +1305,26 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDmxEntity()
+	{
+		return dmxEntityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDmxDetail()
+	{
+		return dmxDetailEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getDmxBaseType()
 	{
 		return dmxBaseTypeEEnum;
@@ -1374,6 +1390,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		createEReference(dmxTestEClass, DMX_TEST__CONTEXT);
 		createEReference(dmxTestEClass, DMX_TEST__EXPR);
 
+		dmxTestContextEClass = createEClass(DMX_TEST_CONTEXT);
+		createEReference(dmxTestContextEClass, DMX_TEST_CONTEXT__VALUE);
+
 		dmxBaseTypeSetEClass = createEClass(DMX_BASE_TYPE_SET);
 		createEAttribute(dmxBaseTypeSetEClass, DMX_BASE_TYPE_SET__NAME);
 		createEAttribute(dmxBaseTypeSetEClass, DMX_BASE_TYPE_SET__MEMBERS);
@@ -1422,11 +1441,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		dmxFunctionCallEClass = createEClass(DMX_FUNCTION_CALL);
 		createEReference(dmxFunctionCallEClass, DMX_FUNCTION_CALL__FUNCTION);
 		createEReference(dmxFunctionCallEClass, DMX_FUNCTION_CALL__CALL_ARGUMENTS);
-
-		dmxConstructorCallEClass = createEClass(DMX_CONSTRUCTOR_CALL);
-		createEReference(dmxConstructorCallEClass, DMX_CONSTRUCTOR_CALL__CONSTRUCTOR);
-		createEAttribute(dmxConstructorCallEClass, DMX_CONSTRUCTOR_CALL__EXPLICIT_CONSTRUCTOR_CALL);
-		createEReference(dmxConstructorCallEClass, DMX_CONSTRUCTOR_CALL__CALL_ARGUMENTS);
 
 		dmxBinaryOperationEClass = createEClass(DMX_BINARY_OPERATION);
 		createEReference(dmxBinaryOperationEClass, DMX_BINARY_OPERATION__LEFT_OPERAND);
@@ -1489,6 +1503,10 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		createEReference(dmxFieldEClass, DMX_FIELD__FEATURE);
 		createEReference(dmxFieldEClass, DMX_FIELD__VALUE);
 
+		dmxEntityEClass = createEClass(DMX_ENTITY);
+
+		dmxDetailEClass = createEClass(DMX_DETAIL);
+
 		// Create enums
 		dmxBaseTypeEEnum = createEEnum(DMX_BASE_TYPE);
 		dmxBinaryOperatorEEnum = createEEnum(DMX_BINARY_OPERATOR);
@@ -1530,6 +1548,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		dmxNamespaceEClass.getESuperTypes().add(theBasePackage.getDNamedElement());
 		dmxNamespaceEClass.getESuperTypes().add(theBasePackage.getITypeContainer());
 		dmxTestEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
+		dmxTestContextEClass.getESuperTypes().add(theBasePackage.getDContext());
 		dmxArchetypeEClass.getESuperTypes().add(theBasePackage.getDPrimitive());
 		dmxFilterEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
 		dmxAssignmentEClass.getESuperTypes().add(theBasePackage.getDExpression());
@@ -1538,7 +1557,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		dmxCorrelationVariableEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
 		dmxMemberNavigationEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxFunctionCallEClass.getESuperTypes().add(theBasePackage.getDExpression());
-		dmxConstructorCallEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxBinaryOperationEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxInstanceOfExpressionEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxUnaryOperationEClass.getESuperTypes().add(theBasePackage.getDExpression());
@@ -1556,6 +1574,8 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		dmxComplexObjectEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
 		dmxComplexObjectEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		dmxFieldEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
+		dmxEntityEClass.getESuperTypes().add(this.getDmxComplexObject());
+		dmxDetailEClass.getESuperTypes().add(this.getDmxComplexObject());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(dmxNamespaceEClass, DmxNamespace.class, "DmxNamespace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1565,8 +1585,11 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 
 		initEClass(dmxTestEClass, DmxTest.class, "DmxTest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDmxTest_Name(), ecorePackage.getEString(), "name", null, 0, 1, DmxTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDmxTest_Context(), theBasePackage.getDContext(), null, "context", null, 0, -1, DmxTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDmxTest_Context(), this.getDmxTestContext(), null, "context", null, 0, -1, DmxTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDmxTest_Expr(), theBasePackage.getDExpression(), null, "expr", null, 0, 1, DmxTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dmxTestContextEClass, DmxTestContext.class, "DmxTestContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDmxTestContext_Value(), theBasePackage.getDExpression(), null, "value", null, 0, 1, DmxTestContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dmxBaseTypeSetEClass, DmxBaseTypeSet.class, "DmxBaseTypeSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDmxBaseTypeSet_Name(), ecorePackage.getEString(), "name", null, 0, 1, DmxBaseTypeSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1621,11 +1644,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		initEClass(dmxFunctionCallEClass, DmxFunctionCall.class, "DmxFunctionCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDmxFunctionCall_Function(), this.getDmxFilter(), null, "function", null, 0, 1, DmxFunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDmxFunctionCall_CallArguments(), this.getDmxCallArguments(), null, "callArguments", null, 0, 1, DmxFunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dmxConstructorCallEClass, DmxConstructorCall.class, "DmxConstructorCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDmxConstructorCall_Constructor(), theBasePackage.getDComplexType(), null, "constructor", null, 0, 1, DmxConstructorCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDmxConstructorCall_ExplicitConstructorCall(), ecorePackage.getEBoolean(), "explicitConstructorCall", null, 0, 1, DmxConstructorCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDmxConstructorCall_CallArguments(), this.getDmxCallArguments(), null, "callArguments", null, 0, 1, DmxConstructorCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dmxBinaryOperationEClass, DmxBinaryOperation.class, "DmxBinaryOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDmxBinaryOperation_LeftOperand(), theBasePackage.getDExpression(), null, "leftOperand", null, 0, 1, DmxBinaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1687,6 +1705,10 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		initEClass(dmxFieldEClass, DmxField.class, "DmxField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDmxField_Feature(), theBasePackage.getDFeature(), null, "feature", null, 0, 1, DmxField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDmxField_Value(), theBasePackage.getDExpression(), null, "value", null, 0, 1, DmxField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dmxEntityEClass, DmxEntity.class, "DmxEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dmxDetailEClass, DmxDetail.class, "DmxDetail", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(dmxBaseTypeEEnum, DmxBaseType.class, "DmxBaseType");

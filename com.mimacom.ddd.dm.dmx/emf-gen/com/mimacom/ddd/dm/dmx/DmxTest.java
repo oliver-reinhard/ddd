@@ -2,7 +2,6 @@
  */
 package com.mimacom.ddd.dm.dmx;
 
-import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
@@ -56,7 +55,7 @@ public interface DmxTest extends INavigableMemberContainer
 
 	/**
 	 * Returns the value of the '<em><b>Context</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DContext}.
+	 * The list contents are of type {@link com.mimacom.ddd.dm.dmx.DmxTestContext}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Context</em>' containment reference list isn't clear,
@@ -68,7 +67,7 @@ public interface DmxTest extends INavigableMemberContainer
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<DContext> getContext();
+	EList<DmxTestContext> getContext();
 
 	/**
 	 * Returns the value of the '<em><b>Expr</b></em>' containment reference.

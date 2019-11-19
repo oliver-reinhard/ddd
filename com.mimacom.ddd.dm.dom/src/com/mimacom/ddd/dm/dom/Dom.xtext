@@ -22,33 +22,4 @@ DomObject:
 DomNamedComplexObject:
 	name=ID
 	'=' 
-	object=(DomEntity | DomDetail);
-
-DomEntity:
-	'entity' 
-	DmxComplexObject;
-
-DomDetail:
-	'detail' 
-	DmxComplexObject;
-
-fragment DmxComplexObject:
-	type=[DComplexType|ID]
-	DomFieldListStartSymbol
-	(fields+=DmxField)*
-	'}';
-	
-DmxField:
-	feature=[DFeature|ID] "=" value=DExpression;
-	
-@Override 
-DmxLiteralExpression returns DExpression:
-	DmxBooleanLiteral |
-	DmxStringLiteral |
-	DmxNaturalLiteral |
-	DmxDecimalLiteral |
-	DmxUndefinedLiteral |
-	DomDetail;
-
-DomFieldListStartSymbol:
-	'{';
+	object=(DmxEntity | DmxDetail);

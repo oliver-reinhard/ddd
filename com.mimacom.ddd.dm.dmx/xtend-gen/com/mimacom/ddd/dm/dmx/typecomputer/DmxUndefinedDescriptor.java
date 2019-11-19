@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.EObject;
 
 @SuppressWarnings("all")
 public class DmxUndefinedDescriptor extends AbstractDmxTypeDescriptor<DType> {
-  public DmxUndefinedDescriptor() {
-    super(DmxBaseType.UNDEFINED, null, false);
+  public DmxUndefinedDescriptor(final boolean collection) {
+    super(DmxBaseType.UNDEFINED, null, collection);
   }
   
   @Override

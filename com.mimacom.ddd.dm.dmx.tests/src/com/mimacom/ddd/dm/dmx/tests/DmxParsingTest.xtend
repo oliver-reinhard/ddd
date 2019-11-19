@@ -11,7 +11,6 @@ import com.mimacom.ddd.dm.dmx.DmxNamespace
 import com.mimacom.ddd.dm.dmx.DmxUtil
 import com.mimacom.ddd.dm.dmx.impl.DmxAssignmentImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxBooleanLiteralImpl
-import com.mimacom.ddd.dm.dmx.impl.DmxConstructorCallImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxContextReferenceImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxDecimalLiteralImpl
 import com.mimacom.ddd.dm.dmx.impl.DmxFilterImpl
@@ -130,30 +129,7 @@ class DmxParsingTest {
 			assertEquals(DmxNaturalLiteralImpl, args.get(0).class)
 			assertEquals(DmxStringLiteralImpl, args.get(1).class)
 		}
-		{
-			val e = tests.get(4).expr
-			assertEquals(DmxConstructorCallImpl, e.class)
-			assertFalse((e as DmxConstructorCallImpl).explicitConstructorCall)
-		}
-		{
-			val e = tests.get(5).expr
-			assertEquals(DmxConstructorCallImpl, e.class)
-			assertTrue((e as DmxConstructorCallImpl).explicitConstructorCall)
-			val args = (e as DmxConstructorCallImpl).nullSafeCallArguments
-			assertEquals(1, args.size)
-			assertEquals(DmxNaturalLiteralImpl, args.get(0).class)
-		}
-		{
-			val e = tests.get(6).expr
-			assertEquals(DmxConstructorCallImpl, e.class)
-			assertTrue((e as DmxConstructorCallImpl).explicitConstructorCall)
-			val args = (e as DmxConstructorCallImpl).nullSafeCallArguments
-			assertEquals(2, args.size)
-			assertEquals(DmxNaturalLiteralImpl, args.get(0).class)
-			assertEquals(DmxStringLiteralImpl, args.get(1).class)
-		}
-		{
-			val e = tests.get(7).expr
+		{	val e = tests.get(7).expr
 			assertEquals(DRichTextImpl, e.class)
 			assertEquals((e as DRichText).segments.size, 3)
 			val seg1 = (e as DRichText).segments.get(1)

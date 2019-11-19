@@ -21,7 +21,6 @@ import com.mimacom.ddd.dm.dmx.DmxBinaryOperator;
 import com.mimacom.ddd.dm.dmx.DmxBooleanLiteral;
 import com.mimacom.ddd.dm.dmx.DmxCastExpression;
 import com.mimacom.ddd.dm.dmx.DmxComplexObject;
-import com.mimacom.ddd.dm.dmx.DmxConstructorCall;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxDecimalLiteral;
@@ -126,13 +125,13 @@ public class DmxTypeComputer {
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxContextReference expr) {
-    return this.typeForSwitch(expr);
+    return this.typeForContextReferenceSwitch(expr);
   }
   
   /**
    * Non-dispatching; use to override
    */
-  public AbstractDmxTypeDescriptor<?> typeForSwitch(final DmxContextReference expr) {
+  public AbstractDmxTypeDescriptor<?> typeForContextReferenceSwitch(final DmxContextReference expr) {
     final DNamedElement target = expr.getTarget();
     if ((target instanceof DContext)) {
       return this._dmxTypeDescriptorProvider.getTypeDescriptor(((DContext)target).getType(), ((DContext)target).isCollection());
@@ -149,13 +148,12 @@ public class DmxTypeComputer {
           } else {
             if ((target instanceof DNavigableMember)) {
               return this._dmxTypeDescriptorProvider.getTypeDescriptor(((DNavigableMember)target).getType(), expr.isAll());
-            } else {
-              return this._dmxTypeDescriptorProvider.getTypeDescriptor(target, expr.isAll());
             }
           }
         }
       }
     }
+    return this._dmxTypeDescriptorProvider.getTypeDescriptor(target, expr.isAll());
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxCorrelationVariable target) {
@@ -355,7 +353,7 @@ public class DmxTypeComputer {
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxListExpression expr) {
     boolean _isEmpty = expr.getElements().isEmpty();
     if (_isEmpty) {
-      return DmxTypeDescriptorProvider.UNDEFINED_TYPE;
+      return DmxTypeDescriptorProvider.UNDEFINED_TYPE_COLLECTION;
     }
     final HashSet<AbstractDmxTypeDescriptor<?>> typeDescs = Sets.<AbstractDmxTypeDescriptor<?>>newHashSet();
     EList<DExpression> _elements = expr.getElements();
@@ -369,10 +367,6 @@ public class DmxTypeComputer {
       return result;
     }
     return DmxTypeDescriptorProvider.AMBIGUOUS_TYPE;
-  }
-  
-  protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxConstructorCall expr) {
-    return this._dmxTypeDescriptorProvider.getTypeDescriptor(expr.getConstructor(), false);
   }
   
   protected AbstractDmxTypeDescriptor<?> _typeFor(final DmxIfExpression expr) {
@@ -438,8 +432,6 @@ public class DmxTypeComputer {
       return _typeFor((DmxCastExpression)expr);
     } else if (expr instanceof DmxComplexObject) {
       return _typeFor((DmxComplexObject)expr);
-    } else if (expr instanceof DmxConstructorCall) {
-      return _typeFor((DmxConstructorCall)expr);
     } else if (expr instanceof DmxContextReference) {
       return _typeFor((DmxContextReference)expr);
     } else if (expr instanceof DmxCorrelationVariable) {

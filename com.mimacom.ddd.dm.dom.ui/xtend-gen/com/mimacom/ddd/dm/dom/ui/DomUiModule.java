@@ -4,8 +4,10 @@
 package com.mimacom.ddd.dm.dom.ui;
 
 import com.mimacom.ddd.dm.dom.ui.AbstractDomUiModule;
+import com.mimacom.ddd.dm.dom.ui.hover.DomEObjectHoverProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
+import org.eclipse.xtext.ui.editor.hover.IEObjectHoverProvider;
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.
@@ -13,6 +15,10 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class DomUiModule extends AbstractDomUiModule {
+  public Class<? extends IEObjectHoverProvider> bindIEObjectHoverProvider() {
+    return DomEObjectHoverProvider.class;
+  }
+  
   public DomUiModule(final AbstractUIPlugin arg0) {
     super(arg0);
   }
