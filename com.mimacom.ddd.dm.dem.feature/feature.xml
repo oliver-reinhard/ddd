@@ -2,7 +2,8 @@
 <feature
       id="com.mimacom.ddd.dm.dem.feature"
       label="Dem Feature"
-      version="0.1.0.qualifier">
+      version="0.1.0.qualifier"
+      provider-name="mimacom ag">
 
    <plugin
          id="com.mimacom.ddd.dm.dem"

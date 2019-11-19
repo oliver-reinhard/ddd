@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feature id="com.mimacom.ddd.sm.asm.feature"
-	label="Asm Feature "
+<feature id="com.mimacom.ddd.dm.dmx.feature"
+	label="Dmx Feature "
 	version="0.1.0.qualifier"
-	provider-name="mimacom ag">
+      provider-name="mimacom ag">
 	<plugin
-			id="com.mimacom.ddd.sm.asm"
+			id="com.mimacom.ddd.dm.dmx"
 			download-size="0"
 			install-size="0"
 			version="0.0.0"
 			unpack="false"/>
 	<plugin
-			id="com.mimacom.ddd.sm.asm.ide"
+			id="com.mimacom.ddd.dm.dmx.ide"
 			download-size="0"
 			install-size="0"
 			version="0.0.0"
 			unpack="false"/>
 	<plugin
-			id="com.mimacom.ddd.sm.asm.ui"
+			id="com.mimacom.ddd.dm.dmx.ui"
 			download-size="0"
 			install-size="0"
 			version="0.0.0"

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+  <feature id="com.mimacom.ddd.util.feature">
+    <category name="com.mimacom.ddd" />
+  </feature>
+  <feature id="com.mimacom.ddd.dm.base.feature">
+    <category name="com.mimacom.ddd" />
+  </feature>
+  <feature id="com.mimacom.ddd.dm.dmx.feature">
+    <category name="com.mimacom.ddd" />
+  </feature>
+  <feature id="com.mimacom.ddd.dm.dem.feature">
+    <category name="com.mimacom.ddd" />
+  </feature>
+  <feature id="com.mimacom.ddd.dm.dim.feature">
+    <category name="com.mimacom.ddd" />
+  </feature>
+  <feature id="com.mimacom.ddd.dm.dom.feature">
+    <category name="com.mimacom.ddd" />
+  </feature>
+  <feature id="com.mimacom.ddd.dm.esm.feature">
+    <category name="com.mimacom.ddd" />
+  </feature>
+  <feature id="com.mimacom.ddd.sm.asm.feature">
+    <category name="com.mimacom.ddd" />
+  </feature>
+  <feature id="com.mimacom.ddd.sm.sim.feature">
+    <category name="com.mimacom.ddd" />
+  </feature>
+  <feature id="com.mimacom.ddd.sm.sus.feature">
+    <category name="com.mimacom.ddd" />
+  </feature>
+  <category-def name="com.mimacom.ddd" label="DDD" />
+</site>

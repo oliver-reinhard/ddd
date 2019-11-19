@@ -18,6 +18,7 @@
 		<module>com.mimacom.ddd.target</module>
 		<module>com.mimacom.ddd.tycho.parent</module>
 		<module>com.mimacom.ddd.tycho.plugin.parent</module>
+		<module>com.mimacom.ddd.repository</module>
 	</modules>
 
 </project>

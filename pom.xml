@@ -14,19 +14,24 @@
   <packaging>pom</packaging>
   <version>0.1.0-SNAPSHOT</version>
 
+  <name>Root</name>
+
+
   <modules>
     <module>releng</module>
     <!-- base -->
     <module>com.mimacom.ddd.dm.base</module>
+    <module>com.mimacom.ddd.dm.base.feature</module>
     <!-- util -->
     <module>com.mimacom.ddd.util</module>
+    <module>com.mimacom.ddd.util.feature</module>
     <!-- dmx -->
     <module>com.mimacom.ddd.dm.dmx</module>
     <module>com.mimacom.ddd.dm.dmx.ide</module>
     <module>com.mimacom.ddd.dm.dmx.tests</module>
     <module>com.mimacom.ddd.dm.dmx.ui</module>
     <module>com.mimacom.ddd.dm.dmx.ui.tests</module>
-    <!-- <module>com.mimacom.ddd.dm.dmx.feature</module> -->
+    <module>com.mimacom.ddd.dm.dmx.feature</module>
     <!-- dem -->
     <module>com.mimacom.ddd.dm.dem</module>
     <module>com.mimacom.ddd.dm.dem.ide</module>
