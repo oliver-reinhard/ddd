@@ -13,7 +13,7 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class SimUiModule extends AbstractSimUiModule {
-  public SimUiModule(final AbstractUIPlugin arg0) {
-    super(arg0);
+  public SimUiModule(final AbstractUIPlugin plugin) {
+    super(plugin);
   }
 }

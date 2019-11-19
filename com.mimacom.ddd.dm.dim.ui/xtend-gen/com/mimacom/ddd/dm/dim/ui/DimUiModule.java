@@ -13,7 +13,7 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class DimUiModule extends AbstractDimUiModule {
-  public DimUiModule(final AbstractUIPlugin arg0) {
-    super(arg0);
+  public DimUiModule(final AbstractUIPlugin plugin) {
+    super(plugin);
   }
 }
