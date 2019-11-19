@@ -225,7 +225,7 @@ class DmxTypeCheckingTest {
 		
 		val e04 = tests.get(4).expr
 		assertBoolean(e04)
-		assertHasValidationERRORS(e04.eContainer) // do not just validate the expression but the TestContext)
+		assertNoValidationErrors(e04.eContainer) // do not just validate the expression but the TestContext)
 	}
 	
 	@Test
@@ -287,7 +287,7 @@ class DmxTypeCheckingTest {
 		''')
 		
 		val e00 = tests.get(0).expr
-		assertType(e00, DmxTypeDescriptorProvider::UNDEFINED_TYPE)
+		assertType(e00, DmxTypeDescriptorProvider::UNDEFINED_TYPE_COLLECTION)
 		assertNoValidationErrors(e00)
 		
 		val e01 = tests.get(1).expr

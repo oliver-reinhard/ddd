@@ -299,7 +299,7 @@ public class DmxTypeCheckingTest {
     this.assertHasValidationERRORS(e03.eContainer());
     final DExpression e04 = tests.get(4).getExpr();
     this.assertBoolean(e04);
-    this.assertHasValidationERRORS(e04.eContainer());
+    this.assertNoValidationErrors(e04.eContainer());
   }
   
   @Test
@@ -370,7 +370,7 @@ public class DmxTypeCheckingTest {
     _builder.newLine();
     final EList<DmxTest> tests = this.parse(_builder);
     final DExpression e00 = tests.get(0).getExpr();
-    this.assertType(e00, DmxTypeDescriptorProvider.UNDEFINED_TYPE);
+    this.assertType(e00, DmxTypeDescriptorProvider.UNDEFINED_TYPE_COLLECTION);
     this.assertNoValidationErrors(e00);
     final DExpression e01 = tests.get(1).getExpr();
     this.assertType(e01, DmxTypeDescriptorProvider.NUMBER_COLLECTION);
