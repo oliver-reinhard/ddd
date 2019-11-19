@@ -6,7 +6,7 @@
       <package
             uri="http://www.mimacom.com/ddd/dm/esm"
             class="com.mimacom.ddd.dm.esm.EsmPackage"
-            genModel="model/Esm.genmodel"/>
+            genModel="model/esm.genmodel"/>
    </extension>
 
 </plugin>

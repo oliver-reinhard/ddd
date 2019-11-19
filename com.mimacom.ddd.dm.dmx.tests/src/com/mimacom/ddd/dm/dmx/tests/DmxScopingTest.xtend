@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 
-import static extension org.junit.Assert.*
+import static org.junit.jupiter.api.Assertions.*
 
 @ExtendWith(InjectionExtension)
 @InjectWith(DmxInjectorProvider)
@@ -199,6 +199,6 @@ class DmxScopingTest {
 	def private assertScope(EObject context, EReference reference, CharSequence expected) {
 		val actualScope = context.getScope(reference)
 		val actual = actualScope.allElements.map[name].join(", ")
-		expected.toString.assertEquals(actual)
+		assertEquals(expected.toString, actual)
 	}
 }

@@ -69,7 +69,6 @@ public class DRichTextImpl extends DExpressionImpl implements DRichText
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<IRichTextSegment> getSegments()
 	{
 		if (segments == null)

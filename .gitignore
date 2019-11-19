@@ -1,5 +1,11 @@
 *.class
-*.xtendbin
-*.xtextbin
+**/target/
+/build/
+/.m2/
+bin/
+target/
 *._trace
-**/bin
+*.xtendbin
+.antlr-generator-*.jar
+.DS_Store
+.vscode/

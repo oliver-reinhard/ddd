@@ -419,7 +419,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 *
+	 * 
 	 * <p>This method is used to initialize {@link BasePackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -434,8 +434,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		if (isInited) return (BasePackage)EPackage.Registry.INSTANCE.getEPackage(BasePackage.eNS_URI);
 
 		// Obtain or create and register package
-		Object registeredBasePackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		BasePackageImpl theBasePackage = registeredBasePackage instanceof BasePackageImpl ? (BasePackageImpl)registeredBasePackage : new BasePackageImpl();
+		BasePackageImpl theBasePackage = (BasePackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof BasePackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new BasePackageImpl());
 
 		isInited = true;
 
@@ -448,6 +447,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		// Mark meta-data to indicate it can't be changed
 		theBasePackage.freeze();
 
+  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(BasePackage.eNS_URI, theBasePackage);
 		return theBasePackage;
@@ -458,7 +458,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getINamespace()
 	{
 		return iNamespaceEClass;
@@ -469,7 +468,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getITypeContainer()
 	{
 		return iTypeContainerEClass;
@@ -480,7 +478,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getITypeContainer_Types()
 	{
 		return (EReference)iTypeContainerEClass.getEStructuralFeatures().get(0);
@@ -491,7 +488,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getIDeductionDefinition()
 	{
 		return iDeductionDefinitionEClass;
@@ -502,7 +498,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getIDeductionDefinition_DeductionRule()
 	{
 		return (EReference)iDeductionDefinitionEClass.getEStructuralFeatures().get(0);
@@ -513,7 +508,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getIDeducibleElement()
 	{
 		return iDeducibleElementEClass;
@@ -524,7 +518,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getIDeducibleElement_DeducedFrom()
 	{
 		return (EReference)iDeducibleElementEClass.getEStructuralFeatures().get(0);
@@ -535,7 +528,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getIDeducibleElement_Synthetic()
 	{
 		return (EAttribute)iDeducibleElementEClass.getEStructuralFeatures().get(1);
@@ -546,7 +538,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDDeductionRule()
 	{
 		return dDeductionRuleEClass;
@@ -557,7 +548,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDDeductionRule_Source()
 	{
 		return (EReference)dDeductionRuleEClass.getEStructuralFeatures().get(0);
@@ -568,7 +558,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDDeductionRule_NamedSource()
 	{
 		return (EReference)dDeductionRuleEClass.getEStructuralFeatures().get(1);
@@ -579,7 +568,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDNamedElement()
 	{
 		return dNamedElementEClass;
@@ -590,7 +578,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDNamedElement_Name()
 	{
 		return (EAttribute)dNamedElementEClass.getEStructuralFeatures().get(0);
@@ -601,7 +588,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDNamedElement_Aliases()
 	{
 		return (EAttribute)dNamedElementEClass.getEStructuralFeatures().get(1);
@@ -612,7 +598,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDNamedElement_Description()
 	{
 		return (EReference)dNamedElementEClass.getEStructuralFeatures().get(2);
@@ -623,7 +608,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDNavigableMember()
 	{
 		return dNavigableMemberEClass;
@@ -634,7 +618,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDNavigableMember_Type()
 	{
 		return (EReference)dNavigableMemberEClass.getEStructuralFeatures().get(0);
@@ -645,7 +628,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDNavigableMember_Multiplicity()
 	{
 		return (EReference)dNavigableMemberEClass.getEStructuralFeatures().get(1);
@@ -656,7 +638,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDNavigableMember_Optional()
 	{
 		return (EAttribute)dNavigableMemberEClass.getEStructuralFeatures().get(2);
@@ -667,7 +648,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDNavigableMember_Collection()
 	{
 		return (EAttribute)dNavigableMemberEClass.getEStructuralFeatures().get(3);
@@ -678,7 +658,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getINavigableMemberContainer()
 	{
 		return iNavigableMemberContainerEClass;
@@ -689,7 +668,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getIStaticReferenceTarget()
 	{
 		return iStaticReferenceTargetEClass;
@@ -700,7 +678,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getIRichTextSegment()
 	{
 		return iRichTextSegmentEClass;
@@ -711,7 +688,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDTextSegment()
 	{
 		return dTextSegmentEClass;
@@ -722,7 +698,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDTextSegment_Value()
 	{
 		return (EAttribute)dTextSegmentEClass.getEStructuralFeatures().get(0);
@@ -733,7 +708,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDExpression()
 	{
 		return dExpressionEClass;
@@ -744,7 +718,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDRichText()
 	{
 		return dRichTextEClass;
@@ -755,7 +728,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDRichText_Segments()
 	{
 		return (EReference)dRichTextEClass.getEStructuralFeatures().get(0);
@@ -766,7 +738,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDImport()
 	{
 		return dImportEClass;
@@ -777,7 +748,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDImport_ImportedNamespace()
 	{
 		return (EAttribute)dImportEClass.getEStructuralFeatures().get(0);
@@ -788,7 +758,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDDomain()
 	{
 		return dDomainEClass;
@@ -799,7 +768,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDDomain_Imports()
 	{
 		return (EReference)dDomainEClass.getEStructuralFeatures().get(0);
@@ -810,7 +778,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDDomain_Aggregates()
 	{
 		return (EReference)dDomainEClass.getEStructuralFeatures().get(1);
@@ -821,7 +788,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDDomain_Events()
 	{
 		return (EReference)dDomainEClass.getEStructuralFeatures().get(2);
@@ -832,7 +798,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDDomain_Actors()
 	{
 		return (EReference)dDomainEClass.getEStructuralFeatures().get(3);
@@ -843,7 +808,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDAggregate()
 	{
 		return dAggregateEClass;
@@ -854,7 +818,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDAggregate_Roots()
 	{
 		return (EReference)dAggregateEClass.getEStructuralFeatures().get(0);
@@ -865,7 +828,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDAggregate_StaticQueries()
 	{
 		return (EReference)dAggregateEClass.getEStructuralFeatures().get(1);
@@ -876,7 +838,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getIIdentityType()
 	{
 		return iIdentityTypeEClass;
@@ -887,7 +848,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getIValueType()
 	{
 		return iValueTypeEClass;
@@ -898,7 +858,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDType()
 	{
 		return dTypeEClass;
@@ -909,7 +868,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDType_Constraints()
 	{
 		return (EReference)dTypeEClass.getEStructuralFeatures().get(0);
@@ -920,7 +878,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDType_Primitive()
 	{
 		return (EAttribute)dTypeEClass.getEStructuralFeatures().get(1);
@@ -931,7 +888,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDNamedPredicate()
 	{
 		return dNamedPredicateEClass;
@@ -942,7 +898,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDNamedPredicate_Predicate()
 	{
 		return (EReference)dNamedPredicateEClass.getEStructuralFeatures().get(0);
@@ -953,7 +908,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDSimpleType()
 	{
 		return dSimpleTypeEClass;
@@ -964,7 +918,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDPrimitive()
 	{
 		return dPrimitiveEClass;
@@ -975,7 +928,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDPrimitive_Redefines()
 	{
 		return (EReference)dPrimitiveEClass.getEStructuralFeatures().get(0);
@@ -986,7 +938,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDEnumeration()
 	{
 		return dEnumerationEClass;
@@ -997,7 +948,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDEnumeration_Literals()
 	{
 		return (EReference)dEnumerationEClass.getEStructuralFeatures().get(0);
@@ -1008,7 +958,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDLiteral()
 	{
 		return dLiteralEClass;
@@ -1019,7 +968,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDComplexType()
 	{
 		return dComplexTypeEClass;
@@ -1030,7 +978,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDComplexType_Abstract()
 	{
 		return (EAttribute)dComplexTypeEClass.getEStructuralFeatures().get(0);
@@ -1041,7 +988,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDComplexType_SuperType()
 	{
 		return (EReference)dComplexTypeEClass.getEStructuralFeatures().get(1);
@@ -1052,7 +998,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDComplexType_Features()
 	{
 		return (EReference)dComplexTypeEClass.getEStructuralFeatures().get(2);
@@ -1063,7 +1008,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDDetailType()
 	{
 		return dDetailTypeEClass;
@@ -1074,7 +1018,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDEntityType()
 	{
 		return dEntityTypeEClass;
@@ -1085,7 +1028,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDEntityType_Root()
 	{
 		return (EAttribute)dEntityTypeEClass.getEStructuralFeatures().get(0);
@@ -1096,7 +1038,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDEntityType_Origin()
 	{
 		return (EAttribute)dEntityTypeEClass.getEStructuralFeatures().get(1);
@@ -1107,7 +1048,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDEntityType_States()
 	{
 		return (EReference)dEntityTypeEClass.getEStructuralFeatures().get(2);
@@ -1118,7 +1058,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDEntityType_Events()
 	{
 		return (EReference)dEntityTypeEClass.getEStructuralFeatures().get(3);
@@ -1129,7 +1068,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDFeature()
 	{
 		return dFeatureEClass;
@@ -1140,7 +1078,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDAssociation()
 	{
 		return dAssociationEClass;
@@ -1151,7 +1088,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDAssociation_Kind()
 	{
 		return (EAttribute)dAssociationEClass.getEStructuralFeatures().get(0);
@@ -1162,7 +1098,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDAssociation_Derived()
 	{
 		return (EAttribute)dAssociationEClass.getEStructuralFeatures().get(1);
@@ -1173,7 +1108,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDAssociation_SourceType()
 	{
 		return (EReference)dAssociationEClass.getEStructuralFeatures().get(2);
@@ -1184,7 +1118,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EOperation getDAssociation__GetTargetType()
 	{
 		return dAssociationEClass.getEOperations().get(0);
@@ -1195,7 +1128,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDMultiplicity()
 	{
 		return dMultiplicityEClass;
@@ -1206,7 +1138,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDMultiplicity_MinOccurs()
 	{
 		return (EAttribute)dMultiplicityEClass.getEStructuralFeatures().get(0);
@@ -1217,7 +1148,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDMultiplicity_MaxOccurs()
 	{
 		return (EAttribute)dMultiplicityEClass.getEStructuralFeatures().get(1);
@@ -1228,7 +1158,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDMultiplicity_Shorthand()
 	{
 		return (EAttribute)dMultiplicityEClass.getEStructuralFeatures().get(2);
@@ -1239,7 +1168,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDAttribute()
 	{
 		return dAttributeEClass;
@@ -1250,7 +1178,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDAttribute_Detail()
 	{
 		return (EAttribute)dAttributeEClass.getEStructuralFeatures().get(0);
@@ -1261,7 +1188,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDAttribute_Key()
 	{
 		return (EAttribute)dAttributeEClass.getEStructuralFeatures().get(1);
@@ -1272,7 +1198,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDQuery()
 	{
 		return dQueryEClass;
@@ -1283,7 +1208,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDQuery_Parameters()
 	{
 		return (EReference)dQueryEClass.getEStructuralFeatures().get(0);
@@ -1294,7 +1218,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDQuery_Returns()
 	{
 		return (EReference)dQueryEClass.getEStructuralFeatures().get(1);
@@ -1305,7 +1228,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDQueryParameter()
 	{
 		return dQueryParameterEClass;
@@ -1316,7 +1238,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDState()
 	{
 		return dStateEClass;
@@ -1327,7 +1248,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDStateEvent()
 	{
 		return dStateEventEClass;
@@ -1338,7 +1258,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDContext()
 	{
 		return dContextEClass;
@@ -1349,7 +1268,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDDomainEvent()
 	{
 		return dDomainEventEClass;
@@ -1360,7 +1278,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDDomainEvent_Context()
 	{
 		return (EReference)dDomainEventEClass.getEStructuralFeatures().get(0);
@@ -1371,7 +1288,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDDomainEvent_Trigger()
 	{
 		return (EReference)dDomainEventEClass.getEStructuralFeatures().get(1);
@@ -1382,7 +1298,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDDomainEvent_PreconditionsCNF()
 	{
 		return (EReference)dDomainEventEClass.getEStructuralFeatures().get(2);
@@ -1393,7 +1308,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDDomainEvent_PostconditionsDNF()
 	{
 		return (EReference)dDomainEventEClass.getEStructuralFeatures().get(3);
@@ -1404,7 +1318,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDDomainEvent_Notifications()
 	{
 		return (EReference)dDomainEventEClass.getEStructuralFeatures().get(4);
@@ -1415,7 +1328,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDCaseConjunction()
 	{
 		return dCaseConjunctionEClass;
@@ -1426,7 +1338,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDCaseConjunction_Selector()
 	{
 		return (EReference)dCaseConjunctionEClass.getEStructuralFeatures().get(0);
@@ -1437,7 +1348,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDCaseConjunction_Otherwise()
 	{
 		return (EAttribute)dCaseConjunctionEClass.getEStructuralFeatures().get(1);
@@ -1448,7 +1358,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDCaseConjunction_Predicates()
 	{
 		return (EReference)dCaseConjunctionEClass.getEStructuralFeatures().get(2);
@@ -1459,7 +1368,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDNotification()
 	{
 		return dNotificationEClass;
@@ -1470,7 +1378,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDNotification_Message()
 	{
 		return (EReference)dNotificationEClass.getEStructuralFeatures().get(0);
@@ -1481,7 +1388,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDNotification_Notified()
 	{
 		return (EReference)dNotificationEClass.getEStructuralFeatures().get(1);
@@ -1492,7 +1398,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDMessage()
 	{
 		return dMessageEClass;
@@ -1503,7 +1408,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDActor()
 	{
 		return dActorEClass;
@@ -1514,7 +1418,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDHumanActorRole()
 	{
 		return dHumanActorRoleEClass;
@@ -1525,7 +1428,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDHumanActorRole_Role()
 	{
 		return (EReference)dHumanActorRoleEClass.getEStructuralFeatures().get(0);
@@ -1536,7 +1438,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDService()
 	{
 		return dServiceEClass;
@@ -1547,7 +1448,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EEnum getDEntityOrigin()
 	{
 		return dEntityOriginEEnum;
@@ -1558,7 +1458,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EEnum getDAssociationKind()
 	{
 		return dAssociationKindEEnum;
@@ -1569,7 +1468,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EEnum getDMultiplicityShorthand()
 	{
 		return dMultiplicityShorthandEEnum;
@@ -1580,7 +1478,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public BaseFactory getBaseFactory()
 	{
 		return (BaseFactory)getEFactoryInstance();

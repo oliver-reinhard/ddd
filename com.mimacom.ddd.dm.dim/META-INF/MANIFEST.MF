@@ -2,18 +2,19 @@ Manifest-Version: 1.0
 Automatic-Module-Name: com.mimacom.ddd.dm.dim
 Bundle-ManifestVersion: 2
 Bundle-Name: com.mimacom.ddd.dm.dim
-Bundle-Vendor: My Company
-Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: mimacom ag
+Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: com.mimacom.ddd.dm.dim; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.mimacom.ddd.dm.dmx;visibility:=reexport,
  org.eclipse.xtext,
  org.eclipse.xtext.xbase,
  org.eclipse.equinox.common;bundle-version="3.5.0",
- org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.19.0",
  org.eclipse.xtext.util,
  org.eclipse.xtend.lib;bundle-version="2.14.0",
- org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
+ com.mimacom.ddd.dm.base
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.apache.log4j
 Export-Package: com.mimacom.ddd.dm.dim,

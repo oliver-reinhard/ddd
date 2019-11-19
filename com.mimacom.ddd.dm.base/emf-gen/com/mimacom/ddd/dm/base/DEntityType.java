@@ -28,6 +28,10 @@ public interface DEntityType extends DComplexType, IIdentityType
 	/**
 	 * Returns the value of the '<em><b>Root</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Root</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Root</em>' attribute.
 	 * @see #setRoot(boolean)
@@ -51,6 +55,10 @@ public interface DEntityType extends DComplexType, IIdentityType
 	 * Returns the value of the '<em><b>Origin</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.mimacom.ddd.dm.base.DEntityOrigin}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Origin</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Origin</em>' attribute.
 	 * @see com.mimacom.ddd.dm.base.DEntityOrigin
@@ -76,6 +84,10 @@ public interface DEntityType extends DComplexType, IIdentityType
 	 * Returns the value of the '<em><b>States</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DState}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>States</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>States</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDEntityType_States()
@@ -88,6 +100,10 @@ public interface DEntityType extends DComplexType, IIdentityType
 	 * Returns the value of the '<em><b>Events</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DStateEvent}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Events</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Events</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDEntityType_Events()

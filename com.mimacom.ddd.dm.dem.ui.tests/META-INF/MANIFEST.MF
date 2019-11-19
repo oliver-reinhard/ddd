@@ -2,8 +2,8 @@ Manifest-Version: 1.0
 Automatic-Module-Name: com.mimacom.ddd.dm.dem.ui.tests
 Bundle-ManifestVersion: 2
 Bundle-Name: com.mimacom.ddd.dm.dem.ui.tests
-Bundle-Vendor: My Company
-Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: mimacom ag
+Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: com.mimacom.ddd.dm.dem.ui.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.mimacom.ddd.dm.dem.ui,
@@ -14,6 +14,7 @@ Require-Bundle: com.mimacom.ddd.dm.dem.ui,
  org.eclipse.xtext.junit4,
  org.eclipse.xtext.xbase.junit,
  org.eclipse.core.runtime,
- org.eclipse.ui.workbench;resolution:=optional
+ org.eclipse.ui.workbench;resolution:=optional,
+ org.eclipse.xtext.ui.testing
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.mimacom.ddd.dm.dem.ui.tests;x-internal=true

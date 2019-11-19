@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.mimacom.ddd</groupId>
+    <artifactId>com.mimacom.ddd.tycho.parent</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <relativePath>/releng/com.mimacom.ddd.tycho.parent</relativePath>
+  </parent>
+
+  <groupId>com.mimacom.ddd</groupId>
+  <artifactId>com.mimacom.ddd.root</artifactId>
+  <packaging>pom</packaging>
+  <version>0.1.0-SNAPSHOT</version>
+
+  <name>Root</name>
+
+
+  <modules>
+    <module>releng</module>
+    <!-- base -->
+    <module>com.mimacom.ddd.dm.base</module>
+    <module>com.mimacom.ddd.dm.base.feature</module>
+    <!-- util -->
+    <module>com.mimacom.ddd.util</module>
+    <module>com.mimacom.ddd.util.feature</module>
+    <!-- dmx -->
+    <module>com.mimacom.ddd.dm.dmx</module>
+    <module>com.mimacom.ddd.dm.dmx.ide</module>
+    <module>com.mimacom.ddd.dm.dmx.tests</module>
+    <module>com.mimacom.ddd.dm.dmx.ui</module>
+    <module>com.mimacom.ddd.dm.dmx.ui.tests</module>
+    <module>com.mimacom.ddd.dm.dmx.feature</module>
+    <!-- dem -->
+    <module>com.mimacom.ddd.dm.dem</module>
+    <module>com.mimacom.ddd.dm.dem.ide</module>
+    <module>com.mimacom.ddd.dm.dem.tests</module>
+    <module>com.mimacom.ddd.dm.dem.ui</module>
+    <module>com.mimacom.ddd.dm.dem.ui.tests</module>
+    <module>com.mimacom.ddd.dm.dem.feature</module>
+    <!-- dom -->
+    <module>com.mimacom.ddd.dm.dom</module>
+    <module>com.mimacom.ddd.dm.dom.ide</module>
+    <module>com.mimacom.ddd.dm.dom.tests</module>
+    <module>com.mimacom.ddd.dm.dom.ui</module>
+    <module>com.mimacom.ddd.dm.dom.ui.tests</module>
+    <module>com.mimacom.ddd.dm.dom.feature</module>
+    <!-- dim -->
+    <module>com.mimacom.ddd.dm.dim</module>
+    <module>com.mimacom.ddd.dm.dim.ide</module>
+    <module>com.mimacom.ddd.dm.dim.tests</module>
+    <module>com.mimacom.ddd.dm.dim.ui</module>
+    <module>com.mimacom.ddd.dm.dim.ui.tests</module>
+    <module>com.mimacom.ddd.dm.dim.feature</module>
+    <!-- esm -->
+    <module>com.mimacom.ddd.dm.esm</module>
+    <module>com.mimacom.ddd.dm.esm.ide</module>
+    <module>com.mimacom.ddd.dm.esm.tests</module>
+    <module>com.mimacom.ddd.dm.esm.ui</module>
+    <module>com.mimacom.ddd.dm.esm.ui.tests</module>
+    <module>com.mimacom.ddd.dm.esm.feature</module>
+    <!-- sim -->
+    <module>com.mimacom.ddd.sm.sim</module>
+    <module>com.mimacom.ddd.sm.sim.ide</module>
+    <module>com.mimacom.ddd.sm.sim.tests</module>
+    <module>com.mimacom.ddd.sm.sim.ui</module>
+    <module>com.mimacom.ddd.sm.sim.ui.tests</module>
+    <module>com.mimacom.ddd.sm.sim.feature</module>
+    <!-- asm -->
+    <module>com.mimacom.ddd.sm.asm</module>
+    <module>com.mimacom.ddd.sm.asm.ide</module>
+    <module>com.mimacom.ddd.sm.asm.tests</module>
+    <module>com.mimacom.ddd.sm.asm.ui</module>
+    <module>com.mimacom.ddd.sm.asm.ui.tests</module>
+    <module>com.mimacom.ddd.sm.asm.feature</module>
+    <!-- sus -->
+    <module>com.mimacom.ddd.sm.sus</module>
+    <module>com.mimacom.ddd.sm.sus.ide</module>
+    <module>com.mimacom.ddd.sm.sus.tests</module>
+    <module>com.mimacom.ddd.sm.sus.ui</module>
+    <module>com.mimacom.ddd.sm.sus.ui.tests</module>
+    <module>com.mimacom.ddd.sm.sus.feature</module>
+    <!-- system -->
+    <module>com.mimacom.ddd.system</module>
+  </modules>
+
+  <build>
+    <defaultGoal>install</defaultGoal>
+  </build>
+
+</project>

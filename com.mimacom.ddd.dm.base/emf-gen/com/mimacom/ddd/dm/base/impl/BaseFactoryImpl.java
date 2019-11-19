@@ -142,7 +142,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DTextSegment createDTextSegment()
 	{
 		DTextSegmentImpl dTextSegment = new DTextSegmentImpl();
@@ -154,7 +153,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DRichText createDRichText()
 	{
 		DRichTextImpl dRichText = new DRichTextImpl();
@@ -166,7 +164,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DImport createDImport()
 	{
 		DImportImpl dImport = new DImportImpl();
@@ -178,7 +175,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DDomain createDDomain()
 	{
 		DDomainImpl dDomain = new DDomainImpl();
@@ -190,7 +186,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DAggregate createDAggregate()
 	{
 		DAggregateImplCustom dAggregate = new DAggregateImplCustom();
@@ -202,7 +197,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DNamedPredicate createDNamedPredicate()
 	{
 		DNamedPredicateImpl dNamedPredicate = new DNamedPredicateImpl();
@@ -214,7 +208,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DPrimitive createDPrimitive()
 	{
 		DPrimitiveImpl dPrimitive = new DPrimitiveImpl();
@@ -226,7 +219,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DEnumeration createDEnumeration()
 	{
 		DEnumerationImpl dEnumeration = new DEnumerationImpl();
@@ -238,7 +230,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DLiteral createDLiteral()
 	{
 		DLiteralImplCustom dLiteral = new DLiteralImplCustom();
@@ -250,7 +241,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DDetailType createDDetailType()
 	{
 		DDetailTypeImpl dDetailType = new DDetailTypeImpl();
@@ -262,7 +252,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DEntityType createDEntityType()
 	{
 		DEntityTypeImpl dEntityType = new DEntityTypeImpl();
@@ -274,7 +263,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DAssociation createDAssociation()
 	{
 		DAssociationImplCustom dAssociation = new DAssociationImplCustom();
@@ -286,7 +274,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DMultiplicity createDMultiplicity()
 	{
 		DMultiplicityImplCustom dMultiplicity = new DMultiplicityImplCustom();
@@ -298,7 +285,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DAttribute createDAttribute()
 	{
 		DAttributeImpl dAttribute = new DAttributeImpl();
@@ -310,7 +296,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DQuery createDQuery()
 	{
 		DQueryImpl dQuery = new DQueryImpl();
@@ -322,7 +307,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DQueryParameter createDQueryParameter()
 	{
 		DQueryParameterImpl dQueryParameter = new DQueryParameterImpl();
@@ -334,7 +318,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DState createDState()
 	{
 		DStateImpl dState = new DStateImpl();
@@ -346,7 +329,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DStateEvent createDStateEvent()
 	{
 		DStateEventImpl dStateEvent = new DStateEventImpl();
@@ -358,7 +340,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DContext createDContext()
 	{
 		DContextImpl dContext = new DContextImpl();
@@ -370,7 +351,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DDomainEvent createDDomainEvent()
 	{
 		DDomainEventImpl dDomainEvent = new DDomainEventImpl();
@@ -382,7 +362,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DCaseConjunction createDCaseConjunction()
 	{
 		DCaseConjunctionImpl dCaseConjunction = new DCaseConjunctionImpl();
@@ -394,7 +373,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DNotification createDNotification()
 	{
 		DNotificationImpl dNotification = new DNotificationImpl();
@@ -406,7 +384,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DMessage createDMessage()
 	{
 		DMessageImplCustom dMessage = new DMessageImplCustom();
@@ -418,7 +395,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DHumanActorRole createDHumanActorRole()
 	{
 		DHumanActorRoleImpl dHumanActorRole = new DHumanActorRoleImpl();
@@ -430,7 +406,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DService createDService()
 	{
 		DServiceImpl dService = new DServiceImpl();
@@ -508,7 +483,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public BasePackage getBasePackage()
 	{
 		return (BasePackage)getEPackage();

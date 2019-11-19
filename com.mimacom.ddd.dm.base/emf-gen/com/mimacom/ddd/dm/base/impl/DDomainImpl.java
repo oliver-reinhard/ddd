@@ -157,7 +157,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DType> getTypes()
 	{
 		if (types == null)
@@ -172,7 +171,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public IDeductionDefinition getDeducedFrom()
 	{
 		if (deducedFrom != null && deducedFrom.eIsProxy())
@@ -203,7 +201,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setDeducedFrom(IDeductionDefinition newDeducedFrom)
 	{
 		IDeductionDefinition oldDeducedFrom = deducedFrom;
@@ -217,7 +214,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public boolean isSynthetic()
 	{
 		return synthetic;
@@ -228,7 +224,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setSynthetic(boolean newSynthetic)
 	{
 		boolean oldSynthetic = synthetic;
@@ -242,7 +237,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DImport> getImports()
 	{
 		if (imports == null)
@@ -257,7 +251,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DAggregate> getAggregates()
 	{
 		if (aggregates == null)
@@ -272,7 +265,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DDomainEvent> getEvents()
 	{
 		if (events == null)
@@ -287,7 +279,6 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DActor> getActors()
 	{
 		if (actors == null)
@@ -548,7 +539,7 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (synthetic: ");
 		result.append(synthetic);
 		result.append(')');

@@ -74,7 +74,6 @@ public class DmxDecimalLiteralImpl extends DExpressionImpl implements DmxDecimal
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getValue()
 	{
 		return value;
@@ -85,7 +84,6 @@ public class DmxDecimalLiteralImpl extends DExpressionImpl implements DmxDecimal
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setValue(String newValue)
 	{
 		String oldValue = value;
@@ -170,7 +168,7 @@ public class DmxDecimalLiteralImpl extends DExpressionImpl implements DmxDecimal
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (value: ");
 		result.append(value);
 		result.append(')');

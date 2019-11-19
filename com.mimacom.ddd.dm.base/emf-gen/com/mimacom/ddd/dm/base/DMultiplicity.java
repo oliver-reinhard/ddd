@@ -27,6 +27,10 @@ public interface DMultiplicity extends EObject
 	/**
 	 * Returns the value of the '<em><b>Min Occurs</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Min Occurs</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Min Occurs</em>' attribute.
 	 * @see #setMinOccurs(int)
@@ -49,6 +53,10 @@ public interface DMultiplicity extends EObject
 	/**
 	 * Returns the value of the '<em><b>Max Occurs</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Max Occurs</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Max Occurs</em>' attribute.
 	 * @see #setMaxOccurs(int)
@@ -72,6 +80,10 @@ public interface DMultiplicity extends EObject
 	 * Returns the value of the '<em><b>Shorthand</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.mimacom.ddd.dm.base.DMultiplicityShorthand}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Shorthand</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Shorthand</em>' attribute.
 	 * @see com.mimacom.ddd.dm.base.DMultiplicityShorthand

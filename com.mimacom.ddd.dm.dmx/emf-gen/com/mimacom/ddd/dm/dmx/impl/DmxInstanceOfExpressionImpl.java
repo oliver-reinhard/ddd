@@ -80,7 +80,6 @@ public class DmxInstanceOfExpressionImpl extends DExpressionImpl implements DmxI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DExpression getExpression()
 	{
 		return expression;
@@ -108,7 +107,6 @@ public class DmxInstanceOfExpressionImpl extends DExpressionImpl implements DmxI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setExpression(DExpression newExpression)
 	{
 		if (newExpression != expression)
@@ -130,7 +128,6 @@ public class DmxInstanceOfExpressionImpl extends DExpressionImpl implements DmxI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DType getType()
 	{
 		if (type != null && type.eIsProxy())
@@ -161,7 +158,6 @@ public class DmxInstanceOfExpressionImpl extends DExpressionImpl implements DmxI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setType(DType newType)
 	{
 		DType oldType = type;

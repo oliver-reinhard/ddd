@@ -77,7 +77,6 @@ public abstract class DDeductionRuleImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public IDeducibleElement getSource()
 	{
 		if (source != null && source.eIsProxy())
@@ -108,7 +107,6 @@ public abstract class DDeductionRuleImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setSource(IDeducibleElement newSource)
 	{
 		IDeducibleElement oldSource = source;
@@ -122,7 +120,6 @@ public abstract class DDeductionRuleImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DNamedElement getNamedSource()
 	{
 		return namedSource;

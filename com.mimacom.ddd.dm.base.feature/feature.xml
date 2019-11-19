@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.mimacom.ddd.dm.base.feature"
+      label="Base Feature"
+      version="0.1.0.qualifier"
+      provider-name="mimacom ag">
+   <plugin
+         id="com.mimacom.ddd.dm.base"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+</feature>

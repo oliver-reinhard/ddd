@@ -35,7 +35,6 @@ import org.eclipse.xtext.testing.util.ParseHelper;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -73,7 +72,7 @@ public class DmxParsingTest {
       _builder.append("test e6 { UNDEFINED }");
       _builder.newLine();
       final DmxNamespace result = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(result);
+      Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
       StringConcatenation _builder_1 = new StringConcatenation();
@@ -83,24 +82,24 @@ public class DmxParsingTest {
       Assertions.assertTrue(_isEmpty, _builder_1.toString());
       final EList<DmxTest> tests = result.getTests();
       final DExpression e0 = tests.get(0).getExpr();
-      Assert.assertEquals(DmxBooleanLiteralImpl.class, e0.getClass());
-      Assert.assertEquals(Boolean.valueOf(true), Boolean.valueOf(((DmxBooleanLiteralImpl) e0).isValue()));
+      Assertions.assertEquals(DmxBooleanLiteralImpl.class, e0.getClass());
+      Assertions.assertEquals(Boolean.valueOf(true), Boolean.valueOf(((DmxBooleanLiteralImpl) e0).isValue()));
       final DExpression e1 = tests.get(1).getExpr();
-      Assert.assertEquals(DmxStringLiteralImpl.class, e1.getClass());
-      Assert.assertEquals("Domain Model", ((DmxStringLiteralImpl) e1).getValue());
+      Assertions.assertEquals(DmxStringLiteralImpl.class, e1.getClass());
+      Assertions.assertEquals("Domain Model", ((DmxStringLiteralImpl) e1).getValue());
       final DExpression e2 = tests.get(2).getExpr();
-      Assert.assertEquals(DmxNaturalLiteralImpl.class, e2.getClass());
-      Assert.assertEquals(42, ((DmxNaturalLiteralImpl) e2).getValue());
+      Assertions.assertEquals(DmxNaturalLiteralImpl.class, e2.getClass());
+      Assertions.assertEquals(42, ((DmxNaturalLiteralImpl) e2).getValue());
       final DExpression e3 = tests.get(3).getExpr();
-      Assert.assertEquals(DmxDecimalLiteralImpl.class, e3.getClass());
-      Assert.assertEquals("3.14159", ((DmxDecimalLiteralImpl) e3).getValue());
+      Assertions.assertEquals(DmxDecimalLiteralImpl.class, e3.getClass());
+      Assertions.assertEquals("3.14159", ((DmxDecimalLiteralImpl) e3).getValue());
       final DExpression e4 = tests.get(4).getExpr();
-      Assert.assertEquals(DmxDecimalLiteralImpl.class, e4.getClass());
-      Assert.assertEquals("314.159E-2", ((DmxDecimalLiteralImpl) e4).getValue());
+      Assertions.assertEquals(DmxDecimalLiteralImpl.class, e4.getClass());
+      Assertions.assertEquals("314.159E-2", ((DmxDecimalLiteralImpl) e4).getValue());
       final DExpression e5 = tests.get(5).getExpr();
-      Assert.assertEquals(DmxUndefinedLiteralImpl.class, e5.getClass());
+      Assertions.assertEquals(DmxUndefinedLiteralImpl.class, e5.getClass());
       final DExpression e6 = tests.get(5).getExpr();
-      Assert.assertEquals(DmxUndefinedLiteralImpl.class, e6.getClass());
+      Assertions.assertEquals(DmxUndefinedLiteralImpl.class, e6.getClass());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -147,7 +146,7 @@ public class DmxParsingTest {
       _builder.append(" }");
       _builder.newLineIfNotEmpty();
       final DmxNamespace result = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(result);
+      Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
       StringConcatenation _builder_1 = new StringConcatenation();
@@ -158,40 +157,40 @@ public class DmxParsingTest {
       final EList<DmxTest> tests = result.getTests();
       {
         final DExpression e = tests.get(0).getExpr();
-        Assert.assertEquals(DmxNaturalLiteralImpl.class, e.getClass());
-        Assert.assertEquals(4, ((DmxNaturalLiteralImpl) e).getValue());
+        Assertions.assertEquals(DmxNaturalLiteralImpl.class, e.getClass());
+        Assertions.assertEquals(4, ((DmxNaturalLiteralImpl) e).getValue());
       }
       {
         final DExpression e = tests.get(1).getExpr();
-        Assert.assertEquals(DmxFunctionCallImpl.class, e.getClass());
-        Assert.assertTrue(((DmxFunctionCallImpl) e).basicGetFunction().eIsProxy());
-        Assert.assertEquals(DmxFilterImpl.class, ((DmxFunctionCallImpl) e).basicGetFunction().getClass());
-        Assert.assertEquals(0, this._dmxUtil.nullSafeCallArguments(((DmxFunctionCallImpl) e)).size());
+        Assertions.assertEquals(DmxFunctionCallImpl.class, e.getClass());
+        Assertions.assertTrue(((DmxFunctionCallImpl) e).basicGetFunction().eIsProxy());
+        Assertions.assertEquals(DmxFilterImpl.class, ((DmxFunctionCallImpl) e).basicGetFunction().getClass());
+        Assertions.assertEquals(0, this._dmxUtil.nullSafeCallArguments(((DmxFunctionCallImpl) e)).size());
       }
       {
         final DExpression e = tests.get(2).getExpr();
-        Assert.assertEquals(DmxFilterImpl.class, ((DmxFunctionCallImpl) e).basicGetFunction().getClass());
+        Assertions.assertEquals(DmxFilterImpl.class, ((DmxFunctionCallImpl) e).basicGetFunction().getClass());
         final List<DExpression> args = this._dmxUtil.nullSafeCallArguments(((DmxFunctionCallImpl) e));
-        Assert.assertEquals(1, args.size());
-        Assert.assertEquals(DmxNaturalLiteralImpl.class, args.get(0).getClass());
+        Assertions.assertEquals(1, args.size());
+        Assertions.assertEquals(DmxNaturalLiteralImpl.class, args.get(0).getClass());
       }
       {
         final DExpression e = tests.get(3).getExpr();
-        Assert.assertEquals(DmxFilterImpl.class, ((DmxFunctionCallImpl) e).basicGetFunction().getClass());
+        Assertions.assertEquals(DmxFilterImpl.class, ((DmxFunctionCallImpl) e).basicGetFunction().getClass());
         final List<DExpression> args = this._dmxUtil.nullSafeCallArguments(((DmxFunctionCallImpl) e));
-        Assert.assertEquals(2, args.size());
-        Assert.assertEquals(DmxNaturalLiteralImpl.class, args.get(0).getClass());
-        Assert.assertEquals(DmxStringLiteralImpl.class, args.get(1).getClass());
+        Assertions.assertEquals(2, args.size());
+        Assertions.assertEquals(DmxNaturalLiteralImpl.class, args.get(0).getClass());
+        Assertions.assertEquals(DmxStringLiteralImpl.class, args.get(1).getClass());
       }
       {
         final DExpression e = tests.get(7).getExpr();
-        Assert.assertEquals(DRichTextImpl.class, e.getClass());
-        Assert.assertEquals(((DRichText) e).getSegments().size(), 3);
+        Assertions.assertEquals(DRichTextImpl.class, e.getClass());
+        Assertions.assertEquals(((DRichText) e).getSegments().size(), 3);
         final IRichTextSegment seg1 = ((DRichText) e).getSegments().get(1);
-        Assert.assertEquals(DmxStaticReferenceImpl.class, seg1.getClass());
-        Assert.assertTrue(((DmxStaticReferenceImpl) seg1).basicGetTarget().eIsProxy());
+        Assertions.assertEquals(DmxStaticReferenceImpl.class, seg1.getClass());
+        Assertions.assertTrue(((DmxStaticReferenceImpl) seg1).basicGetTarget().eIsProxy());
         IStaticReferenceTarget _basicGetTarget = ((DmxStaticReferenceImpl) seg1).basicGetTarget();
-        Assert.assertTrue((_basicGetTarget instanceof DNamedElement));
+        Assertions.assertTrue((_basicGetTarget instanceof DNamedElement));
       }
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -213,7 +212,7 @@ public class DmxParsingTest {
       _builder.append("test T3 { A.b.c }");
       _builder.newLine();
       final DmxNamespace result = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(result);
+      Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
       StringConcatenation _builder_1 = new StringConcatenation();
@@ -223,40 +222,40 @@ public class DmxParsingTest {
       Assertions.assertTrue(_isEmpty, _builder_1.toString());
       final EList<DmxTest> tests = result.getTests();
       final DExpression e0 = tests.get(0).getExpr();
-      Assert.assertEquals(DmxMemberNavigationImpl.class, e0.getClass());
-      Assert.assertTrue(((DmxMemberNavigationImpl) e0).basicGetMember().eIsProxy());
+      Assertions.assertEquals(DmxMemberNavigationImpl.class, e0.getClass());
+      Assertions.assertTrue(((DmxMemberNavigationImpl) e0).basicGetMember().eIsProxy());
       final DExpression e1 = tests.get(1).getExpr();
-      Assert.assertEquals(DmxMemberNavigationImpl.class, e1.getClass());
+      Assertions.assertEquals(DmxMemberNavigationImpl.class, e1.getClass());
       final DmxMemberNavigationImpl e1_1 = ((DmxMemberNavigationImpl) e1);
-      Assert.assertTrue(e1_1.basicGetMember().eIsProxy());
-      Assert.assertEquals(DmxMemberNavigationImpl.class, e1_1.getPrecedingNavigationSegment().getClass());
+      Assertions.assertTrue(e1_1.basicGetMember().eIsProxy());
+      Assertions.assertEquals(DmxMemberNavigationImpl.class, e1_1.getPrecedingNavigationSegment().getClass());
       DExpression _precedingNavigationSegment = e1_1.getPrecedingNavigationSegment();
       final DmxMemberNavigationImpl e1_2 = ((DmxMemberNavigationImpl) _precedingNavigationSegment);
-      Assert.assertTrue(e1_2.basicGetMember().eIsProxy());
+      Assertions.assertTrue(e1_2.basicGetMember().eIsProxy());
       final DExpression e2 = tests.get(2).getExpr();
-      Assert.assertEquals(DmxMemberNavigationImpl.class, e2.getClass());
+      Assertions.assertEquals(DmxMemberNavigationImpl.class, e2.getClass());
       final DmxMemberNavigationImpl e2_1 = ((DmxMemberNavigationImpl) e2);
-      Assert.assertTrue(((DmxMemberNavigationImpl) e2_1).basicGetMember().eIsProxy());
-      Assert.assertEquals(DmxContextReferenceImpl.class, e2_1.getPrecedingNavigationSegment().getClass());
+      Assertions.assertTrue(((DmxMemberNavigationImpl) e2_1).basicGetMember().eIsProxy());
+      Assertions.assertEquals(DmxContextReferenceImpl.class, e2_1.getPrecedingNavigationSegment().getClass());
       DExpression _precedingNavigationSegment_1 = e2_1.getPrecedingNavigationSegment();
       final DmxContextReferenceImpl e2_2 = ((DmxContextReferenceImpl) _precedingNavigationSegment_1);
-      Assert.assertTrue(e2_2.basicGetTarget().eIsProxy());
+      Assertions.assertTrue(e2_2.basicGetTarget().eIsProxy());
       DNamedElement _basicGetTarget = e2_2.basicGetTarget();
-      Assert.assertTrue((_basicGetTarget instanceof DNamedElement));
+      Assertions.assertTrue((_basicGetTarget instanceof DNamedElement));
       final DExpression e3 = tests.get(3).getExpr();
-      Assert.assertEquals(DmxMemberNavigationImpl.class, e3.getClass());
+      Assertions.assertEquals(DmxMemberNavigationImpl.class, e3.getClass());
       final DmxMemberNavigationImpl e3_1 = ((DmxMemberNavigationImpl) e3);
-      Assert.assertTrue(e3_1.basicGetMember().eIsProxy());
-      Assert.assertEquals(DmxMemberNavigationImpl.class, e3_1.getPrecedingNavigationSegment().getClass());
+      Assertions.assertTrue(e3_1.basicGetMember().eIsProxy());
+      Assertions.assertEquals(DmxMemberNavigationImpl.class, e3_1.getPrecedingNavigationSegment().getClass());
       DExpression _precedingNavigationSegment_2 = e3_1.getPrecedingNavigationSegment();
       final DmxMemberNavigationImpl e3_2 = ((DmxMemberNavigationImpl) _precedingNavigationSegment_2);
-      Assert.assertTrue(e3_2.basicGetMember().eIsProxy());
-      Assert.assertEquals(DmxContextReferenceImpl.class, e3_2.getPrecedingNavigationSegment().getClass());
+      Assertions.assertTrue(e3_2.basicGetMember().eIsProxy());
+      Assertions.assertEquals(DmxContextReferenceImpl.class, e3_2.getPrecedingNavigationSegment().getClass());
       DExpression _precedingNavigationSegment_3 = e3_2.getPrecedingNavigationSegment();
       final DmxContextReferenceImpl e3_3 = ((DmxContextReferenceImpl) _precedingNavigationSegment_3);
-      Assert.assertTrue(e3_3.basicGetTarget().eIsProxy());
+      Assertions.assertTrue(e3_3.basicGetTarget().eIsProxy());
       DNamedElement _basicGetTarget_1 = e3_3.basicGetTarget();
-      Assert.assertTrue((_basicGetTarget_1 instanceof DNamedElement));
+      Assertions.assertTrue((_basicGetTarget_1 instanceof DNamedElement));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -277,7 +276,7 @@ public class DmxParsingTest {
       _builder.append("test T3 { A.b.c := 3 }");
       _builder.newLine();
       final DmxNamespace result = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(result);
+      Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
       StringConcatenation _builder_1 = new StringConcatenation();
@@ -287,28 +286,28 @@ public class DmxParsingTest {
       Assertions.assertTrue(_isEmpty, _builder_1.toString());
       final EList<DmxTest> tests = result.getTests();
       final DExpression e0 = tests.get(0).getExpr();
-      Assert.assertEquals(DmxAssignmentImpl.class, e0.getClass());
-      Assert.assertTrue(((DmxAssignmentImpl) e0).basicGetAssignToMember().eIsProxy());
-      Assert.assertNull(((DmxAssignmentImpl) e0).getPrecedingNavigationSegment());
-      Assert.assertEquals(DmxNaturalLiteralImpl.class, ((DmxAssignmentImpl) e0).getValue().getClass());
+      Assertions.assertEquals(DmxAssignmentImpl.class, e0.getClass());
+      Assertions.assertTrue(((DmxAssignmentImpl) e0).basicGetAssignToMember().eIsProxy());
+      Assertions.assertNull(((DmxAssignmentImpl) e0).getPrecedingNavigationSegment());
+      Assertions.assertEquals(DmxNaturalLiteralImpl.class, ((DmxAssignmentImpl) e0).getValue().getClass());
       final DExpression e1 = tests.get(1).getExpr();
-      Assert.assertEquals(DmxAssignmentImpl.class, e1.getClass());
-      Assert.assertTrue(((DmxAssignmentImpl) e1).basicGetAssignToMember().eIsProxy());
-      Assert.assertEquals(DmxNaturalLiteralImpl.class, ((DmxAssignmentImpl) e1).getValue().getClass());
+      Assertions.assertEquals(DmxAssignmentImpl.class, e1.getClass());
+      Assertions.assertTrue(((DmxAssignmentImpl) e1).basicGetAssignToMember().eIsProxy());
+      Assertions.assertEquals(DmxNaturalLiteralImpl.class, ((DmxAssignmentImpl) e1).getValue().getClass());
       final DExpression e2 = tests.get(2).getExpr();
-      Assert.assertEquals(DmxAssignmentImpl.class, e2.getClass());
-      Assert.assertTrue(((DmxAssignmentImpl) e2).basicGetAssignToMember().eIsProxy());
-      Assert.assertEquals(DmxContextReferenceImpl.class, ((DmxAssignmentImpl) e2).getPrecedingNavigationSegment().getClass());
-      Assert.assertEquals(DmxNaturalLiteralImpl.class, ((DmxAssignmentImpl) e2).getValue().getClass());
+      Assertions.assertEquals(DmxAssignmentImpl.class, e2.getClass());
+      Assertions.assertTrue(((DmxAssignmentImpl) e2).basicGetAssignToMember().eIsProxy());
+      Assertions.assertEquals(DmxContextReferenceImpl.class, ((DmxAssignmentImpl) e2).getPrecedingNavigationSegment().getClass());
+      Assertions.assertEquals(DmxNaturalLiteralImpl.class, ((DmxAssignmentImpl) e2).getValue().getClass());
       final DExpression e3 = tests.get(3).getExpr();
-      Assert.assertEquals(DmxAssignmentImpl.class, e3.getClass());
-      Assert.assertTrue(((DmxAssignmentImpl) e3).basicGetAssignToMember().eIsProxy());
-      Assert.assertEquals(DmxMemberNavigationImpl.class, ((DmxAssignmentImpl) e3).getPrecedingNavigationSegment().getClass());
+      Assertions.assertEquals(DmxAssignmentImpl.class, e3.getClass());
+      Assertions.assertTrue(((DmxAssignmentImpl) e3).basicGetAssignToMember().eIsProxy());
+      Assertions.assertEquals(DmxMemberNavigationImpl.class, ((DmxAssignmentImpl) e3).getPrecedingNavigationSegment().getClass());
       DExpression _precedingNavigationSegment = ((DmxAssignmentImpl) e3).getPrecedingNavigationSegment();
       final DmxMemberNavigationImpl e3_1 = ((DmxMemberNavigationImpl) _precedingNavigationSegment);
-      Assert.assertTrue(e3_1.basicGetMember().eIsProxy());
-      Assert.assertEquals(DmxContextReferenceImpl.class, e3_1.getPrecedingNavigationSegment().getClass());
-      Assert.assertEquals(DmxNaturalLiteralImpl.class, ((DmxAssignmentImpl) e3).getValue().getClass());
+      Assertions.assertTrue(e3_1.basicGetMember().eIsProxy());
+      Assertions.assertEquals(DmxContextReferenceImpl.class, e3_1.getPrecedingNavigationSegment().getClass());
+      Assertions.assertEquals(DmxNaturalLiteralImpl.class, ((DmxAssignmentImpl) e3).getValue().getClass());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

@@ -26,6 +26,10 @@ public interface IDeducibleElement extends EObject
 	/**
 	 * Returns the value of the '<em><b>Deduced From</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Deduced From</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Deduced From</em>' reference.
 	 * @see #setDeducedFrom(IDeductionDefinition)
@@ -48,6 +52,10 @@ public interface IDeducibleElement extends EObject
 	/**
 	 * Returns the value of the '<em><b>Synthetic</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Synthetic</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Synthetic</em>' attribute.
 	 * @see #setSynthetic(boolean)

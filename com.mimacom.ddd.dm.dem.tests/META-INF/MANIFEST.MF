@@ -2,16 +2,16 @@ Manifest-Version: 1.0
 Automatic-Module-Name: com.mimacom.ddd.dm.dem.tests
 Bundle-ManifestVersion: 2
 Bundle-Name: com.mimacom.ddd.dm.dem.tests
-Bundle-Vendor: My Company
-Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: mimacom ag
+Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: com.mimacom.ddd.dm.dem.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: com.mimacom.ddd.dm.dem,
+Require-Bundle: com.mimacom.ddd.dm.base,
+ com.mimacom.ddd.dm.dem,
  com.mimacom.ddd.dm.dmx,
  org.junit.jupiter.api;bundle-version="[5.0.0,6.0.0)",
  org.eclipse.xtext.testing,
  org.eclipse.xtext.xbase.testing,
- org.eclipse.xtext.xbase.lib;bundle-version="2.14.0"
+ org.eclipse.xtext.xbase.lib;bundle-version="2.19.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: com.mimacom.ddd.dm.dem.tests;x-internal=true,
- com.mimacom.ddd.dm.dme.tests
+Export-Package: com.mimacom.ddd.dm.dem.tests;x-internal=true

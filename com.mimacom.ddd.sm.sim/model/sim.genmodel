@@ -4,7 +4,7 @@
     editorDirectory="/com.mimacom.ddd.sm.sim.editor/src" modelPluginID="com.mimacom.ddd.sm.sim"
     modelName="Sim" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
-    runtimeVersion="2.16" usedGenPackages="../../com.mimacom.ddd.dm.base/model/base.genmodel#//base"
+    usedGenPackages="../../com.mimacom.ddd.dm.base/model/base.genmodel#//base"
     operationReflection="true" importOrganizing="true">
   <foreignModel>sim.ecore</foreignModel>
   <genPackages prefix="Sim" basePackage="com.mimacom.ddd.sm" disposableProviderFactory="true"

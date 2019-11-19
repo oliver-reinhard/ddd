@@ -1,0 +1,13 @@
+import D.*
+namespace N
+test T00 context a : Natural { a := 1 }		// ERROR: can only assign to attributes
+test T01 context a : A { a.a1 := 1 }  
+test T02 context a : A { a.a1 := "A" }		// ERROR: wrong type
+test T03 context a : A { a.q0 := 3 } 			// ERROR: cannot assign to query
+test T04 context a : A { a.b1.b1 := 3 }
+test T05 context a : A { a.a1 := a.q0() } 
+test T06 context a : A { a.a4 := {} }
+test T07 context a : A { a.a4 := {3} }
+test T08 context a : A { a.a4 := {3,4} }
+test T09 context a : A { a.a4 := 3 }			// ERROR: cannot assign a scalar to a collection
+test T10 context a : A { a.a2 := {3,4} }		// ERROR: cannot assign a collection to a scalar

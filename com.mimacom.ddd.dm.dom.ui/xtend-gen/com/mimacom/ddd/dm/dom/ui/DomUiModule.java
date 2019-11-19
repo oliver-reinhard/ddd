@@ -19,7 +19,7 @@ public class DomUiModule extends AbstractDomUiModule {
     return DomEObjectHoverProvider.class;
   }
   
-  public DomUiModule(final AbstractUIPlugin plugin) {
-    super(plugin);
+  public DomUiModule(final AbstractUIPlugin arg0) {
+    super(arg0);
   }
 }

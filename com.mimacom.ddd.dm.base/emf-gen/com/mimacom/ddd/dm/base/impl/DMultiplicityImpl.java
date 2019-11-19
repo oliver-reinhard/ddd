@@ -116,7 +116,6 @@ public class DMultiplicityImpl extends MinimalEObjectImpl.Container implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getMinOccurs()
 	{
 		return minOccurs;
@@ -127,7 +126,6 @@ public class DMultiplicityImpl extends MinimalEObjectImpl.Container implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setMinOccurs(int newMinOccurs)
 	{
 		int oldMinOccurs = minOccurs;
@@ -141,7 +139,6 @@ public class DMultiplicityImpl extends MinimalEObjectImpl.Container implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getMaxOccurs()
 	{
 		return maxOccurs;
@@ -152,7 +149,6 @@ public class DMultiplicityImpl extends MinimalEObjectImpl.Container implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setMaxOccurs(int newMaxOccurs)
 	{
 		int oldMaxOccurs = maxOccurs;
@@ -166,7 +162,6 @@ public class DMultiplicityImpl extends MinimalEObjectImpl.Container implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DMultiplicityShorthand getShorthand()
 	{
 		return shorthand;
@@ -177,7 +172,6 @@ public class DMultiplicityImpl extends MinimalEObjectImpl.Container implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setShorthand(DMultiplicityShorthand newShorthand)
 	{
 		DMultiplicityShorthand oldShorthand = shorthand;
@@ -282,7 +276,7 @@ public class DMultiplicityImpl extends MinimalEObjectImpl.Container implements D
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (minOccurs: ");
 		result.append(minOccurs);
 		result.append(", maxOccurs: ");

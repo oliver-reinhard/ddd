@@ -128,7 +128,6 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public IDeductionDefinition getDeducedFrom()
 	{
 		if (deducedFrom != null && deducedFrom.eIsProxy())
@@ -159,7 +158,6 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setDeducedFrom(IDeductionDefinition newDeducedFrom)
 	{
 		IDeductionDefinition oldDeducedFrom = deducedFrom;
@@ -173,7 +171,6 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public boolean isSynthetic()
 	{
 		return synthetic;
@@ -184,7 +181,6 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setSynthetic(boolean newSynthetic)
 	{
 		boolean oldSynthetic = synthetic;
@@ -198,7 +194,6 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DNamedPredicate> getConstraints()
 	{
 		if (constraints == null)
@@ -213,7 +208,6 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public boolean isPrimitive()
 	{
 		return primitive;
@@ -224,7 +218,6 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setPrimitive(boolean newPrimitive)
 	{
 		boolean oldPrimitive = primitive;
@@ -412,7 +405,7 @@ public abstract class DTypeImpl extends DNamedElementImpl implements DType
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (synthetic: ");
 		result.append(synthetic);
 		result.append(", primitive: ");
