@@ -14,7 +14,7 @@
   <artifactId>com.mimacom.ddd.dm.dom</artifactId>
   <packaging>eclipse-plugin</packaging>
 
-  <name>DM DOM Core</name>
+  <name>Domain Object Model Core</name>
 
 
   <build>

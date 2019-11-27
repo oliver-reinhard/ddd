@@ -14,7 +14,7 @@
   <artifactId>com.mimacom.ddd.sm.sim.ide</artifactId>
   <packaging>eclipse-plugin</packaging>
 
-  <name>SM SIM IDE</name>
+  <name>System Service Model IDE</name>
 
   <build>
     <plugins>

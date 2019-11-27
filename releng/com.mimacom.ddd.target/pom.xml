@@ -14,6 +14,9 @@
   <packaging>pom</packaging>
   <artifactId>com.mimacom.ddd.target</artifactId>
 
+  <name>Tycho Target Definition</name>
+
+
   <build>
     <plugins>
       <plugin>

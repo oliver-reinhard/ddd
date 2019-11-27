@@ -12,5 +12,5 @@
 	<artifactId>com.mimacom.ddd.dm.esm.feature</artifactId>
 	<packaging>eclipse-feature</packaging>
 
-  <name>DM ESM Feature</name>
+  <name>Entity State Model Feature</name>
 </project>

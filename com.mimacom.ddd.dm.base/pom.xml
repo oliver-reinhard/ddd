@@ -14,7 +14,7 @@
   <artifactId>com.mimacom.ddd.dm.base</artifactId>
   <packaging>eclipse-plugin</packaging>
 
-  <name>Domain Model Base</name>
+  <name>Base</name>
 
 
   <build>
@@ -129,4 +129,3 @@
   </build>
 
 </project>
-

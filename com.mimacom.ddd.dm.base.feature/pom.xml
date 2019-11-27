@@ -13,5 +13,5 @@
   <artifactId>com.mimacom.ddd.dm.base.feature</artifactId>
   <packaging>eclipse-feature</packaging>
 
-  <name>DM Base Feature</name>
+  <name>Base Feature</name>
 </project>

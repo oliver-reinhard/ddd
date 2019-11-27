@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="com.mimacom.ddd.sm.sim.feature"
-	label="Sim Feature "
+	label="System Information Model Feature "
 	version="0.1.0.qualifier"
 	provider-name="mimacom ag">
 	<plugin

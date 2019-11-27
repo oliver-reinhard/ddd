@@ -11,6 +11,9 @@
   <artifactId>com.mimacom.ddd.tycho.plugin.parent</artifactId>
   <packaging>pom</packaging>
 
+  <name>Tycho Plugin Target</name>
+
+
   <build>
     <plugins>
       <plugin>

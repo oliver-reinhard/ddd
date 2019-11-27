@@ -12,5 +12,5 @@
 	<artifactId>com.mimacom.ddd.sm.sim.feature</artifactId>
 	<packaging>eclipse-feature</packaging>
 
-  <name>SM SIM Feature</name>
+  <name>System Service Model Feature</name>
 </project>

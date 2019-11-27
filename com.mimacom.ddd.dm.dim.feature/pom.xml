@@ -12,5 +12,5 @@
 	<artifactId>com.mimacom.ddd.dm.dim.feature</artifactId>
 	<packaging>eclipse-feature</packaging>
 
-  <name>DM DIM Feature</name>
+  <name>Domain Information Model Feature</name>
 </project>

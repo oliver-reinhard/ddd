@@ -14,7 +14,7 @@
   <artifactId>com.mimacom.ddd.repository</artifactId>
   <packaging>eclipse-repository</packaging>
 
-  <name>DDD Repository</name>
+  <name>Repository</name>
 
 
   <build>

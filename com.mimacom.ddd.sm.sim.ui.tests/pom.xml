@@ -12,7 +12,7 @@
   <artifactId>com.mimacom.ddd.sm.sim.ui.tests</artifactId>
   <packaging>eclipse-test-plugin</packaging>
 
-  <name>SM SIM UI Tests</name>
+  <name>System Service Model UI Tests</name>
 
   <build>
     <plugins>

@@ -14,7 +14,7 @@
   <artifactId>com.mimacom.ddd.dm.esm.ide</artifactId>
   <packaging>eclipse-plugin</packaging>
 
-  <name>DM ESM IDE</name>
+  <name>Entity State Model IDE</name>
 
   <build>
     <plugins>

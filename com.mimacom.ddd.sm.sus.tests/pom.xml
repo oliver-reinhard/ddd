@@ -12,7 +12,7 @@
   <artifactId>com.mimacom.ddd.sm.sus.tests</artifactId>
   <packaging>eclipse-test-plugin</packaging>
 
-  <name>SM SUS Tests</name>
+  <name>System User Story Tests</name>
 
   <build>
     <plugins>
