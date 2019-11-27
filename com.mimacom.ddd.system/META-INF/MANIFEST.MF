@@ -6,3 +6,4 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: mimacom
 Automatic-Module-Name: com.mimacom.ddd.system
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.mimacom.ddd.system

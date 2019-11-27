@@ -83,6 +83,7 @@
     <module>com.mimacom.ddd.sm.sus.feature</module>
     <!-- system -->
     <module>com.mimacom.ddd.system</module>
+    <module>com.mimacom.ddd.system.tests</module>
   </modules>
 
   <build>
