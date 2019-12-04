@@ -1,3 +1,9 @@
+## Developer Guide
+
+### Code style
+
+Apply the Google Style Guide in Java code by importing and setting the Eclipse preferences file [eclipse-java-google-style.xml](com.mimacom.ddd.preferences/eclipse-java-google-style.xml).
+
 ## Release Engineering
 
 ### Maven
