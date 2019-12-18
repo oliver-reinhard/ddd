@@ -16,7 +16,7 @@ filter length(arg : TEXT): NUMBER
 filter now(): TIMEPOINT
 filter toTimepoint(arg : TEXT): TIMEPOINT
 
-filter state(entity : COMPLEX) : STATE
+filter state(^entity : COMPLEX) : STATE
 filter transition(from : STATE, event : STATE_EVENT) : STATE
 
 filter delivered(arg : NOTIFICATION): BOOLEAN 	// always returns true

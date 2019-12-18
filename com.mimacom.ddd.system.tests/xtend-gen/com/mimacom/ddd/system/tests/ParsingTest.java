@@ -7,8 +7,10 @@ import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.dmx.tests.DmxInjectorProvider;
 import com.mimacom.ddd.system.tests.SystemTestInjectorProvider;
 import java.net.URL;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.testing.InjectWith;
@@ -16,6 +18,9 @@ import org.eclipse.xtext.testing.extensions.InjectionExtension;
 import org.eclipse.xtext.testing.util.ParseHelper;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -115,6 +120,7 @@ public class ParsingTest {
       String _string = ParsingTest.BASE_TYPES_URI.toString();
       final DDomain content = this.dimParseHelper.parse(new URL(_string).openStream(), ParsingTest.BASE_TYPES_URI, null, this.resourceSet);
       Assertions.assertNotNull(content);
+      this.assertNoErrorsOnResource(content.eResource());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -129,6 +135,7 @@ public class ParsingTest {
       final EObject content = dmxParseHelper.parse(new URL(_string).openStream(), ParsingTest.SYSTEM_FUNCTIONS_URI, null, 
         this.resourceSet);
       Assertions.assertNotNull(content);
+      this.assertNoErrorsOnResource(content.eResource());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -143,6 +150,7 @@ public class ParsingTest {
       final EObject content = dmxParseHelper.parse(new URL(_string).openStream(), ParsingTest.ASSIGNMENTS_URI, null, 
         this.resourceSet);
       Assertions.assertNotNull(content);
+      this.assertNoErrorsOnResource(content.eResource());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -155,6 +163,7 @@ public class ParsingTest {
       final DDomain content = this.dimParseHelper.parse(new URL(_string).openStream(), ParsingTest.CUSTOM_TYPES_URI, null, 
         this.resourceSet);
       Assertions.assertNotNull(content);
+      this.assertNoErrorsOnResource(content.eResource());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -169,6 +178,7 @@ public class ParsingTest {
       final EObject content = dmxParseHelper.parse(new URL(_string).openStream(), ParsingTest.MATH_FUNCTIONS_URI, null, 
         this.resourceSet);
       Assertions.assertNotNull(content);
+      this.assertNoErrorsOnResource(content.eResource());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -183,8 +193,21 @@ public class ParsingTest {
       final EObject content = dmxParseHelper.parse(new URL(_string).openStream(), ParsingTest.SYSTEM_TYPES_URI, null, 
         this.resourceSet);
       Assertions.assertNotNull(content);
+      this.assertNoErrorsOnResource(content.eResource());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  public void assertNoErrorsOnResource(final Resource resource) {
+    final EList<Resource.Diagnostic> errors = resource.getErrors();
+    boolean _isEmpty = errors.isEmpty();
+    boolean _not = (!_isEmpty);
+    if (_not) {
+      final Function1<Resource.Diagnostic, String> _function = (Resource.Diagnostic it) -> {
+        return it.getMessage();
+      };
+      Assertions.<Object>fail(String.format("%d errors, none expected: %s", Integer.valueOf(errors.size()), IterableExtensions.join(ListExtensions.<Resource.Diagnostic, String>map(errors, _function), ", ")));
     }
   }
 }

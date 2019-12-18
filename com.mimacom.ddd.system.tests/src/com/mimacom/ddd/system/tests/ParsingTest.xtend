@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 
 import static org.junit.jupiter.api.Assertions.*
+import org.eclipse.emf.ecore.resource.Resource
 
 /**
  * Provides integration tests for system test files.
@@ -48,8 +49,9 @@ class ParsingTest {
 
   @Test
   def void parseBaseTypes() {
-    val content = dimParseHelper.parse(new URL(BASE_TYPES_URI.toString).openStream, BASE_TYPES_URI, null, resourceSet);
+    val content = dimParseHelper.parse(new URL(BASE_TYPES_URI.toString).openStream, BASE_TYPES_URI, null, resourceSet)
     assertNotNull(content)
+    assertNoErrorsOnResource(content.eResource)
   }
 
   @Test
@@ -57,8 +59,9 @@ class ParsingTest {
     val injector = new DmxInjectorProvider().injector
     val dmxParseHelper = injector.getInstance(ParseHelper)
     val content = dmxParseHelper.parse(new URL(SYSTEM_FUNCTIONS_URI.toString).openStream, SYSTEM_FUNCTIONS_URI, null,
-      resourceSet);
+      resourceSet)
     assertNotNull(content)
+    assertNoErrorsOnResource(content.eResource)
   }
 
   @Test
@@ -66,15 +69,17 @@ class ParsingTest {
     val injector = new DmxInjectorProvider().injector
     val dmxParseHelper = injector.getInstance(ParseHelper)
     val content = dmxParseHelper.parse(new URL(ASSIGNMENTS_URI.toString).openStream, ASSIGNMENTS_URI, null,
-      resourceSet);
+      resourceSet)
     assertNotNull(content)
+    assertNoErrorsOnResource(content.eResource)
   }
 
   @Test
   def void parseCustomTypes() {
     val content = dimParseHelper.parse(new URL(CUSTOM_TYPES_URI.toString).openStream, CUSTOM_TYPES_URI, null,
-      resourceSet);
+      resourceSet)
     assertNotNull(content)
+    assertNoErrorsOnResource(content.eResource)
   }
 
   @Test
@@ -82,8 +87,9 @@ class ParsingTest {
     val injector = new DmxInjectorProvider().injector
     val dmxParseHelper = injector.getInstance(ParseHelper)
     val content = dmxParseHelper.parse(new URL(MATH_FUNCTIONS_URI.toString).openStream, MATH_FUNCTIONS_URI, null,
-      resourceSet);
+      resourceSet)
     assertNotNull(content)
+    assertNoErrorsOnResource(content.eResource)
   }
 
   @Test
@@ -91,8 +97,16 @@ class ParsingTest {
     val injector = new DmxInjectorProvider().injector
     val dmxParseHelper = injector.getInstance(ParseHelper)
     val content = dmxParseHelper.parse(new URL(SYSTEM_TYPES_URI.toString).openStream, SYSTEM_TYPES_URI, null,
-      resourceSet);
+      resourceSet)
     assertNotNull(content)
+    assertNoErrorsOnResource(content.eResource)
+  }
+  
+  def void assertNoErrorsOnResource(Resource resource) {
+    val errors = resource.errors
+    if (!errors.empty) {
+      fail(String.format("%d errors, none expected: %s", errors.size, errors.map[it | it.message].join(", "))) 
+    }
   }
 
 }
