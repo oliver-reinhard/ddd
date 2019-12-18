@@ -14,7 +14,7 @@
   <artifactId>com.mimacom.ddd.sm.asm</artifactId>
   <packaging>eclipse-plugin</packaging>
 
-  <name>SM ASM Core</name>
+  <name>Application Service Model Core</name>
 
 
   <build>

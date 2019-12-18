@@ -14,7 +14,7 @@
   <artifactId>com.mimacom.ddd.sm.asm.ide</artifactId>
   <packaging>eclipse-plugin</packaging>
 
-  <name>SM ASM IDE</name>
+  <name>Application Service Model IDE</name>
 
   <build>
     <plugins>

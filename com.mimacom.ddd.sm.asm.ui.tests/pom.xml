@@ -12,7 +12,7 @@
   <artifactId>com.mimacom.ddd.sm.asm.ui.tests</artifactId>
   <packaging>eclipse-test-plugin</packaging>
 
-  <name>SM ASM UI Tests</name>
+  <name>Application Service Model UI Tests</name>
 
   <build>
     <plugins>

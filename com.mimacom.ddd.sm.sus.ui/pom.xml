@@ -13,7 +13,7 @@
   <artifactId>com.mimacom.ddd.sm.sus.ui</artifactId>
   <packaging>eclipse-plugin</packaging>
 
-  <name>SM SUS UI</name>
+  <name>System User Story UI</name>
 
   <build>
     <plugins>

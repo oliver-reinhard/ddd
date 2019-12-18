@@ -14,7 +14,7 @@
   <artifactId>com.mimacom.ddd.dm.dim.ide</artifactId>
   <packaging>eclipse-plugin</packaging>
 
-  <name>DM DIM IDE</name>
+  <name>Domain Information Model IDE</name>
 
   <build>
     <plugins>

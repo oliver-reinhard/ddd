@@ -12,5 +12,5 @@
 	<artifactId>com.mimacom.ddd.dm.dem.feature</artifactId>
 	<packaging>eclipse-feature</packaging>
 
-  <name>DM DEM Feature</name>
+  <name>Domain Event Model Feature</name>
 </project>

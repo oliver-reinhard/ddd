@@ -14,7 +14,7 @@
   <artifactId>com.mimacom.ddd.dm.esm</artifactId>
   <packaging>eclipse-plugin</packaging>
 
-  <name>DM ESM Core</name>
+  <name>Entity State Model Core</name>
 
 
   <build>

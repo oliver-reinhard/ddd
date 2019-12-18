@@ -14,6 +14,8 @@
 	<packaging>pom</packaging>
 	<version>0.1.0-SNAPSHOT</version>
 
+  <name>Releng</name>
+
 	<modules>
 		<module>com.mimacom.ddd.target</module>
 		<module>com.mimacom.ddd.tycho.parent</module>

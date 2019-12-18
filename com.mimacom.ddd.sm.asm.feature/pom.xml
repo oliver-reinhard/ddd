@@ -12,5 +12,5 @@
 	<artifactId>com.mimacom.ddd.sm.asm.feature</artifactId>
 	<packaging>eclipse-feature</packaging>
 
-  <name>SM ASM Feature</name>
+  <name>Application Service Model Feature</name>
 </project>

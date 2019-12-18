@@ -13,5 +13,5 @@
   <artifactId>com.mimacom.ddd.dm.dmx.feature</artifactId>
   <packaging>eclipse-feature</packaging>
 
-  <name>DM DMX Feature</name>
+  <name>Domain Model Expression Feature</name>
 </project>

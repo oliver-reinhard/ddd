@@ -12,7 +12,7 @@
   <artifactId>com.mimacom.ddd.dm.dim.ui.tests</artifactId>
   <packaging>eclipse-test-plugin</packaging>
 
-  <name>DM DIM UI Tests</name>
+  <name>Domain Information Model UI Tests</name>
 
   <build>
     <plugins>

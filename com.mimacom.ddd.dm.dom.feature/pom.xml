@@ -12,5 +12,5 @@
 	<artifactId>com.mimacom.ddd.dm.dom.feature</artifactId>
 	<packaging>eclipse-feature</packaging>
 
-  <name>DM DOM Feature</name>
+  <name>Domain Object Model Feature</name>
 </project>

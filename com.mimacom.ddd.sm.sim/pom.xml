@@ -14,7 +14,7 @@
   <artifactId>com.mimacom.ddd.sm.sim</artifactId>
   <packaging>eclipse-plugin</packaging>
 
-  <name>SM SIM Core</name>
+  <name>System Service Model Core</name>
 
 
   <build>

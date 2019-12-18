@@ -14,7 +14,7 @@
   <artifactId>com.mimacom.ddd.sm.sus</artifactId>
   <packaging>eclipse-plugin</packaging>
 
-  <name>SM SUS Core</name>
+  <name>System User Story Core</name>
 
 
   <build>

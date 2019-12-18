@@ -13,7 +13,7 @@
   <artifactId>com.mimacom.ddd.sm.asm.ui</artifactId>
   <packaging>eclipse-plugin</packaging>
 
-  <name>SM ASM UI</name>
+  <name>Application Service Model UI</name>
 
   <build>
     <plugins>

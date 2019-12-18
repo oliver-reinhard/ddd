@@ -13,7 +13,7 @@
   <artifactId>com.mimacom.ddd.dm.esm.ui</artifactId>
   <packaging>eclipse-plugin</packaging>
 
-  <name>DM ESM UI</name>
+  <name>Entity State Model UI</name>
 
   <build>
     <plugins>

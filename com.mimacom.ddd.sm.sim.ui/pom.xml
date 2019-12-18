@@ -13,7 +13,7 @@
   <artifactId>com.mimacom.ddd.sm.sim.ui</artifactId>
   <packaging>eclipse-plugin</packaging>
 
-  <name>SM SIM UI</name>
+  <name>System Service Model UI</name>
 
   <build>
     <plugins>

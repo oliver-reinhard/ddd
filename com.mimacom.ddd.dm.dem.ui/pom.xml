@@ -13,7 +13,7 @@
   <artifactId>com.mimacom.ddd.dm.dem.ui</artifactId>
   <packaging>eclipse-plugin</packaging>
 
-  <name>DM DEM UI</name>
+  <name>Domain Event Model UI</name>
 
   <build>
     <plugins>

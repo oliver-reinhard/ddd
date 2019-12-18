@@ -12,7 +12,7 @@
   <artifactId>com.mimacom.ddd.dm.esm.tests</artifactId>
   <packaging>eclipse-test-plugin</packaging>
 
-  <name>DM ESM Tests</name>
+  <name>Entity State Model Tests</name>
 
   <build>
     <plugins>

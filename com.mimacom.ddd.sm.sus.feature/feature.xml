@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="com.mimacom.ddd.sm.sus.feature"
-	label="Sus Feature "
+	label="System User Story Feature "
 	version="0.1.0.qualifier"
 	provider-name="mimacom ag">
 	<plugin

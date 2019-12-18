@@ -14,7 +14,7 @@
   <artifactId>com.mimacom.ddd.sm.sus.ide</artifactId>
   <packaging>eclipse-plugin</packaging>
 
-  <name>SM SUS IDE</name>
+  <name>System User Story IDE</name>
 
   <build>
     <plugins>

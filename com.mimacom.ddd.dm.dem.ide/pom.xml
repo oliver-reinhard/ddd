@@ -14,7 +14,7 @@
   <artifactId>com.mimacom.ddd.dm.dem.ide</artifactId>
   <packaging>eclipse-plugin</packaging>
 
-  <name>DM DEM IDE</name>
+  <name>Domain Event Model IDE</name>
 
   <build>
     <plugins>

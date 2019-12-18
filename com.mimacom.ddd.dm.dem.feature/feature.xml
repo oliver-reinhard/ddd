@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.mimacom.ddd.dm.dem.feature"
-      label="Dem Feature"
+      label="Domain Model Event Feature"
       version="0.1.0.qualifier"
       provider-name="mimacom ag">
 

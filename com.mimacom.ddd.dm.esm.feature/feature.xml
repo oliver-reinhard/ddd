@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="com.mimacom.ddd.dm.esm.feature"
-	label="Esm Feature "
+	label="Entity State Model Feature "
 	version="0.1.0.qualifier"
 	provider-name="mimacom ag">
 	<plugin

@@ -12,7 +12,7 @@
   <artifactId>com.mimacom.ddd.dm.dem.tests</artifactId>
   <packaging>eclipse-test-plugin</packaging>
 
-  <name>DM DEM Tests</name>
+  <name>Domain Event Model Tests</name>
 
   <build>
     <plugins>
