@@ -91,9 +91,9 @@ DRichText:
 	);
 
 DmxTextOnly returns DTextSegment:		value=PLAIN_TEXT_ONLY;
-DmxTextStart returns DTextSegment:		value=PLAIN_TEXT_START;
-DmxTextMiddle returns DTextSegment:		value=PLAIN_TEXT_MIDDLE;
-DmxTextEnd returns DTextSegment:			value=PLAIN_TEXT_END;
+DmxTextStart returns DTextSegment:		value=RICH_TEXT_START;
+DmxTextMiddle returns DTextSegment:		value=RICH_TEXT_MIDDLE;
+DmxTextEnd returns DTextSegment:		value=RICH_TEXT_END;
 
 DmxNavigableMemberReference returns DExpression:
 	DmxPrimaryExpression
@@ -332,9 +332,9 @@ terminal fragment LETTER:'a'..'z'|'A'..'Z'|'\u00c0'..'\u00d6'|'\u00d8'..'\u00f6'
 
 terminal fragment PLAIN_TEXT:	!('»' | ']' | '[');
 terminal PLAIN_TEXT_ONLY:		'«' PLAIN_TEXT* '»';
-terminal PLAIN_TEXT_START:		'«' PLAIN_TEXT* '[';
-terminal PLAIN_TEXT_MIDDLE:	']'  PLAIN_TEXT* '[';
-terminal PLAIN_TEXT_END:			']'  PLAIN_TEXT* '»';
+terminal RICH_TEXT_START:		'«' PLAIN_TEXT* '[';
+terminal RICH_TEXT_MIDDLE:	']'  PLAIN_TEXT* '[';
+terminal RICH_TEXT_END:			']'  PLAIN_TEXT* '»';
 
 terminal ML_COMMENT : '/*' -> '*/';
 terminal SL_COMMENT : '//' !('\n'|'\r')* ('\r'? '\n')?;

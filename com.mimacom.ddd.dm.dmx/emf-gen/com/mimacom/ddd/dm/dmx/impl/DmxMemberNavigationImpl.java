@@ -134,6 +134,7 @@ public class DmxMemberNavigationImpl extends DExpressionImpl implements DmxMembe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DNavigableMember getMember()
 	{
 		if (member != null && member.eIsProxy())
@@ -164,6 +165,7 @@ public class DmxMemberNavigationImpl extends DExpressionImpl implements DmxMembe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMember(DNavigableMember newMember)
 	{
 		DNavigableMember oldMember = member;
@@ -177,6 +179,7 @@ public class DmxMemberNavigationImpl extends DExpressionImpl implements DmxMembe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DExpression getPrecedingNavigationSegment()
 	{
 		return precedingNavigationSegment;
@@ -204,6 +207,7 @@ public class DmxMemberNavigationImpl extends DExpressionImpl implements DmxMembe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPrecedingNavigationSegment(DExpression newPrecedingNavigationSegment)
 	{
 		if (newPrecedingNavigationSegment != precedingNavigationSegment)
@@ -225,6 +229,7 @@ public class DmxMemberNavigationImpl extends DExpressionImpl implements DmxMembe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isExplicitOperationCall()
 	{
 		return explicitOperationCall;
@@ -235,6 +240,7 @@ public class DmxMemberNavigationImpl extends DExpressionImpl implements DmxMembe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExplicitOperationCall(boolean newExplicitOperationCall)
 	{
 		boolean oldExplicitOperationCall = explicitOperationCall;
@@ -248,6 +254,7 @@ public class DmxMemberNavigationImpl extends DExpressionImpl implements DmxMembe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DmxCallArguments getCallArguments()
 	{
 		return callArguments;
@@ -275,6 +282,7 @@ public class DmxMemberNavigationImpl extends DExpressionImpl implements DmxMembe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCallArguments(DmxCallArguments newCallArguments)
 	{
 		if (newCallArguments != callArguments)
@@ -296,6 +304,7 @@ public class DmxMemberNavigationImpl extends DExpressionImpl implements DmxMembe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isBefore()
 	{
 		return before;
@@ -306,6 +315,7 @@ public class DmxMemberNavigationImpl extends DExpressionImpl implements DmxMembe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setBefore(boolean newBefore)
 	{
 		boolean oldBefore = before;
@@ -449,7 +459,7 @@ public class DmxMemberNavigationImpl extends DExpressionImpl implements DmxMembe
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (explicitOperationCall: ");
 		result.append(explicitOperationCall);
 		result.append(", before: ");

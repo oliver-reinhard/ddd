@@ -26,10 +26,6 @@ public interface DmxFunctionCall extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Function</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Function</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Function</em>' reference.
 	 * @see #setFunction(DmxFilter)
@@ -52,10 +48,6 @@ public interface DmxFunctionCall extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Call Arguments</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Call Arguments</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Call Arguments</em>' containment reference.
 	 * @see #setCallArguments(DmxCallArguments)

@@ -72,6 +72,7 @@ public class DmxCallArgumentsImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DExpression> getArguments()
 	{
 		if (arguments == null)

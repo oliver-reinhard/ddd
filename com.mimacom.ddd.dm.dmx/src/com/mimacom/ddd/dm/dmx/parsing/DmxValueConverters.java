@@ -41,18 +41,18 @@ public class DmxValueConverters extends Ecore2XtextTerminalConverters {
 		return new RichTextValueConverter('«', '»');
 	}
 
-	@ValueConverter(rule = "PLAIN_TEXT_START")
-	public IValueConverter<String> PLAIN_TEXT_START() {
+	@ValueConverter(rule = "RICH_TEXT_START")
+	public IValueConverter<String> RICH_TEXT_START() {
 		return new RichTextValueConverter('«', '[');
 	}
 
-	@ValueConverter(rule = "PLAIN_TEXT_MIDDLE")
-	public IValueConverter<String> PLAIN_TEXT_MIDDLE() {
+	@ValueConverter(rule = "RICH_TEXT_MIDDLE")
+	public IValueConverter<String> RICH_TEXT_MIDDLE() {
 		return new RichTextValueConverter(']', '[');
 	}
 
-	@ValueConverter(rule = "PLAIN_TEXT_END")
-	public IValueConverter<String> PLAIN_TEXT_END() {
+	@ValueConverter(rule = "RICH_TEXT_END")
+	public IValueConverter<String> RICH_TEXT_END() {
 		return new RichTextValueConverter(']', '»');
 	}
 

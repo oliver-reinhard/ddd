@@ -111,6 +111,7 @@ public class DmxNamespaceImpl extends DNamedElementImpl implements DmxNamespace
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DType> getTypes()
 	{
 		if (types == null)
@@ -125,6 +126,7 @@ public class DmxNamespaceImpl extends DNamedElementImpl implements DmxNamespace
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DImport> getImports()
 	{
 		if (imports == null)
@@ -139,6 +141,7 @@ public class DmxNamespaceImpl extends DNamedElementImpl implements DmxNamespace
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DmxFilter> getFilters()
 	{
 		if (filters == null)
@@ -153,6 +156,7 @@ public class DmxNamespaceImpl extends DNamedElementImpl implements DmxNamespace
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DmxTest> getTests()
 	{
 		if (tests == null)

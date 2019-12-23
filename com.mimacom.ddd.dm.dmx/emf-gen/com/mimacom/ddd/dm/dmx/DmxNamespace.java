@@ -32,10 +32,6 @@ public interface DmxNamespace extends DNamedElement, ITypeContainer
 	 * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DImport}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Imports</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Imports</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxNamespace_Imports()
@@ -48,10 +44,6 @@ public interface DmxNamespace extends DNamedElement, ITypeContainer
 	 * Returns the value of the '<em><b>Filters</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.dmx.DmxFilter}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Filters</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Filters</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxNamespace_Filters()
@@ -64,10 +56,6 @@ public interface DmxNamespace extends DNamedElement, ITypeContainer
 	 * Returns the value of the '<em><b>Tests</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.dmx.DmxTest}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Tests</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Tests</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxNamespace_Tests()

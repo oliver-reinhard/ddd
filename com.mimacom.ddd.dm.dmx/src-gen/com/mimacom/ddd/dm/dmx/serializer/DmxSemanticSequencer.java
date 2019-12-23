@@ -1232,7 +1232,7 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DmxTextEnd returns DTextSegment
 	 *
 	 * Constraint:
-	 *     value=PLAIN_TEXT_END
+	 *     value=RICH_TEXT_END
 	 */
 	protected void sequence_DmxTextEnd(ISerializationContext context, DTextSegment semanticObject) {
 		if (errorAcceptor != null) {
@@ -1240,7 +1240,7 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DTEXT_SEGMENT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDmxTextEndAccess().getValuePLAIN_TEXT_ENDTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getDmxTextEndAccess().getValueRICH_TEXT_ENDTerminalRuleCall_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -1250,7 +1250,7 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DmxTextMiddle returns DTextSegment
 	 *
 	 * Constraint:
-	 *     value=PLAIN_TEXT_MIDDLE
+	 *     value=RICH_TEXT_MIDDLE
 	 */
 	protected void sequence_DmxTextMiddle(ISerializationContext context, DTextSegment semanticObject) {
 		if (errorAcceptor != null) {
@@ -1258,7 +1258,7 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DTEXT_SEGMENT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDmxTextMiddleAccess().getValuePLAIN_TEXT_MIDDLETerminalRuleCall_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getDmxTextMiddleAccess().getValueRICH_TEXT_MIDDLETerminalRuleCall_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -1286,7 +1286,7 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DmxTextStart returns DTextSegment
 	 *
 	 * Constraint:
-	 *     value=PLAIN_TEXT_START
+	 *     value=RICH_TEXT_START
 	 */
 	protected void sequence_DmxTextStart(ISerializationContext context, DTextSegment semanticObject) {
 		if (errorAcceptor != null) {
@@ -1294,7 +1294,7 @@ public class DmxSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DTEXT_SEGMENT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDmxTextStartAccess().getValuePLAIN_TEXT_STARTTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getDmxTextStartAccess().getValueRICH_TEXT_STARTTerminalRuleCall_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

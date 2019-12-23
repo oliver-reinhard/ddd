@@ -98,6 +98,7 @@ public class DmxFilterImpl extends DNavigableMemberImplCustom implements DmxFilt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DmxFilterParameter> getParameters()
 	{
 		if (parameters == null)
@@ -112,6 +113,7 @@ public class DmxFilterImpl extends DNavigableMemberImplCustom implements DmxFilt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DmxFilterTypeDescriptor getTypeDesc()
 	{
 		return typeDesc;
@@ -139,6 +141,7 @@ public class DmxFilterImpl extends DNavigableMemberImplCustom implements DmxFilt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTypeDesc(DmxFilterTypeDescriptor newTypeDesc)
 	{
 		if (newTypeDesc != typeDesc)
@@ -160,6 +163,7 @@ public class DmxFilterImpl extends DNavigableMemberImplCustom implements DmxFilt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DmxBaseTypeSet getWithTypeSet()
 	{
 		return withTypeSet;
@@ -187,6 +191,7 @@ public class DmxFilterImpl extends DNavigableMemberImplCustom implements DmxFilt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setWithTypeSet(DmxBaseTypeSet newWithTypeSet)
 	{
 		if (newWithTypeSet != withTypeSet)

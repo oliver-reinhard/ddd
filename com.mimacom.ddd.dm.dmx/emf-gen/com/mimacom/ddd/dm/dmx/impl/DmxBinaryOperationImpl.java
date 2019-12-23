@@ -101,6 +101,7 @@ public class DmxBinaryOperationImpl extends DExpressionImpl implements DmxBinary
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DExpression getLeftOperand()
 	{
 		return leftOperand;
@@ -128,6 +129,7 @@ public class DmxBinaryOperationImpl extends DExpressionImpl implements DmxBinary
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLeftOperand(DExpression newLeftOperand)
 	{
 		if (newLeftOperand != leftOperand)
@@ -149,6 +151,7 @@ public class DmxBinaryOperationImpl extends DExpressionImpl implements DmxBinary
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DmxBinaryOperator getOperator()
 	{
 		return operator;
@@ -159,6 +162,7 @@ public class DmxBinaryOperationImpl extends DExpressionImpl implements DmxBinary
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOperator(DmxBinaryOperator newOperator)
 	{
 		DmxBinaryOperator oldOperator = operator;
@@ -172,6 +176,7 @@ public class DmxBinaryOperationImpl extends DExpressionImpl implements DmxBinary
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DExpression getRightOperand()
 	{
 		return rightOperand;
@@ -199,6 +204,7 @@ public class DmxBinaryOperationImpl extends DExpressionImpl implements DmxBinary
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRightOperand(DExpression newRightOperand)
 	{
 		if (newRightOperand != rightOperand)
@@ -329,7 +335,7 @@ public class DmxBinaryOperationImpl extends DExpressionImpl implements DmxBinary
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (operator: ");
 		result.append(operator);
 		result.append(')');

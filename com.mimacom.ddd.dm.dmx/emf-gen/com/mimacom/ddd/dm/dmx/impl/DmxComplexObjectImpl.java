@@ -86,6 +86,7 @@ public class DmxComplexObjectImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DComplexType getType()
 	{
 		if (type != null && type.eIsProxy())
@@ -116,6 +117,7 @@ public class DmxComplexObjectImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setType(DComplexType newType)
 	{
 		DComplexType oldType = type;
@@ -129,6 +131,7 @@ public class DmxComplexObjectImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DmxField> getFields()
 	{
 		if (fields == null)

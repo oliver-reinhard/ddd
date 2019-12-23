@@ -79,6 +79,7 @@ public class DmxFunctionCallImpl extends DExpressionImpl implements DmxFunctionC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DmxFilter getFunction()
 	{
 		if (function != null && function.eIsProxy())
@@ -109,6 +110,7 @@ public class DmxFunctionCallImpl extends DExpressionImpl implements DmxFunctionC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFunction(DmxFilter newFunction)
 	{
 		DmxFilter oldFunction = function;
@@ -122,6 +124,7 @@ public class DmxFunctionCallImpl extends DExpressionImpl implements DmxFunctionC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DmxCallArguments getCallArguments()
 	{
 		return callArguments;
@@ -149,6 +152,7 @@ public class DmxFunctionCallImpl extends DExpressionImpl implements DmxFunctionC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCallArguments(DmxCallArguments newCallArguments)
 	{
 		if (newCallArguments != callArguments)

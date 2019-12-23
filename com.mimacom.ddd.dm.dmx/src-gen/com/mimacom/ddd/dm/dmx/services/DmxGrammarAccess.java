@@ -651,47 +651,47 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	public class DmxTextStartElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DmxTextStart");
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cValuePLAIN_TEXT_STARTTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		private final RuleCall cValueRICH_TEXT_STARTTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
 		
 		//DmxTextStart DTextSegment:
-		//	value=PLAIN_TEXT_START;
+		//	value=RICH_TEXT_START;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//value=PLAIN_TEXT_START
+		//value=RICH_TEXT_START
 		public Assignment getValueAssignment() { return cValueAssignment; }
 		
-		//PLAIN_TEXT_START
-		public RuleCall getValuePLAIN_TEXT_STARTTerminalRuleCall_0() { return cValuePLAIN_TEXT_STARTTerminalRuleCall_0; }
+		//RICH_TEXT_START
+		public RuleCall getValueRICH_TEXT_STARTTerminalRuleCall_0() { return cValueRICH_TEXT_STARTTerminalRuleCall_0; }
 	}
 	public class DmxTextMiddleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DmxTextMiddle");
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cValuePLAIN_TEXT_MIDDLETerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		private final RuleCall cValueRICH_TEXT_MIDDLETerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
 		
 		//DmxTextMiddle DTextSegment:
-		//	value=PLAIN_TEXT_MIDDLE;
+		//	value=RICH_TEXT_MIDDLE;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//value=PLAIN_TEXT_MIDDLE
+		//value=RICH_TEXT_MIDDLE
 		public Assignment getValueAssignment() { return cValueAssignment; }
 		
-		//PLAIN_TEXT_MIDDLE
-		public RuleCall getValuePLAIN_TEXT_MIDDLETerminalRuleCall_0() { return cValuePLAIN_TEXT_MIDDLETerminalRuleCall_0; }
+		//RICH_TEXT_MIDDLE
+		public RuleCall getValueRICH_TEXT_MIDDLETerminalRuleCall_0() { return cValueRICH_TEXT_MIDDLETerminalRuleCall_0; }
 	}
 	public class DmxTextEndElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DmxTextEnd");
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cValuePLAIN_TEXT_ENDTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		private final RuleCall cValueRICH_TEXT_ENDTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
 		
 		//DmxTextEnd DTextSegment:
-		//	value=PLAIN_TEXT_END;
+		//	value=RICH_TEXT_END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//value=PLAIN_TEXT_END
+		//value=RICH_TEXT_END
 		public Assignment getValueAssignment() { return cValueAssignment; }
 		
-		//PLAIN_TEXT_END
-		public RuleCall getValuePLAIN_TEXT_ENDTerminalRuleCall_0() { return cValuePLAIN_TEXT_ENDTerminalRuleCall_0; }
+		//RICH_TEXT_END
+		public RuleCall getValueRICH_TEXT_ENDTerminalRuleCall_0() { return cValueRICH_TEXT_ENDTerminalRuleCall_0; }
 	}
 	public class DmxNavigableMemberReferenceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.DmxNavigableMemberReference");
@@ -2991,9 +2991,9 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tLETTER;
 	private final TerminalRule tPLAIN_TEXT;
 	private final TerminalRule tPLAIN_TEXT_ONLY;
-	private final TerminalRule tPLAIN_TEXT_START;
-	private final TerminalRule tPLAIN_TEXT_MIDDLE;
-	private final TerminalRule tPLAIN_TEXT_END;
+	private final TerminalRule tRICH_TEXT_START;
+	private final TerminalRule tRICH_TEXT_MIDDLE;
+	private final TerminalRule tRICH_TEXT_END;
 	private final TerminalRule tML_COMMENT;
 	private final TerminalRule tSL_COMMENT;
 	private final TerminalRule tWS;
@@ -3077,9 +3077,9 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		this.tLETTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.LETTER");
 		this.tPLAIN_TEXT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.PLAIN_TEXT");
 		this.tPLAIN_TEXT_ONLY = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.PLAIN_TEXT_ONLY");
-		this.tPLAIN_TEXT_START = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.PLAIN_TEXT_START");
-		this.tPLAIN_TEXT_MIDDLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.PLAIN_TEXT_MIDDLE");
-		this.tPLAIN_TEXT_END = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.PLAIN_TEXT_END");
+		this.tRICH_TEXT_START = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.RICH_TEXT_START");
+		this.tRICH_TEXT_MIDDLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.RICH_TEXT_MIDDLE");
+		this.tRICH_TEXT_END = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.RICH_TEXT_END");
 		this.tML_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.ML_COMMENT");
 		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.SL_COMMENT");
 		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.dm.dmx.Dmx.WS");
@@ -3274,7 +3274,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxTextStart DTextSegment:
-	//	value=PLAIN_TEXT_START;
+	//	value=RICH_TEXT_START;
 	public DmxTextStartElements getDmxTextStartAccess() {
 		return pDmxTextStart;
 	}
@@ -3284,7 +3284,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxTextMiddle DTextSegment:
-	//	value=PLAIN_TEXT_MIDDLE;
+	//	value=RICH_TEXT_MIDDLE;
 	public DmxTextMiddleElements getDmxTextMiddleAccess() {
 		return pDmxTextMiddle;
 	}
@@ -3294,7 +3294,7 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxTextEnd DTextSegment:
-	//	value=PLAIN_TEXT_END;
+	//	value=RICH_TEXT_END;
 	public DmxTextEndElements getDmxTextEndAccess() {
 		return pDmxTextEnd;
 	}
@@ -3887,22 +3887,22 @@ public class DmxGrammarAccess extends AbstractGrammarElementFinder {
 		return tPLAIN_TEXT_ONLY;
 	}
 	
-	//terminal PLAIN_TEXT_START:
+	//terminal RICH_TEXT_START:
 	//	'«' PLAIN_TEXT* '[';
-	public TerminalRule getPLAIN_TEXT_STARTRule() {
-		return tPLAIN_TEXT_START;
+	public TerminalRule getRICH_TEXT_STARTRule() {
+		return tRICH_TEXT_START;
 	}
 	
-	//terminal PLAIN_TEXT_MIDDLE:
+	//terminal RICH_TEXT_MIDDLE:
 	//	']' PLAIN_TEXT* '[';
-	public TerminalRule getPLAIN_TEXT_MIDDLERule() {
-		return tPLAIN_TEXT_MIDDLE;
+	public TerminalRule getRICH_TEXT_MIDDLERule() {
+		return tRICH_TEXT_MIDDLE;
 	}
 	
-	//terminal PLAIN_TEXT_END:
+	//terminal RICH_TEXT_END:
 	//	']' PLAIN_TEXT* '»';
-	public TerminalRule getPLAIN_TEXT_ENDRule() {
-		return tPLAIN_TEXT_END;
+	public TerminalRule getRICH_TEXT_ENDRule() {
+		return tRICH_TEXT_END;
 	}
 	
 	//terminal ML_COMMENT:

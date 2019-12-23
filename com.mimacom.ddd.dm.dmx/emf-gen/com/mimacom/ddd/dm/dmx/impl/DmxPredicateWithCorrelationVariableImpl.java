@@ -80,6 +80,7 @@ public class DmxPredicateWithCorrelationVariableImpl extends DExpressionImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DmxCorrelationVariable getCorrelationVariable()
 	{
 		return correlationVariable;
@@ -107,6 +108,7 @@ public class DmxPredicateWithCorrelationVariableImpl extends DExpressionImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCorrelationVariable(DmxCorrelationVariable newCorrelationVariable)
 	{
 		if (newCorrelationVariable != correlationVariable)
@@ -128,6 +130,7 @@ public class DmxPredicateWithCorrelationVariableImpl extends DExpressionImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DExpression getPredicate()
 	{
 		return predicate;
@@ -155,6 +158,7 @@ public class DmxPredicateWithCorrelationVariableImpl extends DExpressionImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPredicate(DExpression newPredicate)
 	{
 		if (newPredicate != predicate)
