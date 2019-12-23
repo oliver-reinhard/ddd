@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalDimParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_PLAIN_TEXT_START", "RULE_PLAIN_TEXT_MIDDLE", "RULE_PLAIN_TEXT_END", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'{'", "'entity'", "'object'", "'concept'", "'relationship'", "'inverse'", "'ISA'", "'isa'", "'AS'", "'as'", "'*'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'references'", "'contains'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'STATE'", "'STATE_EVENT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'IN'", "'in'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'?'", "'domain'", "'alias'", "'component'", "'}'", "'query'", "'constraint'", "':'", "'primitive'", "'redefines'", "'enumeration'", "','", "'physical'", "'virtual'", "'states'", "'events'", "'detail'", "'extends'", "'('", "')'", "'returns'", "'import'", "'test'", "'context'", "'archetype'", "'is'", "'filter'", "'with'", "'.'", "'|'", "'['", "']'", "'#'", "'if'", "'then'", "'end'", "'else'", "'.*'", "'abstract'", "'root'", "'main'", "'derived'", "'key'", "'@before'", "'all'", "'TRUE'", "'true'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_RICH_TEXT_START", "RULE_RICH_TEXT_MIDDLE", "RULE_RICH_TEXT_END", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'{'", "'entity'", "'object'", "'concept'", "'relationship'", "'inverse'", "'ISA'", "'isa'", "'AS'", "'as'", "'*'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'references'", "'contains'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'STATE'", "'STATE_EVENT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'IN'", "'in'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'?'", "'domain'", "'alias'", "'component'", "'}'", "'query'", "'constraint'", "':'", "'primitive'", "'redefines'", "'enumeration'", "','", "'physical'", "'virtual'", "'states'", "'events'", "'detail'", "'extends'", "'('", "')'", "'returns'", "'import'", "'test'", "'context'", "'archetype'", "'is'", "'filter'", "'with'", "'.'", "'|'", "'['", "']'", "'#'", "'if'", "'then'", "'end'", "'else'", "'.*'", "'abstract'", "'root'", "'main'", "'derived'", "'key'", "'@before'", "'all'", "'TRUE'", "'true'"
     };
     public static final int T__50=50;
     public static final int RULE_PLAIN_TEXT_ONLY=6;
@@ -38,9 +38,8 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     public static final int T__54=54;
     public static final int T__60=60;
     public static final int T__61=61;
-    public static final int RULE_PLAIN_TEXT_END=9;
     public static final int RULE_ID=5;
-    public static final int RULE_PLAIN_TEXT_START=7;
+    public static final int RULE_RICH_TEXT_START=7;
     public static final int T__66=66;
     public static final int RULE_ML_COMMENT=13;
     public static final int T__67=67;
@@ -60,7 +59,6 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     public static final int T__30=30;
     public static final int T__31=31;
     public static final int T__32=32;
-    public static final int RULE_PLAIN_TEXT_MIDDLE=8;
     public static final int RULE_LETTER=11;
     public static final int T__48=48;
     public static final int T__49=49;
@@ -131,6 +129,8 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     public static final int T__83=83;
     public static final int T__112=112;
     public static final int RULE_WS=15;
+    public static final int RULE_RICH_TEXT_END=9;
+    public static final int RULE_RICH_TEXT_MIDDLE=8;
     public static final int RULE_ANY_OTHER=16;
     public static final int T__88=88;
     public static final int T__108=108;
@@ -8215,7 +8215,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                 {
                 int LA11_1 = input.LA(2);
 
-                if ( (LA11_1==EOF||(LA11_1>=RULE_ID && LA11_1<=RULE_PLAIN_TEXT_END)||LA11_1==19||LA11_1==22||(LA11_1>=24 && LA11_1<=28)||(LA11_1>=35 && LA11_1<=36)||(LA11_1>=50 && LA11_1<=72)||(LA11_1>=80 && LA11_1<=82)||LA11_1==84||(LA11_1>=86 && LA11_1<=89)||LA11_1==92||(LA11_1>=94 && LA11_1<=95)||(LA11_1>=104 && LA11_1<=105)||(LA11_1>=110 && LA11_1<=112)||(LA11_1>=114 && LA11_1<=117)||LA11_1==119) ) {
+                if ( (LA11_1==EOF||(LA11_1>=RULE_ID && LA11_1<=RULE_RICH_TEXT_END)||LA11_1==19||LA11_1==22||(LA11_1>=24 && LA11_1<=28)||(LA11_1>=35 && LA11_1<=36)||(LA11_1>=50 && LA11_1<=72)||(LA11_1>=80 && LA11_1<=82)||LA11_1==84||(LA11_1>=86 && LA11_1<=89)||LA11_1==92||(LA11_1>=94 && LA11_1<=95)||(LA11_1>=104 && LA11_1<=105)||(LA11_1>=110 && LA11_1<=112)||(LA11_1>=114 && LA11_1<=117)||LA11_1==119) ) {
                     alt11=2;
                 }
                 else if ( (LA11_1==17) ) {
@@ -8254,7 +8254,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                 }
                 break;
             case RULE_PLAIN_TEXT_ONLY:
-            case RULE_PLAIN_TEXT_START:
+            case RULE_RICH_TEXT_START:
                 {
                 alt11=3;
                 }
@@ -8368,7 +8368,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             if ( (LA12_0==RULE_PLAIN_TEXT_ONLY) ) {
                 alt12=1;
             }
-            else if ( (LA12_0==RULE_PLAIN_TEXT_START) ) {
+            else if ( (LA12_0==RULE_RICH_TEXT_START) ) {
                 alt12=2;
             }
             else {
@@ -8471,7 +8471,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                 if ( (LA13_1==RULE_ID) ) {
                     int LA13_2 = input.LA(3);
 
-                    if ( (LA13_2==EOF||(LA13_2>=RULE_ID && LA13_2<=RULE_PLAIN_TEXT_END)||LA13_2==19||LA13_2==22||(LA13_2>=24 && LA13_2<=28)||(LA13_2>=35 && LA13_2<=36)||(LA13_2>=50 && LA13_2<=72)||(LA13_2>=80 && LA13_2<=82)||LA13_2==84||(LA13_2>=86 && LA13_2<=89)||LA13_2==92||(LA13_2>=94 && LA13_2<=95)||LA13_2==104||(LA13_2>=110 && LA13_2<=112)||(LA13_2>=114 && LA13_2<=117)||LA13_2==119) ) {
+                    if ( (LA13_2==EOF||(LA13_2>=RULE_ID && LA13_2<=RULE_RICH_TEXT_END)||LA13_2==19||LA13_2==22||(LA13_2>=24 && LA13_2<=28)||(LA13_2>=35 && LA13_2<=36)||(LA13_2>=50 && LA13_2<=72)||(LA13_2>=80 && LA13_2<=82)||LA13_2==84||(LA13_2>=86 && LA13_2<=89)||LA13_2==92||(LA13_2>=94 && LA13_2<=95)||LA13_2==104||(LA13_2>=110 && LA13_2<=112)||(LA13_2>=114 && LA13_2<=117)||LA13_2==119) ) {
                         alt13=2;
                     }
                     else if ( (LA13_2==17) ) {
@@ -8690,7 +8690,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             if ( (LA15_0==RULE_ID) ) {
                 int LA15_1 = input.LA(2);
 
-                if ( (LA15_1==EOF||(LA15_1>=RULE_ID && LA15_1<=RULE_PLAIN_TEXT_END)||LA15_1==19||LA15_1==22||(LA15_1>=24 && LA15_1<=28)||(LA15_1>=35 && LA15_1<=36)||(LA15_1>=50 && LA15_1<=72)||(LA15_1>=80 && LA15_1<=82)||LA15_1==84||(LA15_1>=86 && LA15_1<=89)||LA15_1==92||(LA15_1>=94 && LA15_1<=95)||LA15_1==104||(LA15_1>=110 && LA15_1<=112)||(LA15_1>=114 && LA15_1<=117)||LA15_1==119) ) {
+                if ( (LA15_1==EOF||(LA15_1>=RULE_ID && LA15_1<=RULE_RICH_TEXT_END)||LA15_1==19||LA15_1==22||(LA15_1>=24 && LA15_1<=28)||(LA15_1>=35 && LA15_1<=36)||(LA15_1>=50 && LA15_1<=72)||(LA15_1>=80 && LA15_1<=82)||LA15_1==84||(LA15_1>=86 && LA15_1<=89)||LA15_1==92||(LA15_1>=94 && LA15_1<=95)||LA15_1==104||(LA15_1>=110 && LA15_1<=112)||(LA15_1>=114 && LA15_1<=117)||LA15_1==119) ) {
                     alt15=2;
                 }
                 else if ( (LA15_1==105) ) {
@@ -9176,7 +9176,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                 {
                 int LA20_4 = input.LA(2);
 
-                if ( (LA20_4==EOF||(LA20_4>=RULE_ID && LA20_4<=RULE_PLAIN_TEXT_END)||LA20_4==19||LA20_4==22||(LA20_4>=24 && LA20_4<=28)||(LA20_4>=35 && LA20_4<=36)||(LA20_4>=50 && LA20_4<=72)||(LA20_4>=80 && LA20_4<=82)||LA20_4==84||(LA20_4>=86 && LA20_4<=89)||LA20_4==92||LA20_4==95||LA20_4==104||(LA20_4>=110 && LA20_4<=112)||(LA20_4>=114 && LA20_4<=117)||LA20_4==119) ) {
+                if ( (LA20_4==EOF||(LA20_4>=RULE_ID && LA20_4<=RULE_RICH_TEXT_END)||LA20_4==19||LA20_4==22||(LA20_4>=24 && LA20_4<=28)||(LA20_4>=35 && LA20_4<=36)||(LA20_4>=50 && LA20_4<=72)||(LA20_4>=80 && LA20_4<=82)||LA20_4==84||(LA20_4>=86 && LA20_4<=89)||LA20_4==92||LA20_4==95||LA20_4==104||(LA20_4>=110 && LA20_4<=112)||(LA20_4>=114 && LA20_4<=117)||LA20_4==119) ) {
                     alt20=6;
                 }
                 else if ( (LA20_4==94) ) {
@@ -12583,7 +12583,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt43=2;
             int LA43_0 = input.LA(1);
 
-            if ( ((LA43_0>=RULE_PLAIN_TEXT_ONLY && LA43_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA43_0>=RULE_PLAIN_TEXT_ONLY && LA43_0<=RULE_RICH_TEXT_START)) ) {
                 alt43=1;
             }
             switch (alt43) {
@@ -13195,7 +13195,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt45=2;
             int LA45_0 = input.LA(1);
 
-            if ( ((LA45_0>=RULE_PLAIN_TEXT_ONLY && LA45_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA45_0>=RULE_PLAIN_TEXT_ONLY && LA45_0<=RULE_RICH_TEXT_START)) ) {
                 alt45=1;
             }
             switch (alt45) {
@@ -14263,7 +14263,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt49=2;
             int LA49_0 = input.LA(1);
 
-            if ( ((LA49_0>=RULE_PLAIN_TEXT_ONLY && LA49_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA49_0>=RULE_PLAIN_TEXT_ONLY && LA49_0<=RULE_RICH_TEXT_START)) ) {
                 alt49=1;
             }
             switch (alt49) {
@@ -14969,7 +14969,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt51=2;
             int LA51_0 = input.LA(1);
 
-            if ( ((LA51_0>=RULE_PLAIN_TEXT_ONLY && LA51_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA51_0>=RULE_PLAIN_TEXT_ONLY && LA51_0<=RULE_RICH_TEXT_START)) ) {
                 alt51=1;
             }
             switch (alt51) {
@@ -15891,7 +15891,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt55=2;
             int LA55_0 = input.LA(1);
 
-            if ( ((LA55_0>=RULE_PLAIN_TEXT_ONLY && LA55_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA55_0>=RULE_PLAIN_TEXT_ONLY && LA55_0<=RULE_RICH_TEXT_START)) ) {
                 alt55=1;
             }
             switch (alt55) {
@@ -17059,7 +17059,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt60=2;
             int LA60_0 = input.LA(1);
 
-            if ( ((LA60_0>=RULE_PLAIN_TEXT_ONLY && LA60_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA60_0>=RULE_PLAIN_TEXT_ONLY && LA60_0<=RULE_RICH_TEXT_START)) ) {
                 alt60=1;
             }
             switch (alt60) {
@@ -20743,7 +20743,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt73=2;
             int LA73_0 = input.LA(1);
 
-            if ( ((LA73_0>=RULE_PLAIN_TEXT_ONLY && LA73_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA73_0>=RULE_PLAIN_TEXT_ONLY && LA73_0<=RULE_RICH_TEXT_START)) ) {
                 alt73=1;
             }
             switch (alt73) {
@@ -21738,7 +21738,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt77=2;
             int LA77_0 = input.LA(1);
 
-            if ( ((LA77_0>=RULE_PLAIN_TEXT_ONLY && LA77_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA77_0>=RULE_PLAIN_TEXT_ONLY && LA77_0<=RULE_RICH_TEXT_START)) ) {
                 alt77=1;
             }
             switch (alt77) {
@@ -22548,7 +22548,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt81=2;
             int LA81_0 = input.LA(1);
 
-            if ( ((LA81_0>=RULE_PLAIN_TEXT_ONLY && LA81_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA81_0>=RULE_PLAIN_TEXT_ONLY && LA81_0<=RULE_RICH_TEXT_START)) ) {
                 alt81=1;
             }
             switch (alt81) {
@@ -23987,7 +23987,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt87=2;
             int LA87_0 = input.LA(1);
 
-            if ( ((LA87_0>=RULE_PLAIN_TEXT_ONLY && LA87_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA87_0>=RULE_PLAIN_TEXT_ONLY && LA87_0<=RULE_RICH_TEXT_START)) ) {
                 alt87=1;
             }
             switch (alt87) {
@@ -25119,7 +25119,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt90=2;
             int LA90_0 = input.LA(1);
 
-            if ( ((LA90_0>=RULE_PLAIN_TEXT_ONLY && LA90_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA90_0>=RULE_PLAIN_TEXT_ONLY && LA90_0<=RULE_RICH_TEXT_START)) ) {
                 alt90=1;
             }
             switch (alt90) {
@@ -27980,7 +27980,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt96=2;
             int LA96_0 = input.LA(1);
 
-            if ( ((LA96_0>=RULE_PLAIN_TEXT_ONLY && LA96_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA96_0>=RULE_PLAIN_TEXT_ONLY && LA96_0<=RULE_RICH_TEXT_START)) ) {
                 alt96=1;
             }
             switch (alt96) {
@@ -29902,7 +29902,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
                 int alt101=2;
                 int LA101_0 = input.LA(1);
 
-                if ( (LA101_0==RULE_PLAIN_TEXT_MIDDLE) ) {
+                if ( (LA101_0==RULE_RICH_TEXT_MIDDLE) ) {
                     alt101=1;
                 }
 
@@ -39079,7 +39079,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt114=2;
             int LA114_0 = input.LA(1);
 
-            if ( ((LA114_0>=RULE_NATURAL && LA114_0<=RULE_PLAIN_TEXT_START)||LA114_0==RULE_STRING||(LA114_0>=18 && LA114_0<=19)||(LA114_0>=29 && LA114_0<=32)||(LA114_0>=35 && LA114_0<=36)||(LA114_0>=73 && LA114_0<=75)||LA114_0==92||LA114_0==94||LA114_0==106||LA114_0==109||(LA114_0>=121 && LA114_0<=122)) ) {
+            if ( ((LA114_0>=RULE_NATURAL && LA114_0<=RULE_RICH_TEXT_START)||LA114_0==RULE_STRING||(LA114_0>=18 && LA114_0<=19)||(LA114_0>=29 && LA114_0<=32)||(LA114_0>=35 && LA114_0<=36)||(LA114_0>=73 && LA114_0<=75)||LA114_0==92||LA114_0==94||LA114_0==106||LA114_0==109||(LA114_0>=121 && LA114_0<=122)) ) {
                 alt114=1;
             }
             switch (alt114) {
@@ -40777,7 +40777,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             int alt118=2;
             int LA118_0 = input.LA(1);
 
-            if ( ((LA118_0>=RULE_NATURAL && LA118_0<=RULE_PLAIN_TEXT_START)||LA118_0==RULE_STRING||(LA118_0>=18 && LA118_0<=19)||(LA118_0>=29 && LA118_0<=32)||(LA118_0>=35 && LA118_0<=36)||(LA118_0>=73 && LA118_0<=75)||LA118_0==92||LA118_0==94||LA118_0==106||LA118_0==109||(LA118_0>=121 && LA118_0<=122)) ) {
+            if ( ((LA118_0>=RULE_NATURAL && LA118_0<=RULE_RICH_TEXT_START)||LA118_0==RULE_STRING||(LA118_0>=18 && LA118_0<=19)||(LA118_0>=29 && LA118_0<=32)||(LA118_0>=35 && LA118_0<=36)||(LA118_0>=73 && LA118_0<=75)||LA118_0==92||LA118_0==94||LA118_0==106||LA118_0==109||(LA118_0>=121 && LA118_0<=122)) ) {
                 alt118=1;
             }
             switch (alt118) {
@@ -51431,24 +51431,24 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTextStart__ValueAssignment"
-    // InternalDim.g:15549:1: rule__DmxTextStart__ValueAssignment : ( RULE_PLAIN_TEXT_START ) ;
+    // InternalDim.g:15549:1: rule__DmxTextStart__ValueAssignment : ( RULE_RICH_TEXT_START ) ;
     public final void rule__DmxTextStart__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15553:1: ( ( RULE_PLAIN_TEXT_START ) )
-            // InternalDim.g:15554:2: ( RULE_PLAIN_TEXT_START )
+            // InternalDim.g:15553:1: ( ( RULE_RICH_TEXT_START ) )
+            // InternalDim.g:15554:2: ( RULE_RICH_TEXT_START )
             {
-            // InternalDim.g:15554:2: ( RULE_PLAIN_TEXT_START )
-            // InternalDim.g:15555:3: RULE_PLAIN_TEXT_START
+            // InternalDim.g:15554:2: ( RULE_RICH_TEXT_START )
+            // InternalDim.g:15555:3: RULE_RICH_TEXT_START
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxTextStartAccess().getValuePLAIN_TEXT_STARTTerminalRuleCall_0()); 
+               before(grammarAccess.getDmxTextStartAccess().getValueRICH_TEXT_STARTTerminalRuleCall_0()); 
             }
-            match(input,RULE_PLAIN_TEXT_START,FOLLOW_2); if (state.failed) return ;
+            match(input,RULE_RICH_TEXT_START,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxTextStartAccess().getValuePLAIN_TEXT_STARTTerminalRuleCall_0()); 
+               after(grammarAccess.getDmxTextStartAccess().getValueRICH_TEXT_STARTTerminalRuleCall_0()); 
             }
 
             }
@@ -51472,24 +51472,24 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTextMiddle__ValueAssignment"
-    // InternalDim.g:15564:1: rule__DmxTextMiddle__ValueAssignment : ( RULE_PLAIN_TEXT_MIDDLE ) ;
+    // InternalDim.g:15564:1: rule__DmxTextMiddle__ValueAssignment : ( RULE_RICH_TEXT_MIDDLE ) ;
     public final void rule__DmxTextMiddle__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15568:1: ( ( RULE_PLAIN_TEXT_MIDDLE ) )
-            // InternalDim.g:15569:2: ( RULE_PLAIN_TEXT_MIDDLE )
+            // InternalDim.g:15568:1: ( ( RULE_RICH_TEXT_MIDDLE ) )
+            // InternalDim.g:15569:2: ( RULE_RICH_TEXT_MIDDLE )
             {
-            // InternalDim.g:15569:2: ( RULE_PLAIN_TEXT_MIDDLE )
-            // InternalDim.g:15570:3: RULE_PLAIN_TEXT_MIDDLE
+            // InternalDim.g:15569:2: ( RULE_RICH_TEXT_MIDDLE )
+            // InternalDim.g:15570:3: RULE_RICH_TEXT_MIDDLE
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxTextMiddleAccess().getValuePLAIN_TEXT_MIDDLETerminalRuleCall_0()); 
+               before(grammarAccess.getDmxTextMiddleAccess().getValueRICH_TEXT_MIDDLETerminalRuleCall_0()); 
             }
-            match(input,RULE_PLAIN_TEXT_MIDDLE,FOLLOW_2); if (state.failed) return ;
+            match(input,RULE_RICH_TEXT_MIDDLE,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxTextMiddleAccess().getValuePLAIN_TEXT_MIDDLETerminalRuleCall_0()); 
+               after(grammarAccess.getDmxTextMiddleAccess().getValueRICH_TEXT_MIDDLETerminalRuleCall_0()); 
             }
 
             }
@@ -51513,24 +51513,24 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTextEnd__ValueAssignment"
-    // InternalDim.g:15579:1: rule__DmxTextEnd__ValueAssignment : ( RULE_PLAIN_TEXT_END ) ;
+    // InternalDim.g:15579:1: rule__DmxTextEnd__ValueAssignment : ( RULE_RICH_TEXT_END ) ;
     public final void rule__DmxTextEnd__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:15583:1: ( ( RULE_PLAIN_TEXT_END ) )
-            // InternalDim.g:15584:2: ( RULE_PLAIN_TEXT_END )
+            // InternalDim.g:15583:1: ( ( RULE_RICH_TEXT_END ) )
+            // InternalDim.g:15584:2: ( RULE_RICH_TEXT_END )
             {
-            // InternalDim.g:15584:2: ( RULE_PLAIN_TEXT_END )
-            // InternalDim.g:15585:3: RULE_PLAIN_TEXT_END
+            // InternalDim.g:15584:2: ( RULE_RICH_TEXT_END )
+            // InternalDim.g:15585:3: RULE_RICH_TEXT_END
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxTextEndAccess().getValuePLAIN_TEXT_ENDTerminalRuleCall_0()); 
+               before(grammarAccess.getDmxTextEndAccess().getValueRICH_TEXT_ENDTerminalRuleCall_0()); 
             }
-            match(input,RULE_PLAIN_TEXT_END,FOLLOW_2); if (state.failed) return ;
+            match(input,RULE_RICH_TEXT_END,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxTextEndAccess().getValuePLAIN_TEXT_ENDTerminalRuleCall_0()); 
+               after(grammarAccess.getDmxTextEndAccess().getValueRICH_TEXT_ENDTerminalRuleCall_0()); 
             }
 
             }

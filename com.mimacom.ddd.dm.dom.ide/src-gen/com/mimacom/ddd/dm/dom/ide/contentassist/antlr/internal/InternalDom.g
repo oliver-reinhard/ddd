@@ -10227,9 +10227,9 @@ rule__DmxTextStart__ValueAssignment
 	}
 :
 	(
-		{ before(grammarAccess.getDmxTextStartAccess().getValuePLAIN_TEXT_STARTTerminalRuleCall_0()); }
-		RULE_PLAIN_TEXT_START
-		{ after(grammarAccess.getDmxTextStartAccess().getValuePLAIN_TEXT_STARTTerminalRuleCall_0()); }
+		{ before(grammarAccess.getDmxTextStartAccess().getValueRICH_TEXT_STARTTerminalRuleCall_0()); }
+		RULE_RICH_TEXT_START
+		{ after(grammarAccess.getDmxTextStartAccess().getValueRICH_TEXT_STARTTerminalRuleCall_0()); }
 	)
 ;
 finally {
@@ -10242,9 +10242,9 @@ rule__DmxTextMiddle__ValueAssignment
 	}
 :
 	(
-		{ before(grammarAccess.getDmxTextMiddleAccess().getValuePLAIN_TEXT_MIDDLETerminalRuleCall_0()); }
-		RULE_PLAIN_TEXT_MIDDLE
-		{ after(grammarAccess.getDmxTextMiddleAccess().getValuePLAIN_TEXT_MIDDLETerminalRuleCall_0()); }
+		{ before(grammarAccess.getDmxTextMiddleAccess().getValueRICH_TEXT_MIDDLETerminalRuleCall_0()); }
+		RULE_RICH_TEXT_MIDDLE
+		{ after(grammarAccess.getDmxTextMiddleAccess().getValueRICH_TEXT_MIDDLETerminalRuleCall_0()); }
 	)
 ;
 finally {
@@ -10257,9 +10257,9 @@ rule__DmxTextEnd__ValueAssignment
 	}
 :
 	(
-		{ before(grammarAccess.getDmxTextEndAccess().getValuePLAIN_TEXT_ENDTerminalRuleCall_0()); }
-		RULE_PLAIN_TEXT_END
-		{ after(grammarAccess.getDmxTextEndAccess().getValuePLAIN_TEXT_ENDTerminalRuleCall_0()); }
+		{ before(grammarAccess.getDmxTextEndAccess().getValueRICH_TEXT_ENDTerminalRuleCall_0()); }
+		RULE_RICH_TEXT_END
+		{ after(grammarAccess.getDmxTextEndAccess().getValueRICH_TEXT_ENDTerminalRuleCall_0()); }
 	)
 ;
 finally {
@@ -11265,11 +11265,11 @@ fragment RULE_PLAIN_TEXT : ~(('\u00BB'|']'|'['));
 
 RULE_PLAIN_TEXT_ONLY : '\u00AB' RULE_PLAIN_TEXT* '\u00BB';
 
-RULE_PLAIN_TEXT_START : '\u00AB' RULE_PLAIN_TEXT* '[';
+RULE_RICH_TEXT_START : '\u00AB' RULE_PLAIN_TEXT* '[';
 
-RULE_PLAIN_TEXT_MIDDLE : ']' RULE_PLAIN_TEXT* '[';
+RULE_RICH_TEXT_MIDDLE : ']' RULE_PLAIN_TEXT* '[';
 
-RULE_PLAIN_TEXT_END : ']' RULE_PLAIN_TEXT* '\u00BB';
+RULE_RICH_TEXT_END : ']' RULE_PLAIN_TEXT* '\u00BB';
 
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 

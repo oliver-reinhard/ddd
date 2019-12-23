@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalEsmParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_PLAIN_TEXT_START", "RULE_PLAIN_TEXT_MIDDLE", "RULE_PLAIN_TEXT_END", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'{'", "'state'", "'ISA'", "'isa'", "'AS'", "'as'", "'*'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'initial'", "'final'", "'down'", "'left'", "'up'", "'right'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'STATE'", "'STATE_EVENT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'IN'", "'in'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'?'", "'domain'", "'alias'", "'model'", "'for'", "'}'", "'direction'", "'derived'", "'when'", "'composite'", "'concurrent'", "'substate'", "'transition'", "'from'", "'to'", "'import'", "'test'", "'context'", "','", "':'", "'('", "')'", "'archetype'", "'is'", "'filter'", "'with'", "'.'", "'|'", "'entity'", "'detail'", "'if'", "'then'", "'end'", "'else'", "'.*'", "'@before'", "'all'", "'TRUE'", "'true'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NATURAL", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_RICH_TEXT_START", "RULE_RICH_TEXT_MIDDLE", "RULE_RICH_TEXT_END", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "':='", "'{'", "'state'", "'ISA'", "'isa'", "'AS'", "'as'", "'*'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'initial'", "'final'", "'down'", "'left'", "'up'", "'right'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'STATE'", "'STATE_EVENT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'='", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'IN'", "'in'", "'..'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'?'", "'domain'", "'alias'", "'model'", "'for'", "'}'", "'direction'", "'derived'", "'when'", "'composite'", "'concurrent'", "'substate'", "'transition'", "'from'", "'to'", "'import'", "'test'", "'context'", "','", "':'", "'('", "')'", "'archetype'", "'is'", "'filter'", "'with'", "'.'", "'|'", "'entity'", "'detail'", "'if'", "'then'", "'end'", "'else'", "'.*'", "'@before'", "'all'", "'TRUE'", "'true'"
     };
     public static final int T__50=50;
     public static final int RULE_PLAIN_TEXT_ONLY=6;
@@ -38,9 +38,8 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
     public static final int T__54=54;
     public static final int T__60=60;
     public static final int T__61=61;
-    public static final int RULE_PLAIN_TEXT_END=9;
     public static final int RULE_ID=5;
-    public static final int RULE_PLAIN_TEXT_START=7;
+    public static final int RULE_RICH_TEXT_START=7;
     public static final int T__66=66;
     public static final int RULE_ML_COMMENT=13;
     public static final int T__67=67;
@@ -60,7 +59,6 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
     public static final int T__30=30;
     public static final int T__31=31;
     public static final int T__32=32;
-    public static final int RULE_PLAIN_TEXT_MIDDLE=8;
     public static final int RULE_LETTER=11;
     public static final int T__48=48;
     public static final int T__49=49;
@@ -123,6 +121,8 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
     public static final int T__83=83;
     public static final int T__112=112;
     public static final int RULE_WS=15;
+    public static final int RULE_RICH_TEXT_END=9;
+    public static final int RULE_RICH_TEXT_MIDDLE=8;
     public static final int RULE_ANY_OTHER=16;
     public static final int T__88=88;
     public static final int T__108=108;
@@ -6015,7 +6015,7 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
             if ( ((LA1_0>=RULE_NATURAL && LA1_0<=RULE_ID)||LA1_0==RULE_STRING||(LA1_0>=25 && LA1_0<=28)||(LA1_0>=31 && LA1_0<=32)||(LA1_0>=73 && LA1_0<=75)||LA1_0==96||(LA1_0>=104 && LA1_0<=106)||(LA1_0>=113 && LA1_0<=114)) ) {
                 alt1=1;
             }
-            else if ( ((LA1_0>=RULE_PLAIN_TEXT_ONLY && LA1_0<=RULE_PLAIN_TEXT_START)) ) {
+            else if ( ((LA1_0>=RULE_PLAIN_TEXT_ONLY && LA1_0<=RULE_RICH_TEXT_START)) ) {
                 alt1=2;
             }
             else {
@@ -6365,7 +6365,7 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
                 if ( (LA4_3==96) ) {
                     alt4=3;
                 }
-                else if ( (LA4_3==EOF||LA4_3==RULE_ID||(LA4_3>=RULE_PLAIN_TEXT_MIDDLE && LA4_3<=RULE_PLAIN_TEXT_END)||(LA4_3>=19 && LA4_3<=24)||(LA4_3>=31 && LA4_3<=34)||(LA4_3>=50 && LA4_3<=72)||LA4_3==81||LA4_3==83||(LA4_3>=85 && LA4_3<=86)||LA4_3==88||LA4_3==94||LA4_3==97||LA4_3==102||(LA4_3>=107 && LA4_3<=109)||LA4_3==111) ) {
+                else if ( (LA4_3==EOF||LA4_3==RULE_ID||(LA4_3>=RULE_RICH_TEXT_MIDDLE && LA4_3<=RULE_RICH_TEXT_END)||(LA4_3>=19 && LA4_3<=24)||(LA4_3>=31 && LA4_3<=34)||(LA4_3>=50 && LA4_3<=72)||LA4_3==81||LA4_3==83||(LA4_3>=85 && LA4_3<=86)||LA4_3==88||LA4_3==94||LA4_3==97||LA4_3==102||(LA4_3>=107 && LA4_3<=109)||LA4_3==111) ) {
                     alt4=4;
                 }
                 else {
@@ -6737,7 +6737,7 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
             if ( (LA7_0==RULE_PLAIN_TEXT_ONLY) ) {
                 alt7=1;
             }
-            else if ( (LA7_0==RULE_PLAIN_TEXT_START) ) {
+            else if ( (LA7_0==RULE_RICH_TEXT_START) ) {
                 alt7=2;
             }
             else {
@@ -6843,7 +6843,7 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
                     if ( (LA8_2==17) ) {
                         alt8=1;
                     }
-                    else if ( (LA8_2==EOF||LA8_2==RULE_ID||(LA8_2>=RULE_PLAIN_TEXT_MIDDLE && LA8_2<=RULE_PLAIN_TEXT_END)||(LA8_2>=19 && LA8_2<=24)||(LA8_2>=31 && LA8_2<=34)||(LA8_2>=50 && LA8_2<=72)||LA8_2==81||LA8_2==83||(LA8_2>=85 && LA8_2<=86)||LA8_2==88||LA8_2==94||(LA8_2>=96 && LA8_2<=97)||LA8_2==102||(LA8_2>=107 && LA8_2<=109)||LA8_2==111) ) {
+                    else if ( (LA8_2==EOF||LA8_2==RULE_ID||(LA8_2>=RULE_RICH_TEXT_MIDDLE && LA8_2<=RULE_RICH_TEXT_END)||(LA8_2>=19 && LA8_2<=24)||(LA8_2>=31 && LA8_2<=34)||(LA8_2>=50 && LA8_2<=72)||LA8_2==81||LA8_2==83||(LA8_2>=85 && LA8_2<=86)||LA8_2==88||LA8_2==94||(LA8_2>=96 && LA8_2<=97)||LA8_2==102||(LA8_2>=107 && LA8_2<=109)||LA8_2==111) ) {
                         alt8=2;
                     }
                     else {
@@ -10758,7 +10758,7 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
             int alt37=2;
             int LA37_0 = input.LA(1);
 
-            if ( ((LA37_0>=RULE_PLAIN_TEXT_ONLY && LA37_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA37_0>=RULE_PLAIN_TEXT_ONLY && LA37_0<=RULE_RICH_TEXT_START)) ) {
                 alt37=1;
             }
             switch (alt37) {
@@ -11520,7 +11520,7 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
             int alt38=2;
             int LA38_0 = input.LA(1);
 
-            if ( ((LA38_0>=RULE_PLAIN_TEXT_ONLY && LA38_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA38_0>=RULE_PLAIN_TEXT_ONLY && LA38_0<=RULE_RICH_TEXT_START)) ) {
                 alt38=1;
             }
             switch (alt38) {
@@ -12481,7 +12481,7 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
             int alt42=2;
             int LA42_0 = input.LA(1);
 
-            if ( ((LA42_0>=RULE_PLAIN_TEXT_ONLY && LA42_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA42_0>=RULE_PLAIN_TEXT_ONLY && LA42_0<=RULE_RICH_TEXT_START)) ) {
                 alt42=1;
             }
             switch (alt42) {
@@ -13125,7 +13125,7 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
             int alt46=2;
             int LA46_0 = input.LA(1);
 
-            if ( ((LA46_0>=RULE_PLAIN_TEXT_ONLY && LA46_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA46_0>=RULE_PLAIN_TEXT_ONLY && LA46_0<=RULE_RICH_TEXT_START)) ) {
                 alt46=1;
             }
             switch (alt46) {
@@ -13752,7 +13752,7 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
             int alt49=2;
             int LA49_0 = input.LA(1);
 
-            if ( ((LA49_0>=RULE_PLAIN_TEXT_ONLY && LA49_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA49_0>=RULE_PLAIN_TEXT_ONLY && LA49_0<=RULE_RICH_TEXT_START)) ) {
                 alt49=1;
             }
             switch (alt49) {
@@ -14904,7 +14904,7 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
             int alt55=2;
             int LA55_0 = input.LA(1);
 
-            if ( ((LA55_0>=RULE_PLAIN_TEXT_ONLY && LA55_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA55_0>=RULE_PLAIN_TEXT_ONLY && LA55_0<=RULE_RICH_TEXT_START)) ) {
                 alt55=1;
             }
             switch (alt55) {
@@ -19499,7 +19499,7 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
             int alt66=2;
             int LA66_0 = input.LA(1);
 
-            if ( ((LA66_0>=RULE_PLAIN_TEXT_ONLY && LA66_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA66_0>=RULE_PLAIN_TEXT_ONLY && LA66_0<=RULE_RICH_TEXT_START)) ) {
                 alt66=1;
             }
             switch (alt66) {
@@ -21421,7 +21421,7 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
                 int alt71=2;
                 int LA71_0 = input.LA(1);
 
-                if ( (LA71_0==RULE_PLAIN_TEXT_MIDDLE) ) {
+                if ( (LA71_0==RULE_RICH_TEXT_MIDDLE) ) {
                     alt71=1;
                 }
 
@@ -31275,7 +31275,7 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
             int alt86=2;
             int LA86_0 = input.LA(1);
 
-            if ( ((LA86_0>=RULE_NATURAL && LA86_0<=RULE_PLAIN_TEXT_START)||LA86_0==RULE_STRING||(LA86_0>=25 && LA86_0<=28)||(LA86_0>=31 && LA86_0<=32)||(LA86_0>=73 && LA86_0<=75)||LA86_0==96||(LA86_0>=104 && LA86_0<=106)||(LA86_0>=113 && LA86_0<=114)) ) {
+            if ( ((LA86_0>=RULE_NATURAL && LA86_0<=RULE_RICH_TEXT_START)||LA86_0==RULE_STRING||(LA86_0>=25 && LA86_0<=28)||(LA86_0>=31 && LA86_0<=32)||(LA86_0>=73 && LA86_0<=75)||LA86_0==96||(LA86_0>=104 && LA86_0<=106)||(LA86_0>=113 && LA86_0<=114)) ) {
                 alt86=1;
             }
             switch (alt86) {
@@ -39230,24 +39230,24 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTextStart__ValueAssignment"
-    // InternalEsm.g:11793:1: rule__DmxTextStart__ValueAssignment : ( RULE_PLAIN_TEXT_START ) ;
+    // InternalEsm.g:11793:1: rule__DmxTextStart__ValueAssignment : ( RULE_RICH_TEXT_START ) ;
     public final void rule__DmxTextStart__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEsm.g:11797:1: ( ( RULE_PLAIN_TEXT_START ) )
-            // InternalEsm.g:11798:2: ( RULE_PLAIN_TEXT_START )
+            // InternalEsm.g:11797:1: ( ( RULE_RICH_TEXT_START ) )
+            // InternalEsm.g:11798:2: ( RULE_RICH_TEXT_START )
             {
-            // InternalEsm.g:11798:2: ( RULE_PLAIN_TEXT_START )
-            // InternalEsm.g:11799:3: RULE_PLAIN_TEXT_START
+            // InternalEsm.g:11798:2: ( RULE_RICH_TEXT_START )
+            // InternalEsm.g:11799:3: RULE_RICH_TEXT_START
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxTextStartAccess().getValuePLAIN_TEXT_STARTTerminalRuleCall_0()); 
+               before(grammarAccess.getDmxTextStartAccess().getValueRICH_TEXT_STARTTerminalRuleCall_0()); 
             }
-            match(input,RULE_PLAIN_TEXT_START,FOLLOW_2); if (state.failed) return ;
+            match(input,RULE_RICH_TEXT_START,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxTextStartAccess().getValuePLAIN_TEXT_STARTTerminalRuleCall_0()); 
+               after(grammarAccess.getDmxTextStartAccess().getValueRICH_TEXT_STARTTerminalRuleCall_0()); 
             }
 
             }
@@ -39271,24 +39271,24 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTextMiddle__ValueAssignment"
-    // InternalEsm.g:11808:1: rule__DmxTextMiddle__ValueAssignment : ( RULE_PLAIN_TEXT_MIDDLE ) ;
+    // InternalEsm.g:11808:1: rule__DmxTextMiddle__ValueAssignment : ( RULE_RICH_TEXT_MIDDLE ) ;
     public final void rule__DmxTextMiddle__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEsm.g:11812:1: ( ( RULE_PLAIN_TEXT_MIDDLE ) )
-            // InternalEsm.g:11813:2: ( RULE_PLAIN_TEXT_MIDDLE )
+            // InternalEsm.g:11812:1: ( ( RULE_RICH_TEXT_MIDDLE ) )
+            // InternalEsm.g:11813:2: ( RULE_RICH_TEXT_MIDDLE )
             {
-            // InternalEsm.g:11813:2: ( RULE_PLAIN_TEXT_MIDDLE )
-            // InternalEsm.g:11814:3: RULE_PLAIN_TEXT_MIDDLE
+            // InternalEsm.g:11813:2: ( RULE_RICH_TEXT_MIDDLE )
+            // InternalEsm.g:11814:3: RULE_RICH_TEXT_MIDDLE
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxTextMiddleAccess().getValuePLAIN_TEXT_MIDDLETerminalRuleCall_0()); 
+               before(grammarAccess.getDmxTextMiddleAccess().getValueRICH_TEXT_MIDDLETerminalRuleCall_0()); 
             }
-            match(input,RULE_PLAIN_TEXT_MIDDLE,FOLLOW_2); if (state.failed) return ;
+            match(input,RULE_RICH_TEXT_MIDDLE,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxTextMiddleAccess().getValuePLAIN_TEXT_MIDDLETerminalRuleCall_0()); 
+               after(grammarAccess.getDmxTextMiddleAccess().getValueRICH_TEXT_MIDDLETerminalRuleCall_0()); 
             }
 
             }
@@ -39312,24 +39312,24 @@ public class InternalEsmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DmxTextEnd__ValueAssignment"
-    // InternalEsm.g:11823:1: rule__DmxTextEnd__ValueAssignment : ( RULE_PLAIN_TEXT_END ) ;
+    // InternalEsm.g:11823:1: rule__DmxTextEnd__ValueAssignment : ( RULE_RICH_TEXT_END ) ;
     public final void rule__DmxTextEnd__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalEsm.g:11827:1: ( ( RULE_PLAIN_TEXT_END ) )
-            // InternalEsm.g:11828:2: ( RULE_PLAIN_TEXT_END )
+            // InternalEsm.g:11827:1: ( ( RULE_RICH_TEXT_END ) )
+            // InternalEsm.g:11828:2: ( RULE_RICH_TEXT_END )
             {
-            // InternalEsm.g:11828:2: ( RULE_PLAIN_TEXT_END )
-            // InternalEsm.g:11829:3: RULE_PLAIN_TEXT_END
+            // InternalEsm.g:11828:2: ( RULE_RICH_TEXT_END )
+            // InternalEsm.g:11829:3: RULE_RICH_TEXT_END
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDmxTextEndAccess().getValuePLAIN_TEXT_ENDTerminalRuleCall_0()); 
+               before(grammarAccess.getDmxTextEndAccess().getValueRICH_TEXT_ENDTerminalRuleCall_0()); 
             }
-            match(input,RULE_PLAIN_TEXT_END,FOLLOW_2); if (state.failed) return ;
+            match(input,RULE_RICH_TEXT_END,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDmxTextEndAccess().getValuePLAIN_TEXT_ENDTerminalRuleCall_0()); 
+               after(grammarAccess.getDmxTextEndAccess().getValueRICH_TEXT_ENDTerminalRuleCall_0()); 
             }
 
             }

@@ -25,9 +25,8 @@ public class InternalAsmLexer extends Lexer {
     public static final int T__54=54;
     public static final int T__60=60;
     public static final int T__61=61;
-    public static final int RULE_PLAIN_TEXT_END=9;
     public static final int RULE_ID=5;
-    public static final int RULE_PLAIN_TEXT_START=7;
+    public static final int RULE_RICH_TEXT_START=7;
     public static final int T__66=66;
     public static final int RULE_ML_COMMENT=13;
     public static final int T__67=67;
@@ -47,7 +46,6 @@ public class InternalAsmLexer extends Lexer {
     public static final int T__30=30;
     public static final int T__31=31;
     public static final int T__32=32;
-    public static final int RULE_PLAIN_TEXT_MIDDLE=8;
     public static final int RULE_LETTER=11;
     public static final int T__48=48;
     public static final int T__49=49;
@@ -107,6 +105,8 @@ public class InternalAsmLexer extends Lexer {
     public static final int T__82=82;
     public static final int T__83=83;
     public static final int RULE_WS=15;
+    public static final int RULE_RICH_TEXT_END=9;
+    public static final int RULE_RICH_TEXT_MIDDLE=8;
     public static final int RULE_ANY_OTHER=16;
     public static final int T__88=88;
     public static final int T__108=108;
@@ -2425,16 +2425,16 @@ public class InternalAsmLexer extends Lexer {
     }
     // $ANTLR end "RULE_PLAIN_TEXT_ONLY"
 
-    // $ANTLR start "RULE_PLAIN_TEXT_START"
-    public final void mRULE_PLAIN_TEXT_START() throws RecognitionException {
+    // $ANTLR start "RULE_RICH_TEXT_START"
+    public final void mRULE_RICH_TEXT_START() throws RecognitionException {
         try {
-            int _type = RULE_PLAIN_TEXT_START;
+            int _type = RULE_RICH_TEXT_START;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAsm.g:12914:23: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '[' )
-            // InternalAsm.g:12914:25: '\\u00AB' ( RULE_PLAIN_TEXT )* '['
+            // InternalAsm.g:12914:22: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '[' )
+            // InternalAsm.g:12914:24: '\\u00AB' ( RULE_PLAIN_TEXT )* '['
             {
             match('\u00AB'); 
-            // InternalAsm.g:12914:34: ( RULE_PLAIN_TEXT )*
+            // InternalAsm.g:12914:33: ( RULE_PLAIN_TEXT )*
             loop7:
             do {
                 int alt7=2;
@@ -2447,7 +2447,7 @@ public class InternalAsmLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalAsm.g:12914:34: RULE_PLAIN_TEXT
+            	    // InternalAsm.g:12914:33: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2469,18 +2469,18 @@ public class InternalAsmLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "RULE_PLAIN_TEXT_START"
+    // $ANTLR end "RULE_RICH_TEXT_START"
 
-    // $ANTLR start "RULE_PLAIN_TEXT_MIDDLE"
-    public final void mRULE_PLAIN_TEXT_MIDDLE() throws RecognitionException {
+    // $ANTLR start "RULE_RICH_TEXT_MIDDLE"
+    public final void mRULE_RICH_TEXT_MIDDLE() throws RecognitionException {
         try {
-            int _type = RULE_PLAIN_TEXT_MIDDLE;
+            int _type = RULE_RICH_TEXT_MIDDLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAsm.g:12916:24: ( ']' ( RULE_PLAIN_TEXT )* '[' )
-            // InternalAsm.g:12916:26: ']' ( RULE_PLAIN_TEXT )* '['
+            // InternalAsm.g:12916:23: ( ']' ( RULE_PLAIN_TEXT )* '[' )
+            // InternalAsm.g:12916:25: ']' ( RULE_PLAIN_TEXT )* '['
             {
             match(']'); 
-            // InternalAsm.g:12916:30: ( RULE_PLAIN_TEXT )*
+            // InternalAsm.g:12916:29: ( RULE_PLAIN_TEXT )*
             loop8:
             do {
                 int alt8=2;
@@ -2493,7 +2493,7 @@ public class InternalAsmLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalAsm.g:12916:30: RULE_PLAIN_TEXT
+            	    // InternalAsm.g:12916:29: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2515,18 +2515,18 @@ public class InternalAsmLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "RULE_PLAIN_TEXT_MIDDLE"
+    // $ANTLR end "RULE_RICH_TEXT_MIDDLE"
 
-    // $ANTLR start "RULE_PLAIN_TEXT_END"
-    public final void mRULE_PLAIN_TEXT_END() throws RecognitionException {
+    // $ANTLR start "RULE_RICH_TEXT_END"
+    public final void mRULE_RICH_TEXT_END() throws RecognitionException {
         try {
-            int _type = RULE_PLAIN_TEXT_END;
+            int _type = RULE_RICH_TEXT_END;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAsm.g:12918:21: ( ']' ( RULE_PLAIN_TEXT )* '\\u00BB' )
-            // InternalAsm.g:12918:23: ']' ( RULE_PLAIN_TEXT )* '\\u00BB'
+            // InternalAsm.g:12918:20: ( ']' ( RULE_PLAIN_TEXT )* '\\u00BB' )
+            // InternalAsm.g:12918:22: ']' ( RULE_PLAIN_TEXT )* '\\u00BB'
             {
             match(']'); 
-            // InternalAsm.g:12918:27: ( RULE_PLAIN_TEXT )*
+            // InternalAsm.g:12918:26: ( RULE_PLAIN_TEXT )*
             loop9:
             do {
                 int alt9=2;
@@ -2539,7 +2539,7 @@ public class InternalAsmLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalAsm.g:12918:27: RULE_PLAIN_TEXT
+            	    // InternalAsm.g:12918:26: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2561,7 +2561,7 @@ public class InternalAsmLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "RULE_PLAIN_TEXT_END"
+    // $ANTLR end "RULE_RICH_TEXT_END"
 
     // $ANTLR start "RULE_ML_COMMENT"
     public final void mRULE_ML_COMMENT() throws RecognitionException {
@@ -2791,7 +2791,7 @@ public class InternalAsmLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // InternalAsm.g:1:8: ( T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | RULE_ID | RULE_STRING | RULE_NATURAL | RULE_PLAIN_TEXT_ONLY | RULE_PLAIN_TEXT_START | RULE_PLAIN_TEXT_MIDDLE | RULE_PLAIN_TEXT_END | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        // InternalAsm.g:1:8: ( T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | RULE_ID | RULE_STRING | RULE_NATURAL | RULE_PLAIN_TEXT_ONLY | RULE_RICH_TEXT_START | RULE_RICH_TEXT_MIDDLE | RULE_RICH_TEXT_END | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
         int alt15=106;
         alt15 = dfa15.predict(input);
         switch (alt15) {
@@ -3489,49 +3489,49 @@ public class InternalAsmLexer extends Lexer {
                 }
                 break;
             case 100 :
-                // InternalAsm.g:1:646: RULE_PLAIN_TEXT_START
+                // InternalAsm.g:1:646: RULE_RICH_TEXT_START
                 {
-                mRULE_PLAIN_TEXT_START(); 
+                mRULE_RICH_TEXT_START(); 
 
                 }
                 break;
             case 101 :
-                // InternalAsm.g:1:668: RULE_PLAIN_TEXT_MIDDLE
+                // InternalAsm.g:1:667: RULE_RICH_TEXT_MIDDLE
                 {
-                mRULE_PLAIN_TEXT_MIDDLE(); 
+                mRULE_RICH_TEXT_MIDDLE(); 
 
                 }
                 break;
             case 102 :
-                // InternalAsm.g:1:691: RULE_PLAIN_TEXT_END
+                // InternalAsm.g:1:689: RULE_RICH_TEXT_END
                 {
-                mRULE_PLAIN_TEXT_END(); 
+                mRULE_RICH_TEXT_END(); 
 
                 }
                 break;
             case 103 :
-                // InternalAsm.g:1:711: RULE_ML_COMMENT
+                // InternalAsm.g:1:708: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
             case 104 :
-                // InternalAsm.g:1:727: RULE_SL_COMMENT
+                // InternalAsm.g:1:724: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
             case 105 :
-                // InternalAsm.g:1:743: RULE_WS
+                // InternalAsm.g:1:740: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
             case 106 :
-                // InternalAsm.g:1:751: RULE_ANY_OTHER
+                // InternalAsm.g:1:748: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -4007,7 +4007,7 @@ public class InternalAsmLexer extends Lexer {
             this.transition = DFA15_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | RULE_ID | RULE_STRING | RULE_NATURAL | RULE_PLAIN_TEXT_ONLY | RULE_PLAIN_TEXT_START | RULE_PLAIN_TEXT_MIDDLE | RULE_PLAIN_TEXT_END | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | RULE_ID | RULE_STRING | RULE_NATURAL | RULE_PLAIN_TEXT_ONLY | RULE_RICH_TEXT_START | RULE_RICH_TEXT_MIDDLE | RULE_RICH_TEXT_END | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;

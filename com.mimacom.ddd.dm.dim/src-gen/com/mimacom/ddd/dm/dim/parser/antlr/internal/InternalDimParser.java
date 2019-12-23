@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalDimParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_PLAIN_TEXT_START", "RULE_PLAIN_TEXT_MIDDLE", "RULE_PLAIN_TEXT_END", "RULE_NATURAL", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'domain'", "'alias'", "'component'", "'{'", "'query'", "'}'", "'constraint'", "':'", "'primitive'", "'redefines'", "'enumeration'", "','", "'abstract'", "'root'", "'main'", "'physical'", "'virtual'", "'states'", "'events'", "'detail'", "'extends'", "'derived'", "'contains'", "'key'", "'('", "')'", "'returns'", "'import'", "'test'", "'context'", "':='", "'in'", "'archetype'", "'is'", "'filter'", "'with'", "'*'", "'.'", "'@before'", "'|'", "'ISA'", "'isa'", "'AS'", "'as'", "'entity'", "'='", "'['", "'#'", "']'", "'all'", "'if'", "'then'", "'else'", "'end'", "'..'", "'TRUE'", "'true'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'.*'", "'object'", "'concept'", "'relationship'", "'references'", "'inverse'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'STATE'", "'STATE_EVENT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'IN'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'?'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_RICH_TEXT_START", "RULE_RICH_TEXT_MIDDLE", "RULE_RICH_TEXT_END", "RULE_NATURAL", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'domain'", "'alias'", "'component'", "'{'", "'query'", "'}'", "'constraint'", "':'", "'primitive'", "'redefines'", "'enumeration'", "','", "'abstract'", "'root'", "'main'", "'physical'", "'virtual'", "'states'", "'events'", "'detail'", "'extends'", "'derived'", "'contains'", "'key'", "'('", "')'", "'returns'", "'import'", "'test'", "'context'", "':='", "'in'", "'archetype'", "'is'", "'filter'", "'with'", "'*'", "'.'", "'@before'", "'|'", "'ISA'", "'isa'", "'AS'", "'as'", "'entity'", "'='", "'['", "'#'", "']'", "'all'", "'if'", "'then'", "'else'", "'end'", "'..'", "'TRUE'", "'true'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'.*'", "'object'", "'concept'", "'relationship'", "'references'", "'inverse'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'STATE'", "'STATE_EVENT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'and'", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'IN'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'?'"
     };
     public static final int T__50=50;
     public static final int RULE_PLAIN_TEXT_ONLY=5;
@@ -38,9 +38,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
     public static final int T__54=54;
     public static final int T__60=60;
     public static final int T__61=61;
-    public static final int RULE_PLAIN_TEXT_END=8;
     public static final int RULE_ID=4;
-    public static final int RULE_PLAIN_TEXT_START=6;
+    public static final int RULE_RICH_TEXT_START=6;
     public static final int T__66=66;
     public static final int RULE_ML_COMMENT=13;
     public static final int T__67=67;
@@ -60,7 +59,6 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
     public static final int T__30=30;
     public static final int T__31=31;
     public static final int T__32=32;
-    public static final int RULE_PLAIN_TEXT_MIDDLE=7;
     public static final int RULE_LETTER=11;
     public static final int T__48=48;
     public static final int T__49=49;
@@ -131,6 +129,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
     public static final int T__83=83;
     public static final int T__112=112;
     public static final int RULE_WS=15;
+    public static final int RULE_RICH_TEXT_END=8;
+    public static final int RULE_RICH_TEXT_MIDDLE=7;
     public static final int RULE_ANY_OTHER=16;
     public static final int T__88=88;
     public static final int T__108=108;
@@ -412,7 +412,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( ((LA3_0>=RULE_PLAIN_TEXT_ONLY && LA3_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA3_0>=RULE_PLAIN_TEXT_ONLY && LA3_0<=RULE_RICH_TEXT_START)) ) {
                 alt3=1;
             }
             switch (alt3) {
@@ -701,7 +701,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( ((LA5_0>=RULE_PLAIN_TEXT_ONLY && LA5_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA5_0>=RULE_PLAIN_TEXT_ONLY && LA5_0<=RULE_RICH_TEXT_START)) ) {
                 alt5=1;
             }
             switch (alt5) {
@@ -1332,7 +1332,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             int alt10=2;
             int LA10_0 = input.LA(1);
 
-            if ( ((LA10_0>=RULE_PLAIN_TEXT_ONLY && LA10_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA10_0>=RULE_PLAIN_TEXT_ONLY && LA10_0<=RULE_RICH_TEXT_START)) ) {
                 alt10=1;
             }
             switch (alt10) {
@@ -1597,7 +1597,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             int alt12=2;
             int LA12_0 = input.LA(1);
 
-            if ( ((LA12_0>=RULE_PLAIN_TEXT_ONLY && LA12_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA12_0>=RULE_PLAIN_TEXT_ONLY && LA12_0<=RULE_RICH_TEXT_START)) ) {
                 alt12=1;
             }
             switch (alt12) {
@@ -1922,7 +1922,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             int alt16=2;
             int LA16_0 = input.LA(1);
 
-            if ( ((LA16_0>=RULE_PLAIN_TEXT_ONLY && LA16_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA16_0>=RULE_PLAIN_TEXT_ONLY && LA16_0<=RULE_RICH_TEXT_START)) ) {
                 alt16=1;
             }
             switch (alt16) {
@@ -2325,7 +2325,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             int alt21=2;
             int LA21_0 = input.LA(1);
 
-            if ( ((LA21_0>=RULE_PLAIN_TEXT_ONLY && LA21_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA21_0>=RULE_PLAIN_TEXT_ONLY && LA21_0<=RULE_RICH_TEXT_START)) ) {
                 alt21=1;
             }
             switch (alt21) {
@@ -3922,7 +3922,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             int alt36=2;
             int LA36_0 = input.LA(1);
 
-            if ( ((LA36_0>=RULE_PLAIN_TEXT_ONLY && LA36_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA36_0>=RULE_PLAIN_TEXT_ONLY && LA36_0<=RULE_RICH_TEXT_START)) ) {
                 alt36=1;
             }
             switch (alt36) {
@@ -4528,7 +4528,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             int alt42=2;
             int LA42_0 = input.LA(1);
 
-            if ( ((LA42_0>=RULE_PLAIN_TEXT_ONLY && LA42_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA42_0>=RULE_PLAIN_TEXT_ONLY && LA42_0<=RULE_RICH_TEXT_START)) ) {
                 alt42=1;
             }
             switch (alt42) {
@@ -4912,7 +4912,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             int alt47=2;
             int LA47_0 = input.LA(1);
 
-            if ( ((LA47_0>=RULE_PLAIN_TEXT_ONLY && LA47_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA47_0>=RULE_PLAIN_TEXT_ONLY && LA47_0<=RULE_RICH_TEXT_START)) ) {
                 alt47=1;
             }
             switch (alt47) {
@@ -5411,7 +5411,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             int alt53=2;
             int LA53_0 = input.LA(1);
 
-            if ( ((LA53_0>=RULE_PLAIN_TEXT_ONLY && LA53_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA53_0>=RULE_PLAIN_TEXT_ONLY && LA53_0<=RULE_RICH_TEXT_START)) ) {
                 alt53=1;
             }
             switch (alt53) {
@@ -5651,7 +5651,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             int alt55=2;
             int LA55_0 = input.LA(1);
 
-            if ( ((LA55_0>=RULE_PLAIN_TEXT_ONLY && LA55_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA55_0>=RULE_PLAIN_TEXT_ONLY && LA55_0<=RULE_RICH_TEXT_START)) ) {
                 alt55=1;
             }
             switch (alt55) {
@@ -6849,7 +6849,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             int alt62=2;
             int LA62_0 = input.LA(1);
 
-            if ( ((LA62_0>=RULE_PLAIN_TEXT_ONLY && LA62_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA62_0>=RULE_PLAIN_TEXT_ONLY && LA62_0<=RULE_RICH_TEXT_START)) ) {
                 alt62=1;
             }
             switch (alt62) {
@@ -7709,7 +7709,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                 {
                 int LA68_1 = input.LA(2);
 
-                if ( (LA68_1==EOF||(LA68_1>=RULE_ID && LA68_1<=RULE_PLAIN_TEXT_END)||(LA68_1>=21 && LA68_1<=23)||LA68_1==25||(LA68_1>=27 && LA68_1<=33)||LA68_1==36||LA68_1==38||(LA68_1>=41 && LA68_1<=42)||LA68_1==48||(LA68_1>=53 && LA68_1<=62)||(LA68_1>=68 && LA68_1<=71)||(LA68_1>=80 && LA68_1<=81)||LA68_1==85||(LA68_1>=99 && LA68_1<=118)) ) {
+                if ( (LA68_1==EOF||(LA68_1>=RULE_ID && LA68_1<=RULE_RICH_TEXT_END)||(LA68_1>=21 && LA68_1<=23)||LA68_1==25||(LA68_1>=27 && LA68_1<=33)||LA68_1==36||LA68_1==38||(LA68_1>=41 && LA68_1<=42)||LA68_1==48||(LA68_1>=53 && LA68_1<=62)||(LA68_1>=68 && LA68_1<=71)||(LA68_1>=80 && LA68_1<=81)||LA68_1==85||(LA68_1>=99 && LA68_1<=118)) ) {
                     alt68=2;
                 }
                 else if ( (LA68_1==47) ) {
@@ -7748,7 +7748,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                 }
                 break;
             case RULE_PLAIN_TEXT_ONLY:
-            case RULE_PLAIN_TEXT_START:
+            case RULE_RICH_TEXT_START:
                 {
                 alt68=3;
                 }
@@ -7924,7 +7924,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             if ( (LA70_0==RULE_PLAIN_TEXT_ONLY) ) {
                 alt70=1;
             }
-            else if ( (LA70_0==RULE_PLAIN_TEXT_START) ) {
+            else if ( (LA70_0==RULE_RICH_TEXT_START) ) {
                 alt70=2;
             }
             else {
@@ -8058,7 +8058,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                         int alt69=2;
                         int LA69_0 = input.LA(1);
 
-                        if ( (LA69_0==RULE_PLAIN_TEXT_MIDDLE) ) {
+                        if ( (LA69_0==RULE_RICH_TEXT_MIDDLE) ) {
                             alt69=1;
                         }
 
@@ -8357,7 +8357,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxTextStart"
-    // InternalDim.g:3056:1: ruleDmxTextStart returns [EObject current=null] : ( (lv_value_0_0= RULE_PLAIN_TEXT_START ) ) ;
+    // InternalDim.g:3056:1: ruleDmxTextStart returns [EObject current=null] : ( (lv_value_0_0= RULE_RICH_TEXT_START ) ) ;
     public final EObject ruleDmxTextStart() throws RecognitionException {
         EObject current = null;
 
@@ -8367,19 +8367,19 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:3062:2: ( ( (lv_value_0_0= RULE_PLAIN_TEXT_START ) ) )
-            // InternalDim.g:3063:2: ( (lv_value_0_0= RULE_PLAIN_TEXT_START ) )
+            // InternalDim.g:3062:2: ( ( (lv_value_0_0= RULE_RICH_TEXT_START ) ) )
+            // InternalDim.g:3063:2: ( (lv_value_0_0= RULE_RICH_TEXT_START ) )
             {
-            // InternalDim.g:3063:2: ( (lv_value_0_0= RULE_PLAIN_TEXT_START ) )
-            // InternalDim.g:3064:3: (lv_value_0_0= RULE_PLAIN_TEXT_START )
+            // InternalDim.g:3063:2: ( (lv_value_0_0= RULE_RICH_TEXT_START ) )
+            // InternalDim.g:3064:3: (lv_value_0_0= RULE_RICH_TEXT_START )
             {
-            // InternalDim.g:3064:3: (lv_value_0_0= RULE_PLAIN_TEXT_START )
-            // InternalDim.g:3065:4: lv_value_0_0= RULE_PLAIN_TEXT_START
+            // InternalDim.g:3064:3: (lv_value_0_0= RULE_RICH_TEXT_START )
+            // InternalDim.g:3065:4: lv_value_0_0= RULE_RICH_TEXT_START
             {
-            lv_value_0_0=(Token)match(input,RULE_PLAIN_TEXT_START,FOLLOW_2); if (state.failed) return current;
+            lv_value_0_0=(Token)match(input,RULE_RICH_TEXT_START,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              				newLeafNode(lv_value_0_0, grammarAccess.getDmxTextStartAccess().getValuePLAIN_TEXT_STARTTerminalRuleCall_0());
+              				newLeafNode(lv_value_0_0, grammarAccess.getDmxTextStartAccess().getValueRICH_TEXT_STARTTerminalRuleCall_0());
               			
             }
             if ( state.backtracking==0 ) {
@@ -8391,7 +8391,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               					current,
               					"value",
               					lv_value_0_0,
-              					"com.mimacom.ddd.dm.dmx.Dmx.PLAIN_TEXT_START");
+              					"com.mimacom.ddd.dm.dmx.Dmx.RICH_TEXT_START");
               			
             }
 
@@ -8462,7 +8462,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxTextMiddle"
-    // InternalDim.g:3091:1: ruleDmxTextMiddle returns [EObject current=null] : ( (lv_value_0_0= RULE_PLAIN_TEXT_MIDDLE ) ) ;
+    // InternalDim.g:3091:1: ruleDmxTextMiddle returns [EObject current=null] : ( (lv_value_0_0= RULE_RICH_TEXT_MIDDLE ) ) ;
     public final EObject ruleDmxTextMiddle() throws RecognitionException {
         EObject current = null;
 
@@ -8472,19 +8472,19 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:3097:2: ( ( (lv_value_0_0= RULE_PLAIN_TEXT_MIDDLE ) ) )
-            // InternalDim.g:3098:2: ( (lv_value_0_0= RULE_PLAIN_TEXT_MIDDLE ) )
+            // InternalDim.g:3097:2: ( ( (lv_value_0_0= RULE_RICH_TEXT_MIDDLE ) ) )
+            // InternalDim.g:3098:2: ( (lv_value_0_0= RULE_RICH_TEXT_MIDDLE ) )
             {
-            // InternalDim.g:3098:2: ( (lv_value_0_0= RULE_PLAIN_TEXT_MIDDLE ) )
-            // InternalDim.g:3099:3: (lv_value_0_0= RULE_PLAIN_TEXT_MIDDLE )
+            // InternalDim.g:3098:2: ( (lv_value_0_0= RULE_RICH_TEXT_MIDDLE ) )
+            // InternalDim.g:3099:3: (lv_value_0_0= RULE_RICH_TEXT_MIDDLE )
             {
-            // InternalDim.g:3099:3: (lv_value_0_0= RULE_PLAIN_TEXT_MIDDLE )
-            // InternalDim.g:3100:4: lv_value_0_0= RULE_PLAIN_TEXT_MIDDLE
+            // InternalDim.g:3099:3: (lv_value_0_0= RULE_RICH_TEXT_MIDDLE )
+            // InternalDim.g:3100:4: lv_value_0_0= RULE_RICH_TEXT_MIDDLE
             {
-            lv_value_0_0=(Token)match(input,RULE_PLAIN_TEXT_MIDDLE,FOLLOW_2); if (state.failed) return current;
+            lv_value_0_0=(Token)match(input,RULE_RICH_TEXT_MIDDLE,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              				newLeafNode(lv_value_0_0, grammarAccess.getDmxTextMiddleAccess().getValuePLAIN_TEXT_MIDDLETerminalRuleCall_0());
+              				newLeafNode(lv_value_0_0, grammarAccess.getDmxTextMiddleAccess().getValueRICH_TEXT_MIDDLETerminalRuleCall_0());
               			
             }
             if ( state.backtracking==0 ) {
@@ -8496,7 +8496,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               					current,
               					"value",
               					lv_value_0_0,
-              					"com.mimacom.ddd.dm.dmx.Dmx.PLAIN_TEXT_MIDDLE");
+              					"com.mimacom.ddd.dm.dmx.Dmx.RICH_TEXT_MIDDLE");
               			
             }
 
@@ -8567,7 +8567,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxTextEnd"
-    // InternalDim.g:3126:1: ruleDmxTextEnd returns [EObject current=null] : ( (lv_value_0_0= RULE_PLAIN_TEXT_END ) ) ;
+    // InternalDim.g:3126:1: ruleDmxTextEnd returns [EObject current=null] : ( (lv_value_0_0= RULE_RICH_TEXT_END ) ) ;
     public final EObject ruleDmxTextEnd() throws RecognitionException {
         EObject current = null;
 
@@ -8577,19 +8577,19 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:3132:2: ( ( (lv_value_0_0= RULE_PLAIN_TEXT_END ) ) )
-            // InternalDim.g:3133:2: ( (lv_value_0_0= RULE_PLAIN_TEXT_END ) )
+            // InternalDim.g:3132:2: ( ( (lv_value_0_0= RULE_RICH_TEXT_END ) ) )
+            // InternalDim.g:3133:2: ( (lv_value_0_0= RULE_RICH_TEXT_END ) )
             {
-            // InternalDim.g:3133:2: ( (lv_value_0_0= RULE_PLAIN_TEXT_END ) )
-            // InternalDim.g:3134:3: (lv_value_0_0= RULE_PLAIN_TEXT_END )
+            // InternalDim.g:3133:2: ( (lv_value_0_0= RULE_RICH_TEXT_END ) )
+            // InternalDim.g:3134:3: (lv_value_0_0= RULE_RICH_TEXT_END )
             {
-            // InternalDim.g:3134:3: (lv_value_0_0= RULE_PLAIN_TEXT_END )
-            // InternalDim.g:3135:4: lv_value_0_0= RULE_PLAIN_TEXT_END
+            // InternalDim.g:3134:3: (lv_value_0_0= RULE_RICH_TEXT_END )
+            // InternalDim.g:3135:4: lv_value_0_0= RULE_RICH_TEXT_END
             {
-            lv_value_0_0=(Token)match(input,RULE_PLAIN_TEXT_END,FOLLOW_2); if (state.failed) return current;
+            lv_value_0_0=(Token)match(input,RULE_RICH_TEXT_END,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              				newLeafNode(lv_value_0_0, grammarAccess.getDmxTextEndAccess().getValuePLAIN_TEXT_ENDTerminalRuleCall_0());
+              				newLeafNode(lv_value_0_0, grammarAccess.getDmxTextEndAccess().getValueRICH_TEXT_ENDTerminalRuleCall_0());
               			
             }
             if ( state.backtracking==0 ) {
@@ -8601,7 +8601,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               					current,
               					"value",
               					lv_value_0_0,
-              					"com.mimacom.ddd.dm.dmx.Dmx.PLAIN_TEXT_END");
+              					"com.mimacom.ddd.dm.dmx.Dmx.RICH_TEXT_END");
               			
             }
 
@@ -9616,7 +9616,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                 if ( (LA75_1==56) ) {
                     alt75=1;
                 }
-                else if ( (LA75_1==EOF||(LA75_1>=RULE_ID && LA75_1<=RULE_PLAIN_TEXT_END)||(LA75_1>=21 && LA75_1<=23)||LA75_1==25||(LA75_1>=27 && LA75_1<=33)||LA75_1==36||LA75_1==38||(LA75_1>=41 && LA75_1<=42)||LA75_1==48||(LA75_1>=53 && LA75_1<=55)||(LA75_1>=57 && LA75_1<=62)||(LA75_1>=68 && LA75_1<=71)||(LA75_1>=80 && LA75_1<=81)||LA75_1==85||(LA75_1>=99 && LA75_1<=118)) ) {
+                else if ( (LA75_1==EOF||(LA75_1>=RULE_ID && LA75_1<=RULE_RICH_TEXT_END)||(LA75_1>=21 && LA75_1<=23)||LA75_1==25||(LA75_1>=27 && LA75_1<=33)||LA75_1==36||LA75_1==38||(LA75_1>=41 && LA75_1<=42)||LA75_1==48||(LA75_1>=53 && LA75_1<=55)||(LA75_1>=57 && LA75_1<=62)||(LA75_1>=68 && LA75_1<=71)||(LA75_1>=80 && LA75_1<=81)||LA75_1==85||(LA75_1>=99 && LA75_1<=118)) ) {
                     alt75=2;
                 }
                 else {
@@ -12464,7 +12464,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
                 if ( (LA87_4==41) ) {
                     alt87=4;
                 }
-                else if ( (LA87_4==EOF||(LA87_4>=RULE_ID && LA87_4<=RULE_PLAIN_TEXT_END)||(LA87_4>=21 && LA87_4<=23)||LA87_4==25||(LA87_4>=27 && LA87_4<=33)||LA87_4==36||LA87_4==38||LA87_4==42||LA87_4==48||(LA87_4>=53 && LA87_4<=55)||(LA87_4>=57 && LA87_4<=62)||(LA87_4>=68 && LA87_4<=71)||(LA87_4>=80 && LA87_4<=81)||LA87_4==85||(LA87_4>=99 && LA87_4<=118)) ) {
+                else if ( (LA87_4==EOF||(LA87_4>=RULE_ID && LA87_4<=RULE_RICH_TEXT_END)||(LA87_4>=21 && LA87_4<=23)||LA87_4==25||(LA87_4>=27 && LA87_4<=33)||LA87_4==36||LA87_4==38||LA87_4==42||LA87_4==48||(LA87_4>=53 && LA87_4<=55)||(LA87_4>=57 && LA87_4<=62)||(LA87_4>=68 && LA87_4<=71)||(LA87_4>=80 && LA87_4<=81)||LA87_4==85||(LA87_4>=99 && LA87_4<=118)) ) {
                     alt87=6;
                 }
                 else {
@@ -13120,7 +13120,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             int alt90=2;
             int LA90_0 = input.LA(1);
 
-            if ( ((LA90_0>=RULE_ID && LA90_0<=RULE_PLAIN_TEXT_START)||(LA90_0>=RULE_NATURAL && LA90_0<=RULE_STRING)||LA90_0==20||LA90_0==36||LA90_0==41||LA90_0==61||LA90_0==63||LA90_0==67||(LA90_0>=72 && LA90_0<=77)||(LA90_0>=80 && LA90_0<=81)||(LA90_0>=119 && LA90_0<=121)) ) {
+            if ( ((LA90_0>=RULE_ID && LA90_0<=RULE_RICH_TEXT_START)||(LA90_0>=RULE_NATURAL && LA90_0<=RULE_STRING)||LA90_0==20||LA90_0==36||LA90_0==41||LA90_0==61||LA90_0==63||LA90_0==67||(LA90_0>=72 && LA90_0<=77)||(LA90_0>=80 && LA90_0<=81)||(LA90_0>=119 && LA90_0<=121)) ) {
                 alt90=1;
             }
             switch (alt90) {
@@ -13740,7 +13740,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             int alt94=2;
             int LA94_0 = input.LA(1);
 
-            if ( ((LA94_0>=RULE_ID && LA94_0<=RULE_PLAIN_TEXT_START)||(LA94_0>=RULE_NATURAL && LA94_0<=RULE_STRING)||LA94_0==20||LA94_0==36||LA94_0==41||LA94_0==61||LA94_0==63||LA94_0==67||(LA94_0>=72 && LA94_0<=77)||(LA94_0>=80 && LA94_0<=81)||(LA94_0>=119 && LA94_0<=121)) ) {
+            if ( ((LA94_0>=RULE_ID && LA94_0<=RULE_RICH_TEXT_START)||(LA94_0>=RULE_NATURAL && LA94_0<=RULE_STRING)||LA94_0==20||LA94_0==36||LA94_0==41||LA94_0==61||LA94_0==63||LA94_0==67||(LA94_0>=72 && LA94_0<=77)||(LA94_0>=80 && LA94_0<=81)||(LA94_0>=119 && LA94_0<=121)) ) {
                 alt94=1;
             }
             switch (alt94) {

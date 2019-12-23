@@ -2043,9 +2043,9 @@ ruleDmxTextStart returns [EObject current=null]
 }:
 	(
 		(
-			lv_value_0_0=RULE_PLAIN_TEXT_START
+			lv_value_0_0=RULE_RICH_TEXT_START
 			{
-				newLeafNode(lv_value_0_0, grammarAccess.getDmxTextStartAccess().getValuePLAIN_TEXT_STARTTerminalRuleCall_0());
+				newLeafNode(lv_value_0_0, grammarAccess.getDmxTextStartAccess().getValueRICH_TEXT_STARTTerminalRuleCall_0());
 			}
 			{
 				if ($current==null) {
@@ -2055,7 +2055,7 @@ ruleDmxTextStart returns [EObject current=null]
 					$current,
 					"value",
 					lv_value_0_0,
-					"com.mimacom.ddd.dm.dmx.Dmx.PLAIN_TEXT_START");
+					"com.mimacom.ddd.dm.dmx.Dmx.RICH_TEXT_START");
 			}
 		)
 	)
@@ -2078,9 +2078,9 @@ ruleDmxTextMiddle returns [EObject current=null]
 }:
 	(
 		(
-			lv_value_0_0=RULE_PLAIN_TEXT_MIDDLE
+			lv_value_0_0=RULE_RICH_TEXT_MIDDLE
 			{
-				newLeafNode(lv_value_0_0, grammarAccess.getDmxTextMiddleAccess().getValuePLAIN_TEXT_MIDDLETerminalRuleCall_0());
+				newLeafNode(lv_value_0_0, grammarAccess.getDmxTextMiddleAccess().getValueRICH_TEXT_MIDDLETerminalRuleCall_0());
 			}
 			{
 				if ($current==null) {
@@ -2090,7 +2090,7 @@ ruleDmxTextMiddle returns [EObject current=null]
 					$current,
 					"value",
 					lv_value_0_0,
-					"com.mimacom.ddd.dm.dmx.Dmx.PLAIN_TEXT_MIDDLE");
+					"com.mimacom.ddd.dm.dmx.Dmx.RICH_TEXT_MIDDLE");
 			}
 		)
 	)
@@ -2113,9 +2113,9 @@ ruleDmxTextEnd returns [EObject current=null]
 }:
 	(
 		(
-			lv_value_0_0=RULE_PLAIN_TEXT_END
+			lv_value_0_0=RULE_RICH_TEXT_END
 			{
-				newLeafNode(lv_value_0_0, grammarAccess.getDmxTextEndAccess().getValuePLAIN_TEXT_ENDTerminalRuleCall_0());
+				newLeafNode(lv_value_0_0, grammarAccess.getDmxTextEndAccess().getValueRICH_TEXT_ENDTerminalRuleCall_0());
 			}
 			{
 				if ($current==null) {
@@ -2125,7 +2125,7 @@ ruleDmxTextEnd returns [EObject current=null]
 					$current,
 					"value",
 					lv_value_0_0,
-					"com.mimacom.ddd.dm.dmx.Dmx.PLAIN_TEXT_END");
+					"com.mimacom.ddd.dm.dmx.Dmx.RICH_TEXT_END");
 			}
 		)
 	)
@@ -5167,11 +5167,11 @@ fragment RULE_PLAIN_TEXT : ~(('\u00BB'|']'|'['));
 
 RULE_PLAIN_TEXT_ONLY : '\u00AB' RULE_PLAIN_TEXT* '\u00BB';
 
-RULE_PLAIN_TEXT_START : '\u00AB' RULE_PLAIN_TEXT* '[';
+RULE_RICH_TEXT_START : '\u00AB' RULE_PLAIN_TEXT* '[';
 
-RULE_PLAIN_TEXT_MIDDLE : ']' RULE_PLAIN_TEXT* '[';
+RULE_RICH_TEXT_MIDDLE : ']' RULE_PLAIN_TEXT* '[';
 
-RULE_PLAIN_TEXT_END : ']' RULE_PLAIN_TEXT* '\u00BB';
+RULE_RICH_TEXT_END : ']' RULE_PLAIN_TEXT* '\u00BB';
 
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 

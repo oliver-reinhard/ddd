@@ -3646,7 +3646,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxTextStart DTextSegment:
-	//	value=PLAIN_TEXT_START;
+	//	value=RICH_TEXT_START;
 	public DmxGrammarAccess.DmxTextStartElements getDmxTextStartAccess() {
 		return gaDmx.getDmxTextStartAccess();
 	}
@@ -3656,7 +3656,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxTextMiddle DTextSegment:
-	//	value=PLAIN_TEXT_MIDDLE;
+	//	value=RICH_TEXT_MIDDLE;
 	public DmxGrammarAccess.DmxTextMiddleElements getDmxTextMiddleAccess() {
 		return gaDmx.getDmxTextMiddleAccess();
 	}
@@ -3666,7 +3666,7 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DmxTextEnd DTextSegment:
-	//	value=PLAIN_TEXT_END;
+	//	value=RICH_TEXT_END;
 	public DmxGrammarAccess.DmxTextEndElements getDmxTextEndAccess() {
 		return gaDmx.getDmxTextEndAccess();
 	}
@@ -4259,22 +4259,22 @@ public class SimGrammarAccess extends AbstractGrammarElementFinder {
 		return gaDmx.getPLAIN_TEXT_ONLYRule();
 	}
 	
-	//terminal PLAIN_TEXT_START:
+	//terminal RICH_TEXT_START:
 	//	'«' PLAIN_TEXT* '[';
-	public TerminalRule getPLAIN_TEXT_STARTRule() {
-		return gaDmx.getPLAIN_TEXT_STARTRule();
+	public TerminalRule getRICH_TEXT_STARTRule() {
+		return gaDmx.getRICH_TEXT_STARTRule();
 	}
 	
-	//terminal PLAIN_TEXT_MIDDLE:
+	//terminal RICH_TEXT_MIDDLE:
 	//	']' PLAIN_TEXT* '[';
-	public TerminalRule getPLAIN_TEXT_MIDDLERule() {
-		return gaDmx.getPLAIN_TEXT_MIDDLERule();
+	public TerminalRule getRICH_TEXT_MIDDLERule() {
+		return gaDmx.getRICH_TEXT_MIDDLERule();
 	}
 	
-	//terminal PLAIN_TEXT_END:
+	//terminal RICH_TEXT_END:
 	//	']' PLAIN_TEXT* '»';
-	public TerminalRule getPLAIN_TEXT_ENDRule() {
-		return gaDmx.getPLAIN_TEXT_ENDRule();
+	public TerminalRule getRICH_TEXT_ENDRule() {
+		return gaDmx.getRICH_TEXT_ENDRule();
 	}
 	
 	//terminal ML_COMMENT:

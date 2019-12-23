@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalSimParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_PLAIN_TEXT_START", "RULE_PLAIN_TEXT_MIDDLE", "RULE_PLAIN_TEXT_END", "RULE_NATURAL", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'information'", "'model'", "'generate'", "'as'", "'and'", "'to'", "'extends'", "':'", "'grab'", "'domain'", "'aggregate'", "'{'", "'}'", "'primitive'", "'ditch'", "'enumeration'", "','", "'alias'", "'root'", "'entity'", "'morph'", "'fuse'", "'detail'", "'abstract'", "'reference'", "'composite'", "'attribute'", "'query'", "'('", "'*'", "')'", "'returns'", "'constraint'", "'redefines'", "'derived'", "'contains'", "'key'", "'import'", "'test'", "'context'", "':='", "'in'", "'archetype'", "'is'", "'filter'", "'with'", "'.'", "'@before'", "'|'", "'ISA'", "'isa'", "'AS'", "'='", "'['", "'#'", "']'", "'all'", "'if'", "'then'", "'else'", "'end'", "'..'", "'TRUE'", "'true'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'.*'", "'base'", "'interface'", "'core'", "'nonabstract'", "'nonroot'", "'references'", "'inverse'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'STATE'", "'STATE_EVENT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'IN'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'?'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_PLAIN_TEXT_ONLY", "RULE_RICH_TEXT_START", "RULE_RICH_TEXT_MIDDLE", "RULE_RICH_TEXT_END", "RULE_NATURAL", "RULE_STRING", "RULE_LETTER", "RULE_PLAIN_TEXT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'information'", "'model'", "'generate'", "'as'", "'and'", "'to'", "'extends'", "':'", "'grab'", "'domain'", "'aggregate'", "'{'", "'}'", "'primitive'", "'ditch'", "'enumeration'", "','", "'alias'", "'root'", "'entity'", "'morph'", "'fuse'", "'detail'", "'abstract'", "'reference'", "'composite'", "'attribute'", "'query'", "'('", "'*'", "')'", "'returns'", "'constraint'", "'redefines'", "'derived'", "'contains'", "'key'", "'import'", "'test'", "'context'", "':='", "'in'", "'archetype'", "'is'", "'filter'", "'with'", "'.'", "'@before'", "'|'", "'ISA'", "'isa'", "'AS'", "'='", "'['", "'#'", "']'", "'all'", "'if'", "'then'", "'else'", "'end'", "'..'", "'TRUE'", "'true'", "'FALSE'", "'false'", "'UNDEFINED'", "'undefined'", "'E'", "'e'", "'+'", "'-'", "'.*'", "'base'", "'interface'", "'core'", "'nonabstract'", "'nonroot'", "'references'", "'inverse'", "'VOID'", "'BOOLEAN'", "'NUMBER'", "'TEXT'", "'IDENTIFIER'", "'TIMEPOINT'", "'STATE'", "'STATE_EVENT'", "'COMPLEX'", "'NOTIFICATION'", "'SERVICE'", "'OR'", "'or'", "'XOR'", "'xor'", "'AND'", "'!='", "'<>'", "'<'", "'<='", "'\\u2264'", "'>='", "'\\u2265'", "'>'", "'IN'", "'->'", "'=>'", "'/'", "'**'", "'%'", "'!'", "'NOT'", "'not'", "'?'"
     };
     public static final int T__50=50;
     public static final int RULE_PLAIN_TEXT_ONLY=5;
@@ -38,10 +38,9 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
     public static final int T__54=54;
     public static final int T__60=60;
     public static final int T__61=61;
-    public static final int RULE_PLAIN_TEXT_END=8;
     public static final int RULE_ID=4;
     public static final int T__130=130;
-    public static final int RULE_PLAIN_TEXT_START=6;
+    public static final int RULE_RICH_TEXT_START=6;
     public static final int T__66=66;
     public static final int RULE_ML_COMMENT=13;
     public static final int T__67=67;
@@ -66,7 +65,6 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
     public static final int T__30=30;
     public static final int T__31=31;
     public static final int T__32=32;
-    public static final int RULE_PLAIN_TEXT_MIDDLE=7;
     public static final int RULE_LETTER=11;
     public static final int T__48=48;
     public static final int T__49=49;
@@ -139,6 +137,8 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
     public static final int T__83=83;
     public static final int T__112=112;
     public static final int RULE_WS=15;
+    public static final int RULE_RICH_TEXT_END=8;
+    public static final int RULE_RICH_TEXT_MIDDLE=7;
     public static final int RULE_ANY_OTHER=16;
     public static final int T__88=88;
     public static final int T__108=108;
@@ -444,7 +444,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( ((LA3_0>=RULE_PLAIN_TEXT_ONLY && LA3_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA3_0>=RULE_PLAIN_TEXT_ONLY && LA3_0<=RULE_RICH_TEXT_START)) ) {
                 alt3=1;
             }
             switch (alt3) {
@@ -3619,7 +3619,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt20=2;
             int LA20_0 = input.LA(1);
 
-            if ( ((LA20_0>=RULE_PLAIN_TEXT_ONLY && LA20_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA20_0>=RULE_PLAIN_TEXT_ONLY && LA20_0<=RULE_RICH_TEXT_START)) ) {
                 alt20=1;
             }
             switch (alt20) {
@@ -3836,7 +3836,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt22=2;
             int LA22_0 = input.LA(1);
 
-            if ( ((LA22_0>=RULE_PLAIN_TEXT_ONLY && LA22_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA22_0>=RULE_PLAIN_TEXT_ONLY && LA22_0<=RULE_RICH_TEXT_START)) ) {
                 alt22=1;
             }
             switch (alt22) {
@@ -4466,7 +4466,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt26=2;
             int LA26_0 = input.LA(1);
 
-            if ( ((LA26_0>=RULE_PLAIN_TEXT_ONLY && LA26_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA26_0>=RULE_PLAIN_TEXT_ONLY && LA26_0<=RULE_RICH_TEXT_START)) ) {
                 alt26=1;
             }
             switch (alt26) {
@@ -4828,7 +4828,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt29=2;
             int LA29_0 = input.LA(1);
 
-            if ( ((LA29_0>=RULE_PLAIN_TEXT_ONLY && LA29_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA29_0>=RULE_PLAIN_TEXT_ONLY && LA29_0<=RULE_RICH_TEXT_START)) ) {
                 alt29=1;
             }
             switch (alt29) {
@@ -5247,7 +5247,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt34=2;
             int LA34_0 = input.LA(1);
 
-            if ( ((LA34_0>=RULE_PLAIN_TEXT_ONLY && LA34_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA34_0>=RULE_PLAIN_TEXT_ONLY && LA34_0<=RULE_RICH_TEXT_START)) ) {
                 alt34=1;
             }
             switch (alt34) {
@@ -5846,7 +5846,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt40=2;
             int LA40_0 = input.LA(1);
 
-            if ( ((LA40_0>=RULE_PLAIN_TEXT_ONLY && LA40_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA40_0>=RULE_PLAIN_TEXT_ONLY && LA40_0<=RULE_RICH_TEXT_START)) ) {
                 alt40=1;
             }
             switch (alt40) {
@@ -6428,7 +6428,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt46=2;
             int LA46_0 = input.LA(1);
 
-            if ( ((LA46_0>=RULE_PLAIN_TEXT_ONLY && LA46_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA46_0>=RULE_PLAIN_TEXT_ONLY && LA46_0<=RULE_RICH_TEXT_START)) ) {
                 alt46=1;
             }
             switch (alt46) {
@@ -6877,7 +6877,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt48=2;
             int LA48_0 = input.LA(1);
 
-            if ( ((LA48_0>=RULE_PLAIN_TEXT_ONLY && LA48_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA48_0>=RULE_PLAIN_TEXT_ONLY && LA48_0<=RULE_RICH_TEXT_START)) ) {
                 alt48=1;
             }
             switch (alt48) {
@@ -7478,7 +7478,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt54=2;
             int LA54_0 = input.LA(1);
 
-            if ( ((LA54_0>=RULE_PLAIN_TEXT_ONLY && LA54_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA54_0>=RULE_PLAIN_TEXT_ONLY && LA54_0<=RULE_RICH_TEXT_START)) ) {
                 alt54=1;
             }
             switch (alt54) {
@@ -8298,7 +8298,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt61=2;
             int LA61_0 = input.LA(1);
 
-            if ( ((LA61_0>=RULE_PLAIN_TEXT_ONLY && LA61_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA61_0>=RULE_PLAIN_TEXT_ONLY && LA61_0<=RULE_RICH_TEXT_START)) ) {
                 alt61=1;
             }
             switch (alt61) {
@@ -8817,7 +8817,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt66=2;
             int LA66_0 = input.LA(1);
 
-            if ( ((LA66_0>=RULE_PLAIN_TEXT_ONLY && LA66_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA66_0>=RULE_PLAIN_TEXT_ONLY && LA66_0<=RULE_RICH_TEXT_START)) ) {
                 alt66=1;
             }
             switch (alt66) {
@@ -9377,7 +9377,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt72=2;
             int LA72_0 = input.LA(1);
 
-            if ( ((LA72_0>=RULE_PLAIN_TEXT_ONLY && LA72_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA72_0>=RULE_PLAIN_TEXT_ONLY && LA72_0<=RULE_RICH_TEXT_START)) ) {
                 alt72=1;
             }
             switch (alt72) {
@@ -9876,7 +9876,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt78=2;
             int LA78_0 = input.LA(1);
 
-            if ( ((LA78_0>=RULE_PLAIN_TEXT_ONLY && LA78_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA78_0>=RULE_PLAIN_TEXT_ONLY && LA78_0<=RULE_RICH_TEXT_START)) ) {
                 alt78=1;
             }
             switch (alt78) {
@@ -10358,7 +10358,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt81=2;
             int LA81_0 = input.LA(1);
 
-            if ( ((LA81_0>=RULE_PLAIN_TEXT_ONLY && LA81_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA81_0>=RULE_PLAIN_TEXT_ONLY && LA81_0<=RULE_RICH_TEXT_START)) ) {
                 alt81=1;
             }
             switch (alt81) {
@@ -10864,7 +10864,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt87=2;
             int LA87_0 = input.LA(1);
 
-            if ( ((LA87_0>=RULE_PLAIN_TEXT_ONLY && LA87_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA87_0>=RULE_PLAIN_TEXT_ONLY && LA87_0<=RULE_RICH_TEXT_START)) ) {
                 alt87=1;
             }
             switch (alt87) {
@@ -11361,7 +11361,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt90=2;
             int LA90_0 = input.LA(1);
 
-            if ( ((LA90_0>=RULE_PLAIN_TEXT_ONLY && LA90_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA90_0>=RULE_PLAIN_TEXT_ONLY && LA90_0<=RULE_RICH_TEXT_START)) ) {
                 alt90=1;
             }
             switch (alt90) {
@@ -11626,7 +11626,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt92=2;
             int LA92_0 = input.LA(1);
 
-            if ( ((LA92_0>=RULE_PLAIN_TEXT_ONLY && LA92_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA92_0>=RULE_PLAIN_TEXT_ONLY && LA92_0<=RULE_RICH_TEXT_START)) ) {
                 alt92=1;
             }
             switch (alt92) {
@@ -11935,7 +11935,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt96=2;
             int LA96_0 = input.LA(1);
 
-            if ( ((LA96_0>=RULE_PLAIN_TEXT_ONLY && LA96_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA96_0>=RULE_PLAIN_TEXT_ONLY && LA96_0<=RULE_RICH_TEXT_START)) ) {
                 alt96=1;
             }
             switch (alt96) {
@@ -12808,7 +12808,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt104=2;
             int LA104_0 = input.LA(1);
 
-            if ( ((LA104_0>=RULE_PLAIN_TEXT_ONLY && LA104_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA104_0>=RULE_PLAIN_TEXT_ONLY && LA104_0<=RULE_RICH_TEXT_START)) ) {
                 alt104=1;
             }
             switch (alt104) {
@@ -13192,7 +13192,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt109=2;
             int LA109_0 = input.LA(1);
 
-            if ( ((LA109_0>=RULE_PLAIN_TEXT_ONLY && LA109_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA109_0>=RULE_PLAIN_TEXT_ONLY && LA109_0<=RULE_RICH_TEXT_START)) ) {
                 alt109=1;
             }
             switch (alt109) {
@@ -13432,7 +13432,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt111=2;
             int LA111_0 = input.LA(1);
 
-            if ( ((LA111_0>=RULE_PLAIN_TEXT_ONLY && LA111_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA111_0>=RULE_PLAIN_TEXT_ONLY && LA111_0<=RULE_RICH_TEXT_START)) ) {
                 alt111=1;
             }
             switch (alt111) {
@@ -14630,7 +14630,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt118=2;
             int LA118_0 = input.LA(1);
 
-            if ( ((LA118_0>=RULE_PLAIN_TEXT_ONLY && LA118_0<=RULE_PLAIN_TEXT_START)) ) {
+            if ( ((LA118_0>=RULE_PLAIN_TEXT_ONLY && LA118_0<=RULE_RICH_TEXT_START)) ) {
                 alt118=1;
             }
             switch (alt118) {
@@ -15493,7 +15493,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                 if ( (LA124_1==57) ) {
                     alt124=1;
                 }
-                else if ( (LA124_1==EOF||(LA124_1>=RULE_ID && LA124_1<=RULE_PLAIN_TEXT_END)||(LA124_1>=20 && LA124_1<=21)||LA124_1==25||LA124_1==27||(LA124_1>=29 && LA124_1<=33)||(LA124_1>=35 && LA124_1<=40)||(LA124_1>=44 && LA124_1<=47)||LA124_1==49||LA124_1==51||LA124_1==58||(LA124_1>=63 && LA124_1<=69)||(LA124_1>=75 && LA124_1<=78)||(LA124_1>=87 && LA124_1<=88)||(LA124_1>=108 && LA124_1<=126)) ) {
+                else if ( (LA124_1==EOF||(LA124_1>=RULE_ID && LA124_1<=RULE_RICH_TEXT_END)||(LA124_1>=20 && LA124_1<=21)||LA124_1==25||LA124_1==27||(LA124_1>=29 && LA124_1<=33)||(LA124_1>=35 && LA124_1<=40)||(LA124_1>=44 && LA124_1<=47)||LA124_1==49||LA124_1==51||LA124_1==58||(LA124_1>=63 && LA124_1<=69)||(LA124_1>=75 && LA124_1<=78)||(LA124_1>=87 && LA124_1<=88)||(LA124_1>=108 && LA124_1<=126)) ) {
                     alt124=2;
                 }
                 else {
@@ -15529,7 +15529,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                 }
                 break;
             case RULE_PLAIN_TEXT_ONLY:
-            case RULE_PLAIN_TEXT_START:
+            case RULE_RICH_TEXT_START:
                 {
                 alt124=3;
                 }
@@ -15705,7 +15705,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( (LA126_0==RULE_PLAIN_TEXT_ONLY) ) {
                 alt126=1;
             }
-            else if ( (LA126_0==RULE_PLAIN_TEXT_START) ) {
+            else if ( (LA126_0==RULE_RICH_TEXT_START) ) {
                 alt126=2;
             }
             else {
@@ -15839,7 +15839,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                         int alt125=2;
                         int LA125_0 = input.LA(1);
 
-                        if ( (LA125_0==RULE_PLAIN_TEXT_MIDDLE) ) {
+                        if ( (LA125_0==RULE_RICH_TEXT_MIDDLE) ) {
                             alt125=1;
                         }
 
@@ -16138,7 +16138,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxTextStart"
-    // InternalSim.g:5776:1: ruleDmxTextStart returns [EObject current=null] : ( (lv_value_0_0= RULE_PLAIN_TEXT_START ) ) ;
+    // InternalSim.g:5776:1: ruleDmxTextStart returns [EObject current=null] : ( (lv_value_0_0= RULE_RICH_TEXT_START ) ) ;
     public final EObject ruleDmxTextStart() throws RecognitionException {
         EObject current = null;
 
@@ -16148,19 +16148,19 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:5782:2: ( ( (lv_value_0_0= RULE_PLAIN_TEXT_START ) ) )
-            // InternalSim.g:5783:2: ( (lv_value_0_0= RULE_PLAIN_TEXT_START ) )
+            // InternalSim.g:5782:2: ( ( (lv_value_0_0= RULE_RICH_TEXT_START ) ) )
+            // InternalSim.g:5783:2: ( (lv_value_0_0= RULE_RICH_TEXT_START ) )
             {
-            // InternalSim.g:5783:2: ( (lv_value_0_0= RULE_PLAIN_TEXT_START ) )
-            // InternalSim.g:5784:3: (lv_value_0_0= RULE_PLAIN_TEXT_START )
+            // InternalSim.g:5783:2: ( (lv_value_0_0= RULE_RICH_TEXT_START ) )
+            // InternalSim.g:5784:3: (lv_value_0_0= RULE_RICH_TEXT_START )
             {
-            // InternalSim.g:5784:3: (lv_value_0_0= RULE_PLAIN_TEXT_START )
-            // InternalSim.g:5785:4: lv_value_0_0= RULE_PLAIN_TEXT_START
+            // InternalSim.g:5784:3: (lv_value_0_0= RULE_RICH_TEXT_START )
+            // InternalSim.g:5785:4: lv_value_0_0= RULE_RICH_TEXT_START
             {
-            lv_value_0_0=(Token)match(input,RULE_PLAIN_TEXT_START,FOLLOW_2); if (state.failed) return current;
+            lv_value_0_0=(Token)match(input,RULE_RICH_TEXT_START,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              				newLeafNode(lv_value_0_0, grammarAccess.getDmxTextStartAccess().getValuePLAIN_TEXT_STARTTerminalRuleCall_0());
+              				newLeafNode(lv_value_0_0, grammarAccess.getDmxTextStartAccess().getValueRICH_TEXT_STARTTerminalRuleCall_0());
               			
             }
             if ( state.backtracking==0 ) {
@@ -16172,7 +16172,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
               					current,
               					"value",
               					lv_value_0_0,
-              					"com.mimacom.ddd.dm.dmx.Dmx.PLAIN_TEXT_START");
+              					"com.mimacom.ddd.dm.dmx.Dmx.RICH_TEXT_START");
               			
             }
 
@@ -16243,7 +16243,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxTextMiddle"
-    // InternalSim.g:5811:1: ruleDmxTextMiddle returns [EObject current=null] : ( (lv_value_0_0= RULE_PLAIN_TEXT_MIDDLE ) ) ;
+    // InternalSim.g:5811:1: ruleDmxTextMiddle returns [EObject current=null] : ( (lv_value_0_0= RULE_RICH_TEXT_MIDDLE ) ) ;
     public final EObject ruleDmxTextMiddle() throws RecognitionException {
         EObject current = null;
 
@@ -16253,19 +16253,19 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:5817:2: ( ( (lv_value_0_0= RULE_PLAIN_TEXT_MIDDLE ) ) )
-            // InternalSim.g:5818:2: ( (lv_value_0_0= RULE_PLAIN_TEXT_MIDDLE ) )
+            // InternalSim.g:5817:2: ( ( (lv_value_0_0= RULE_RICH_TEXT_MIDDLE ) ) )
+            // InternalSim.g:5818:2: ( (lv_value_0_0= RULE_RICH_TEXT_MIDDLE ) )
             {
-            // InternalSim.g:5818:2: ( (lv_value_0_0= RULE_PLAIN_TEXT_MIDDLE ) )
-            // InternalSim.g:5819:3: (lv_value_0_0= RULE_PLAIN_TEXT_MIDDLE )
+            // InternalSim.g:5818:2: ( (lv_value_0_0= RULE_RICH_TEXT_MIDDLE ) )
+            // InternalSim.g:5819:3: (lv_value_0_0= RULE_RICH_TEXT_MIDDLE )
             {
-            // InternalSim.g:5819:3: (lv_value_0_0= RULE_PLAIN_TEXT_MIDDLE )
-            // InternalSim.g:5820:4: lv_value_0_0= RULE_PLAIN_TEXT_MIDDLE
+            // InternalSim.g:5819:3: (lv_value_0_0= RULE_RICH_TEXT_MIDDLE )
+            // InternalSim.g:5820:4: lv_value_0_0= RULE_RICH_TEXT_MIDDLE
             {
-            lv_value_0_0=(Token)match(input,RULE_PLAIN_TEXT_MIDDLE,FOLLOW_2); if (state.failed) return current;
+            lv_value_0_0=(Token)match(input,RULE_RICH_TEXT_MIDDLE,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              				newLeafNode(lv_value_0_0, grammarAccess.getDmxTextMiddleAccess().getValuePLAIN_TEXT_MIDDLETerminalRuleCall_0());
+              				newLeafNode(lv_value_0_0, grammarAccess.getDmxTextMiddleAccess().getValueRICH_TEXT_MIDDLETerminalRuleCall_0());
               			
             }
             if ( state.backtracking==0 ) {
@@ -16277,7 +16277,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
               					current,
               					"value",
               					lv_value_0_0,
-              					"com.mimacom.ddd.dm.dmx.Dmx.PLAIN_TEXT_MIDDLE");
+              					"com.mimacom.ddd.dm.dmx.Dmx.RICH_TEXT_MIDDLE");
               			
             }
 
@@ -16348,7 +16348,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDmxTextEnd"
-    // InternalSim.g:5846:1: ruleDmxTextEnd returns [EObject current=null] : ( (lv_value_0_0= RULE_PLAIN_TEXT_END ) ) ;
+    // InternalSim.g:5846:1: ruleDmxTextEnd returns [EObject current=null] : ( (lv_value_0_0= RULE_RICH_TEXT_END ) ) ;
     public final EObject ruleDmxTextEnd() throws RecognitionException {
         EObject current = null;
 
@@ -16358,19 +16358,19 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSim.g:5852:2: ( ( (lv_value_0_0= RULE_PLAIN_TEXT_END ) ) )
-            // InternalSim.g:5853:2: ( (lv_value_0_0= RULE_PLAIN_TEXT_END ) )
+            // InternalSim.g:5852:2: ( ( (lv_value_0_0= RULE_RICH_TEXT_END ) ) )
+            // InternalSim.g:5853:2: ( (lv_value_0_0= RULE_RICH_TEXT_END ) )
             {
-            // InternalSim.g:5853:2: ( (lv_value_0_0= RULE_PLAIN_TEXT_END ) )
-            // InternalSim.g:5854:3: (lv_value_0_0= RULE_PLAIN_TEXT_END )
+            // InternalSim.g:5853:2: ( (lv_value_0_0= RULE_RICH_TEXT_END ) )
+            // InternalSim.g:5854:3: (lv_value_0_0= RULE_RICH_TEXT_END )
             {
-            // InternalSim.g:5854:3: (lv_value_0_0= RULE_PLAIN_TEXT_END )
-            // InternalSim.g:5855:4: lv_value_0_0= RULE_PLAIN_TEXT_END
+            // InternalSim.g:5854:3: (lv_value_0_0= RULE_RICH_TEXT_END )
+            // InternalSim.g:5855:4: lv_value_0_0= RULE_RICH_TEXT_END
             {
-            lv_value_0_0=(Token)match(input,RULE_PLAIN_TEXT_END,FOLLOW_2); if (state.failed) return current;
+            lv_value_0_0=(Token)match(input,RULE_RICH_TEXT_END,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              				newLeafNode(lv_value_0_0, grammarAccess.getDmxTextEndAccess().getValuePLAIN_TEXT_ENDTerminalRuleCall_0());
+              				newLeafNode(lv_value_0_0, grammarAccess.getDmxTextEndAccess().getValueRICH_TEXT_ENDTerminalRuleCall_0());
               			
             }
             if ( state.backtracking==0 ) {
@@ -16382,7 +16382,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
               					current,
               					"value",
               					lv_value_0_0,
-              					"com.mimacom.ddd.dm.dmx.Dmx.PLAIN_TEXT_END");
+              					"com.mimacom.ddd.dm.dmx.Dmx.RICH_TEXT_END");
               			
             }
 
@@ -17394,7 +17394,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             if ( (LA131_0==RULE_ID) ) {
                 int LA131_1 = input.LA(2);
 
-                if ( (LA131_1==EOF||(LA131_1>=RULE_ID && LA131_1<=RULE_PLAIN_TEXT_END)||(LA131_1>=20 && LA131_1<=21)||LA131_1==25||LA131_1==27||(LA131_1>=29 && LA131_1<=33)||(LA131_1>=35 && LA131_1<=40)||(LA131_1>=44 && LA131_1<=47)||LA131_1==49||LA131_1==51||LA131_1==58||(LA131_1>=63 && LA131_1<=64)||(LA131_1>=66 && LA131_1<=69)||(LA131_1>=75 && LA131_1<=78)||(LA131_1>=87 && LA131_1<=88)||(LA131_1>=108 && LA131_1<=126)) ) {
+                if ( (LA131_1==EOF||(LA131_1>=RULE_ID && LA131_1<=RULE_RICH_TEXT_END)||(LA131_1>=20 && LA131_1<=21)||LA131_1==25||LA131_1==27||(LA131_1>=29 && LA131_1<=33)||(LA131_1>=35 && LA131_1<=40)||(LA131_1>=44 && LA131_1<=47)||LA131_1==49||LA131_1==51||LA131_1==58||(LA131_1>=63 && LA131_1<=64)||(LA131_1>=66 && LA131_1<=69)||(LA131_1>=75 && LA131_1<=78)||(LA131_1>=87 && LA131_1<=88)||(LA131_1>=108 && LA131_1<=126)) ) {
                     alt131=2;
                 }
                 else if ( (LA131_1==65) ) {
@@ -20242,7 +20242,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
                 {
                 int LA143_4 = input.LA(2);
 
-                if ( (LA143_4==EOF||(LA143_4>=RULE_ID && LA143_4<=RULE_PLAIN_TEXT_END)||(LA143_4>=20 && LA143_4<=21)||LA143_4==25||LA143_4==27||(LA143_4>=29 && LA143_4<=33)||(LA143_4>=35 && LA143_4<=40)||LA143_4==44||(LA143_4>=46 && LA143_4<=47)||LA143_4==49||LA143_4==51||LA143_4==58||(LA143_4>=63 && LA143_4<=64)||(LA143_4>=66 && LA143_4<=69)||(LA143_4>=75 && LA143_4<=78)||(LA143_4>=87 && LA143_4<=88)||(LA143_4>=108 && LA143_4<=126)) ) {
+                if ( (LA143_4==EOF||(LA143_4>=RULE_ID && LA143_4<=RULE_RICH_TEXT_END)||(LA143_4>=20 && LA143_4<=21)||LA143_4==25||LA143_4==27||(LA143_4>=29 && LA143_4<=33)||(LA143_4>=35 && LA143_4<=40)||LA143_4==44||(LA143_4>=46 && LA143_4<=47)||LA143_4==49||LA143_4==51||LA143_4==58||(LA143_4>=63 && LA143_4<=64)||(LA143_4>=66 && LA143_4<=69)||(LA143_4>=75 && LA143_4<=78)||(LA143_4>=87 && LA143_4<=88)||(LA143_4>=108 && LA143_4<=126)) ) {
                     alt143=6;
                 }
                 else if ( (LA143_4==45) ) {
@@ -20901,7 +20901,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt146=2;
             int LA146_0 = input.LA(1);
 
-            if ( ((LA146_0>=RULE_ID && LA146_0<=RULE_PLAIN_TEXT_START)||(LA146_0>=RULE_NATURAL && LA146_0<=RULE_STRING)||LA146_0==28||LA146_0==36||LA146_0==39||LA146_0==45||LA146_0==70||LA146_0==74||(LA146_0>=79 && LA146_0<=84)||(LA146_0>=87 && LA146_0<=88)||(LA146_0>=127 && LA146_0<=129)) ) {
+            if ( ((LA146_0>=RULE_ID && LA146_0<=RULE_RICH_TEXT_START)||(LA146_0>=RULE_NATURAL && LA146_0<=RULE_STRING)||LA146_0==28||LA146_0==36||LA146_0==39||LA146_0==45||LA146_0==70||LA146_0==74||(LA146_0>=79 && LA146_0<=84)||(LA146_0>=87 && LA146_0<=88)||(LA146_0>=127 && LA146_0<=129)) ) {
                 alt146=1;
             }
             switch (alt146) {
@@ -21521,7 +21521,7 @@ public class InternalSimParser extends AbstractInternalAntlrParser {
             int alt150=2;
             int LA150_0 = input.LA(1);
 
-            if ( ((LA150_0>=RULE_ID && LA150_0<=RULE_PLAIN_TEXT_START)||(LA150_0>=RULE_NATURAL && LA150_0<=RULE_STRING)||LA150_0==28||LA150_0==36||LA150_0==39||LA150_0==45||LA150_0==70||LA150_0==74||(LA150_0>=79 && LA150_0<=84)||(LA150_0>=87 && LA150_0<=88)||(LA150_0>=127 && LA150_0<=129)) ) {
+            if ( ((LA150_0>=RULE_ID && LA150_0<=RULE_RICH_TEXT_START)||(LA150_0>=RULE_NATURAL && LA150_0<=RULE_STRING)||LA150_0==28||LA150_0==36||LA150_0==39||LA150_0==45||LA150_0==70||LA150_0==74||(LA150_0>=79 && LA150_0<=84)||(LA150_0>=87 && LA150_0<=88)||(LA150_0>=127 && LA150_0<=129)) ) {
                 alt150=1;
             }
             switch (alt150) {

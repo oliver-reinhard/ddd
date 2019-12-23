@@ -25,9 +25,8 @@ public class InternalDomLexer extends Lexer {
     public static final int T__54=54;
     public static final int T__60=60;
     public static final int T__61=61;
-    public static final int RULE_PLAIN_TEXT_END=8;
     public static final int RULE_ID=4;
-    public static final int RULE_PLAIN_TEXT_START=6;
+    public static final int RULE_RICH_TEXT_START=6;
     public static final int T__66=66;
     public static final int RULE_ML_COMMENT=13;
     public static final int T__67=67;
@@ -47,7 +46,6 @@ public class InternalDomLexer extends Lexer {
     public static final int T__30=30;
     public static final int T__31=31;
     public static final int T__32=32;
-    public static final int RULE_PLAIN_TEXT_MIDDLE=7;
     public static final int RULE_LETTER=11;
     public static final int T__48=48;
     public static final int T__49=49;
@@ -102,6 +100,8 @@ public class InternalDomLexer extends Lexer {
     public static final int T__82=82;
     public static final int T__83=83;
     public static final int RULE_WS=15;
+    public static final int RULE_RICH_TEXT_END=8;
+    public static final int RULE_RICH_TEXT_MIDDLE=7;
     public static final int RULE_ANY_OTHER=16;
     public static final int T__88=88;
     public static final int T__89=89;
@@ -2161,16 +2161,16 @@ public class InternalDomLexer extends Lexer {
     }
     // $ANTLR end "RULE_PLAIN_TEXT_ONLY"
 
-    // $ANTLR start "RULE_PLAIN_TEXT_START"
-    public final void mRULE_PLAIN_TEXT_START() throws RecognitionException {
+    // $ANTLR start "RULE_RICH_TEXT_START"
+    public final void mRULE_RICH_TEXT_START() throws RecognitionException {
         try {
-            int _type = RULE_PLAIN_TEXT_START;
+            int _type = RULE_RICH_TEXT_START;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDom.g:4670:23: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '[' )
-            // InternalDom.g:4670:25: '\\u00AB' ( RULE_PLAIN_TEXT )* '['
+            // InternalDom.g:4670:22: ( '\\u00AB' ( RULE_PLAIN_TEXT )* '[' )
+            // InternalDom.g:4670:24: '\\u00AB' ( RULE_PLAIN_TEXT )* '['
             {
             match('\u00AB'); 
-            // InternalDom.g:4670:34: ( RULE_PLAIN_TEXT )*
+            // InternalDom.g:4670:33: ( RULE_PLAIN_TEXT )*
             loop7:
             do {
                 int alt7=2;
@@ -2183,7 +2183,7 @@ public class InternalDomLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalDom.g:4670:34: RULE_PLAIN_TEXT
+            	    // InternalDom.g:4670:33: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2205,18 +2205,18 @@ public class InternalDomLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "RULE_PLAIN_TEXT_START"
+    // $ANTLR end "RULE_RICH_TEXT_START"
 
-    // $ANTLR start "RULE_PLAIN_TEXT_MIDDLE"
-    public final void mRULE_PLAIN_TEXT_MIDDLE() throws RecognitionException {
+    // $ANTLR start "RULE_RICH_TEXT_MIDDLE"
+    public final void mRULE_RICH_TEXT_MIDDLE() throws RecognitionException {
         try {
-            int _type = RULE_PLAIN_TEXT_MIDDLE;
+            int _type = RULE_RICH_TEXT_MIDDLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDom.g:4672:24: ( ']' ( RULE_PLAIN_TEXT )* '[' )
-            // InternalDom.g:4672:26: ']' ( RULE_PLAIN_TEXT )* '['
+            // InternalDom.g:4672:23: ( ']' ( RULE_PLAIN_TEXT )* '[' )
+            // InternalDom.g:4672:25: ']' ( RULE_PLAIN_TEXT )* '['
             {
             match(']'); 
-            // InternalDom.g:4672:30: ( RULE_PLAIN_TEXT )*
+            // InternalDom.g:4672:29: ( RULE_PLAIN_TEXT )*
             loop8:
             do {
                 int alt8=2;
@@ -2229,7 +2229,7 @@ public class InternalDomLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalDom.g:4672:30: RULE_PLAIN_TEXT
+            	    // InternalDom.g:4672:29: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2251,18 +2251,18 @@ public class InternalDomLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "RULE_PLAIN_TEXT_MIDDLE"
+    // $ANTLR end "RULE_RICH_TEXT_MIDDLE"
 
-    // $ANTLR start "RULE_PLAIN_TEXT_END"
-    public final void mRULE_PLAIN_TEXT_END() throws RecognitionException {
+    // $ANTLR start "RULE_RICH_TEXT_END"
+    public final void mRULE_RICH_TEXT_END() throws RecognitionException {
         try {
-            int _type = RULE_PLAIN_TEXT_END;
+            int _type = RULE_RICH_TEXT_END;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDom.g:4674:21: ( ']' ( RULE_PLAIN_TEXT )* '\\u00BB' )
-            // InternalDom.g:4674:23: ']' ( RULE_PLAIN_TEXT )* '\\u00BB'
+            // InternalDom.g:4674:20: ( ']' ( RULE_PLAIN_TEXT )* '\\u00BB' )
+            // InternalDom.g:4674:22: ']' ( RULE_PLAIN_TEXT )* '\\u00BB'
             {
             match(']'); 
-            // InternalDom.g:4674:27: ( RULE_PLAIN_TEXT )*
+            // InternalDom.g:4674:26: ( RULE_PLAIN_TEXT )*
             loop9:
             do {
                 int alt9=2;
@@ -2275,7 +2275,7 @@ public class InternalDomLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalDom.g:4674:27: RULE_PLAIN_TEXT
+            	    // InternalDom.g:4674:26: RULE_PLAIN_TEXT
             	    {
             	    mRULE_PLAIN_TEXT(); 
 
@@ -2297,7 +2297,7 @@ public class InternalDomLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "RULE_PLAIN_TEXT_END"
+    // $ANTLR end "RULE_RICH_TEXT_END"
 
     // $ANTLR start "RULE_ML_COMMENT"
     public final void mRULE_ML_COMMENT() throws RecognitionException {
@@ -2527,7 +2527,7 @@ public class InternalDomLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // InternalDom.g:1:8: ( T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | RULE_ID | RULE_STRING | RULE_NATURAL | RULE_PLAIN_TEXT_ONLY | RULE_PLAIN_TEXT_START | RULE_PLAIN_TEXT_MIDDLE | RULE_PLAIN_TEXT_END | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        // InternalDom.g:1:8: ( T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | RULE_ID | RULE_STRING | RULE_NATURAL | RULE_PLAIN_TEXT_ONLY | RULE_RICH_TEXT_START | RULE_RICH_TEXT_MIDDLE | RULE_RICH_TEXT_END | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
         int alt15=94;
         alt15 = dfa15.predict(input);
         switch (alt15) {
@@ -3141,49 +3141,49 @@ public class InternalDomLexer extends Lexer {
                 }
                 break;
             case 88 :
-                // InternalDom.g:1:562: RULE_PLAIN_TEXT_START
+                // InternalDom.g:1:562: RULE_RICH_TEXT_START
                 {
-                mRULE_PLAIN_TEXT_START(); 
+                mRULE_RICH_TEXT_START(); 
 
                 }
                 break;
             case 89 :
-                // InternalDom.g:1:584: RULE_PLAIN_TEXT_MIDDLE
+                // InternalDom.g:1:583: RULE_RICH_TEXT_MIDDLE
                 {
-                mRULE_PLAIN_TEXT_MIDDLE(); 
+                mRULE_RICH_TEXT_MIDDLE(); 
 
                 }
                 break;
             case 90 :
-                // InternalDom.g:1:607: RULE_PLAIN_TEXT_END
+                // InternalDom.g:1:605: RULE_RICH_TEXT_END
                 {
-                mRULE_PLAIN_TEXT_END(); 
+                mRULE_RICH_TEXT_END(); 
 
                 }
                 break;
             case 91 :
-                // InternalDom.g:1:627: RULE_ML_COMMENT
+                // InternalDom.g:1:624: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
             case 92 :
-                // InternalDom.g:1:643: RULE_SL_COMMENT
+                // InternalDom.g:1:640: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
             case 93 :
-                // InternalDom.g:1:659: RULE_WS
+                // InternalDom.g:1:656: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
             case 94 :
-                // InternalDom.g:1:667: RULE_ANY_OTHER
+                // InternalDom.g:1:664: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -3574,7 +3574,7 @@ public class InternalDomLexer extends Lexer {
             this.transition = DFA15_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | RULE_ID | RULE_STRING | RULE_NATURAL | RULE_PLAIN_TEXT_ONLY | RULE_PLAIN_TEXT_START | RULE_PLAIN_TEXT_MIDDLE | RULE_PLAIN_TEXT_END | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | RULE_ID | RULE_STRING | RULE_NATURAL | RULE_PLAIN_TEXT_ONLY | RULE_RICH_TEXT_START | RULE_RICH_TEXT_MIDDLE | RULE_RICH_TEXT_END | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
