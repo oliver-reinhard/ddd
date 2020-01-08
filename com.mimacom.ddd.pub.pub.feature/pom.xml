@@ -1,0 +1,16 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.mimacom.ddd</groupId>
+    <artifactId>com.mimacom.ddd.tycho.plugin.parent</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <relativePath>../releng/com.mimacom.ddd.tycho.plugin.parent</relativePath>
+	</parent>
+
+	<artifactId>com.mimacom.ddd.pub.pub.feature</artifactId>
+	<packaging>eclipse-feature</packaging>
+
+  <name>Publication Feature</name>
+</project>
