@@ -5,7 +5,8 @@ package com.mimacom.ddd.sm.sim.tests
 
 import com.google.inject.Inject
 import com.google.inject.Provider
-import com.mimacom.ddd.dm.base.DDomain
+import com.mimacom.ddd.dm.dmx.DmxNamespace
+import com.mimacom.ddd.dm.dmx.DmxStandaloneSetup
 import com.mimacom.ddd.sm.sim.SInformationModel
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.xtext.testing.InjectWith
@@ -18,25 +19,31 @@ import org.junit.jupiter.api.^extension.ExtendWith
 @ExtendWith(InjectionExtension)
 @InjectWith(SimInjectorProvider)
 class SimParsingTest {
-	@Inject 
-	ParseHelper<DDomain> dmParseHelper
 	
-	@Inject 
+	@Inject
 	ParseHelper<SInformationModel> smParseHelper
 	
 	@Inject
 	Provider<ResourceSet> resourceSetProvider
 	
+	ParseHelper<DmxNamespace> dmxParseHelper
+	
+	new() {
+	  // DMX parse helper must be retrieved from corresponding injector
+    val dmxInjector = new DmxStandaloneSetup().createInjectorAndDoEMFRegistration()
+    dmxParseHelper = dmxInjector.getInstance(ParseHelper)
+  }
+	
 	@Test
 	def void grabArchetype() {
 		val resourceSet = resourceSetProvider.get
-		val dm = dmParseHelper.parse('''
-			domain DM
-			archetype DT { }
+		val dm = dmxParseHelper.parse('''
+			namespace N
+			archetype MyPrimitive is BOOLEAN
 		''', resourceSet)
 		val sm = smParseHelper.parse('''
-			base information model SM
-			grab primitive DM.DT as ST 
+			base information model S
+			grab primitive N.MyPrimitive as Test {}
 		''', resourceSet)
 		Assertions.assertNotNull(dm)
 		val dmErrors = dm.eResource.errors
