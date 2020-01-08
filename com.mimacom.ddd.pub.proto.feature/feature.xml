@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.mimacom.ddd.pub.proto.feature"
+      label="Publication Prototype Feature"
+      version="0.1.0.qualifier"
+      provider-name="mimacom ag">
+
+   <plugin
+         id="com.mimacom.ddd.pub.proto"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.mimacom.ddd.pub.proto.ide"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.mimacom.ddd.pub.proto.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
