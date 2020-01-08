@@ -1,0 +1,78 @@
+@Ecore(nsURI="http://www.mimacom.com/ddd/pub/proto")
+@GenModel(modelDirectory="/com.mimacom.ddd.pub.proto/emf-gen")
+
+package com.mimacom.ddd.pub.proto
+
+class PublicationClass {
+	String name  // id
+	String title
+	PublicationNature nature
+	contains ProtoDocumentSegment[] segments opposite parent
+	contains ProtoDivision[] divisions
+}
+
+enum PublicationNature { Print, Web }
+
+abstract class ProtoDocumentSegment {
+	derived String name get {
+		class.simpleName.replace("Impl", "").toLowerCase
+	}
+	String title
+	boolean optional = "false"
+	container PublicationClass parent opposite segments
+}
+
+class ProtoAbstract extends ProtoDocumentSegment { }
+
+class ProtoPreface extends ProtoDocumentSegment { }
+
+class ProtoEpilogue extends ProtoDocumentSegment { }
+
+class ProtoPublicationBody extends ProtoDocumentSegment {
+	boolean allowParts = "false"
+	boolean allowAppendix = "false"
+}
+
+class ProtoChangeHistory extends ProtoDocumentSegment { }
+
+class ProtoTOC extends ProtoDocumentSegment {  
+	int maxLevel = "3"
+}
+
+class ProtoAbbreviations extends ProtoDocumentSegment { }
+
+class ProtoListOfTables extends ProtoDocumentSegment { }
+
+class ProtoListOfFigures extends ProtoDocumentSegment { }
+
+class ProtoBibliography extends ProtoDocumentSegment { }
+
+class ProtoGlossary extends ProtoDocumentSegment { }
+
+class ProtoIndex extends ProtoDocumentSegment { }
+
+// 
+// Divisions
+//
+
+abstract class ProtoDivision { 
+	derived String name get {
+		class.simpleName.replace("Impl", "").toLowerCase
+	}
+	ProtoSequenceNumberStyle numberingStyle
+}
+
+enum ProtoSequenceNumberStyle { Arabic, CapitalRoman, SmallRoman, CapitalLetter, SmallLetter, None }
+
+class ProtoPart extends ProtoDivision { }
+
+class ProtoAppendix extends ProtoPart { }
+
+class ProtoChapter extends ProtoDivision { }
+
+class ProtoSection extends ProtoDivision { }
+
+class ProtoSubsection extends ProtoDivision { }
+
+class ProtoSubsubsection extends ProtoDivision { }
+
