@@ -69,6 +69,7 @@ public class DEnumerationImpl extends DSimpleTypeImpl implements DEnumeration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DLiteral> getLiterals()
 	{
 		if (literals == null)

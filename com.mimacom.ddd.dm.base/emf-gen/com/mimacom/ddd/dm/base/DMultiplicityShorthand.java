@@ -62,10 +62,6 @@ public enum DMultiplicityShorthand implements Enumerator
 	/**
 	 * The '<em><b>NONE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>NONE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #NONE
 	 * @model
@@ -77,10 +73,6 @@ public enum DMultiplicityShorthand implements Enumerator
 	/**
 	 * The '<em><b>ZERO OR ONE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>ZERO OR ONE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #ZERO_OR_ONE
 	 * @model
@@ -92,10 +84,6 @@ public enum DMultiplicityShorthand implements Enumerator
 	/**
 	 * The '<em><b>ONE OR MORE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>ONE OR MORE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #ONE_OR_MORE
 	 * @model
@@ -107,10 +95,6 @@ public enum DMultiplicityShorthand implements Enumerator
 	/**
 	 * The '<em><b>ZERO OR MORE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>ZERO OR MORE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #ZERO_OR_MORE
 	 * @model
@@ -243,6 +227,7 @@ public enum DMultiplicityShorthand implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue()
 	{
 	  return value;
@@ -253,6 +238,7 @@ public enum DMultiplicityShorthand implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName()
 	{
 	  return name;
@@ -263,6 +249,7 @@ public enum DMultiplicityShorthand implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral()
 	{
 	  return literal;

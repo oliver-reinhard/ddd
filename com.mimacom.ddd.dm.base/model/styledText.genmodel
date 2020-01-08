@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.mimacom.ddd.dm.base/emf-gen" modelPluginID="com.mimacom.ddd.dm.base"
+    modelName="StyledText" editPluginClass="com.mimacom.ddd.dm.base.provider.StyledTextEditPlugin"
+    editorPluginClass="com.mimacom.ddd.dm.base.presentation.StyledTextEditorPlugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" testSuiteClass="com.mimacom.ddd.dm.base.tests.StyledTextAllTests"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true" pluginKey="base">
+  <foreignModel>styledText.ecore</foreignModel>
+  <genPackages prefix="StyledText" basePackage="com.mimacom.ddd.dm" disposableProviderFactory="true"
+      ecorePackage="styledText.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="styledText.ecore#//DTextStyle">
+      <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DTextStyle/Plain"/>
+      <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DTextStyle/Emphasis"/>
+      <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DTextStyle/Strong"/>
+      <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DTextStyle/Keyword"/>
+      <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DTextStyle/Monospace"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="styledText.ecore#//DTextAttribute">
+      <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DTextAttribute/Underline"/>
+      <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DTextAttribute/Strikethrough"/>
+      <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DTextAttribute/Superscript"/>
+      <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DTextAttribute/Subscript"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="styledText.ecore#//DColor">
+      <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DColor/black"/>
+      <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DColor/brown"/>
+      <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DColor/red"/>
+      <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DColor/orange"/>
+      <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DColor/yellow"/>
+      <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DColor/green"/>
+      <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DColor/blue"/>
+      <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DColor/purple"/>
+      <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DColor/grey"/>
+      <genEnumLiterals ecoreEnumLiteral="styledText.ecore#//DColor/white"/>
+    </genEnums>
+    <genClasses ecoreClass="styledText.ecore#//DStyledTextSpan">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute styledText.ecore#//DStyledTextSpan/style"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute styledText.ecore#//DStyledTextSpan/attributes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute styledText.ecore#//DStyledTextSpan/startPos"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute styledText.ecore#//DStyledTextSpan/endPos"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference styledText.ecore#//DStyledTextSpan/subspans"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute styledText.ecore#//DStyledTextSpan/textColor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute styledText.ecore#//DStyledTextSpan/highlightColor"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -8,12 +8,15 @@ import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DFeature
 import com.mimacom.ddd.dm.base.DQuery
+import com.mimacom.ddd.dm.base.DRichText
 import com.mimacom.ddd.dm.dmx.DmxAssignment
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxFilter
 import com.mimacom.ddd.dm.dmx.DmxListExpression
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DmxUtil
+import com.mimacom.ddd.dm.dmx.RichTextUtil
+import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor
 import org.eclipse.xtext.validation.Check
 
 /**
@@ -21,9 +24,10 @@ import org.eclipse.xtext.validation.Check
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
-class DmxValidator extends DmxTypeCheckingValidator {
+class DmxValidator extends DmxTypeCheckingValidator implements ErrorMessageAcceptor {
 
-	@Inject extension DmxUtil util
+	@Inject extension DmxUtil 
+	@Inject extension RichTextUtil
 
 	@Check
 	def checkAssignmentTarget(DmxAssignment a) {
@@ -81,4 +85,15 @@ class DmxValidator extends DmxTypeCheckingValidator {
 			}
 		}
 	}
+	
+	@Check
+	def checkRichTextFormatting(DRichText rt) {
+		rt.parse(this)
+	}
+	
+	override acceptError(String message, int offset, int length) {
+		val current = getCurrentObject()
+		messageAcceptor.acceptError(message, current, offset, length, null);
+	}
+	
 }

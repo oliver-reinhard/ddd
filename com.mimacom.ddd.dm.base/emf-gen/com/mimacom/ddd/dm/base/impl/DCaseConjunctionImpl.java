@@ -105,6 +105,7 @@ public class DCaseConjunctionImpl extends DNamedElementImpl implements DCaseConj
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DExpression getSelector()
 	{
 		return selector;
@@ -132,6 +133,7 @@ public class DCaseConjunctionImpl extends DNamedElementImpl implements DCaseConj
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSelector(DExpression newSelector)
 	{
 		if (newSelector != selector)
@@ -153,6 +155,7 @@ public class DCaseConjunctionImpl extends DNamedElementImpl implements DCaseConj
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isOtherwise()
 	{
 		return otherwise;
@@ -163,6 +166,7 @@ public class DCaseConjunctionImpl extends DNamedElementImpl implements DCaseConj
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOtherwise(boolean newOtherwise)
 	{
 		boolean oldOtherwise = otherwise;
@@ -176,6 +180,7 @@ public class DCaseConjunctionImpl extends DNamedElementImpl implements DCaseConj
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DNamedPredicate> getPredicates()
 	{
 		if (predicates == null)
@@ -301,7 +306,7 @@ public class DCaseConjunctionImpl extends DNamedElementImpl implements DCaseConj
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (otherwise: ");
 		result.append(otherwise);
 		result.append(')');

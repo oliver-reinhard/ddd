@@ -84,6 +84,7 @@ public class DQueryImpl extends DFeatureImpl implements DQuery
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DQueryParameter> getParameters()
 	{
 		if (parameters == null)
@@ -98,6 +99,7 @@ public class DQueryImpl extends DFeatureImpl implements DQuery
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DExpression getReturns()
 	{
 		return returns;
@@ -125,6 +127,7 @@ public class DQueryImpl extends DFeatureImpl implements DQuery
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setReturns(DExpression newReturns)
 	{
 		if (newReturns != returns)

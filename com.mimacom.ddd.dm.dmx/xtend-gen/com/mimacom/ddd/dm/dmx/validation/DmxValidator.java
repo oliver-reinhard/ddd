@@ -11,6 +11,7 @@ import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DQuery;
+import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.dmx.DmxAssignment;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
@@ -18,9 +19,13 @@ import com.mimacom.ddd.dm.dmx.DmxFilterParameter;
 import com.mimacom.ddd.dm.dmx.DmxListExpression;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxUtil;
+import com.mimacom.ddd.dm.dmx.RichTextUtil;
 import com.mimacom.ddd.dm.dmx.validation.DmxTypeCheckingValidator;
+import com.mimacom.ddd.dm.styledText.DStyledTextSpan;
+import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor;
 import java.util.Set;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
@@ -32,10 +37,14 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 @SuppressWarnings("all")
-public class DmxValidator extends DmxTypeCheckingValidator {
+public class DmxValidator extends DmxTypeCheckingValidator implements ErrorMessageAcceptor {
   @Inject
   @Extension
-  private DmxUtil util;
+  private DmxUtil _dmxUtil;
+  
+  @Inject
+  @Extension
+  private RichTextUtil _richTextUtil;
   
   @Check
   public void checkAssignmentTarget(final DmxAssignment a) {
@@ -80,7 +89,7 @@ public class DmxValidator extends DmxTypeCheckingValidator {
   
   @Check
   public void checkNoStateFeature(final DEntityType e) {
-    final Set<DComplexType> superTypes = this.util.typeHierarchy(e);
+    final Set<DComplexType> superTypes = this._dmxUtil.typeHierarchy(e);
     if (((!e.getStates().isEmpty()) || IterableExtensions.<DComplexType>exists(superTypes, ((Function1<DComplexType, Boolean>) (DComplexType t) -> {
       return Boolean.valueOf(((t instanceof DEntityType) && (!((DEntityType) t).getStates().isEmpty())));
     })))) {
@@ -92,7 +101,7 @@ public class DmxValidator extends DmxTypeCheckingValidator {
           this.error("Cannot declare a \'state\' feature while states are declared for this type or for one of its super types.", f, DmxTypeCheckingValidator.BASE.getDNamedElement_Name());
         }
       }
-      if (((e.getSuperType() != null) && IterableExtensions.<DFeature>exists(this.util.allFeatures(e.getSuperType()), ((Function1<DFeature, Boolean>) (DFeature it) -> {
+      if (((e.getSuperType() != null) && IterableExtensions.<DFeature>exists(this._dmxUtil.allFeatures(e.getSuperType()), ((Function1<DFeature, Boolean>) (DFeature it) -> {
         String _name_1 = it.getName();
         return Boolean.valueOf(Objects.equal(_name_1, DmxUtil.ENTITY_TYPE_STATE_FILTER_NAME));
       })))) {
@@ -109,5 +118,16 @@ public class DmxValidator extends DmxTypeCheckingValidator {
         this.error("Cannot nest lists", expr, DmxTypeCheckingValidator.DMX.getDmxListExpression_Elements());
       }
     }
+  }
+  
+  @Check
+  public DStyledTextSpan checkRichTextFormatting(final DRichText rt) {
+    return this._richTextUtil.parse(rt, this);
+  }
+  
+  @Override
+  public void acceptError(final String message, final int offset, final int length) {
+    final EObject current = this.getCurrentObject();
+    this.getMessageAcceptor().acceptError(message, current, offset, length, null);
   }
 }

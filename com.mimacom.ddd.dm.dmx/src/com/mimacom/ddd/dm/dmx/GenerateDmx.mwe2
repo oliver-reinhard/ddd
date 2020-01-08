@@ -37,7 +37,6 @@ Workflow {
 			fileExtensions = "dmx"
 			referencedResource =  "${baseGenModel}"
 			referencedResource =  "${genModel}"
-
 			formatter = {
 				generateStub = true
 			}

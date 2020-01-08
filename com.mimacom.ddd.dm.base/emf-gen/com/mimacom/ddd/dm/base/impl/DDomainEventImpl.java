@@ -120,6 +120,7 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DContext> getContext()
 	{
 		if (context == null)
@@ -134,6 +135,7 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DActor getTrigger()
 	{
 		if (trigger != null && trigger.eIsProxy())
@@ -164,6 +166,7 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTrigger(DActor newTrigger)
 	{
 		DActor oldTrigger = trigger;
@@ -177,6 +180,7 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DNamedPredicate> getPreconditionsCNF()
 	{
 		if (preconditionsCNF == null)
@@ -191,6 +195,7 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DNamedElement> getPostconditionsDNF()
 	{
 		if (postconditionsDNF == null)
@@ -205,6 +210,7 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DNotification> getNotifications()
 	{
 		if (notifications == null)

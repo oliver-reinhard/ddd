@@ -47,12 +47,12 @@ class DmxUtil {
 	}
 
 	def List<DExpression> nullSafeCallArguments(DmxMemberNavigation nav) {
-		if (nav.callArguments === null) return Collections.EMPTY_LIST
+		if(nav.callArguments === null) return Collections.EMPTY_LIST
 		return nav.callArguments.arguments
 	}
 
 	def List<DExpression> nullSafeCallArguments(DmxFunctionCall call) {
-		if (call.callArguments === null) return Collections.EMPTY_LIST
+		if(call.callArguments === null) return Collections.EMPTY_LIST
 		return call.callArguments.arguments
 	}
 
@@ -67,7 +67,7 @@ class DmxUtil {
 		}
 		return parseTimepoint(trimmed, DmxUtil::TIMEPOINT_DATE_FORMAT)
 	}
-	
+
 	def DmxField field(DmxComplexObject obj, DFeature feature) {
 		for (f : obj.fields) {
 			if (f.feature == feature) {

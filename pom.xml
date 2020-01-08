@@ -21,6 +21,7 @@
     <module>releng</module>
     <!-- base -->
     <module>com.mimacom.ddd.dm.base</module>
+    <module>com.mimacom.ddd.dm.base.tests</module>
     <module>com.mimacom.ddd.dm.base.feature</module>
     <!-- util -->
     <module>com.mimacom.ddd.util</module>

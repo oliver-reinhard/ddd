@@ -104,6 +104,7 @@ public abstract class DNamedElementImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName()
 	{
 		return name;
@@ -114,6 +115,7 @@ public abstract class DNamedElementImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName)
 	{
 		String oldName = name;
@@ -127,6 +129,7 @@ public abstract class DNamedElementImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getAliases()
 	{
 		if (aliases == null)
@@ -141,6 +144,7 @@ public abstract class DNamedElementImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DRichText getDescription()
 	{
 		return description;
@@ -168,6 +172,7 @@ public abstract class DNamedElementImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(DRichText newDescription)
 	{
 		if (newDescription != description)
@@ -298,7 +303,7 @@ public abstract class DNamedElementImpl extends MinimalEObjectImpl.Container imp
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", aliases: ");
