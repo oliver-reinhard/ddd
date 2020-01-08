@@ -4,8 +4,10 @@
 package com.mimacom.ddd.sm.sim.tests;
 
 import com.google.inject.Inject;
+import com.google.inject.Injector;
 import com.google.inject.Provider;
-import com.mimacom.ddd.dm.base.DDomain;
+import com.mimacom.ddd.dm.dmx.DmxNamespace;
+import com.mimacom.ddd.dm.dmx.DmxStandaloneSetup;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import com.mimacom.ddd.sm.sim.tests.SimInjectorProvider;
 import org.eclipse.emf.common.util.EList;
@@ -26,28 +28,32 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @SuppressWarnings("all")
 public class SimParsingTest {
   @Inject
-  private ParseHelper<DDomain> dmParseHelper;
-  
-  @Inject
   private ParseHelper<SInformationModel> smParseHelper;
   
   @Inject
   private Provider<ResourceSet> resourceSetProvider;
+  
+  private ParseHelper<DmxNamespace> dmxParseHelper;
+  
+  public SimParsingTest() {
+    final Injector dmxInjector = new DmxStandaloneSetup().createInjectorAndDoEMFRegistration();
+    this.dmxParseHelper = dmxInjector.<ParseHelper>getInstance(ParseHelper.class);
+  }
   
   @Test
   public void grabArchetype() {
     try {
       final ResourceSet resourceSet = this.resourceSetProvider.get();
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("domain DM");
+      _builder.append("namespace N");
       _builder.newLine();
-      _builder.append("archetype DT { }");
+      _builder.append("archetype MyPrimitive is BOOLEAN");
       _builder.newLine();
-      final DDomain dm = this.dmParseHelper.parse(_builder, resourceSet);
+      final DmxNamespace dm = this.dmxParseHelper.parse(_builder, resourceSet);
       StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("base information model SM");
+      _builder_1.append("base information model S");
       _builder_1.newLine();
-      _builder_1.append("grab primitive DM.DT as ST ");
+      _builder_1.append("grab primitive N.MyPrimitive as Test {}");
       _builder_1.newLine();
       final SInformationModel sm = this.smParseHelper.parse(_builder_1, resourceSet);
       Assertions.assertNotNull(dm);
