@@ -12,6 +12,8 @@
   <unit id="org.eclipse.xpand.sdk.feature.group" version="2.2.0.v201605260315"/>
   <unit id="org.eclipse.xtext.sdk.feature.group" version="2.19.0.v20190902-1322"/>
       <unit id="org.eclipse.equinox.sdk.feature.group" version="3.19.0.v20190907-0428"/>
+	  <unit id="org.eclipse.emf.ecore.xcore.sdk.feature.group" version="1.11.0.v20190822-1451"/>
+	  <unit id="org.eclipse.egit.feature.group" version="5.5.0.201909110433-r"/>
   </location>
   <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
   <repository location="http://hallvard.github.io/plantuml/"/>

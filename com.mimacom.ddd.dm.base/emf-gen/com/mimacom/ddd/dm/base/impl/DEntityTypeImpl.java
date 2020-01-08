@@ -127,6 +127,7 @@ public class DEntityTypeImpl extends DComplexTypeImplCustom implements DEntityTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isRoot()
 	{
 		return root;
@@ -137,6 +138,7 @@ public class DEntityTypeImpl extends DComplexTypeImplCustom implements DEntityTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRoot(boolean newRoot)
 	{
 		boolean oldRoot = root;
@@ -150,6 +152,7 @@ public class DEntityTypeImpl extends DComplexTypeImplCustom implements DEntityTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DEntityOrigin getOrigin()
 	{
 		return origin;
@@ -160,6 +163,7 @@ public class DEntityTypeImpl extends DComplexTypeImplCustom implements DEntityTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOrigin(DEntityOrigin newOrigin)
 	{
 		DEntityOrigin oldOrigin = origin;
@@ -173,6 +177,7 @@ public class DEntityTypeImpl extends DComplexTypeImplCustom implements DEntityTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DState> getStates()
 	{
 		if (states == null)
@@ -187,6 +192,7 @@ public class DEntityTypeImpl extends DComplexTypeImplCustom implements DEntityTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DStateEvent> getEvents()
 	{
 		if (events == null)
@@ -323,7 +329,7 @@ public class DEntityTypeImpl extends DComplexTypeImplCustom implements DEntityTy
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (root: ");
 		result.append(root);
 		result.append(", origin: ");

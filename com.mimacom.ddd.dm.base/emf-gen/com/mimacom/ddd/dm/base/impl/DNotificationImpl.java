@@ -77,6 +77,7 @@ public class DNotificationImpl extends DNavigableMemberImplCustom implements DNo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DMessage getMessage()
 	{
 		return message;
@@ -104,6 +105,7 @@ public class DNotificationImpl extends DNavigableMemberImplCustom implements DNo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMessage(DMessage newMessage)
 	{
 		if (newMessage != message)
@@ -125,6 +127,7 @@ public class DNotificationImpl extends DNavigableMemberImplCustom implements DNo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DActor getNotified()
 	{
 		if (notified != null && notified.eIsProxy())
@@ -155,6 +158,7 @@ public class DNotificationImpl extends DNavigableMemberImplCustom implements DNo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setNotified(DActor newNotified)
 	{
 		DActor oldNotified = notified;

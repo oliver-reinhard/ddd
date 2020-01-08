@@ -124,6 +124,7 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DType> getTypes()
 	{
 		if (types == null)
@@ -138,6 +139,7 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IDeductionDefinition getDeducedFrom()
 	{
 		if (deducedFrom != null && deducedFrom.eIsProxy())
@@ -168,6 +170,7 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDeducedFrom(IDeductionDefinition newDeducedFrom)
 	{
 		IDeductionDefinition oldDeducedFrom = deducedFrom;
@@ -181,6 +184,7 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isSynthetic()
 	{
 		return synthetic;
@@ -191,6 +195,7 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSynthetic(boolean newSynthetic)
 	{
 		boolean oldSynthetic = synthetic;
@@ -204,6 +209,7 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DEntityType> getRoots()
 	{
 		// TODO: implement this method to return the 'Roots' reference list
@@ -218,6 +224,7 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DQuery> getStaticQueries()
 	{
 		if (staticQueries == null)
@@ -457,7 +464,7 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (synthetic: ");
 		result.append(synthetic);
 		result.append(')');

@@ -104,6 +104,7 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isAbstract()
 	{
 		return abstract_;
@@ -114,6 +115,7 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAbstract(boolean newAbstract)
 	{
 		boolean oldAbstract = abstract_;
@@ -127,6 +129,7 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DComplexType getSuperType()
 	{
 		if (superType != null && superType.eIsProxy())
@@ -157,6 +160,7 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSuperType(DComplexType newSuperType)
 	{
 		DComplexType oldSuperType = superType;
@@ -170,6 +174,7 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DFeature> getFeatures()
 	{
 		if (features == null)
@@ -294,7 +299,7 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (abstract: ");
 		result.append(abstract_);
 		result.append(')');
