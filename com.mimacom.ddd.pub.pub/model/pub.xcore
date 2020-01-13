@@ -1,0 +1,384 @@
+@Ecore(nsURI="http://www.mimacom.com/ddd/pub/pub")
+@GenModel(modelDirectory="/com.mimacom.ddd.pub.pub/emf-gen")
+package com.mimacom.ddd.pub.pub
+
+import com.mimacom.ddd.dm.base.DExpression
+import com.mimacom.ddd.dm.base.DImport
+import com.mimacom.ddd.dm.base.DRichText
+import com.mimacom.ddd.pub.pub.impl.PubConstants
+import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle
+import com.mimacom.ddd.pub.proto.PublicationClass
+
+class PubModel {
+	contains DImport[] imports
+	contains Document document
+}
+
+//
+// Actual publication
+//
+enum PublicationNature {
+	Print
+	, Web
+}
+
+abstract class Document extends ReferenceTarget {
+	String title
+	refers PublicationClass publicationClass
+}
+
+class Publication extends Document {
+	refers Component[] includes
+}
+
+class Component extends Document {
+	contains DocumentSegment[] segments opposite parent
+}
+
+interface ReferenceTarget {
+	String name
+	derived String ^id get {
+		name
+	}
+}
+
+class Reference extends DExpression {
+	ReferenceScope scope
+	refers ReferenceTarget target
+}
+
+enum ReferenceScope {
+	Default
+	,
+	DocumentSegment
+	,
+	Division
+	,
+	Part
+	,
+	Appendix
+	,
+	Chapter
+	,
+	Section
+	,
+	Subsection
+	,
+	Subsubsection
+	,
+	Table
+	,
+	Figure
+	,
+	Equation
+	,
+	CodeListing
+	,
+	Admonition
+	,
+	Abbreviation
+	,
+	Glossary
+	,
+	Bibliography
+}
+
+// 
+// Content Structure
+//
+abstract class DocumentSegment extends ReferenceTarget {
+	op String getName() {
+		class.simpleName.replace("Impl", "").toLowerCase
+	}
+	op void setName(String name) {
+		throw new UnsupportedOperationException
+	}
+	container Component parent opposite segments
+}
+
+abstract class BlockContainer {
+	contains ContentBlock[] contents
+}
+
+class SegmentWithText extends DocumentSegment, BlockContainer {
+}
+
+class Abstract extends SegmentWithText {
+}
+
+class Preface extends SegmentWithText {
+}
+
+class Epilogue extends SegmentWithText {
+}
+
+class SegmentWithTable extends DocumentSegment, BlockContainer {
+}
+
+class ChangeHistory extends SegmentWithTable {
+	contains ChangeDescription[] entries
+}
+
+class ChangeDescription {
+	String version
+	String date
+	String author
+	String description
+}
+
+class TOC extends SegmentWithTable {
+}
+
+class Abbreviations extends SegmentWithTable {
+	contains Abbreviation[] entries
+}
+
+class Abbreviation {
+	String name
+	String longForm
+}
+
+class ListOfTables extends SegmentWithTable {
+}
+
+class ListOfFigures extends SegmentWithTable {
+}
+
+class Bibliography extends SegmentWithTable {
+	contains BibliographyEntry[] entries
+}
+
+class BibliographyEntry {
+	String name
+	String authors
+	String title
+	String publisher
+	String date
+	String comment
+}
+
+class Glossary extends SegmentWithTable {
+	contains GlossaryEntry[] entries
+}
+
+class GlossaryEntry {
+	String name
+	String text
+	String comment
+}
+
+class Index extends DocumentSegment{
+	contains IndexEntry[] entries
+}
+
+class IndexEntry {
+	String text
+	refers Division[] references
+}
+
+class SegmentInclude extends DocumentSegment {
+	refers DocumentSegment include
+}
+
+class PublicationBody extends DocumentSegment, DivisionContainer {
+	// contained Divisions must be all Parts XOR all Chapters
+}
+
+// 
+// Divisions
+//
+interface NumberedElement {
+	transient int level = "-1" // -1 = not set (undefined)
+	// The sequence number, not necessarily the displayed number of an element
+	transient int sequenceNumber = "-1" // -1 = not set (undefined)
+}
+
+interface DivisionContainer {
+	contains Division[] divisions
+}
+
+abstract class Division extends DivisionContainer, BlockContainer, NumberedElement, ReferenceTarget {
+	op String getId() {
+		if (name === null || name.empty) {
+			val StringBuilder b = new StringBuilder
+			b.append(getSequenceNumber)
+			var p = parent
+			while (p !== null) {
+				b.insert(0, '-')
+				b.insert(0, p.sequenceNumber)
+				p = p.parent
+			}
+			return b.toString
+		}
+		return name
+	}
+	int startNumberingAt = "1"
+	contains DRichText title
+	refers Division include // optional
+	refers transient Division logicalContainer
+	op Division parent() {
+		if (logicalContainer !== null) {
+			return logicalContainer
+		} else if (eContainer instanceof Division) {
+			return eContainer as Division
+		}
+		return null
+	}
+	op Document getDocument() {
+		var parent = eContainer
+		while (parent !== null && ! (parent instanceof Document)) {
+			parent = parent.eContainer
+		}
+		return parent as Document
+	}
+}
+
+class Part extends Division {
+}
+
+class Appendix extends Part {
+}
+
+class Chapter extends Division {
+}
+
+class Section  extends Division {
+}
+
+class Subsection  extends Division {
+}
+
+class Subsubsection  extends Division {
+}
+
+//
+// Actual Content
+//
+abstract class ContentBlock {
+}
+
+class Admonition  extends ContentBlock, BlockContainer, ReferenceTarget {
+	AdmonitionKind kind
+	contains DRichText title
+}
+
+enum AdmonitionKind {
+	Note
+	, Tip
+	, Caution
+	, Important
+}
+
+class List extends ContentBlock, ReferenceTarget {
+	ListStyle style
+	ProtoSequenceNumberStyle numberingStyle
+	derived int level get {
+		var i = PubConstants::TOP_LEVEL
+		var parent = eContainer
+		while (parent !== null && ! (parent instanceof Division)) {
+			if (eContainer instanceof List) i++
+			parent = parent.eContainer
+		}
+		return i
+	}
+	contains ListItem[] items opposite list
+}
+
+enum ListStyle {
+	Bullet
+	, Sequence
+	, Title
+}
+
+class ListItem extends BlockContainer, NumberedElement, ReferenceTarget {
+	contains DRichText title
+	container List list opposite items
+	op int getLevel() {
+		if (eContainer instanceof List) return list.level
+		return PubConstants::UNDEFINED_LEVEL
+	}
+	op int getSequenceNumber() {
+		return list.items.indexOf(this)
+	}
+}
+
+abstract class TitledBlock extends ContentBlock, NumberedElement, ReferenceTarget {
+	contains DRichText title
+	refers transient Chapter logicalContainer // with includes this can be different from the actual eContainer
+	transient int sequenceNumberInChapter = "-1" // -1 = not set (undefined)
+	op String getId() {
+		if (name === null || name.empty) {
+			val blockType = class.simpleName.replace("Impl", "").toLowerCase
+			if (getSequenceNumber() != -1) {
+				return blockType + '-' + getSequenceNumber()
+			}
+			return blockType + '-' + hashCode
+		}
+		return name
+	}
+	op Division parent() {
+		if (logicalContainer !== null) {
+			return logicalContainer
+		} 
+		var p = eContainer
+		while (p !== null && ! (p instanceof Division)) {
+			p = p.eContainer
+		}
+		return eContainer as Division // can be null
+	}
+}
+
+class Table extends TitledBlock {
+	int columns
+	int widthPercent = "100"
+	boolean hideGrid
+	contains TableRow[] rows opposite table
+}
+
+class TableRow {
+	int height = "1" // cells
+	boolean isHeading
+	contains TableCell[] cells opposite row
+	container Table table opposite rows
+}
+
+class TableCell extends BlockContainer {
+	int width = "1" // columns
+	int height = "1" // cells
+	container TableRow row opposite cells
+}
+
+class Figure extends TitledBlock {
+	String fileUri
+}
+
+class Equation extends TitledBlock {
+	String fileUri
+}
+
+class CodeListing extends TitledBlock {
+	CodeLanguage format
+	String[] codeLines
+}
+
+enum CodeLanguage {
+	Java
+	, JavaScript
+	, HTML
+	, XML
+}
+
+class Paragraph extends ContentBlock {
+	ParagraphStyle style
+	contains DRichText text
+}
+
+// Internal, not exposed to user
+class UnformattedParagraph extends ContentBlock {
+	String text
+}
+
+enum ParagraphStyle {
+	Plain
+	, Quote
+}
