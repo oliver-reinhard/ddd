@@ -223,10 +223,9 @@ class PubHtmlRenderer extends AbstractPubRenderer {
 		-- equation (TODO)
 	'''
 
-	override CharSequence renderCodeListing(CodeListing cl) '''
+	override CharSequence renderCodeListing(CodeListing cl, java.util.List<String> codeLines) '''
 		<pre>
-		«FOR line : cl.codeLines»«line»«ENDFOR»
-		</pre>
+		«FOR line : codeLines»«line»«ENDFOR»</pre>
 	'''
 
 	override CharSequence renderPlainParagraph(

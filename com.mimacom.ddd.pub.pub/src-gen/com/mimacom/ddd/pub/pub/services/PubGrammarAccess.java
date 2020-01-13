@@ -2732,24 +2732,33 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cCodeListingKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final RuleCall cPubTitledBlockHeaderParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cFormatKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cFormatAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cFormatPubCodeLanguageEnumRuleCall_2_1_0 = (RuleCall)cFormatAssignment_2_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cCodeLinesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cCodeLinesSTRINGTerminalRuleCall_4_0 = (RuleCall)cCodeLinesAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Group cGroup_2_0 = (Group)cAlternatives_2.eContents().get(0);
+		private final Group cGroup_2_0_0 = (Group)cGroup_2_0.eContents().get(0);
+		private final Keyword cFormatKeyword_2_0_0_0 = (Keyword)cGroup_2_0_0.eContents().get(0);
+		private final Assignment cFormatAssignment_2_0_0_1 = (Assignment)cGroup_2_0_0.eContents().get(1);
+		private final RuleCall cFormatPubCodeLanguageEnumRuleCall_2_0_0_1_0 = (RuleCall)cFormatAssignment_2_0_0_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2_0_1 = (Keyword)cGroup_2_0.eContents().get(1);
+		private final Assignment cCodeLinesAssignment_2_0_2 = (Assignment)cGroup_2_0.eContents().get(2);
+		private final RuleCall cCodeLinesSTRINGTerminalRuleCall_2_0_2_0 = (RuleCall)cCodeLinesAssignment_2_0_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_0_3 = (Keyword)cGroup_2_0.eContents().get(3);
+		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
+		private final Keyword cIncludeKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cIncludeAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final CrossReference cIncludeEObjectCrossReference_2_1_1_0 = (CrossReference)cIncludeAssignment_2_1_1.eContents().get(0);
+		private final RuleCall cIncludeEObjectDQualifiedNameParserRuleCall_2_1_1_0_1 = (RuleCall)cIncludeEObjectCrossReference_2_1_1_0.eContents().get(1);
 		
 		//PubCodeListing CodeListing:
 		//	'CodeListing'
-		//	PubTitledBlockHeader ('format:' format=PubCodeLanguage)?
+		//	PubTitledBlockHeader (('format:' format=PubCodeLanguage)?
 		//	'{'
 		//	codeLines+=STRING*
-		//	'}';
+		//	'}'
+		//	| 'include' include=[ecore::EObject|DQualifiedName]);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'CodeListing' PubTitledBlockHeader ('format:' format=PubCodeLanguage)? '{' codeLines+=STRING* '}'
+		//'CodeListing' PubTitledBlockHeader (('format:' format=PubCodeLanguage)? '{' codeLines+=STRING* '}' | 'include'
+		//include=[ecore::EObject|DQualifiedName])
 		public Group getGroup() { return cGroup; }
 		
 		//'CodeListing'
@@ -2758,29 +2767,50 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//PubTitledBlockHeader
 		public RuleCall getPubTitledBlockHeaderParserRuleCall_1() { return cPubTitledBlockHeaderParserRuleCall_1; }
 		
+		//(('format:' format=PubCodeLanguage)? '{' codeLines+=STRING* '}' | 'include' include=[ecore::EObject|DQualifiedName])
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		
+		//('format:' format=PubCodeLanguage)? '{' codeLines+=STRING* '}'
+		public Group getGroup_2_0() { return cGroup_2_0; }
+		
 		//('format:' format=PubCodeLanguage)?
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_2_0_0() { return cGroup_2_0_0; }
 		
 		//'format:'
-		public Keyword getFormatKeyword_2_0() { return cFormatKeyword_2_0; }
+		public Keyword getFormatKeyword_2_0_0_0() { return cFormatKeyword_2_0_0_0; }
 		
 		//format=PubCodeLanguage
-		public Assignment getFormatAssignment_2_1() { return cFormatAssignment_2_1; }
+		public Assignment getFormatAssignment_2_0_0_1() { return cFormatAssignment_2_0_0_1; }
 		
 		//PubCodeLanguage
-		public RuleCall getFormatPubCodeLanguageEnumRuleCall_2_1_0() { return cFormatPubCodeLanguageEnumRuleCall_2_1_0; }
+		public RuleCall getFormatPubCodeLanguageEnumRuleCall_2_0_0_1_0() { return cFormatPubCodeLanguageEnumRuleCall_2_0_0_1_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		public Keyword getLeftCurlyBracketKeyword_2_0_1() { return cLeftCurlyBracketKeyword_2_0_1; }
 		
 		//codeLines+=STRING*
-		public Assignment getCodeLinesAssignment_4() { return cCodeLinesAssignment_4; }
+		public Assignment getCodeLinesAssignment_2_0_2() { return cCodeLinesAssignment_2_0_2; }
 		
 		//STRING
-		public RuleCall getCodeLinesSTRINGTerminalRuleCall_4_0() { return cCodeLinesSTRINGTerminalRuleCall_4_0; }
+		public RuleCall getCodeLinesSTRINGTerminalRuleCall_2_0_2_0() { return cCodeLinesSTRINGTerminalRuleCall_2_0_2_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_2_0_3() { return cRightCurlyBracketKeyword_2_0_3; }
+		
+		//'include' include=[ecore::EObject|DQualifiedName]
+		public Group getGroup_2_1() { return cGroup_2_1; }
+		
+		//'include'
+		public Keyword getIncludeKeyword_2_1_0() { return cIncludeKeyword_2_1_0; }
+		
+		//include=[ecore::EObject|DQualifiedName]
+		public Assignment getIncludeAssignment_2_1_1() { return cIncludeAssignment_2_1_1; }
+		
+		//[ecore::EObject|DQualifiedName]
+		public CrossReference getIncludeEObjectCrossReference_2_1_1_0() { return cIncludeEObjectCrossReference_2_1_1_0; }
+		
+		//DQualifiedName
+		public RuleCall getIncludeEObjectDQualifiedNameParserRuleCall_2_1_1_0_1() { return cIncludeEObjectDQualifiedNameParserRuleCall_2_1_1_0_1; }
 	}
 	public class PubParagraphElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.mimacom.ddd.pub.pub.Pub.PubParagraph");
@@ -4040,10 +4070,11 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//PubCodeListing CodeListing:
 	//	'CodeListing'
-	//	PubTitledBlockHeader ('format:' format=PubCodeLanguage)?
+	//	PubTitledBlockHeader (('format:' format=PubCodeLanguage)?
 	//	'{'
 	//	codeLines+=STRING*
-	//	'}';
+	//	'}'
+	//	| 'include' include=[ecore::EObject|DQualifiedName]);
 	public PubCodeListingElements getPubCodeListingAccess() {
 		return pPubCodeListing;
 	}

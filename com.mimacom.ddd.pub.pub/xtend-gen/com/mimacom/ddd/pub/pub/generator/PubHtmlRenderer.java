@@ -514,19 +514,17 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   }
   
   @Override
-  public CharSequence renderCodeListing(final CodeListing cl) {
+  public CharSequence renderCodeListing(final CodeListing cl, final java.util.List<String> codeLines) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<pre>");
     _builder.newLine();
     {
-      EList<String> _codeLines = cl.getCodeLines();
-      for(final String line : _codeLines) {
+      for(final String line : codeLines) {
         _builder.append(line);
       }
     }
-    _builder.newLineIfNotEmpty();
     _builder.append("</pre>");
-    _builder.newLine();
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   

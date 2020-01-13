@@ -3,6 +3,7 @@
  */
 package com.mimacom.ddd.pub.pub.generator
 
+import com.google.common.collect.Lists
 import com.google.inject.Inject
 import com.mimacom.ddd.pub.pub.Admonition
 import com.mimacom.ddd.pub.pub.ChangeHistory
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.eclipse.xtext.serializer.ISerializer
 
 /**
  * Generates code from your model files on save.
@@ -43,6 +45,7 @@ class PubGenerator extends AbstractGenerator {
 	@Inject extension PubHtmlRenderer
 	@Inject extension PubNumberingUtil
 	@Inject extension PubGeneratorUtil
+	@Inject ISerializer serializer
 
 	var java.util.List<Division> allDivisionsInSequenceOfOccurrenceCache
 	var java.util.List<Table> allTablesInSequenceOfOccurrenceCache
@@ -214,7 +217,17 @@ class PubGenerator extends AbstractGenerator {
 	}
 
 	def dispatch CharSequence genTitledBlock(CodeListing cl) {
-		renderCodeListing(cl)
+		if (cl.include !== null) {
+			try {
+				var formattedCode = serializer.serialize(cl.include) // throws RuntimeException
+				renderCodeListing(cl, Lists.newArrayList(formattedCode))
+			} catch (RuntimeException ex) {
+				// ignore – the syntax for the include is temporarily inconsistent and cannot be serialised
+				// A validation is in place and this exception should never be thrown.
+			}
+		} else {
+			renderCodeListing(cl, cl.codeLines)
+		}
 	}
 
 	def dispatch CharSequence genBlock(Paragraph para) {

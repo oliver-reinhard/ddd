@@ -4,6 +4,7 @@
 package com.mimacom.ddd.pub.pub.generator;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.pub.pub.Admonition;
@@ -45,6 +46,8 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.serializer.ISerializer;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
 
 /**
@@ -65,6 +68,9 @@ public class PubGenerator extends AbstractGenerator {
   @Inject
   @Extension
   private PubGeneratorUtil _pubGeneratorUtil;
+  
+  @Inject
+  private ISerializer serializer;
   
   private List<Division> allDivisionsInSequenceOfOccurrenceCache;
   
@@ -378,7 +384,30 @@ public class PubGenerator extends AbstractGenerator {
   }
   
   protected CharSequence _genTitledBlock(final CodeListing cl) {
-    return this._pubHtmlRenderer.renderCodeListing(cl);
+    CharSequence _xifexpression = null;
+    EObject _include = cl.getInclude();
+    boolean _tripleNotEquals = (_include != null);
+    if (_tripleNotEquals) {
+      CharSequence _xtrycatchfinallyexpression = null;
+      try {
+        CharSequence _xblockexpression = null;
+        {
+          String formattedCode = this.serializer.serialize(cl.getInclude());
+          _xblockexpression = this._pubHtmlRenderer.renderCodeListing(cl, Lists.<String>newArrayList(formattedCode));
+        }
+        _xtrycatchfinallyexpression = _xblockexpression;
+      } catch (final Throwable _t) {
+        if (_t instanceof RuntimeException) {
+          _xtrycatchfinallyexpression = null;
+        } else {
+          throw Exceptions.sneakyThrow(_t);
+        }
+      }
+      _xifexpression = _xtrycatchfinallyexpression;
+    } else {
+      _xifexpression = this._pubHtmlRenderer.renderCodeListing(cl, cl.getCodeLines());
+    }
+    return _xifexpression;
   }
   
   protected CharSequence _genBlock(final Paragraph para) {

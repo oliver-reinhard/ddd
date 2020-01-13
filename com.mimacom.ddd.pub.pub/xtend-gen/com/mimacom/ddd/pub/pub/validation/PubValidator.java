@@ -13,9 +13,12 @@ import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.base.IRichTextSegment;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
+import com.mimacom.ddd.pub.proto.PublicationClass;
 import com.mimacom.ddd.pub.pub.Chapter;
+import com.mimacom.ddd.pub.pub.CodeListing;
 import com.mimacom.ddd.pub.pub.Component;
 import com.mimacom.ddd.pub.pub.Division;
+import com.mimacom.ddd.pub.pub.Document;
 import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.ListStyle;
 import com.mimacom.ddd.pub.pub.Part;
@@ -38,9 +41,13 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.CheckType;
 import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
@@ -63,9 +70,21 @@ public class PubValidator extends AbstractPubValidator {
   @Extension
   private PubNumberingUtil _pubNumberingUtil;
   
+  @Inject
+  private ISerializer serializer;
+  
   private static final BasePackage BASE = BasePackage.eINSTANCE;
   
   private static final PubPackage PUB = PubPackage.eINSTANCE;
+  
+  @Check
+  public void publicationClass(final Document doc) {
+    PublicationClass _publicationClass = doc.getPublicationClass();
+    boolean _tripleEquals = (_publicationClass == null);
+    if (_tripleEquals) {
+      this.error("Document has no publication class.", PubValidator.PUB.getDocument_PublicationClass());
+    }
+  }
   
   @Check
   public void partsXorSections(final PublicationBody body) {
@@ -176,6 +195,33 @@ public class PubValidator extends AbstractPubValidator {
         if (((div.getInclude() != null) && (!divisionsSet.add(div.getInclude())))) {
           this.error(msg, div, PubValidator.PUB.getDivision_Include());
         }
+      }
+    }
+  }
+  
+  @Check(CheckType.NORMAL)
+  public void includedCodeSyntax(final CodeListing cl) {
+    EObject _include = cl.getInclude();
+    boolean _tripleNotEquals = (_include != null);
+    if (_tripleNotEquals) {
+      boolean hasErrors = false;
+      final Resource res = cl.getInclude().eResource();
+      if ((res instanceof XtextResource)) {
+        hasErrors = ((XtextResource)res).getParseResult().hasSyntaxErrors();
+      }
+      if ((!hasErrors)) {
+        try {
+          this.serializer.serialize(cl.getInclude());
+        } catch (final Throwable _t) {
+          if (_t instanceof RuntimeException) {
+            hasErrors = true;
+          } else {
+            throw Exceptions.sneakyThrow(_t);
+          }
+        }
+      }
+      if (hasErrors) {
+        this.error("Code for the included expression has errors.", PubValidator.PUB.getCodeListing_Include());
       }
     }
   }

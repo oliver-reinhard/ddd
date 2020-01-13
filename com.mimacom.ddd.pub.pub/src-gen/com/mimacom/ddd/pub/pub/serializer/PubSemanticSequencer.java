@@ -580,7 +580,7 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 *     PubCodeListing returns CodeListing
 	 *
 	 * Constraint:
-	 *     (name=ID? title=DRichText format=PubCodeLanguage? codeLines+=STRING*)
+	 *     (name=ID? title=DRichText ((format=PubCodeLanguage? codeLines+=STRING*) | include=[EObject|DQualifiedName])?)
 	 */
 	protected void sequence_PubCodeListing_PubReferenceTargetName_PubTitledBlockHeader(ISerializationContext context, CodeListing semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

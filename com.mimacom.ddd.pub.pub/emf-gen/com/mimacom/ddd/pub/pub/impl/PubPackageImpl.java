@@ -1763,6 +1763,16 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getCodeListing_Include() {
+		return (EReference)codeListingEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getParagraph() {
 		return paragraphEClass;
 	}
@@ -2098,6 +2108,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		codeListingEClass = createEClass(CODE_LISTING);
 		createEAttribute(codeListingEClass, CODE_LISTING__FORMAT);
 		createEAttribute(codeListingEClass, CODE_LISTING__CODE_LINES);
+		createEReference(codeListingEClass, CODE_LISTING__INCLUDE);
 
 		paragraphEClass = createEClass(PARAGRAPH);
 		createEAttribute(paragraphEClass, PARAGRAPH__STYLE);
@@ -2383,6 +2394,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		initEClass(codeListingEClass, CodeListing.class, "CodeListing", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCodeListing_Format(), this.getCodeLanguage(), "format", null, 0, 1, CodeListing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCodeListing_CodeLines(), theEcorePackage.getEString(), "codeLines", null, 0, -1, CodeListing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCodeListing_Include(), theEcorePackage.getEObject(), null, "include", null, 0, 1, CodeListing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(paragraphEClass, Paragraph.class, "Paragraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getParagraph_Style(), this.getParagraphStyle(), "style", null, 0, 1, Paragraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
