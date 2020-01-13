@@ -24,7 +24,6 @@ import com.mimacom.ddd.pub.pub.Index;
 import com.mimacom.ddd.pub.pub.List;
 import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.Paragraph;
-import com.mimacom.ddd.pub.pub.PubUtil;
 import com.mimacom.ddd.pub.pub.PublicationBody;
 import com.mimacom.ddd.pub.pub.Reference;
 import com.mimacom.ddd.pub.pub.ReferenceTarget;
@@ -39,6 +38,7 @@ import com.mimacom.ddd.pub.pub.generator.AbstractPubRenderer;
 import com.mimacom.ddd.pub.pub.generator.NestedContentBlockGenerator;
 import com.mimacom.ddd.pub.pub.generator.NestedElementsRenderer;
 import com.mimacom.ddd.pub.pub.generator.PubGeneratorUtil;
+import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.EcoreUtil2;
@@ -54,7 +54,7 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
   
   @Inject
   @Extension
-  private PubUtil _pubUtil;
+  private PubNumberingUtil _pubNumberingUtil;
   
   @Inject
   @Extension
@@ -250,7 +250,7 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.append(">");
     CharSequence _renderAnchor = this.renderAnchor(div);
     _builder.append(_renderAnchor);
-    String _tieredNumber = this._pubUtil.tieredNumber(div);
+    String _tieredNumber = this._pubNumberingUtil.tieredNumber(div);
     _builder.append(_tieredNumber);
     _builder.append(" ");
     CharSequence _renderRichText = this.renderRichText(div.getTitle());
@@ -410,7 +410,7 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
     _builder.append("<h5>");
     CharSequence _renderAnchor = this.renderAnchor(b);
     _builder.append(_renderAnchor);
-    String _labelAndNumber = this._pubUtil.labelAndNumber(b);
+    String _labelAndNumber = this._pubNumberingUtil.labelAndNumber(b);
     _builder.append(_labelAndNumber);
     _builder.append(" ");
     CharSequence _renderRichText = this.renderRichText(b.getTitle());
@@ -609,8 +609,8 @@ public class PubHtmlRenderer extends AbstractPubRenderer {
             String _htmlReferenceLinkTargetId = PubHtmlRenderer.this.htmlReferenceLinkTargetId(((Reference)expr));
             String _plus = ("<a href=\"" + _htmlReferenceLinkTargetId);
             String _plus_1 = (_plus + "\">");
-            String _referenceDisplayTextFor = PubHtmlRenderer.this._pubGeneratorUtil.referenceDisplayTextFor(((Reference)expr).getTarget());
-            String _plus_2 = (_plus_1 + _referenceDisplayTextFor);
+            String _referenceDisplayText = PubHtmlRenderer.this._pubGeneratorUtil.referenceDisplayText(((Reference)expr).getTarget());
+            String _plus_2 = (_plus_1 + _referenceDisplayText);
             _switchResult = (_plus_2 + "</a>");
           }
         }

@@ -91,6 +91,10 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 				return createReferenceTargetAdapter();
 			}
 			@Override
+			public Adapter caseReference(Reference object) {
+				return createReferenceAdapter();
+			}
+			@Override
 			public Adapter caseDocumentSegment(DocumentSegment object) {
 				return createDocumentSegmentAdapter();
 			}
@@ -113,10 +117,6 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEpilogue(Epilogue object) {
 				return createEpilogueAdapter();
-			}
-			@Override
-			public Adapter casePublicationBody(PublicationBody object) {
-				return createPublicationBodyAdapter();
 			}
 			@Override
 			public Adapter caseSegmentWithTable(SegmentWithTable object) {
@@ -179,8 +179,16 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 				return createSegmentIncludeAdapter();
 			}
 			@Override
+			public Adapter casePublicationBody(PublicationBody object) {
+				return createPublicationBodyAdapter();
+			}
+			@Override
 			public Adapter caseNumberedElement(NumberedElement object) {
 				return createNumberedElementAdapter();
+			}
+			@Override
+			public Adapter caseDivisionContainer(DivisionContainer object) {
+				return createDivisionContainerAdapter();
 			}
 			@Override
 			public Adapter caseDivision(Division object) {
@@ -261,10 +269,6 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseUnformattedParagraph(UnformattedParagraph object) {
 				return createUnformattedParagraphAdapter();
-			}
-			@Override
-			public Adapter caseReference(Reference object) {
-				return createReferenceAdapter();
 			}
 			@Override
 			public Adapter caseIRichTextSegment(IRichTextSegment object) {
@@ -669,6 +673,20 @@ public class PubAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNumberedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.pub.pub.DivisionContainer <em>Division Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.pub.pub.DivisionContainer
+	 * @generated
+	 */
+	public Adapter createDivisionContainerAdapter() {
 		return null;
 	}
 

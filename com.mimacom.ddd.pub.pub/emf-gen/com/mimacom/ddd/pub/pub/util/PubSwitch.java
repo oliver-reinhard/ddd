@@ -104,6 +104,14 @@ public class PubSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case PubPackage.REFERENCE: {
+				Reference reference = (Reference)theEObject;
+				T result = caseReference(reference);
+				if (result == null) result = caseDExpression(reference);
+				if (result == null) result = caseIRichTextSegment(reference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case PubPackage.DOCUMENT_SEGMENT: {
 				DocumentSegment documentSegment = (DocumentSegment)theEObject;
 				T result = caseDocumentSegment(documentSegment);
@@ -153,14 +161,6 @@ public class PubSwitch<T> extends Switch<T> {
 				if (result == null) result = caseDocumentSegment(epilogue);
 				if (result == null) result = caseBlockContainer(epilogue);
 				if (result == null) result = caseReferenceTarget(epilogue);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PubPackage.PUBLICATION_BODY: {
-				PublicationBody publicationBody = (PublicationBody)theEObject;
-				T result = casePublicationBody(publicationBody);
-				if (result == null) result = caseDocumentSegment(publicationBody);
-				if (result == null) result = caseReferenceTarget(publicationBody);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -289,15 +289,31 @@ public class PubSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case PubPackage.PUBLICATION_BODY: {
+				PublicationBody publicationBody = (PublicationBody)theEObject;
+				T result = casePublicationBody(publicationBody);
+				if (result == null) result = caseDocumentSegment(publicationBody);
+				if (result == null) result = caseDivisionContainer(publicationBody);
+				if (result == null) result = caseReferenceTarget(publicationBody);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case PubPackage.NUMBERED_ELEMENT: {
 				NumberedElement numberedElement = (NumberedElement)theEObject;
 				T result = caseNumberedElement(numberedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case PubPackage.DIVISION_CONTAINER: {
+				DivisionContainer divisionContainer = (DivisionContainer)theEObject;
+				T result = caseDivisionContainer(divisionContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case PubPackage.DIVISION: {
 				Division division = (Division)theEObject;
 				T result = caseDivision(division);
+				if (result == null) result = caseDivisionContainer(division);
 				if (result == null) result = caseBlockContainer(division);
 				if (result == null) result = caseNumberedElement(division);
 				if (result == null) result = caseReferenceTarget(division);
@@ -308,6 +324,7 @@ public class PubSwitch<T> extends Switch<T> {
 				Part part = (Part)theEObject;
 				T result = casePart(part);
 				if (result == null) result = caseDivision(part);
+				if (result == null) result = caseDivisionContainer(part);
 				if (result == null) result = caseBlockContainer(part);
 				if (result == null) result = caseNumberedElement(part);
 				if (result == null) result = caseReferenceTarget(part);
@@ -319,6 +336,7 @@ public class PubSwitch<T> extends Switch<T> {
 				T result = caseAppendix(appendix);
 				if (result == null) result = casePart(appendix);
 				if (result == null) result = caseDivision(appendix);
+				if (result == null) result = caseDivisionContainer(appendix);
 				if (result == null) result = caseBlockContainer(appendix);
 				if (result == null) result = caseNumberedElement(appendix);
 				if (result == null) result = caseReferenceTarget(appendix);
@@ -329,6 +347,7 @@ public class PubSwitch<T> extends Switch<T> {
 				Chapter chapter = (Chapter)theEObject;
 				T result = caseChapter(chapter);
 				if (result == null) result = caseDivision(chapter);
+				if (result == null) result = caseDivisionContainer(chapter);
 				if (result == null) result = caseBlockContainer(chapter);
 				if (result == null) result = caseNumberedElement(chapter);
 				if (result == null) result = caseReferenceTarget(chapter);
@@ -339,6 +358,7 @@ public class PubSwitch<T> extends Switch<T> {
 				Section section = (Section)theEObject;
 				T result = caseSection(section);
 				if (result == null) result = caseDivision(section);
+				if (result == null) result = caseDivisionContainer(section);
 				if (result == null) result = caseBlockContainer(section);
 				if (result == null) result = caseNumberedElement(section);
 				if (result == null) result = caseReferenceTarget(section);
@@ -349,6 +369,7 @@ public class PubSwitch<T> extends Switch<T> {
 				Subsection subsection = (Subsection)theEObject;
 				T result = caseSubsection(subsection);
 				if (result == null) result = caseDivision(subsection);
+				if (result == null) result = caseDivisionContainer(subsection);
 				if (result == null) result = caseBlockContainer(subsection);
 				if (result == null) result = caseNumberedElement(subsection);
 				if (result == null) result = caseReferenceTarget(subsection);
@@ -359,6 +380,7 @@ public class PubSwitch<T> extends Switch<T> {
 				Subsubsection subsubsection = (Subsubsection)theEObject;
 				T result = caseSubsubsection(subsubsection);
 				if (result == null) result = caseDivision(subsubsection);
+				if (result == null) result = caseDivisionContainer(subsubsection);
 				if (result == null) result = caseBlockContainer(subsubsection);
 				if (result == null) result = caseNumberedElement(subsubsection);
 				if (result == null) result = caseReferenceTarget(subsubsection);
@@ -470,14 +492,6 @@ public class PubSwitch<T> extends Switch<T> {
 				UnformattedParagraph unformattedParagraph = (UnformattedParagraph)theEObject;
 				T result = caseUnformattedParagraph(unformattedParagraph);
 				if (result == null) result = caseContentBlock(unformattedParagraph);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PubPackage.REFERENCE: {
-				Reference reference = (Reference)theEObject;
-				T result = caseReference(reference);
-				if (result == null) result = caseDExpression(reference);
-				if (result == null) result = caseIRichTextSegment(reference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -887,6 +901,21 @@ public class PubSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNumberedElement(NumberedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Division Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Division Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDivisionContainer(DivisionContainer object) {
 		return null;
 	}
 

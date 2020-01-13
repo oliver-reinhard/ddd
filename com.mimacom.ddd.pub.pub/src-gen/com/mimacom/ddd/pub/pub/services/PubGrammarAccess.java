@@ -1450,8 +1450,8 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPubDivisionHeaderParserRuleCall_2_0_0 = (RuleCall)cGroup_2_0.eContents().get(0);
 		private final Assignment cContentsAssignment_2_0_1 = (Assignment)cGroup_2_0.eContents().get(1);
 		private final RuleCall cContentsPubContentBlockParserRuleCall_2_0_1_0 = (RuleCall)cContentsAssignment_2_0_1.eContents().get(0);
-		private final Assignment cSubdivisionsAssignment_2_0_2 = (Assignment)cGroup_2_0.eContents().get(2);
-		private final RuleCall cSubdivisionsPubChapterParserRuleCall_2_0_2_0 = (RuleCall)cSubdivisionsAssignment_2_0_2.eContents().get(0);
+		private final Assignment cDivisionsAssignment_2_0_2 = (Assignment)cGroup_2_0.eContents().get(2);
+		private final RuleCall cDivisionsPubChapterParserRuleCall_2_0_2_0 = (RuleCall)cDivisionsAssignment_2_0_2.eContents().get(0);
 		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
 		private final RuleCall cPubDivisionIncludeHeaderParserRuleCall_2_1_0 = (RuleCall)cGroup_2_1.eContents().get(0);
 		private final Assignment cIncludeAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
@@ -1466,12 +1466,12 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//	{Part}
 		//	'Part' (PubDivisionHeader
 		//	contents+=PubContentBlock*
-		//	-> subdivisions+=PubChapter*
+		//	-> divisions+=PubChapter*
 		//	| PubDivisionIncludeHeader
 		//	include=[Part|DQualifiedName] ('as' title=DRichText)?);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Part} 'Part' (PubDivisionHeader contents+=PubContentBlock* -> subdivisions+=PubChapter* | PubDivisionIncludeHeader
+		//{Part} 'Part' (PubDivisionHeader contents+=PubContentBlock* -> divisions+=PubChapter* | PubDivisionIncludeHeader
 		//include=[Part|DQualifiedName] ('as' title=DRichText)?)
 		public Group getGroup() { return cGroup; }
 		
@@ -1481,11 +1481,11 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//'Part'
 		public Keyword getPartKeyword_1() { return cPartKeyword_1; }
 		
-		//(PubDivisionHeader contents+=PubContentBlock* -> subdivisions+=PubChapter* | PubDivisionIncludeHeader
+		//(PubDivisionHeader contents+=PubContentBlock* -> divisions+=PubChapter* | PubDivisionIncludeHeader
 		//include=[Part|DQualifiedName] ('as' title=DRichText)?)
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 		
-		//PubDivisionHeader contents+=PubContentBlock* -> subdivisions+=PubChapter*
+		//PubDivisionHeader contents+=PubContentBlock* -> divisions+=PubChapter*
 		public Group getGroup_2_0() { return cGroup_2_0; }
 		
 		//PubDivisionHeader
@@ -1497,11 +1497,11 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//PubContentBlock
 		public RuleCall getContentsPubContentBlockParserRuleCall_2_0_1_0() { return cContentsPubContentBlockParserRuleCall_2_0_1_0; }
 		
-		//-> subdivisions+=PubChapter*
-		public Assignment getSubdivisionsAssignment_2_0_2() { return cSubdivisionsAssignment_2_0_2; }
+		//-> divisions+=PubChapter*
+		public Assignment getDivisionsAssignment_2_0_2() { return cDivisionsAssignment_2_0_2; }
 		
 		//PubChapter
-		public RuleCall getSubdivisionsPubChapterParserRuleCall_2_0_2_0() { return cSubdivisionsPubChapterParserRuleCall_2_0_2_0; }
+		public RuleCall getDivisionsPubChapterParserRuleCall_2_0_2_0() { return cDivisionsPubChapterParserRuleCall_2_0_2_0; }
 		
 		//PubDivisionIncludeHeader include=[Part|DQualifiedName] ('as' title=DRichText)?
 		public Group getGroup_2_1() { return cGroup_2_1; }
@@ -1539,8 +1539,8 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPubDivisionHeaderParserRuleCall_1_0_0 = (RuleCall)cGroup_1_0.eContents().get(0);
 		private final Assignment cContentsAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
 		private final RuleCall cContentsPubContentBlockParserRuleCall_1_0_1_0 = (RuleCall)cContentsAssignment_1_0_1.eContents().get(0);
-		private final Assignment cSubdivisionsAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
-		private final RuleCall cSubdivisionsPubChapterParserRuleCall_1_0_2_0 = (RuleCall)cSubdivisionsAssignment_1_0_2.eContents().get(0);
+		private final Assignment cDivisionsAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cDivisionsPubChapterParserRuleCall_1_0_2_0 = (RuleCall)cDivisionsAssignment_1_0_2.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final RuleCall cPubDivisionIncludeHeaderParserRuleCall_1_1_0 = (RuleCall)cGroup_1_1.eContents().get(0);
 		private final Assignment cIncludeAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
@@ -1554,23 +1554,23 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//PubAppendix Appendix:
 		//	'Appendix' (PubDivisionHeader
 		//	contents+=PubContentBlock*
-		//	-> subdivisions+=PubChapter*
+		//	-> divisions+=PubChapter*
 		//	| PubDivisionIncludeHeader
 		//	include=[Appendix|DQualifiedName] ('as' title=DRichText)?);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Appendix' (PubDivisionHeader contents+=PubContentBlock* -> subdivisions+=PubChapter* | PubDivisionIncludeHeader
+		//'Appendix' (PubDivisionHeader contents+=PubContentBlock* -> divisions+=PubChapter* | PubDivisionIncludeHeader
 		//include=[Appendix|DQualifiedName] ('as' title=DRichText)?)
 		public Group getGroup() { return cGroup; }
 		
 		//'Appendix'
 		public Keyword getAppendixKeyword_0() { return cAppendixKeyword_0; }
 		
-		//(PubDivisionHeader contents+=PubContentBlock* -> subdivisions+=PubChapter* | PubDivisionIncludeHeader
+		//(PubDivisionHeader contents+=PubContentBlock* -> divisions+=PubChapter* | PubDivisionIncludeHeader
 		//include=[Appendix|DQualifiedName] ('as' title=DRichText)?)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//PubDivisionHeader contents+=PubContentBlock* -> subdivisions+=PubChapter*
+		//PubDivisionHeader contents+=PubContentBlock* -> divisions+=PubChapter*
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//PubDivisionHeader
@@ -1582,11 +1582,11 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//PubContentBlock
 		public RuleCall getContentsPubContentBlockParserRuleCall_1_0_1_0() { return cContentsPubContentBlockParserRuleCall_1_0_1_0; }
 		
-		//-> subdivisions+=PubChapter*
-		public Assignment getSubdivisionsAssignment_1_0_2() { return cSubdivisionsAssignment_1_0_2; }
+		//-> divisions+=PubChapter*
+		public Assignment getDivisionsAssignment_1_0_2() { return cDivisionsAssignment_1_0_2; }
 		
 		//PubChapter
-		public RuleCall getSubdivisionsPubChapterParserRuleCall_1_0_2_0() { return cSubdivisionsPubChapterParserRuleCall_1_0_2_0; }
+		public RuleCall getDivisionsPubChapterParserRuleCall_1_0_2_0() { return cDivisionsPubChapterParserRuleCall_1_0_2_0; }
 		
 		//PubDivisionIncludeHeader include=[Appendix|DQualifiedName] ('as' title=DRichText)?
 		public Group getGroup_1_1() { return cGroup_1_1; }
@@ -1624,8 +1624,8 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPubDivisionHeaderParserRuleCall_1_0_0 = (RuleCall)cGroup_1_0.eContents().get(0);
 		private final Assignment cContentsAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
 		private final RuleCall cContentsPubContentBlockParserRuleCall_1_0_1_0 = (RuleCall)cContentsAssignment_1_0_1.eContents().get(0);
-		private final Assignment cSubdivisionsAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
-		private final RuleCall cSubdivisionsPubSectionParserRuleCall_1_0_2_0 = (RuleCall)cSubdivisionsAssignment_1_0_2.eContents().get(0);
+		private final Assignment cDivisionsAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cDivisionsPubSectionParserRuleCall_1_0_2_0 = (RuleCall)cDivisionsAssignment_1_0_2.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final RuleCall cPubDivisionIncludeHeaderParserRuleCall_1_1_0 = (RuleCall)cGroup_1_1.eContents().get(0);
 		private final Assignment cIncludeAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
@@ -1639,23 +1639,23 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//PubChapter Chapter:
 		//	'Chapter' (PubDivisionHeader
 		//	contents+=PubContentBlock*
-		//	subdivisions+=PubSection*
+		//	divisions+=PubSection*
 		//	| PubDivisionIncludeHeader
 		//	include=[Chapter|DQualifiedName] ('as' title=DRichText)?);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Chapter' (PubDivisionHeader contents+=PubContentBlock* subdivisions+=PubSection* | PubDivisionIncludeHeader
+		//'Chapter' (PubDivisionHeader contents+=PubContentBlock* divisions+=PubSection* | PubDivisionIncludeHeader
 		//include=[Chapter|DQualifiedName] ('as' title=DRichText)?)
 		public Group getGroup() { return cGroup; }
 		
 		//'Chapter'
 		public Keyword getChapterKeyword_0() { return cChapterKeyword_0; }
 		
-		//(PubDivisionHeader contents+=PubContentBlock* subdivisions+=PubSection* | PubDivisionIncludeHeader
+		//(PubDivisionHeader contents+=PubContentBlock* divisions+=PubSection* | PubDivisionIncludeHeader
 		//include=[Chapter|DQualifiedName] ('as' title=DRichText)?)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//PubDivisionHeader contents+=PubContentBlock* subdivisions+=PubSection*
+		//PubDivisionHeader contents+=PubContentBlock* divisions+=PubSection*
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//PubDivisionHeader
@@ -1667,11 +1667,11 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//PubContentBlock
 		public RuleCall getContentsPubContentBlockParserRuleCall_1_0_1_0() { return cContentsPubContentBlockParserRuleCall_1_0_1_0; }
 		
-		//subdivisions+=PubSection*
-		public Assignment getSubdivisionsAssignment_1_0_2() { return cSubdivisionsAssignment_1_0_2; }
+		//divisions+=PubSection*
+		public Assignment getDivisionsAssignment_1_0_2() { return cDivisionsAssignment_1_0_2; }
 		
 		//PubSection
-		public RuleCall getSubdivisionsPubSectionParserRuleCall_1_0_2_0() { return cSubdivisionsPubSectionParserRuleCall_1_0_2_0; }
+		public RuleCall getDivisionsPubSectionParserRuleCall_1_0_2_0() { return cDivisionsPubSectionParserRuleCall_1_0_2_0; }
 		
 		//PubDivisionIncludeHeader include=[Chapter|DQualifiedName] ('as' title=DRichText)?
 		public Group getGroup_1_1() { return cGroup_1_1; }
@@ -1709,8 +1709,8 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPubDivisionHeaderParserRuleCall_1_0_0 = (RuleCall)cGroup_1_0.eContents().get(0);
 		private final Assignment cContentsAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
 		private final RuleCall cContentsPubContentBlockParserRuleCall_1_0_1_0 = (RuleCall)cContentsAssignment_1_0_1.eContents().get(0);
-		private final Assignment cSubdivisionsAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
-		private final RuleCall cSubdivisionsPubSubsectionParserRuleCall_1_0_2_0 = (RuleCall)cSubdivisionsAssignment_1_0_2.eContents().get(0);
+		private final Assignment cDivisionsAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cDivisionsPubSubsectionParserRuleCall_1_0_2_0 = (RuleCall)cDivisionsAssignment_1_0_2.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final RuleCall cPubDivisionIncludeHeaderParserRuleCall_1_1_0 = (RuleCall)cGroup_1_1.eContents().get(0);
 		private final Assignment cIncludeAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
@@ -1724,23 +1724,23 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//PubSection Section:
 		//	'Section' (PubDivisionHeader
 		//	contents+=PubContentBlock*
-		//	subdivisions+=PubSubsection*
+		//	divisions+=PubSubsection*
 		//	| PubDivisionIncludeHeader
 		//	include=[Section|DQualifiedName] ('as' title=DRichText)?);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Section' (PubDivisionHeader contents+=PubContentBlock* subdivisions+=PubSubsection* | PubDivisionIncludeHeader
+		//'Section' (PubDivisionHeader contents+=PubContentBlock* divisions+=PubSubsection* | PubDivisionIncludeHeader
 		//include=[Section|DQualifiedName] ('as' title=DRichText)?)
 		public Group getGroup() { return cGroup; }
 		
 		//'Section'
 		public Keyword getSectionKeyword_0() { return cSectionKeyword_0; }
 		
-		//(PubDivisionHeader contents+=PubContentBlock* subdivisions+=PubSubsection* | PubDivisionIncludeHeader
+		//(PubDivisionHeader contents+=PubContentBlock* divisions+=PubSubsection* | PubDivisionIncludeHeader
 		//include=[Section|DQualifiedName] ('as' title=DRichText)?)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//PubDivisionHeader contents+=PubContentBlock* subdivisions+=PubSubsection*
+		//PubDivisionHeader contents+=PubContentBlock* divisions+=PubSubsection*
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//PubDivisionHeader
@@ -1752,11 +1752,11 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//PubContentBlock
 		public RuleCall getContentsPubContentBlockParserRuleCall_1_0_1_0() { return cContentsPubContentBlockParserRuleCall_1_0_1_0; }
 		
-		//subdivisions+=PubSubsection*
-		public Assignment getSubdivisionsAssignment_1_0_2() { return cSubdivisionsAssignment_1_0_2; }
+		//divisions+=PubSubsection*
+		public Assignment getDivisionsAssignment_1_0_2() { return cDivisionsAssignment_1_0_2; }
 		
 		//PubSubsection
-		public RuleCall getSubdivisionsPubSubsectionParserRuleCall_1_0_2_0() { return cSubdivisionsPubSubsectionParserRuleCall_1_0_2_0; }
+		public RuleCall getDivisionsPubSubsectionParserRuleCall_1_0_2_0() { return cDivisionsPubSubsectionParserRuleCall_1_0_2_0; }
 		
 		//PubDivisionIncludeHeader include=[Section|DQualifiedName] ('as' title=DRichText)?
 		public Group getGroup_1_1() { return cGroup_1_1; }
@@ -1796,8 +1796,8 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPubDivisionHeaderParserRuleCall_1_0_0 = (RuleCall)cGroup_1_0.eContents().get(0);
 		private final Assignment cContentsAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
 		private final RuleCall cContentsPubContentBlockParserRuleCall_1_0_1_0 = (RuleCall)cContentsAssignment_1_0_1.eContents().get(0);
-		private final Assignment cSubdivisionsAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
-		private final RuleCall cSubdivisionsPubSubsubsectionParserRuleCall_1_0_2_0 = (RuleCall)cSubdivisionsAssignment_1_0_2.eContents().get(0);
+		private final Assignment cDivisionsAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cDivisionsPubSubsubsectionParserRuleCall_1_0_2_0 = (RuleCall)cDivisionsAssignment_1_0_2.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final RuleCall cPubDivisionIncludeHeaderParserRuleCall_1_1_0 = (RuleCall)cGroup_1_1.eContents().get(0);
 		private final Assignment cIncludeAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
@@ -1811,12 +1811,12 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//PubSubsection Subsection:
 		//	('Sub' | 'Subsection') (PubDivisionHeader
 		//	contents+=PubContentBlock*
-		//	subdivisions+=PubSubsubsection*
+		//	divisions+=PubSubsubsection*
 		//	| PubDivisionIncludeHeader
 		//	include=[Subsection|DQualifiedName] ('as' title=DRichText)?);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('Sub' | 'Subsection') (PubDivisionHeader contents+=PubContentBlock* subdivisions+=PubSubsubsection* |
+		//('Sub' | 'Subsection') (PubDivisionHeader contents+=PubContentBlock* divisions+=PubSubsubsection* |
 		//PubDivisionIncludeHeader include=[Subsection|DQualifiedName] ('as' title=DRichText)?)
 		public Group getGroup() { return cGroup; }
 		
@@ -1829,11 +1829,11 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//'Subsection'
 		public Keyword getSubsectionKeyword_0_1() { return cSubsectionKeyword_0_1; }
 		
-		//(PubDivisionHeader contents+=PubContentBlock* subdivisions+=PubSubsubsection* | PubDivisionIncludeHeader
+		//(PubDivisionHeader contents+=PubContentBlock* divisions+=PubSubsubsection* | PubDivisionIncludeHeader
 		//include=[Subsection|DQualifiedName] ('as' title=DRichText)?)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//PubDivisionHeader contents+=PubContentBlock* subdivisions+=PubSubsubsection*
+		//PubDivisionHeader contents+=PubContentBlock* divisions+=PubSubsubsection*
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//PubDivisionHeader
@@ -1845,11 +1845,11 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 		//PubContentBlock
 		public RuleCall getContentsPubContentBlockParserRuleCall_1_0_1_0() { return cContentsPubContentBlockParserRuleCall_1_0_1_0; }
 		
-		//subdivisions+=PubSubsubsection*
-		public Assignment getSubdivisionsAssignment_1_0_2() { return cSubdivisionsAssignment_1_0_2; }
+		//divisions+=PubSubsubsection*
+		public Assignment getDivisionsAssignment_1_0_2() { return cDivisionsAssignment_1_0_2; }
 		
 		//PubSubsubsection
-		public RuleCall getSubdivisionsPubSubsubsectionParserRuleCall_1_0_2_0() { return cSubdivisionsPubSubsubsectionParserRuleCall_1_0_2_0; }
+		public RuleCall getDivisionsPubSubsubsectionParserRuleCall_1_0_2_0() { return cDivisionsPubSubsubsectionParserRuleCall_1_0_2_0; }
 		
 		//PubDivisionIncludeHeader include=[Subsection|DQualifiedName] ('as' title=DRichText)?
 		public Group getGroup_1_1() { return cGroup_1_1; }
@@ -3785,7 +3785,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	//	{Part}
 	//	'Part' (PubDivisionHeader
 	//	contents+=PubContentBlock*
-	//	-> subdivisions+=PubChapter*
+	//	-> divisions+=PubChapter*
 	//	| PubDivisionIncludeHeader
 	//	include=[Part|DQualifiedName] ('as' title=DRichText)?);
 	public PubPartElements getPubPartAccess() {
@@ -3799,7 +3799,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	//PubAppendix Appendix:
 	//	'Appendix' (PubDivisionHeader
 	//	contents+=PubContentBlock*
-	//	-> subdivisions+=PubChapter*
+	//	-> divisions+=PubChapter*
 	//	| PubDivisionIncludeHeader
 	//	include=[Appendix|DQualifiedName] ('as' title=DRichText)?);
 	public PubAppendixElements getPubAppendixAccess() {
@@ -3813,7 +3813,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	//PubChapter Chapter:
 	//	'Chapter' (PubDivisionHeader
 	//	contents+=PubContentBlock*
-	//	subdivisions+=PubSection*
+	//	divisions+=PubSection*
 	//	| PubDivisionIncludeHeader
 	//	include=[Chapter|DQualifiedName] ('as' title=DRichText)?);
 	public PubChapterElements getPubChapterAccess() {
@@ -3827,7 +3827,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	//PubSection Section:
 	//	'Section' (PubDivisionHeader
 	//	contents+=PubContentBlock*
-	//	subdivisions+=PubSubsection*
+	//	divisions+=PubSubsection*
 	//	| PubDivisionIncludeHeader
 	//	include=[Section|DQualifiedName] ('as' title=DRichText)?);
 	public PubSectionElements getPubSectionAccess() {
@@ -3841,7 +3841,7 @@ public class PubGrammarAccess extends AbstractGrammarElementFinder {
 	//PubSubsection Subsection:
 	//	('Sub' | 'Subsection') (PubDivisionHeader
 	//	contents+=PubContentBlock*
-	//	subdivisions+=PubSubsubsection*
+	//	divisions+=PubSubsubsection*
 	//	| PubDivisionIncludeHeader
 	//	include=[Subsection|DQualifiedName] ('as' title=DRichText)?);
 	public PubSubsectionElements getPubSubsectionAccess() {

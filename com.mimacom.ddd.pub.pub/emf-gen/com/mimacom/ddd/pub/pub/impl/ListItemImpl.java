@@ -29,17 +29,57 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.ListItemImpl#getLevel <em>Level</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.ListItemImpl#getSequenceNumber <em>Sequence Number</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.ListItemImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.ListItemImpl#getId <em>Id</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.ListItemImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.ListItemImpl#getList <em>List</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.ListItemImpl#getLevel <em>Level</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.ListItemImpl#getGetSequenceNumber <em>Get Sequence Number</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ListItemImpl extends BlockContainerImpl implements ListItem {
+	/**
+	 * The default value of the '{@link #getLevel() <em>Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLevel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LEVEL_EDEFAULT = -1;
+
+	/**
+	 * The cached value of the '{@link #getLevel() <em>Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLevel()
+	 * @generated
+	 * @ordered
+	 */
+	protected int level = LEVEL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSequenceNumber() <em>Sequence Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSequenceNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int SEQUENCE_NUMBER_EDEFAULT = -1;
+
+	/**
+	 * The cached value of the '{@link #getSequenceNumber() <em>Sequence Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSequenceNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected int sequenceNumber = SEQUENCE_NUMBER_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -81,26 +121,6 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	protected DRichText title;
 
 	/**
-	 * The default value of the '{@link #getLevel() <em>Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLevel()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int LEVEL_EDEFAULT = 0;
-
-	/**
-	 * The default value of the '{@link #getGetSequenceNumber() <em>Get Sequence Number</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGetSequenceNumber()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int GET_SEQUENCE_NUMBER_EDEFAULT = 0;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -117,6 +137,50 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	@Override
 	protected EClass eStaticClass() {
 		return PubPackage.Literals.LIST_ITEM;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getLevel_() {
+		return level;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setLevel(int newLevel) {
+		int oldLevel = level;
+		level = newLevel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.LIST_ITEM__LEVEL, oldLevel, level));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getSequenceNumber_() {
+		return sequenceNumber;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSequenceNumber(int newSequenceNumber) {
+		int oldSequenceNumber = sequenceNumber;
+		sequenceNumber = newSequenceNumber;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.LIST_ITEM__SEQUENCE_NUMBER, oldSequenceNumber, sequenceNumber));
 	}
 
 	/**
@@ -261,17 +325,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 		if ((_eContainer instanceof List)) {
 			return this.getList().getLevel();
 		}
-		return (-1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int getGetSequenceNumber() {
-		return this.getList().getItems().indexOf(this);
+		return PubConstants.UNDEFINED_LEVEL;
 	}
 
 	/**
@@ -281,9 +335,7 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	 */
 	@Override
 	public int getSequenceNumber() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return this.getList().getItems().indexOf(this);
 	}
 
 	/**
@@ -340,6 +392,10 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case PubPackage.LIST_ITEM__LEVEL:
+				return getLevel();
+			case PubPackage.LIST_ITEM__SEQUENCE_NUMBER:
+				return getSequenceNumber();
 			case PubPackage.LIST_ITEM__NAME:
 				return getName();
 			case PubPackage.LIST_ITEM__ID:
@@ -349,10 +405,6 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 			case PubPackage.LIST_ITEM__LIST:
 				if (resolve) return getList();
 				return basicGetList();
-			case PubPackage.LIST_ITEM__LEVEL:
-				return getLevel();
-			case PubPackage.LIST_ITEM__GET_SEQUENCE_NUMBER:
-				return getGetSequenceNumber();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -365,6 +417,12 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case PubPackage.LIST_ITEM__LEVEL:
+				setLevel((Integer)newValue);
+				return;
+			case PubPackage.LIST_ITEM__SEQUENCE_NUMBER:
+				setSequenceNumber((Integer)newValue);
+				return;
 			case PubPackage.LIST_ITEM__NAME:
 				setName((String)newValue);
 				return;
@@ -386,6 +444,12 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case PubPackage.LIST_ITEM__LEVEL:
+				setLevel(LEVEL_EDEFAULT);
+				return;
+			case PubPackage.LIST_ITEM__SEQUENCE_NUMBER:
+				setSequenceNumber(SEQUENCE_NUMBER_EDEFAULT);
+				return;
 			case PubPackage.LIST_ITEM__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -407,6 +471,10 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case PubPackage.LIST_ITEM__LEVEL:
+				return level != LEVEL_EDEFAULT;
+			case PubPackage.LIST_ITEM__SEQUENCE_NUMBER:
+				return sequenceNumber != SEQUENCE_NUMBER_EDEFAULT;
 			case PubPackage.LIST_ITEM__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case PubPackage.LIST_ITEM__ID:
@@ -415,10 +483,6 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 				return title != null;
 			case PubPackage.LIST_ITEM__LIST:
 				return basicGetList() != null;
-			case PubPackage.LIST_ITEM__LEVEL:
-				return getLevel() != LEVEL_EDEFAULT;
-			case PubPackage.LIST_ITEM__GET_SEQUENCE_NUMBER:
-				return getGetSequenceNumber() != GET_SEQUENCE_NUMBER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -432,6 +496,8 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == NumberedElement.class) {
 			switch (derivedFeatureID) {
+				case PubPackage.LIST_ITEM__LEVEL: return PubPackage.NUMBERED_ELEMENT__LEVEL;
+				case PubPackage.LIST_ITEM__SEQUENCE_NUMBER: return PubPackage.NUMBERED_ELEMENT__SEQUENCE_NUMBER;
 				default: return -1;
 			}
 		}
@@ -454,6 +520,8 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == NumberedElement.class) {
 			switch (baseFeatureID) {
+				case PubPackage.NUMBERED_ELEMENT__LEVEL: return PubPackage.LIST_ITEM__LEVEL;
+				case PubPackage.NUMBERED_ELEMENT__SEQUENCE_NUMBER: return PubPackage.LIST_ITEM__SEQUENCE_NUMBER;
 				default: return -1;
 			}
 		}
@@ -473,30 +541,10 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 	 * @generated
 	 */
 	@Override
-	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == NumberedElement.class) {
-			switch (baseOperationID) {
-				case PubPackage.NUMBERED_ELEMENT___GET_LEVEL: return PubPackage.LIST_ITEM___GET_LEVEL;
-				case PubPackage.NUMBERED_ELEMENT___GET_SEQUENCE_NUMBER: return PubPackage.LIST_ITEM___GET_SEQUENCE_NUMBER;
-				default: return -1;
-			}
-		}
-		if (baseClass == ReferenceTarget.class) {
-			switch (baseOperationID) {
-				default: return -1;
-			}
-		}
-		return super.eDerivedOperationID(baseOperationID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case PubPackage.LIST_ITEM___GET_LEVEL:
+				return getLevel();
 			case PubPackage.LIST_ITEM___GET_SEQUENCE_NUMBER:
 				return getSequenceNumber();
 		}
@@ -513,7 +561,11 @@ public class ListItemImpl extends BlockContainerImpl implements ListItem {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
+		result.append(" (level: ");
+		result.append(level);
+		result.append(", sequenceNumber: ");
+		result.append(sequenceNumber);
+		result.append(", name: ");
 		result.append(name);
 		result.append(')');
 		return result.toString();

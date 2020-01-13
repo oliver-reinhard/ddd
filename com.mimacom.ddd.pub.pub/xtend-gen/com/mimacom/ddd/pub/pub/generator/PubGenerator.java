@@ -24,7 +24,6 @@ import com.mimacom.ddd.pub.pub.ListStyle;
 import com.mimacom.ddd.pub.pub.Paragraph;
 import com.mimacom.ddd.pub.pub.ParagraphStyle;
 import com.mimacom.ddd.pub.pub.PubModel;
-import com.mimacom.ddd.pub.pub.PubUtil;
 import com.mimacom.ddd.pub.pub.Publication;
 import com.mimacom.ddd.pub.pub.PublicationBody;
 import com.mimacom.ddd.pub.pub.SegmentWithText;
@@ -36,6 +35,7 @@ import com.mimacom.ddd.pub.pub.generator.NestedContentBlockGenerator;
 import com.mimacom.ddd.pub.pub.generator.NestedElementsRenderer;
 import com.mimacom.ddd.pub.pub.generator.PubGeneratorUtil;
 import com.mimacom.ddd.pub.pub.generator.PubHtmlRenderer;
+import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil;
 import java.util.Arrays;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
@@ -60,7 +60,7 @@ public class PubGenerator extends AbstractGenerator {
   
   @Inject
   @Extension
-  private PubUtil _pubUtil;
+  private PubNumberingUtil _pubNumberingUtil;
   
   @Inject
   @Extension
@@ -100,7 +100,7 @@ public class PubGenerator extends AbstractGenerator {
   protected CharSequence _genDocument(final Component comp, final IFileSystemAccess2 fsa) {
     CharSequence _xblockexpression = null;
     {
-      this.initialiseTablesCache(comp);
+      this.initialiseNumberingCaches(comp);
       StringConcatenation _builder = new StringConcatenation();
       {
         EList<DocumentSegment> _segments = comp.getSegments();
@@ -120,10 +120,10 @@ public class PubGenerator extends AbstractGenerator {
     return _xblockexpression;
   }
   
-  public void initialiseTablesCache(final Component compo) {
-    this.allDivisionsInSequenceOfOccurrenceCache = this._pubUtil.gatherAllDivisionsInSequence(compo);
-    this.allTablesInSequenceOfOccurrenceCache = this._pubUtil.gatherAllTablesInSequenceAndSetSequenceNumbers(compo);
-    this.allFiguresInSequenceOfOccurrenceCache = this._pubUtil.gatherAllFiguresInSequenceAndSetSequenceNumbers(compo);
+  public void initialiseNumberingCaches(final Component compo) {
+    this.allDivisionsInSequenceOfOccurrenceCache = this._pubNumberingUtil.gatherAllDivisionsAndSetSequenceNumbers(compo);
+    this.allTablesInSequenceOfOccurrenceCache = this._pubNumberingUtil.gatherAllTablesInSequenceAndSetSequenceNumbers(compo);
+    this.allFiguresInSequenceOfOccurrenceCache = this._pubNumberingUtil.gatherAllFiguresInSequenceAndSetSequenceNumbers(compo);
   }
   
   protected CharSequence _genSegment(final SegmentWithText seg) {
@@ -244,8 +244,8 @@ public class PubGenerator extends AbstractGenerator {
         }
       }
       {
-        EList<Division> _subdivisions = divContents.getSubdivisions();
-        for(final Division subdiv : _subdivisions) {
+        EList<Division> _divisions = divContents.getDivisions();
+        for(final Division subdiv : _divisions) {
           _builder.newLine();
           _builder.append("\t");
           CharSequence _genDivision = this.genDivision(subdiv);

@@ -32759,22 +32759,22 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PubPart__Group_2_0__2__Impl"
-    // InternalPub.g:9269:1: rule__PubPart__Group_2_0__2__Impl : ( ( rule__PubPart__SubdivisionsAssignment_2_0_2 )* ) ;
+    // InternalPub.g:9269:1: rule__PubPart__Group_2_0__2__Impl : ( ( rule__PubPart__DivisionsAssignment_2_0_2 )* ) ;
     public final void rule__PubPart__Group_2_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPub.g:9273:1: ( ( ( rule__PubPart__SubdivisionsAssignment_2_0_2 )* ) )
-            // InternalPub.g:9274:1: ( ( rule__PubPart__SubdivisionsAssignment_2_0_2 )* )
+            // InternalPub.g:9273:1: ( ( ( rule__PubPart__DivisionsAssignment_2_0_2 )* ) )
+            // InternalPub.g:9274:1: ( ( rule__PubPart__DivisionsAssignment_2_0_2 )* )
             {
-            // InternalPub.g:9274:1: ( ( rule__PubPart__SubdivisionsAssignment_2_0_2 )* )
-            // InternalPub.g:9275:2: ( rule__PubPart__SubdivisionsAssignment_2_0_2 )*
+            // InternalPub.g:9274:1: ( ( rule__PubPart__DivisionsAssignment_2_0_2 )* )
+            // InternalPub.g:9275:2: ( rule__PubPart__DivisionsAssignment_2_0_2 )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getPubPartAccess().getSubdivisionsAssignment_2_0_2()); 
+               before(grammarAccess.getPubPartAccess().getDivisionsAssignment_2_0_2()); 
             }
-            // InternalPub.g:9276:2: ( rule__PubPart__SubdivisionsAssignment_2_0_2 )*
+            // InternalPub.g:9276:2: ( rule__PubPart__DivisionsAssignment_2_0_2 )*
             loop85:
             do {
                 int alt85=2;
@@ -32793,10 +32793,10 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
 
                 switch (alt85) {
             	case 1 :
-            	    // InternalPub.g:9276:3: rule__PubPart__SubdivisionsAssignment_2_0_2
+            	    // InternalPub.g:9276:3: rule__PubPart__DivisionsAssignment_2_0_2
             	    {
             	    pushFollow(FOLLOW_52);
-            	    rule__PubPart__SubdivisionsAssignment_2_0_2();
+            	    rule__PubPart__DivisionsAssignment_2_0_2();
 
             	    state._fsp--;
             	    if (state.failed) return ;
@@ -32810,7 +32810,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getPubPartAccess().getSubdivisionsAssignment_2_0_2()); 
+               after(grammarAccess.getPubPartAccess().getDivisionsAssignment_2_0_2()); 
             }
 
             }
@@ -33650,22 +33650,22 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PubAppendix__Group_1_0__2__Impl"
-    // InternalPub.g:9539:1: rule__PubAppendix__Group_1_0__2__Impl : ( ( rule__PubAppendix__SubdivisionsAssignment_1_0_2 )* ) ;
+    // InternalPub.g:9539:1: rule__PubAppendix__Group_1_0__2__Impl : ( ( rule__PubAppendix__DivisionsAssignment_1_0_2 )* ) ;
     public final void rule__PubAppendix__Group_1_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPub.g:9543:1: ( ( ( rule__PubAppendix__SubdivisionsAssignment_1_0_2 )* ) )
-            // InternalPub.g:9544:1: ( ( rule__PubAppendix__SubdivisionsAssignment_1_0_2 )* )
+            // InternalPub.g:9543:1: ( ( ( rule__PubAppendix__DivisionsAssignment_1_0_2 )* ) )
+            // InternalPub.g:9544:1: ( ( rule__PubAppendix__DivisionsAssignment_1_0_2 )* )
             {
-            // InternalPub.g:9544:1: ( ( rule__PubAppendix__SubdivisionsAssignment_1_0_2 )* )
-            // InternalPub.g:9545:2: ( rule__PubAppendix__SubdivisionsAssignment_1_0_2 )*
+            // InternalPub.g:9544:1: ( ( rule__PubAppendix__DivisionsAssignment_1_0_2 )* )
+            // InternalPub.g:9545:2: ( rule__PubAppendix__DivisionsAssignment_1_0_2 )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getPubAppendixAccess().getSubdivisionsAssignment_1_0_2()); 
+               before(grammarAccess.getPubAppendixAccess().getDivisionsAssignment_1_0_2()); 
             }
-            // InternalPub.g:9546:2: ( rule__PubAppendix__SubdivisionsAssignment_1_0_2 )*
+            // InternalPub.g:9546:2: ( rule__PubAppendix__DivisionsAssignment_1_0_2 )*
             loop88:
             do {
                 int alt88=2;
@@ -33684,10 +33684,10 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
 
                 switch (alt88) {
             	case 1 :
-            	    // InternalPub.g:9546:3: rule__PubAppendix__SubdivisionsAssignment_1_0_2
+            	    // InternalPub.g:9546:3: rule__PubAppendix__DivisionsAssignment_1_0_2
             	    {
             	    pushFollow(FOLLOW_52);
-            	    rule__PubAppendix__SubdivisionsAssignment_1_0_2();
+            	    rule__PubAppendix__DivisionsAssignment_1_0_2();
 
             	    state._fsp--;
             	    if (state.failed) return ;
@@ -33701,7 +33701,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getPubAppendixAccess().getSubdivisionsAssignment_1_0_2()); 
+               after(grammarAccess.getPubAppendixAccess().getDivisionsAssignment_1_0_2()); 
             }
 
             }
@@ -34541,22 +34541,22 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PubChapter__Group_1_0__2__Impl"
-    // InternalPub.g:9809:1: rule__PubChapter__Group_1_0__2__Impl : ( ( rule__PubChapter__SubdivisionsAssignment_1_0_2 )* ) ;
+    // InternalPub.g:9809:1: rule__PubChapter__Group_1_0__2__Impl : ( ( rule__PubChapter__DivisionsAssignment_1_0_2 )* ) ;
     public final void rule__PubChapter__Group_1_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPub.g:9813:1: ( ( ( rule__PubChapter__SubdivisionsAssignment_1_0_2 )* ) )
-            // InternalPub.g:9814:1: ( ( rule__PubChapter__SubdivisionsAssignment_1_0_2 )* )
+            // InternalPub.g:9813:1: ( ( ( rule__PubChapter__DivisionsAssignment_1_0_2 )* ) )
+            // InternalPub.g:9814:1: ( ( rule__PubChapter__DivisionsAssignment_1_0_2 )* )
             {
-            // InternalPub.g:9814:1: ( ( rule__PubChapter__SubdivisionsAssignment_1_0_2 )* )
-            // InternalPub.g:9815:2: ( rule__PubChapter__SubdivisionsAssignment_1_0_2 )*
+            // InternalPub.g:9814:1: ( ( rule__PubChapter__DivisionsAssignment_1_0_2 )* )
+            // InternalPub.g:9815:2: ( rule__PubChapter__DivisionsAssignment_1_0_2 )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getPubChapterAccess().getSubdivisionsAssignment_1_0_2()); 
+               before(grammarAccess.getPubChapterAccess().getDivisionsAssignment_1_0_2()); 
             }
-            // InternalPub.g:9816:2: ( rule__PubChapter__SubdivisionsAssignment_1_0_2 )*
+            // InternalPub.g:9816:2: ( rule__PubChapter__DivisionsAssignment_1_0_2 )*
             loop91:
             do {
                 int alt91=2;
@@ -34569,10 +34569,10 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
 
                 switch (alt91) {
             	case 1 :
-            	    // InternalPub.g:9816:3: rule__PubChapter__SubdivisionsAssignment_1_0_2
+            	    // InternalPub.g:9816:3: rule__PubChapter__DivisionsAssignment_1_0_2
             	    {
             	    pushFollow(FOLLOW_59);
-            	    rule__PubChapter__SubdivisionsAssignment_1_0_2();
+            	    rule__PubChapter__DivisionsAssignment_1_0_2();
 
             	    state._fsp--;
             	    if (state.failed) return ;
@@ -34586,7 +34586,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getPubChapterAccess().getSubdivisionsAssignment_1_0_2()); 
+               after(grammarAccess.getPubChapterAccess().getDivisionsAssignment_1_0_2()); 
             }
 
             }
@@ -35426,22 +35426,22 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PubSection__Group_1_0__2__Impl"
-    // InternalPub.g:10079:1: rule__PubSection__Group_1_0__2__Impl : ( ( rule__PubSection__SubdivisionsAssignment_1_0_2 )* ) ;
+    // InternalPub.g:10079:1: rule__PubSection__Group_1_0__2__Impl : ( ( rule__PubSection__DivisionsAssignment_1_0_2 )* ) ;
     public final void rule__PubSection__Group_1_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPub.g:10083:1: ( ( ( rule__PubSection__SubdivisionsAssignment_1_0_2 )* ) )
-            // InternalPub.g:10084:1: ( ( rule__PubSection__SubdivisionsAssignment_1_0_2 )* )
+            // InternalPub.g:10083:1: ( ( ( rule__PubSection__DivisionsAssignment_1_0_2 )* ) )
+            // InternalPub.g:10084:1: ( ( rule__PubSection__DivisionsAssignment_1_0_2 )* )
             {
-            // InternalPub.g:10084:1: ( ( rule__PubSection__SubdivisionsAssignment_1_0_2 )* )
-            // InternalPub.g:10085:2: ( rule__PubSection__SubdivisionsAssignment_1_0_2 )*
+            // InternalPub.g:10084:1: ( ( rule__PubSection__DivisionsAssignment_1_0_2 )* )
+            // InternalPub.g:10085:2: ( rule__PubSection__DivisionsAssignment_1_0_2 )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getPubSectionAccess().getSubdivisionsAssignment_1_0_2()); 
+               before(grammarAccess.getPubSectionAccess().getDivisionsAssignment_1_0_2()); 
             }
-            // InternalPub.g:10086:2: ( rule__PubSection__SubdivisionsAssignment_1_0_2 )*
+            // InternalPub.g:10086:2: ( rule__PubSection__DivisionsAssignment_1_0_2 )*
             loop94:
             do {
                 int alt94=2;
@@ -35454,10 +35454,10 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
 
                 switch (alt94) {
             	case 1 :
-            	    // InternalPub.g:10086:3: rule__PubSection__SubdivisionsAssignment_1_0_2
+            	    // InternalPub.g:10086:3: rule__PubSection__DivisionsAssignment_1_0_2
             	    {
             	    pushFollow(FOLLOW_61);
-            	    rule__PubSection__SubdivisionsAssignment_1_0_2();
+            	    rule__PubSection__DivisionsAssignment_1_0_2();
 
             	    state._fsp--;
             	    if (state.failed) return ;
@@ -35471,7 +35471,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getPubSectionAccess().getSubdivisionsAssignment_1_0_2()); 
+               after(grammarAccess.getPubSectionAccess().getDivisionsAssignment_1_0_2()); 
             }
 
             }
@@ -36321,22 +36321,22 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PubSubsection__Group_1_0__2__Impl"
-    // InternalPub.g:10349:1: rule__PubSubsection__Group_1_0__2__Impl : ( ( rule__PubSubsection__SubdivisionsAssignment_1_0_2 )* ) ;
+    // InternalPub.g:10349:1: rule__PubSubsection__Group_1_0__2__Impl : ( ( rule__PubSubsection__DivisionsAssignment_1_0_2 )* ) ;
     public final void rule__PubSubsection__Group_1_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPub.g:10353:1: ( ( ( rule__PubSubsection__SubdivisionsAssignment_1_0_2 )* ) )
-            // InternalPub.g:10354:1: ( ( rule__PubSubsection__SubdivisionsAssignment_1_0_2 )* )
+            // InternalPub.g:10353:1: ( ( ( rule__PubSubsection__DivisionsAssignment_1_0_2 )* ) )
+            // InternalPub.g:10354:1: ( ( rule__PubSubsection__DivisionsAssignment_1_0_2 )* )
             {
-            // InternalPub.g:10354:1: ( ( rule__PubSubsection__SubdivisionsAssignment_1_0_2 )* )
-            // InternalPub.g:10355:2: ( rule__PubSubsection__SubdivisionsAssignment_1_0_2 )*
+            // InternalPub.g:10354:1: ( ( rule__PubSubsection__DivisionsAssignment_1_0_2 )* )
+            // InternalPub.g:10355:2: ( rule__PubSubsection__DivisionsAssignment_1_0_2 )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getPubSubsectionAccess().getSubdivisionsAssignment_1_0_2()); 
+               before(grammarAccess.getPubSubsectionAccess().getDivisionsAssignment_1_0_2()); 
             }
-            // InternalPub.g:10356:2: ( rule__PubSubsection__SubdivisionsAssignment_1_0_2 )*
+            // InternalPub.g:10356:2: ( rule__PubSubsection__DivisionsAssignment_1_0_2 )*
             loop97:
             do {
                 int alt97=2;
@@ -36349,10 +36349,10 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
 
                 switch (alt97) {
             	case 1 :
-            	    // InternalPub.g:10356:3: rule__PubSubsection__SubdivisionsAssignment_1_0_2
+            	    // InternalPub.g:10356:3: rule__PubSubsection__DivisionsAssignment_1_0_2
             	    {
             	    pushFollow(FOLLOW_63);
-            	    rule__PubSubsection__SubdivisionsAssignment_1_0_2();
+            	    rule__PubSubsection__DivisionsAssignment_1_0_2();
 
             	    state._fsp--;
             	    if (state.failed) return ;
@@ -36366,7 +36366,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getPubSubsectionAccess().getSubdivisionsAssignment_1_0_2()); 
+               after(grammarAccess.getPubSubsectionAccess().getDivisionsAssignment_1_0_2()); 
             }
 
             }
@@ -70925,9 +70925,9 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__PubPart__ContentsAssignment_2_0_1"
 
 
-    // $ANTLR start "rule__PubPart__SubdivisionsAssignment_2_0_2"
-    // InternalPub.g:21303:1: rule__PubPart__SubdivisionsAssignment_2_0_2 : ( rulePubChapter ) ;
-    public final void rule__PubPart__SubdivisionsAssignment_2_0_2() throws RecognitionException {
+    // $ANTLR start "rule__PubPart__DivisionsAssignment_2_0_2"
+    // InternalPub.g:21303:1: rule__PubPart__DivisionsAssignment_2_0_2 : ( rulePubChapter ) ;
+    public final void rule__PubPart__DivisionsAssignment_2_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -70939,7 +70939,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             // InternalPub.g:21309:3: rulePubChapter
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getPubPartAccess().getSubdivisionsPubChapterParserRuleCall_2_0_2_0()); 
+               before(grammarAccess.getPubPartAccess().getDivisionsPubChapterParserRuleCall_2_0_2_0()); 
             }
             pushFollow(FOLLOW_2);
             rulePubChapter();
@@ -70947,7 +70947,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getPubPartAccess().getSubdivisionsPubChapterParserRuleCall_2_0_2_0()); 
+               after(grammarAccess.getPubPartAccess().getDivisionsPubChapterParserRuleCall_2_0_2_0()); 
             }
 
             }
@@ -70967,7 +70967,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__PubPart__SubdivisionsAssignment_2_0_2"
+    // $ANTLR end "rule__PubPart__DivisionsAssignment_2_0_2"
 
 
     // $ANTLR start "rule__PubPart__IncludeAssignment_2_1_1"
@@ -71117,9 +71117,9 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__PubAppendix__ContentsAssignment_1_0_1"
 
 
-    // $ANTLR start "rule__PubAppendix__SubdivisionsAssignment_1_0_2"
-    // InternalPub.g:21367:1: rule__PubAppendix__SubdivisionsAssignment_1_0_2 : ( rulePubChapter ) ;
-    public final void rule__PubAppendix__SubdivisionsAssignment_1_0_2() throws RecognitionException {
+    // $ANTLR start "rule__PubAppendix__DivisionsAssignment_1_0_2"
+    // InternalPub.g:21367:1: rule__PubAppendix__DivisionsAssignment_1_0_2 : ( rulePubChapter ) ;
+    public final void rule__PubAppendix__DivisionsAssignment_1_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -71131,7 +71131,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             // InternalPub.g:21373:3: rulePubChapter
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getPubAppendixAccess().getSubdivisionsPubChapterParserRuleCall_1_0_2_0()); 
+               before(grammarAccess.getPubAppendixAccess().getDivisionsPubChapterParserRuleCall_1_0_2_0()); 
             }
             pushFollow(FOLLOW_2);
             rulePubChapter();
@@ -71139,7 +71139,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getPubAppendixAccess().getSubdivisionsPubChapterParserRuleCall_1_0_2_0()); 
+               after(grammarAccess.getPubAppendixAccess().getDivisionsPubChapterParserRuleCall_1_0_2_0()); 
             }
 
             }
@@ -71159,7 +71159,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__PubAppendix__SubdivisionsAssignment_1_0_2"
+    // $ANTLR end "rule__PubAppendix__DivisionsAssignment_1_0_2"
 
 
     // $ANTLR start "rule__PubAppendix__IncludeAssignment_1_1_1"
@@ -71309,9 +71309,9 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__PubChapter__ContentsAssignment_1_0_1"
 
 
-    // $ANTLR start "rule__PubChapter__SubdivisionsAssignment_1_0_2"
-    // InternalPub.g:21431:1: rule__PubChapter__SubdivisionsAssignment_1_0_2 : ( rulePubSection ) ;
-    public final void rule__PubChapter__SubdivisionsAssignment_1_0_2() throws RecognitionException {
+    // $ANTLR start "rule__PubChapter__DivisionsAssignment_1_0_2"
+    // InternalPub.g:21431:1: rule__PubChapter__DivisionsAssignment_1_0_2 : ( rulePubSection ) ;
+    public final void rule__PubChapter__DivisionsAssignment_1_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -71323,7 +71323,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             // InternalPub.g:21437:3: rulePubSection
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getPubChapterAccess().getSubdivisionsPubSectionParserRuleCall_1_0_2_0()); 
+               before(grammarAccess.getPubChapterAccess().getDivisionsPubSectionParserRuleCall_1_0_2_0()); 
             }
             pushFollow(FOLLOW_2);
             rulePubSection();
@@ -71331,7 +71331,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getPubChapterAccess().getSubdivisionsPubSectionParserRuleCall_1_0_2_0()); 
+               after(grammarAccess.getPubChapterAccess().getDivisionsPubSectionParserRuleCall_1_0_2_0()); 
             }
 
             }
@@ -71351,7 +71351,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__PubChapter__SubdivisionsAssignment_1_0_2"
+    // $ANTLR end "rule__PubChapter__DivisionsAssignment_1_0_2"
 
 
     // $ANTLR start "rule__PubChapter__IncludeAssignment_1_1_1"
@@ -71501,9 +71501,9 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__PubSection__ContentsAssignment_1_0_1"
 
 
-    // $ANTLR start "rule__PubSection__SubdivisionsAssignment_1_0_2"
-    // InternalPub.g:21495:1: rule__PubSection__SubdivisionsAssignment_1_0_2 : ( rulePubSubsection ) ;
-    public final void rule__PubSection__SubdivisionsAssignment_1_0_2() throws RecognitionException {
+    // $ANTLR start "rule__PubSection__DivisionsAssignment_1_0_2"
+    // InternalPub.g:21495:1: rule__PubSection__DivisionsAssignment_1_0_2 : ( rulePubSubsection ) ;
+    public final void rule__PubSection__DivisionsAssignment_1_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -71515,7 +71515,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             // InternalPub.g:21501:3: rulePubSubsection
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getPubSectionAccess().getSubdivisionsPubSubsectionParserRuleCall_1_0_2_0()); 
+               before(grammarAccess.getPubSectionAccess().getDivisionsPubSubsectionParserRuleCall_1_0_2_0()); 
             }
             pushFollow(FOLLOW_2);
             rulePubSubsection();
@@ -71523,7 +71523,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getPubSectionAccess().getSubdivisionsPubSubsectionParserRuleCall_1_0_2_0()); 
+               after(grammarAccess.getPubSectionAccess().getDivisionsPubSubsectionParserRuleCall_1_0_2_0()); 
             }
 
             }
@@ -71543,7 +71543,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__PubSection__SubdivisionsAssignment_1_0_2"
+    // $ANTLR end "rule__PubSection__DivisionsAssignment_1_0_2"
 
 
     // $ANTLR start "rule__PubSection__IncludeAssignment_1_1_1"
@@ -71693,9 +71693,9 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__PubSubsection__ContentsAssignment_1_0_1"
 
 
-    // $ANTLR start "rule__PubSubsection__SubdivisionsAssignment_1_0_2"
-    // InternalPub.g:21559:1: rule__PubSubsection__SubdivisionsAssignment_1_0_2 : ( rulePubSubsubsection ) ;
-    public final void rule__PubSubsection__SubdivisionsAssignment_1_0_2() throws RecognitionException {
+    // $ANTLR start "rule__PubSubsection__DivisionsAssignment_1_0_2"
+    // InternalPub.g:21559:1: rule__PubSubsection__DivisionsAssignment_1_0_2 : ( rulePubSubsubsection ) ;
+    public final void rule__PubSubsection__DivisionsAssignment_1_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -71707,7 +71707,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             // InternalPub.g:21565:3: rulePubSubsubsection
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getPubSubsectionAccess().getSubdivisionsPubSubsubsectionParserRuleCall_1_0_2_0()); 
+               before(grammarAccess.getPubSubsectionAccess().getDivisionsPubSubsubsectionParserRuleCall_1_0_2_0()); 
             }
             pushFollow(FOLLOW_2);
             rulePubSubsubsection();
@@ -71715,7 +71715,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getPubSubsectionAccess().getSubdivisionsPubSubsubsectionParserRuleCall_1_0_2_0()); 
+               after(grammarAccess.getPubSubsectionAccess().getDivisionsPubSubsubsectionParserRuleCall_1_0_2_0()); 
             }
 
             }
@@ -71735,7 +71735,7 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__PubSubsection__SubdivisionsAssignment_1_0_2"
+    // $ANTLR end "rule__PubSubsection__DivisionsAssignment_1_0_2"
 
 
     // $ANTLR start "rule__PubSubsection__IncludeAssignment_1_1_1"
@@ -78085,11 +78085,11 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred164_InternalPub
     public final void synpred164_InternalPub_fragment() throws RecognitionException {   
-        // InternalPub.g:9276:3: ( rule__PubPart__SubdivisionsAssignment_2_0_2 )
-        // InternalPub.g:9276:3: rule__PubPart__SubdivisionsAssignment_2_0_2
+        // InternalPub.g:9276:3: ( rule__PubPart__DivisionsAssignment_2_0_2 )
+        // InternalPub.g:9276:3: rule__PubPart__DivisionsAssignment_2_0_2
         {
         pushFollow(FOLLOW_2);
-        rule__PubPart__SubdivisionsAssignment_2_0_2();
+        rule__PubPart__DivisionsAssignment_2_0_2();
 
         state._fsp--;
         if (state.failed) return ;
@@ -78100,11 +78100,11 @@ public class InternalPubParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred167_InternalPub
     public final void synpred167_InternalPub_fragment() throws RecognitionException {   
-        // InternalPub.g:9546:3: ( rule__PubAppendix__SubdivisionsAssignment_1_0_2 )
-        // InternalPub.g:9546:3: rule__PubAppendix__SubdivisionsAssignment_1_0_2
+        // InternalPub.g:9546:3: ( rule__PubAppendix__DivisionsAssignment_1_0_2 )
+        // InternalPub.g:9546:3: rule__PubAppendix__DivisionsAssignment_1_0_2
         {
         pushFollow(FOLLOW_2);
-        rule__PubAppendix__SubdivisionsAssignment_1_0_2();
+        rule__PubAppendix__DivisionsAssignment_1_0_2();
 
         state._fsp--;
         if (state.failed) return ;

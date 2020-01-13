@@ -2291,17 +2291,17 @@ rulePubPart returns [EObject current=null]
 					('Chapter')=>
 					(
 						{
-							newCompositeNode(grammarAccess.getPubPartAccess().getSubdivisionsPubChapterParserRuleCall_2_0_2_0());
+							newCompositeNode(grammarAccess.getPubPartAccess().getDivisionsPubChapterParserRuleCall_2_0_2_0());
 						}
-						lv_subdivisions_4_0=rulePubChapter
+						lv_divisions_4_0=rulePubChapter
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getPubPartRule());
 							}
 							add(
 								$current,
-								"subdivisions",
-								lv_subdivisions_4_0,
+								"divisions",
+								lv_divisions_4_0,
 								"com.mimacom.ddd.pub.pub.Pub.PubChapter");
 							afterParserOrEnumRuleCall();
 						}
@@ -2423,17 +2423,17 @@ rulePubAppendix returns [EObject current=null]
 					('Chapter')=>
 					(
 						{
-							newCompositeNode(grammarAccess.getPubAppendixAccess().getSubdivisionsPubChapterParserRuleCall_1_0_2_0());
+							newCompositeNode(grammarAccess.getPubAppendixAccess().getDivisionsPubChapterParserRuleCall_1_0_2_0());
 						}
-						lv_subdivisions_3_0=rulePubChapter
+						lv_divisions_3_0=rulePubChapter
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getPubAppendixRule());
 							}
 							add(
 								$current,
-								"subdivisions",
-								lv_subdivisions_3_0,
+								"divisions",
+								lv_divisions_3_0,
 								"com.mimacom.ddd.pub.pub.Pub.PubChapter");
 							afterParserOrEnumRuleCall();
 						}
@@ -2554,17 +2554,17 @@ rulePubChapter returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getPubChapterAccess().getSubdivisionsPubSectionParserRuleCall_1_0_2_0());
+							newCompositeNode(grammarAccess.getPubChapterAccess().getDivisionsPubSectionParserRuleCall_1_0_2_0());
 						}
-						lv_subdivisions_3_0=rulePubSection
+						lv_divisions_3_0=rulePubSection
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getPubChapterRule());
 							}
 							add(
 								$current,
-								"subdivisions",
-								lv_subdivisions_3_0,
+								"divisions",
+								lv_divisions_3_0,
 								"com.mimacom.ddd.pub.pub.Pub.PubSection");
 							afterParserOrEnumRuleCall();
 						}
@@ -2685,17 +2685,17 @@ rulePubSection returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getPubSectionAccess().getSubdivisionsPubSubsectionParserRuleCall_1_0_2_0());
+							newCompositeNode(grammarAccess.getPubSectionAccess().getDivisionsPubSubsectionParserRuleCall_1_0_2_0());
 						}
-						lv_subdivisions_3_0=rulePubSubsection
+						lv_divisions_3_0=rulePubSubsection
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getPubSectionRule());
 							}
 							add(
 								$current,
-								"subdivisions",
-								lv_subdivisions_3_0,
+								"divisions",
+								lv_divisions_3_0,
 								"com.mimacom.ddd.pub.pub.Pub.PubSubsection");
 							afterParserOrEnumRuleCall();
 						}
@@ -2823,17 +2823,17 @@ rulePubSubsection returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getPubSubsectionAccess().getSubdivisionsPubSubsubsectionParserRuleCall_1_0_2_0());
+							newCompositeNode(grammarAccess.getPubSubsectionAccess().getDivisionsPubSubsubsectionParserRuleCall_1_0_2_0());
 						}
-						lv_subdivisions_4_0=rulePubSubsubsection
+						lv_divisions_4_0=rulePubSubsubsection
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getPubSubsectionRule());
 							}
 							add(
 								$current,
-								"subdivisions",
-								lv_subdivisions_4_0,
+								"divisions",
+								lv_divisions_4_0,
 								"com.mimacom.ddd.pub.pub.Pub.PubSubsubsection");
 							afterParserOrEnumRuleCall();
 						}

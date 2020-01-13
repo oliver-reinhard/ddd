@@ -21,7 +21,6 @@ import com.mimacom.ddd.pub.pub.ListOfTables
 import com.mimacom.ddd.pub.pub.Paragraph
 import com.mimacom.ddd.pub.pub.ParagraphStyle
 import com.mimacom.ddd.pub.pub.PubModel
-import com.mimacom.ddd.pub.pub.PubUtil
 import com.mimacom.ddd.pub.pub.Publication
 import com.mimacom.ddd.pub.pub.PublicationBody
 import com.mimacom.ddd.pub.pub.SegmentWithText
@@ -42,7 +41,7 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class PubGenerator extends AbstractGenerator {
 
 	@Inject extension PubHtmlRenderer
-	@Inject extension PubUtil
+	@Inject extension PubNumberingUtil
 	@Inject extension PubGeneratorUtil
 
 	var java.util.List<Division> allDivisionsInSequenceOfOccurrenceCache
@@ -73,7 +72,7 @@ class PubGenerator extends AbstractGenerator {
 	}
 
 	def dispatch CharSequence genDocument(Component comp, IFileSystemAccess2 fsa) {
-		comp.initialiseTablesCache
+		comp.initialiseNumberingCaches
 		val segmentIterator = '''
 		«FOR seg : comp.segments»
 			«seg.genSegment»
@@ -81,8 +80,8 @@ class PubGenerator extends AbstractGenerator {
 		comp.renderDocument([segmentIterator])
 	}
 
-	def void initialiseTablesCache(Component compo) {
-		allDivisionsInSequenceOfOccurrenceCache = compo.gatherAllDivisionsInSequence
+	def void initialiseNumberingCaches(Component compo) {
+		allDivisionsInSequenceOfOccurrenceCache = compo.gatherAllDivisionsAndSetSequenceNumbers
 		allTablesInSequenceOfOccurrenceCache = compo.gatherAllTablesInSequenceAndSetSequenceNumbers
 		allFiguresInSequenceOfOccurrenceCache = compo.gatherAllFiguresInSequenceAndSetSequenceNumbers
 	}
@@ -155,7 +154,7 @@ class PubGenerator extends AbstractGenerator {
 			«FOR block : divContents.contents»
 				«block.genBlock»
 			«ENDFOR»
-			«FOR subdiv : divContents.subdivisions»
+			«FOR subdiv : divContents.divisions»
 				
 					«subdiv.genDivision»
 			«ENDFOR»

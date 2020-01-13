@@ -240,7 +240,7 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 */
 	@Override
 	public int getLevel() {
-		int i = 0;
+		int i = PubConstants.TOP_LEVEL;
 		EObject parent = this.eContainer();
 		while (((parent != null) && (!(parent instanceof Division)))) {
 			{

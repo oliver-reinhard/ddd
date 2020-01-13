@@ -14,12 +14,5 @@ package com.mimacom.ddd.pub.pub;
  * @generated
  */
 public interface Part extends Division {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" unique="false"
-	 * @generated
-	 */
-	int getSequenceNumber();
 
 } // Part

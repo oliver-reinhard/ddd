@@ -3,6 +3,7 @@
  */
 package com.mimacom.ddd.pub.pub.validation
 
+import com.google.common.collect.Sets
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DRichText
@@ -10,6 +11,7 @@ import com.mimacom.ddd.dm.base.DTextSegment
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxStaticReference
 import com.mimacom.ddd.pub.pub.Chapter
+import com.mimacom.ddd.pub.pub.Component
 import com.mimacom.ddd.pub.pub.Division
 import com.mimacom.ddd.pub.pub.ListItem
 import com.mimacom.ddd.pub.pub.ListStyle
@@ -17,10 +19,15 @@ import com.mimacom.ddd.pub.pub.Part
 import com.mimacom.ddd.pub.pub.PubPackage
 import com.mimacom.ddd.pub.pub.PubUtil
 import com.mimacom.ddd.pub.pub.PublicationBody
+import com.mimacom.ddd.pub.pub.Section
+import com.mimacom.ddd.pub.pub.Subsection
+import com.mimacom.ddd.pub.pub.Subsubsection
 import com.mimacom.ddd.pub.pub.Table
 import com.mimacom.ddd.pub.pub.TableRow
 import com.mimacom.ddd.pub.pub.TitledBlock
-import com.mimacom.ddd.pub.pub.impl.PublicationConstants
+import com.mimacom.ddd.pub.pub.generator.PubElementNames
+import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil
+import com.mimacom.ddd.pub.pub.impl.PubConstants
 import org.eclipse.xtext.validation.Check
 
 /**
@@ -31,6 +38,8 @@ import org.eclipse.xtext.validation.Check
 class PubValidator extends AbstractPubValidator {
 
 	@Inject extension PubUtil
+	@Inject extension PubElementNames
+	@Inject extension PubNumberingUtil
 
 	static val BASE = BasePackage.eINSTANCE
 	static val PUB = PubPackage.eINSTANCE
@@ -45,9 +54,70 @@ class PubValidator extends AbstractPubValidator {
 	}
 
 	@Check
+	def divisionStructuralIntegrity(Division d) {
+		if (d.include !== null) {
+			if (! d.divisions.empty) {
+				error("A division with an include cannot also contain divisions", PUB.divisionContainer_Divisions, 0)
+			}
+			if (! d.contents.empty) {
+				error("A division with an include cannot also define contents", PUB.blockContainer_Contents, 0)
+			}
+			if (d.class != d.include.class) {
+				error("Division include must be of the same type as the including division: " + d.include.displayName,
+					PUB.division_Include)
+			}
+		} else if (! d.divisions.empty) {
+			val head = d.divisions.head
+			val clazz = head.class
+			switch d {
+				Part:
+					if (clazz.isAssignableFrom(Chapter)) {
+						error("A Part must contain subdivisions of type Chapter.", head, PUB.division_Title)
+					}
+				Chapter:
+					if (clazz.isAssignableFrom(Section)) {
+						error("A Chapter must contain subdivisions of type Section.", head, PUB.division_Title)
+					}
+				Section:
+					if (clazz.isAssignableFrom(Subsection)) {
+						error("A Section must contain subdivisions of type Subsection.", head, PUB.division_Title)
+					}
+				Subsection:
+					if (clazz.isAssignableFrom(Subsubsection)) {
+						error("A Subsection must contain subdivisions of type Subsubsection.", head, PUB.division_Title)
+					}
+				Subsubsection:
+					error("A Subsubsection cannot contain subdivisions.", head, PUB.division_Title)
+			}
+			for (subdiv : d.divisions) {
+				if (subdiv.class != clazz) {
+					val msg = "A division can only contain subdivisions of the same type."
+					error(msg, head, PUB.division_Title)
+					error(msg, subdiv, PUB.division_Title)
+				}
+			}
+
+		}
+	}
+
+	@Check(NORMAL)
+	def divisionIsOnlyIncludedOnce(Component compo) {
+		val allDivisionsInSequenceOfOccurrence = compo.gatherAllDivisionsAndSetSequenceNumbers
+		val divisionsSet = Sets.newHashSet
+		val msg = "A division can only be included once and there can be no overlaps: "
+		for (div : allDivisionsInSequenceOfOccurrence) {
+			if (! divisionsSet.add(div)) {
+				error(msg, div, PUB.division_Include)
+			}
+			if (div.include !== null && ! divisionsSet.add(div.include)) {
+				error(msg, div, PUB.division_Include)
+			}
+		}
+	}
+
+	@Check
 	def startNumberOnlyAtFirstDivision(Division div) {
-		if (div.getSequenceNumber > 0 &&
-			div.startNumberingAt != PublicationConstants.DIVISION_NUMBERING_DEFAULT_START_VALUE) {
+		if (div.getSequenceNumber > 0 && div.startNumberingAt != PubConstants.DIVISION_NUMBERING_DEFAULT_START_VALUE) {
 			error("The numbering start can only be defined by the first element at that level.",
 				PUB.division_StartNumberingAt)
 		}
@@ -61,6 +131,14 @@ class PubValidator extends AbstractPubValidator {
 				item.list.items.indexOf(item))
 		} else if (style != ListStyle.TITLE && ! (item.title.empty)) {
 			error("Item cannot have a title for list style '" + style.literal + "'.", PUB.listItem_Title)
+		}
+	}
+
+	@Check
+	def includedDividionDoesNotInclude(Division div) {
+		if (div.include !== null && div.include.include !== null) {
+			error("Included division cannot itself include another division. Replace with non-transitive include.",
+				PUB.division_Include)
 		}
 	}
 
@@ -88,8 +166,7 @@ class PubValidator extends AbstractPubValidator {
 
 	//
 	// Tables
-	// 
-	
+	//
 	@Check
 	def tableHasRows(Table t) {
 		if (t.columns <= 0) {

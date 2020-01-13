@@ -3,18 +3,14 @@
 package com.mimacom.ddd.pub.pub.impl;
 
 import com.mimacom.ddd.pub.pub.Division;
+import com.mimacom.ddd.pub.pub.DivisionContainer;
 import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.PublicationBody;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -146,6 +142,38 @@ public class PublicationBodyImpl extends DocumentSegmentImpl implements Publicat
 				return divisions != null && !divisions.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == DivisionContainer.class) {
+			switch (derivedFeatureID) {
+				case PubPackage.PUBLICATION_BODY__DIVISIONS: return PubPackage.DIVISION_CONTAINER__DIVISIONS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == DivisionContainer.class) {
+			switch (baseFeatureID) {
+				case PubPackage.DIVISION_CONTAINER__DIVISIONS: return PubPackage.PUBLICATION_BODY__DIVISIONS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //PublicationBodyImpl

@@ -15,8 +15,6 @@ import com.mimacom.ddd.dm.base.DRichText;
  * <ul>
  *   <li>{@link com.mimacom.ddd.pub.pub.ListItem#getTitle <em>Title</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.ListItem#getList <em>List</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.ListItem#getLevel <em>Level</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.ListItem#getGetSequenceNumber <em>Get Sequence Number</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.pub.pub.PubPackage#getListItem()
@@ -71,25 +69,19 @@ public interface ListItem extends BlockContainer, NumberedElement, ReferenceTarg
 	void setList(List value);
 
 	/**
-	 * Returns the value of the '<em><b>Level</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Level</em>' attribute.
-	 * @see com.mimacom.ddd.pub.pub.PubPackage#getListItem_Level()
-	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+	 * @model kind="operation" unique="false"
 	 * @generated
 	 */
 	int getLevel();
 
 	/**
-	 * Returns the value of the '<em><b>Get Sequence Number</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Get Sequence Number</em>' attribute.
-	 * @see com.mimacom.ddd.pub.pub.PubPackage#getListItem_GetSequenceNumber()
-	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+	 * @model kind="operation" unique="false"
 	 * @generated
 	 */
-	int getGetSequenceNumber();
+	int getSequenceNumber();
 
 } // ListItem

@@ -5,6 +5,7 @@ package com.mimacom.ddd.pub.pub.validation;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
+import com.google.common.collect.Sets;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DRichText;
@@ -13,6 +14,7 @@ import com.mimacom.ddd.dm.base.IRichTextSegment;
 import com.mimacom.ddd.dm.dmx.DmxContextReference;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
 import com.mimacom.ddd.pub.pub.Chapter;
+import com.mimacom.ddd.pub.pub.Component;
 import com.mimacom.ddd.pub.pub.Division;
 import com.mimacom.ddd.pub.pub.ListItem;
 import com.mimacom.ddd.pub.pub.ListStyle;
@@ -20,15 +22,24 @@ import com.mimacom.ddd.pub.pub.Part;
 import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.PubUtil;
 import com.mimacom.ddd.pub.pub.PublicationBody;
+import com.mimacom.ddd.pub.pub.Section;
+import com.mimacom.ddd.pub.pub.Subsection;
+import com.mimacom.ddd.pub.pub.Subsubsection;
 import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TableCell;
 import com.mimacom.ddd.pub.pub.TableRow;
 import com.mimacom.ddd.pub.pub.TitledBlock;
-import com.mimacom.ddd.pub.pub.impl.PublicationConstants;
+import com.mimacom.ddd.pub.pub.generator.PubElementNames;
+import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil;
+import com.mimacom.ddd.pub.pub.impl.PubConstants;
 import com.mimacom.ddd.pub.pub.validation.AbstractPubValidator;
+import java.util.HashSet;
+import java.util.List;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.validation.CheckType;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -44,6 +55,14 @@ public class PubValidator extends AbstractPubValidator {
   @Extension
   private PubUtil _pubUtil;
   
+  @Inject
+  @Extension
+  private PubElementNames _pubElementNames;
+  
+  @Inject
+  @Extension
+  private PubNumberingUtil _pubNumberingUtil;
+  
   private static final BasePackage BASE = BasePackage.eINSTANCE;
   
   private static final PubPackage PUB = PubPackage.eINSTANCE;
@@ -58,9 +77,112 @@ public class PubValidator extends AbstractPubValidator {
   }
   
   @Check
+  public void divisionStructuralIntegrity(final Division d) {
+    Division _include = d.getInclude();
+    boolean _tripleNotEquals = (_include != null);
+    if (_tripleNotEquals) {
+      boolean _isEmpty = d.getDivisions().isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        this.error("A division with an include cannot also contain divisions", PubValidator.PUB.getDivisionContainer_Divisions(), 0);
+      }
+      boolean _isEmpty_1 = d.getContents().isEmpty();
+      boolean _not_1 = (!_isEmpty_1);
+      if (_not_1) {
+        this.error("A division with an include cannot also define contents", PubValidator.PUB.getBlockContainer_Contents(), 0);
+      }
+      Class<? extends Division> _class = d.getClass();
+      Class<? extends Division> _class_1 = d.getInclude().getClass();
+      boolean _notEquals = (!Objects.equal(_class, _class_1));
+      if (_notEquals) {
+        String _displayName = this._pubElementNames.displayName(d.getInclude());
+        String _plus = ("Division include must be of the same type as the including division: " + _displayName);
+        this.error(_plus, 
+          PubValidator.PUB.getDivision_Include());
+      }
+    } else {
+      boolean _isEmpty_2 = d.getDivisions().isEmpty();
+      boolean _not_2 = (!_isEmpty_2);
+      if (_not_2) {
+        final Division head = IterableExtensions.<Division>head(d.getDivisions());
+        final Class<? extends Division> clazz = head.getClass();
+        boolean _matched = false;
+        if (d instanceof Part) {
+          _matched=true;
+          boolean _isAssignableFrom = clazz.isAssignableFrom(Chapter.class);
+          if (_isAssignableFrom) {
+            this.error("A Part must contain subdivisions of type Chapter.", head, PubValidator.PUB.getDivision_Title());
+          }
+        }
+        if (!_matched) {
+          if (d instanceof Chapter) {
+            _matched=true;
+            boolean _isAssignableFrom = clazz.isAssignableFrom(Section.class);
+            if (_isAssignableFrom) {
+              this.error("A Chapter must contain subdivisions of type Section.", head, PubValidator.PUB.getDivision_Title());
+            }
+          }
+        }
+        if (!_matched) {
+          if (d instanceof Section) {
+            _matched=true;
+            boolean _isAssignableFrom = clazz.isAssignableFrom(Subsection.class);
+            if (_isAssignableFrom) {
+              this.error("A Section must contain subdivisions of type Subsection.", head, PubValidator.PUB.getDivision_Title());
+            }
+          }
+        }
+        if (!_matched) {
+          if (d instanceof Subsection) {
+            _matched=true;
+            boolean _isAssignableFrom = clazz.isAssignableFrom(Subsubsection.class);
+            if (_isAssignableFrom) {
+              this.error("A Subsection must contain subdivisions of type Subsubsection.", head, PubValidator.PUB.getDivision_Title());
+            }
+          }
+        }
+        if (!_matched) {
+          if (d instanceof Subsubsection) {
+            _matched=true;
+            this.error("A Subsubsection cannot contain subdivisions.", head, PubValidator.PUB.getDivision_Title());
+          }
+        }
+        EList<Division> _divisions = d.getDivisions();
+        for (final Division subdiv : _divisions) {
+          Class<? extends Division> _class_2 = subdiv.getClass();
+          boolean _notEquals_1 = (!Objects.equal(_class_2, clazz));
+          if (_notEquals_1) {
+            final String msg = "A division can only contain subdivisions of the same type.";
+            this.error(msg, head, PubValidator.PUB.getDivision_Title());
+            this.error(msg, subdiv, PubValidator.PUB.getDivision_Title());
+          }
+        }
+      }
+    }
+  }
+  
+  @Check(CheckType.NORMAL)
+  public void divisionIsOnlyIncludedOnce(final Component compo) {
+    final List<Division> allDivisionsInSequenceOfOccurrence = this._pubNumberingUtil.gatherAllDivisionsAndSetSequenceNumbers(compo);
+    final HashSet<Division> divisionsSet = Sets.<Division>newHashSet();
+    final String msg = "A division can only be included once and there can be no overlaps: ";
+    for (final Division div : allDivisionsInSequenceOfOccurrence) {
+      {
+        boolean _add = divisionsSet.add(div);
+        boolean _not = (!_add);
+        if (_not) {
+          this.error(msg, div, PubValidator.PUB.getDivision_Include());
+        }
+        if (((div.getInclude() != null) && (!divisionsSet.add(div.getInclude())))) {
+          this.error(msg, div, PubValidator.PUB.getDivision_Include());
+        }
+      }
+    }
+  }
+  
+  @Check
   public void startNumberOnlyAtFirstDivision(final Division div) {
-    if (((div.getSequenceNumber() > 0) && 
-      (div.getStartNumberingAt() != PublicationConstants.DIVISION_NUMBERING_DEFAULT_START_VALUE))) {
+    if (((div.getSequenceNumber() > 0) && (div.getStartNumberingAt() != PubConstants.DIVISION_NUMBERING_DEFAULT_START_VALUE))) {
       this.error("The numbering start can only be defined by the first element at that level.", 
         PubValidator.PUB.getDivision_StartNumberingAt());
     }
@@ -82,6 +204,14 @@ public class PubValidator extends AbstractPubValidator {
         String _plus_3 = (_plus_2 + "\'.");
         this.error(_plus_3, PubValidator.PUB.getListItem_Title());
       }
+    }
+  }
+  
+  @Check
+  public void includedDividionDoesNotInclude(final Division div) {
+    if (((div.getInclude() != null) && (div.getInclude().getInclude() != null))) {
+      this.error("Included division cannot itself include another division. Replace with non-transitive include.", 
+        PubValidator.PUB.getDivision_Include());
     }
   }
   

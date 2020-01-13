@@ -5998,7 +5998,7 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePubPart"
-    // InternalPub.g:2239:1: rulePubPart returns [EObject current=null] : ( () otherlv_1= 'Part' ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_subdivisions_4_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) ) ) ;
+    // InternalPub.g:2239:1: rulePubPart returns [EObject current=null] : ( () otherlv_1= 'Part' ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_divisions_4_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) ) ) ;
     public final EObject rulePubPart() throws RecognitionException {
         EObject current = null;
 
@@ -6008,7 +6008,7 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
         EObject lv_contents_3_0 = null;
 
-        EObject lv_subdivisions_4_0 = null;
+        EObject lv_divisions_4_0 = null;
 
         EObject this_PubDivisionIncludeHeader_5 = null;
 
@@ -6019,11 +6019,11 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPub.g:2245:2: ( ( () otherlv_1= 'Part' ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_subdivisions_4_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) ) ) )
-            // InternalPub.g:2246:2: ( () otherlv_1= 'Part' ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_subdivisions_4_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) ) )
+            // InternalPub.g:2245:2: ( ( () otherlv_1= 'Part' ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_divisions_4_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) ) ) )
+            // InternalPub.g:2246:2: ( () otherlv_1= 'Part' ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_divisions_4_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) ) )
             {
-            // InternalPub.g:2246:2: ( () otherlv_1= 'Part' ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_subdivisions_4_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) ) )
-            // InternalPub.g:2247:3: () otherlv_1= 'Part' ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_subdivisions_4_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) )
+            // InternalPub.g:2246:2: ( () otherlv_1= 'Part' ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_divisions_4_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) ) )
+            // InternalPub.g:2247:3: () otherlv_1= 'Part' ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_divisions_4_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) )
             {
             // InternalPub.g:2247:3: ()
             // InternalPub.g:2248:4: 
@@ -6044,7 +6044,7 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_1, grammarAccess.getPubPartAccess().getPartKeyword_1());
               		
             }
-            // InternalPub.g:2258:3: ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_subdivisions_4_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) )
+            // InternalPub.g:2258:3: ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_divisions_4_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) )
             int alt29=2;
             switch ( input.LA(1) ) {
             case 21:
@@ -6148,10 +6148,10 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
             switch (alt29) {
                 case 1 :
-                    // InternalPub.g:2259:4: (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_subdivisions_4_0= rulePubChapter ) )* )
+                    // InternalPub.g:2259:4: (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_divisions_4_0= rulePubChapter ) )* )
                     {
-                    // InternalPub.g:2259:4: (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_subdivisions_4_0= rulePubChapter ) )* )
-                    // InternalPub.g:2260:5: this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_subdivisions_4_0= rulePubChapter ) )*
+                    // InternalPub.g:2259:4: (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_divisions_4_0= rulePubChapter ) )* )
+                    // InternalPub.g:2260:5: this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_divisions_4_0= rulePubChapter ) )*
                     {
                     if ( state.backtracking==0 ) {
 
@@ -6225,7 +6225,7 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    // InternalPub.g:2290:5: ( ( 'Chapter' )=> (lv_subdivisions_4_0= rulePubChapter ) )*
+                    // InternalPub.g:2290:5: ( ( 'Chapter' )=> (lv_divisions_4_0= rulePubChapter ) )*
                     loop27:
                     do {
                         int alt27=2;
@@ -6244,18 +6244,18 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
                         switch (alt27) {
                     	case 1 :
-                    	    // InternalPub.g:2291:6: ( 'Chapter' )=> (lv_subdivisions_4_0= rulePubChapter )
+                    	    // InternalPub.g:2291:6: ( 'Chapter' )=> (lv_divisions_4_0= rulePubChapter )
                     	    {
-                    	    // InternalPub.g:2292:6: (lv_subdivisions_4_0= rulePubChapter )
-                    	    // InternalPub.g:2293:7: lv_subdivisions_4_0= rulePubChapter
+                    	    // InternalPub.g:2292:6: (lv_divisions_4_0= rulePubChapter )
+                    	    // InternalPub.g:2293:7: lv_divisions_4_0= rulePubChapter
                     	    {
                     	    if ( state.backtracking==0 ) {
 
-                    	      							newCompositeNode(grammarAccess.getPubPartAccess().getSubdivisionsPubChapterParserRuleCall_2_0_2_0());
+                    	      							newCompositeNode(grammarAccess.getPubPartAccess().getDivisionsPubChapterParserRuleCall_2_0_2_0());
                     	      						
                     	    }
                     	    pushFollow(FOLLOW_37);
-                    	    lv_subdivisions_4_0=rulePubChapter();
+                    	    lv_divisions_4_0=rulePubChapter();
 
                     	    state._fsp--;
                     	    if (state.failed) return current;
@@ -6266,8 +6266,8 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
                     	      							}
                     	      							add(
                     	      								current,
-                    	      								"subdivisions",
-                    	      								lv_subdivisions_4_0,
+                    	      								"divisions",
+                    	      								lv_divisions_4_0,
                     	      								"com.mimacom.ddd.pub.pub.Pub.PubChapter");
                     	      							afterParserOrEnumRuleCall();
                     	      						
@@ -6481,7 +6481,7 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePubAppendix"
-    // InternalPub.g:2378:1: rulePubAppendix returns [EObject current=null] : (otherlv_0= 'Appendix' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_subdivisions_3_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) ) ;
+    // InternalPub.g:2378:1: rulePubAppendix returns [EObject current=null] : (otherlv_0= 'Appendix' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_divisions_3_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) ) ;
     public final EObject rulePubAppendix() throws RecognitionException {
         EObject current = null;
 
@@ -6491,7 +6491,7 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
         EObject lv_contents_2_0 = null;
 
-        EObject lv_subdivisions_3_0 = null;
+        EObject lv_divisions_3_0 = null;
 
         EObject this_PubDivisionIncludeHeader_4 = null;
 
@@ -6502,11 +6502,11 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPub.g:2384:2: ( (otherlv_0= 'Appendix' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_subdivisions_3_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) ) )
-            // InternalPub.g:2385:2: (otherlv_0= 'Appendix' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_subdivisions_3_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) )
+            // InternalPub.g:2384:2: ( (otherlv_0= 'Appendix' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_divisions_3_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) ) )
+            // InternalPub.g:2385:2: (otherlv_0= 'Appendix' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_divisions_3_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) )
             {
-            // InternalPub.g:2385:2: (otherlv_0= 'Appendix' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_subdivisions_3_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) )
-            // InternalPub.g:2386:3: otherlv_0= 'Appendix' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_subdivisions_3_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) )
+            // InternalPub.g:2385:2: (otherlv_0= 'Appendix' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_divisions_3_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) )
+            // InternalPub.g:2386:3: otherlv_0= 'Appendix' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_divisions_3_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) )
             {
             otherlv_0=(Token)match(input,58,FOLLOW_35); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -6514,7 +6514,7 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getPubAppendixAccess().getAppendixKeyword_0());
               		
             }
-            // InternalPub.g:2390:3: ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_subdivisions_3_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) )
+            // InternalPub.g:2390:3: ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_divisions_3_0= rulePubChapter ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) )
             int alt33=2;
             switch ( input.LA(1) ) {
             case 21:
@@ -6618,10 +6618,10 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
             switch (alt33) {
                 case 1 :
-                    // InternalPub.g:2391:4: (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_subdivisions_3_0= rulePubChapter ) )* )
+                    // InternalPub.g:2391:4: (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_divisions_3_0= rulePubChapter ) )* )
                     {
-                    // InternalPub.g:2391:4: (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_subdivisions_3_0= rulePubChapter ) )* )
-                    // InternalPub.g:2392:5: this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_subdivisions_3_0= rulePubChapter ) )*
+                    // InternalPub.g:2391:4: (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_divisions_3_0= rulePubChapter ) )* )
+                    // InternalPub.g:2392:5: this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( ( 'Chapter' )=> (lv_divisions_3_0= rulePubChapter ) )*
                     {
                     if ( state.backtracking==0 ) {
 
@@ -6695,7 +6695,7 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    // InternalPub.g:2422:5: ( ( 'Chapter' )=> (lv_subdivisions_3_0= rulePubChapter ) )*
+                    // InternalPub.g:2422:5: ( ( 'Chapter' )=> (lv_divisions_3_0= rulePubChapter ) )*
                     loop31:
                     do {
                         int alt31=2;
@@ -6714,18 +6714,18 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
                         switch (alt31) {
                     	case 1 :
-                    	    // InternalPub.g:2423:6: ( 'Chapter' )=> (lv_subdivisions_3_0= rulePubChapter )
+                    	    // InternalPub.g:2423:6: ( 'Chapter' )=> (lv_divisions_3_0= rulePubChapter )
                     	    {
-                    	    // InternalPub.g:2424:6: (lv_subdivisions_3_0= rulePubChapter )
-                    	    // InternalPub.g:2425:7: lv_subdivisions_3_0= rulePubChapter
+                    	    // InternalPub.g:2424:6: (lv_divisions_3_0= rulePubChapter )
+                    	    // InternalPub.g:2425:7: lv_divisions_3_0= rulePubChapter
                     	    {
                     	    if ( state.backtracking==0 ) {
 
-                    	      							newCompositeNode(grammarAccess.getPubAppendixAccess().getSubdivisionsPubChapterParserRuleCall_1_0_2_0());
+                    	      							newCompositeNode(grammarAccess.getPubAppendixAccess().getDivisionsPubChapterParserRuleCall_1_0_2_0());
                     	      						
                     	    }
                     	    pushFollow(FOLLOW_37);
-                    	    lv_subdivisions_3_0=rulePubChapter();
+                    	    lv_divisions_3_0=rulePubChapter();
 
                     	    state._fsp--;
                     	    if (state.failed) return current;
@@ -6736,8 +6736,8 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
                     	      							}
                     	      							add(
                     	      								current,
-                    	      								"subdivisions",
-                    	      								lv_subdivisions_3_0,
+                    	      								"divisions",
+                    	      								lv_divisions_3_0,
                     	      								"com.mimacom.ddd.pub.pub.Pub.PubChapter");
                     	      							afterParserOrEnumRuleCall();
                     	      						
@@ -6951,7 +6951,7 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePubChapter"
-    // InternalPub.g:2510:1: rulePubChapter returns [EObject current=null] : (otherlv_0= 'Chapter' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_subdivisions_3_0= rulePubSection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) ) ;
+    // InternalPub.g:2510:1: rulePubChapter returns [EObject current=null] : (otherlv_0= 'Chapter' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_divisions_3_0= rulePubSection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) ) ;
     public final EObject rulePubChapter() throws RecognitionException {
         EObject current = null;
 
@@ -6961,7 +6961,7 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
         EObject lv_contents_2_0 = null;
 
-        EObject lv_subdivisions_3_0 = null;
+        EObject lv_divisions_3_0 = null;
 
         EObject this_PubDivisionIncludeHeader_4 = null;
 
@@ -6972,11 +6972,11 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPub.g:2516:2: ( (otherlv_0= 'Chapter' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_subdivisions_3_0= rulePubSection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) ) )
-            // InternalPub.g:2517:2: (otherlv_0= 'Chapter' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_subdivisions_3_0= rulePubSection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) )
+            // InternalPub.g:2516:2: ( (otherlv_0= 'Chapter' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_divisions_3_0= rulePubSection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) ) )
+            // InternalPub.g:2517:2: (otherlv_0= 'Chapter' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_divisions_3_0= rulePubSection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) )
             {
-            // InternalPub.g:2517:2: (otherlv_0= 'Chapter' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_subdivisions_3_0= rulePubSection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) )
-            // InternalPub.g:2518:3: otherlv_0= 'Chapter' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_subdivisions_3_0= rulePubSection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) )
+            // InternalPub.g:2517:2: (otherlv_0= 'Chapter' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_divisions_3_0= rulePubSection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) )
+            // InternalPub.g:2518:3: otherlv_0= 'Chapter' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_divisions_3_0= rulePubSection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) )
             {
             otherlv_0=(Token)match(input,59,FOLLOW_35); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -6984,7 +6984,7 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getPubChapterAccess().getChapterKeyword_0());
               		
             }
-            // InternalPub.g:2522:3: ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_subdivisions_3_0= rulePubSection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) )
+            // InternalPub.g:2522:3: ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_divisions_3_0= rulePubSection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) )
             int alt37=2;
             switch ( input.LA(1) ) {
             case 21:
@@ -7088,10 +7088,10 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
             switch (alt37) {
                 case 1 :
-                    // InternalPub.g:2523:4: (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_subdivisions_3_0= rulePubSection ) )* )
+                    // InternalPub.g:2523:4: (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_divisions_3_0= rulePubSection ) )* )
                     {
-                    // InternalPub.g:2523:4: (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_subdivisions_3_0= rulePubSection ) )* )
-                    // InternalPub.g:2524:5: this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_subdivisions_3_0= rulePubSection ) )*
+                    // InternalPub.g:2523:4: (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_divisions_3_0= rulePubSection ) )* )
+                    // InternalPub.g:2524:5: this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_divisions_3_0= rulePubSection ) )*
                     {
                     if ( state.backtracking==0 ) {
 
@@ -7165,7 +7165,7 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    // InternalPub.g:2554:5: ( (lv_subdivisions_3_0= rulePubSection ) )*
+                    // InternalPub.g:2554:5: ( (lv_divisions_3_0= rulePubSection ) )*
                     loop35:
                     do {
                         int alt35=2;
@@ -7178,18 +7178,18 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
                         switch (alt35) {
                     	case 1 :
-                    	    // InternalPub.g:2555:6: (lv_subdivisions_3_0= rulePubSection )
+                    	    // InternalPub.g:2555:6: (lv_divisions_3_0= rulePubSection )
                     	    {
-                    	    // InternalPub.g:2555:6: (lv_subdivisions_3_0= rulePubSection )
-                    	    // InternalPub.g:2556:7: lv_subdivisions_3_0= rulePubSection
+                    	    // InternalPub.g:2555:6: (lv_divisions_3_0= rulePubSection )
+                    	    // InternalPub.g:2556:7: lv_divisions_3_0= rulePubSection
                     	    {
                     	    if ( state.backtracking==0 ) {
 
-                    	      							newCompositeNode(grammarAccess.getPubChapterAccess().getSubdivisionsPubSectionParserRuleCall_1_0_2_0());
+                    	      							newCompositeNode(grammarAccess.getPubChapterAccess().getDivisionsPubSectionParserRuleCall_1_0_2_0());
                     	      						
                     	    }
                     	    pushFollow(FOLLOW_40);
-                    	    lv_subdivisions_3_0=rulePubSection();
+                    	    lv_divisions_3_0=rulePubSection();
 
                     	    state._fsp--;
                     	    if (state.failed) return current;
@@ -7200,8 +7200,8 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
                     	      							}
                     	      							add(
                     	      								current,
-                    	      								"subdivisions",
-                    	      								lv_subdivisions_3_0,
+                    	      								"divisions",
+                    	      								lv_divisions_3_0,
                     	      								"com.mimacom.ddd.pub.pub.Pub.PubSection");
                     	      							afterParserOrEnumRuleCall();
                     	      						
@@ -7415,7 +7415,7 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePubSection"
-    // InternalPub.g:2641:1: rulePubSection returns [EObject current=null] : (otherlv_0= 'Section' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_subdivisions_3_0= rulePubSubsection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) ) ;
+    // InternalPub.g:2641:1: rulePubSection returns [EObject current=null] : (otherlv_0= 'Section' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_divisions_3_0= rulePubSubsection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) ) ;
     public final EObject rulePubSection() throws RecognitionException {
         EObject current = null;
 
@@ -7425,7 +7425,7 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
         EObject lv_contents_2_0 = null;
 
-        EObject lv_subdivisions_3_0 = null;
+        EObject lv_divisions_3_0 = null;
 
         EObject this_PubDivisionIncludeHeader_4 = null;
 
@@ -7436,11 +7436,11 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPub.g:2647:2: ( (otherlv_0= 'Section' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_subdivisions_3_0= rulePubSubsection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) ) )
-            // InternalPub.g:2648:2: (otherlv_0= 'Section' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_subdivisions_3_0= rulePubSubsection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) )
+            // InternalPub.g:2647:2: ( (otherlv_0= 'Section' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_divisions_3_0= rulePubSubsection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) ) )
+            // InternalPub.g:2648:2: (otherlv_0= 'Section' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_divisions_3_0= rulePubSubsection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) )
             {
-            // InternalPub.g:2648:2: (otherlv_0= 'Section' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_subdivisions_3_0= rulePubSubsection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) )
-            // InternalPub.g:2649:3: otherlv_0= 'Section' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_subdivisions_3_0= rulePubSubsection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) )
+            // InternalPub.g:2648:2: (otherlv_0= 'Section' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_divisions_3_0= rulePubSubsection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) ) )
+            // InternalPub.g:2649:3: otherlv_0= 'Section' ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_divisions_3_0= rulePubSubsection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) )
             {
             otherlv_0=(Token)match(input,60,FOLLOW_35); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -7448,7 +7448,7 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getPubSectionAccess().getSectionKeyword_0());
               		
             }
-            // InternalPub.g:2653:3: ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_subdivisions_3_0= rulePubSubsection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) )
+            // InternalPub.g:2653:3: ( (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_divisions_3_0= rulePubSubsection ) )* ) | (this_PubDivisionIncludeHeader_4= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_6= 'as' ( (lv_title_7_0= ruleDRichText ) ) )? ) )
             int alt41=2;
             switch ( input.LA(1) ) {
             case 21:
@@ -7552,10 +7552,10 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
             switch (alt41) {
                 case 1 :
-                    // InternalPub.g:2654:4: (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_subdivisions_3_0= rulePubSubsection ) )* )
+                    // InternalPub.g:2654:4: (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_divisions_3_0= rulePubSubsection ) )* )
                     {
-                    // InternalPub.g:2654:4: (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_subdivisions_3_0= rulePubSubsection ) )* )
-                    // InternalPub.g:2655:5: this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_subdivisions_3_0= rulePubSubsection ) )*
+                    // InternalPub.g:2654:4: (this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_divisions_3_0= rulePubSubsection ) )* )
+                    // InternalPub.g:2655:5: this_PubDivisionHeader_1= rulePubDivisionHeader[$current] ( (lv_contents_2_0= rulePubContentBlock ) )* ( (lv_divisions_3_0= rulePubSubsection ) )*
                     {
                     if ( state.backtracking==0 ) {
 
@@ -7629,7 +7629,7 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    // InternalPub.g:2685:5: ( (lv_subdivisions_3_0= rulePubSubsection ) )*
+                    // InternalPub.g:2685:5: ( (lv_divisions_3_0= rulePubSubsection ) )*
                     loop39:
                     do {
                         int alt39=2;
@@ -7642,18 +7642,18 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
                         switch (alt39) {
                     	case 1 :
-                    	    // InternalPub.g:2686:6: (lv_subdivisions_3_0= rulePubSubsection )
+                    	    // InternalPub.g:2686:6: (lv_divisions_3_0= rulePubSubsection )
                     	    {
-                    	    // InternalPub.g:2686:6: (lv_subdivisions_3_0= rulePubSubsection )
-                    	    // InternalPub.g:2687:7: lv_subdivisions_3_0= rulePubSubsection
+                    	    // InternalPub.g:2686:6: (lv_divisions_3_0= rulePubSubsection )
+                    	    // InternalPub.g:2687:7: lv_divisions_3_0= rulePubSubsection
                     	    {
                     	    if ( state.backtracking==0 ) {
 
-                    	      							newCompositeNode(grammarAccess.getPubSectionAccess().getSubdivisionsPubSubsectionParserRuleCall_1_0_2_0());
+                    	      							newCompositeNode(grammarAccess.getPubSectionAccess().getDivisionsPubSubsectionParserRuleCall_1_0_2_0());
                     	      						
                     	    }
                     	    pushFollow(FOLLOW_42);
-                    	    lv_subdivisions_3_0=rulePubSubsection();
+                    	    lv_divisions_3_0=rulePubSubsection();
 
                     	    state._fsp--;
                     	    if (state.failed) return current;
@@ -7664,8 +7664,8 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
                     	      							}
                     	      							add(
                     	      								current,
-                    	      								"subdivisions",
-                    	      								lv_subdivisions_3_0,
+                    	      								"divisions",
+                    	      								lv_divisions_3_0,
                     	      								"com.mimacom.ddd.pub.pub.Pub.PubSubsection");
                     	      							afterParserOrEnumRuleCall();
                     	      						
@@ -7879,7 +7879,7 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePubSubsection"
-    // InternalPub.g:2772:1: rulePubSubsection returns [EObject current=null] : ( (otherlv_0= 'Sub' | otherlv_1= 'Subsection' ) ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( (lv_subdivisions_4_0= rulePubSubsubsection ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) ) ) ;
+    // InternalPub.g:2772:1: rulePubSubsection returns [EObject current=null] : ( (otherlv_0= 'Sub' | otherlv_1= 'Subsection' ) ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( (lv_divisions_4_0= rulePubSubsubsection ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) ) ) ;
     public final EObject rulePubSubsection() throws RecognitionException {
         EObject current = null;
 
@@ -7890,7 +7890,7 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
         EObject lv_contents_3_0 = null;
 
-        EObject lv_subdivisions_4_0 = null;
+        EObject lv_divisions_4_0 = null;
 
         EObject this_PubDivisionIncludeHeader_5 = null;
 
@@ -7901,11 +7901,11 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPub.g:2778:2: ( ( (otherlv_0= 'Sub' | otherlv_1= 'Subsection' ) ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( (lv_subdivisions_4_0= rulePubSubsubsection ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) ) ) )
-            // InternalPub.g:2779:2: ( (otherlv_0= 'Sub' | otherlv_1= 'Subsection' ) ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( (lv_subdivisions_4_0= rulePubSubsubsection ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) ) )
+            // InternalPub.g:2778:2: ( ( (otherlv_0= 'Sub' | otherlv_1= 'Subsection' ) ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( (lv_divisions_4_0= rulePubSubsubsection ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) ) ) )
+            // InternalPub.g:2779:2: ( (otherlv_0= 'Sub' | otherlv_1= 'Subsection' ) ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( (lv_divisions_4_0= rulePubSubsubsection ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) ) )
             {
-            // InternalPub.g:2779:2: ( (otherlv_0= 'Sub' | otherlv_1= 'Subsection' ) ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( (lv_subdivisions_4_0= rulePubSubsubsection ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) ) )
-            // InternalPub.g:2780:3: (otherlv_0= 'Sub' | otherlv_1= 'Subsection' ) ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( (lv_subdivisions_4_0= rulePubSubsubsection ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) )
+            // InternalPub.g:2779:2: ( (otherlv_0= 'Sub' | otherlv_1= 'Subsection' ) ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( (lv_divisions_4_0= rulePubSubsubsection ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) ) )
+            // InternalPub.g:2780:3: (otherlv_0= 'Sub' | otherlv_1= 'Subsection' ) ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( (lv_divisions_4_0= rulePubSubsubsection ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) )
             {
             // InternalPub.g:2780:3: (otherlv_0= 'Sub' | otherlv_1= 'Subsection' )
             int alt42=2;
@@ -7952,7 +7952,7 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPub.g:2791:3: ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( (lv_subdivisions_4_0= rulePubSubsubsection ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) )
+            // InternalPub.g:2791:3: ( (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( (lv_divisions_4_0= rulePubSubsubsection ) )* ) | (this_PubDivisionIncludeHeader_5= rulePubDivisionIncludeHeader[$current] ( ( ruleDQualifiedName ) ) (otherlv_7= 'as' ( (lv_title_8_0= ruleDRichText ) ) )? ) )
             int alt46=2;
             switch ( input.LA(1) ) {
             case 21:
@@ -8056,10 +8056,10 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
             switch (alt46) {
                 case 1 :
-                    // InternalPub.g:2792:4: (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( (lv_subdivisions_4_0= rulePubSubsubsection ) )* )
+                    // InternalPub.g:2792:4: (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( (lv_divisions_4_0= rulePubSubsubsection ) )* )
                     {
-                    // InternalPub.g:2792:4: (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( (lv_subdivisions_4_0= rulePubSubsubsection ) )* )
-                    // InternalPub.g:2793:5: this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( (lv_subdivisions_4_0= rulePubSubsubsection ) )*
+                    // InternalPub.g:2792:4: (this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( (lv_divisions_4_0= rulePubSubsubsection ) )* )
+                    // InternalPub.g:2793:5: this_PubDivisionHeader_2= rulePubDivisionHeader[$current] ( (lv_contents_3_0= rulePubContentBlock ) )* ( (lv_divisions_4_0= rulePubSubsubsection ) )*
                     {
                     if ( state.backtracking==0 ) {
 
@@ -8133,7 +8133,7 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    // InternalPub.g:2823:5: ( (lv_subdivisions_4_0= rulePubSubsubsection ) )*
+                    // InternalPub.g:2823:5: ( (lv_divisions_4_0= rulePubSubsubsection ) )*
                     loop44:
                     do {
                         int alt44=2;
@@ -8146,18 +8146,18 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
 
                         switch (alt44) {
                     	case 1 :
-                    	    // InternalPub.g:2824:6: (lv_subdivisions_4_0= rulePubSubsubsection )
+                    	    // InternalPub.g:2824:6: (lv_divisions_4_0= rulePubSubsubsection )
                     	    {
-                    	    // InternalPub.g:2824:6: (lv_subdivisions_4_0= rulePubSubsubsection )
-                    	    // InternalPub.g:2825:7: lv_subdivisions_4_0= rulePubSubsubsection
+                    	    // InternalPub.g:2824:6: (lv_divisions_4_0= rulePubSubsubsection )
+                    	    // InternalPub.g:2825:7: lv_divisions_4_0= rulePubSubsubsection
                     	    {
                     	    if ( state.backtracking==0 ) {
 
-                    	      							newCompositeNode(grammarAccess.getPubSubsectionAccess().getSubdivisionsPubSubsubsectionParserRuleCall_1_0_2_0());
+                    	      							newCompositeNode(grammarAccess.getPubSubsectionAccess().getDivisionsPubSubsubsectionParserRuleCall_1_0_2_0());
                     	      						
                     	    }
                     	    pushFollow(FOLLOW_44);
-                    	    lv_subdivisions_4_0=rulePubSubsubsection();
+                    	    lv_divisions_4_0=rulePubSubsubsection();
 
                     	    state._fsp--;
                     	    if (state.failed) return current;
@@ -8168,8 +8168,8 @@ public class InternalPubParser extends AbstractInternalAntlrParser {
                     	      							}
                     	      							add(
                     	      								current,
-                    	      								"subdivisions",
-                    	      								lv_subdivisions_4_0,
+                    	      								"divisions",
+                    	      								lv_divisions_4_0,
                     	      								"com.mimacom.ddd.pub.pub.Pub.PubSubsubsection");
                     	      							afterParserOrEnumRuleCall();
                     	      						

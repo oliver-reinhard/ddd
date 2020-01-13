@@ -14,8 +14,7 @@ import com.mimacom.ddd.dm.base.DRichText;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.pub.pub.TitledBlock#getTitle <em>Title</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.TitledBlock#getLevel <em>Level</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.TitledBlock#getSequenceNumber <em>Sequence Number</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.TitledBlock#getLogicalContainer <em>Logical Container</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.TitledBlock#getSequenceNumberInChapter <em>Sequence Number In Chapter</em>}</li>
  * </ul>
  *
@@ -47,38 +46,26 @@ public interface TitledBlock extends ContentBlock, NumberedElement, ReferenceTar
 	void setTitle(DRichText value);
 
 	/**
-	 * Returns the value of the '<em><b>Level</b></em>' attribute.
+	 * Returns the value of the '<em><b>Logical Container</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Level</em>' attribute.
-	 * @see com.mimacom.ddd.pub.pub.PubPackage#getTitledBlock_Level()
-	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+	 * @return the value of the '<em>Logical Container</em>' reference.
+	 * @see #setLogicalContainer(Chapter)
+	 * @see com.mimacom.ddd.pub.pub.PubPackage#getTitledBlock_LogicalContainer()
+	 * @model transient="true"
 	 * @generated
 	 */
-	int getLevel();
+	Chapter getLogicalContainer();
 
 	/**
-	 * Returns the value of the '<em><b>Sequence Number</b></em>' attribute.
-	 * The default value is <code>"-1"</code>.
+	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.TitledBlock#getLogicalContainer <em>Logical Container</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sequence Number</em>' attribute.
-	 * @see #setSequenceNumber(int)
-	 * @see com.mimacom.ddd.pub.pub.PubPackage#getTitledBlock_SequenceNumber()
-	 * @model default="-1" unique="false" transient="true"
+	 * @param value the new value of the '<em>Logical Container</em>' reference.
+	 * @see #getLogicalContainer()
 	 * @generated
 	 */
-	int getSequenceNumber();
-
-	/**
-	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.TitledBlock#getSequenceNumber <em>Sequence Number</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sequence Number</em>' attribute.
-	 * @see #getSequenceNumber()
-	 * @generated
-	 */
-	void setSequenceNumber(int value);
+	void setLogicalContainer(Chapter value);
 
 	/**
 	 * Returns the value of the '<em><b>Sequence Number In Chapter</b></em>' attribute.
@@ -110,5 +97,13 @@ public interface TitledBlock extends ContentBlock, NumberedElement, ReferenceTar
 	 * @generated
 	 */
 	String getId();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false"
+	 * @generated
+	 */
+	Division parent();
 
 } // TitledBlock

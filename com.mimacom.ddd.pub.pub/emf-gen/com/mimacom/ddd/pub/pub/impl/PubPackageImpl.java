@@ -21,6 +21,7 @@ import com.mimacom.ddd.pub.pub.CodeListing;
 import com.mimacom.ddd.pub.pub.Component;
 import com.mimacom.ddd.pub.pub.ContentBlock;
 import com.mimacom.ddd.pub.pub.Division;
+import com.mimacom.ddd.pub.pub.DivisionContainer;
 import com.mimacom.ddd.pub.pub.Document;
 import com.mimacom.ddd.pub.pub.DocumentSegment;
 import com.mimacom.ddd.pub.pub.Epilogue;
@@ -266,6 +267,13 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	private EClass numberedElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass divisionContainerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -745,16 +753,6 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPublicationBody_Divisions() {
-		return (EReference)publicationBodyEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getSegmentWithTable() {
 		return segmentWithTableEClass;
 	}
@@ -1145,8 +1143,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getNumberedElement__GetLevel() {
-		return numberedElementEClass.getEOperations().get(0);
+	public EAttribute getNumberedElement_Level() {
+		return (EAttribute)numberedElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1155,8 +1153,28 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getNumberedElement__GetSequenceNumber() {
-		return numberedElementEClass.getEOperations().get(1);
+	public EAttribute getNumberedElement_SequenceNumber() {
+		return (EAttribute)numberedElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDivisionContainer() {
+		return divisionContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDivisionContainer_Divisions() {
+		return (EReference)divisionContainerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1235,18 +1253,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getDivision_Subdivisions() {
+	public EReference getDivision_LogicalContainer() {
 		return (EReference)divisionEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDivision_Parent() {
-		return (EReference)divisionEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1265,7 +1273,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getDivision__GetDocument() {
+	public EOperation getDivision__Parent() {
 		return divisionEClass.getEOperations().get(1);
 	}
 
@@ -1275,18 +1283,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getDivision__GetLevel() {
+	public EOperation getDivision__GetDocument() {
 		return divisionEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getDivision__GetSequenceNumber() {
-		return divisionEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -1297,16 +1295,6 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	@Override
 	public EClass getPart() {
 		return partEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getPart__GetSequenceNumber() {
-		return partEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1327,16 +1315,6 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	@Override
 	public EClass getChapter() {
 		return chapterEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getChapter__GetSequenceNumber() {
-		return chapterEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1495,8 +1473,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getListItem_Level() {
-		return (EAttribute)listItemEClass.getEStructuralFeatures().get(2);
+	public EOperation getListItem__GetLevel() {
+		return listItemEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1505,8 +1483,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getListItem_GetSequenceNumber() {
-		return (EAttribute)listItemEClass.getEStructuralFeatures().get(3);
+	public EOperation getListItem__GetSequenceNumber() {
+		return listItemEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1535,18 +1513,8 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTitledBlock_Level() {
-		return (EAttribute)titledBlockEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getTitledBlock_SequenceNumber() {
-		return (EAttribute)titledBlockEClass.getEStructuralFeatures().get(2);
+	public EReference getTitledBlock_LogicalContainer() {
+		return (EReference)titledBlockEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1556,7 +1524,7 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	 */
 	@Override
 	public EAttribute getTitledBlock_SequenceNumberInChapter() {
-		return (EAttribute)titledBlockEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)titledBlockEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1567,6 +1535,16 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 	@Override
 	public EOperation getTitledBlock__GetId() {
 		return titledBlockEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getTitledBlock__Parent() {
+		return titledBlockEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1966,6 +1944,10 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		createEAttribute(referenceTargetEClass, REFERENCE_TARGET__NAME);
 		createEAttribute(referenceTargetEClass, REFERENCE_TARGET__ID);
 
+		referenceEClass = createEClass(REFERENCE);
+		createEAttribute(referenceEClass, REFERENCE__SCOPE);
+		createEReference(referenceEClass, REFERENCE__TARGET);
+
 		documentSegmentEClass = createEClass(DOCUMENT_SEGMENT);
 		createEReference(documentSegmentEClass, DOCUMENT_SEGMENT__PARENT);
 		createEOperation(documentSegmentEClass, DOCUMENT_SEGMENT___GET_NAME);
@@ -1981,9 +1963,6 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		prefaceEClass = createEClass(PREFACE);
 
 		epilogueEClass = createEClass(EPILOGUE);
-
-		publicationBodyEClass = createEClass(PUBLICATION_BODY);
-		createEReference(publicationBodyEClass, PUBLICATION_BODY__DIVISIONS);
 
 		segmentWithTableEClass = createEClass(SEGMENT_WITH_TABLE);
 
@@ -2038,28 +2017,29 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		segmentIncludeEClass = createEClass(SEGMENT_INCLUDE);
 		createEReference(segmentIncludeEClass, SEGMENT_INCLUDE__INCLUDE);
 
+		publicationBodyEClass = createEClass(PUBLICATION_BODY);
+
 		numberedElementEClass = createEClass(NUMBERED_ELEMENT);
-		createEOperation(numberedElementEClass, NUMBERED_ELEMENT___GET_LEVEL);
-		createEOperation(numberedElementEClass, NUMBERED_ELEMENT___GET_SEQUENCE_NUMBER);
+		createEAttribute(numberedElementEClass, NUMBERED_ELEMENT__LEVEL);
+		createEAttribute(numberedElementEClass, NUMBERED_ELEMENT__SEQUENCE_NUMBER);
+
+		divisionContainerEClass = createEClass(DIVISION_CONTAINER);
+		createEReference(divisionContainerEClass, DIVISION_CONTAINER__DIVISIONS);
 
 		divisionEClass = createEClass(DIVISION);
 		createEAttribute(divisionEClass, DIVISION__START_NUMBERING_AT);
 		createEReference(divisionEClass, DIVISION__TITLE);
 		createEReference(divisionEClass, DIVISION__INCLUDE);
-		createEReference(divisionEClass, DIVISION__SUBDIVISIONS);
-		createEReference(divisionEClass, DIVISION__PARENT);
+		createEReference(divisionEClass, DIVISION__LOGICAL_CONTAINER);
 		createEOperation(divisionEClass, DIVISION___GET_ID);
+		createEOperation(divisionEClass, DIVISION___PARENT);
 		createEOperation(divisionEClass, DIVISION___GET_DOCUMENT);
-		createEOperation(divisionEClass, DIVISION___GET_LEVEL);
-		createEOperation(divisionEClass, DIVISION___GET_SEQUENCE_NUMBER);
 
 		partEClass = createEClass(PART);
-		createEOperation(partEClass, PART___GET_SEQUENCE_NUMBER);
 
 		appendixEClass = createEClass(APPENDIX);
 
 		chapterEClass = createEClass(CHAPTER);
-		createEOperation(chapterEClass, CHAPTER___GET_SEQUENCE_NUMBER);
 
 		sectionEClass = createEClass(SECTION);
 
@@ -2082,15 +2062,15 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		listItemEClass = createEClass(LIST_ITEM);
 		createEReference(listItemEClass, LIST_ITEM__TITLE);
 		createEReference(listItemEClass, LIST_ITEM__LIST);
-		createEAttribute(listItemEClass, LIST_ITEM__LEVEL);
-		createEAttribute(listItemEClass, LIST_ITEM__GET_SEQUENCE_NUMBER);
+		createEOperation(listItemEClass, LIST_ITEM___GET_LEVEL);
+		createEOperation(listItemEClass, LIST_ITEM___GET_SEQUENCE_NUMBER);
 
 		titledBlockEClass = createEClass(TITLED_BLOCK);
 		createEReference(titledBlockEClass, TITLED_BLOCK__TITLE);
-		createEAttribute(titledBlockEClass, TITLED_BLOCK__LEVEL);
-		createEAttribute(titledBlockEClass, TITLED_BLOCK__SEQUENCE_NUMBER);
+		createEReference(titledBlockEClass, TITLED_BLOCK__LOGICAL_CONTAINER);
 		createEAttribute(titledBlockEClass, TITLED_BLOCK__SEQUENCE_NUMBER_IN_CHAPTER);
 		createEOperation(titledBlockEClass, TITLED_BLOCK___GET_ID);
+		createEOperation(titledBlockEClass, TITLED_BLOCK___PARENT);
 
 		tableEClass = createEClass(TABLE);
 		createEAttribute(tableEClass, TABLE__COLUMNS);
@@ -2126,17 +2106,13 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		unformattedParagraphEClass = createEClass(UNFORMATTED_PARAGRAPH);
 		createEAttribute(unformattedParagraphEClass, UNFORMATTED_PARAGRAPH__TEXT);
 
-		referenceEClass = createEClass(REFERENCE);
-		createEAttribute(referenceEClass, REFERENCE__SCOPE);
-		createEReference(referenceEClass, REFERENCE__TARGET);
-
 		// Create enums
 		publicationNatureEEnum = createEEnum(PUBLICATION_NATURE);
+		referenceScopeEEnum = createEEnum(REFERENCE_SCOPE);
 		admonitionKindEEnum = createEEnum(ADMONITION_KIND);
 		listStyleEEnum = createEEnum(LIST_STYLE);
 		codeLanguageEEnum = createEEnum(CODE_LANGUAGE);
 		paragraphStyleEEnum = createEEnum(PARAGRAPH_STYLE);
-		referenceScopeEEnum = createEEnum(REFERENCE_SCOPE);
 	}
 
 	/**
@@ -2175,13 +2151,13 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		documentEClass.getESuperTypes().add(this.getReferenceTarget());
 		publicationEClass.getESuperTypes().add(this.getDocument());
 		componentEClass.getESuperTypes().add(this.getDocument());
+		referenceEClass.getESuperTypes().add(theBasePackage.getDExpression());
 		documentSegmentEClass.getESuperTypes().add(this.getReferenceTarget());
 		segmentWithTextEClass.getESuperTypes().add(this.getDocumentSegment());
 		segmentWithTextEClass.getESuperTypes().add(this.getBlockContainer());
 		abstractEClass.getESuperTypes().add(this.getSegmentWithText());
 		prefaceEClass.getESuperTypes().add(this.getSegmentWithText());
 		epilogueEClass.getESuperTypes().add(this.getSegmentWithText());
-		publicationBodyEClass.getESuperTypes().add(this.getDocumentSegment());
 		segmentWithTableEClass.getESuperTypes().add(this.getDocumentSegment());
 		segmentWithTableEClass.getESuperTypes().add(this.getBlockContainer());
 		changeHistoryEClass.getESuperTypes().add(this.getSegmentWithTable());
@@ -2193,6 +2169,9 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		glossaryEClass.getESuperTypes().add(this.getSegmentWithTable());
 		indexEClass.getESuperTypes().add(this.getDocumentSegment());
 		segmentIncludeEClass.getESuperTypes().add(this.getDocumentSegment());
+		publicationBodyEClass.getESuperTypes().add(this.getDocumentSegment());
+		publicationBodyEClass.getESuperTypes().add(this.getDivisionContainer());
+		divisionEClass.getESuperTypes().add(this.getDivisionContainer());
 		divisionEClass.getESuperTypes().add(this.getBlockContainer());
 		divisionEClass.getESuperTypes().add(this.getNumberedElement());
 		divisionEClass.getESuperTypes().add(this.getReferenceTarget());
@@ -2220,7 +2199,6 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		codeListingEClass.getESuperTypes().add(this.getTitledBlock());
 		paragraphEClass.getESuperTypes().add(this.getContentBlock());
 		unformattedParagraphEClass.getESuperTypes().add(this.getContentBlock());
-		referenceEClass.getESuperTypes().add(theBasePackage.getDExpression());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(pubModelEClass, PubModel.class, "PubModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2241,6 +2219,10 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		initEAttribute(getReferenceTarget_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ReferenceTarget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReferenceTarget_Id(), theEcorePackage.getEString(), "id", null, 0, 1, ReferenceTarget.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
+		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getReference_Scope(), this.getReferenceScope(), "scope", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReference_Target(), this.getReferenceTarget(), null, "target", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(documentSegmentEClass, DocumentSegment.class, "DocumentSegment", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDocumentSegment_Parent(), this.getComponent(), this.getComponent_Segments(), "parent", null, 0, 1, DocumentSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2259,9 +2241,6 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		initEClass(prefaceEClass, Preface.class, "Preface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(epilogueEClass, Epilogue.class, "Epilogue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(publicationBodyEClass, PublicationBody.class, "PublicationBody", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPublicationBody_Divisions(), this.getDivision(), null, "divisions", null, 0, -1, PublicationBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(segmentWithTableEClass, SegmentWithTable.class, "SegmentWithTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2316,36 +2295,32 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		initEClass(segmentIncludeEClass, SegmentInclude.class, "SegmentInclude", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSegmentInclude_Include(), this.getDocumentSegment(), null, "include", null, 0, 1, SegmentInclude.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(publicationBodyEClass, PublicationBody.class, "PublicationBody", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(numberedElementEClass, NumberedElement.class, "NumberedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNumberedElement_Level(), theEcorePackage.getEInt(), "level", "-1", 0, 1, NumberedElement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNumberedElement_SequenceNumber(), theEcorePackage.getEInt(), "sequenceNumber", "-1", 0, 1, NumberedElement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getNumberedElement__GetLevel(), theEcorePackage.getEInt(), "getLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getNumberedElement__GetSequenceNumber(), theEcorePackage.getEInt(), "getSequenceNumber", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		initEClass(divisionContainerEClass, DivisionContainer.class, "DivisionContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDivisionContainer_Divisions(), this.getDivision(), null, "divisions", null, 0, -1, DivisionContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(divisionEClass, Division.class, "Division", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDivision_StartNumberingAt(), theEcorePackage.getEInt(), "startNumberingAt", "1", 0, 1, Division.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDivision_Title(), theBasePackage.getDRichText(), null, "title", null, 0, 1, Division.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDivision_Include(), this.getDivision(), null, "include", null, 0, 1, Division.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDivision_Subdivisions(), this.getDivision(), this.getDivision_Parent(), "subdivisions", null, 0, -1, Division.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDivision_Parent(), this.getDivision(), this.getDivision_Subdivisions(), "parent", null, 0, 1, Division.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDivision_LogicalContainer(), this.getDivision(), null, "logicalContainer", null, 0, 1, Division.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getDivision__GetId(), theEcorePackage.getEString(), "getId", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getDivision__Parent(), this.getDivision(), "parent", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
 		initEOperation(getDivision__GetDocument(), this.getDocument(), "getDocument", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getDivision__GetLevel(), theEcorePackage.getEInt(), "getLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getDivision__GetSequenceNumber(), theEcorePackage.getEInt(), "getSequenceNumber", 0, 1, !IS_UNIQUE, IS_ORDERED);
-
 		initEClass(partEClass, Part.class, "Part", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEOperation(getPart__GetSequenceNumber(), theEcorePackage.getEInt(), "getSequenceNumber", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(appendixEClass, Appendix.class, "Appendix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(chapterEClass, Chapter.class, "Chapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEOperation(getChapter__GetSequenceNumber(), theEcorePackage.getEInt(), "getSequenceNumber", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(sectionEClass, Section.class, "Section", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2368,16 +2343,19 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		initEClass(listItemEClass, ListItem.class, "ListItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getListItem_Title(), theBasePackage.getDRichText(), null, "title", null, 0, 1, ListItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getListItem_List(), this.getList(), this.getList_Items(), "list", null, 0, 1, ListItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getListItem_Level(), theEcorePackage.getEInt(), "level", null, 0, 1, ListItem.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getListItem_GetSequenceNumber(), theEcorePackage.getEInt(), "getSequenceNumber", null, 0, 1, ListItem.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getListItem__GetLevel(), theEcorePackage.getEInt(), "getLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getListItem__GetSequenceNumber(), theEcorePackage.getEInt(), "getSequenceNumber", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(titledBlockEClass, TitledBlock.class, "TitledBlock", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTitledBlock_Title(), theBasePackage.getDRichText(), null, "title", null, 0, 1, TitledBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTitledBlock_Level(), theEcorePackage.getEInt(), "level", null, 0, 1, TitledBlock.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTitledBlock_SequenceNumber(), theEcorePackage.getEInt(), "sequenceNumber", "-1", 0, 1, TitledBlock.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTitledBlock_LogicalContainer(), this.getChapter(), null, "logicalContainer", null, 0, 1, TitledBlock.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTitledBlock_SequenceNumberInChapter(), theEcorePackage.getEInt(), "sequenceNumberInChapter", "-1", 0, 1, TitledBlock.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getTitledBlock__GetId(), theEcorePackage.getEString(), "getId", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getTitledBlock__Parent(), this.getDivision(), "parent", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTable_Columns(), theEcorePackage.getEInt(), "columns", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2413,14 +2391,29 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		initEClass(unformattedParagraphEClass, UnformattedParagraph.class, "UnformattedParagraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUnformattedParagraph_Text(), theEcorePackage.getEString(), "text", null, 0, 1, UnformattedParagraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getReference_Scope(), this.getReferenceScope(), "scope", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReference_Target(), this.getReferenceTarget(), null, "target", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		// Initialize enums and add enum literals
 		initEEnum(publicationNatureEEnum, PublicationNature.class, "PublicationNature");
 		addEEnumLiteral(publicationNatureEEnum, PublicationNature.PRINT);
 		addEEnumLiteral(publicationNatureEEnum, PublicationNature.WEB);
+
+		initEEnum(referenceScopeEEnum, ReferenceScope.class, "ReferenceScope");
+		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.DEFAULT);
+		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.DOCUMENT_SEGMENT);
+		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.DIVISION);
+		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.PART);
+		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.APPENDIX);
+		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.CHAPTER);
+		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.SECTION);
+		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.SUBSECTION);
+		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.SUBSUBSECTION);
+		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.TABLE);
+		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.FIGURE);
+		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.EQUATION);
+		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.CODE_LISTING);
+		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.ADMONITION);
+		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.ABBREVIATION);
+		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.GLOSSARY);
+		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.BIBLIOGRAPHY);
 
 		initEEnum(admonitionKindEEnum, AdmonitionKind.class, "AdmonitionKind");
 		addEEnumLiteral(admonitionKindEEnum, AdmonitionKind.NOTE);
@@ -2442,25 +2435,6 @@ public class PubPackageImpl extends EPackageImpl implements PubPackage {
 		initEEnum(paragraphStyleEEnum, ParagraphStyle.class, "ParagraphStyle");
 		addEEnumLiteral(paragraphStyleEEnum, ParagraphStyle.PLAIN);
 		addEEnumLiteral(paragraphStyleEEnum, ParagraphStyle.QUOTE);
-
-		initEEnum(referenceScopeEEnum, ReferenceScope.class, "ReferenceScope");
-		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.DEFAULT);
-		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.DOCUMENT_SEGMENT);
-		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.DIVISION);
-		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.PART);
-		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.APPENDIX);
-		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.CHAPTER);
-		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.SECTION);
-		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.SUBSECTION);
-		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.SUBSUBSECTION);
-		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.TABLE);
-		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.FIGURE);
-		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.EQUATION);
-		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.CODE_LISTING);
-		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.ADMONITION);
-		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.ABBREVIATION);
-		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.GLOSSARY);
-		addEEnumLiteral(referenceScopeEEnum, ReferenceScope.BIBLIOGRAPHY);
 
 		// Create resource
 		createResource(eNS_URI);

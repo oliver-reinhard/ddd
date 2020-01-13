@@ -1,17 +1,19 @@
 package com.mimacom.ddd.pub.pub.tests
 
 import com.mimacom.ddd.pub.proto.ProtoFactory
+import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle
 import com.mimacom.ddd.pub.pub.Component
 import com.mimacom.ddd.pub.pub.PubFactory
 import com.mimacom.ddd.pub.pub.PubUtil
+import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil
 import org.junit.jupiter.api.Test
 
 import static org.junit.jupiter.api.Assertions.*
-import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle
 
 package class PubUtilTest {
 	
 	static val UTIL = new PubUtil
+	static val NUM = new PubNumberingUtil
 	
 	static val PROTO = ProtoFactory.eINSTANCE
 	static val PUB = PubFactory.eINSTANCE
@@ -45,36 +47,36 @@ package class PubUtilTest {
 		val p = PUB.createPart
 		body.divisions.add(p)
 		val ch = PUB.createChapter
-		p.subdivisions.add(ch)
+		p.divisions.add(ch)
 		val s = PUB.createSection
-		ch.subdivisions.add(s)
+		ch.divisions.add(s)
 		
 		assertEquals(pChapter, UTIL.prototype(ch))
 		assertEquals(pSection, UTIL.prototype(s))
 	}
 	
 	@Test def testRomanNumbering() {
-		assertEquals("--", UTIL.toRoman(-1))
-		assertEquals("--", UTIL.toRoman(0))
-		assertEquals("I", UTIL.toRoman(1))
-		assertEquals("IX", UTIL.toRoman(9))
-		assertEquals("X", UTIL.toRoman(10))
-		assertEquals("XI", UTIL.toRoman(11))
-		assertEquals("XLIX", UTIL.toRoman(49))
-		assertEquals("XCIX", UTIL.toRoman(99))
-		assertEquals("XXII", UTIL.toRoman(122))
+		assertEquals("--", NUM.toRoman(-1))
+		assertEquals("--", NUM.toRoman(0))
+		assertEquals("I", NUM.toRoman(1))
+		assertEquals("IX", NUM.toRoman(9))
+		assertEquals("X", NUM.toRoman(10))
+		assertEquals("XI", NUM.toRoman(11))
+		assertEquals("XLIX", NUM.toRoman(49))
+		assertEquals("XCIX", NUM.toRoman(99))
+		assertEquals("XXII", NUM.toRoman(122))
 	}
 	
 	@Test def testLetterNumbering() {
-		assertEquals("--", UTIL.toLetter(-1))
-		assertEquals("A", UTIL.toLetter(1))
-		assertEquals("E", UTIL.toLetter(5))
-		assertEquals("Z", UTIL.toLetter(26))
-		assertEquals("AA", UTIL.toLetter(27))
-		assertEquals("AE", UTIL.toLetter(31))
-		assertEquals("ZZ", UTIL.toLetter(702))
-		assertEquals("A", UTIL.toLetter(703))
-		assertEquals("Z", UTIL.toLetter(728))
+		assertEquals("--", NUM.toLetter(-1))
+		assertEquals("A", NUM.toLetter(1))
+		assertEquals("E", NUM.toLetter(5))
+		assertEquals("Z", NUM.toLetter(26))
+		assertEquals("AA", NUM.toLetter(27))
+		assertEquals("AE", NUM.toLetter(31))
+		assertEquals("ZZ", NUM.toLetter(702))
+		assertEquals("A", NUM.toLetter(703))
+		assertEquals("Z", NUM.toLetter(728))
 		
 	}
 	
@@ -107,25 +109,25 @@ package class PubUtilTest {
 		val d00 = PUB.createPart
 		body.divisions.add(d00)
 		val d10 = PUB.createChapter
-		d00.subdivisions.add(d10)
+		d00.divisions.add(d10)
 		val d20 = PUB.createSection
-		d10.subdivisions.add(d20)
+		d10.divisions.add(d20)
 		val d30 = PUB.createSubsection
-		d20.subdivisions.add(d30)
+		d20.divisions.add(d30)
 		val d40 = PUB.createSubsubsection
-		d30.subdivisions.add(d40)
+		d30.divisions.add(d40)
 		
-		assertEquals("I", UTIL.formattedSingleNumber(d00))
-		assertEquals("1", UTIL.formattedSingleNumber(d10))
-		assertEquals("A", UTIL.formattedSingleNumber(d20))
-		assertEquals("a", UTIL.formattedSingleNumber(d30))
-		assertEquals("", UTIL.formattedSingleNumber(d40))
+		assertEquals("I", NUM.formattedSingleNumber(d00))
+		assertEquals("1", NUM.formattedSingleNumber(d10))
+		assertEquals("A", NUM.formattedSingleNumber(d20))
+		assertEquals("a", NUM.formattedSingleNumber(d30))
+		assertEquals("", NUM.formattedSingleNumber(d40))
 		
-		assertEquals("I", UTIL.tieredNumber(d00))
-		assertEquals("1", UTIL.tieredNumber(d10))
-		assertEquals("1.A", UTIL.tieredNumber(d20))
-		assertEquals("1.A.a", UTIL.tieredNumber(d30))
-		assertEquals("", UTIL.tieredNumber(d40))
+		assertEquals("I", NUM.tieredNumber(d00))
+		assertEquals("1", NUM.tieredNumber(d10))
+		assertEquals("1.A", NUM.tieredNumber(d20))
+		assertEquals("1.A.a", NUM.tieredNumber(d30))
+		assertEquals("", NUM.tieredNumber(d40))
 		
 	}
 }

@@ -29,6 +29,7 @@ class PubGeneratorUtil {
 
 	@Inject extension RichTextUtil
 	@Inject extension PubUtil
+	@Inject extension PubNumberingUtil
 	@Inject extension PubElementNames
 	
 	static val PUB = PubFactory.eINSTANCE
@@ -47,13 +48,52 @@ class PubGeneratorUtil {
 		return segment.displayName
 	}
 
-	def String referenceDisplayTextFor(ReferenceTarget t) {
+	def String referenceDisplayText(ReferenceTarget t) {
 		if (t instanceof NumberedElement) {
 			t.displayName + " " + t.tieredNumber
 		} else {
 			t.displayName
 		}
 	}
+
+	protected def String toPlainText(DRichText text) {
+		if (! (text.eContainer instanceof TitledBlock || text.eContainer instanceof Division)) {
+			throw new IllegalArgumentException("Text is not the title of a TitledBlock or a Division")
+		}
+		val renderer = new AbstractRichTextToPlainTextRenderer {
+			
+			override protected getSourceText(DExpression expr) {
+				expr.getSourceTextFromXtextResource
+			}
+
+			override protected renderStyleExpression(DExpression expr, String parsedText) {
+				switch expr {
+					DmxContextReference:
+						super.renderStyleExpression(expr, expr.target.name)
+					DmxStaticReference:
+						super.renderStyleExpression(expr, expr.plainlinkText)
+					default:
+						throw new IllegalArgumentException("Unsupported content-block type: " + expr.class.name)
+				}
+			}
+			
+		}
+		renderer.render(text) as String
+	}
+
+	protected def String plainlinkText(DmxStaticReference ref) {
+		if (! guard(ref.displayName, "").empty) {
+			if (ref.plural) {
+				return ref.displayName + "s"
+			}
+			return ref.displayName
+		}
+		return ref.target.name + "." + ref.member.name
+	}
+	
+	//
+	// Segments
+	//
 
 	def Table toTable(ChangeHistory ch) {
 		val Table t = createTableWithHeader(#["Version", "Date", "Author", "What has changed"])
@@ -118,40 +158,5 @@ class PubGeneratorUtil {
 			t.addSimpleRow(#[e.name, e.text, e.comment])
 		}
 		return t
-	}
-
-	protected def String toPlainText(DRichText text) {
-		if (! (text.eContainer instanceof TitledBlock || text.eContainer instanceof Division)) {
-			throw new IllegalArgumentException("Text is not the title of a TitledBlock or a Division")
-		}
-		val renderer = new AbstractRichTextToPlainTextRenderer {
-			
-			override protected getSourceText(DExpression expr) {
-				expr.getSourceTextFromXtextResource
-			}
-
-			override protected renderStyleExpression(DExpression expr, String parsedText) {
-				switch expr {
-					DmxContextReference:
-						super.renderStyleExpression(expr, expr.target.name)
-					DmxStaticReference:
-						super.renderStyleExpression(expr, expr.plainlinkText)
-					default:
-						throw new IllegalArgumentException("Unsupported content-block type: " + expr.class.name)
-				}
-			}
-			
-		}
-		renderer.render(text) as String
-	}
-
-	protected def String plainlinkText(DmxStaticReference ref) {
-		if (! guard(ref.displayName, "").empty) {
-			if (ref.plural) {
-				return ref.displayName + "s"
-			}
-			return ref.displayName
-		}
-		return ref.target.name + "." + ref.member.name
 	}
 }

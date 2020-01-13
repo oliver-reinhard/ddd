@@ -5,6 +5,7 @@ package com.mimacom.ddd.pub.pub
 import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DImport
 import com.mimacom.ddd.dm.base.DRichText
+import com.mimacom.ddd.pub.pub.impl.PubConstants
 import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle
 import com.mimacom.ddd.pub.proto.PublicationClass
 
@@ -41,6 +42,47 @@ interface ReferenceTarget {
 	}
 }
 
+class Reference extends DExpression {
+	ReferenceScope scope
+	refers ReferenceTarget target
+}
+
+enum ReferenceScope {
+	Default
+	,
+	DocumentSegment
+	,
+	Division
+	,
+	Part
+	,
+	Appendix
+	,
+	Chapter
+	,
+	Section
+	,
+	Subsection
+	,
+	Subsubsection
+	,
+	Table
+	,
+	Figure
+	,
+	Equation
+	,
+	CodeListing
+	,
+	Admonition
+	,
+	Abbreviation
+	,
+	Glossary
+	,
+	Bibliography
+}
+
 // 
 // Content Structure
 //
@@ -68,10 +110,6 @@ class Preface extends SegmentWithText {
 }
 
 class Epilogue extends SegmentWithText {
-}
-
-class PublicationBody extends DocumentSegment {
-	contains Division[] divisions // must be all Parts XOR all Chapters
 }
 
 class SegmentWithTable extends DocumentSegment, BlockContainer {
@@ -142,24 +180,33 @@ class SegmentInclude extends DocumentSegment {
 	refers DocumentSegment include
 }
 
+class PublicationBody extends DocumentSegment, DivisionContainer {
+	// contained Divisions must be all Parts XOR all Chapters
+}
+
 // 
 // Divisions
 //
 interface NumberedElement {
-	op int getLevel()
-	op int getSequenceNumber()
+	transient int level = "-1" // -1 = not set (undefined)
+	// The sequence number, not necessarily the displayed number of an element
+	transient int sequenceNumber = "-1" // -1 = not set (undefined)
 }
 
-abstract class Division extends BlockContainer, NumberedElement, ReferenceTarget {
+interface DivisionContainer {
+	contains Division[] divisions
+}
+
+abstract class Division extends DivisionContainer, BlockContainer, NumberedElement, ReferenceTarget {
 	op String getId() {
 		if (name === null || name.empty) {
 			val StringBuilder b = new StringBuilder
 			b.append(getSequenceNumber)
-			var parent = eContainer
-			while (parent instanceof Division) {
+			var p = parent
+			while (p !== null) {
 				b.insert(0, '-')
-				b.insert(0, parent.getSequenceNumber)
-				parent = parent.eContainer
+				b.insert(0, p.sequenceNumber)
+				p = p.parent
 			}
 			return b.toString
 		}
@@ -168,9 +215,15 @@ abstract class Division extends BlockContainer, NumberedElement, ReferenceTarget
 	int startNumberingAt = "1"
 	contains DRichText title
 	refers Division include // optional
-	contains Division[] subdivisions opposite parent
-	container Division parent opposite subdivisions
-	
+	refers transient Division logicalContainer
+	op Division parent() {
+		if (logicalContainer !== null) {
+			return logicalContainer
+		} else if (eContainer instanceof Division) {
+			return eContainer as Division
+		}
+		return null
+	}
 	op Document getDocument() {
 		var parent = eContainer
 		while (parent !== null && ! (parent instanceof Document)) {
@@ -178,45 +231,21 @@ abstract class Division extends BlockContainer, NumberedElement, ReferenceTarget
 		}
 		return parent as Document
 	}
-	op int getLevel() {
-		if (eContainer instanceof Division) {
-			return parent.getLevel + 1
-		}
-		return 0
-	}
-	op int getSequenceNumber() {
-		if (eContainer instanceof Division) {
-			return parent.subdivisions.indexOf(this)
-		}
-		return -1
-	}
 }
 
-class Part extends Division{
-	op int getSequenceNumber() {
-		if (eContainer instanceof PublicationBody) {
-			return (eContainer as PublicationBody).divisions.indexOf(this)
-		}
-		return -1
-	}
+class Part extends Division {
 }
 
-class Appendix extends Part{
+class Appendix extends Part {
 }
 
 class Chapter extends Division {
-	op int getSequenceNumber() {
-		if (eContainer instanceof PublicationBody) {
-			return (eContainer as PublicationBody).divisions.indexOf(this)
-		}
-		return super.getSequenceNumber
-	}
 }
 
-class Section  extends Division{
+class Section  extends Division {
 }
 
-class Subsection  extends Division{
+class Subsection  extends Division {
 }
 
 class Subsubsection  extends Division {
@@ -244,7 +273,7 @@ class List extends ContentBlock, ReferenceTarget {
 	ListStyle style
 	ProtoSequenceNumberStyle numberingStyle
 	derived int level get {
-		var i = 0
+		var i = PubConstants::TOP_LEVEL
 		var parent = eContainer
 		while (parent !== null && ! (parent instanceof Division)) {
 			if (eContainer instanceof List) i++
@@ -264,28 +293,19 @@ enum ListStyle {
 class ListItem extends BlockContainer, NumberedElement, ReferenceTarget {
 	contains DRichText title
 	container List list opposite items
-	derived int level get {
+	op int getLevel() {
 		if (eContainer instanceof List) return list.level
-		return -1
+		return PubConstants::UNDEFINED_LEVEL
 	}
-	derived int getSequenceNumber get {
+	op int getSequenceNumber() {
 		return list.items.indexOf(this)
 	}
 }
 
 abstract class TitledBlock extends ContentBlock, NumberedElement, ReferenceTarget {
 	contains DRichText title
-	derived int level get {
-		var parent = eContainer
-		while (parent !== null && ! (parent instanceof Division)) {
-			parent = parent.eContainer
-		}
-		if (parent instanceof Division) return parent.level
-		return -1
-	}
-	//
-	transient int sequenceNumber = "-1" // -1 = not set
-	transient int sequenceNumberInChapter = "-1" // -1 = not set
+	refers transient Chapter logicalContainer // with includes this can be different from the actual eContainer
+	transient int sequenceNumberInChapter = "-1" // -1 = not set (undefined)
 	op String getId() {
 		if (name === null || name.empty) {
 			val blockType = class.simpleName.replace("Impl", "").toLowerCase
@@ -295,6 +315,16 @@ abstract class TitledBlock extends ContentBlock, NumberedElement, ReferenceTarge
 			return blockType + '-' + hashCode
 		}
 		return name
+	}
+	op Division parent() {
+		if (logicalContainer !== null) {
+			return logicalContainer
+		} 
+		var p = eContainer
+		while (p !== null && ! (p instanceof Division)) {
+			p = p.eContainer
+		}
+		return eContainer as Division // can be null
 	}
 }
 
@@ -351,45 +381,4 @@ class UnformattedParagraph extends ContentBlock {
 enum ParagraphStyle {
 	Plain
 	, Quote
-}
-
-class Reference extends DExpression {
-	ReferenceScope scope
-	refers ReferenceTarget target
-}
-
-enum ReferenceScope {
-	Default
-	,
-	DocumentSegment
-	,
-	Division
-	,
-	Part
-	,
-	Appendix
-	,
-	Chapter
-	,
-	Section
-	,
-	Subsection
-	,
-	Subsubsection
-	,
-	Table
-	,
-	Figure
-	,
-	Equation
-	,
-	CodeListing
-	,
-	Admonition
-	,
-	Abbreviation
-	,
-	Glossary
-	,
-	Bibliography
 }

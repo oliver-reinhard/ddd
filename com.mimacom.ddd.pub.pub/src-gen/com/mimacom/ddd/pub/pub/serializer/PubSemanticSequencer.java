@@ -488,7 +488,7 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 *     PubAppendix returns Appendix
 	 *
 	 * Constraint:
-	 *     (name=ID? ((title=DRichText contents+=PubContentBlock* subdivisions+=PubChapter*) | (include=[Appendix|DQualifiedName] title=DRichText?)))
+	 *     (name=ID? ((title=DRichText contents+=PubContentBlock* divisions+=PubChapter*) | (include=[Appendix|DQualifiedName] title=DRichText?)))
 	 */
 	protected void sequence_PubAppendix_PubDivisionHeader_PubReferenceTargetName(ISerializationContext context, Appendix semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -567,7 +567,7 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 *     PubChapter returns Chapter
 	 *
 	 * Constraint:
-	 *     (name=ID? ((title=DRichText contents+=PubContentBlock* subdivisions+=PubSection*) | (include=[Chapter|DQualifiedName] title=DRichText?)))
+	 *     (name=ID? ((title=DRichText contents+=PubContentBlock* divisions+=PubSection*) | (include=[Chapter|DQualifiedName] title=DRichText?)))
 	 */
 	protected void sequence_PubChapter_PubDivisionHeader_PubReferenceTargetName(ISerializationContext context, Chapter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -605,7 +605,7 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 *     PubPart returns Part
 	 *
 	 * Constraint:
-	 *     (name=ID? ((title=DRichText contents+=PubContentBlock* subdivisions+=PubChapter*) | (include=[Part|DQualifiedName] title=DRichText?)))
+	 *     (name=ID? ((title=DRichText contents+=PubContentBlock* divisions+=PubChapter*) | (include=[Part|DQualifiedName] title=DRichText?)))
 	 */
 	protected void sequence_PubDivisionHeader_PubPart_PubReferenceTargetName(ISerializationContext context, Part semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -617,7 +617,7 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 *     PubSection returns Section
 	 *
 	 * Constraint:
-	 *     (name=ID? ((title=DRichText contents+=PubContentBlock* subdivisions+=PubSubsection*) | (include=[Section|DQualifiedName] title=DRichText?)))
+	 *     (name=ID? ((title=DRichText contents+=PubContentBlock* divisions+=PubSubsection*) | (include=[Section|DQualifiedName] title=DRichText?)))
 	 */
 	protected void sequence_PubDivisionHeader_PubReferenceTargetName_PubSection(ISerializationContext context, Section semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -629,10 +629,7 @@ public class PubSemanticSequencer extends DmxSemanticSequencer {
 	 *     PubSubsection returns Subsection
 	 *
 	 * Constraint:
-	 *     (
-	 *         name=ID? 
-	 *         ((title=DRichText contents+=PubContentBlock* subdivisions+=PubSubsubsection*) | (include=[Subsection|DQualifiedName] title=DRichText?))
-	 *     )
+	 *     (name=ID? ((title=DRichText contents+=PubContentBlock* divisions+=PubSubsubsection*) | (include=[Subsection|DQualifiedName] title=DRichText?)))
 	 */
 	protected void sequence_PubDivisionHeader_PubReferenceTargetName_PubSubsection(ISerializationContext context, Subsection semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

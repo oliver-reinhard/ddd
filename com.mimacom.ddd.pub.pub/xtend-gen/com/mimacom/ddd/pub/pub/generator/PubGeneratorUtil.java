@@ -30,6 +30,7 @@ import com.mimacom.ddd.pub.pub.TOC;
 import com.mimacom.ddd.pub.pub.Table;
 import com.mimacom.ddd.pub.pub.TitledBlock;
 import com.mimacom.ddd.pub.pub.generator.PubElementNames;
+import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Extension;
@@ -43,6 +44,10 @@ public class PubGeneratorUtil {
   @Inject
   @Extension
   private PubUtil _pubUtil;
+  
+  @Inject
+  @Extension
+  private PubNumberingUtil _pubNumberingUtil;
   
   @Inject
   @Extension
@@ -73,113 +78,17 @@ public class PubGeneratorUtil {
     return this._pubElementNames.displayName(segment);
   }
   
-  public String referenceDisplayTextFor(final ReferenceTarget t) {
+  public String referenceDisplayText(final ReferenceTarget t) {
     String _xifexpression = null;
     if ((t instanceof NumberedElement)) {
       String _displayName = this._pubElementNames.displayName(t);
       String _plus = (_displayName + " ");
-      String _tieredNumber = this._pubUtil.tieredNumber(((NumberedElement)t));
+      String _tieredNumber = this._pubNumberingUtil.tieredNumber(((NumberedElement)t));
       _xifexpression = (_plus + _tieredNumber);
     } else {
       _xifexpression = this._pubElementNames.displayName(t);
     }
     return _xifexpression;
-  }
-  
-  public Table toTable(final ChangeHistory ch) {
-    final Table t = this._pubUtil.createTableWithHeader(new String[] { "Version", "Date", "Author", "What has changed" });
-    EList<ChangeDescription> _entries = ch.getEntries();
-    for (final ChangeDescription e : _entries) {
-      String _version = e.getVersion();
-      String _date = e.getDate();
-      String _author = e.getAuthor();
-      String _description = e.getDescription();
-      this._pubUtil.addSimpleRow(t, new String[] { _version, _date, _author, _description });
-    }
-    return t;
-  }
-  
-  public Table toTable(final TOC toc, final List<Division> allDivisionsInSequence) {
-    final Table t = this._pubUtil.createTableWithHeader(new String[] { "Section", "Title", "Reference/Page" });
-    t.setHideGrid(true);
-    for (final Division div : allDivisionsInSequence) {
-      {
-        final Reference ref = PubGeneratorUtil.PUB.createReference();
-        ref.setTarget(div);
-        String _labelAndNumber = this._pubUtil.labelAndNumber(div);
-        String _plainText = this.toPlainText(div.getTitle());
-        this._pubUtil.addRowWithReference(t, new String[] { _labelAndNumber, _plainText }, ref);
-      }
-    }
-    return t;
-  }
-  
-  public Table toTable(final Abbreviations seg) {
-    final Table t = this._pubUtil.createTableWithHeader(new String[] { "Abbreviation", "Stands for" });
-    EList<Abbreviation> _entries = seg.getEntries();
-    for (final Abbreviation e : _entries) {
-      String _name = e.getName();
-      String _longForm = e.getLongForm();
-      this._pubUtil.addSimpleRow(t, new String[] { _name, _longForm });
-    }
-    return t;
-  }
-  
-  public Table toTable(final ListOfTables seg, final List<Table> allTablesInSequence) {
-    final Table lot = this._pubUtil.createTableWithHeader(new String[] { "Table", "Title", "Reference/Page" });
-    lot.setHideGrid(true);
-    for (final Table t : allTablesInSequence) {
-      {
-        final Reference ref = PubGeneratorUtil.PUB.createReference();
-        ref.setTarget(t);
-        String _labelAndNumber = this._pubUtil.labelAndNumber(t);
-        String _plainText = this.toPlainText(t.getTitle());
-        this._pubUtil.addRowWithReference(lot, new String[] { _labelAndNumber, _plainText }, ref);
-      }
-    }
-    return lot;
-  }
-  
-  public Table toTable(final ListOfFigures seg, final List<Figure> allFiguresInSequence) {
-    final Table lof = this._pubUtil.createTableWithHeader(new String[] { "Figure", "Title", "Reference/Page" });
-    lof.setHideGrid(true);
-    for (final Figure f : allFiguresInSequence) {
-      {
-        final Reference ref = PubGeneratorUtil.PUB.createReference();
-        ref.setTarget(f);
-        String _labelAndNumber = this._pubUtil.labelAndNumber(f);
-        String _plainText = this.toPlainText(f.getTitle());
-        this._pubUtil.addRowWithReference(lof, new String[] { _labelAndNumber, _plainText }, ref);
-      }
-    }
-    return lof;
-  }
-  
-  public Table toTable(final Bibliography seg) {
-    final Table t = this._pubUtil.createTableWithHeader(new String[] { "Name", "Authors", "Title", "Publisher", "Publication Date", "Comment" });
-    EList<BibliographyEntry> _entries = seg.getEntries();
-    for (final BibliographyEntry e : _entries) {
-      String _name = e.getName();
-      String _authors = e.getAuthors();
-      String _title = e.getTitle();
-      String _publisher = e.getPublisher();
-      String _date = e.getDate();
-      String _comment = e.getComment();
-      this._pubUtil.addSimpleRow(t, new String[] { _name, _authors, _title, _publisher, _date, _comment });
-    }
-    return t;
-  }
-  
-  public Table toTable(final Glossary seg) {
-    final Table t = this._pubUtil.createTableWithHeader(new String[] { "Name", "Description", "Comment" });
-    EList<GlossaryEntry> _entries = seg.getEntries();
-    for (final GlossaryEntry e : _entries) {
-      String _name = e.getName();
-      String _text = e.getText();
-      String _comment = e.getComment();
-      this._pubUtil.addSimpleRow(t, new String[] { _name, _text, _comment });
-    }
-    return t;
   }
   
   protected String toPlainText(final DRichText text) {
@@ -238,5 +147,101 @@ public class PubGeneratorUtil {
     String _plus = (_name + ".");
     String _name_1 = ref.getMember().getName();
     return (_plus + _name_1);
+  }
+  
+  public Table toTable(final ChangeHistory ch) {
+    final Table t = this._pubUtil.createTableWithHeader(new String[] { "Version", "Date", "Author", "What has changed" });
+    EList<ChangeDescription> _entries = ch.getEntries();
+    for (final ChangeDescription e : _entries) {
+      String _version = e.getVersion();
+      String _date = e.getDate();
+      String _author = e.getAuthor();
+      String _description = e.getDescription();
+      this._pubUtil.addSimpleRow(t, new String[] { _version, _date, _author, _description });
+    }
+    return t;
+  }
+  
+  public Table toTable(final TOC toc, final List<Division> allDivisionsInSequence) {
+    final Table t = this._pubUtil.createTableWithHeader(new String[] { "Section", "Title", "Reference/Page" });
+    t.setHideGrid(true);
+    for (final Division div : allDivisionsInSequence) {
+      {
+        final Reference ref = PubGeneratorUtil.PUB.createReference();
+        ref.setTarget(div);
+        String _labelAndNumber = this._pubNumberingUtil.labelAndNumber(div);
+        String _plainText = this.toPlainText(div.getTitle());
+        this._pubUtil.addRowWithReference(t, new String[] { _labelAndNumber, _plainText }, ref);
+      }
+    }
+    return t;
+  }
+  
+  public Table toTable(final Abbreviations seg) {
+    final Table t = this._pubUtil.createTableWithHeader(new String[] { "Abbreviation", "Stands for" });
+    EList<Abbreviation> _entries = seg.getEntries();
+    for (final Abbreviation e : _entries) {
+      String _name = e.getName();
+      String _longForm = e.getLongForm();
+      this._pubUtil.addSimpleRow(t, new String[] { _name, _longForm });
+    }
+    return t;
+  }
+  
+  public Table toTable(final ListOfTables seg, final List<Table> allTablesInSequence) {
+    final Table lot = this._pubUtil.createTableWithHeader(new String[] { "Table", "Title", "Reference/Page" });
+    lot.setHideGrid(true);
+    for (final Table t : allTablesInSequence) {
+      {
+        final Reference ref = PubGeneratorUtil.PUB.createReference();
+        ref.setTarget(t);
+        String _labelAndNumber = this._pubNumberingUtil.labelAndNumber(t);
+        String _plainText = this.toPlainText(t.getTitle());
+        this._pubUtil.addRowWithReference(lot, new String[] { _labelAndNumber, _plainText }, ref);
+      }
+    }
+    return lot;
+  }
+  
+  public Table toTable(final ListOfFigures seg, final List<Figure> allFiguresInSequence) {
+    final Table lof = this._pubUtil.createTableWithHeader(new String[] { "Figure", "Title", "Reference/Page" });
+    lof.setHideGrid(true);
+    for (final Figure f : allFiguresInSequence) {
+      {
+        final Reference ref = PubGeneratorUtil.PUB.createReference();
+        ref.setTarget(f);
+        String _labelAndNumber = this._pubNumberingUtil.labelAndNumber(f);
+        String _plainText = this.toPlainText(f.getTitle());
+        this._pubUtil.addRowWithReference(lof, new String[] { _labelAndNumber, _plainText }, ref);
+      }
+    }
+    return lof;
+  }
+  
+  public Table toTable(final Bibliography seg) {
+    final Table t = this._pubUtil.createTableWithHeader(new String[] { "Name", "Authors", "Title", "Publisher", "Publication Date", "Comment" });
+    EList<BibliographyEntry> _entries = seg.getEntries();
+    for (final BibliographyEntry e : _entries) {
+      String _name = e.getName();
+      String _authors = e.getAuthors();
+      String _title = e.getTitle();
+      String _publisher = e.getPublisher();
+      String _date = e.getDate();
+      String _comment = e.getComment();
+      this._pubUtil.addSimpleRow(t, new String[] { _name, _authors, _title, _publisher, _date, _comment });
+    }
+    return t;
+  }
+  
+  public Table toTable(final Glossary seg) {
+    final Table t = this._pubUtil.createTableWithHeader(new String[] { "Name", "Description", "Comment" });
+    EList<GlossaryEntry> _entries = seg.getEntries();
+    for (final GlossaryEntry e : _entries) {
+      String _name = e.getName();
+      String _text = e.getText();
+      String _comment = e.getComment();
+      this._pubUtil.addSimpleRow(t, new String[] { _name, _text, _comment });
+    }
+    return t;
   }
 }

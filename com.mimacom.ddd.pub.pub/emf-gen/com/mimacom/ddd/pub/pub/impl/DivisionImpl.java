@@ -4,6 +4,8 @@ package com.mimacom.ddd.pub.pub.impl;
 
 import com.mimacom.ddd.dm.base.DRichText;
 
+import com.mimacom.ddd.pub.pub.BlockContainer;
+import com.mimacom.ddd.pub.pub.ContentBlock;
 import com.mimacom.ddd.pub.pub.Division;
 import com.mimacom.ddd.pub.pub.Document;
 import com.mimacom.ddd.pub.pub.NumberedElement;
@@ -25,8 +27,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -37,18 +39,81 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.DivisionImpl#getDivisions <em>Divisions</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.DivisionImpl#getContents <em>Contents</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.DivisionImpl#getLevel <em>Level</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.DivisionImpl#getSequenceNumber <em>Sequence Number</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.DivisionImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.DivisionImpl#getId <em>Id</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.DivisionImpl#getStartNumberingAt <em>Start Numbering At</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.DivisionImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.DivisionImpl#getInclude <em>Include</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.DivisionImpl#getSubdivisions <em>Subdivisions</em>}</li>
- *   <li>{@link com.mimacom.ddd.pub.pub.impl.DivisionImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.DivisionImpl#getLogicalContainer <em>Logical Container</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class DivisionImpl extends BlockContainerImpl implements Division {
+public abstract class DivisionImpl extends MinimalEObjectImpl.Container implements Division {
+	/**
+	 * The cached value of the '{@link #getDivisions() <em>Divisions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDivisions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Division> divisions;
+
+	/**
+	 * The cached value of the '{@link #getContents() <em>Contents</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContents()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ContentBlock> contents;
+
+	/**
+	 * The default value of the '{@link #getLevel() <em>Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLevel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LEVEL_EDEFAULT = -1;
+
+	/**
+	 * The cached value of the '{@link #getLevel() <em>Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLevel()
+	 * @generated
+	 * @ordered
+	 */
+	protected int level = LEVEL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSequenceNumber() <em>Sequence Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSequenceNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int SEQUENCE_NUMBER_EDEFAULT = -1;
+
+	/**
+	 * The cached value of the '{@link #getSequenceNumber() <em>Sequence Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSequenceNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected int sequenceNumber = SEQUENCE_NUMBER_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -120,14 +185,14 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 	protected Division include;
 
 	/**
-	 * The cached value of the '{@link #getSubdivisions() <em>Subdivisions</em>}' containment reference list.
+	 * The cached value of the '{@link #getLogicalContainer() <em>Logical Container</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSubdivisions()
+	 * @see #getLogicalContainer()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Division> subdivisions;
+	protected Division logicalContainer;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,6 +211,54 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 	@Override
 	protected EClass eStaticClass() {
 		return PubPackage.Literals.DIVISION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Division> getDivisions() {
+		if (divisions == null) {
+			divisions = new EObjectContainmentEList<Division>(Division.class, this, PubPackage.DIVISION__DIVISIONS);
+		}
+		return divisions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Division parent() {
+		Division _logicalContainer = this.getLogicalContainer();
+		boolean _tripleNotEquals = (_logicalContainer != null);
+		if (_tripleNotEquals) {
+			return this.getLogicalContainer();
+		}
+		else {
+			EObject _eContainer = this.eContainer();
+			if ((_eContainer instanceof Division)) {
+				EObject _eContainer_1 = this.eContainer();
+				return ((Division) _eContainer_1);
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<ContentBlock> getContents() {
+		if (contents == null) {
+			contents = new EObjectContainmentEList<ContentBlock>(ContentBlock.class, this, PubPackage.DIVISION__CONTENTS);
+		}
+		return contents;
 	}
 
 	/**
@@ -181,12 +294,12 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 		if (((this.getName() == null) || this.getName().isEmpty())) {
 			final StringBuilder b = new StringBuilder();
 			b.append(this.getSequenceNumber());
-			EObject parent = this.eContainer();
-			while ((parent instanceof Division)) {
+			Division p = this.parent();
+			while ((p != null)) {
 				{
 					b.insert(0, "-");
-					b.insert(0, ((Division)parent).getSequenceNumber());
-					parent = ((Division)parent).eContainer();
+					b.insert(0, p.getSequenceNumber());
+					p = p.parent();
 				}
 			}
 			return b.toString();
@@ -308,11 +421,25 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 	 * @generated
 	 */
 	@Override
-	public EList<Division> getSubdivisions() {
-		if (subdivisions == null) {
-			subdivisions = new EObjectContainmentWithInverseEList<Division>(Division.class, this, PubPackage.DIVISION__SUBDIVISIONS, PubPackage.DIVISION__PARENT);
+	public Division getLogicalContainer() {
+		if (logicalContainer != null && logicalContainer.eIsProxy()) {
+			InternalEObject oldLogicalContainer = (InternalEObject)logicalContainer;
+			logicalContainer = (Division)eResolveProxy(oldLogicalContainer);
+			if (logicalContainer != oldLogicalContainer) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PubPackage.DIVISION__LOGICAL_CONTAINER, oldLogicalContainer, logicalContainer));
+			}
 		}
-		return subdivisions;
+		return logicalContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Division basicGetLogicalContainer() {
+		return logicalContainer;
 	}
 
 	/**
@@ -321,51 +448,11 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 	 * @generated
 	 */
 	@Override
-	public Division getParent() {
-		if (eContainerFeatureID() != PubPackage.DIVISION__PARENT) return null;
-		return (Division)eContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Division basicGetParent() {
-		if (eContainerFeatureID() != PubPackage.DIVISION__PARENT) return null;
-		return (Division)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetParent(Division newParent, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newParent, PubPackage.DIVISION__PARENT, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setParent(Division newParent) {
-		if (newParent != eInternalContainer() || (eContainerFeatureID() != PubPackage.DIVISION__PARENT && newParent != null)) {
-			if (EcoreUtil.isAncestor(this, newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newParent != null)
-				msgs = ((InternalEObject)newParent).eInverseAdd(this, PubPackage.DIVISION__SUBDIVISIONS, Division.class, msgs);
-			msgs = basicSetParent(newParent, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.DIVISION__PARENT, newParent, newParent));
+	public void setLogicalContainer(Division newLogicalContainer) {
+		Division oldLogicalContainer = logicalContainer;
+		logicalContainer = newLogicalContainer;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.DIVISION__LOGICAL_CONTAINER, oldLogicalContainer, logicalContainer));
 	}
 
 	/**
@@ -389,12 +476,20 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 	 */
 	@Override
 	public int getLevel() {
-		EObject _eContainer = this.eContainer();
-		if ((_eContainer instanceof Division)) {
-			int _level = this.getParent().getLevel();
-			return (_level + 1);
-		}
-		return 0;
+		return level;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setLevel(int newLevel) {
+		int oldLevel = level;
+		level = newLevel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.DIVISION__LEVEL, oldLevel, level));
 	}
 
 	/**
@@ -404,11 +499,7 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 	 */
 	@Override
 	public int getSequenceNumber() {
-		EObject _eContainer = this.eContainer();
-		if ((_eContainer instanceof Division)) {
-			return this.getParent().getSubdivisions().indexOf(this);
-		}
-		return (-1);
+		return sequenceNumber;
 	}
 
 	/**
@@ -416,18 +507,12 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case PubPackage.DIVISION__SUBDIVISIONS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSubdivisions()).basicAdd(otherEnd, msgs);
-			case PubPackage.DIVISION__PARENT:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetParent((Division)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
+	public void setSequenceNumber(int newSequenceNumber) {
+		int oldSequenceNumber = sequenceNumber;
+		sequenceNumber = newSequenceNumber;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.DIVISION__SEQUENCE_NUMBER, oldSequenceNumber, sequenceNumber));
 	}
 
 	/**
@@ -438,12 +523,12 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case PubPackage.DIVISION__DIVISIONS:
+				return ((InternalEList<?>)getDivisions()).basicRemove(otherEnd, msgs);
+			case PubPackage.DIVISION__CONTENTS:
+				return ((InternalEList<?>)getContents()).basicRemove(otherEnd, msgs);
 			case PubPackage.DIVISION__TITLE:
 				return basicSetTitle(null, msgs);
-			case PubPackage.DIVISION__SUBDIVISIONS:
-				return ((InternalEList<?>)getSubdivisions()).basicRemove(otherEnd, msgs);
-			case PubPackage.DIVISION__PARENT:
-				return basicSetParent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -454,22 +539,16 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case PubPackage.DIVISION__PARENT:
-				return eInternalContainer().eInverseRemove(this, PubPackage.DIVISION__SUBDIVISIONS, Division.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case PubPackage.DIVISION__DIVISIONS:
+				return getDivisions();
+			case PubPackage.DIVISION__CONTENTS:
+				return getContents();
+			case PubPackage.DIVISION__LEVEL:
+				return getLevel();
+			case PubPackage.DIVISION__SEQUENCE_NUMBER:
+				return getSequenceNumber();
 			case PubPackage.DIVISION__NAME:
 				return getName();
 			case PubPackage.DIVISION__ID:
@@ -481,11 +560,9 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 			case PubPackage.DIVISION__INCLUDE:
 				if (resolve) return getInclude();
 				return basicGetInclude();
-			case PubPackage.DIVISION__SUBDIVISIONS:
-				return getSubdivisions();
-			case PubPackage.DIVISION__PARENT:
-				if (resolve) return getParent();
-				return basicGetParent();
+			case PubPackage.DIVISION__LOGICAL_CONTAINER:
+				if (resolve) return getLogicalContainer();
+				return basicGetLogicalContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -499,6 +576,20 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case PubPackage.DIVISION__DIVISIONS:
+				getDivisions().clear();
+				getDivisions().addAll((Collection<? extends Division>)newValue);
+				return;
+			case PubPackage.DIVISION__CONTENTS:
+				getContents().clear();
+				getContents().addAll((Collection<? extends ContentBlock>)newValue);
+				return;
+			case PubPackage.DIVISION__LEVEL:
+				setLevel((Integer)newValue);
+				return;
+			case PubPackage.DIVISION__SEQUENCE_NUMBER:
+				setSequenceNumber((Integer)newValue);
+				return;
 			case PubPackage.DIVISION__NAME:
 				setName((String)newValue);
 				return;
@@ -511,12 +602,8 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 			case PubPackage.DIVISION__INCLUDE:
 				setInclude((Division)newValue);
 				return;
-			case PubPackage.DIVISION__SUBDIVISIONS:
-				getSubdivisions().clear();
-				getSubdivisions().addAll((Collection<? extends Division>)newValue);
-				return;
-			case PubPackage.DIVISION__PARENT:
-				setParent((Division)newValue);
+			case PubPackage.DIVISION__LOGICAL_CONTAINER:
+				setLogicalContainer((Division)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -530,6 +617,18 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case PubPackage.DIVISION__DIVISIONS:
+				getDivisions().clear();
+				return;
+			case PubPackage.DIVISION__CONTENTS:
+				getContents().clear();
+				return;
+			case PubPackage.DIVISION__LEVEL:
+				setLevel(LEVEL_EDEFAULT);
+				return;
+			case PubPackage.DIVISION__SEQUENCE_NUMBER:
+				setSequenceNumber(SEQUENCE_NUMBER_EDEFAULT);
+				return;
 			case PubPackage.DIVISION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -542,11 +641,8 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 			case PubPackage.DIVISION__INCLUDE:
 				setInclude((Division)null);
 				return;
-			case PubPackage.DIVISION__SUBDIVISIONS:
-				getSubdivisions().clear();
-				return;
-			case PubPackage.DIVISION__PARENT:
-				setParent((Division)null);
+			case PubPackage.DIVISION__LOGICAL_CONTAINER:
+				setLogicalContainer((Division)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -560,6 +656,14 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case PubPackage.DIVISION__DIVISIONS:
+				return divisions != null && !divisions.isEmpty();
+			case PubPackage.DIVISION__CONTENTS:
+				return contents != null && !contents.isEmpty();
+			case PubPackage.DIVISION__LEVEL:
+				return level != LEVEL_EDEFAULT;
+			case PubPackage.DIVISION__SEQUENCE_NUMBER:
+				return sequenceNumber != SEQUENCE_NUMBER_EDEFAULT;
 			case PubPackage.DIVISION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case PubPackage.DIVISION__ID:
@@ -570,10 +674,8 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 				return title != null;
 			case PubPackage.DIVISION__INCLUDE:
 				return include != null;
-			case PubPackage.DIVISION__SUBDIVISIONS:
-				return subdivisions != null && !subdivisions.isEmpty();
-			case PubPackage.DIVISION__PARENT:
-				return basicGetParent() != null;
+			case PubPackage.DIVISION__LOGICAL_CONTAINER:
+				return logicalContainer != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -585,8 +687,16 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == BlockContainer.class) {
+			switch (derivedFeatureID) {
+				case PubPackage.DIVISION__CONTENTS: return PubPackage.BLOCK_CONTAINER__CONTENTS;
+				default: return -1;
+			}
+		}
 		if (baseClass == NumberedElement.class) {
 			switch (derivedFeatureID) {
+				case PubPackage.DIVISION__LEVEL: return PubPackage.NUMBERED_ELEMENT__LEVEL;
+				case PubPackage.DIVISION__SEQUENCE_NUMBER: return PubPackage.NUMBERED_ELEMENT__SEQUENCE_NUMBER;
 				default: return -1;
 			}
 		}
@@ -607,8 +717,16 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == BlockContainer.class) {
+			switch (baseFeatureID) {
+				case PubPackage.BLOCK_CONTAINER__CONTENTS: return PubPackage.DIVISION__CONTENTS;
+				default: return -1;
+			}
+		}
 		if (baseClass == NumberedElement.class) {
 			switch (baseFeatureID) {
+				case PubPackage.NUMBERED_ELEMENT__LEVEL: return PubPackage.DIVISION__LEVEL;
+				case PubPackage.NUMBERED_ELEMENT__SEQUENCE_NUMBER: return PubPackage.DIVISION__SEQUENCE_NUMBER;
 				default: return -1;
 			}
 		}
@@ -628,36 +746,12 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 	 * @generated
 	 */
 	@Override
-	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == NumberedElement.class) {
-			switch (baseOperationID) {
-				case PubPackage.NUMBERED_ELEMENT___GET_LEVEL: return PubPackage.DIVISION___GET_LEVEL;
-				case PubPackage.NUMBERED_ELEMENT___GET_SEQUENCE_NUMBER: return PubPackage.DIVISION___GET_SEQUENCE_NUMBER;
-				default: return -1;
-			}
-		}
-		if (baseClass == ReferenceTarget.class) {
-			switch (baseOperationID) {
-				default: return -1;
-			}
-		}
-		return super.eDerivedOperationID(baseOperationID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case PubPackage.DIVISION___PARENT:
+				return parent();
 			case PubPackage.DIVISION___GET_DOCUMENT:
 				return getDocument();
-			case PubPackage.DIVISION___GET_LEVEL:
-				return getLevel();
-			case PubPackage.DIVISION___GET_SEQUENCE_NUMBER:
-				return getSequenceNumber();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -672,7 +766,11 @@ public abstract class DivisionImpl extends BlockContainerImpl implements Divisio
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
+		result.append(" (level: ");
+		result.append(level);
+		result.append(", sequenceNumber: ");
+		result.append(sequenceNumber);
+		result.append(", name: ");
 		result.append(name);
 		result.append(", startNumberingAt: ");
 		result.append(startNumberingAt);

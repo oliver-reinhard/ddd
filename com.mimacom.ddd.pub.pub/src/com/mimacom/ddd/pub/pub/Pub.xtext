@@ -185,7 +185,7 @@ PubPart returns Part:
 	'Part'
 	(	PubDivisionHeader
 		contents+=PubContentBlock*
-		(-> subdivisions+=PubChapter)*
+		(-> divisions+=PubChapter)*
 	|	PubDivisionIncludeHeader
 		include=[Part|DQualifiedName]
 		('as' title=DRichText)?
@@ -195,7 +195,7 @@ PubAppendix returns Appendix:
 	'Appendix'
 	(	PubDivisionHeader
 		contents+=PubContentBlock*
-		(-> subdivisions+=PubChapter)*
+		(-> divisions+=PubChapter)*
 	|	PubDivisionIncludeHeader
 		include=[Appendix|DQualifiedName]
 		('as' title=DRichText)?
@@ -205,7 +205,7 @@ PubChapter returns Chapter:
 	'Chapter'
 	(	PubDivisionHeader
 		contents+=PubContentBlock*
-		subdivisions+=PubSection*
+		divisions+=PubSection*
 	|	PubDivisionIncludeHeader
 		include=[Chapter|DQualifiedName]
 		('as' title=DRichText)?
@@ -215,7 +215,7 @@ PubSection returns Section:
 	'Section'
 	(	PubDivisionHeader
 		contents+=PubContentBlock*
-		subdivisions+=PubSubsection*
+		divisions+=PubSubsection*
 	|	PubDivisionIncludeHeader
 		include=[Section|DQualifiedName]
 		('as' title=DRichText)?
@@ -225,7 +225,7 @@ PubSubsection returns Subsection:
 	('Sub' | 'Subsection')
 	(	PubDivisionHeader
 		contents+=PubContentBlock*
-		subdivisions+=PubSubsubsection*
+		divisions+=PubSubsubsection*
 	|	PubDivisionIncludeHeader
 		include=[Subsection|DQualifiedName]
 		('as' title=DRichText)?
