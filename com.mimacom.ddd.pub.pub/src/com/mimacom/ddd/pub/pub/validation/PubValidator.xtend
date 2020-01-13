@@ -11,8 +11,10 @@ import com.mimacom.ddd.dm.base.DTextSegment
 import com.mimacom.ddd.dm.dmx.DmxContextReference
 import com.mimacom.ddd.dm.dmx.DmxStaticReference
 import com.mimacom.ddd.pub.pub.Chapter
+import com.mimacom.ddd.pub.pub.CodeListing
 import com.mimacom.ddd.pub.pub.Component
 import com.mimacom.ddd.pub.pub.Division
+import com.mimacom.ddd.pub.pub.Document
 import com.mimacom.ddd.pub.pub.ListItem
 import com.mimacom.ddd.pub.pub.ListStyle
 import com.mimacom.ddd.pub.pub.Part
@@ -28,6 +30,8 @@ import com.mimacom.ddd.pub.pub.TitledBlock
 import com.mimacom.ddd.pub.pub.generator.PubElementNames
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil
 import com.mimacom.ddd.pub.pub.impl.PubConstants
+import org.eclipse.xtext.resource.XtextResource
+import org.eclipse.xtext.serializer.ISerializer
 import org.eclipse.xtext.validation.Check
 
 /**
@@ -40,9 +44,17 @@ class PubValidator extends AbstractPubValidator {
 	@Inject extension PubUtil
 	@Inject extension PubElementNames
 	@Inject extension PubNumberingUtil
+	@Inject ISerializer serializer
 
 	static val BASE = BasePackage.eINSTANCE
 	static val PUB = PubPackage.eINSTANCE
+
+	@Check
+	def publicationClass(Document doc) {
+		if (doc.publicationClass === null) {
+			error("Document has no publication class.", PUB.document_PublicationClass)
+		}
+	}
 
 	@Check
 	def partsXorSections(PublicationBody body) {
@@ -111,6 +123,28 @@ class PubValidator extends AbstractPubValidator {
 			}
 			if (div.include !== null && ! divisionsSet.add(div.include)) {
 				error(msg, div, PUB.division_Include)
+			}
+		}
+	}
+
+	@Check(NORMAL)
+	def includedCodeSyntax(CodeListing cl) {
+		if (cl.include !== null) {
+			var hasErrors = false
+			val res = cl.include.eResource
+			if (res instanceof XtextResource) {
+				hasErrors = res.parseResult.hasSyntaxErrors
+			}
+			if (! hasErrors) {
+				try {
+					serializer.serialize(cl.include) // throws RuntimeException
+				} catch (RuntimeException ex) {
+					// the syntax for the include is temporarily inconsistent and cannot be serialised
+					hasErrors = true
+				}
+			}
+			if (hasErrors) {
+				error("Code for the included expression has errors.", PUB.codeListing_Include)
 			}
 		}
 	}

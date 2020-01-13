@@ -3,6 +3,7 @@
 package com.mimacom.ddd.pub.pub;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 
 /**
@@ -16,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link com.mimacom.ddd.pub.pub.CodeListing#getFormat <em>Format</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.CodeListing#getCodeLines <em>Code Lines</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.CodeListing#getInclude <em>Include</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.pub.pub.PubPackage#getCodeListing()
@@ -59,5 +61,27 @@ public interface CodeListing extends TitledBlock {
 	 * @generated
 	 */
 	EList<String> getCodeLines();
+
+	/**
+	 * Returns the value of the '<em><b>Include</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Include</em>' reference.
+	 * @see #setInclude(EObject)
+	 * @see com.mimacom.ddd.pub.pub.PubPackage#getCodeListing_Include()
+	 * @model
+	 * @generated
+	 */
+	EObject getInclude();
+
+	/**
+	 * Sets the value of the '{@link com.mimacom.ddd.pub.pub.CodeListing#getInclude <em>Include</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Include</em>' reference.
+	 * @see #getInclude()
+	 * @generated
+	 */
+	void setInclude(EObject value);
 
 } // CodeListing

@@ -14,15 +14,17 @@ class PubQualifiedNameProvider extends DefaultDeclarativeQualifiedNameProvider {
 	 */
 	override QualifiedName getFullyQualifiedName(EObject obj) {
 		if (obj instanceof ReferenceTarget) {
-			if (obj.name !== null &&  obj.name.length > 0) {
+			if (obj.name !== null && obj.name.length > 0) {
 				val compo = EcoreUtil2.getContainerOfType(obj, Component)
 				if (compo !== null && obj.name !== null) {
 					val compoQN = computeFullyQualifiedName(compo)
 					if (obj instanceof Component) {
 						return compoQN
+					} else if (compoQN !== null) {
+						val rootQN = compoQN.append(obj.name)
+						return rootQN
 					}
-					val rootQN = compoQN.append(obj.name)
-					return rootQN
+					return null
 				}
 			}
 		}

@@ -4197,13 +4197,22 @@ public interface PubPackage extends EPackage {
 	int CODE_LISTING__CODE_LINES = TITLED_BLOCK_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Include</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE_LISTING__INCLUDE = TITLED_BLOCK_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Code Listing</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_LISTING_FEATURE_COUNT = TITLED_BLOCK_FEATURE_COUNT + 2;
+	int CODE_LISTING_FEATURE_COUNT = TITLED_BLOCK_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Id</em>' operation.
@@ -5644,6 +5653,17 @@ public interface PubPackage extends EPackage {
 	EAttribute getCodeListing_CodeLines();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.mimacom.ddd.pub.pub.CodeListing#getInclude <em>Include</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Include</em>'.
+	 * @see com.mimacom.ddd.pub.pub.CodeListing#getInclude()
+	 * @see #getCodeListing()
+	 * @generated
+	 */
+	EReference getCodeListing_Include();
+
+	/**
 	 * Returns the meta object for class '{@link com.mimacom.ddd.pub.pub.Paragraph <em>Paragraph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6880,6 +6900,14 @@ public interface PubPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CODE_LISTING__CODE_LINES = eINSTANCE.getCodeListing_CodeLines();
+
+		/**
+		 * The meta object literal for the '<em><b>Include</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CODE_LISTING__INCLUDE = eINSTANCE.getCodeListing_Include();
 
 		/**
 		 * The meta object literal for the '{@link com.mimacom.ddd.pub.pub.impl.ParagraphImpl <em>Paragraph</em>}' class.

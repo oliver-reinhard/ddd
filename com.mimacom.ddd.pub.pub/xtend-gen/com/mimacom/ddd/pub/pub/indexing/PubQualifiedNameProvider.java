@@ -21,9 +21,13 @@ public class PubQualifiedNameProvider extends DefaultDeclarativeQualifiedNamePro
           final QualifiedName compoQN = this.computeFullyQualifiedName(compo);
           if ((obj instanceof Component)) {
             return compoQN;
+          } else {
+            if ((compoQN != null)) {
+              final QualifiedName rootQN = compoQN.append(((ReferenceTarget)obj).getName());
+              return rootQN;
+            }
           }
-          final QualifiedName rootQN = compoQN.append(((ReferenceTarget)obj).getName());
-          return rootQN;
+          return null;
         }
       }
     }

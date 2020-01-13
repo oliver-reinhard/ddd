@@ -8,10 +8,11 @@ import com.mimacom.ddd.pub.pub.PubPackage;
 
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
@@ -25,6 +26,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <ul>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.CodeListingImpl#getFormat <em>Format</em>}</li>
  *   <li>{@link com.mimacom.ddd.pub.pub.impl.CodeListingImpl#getCodeLines <em>Code Lines</em>}</li>
+ *   <li>{@link com.mimacom.ddd.pub.pub.impl.CodeListingImpl#getInclude <em>Include</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,6 +61,16 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 	 * @ordered
 	 */
 	protected EList<String> codeLines;
+
+	/**
+	 * The cached value of the '{@link #getInclude() <em>Include</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInclude()
+	 * @generated
+	 * @ordered
+	 */
+	protected EObject include;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,12 +133,55 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 	 * @generated
 	 */
 	@Override
+	public EObject getInclude() {
+		if (include != null && include.eIsProxy()) {
+			InternalEObject oldInclude = (InternalEObject)include;
+			include = eResolveProxy(oldInclude);
+			if (include != oldInclude) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PubPackage.CODE_LISTING__INCLUDE, oldInclude, include));
+			}
+		}
+		return include;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObject basicGetInclude() {
+		return include;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setInclude(EObject newInclude) {
+		EObject oldInclude = include;
+		include = newInclude;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.CODE_LISTING__INCLUDE, oldInclude, include));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case PubPackage.CODE_LISTING__FORMAT:
 				return getFormat();
 			case PubPackage.CODE_LISTING__CODE_LINES:
 				return getCodeLines();
+			case PubPackage.CODE_LISTING__INCLUDE:
+				if (resolve) return getInclude();
+				return basicGetInclude();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -147,6 +202,9 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 				getCodeLines().clear();
 				getCodeLines().addAll((Collection<? extends String>)newValue);
 				return;
+			case PubPackage.CODE_LISTING__INCLUDE:
+				setInclude((EObject)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -165,6 +223,9 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 			case PubPackage.CODE_LISTING__CODE_LINES:
 				getCodeLines().clear();
 				return;
+			case PubPackage.CODE_LISTING__INCLUDE:
+				setInclude((EObject)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -181,6 +242,8 @@ public class CodeListingImpl extends TitledBlockImpl implements CodeListing {
 				return format != FORMAT_EDEFAULT;
 			case PubPackage.CODE_LISTING__CODE_LINES:
 				return codeLines != null && !codeLines.isEmpty();
+			case PubPackage.CODE_LISTING__INCLUDE:
+				return include != null;
 		}
 		return super.eIsSet(featureID);
 	}
