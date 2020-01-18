@@ -125,7 +125,7 @@ class DmxTypeComputer {
 			return getTypeDescriptor(target, false)
 
 		} else if (target instanceof DNavigableMember) {
-			return getTypeDescriptor(target.type, expr.all)
+			return getTypeDescriptor(target.type, target.isCollection || expr.all)
 		}
 		
 		return getTypeDescriptor(target, expr.all)
