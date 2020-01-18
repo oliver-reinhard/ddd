@@ -110,6 +110,9 @@ public class StyledTextParser {
 				case EXPRESSION_START:
 					handleExpression(parent);
 					break;
+				case STATIC_REFERENCE_START:
+					handleStaticReference(parent);
+					break;
 				case UNDERLINE:
 					openTextAttribute(parent, DTextAttribute.UNDERLINE, t, Token.UNDERLINE);
 					break;
@@ -222,11 +225,46 @@ public class StyledTextParser {
 			tokenizer.readNext(); 
 		}
 		span.setEndPos(tokenizer.getIndex() - 1);
-		int length = span.getEndPos()-(span.getStartPos()+1);
-		String text = length > 0 ? new String(styledText, span.getStartPos()+1, length) : "";
+		final int textStartPos = span.getStartPos() + 1;
+		final int textEndPos = span.getEndPos();
+		final int length = textEndPos - textStartPos;
+		String text = length > 0 ? new String(styledText, textStartPos, length) : "";
 		span.setText(text);
 		if (t == Token.EOF) {
 			error("Unclosed expression: Expecting '" + Token.EXPRESSION_END.getLiteral() + "'",
+					tokenizer.getIndex() - 1, 1);
+		}
+	}
+	
+
+	void handleStaticReference(DStyledTextSpan parent) {
+		DStyledTextSpan span = createSpan(parent);
+		// Return as an expression but adjust length of actual static-reference text:
+		span.setStyle(DTextStyle.EXPRESSION);
+		Token t;
+		while (true) {
+			t = tokenizer.peekNext(); // do not consume the token
+			if (t == Token.STATIC_REFERENCE_START) {
+				error("Unclosed expression: Expecting '" + Token.STATIC_REFERENCE_END.getLiteral() + "'",
+						tokenizer.getIndex(), Token.STATIC_REFERENCE_START.getLength());
+				break;
+			} else if (t == Token.STATIC_REFERENCE_END) {
+				tokenizer.readNext();
+				break;
+			} else if (t == Token.EOF) {
+				tokenizer.readNext(); 
+				break;
+			}
+			tokenizer.readNext(); 
+		}
+		span.setEndPos(tokenizer.getIndex() - 1);
+		final int textStartPos = span.getStartPos() + 2;
+		final int textEndPos = span.getEndPos() - 1;
+		final int length = textEndPos - textStartPos;
+		String text = length > 0 ? new String(styledText, textStartPos, length) : "";
+		span.setText(text);
+		if (t == Token.EOF) {
+			error("Unclosed expression: Expecting '" + Token.STATIC_REFERENCE_END.getLiteral() + "'",
 					tokenizer.getIndex() - 1, 1);
 		}
 	}

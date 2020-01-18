@@ -69,7 +69,7 @@ public class TransformationContext {
     if ((previousS != null)) {
       String _name = domainType.getName();
       String _plus = ("There are two STypes realizing DType \"" + _name);
-      String _plus_1 = (_plus + "\" as \"");
+      String _plus_1 = (_plus + "\": as \"");
       String _name_1 = systemType.getName();
       String _plus_2 = (_plus_1 + _name_1);
       String _plus_3 = (_plus_2 + "\" and as \"");

@@ -3,23 +3,26 @@ package com.mimacom.ddd.dm.base.styledText.test;
 import com.mimacom.ddd.dm.styledText.DStyledTextSpan;
 import com.mimacom.ddd.dm.styledText.DTextAttribute;
 import com.mimacom.ddd.dm.styledText.DTextStyle;
-import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor;
 import com.mimacom.ddd.dm.styledText.parser.StyledTextParser;
+import com.mimacom.ddd.dm.styledText.parser.SystemErrorErrorMessageAcceptor;
 import org.junit.Assert;
 import org.junit.Test;
 
 @SuppressWarnings("all")
 public class StyledTextParserTest {
-  public static class TestErrorMessageAcceptor implements ErrorMessageAcceptor {
+  public static class TestErrorMessageAcceptor extends SystemErrorErrorMessageAcceptor {
     private int count = 0;
     
     @Override
     public void acceptError(final String message, final int offset, final int length) {
       this.count = (this.count + 1);
+      if (StyledTextParserTest.debug) {
+        super.acceptError(message, offset, length);
+      }
     }
   }
   
-  boolean debug = true;
+  private static boolean debug = true;
   
   @Test
   public void testSimple() {
@@ -148,6 +151,9 @@ public class StyledTextParserTest {
     this.assertSpanBaseProperties(root.getSubspans().get(1), DTextStyle.EXPRESSION, 3, 4, 0);
     Assert.assertEquals("", root.getSubspans().get(1).getText());
     this.assertSpanBaseProperties(root.getSubspans().get(2), DTextStyle.PLAIN, 5, 7, 0);
+    Assert.assertTrue(this.parse("[]"));
+    Assert.assertTrue(this.parse("[] cc"));
+    Assert.assertTrue(this.parse("aa []"));
   }
   
   @Test
@@ -163,6 +169,37 @@ public class StyledTextParserTest {
     this.assertSpanBaseProperties(root.getSubspans().get(2), DTextStyle.PLAIN, 6, 8, 0);
     Assert.assertTrue(this.parse("aa [bb] cc"));
     Assert.assertTrue(this.parse("aa **[bb]** cc"));
+  }
+  
+  @Test
+  public void testStaticReference1() {
+    final String text = "aa [[]] cc";
+    Assert.assertTrue(this.parse(text));
+    final StyledTextParser parser = new StyledTextParser(text);
+    DStyledTextSpan root = parser.parse();
+    this.assertSpanBaseProperties(root, DTextStyle.PLAIN, 0, 9, 3);
+    this.assertSpanBaseProperties(root.getSubspans().get(0), DTextStyle.PLAIN, 0, 2, 0);
+    this.assertSpanBaseProperties(root.getSubspans().get(1), DTextStyle.EXPRESSION, 3, 6, 0);
+    Assert.assertEquals("", root.getSubspans().get(1).getText());
+    this.assertSpanBaseProperties(root.getSubspans().get(2), DTextStyle.PLAIN, 7, 9, 0);
+    Assert.assertTrue(this.parse("[[]]"));
+    Assert.assertTrue(this.parse("[[]] cc"));
+    Assert.assertTrue(this.parse("aa [[]]"));
+  }
+  
+  @Test
+  public void testStaticReference2() {
+    final String text = "aa [[b]] cc";
+    Assert.assertTrue(this.parse(text));
+    final StyledTextParser parser = new StyledTextParser(text);
+    DStyledTextSpan root = parser.parse();
+    this.assertSpanBaseProperties(root, DTextStyle.PLAIN, 0, 10, 3);
+    this.assertSpanBaseProperties(root.getSubspans().get(0), DTextStyle.PLAIN, 0, 2, 0);
+    this.assertSpanBaseProperties(root.getSubspans().get(1), DTextStyle.EXPRESSION, 3, 7, 0);
+    Assert.assertEquals("b", root.getSubspans().get(1).getText());
+    this.assertSpanBaseProperties(root.getSubspans().get(2), DTextStyle.PLAIN, 8, 10, 0);
+    Assert.assertTrue(this.parse("aa [[bb]] cc"));
+    Assert.assertTrue(this.parse("aa **[[bb]]** cc"));
   }
   
   @Test
@@ -192,7 +229,7 @@ public class StyledTextParserTest {
   boolean parse(final String text) {
     final StyledTextParserTest.TestErrorMessageAcceptor acceptor = new StyledTextParserTest.TestErrorMessageAcceptor();
     final StyledTextParser parser = new StyledTextParser(text, acceptor);
-    if (this.debug) {
+    if (StyledTextParserTest.debug) {
       DStyledTextSpan root = parser.parse();
       System.out.println(parser.toString(root));
     } else {

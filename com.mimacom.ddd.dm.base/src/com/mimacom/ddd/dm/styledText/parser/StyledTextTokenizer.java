@@ -9,7 +9,7 @@ public class StyledTextTokenizer {
 
 		/* Length = 2 */
 		EMPHASIS("**"), STRONG("++"), KEYWORD("##"), MONOSPACE_START("{{"), MONOSPACE_END("}}"), UNDERLINE("__"),
-		STRIKETHROUGH("--"), SUPERSCRIPT("^^"), SUBSCRIPT("°°"),
+		STRIKETHROUGH("--"), SUPERSCRIPT("^^"), SUBSCRIPT("°°"), STATIC_REFERENCE_START("[["), STATIC_REFERENCE_END("]]"),
 
 		/* Length = 0 (special value) */
 		TEXT, // text = everything else than the above tokens
@@ -144,19 +144,12 @@ public class StyledTextTokenizer {
 	public Token readNext() {
 		lastToken = Token.EOF;
 		lastTokenStartIndex = index;
-		
-		// match first character:
+
 		if (index > endIndex) {
 			return Token.EOF;
 		}
-		final String s1 = new String(text, lastTokenStartIndex, 1);
-		final Token t1 = Token.match(s1);
-		if (t1 != Token.EOF) {
-			index++;
-			return t1;
-		}
 		
-		// match second character:
+		// try to match symbols with two characters first:
 		if (index+1 <= endIndex) {
 			final String s2 = new String(text, lastTokenStartIndex, 2);
 			final Token t2 = Token.match(s2);
@@ -165,10 +158,18 @@ public class StyledTextTokenizer {
 				return t2;
 			}
 		}
+		
+		// match first character:
+		final String s1 = new String(text, lastTokenStartIndex, 1);
+		final Token t1 = Token.match(s1);
+		if (t1 != Token.EOF) {
+			index++;
+			return t1;
+		}
 
 		// It's not a special symbol => return text up to next symbol or up to EOF:
 		lastToken = Token.TEXT;
-		index++; // ensure we advance at least one character
+		index++; // ensure we advance by at least one character
 		while (index <= endIndex) {
 			final char c = text[index];
 			if (Token.isTokenStartCharacter(c)) {
@@ -221,10 +222,11 @@ public class StyledTextTokenizer {
 		}
 
 		// find delimiter token:
-		final int lookahead = delimiter.getLength() - 1;
+		final int len = delimiter.getLength();
+		final int lookahead = len - 1;
 		int i = index;
 		while (i + lookahead <= endIndex) {
-			final String s = new String(text, i, delimiter.getLength());
+			final String s = new String(text, i, len);
 			final Token t = Token.match(s);
 			if (t == delimiter) {
 				index = i;

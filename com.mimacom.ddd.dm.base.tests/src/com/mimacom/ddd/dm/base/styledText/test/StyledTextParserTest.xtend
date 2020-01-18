@@ -3,8 +3,8 @@ package com.mimacom.ddd.dm.base.styledText.test
 import com.mimacom.ddd.dm.styledText.DStyledTextSpan
 import com.mimacom.ddd.dm.styledText.DTextAttribute
 import com.mimacom.ddd.dm.styledText.DTextStyle
-import com.mimacom.ddd.dm.styledText.parser.ErrorMessageAcceptor
 import com.mimacom.ddd.dm.styledText.parser.StyledTextParser
+import com.mimacom.ddd.dm.styledText.parser.SystemErrorErrorMessageAcceptor
 import org.junit.Test
 
 import static com.mimacom.ddd.dm.styledText.DTextAttribute.*
@@ -15,7 +15,7 @@ import static org.junit.Assert.assertTrue
 
 class StyledTextParserTest {
 
-	package boolean debug = true
+	static boolean debug = true
 
 	@Test def void testSimple() {
 		val String text = "aaaa"
@@ -141,6 +141,9 @@ class StyledTextParserTest {
 		assertSpanBaseProperties(root.subspans.get(1), EXPRESSION, 3, 4, 0)
 		assertEquals("", root.subspans.get(1).text)
 		assertSpanBaseProperties(root.subspans.get(2), PLAIN, 5, 7, 0)
+		assertTrue(parse("[]"))
+		assertTrue(parse("[] cc"))
+		assertTrue(parse("aa []"))
 	}
 	
 	@Test def void testExpression2() {
@@ -157,6 +160,39 @@ class StyledTextParserTest {
 		
 		assertTrue(parse("aa [bb] cc"))
 		assertTrue(parse("aa **[bb]** cc"))
+	}
+
+	@Test def void testStaticReference1() {
+		val String text = "aa [[]] cc"
+		assertTrue(parse(text))
+
+		val StyledTextParser parser = new StyledTextParser(text)
+		var DStyledTextSpan root = parser.parse()
+		assertSpanBaseProperties(root, PLAIN, 0, 9, 3)
+		assertSpanBaseProperties(root.subspans.get(0), PLAIN, 0, 2, 0)
+		assertSpanBaseProperties(root.subspans.get(1), EXPRESSION, 3, 6, 0)
+		assertEquals("", root.subspans.get(1).text)
+		assertSpanBaseProperties(root.subspans.get(2), PLAIN, 7, 9, 0)
+		
+		assertTrue(parse("[[]]"))
+		assertTrue(parse("[[]] cc"))
+		assertTrue(parse("aa [[]]"))
+	}
+	
+	@Test def void testStaticReference2() {
+		val String text = "aa [[b]] cc"
+		assertTrue(parse(text))
+
+		val StyledTextParser parser = new StyledTextParser(text)
+		var DStyledTextSpan root = parser.parse()
+		assertSpanBaseProperties(root, PLAIN, 0, 10, 3)
+		assertSpanBaseProperties(root.subspans.get(0), PLAIN, 0, 2, 0)
+		assertSpanBaseProperties(root.subspans.get(1), EXPRESSION, 3, 7, 0)
+		assertEquals("b", root.subspans.get(1).text)
+		assertSpanBaseProperties(root.subspans.get(2), PLAIN, 8, 10, 0)
+		
+		assertTrue(parse("aa [[bb]] cc"))
+		assertTrue(parse("aa **[[bb]]** cc"))
 	}
 
 	@Test def void testExpressionOpenNok() {
@@ -206,11 +242,14 @@ class StyledTextParserTest {
 		}
 	}
 
-	static class TestErrorMessageAcceptor implements ErrorMessageAcceptor {
+	static class TestErrorMessageAcceptor extends SystemErrorErrorMessageAcceptor {
 		int count = 0
 
 		override void acceptError(String message, int offset, int length) {
 			count = count + 1
+			if (debug) {
+				super.acceptError(message, offset, length)
+			}
 		}
 	}
 }

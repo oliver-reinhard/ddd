@@ -66,7 +66,7 @@ class TransformationContext {
 		val previousS = localDomainToSystemModelTypeMap.put(domainType, systemType)
 		if (previousS !== null) {
 			// TODO remove => log  or create error marker
-			throw new IllegalStateException("There are two STypes realizing DType \"" + domainType.name + "\" as \"" + systemType.name + "\" and as \"" + previousS + "\"") 
+			throw new IllegalStateException("There are two STypes realizing DType \"" + domainType.name + "\": as \"" + systemType.name + "\" and as \"" + previousS + "\"") 
 		}
 	}
 	
