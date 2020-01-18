@@ -147,7 +147,8 @@ public class DmxTypeComputer {
             return this._dmxTypeDescriptorProvider.getTypeDescriptor(target, false);
           } else {
             if ((target instanceof DNavigableMember)) {
-              return this._dmxTypeDescriptorProvider.getTypeDescriptor(((DNavigableMember)target).getType(), expr.isAll());
+              DType _type = ((DNavigableMember)target).getType();
+              return this._dmxTypeDescriptorProvider.getTypeDescriptor(_type, (((DNavigableMember)target).isCollection() || expr.isAll()));
             }
           }
         }
