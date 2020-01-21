@@ -2,8 +2,8 @@ package com.mimacom.ddd.dm.dmx.typecomputer;
 
 import com.google.common.collect.Lists;
 import com.mimacom.ddd.dm.base.DAggregate;
+import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DNavigableMember;
-import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dmx.DmxBaseType;
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
@@ -41,10 +41,10 @@ public class DmxAggregateDescriptor extends AbstractDmxTypeDescriptor<DType> {
   
   @Override
   public List<DNavigableMember> getNavigableMembers() {
-    EList<DQuery> _staticQueries = this.aggregate.getStaticQueries();
-    boolean _tripleNotEquals = (_staticQueries != null);
+    EList<DFeature> _features = this.aggregate.getFeatures();
+    boolean _tripleNotEquals = (_features != null);
     if (_tripleNotEquals) {
-      return Lists.<DNavigableMember>newArrayList(this.aggregate.getStaticQueries());
+      return Lists.<DNavigableMember>newArrayList(this.aggregate.getFeatures());
     }
     return super.getNavigableMembers();
   }

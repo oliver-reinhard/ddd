@@ -9,9 +9,7 @@ import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.base.IDeductionDefinition
 import com.mimacom.ddd.dm.base.INavigableMemberContainer
 import com.mimacom.ddd.sm.asm.SServiceInterface
-import com.mimacom.ddd.sm.asm.SServiceOperation
 import com.mimacom.ddd.sm.asm.SServiceParameter
-import com.mimacom.ddd.sm.sim.SCoreQuery
 import com.mimacom.ddd.sm.sim.SInformationModel
 import java.util.List
 import org.eclipse.emf.ecore.EObject
@@ -43,8 +41,6 @@ class AsmScopeProvider extends AbstractAsmScopeProvider {
 
 	protected override IScope getEContainerNavigableMembersScopeSwitch(INavigableMemberContainer container, IScope outerScope) {
 		val scope = switch container {
-			SCoreQuery: Scopes.scopeFor(container.parameters, outerScope)
-			SServiceOperation: Scopes.scopeFor(container.parameters, outerScope)
 			SServiceInterface: getServiceInterfaceCoreNavigableMembersScope(container.core, outerScope)
 			default: super.getEContainerNavigableMembersScopeSwitch(container, outerScope)
 		}
@@ -54,10 +50,9 @@ class AsmScopeProvider extends AbstractAsmScopeProvider {
 	protected def IScope getServiceInterfaceCoreNavigableMembersScope(SInformationModel core, IScope outerScope) {
 		val List<EObject> list = Lists.newArrayList
 		//
-		// TODO The types are not NavigableMembers !!
+		// TODO The types are not NavigableMembers !! They must not be made available via getEContainerNavigableMembersScopeSwitch.
 		//
 		list.addAll(EcoreUtil2.eAllOfType(core, DType).filter[! (it instanceof IDeductionDefinition)])
-		list.addAll(core.queries)
 		Scopes.scopeFor(list, outerScope)
 	}
 }

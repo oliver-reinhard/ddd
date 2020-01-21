@@ -5,11 +5,12 @@ package com.mimacom.ddd.dm.base.impl;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DEntityType;
-import com.mimacom.ddd.dm.base.DQuery;
+import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
-import com.mimacom.ddd.dm.base.INamespace;
+import com.mimacom.ddd.dm.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.base.ITypeContainer;
@@ -38,10 +39,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getTypes <em>Types</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getFeatures <em>Features</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getNavigableMembers <em>Navigable Members</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getDeducedFrom <em>Deduced From</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#isSynthetic <em>Synthetic</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getRoots <em>Roots</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DAggregateImpl#getStaticQueries <em>Static Queries</em>}</li>
  * </ul>
  *
  * @generated
@@ -57,6 +59,16 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * @ordered
 	 */
 	protected EList<DType> types;
+
+	/**
+	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFeatures()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DFeature> features;
 
 	/**
 	 * The cached value of the '{@link #getDeducedFrom() <em>Deduced From</em>}' reference.
@@ -87,16 +99,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * @ordered
 	 */
 	protected boolean synthetic = SYNTHETIC_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getStaticQueries() <em>Static Queries</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStaticQueries()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DQuery> staticQueries;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -138,6 +140,40 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< Upstream, based on 31adbbe530a348e8e7950d43c70d55be3ba288b1
+=======
+	@Override
+	public EList<DFeature> getFeatures()
+	{
+		if (features == null)
+		{
+			features = new EObjectContainmentEList<DFeature>(DFeature.class, this, BasePackage.DAGGREGATE__FEATURES);
+		}
+		return features;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<DNavigableMember> getNavigableMembers()
+	{
+		// TODO: implement this method to return the 'Navigable Members' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+>>>>>>> 0d09db5 SIM: update to enhanced BASE model and semantics
 	public IDeductionDefinition getDeducedFrom()
 	{
 		if (deducedFrom != null && deducedFrom.eIsProxy())
@@ -218,6 +254,7 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< Upstream, based on 31adbbe530a348e8e7950d43c70d55be3ba288b1
 	public EList<DQuery> getStaticQueries()
 	{
 		if (staticQueries == null)
@@ -232,6 +269,8 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+=======
+>>>>>>> 0d09db5 SIM: update to enhanced BASE model and semantics
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
@@ -239,8 +278,8 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 		{
 			case BasePackage.DAGGREGATE__TYPES:
 				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
-			case BasePackage.DAGGREGATE__STATIC_QUERIES:
-				return ((InternalEList<?>)getStaticQueries()).basicRemove(otherEnd, msgs);
+			case BasePackage.DAGGREGATE__FEATURES:
+				return ((InternalEList<?>)getFeatures()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -257,6 +296,10 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 		{
 			case BasePackage.DAGGREGATE__TYPES:
 				return getTypes();
+			case BasePackage.DAGGREGATE__FEATURES:
+				return getFeatures();
+			case BasePackage.DAGGREGATE__NAVIGABLE_MEMBERS:
+				return getNavigableMembers();
 			case BasePackage.DAGGREGATE__DEDUCED_FROM:
 				if (resolve) return getDeducedFrom();
 				return basicGetDeducedFrom();
@@ -264,8 +307,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 				return isSynthetic();
 			case BasePackage.DAGGREGATE__ROOTS:
 				return getRoots();
-			case BasePackage.DAGGREGATE__STATIC_QUERIES:
-				return getStaticQueries();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -285,15 +326,19 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 				getTypes().clear();
 				getTypes().addAll((Collection<? extends DType>)newValue);
 				return;
+			case BasePackage.DAGGREGATE__FEATURES:
+				getFeatures().clear();
+				getFeatures().addAll((Collection<? extends DFeature>)newValue);
+				return;
+			case BasePackage.DAGGREGATE__NAVIGABLE_MEMBERS:
+				getNavigableMembers().clear();
+				getNavigableMembers().addAll((Collection<? extends DNavigableMember>)newValue);
+				return;
 			case BasePackage.DAGGREGATE__DEDUCED_FROM:
 				setDeducedFrom((IDeductionDefinition)newValue);
 				return;
 			case BasePackage.DAGGREGATE__SYNTHETIC:
 				setSynthetic((Boolean)newValue);
-				return;
-			case BasePackage.DAGGREGATE__STATIC_QUERIES:
-				getStaticQueries().clear();
-				getStaticQueries().addAll((Collection<? extends DQuery>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -312,14 +357,17 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 			case BasePackage.DAGGREGATE__TYPES:
 				getTypes().clear();
 				return;
+			case BasePackage.DAGGREGATE__FEATURES:
+				getFeatures().clear();
+				return;
+			case BasePackage.DAGGREGATE__NAVIGABLE_MEMBERS:
+				getNavigableMembers().clear();
+				return;
 			case BasePackage.DAGGREGATE__DEDUCED_FROM:
 				setDeducedFrom((IDeductionDefinition)null);
 				return;
 			case BasePackage.DAGGREGATE__SYNTHETIC:
 				setSynthetic(SYNTHETIC_EDEFAULT);
-				return;
-			case BasePackage.DAGGREGATE__STATIC_QUERIES:
-				getStaticQueries().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -337,14 +385,16 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 		{
 			case BasePackage.DAGGREGATE__TYPES:
 				return types != null && !types.isEmpty();
+			case BasePackage.DAGGREGATE__FEATURES:
+				return features != null && !features.isEmpty();
+			case BasePackage.DAGGREGATE__NAVIGABLE_MEMBERS:
+				return !getNavigableMembers().isEmpty();
 			case BasePackage.DAGGREGATE__DEDUCED_FROM:
 				return deducedFrom != null;
 			case BasePackage.DAGGREGATE__SYNTHETIC:
 				return synthetic != SYNTHETIC_EDEFAULT;
 			case BasePackage.DAGGREGATE__ROOTS:
 				return !getRoots().isEmpty();
-			case BasePackage.DAGGREGATE__STATIC_QUERIES:
-				return staticQueries != null && !staticQueries.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -357,13 +407,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
 	{
-		if (baseClass == INamespace.class)
-		{
-			switch (derivedFeatureID)
-			{
-				default: return -1;
-			}
-		}
 		if (baseClass == ITypeContainer.class)
 		{
 			switch (derivedFeatureID)
@@ -372,10 +415,19 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 				default: return -1;
 			}
 		}
+		if (baseClass == IFeatureContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case BasePackage.DAGGREGATE__FEATURES: return BasePackage.IFEATURE_CONTAINER__FEATURES;
+				default: return -1;
+			}
+		}
 		if (baseClass == INavigableMemberContainer.class)
 		{
 			switch (derivedFeatureID)
 			{
+				case BasePackage.DAGGREGATE__NAVIGABLE_MEMBERS: return BasePackage.INAVIGABLE_MEMBER_CONTAINER__NAVIGABLE_MEMBERS;
 				default: return -1;
 			}
 		}
@@ -406,13 +458,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
 	{
-		if (baseClass == INamespace.class)
-		{
-			switch (baseFeatureID)
-			{
-				default: return -1;
-			}
-		}
 		if (baseClass == ITypeContainer.class)
 		{
 			switch (baseFeatureID)
@@ -421,10 +466,19 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 				default: return -1;
 			}
 		}
+		if (baseClass == IFeatureContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				case BasePackage.IFEATURE_CONTAINER__FEATURES: return BasePackage.DAGGREGATE__FEATURES;
+				default: return -1;
+			}
+		}
 		if (baseClass == INavigableMemberContainer.class)
 		{
 			switch (baseFeatureID)
 			{
+				case BasePackage.INAVIGABLE_MEMBER_CONTAINER__NAVIGABLE_MEMBERS: return BasePackage.DAGGREGATE__NAVIGABLE_MEMBERS;
 				default: return -1;
 			}
 		}

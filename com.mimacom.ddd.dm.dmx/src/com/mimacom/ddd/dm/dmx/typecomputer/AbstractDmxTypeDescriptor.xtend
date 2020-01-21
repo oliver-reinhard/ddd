@@ -11,7 +11,6 @@ import java.util.Objects
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
-import org.eclipse.xtext.util.internal.Nullable
 
 abstract class AbstractDmxTypeDescriptor<T extends DType> implements Cloneable {
 
@@ -19,11 +18,11 @@ abstract class AbstractDmxTypeDescriptor<T extends DType> implements Cloneable {
 	protected val T type
 	protected var boolean collection
 
-	new(DmxBaseType baseType, @Nullable T type, boolean collection) {
+	new(DmxBaseType baseType, T type /* can be null */, boolean collection) {
 		if (baseType === null) throw new NullPointerException("baseType")
 		this.baseType = baseType
 		this.type = type
-		this.collection = collection
+		this.collection = collection 
 	}
 
 	def DmxBaseType baseType() {

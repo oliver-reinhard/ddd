@@ -3,12 +3,7 @@
  */
 package com.mimacom.ddd.dm.dom.scoping;
 
-import com.mimacom.ddd.dm.base.INavigableMemberContainer;
-import com.mimacom.ddd.dm.dmx.DmxComplexObject;
-import com.mimacom.ddd.dm.dom.DomSnapshot;
 import com.mimacom.ddd.dm.dom.scoping.AbstractDomScopeProvider;
-import org.eclipse.xtext.scoping.IScope;
-import org.eclipse.xtext.scoping.Scopes;
 
 /**
  * This class contains custom scoping description.
@@ -18,24 +13,4 @@ import org.eclipse.xtext.scoping.Scopes;
  */
 @SuppressWarnings("all")
 public class DomScopeProvider extends AbstractDomScopeProvider {
-  @Override
-  protected IScope getEContainerNavigableMembersScopeSwitch(final INavigableMemberContainer container, final IScope outerScope) {
-    IScope _switchResult = null;
-    boolean _matched = false;
-    if (container instanceof DomSnapshot) {
-      _matched=true;
-      _switchResult = Scopes.scopeFor(((DomSnapshot)container).getObjects(), outerScope);
-    }
-    if (!_matched) {
-      if (container instanceof DmxComplexObject) {
-        _matched=true;
-        _switchResult = Scopes.scopeFor(((DmxComplexObject)container).getFields(), outerScope);
-      }
-    }
-    if (!_matched) {
-      _switchResult = super.getEContainerNavigableMembersScopeSwitch(container, outerScope);
-    }
-    final IScope scope = _switchResult;
-    return scope;
-  }
 }

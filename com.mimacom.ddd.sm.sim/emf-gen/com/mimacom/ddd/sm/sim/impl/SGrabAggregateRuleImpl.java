@@ -4,8 +4,6 @@ package com.mimacom.ddd.sm.sim.impl;
 
 import com.mimacom.ddd.dm.base.DAggregate;
 
-import com.mimacom.ddd.dm.base.impl.DDeductionRuleImplCustom;
-
 import com.mimacom.ddd.sm.sim.SGrabAggregateRule;
 import com.mimacom.ddd.sm.sim.SimPackage;
 
@@ -24,7 +22,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class SGrabAggregateRuleImpl extends DDeductionRuleImplCustom implements SGrabAggregateRule
+public class SGrabAggregateRuleImpl extends SRenameRuleImpl implements SGrabAggregateRule
 {
 	/**
 	 * <!-- begin-user-doc -->

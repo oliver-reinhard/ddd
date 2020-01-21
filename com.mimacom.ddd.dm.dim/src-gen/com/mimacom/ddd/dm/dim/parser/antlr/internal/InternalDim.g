@@ -282,17 +282,17 @@ ruleDAggregate returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDAggregateAccess().getStaticQueriesDQueryParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getDAggregateAccess().getFeaturesDQueryParserRuleCall_5_1_0());
 					}
-					lv_staticQueries_6_0=ruleDQuery
+					lv_features_6_0=ruleDQuery
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDAggregateRule());
 						}
 						add(
 							$current,
-							"staticQueries",
-							lv_staticQueries_6_0,
+							"features",
+							lv_features_6_0,
 							"com.mimacom.ddd.dm.dim.Dim.DQuery");
 						afterParserOrEnumRuleCall();
 					}

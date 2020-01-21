@@ -4,6 +4,7 @@ import com.google.common.collect.Lists
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DExpression
 import com.mimacom.ddd.dm.base.DFeature
+import com.mimacom.ddd.dm.base.IFeatureContainer
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Collections
@@ -35,7 +36,7 @@ class DmxUtil {
 	/*
 	 * Returns the names of all the features of the given type: its own as well as the inherited ones.
 	 */
-	def List<DFeature> allFeatures(DComplexType type) {
+	def dispatch List<DFeature> allFeatures(DComplexType type) {
 		if (type === null) {
 			return Collections.EMPTY_LIST
 		}
@@ -44,6 +45,10 @@ class DmxUtil {
 			features.addAll(t.features)
 		}
 		return features
+	}
+	
+	def dispatch List<DFeature> allFeatures(IFeatureContainer container) {
+		return container.features
 	}
 
 	def List<DExpression> nullSafeCallArguments(DmxMemberNavigation nav) {

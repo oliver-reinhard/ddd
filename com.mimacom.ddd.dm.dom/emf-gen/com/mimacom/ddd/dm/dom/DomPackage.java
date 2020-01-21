@@ -70,22 +70,40 @@ public interface DomPackage extends EPackage
 	int DOM_MODEL = 0;
 
 	/**
-	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOM_MODEL__IMPORTS = 0;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_MODEL__NAME = 1;
+	int DOM_MODEL__NAME = BasePackage.DNAMESPACE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_MODEL__ALIASES = BasePackage.DNAMESPACE__ALIASES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_MODEL__DESCRIPTION = BasePackage.DNAMESPACE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_MODEL__IMPORTS = BasePackage.DNAMESPACE__IMPORTS;
 
 	/**
 	 * The feature id for the '<em><b>Snapshots</b></em>' containment reference list.
@@ -94,7 +112,7 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_MODEL__SNAPSHOTS = 2;
+	int DOM_MODEL__SNAPSHOTS = BasePackage.DNAMESPACE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -103,7 +121,7 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DOM_MODEL_FEATURE_COUNT = 3;
+	int DOM_MODEL_FEATURE_COUNT = BasePackage.DNAMESPACE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dom.impl.DomSnapshotImpl <em>Snapshot</em>}' class.
@@ -114,6 +132,15 @@ public interface DomPackage extends EPackage
 	 * @generated
 	 */
 	int DOM_SNAPSHOT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOM_SNAPSHOT__NAVIGABLE_MEMBERS = BasePackage.INAVIGABLE_MEMBER_CONTAINER__NAVIGABLE_MEMBERS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -327,28 +354,6 @@ public interface DomPackage extends EPackage
 	EClass getDomModel();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.dom.DomModel#getImports <em>Imports</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Imports</em>'.
-	 * @see com.mimacom.ddd.dm.dom.DomModel#getImports()
-	 * @see #getDomModel()
-	 * @generated
-	 */
-	EReference getDomModel_Imports();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.dm.dom.DomModel#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.mimacom.ddd.dm.dom.DomModel#getName()
-	 * @see #getDomModel()
-	 * @generated
-	 */
-	EAttribute getDomModel_Name();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.dom.DomModel#getSnapshots <em>Snapshots</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -454,22 +459,6 @@ public interface DomPackage extends EPackage
 		 * @generated
 		 */
 		EClass DOM_MODEL = eINSTANCE.getDomModel();
-
-		/**
-		 * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DOM_MODEL__IMPORTS = eINSTANCE.getDomModel_Imports();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DOM_MODEL__NAME = eINSTANCE.getDomModel_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Snapshots</b></em>' containment reference list feature.

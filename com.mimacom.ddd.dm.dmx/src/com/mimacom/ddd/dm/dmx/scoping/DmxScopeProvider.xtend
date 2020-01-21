@@ -3,14 +3,9 @@
  */
 package com.mimacom.ddd.dm.dmx.scoping
 
-import com.google.common.collect.Lists
 import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.BasePackage
-import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DComplexType
-import com.mimacom.ddd.dm.base.DDomainEvent
-import com.mimacom.ddd.dm.base.DEnumeration
-import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.INavigableMemberContainer
 import com.mimacom.ddd.dm.dmx.DmxAssignment
 import com.mimacom.ddd.dm.dmx.DmxCallArguments
@@ -20,9 +15,7 @@ import com.mimacom.ddd.dm.dmx.DmxEntity
 import com.mimacom.ddd.dm.dmx.DmxField
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation
 import com.mimacom.ddd.dm.dmx.DmxPackage
-import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable
 import com.mimacom.ddd.dm.dmx.DmxStaticReference
-import com.mimacom.ddd.dm.dmx.DmxTest
 import com.mimacom.ddd.dm.dmx.DmxUtil
 import com.mimacom.ddd.dm.dmx.indexing.DmxIndex
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer
@@ -51,10 +44,19 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 	override IScope getScope(EObject context, EReference reference) {
 
 		if (reference == DMX.dmxContextReference_Target) {
-			// This is classic scoping along the eContainer CONTAINMENT hiearchy:
-			val outer = getDefaultScopeForType(context, BASE.IStaticReferenceTarget)
-			val scope = getEContainersNavigableMembersScopes(context, outer)
-			return scope
+			return getContextReferenceScope(context, IScope.NULLSCOPE)
+
+		} else if (reference == DMX.dmxStaticReference_Target) {
+			return getDefaultScopeOfType(context, BASE.IStaticReferenceTarget)
+
+		} else if (reference == DMX.dmxStaticReference_Member) {
+			if (context instanceof DmxStaticReference) {
+				val target = context.target
+				if (target instanceof INavigableMemberContainer) {
+					val scope = getEContainerNavigableMembersScopeSwitch(target, IScope.NULLSCOPE)
+					return scope
+				}
+			}
 
 		} else if (reference == DMX.dmxMemberNavigation_Member) {
 			// This is scoping along (the types of) a NAVIGATION expression tree: the members in scope are those
@@ -76,7 +78,7 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 				} else {
 					// This is not a member navigation but just a context reference => classic scoping along the eContainer CONTAINMENT hiearchy.
 					// HOWEVER, this is not a legal use of DmxAssignment => catch with a validation rule
-					val outer = getDefaultScopeForType(context, BASE.IStaticReferenceTarget)
+					val outer = getDefaultScopeOfType(context, BASE.IStaticReferenceTarget)
 					val scope = getEContainersNavigableMembersScopes(context, outer)
 					return scope
 				}
@@ -85,19 +87,6 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 				val typeDescriptor = preceding.typeFor
 				val scope = typeDescriptor.getNavigableMembersScope() // exclude iterators
 				return scope
-			}
-
-		} else if (reference == DMX.dmxStaticReference_Target) {
-			val scope = getDefaultScopeForType(context, BASE.IStaticReferenceTarget)
-			return scope
-
-		} else if (reference == DMX.dmxStaticReference_Member) {
-			if (context instanceof DmxStaticReference) {
-				val target = context.target
-				if (target instanceof INavigableMemberContainer) {
-					val scope = getEContainerNavigableMembersScopeSwitch(target, IScope.NULLSCOPE)
-					return scope
-				}
 			}
 
 		} else if (reference == DMX.dmxFunctionCall_Function) {
@@ -117,8 +106,8 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 		} else if (reference == DMX.dmxComplexObject_Type) {
 			if (context instanceof DmxComplexObject) {
 				val scope = switch context {
-					DmxEntity: getDefaultScopeForType(context, BASE.DEntityType)
-					DmxDetail: getDefaultScopeForType(context, BASE.DDetailType)
+					DmxEntity: getDefaultScopeOfType(context, BASE.DEntityType)
+					DmxDetail: getDefaultScopeOfType(context, BASE.DDetailType)
 					default: super.getScope(context, reference)
 				}
 				return scope
@@ -128,10 +117,10 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 		return super.getScope(context, reference)
 	}
 
-	/*
-	 * Obtains the default scope for the given reference, then narrows the result down to the given type.
+	/**
+	 * Obtains the default scope for the given reference, then narrows the result down to the given type and returns it.
 	 */
-	def IScope getDefaultScopeForType(EObject context, EClass type) {
+	def IScope getDefaultScopeOfType(EObject context, EClass type) {
 		val reference = EcoreFactory.eINSTANCE.createEReference
 		// Default scoping only uses the EType field of the reference:
 		reference.EType = type
@@ -139,7 +128,16 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 		return scope
 	}
 
-	/* Returns all DNavigableMember elements of the given navigation member element along the MODEL eContainer hierarchy. */
+	def IScope getContextReferenceScope(EObject context, IScope outerScope) {
+		// This is classic scoping along the eContainer CONTAINMENT hierarchy:
+		val outer = getDefaultScopeOfType(context, BASE.IStaticReferenceTarget)
+		val scope = getEContainersNavigableMembersScopes(context, outer)
+		return scope
+	}
+
+	/**
+	 * Returns all DNavigableMember elements of the given navigation member element along the eContainer CONTAINMENT hierarchy.
+	 */
 	final protected def IScope getEContainersNavigableMembersScopes(EObject context, IScope outerScope) {
 		var scope = outerScope
 		var container = context.eContainer
@@ -169,27 +167,7 @@ class DmxScopeProvider extends AbstractDmxScopeProvider {
 	 * Also, the elements included in the scope must implement @DNavigableMember.
 	 */
 	protected def IScope getEContainerNavigableMembersScopeSwitch(INavigableMemberContainer container, IScope outerScope) {
-		val scope = switch container {
-			DEnumeration: Scopes.scopeFor(container.literals, outerScope)
-			DComplexType: Scopes.scopeFor(container.allFeatures(), outerScope)
-			DQuery: Scopes.scopeFor(container.parameters, outerScope)
-			DAggregate: Scopes.scopeFor(container.staticQueries, outerScope)
-			DDomainEvent: getDomainEventNavigableMemberScope(container, outerScope)
-			DmxPredicateWithCorrelationVariable: Scopes.scopeFor(Lists.newArrayList(container.correlationVariable), outerScope)
-			DmxTest: Scopes.scopeFor(container.context, outerScope)
-			default: outerScope
-		}
+		val scope = Scopes.scopeFor(container.navigableMembers, outerScope)
 		return scope
-	}
-
-	protected def IScope getDomainEventNavigableMemberScope(DDomainEvent event, IScope outerScope) {
-		val list = Lists.newArrayList()
-		list.addAll(event.context)
-
-		if (event.trigger !== null) {
-			list.add(event.trigger)
-		}
-		list.addAll(event.notifications)
-		return Scopes.scopeFor(list, outerScope)
 	}
 }

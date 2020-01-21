@@ -6,7 +6,8 @@ import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DFeature
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DQueryParameter
-import com.mimacom.ddd.dm.dim.DimUtil
+import com.mimacom.ddd.dm.base.IDeducibleElement
+import com.mimacom.ddd.dm.base.IFeatureContainer
 import com.mimacom.ddd.sm.sim.SDitchRule
 import com.mimacom.ddd.sm.sim.SFeatureDeduction
 import com.mimacom.ddd.sm.sim.SGrabRule
@@ -14,17 +15,18 @@ import com.mimacom.ddd.sm.sim.SMorphRule
 import com.mimacom.ddd.sm.sim.SQueryDeduction
 import com.mimacom.ddd.sm.sim.SQueryParameterDeduction
 import com.mimacom.ddd.sm.sim.SRenameRule
+import com.mimacom.ddd.sm.sim.SimUtil
 
 class SFeatureDeductionRuleProcessor  {
 	
-	@Inject extension DimUtil
+	@Inject extension SimUtil
 	@Inject extension SyntheticModelElementsFactory
 	
-	def  dispatch void processFeatureDeduction(DComplexType container, SFeatureDeduction deductionDefinition, SGrabRule rule /*dispatch*/, TransformationContext context) {
+	def  dispatch void processFeatureDeduction(IFeatureContainer container, SFeatureDeduction deductionDefinition, SGrabRule rule /*dispatch*/, TransformationContext context) {
 		grabFeature(container, deductionDefinition, rule, context)
 	}
 	
-	def  dispatch void processFeatureDeduction(DComplexType container, SFeatureDeduction deductionDefinition, SMorphRule rule /*dispatch*/, TransformationContext context) {
+	def  dispatch void processFeatureDeduction(IFeatureContainer container, SFeatureDeduction deductionDefinition, SMorphRule rule /*dispatch*/, TransformationContext context) {
 		val syntheticFeature = grabFeature(container, deductionDefinition, rule, context)
 		if (syntheticFeature !== null) {
 			if (rule.retypeTo !== null) {
@@ -36,11 +38,11 @@ class SFeatureDeductionRuleProcessor  {
 		}
 	}
 	
-	def  dispatch void processFeatureDeduction(DComplexType container, SFeatureDeduction deductionDefinition, SDitchRule rule /*dispatch*/, TransformationContext context) {
+	def  dispatch void processFeatureDeduction(IFeatureContainer container, SFeatureDeduction deductionDefinition, SDitchRule rule /*dispatch*/, TransformationContext context) {
 		// do nothing (has been taken care of by DComplexType
 	}
 	
-	def  DFeature grabFeature(DComplexType container, SFeatureDeduction deductionDefinition, SRenameRule rule, TransformationContext context) {
+	def  DFeature grabFeature(IFeatureContainer container, SFeatureDeduction deductionDefinition, SRenameRule rule, TransformationContext context) {
 		val source = rule.source
 		if (source instanceof DFeature) {
 			val syntheticFeature = container.addSyntheticFeature(if (rule.renameTo !== null) rule.renameTo else source.name, source, deductionDefinition, context)
@@ -69,14 +71,14 @@ class SFeatureDeductionRuleProcessor  {
 		return null
 	}
 	
-	def void addSyntheticFeatures(SyntheticComplexTypeDescriptor desc, TransformationContext context) {
+	def void addSyntheticFeatures(SyntheticFeatureContainerDescriptor desc, TransformationContext context) {
 		var Iterable<SFeatureDeduction> featureDeductionDefinitions = Lists.newArrayList
 		var Iterable<DFeature> genuineFeatures = Lists.newArrayList
 		
 		if (desc.deductionDefinition !== null) {
-			val complexType =  desc.deductionDefinition as DComplexType
-			featureDeductionDefinitions =complexType.features.filter(SFeatureDeduction)
-			genuineFeatures = complexType.features.filter[! (it instanceof SFeatureDeduction || it.synthetic)]
+			val featureContainer =  desc.deductionDefinition as IFeatureContainer
+			featureDeductionDefinitions =featureContainer.features.filter(SFeatureDeduction)
+			genuineFeatures = featureContainer.features.filter[! (it instanceof SFeatureDeduction || it.synthetic)]
 		}
 		if (! featureDeductionDefinitions.exists[deductionRule instanceof SGrabRule]) {
 			// there are no explicit grabs, so implicitly grab all features without a rule:
@@ -85,7 +87,7 @@ class SFeatureDeductionRuleProcessor  {
 			implicitlyGrabbedSourceFeatures.removeAll(sourceFeaturesAffectedByRule)
 			// create synthetic DFeatures for implicit features:
 			for (sourceFeature : implicitlyGrabbedSourceFeatures) {
-				desc.syntheticType.addSyntheticFeature(sourceFeature.name, sourceFeature, createImplicitElementCopyDeduction(desc.deductionDefinition, desc.source), context)
+				desc.syntheticType.addSyntheticFeature(sourceFeature.name, sourceFeature, createImplicitElementCopyDeduction(desc.deductionDefinition, desc.source as IDeducibleElement), context)
 			}
 		}
 		
@@ -95,7 +97,7 @@ class SFeatureDeductionRuleProcessor  {
 			desc.syntheticType.processFeatureDeduction(definition, definition.deductionRule, context)
 		}
 		
-		// add explicit features (without rule):
+		// add explicit features (= features added without rule):
 		for (feature : genuineFeatures) {
 				desc.syntheticType.addSyntheticFeatureAsCopy(feature, context)
 		}

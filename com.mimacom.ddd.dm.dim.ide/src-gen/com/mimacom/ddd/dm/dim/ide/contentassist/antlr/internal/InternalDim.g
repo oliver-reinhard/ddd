@@ -3683,9 +3683,9 @@ rule__DAggregate__Group_5__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDAggregateAccess().getStaticQueriesAssignment_5_1()); }
-	(rule__DAggregate__StaticQueriesAssignment_5_1)
-	{ after(grammarAccess.getDAggregateAccess().getStaticQueriesAssignment_5_1()); }
+	{ before(grammarAccess.getDAggregateAccess().getFeaturesAssignment_5_1()); }
+	(rule__DAggregate__FeaturesAssignment_5_1)
+	{ after(grammarAccess.getDAggregateAccess().getFeaturesAssignment_5_1()); }
 )
 ;
 finally {
@@ -13952,15 +13952,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DAggregate__StaticQueriesAssignment_5_1
+rule__DAggregate__FeaturesAssignment_5_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getDAggregateAccess().getStaticQueriesDQueryParserRuleCall_5_1_0()); }
+		{ before(grammarAccess.getDAggregateAccess().getFeaturesDQueryParserRuleCall_5_1_0()); }
 		ruleDQuery
-		{ after(grammarAccess.getDAggregateAccess().getStaticQueriesDQueryParserRuleCall_5_1_0()); }
+		{ after(grammarAccess.getDAggregateAccess().getFeaturesDQueryParserRuleCall_5_1_0()); }
 	)
 ;
 finally {

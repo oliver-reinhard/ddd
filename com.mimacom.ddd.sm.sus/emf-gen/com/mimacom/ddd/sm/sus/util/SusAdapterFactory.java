@@ -3,6 +3,9 @@
  */
 package com.mimacom.ddd.sm.sus.util;
 
+import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DNamespace;
+
 import com.mimacom.ddd.sm.sus.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -91,6 +94,16 @@ public class SusAdapterFactory extends AdapterFactoryImpl
 				return createParagraphAdapter();
 			}
 			@Override
+			public Adapter caseDNamedElement(DNamedElement object)
+			{
+				return createDNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseDNamespace(DNamespace object)
+			{
+				return createDNamespaceAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object)
 			{
 				return createEObjectAdapter();
@@ -153,6 +166,36 @@ public class SusAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createParagraphAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamedElement <em>DNamed Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DNamedElement
+	 * @generated
+	 */
+	public Adapter createDNamedElementAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamespace <em>DNamespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DNamespace
+	 * @generated
+	 */
+	public Adapter createDNamespaceAdapter()
 	{
 		return null;
 	}

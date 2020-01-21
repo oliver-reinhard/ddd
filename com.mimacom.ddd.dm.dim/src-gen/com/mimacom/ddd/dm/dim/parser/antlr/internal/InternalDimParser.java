@@ -622,7 +622,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDAggregate"
-    // InternalDim.g:217:1: ruleDAggregate returns [EObject current=null] : ( () otherlv_1= 'component' ( (lv_name_2_0= RULE_ID ) ) ( (lv_description_3_0= ruleDRichText ) )? otherlv_4= '{' (otherlv_5= 'query' ( (lv_staticQueries_6_0= ruleDQuery ) ) )* ( (lv_types_7_0= ruleDType ) )* otherlv_8= '}' ) ;
+    // InternalDim.g:217:1: ruleDAggregate returns [EObject current=null] : ( () otherlv_1= 'component' ( (lv_name_2_0= RULE_ID ) ) ( (lv_description_3_0= ruleDRichText ) )? otherlv_4= '{' (otherlv_5= 'query' ( (lv_features_6_0= ruleDQuery ) ) )* ( (lv_types_7_0= ruleDType ) )* otherlv_8= '}' ) ;
     public final EObject ruleDAggregate() throws RecognitionException {
         EObject current = null;
 
@@ -633,7 +633,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         Token otherlv_8=null;
         EObject lv_description_3_0 = null;
 
-        EObject lv_staticQueries_6_0 = null;
+        EObject lv_features_6_0 = null;
 
         EObject lv_types_7_0 = null;
 
@@ -642,11 +642,11 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDim.g:223:2: ( ( () otherlv_1= 'component' ( (lv_name_2_0= RULE_ID ) ) ( (lv_description_3_0= ruleDRichText ) )? otherlv_4= '{' (otherlv_5= 'query' ( (lv_staticQueries_6_0= ruleDQuery ) ) )* ( (lv_types_7_0= ruleDType ) )* otherlv_8= '}' ) )
-            // InternalDim.g:224:2: ( () otherlv_1= 'component' ( (lv_name_2_0= RULE_ID ) ) ( (lv_description_3_0= ruleDRichText ) )? otherlv_4= '{' (otherlv_5= 'query' ( (lv_staticQueries_6_0= ruleDQuery ) ) )* ( (lv_types_7_0= ruleDType ) )* otherlv_8= '}' )
+            // InternalDim.g:223:2: ( ( () otherlv_1= 'component' ( (lv_name_2_0= RULE_ID ) ) ( (lv_description_3_0= ruleDRichText ) )? otherlv_4= '{' (otherlv_5= 'query' ( (lv_features_6_0= ruleDQuery ) ) )* ( (lv_types_7_0= ruleDType ) )* otherlv_8= '}' ) )
+            // InternalDim.g:224:2: ( () otherlv_1= 'component' ( (lv_name_2_0= RULE_ID ) ) ( (lv_description_3_0= ruleDRichText ) )? otherlv_4= '{' (otherlv_5= 'query' ( (lv_features_6_0= ruleDQuery ) ) )* ( (lv_types_7_0= ruleDType ) )* otherlv_8= '}' )
             {
-            // InternalDim.g:224:2: ( () otherlv_1= 'component' ( (lv_name_2_0= RULE_ID ) ) ( (lv_description_3_0= ruleDRichText ) )? otherlv_4= '{' (otherlv_5= 'query' ( (lv_staticQueries_6_0= ruleDQuery ) ) )* ( (lv_types_7_0= ruleDType ) )* otherlv_8= '}' )
-            // InternalDim.g:225:3: () otherlv_1= 'component' ( (lv_name_2_0= RULE_ID ) ) ( (lv_description_3_0= ruleDRichText ) )? otherlv_4= '{' (otherlv_5= 'query' ( (lv_staticQueries_6_0= ruleDQuery ) ) )* ( (lv_types_7_0= ruleDType ) )* otherlv_8= '}'
+            // InternalDim.g:224:2: ( () otherlv_1= 'component' ( (lv_name_2_0= RULE_ID ) ) ( (lv_description_3_0= ruleDRichText ) )? otherlv_4= '{' (otherlv_5= 'query' ( (lv_features_6_0= ruleDQuery ) ) )* ( (lv_types_7_0= ruleDType ) )* otherlv_8= '}' )
+            // InternalDim.g:225:3: () otherlv_1= 'component' ( (lv_name_2_0= RULE_ID ) ) ( (lv_description_3_0= ruleDRichText ) )? otherlv_4= '{' (otherlv_5= 'query' ( (lv_features_6_0= ruleDQuery ) ) )* ( (lv_types_7_0= ruleDType ) )* otherlv_8= '}'
             {
             // InternalDim.g:225:3: ()
             // InternalDim.g:226:4: 
@@ -749,7 +749,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_4, grammarAccess.getDAggregateAccess().getLeftCurlyBracketKeyword_4());
               		
             }
-            // InternalDim.g:277:3: (otherlv_5= 'query' ( (lv_staticQueries_6_0= ruleDQuery ) ) )*
+            // InternalDim.g:277:3: (otherlv_5= 'query' ( (lv_features_6_0= ruleDQuery ) ) )*
             loop6:
             do {
                 int alt6=2;
@@ -762,7 +762,7 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalDim.g:278:4: otherlv_5= 'query' ( (lv_staticQueries_6_0= ruleDQuery ) )
+            	    // InternalDim.g:278:4: otherlv_5= 'query' ( (lv_features_6_0= ruleDQuery ) )
             	    {
             	    otherlv_5=(Token)match(input,21,FOLLOW_4); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
@@ -770,19 +770,19 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             	      				newLeafNode(otherlv_5, grammarAccess.getDAggregateAccess().getQueryKeyword_5_0());
             	      			
             	    }
-            	    // InternalDim.g:282:4: ( (lv_staticQueries_6_0= ruleDQuery ) )
-            	    // InternalDim.g:283:5: (lv_staticQueries_6_0= ruleDQuery )
+            	    // InternalDim.g:282:4: ( (lv_features_6_0= ruleDQuery ) )
+            	    // InternalDim.g:283:5: (lv_features_6_0= ruleDQuery )
             	    {
-            	    // InternalDim.g:283:5: (lv_staticQueries_6_0= ruleDQuery )
-            	    // InternalDim.g:284:6: lv_staticQueries_6_0= ruleDQuery
+            	    // InternalDim.g:283:5: (lv_features_6_0= ruleDQuery )
+            	    // InternalDim.g:284:6: lv_features_6_0= ruleDQuery
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      						newCompositeNode(grammarAccess.getDAggregateAccess().getStaticQueriesDQueryParserRuleCall_5_1_0());
+            	      						newCompositeNode(grammarAccess.getDAggregateAccess().getFeaturesDQueryParserRuleCall_5_1_0());
             	      					
             	    }
             	    pushFollow(FOLLOW_9);
-            	    lv_staticQueries_6_0=ruleDQuery();
+            	    lv_features_6_0=ruleDQuery();
 
             	    state._fsp--;
             	    if (state.failed) return current;
@@ -793,8 +793,8 @@ public class InternalDimParser extends AbstractInternalAntlrParser {
             	      						}
             	      						add(
             	      							current,
-            	      							"staticQueries",
-            	      							lv_staticQueries_6_0,
+            	      							"features",
+            	      							lv_features_6_0,
             	      							"com.mimacom.ddd.dm.dim.Dim.DQuery");
             	      						afterParserOrEnumRuleCall();
             	      					

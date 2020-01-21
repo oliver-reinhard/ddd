@@ -4,6 +4,8 @@ package com.mimacom.ddd.dm.base;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>IType Container</b></em>'.
@@ -20,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface ITypeContainer extends INamespace
+public interface ITypeContainer extends EObject
 {
 	/**
 	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.

@@ -4,6 +4,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import com.mimacom.ddd.dm.base.DEntityType;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DType;
 
 public class DAggregateImplCustom extends DAggregateImpl {
@@ -19,5 +20,11 @@ public class DAggregateImplCustom extends DAggregateImpl {
 			}
 		}
 		return list;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<DNavigableMember> getNavigableMembers() {
+		return (EList<DNavigableMember>) (Object) getFeatures();
 	}
 }

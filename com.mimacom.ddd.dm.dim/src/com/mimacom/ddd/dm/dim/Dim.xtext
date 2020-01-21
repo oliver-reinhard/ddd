@@ -23,7 +23,7 @@ DAggregate:
 	name=ID
 	(description=DRichText)?
 	'{'
-		('query' staticQueries+=DQuery)*
+		('query' features+=DQuery)*
 		( types+=DType)*
 	'}';
 

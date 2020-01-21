@@ -5,12 +5,12 @@ package com.mimacom.ddd.dm.dmx.util;
 import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DSimpleType;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
-import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IRichTextSegment;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
@@ -255,9 +255,9 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 				return createDNamedElementAdapter();
 			}
 			@Override
-			public Adapter caseINamespace(INamespace object)
+			public Adapter caseDNamespace(DNamespace object)
 			{
-				return createINamespaceAdapter();
+				return createDNamespaceAdapter();
 			}
 			@Override
 			public Adapter caseITypeContainer(ITypeContainer object)
@@ -837,16 +837,16 @@ public class DmxAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INamespace <em>INamespace</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamespace <em>DNamespace</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.INamespace
+	 * @see com.mimacom.ddd.dm.base.DNamespace
 	 * @generated
 	 */
-	public Adapter createINamespaceAdapter()
+	public Adapter createDNamespaceAdapter()
 	{
 		return null;
 	}

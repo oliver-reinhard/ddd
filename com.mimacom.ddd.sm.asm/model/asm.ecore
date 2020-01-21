@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="asm" nsURI="http://www.mimacom.com/ddd/sm/asm" nsPrefix="asm">
-  <eClassifiers xsi:type="ecore:EClass" name="Model" abstract="true" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//IStaticReferenceTarget">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
-        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DImport"
-        containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Model" abstract="true" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNamespace ../../com.mimacom.ddd.dm.base/model/base.ecore#//IStaticReferenceTarget"/>
   <eClassifiers xsi:type="ecore:EClass" name="SApplication" eSuperTypes="#//Model">
     <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="ecore:EClass ../../com.mimacom.ddd.sm.sim/model/sim.ecore#//SInformationModel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
@@ -13,7 +9,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
         eType="#//SActor" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SServiceInterface" eSuperTypes="#//Model ../../com.mimacom.ddd.dm.base/model/base.ecore#//INavigableMemberContainer">
+  <eClassifiers xsi:type="ecore:EClass" name="SServiceInterface" eSuperTypes="#//Model">
     <eStructuralFeatures xsi:type="ecore:EReference" name="interface" eType="ecore:EClass ../../com.mimacom.ddd.sm.sim/model/sim.ecore#//SInformationModel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="core" eType="ecore:EClass ../../com.mimacom.ddd.sm.sim/model/sim.ecore#//SInformationModel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exceptions" upperBound="-1"

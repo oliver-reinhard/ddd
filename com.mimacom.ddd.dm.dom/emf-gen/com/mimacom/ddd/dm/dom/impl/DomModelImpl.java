@@ -5,22 +5,20 @@ package com.mimacom.ddd.dm.dom.impl;
 
 import com.mimacom.ddd.dm.base.DImport;
 
+import com.mimacom.ddd.dm.base.impl.DNamedElementImpl;
+
 import com.mimacom.ddd.dm.dom.DomModel;
 import com.mimacom.ddd.dm.dom.DomPackage;
 import com.mimacom.ddd.dm.dom.DomSnapshot;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -34,13 +32,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.dom.impl.DomModelImpl#getImports <em>Imports</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.dom.impl.DomModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dom.impl.DomModelImpl#getSnapshots <em>Snapshots</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DomModelImpl extends MinimalEObjectImpl.Container implements DomModel
+public class DomModelImpl extends DNamedElementImpl implements DomModel
 {
 	/**
 	 * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
@@ -51,26 +48,6 @@ public class DomModelImpl extends MinimalEObjectImpl.Container implements DomMod
 	 * @ordered
 	 */
 	protected EList<DImport> imports;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getSnapshots() <em>Snapshots</em>}' containment reference list.
@@ -124,31 +101,6 @@ public class DomModelImpl extends MinimalEObjectImpl.Container implements DomMod
 	 * @generated
 	 */
 	@Override
-	public String getName()
-	{
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setName(String newName)
-	{
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DomPackage.DOM_MODEL__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<DomSnapshot> getSnapshots()
 	{
 		if (snapshots == null)
@@ -188,8 +140,6 @@ public class DomModelImpl extends MinimalEObjectImpl.Container implements DomMod
 		{
 			case DomPackage.DOM_MODEL__IMPORTS:
 				return getImports();
-			case DomPackage.DOM_MODEL__NAME:
-				return getName();
 			case DomPackage.DOM_MODEL__SNAPSHOTS:
 				return getSnapshots();
 		}
@@ -210,9 +160,6 @@ public class DomModelImpl extends MinimalEObjectImpl.Container implements DomMod
 			case DomPackage.DOM_MODEL__IMPORTS:
 				getImports().clear();
 				getImports().addAll((Collection<? extends DImport>)newValue);
-				return;
-			case DomPackage.DOM_MODEL__NAME:
-				setName((String)newValue);
 				return;
 			case DomPackage.DOM_MODEL__SNAPSHOTS:
 				getSnapshots().clear();
@@ -235,9 +182,6 @@ public class DomModelImpl extends MinimalEObjectImpl.Container implements DomMod
 			case DomPackage.DOM_MODEL__IMPORTS:
 				getImports().clear();
 				return;
-			case DomPackage.DOM_MODEL__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case DomPackage.DOM_MODEL__SNAPSHOTS:
 				getSnapshots().clear();
 				return;
@@ -257,29 +201,10 @@ public class DomModelImpl extends MinimalEObjectImpl.Container implements DomMod
 		{
 			case DomPackage.DOM_MODEL__IMPORTS:
 				return imports != null && !imports.isEmpty();
-			case DomPackage.DOM_MODEL__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DomPackage.DOM_MODEL__SNAPSHOTS:
 				return snapshots != null && !snapshots.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString()
-	{
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
 	}
 
 } //DomModelImpl

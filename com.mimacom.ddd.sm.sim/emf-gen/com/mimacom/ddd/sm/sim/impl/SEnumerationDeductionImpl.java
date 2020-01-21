@@ -6,7 +6,7 @@ import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DDeductionRule;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
 
-import com.mimacom.ddd.dm.base.impl.DEnumerationImpl;
+import com.mimacom.ddd.dm.base.impl.DEnumerationImplCustom;
 
 import com.mimacom.ddd.sm.sim.SEnumerationDeduction;
 import com.mimacom.ddd.sm.sim.STypeDeduction;
@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SEnumerationDeductionImpl extends DEnumerationImpl implements SEnumerationDeduction
+public class SEnumerationDeductionImpl extends DEnumerationImplCustom implements SEnumerationDeduction
 {
 	/**
 	 * The cached value of the '{@link #getDeductionRule() <em>Deduction Rule</em>}' containment reference.

@@ -78,7 +78,7 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_NAMESPACE__NAME = BasePackage.DNAMED_ELEMENT__NAME;
+	int DMX_NAMESPACE__NAME = BasePackage.DNAMESPACE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -87,7 +87,7 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_NAMESPACE__ALIASES = BasePackage.DNAMED_ELEMENT__ALIASES;
+	int DMX_NAMESPACE__ALIASES = BasePackage.DNAMESPACE__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -96,16 +96,7 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_NAMESPACE__DESCRIPTION = BasePackage.DNAMED_ELEMENT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DMX_NAMESPACE__TYPES = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int DMX_NAMESPACE__DESCRIPTION = BasePackage.DNAMESPACE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
@@ -114,7 +105,16 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_NAMESPACE__IMPORTS = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 1;
+	int DMX_NAMESPACE__IMPORTS = BasePackage.DNAMESPACE__IMPORTS;
+
+	/**
+	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_NAMESPACE__TYPES = BasePackage.DNAMESPACE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Filters</b></em>' containment reference list.
@@ -123,7 +123,7 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_NAMESPACE__FILTERS = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 2;
+	int DMX_NAMESPACE__FILTERS = BasePackage.DNAMESPACE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Tests</b></em>' containment reference list.
@@ -132,7 +132,7 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_NAMESPACE__TESTS = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 3;
+	int DMX_NAMESPACE__TESTS = BasePackage.DNAMESPACE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Namespace</em>' class.
@@ -141,7 +141,7 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_NAMESPACE_FEATURE_COUNT = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 4;
+	int DMX_NAMESPACE_FEATURE_COUNT = BasePackage.DNAMESPACE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Namespace</em>' class.
@@ -150,7 +150,7 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_NAMESPACE_OPERATION_COUNT = BasePackage.DNAMED_ELEMENT_OPERATION_COUNT + 0;
+	int DMX_NAMESPACE_OPERATION_COUNT = BasePackage.DNAMESPACE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.dmx.impl.DmxTestImpl <em>Test</em>}' class.
@@ -161,6 +161,15 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 */
 	int DMX_TEST = 1;
+
+	/**
+	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_TEST__NAVIGABLE_MEMBERS = BasePackage.INAVIGABLE_MEMBER_CONTAINER__NAVIGABLE_MEMBERS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -774,13 +783,22 @@ public interface DmxPackage extends EPackage
 	int DMX_PREDICATE_WITH_CORRELATION_VARIABLE = 9;
 
 	/**
+	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_PREDICATE_WITH_CORRELATION_VARIABLE__NAVIGABLE_MEMBERS = BasePackage.DEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Correlation Variable</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_PREDICATE_WITH_CORRELATION_VARIABLE__CORRELATION_VARIABLE = BasePackage.DEXPRESSION_FEATURE_COUNT + 0;
+	int DMX_PREDICATE_WITH_CORRELATION_VARIABLE__CORRELATION_VARIABLE = BasePackage.DEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Predicate</b></em>' containment reference.
@@ -789,7 +807,7 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_PREDICATE_WITH_CORRELATION_VARIABLE__PREDICATE = BasePackage.DEXPRESSION_FEATURE_COUNT + 1;
+	int DMX_PREDICATE_WITH_CORRELATION_VARIABLE__PREDICATE = BasePackage.DEXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Predicate With Correlation Variable</em>' class.
@@ -798,7 +816,7 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int DMX_PREDICATE_WITH_CORRELATION_VARIABLE_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 2;
+	int DMX_PREDICATE_WITH_CORRELATION_VARIABLE_FEATURE_COUNT = BasePackage.DEXPRESSION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Predicate With Correlation Variable</em>' class.
@@ -1684,6 +1702,15 @@ public interface DmxPackage extends EPackage
 	int DMX_COMPLEX_OBJECT = 28;
 
 	/**
+	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_COMPLEX_OBJECT__NAVIGABLE_MEMBERS = BasePackage.INAVIGABLE_MEMBER_CONTAINER__NAVIGABLE_MEMBERS;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1839,6 +1866,15 @@ public interface DmxPackage extends EPackage
 	int DMX_ENTITY = 30;
 
 	/**
+	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_ENTITY__NAVIGABLE_MEMBERS = DMX_COMPLEX_OBJECT__NAVIGABLE_MEMBERS;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1883,6 +1919,15 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 */
 	int DMX_DETAIL = 31;
+
+	/**
+	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DMX_DETAIL__NAVIGABLE_MEMBERS = DMX_COMPLEX_OBJECT__NAVIGABLE_MEMBERS;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1960,17 +2005,6 @@ public interface DmxPackage extends EPackage
 	 * @generated
 	 */
 	EClass getDmxNamespace();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.dmx.DmxNamespace#getImports <em>Imports</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Imports</em>'.
-	 * @see com.mimacom.ddd.dm.dmx.DmxNamespace#getImports()
-	 * @see #getDmxNamespace()
-	 * @generated
-	 */
-	EReference getDmxNamespace_Imports();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.dmx.DmxNamespace#getFilters <em>Filters</em>}'.
@@ -3025,14 +3059,6 @@ public interface DmxPackage extends EPackage
 		 * @generated
 		 */
 		EClass DMX_NAMESPACE = eINSTANCE.getDmxNamespace();
-
-		/**
-		 * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DMX_NAMESPACE__IMPORTS = eINSTANCE.getDmxNamespace_Imports();
 
 		/**
 		 * The meta object literal for the '<em><b>Filters</b></em>' containment reference list feature.

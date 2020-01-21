@@ -4,10 +4,7 @@
 package com.mimacom.ddd.dm.esm.scoping;
 
 import com.google.common.base.Objects;
-import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.DState;
-import com.mimacom.ddd.dm.base.INavigableMemberContainer;
-import com.mimacom.ddd.dm.dmx.DmxUtil;
 import com.mimacom.ddd.dm.esm.EsmEntityStateModel;
 import com.mimacom.ddd.dm.esm.EsmPackage;
 import com.mimacom.ddd.dm.esm.EsmTransition;
@@ -19,7 +16,6 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
-import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 
@@ -31,10 +27,6 @@ import org.eclipse.xtext.xbase.lib.ListExtensions;
  */
 @SuppressWarnings("all")
 public class EsmScopeProvider extends AbstractEsmScopeProvider {
-  @Inject
-  @Extension
-  private DmxUtil _dmxUtil;
-  
   private static final EsmPackage ESM = EsmPackage.eINSTANCE;
   
   @Override
@@ -112,20 +104,5 @@ public class EsmScopeProvider extends AbstractEsmScopeProvider {
       }
     }
     return IScope.NULLSCOPE;
-  }
-  
-  @Override
-  protected IScope getEContainerNavigableMembersScopeSwitch(final INavigableMemberContainer container, final IScope outerScope) {
-    IScope _switchResult = null;
-    boolean _matched = false;
-    if (container instanceof EsmEntityStateModel) {
-      _matched=true;
-      _switchResult = Scopes.scopeFor(this._dmxUtil.allFeatures(((EsmEntityStateModel)container).getForType()), outerScope);
-    }
-    if (!_matched) {
-      _switchResult = super.getEContainerNavigableMembersScopeSwitch(container, outerScope);
-    }
-    final IScope scope = _switchResult;
-    return scope;
   }
 }

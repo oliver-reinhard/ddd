@@ -3,6 +3,8 @@
  */
 package com.mimacom.ddd.sm.sus;
 
+import com.mimacom.ddd.dm.base.BasePackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -75,7 +77,16 @@ public interface SusPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STORY__NAME = 0;
+	int USER_STORY__NAME = BasePackage.DNAMESPACE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER_STORY__ALIASES = BasePackage.DNAMESPACE__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -84,7 +95,7 @@ public interface SusPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STORY__DESCRIPTION = 1;
+	int USER_STORY__DESCRIPTION = BasePackage.DNAMESPACE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
@@ -93,7 +104,7 @@ public interface SusPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STORY__IMPORTS = 2;
+	int USER_STORY__IMPORTS = BasePackage.DNAMESPACE__IMPORTS;
 
 	/**
 	 * The feature id for the '<em><b>Sections</b></em>' containment reference list.
@@ -102,7 +113,7 @@ public interface SusPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STORY__SECTIONS = 3;
+	int USER_STORY__SECTIONS = BasePackage.DNAMESPACE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Event</b></em>' reference.
@@ -111,7 +122,7 @@ public interface SusPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STORY__EVENT = 4;
+	int USER_STORY__EVENT = BasePackage.DNAMESPACE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>User Story</em>' class.
@@ -120,7 +131,7 @@ public interface SusPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STORY_FEATURE_COUNT = 5;
+	int USER_STORY_FEATURE_COUNT = BasePackage.DNAMESPACE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>User Story</em>' class.
@@ -129,7 +140,7 @@ public interface SusPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STORY_OPERATION_COUNT = 0;
+	int USER_STORY_OPERATION_COUNT = BasePackage.DNAMESPACE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.sm.sus.impl.SectionImpl <em>Section</em>}' class.
@@ -224,39 +235,6 @@ public interface SusPackage extends EPackage
 	 * @generated
 	 */
 	EClass getUserStory();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.mimacom.ddd.sm.sus.UserStory#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.mimacom.ddd.sm.sus.UserStory#getName()
-	 * @see #getUserStory()
-	 * @generated
-	 */
-	EAttribute getUserStory_Name();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.sm.sus.UserStory#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Description</em>'.
-	 * @see com.mimacom.ddd.sm.sus.UserStory#getDescription()
-	 * @see #getUserStory()
-	 * @generated
-	 */
-	EReference getUserStory_Description();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sus.UserStory#getImports <em>Imports</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Imports</em>'.
-	 * @see com.mimacom.ddd.sm.sus.UserStory#getImports()
-	 * @see #getUserStory()
-	 * @generated
-	 */
-	EReference getUserStory_Imports();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.sm.sus.UserStory#getSections <em>Sections</em>}'.
@@ -366,30 +344,6 @@ public interface SusPackage extends EPackage
 		 * @generated
 		 */
 		EClass USER_STORY = eINSTANCE.getUserStory();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute USER_STORY__NAME = eINSTANCE.getUserStory_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference USER_STORY__DESCRIPTION = eINSTANCE.getUserStory_Description();
-
-		/**
-		 * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference USER_STORY__IMPORTS = eINSTANCE.getUserStory_Imports();
 
 		/**
 		 * The meta object literal for the '<em><b>Sections</b></em>' containment reference list feature.

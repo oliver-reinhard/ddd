@@ -5,12 +5,12 @@ package com.mimacom.ddd.dm.dmx.util;
 import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DSimpleType;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
-import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IRichTextSegment;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
@@ -91,9 +91,9 @@ public class DmxSwitch<T> extends Switch<T>
 			{
 				DmxNamespace dmxNamespace = (DmxNamespace)theEObject;
 				T result = caseDmxNamespace(dmxNamespace);
-				if (result == null) result = caseDNamedElement(dmxNamespace);
+				if (result == null) result = caseDNamespace(dmxNamespace);
 				if (result == null) result = caseITypeContainer(dmxNamespace);
-				if (result == null) result = caseINamespace(dmxNamespace);
+				if (result == null) result = caseDNamedElement(dmxNamespace);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -102,7 +102,6 @@ public class DmxSwitch<T> extends Switch<T>
 				DmxTest dmxTest = (DmxTest)theEObject;
 				T result = caseDmxTest(dmxTest);
 				if (result == null) result = caseINavigableMemberContainer(dmxTest);
-				if (result == null) result = caseINamespace(dmxTest);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -176,7 +175,6 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = caseDExpression(dmxPredicateWithCorrelationVariable);
 				if (result == null) result = caseINavigableMemberContainer(dmxPredicateWithCorrelationVariable);
 				if (result == null) result = caseIRichTextSegment(dmxPredicateWithCorrelationVariable);
-				if (result == null) result = caseINamespace(dmxPredicateWithCorrelationVariable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -346,7 +344,6 @@ public class DmxSwitch<T> extends Switch<T>
 				T result = caseDmxComplexObject(dmxComplexObject);
 				if (result == null) result = caseINavigableMemberContainer(dmxComplexObject);
 				if (result == null) result = caseDExpression(dmxComplexObject);
-				if (result == null) result = caseINamespace(dmxComplexObject);
 				if (result == null) result = caseIRichTextSegment(dmxComplexObject);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -367,7 +364,6 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = caseDmxComplexObject(dmxEntity);
 				if (result == null) result = caseINavigableMemberContainer(dmxEntity);
 				if (result == null) result = caseDExpression(dmxEntity);
-				if (result == null) result = caseINamespace(dmxEntity);
 				if (result == null) result = caseIRichTextSegment(dmxEntity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -379,7 +375,6 @@ public class DmxSwitch<T> extends Switch<T>
 				if (result == null) result = caseDmxComplexObject(dmxDetail);
 				if (result == null) result = caseINavigableMemberContainer(dmxDetail);
 				if (result == null) result = caseDExpression(dmxDetail);
-				if (result == null) result = caseINamespace(dmxDetail);
 				if (result == null) result = caseIRichTextSegment(dmxDetail);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -917,17 +912,17 @@ public class DmxSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>INamespace</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>DNamespace</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>INamespace</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>DNamespace</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseINamespace(INamespace object)
+	public T caseDNamespace(DNamespace object)
 	{
 		return null;
 	}

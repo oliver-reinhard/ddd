@@ -23,8 +23,10 @@ import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNamedPredicate;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DPrimitive;
+import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DState;
 import com.mimacom.ddd.dm.base.DStateEvent;
@@ -91,8 +93,8 @@ public class DimValidator extends AbstractDimValidator {
     boolean _greaterThan = (_size > 1);
     if (_greaterThan) {
       for (final DEntityType r : roots) {
-        this.error("Aggregate can only declare a single root / main entity or relationship or a a single hierarchy thereof", r, 
-          BasePackage.Literals.DNAMED_ELEMENT__NAME);
+        this.error(
+          "Aggregate can only declare a single root / main entity or relationship or a a single hierarchy thereof", r, BasePackage.Literals.DNAMED_ELEMENT__NAME);
       }
     }
   }
@@ -142,7 +144,8 @@ public class DimValidator extends AbstractDimValidator {
     for (final DFeature f : _features) {
       boolean _contains = inherited.contains(f.getName());
       if (_contains) {
-        this.error("Feature cannot override inherited feature with same name", f, BasePackage.Literals.DNAMED_ELEMENT__NAME);
+        this.error("Feature cannot override inherited feature with same name", f, 
+          BasePackage.Literals.DNAMED_ELEMENT__NAME);
       }
     }
   }
@@ -162,7 +165,8 @@ public class DimValidator extends AbstractDimValidator {
         }
       }
       if ((count < 2)) {
-        this.error("A relationship must declare at least 2 associations", r, BasePackage.Literals.DNAMED_ELEMENT__NAME);
+        this.error("A relationship must declare at least 2 associations", r, 
+          BasePackage.Literals.DNAMED_ELEMENT__NAME);
       }
     }
   }
@@ -190,14 +194,15 @@ public class DimValidator extends AbstractDimValidator {
     DType _type = a.getType();
     boolean _not = (!(_type instanceof IValueType));
     if (_not) {
-      this.error("Refererenced type is not a ValueType", a, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE);
+      this.error("Referenced type must be a ValueType", a, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE);
     }
   }
   
   @Check
   public void checkRealWorldEntityType(final DEntityType e) {
     if ((Objects.equal(e.getOrigin(), DEntityOrigin.PHYSICAL_OBJECT) && e.isAbstract())) {
-      this.error("Entity Types representng real-world objects cannot be abstract", e, BasePackage.Literals.DCOMPLEX_TYPE__ABSTRACT);
+      this.error("Entity Types representing real-world objects cannot be abstract", e, 
+        BasePackage.Literals.DCOMPLEX_TYPE__ABSTRACT);
     }
   }
   
@@ -206,7 +211,7 @@ public class DimValidator extends AbstractDimValidator {
     DType _type = a.getType();
     boolean _not = (!(_type instanceof DEntityType));
     if (_not) {
-      this.error("Refererenced type is not an EntityType", a, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE);
+      this.error("Referenced type must be an EntityType", a, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE);
     }
   }
   
@@ -220,11 +225,31 @@ public class DimValidator extends AbstractDimValidator {
   }
   
   @Check
-  public void checkParameterIsValueType(final DQueryParameter p) {
-    boolean _not = (!((p.getType() instanceof IValueType) || Objects.equal(p.getType(), p.eContainer())));
+  public void checkQueryType(final DQuery q) {
+    this.checkMemberType(q);
+  }
+  
+  @Check
+  public void checkQueryParameterType(final DQueryParameter p) {
+    this.checkMemberType(p);
+  }
+  
+  protected void checkMemberType(final DNavigableMember member) {
+    boolean _isAllowedMemberType = this.isAllowedMemberType(member);
+    boolean _not = (!_isAllowedMemberType);
     if (_not) {
-      this.error("Refererenced type is not a ValueType nor the query\'s own container", p, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE);
+      this.error(("Referenced " + DimValidator.ILLEGAL_MEMBER_TYPE_MSG), member, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE);
     }
+  }
+  
+  protected static final String ILLEGAL_MEMBER_TYPE_MSG = "type must be a ValueType, the query\'s own container, or the component\'s main entity";
+  
+  protected boolean isAllowedMemberType(final DNavigableMember member) {
+    final DComplexType containingType = EcoreUtil2.<DComplexType>getContainerOfType(member, DComplexType.class);
+    final DAggregate aggregate = EcoreUtil2.<DAggregate>getContainerOfType(member, DAggregate.class);
+    final DType type = member.getType();
+    return (((type instanceof IValueType) || Objects.equal(type, containingType)) || 
+      (((type instanceof DEntityType) && ((DEntityType) type).isRoot()) && aggregate.getTypes().contains(type)));
   }
   
   protected void checkNameStartsWithCapitalImpl(final String name, final DNamedElement ne) {

@@ -32,8 +32,8 @@ class DmxAggregateDescriptor extends AbstractDmxTypeDescriptor<DType> {
 	}
 	
 	override getNavigableMembers() {
-		if (aggregate.staticQueries !== null) {
-			return Lists.newArrayList(aggregate.staticQueries)
+		if (aggregate.features !== null) {
+			return Lists.newArrayList(aggregate.features)
 		}
 		return super.navigableMembers
 	}

@@ -21,8 +21,10 @@ import com.mimacom.ddd.dm.base.DLiteral
 import com.mimacom.ddd.dm.base.DMultiplicity
 import com.mimacom.ddd.dm.base.DNamedElement
 import com.mimacom.ddd.dm.base.DNamedPredicate
+import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DNotification
 import com.mimacom.ddd.dm.base.DPrimitive
+import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DQueryParameter
 import com.mimacom.ddd.dm.base.DState
 import com.mimacom.ddd.dm.base.DStateEvent
@@ -42,7 +44,7 @@ import static com.mimacom.ddd.dm.dmx.scoping.DmxImportedNamespaceAwareLocalScope
 class DimValidator extends AbstractDimValidator {
 
 	@Inject extension DimUtil
-	
+
 	val NAME_ALL_UPPERCASE = "Name should be all upercase"
 
 	@Check
@@ -68,8 +70,9 @@ class DimValidator extends AbstractDimValidator {
 		val topLevelRoots = roots.filter[superType.aggregate != a]
 		if (topLevelRoots.size > 1) {
 			for (r : roots) {
-				error('Aggregate can only declare a single root / main entity or relationship or a a single hierarchy thereof', r,
-					BasePackage.Literals.DNAMED_ELEMENT__NAME)
+				error(
+					'Aggregate can only declare a single root / main entity or relationship or a a single hierarchy thereof',
+					r, BasePackage.Literals.DNAMED_ELEMENT__NAME)
 			}
 		}
 //		if(roots.size == 0) {
@@ -92,7 +95,7 @@ class DimValidator extends AbstractDimValidator {
 				error('Supertype is not compatible', t, BasePackage.Literals.DNAMED_ELEMENT__NAME)
 			} else if (t instanceof DEntityType) {
 				if (t.isRoot !== (t.superType as DEntityType).isRoot) {
-					error('Entity or relationship root property must match supertype\'s root property', t,
+					error("Entity or relationship root property must match supertype's root property", t,
 						BasePackage.Literals.DNAMED_ELEMENT__NAME)
 				}
 			}
@@ -109,7 +112,8 @@ class DimValidator extends AbstractDimValidator {
 		val inherited = t.inheritedFeatureNames
 		for (f : t.features) {
 			if (inherited.contains(f.name)) {
-				error('Feature cannot override inherited feature with same name', f, BasePackage.Literals.DNAMED_ELEMENT__NAME)
+				error('Feature cannot override inherited feature with same name', f,
+					BasePackage.Literals.DNAMED_ELEMENT__NAME)
 			}
 		}
 	}
@@ -122,7 +126,8 @@ class DimValidator extends AbstractDimValidator {
 				if (r.features.get(i) instanceof DAssociation) count++
 			}
 			if (count < 2) {
-				error('A relationship must declare at least 2 associations', r, BasePackage.Literals.DNAMED_ELEMENT__NAME)
+				error('A relationship must declare at least 2 associations', r,
+					BasePackage.Literals.DNAMED_ELEMENT__NAME)
 			}
 		}
 	}
@@ -144,21 +149,22 @@ class DimValidator extends AbstractDimValidator {
 	@Check
 	def checkAttributeIsValueType(DAttribute a) {
 		if (! (a.getType instanceof IValueType)) {
-			error('Refererenced type is not a ValueType', a, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE)
+			error('Referenced type must be a ValueType', a, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE)
 		}
 	}
 
 	@Check
 	def checkRealWorldEntityType(DEntityType e) {
 		if (e.origin == DEntityOrigin.PHYSICAL_OBJECT && e.abstract) {
-			error('Entity Types representng real-world objects cannot be abstract', e, BasePackage.Literals.DCOMPLEX_TYPE__ABSTRACT)
+			error('Entity Types representing real-world objects cannot be abstract', e,
+				BasePackage.Literals.DCOMPLEX_TYPE__ABSTRACT)
 		}
 	}
 
 	@Check
 	def checkAssocitionToEntityType(DAssociation a) {
 		if (! (a.getType instanceof DEntityType)) {
-			error('Refererenced type is not an EntityType', a, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE)
+			error('Referenced type must be an EntityType', a, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE)
 		}
 	}
 
@@ -169,12 +175,32 @@ class DimValidator extends AbstractDimValidator {
 		}
 	}
 
-// // Parameters: restrictions on their types
+	// // Queries: restrictions on types
+
 	@Check
-	def checkParameterIsValueType(DQueryParameter p) {
-		if (! (p.getType instanceof IValueType || p.getType == p.eContainer)) {
-			error('Refererenced type is not a ValueType nor the query\'s own container', p, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE)
+	def checkQueryType(DQuery q) {
+		checkMemberType(q)
+	}
+	
+	@Check
+	def checkQueryParameterType(DQueryParameter p) {
+		checkMemberType(p)
+	}
+	
+	protected def checkMemberType(DNavigableMember member) {
+		if (! member.isAllowedMemberType) {
+			error("Referenced " + ILLEGAL_MEMBER_TYPE_MSG, member, BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE)
 		}
+	}
+	
+	protected static val ILLEGAL_MEMBER_TYPE_MSG = "type must be a ValueType, the query's own container, or the component's main entity"
+	
+	protected def boolean isAllowedMemberType(DNavigableMember member) {
+		val containingType = EcoreUtil2.getContainerOfType(member, DComplexType)  // is null if container is an aggregate
+		val aggregate = EcoreUtil2.getContainerOfType(member, DAggregate)
+		val type = member.type
+		return type instanceof IValueType || type == containingType ||
+			type instanceof DEntityType && (type as DEntityType).root && aggregate.types.contains(type)
 	}
 
 	// // Naming: Elements whose names should start with a CAPITAL
@@ -255,13 +281,13 @@ class DimValidator extends AbstractDimValidator {
 			warning(NAME_ALL_UPPERCASE, BasePackage.Literals::DNAMED_ELEMENT__NAME)
 		}
 	}
-	
+
 	@Check def void checkStateNameIsUppercase(DState state) {
 		if (! state.name.equals(state.name.toUpperCase)) {
 			warning(NAME_ALL_UPPERCASE, BasePackage.Literals::DNAMED_ELEMENT__NAME)
 		}
 	}
-	
+
 	@Check def void checkStateEventNameIsUppercase(DStateEvent event) {
 		if (! event.name.equals(event.name.toUpperCase)) {
 			warning(NAME_ALL_UPPERCASE, BasePackage.Literals::DNAMED_ELEMENT__NAME)

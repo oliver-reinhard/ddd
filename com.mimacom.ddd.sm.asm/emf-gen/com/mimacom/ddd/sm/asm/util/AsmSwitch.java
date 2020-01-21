@@ -4,8 +4,8 @@
 package com.mimacom.ddd.sm.asm.util;
 
 import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DNavigableMember;
-import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 
@@ -83,6 +83,7 @@ public class AsmSwitch<T> extends Switch<T>
 			{
 				Model model = (Model)theEObject;
 				T result = caseModel(model);
+				if (result == null) result = caseDNamespace(model);
 				if (result == null) result = caseIStaticReferenceTarget(model);
 				if (result == null) result = caseDNamedElement(model);
 				if (result == null) result = defaultCase(theEObject);
@@ -93,6 +94,7 @@ public class AsmSwitch<T> extends Switch<T>
 				SApplication sApplication = (SApplication)theEObject;
 				T result = caseSApplication(sApplication);
 				if (result == null) result = caseModel(sApplication);
+				if (result == null) result = caseDNamespace(sApplication);
 				if (result == null) result = caseIStaticReferenceTarget(sApplication);
 				if (result == null) result = caseDNamedElement(sApplication);
 				if (result == null) result = defaultCase(theEObject);
@@ -103,9 +105,8 @@ public class AsmSwitch<T> extends Switch<T>
 				SServiceInterface sServiceInterface = (SServiceInterface)theEObject;
 				T result = caseSServiceInterface(sServiceInterface);
 				if (result == null) result = caseModel(sServiceInterface);
-				if (result == null) result = caseINavigableMemberContainer(sServiceInterface);
+				if (result == null) result = caseDNamespace(sServiceInterface);
 				if (result == null) result = caseIStaticReferenceTarget(sServiceInterface);
-				if (result == null) result = caseINamespace(sServiceInterface);
 				if (result == null) result = caseDNamedElement(sServiceInterface);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -146,7 +147,6 @@ public class AsmSwitch<T> extends Switch<T>
 				SServiceOperation sServiceOperation = (SServiceOperation)theEObject;
 				T result = caseSServiceOperation(sServiceOperation);
 				if (result == null) result = caseINavigableMemberContainer(sServiceOperation);
-				if (result == null) result = caseINamespace(sServiceOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -324,6 +324,22 @@ public class AsmSwitch<T> extends Switch<T>
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DNamespace</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DNamespace</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDNamespace(DNamespace object)
+	{
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IStatic Reference Target</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -335,22 +351,6 @@ public class AsmSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseIStaticReferenceTarget(IStaticReferenceTarget object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>INamespace</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>INamespace</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseINamespace(INamespace object)
 	{
 		return null;
 	}

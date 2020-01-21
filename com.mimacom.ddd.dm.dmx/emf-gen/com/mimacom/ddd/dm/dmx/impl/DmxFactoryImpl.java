@@ -164,7 +164,7 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	@Override
 	public DmxTest createDmxTest()
 	{
-		DmxTestImpl dmxTest = new DmxTestImpl();
+		DmxTestImplCustom dmxTest = new DmxTestImplCustom();
 		return dmxTest;
 	}
 
@@ -260,7 +260,7 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	@Override
 	public DmxPredicateWithCorrelationVariable createDmxPredicateWithCorrelationVariable()
 	{
-		DmxPredicateWithCorrelationVariableImpl dmxPredicateWithCorrelationVariable = new DmxPredicateWithCorrelationVariableImpl();
+		DmxPredicateWithCorrelationVariableImplCustom dmxPredicateWithCorrelationVariable = new DmxPredicateWithCorrelationVariableImplCustom();
 		return dmxPredicateWithCorrelationVariable;
 	}
 
@@ -488,7 +488,7 @@ public class DmxFactoryImpl extends EFactoryImpl implements DmxFactory
 	@Override
 	public DmxComplexObject createDmxComplexObject()
 	{
-		DmxComplexObjectImpl dmxComplexObject = new DmxComplexObjectImpl();
+		DmxComplexObjectImplCustom dmxComplexObject = new DmxComplexObjectImplCustom();
 		return dmxComplexObject;
 	}
 

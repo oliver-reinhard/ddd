@@ -23,24 +23,6 @@ public interface BaseFactory extends EFactory
 	BaseFactory eINSTANCE = com.mimacom.ddd.dm.base.impl.BaseFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>DText Segment</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DText Segment</em>'.
-	 * @generated
-	 */
-	DTextSegment createDTextSegment();
-
-	/**
-	 * Returns a new object of class '<em>DRich Text</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DRich Text</em>'.
-	 * @generated
-	 */
-	DRichText createDRichText();
-
-	/**
 	 * Returns a new object of class '<em>DImport</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,6 +48,33 @@ public interface BaseFactory extends EFactory
 	 * @generated
 	 */
 	DAggregate createDAggregate();
+
+	/**
+	 * Returns a new object of class '<em>DMultiplicity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DMultiplicity</em>'.
+	 * @generated
+	 */
+	DMultiplicity createDMultiplicity();
+
+	/**
+	 * Returns a new object of class '<em>DText Segment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DText Segment</em>'.
+	 * @generated
+	 */
+	DTextSegment createDTextSegment();
+
+	/**
+	 * Returns a new object of class '<em>DRich Text</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DRich Text</em>'.
+	 * @generated
+	 */
+	DRichText createDRichText();
 
 	/**
 	 * Returns a new object of class '<em>DNamed Predicate</em>'.
@@ -129,15 +138,6 @@ public interface BaseFactory extends EFactory
 	 * @generated
 	 */
 	DAssociation createDAssociation();
-
-	/**
-	 * Returns a new object of class '<em>DMultiplicity</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DMultiplicity</em>'.
-	 * @generated
-	 */
-	DMultiplicity createDMultiplicity();
 
 	/**
 	 * Returns a new object of class '<em>DAttribute</em>'.

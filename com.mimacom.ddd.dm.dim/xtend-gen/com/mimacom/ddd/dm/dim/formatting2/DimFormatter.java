@@ -14,7 +14,6 @@ import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DNamedPredicate;
-import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DRichText;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.dim.services.DimGrammarAccess;
@@ -82,9 +81,9 @@ public class DimFormatter extends DmxFormatter {
       it.indent();
     };
     document.<ISemanticRegion, ISemanticRegion>interior(open, close, _function_1);
-    EList<DQuery> _staticQueries = aggregate.getStaticQueries();
-    for (final DQuery query : _staticQueries) {
-      document.<DQuery>format(query);
+    EList<DFeature> _features = aggregate.getFeatures();
+    for (final DFeature query : _features) {
+      document.<DFeature>format(query);
     }
     EList<DType> _types = aggregate.getTypes();
     for (final DType type : _types) {

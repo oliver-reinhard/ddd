@@ -13,16 +13,18 @@ import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DSimpleType;
 import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.IAggregateContainer;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.IIdentityType;
-import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.base.ITypeContainer;
@@ -104,11 +106,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseSInformationModel(SInformationModel object)
 			{
 				return createSInformationModelAdapter();
-			}
-			@Override
-			public Adapter caseSCoreQuery(SCoreQuery object)
-			{
-				return createSCoreQueryAdapter();
 			}
 			@Override
 			public Adapter caseSImplicitElementDeduction(SImplicitElementDeduction object)
@@ -226,9 +223,19 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createSGrabDomainRuleAdapter();
 			}
 			@Override
-			public Adapter caseINamespace(INamespace object)
+			public Adapter caseDNamedElement(DNamedElement object)
 			{
-				return createINamespaceAdapter();
+				return createDNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseDNamespace(DNamespace object)
+			{
+				return createDNamespaceAdapter();
+			}
+			@Override
+			public Adapter caseIAggregateContainer(IAggregateContainer object)
+			{
+				return createIAggregateContainerAdapter();
 			}
 			@Override
 			public Adapter caseITypeContainer(ITypeContainer object)
@@ -236,19 +243,9 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createITypeContainerAdapter();
 			}
 			@Override
-			public Adapter caseINavigableMemberContainer(INavigableMemberContainer object)
+			public Adapter caseIStaticReferenceTarget(IStaticReferenceTarget object)
 			{
-				return createINavigableMemberContainerAdapter();
-			}
-			@Override
-			public Adapter caseDNamedElement(DNamedElement object)
-			{
-				return createDNamedElementAdapter();
-			}
-			@Override
-			public Adapter caseDNavigableMember(DNavigableMember object)
-			{
-				return createDNavigableMemberAdapter();
+				return createIStaticReferenceTargetAdapter();
 			}
 			@Override
 			public Adapter caseIDeductionDefinition(IDeductionDefinition object)
@@ -256,9 +253,14 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 				return createIDeductionDefinitionAdapter();
 			}
 			@Override
-			public Adapter caseIStaticReferenceTarget(IStaticReferenceTarget object)
+			public Adapter caseIFeatureContainer(IFeatureContainer object)
 			{
-				return createIStaticReferenceTargetAdapter();
+				return createIFeatureContainerAdapter();
+			}
+			@Override
+			public Adapter caseINavigableMemberContainer(INavigableMemberContainer object)
+			{
+				return createINavigableMemberContainerAdapter();
 			}
 			@Override
 			public Adapter caseIDeducibleElement(IDeducibleElement object)
@@ -294,6 +296,11 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseDEnumeration(DEnumeration object)
 			{
 				return createDEnumerationAdapter();
+			}
+			@Override
+			public Adapter caseDNavigableMember(DNavigableMember object)
+			{
+				return createDNavigableMemberAdapter();
 			}
 			@Override
 			public Adapter caseDLiteral(DLiteral object)
@@ -383,21 +390,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createSInformationModelAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.sm.sim.SCoreQuery <em>SCore Query</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.sm.sim.SCoreQuery
-	 * @generated
-	 */
-	public Adapter createSCoreQueryAdapter()
 	{
 		return null;
 	}
@@ -748,16 +740,46 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INamespace <em>INamespace</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamedElement <em>DNamed Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.INamespace
+	 * @see com.mimacom.ddd.dm.base.DNamedElement
 	 * @generated
 	 */
-	public Adapter createINamespaceAdapter()
+	public Adapter createDNamedElementAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamespace <em>DNamespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DNamespace
+	 * @generated
+	 */
+	public Adapter createDNamespaceAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IAggregateContainer <em>IAggregate Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IAggregateContainer
+	 * @generated
+	 */
+	public Adapter createIAggregateContainerAdapter()
 	{
 		return null;
 	}
@@ -778,46 +800,16 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INavigableMemberContainer <em>INavigable Member Container</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.INavigableMemberContainer
+	 * @see com.mimacom.ddd.dm.base.IStaticReferenceTarget
 	 * @generated
 	 */
-	public Adapter createINavigableMemberContainerAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamedElement <em>DNamed Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DNamedElement
-	 * @generated
-	 */
-	public Adapter createDNamedElementAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNavigableMember <em>DNavigable Member</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DNavigableMember
-	 * @generated
-	 */
-	public Adapter createDNavigableMemberAdapter()
+	public Adapter createIStaticReferenceTargetAdapter()
 	{
 		return null;
 	}
@@ -838,16 +830,31 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IFeatureContainer <em>IFeature Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.IStaticReferenceTarget
+	 * @see com.mimacom.ddd.dm.base.IFeatureContainer
 	 * @generated
 	 */
-	public Adapter createIStaticReferenceTargetAdapter()
+	public Adapter createIFeatureContainerAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INavigableMemberContainer <em>INavigable Member Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.INavigableMemberContainer
+	 * @generated
+	 */
+	public Adapter createINavigableMemberContainerAdapter()
 	{
 		return null;
 	}
@@ -953,6 +960,21 @@ public class SimAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDEnumerationAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNavigableMember <em>DNavigable Member</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DNavigableMember
+	 * @generated
+	 */
+	public Adapter createDNavigableMemberAdapter()
 	{
 		return null;
 	}

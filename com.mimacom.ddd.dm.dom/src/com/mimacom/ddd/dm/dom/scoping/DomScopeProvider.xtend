@@ -3,12 +3,6 @@
  */
 package com.mimacom.ddd.dm.dom.scoping
 
-import com.mimacom.ddd.dm.base.INavigableMemberContainer
-import com.mimacom.ddd.dm.dmx.DmxComplexObject
-import com.mimacom.ddd.dm.dom.DomSnapshot
-import org.eclipse.xtext.scoping.IScope
-import org.eclipse.xtext.scoping.Scopes
-
 /**
  * This class contains custom scoping description.
  * 
@@ -17,14 +11,14 @@ import org.eclipse.xtext.scoping.Scopes
  */
 class DomScopeProvider extends AbstractDomScopeProvider {
 	
-	override protected getEContainerNavigableMembersScopeSwitch(INavigableMemberContainer container, IScope outerScope) {
-		val scope = switch container {
-			DomSnapshot: Scopes.scopeFor(container.objects, outerScope)
-			DmxComplexObject: Scopes.scopeFor(container.fields, outerScope)
-			default: super.getEContainerNavigableMembersScopeSwitch(container, outerScope)
-//			default: outerScope
-		}
-		return scope
-	}
+//	override protected getEContainerNavigableMembersScopeSwitch(INavigableMemberContainer container, IScope outerScope) {
+//		val scope = switch container {
+//			DomSnapshot: Scopes.scopeFor(container.objects, outerScope)
+//			DmxComplexObject: Scopes.scopeFor(container.fields, outerScope)
+//			default: super.getEContainerNavigableMembersScopeSwitch(container, outerScope)
+////			default: outerScope
+//		}
+//		return scope
+//	}
 	
 }

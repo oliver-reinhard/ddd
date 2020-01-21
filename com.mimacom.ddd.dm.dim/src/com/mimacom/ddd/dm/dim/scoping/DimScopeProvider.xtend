@@ -5,15 +5,13 @@ package com.mimacom.ddd.dm.dim.scoping
 
 import com.google.common.collect.Lists
 import com.mimacom.ddd.dm.base.BasePackage
-import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DDetailType
-import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.base.DEntityType
-import com.mimacom.ddd.dm.base.DNavigableMember
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DQueryParameter
+import com.mimacom.ddd.dm.base.IAggregateContainer
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.EcoreUtil2
@@ -28,45 +26,47 @@ import org.eclipse.xtext.scoping.Scopes
  */
 class DimScopeProvider extends AbstractDimScopeProvider {
 
-	val epackage = BasePackage.eINSTANCE
+	val BASE = BasePackage.eINSTANCE
 
 	override getScope(EObject context, EReference reference) {
-		
-		if (reference == epackage.DNavigableMember_Type) {
-			
-			 val IScope scope = switch context {	
-			 	DAttribute: if (context.detail == true) getDefaultScopeForType(context, epackage.DDetailType) else getDefaultScopeForType(context,  epackage.IValueType)
-				DQuery: getLocalEntityTypeScope(context, getDefaultScopeForType(context, epackage.IValueType))
-				DAssociation: getDefaultScopeForType(context, epackage.DEntityType)
-				DQueryParameter: getLocalEntityTypeScope(context, getDefaultScopeForType(context,  epackage.IValueType))
-				default:  getDefaultScopeForType(context, epackage.IValueType)
-			}
-			return scope
-			
-		} else if (reference == epackage.DComplexType_SuperType) {
-			
+
+		if (reference == BASE.DNavigableMember_Type) {
+			return getNavigableMemberTypeScope(context, IScope.NULLSCOPE)
+
+		} else if (reference == BASE.DComplexType_SuperType) {
 			return switch context {
-				DEntityType:  getIdentityTypeScope(context, DEntityType)
-				DDetailType: getDefaultScopeForType(context, epackage.DDetailType)
-				default:  IScope.NULLSCOPE
+				DEntityType: getIdentityTypeScope(context, DEntityType)
+				DDetailType: getDefaultScopeOfType(context, BASE.DDetailType)
+				default: IScope.NULLSCOPE
 			}
-		} 
+		}
 		return super.getScope(context, reference)
 	}
-		
-	def IScope getLocalEntityTypeScope(DNavigableMember context, IScope outerScope) {
-		val aggregate = EcoreUtil2.getContainerOfType(context, DAggregate)
-		if (aggregate !== null && ! aggregate.roots.empty) {
-			return Scopes.scopeFor(aggregate.roots, outerScope)	
+
+	/*
+	 * Returns the scope for the 'type' property of DNavigableMembers.
+	 */
+	def IScope getNavigableMemberTypeScope(EObject context, IScope outerScope) {
+		// This is classic scoping along the eContainer CONTAINMENT hierarchy:
+		val type = switch context {
+			DAttribute:	if (context.detail) BASE.DDetailType else BASE.IValueType
+			DQuery:BASE.DType
+			DAssociation: BASE.DEntityType
+			DQueryParameter:BASE.DType
+			default:BASE.IValueType
 		}
-		return outerScope
+		val IScope scope = getDefaultScopeOfType(context, type)
+		return scope
 	}
-		
-	def IScope getIdentityTypeScope(DEntityType context, Class<?> type) {
-		val domain = EcoreUtil2.getContainerOfType(context, DDomain)
-		if (domain !==  null) {
+
+	def IScope getIdentityTypeScope(
+		DEntityType context,
+		Class<?> type
+	) {
+		val domain = EcoreUtil2.getContainerOfType(context, IAggregateContainer)
+		if (domain !== null) {
 			val list = Lists.newArrayList
-			for (a:domain.aggregates) {
+			for (a : domain.aggregates) {
 				val roots = a.roots.filter[it !== context && type.isAssignableFrom(it.class)]
 				list.addAll(roots)
 			}

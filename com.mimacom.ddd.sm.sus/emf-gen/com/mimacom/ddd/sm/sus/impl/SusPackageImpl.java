@@ -130,42 +130,9 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getUserStory_Name()
-	{
-		return (EAttribute)userStoryEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getUserStory_Description()
-	{
-		return (EReference)userStoryEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getUserStory_Imports()
-	{
-		return (EReference)userStoryEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getUserStory_Sections()
 	{
-		return (EReference)userStoryEClass.getEStructuralFeatures().get(3);
+		return (EReference)userStoryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -176,7 +143,7 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 	@Override
 	public EReference getUserStory_Event()
 	{
-		return (EReference)userStoryEClass.getEStructuralFeatures().get(4);
+		return (EReference)userStoryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -266,9 +233,6 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 
 		// Create classes and their features
 		userStoryEClass = createEClass(USER_STORY);
-		createEAttribute(userStoryEClass, USER_STORY__NAME);
-		createEReference(userStoryEClass, USER_STORY__DESCRIPTION);
-		createEReference(userStoryEClass, USER_STORY__IMPORTS);
 		createEReference(userStoryEClass, USER_STORY__SECTIONS);
 		createEReference(userStoryEClass, USER_STORY__EVENT);
 
@@ -312,12 +276,10 @@ public class SusPackageImpl extends EPackageImpl implements SusPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		userStoryEClass.getESuperTypes().add(theBasePackage.getDNamespace());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(userStoryEClass, UserStory.class, "UserStory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getUserStory_Name(), ecorePackage.getEString(), "name", null, 0, 1, UserStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUserStory_Description(), theBasePackage.getDRichText(), null, "description", null, 0, 1, UserStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUserStory_Imports(), theBasePackage.getDImport(), null, "imports", null, 0, -1, UserStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUserStory_Sections(), this.getSection(), null, "sections", null, 0, -1, UserStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUserStory_Event(), theBasePackage.getDDomainEvent(), null, "event", null, 0, 1, UserStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

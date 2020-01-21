@@ -387,7 +387,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDmxNamespace_Imports()
+	public EReference getDmxNamespace_Filters()
 	{
 		return (EReference)dmxNamespaceEClass.getEStructuralFeatures().get(0);
 	}
@@ -398,20 +398,9 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDmxNamespace_Filters()
-	{
-		return (EReference)dmxNamespaceEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getDmxNamespace_Tests()
 	{
-		return (EReference)dmxNamespaceEClass.getEStructuralFeatures().get(2);
+		return (EReference)dmxNamespaceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1480,7 +1469,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 
 		// Create classes and their features
 		dmxNamespaceEClass = createEClass(DMX_NAMESPACE);
-		createEReference(dmxNamespaceEClass, DMX_NAMESPACE__IMPORTS);
 		createEReference(dmxNamespaceEClass, DMX_NAMESPACE__FILTERS);
 		createEReference(dmxNamespaceEClass, DMX_NAMESPACE__TESTS);
 
@@ -1644,7 +1632,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		dmxNamespaceEClass.getESuperTypes().add(theBasePackage.getDNamedElement());
+		dmxNamespaceEClass.getESuperTypes().add(theBasePackage.getDNamespace());
 		dmxNamespaceEClass.getESuperTypes().add(theBasePackage.getITypeContainer());
 		dmxTestEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
 		dmxTestContextEClass.getESuperTypes().add(theBasePackage.getDContext());
@@ -1678,7 +1666,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(dmxNamespaceEClass, DmxNamespace.class, "DmxNamespace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDmxNamespace_Imports(), theBasePackage.getDImport(), null, "imports", null, 0, -1, DmxNamespace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDmxNamespace_Filters(), this.getDmxFilter(), null, "filters", null, 0, -1, DmxNamespace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDmxNamespace_Tests(), this.getDmxTest(), null, "tests", null, 0, -1, DmxNamespace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

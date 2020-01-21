@@ -1,7 +1,7 @@
 package com.mimacom.ddd.dm.dmx.indexing;
 
-import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DEntityType;
+import com.mimacom.ddd.dm.base.DNamespace;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider;
@@ -17,7 +17,7 @@ public class DmxQualifiedNameProvider extends DefaultDeclarativeQualifiedNamePro
     if ((obj instanceof DEntityType)) {
       boolean _isRoot = ((DEntityType)obj).isRoot();
       if (_isRoot) {
-        final DDomain domain = EcoreUtil2.<DDomain>getContainerOfType(obj, DDomain.class);
+        final DNamespace domain = EcoreUtil2.<DNamespace>getContainerOfType(obj, DNamespace.class);
         if (((domain != null) && (((DEntityType)obj).getName() != null))) {
           final QualifiedName domainQN = this.computeFullyQualifiedName(domain);
           final QualifiedName rootQN = domainQN.append(((DEntityType)obj).getName());

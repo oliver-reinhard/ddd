@@ -5,6 +5,9 @@ package com.mimacom.ddd.dm.base.impl;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.DNavigableMember;
+import com.mimacom.ddd.dm.base.IFeatureContainer;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
 import java.util.Collection;
 
@@ -29,15 +32,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DComplexTypeImpl#getFeatures <em>Features</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DComplexTypeImpl#getNavigableMembers <em>Navigable Members</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DComplexTypeImpl#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DComplexTypeImpl#getSuperType <em>Super Type</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.impl.DComplexTypeImpl#getFeatures <em>Features</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 {
+	/**
+	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFeatures()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DFeature> features;
+
 	/**
 	 * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -69,16 +83,6 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	protected DComplexType superType;
 
 	/**
-	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFeatures()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DFeature> features;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -104,6 +108,40 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< Upstream, based on 31adbbe530a348e8e7950d43c70d55be3ba288b1
+=======
+	@Override
+	public EList<DFeature> getFeatures()
+	{
+		if (features == null)
+		{
+			features = new EObjectContainmentEList<DFeature>(DFeature.class, this, BasePackage.DCOMPLEX_TYPE__FEATURES);
+		}
+		return features;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<DNavigableMember> getNavigableMembers()
+	{
+		// TODO: implement this method to return the 'Navigable Members' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+>>>>>>> 0d09db5 SIM: update to enhanced BASE model and semantics
 	public boolean isAbstract()
 	{
 		return abstract_;
@@ -170,6 +208,7 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< Upstream, based on 31adbbe530a348e8e7950d43c70d55be3ba288b1
 	public EList<DFeature> getFeatures()
 	{
 		if (features == null)
@@ -184,6 +223,8 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+=======
+>>>>>>> 0d09db5 SIM: update to enhanced BASE model and semantics
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
@@ -205,13 +246,15 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	{
 		switch (featureID)
 		{
+			case BasePackage.DCOMPLEX_TYPE__FEATURES:
+				return getFeatures();
+			case BasePackage.DCOMPLEX_TYPE__NAVIGABLE_MEMBERS:
+				return getNavigableMembers();
 			case BasePackage.DCOMPLEX_TYPE__ABSTRACT:
 				return isAbstract();
 			case BasePackage.DCOMPLEX_TYPE__SUPER_TYPE:
 				if (resolve) return getSuperType();
 				return basicGetSuperType();
-			case BasePackage.DCOMPLEX_TYPE__FEATURES:
-				return getFeatures();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -227,15 +270,19 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	{
 		switch (featureID)
 		{
+			case BasePackage.DCOMPLEX_TYPE__FEATURES:
+				getFeatures().clear();
+				getFeatures().addAll((Collection<? extends DFeature>)newValue);
+				return;
+			case BasePackage.DCOMPLEX_TYPE__NAVIGABLE_MEMBERS:
+				getNavigableMembers().clear();
+				getNavigableMembers().addAll((Collection<? extends DNavigableMember>)newValue);
+				return;
 			case BasePackage.DCOMPLEX_TYPE__ABSTRACT:
 				setAbstract((Boolean)newValue);
 				return;
 			case BasePackage.DCOMPLEX_TYPE__SUPER_TYPE:
 				setSuperType((DComplexType)newValue);
-				return;
-			case BasePackage.DCOMPLEX_TYPE__FEATURES:
-				getFeatures().clear();
-				getFeatures().addAll((Collection<? extends DFeature>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -251,14 +298,17 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	{
 		switch (featureID)
 		{
+			case BasePackage.DCOMPLEX_TYPE__FEATURES:
+				getFeatures().clear();
+				return;
+			case BasePackage.DCOMPLEX_TYPE__NAVIGABLE_MEMBERS:
+				getNavigableMembers().clear();
+				return;
 			case BasePackage.DCOMPLEX_TYPE__ABSTRACT:
 				setAbstract(ABSTRACT_EDEFAULT);
 				return;
 			case BasePackage.DCOMPLEX_TYPE__SUPER_TYPE:
 				setSuperType((DComplexType)null);
-				return;
-			case BasePackage.DCOMPLEX_TYPE__FEATURES:
-				getFeatures().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -274,14 +324,70 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	{
 		switch (featureID)
 		{
+			case BasePackage.DCOMPLEX_TYPE__FEATURES:
+				return features != null && !features.isEmpty();
+			case BasePackage.DCOMPLEX_TYPE__NAVIGABLE_MEMBERS:
+				return !getNavigableMembers().isEmpty();
 			case BasePackage.DCOMPLEX_TYPE__ABSTRACT:
 				return abstract_ != ABSTRACT_EDEFAULT;
 			case BasePackage.DCOMPLEX_TYPE__SUPER_TYPE:
 				return superType != null;
-			case BasePackage.DCOMPLEX_TYPE__FEATURES:
-				return features != null && !features.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == IFeatureContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case BasePackage.DCOMPLEX_TYPE__FEATURES: return BasePackage.IFEATURE_CONTAINER__FEATURES;
+				default: return -1;
+			}
+		}
+		if (baseClass == INavigableMemberContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case BasePackage.DCOMPLEX_TYPE__NAVIGABLE_MEMBERS: return BasePackage.INAVIGABLE_MEMBER_CONTAINER__NAVIGABLE_MEMBERS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == IFeatureContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				case BasePackage.IFEATURE_CONTAINER__FEATURES: return BasePackage.DCOMPLEX_TYPE__FEATURES;
+				default: return -1;
+			}
+		}
+		if (baseClass == INavigableMemberContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				case BasePackage.INAVIGABLE_MEMBER_CONTAINER__NAVIGABLE_MEMBERS: return BasePackage.DCOMPLEX_TYPE__NAVIGABLE_MEMBERS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

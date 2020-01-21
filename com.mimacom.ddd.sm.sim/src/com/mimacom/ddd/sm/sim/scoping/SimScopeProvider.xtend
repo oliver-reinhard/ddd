@@ -8,56 +8,69 @@ import com.mimacom.ddd.dm.base.BasePackage
 import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DEnumeration
 import com.mimacom.ddd.dm.base.DQuery
+import com.mimacom.ddd.dm.base.DQueryParameter
+import com.mimacom.ddd.dm.base.ITypeContainer
+import com.mimacom.ddd.sm.sim.SAggregateDeduction
 import com.mimacom.ddd.sm.sim.SComplexTypeDeduction
-import com.mimacom.ddd.sm.sim.SCoreQuery
+import com.mimacom.ddd.sm.sim.SDetailTypeDeduction
+import com.mimacom.ddd.sm.sim.SEntityTypeDeduction
 import com.mimacom.ddd.sm.sim.SEnumerationDeduction
 import com.mimacom.ddd.sm.sim.SFeatureDeduction
+import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.SLiteralDeduction
 import com.mimacom.ddd.sm.sim.SQueryDeduction
 import com.mimacom.ddd.sm.sim.SQueryParameterDeduction
 import com.mimacom.ddd.sm.sim.SimUtil
+import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
+import com.mimacom.ddd.sm.sim.SPrimitiveDeduction
 
 /**
  * Timport com.mimacom.ddd.sm.sim.SFeatureDeduction
 
-is class contains custom scoping description.
+ * is class contains custom scoping description.
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
  * on how and when to use it.
  */
 class SimScopeProvider extends AbstractSimScopeProvider {
-	
+
 	@Inject extension SimUtil
-	
-	static val epackage = BasePackage.eINSTANCE
-	
+
+	static val BASE = BasePackage.eINSTANCE
+
 	override getScope(EObject context, EReference reference) {
-		
-		if (reference == epackage.DNavigableMember_Type) {
-			
-			 val IScope scope = switch context {	
-				SCoreQuery: getDefaultScopeForType(context, epackage.DType)
-				default:  getDefaultScopeForType(context, epackage.IValueType)
-			}
-			return scope
-		}
-		
-		if (reference == epackage.DDeductionRule_Source) {
+
+		if (reference == BASE.DDeductionRule_Source) {
 			val container = context.eContainer
-			if (context instanceof SLiteralDeduction) {
-				if (container instanceof 	SEnumerationDeduction) {
+			
+			if (context instanceof SAggregateDeduction) {
+				return getDefaultScopeOfType(context, BASE.DAggregate)
+
+			} else if (context instanceof SPrimitiveDeduction) {
+				return getDefaultScopeOfType(context, BASE.DPrimitive)
+
+			} else if (context instanceof SEntityTypeDeduction) {
+				return getDefaultScopeOfType(context, BASE.DEntityType)
+
+			} else if (context instanceof SDetailTypeDeduction) {
+				return getDefaultScopeOfType(context, BASE.DDetailType)
+
+			} else if (context instanceof SLiteralDeduction) {
+				if (container instanceof SEnumerationDeduction) {
 					val sourceType = container.deductionRule?.source
 					if (sourceType instanceof DEnumeration) {
 						return Scopes.scopeFor(sourceType.literals)
 					}
 				}
-				return getDefaultScopeForType(context, BasePackage.eINSTANCE.DLiteral)
+				return getDefaultScopeOfType(context, BASE.DLiteral)
+
 			} else if (context instanceof SFeatureDeduction) {
-				if (container instanceof 	SComplexTypeDeduction) {
+				if (container instanceof SComplexTypeDeduction) {
 					val sourceType = container.deductionRule?.source
 					if (sourceType instanceof DComplexType) {
 						val requiredFeatureType = context.baseClass
@@ -65,21 +78,40 @@ class SimScopeProvider extends AbstractSimScopeProvider {
 					}
 				}
 				val requiredFeatureType = context.baseEClass
-				return getDefaultScopeForType(context, requiredFeatureType)
+				return getDefaultScopeOfType(context, requiredFeatureType)
+
 			} else if (context instanceof SQueryParameterDeduction) {
-				if (container instanceof 	SQueryDeduction) {
+				if (container instanceof SQueryDeduction) {
 					val sourceType = container.deductionRule?.source
 					if (sourceType instanceof DQuery) {
 						return Scopes.scopeFor(sourceType.parameters)
 					}
 				}
-				return getDefaultScopeForType(context, BasePackage.eINSTANCE.DQueryParameter)
+				return getDefaultScopeOfType(context, BASE.DQueryParameter)
 			}
 		}
 		super.getScope(context, reference)
 	}
 
-	protected def IScope getInheritedFeaturesScope(DComplexType owner, Class<? extends EObject> featureType, IScope outerScope) {
+	override getDefaultScopeOfType(EObject context, EClass type) {
+		if (context instanceof DQuery || context instanceof DQueryParameter) {
+			val container = EcoreUtil2.getContainerOfType(context, ITypeContainer)
+			if (container instanceof SAggregateDeduction) {
+				val outerScope = getDefaultScopeOfType(container, BASE.IValueType)
+				// get synthetic aggregate that was created for 'aggregate' rule
+				val model = container.eContainer as SInformationModel
+				val syntheticAggregate = model.aggregates.filter[synthetic && deducedFrom == container]
+				if (syntheticAggregate.size == 1) {
+					return Scopes.scopeFor(syntheticAggregate.head.types, outerScope)
+				}
+				return outerScope
+			}
+		}
+		return super.getDefaultScopeOfType(context, type)
+	}
+
+	protected def IScope getInheritedFeaturesScope(DComplexType owner, Class<? extends EObject> featureType,
+		IScope outerScope) {
 		val features = owner.features.filter(featureType)
 		if (owner.superType !== null) {
 			return Scopes.scopeFor(features, getInheritedFeaturesScope(owner.superType, featureType, outerScope)) // recursion

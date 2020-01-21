@@ -42,7 +42,7 @@ class DimFormatter extends DmxFormatter {
 		open.append[newLines = 2]
 		interior(open, close) [indent]
 		
-		for (query : aggregate.staticQueries) {
+		for (query : aggregate.features) {
 			query.format
 		}
 		

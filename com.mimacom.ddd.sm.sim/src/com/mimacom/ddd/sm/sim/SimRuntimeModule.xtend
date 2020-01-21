@@ -58,6 +58,6 @@ class SimRuntimeModule extends AbstractSimRuntimeModule {
 	}
 
 	def Class<? extends ICrossReferenceSerializer> bindICrossReferenceSerializer() {
-		SimCrossReferenceSerializer
+		SimCrossReferenceSerializer // TODO remove if bug has been fixed
 	}
 }

@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DmxEntityImpl extends DmxComplexObjectImpl implements DmxEntity
+public class DmxEntityImpl extends DmxComplexObjectImplCustom implements DmxEntity
 {
 	/**
 	 * <!-- begin-user-doc -->

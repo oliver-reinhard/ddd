@@ -4,7 +4,7 @@
 package com.mimacom.ddd.dm.esm.util;
 
 import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.INamespace;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
 import com.mimacom.ddd.dm.esm.*;
@@ -81,6 +81,7 @@ public class EsmSwitch<T> extends Switch<T>
 			{
 				EsmDomain esmDomain = (EsmDomain)theEObject;
 				T result = caseEsmDomain(esmDomain);
+				if (result == null) result = caseDNamespace(esmDomain);
 				if (result == null) result = caseDNamedElement(esmDomain);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -108,7 +109,6 @@ public class EsmSwitch<T> extends Switch<T>
 				if (result == null) result = caseIEsmStateModel(esmEntityStateModel);
 				if (result == null) result = caseINavigableMemberContainer(esmEntityStateModel);
 				if (result == null) result = caseIEsmLayout(esmEntityStateModel);
-				if (result == null) result = caseINamespace(esmEntityStateModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -368,17 +368,17 @@ public class EsmSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>INamespace</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>DNamespace</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>INamespace</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>DNamespace</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseINamespace(INamespace object)
+	public T caseDNamespace(DNamespace object)
 	{
 		return null;
 	}

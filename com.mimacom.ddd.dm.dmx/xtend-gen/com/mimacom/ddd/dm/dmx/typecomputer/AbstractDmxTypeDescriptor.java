@@ -11,7 +11,6 @@ import java.util.Objects;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
-import org.eclipse.xtext.util.internal.Nullable;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 
 @SuppressWarnings("all")
@@ -22,7 +21,7 @@ public abstract class AbstractDmxTypeDescriptor<T extends DType> implements Clon
   
   protected boolean collection;
   
-  public AbstractDmxTypeDescriptor(final DmxBaseType baseType, @Nullable final T type, final boolean collection) {
+  public AbstractDmxTypeDescriptor(final DmxBaseType baseType, final T type, final boolean collection) {
     if ((baseType == null)) {
       throw new NullPointerException("baseType");
     }

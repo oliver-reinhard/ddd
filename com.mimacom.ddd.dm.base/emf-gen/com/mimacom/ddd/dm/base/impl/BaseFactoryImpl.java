@@ -65,11 +65,12 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		switch (eClass.getClassifierID())
 		{
-			case BasePackage.DTEXT_SEGMENT: return createDTextSegment();
-			case BasePackage.DRICH_TEXT: return createDRichText();
 			case BasePackage.DIMPORT: return createDImport();
 			case BasePackage.DDOMAIN: return createDDomain();
 			case BasePackage.DAGGREGATE: return createDAggregate();
+			case BasePackage.DMULTIPLICITY: return createDMultiplicity();
+			case BasePackage.DTEXT_SEGMENT: return createDTextSegment();
+			case BasePackage.DRICH_TEXT: return createDRichText();
 			case BasePackage.DNAMED_PREDICATE: return createDNamedPredicate();
 			case BasePackage.DPRIMITIVE: return createDPrimitive();
 			case BasePackage.DENUMERATION: return createDEnumeration();
@@ -77,7 +78,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 			case BasePackage.DDETAIL_TYPE: return createDDetailType();
 			case BasePackage.DENTITY_TYPE: return createDEntityType();
 			case BasePackage.DASSOCIATION: return createDAssociation();
-			case BasePackage.DMULTIPLICITY: return createDMultiplicity();
 			case BasePackage.DATTRIBUTE: return createDAttribute();
 			case BasePackage.DQUERY: return createDQuery();
 			case BasePackage.DQUERY_PARAMETER: return createDQueryParameter();
@@ -105,12 +105,12 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		switch (eDataType.getClassifierID())
 		{
+			case BasePackage.DMULTIPLICITY_SHORTHAND:
+				return createDMultiplicityShorthandFromString(eDataType, initialValue);
 			case BasePackage.DENTITY_ORIGIN:
 				return createDEntityOriginFromString(eDataType, initialValue);
 			case BasePackage.DASSOCIATION_KIND:
 				return createDAssociationKindFromString(eDataType, initialValue);
-			case BasePackage.DMULTIPLICITY_SHORTHAND:
-				return createDMultiplicityShorthandFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -126,12 +126,12 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		switch (eDataType.getClassifierID())
 		{
+			case BasePackage.DMULTIPLICITY_SHORTHAND:
+				return convertDMultiplicityShorthandToString(eDataType, instanceValue);
 			case BasePackage.DENTITY_ORIGIN:
 				return convertDEntityOriginToString(eDataType, instanceValue);
 			case BasePackage.DASSOCIATION_KIND:
 				return convertDAssociationKindToString(eDataType, instanceValue);
-			case BasePackage.DMULTIPLICITY_SHORTHAND:
-				return convertDMultiplicityShorthandToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -142,6 +142,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< Upstream, based on 31adbbe530a348e8e7950d43c70d55be3ba288b1
 	public DTextSegment createDTextSegment()
 	{
 		DTextSegmentImpl dTextSegment = new DTextSegmentImpl();
@@ -164,6 +165,9 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+=======
+	@Override
+>>>>>>> 0d09db5 SIM: update to enhanced BASE model and semantics
 	public DImport createDImport()
 	{
 		DImportImpl dImport = new DImportImpl();
@@ -197,6 +201,46 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< Upstream, based on 31adbbe530a348e8e7950d43c70d55be3ba288b1
+=======
+	@Override
+	public DMultiplicity createDMultiplicity()
+	{
+		DMultiplicityImplCustom dMultiplicity = new DMultiplicityImplCustom();
+		return dMultiplicity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DTextSegment createDTextSegment()
+	{
+		DTextSegmentImpl dTextSegment = new DTextSegmentImpl();
+		return dTextSegment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DRichText createDRichText()
+	{
+		DRichTextImpl dRichText = new DRichTextImpl();
+		return dRichText;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+>>>>>>> 0d09db5 SIM: update to enhanced BASE model and semantics
 	public DNamedPredicate createDNamedPredicate()
 	{
 		DNamedPredicateImpl dNamedPredicate = new DNamedPredicateImpl();
@@ -221,7 +265,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 */
 	public DEnumeration createDEnumeration()
 	{
-		DEnumerationImpl dEnumeration = new DEnumerationImpl();
+		DEnumerationImplCustom dEnumeration = new DEnumerationImplCustom();
 		return dEnumeration;
 	}
 
@@ -274,6 +318,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< Upstream, based on 31adbbe530a348e8e7950d43c70d55be3ba288b1
 	public DMultiplicity createDMultiplicity()
 	{
 		DMultiplicityImplCustom dMultiplicity = new DMultiplicityImplCustom();
@@ -285,6 +330,9 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+=======
+	@Override
+>>>>>>> 0d09db5 SIM: update to enhanced BASE model and semantics
 	public DAttribute createDAttribute()
 	{
 		DAttributeImpl dAttribute = new DAttributeImpl();
@@ -298,7 +346,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 */
 	public DQuery createDQuery()
 	{
-		DQueryImpl dQuery = new DQueryImpl();
+		DQueryImplCustom dQuery = new DQueryImplCustom();
 		return dQuery;
 	}
 
@@ -353,7 +401,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 */
 	public DDomainEvent createDDomainEvent()
 	{
-		DDomainEventImpl dDomainEvent = new DDomainEventImpl();
+		DDomainEventImplCustom dDomainEvent = new DDomainEventImplCustom();
 		return dDomainEvent;
 	}
 
@@ -375,7 +423,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 */
 	public DNotification createDNotification()
 	{
-		DNotificationImpl dNotification = new DNotificationImpl();
+		DNotificationImplCustom dNotification = new DNotificationImplCustom();
 		return dNotification;
 	}
 
@@ -410,6 +458,28 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	{
 		DServiceImpl dService = new DServiceImpl();
 		return dService;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DMultiplicityShorthand createDMultiplicityShorthandFromString(EDataType eDataType, String initialValue)
+	{
+		DMultiplicityShorthand result = DMultiplicityShorthand.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDMultiplicityShorthandToString(EDataType eDataType, Object instanceValue)
+	{
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
@@ -461,6 +531,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< Upstream, based on 31adbbe530a348e8e7950d43c70d55be3ba288b1
 	public DMultiplicityShorthand createDMultiplicityShorthandFromString(EDataType eDataType, String initialValue)
 	{
 		DMultiplicityShorthand result = DMultiplicityShorthand.get(initialValue);
@@ -483,6 +554,9 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+=======
+	@Override
+>>>>>>> 0d09db5 SIM: update to enhanced BASE model and semantics
 	public BasePackage getBasePackage()
 	{
 		return (BasePackage)getEPackage();

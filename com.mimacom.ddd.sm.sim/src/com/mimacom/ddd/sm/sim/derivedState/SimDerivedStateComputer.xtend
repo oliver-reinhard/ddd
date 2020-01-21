@@ -2,62 +2,64 @@ package com.mimacom.ddd.sm.sim.derivedState
 
 import com.google.common.collect.Lists
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DComplexType
-import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DType
 import com.mimacom.ddd.dm.base.IDeducibleElement
-import com.mimacom.ddd.dm.base.ITypeContainer
-import com.mimacom.ddd.sm.sim.SAggregateDeduction
 import com.mimacom.ddd.sm.sim.SComplexTypeDeduction
-import com.mimacom.ddd.sm.sim.SGrabAggregateRule
 import com.mimacom.ddd.sm.sim.SInformationModel
 import com.mimacom.ddd.sm.sim.STypeDeduction
 import java.util.Collections
-import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.xtext.resource.DerivedStateAwareResource
 import org.eclipse.xtext.resource.IDerivedStateComputer
-import com.mimacom.ddd.sm.sim.SInformationModelKind
 
 class SimDerivedStateComputer implements IDerivedStateComputer {
-	
-	@Inject extension SyntheticModelElementsFactory
+
+	@Inject extension SAggregateDeductionRuleProcessor
 	@Inject extension STypeDeductionRuleProcessor
 	@Inject extension SFeatureDeductionRuleProcessor
-	
+
 	@Inject TransformationContext context
-	
+
+	var derivedStateInstalled = false
+
 	override void installDerivedState(DerivedStateAwareResource resource, boolean preLinkingPhase) {
-		if (!preLinkingPhase) {
+		if (!preLinkingPhase && ! resource.parseResult.hasSyntaxErrors) {
+			derivedStateInstalled = true
 			context.init(resource)
 			val model = resource.allContents.head as SInformationModel
 			processInformationModel(model, context)
 		}
 	}
-	
+
 	override discardDerivedState(DerivedStateAwareResource resource) {
+		if (derivedStateInstalled) {
 			// create list from TreeIterator because we are going to modify the tree while we iterate over the elements:
 			val syntheticElements = resource.allContents.filter(IDeducibleElement).filter[synthetic]
 			val list = Lists.newArrayList
-			while(syntheticElements.hasNext) list.add(syntheticElements.next)
-			for(e : list) {
+			while (syntheticElements.hasNext)
+				list.add(syntheticElements.next)
+			for (e : list) {
 				EcoreUtil.remove(e)
 			}
+			derivedStateInstalled = false
+		}
 	}
-	
-	def  void processInformationModel(SInformationModel model, TransformationContext context) {
-		val typeDeductionDefinitions = model.types.filter(STypeDeduction)?.toList  // cannot sort iterable 
+
+	def void processInformationModel(SInformationModel model, TransformationContext context) {
+		// First: process the types defined by the model:
+		val typeDeductionDefinitions = model.types.filter(STypeDeduction)?.toList // cannot sort iterable 
 		if (typeDeductionDefinitions !== null) {
 			Collections.sort(typeDeductionDefinitions, new TypeSorter)
 			val complexSyntheticTypes = Lists.newArrayList
-			for (definition : typeDeductionDefinitions) { 
+			for (definition : typeDeductionDefinitions) {
 				val rule = definition.deductionRule
 				val source = rule.source
 				if (source instanceof DType) {
-					val syntheticType = model.processTypeDeduction(definition, rule, context) 
+					val syntheticType = model.processTypeDeduction(definition, rule, context)
 					if (definition instanceof SComplexTypeDeduction) {
-						complexSyntheticTypes.add(new SyntheticComplexTypeDescriptor(syntheticType as DComplexType, definition, source as DComplexType))
+						complexSyntheticTypes.add(
+							new SyntheticFeatureContainerDescriptor(syntheticType as DComplexType, definition, source as DComplexType))
 					}
 				}
 			}
@@ -65,43 +67,29 @@ class SimDerivedStateComputer implements IDerivedStateComputer {
 				desc.addSyntheticFeatures(context)
 			}
 		}
+
+		// Second: process aggregates and their elements:
+		val originalAggregates = Lists.newArrayList(model.aggregates) // cannot add to list while iterating it
+		val syntheticComplexTypesAcceptor = Lists.newArrayList
+		for (aggregate : originalAggregates) {
+			aggregate.processAggregateTypes(model, syntheticComplexTypesAcceptor, context)
+		}
 		
+		// Third: add the features to the new synthetic types:
+		for (syntheticComplexTypesDescriptor : syntheticComplexTypesAcceptor) {
+			syntheticComplexTypesDescriptor.addSyntheticFeatures(context)
+		}
+
+		// Fourth: explicit queries (= queries added without rule):
+		for (aggregate : originalAggregates) {
+			aggregate.processAggregateQueries(model, context)
+		}
+
+		// Fifth: process proxies:
 		for (domainDeduction : model.domainProxies) {
 			//
 			// TODO
 			//
-		}
-		
-		val modelList = Lists.newArrayList(model.aggregates) // cannot add to list while iterating it
-		for (aggregate : modelList) {
-			model.processAggregate(aggregate, context)
-		}
-	}
-	
-	def  void processAggregate(SInformationModel model, DAggregate dAggregate, TransformationContext context) {
-		var ITypeContainer syntheticTypesContainer = if (model.kind == SInformationModelKind.CORE) dAggregate else model
-		val complexSyntheticTypesAcceptor = Lists.newArrayList
-		if (dAggregate instanceof SAggregateDeduction) {
-			val deductionDefinition = dAggregate
-			if (deductionDefinition.deductionRule instanceof SGrabAggregateRule) {
-				var source = deductionDefinition.deductionRule.source as EObject
-				if (source instanceof DEntityType) { // aggregates don't have a name and cannot be linked to => source = root
-					source = source.eContainer // => should be a DAggregate
-				}
-				if (source instanceof DAggregate) {
-					if (model.kind == SInformationModelKind.CORE) {
-						syntheticTypesContainer = model.addSyntheticAggregate(deductionDefinition, context)
-					}
-					syntheticTypesContainer.addImplicitSyntheticTypes(deductionDefinition, source, complexSyntheticTypesAcceptor, context) // adds types but not features of complex types
-				}
-			}
-		}
-			
-		syntheticTypesContainer.addSyntheticTypes(dAggregate, complexSyntheticTypesAcceptor, context)
-		
-		// Now add the features to the new synthetic types:
-		for (desc : complexSyntheticTypesAcceptor) {
-			desc.addSyntheticFeatures(context)
 		}
 	}
 }

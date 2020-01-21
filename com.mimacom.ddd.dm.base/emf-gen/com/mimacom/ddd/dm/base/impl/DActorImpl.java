@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class DActorImpl extends DNamedElementImpl implements DActor
+public abstract class DActorImpl extends DNavigableMemberImplCustom implements DActor
 {
 	/**
 	 * <!-- begin-user-doc -->

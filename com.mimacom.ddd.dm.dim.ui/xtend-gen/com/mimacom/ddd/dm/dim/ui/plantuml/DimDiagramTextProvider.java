@@ -171,7 +171,7 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         {
-          boolean _isEmpty_1 = a.getStaticQueries().isEmpty();
+          boolean _isEmpty_1 = a.getFeatures().isEmpty();
           boolean _not_1 = (!_isEmpty_1);
           if (_not_1) {
             CharSequence _generateAggregateQueries = this.generateAggregateQueries(a);
@@ -299,9 +299,9 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     {
-      EList<DQuery> _staticQueries = a.getStaticQueries();
-      for(final DQuery q : _staticQueries) {
-        CharSequence _generateStaticQuery = this.generateStaticQuery(q);
+      EList<DFeature> _features = a.getFeatures();
+      for(final DFeature q : _features) {
+        CharSequence _generateStaticQuery = this.generateStaticQuery(((DQuery) q));
         _builder.append(_generateStaticQuery, "\t");
       }
     }

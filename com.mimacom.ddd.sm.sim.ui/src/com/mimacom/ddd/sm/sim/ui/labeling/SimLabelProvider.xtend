@@ -7,9 +7,9 @@ import com.google.inject.Inject
 import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DFeature
 import com.mimacom.ddd.dm.base.DLiteral
+import com.mimacom.ddd.dm.base.DNamedPredicate
 import com.mimacom.ddd.dm.base.DQueryParameter
 import com.mimacom.ddd.dm.base.DType
-import com.mimacom.ddd.dm.dim.DimUtil
 import com.mimacom.ddd.sm.sim.SAggregateDeduction
 import com.mimacom.ddd.sm.sim.SFeatureDeduction
 import com.mimacom.ddd.sm.sim.SLiteralDeduction
@@ -18,7 +18,6 @@ import com.mimacom.ddd.sm.sim.STypeDeduction
 import com.mimacom.ddd.sm.sim.SimUtil
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
-import com.mimacom.ddd.dm.base.DNamedPredicate
 
 /**
  * Provides labels for EObjects.
@@ -27,7 +26,6 @@ import com.mimacom.ddd.dm.base.DNamedPredicate
  */
 class SimLabelProvider extends DefaultEObjectLabelProvider {
 
-	@Inject extension DimUtil
 	@Inject extension SimUtil
 	@Inject
 	new(AdapterFactoryLabelProvider delegate) {

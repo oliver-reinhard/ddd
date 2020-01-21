@@ -11,10 +11,8 @@ import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.sm.asm.SServiceInterface;
-import com.mimacom.ddd.sm.asm.SServiceOperation;
 import com.mimacom.ddd.sm.asm.SServiceParameter;
 import com.mimacom.ddd.sm.asm.scoping.AbstractAsmScopeProvider;
-import com.mimacom.ddd.sm.sim.SCoreQuery;
 import com.mimacom.ddd.sm.sim.SInformationModel;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
@@ -59,21 +57,9 @@ public class AsmScopeProvider extends AbstractAsmScopeProvider {
   protected IScope getEContainerNavigableMembersScopeSwitch(final INavigableMemberContainer container, final IScope outerScope) {
     IScope _switchResult = null;
     boolean _matched = false;
-    if (container instanceof SCoreQuery) {
+    if (container instanceof SServiceInterface) {
       _matched=true;
-      _switchResult = Scopes.scopeFor(((SCoreQuery)container).getParameters(), outerScope);
-    }
-    if (!_matched) {
-      if (container instanceof SServiceOperation) {
-        _matched=true;
-        _switchResult = Scopes.scopeFor(((SServiceOperation)container).getParameters(), outerScope);
-      }
-    }
-    if (!_matched) {
-      if (container instanceof SServiceInterface) {
-        _matched=true;
-        _switchResult = this.getServiceInterfaceCoreNavigableMembersScope(((SServiceInterface)container).getCore(), outerScope);
-      }
+      _switchResult = this.getServiceInterfaceCoreNavigableMembersScope(((SServiceInterface)container).getCore(), outerScope);
     }
     if (!_matched) {
       _switchResult = super.getEContainerNavigableMembersScopeSwitch(container, outerScope);
@@ -90,7 +76,6 @@ public class AsmScopeProvider extends AbstractAsmScopeProvider {
         return Boolean.valueOf((!(it instanceof IDeductionDefinition)));
       };
       Iterables.<EObject>addAll(list, IterableExtensions.<DType>filter(EcoreUtil2.<DType>eAllOfType(core, DType.class), _function));
-      list.addAll(core.getQueries());
       _xblockexpression = Scopes.scopeFor(list, outerScope);
     }
     return _xblockexpression;

@@ -3,8 +3,9 @@
  */
 package com.mimacom.ddd.dm.esm.impl;
 
+import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DEntityType;
-import com.mimacom.ddd.dm.base.INamespace;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
 import com.mimacom.ddd.dm.base.impl.DNamedElementImpl;
@@ -43,6 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmEntityStateModelImpl#getDirection <em>Direction</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmEntityStateModelImpl#getStates <em>States</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmEntityStateModelImpl#getTransitions <em>Transitions</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmEntityStateModelImpl#getNavigableMembers <em>Navigable Members</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.impl.EsmEntityStateModelImpl#getForType <em>For Type</em>}</li>
  * </ul>
  *
@@ -182,6 +184,21 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 	 * @generated
 	 */
 	@Override
+	public EList<DNavigableMember> getNavigableMembers()
+	{
+		// TODO: implement this method to return the 'Navigable Members' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public DEntityType getForType()
 	{
 		if (forType != null && forType.eIsProxy())
@@ -255,6 +272,8 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 				return getStates();
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__TRANSITIONS:
 				return getTransitions();
+			case EsmPackage.ESM_ENTITY_STATE_MODEL__NAVIGABLE_MEMBERS:
+				return getNavigableMembers();
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__FOR_TYPE:
 				if (resolve) return getForType();
 				return basicGetForType();
@@ -284,6 +303,10 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 				getTransitions().clear();
 				getTransitions().addAll((Collection<? extends EsmTransition>)newValue);
 				return;
+			case EsmPackage.ESM_ENTITY_STATE_MODEL__NAVIGABLE_MEMBERS:
+				getNavigableMembers().clear();
+				getNavigableMembers().addAll((Collection<? extends DNavigableMember>)newValue);
+				return;
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__FOR_TYPE:
 				setForType((DEntityType)newValue);
 				return;
@@ -310,6 +333,9 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__TRANSITIONS:
 				getTransitions().clear();
 				return;
+			case EsmPackage.ESM_ENTITY_STATE_MODEL__NAVIGABLE_MEMBERS:
+				getNavigableMembers().clear();
+				return;
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__FOR_TYPE:
 				setForType((DEntityType)null);
 				return;
@@ -333,6 +359,8 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 				return states != null && !states.isEmpty();
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__TRANSITIONS:
 				return transitions != null && !transitions.isEmpty();
+			case EsmPackage.ESM_ENTITY_STATE_MODEL__NAVIGABLE_MEMBERS:
+				return !getNavigableMembers().isEmpty();
 			case EsmPackage.ESM_ENTITY_STATE_MODEL__FOR_TYPE:
 				return forType != null;
 		}
@@ -364,17 +392,11 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 				default: return -1;
 			}
 		}
-		if (baseClass == INamespace.class)
-		{
-			switch (derivedFeatureID)
-			{
-				default: return -1;
-			}
-		}
 		if (baseClass == INavigableMemberContainer.class)
 		{
 			switch (derivedFeatureID)
 			{
+				case EsmPackage.ESM_ENTITY_STATE_MODEL__NAVIGABLE_MEMBERS: return BasePackage.INAVIGABLE_MEMBER_CONTAINER__NAVIGABLE_MEMBERS;
 				default: return -1;
 			}
 		}
@@ -406,17 +428,11 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 				default: return -1;
 			}
 		}
-		if (baseClass == INamespace.class)
-		{
-			switch (baseFeatureID)
-			{
-				default: return -1;
-			}
-		}
 		if (baseClass == INavigableMemberContainer.class)
 		{
 			switch (baseFeatureID)
 			{
+				case BasePackage.INAVIGABLE_MEMBER_CONTAINER__NAVIGABLE_MEMBERS: return EsmPackage.ESM_ENTITY_STATE_MODEL__NAVIGABLE_MEMBERS;
 				default: return -1;
 			}
 		}
