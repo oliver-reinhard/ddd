@@ -1,7 +1,7 @@
 package com.mimacom.ddd.dm.dmx.indexing
 
-import com.mimacom.ddd.dm.base.DDomain
 import com.mimacom.ddd.dm.base.DEntityType
+import com.mimacom.ddd.dm.base.DNamespace
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider
@@ -15,7 +15,7 @@ class DmxQualifiedNameProvider extends DefaultDeclarativeQualifiedNameProvider {
 	override QualifiedName getFullyQualifiedName(EObject obj) {
 		if (obj instanceof DEntityType) {
 			if (obj.root) {
-				val domain = EcoreUtil2.getContainerOfType(obj, DDomain)
+				val domain = EcoreUtil2.getContainerOfType(obj, DNamespace)
 				if (domain !== null && obj.name !== null) {
 					val domainQN = computeFullyQualifiedName(domain)
 					val rootQN = domainQN.append(obj.name)

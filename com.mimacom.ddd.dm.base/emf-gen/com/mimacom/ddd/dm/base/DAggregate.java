@@ -14,14 +14,13 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.mimacom.ddd.dm.base.DAggregate#getRoots <em>Roots</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.DAggregate#getStaticQueries <em>Static Queries</em>}</li>
  * </ul>
  *
  * @see com.mimacom.ddd.dm.base.BasePackage#getDAggregate()
  * @model
  * @generated
  */
-public interface DAggregate extends DNamedElement, ITypeContainer, INavigableMemberContainer, IStaticReferenceTarget, IDeducibleElement
+public interface DAggregate extends DNamedElement, ITypeContainer, IFeatureContainer, INavigableMemberContainer, IStaticReferenceTarget, IDeducibleElement
 {
 	/**
 	 * Returns the value of the '<em><b>Roots</b></em>' reference list.
@@ -34,17 +33,5 @@ public interface DAggregate extends DNamedElement, ITypeContainer, INavigableMem
 	 * @generated
 	 */
 	EList<DEntityType> getRoots();
-
-	/**
-	 * Returns the value of the '<em><b>Static Queries</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DQuery}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Static Queries</em>' containment reference list.
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDAggregate_StaticQueries()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<DQuery> getStaticQueries();
 
 } // DAggregate

@@ -120,8 +120,8 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cQueryKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cStaticQueriesAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cStaticQueriesDQueryParserRuleCall_5_1_0 = (RuleCall)cStaticQueriesAssignment_5_1.eContents().get(0);
+		private final Assignment cFeaturesAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cFeaturesDQueryParserRuleCall_5_1_0 = (RuleCall)cFeaturesAssignment_5_1.eContents().get(0);
 		private final Assignment cTypesAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cTypesDTypeParserRuleCall_6_0 = (RuleCall)cTypesAssignment_6.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
@@ -131,12 +131,12 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		//	'component'
 		//	name=ID
 		//	description=DRichText?
-		//	'{' ('query' staticQueries+=DQuery)*
+		//	'{' ('query' features+=DQuery)*
 		//	types+=DType*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DAggregate} 'component' name=ID description=DRichText? '{' ('query' staticQueries+=DQuery)* types+=DType* '}'
+		//{DAggregate} 'component' name=ID description=DRichText? '{' ('query' features+=DQuery)* types+=DType* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{DAggregate}
@@ -160,17 +160,17 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
 		
-		//('query' staticQueries+=DQuery)*
+		//('query' features+=DQuery)*
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//'query'
 		public Keyword getQueryKeyword_5_0() { return cQueryKeyword_5_0; }
 		
-		//staticQueries+=DQuery
-		public Assignment getStaticQueriesAssignment_5_1() { return cStaticQueriesAssignment_5_1; }
+		//features+=DQuery
+		public Assignment getFeaturesAssignment_5_1() { return cFeaturesAssignment_5_1; }
 		
 		//DQuery
-		public RuleCall getStaticQueriesDQueryParserRuleCall_5_1_0() { return cStaticQueriesDQueryParserRuleCall_5_1_0; }
+		public RuleCall getFeaturesDQueryParserRuleCall_5_1_0() { return cFeaturesDQueryParserRuleCall_5_1_0; }
 		
 		//types+=DType*
 		public Assignment getTypesAssignment_6() { return cTypesAssignment_6; }
@@ -1490,7 +1490,7 @@ public class DimGrammarAccess extends AbstractGrammarElementFinder {
 	//	'component'
 	//	name=ID
 	//	description=DRichText?
-	//	'{' ('query' staticQueries+=DQuery)*
+	//	'{' ('query' features+=DQuery)*
 	//	types+=DType*
 	//	'}';
 	public DAggregateElements getDAggregateAccess() {

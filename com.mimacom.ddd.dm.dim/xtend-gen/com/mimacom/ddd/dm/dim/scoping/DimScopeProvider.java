@@ -11,14 +11,14 @@ import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DDetailType;
-import com.mimacom.ddd.dm.base.DDomain;
 import com.mimacom.ddd.dm.base.DEntityType;
-import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
+import com.mimacom.ddd.dm.base.IAggregateContainer;
 import com.mimacom.ddd.dm.dim.scoping.AbstractDimScopeProvider;
 import java.util.ArrayList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.EcoreUtil2;
@@ -35,85 +35,84 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
  */
 @SuppressWarnings("all")
 public class DimScopeProvider extends AbstractDimScopeProvider {
-  private final BasePackage epackage = BasePackage.eINSTANCE;
+  private final BasePackage BASE = BasePackage.eINSTANCE;
   
   @Override
   public IScope getScope(final EObject context, final EReference reference) {
-    EReference _dNavigableMember_Type = this.epackage.getDNavigableMember_Type();
+    EReference _dNavigableMember_Type = this.BASE.getDNavigableMember_Type();
     boolean _equals = Objects.equal(reference, _dNavigableMember_Type);
     if (_equals) {
-      IScope _switchResult = null;
-      boolean _matched = false;
-      if (context instanceof DAttribute) {
-        _matched=true;
-        IScope _xifexpression = null;
-        boolean _isDetail = ((DAttribute)context).isDetail();
-        boolean _equals_1 = (_isDetail == true);
-        if (_equals_1) {
-          _xifexpression = this.getDefaultScopeForType(context, this.epackage.getDDetailType());
-        } else {
-          _xifexpression = this.getDefaultScopeForType(context, this.epackage.getIValueType());
-        }
-        _switchResult = _xifexpression;
-      }
-      if (!_matched) {
-        if (context instanceof DQuery) {
-          _matched=true;
-          _switchResult = this.getLocalEntityTypeScope(((DNavigableMember)context), this.getDefaultScopeForType(context, this.epackage.getIValueType()));
-        }
-      }
-      if (!_matched) {
-        if (context instanceof DAssociation) {
-          _matched=true;
-          _switchResult = this.getDefaultScopeForType(context, this.epackage.getDEntityType());
-        }
-      }
-      if (!_matched) {
-        if (context instanceof DQueryParameter) {
-          _matched=true;
-          _switchResult = this.getLocalEntityTypeScope(((DNavigableMember)context), this.getDefaultScopeForType(context, this.epackage.getIValueType()));
-        }
-      }
-      if (!_matched) {
-        _switchResult = this.getDefaultScopeForType(context, this.epackage.getIValueType());
-      }
-      final IScope scope = _switchResult;
-      return scope;
+      return this.getNavigableMemberTypeScope(context, IScope.NULLSCOPE);
     } else {
-      EReference _dComplexType_SuperType = this.epackage.getDComplexType_SuperType();
+      EReference _dComplexType_SuperType = this.BASE.getDComplexType_SuperType();
       boolean _equals_1 = Objects.equal(reference, _dComplexType_SuperType);
       if (_equals_1) {
-        IScope _switchResult_1 = null;
-        boolean _matched_1 = false;
+        IScope _switchResult = null;
+        boolean _matched = false;
         if (context instanceof DEntityType) {
-          _matched_1=true;
-          _switchResult_1 = this.getIdentityTypeScope(((DEntityType)context), DEntityType.class);
+          _matched=true;
+          _switchResult = this.getIdentityTypeScope(((DEntityType)context), DEntityType.class);
         }
-        if (!_matched_1) {
+        if (!_matched) {
           if (context instanceof DDetailType) {
-            _matched_1=true;
-            _switchResult_1 = this.getDefaultScopeForType(context, this.epackage.getDDetailType());
+            _matched=true;
+            _switchResult = this.getDefaultScopeOfType(context, this.BASE.getDDetailType());
           }
         }
-        if (!_matched_1) {
-          _switchResult_1 = IScope.NULLSCOPE;
+        if (!_matched) {
+          _switchResult = IScope.NULLSCOPE;
         }
-        return _switchResult_1;
+        return _switchResult;
       }
     }
     return super.getScope(context, reference);
   }
   
-  public IScope getLocalEntityTypeScope(final DNavigableMember context, final IScope outerScope) {
-    final DAggregate aggregate = EcoreUtil2.<DAggregate>getContainerOfType(context, DAggregate.class);
-    if (((aggregate != null) && (!aggregate.getRoots().isEmpty()))) {
-      return Scopes.scopeFor(aggregate.getRoots(), outerScope);
+  /**
+   * Returns the scope for the 'type' property of DNavigableMembers.
+   */
+  public IScope getNavigableMemberTypeScope(final EObject context, final IScope outerScope) {
+    EClass _switchResult = null;
+    boolean _matched = false;
+    if (context instanceof DAttribute) {
+      _matched=true;
+      EClass _xifexpression = null;
+      boolean _isDetail = ((DAttribute)context).isDetail();
+      if (_isDetail) {
+        _xifexpression = this.BASE.getDDetailType();
+      } else {
+        _xifexpression = this.BASE.getIValueType();
+      }
+      _switchResult = _xifexpression;
     }
-    return outerScope;
+    if (!_matched) {
+      if (context instanceof DQuery) {
+        _matched=true;
+        _switchResult = this.BASE.getDType();
+      }
+    }
+    if (!_matched) {
+      if (context instanceof DAssociation) {
+        _matched=true;
+        _switchResult = this.BASE.getDEntityType();
+      }
+    }
+    if (!_matched) {
+      if (context instanceof DQueryParameter) {
+        _matched=true;
+        _switchResult = this.BASE.getDType();
+      }
+    }
+    if (!_matched) {
+      _switchResult = this.BASE.getIValueType();
+    }
+    final EClass type = _switchResult;
+    final IScope scope = this.getDefaultScopeOfType(context, type);
+    return scope;
   }
   
   public IScope getIdentityTypeScope(final DEntityType context, final Class<?> type) {
-    final DDomain domain = EcoreUtil2.<DDomain>getContainerOfType(context, DDomain.class);
+    final IAggregateContainer domain = EcoreUtil2.<IAggregateContainer>getContainerOfType(context, IAggregateContainer.class);
     if ((domain != null)) {
       final ArrayList<DEntityType> list = Lists.<DEntityType>newArrayList();
       EList<DAggregate> _aggregates = domain.getAggregates();

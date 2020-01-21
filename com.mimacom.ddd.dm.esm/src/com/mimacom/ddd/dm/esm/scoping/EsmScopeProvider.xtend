@@ -3,9 +3,6 @@
  */
 package com.mimacom.ddd.dm.esm.scoping
 
-import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.INavigableMemberContainer
-import com.mimacom.ddd.dm.dmx.DmxUtil
 import com.mimacom.ddd.dm.esm.EsmEntityStateModel
 import com.mimacom.ddd.dm.esm.EsmPackage
 import com.mimacom.ddd.dm.esm.EsmTransition
@@ -25,9 +22,6 @@ import org.eclipse.xtext.scoping.Scopes
  */
 class EsmScopeProvider extends AbstractEsmScopeProvider {
 
-	@Inject extension DmxUtil
-
-//	static val BASE = BasePackage.eINSTANCE
 	static val ESM = EsmPackage.eINSTANCE
 
 	override getScope(EObject context, EReference reference) {
@@ -85,11 +79,11 @@ class EsmScopeProvider extends AbstractEsmScopeProvider {
 		return IScope.NULLSCOPE
 	}
 
-	protected override IScope getEContainerNavigableMembersScopeSwitch(INavigableMemberContainer container, IScope outerScope) {
-		val scope = switch container {
-			EsmEntityStateModel: Scopes.scopeFor(container.forType.allFeatures, outerScope)
-			default: super.getEContainerNavigableMembersScopeSwitch(container, outerScope)
-		}
-		return scope
-	}
+//	protected override IScope getEContainerNavigableMembersScopeSwitch(INavigableMemberContainer container, IScope outerScope) {
+//		val scope = switch container {
+//			EsmEntityStateModel: Scopes.scopeFor(container.forType.allFeatures, outerScope)
+//			default: super.getEContainerNavigableMembersScopeSwitch(container, outerScope)
+//		}
+//		return scope
+//	}
 }

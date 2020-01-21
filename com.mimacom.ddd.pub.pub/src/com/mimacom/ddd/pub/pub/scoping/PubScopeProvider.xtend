@@ -42,7 +42,7 @@ class PubScopeProvider extends AbstractPubScopeProvider {
 				case BIBLIOGRAPHY: PUB.bibliographyEntry
 				default: PUB.referenceTarget
 			}
-			return getDefaultScopeForType(context, targetScope)
+			return getDefaultScopeOfType(context, targetScope)
 		}
 		return super.getScope(context, reference)
 	}

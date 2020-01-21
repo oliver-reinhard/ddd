@@ -66,7 +66,6 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 		switch (eClass.getClassifierID())
 		{
 			case SimPackage.SINFORMATION_MODEL: return createSInformationModel();
-			case SimPackage.SCORE_QUERY: return createSCoreQuery();
 			case SimPackage.SIMPLICIT_ELEMENT_DEDUCTION: return createSImplicitElementDeduction();
 			case SimPackage.SDOMAIN_DEDUCTION: return createSDomainDeduction();
 			case SimPackage.SAGGREGATE_DEDUCTION: return createSAggregateDeduction();
@@ -138,18 +137,6 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory
 	{
 		SInformationModelImpl sInformationModel = new SInformationModelImpl();
 		return sInformationModel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SCoreQuery createSCoreQuery()
-	{
-		SCoreQueryImpl sCoreQuery = new SCoreQueryImpl();
-		return sCoreQuery;
 	}
 
 	/**

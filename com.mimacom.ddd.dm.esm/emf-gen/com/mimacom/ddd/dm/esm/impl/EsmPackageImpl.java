@@ -211,20 +211,9 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getEsmDomain_Imports()
-	{
-		return (EReference)esmDomainEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getEsmDomain_StateModel()
 	{
-		return (EReference)esmDomainEClass.getEStructuralFeatures().get(1);
+		return (EReference)esmDomainEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -534,7 +523,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 
 		// Create classes and their features
 		esmDomainEClass = createEClass(ESM_DOMAIN);
-		createEReference(esmDomainEClass, ESM_DOMAIN__IMPORTS);
 		createEReference(esmDomainEClass, ESM_DOMAIN__STATE_MODEL);
 
 		iEsmLayoutEClass = createEClass(IESM_LAYOUT);
@@ -607,7 +595,7 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		esmDomainEClass.getESuperTypes().add(theBasePackage.getDNamedElement());
+		esmDomainEClass.getESuperTypes().add(theBasePackage.getDNamespace());
 		iEsmStateModelEClass.getESuperTypes().add(this.getIEsmLayout());
 		esmEntityStateModelEClass.getESuperTypes().add(theBasePackage.getDNamedElement());
 		esmEntityStateModelEClass.getESuperTypes().add(this.getIEsmStateModel());
@@ -622,7 +610,6 @@ public class EsmPackageImpl extends EPackageImpl implements EsmPackage
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(esmDomainEClass, EsmDomain.class, "EsmDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEsmDomain_Imports(), theBasePackage.getDImport(), null, "imports", null, 0, -1, EsmDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEsmDomain_StateModel(), this.getEsmEntityStateModel(), null, "stateModel", null, 0, 1, EsmDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iEsmLayoutEClass, IEsmLayout.class, "IEsmLayout", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

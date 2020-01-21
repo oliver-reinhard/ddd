@@ -3,6 +3,7 @@
 package com.mimacom.ddd.dm.dmx.impl;
 
 import com.mimacom.ddd.dm.base.DComplexType;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 
 import com.mimacom.ddd.dm.dmx.DmxComplexObject;
 import com.mimacom.ddd.dm.dmx.DmxField;
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxComplexObjectImpl#getNavigableMembers <em>Navigable Members</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxComplexObjectImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxComplexObjectImpl#getFields <em>Fields</em>}</li>
  * </ul>
@@ -79,6 +81,21 @@ public class DmxComplexObjectImpl extends MinimalEObjectImpl.Container implement
 	protected EClass eStaticClass()
 	{
 		return DmxPackage.Literals.DMX_COMPLEX_OBJECT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<DNavigableMember> getNavigableMembers()
+	{
+		// TODO: implement this method to return the 'Navigable Members' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -167,6 +184,8 @@ public class DmxComplexObjectImpl extends MinimalEObjectImpl.Container implement
 	{
 		switch (featureID)
 		{
+			case DmxPackage.DMX_COMPLEX_OBJECT__NAVIGABLE_MEMBERS:
+				return getNavigableMembers();
 			case DmxPackage.DMX_COMPLEX_OBJECT__TYPE:
 				if (resolve) return getType();
 				return basicGetType();
@@ -187,6 +206,10 @@ public class DmxComplexObjectImpl extends MinimalEObjectImpl.Container implement
 	{
 		switch (featureID)
 		{
+			case DmxPackage.DMX_COMPLEX_OBJECT__NAVIGABLE_MEMBERS:
+				getNavigableMembers().clear();
+				getNavigableMembers().addAll((Collection<? extends DNavigableMember>)newValue);
+				return;
 			case DmxPackage.DMX_COMPLEX_OBJECT__TYPE:
 				setType((DComplexType)newValue);
 				return;
@@ -208,6 +231,9 @@ public class DmxComplexObjectImpl extends MinimalEObjectImpl.Container implement
 	{
 		switch (featureID)
 		{
+			case DmxPackage.DMX_COMPLEX_OBJECT__NAVIGABLE_MEMBERS:
+				getNavigableMembers().clear();
+				return;
 			case DmxPackage.DMX_COMPLEX_OBJECT__TYPE:
 				setType((DComplexType)null);
 				return;
@@ -228,6 +254,8 @@ public class DmxComplexObjectImpl extends MinimalEObjectImpl.Container implement
 	{
 		switch (featureID)
 		{
+			case DmxPackage.DMX_COMPLEX_OBJECT__NAVIGABLE_MEMBERS:
+				return !getNavigableMembers().isEmpty();
 			case DmxPackage.DMX_COMPLEX_OBJECT__TYPE:
 				return type != null;
 			case DmxPackage.DMX_COMPLEX_OBJECT__FIELDS:

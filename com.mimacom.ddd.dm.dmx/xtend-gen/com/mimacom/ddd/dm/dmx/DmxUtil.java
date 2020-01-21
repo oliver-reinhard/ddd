@@ -5,6 +5,7 @@ import com.google.common.collect.Lists;
 import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DExpression;
 import com.mimacom.ddd.dm.base.DFeature;
+import com.mimacom.ddd.dm.base.IFeatureContainer;
 import com.mimacom.ddd.dm.dmx.DmxCallArguments;
 import com.mimacom.ddd.dm.dmx.DmxComplexObject;
 import com.mimacom.ddd.dm.dmx.DmxField;
@@ -13,6 +14,7 @@ import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedHashSet;
@@ -49,7 +51,7 @@ public class DmxUtil {
   /**
    * Returns the names of all the features of the given type: its own as well as the inherited ones.
    */
-  public List<DFeature> allFeatures(final DComplexType type) {
+  protected List<DFeature> _allFeatures(final DComplexType type) {
     if ((type == null)) {
       return Collections.EMPTY_LIST;
     }
@@ -59,6 +61,10 @@ public class DmxUtil {
       features.addAll(t.getFeatures());
     }
     return features;
+  }
+  
+  protected List<DFeature> _allFeatures(final IFeatureContainer container) {
+    return container.getFeatures();
   }
   
   public List<DExpression> nullSafeCallArguments(final DmxMemberNavigation nav) {
@@ -119,5 +125,16 @@ public class DmxUtil {
       }
     }
     return null;
+  }
+  
+  public List<DFeature> allFeatures(final IFeatureContainer type) {
+    if (type instanceof DComplexType) {
+      return _allFeatures((DComplexType)type);
+    } else if (type != null) {
+      return _allFeatures(type);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(type).toString());
+    }
   }
 }

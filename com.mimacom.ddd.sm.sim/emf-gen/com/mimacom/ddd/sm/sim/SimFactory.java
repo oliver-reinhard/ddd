@@ -32,15 +32,6 @@ public interface SimFactory extends EFactory
 	SInformationModel createSInformationModel();
 
 	/**
-	 * Returns a new object of class '<em>SCore Query</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SCore Query</em>'.
-	 * @generated
-	 */
-	SCoreQuery createSCoreQuery();
-
-	/**
 	 * Returns a new object of class '<em>SImplicit Element Deduction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

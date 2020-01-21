@@ -19,6 +19,7 @@ import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.IIdentityType;
 import com.mimacom.ddd.dm.base.ITypeContainer;
 import com.mimacom.ddd.sm.sim.SGrabRule;
@@ -40,8 +41,10 @@ public class SyntheticModelElementsFactory {
   
   private static final SimFactory simFactory = SimFactory.eINSTANCE;
   
-  public DAggregate addSyntheticAggregate(final SInformationModel container, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
+  public DAggregate addSyntheticAggregate(final SInformationModel container, final String name, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
     final DAggregate syntheticAggregate = SyntheticModelElementsFactory.BASE.createDAggregate();
+    syntheticAggregate.setName(name);
+    syntheticAggregate.setSynthetic(true);
     syntheticAggregate.setDeducedFrom(deductionDefinition);
     container.getAggregates().add(syntheticAggregate);
     return syntheticAggregate;
@@ -87,7 +90,7 @@ public class SyntheticModelElementsFactory {
     context.putSystemType(source, syntheticType);
   }
   
-  public DFeature addSyntheticFeature(final DComplexType container, final String name, final DFeature source, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
+  public DFeature addSyntheticFeature(final IFeatureContainer container, final String name, final DFeature source, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
     final DType sourceFeatureType = source.getType();
     if ((sourceFeatureType == null)) {
       return null;
@@ -98,7 +101,8 @@ public class SyntheticModelElementsFactory {
     if (source instanceof DAttribute || source instanceof DAssociation) {
       _matched=true;
       DFeature _xifexpression = null;
-      if ((featureType instanceof IIdentityType)) {
+      if (((featureType instanceof IIdentityType) || 
+        ((featureType == null) && (source instanceof DAssociation)))) {
         _xifexpression = SyntheticModelElementsFactory.BASE.createDAssociation();
       } else {
         _xifexpression = SyntheticModelElementsFactory.BASE.createDAttribute();
@@ -121,7 +125,7 @@ public class SyntheticModelElementsFactory {
     return syntheticFeature;
   }
   
-  public DFeature addSyntheticFeatureAsCopy(final DComplexType container, final DFeature source, final TransformationContext context) {
+  public DFeature addSyntheticFeatureAsCopy(final IFeatureContainer container, final DFeature source, final TransformationContext context) {
     DFeature _switchResult = null;
     boolean _matched = false;
     if (source instanceof DAttribute) {
@@ -141,19 +145,30 @@ public class SyntheticModelElementsFactory {
       }
     }
     final DFeature syntheticFeature = _switchResult;
+    container.getFeatures().add(syntheticFeature);
+    this.initSyntheticFeatureAsCopy(syntheticFeature, source, context);
+    return syntheticFeature;
+  }
+  
+  public DFeature addSyntheticQueryAsCopy(final DAggregate container, final DQuery source, final TransformationContext context) {
+    final DQuery syntheticFeature = SyntheticModelElementsFactory.BASE.createDQuery();
+    container.getFeatures().add(syntheticFeature);
+    this.initSyntheticFeatureAsCopy(syntheticFeature, source, context);
+    return syntheticFeature;
+  }
+  
+  private void initSyntheticFeatureAsCopy(final DFeature syntheticFeature, final DFeature source, final TransformationContext context) {
     syntheticFeature.setName(source.getName());
     syntheticFeature.setType(source.getType());
     syntheticFeature.setMultiplicity(source.getMultiplicity());
     syntheticFeature.setSynthetic(true);
     syntheticFeature.setDeducedFrom(null);
-    container.getFeatures().add(syntheticFeature);
     if ((source instanceof DQuery)) {
       EList<DQueryParameter> _parameters = ((DQuery)source).getParameters();
       for (final DQueryParameter p : _parameters) {
         this.addSyntheticQueryParameterAsCopy(((DQuery) syntheticFeature), p, context);
       }
     }
-    return syntheticFeature;
   }
   
   public DQueryParameter addSyntheticQueryParameter(final DQuery container, final String name, final DQueryParameter source, final IDeductionDefinition deductionDefinition, final TransformationContext context) {
@@ -231,7 +246,7 @@ public class SyntheticModelElementsFactory {
     STristate _detail = r.getDetail();
     boolean _equals = Objects.equal(_detail, STristate.DONT_CARE);
     if (_equals) {
-      return (source instanceof DEntityType);
+      return (source instanceof DDetailType);
     }
     STristate _detail_1 = r.getDetail();
     return Objects.equal(_detail_1, STristate.TRUE);

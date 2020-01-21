@@ -5,7 +5,8 @@ package com.mimacom.ddd.sm.sus.impl;
 
 import com.mimacom.ddd.dm.base.DDomainEvent;
 import com.mimacom.ddd.dm.base.DImport;
-import com.mimacom.ddd.dm.base.DRichText;
+
+import com.mimacom.ddd.dm.base.impl.DNamedElementImpl;
 
 import com.mimacom.ddd.sm.sus.Section;
 import com.mimacom.ddd.sm.sus.SusPackage;
@@ -22,7 +23,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -35,8 +35,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.sm.sus.impl.UserStoryImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.mimacom.ddd.sm.sus.impl.UserStoryImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sus.impl.UserStoryImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sus.impl.UserStoryImpl#getSections <em>Sections</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.sus.impl.UserStoryImpl#getEvent <em>Event</em>}</li>
@@ -44,38 +42,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserStory
+public class UserStoryImpl extends DNamedElementImpl implements UserStory
 {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected DRichText description;
-
 	/**
 	 * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -125,81 +93,6 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 	protected EClass eStaticClass()
 	{
 		return SusPackage.Literals.USER_STORY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getName()
-	{
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setName(String newName)
-	{
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SusPackage.USER_STORY__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DRichText getDescription()
-	{
-		return description;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDescription(DRichText newDescription, NotificationChain msgs)
-	{
-		DRichText oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired())
-		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SusPackage.USER_STORY__DESCRIPTION, oldDescription, newDescription);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setDescription(DRichText newDescription)
-	{
-		if (newDescription != description)
-		{
-			NotificationChain msgs = null;
-			if (description != null)
-				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SusPackage.USER_STORY__DESCRIPTION, null, msgs);
-			if (newDescription != null)
-				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SusPackage.USER_STORY__DESCRIPTION, null, msgs);
-			msgs = basicSetDescription(newDescription, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SusPackage.USER_STORY__DESCRIPTION, newDescription, newDescription));
 	}
 
 	/**
@@ -287,8 +180,6 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 	{
 		switch (featureID)
 		{
-			case SusPackage.USER_STORY__DESCRIPTION:
-				return basicSetDescription(null, msgs);
 			case SusPackage.USER_STORY__IMPORTS:
 				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
 			case SusPackage.USER_STORY__SECTIONS:
@@ -307,10 +198,6 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 	{
 		switch (featureID)
 		{
-			case SusPackage.USER_STORY__NAME:
-				return getName();
-			case SusPackage.USER_STORY__DESCRIPTION:
-				return getDescription();
 			case SusPackage.USER_STORY__IMPORTS:
 				return getImports();
 			case SusPackage.USER_STORY__SECTIONS:
@@ -333,12 +220,6 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 	{
 		switch (featureID)
 		{
-			case SusPackage.USER_STORY__NAME:
-				setName((String)newValue);
-				return;
-			case SusPackage.USER_STORY__DESCRIPTION:
-				setDescription((DRichText)newValue);
-				return;
 			case SusPackage.USER_STORY__IMPORTS:
 				getImports().clear();
 				getImports().addAll((Collection<? extends DImport>)newValue);
@@ -364,12 +245,6 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 	{
 		switch (featureID)
 		{
-			case SusPackage.USER_STORY__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case SusPackage.USER_STORY__DESCRIPTION:
-				setDescription((DRichText)null);
-				return;
 			case SusPackage.USER_STORY__IMPORTS:
 				getImports().clear();
 				return;
@@ -393,10 +268,6 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 	{
 		switch (featureID)
 		{
-			case SusPackage.USER_STORY__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case SusPackage.USER_STORY__DESCRIPTION:
-				return description != null;
 			case SusPackage.USER_STORY__IMPORTS:
 				return imports != null && !imports.isEmpty();
 			case SusPackage.USER_STORY__SECTIONS:
@@ -405,23 +276,6 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 				return event != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString()
-	{
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
 	}
 
 } //UserStoryImpl

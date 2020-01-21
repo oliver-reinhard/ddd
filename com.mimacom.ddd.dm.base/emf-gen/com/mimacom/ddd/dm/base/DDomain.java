@@ -13,8 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getImports <em>Imports</em>}</li>
- *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getAggregates <em>Aggregates</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getEvents <em>Events</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.DDomain#getActors <em>Actors</em>}</li>
  * </ul>
@@ -23,32 +21,8 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DDomain extends DNamedElement, ITypeContainer, IStaticReferenceTarget, IDeducibleElement
+public interface DDomain extends DNamespace, IAggregateContainer, ITypeContainer, IStaticReferenceTarget, IDeducibleElement
 {
-	/**
-	 * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DImport}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Imports</em>' containment reference list.
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomain_Imports()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<DImport> getImports();
-
-	/**
-	 * Returns the value of the '<em><b>Aggregates</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DAggregate}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Aggregates</em>' containment reference list.
-	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomain_Aggregates()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<DAggregate> getAggregates();
-
 	/**
 	 * Returns the value of the '<em><b>Events</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DDomainEvent}.

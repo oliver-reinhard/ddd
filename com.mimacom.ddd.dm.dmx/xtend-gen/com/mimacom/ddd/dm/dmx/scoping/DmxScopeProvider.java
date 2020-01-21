@@ -4,38 +4,27 @@
 package com.mimacom.ddd.dm.dmx.scoping;
 
 import com.google.common.base.Objects;
-import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DActor;
-import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DComplexType;
-import com.mimacom.ddd.dm.base.DDomainEvent;
-import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DExpression;
-import com.mimacom.ddd.dm.base.DNamedElement;
-import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 import com.mimacom.ddd.dm.dmx.DmxAssignment;
 import com.mimacom.ddd.dm.dmx.DmxCallArguments;
 import com.mimacom.ddd.dm.dmx.DmxComplexObject;
-import com.mimacom.ddd.dm.dmx.DmxCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxDetail;
 import com.mimacom.ddd.dm.dmx.DmxEntity;
 import com.mimacom.ddd.dm.dmx.DmxField;
 import com.mimacom.ddd.dm.dmx.DmxFilter;
 import com.mimacom.ddd.dm.dmx.DmxMemberNavigation;
 import com.mimacom.ddd.dm.dmx.DmxPackage;
-import com.mimacom.ddd.dm.dmx.DmxPredicateWithCorrelationVariable;
 import com.mimacom.ddd.dm.dmx.DmxStaticReference;
-import com.mimacom.ddd.dm.dmx.DmxTest;
 import com.mimacom.ddd.dm.dmx.DmxUtil;
 import com.mimacom.ddd.dm.dmx.indexing.DmxIndex;
 import com.mimacom.ddd.dm.dmx.scoping.AbstractDmxScopeProvider;
 import com.mimacom.ddd.dm.dmx.typecomputer.AbstractDmxTypeDescriptor;
 import com.mimacom.ddd.dm.dmx.typecomputer.DmxTypeComputer;
-import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -73,57 +62,54 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
     EReference _dmxContextReference_Target = DmxScopeProvider.DMX.getDmxContextReference_Target();
     boolean _equals = Objects.equal(reference, _dmxContextReference_Target);
     if (_equals) {
-      final IScope outer = this.getDefaultScopeForType(context, DmxScopeProvider.BASE.getIStaticReferenceTarget());
-      final IScope scope = this.getEContainersNavigableMembersScopes(context, outer);
-      return scope;
+      return this.getContextReferenceScope(context, IScope.NULLSCOPE);
     } else {
-      EReference _dmxMemberNavigation_Member = DmxScopeProvider.DMX.getDmxMemberNavigation_Member();
-      boolean _equals_1 = Objects.equal(reference, _dmxMemberNavigation_Member);
+      EReference _dmxStaticReference_Target = DmxScopeProvider.DMX.getDmxStaticReference_Target();
+      boolean _equals_1 = Objects.equal(reference, _dmxStaticReference_Target);
       if (_equals_1) {
-        if ((context instanceof DmxMemberNavigation)) {
-          final DExpression preceding = ((DmxMemberNavigation)context).getPrecedingNavigationSegment();
-          final AbstractDmxTypeDescriptor<?> typeDescriptor = this._dmxTypeComputer.typeFor(preceding);
-          final IScope scope_1 = typeDescriptor.getNavigableMembersAndIteratorsScope(context, this.index);
-          return scope_1;
-        }
+        return this.getDefaultScopeOfType(context, DmxScopeProvider.BASE.getIStaticReferenceTarget());
       } else {
-        EReference _dmxAssignment_AssignToMember = DmxScopeProvider.DMX.getDmxAssignment_AssignToMember();
-        boolean _equals_2 = Objects.equal(reference, _dmxAssignment_AssignToMember);
+        EReference _dmxStaticReference_Member = DmxScopeProvider.DMX.getDmxStaticReference_Member();
+        boolean _equals_2 = Objects.equal(reference, _dmxStaticReference_Member);
         if (_equals_2) {
-          if ((context instanceof DmxAssignment)) {
-            final DExpression preceding_1 = ((DmxAssignment)context).getPrecedingNavigationSegment();
-            if ((preceding_1 != null)) {
-              final AbstractDmxTypeDescriptor<?> typeDescriptor_1 = this._dmxTypeComputer.typeFor(preceding_1);
-              final IScope scope_2 = typeDescriptor_1.getNavigableMembersScope();
-              return scope_2;
-            } else {
-              final IScope outer_1 = this.getDefaultScopeForType(context, DmxScopeProvider.BASE.getIStaticReferenceTarget());
-              final IScope scope_3 = this.getEContainersNavigableMembersScopes(context, outer_1);
-              return scope_3;
-            }
-          } else {
-            if ((context instanceof DmxMemberNavigation)) {
-              final DExpression preceding_2 = ((DmxMemberNavigation)context).getPrecedingNavigationSegment();
-              final AbstractDmxTypeDescriptor<?> typeDescriptor_2 = this._dmxTypeComputer.typeFor(preceding_2);
-              final IScope scope_4 = typeDescriptor_2.getNavigableMembersScope();
-              return scope_4;
+          if ((context instanceof DmxStaticReference)) {
+            final IStaticReferenceTarget target = ((DmxStaticReference)context).getTarget();
+            if ((target instanceof INavigableMemberContainer)) {
+              final IScope scope = this.getEContainerNavigableMembersScopeSwitch(((INavigableMemberContainer)target), IScope.NULLSCOPE);
+              return scope;
             }
           }
         } else {
-          EReference _dmxStaticReference_Target = DmxScopeProvider.DMX.getDmxStaticReference_Target();
-          boolean _equals_3 = Objects.equal(reference, _dmxStaticReference_Target);
+          EReference _dmxMemberNavigation_Member = DmxScopeProvider.DMX.getDmxMemberNavigation_Member();
+          boolean _equals_3 = Objects.equal(reference, _dmxMemberNavigation_Member);
           if (_equals_3) {
-            final IScope scope_5 = this.getDefaultScopeForType(context, DmxScopeProvider.BASE.getIStaticReferenceTarget());
-            return scope_5;
+            if ((context instanceof DmxMemberNavigation)) {
+              final DExpression preceding = ((DmxMemberNavigation)context).getPrecedingNavigationSegment();
+              final AbstractDmxTypeDescriptor<?> typeDescriptor = this._dmxTypeComputer.typeFor(preceding);
+              final IScope scope_1 = typeDescriptor.getNavigableMembersAndIteratorsScope(context, this.index);
+              return scope_1;
+            }
           } else {
-            EReference _dmxStaticReference_Member = DmxScopeProvider.DMX.getDmxStaticReference_Member();
-            boolean _equals_4 = Objects.equal(reference, _dmxStaticReference_Member);
+            EReference _dmxAssignment_AssignToMember = DmxScopeProvider.DMX.getDmxAssignment_AssignToMember();
+            boolean _equals_4 = Objects.equal(reference, _dmxAssignment_AssignToMember);
             if (_equals_4) {
-              if ((context instanceof DmxStaticReference)) {
-                final IStaticReferenceTarget target = ((DmxStaticReference)context).getTarget();
-                if ((target instanceof INavigableMemberContainer)) {
-                  final IScope scope_6 = this.getEContainerNavigableMembersScopeSwitch(((INavigableMemberContainer)target), IScope.NULLSCOPE);
-                  return scope_6;
+              if ((context instanceof DmxAssignment)) {
+                final DExpression preceding_1 = ((DmxAssignment)context).getPrecedingNavigationSegment();
+                if ((preceding_1 != null)) {
+                  final AbstractDmxTypeDescriptor<?> typeDescriptor_1 = this._dmxTypeComputer.typeFor(preceding_1);
+                  final IScope scope_2 = typeDescriptor_1.getNavigableMembersScope();
+                  return scope_2;
+                } else {
+                  final IScope outer = this.getDefaultScopeOfType(context, DmxScopeProvider.BASE.getIStaticReferenceTarget());
+                  final IScope scope_3 = this.getEContainersNavigableMembersScopes(context, outer);
+                  return scope_3;
+                }
+              } else {
+                if ((context instanceof DmxMemberNavigation)) {
+                  final DExpression preceding_2 = ((DmxMemberNavigation)context).getPrecedingNavigationSegment();
+                  final AbstractDmxTypeDescriptor<?> typeDescriptor_2 = this._dmxTypeComputer.typeFor(preceding_2);
+                  final IScope scope_4 = typeDescriptor_2.getNavigableMembersScope();
+                  return scope_4;
                 }
               }
             } else {
@@ -131,8 +117,8 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
               boolean _equals_5 = Objects.equal(reference, _dmxFunctionCall_Function);
               if (_equals_5) {
                 final List<DmxFilter> allFilters = this.index.allVisibleFilters(context);
-                final IScope scope_7 = Scopes.scopeFor(allFilters, super.getScope(context, reference));
-                return scope_7;
+                final IScope scope_5 = Scopes.scopeFor(allFilters, super.getScope(context, reference));
+                return scope_5;
               } else {
                 EReference _dmxField_Feature = DmxScopeProvider.DMX.getDmxField_Feature();
                 boolean _equals_6 = Objects.equal(reference, _dmxField_Feature);
@@ -155,19 +141,19 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
                       boolean _matched = false;
                       if (context instanceof DmxEntity) {
                         _matched=true;
-                        _switchResult = this.getDefaultScopeForType(context, DmxScopeProvider.BASE.getDEntityType());
+                        _switchResult = this.getDefaultScopeOfType(context, DmxScopeProvider.BASE.getDEntityType());
                       }
                       if (!_matched) {
                         if (context instanceof DmxDetail) {
                           _matched=true;
-                          _switchResult = this.getDefaultScopeForType(context, DmxScopeProvider.BASE.getDDetailType());
+                          _switchResult = this.getDefaultScopeOfType(context, DmxScopeProvider.BASE.getDDetailType());
                         }
                       }
                       if (!_matched) {
                         _switchResult = super.getScope(context, reference);
                       }
-                      final IScope scope_8 = _switchResult;
-                      return scope_8;
+                      final IScope scope_6 = _switchResult;
+                      return scope_6;
                     }
                   }
                 }
@@ -181,17 +167,23 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
   }
   
   /**
-   * Obtains the default scope for the given reference, then narrows the result down to the given type.
+   * Obtains the default scope for the given reference, then narrows the result down to the given type and returns it.
    */
-  public IScope getDefaultScopeForType(final EObject context, final EClass type) {
+  public IScope getDefaultScopeOfType(final EObject context, final EClass type) {
     final EReference reference = EcoreFactory.eINSTANCE.createEReference();
     reference.setEType(type);
     final IScope scope = super.getScope(context, reference);
     return scope;
   }
   
+  public IScope getContextReferenceScope(final EObject context, final IScope outerScope) {
+    final IScope outer = this.getDefaultScopeOfType(context, DmxScopeProvider.BASE.getIStaticReferenceTarget());
+    final IScope scope = this.getEContainersNavigableMembersScopes(context, outer);
+    return scope;
+  }
+  
   /**
-   * Returns all DNavigableMember elements of the given navigation member element along the MODEL eContainer hierarchy.
+   * Returns all DNavigableMember elements of the given navigation member element along the eContainer CONTAINMENT hierarchy.
    */
   protected final IScope getEContainersNavigableMembersScopes(final EObject context, final IScope outerScope) {
     IScope scope = outerScope;
@@ -223,64 +215,7 @@ public class DmxScopeProvider extends AbstractDmxScopeProvider {
    * Also, the elements included in the scope must implement @DNavigableMember.
    */
   protected IScope getEContainerNavigableMembersScopeSwitch(final INavigableMemberContainer container, final IScope outerScope) {
-    IScope _switchResult = null;
-    boolean _matched = false;
-    if (container instanceof DEnumeration) {
-      _matched=true;
-      _switchResult = Scopes.scopeFor(((DEnumeration)container).getLiterals(), outerScope);
-    }
-    if (!_matched) {
-      if (container instanceof DComplexType) {
-        _matched=true;
-        _switchResult = Scopes.scopeFor(this._dmxUtil.allFeatures(((DComplexType)container)), outerScope);
-      }
-    }
-    if (!_matched) {
-      if (container instanceof DQuery) {
-        _matched=true;
-        _switchResult = Scopes.scopeFor(((DQuery)container).getParameters(), outerScope);
-      }
-    }
-    if (!_matched) {
-      if (container instanceof DAggregate) {
-        _matched=true;
-        _switchResult = Scopes.scopeFor(((DAggregate)container).getStaticQueries(), outerScope);
-      }
-    }
-    if (!_matched) {
-      if (container instanceof DDomainEvent) {
-        _matched=true;
-        _switchResult = this.getDomainEventNavigableMemberScope(((DDomainEvent)container), outerScope);
-      }
-    }
-    if (!_matched) {
-      if (container instanceof DmxPredicateWithCorrelationVariable) {
-        _matched=true;
-        _switchResult = Scopes.scopeFor(Lists.<DmxCorrelationVariable>newArrayList(((DmxPredicateWithCorrelationVariable)container).getCorrelationVariable()), outerScope);
-      }
-    }
-    if (!_matched) {
-      if (container instanceof DmxTest) {
-        _matched=true;
-        _switchResult = Scopes.scopeFor(((DmxTest)container).getContext(), outerScope);
-      }
-    }
-    if (!_matched) {
-      _switchResult = outerScope;
-    }
-    final IScope scope = _switchResult;
+    final IScope scope = Scopes.scopeFor(container.getNavigableMembers(), outerScope);
     return scope;
-  }
-  
-  protected IScope getDomainEventNavigableMemberScope(final DDomainEvent event, final IScope outerScope) {
-    final ArrayList<DNamedElement> list = Lists.<DNamedElement>newArrayList();
-    list.addAll(event.getContext());
-    DActor _trigger = event.getTrigger();
-    boolean _tripleNotEquals = (_trigger != null);
-    if (_tripleNotEquals) {
-      list.add(event.getTrigger());
-    }
-    list.addAll(event.getNotifications());
-    return Scopes.scopeFor(list, outerScope);
   }
 }

@@ -4,6 +4,7 @@
 package com.mimacom.ddd.sm.asm.impl;
 
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 
 import com.mimacom.ddd.sm.asm.AsmPackage;
 import com.mimacom.ddd.sm.asm.SException;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.sm.asm.impl.SServiceOperationImpl#getNavigableMembers <em>Navigable Members</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.asm.impl.SServiceOperationImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.asm.impl.SServiceOperationImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link com.mimacom.ddd.sm.asm.impl.SServiceOperationImpl#getRaises <em>Raises</em>}</li>
@@ -125,6 +127,21 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	protected EClass eStaticClass()
 	{
 		return AsmPackage.Literals.SSERVICE_OPERATION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<DNavigableMember> getNavigableMembers()
+	{
+		// TODO: implement this method to return the 'Navigable Members' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -242,6 +259,8 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	{
 		switch (featureID)
 		{
+			case AsmPackage.SSERVICE_OPERATION__NAVIGABLE_MEMBERS:
+				return getNavigableMembers();
 			case AsmPackage.SSERVICE_OPERATION__NAME:
 				return getName();
 			case AsmPackage.SSERVICE_OPERATION__PARAMETERS:
@@ -267,6 +286,10 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	{
 		switch (featureID)
 		{
+			case AsmPackage.SSERVICE_OPERATION__NAVIGABLE_MEMBERS:
+				getNavigableMembers().clear();
+				getNavigableMembers().addAll((Collection<? extends DNavigableMember>)newValue);
+				return;
 			case AsmPackage.SSERVICE_OPERATION__NAME:
 				setName((String)newValue);
 				return;
@@ -300,6 +323,9 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	{
 		switch (featureID)
 		{
+			case AsmPackage.SSERVICE_OPERATION__NAVIGABLE_MEMBERS:
+				getNavigableMembers().clear();
+				return;
 			case AsmPackage.SSERVICE_OPERATION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -329,6 +355,8 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	{
 		switch (featureID)
 		{
+			case AsmPackage.SSERVICE_OPERATION__NAVIGABLE_MEMBERS:
+				return !getNavigableMembers().isEmpty();
 			case AsmPackage.SSERVICE_OPERATION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case AsmPackage.SSERVICE_OPERATION__PARAMETERS:

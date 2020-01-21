@@ -10,7 +10,6 @@ import com.mimacom.ddd.dm.base.DLiteral;
 import com.mimacom.ddd.dm.base.DNamedPredicate;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.dim.DimUtil;
 import com.mimacom.ddd.sm.sim.SAggregateDeduction;
 import com.mimacom.ddd.sm.sim.SFeatureDeduction;
 import com.mimacom.ddd.sm.sim.SLiteralDeduction;
@@ -30,10 +29,6 @@ import org.eclipse.xtext.xbase.lib.Extension;
 public class SimLabelProvider extends DefaultEObjectLabelProvider {
   @Inject
   @Extension
-  private DimUtil _dimUtil;
-  
-  @Inject
-  @Extension
   private SimUtil _simUtil;
   
   @Inject
@@ -46,7 +41,7 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
       String _label = this._simUtil.label(((SAggregateDeduction)a).getDeductionRule());
       return (">" + _label);
     }
-    return this._dimUtil.label(a);
+    return this._simUtil.label(a);
   }
   
   public String text(final DType t) {
@@ -54,7 +49,7 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
       String _label = this._simUtil.label(((STypeDeduction)t).getDeductionRule());
       return (">" + _label);
     }
-    return this._dimUtil.label(t);
+    return this._simUtil.label(t);
   }
   
   public String text(final DFeature f) {
@@ -62,7 +57,7 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
       String _label = this._simUtil.label(((SFeatureDeduction)f).getDeductionRule());
       return (">" + _label);
     }
-    return this._dimUtil.label(f);
+    return this._simUtil.label(f);
   }
   
   public String text(final DQueryParameter p) {
@@ -70,11 +65,11 @@ public class SimLabelProvider extends DefaultEObjectLabelProvider {
       String _label = this._simUtil.label(((SQueryParameterDeduction)p).getDeductionRule());
       return (">" + _label);
     }
-    return this._dimUtil.label(p);
+    return this._simUtil.label(p);
   }
   
   public String text(final DNamedPredicate c) {
-    return this._dimUtil.label(c);
+    return this._simUtil.label(c);
   }
   
   public String text(final DLiteral literal) {

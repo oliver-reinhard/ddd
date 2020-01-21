@@ -10,7 +10,6 @@ SInformationModel:
 	name=DQualifiedName
 	 (^generate?='generate')?
 	(description=DRichText)?
-	(queries+=SCoreQuery)*
 	(types+=Type | aggregates+=Aggregate | domainProxies+=Domain)*;
 
 enum SInformationModelKind:
@@ -24,7 +23,8 @@ SGrabDomainRule:
 	source=[DDomain|DQualifiedName];
 		
 SGrabAggregateRule:
-	source=[DAggregate|DQualifiedName];
+	source=[DAggregate|DQualifiedName]
+	('as' renameTo=ID)?;
 	
 SGrabPrimitiveRule returns SGrabRule:
 	source=[DPrimitive|DQualifiedName]
@@ -105,6 +105,7 @@ SAggregateDeduction:
 	'grab' 'aggregate' deductionRule=SGrabAggregateRule
 	(description=DRichText)?
 	'{'
+		(features+=SQueryDeduction | 'query' features+=DQuery)*
 		( types+=Type)*
 	'}';
 		
@@ -112,8 +113,10 @@ SAggregateDeduction:
 DAggregate:
 	{DAggregate}
 	'aggregate'
+	name=ID
 	(description=DRichText)?
 	'{'
+		(features+=SQueryDeduction | 'query' features+=DQuery)*
 		( types+=Type)*
 	'}';
 
@@ -267,14 +270,4 @@ SQueryParameterDeduction:
 	|	'morph' deductionRule=SMorphFeatureRule
 	|	'ditch' deductionRule=SDitchFeatureRule
 	)
-	(description=DRichText)?;
-	
-SCoreQuery:
-	'query'
-	name=ID
-	('alias' aliases+=ID)*
-	'(' (parameters+=DQueryParameter ( "," parameters+=DQueryParameter)*)? ')'
-	':' 
-	type=[DType|ID]  (multiplicity=DMultiplicity)?
-	('returns' ^returns=DExpression)?
 	(description=DRichText)?;

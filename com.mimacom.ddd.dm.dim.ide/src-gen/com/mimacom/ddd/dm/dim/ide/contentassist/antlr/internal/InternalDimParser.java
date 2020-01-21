@@ -13717,26 +13717,26 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DAggregate__Group_5__1__Impl"
-    // InternalDim.g:3680:1: rule__DAggregate__Group_5__1__Impl : ( ( rule__DAggregate__StaticQueriesAssignment_5_1 ) ) ;
+    // InternalDim.g:3680:1: rule__DAggregate__Group_5__1__Impl : ( ( rule__DAggregate__FeaturesAssignment_5_1 ) ) ;
     public final void rule__DAggregate__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDim.g:3684:1: ( ( ( rule__DAggregate__StaticQueriesAssignment_5_1 ) ) )
-            // InternalDim.g:3685:1: ( ( rule__DAggregate__StaticQueriesAssignment_5_1 ) )
+            // InternalDim.g:3684:1: ( ( ( rule__DAggregate__FeaturesAssignment_5_1 ) ) )
+            // InternalDim.g:3685:1: ( ( rule__DAggregate__FeaturesAssignment_5_1 ) )
             {
-            // InternalDim.g:3685:1: ( ( rule__DAggregate__StaticQueriesAssignment_5_1 ) )
-            // InternalDim.g:3686:2: ( rule__DAggregate__StaticQueriesAssignment_5_1 )
+            // InternalDim.g:3685:1: ( ( rule__DAggregate__FeaturesAssignment_5_1 ) )
+            // InternalDim.g:3686:2: ( rule__DAggregate__FeaturesAssignment_5_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDAggregateAccess().getStaticQueriesAssignment_5_1()); 
+               before(grammarAccess.getDAggregateAccess().getFeaturesAssignment_5_1()); 
             }
-            // InternalDim.g:3687:2: ( rule__DAggregate__StaticQueriesAssignment_5_1 )
-            // InternalDim.g:3687:3: rule__DAggregate__StaticQueriesAssignment_5_1
+            // InternalDim.g:3687:2: ( rule__DAggregate__FeaturesAssignment_5_1 )
+            // InternalDim.g:3687:3: rule__DAggregate__FeaturesAssignment_5_1
             {
             pushFollow(FOLLOW_2);
-            rule__DAggregate__StaticQueriesAssignment_5_1();
+            rule__DAggregate__FeaturesAssignment_5_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -13744,7 +13744,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDAggregateAccess().getStaticQueriesAssignment_5_1()); 
+               after(grammarAccess.getDAggregateAccess().getFeaturesAssignment_5_1()); 
             }
 
             }
@@ -46816,9 +46816,9 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DAggregate__DescriptionAssignment_3"
 
 
-    // $ANTLR start "rule__DAggregate__StaticQueriesAssignment_5_1"
-    // InternalDim.g:13955:1: rule__DAggregate__StaticQueriesAssignment_5_1 : ( ruleDQuery ) ;
-    public final void rule__DAggregate__StaticQueriesAssignment_5_1() throws RecognitionException {
+    // $ANTLR start "rule__DAggregate__FeaturesAssignment_5_1"
+    // InternalDim.g:13955:1: rule__DAggregate__FeaturesAssignment_5_1 : ( ruleDQuery ) ;
+    public final void rule__DAggregate__FeaturesAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -46830,7 +46830,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             // InternalDim.g:13961:3: ruleDQuery
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDAggregateAccess().getStaticQueriesDQueryParserRuleCall_5_1_0()); 
+               before(grammarAccess.getDAggregateAccess().getFeaturesDQueryParserRuleCall_5_1_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleDQuery();
@@ -46838,7 +46838,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDAggregateAccess().getStaticQueriesDQueryParserRuleCall_5_1_0()); 
+               after(grammarAccess.getDAggregateAccess().getFeaturesDQueryParserRuleCall_5_1_0()); 
             }
 
             }
@@ -46858,7 +46858,7 @@ public class InternalDimParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DAggregate__StaticQueriesAssignment_5_1"
+    // $ANTLR end "rule__DAggregate__FeaturesAssignment_5_1"
 
 
     // $ANTLR start "rule__DAggregate__TypesAssignment_6"

@@ -6,7 +6,7 @@ import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DDeductionRule;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
 
-import com.mimacom.ddd.dm.base.impl.DQueryImpl;
+import com.mimacom.ddd.dm.base.impl.DQueryImplCustom;
 
 import com.mimacom.ddd.sm.sim.SFeatureDeduction;
 import com.mimacom.ddd.sm.sim.SQueryDeduction;
@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SQueryDeductionImpl extends DQueryImpl implements SQueryDeduction
+public class SQueryDeductionImpl extends DQueryImplCustom implements SQueryDeduction
 {
 	/**
 	 * The cached value of the '{@link #getDeductionRule() <em>Deduction Rule</em>}' containment reference.

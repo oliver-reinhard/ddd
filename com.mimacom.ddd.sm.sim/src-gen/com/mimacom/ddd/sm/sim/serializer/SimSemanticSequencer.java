@@ -58,7 +58,6 @@ import com.mimacom.ddd.dm.dmx.DmxUndefinedLiteral;
 import com.mimacom.ddd.sm.sim.SAggregateDeduction;
 import com.mimacom.ddd.sm.sim.SAssociationDeduction;
 import com.mimacom.ddd.sm.sim.SAttributeDeduction;
-import com.mimacom.ddd.sm.sim.SCoreQuery;
 import com.mimacom.ddd.sm.sim.SDetailTypeDeduction;
 import com.mimacom.ddd.sm.sim.SDitchRule;
 import com.mimacom.ddd.sm.sim.SDomainDeduction;
@@ -344,9 +343,6 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 			case SimPackage.SATTRIBUTE_DEDUCTION:
 				sequence_SAttributeDeduction(context, (SAttributeDeduction) semanticObject); 
 				return; 
-			case SimPackage.SCORE_QUERY:
-				sequence_SCoreQuery(context, (SCoreQuery) semanticObject); 
-				return; 
 			case SimPackage.SDETAIL_TYPE_DEDUCTION:
 				sequence_SComplexTypeFeatures_SDetailTypeDeduction(context, (SDetailTypeDeduction) semanticObject); 
 				return; 
@@ -485,7 +481,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     DAggregate returns DAggregate
 	 *
 	 * Constraint:
-	 *     (description=DRichText? types+=Type*)
+	 *     (name=ID description=DRichText? (features+=SQueryDeduction | features+=DQuery)* types+=Type*)
 	 */
 	protected void sequence_DAggregate(ISerializationContext context, DAggregate semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -505,8 +501,8 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *         aliases+=ID* 
 	 *         superType=[DComplexType|ID]? 
 	 *         description=DRichText? 
-	 *         constraints+=DConstraint? 
-	 *         (features+=Feature? constraints+=DConstraint?)* 
+	 *         features+=Feature? 
+	 *         (constraints+=DConstraint? features+=Feature?)* 
 	 *         (features+=DFeature | constraints+=DConstraint)*
 	 *     )
 	 */
@@ -597,7 +593,7 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SAggregateDeduction returns SAggregateDeduction
 	 *
 	 * Constraint:
-	 *     (deductionRule=SGrabAggregateRule description=DRichText? types+=Type*)
+	 *     (deductionRule=SGrabAggregateRule description=DRichText? (features+=SQueryDeduction | features+=DQuery)* types+=Type*)
 	 */
 	protected void sequence_SAggregateDeduction(ISerializationContext context, SAggregateDeduction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -673,26 +669,6 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     )
 	 */
 	protected void sequence_SComplexTypeFeatures_SEntityTypeDeduction(ISerializationContext context, SEntityTypeDeduction semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     SCoreQuery returns SCoreQuery
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         aliases+=ID* 
-	 *         (parameters+=DQueryParameter parameters+=DQueryParameter*)? 
-	 *         type=[DType|ID] 
-	 *         multiplicity=DMultiplicity? 
-	 *         returns=DExpression? 
-	 *         description=DRichText?
-	 *     )
-	 */
-	protected void sequence_SCoreQuery(ISerializationContext context, SCoreQuery semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -810,16 +786,10 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     SGrabAggregateRule returns SGrabAggregateRule
 	 *
 	 * Constraint:
-	 *     source=[DAggregate|DQualifiedName]
+	 *     (source=[DAggregate|DQualifiedName] renameTo=ID?)
 	 */
 	protected void sequence_SGrabAggregateRule(ISerializationContext context, SGrabAggregateRule semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasePackage.Literals.DDEDUCTION_RULE__SOURCE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSGrabAggregateRuleAccess().getSourceDAggregateDQualifiedNameParserRuleCall_0_1(), semanticObject.eGet(BasePackage.Literals.DDEDUCTION_RULE__SOURCE, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -912,7 +882,6 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *         name=DQualifiedName 
 	 *         generate?='generate'? 
 	 *         description=DRichText? 
-	 *         queries+=SCoreQuery* 
 	 *         (types+=Type | aggregates+=Aggregate | domainProxies+=Domain)*
 	 *     )
 	 */

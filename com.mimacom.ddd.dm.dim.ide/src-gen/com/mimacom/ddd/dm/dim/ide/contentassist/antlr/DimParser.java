@@ -219,7 +219,7 @@ public class DimParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDDomainAccess().getAggregatesAssignment_5_1(), "rule__DDomain__AggregatesAssignment_5_1");
 			builder.put(grammarAccess.getDAggregateAccess().getNameAssignment_2(), "rule__DAggregate__NameAssignment_2");
 			builder.put(grammarAccess.getDAggregateAccess().getDescriptionAssignment_3(), "rule__DAggregate__DescriptionAssignment_3");
-			builder.put(grammarAccess.getDAggregateAccess().getStaticQueriesAssignment_5_1(), "rule__DAggregate__StaticQueriesAssignment_5_1");
+			builder.put(grammarAccess.getDAggregateAccess().getFeaturesAssignment_5_1(), "rule__DAggregate__FeaturesAssignment_5_1");
 			builder.put(grammarAccess.getDAggregateAccess().getTypesAssignment_6(), "rule__DAggregate__TypesAssignment_6");
 			builder.put(grammarAccess.getDConstraintAccess().getNameAssignment_1(), "rule__DConstraint__NameAssignment_1");
 			builder.put(grammarAccess.getDConstraintAccess().getAliasesAssignment_2_1(), "rule__DConstraint__AliasesAssignment_2_1");

@@ -151,8 +151,8 @@ public class DomFormatter extends DmxFormatter {
     } else if (obj instanceof DmxNamespace) {
       _format((DmxNamespace)obj, document);
       return;
-    } else if (obj instanceof DomSnapshot) {
-      _format((DomSnapshot)obj, document);
+    } else if (obj instanceof DomModel) {
+      _format((DomModel)obj, document);
       return;
     } else if (obj instanceof XtextResource) {
       _format((XtextResource)obj, document);
@@ -160,8 +160,8 @@ public class DomFormatter extends DmxFormatter {
     } else if (obj instanceof DExpression) {
       _format((DExpression)obj, document);
       return;
-    } else if (obj instanceof DomModel) {
-      _format((DomModel)obj, document);
+    } else if (obj instanceof DomSnapshot) {
+      _format((DomSnapshot)obj, document);
       return;
     } else if (obj instanceof EObject) {
       _format((EObject)obj, document);

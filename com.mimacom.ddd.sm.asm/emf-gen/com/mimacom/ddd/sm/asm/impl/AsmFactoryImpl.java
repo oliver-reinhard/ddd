@@ -136,7 +136,7 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	@Override
 	public SServiceInterface createSServiceInterface()
 	{
-		SServiceInterfaceImpl sServiceInterface = new SServiceInterfaceImpl();
+		SServiceInterfaceImplCustom sServiceInterface = new SServiceInterfaceImplCustom();
 		return sServiceInterface;
 	}
 
@@ -184,7 +184,7 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	@Override
 	public SServiceOperation createSServiceOperation()
 	{
-		SServiceOperationImpl sServiceOperation = new SServiceOperationImpl();
+		SServiceOperationImplCustom sServiceOperation = new SServiceOperationImplCustom();
 		return sServiceOperation;
 	}
 

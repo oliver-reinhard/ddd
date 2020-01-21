@@ -141,31 +141,9 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDomModel_Imports()
-	{
-		return (EReference)domModelEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDomModel_Name()
-	{
-		return (EAttribute)domModelEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getDomModel_Snapshots()
 	{
-		return (EReference)domModelEClass.getEStructuralFeatures().get(2);
+		return (EReference)domModelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -266,8 +244,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 
 		// Create classes and their features
 		domModelEClass = createEClass(DOM_MODEL);
-		createEReference(domModelEClass, DOM_MODEL__IMPORTS);
-		createEAttribute(domModelEClass, DOM_MODEL__NAME);
 		createEReference(domModelEClass, DOM_MODEL__SNAPSHOTS);
 
 		domSnapshotEClass = createEClass(DOM_SNAPSHOT);
@@ -313,14 +289,13 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		domModelEClass.getESuperTypes().add(theBasePackage.getDNamespace());
 		domSnapshotEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
 		domObjectEClass.getESuperTypes().add(theBasePackage.getDNavigableMember());
 		domNamedComplexObjectEClass.getESuperTypes().add(this.getDomObject());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(domModelEClass, DomModel.class, "DomModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDomModel_Imports(), theBasePackage.getDImport(), null, "imports", null, 0, -1, DomModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDomModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDomModel_Snapshots(), this.getDomSnapshot(), null, "snapshots", null, 0, -1, DomModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(domSnapshotEClass, DomSnapshot.class, "DomSnapshot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

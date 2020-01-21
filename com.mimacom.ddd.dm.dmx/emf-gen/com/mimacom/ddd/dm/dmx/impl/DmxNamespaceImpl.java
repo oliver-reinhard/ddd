@@ -5,7 +5,6 @@ package com.mimacom.ddd.dm.dmx.impl;
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DImport;
 import com.mimacom.ddd.dm.base.DType;
-import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.ITypeContainer;
 
 import com.mimacom.ddd.dm.base.impl.DNamedElementImpl;
@@ -35,8 +34,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxNamespaceImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxNamespaceImpl#getImports <em>Imports</em>}</li>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxNamespaceImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxNamespaceImpl#getFilters <em>Filters</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxNamespaceImpl#getTests <em>Tests</em>}</li>
  * </ul>
@@ -46,16 +45,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class DmxNamespaceImpl extends DNamedElementImpl implements DmxNamespace
 {
 	/**
-	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTypes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DType> types;
-
-	/**
 	 * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,6 +53,16 @@ public class DmxNamespaceImpl extends DNamedElementImpl implements DmxNamespace
 	 * @ordered
 	 */
 	protected EList<DImport> imports;
+
+	/**
+	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DType> types;
 
 	/**
 	 * The cached value of the '{@link #getFilters() <em>Filters</em>}' containment reference list.
@@ -112,13 +111,13 @@ public class DmxNamespaceImpl extends DNamedElementImpl implements DmxNamespace
 	 * @generated
 	 */
 	@Override
-	public EList<DType> getTypes()
+	public EList<DImport> getImports()
 	{
-		if (types == null)
+		if (imports == null)
 		{
-			types = new EObjectContainmentEList<DType>(DType.class, this, DmxPackage.DMX_NAMESPACE__TYPES);
+			imports = new EObjectContainmentEList<DImport>(DImport.class, this, DmxPackage.DMX_NAMESPACE__IMPORTS);
 		}
-		return types;
+		return imports;
 	}
 
 	/**
@@ -127,13 +126,13 @@ public class DmxNamespaceImpl extends DNamedElementImpl implements DmxNamespace
 	 * @generated
 	 */
 	@Override
-	public EList<DImport> getImports()
+	public EList<DType> getTypes()
 	{
-		if (imports == null)
+		if (types == null)
 		{
-			imports = new EObjectContainmentEList<DImport>(DImport.class, this, DmxPackage.DMX_NAMESPACE__IMPORTS);
+			types = new EObjectContainmentEList<DType>(DType.class, this, DmxPackage.DMX_NAMESPACE__TYPES);
 		}
-		return imports;
+		return types;
 	}
 
 	/**
@@ -176,10 +175,10 @@ public class DmxNamespaceImpl extends DNamedElementImpl implements DmxNamespace
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DMX_NAMESPACE__TYPES:
-				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
 			case DmxPackage.DMX_NAMESPACE__IMPORTS:
 				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
+			case DmxPackage.DMX_NAMESPACE__TYPES:
+				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
 			case DmxPackage.DMX_NAMESPACE__FILTERS:
 				return ((InternalEList<?>)getFilters()).basicRemove(otherEnd, msgs);
 			case DmxPackage.DMX_NAMESPACE__TESTS:
@@ -198,10 +197,10 @@ public class DmxNamespaceImpl extends DNamedElementImpl implements DmxNamespace
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DMX_NAMESPACE__TYPES:
-				return getTypes();
 			case DmxPackage.DMX_NAMESPACE__IMPORTS:
 				return getImports();
+			case DmxPackage.DMX_NAMESPACE__TYPES:
+				return getTypes();
 			case DmxPackage.DMX_NAMESPACE__FILTERS:
 				return getFilters();
 			case DmxPackage.DMX_NAMESPACE__TESTS:
@@ -221,13 +220,13 @@ public class DmxNamespaceImpl extends DNamedElementImpl implements DmxNamespace
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DMX_NAMESPACE__TYPES:
-				getTypes().clear();
-				getTypes().addAll((Collection<? extends DType>)newValue);
-				return;
 			case DmxPackage.DMX_NAMESPACE__IMPORTS:
 				getImports().clear();
 				getImports().addAll((Collection<? extends DImport>)newValue);
+				return;
+			case DmxPackage.DMX_NAMESPACE__TYPES:
+				getTypes().clear();
+				getTypes().addAll((Collection<? extends DType>)newValue);
 				return;
 			case DmxPackage.DMX_NAMESPACE__FILTERS:
 				getFilters().clear();
@@ -251,11 +250,11 @@ public class DmxNamespaceImpl extends DNamedElementImpl implements DmxNamespace
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DMX_NAMESPACE__TYPES:
-				getTypes().clear();
-				return;
 			case DmxPackage.DMX_NAMESPACE__IMPORTS:
 				getImports().clear();
+				return;
+			case DmxPackage.DMX_NAMESPACE__TYPES:
+				getTypes().clear();
 				return;
 			case DmxPackage.DMX_NAMESPACE__FILTERS:
 				getFilters().clear();
@@ -277,10 +276,10 @@ public class DmxNamespaceImpl extends DNamedElementImpl implements DmxNamespace
 	{
 		switch (featureID)
 		{
-			case DmxPackage.DMX_NAMESPACE__TYPES:
-				return types != null && !types.isEmpty();
 			case DmxPackage.DMX_NAMESPACE__IMPORTS:
 				return imports != null && !imports.isEmpty();
+			case DmxPackage.DMX_NAMESPACE__TYPES:
+				return types != null && !types.isEmpty();
 			case DmxPackage.DMX_NAMESPACE__FILTERS:
 				return filters != null && !filters.isEmpty();
 			case DmxPackage.DMX_NAMESPACE__TESTS:
@@ -297,13 +296,6 @@ public class DmxNamespaceImpl extends DNamedElementImpl implements DmxNamespace
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
 	{
-		if (baseClass == INamespace.class)
-		{
-			switch (derivedFeatureID)
-			{
-				default: return -1;
-			}
-		}
 		if (baseClass == ITypeContainer.class)
 		{
 			switch (derivedFeatureID)
@@ -323,13 +315,6 @@ public class DmxNamespaceImpl extends DNamedElementImpl implements DmxNamespace
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
 	{
-		if (baseClass == INamespace.class)
-		{
-			switch (baseFeatureID)
-			{
-				default: return -1;
-			}
-		}
 		if (baseClass == ITypeContainer.class)
 		{
 			switch (baseFeatureID)

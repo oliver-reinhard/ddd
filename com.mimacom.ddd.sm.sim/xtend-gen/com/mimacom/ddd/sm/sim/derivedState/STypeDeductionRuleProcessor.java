@@ -14,6 +14,7 @@ import com.mimacom.ddd.dm.base.DPrimitive;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.ITypeContainer;
 import com.mimacom.ddd.sm.sim.SAggregateDeduction;
 import com.mimacom.ddd.sm.sim.SComplexTypeDeduction;
@@ -27,7 +28,7 @@ import com.mimacom.ddd.sm.sim.SPrimitiveDeduction;
 import com.mimacom.ddd.sm.sim.SRenameRule;
 import com.mimacom.ddd.sm.sim.SStructureChangingRule;
 import com.mimacom.ddd.sm.sim.STypeDeduction;
-import com.mimacom.ddd.sm.sim.derivedState.SyntheticComplexTypeDescriptor;
+import com.mimacom.ddd.sm.sim.derivedState.SyntheticFeatureContainerDescriptor;
 import com.mimacom.ddd.sm.sim.derivedState.SyntheticModelElementsFactory;
 import com.mimacom.ddd.sm.sim.derivedState.TransformationContext;
 import com.mimacom.ddd.sm.sim.derivedState.TypeSorter;
@@ -49,7 +50,7 @@ public class STypeDeductionRuleProcessor {
   
   private static final String UNDEFINED = "UNDEFINED";
   
-  protected void addImplicitSyntheticTypes(final ITypeContainer container, final SAggregateDeduction deductionDefinition, final DAggregate source, final List<SyntheticComplexTypeDescriptor> acceptor, final TransformationContext context) {
+  protected void addImplicitSyntheticTypes(final ITypeContainer container, final SAggregateDeduction deductionDefinition, final DAggregate source, final List<SyntheticFeatureContainerDescriptor> acceptor, final TransformationContext context) {
     final Iterable<IDeductionDefinition> typeDeductionDefinitions = Iterables.<IDeductionDefinition>filter(deductionDefinition.getTypes(), IDeductionDefinition.class);
     final Function1<IDeductionDefinition, Boolean> _function = (IDeductionDefinition it) -> {
       DDeductionRule _deductionRule = it.getDeductionRule();
@@ -76,8 +77,8 @@ public class STypeDeductionRuleProcessor {
             this.addImplicitSyntheticLiterals(((DEnumeration)syntheticType), ((DEnumeration) sourceType), null);
           } else {
             if ((syntheticType instanceof DComplexType)) {
-              SyntheticComplexTypeDescriptor _syntheticComplexTypeDescriptor = new SyntheticComplexTypeDescriptor(((DComplexType)syntheticType), ((DComplexType) sourceType));
-              acceptor.add(_syntheticComplexTypeDescriptor);
+              SyntheticFeatureContainerDescriptor _syntheticFeatureContainerDescriptor = new SyntheticFeatureContainerDescriptor(((IFeatureContainer)syntheticType), ((DComplexType) sourceType));
+              acceptor.add(_syntheticFeatureContainerDescriptor);
             }
           }
         }
@@ -85,7 +86,7 @@ public class STypeDeductionRuleProcessor {
     }
   }
   
-  protected void addSyntheticTypes(final ITypeContainer container, final DAggregate origin, final List<SyntheticComplexTypeDescriptor> acceptor, final TransformationContext context) {
+  protected void addSyntheticTypes(final ITypeContainer container, final DAggregate origin, final List<SyntheticFeatureContainerDescriptor> acceptor, final TransformationContext context) {
     final List<STypeDeduction> typeDeductionDefinitions = IterableExtensions.<STypeDeduction>toList(Iterables.<STypeDeduction>filter(origin.getTypes(), STypeDeduction.class));
     TypeSorter _typeSorter = new TypeSorter();
     Collections.<STypeDeduction>sort(typeDeductionDefinitions, _typeSorter);
@@ -96,8 +97,8 @@ public class STypeDeductionRuleProcessor {
         if ((source instanceof DType)) {
           final DType syntheticType = this.processTypeDeduction(container, definition, rule, context);
           if ((syntheticType instanceof DComplexType)) {
-            SyntheticComplexTypeDescriptor _syntheticComplexTypeDescriptor = new SyntheticComplexTypeDescriptor(((DComplexType)syntheticType), ((SComplexTypeDeduction) definition), ((DComplexType) source));
-            acceptor.add(_syntheticComplexTypeDescriptor);
+            SyntheticFeatureContainerDescriptor _syntheticFeatureContainerDescriptor = new SyntheticFeatureContainerDescriptor(((IFeatureContainer)syntheticType), ((SComplexTypeDeduction) definition), ((DComplexType) source));
+            acceptor.add(_syntheticFeatureContainerDescriptor);
           }
         }
       }

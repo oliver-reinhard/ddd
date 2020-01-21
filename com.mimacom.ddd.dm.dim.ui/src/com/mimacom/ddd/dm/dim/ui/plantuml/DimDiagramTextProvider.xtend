@@ -83,7 +83,7 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 			
 			' all aggregates
 			«FOR a:allAggregates»package «a.aggregateName» <<Rectangle>> {
-				«IF ! a.staticQueries.empty»«a.generateAggregateQueries»«ENDIF»
+				«IF ! a.features.empty»«a.generateAggregateQueries»«ENDIF»
 				«FOR t:a.types»
 					«t.generateType»
 				«ENDFOR»
@@ -128,7 +128,7 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 	def  generateAggregateQueries(DAggregate a) '''	
 		' aggregate «a.name» static queries
 		abstract class «a.name».«a.name» «a.getSpot» {
-			«FOR q : a.staticQueries»«q.generateStaticQuery»«ENDFOR»
+			«FOR q : a.features»«(q as DQuery).generateStaticQuery»«ENDFOR»
 		}
 	'''
 	

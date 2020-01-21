@@ -29,6 +29,7 @@ import com.mimacom.ddd.dm.base.DMultiplicity;
 import com.mimacom.ddd.dm.base.DMultiplicityShorthand;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNamedPredicate;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DNotification;
 import com.mimacom.ddd.dm.base.DPrimitive;
@@ -41,10 +42,11 @@ import com.mimacom.ddd.dm.base.DState;
 import com.mimacom.ddd.dm.base.DStateEvent;
 import com.mimacom.ddd.dm.base.DTextSegment;
 import com.mimacom.ddd.dm.base.DType;
+import com.mimacom.ddd.dm.base.IAggregateContainer;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
+import com.mimacom.ddd.dm.base.IFeatureContainer;
 import com.mimacom.ddd.dm.base.IIdentityType;
-import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IRichTextSegment;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
@@ -73,7 +75,35 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass iNamespaceEClass = null;
+	private EClass dNamedElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dImportEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dNamespaceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dDomainEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iAggregateContainerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,6 +111,13 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	private EClass iTypeContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iFeatureContainerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -108,7 +145,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dNamedElementEClass = null;
+	private EClass dAggregateEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -123,6 +160,13 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	private EClass iNavigableMemberContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dMultiplicityEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,27 +202,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	private EClass dRichTextEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dImportEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dDomainEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dAggregateEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -276,13 +299,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dMultiplicityEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass dAttributeEClass = null;
 
 	/**
@@ -374,6 +390,13 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum dMultiplicityShorthandEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum dEntityOriginEEnum = null;
 
 	/**
@@ -382,13 +405,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	private EEnum dAssociationKindEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum dMultiplicityShorthandEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -459,9 +475,141 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getINamespace()
+	public EClass getDNamedElement()
 	{
-		return iNamespaceEClass;
+		return dNamedElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDNamedElement_Name()
+	{
+		return (EAttribute)dNamedElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDNamedElement_Aliases()
+	{
+		return (EAttribute)dNamedElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDNamedElement_Description()
+	{
+		return (EReference)dNamedElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDImport()
+	{
+		return dImportEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDImport_ImportedNamespace()
+	{
+		return (EAttribute)dImportEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDNamespace()
+	{
+		return dNamespaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDNamespace_Imports()
+	{
+		return (EReference)dNamespaceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDDomain()
+	{
+		return dDomainEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDDomain_Events()
+	{
+		return (EReference)dDomainEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDDomain_Actors()
+	{
+		return (EReference)dDomainEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getIAggregateContainer()
+	{
+		return iAggregateContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getIAggregateContainer_Aggregates()
+	{
+		return (EReference)iAggregateContainerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -484,6 +632,28 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EReference getITypeContainer_Types()
 	{
 		return (EReference)iTypeContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getIFeatureContainer()
+	{
+		return iFeatureContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getIFeatureContainer_Features()
+	{
+		return (EReference)iFeatureContainerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -580,9 +750,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDNamedElement()
+	public EClass getDAggregate()
 	{
-		return dNamedElementEClass;
+		return dAggregateEClass;
 	}
 
 	/**
@@ -591,31 +761,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDNamedElement_Name()
+	public EReference getDAggregate_Roots()
 	{
-		return (EAttribute)dNamedElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDNamedElement_Aliases()
-	{
-		return (EAttribute)dNamedElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDNamedElement_Description()
-	{
-		return (EReference)dNamedElementEClass.getEStructuralFeatures().get(2);
+		return (EReference)dAggregateEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -682,6 +830,61 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EClass getINavigableMemberContainer()
 	{
 		return iNavigableMemberContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getINavigableMemberContainer_NavigableMembers()
+	{
+		return (EReference)iNavigableMemberContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDMultiplicity()
+	{
+		return dMultiplicityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDMultiplicity_MinOccurs()
+	{
+		return (EAttribute)dMultiplicityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDMultiplicity_MaxOccurs()
+	{
+		return (EAttribute)dMultiplicityEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDMultiplicity_Shorthand()
+	{
+		return (EAttribute)dMultiplicityEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -759,116 +962,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EReference getDRichText_Segments()
 	{
 		return (EReference)dRichTextEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDImport()
-	{
-		return dImportEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDImport_ImportedNamespace()
-	{
-		return (EAttribute)dImportEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDDomain()
-	{
-		return dDomainEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDDomain_Imports()
-	{
-		return (EReference)dDomainEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDDomain_Aggregates()
-	{
-		return (EReference)dDomainEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDDomain_Events()
-	{
-		return (EReference)dDomainEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDDomain_Actors()
-	{
-		return (EReference)dDomainEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDAggregate()
-	{
-		return dAggregateEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDAggregate_Roots()
-	{
-		return (EReference)dAggregateEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDAggregate_StaticQueries()
-	{
-		return (EReference)dAggregateEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1053,17 +1146,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getDComplexType_Features()
-	{
-		return (EReference)dComplexTypeEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getDDetailType()
 	{
 		return dDetailTypeEClass;
@@ -1188,50 +1270,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EOperation getDAssociation__GetTargetType()
 	{
 		return dAssociationEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDMultiplicity()
-	{
-		return dMultiplicityEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDMultiplicity_MinOccurs()
-	{
-		return (EAttribute)dMultiplicityEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDMultiplicity_MaxOccurs()
-	{
-		return (EAttribute)dMultiplicityEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDMultiplicity_Shorthand()
-	{
-		return (EAttribute)dMultiplicityEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1548,6 +1586,17 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	 * @generated
 	 */
 	@Override
+	public EEnum getDMultiplicityShorthand()
+	{
+		return dMultiplicityShorthandEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getDEntityOrigin()
 	{
 		return dEntityOriginEEnum;
@@ -1562,17 +1611,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 	public EEnum getDAssociationKind()
 	{
 		return dAssociationKindEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EEnum getDMultiplicityShorthand()
-	{
-		return dMultiplicityShorthandEEnum;
 	}
 
 	/**
@@ -1606,10 +1644,29 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		isCreated = true;
 
 		// Create classes and their features
-		iNamespaceEClass = createEClass(INAMESPACE);
+		dNamedElementEClass = createEClass(DNAMED_ELEMENT);
+		createEAttribute(dNamedElementEClass, DNAMED_ELEMENT__NAME);
+		createEAttribute(dNamedElementEClass, DNAMED_ELEMENT__ALIASES);
+		createEReference(dNamedElementEClass, DNAMED_ELEMENT__DESCRIPTION);
+
+		dImportEClass = createEClass(DIMPORT);
+		createEAttribute(dImportEClass, DIMPORT__IMPORTED_NAMESPACE);
+
+		dNamespaceEClass = createEClass(DNAMESPACE);
+		createEReference(dNamespaceEClass, DNAMESPACE__IMPORTS);
+
+		dDomainEClass = createEClass(DDOMAIN);
+		createEReference(dDomainEClass, DDOMAIN__EVENTS);
+		createEReference(dDomainEClass, DDOMAIN__ACTORS);
+
+		iAggregateContainerEClass = createEClass(IAGGREGATE_CONTAINER);
+		createEReference(iAggregateContainerEClass, IAGGREGATE_CONTAINER__AGGREGATES);
 
 		iTypeContainerEClass = createEClass(ITYPE_CONTAINER);
 		createEReference(iTypeContainerEClass, ITYPE_CONTAINER__TYPES);
+
+		iFeatureContainerEClass = createEClass(IFEATURE_CONTAINER);
+		createEReference(iFeatureContainerEClass, IFEATURE_CONTAINER__FEATURES);
 
 		iDeductionDefinitionEClass = createEClass(IDEDUCTION_DEFINITION);
 		createEReference(iDeductionDefinitionEClass, IDEDUCTION_DEFINITION__DEDUCTION_RULE);
@@ -1622,10 +1679,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		createEReference(dDeductionRuleEClass, DDEDUCTION_RULE__SOURCE);
 		createEReference(dDeductionRuleEClass, DDEDUCTION_RULE__NAMED_SOURCE);
 
-		dNamedElementEClass = createEClass(DNAMED_ELEMENT);
-		createEAttribute(dNamedElementEClass, DNAMED_ELEMENT__NAME);
-		createEAttribute(dNamedElementEClass, DNAMED_ELEMENT__ALIASES);
-		createEReference(dNamedElementEClass, DNAMED_ELEMENT__DESCRIPTION);
+		dAggregateEClass = createEClass(DAGGREGATE);
+		createEReference(dAggregateEClass, DAGGREGATE__ROOTS);
 
 		dNavigableMemberEClass = createEClass(DNAVIGABLE_MEMBER);
 		createEReference(dNavigableMemberEClass, DNAVIGABLE_MEMBER__TYPE);
@@ -1634,6 +1689,12 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		createEAttribute(dNavigableMemberEClass, DNAVIGABLE_MEMBER__COLLECTION);
 
 		iNavigableMemberContainerEClass = createEClass(INAVIGABLE_MEMBER_CONTAINER);
+		createEReference(iNavigableMemberContainerEClass, INAVIGABLE_MEMBER_CONTAINER__NAVIGABLE_MEMBERS);
+
+		dMultiplicityEClass = createEClass(DMULTIPLICITY);
+		createEAttribute(dMultiplicityEClass, DMULTIPLICITY__MIN_OCCURS);
+		createEAttribute(dMultiplicityEClass, DMULTIPLICITY__MAX_OCCURS);
+		createEAttribute(dMultiplicityEClass, DMULTIPLICITY__SHORTHAND);
 
 		iStaticReferenceTargetEClass = createEClass(ISTATIC_REFERENCE_TARGET);
 
@@ -1646,19 +1707,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		dRichTextEClass = createEClass(DRICH_TEXT);
 		createEReference(dRichTextEClass, DRICH_TEXT__SEGMENTS);
-
-		dImportEClass = createEClass(DIMPORT);
-		createEAttribute(dImportEClass, DIMPORT__IMPORTED_NAMESPACE);
-
-		dDomainEClass = createEClass(DDOMAIN);
-		createEReference(dDomainEClass, DDOMAIN__IMPORTS);
-		createEReference(dDomainEClass, DDOMAIN__AGGREGATES);
-		createEReference(dDomainEClass, DDOMAIN__EVENTS);
-		createEReference(dDomainEClass, DDOMAIN__ACTORS);
-
-		dAggregateEClass = createEClass(DAGGREGATE);
-		createEReference(dAggregateEClass, DAGGREGATE__ROOTS);
-		createEReference(dAggregateEClass, DAGGREGATE__STATIC_QUERIES);
 
 		iIdentityTypeEClass = createEClass(IIDENTITY_TYPE);
 
@@ -1684,7 +1732,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dComplexTypeEClass = createEClass(DCOMPLEX_TYPE);
 		createEAttribute(dComplexTypeEClass, DCOMPLEX_TYPE__ABSTRACT);
 		createEReference(dComplexTypeEClass, DCOMPLEX_TYPE__SUPER_TYPE);
-		createEReference(dComplexTypeEClass, DCOMPLEX_TYPE__FEATURES);
 
 		dDetailTypeEClass = createEClass(DDETAIL_TYPE);
 
@@ -1701,11 +1748,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		createEAttribute(dAssociationEClass, DASSOCIATION__DERIVED);
 		createEReference(dAssociationEClass, DASSOCIATION__SOURCE_TYPE);
 		createEOperation(dAssociationEClass, DASSOCIATION___GET_TARGET_TYPE);
-
-		dMultiplicityEClass = createEClass(DMULTIPLICITY);
-		createEAttribute(dMultiplicityEClass, DMULTIPLICITY__MIN_OCCURS);
-		createEAttribute(dMultiplicityEClass, DMULTIPLICITY__MAX_OCCURS);
-		createEAttribute(dMultiplicityEClass, DMULTIPLICITY__SHORTHAND);
 
 		dAttributeEClass = createEClass(DATTRIBUTE);
 		createEAttribute(dAttributeEClass, DATTRIBUTE__DETAIL);
@@ -1749,9 +1791,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dServiceEClass = createEClass(DSERVICE);
 
 		// Create enums
+		dMultiplicityShorthandEEnum = createEEnum(DMULTIPLICITY_SHORTHAND);
 		dEntityOriginEEnum = createEEnum(DENTITY_ORIGIN);
 		dAssociationKindEEnum = createEEnum(DASSOCIATION_KIND);
-		dMultiplicityShorthandEEnum = createEEnum(DMULTIPLICITY_SHORTHAND);
 	}
 
 	/**
@@ -1783,22 +1825,23 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		iTypeContainerEClass.getESuperTypes().add(this.getINamespace());
-		dNavigableMemberEClass.getESuperTypes().add(this.getDNamedElement());
-		iNavigableMemberContainerEClass.getESuperTypes().add(this.getINamespace());
-		iStaticReferenceTargetEClass.getESuperTypes().add(this.getDNamedElement());
-		dTextSegmentEClass.getESuperTypes().add(this.getIRichTextSegment());
-		dExpressionEClass.getESuperTypes().add(this.getIRichTextSegment());
-		dRichTextEClass.getESuperTypes().add(this.getDExpression());
-		dDomainEClass.getESuperTypes().add(this.getDNamedElement());
+		dNamespaceEClass.getESuperTypes().add(this.getDNamedElement());
+		dDomainEClass.getESuperTypes().add(this.getDNamespace());
+		dDomainEClass.getESuperTypes().add(this.getIAggregateContainer());
 		dDomainEClass.getESuperTypes().add(this.getITypeContainer());
 		dDomainEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
 		dDomainEClass.getESuperTypes().add(this.getIDeducibleElement());
 		dAggregateEClass.getESuperTypes().add(this.getDNamedElement());
 		dAggregateEClass.getESuperTypes().add(this.getITypeContainer());
+		dAggregateEClass.getESuperTypes().add(this.getIFeatureContainer());
 		dAggregateEClass.getESuperTypes().add(this.getINavigableMemberContainer());
 		dAggregateEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
 		dAggregateEClass.getESuperTypes().add(this.getIDeducibleElement());
+		dNavigableMemberEClass.getESuperTypes().add(this.getDNamedElement());
+		iStaticReferenceTargetEClass.getESuperTypes().add(this.getDNamedElement());
+		dTextSegmentEClass.getESuperTypes().add(this.getIRichTextSegment());
+		dExpressionEClass.getESuperTypes().add(this.getIRichTextSegment());
+		dRichTextEClass.getESuperTypes().add(this.getDExpression());
 		dTypeEClass.getESuperTypes().add(this.getDNamedElement());
 		dTypeEClass.getESuperTypes().add(this.getIDeducibleElement());
 		dTypeEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
@@ -1811,6 +1854,7 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dLiteralEClass.getESuperTypes().add(this.getDNavigableMember());
 		dLiteralEClass.getESuperTypes().add(this.getIDeducibleElement());
 		dComplexTypeEClass.getESuperTypes().add(this.getDType());
+		dComplexTypeEClass.getESuperTypes().add(this.getIFeatureContainer());
 		dComplexTypeEClass.getESuperTypes().add(this.getINavigableMemberContainer());
 		dDetailTypeEClass.getESuperTypes().add(this.getDComplexType());
 		dDetailTypeEClass.getESuperTypes().add(this.getIValueType());
@@ -1834,16 +1878,35 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		dNotificationEClass.getESuperTypes().add(this.getDNavigableMember());
 		dNotificationEClass.getESuperTypes().add(this.getINavigableMemberContainer());
 		dMessageEClass.getESuperTypes().add(this.getDNavigableMember());
-		dActorEClass.getESuperTypes().add(this.getDNamedElement());
+		dActorEClass.getESuperTypes().add(this.getDNavigableMember());
 		dActorEClass.getESuperTypes().add(this.getIStaticReferenceTarget());
 		dHumanActorRoleEClass.getESuperTypes().add(this.getDActor());
 		dServiceEClass.getESuperTypes().add(this.getDActor());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(iNamespaceEClass, INamespace.class, "INamespace", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(dNamedElementEClass, DNamedElement.class, "DNamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDNamedElement_Aliases(), ecorePackage.getEString(), "aliases", null, 0, -1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDNamedElement_Description(), this.getDRichText(), null, "description", null, 0, 1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dImportEClass, DImport.class, "DImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, DImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dNamespaceEClass, DNamespace.class, "DNamespace", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDNamespace_Imports(), this.getDImport(), null, "imports", null, 0, -1, DNamespace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dDomainEClass, DDomain.class, "DDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDDomain_Events(), this.getDDomainEvent(), null, "events", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDDomain_Actors(), this.getDActor(), null, "actors", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(iAggregateContainerEClass, IAggregateContainer.class, "IAggregateContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIAggregateContainer_Aggregates(), this.getDAggregate(), null, "aggregates", null, 0, -1, IAggregateContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iTypeContainerEClass, ITypeContainer.class, "ITypeContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getITypeContainer_Types(), this.getDType(), null, "types", null, 0, -1, ITypeContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(iFeatureContainerEClass, IFeatureContainer.class, "IFeatureContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIFeatureContainer_Features(), this.getDFeature(), null, "features", null, 0, -1, IFeatureContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iDeductionDefinitionEClass, IDeductionDefinition.class, "IDeductionDefinition", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIDeductionDefinition_DeductionRule(), this.getDDeductionRule(), null, "deductionRule", null, 0, 1, IDeductionDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1856,10 +1919,8 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEReference(getDDeductionRule_Source(), this.getIDeducibleElement(), null, "source", null, 0, 1, DDeductionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDDeductionRule_NamedSource(), this.getDNamedElement(), null, "namedSource", null, 0, 1, DDeductionRule.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(dNamedElementEClass, DNamedElement.class, "DNamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDNamedElement_Aliases(), ecorePackage.getEString(), "aliases", null, 0, -1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDNamedElement_Description(), this.getDRichText(), null, "description", null, 0, 1, DNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dAggregateEClass, DAggregate.class, "DAggregate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDAggregate_Roots(), this.getDEntityType(), null, "roots", null, 0, -1, DAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(dNavigableMemberEClass, DNavigableMember.class, "DNavigableMember", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDNavigableMember_Type(), this.getDType(), null, "type", null, 0, 1, DNavigableMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1868,6 +1929,12 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEAttribute(getDNavigableMember_Collection(), ecorePackage.getEBoolean(), "collection", null, 0, 1, DNavigableMember.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(iNavigableMemberContainerEClass, INavigableMemberContainer.class, "INavigableMemberContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getINavigableMemberContainer_NavigableMembers(), this.getDNavigableMember(), null, "navigableMembers", null, 0, -1, INavigableMemberContainer.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(dMultiplicityEClass, DMultiplicity.class, "DMultiplicity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDMultiplicity_MinOccurs(), ecorePackage.getEInt(), "minOccurs", null, 0, 1, DMultiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDMultiplicity_MaxOccurs(), ecorePackage.getEInt(), "maxOccurs", null, 0, 1, DMultiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDMultiplicity_Shorthand(), this.getDMultiplicityShorthand(), "shorthand", null, 0, 1, DMultiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iStaticReferenceTargetEClass, IStaticReferenceTarget.class, "IStaticReferenceTarget", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1880,19 +1947,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 
 		initEClass(dRichTextEClass, DRichText.class, "DRichText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDRichText_Segments(), this.getIRichTextSegment(), null, "segments", null, 0, -1, DRichText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dImportEClass, DImport.class, "DImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, DImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dDomainEClass, DDomain.class, "DDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDDomain_Imports(), this.getDImport(), null, "imports", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDDomain_Aggregates(), this.getDAggregate(), null, "aggregates", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDDomain_Events(), this.getDDomainEvent(), null, "events", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDDomain_Actors(), this.getDActor(), null, "actors", null, 0, -1, DDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dAggregateEClass, DAggregate.class, "DAggregate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDAggregate_Roots(), this.getDEntityType(), null, "roots", null, 0, -1, DAggregate.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getDAggregate_StaticQueries(), this.getDQuery(), null, "staticQueries", null, 0, -1, DAggregate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iIdentityTypeEClass, IIdentityType.class, "IIdentityType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1918,7 +1972,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dComplexTypeEClass, DComplexType.class, "DComplexType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDComplexType_Abstract(), ecorePackage.getEBoolean(), "abstract", null, 0, 1, DComplexType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDComplexType_SuperType(), this.getDComplexType(), null, "superType", null, 0, 1, DComplexType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDComplexType_Features(), this.getDFeature(), null, "features", null, 0, -1, DComplexType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dDetailTypeEClass, DDetailType.class, "DDetailType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1936,11 +1989,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEReference(getDAssociation_SourceType(), this.getDComplexType(), null, "sourceType", null, 1, 1, DAssociation.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getDAssociation__GetTargetType(), this.getDEntityType(), "getTargetType", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(dMultiplicityEClass, DMultiplicity.class, "DMultiplicity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDMultiplicity_MinOccurs(), ecorePackage.getEInt(), "minOccurs", null, 0, 1, DMultiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDMultiplicity_MaxOccurs(), ecorePackage.getEInt(), "maxOccurs", null, 0, 1, DMultiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDMultiplicity_Shorthand(), this.getDMultiplicityShorthand(), "shorthand", null, 0, 1, DMultiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dAttributeEClass, DAttribute.class, "DAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDAttribute_Detail(), ecorePackage.getEBoolean(), "detail", null, 0, 1, DAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1984,6 +2032,12 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		initEClass(dServiceEClass, DService.class, "DService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
+		initEEnum(dMultiplicityShorthandEEnum, DMultiplicityShorthand.class, "DMultiplicityShorthand");
+		addEEnumLiteral(dMultiplicityShorthandEEnum, DMultiplicityShorthand.NONE);
+		addEEnumLiteral(dMultiplicityShorthandEEnum, DMultiplicityShorthand.ZERO_OR_ONE);
+		addEEnumLiteral(dMultiplicityShorthandEEnum, DMultiplicityShorthand.ONE_OR_MORE);
+		addEEnumLiteral(dMultiplicityShorthandEEnum, DMultiplicityShorthand.ZERO_OR_MORE);
+
 		initEEnum(dEntityOriginEEnum, DEntityOrigin.class, "DEntityOrigin");
 		addEEnumLiteral(dEntityOriginEEnum, DEntityOrigin.GENERIC_ENTITY);
 		addEEnumLiteral(dEntityOriginEEnum, DEntityOrigin.PHYSICAL_OBJECT);
@@ -1994,12 +2048,6 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage
 		addEEnumLiteral(dAssociationKindEEnum, DAssociationKind.REFERENCE);
 		addEEnumLiteral(dAssociationKindEEnum, DAssociationKind.COMPOSITE);
 		addEEnumLiteral(dAssociationKindEEnum, DAssociationKind.INVERSE_COMPOSITE);
-
-		initEEnum(dMultiplicityShorthandEEnum, DMultiplicityShorthand.class, "DMultiplicityShorthand");
-		addEEnumLiteral(dMultiplicityShorthandEEnum, DMultiplicityShorthand.NONE);
-		addEEnumLiteral(dMultiplicityShorthandEEnum, DMultiplicityShorthand.ZERO_OR_ONE);
-		addEEnumLiteral(dMultiplicityShorthandEEnum, DMultiplicityShorthand.ONE_OR_MORE);
-		addEEnumLiteral(dMultiplicityShorthandEEnum, DMultiplicityShorthand.ZERO_OR_MORE);
 
 		// Create resource
 		createResource(eNS_URI);

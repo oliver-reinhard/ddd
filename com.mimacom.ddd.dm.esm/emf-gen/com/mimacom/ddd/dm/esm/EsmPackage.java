@@ -77,7 +77,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_DOMAIN__NAME = BasePackage.DNAMED_ELEMENT__NAME;
+	int ESM_DOMAIN__NAME = BasePackage.DNAMESPACE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
@@ -86,7 +86,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_DOMAIN__ALIASES = BasePackage.DNAMED_ELEMENT__ALIASES;
+	int ESM_DOMAIN__ALIASES = BasePackage.DNAMESPACE__ALIASES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -95,7 +95,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_DOMAIN__DESCRIPTION = BasePackage.DNAMED_ELEMENT__DESCRIPTION;
+	int ESM_DOMAIN__DESCRIPTION = BasePackage.DNAMESPACE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
@@ -104,7 +104,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_DOMAIN__IMPORTS = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 0;
+	int ESM_DOMAIN__IMPORTS = BasePackage.DNAMESPACE__IMPORTS;
 
 	/**
 	 * The feature id for the '<em><b>State Model</b></em>' containment reference.
@@ -113,7 +113,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_DOMAIN__STATE_MODEL = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 1;
+	int ESM_DOMAIN__STATE_MODEL = BasePackage.DNAMESPACE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Domain</em>' class.
@@ -122,7 +122,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_DOMAIN_FEATURE_COUNT = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 2;
+	int ESM_DOMAIN_FEATURE_COUNT = BasePackage.DNAMESPACE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.esm.IEsmLayout <em>IEsm Layout</em>}' class.
@@ -263,13 +263,22 @@ public interface EsmPackage extends EPackage
 	int ESM_ENTITY_STATE_MODEL__TRANSITIONS = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Navigable Members</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESM_ENTITY_STATE_MODEL__NAVIGABLE_MEMBERS = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>For Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_ENTITY_STATE_MODEL__FOR_TYPE = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 3;
+	int ESM_ENTITY_STATE_MODEL__FOR_TYPE = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Entity State Model</em>' class.
@@ -278,7 +287,7 @@ public interface EsmPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ESM_ENTITY_STATE_MODEL_FEATURE_COUNT = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 4;
+	int ESM_ENTITY_STATE_MODEL_FEATURE_COUNT = BasePackage.DNAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.mimacom.ddd.dm.esm.impl.IEsmStateImpl <em>IEsm State</em>}' class.
@@ -697,17 +706,6 @@ public interface EsmPackage extends EPackage
 	EClass getEsmDomain();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.mimacom.ddd.dm.esm.EsmDomain#getImports <em>Imports</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Imports</em>'.
-	 * @see com.mimacom.ddd.dm.esm.EsmDomain#getImports()
-	 * @see #getEsmDomain()
-	 * @generated
-	 */
-	EReference getEsmDomain_Imports();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link com.mimacom.ddd.dm.esm.EsmDomain#getStateModel <em>State Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1013,14 +1011,6 @@ public interface EsmPackage extends EPackage
 		 * @generated
 		 */
 		EClass ESM_DOMAIN = eINSTANCE.getEsmDomain();
-
-		/**
-		 * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ESM_DOMAIN__IMPORTS = eINSTANCE.getEsmDomain_Imports();
 
 		/**
 		 * The meta object literal for the '<em><b>State Model</b></em>' containment reference feature.

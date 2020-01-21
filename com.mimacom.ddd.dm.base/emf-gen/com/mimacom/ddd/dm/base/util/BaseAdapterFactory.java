@@ -75,14 +75,39 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 		new BaseSwitch<Adapter>()
 		{
 			@Override
-			public Adapter caseINamespace(INamespace object)
+			public Adapter caseDNamedElement(DNamedElement object)
 			{
-				return createINamespaceAdapter();
+				return createDNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseDImport(DImport object)
+			{
+				return createDImportAdapter();
+			}
+			@Override
+			public Adapter caseDNamespace(DNamespace object)
+			{
+				return createDNamespaceAdapter();
+			}
+			@Override
+			public Adapter caseDDomain(DDomain object)
+			{
+				return createDDomainAdapter();
+			}
+			@Override
+			public Adapter caseIAggregateContainer(IAggregateContainer object)
+			{
+				return createIAggregateContainerAdapter();
 			}
 			@Override
 			public Adapter caseITypeContainer(ITypeContainer object)
 			{
 				return createITypeContainerAdapter();
+			}
+			@Override
+			public Adapter caseIFeatureContainer(IFeatureContainer object)
+			{
+				return createIFeatureContainerAdapter();
 			}
 			@Override
 			public Adapter caseIDeductionDefinition(IDeductionDefinition object)
@@ -100,9 +125,9 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 				return createDDeductionRuleAdapter();
 			}
 			@Override
-			public Adapter caseDNamedElement(DNamedElement object)
+			public Adapter caseDAggregate(DAggregate object)
 			{
-				return createDNamedElementAdapter();
+				return createDAggregateAdapter();
 			}
 			@Override
 			public Adapter caseDNavigableMember(DNavigableMember object)
@@ -113,6 +138,11 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseINavigableMemberContainer(INavigableMemberContainer object)
 			{
 				return createINavigableMemberContainerAdapter();
+			}
+			@Override
+			public Adapter caseDMultiplicity(DMultiplicity object)
+			{
+				return createDMultiplicityAdapter();
 			}
 			@Override
 			public Adapter caseIStaticReferenceTarget(IStaticReferenceTarget object)
@@ -138,21 +168,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseDRichText(DRichText object)
 			{
 				return createDRichTextAdapter();
-			}
-			@Override
-			public Adapter caseDImport(DImport object)
-			{
-				return createDImportAdapter();
-			}
-			@Override
-			public Adapter caseDDomain(DDomain object)
-			{
-				return createDDomainAdapter();
-			}
-			@Override
-			public Adapter caseDAggregate(DAggregate object)
-			{
-				return createDAggregateAdapter();
 			}
 			@Override
 			public Adapter caseIIdentityType(IIdentityType object)
@@ -218,11 +233,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseDAssociation(DAssociation object)
 			{
 				return createDAssociationAdapter();
-			}
-			@Override
-			public Adapter caseDMultiplicity(DMultiplicity object)
-			{
-				return createDMultiplicityAdapter();
 			}
 			@Override
 			public Adapter caseDAttribute(DAttribute object)
@@ -312,16 +322,76 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INamespace <em>INamespace</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamedElement <em>DNamed Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.INamespace
+	 * @see com.mimacom.ddd.dm.base.DNamedElement
 	 * @generated
 	 */
-	public Adapter createINamespaceAdapter()
+	public Adapter createDNamedElementAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DImport <em>DImport</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DImport
+	 * @generated
+	 */
+	public Adapter createDImportAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamespace <em>DNamespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DNamespace
+	 * @generated
+	 */
+	public Adapter createDNamespaceAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DDomain <em>DDomain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DDomain
+	 * @generated
+	 */
+	public Adapter createDDomainAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IAggregateContainer <em>IAggregate Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IAggregateContainer
+	 * @generated
+	 */
+	public Adapter createIAggregateContainerAdapter()
 	{
 		return null;
 	}
@@ -337,6 +407,21 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createITypeContainerAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IFeatureContainer <em>IFeature Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.IFeatureContainer
+	 * @generated
+	 */
+	public Adapter createIFeatureContainerAdapter()
 	{
 		return null;
 	}
@@ -387,16 +472,16 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamedElement <em>DNamed Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DAggregate <em>DAggregate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DNamedElement
+	 * @see com.mimacom.ddd.dm.base.DAggregate
 	 * @generated
 	 */
-	public Adapter createDNamedElementAdapter()
+	public Adapter createDAggregateAdapter()
 	{
 		return null;
 	}
@@ -427,6 +512,21 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createINavigableMemberContainerAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DMultiplicity <em>DMultiplicity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DMultiplicity
+	 * @generated
+	 */
+	public Adapter createDMultiplicityAdapter()
 	{
 		return null;
 	}
@@ -502,51 +602,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDRichTextAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DImport <em>DImport</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DImport
-	 * @generated
-	 */
-	public Adapter createDImportAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DDomain <em>DDomain</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DDomain
-	 * @generated
-	 */
-	public Adapter createDDomainAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DAggregate <em>DAggregate</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DAggregate
-	 * @generated
-	 */
-	public Adapter createDAggregateAdapter()
 	{
 		return null;
 	}
@@ -742,21 +797,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDAssociationAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DMultiplicity <em>DMultiplicity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.DMultiplicity
-	 * @generated
-	 */
-	public Adapter createDMultiplicityAdapter()
 	{
 		return null;
 	}

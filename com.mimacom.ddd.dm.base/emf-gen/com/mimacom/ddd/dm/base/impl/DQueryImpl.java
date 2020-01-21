@@ -4,8 +4,10 @@ package com.mimacom.ddd.dm.base.impl;
 
 import com.mimacom.ddd.dm.base.BasePackage;
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 
 import java.util.Collection;
 
@@ -30,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DQueryImpl#getNavigableMembers <em>Navigable Members</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DQueryImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DQueryImpl#getReturns <em>Returns</em>}</li>
  * </ul>
@@ -77,6 +80,21 @@ public class DQueryImpl extends DFeatureImpl implements DQuery
 	protected EClass eStaticClass()
 	{
 		return BasePackage.Literals.DQUERY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<DNavigableMember> getNavigableMembers()
+	{
+		// TODO: implement this method to return the 'Navigable Members' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -172,6 +190,8 @@ public class DQueryImpl extends DFeatureImpl implements DQuery
 	{
 		switch (featureID)
 		{
+			case BasePackage.DQUERY__NAVIGABLE_MEMBERS:
+				return getNavigableMembers();
 			case BasePackage.DQUERY__PARAMETERS:
 				return getParameters();
 			case BasePackage.DQUERY__RETURNS:
@@ -191,6 +211,10 @@ public class DQueryImpl extends DFeatureImpl implements DQuery
 	{
 		switch (featureID)
 		{
+			case BasePackage.DQUERY__NAVIGABLE_MEMBERS:
+				getNavigableMembers().clear();
+				getNavigableMembers().addAll((Collection<? extends DNavigableMember>)newValue);
+				return;
 			case BasePackage.DQUERY__PARAMETERS:
 				getParameters().clear();
 				getParameters().addAll((Collection<? extends DQueryParameter>)newValue);
@@ -212,6 +236,9 @@ public class DQueryImpl extends DFeatureImpl implements DQuery
 	{
 		switch (featureID)
 		{
+			case BasePackage.DQUERY__NAVIGABLE_MEMBERS:
+				getNavigableMembers().clear();
+				return;
 			case BasePackage.DQUERY__PARAMETERS:
 				getParameters().clear();
 				return;
@@ -232,12 +259,52 @@ public class DQueryImpl extends DFeatureImpl implements DQuery
 	{
 		switch (featureID)
 		{
+			case BasePackage.DQUERY__NAVIGABLE_MEMBERS:
+				return !getNavigableMembers().isEmpty();
 			case BasePackage.DQUERY__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
 			case BasePackage.DQUERY__RETURNS:
 				return returns != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == INavigableMemberContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case BasePackage.DQUERY__NAVIGABLE_MEMBERS: return BasePackage.INAVIGABLE_MEMBER_CONTAINER__NAVIGABLE_MEMBERS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == INavigableMemberContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				case BasePackage.INAVIGABLE_MEMBER_CONTAINER__NAVIGABLE_MEMBERS: return BasePackage.DQUERY__NAVIGABLE_MEMBERS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //DQueryImpl

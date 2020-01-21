@@ -1,6 +1,7 @@
 package com.mimacom.ddd.sm.sim
 
 import com.mimacom.ddd.dm.base.BasePackage
+import com.mimacom.ddd.dm.base.DAggregate
 import com.mimacom.ddd.dm.base.DAssociation
 import com.mimacom.ddd.dm.base.DAttribute
 import com.mimacom.ddd.dm.base.DDeductionRule
@@ -12,12 +13,9 @@ import com.mimacom.ddd.dm.base.impl.DEntityTypeImpl
 import com.mimacom.ddd.dm.base.impl.DEnumerationImpl
 import com.mimacom.ddd.dm.base.impl.DPrimitiveImpl
 import com.mimacom.ddd.dm.dim.DimUtil
-import javax.inject.Inject
 import org.eclipse.emf.ecore.EClass
 
-class SimUtil {
-	
-	@Inject extension DimUtil
+class SimUtil extends DimUtil {
 	
 	def Class<? extends DType> baseImplClass(STypeDeduction type) {
 		switch (type) {
@@ -41,6 +39,10 @@ class SimUtil {
 			SAssociationDeduction : BasePackage.eINSTANCE.DAssociation
 			SQueryDeduction : BasePackage.eINSTANCE.DQuery
 		}
+	}
+	
+	override String label(DAggregate a) {
+		return "Aggregate " + a.name
 	}
 	
 	def String label(DDeductionRule rule) {

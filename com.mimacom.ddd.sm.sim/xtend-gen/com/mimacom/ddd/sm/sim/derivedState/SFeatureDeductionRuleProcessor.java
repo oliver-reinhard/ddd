@@ -3,7 +3,6 @@ package com.mimacom.ddd.sm.sim.derivedState;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.DComplexType;
 import com.mimacom.ddd.dm.base.DDeductionRule;
 import com.mimacom.ddd.dm.base.DFeature;
 import com.mimacom.ddd.dm.base.DMultiplicity;
@@ -11,7 +10,7 @@ import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
-import com.mimacom.ddd.dm.dim.DimUtil;
+import com.mimacom.ddd.dm.base.IFeatureContainer;
 import com.mimacom.ddd.sm.sim.SDitchRule;
 import com.mimacom.ddd.sm.sim.SFeatureDeduction;
 import com.mimacom.ddd.sm.sim.SGrabRule;
@@ -19,7 +18,8 @@ import com.mimacom.ddd.sm.sim.SMorphRule;
 import com.mimacom.ddd.sm.sim.SQueryDeduction;
 import com.mimacom.ddd.sm.sim.SQueryParameterDeduction;
 import com.mimacom.ddd.sm.sim.SRenameRule;
-import com.mimacom.ddd.sm.sim.derivedState.SyntheticComplexTypeDescriptor;
+import com.mimacom.ddd.sm.sim.SimUtil;
+import com.mimacom.ddd.sm.sim.derivedState.SyntheticFeatureContainerDescriptor;
 import com.mimacom.ddd.sm.sim.derivedState.SyntheticModelElementsFactory;
 import com.mimacom.ddd.sm.sim.derivedState.TransformationContext;
 import java.util.ArrayList;
@@ -34,17 +34,17 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 public class SFeatureDeductionRuleProcessor {
   @Inject
   @Extension
-  private DimUtil _dimUtil;
+  private SimUtil _simUtil;
   
   @Inject
   @Extension
   private SyntheticModelElementsFactory _syntheticModelElementsFactory;
   
-  protected void _processFeatureDeduction(final DComplexType container, final SFeatureDeduction deductionDefinition, final SGrabRule rule, final TransformationContext context) {
+  protected void _processFeatureDeduction(final IFeatureContainer container, final SFeatureDeduction deductionDefinition, final SGrabRule rule, final TransformationContext context) {
     this.grabFeature(container, deductionDefinition, rule, context);
   }
   
-  protected void _processFeatureDeduction(final DComplexType container, final SFeatureDeduction deductionDefinition, final SMorphRule rule, final TransformationContext context) {
+  protected void _processFeatureDeduction(final IFeatureContainer container, final SFeatureDeduction deductionDefinition, final SMorphRule rule, final TransformationContext context) {
     final DFeature syntheticFeature = this.grabFeature(container, deductionDefinition, rule, context);
     if ((syntheticFeature != null)) {
       DType _retypeTo = rule.getRetypeTo();
@@ -60,10 +60,10 @@ public class SFeatureDeductionRuleProcessor {
     }
   }
   
-  protected void _processFeatureDeduction(final DComplexType container, final SFeatureDeduction deductionDefinition, final SDitchRule rule, final TransformationContext context) {
+  protected void _processFeatureDeduction(final IFeatureContainer container, final SFeatureDeduction deductionDefinition, final SDitchRule rule, final TransformationContext context) {
   }
   
-  public DFeature grabFeature(final DComplexType container, final SFeatureDeduction deductionDefinition, final SRenameRule rule, final TransformationContext context) {
+  public DFeature grabFeature(final IFeatureContainer container, final SFeatureDeduction deductionDefinition, final SRenameRule rule, final TransformationContext context) {
     final IDeducibleElement source = rule.getSource();
     if ((source instanceof DFeature)) {
       String _xifexpression = null;
@@ -109,16 +109,16 @@ public class SFeatureDeductionRuleProcessor {
     return null;
   }
   
-  public void addSyntheticFeatures(final SyntheticComplexTypeDescriptor desc, final TransformationContext context) {
+  public void addSyntheticFeatures(final SyntheticFeatureContainerDescriptor desc, final TransformationContext context) {
     Iterable<SFeatureDeduction> featureDeductionDefinitions = Lists.<SFeatureDeduction>newArrayList();
     Iterable<DFeature> genuineFeatures = Lists.<DFeature>newArrayList();
     if ((desc.deductionDefinition != null)) {
-      final DComplexType complexType = ((DComplexType) desc.deductionDefinition);
-      featureDeductionDefinitions = Iterables.<SFeatureDeduction>filter(complexType.getFeatures(), SFeatureDeduction.class);
+      final IFeatureContainer featureContainer = ((IFeatureContainer) desc.deductionDefinition);
+      featureDeductionDefinitions = Iterables.<SFeatureDeduction>filter(featureContainer.getFeatures(), SFeatureDeduction.class);
       final Function1<DFeature, Boolean> _function = (DFeature it) -> {
         return Boolean.valueOf((!((it instanceof SFeatureDeduction) || it.isSynthetic())));
       };
-      genuineFeatures = IterableExtensions.<DFeature>filter(complexType.getFeatures(), _function);
+      genuineFeatures = IterableExtensions.<DFeature>filter(featureContainer.getFeatures(), _function);
     }
     final Function1<SFeatureDeduction, Boolean> _function_1 = (SFeatureDeduction it) -> {
       DDeductionRule _deductionRule = it.getDeductionRule();
@@ -127,7 +127,7 @@ public class SFeatureDeductionRuleProcessor {
     boolean _exists = IterableExtensions.<SFeatureDeduction>exists(featureDeductionDefinitions, _function_1);
     boolean _not = (!_exists);
     if (_not) {
-      final ArrayList<DFeature> implicitlyGrabbedSourceFeatures = Lists.<DFeature>newArrayList(this._dimUtil.allFeatures(desc.source));
+      final ArrayList<DFeature> implicitlyGrabbedSourceFeatures = Lists.<DFeature>newArrayList(this._simUtil.allFeatures(desc.source));
       final Function1<SFeatureDeduction, Boolean> _function_2 = (SFeatureDeduction it) -> {
         IDeducibleElement _source = it.getDeductionRule().getSource();
         return Boolean.valueOf((_source instanceof DFeature));
@@ -139,7 +139,7 @@ public class SFeatureDeductionRuleProcessor {
       final Iterable<DFeature> sourceFeaturesAffectedByRule = IterableExtensions.<SFeatureDeduction, DFeature>map(IterableExtensions.<SFeatureDeduction>filter(featureDeductionDefinitions, _function_2), _function_3);
       CollectionExtensions.<DFeature>removeAll(implicitlyGrabbedSourceFeatures, sourceFeaturesAffectedByRule);
       for (final DFeature sourceFeature : implicitlyGrabbedSourceFeatures) {
-        this._syntheticModelElementsFactory.addSyntheticFeature(desc.syntheticType, sourceFeature.getName(), sourceFeature, this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(desc.deductionDefinition, desc.source), context);
+        this._syntheticModelElementsFactory.addSyntheticFeature(desc.syntheticType, sourceFeature.getName(), sourceFeature, this._syntheticModelElementsFactory.createImplicitElementCopyDeduction(desc.deductionDefinition, ((IDeducibleElement) desc.source)), context);
       }
     }
     final List<SFeatureDeduction> featureDeductionDefinitionsList = IterableExtensions.<SFeatureDeduction>toList(featureDeductionDefinitions);
@@ -191,7 +191,7 @@ public class SFeatureDeductionRuleProcessor {
   protected void _processQueryParameterDeduction(final SQueryDeduction container, final SQueryParameterDeduction deductionDefinition, final SDitchRule rule, final TransformationContext context) {
   }
   
-  public void processFeatureDeduction(final DComplexType container, final SFeatureDeduction deductionDefinition, final DDeductionRule rule, final TransformationContext context) {
+  public void processFeatureDeduction(final IFeatureContainer container, final SFeatureDeduction deductionDefinition, final DDeductionRule rule, final TransformationContext context) {
     if (rule instanceof SMorphRule) {
       _processFeatureDeduction(container, deductionDefinition, (SMorphRule)rule, context);
       return;

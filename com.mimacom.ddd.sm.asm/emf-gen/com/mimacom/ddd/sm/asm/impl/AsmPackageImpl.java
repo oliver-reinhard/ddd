@@ -198,17 +198,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getModel_Imports()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getSApplication()
 	{
 		return sApplicationEClass;
@@ -499,7 +488,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 
 		// Create classes and their features
 		modelEClass = createEClass(MODEL);
-		createEReference(modelEClass, MODEL__IMPORTS);
 
 		sApplicationEClass = createEClass(SAPPLICATION);
 		createEReference(sApplicationEClass, SAPPLICATION__MODEL);
@@ -569,10 +557,10 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		modelEClass.getESuperTypes().add(theBasePackage.getDNamespace());
 		modelEClass.getESuperTypes().add(theBasePackage.getIStaticReferenceTarget());
 		sApplicationEClass.getESuperTypes().add(this.getModel());
 		sServiceInterfaceEClass.getESuperTypes().add(this.getModel());
-		sServiceInterfaceEClass.getESuperTypes().add(theBasePackage.getINavigableMemberContainer());
 		sExceptionEClass.getESuperTypes().add(theBasePackage.getDNamedElement());
 		sWatchdogEClass.getESuperTypes().add(this.getSActor());
 		sHumanEClass.getESuperTypes().add(this.getSActor());
@@ -581,7 +569,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modelEClass, Model.class, "Model", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModel_Imports(), theBasePackage.getDImport(), null, "imports", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sApplicationEClass, SApplication.class, "SApplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSApplication_Model(), theSimPackage.getSInformationModel(), null, "model", null, 0, 1, SApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -55,4 +55,9 @@ Workflow {
 			}
 		}
 	}
+	
+	component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
+		genModel = "${genModel}"
+       srcPath = "${rootPath}/${project}/src"
+	}
 }

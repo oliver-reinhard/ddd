@@ -3,6 +3,8 @@
  */
 package com.mimacom.ddd.dm.dom.impl;
 
+import com.mimacom.ddd.dm.base.DNavigableMember;
+
 import com.mimacom.ddd.dm.dom.DomObject;
 import com.mimacom.ddd.dm.dom.DomPackage;
 import com.mimacom.ddd.dm.dom.DomSnapshot;
@@ -31,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.dom.impl.DomSnapshotImpl#getNavigableMembers <em>Navigable Members</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dom.impl.DomSnapshotImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dom.impl.DomSnapshotImpl#getObjects <em>Objects</em>}</li>
  * </ul>
@@ -88,6 +91,21 @@ public class DomSnapshotImpl extends MinimalEObjectImpl.Container implements Dom
 	protected EClass eStaticClass()
 	{
 		return DomPackage.Literals.DOM_SNAPSHOT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<DNavigableMember> getNavigableMembers()
+	{
+		// TODO: implement this method to return the 'Navigable Members' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -156,6 +174,8 @@ public class DomSnapshotImpl extends MinimalEObjectImpl.Container implements Dom
 	{
 		switch (featureID)
 		{
+			case DomPackage.DOM_SNAPSHOT__NAVIGABLE_MEMBERS:
+				return getNavigableMembers();
 			case DomPackage.DOM_SNAPSHOT__NAME:
 				return getName();
 			case DomPackage.DOM_SNAPSHOT__OBJECTS:
@@ -175,6 +195,10 @@ public class DomSnapshotImpl extends MinimalEObjectImpl.Container implements Dom
 	{
 		switch (featureID)
 		{
+			case DomPackage.DOM_SNAPSHOT__NAVIGABLE_MEMBERS:
+				getNavigableMembers().clear();
+				getNavigableMembers().addAll((Collection<? extends DNavigableMember>)newValue);
+				return;
 			case DomPackage.DOM_SNAPSHOT__NAME:
 				setName((String)newValue);
 				return;
@@ -196,6 +220,9 @@ public class DomSnapshotImpl extends MinimalEObjectImpl.Container implements Dom
 	{
 		switch (featureID)
 		{
+			case DomPackage.DOM_SNAPSHOT__NAVIGABLE_MEMBERS:
+				getNavigableMembers().clear();
+				return;
 			case DomPackage.DOM_SNAPSHOT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -216,6 +243,8 @@ public class DomSnapshotImpl extends MinimalEObjectImpl.Container implements Dom
 	{
 		switch (featureID)
 		{
+			case DomPackage.DOM_SNAPSHOT__NAVIGABLE_MEMBERS:
+				return !getNavigableMembers().isEmpty();
 			case DomPackage.DOM_SNAPSHOT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DomPackage.DOM_SNAPSHOT__OBJECTS:

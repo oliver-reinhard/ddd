@@ -3,8 +3,6 @@
  */
 package com.mimacom.ddd.sm.asm;
 
-import com.mimacom.ddd.dm.base.INavigableMemberContainer;
-
 import com.mimacom.ddd.sm.sim.SInformationModel;
 
 import org.eclipse.emf.common.util.EList;
@@ -28,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface SServiceInterface extends Model, INavigableMemberContainer
+public interface SServiceInterface extends Model
 {
 	/**
 	 * Returns the value of the '<em><b>Interface</b></em>' reference.

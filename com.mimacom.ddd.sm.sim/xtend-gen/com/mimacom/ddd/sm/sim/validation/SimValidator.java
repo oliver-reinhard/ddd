@@ -16,14 +16,15 @@ import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DEnumeration;
 import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DQuery;
-import com.mimacom.ddd.dm.base.DQueryParameter;
 import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IDeducibleElement;
 import com.mimacom.ddd.dm.base.IDeductionDefinition;
 import com.mimacom.ddd.dm.base.IIdentityType;
 import com.mimacom.ddd.dm.base.IValueType;
-import com.mimacom.ddd.dm.dim.DimUtil;
+import com.mimacom.ddd.dm.dim.validation.DimValidator;
+import com.mimacom.ddd.sm.sim.SAggregateDeduction;
 import com.mimacom.ddd.sm.sim.SAssociationDeduction;
 import com.mimacom.ddd.sm.sim.SAttributeDeduction;
 import com.mimacom.ddd.sm.sim.SComplexTypeDeduction;
@@ -35,8 +36,6 @@ import com.mimacom.ddd.sm.sim.SFeatureDeduction;
 import com.mimacom.ddd.sm.sim.SFuseRule;
 import com.mimacom.ddd.sm.sim.SGrabRule;
 import com.mimacom.ddd.sm.sim.SImplicitElementDeduction;
-import com.mimacom.ddd.sm.sim.SInformationModel;
-import com.mimacom.ddd.sm.sim.SInformationModelKind;
 import com.mimacom.ddd.sm.sim.SLiteralDeduction;
 import com.mimacom.ddd.sm.sim.SQueryDeduction;
 import com.mimacom.ddd.sm.sim.SStructureChangingRule;
@@ -62,10 +61,6 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 public class SimValidator extends AbstractSimValidator {
   @Inject
   @Extension
-  private DimUtil _dimUtil;
-  
-  @Inject
-  @Extension
   private SimUtil _simUtil;
   
   @Inject
@@ -79,7 +74,7 @@ public class SimValidator extends AbstractSimValidator {
     };
     final Iterable<DEntityType> roots = IterableExtensions.<DEntityType>filter(Iterables.<DEntityType>filter(a.getTypes(), DEntityType.class), _function);
     final Function1<DEntityType, Boolean> _function_1 = (DEntityType it) -> {
-      DAggregate _aggregate = this._dimUtil.aggregate(it.getSuperType());
+      DAggregate _aggregate = this._simUtil.aggregate(it.getSuperType());
       return Boolean.valueOf((!Objects.equal(_aggregate, a)));
     };
     final Iterable<DEntityType> topLevelRoots = IterableExtensions.<DEntityType>filter(roots, _function_1);
@@ -87,8 +82,17 @@ public class SimValidator extends AbstractSimValidator {
     boolean _greaterThan = (_size > 1);
     if (_greaterThan) {
       for (final DEntityType r : roots) {
-        this.error("Aggregate can only declare a single root or relationship or a single hierarchy thereof", r, BasePackage.Literals.DNAMED_ELEMENT__NAME);
+        this.error("Aggregate can only declare a single root or relationship or a single hierarchy thereof", r, 
+          BasePackage.Literals.DNAMED_ELEMENT__NAME);
       }
+    }
+  }
+  
+  @Check
+  public void checkCorrespondingAggregateType(final SAggregateDeduction a) {
+    if (((a.getDeductionRule().getSource() != null) && (!(a.getDeductionRule().getSource() instanceof DAggregate)))) {
+      this.error("Deduced-aggregate rule must have a domain-model Aggregate as its source", a.getDeductionRule(), 
+        BasePackage.Literals.DDEDUCTION_RULE__SOURCE);
     }
   }
   
@@ -100,12 +104,12 @@ public class SimValidator extends AbstractSimValidator {
       boolean _isRoot_1 = t.isRoot();
       boolean _tripleNotEquals = (Boolean.valueOf(_isRoot) != Boolean.valueOf(_isRoot_1));
       if (_tripleNotEquals) {
-        this.error("Deduced entity rule must match domain-model root property", t.getDeductionRule(), 
+        this.error("Deduced-entity rule must match domain-model root property", t.getDeductionRule(), 
           BasePackage.Literals.DDEDUCTION_RULE__SOURCE);
       }
     } else {
       if ((source != null)) {
-        this.error("Deduced entity rule must have a domain-model entity as its source", t.getDeductionRule(), 
+        this.error("Deduced-entity rule must have a domain-model entity as its source", t.getDeductionRule(), 
           BasePackage.Literals.DDEDUCTION_RULE__SOURCE);
       }
     }
@@ -114,7 +118,7 @@ public class SimValidator extends AbstractSimValidator {
   @Check
   public void checkCorrespondingDDetailType(final SDetailTypeDeduction t) {
     if (((t.getDeductionRule().getSource() != null) && (!(t.getDeductionRule().getSource() instanceof DDetailType)))) {
-      this.error("Deduced DetailType rule must have a domain-model DetailType as its source", t.getDeductionRule(), 
+      this.error("Deduced-DetailType rule must have a domain-model DetailType as its source", t.getDeductionRule(), 
         BasePackage.Literals.DDEDUCTION_RULE__SOURCE);
     }
   }
@@ -165,7 +169,8 @@ public class SimValidator extends AbstractSimValidator {
         Class<? extends DType> _class = r.getExtendFrom().getClass();
         boolean _notEquals = (!Objects.equal(_baseImplClass, _class));
         if (_notEquals) {
-          this.error("New super type is not compatible with the subject of this rule", r, SimPackage.Literals.SSTRUCTURE_CHANGING_RULE__EXTEND_FROM);
+          this.error("New super type is not compatible with the subject of this rule", r, 
+            SimPackage.Literals.SSTRUCTURE_CHANGING_RULE__EXTEND_FROM);
         }
       }
     }
@@ -184,8 +189,8 @@ public class SimValidator extends AbstractSimValidator {
   public void checkHasDeducedContainer(final SFeatureDeduction f) {
     final EObject container = f.eContainer();
     if ((!(container instanceof SComplexTypeDeduction))) {
-      this.error("Features can only have a deduction rule if the containing type also has a deduction rule.", f.getDeductionRule(), 
-        BasePackage.Literals.DDEDUCTION_RULE__SOURCE);
+      this.error("Features can only have a deduction rule if the containing type also has a deduction rule.", 
+        f.getDeductionRule(), BasePackage.Literals.DDEDUCTION_RULE__SOURCE);
     }
   }
   
@@ -246,15 +251,18 @@ public class SimValidator extends AbstractSimValidator {
         boolean _tripleEquals = (_type == null);
         if (_tripleEquals) {
           String _description = this.getDescription(a);
-          String _plus = (_description + ": no mapping rule for type");
-          this.errorOnStructuralElement(a, _plus);
+          String _plus = (_description + ": no type mapping for attribute \'");
+          String _name = a.getName();
+          String _plus_1 = (_plus + _name);
+          String _plus_2 = (_plus_1 + "\'");
+          this.errorOnStructuralElement(a, _plus_2);
         } else {
           DType _type_1 = a.getType();
           boolean _not = (!(_type_1 instanceof IValueType));
           if (_not) {
             String _description_1 = this.getDescription(a);
-            String _plus_1 = (_description_1 + ": referenced type is not a ValueType");
-            this.errorOnStructuralElement(a, _plus_1);
+            String _plus_3 = (_description_1 + ": attribute type must be a ValueType");
+            this.errorOnStructuralElement(a, _plus_3);
           }
         }
       }
@@ -262,7 +270,8 @@ public class SimValidator extends AbstractSimValidator {
   }
   
   @Check
-  public void checkAssocitionToRootType(final DAssociation a) {
+  @Override
+  public void checkAssocitionToEntityType(final DAssociation a) {
     if ((a instanceof IDeductionDefinition)) {
       return;
     }
@@ -272,60 +281,53 @@ public class SimValidator extends AbstractSimValidator {
       boolean _tripleEquals = (_type == null);
       if (_tripleEquals) {
         String _description = this.getDescription(a);
-        String _plus = (_description + ": no mapping rule for type");
-        this.errorOnStructuralElement(a, _plus);
+        String _plus = (_description + ": no type mapping for target of association \'");
+        String _name = a.getName();
+        String _plus_1 = (_plus + _name);
+        String _plus_2 = (_plus_1 + "\'");
+        this.errorOnStructuralElement(a, _plus_2);
       } else {
         DType _type_1 = a.getType();
         boolean _not = (!(_type_1 instanceof IIdentityType));
         if (_not) {
           String _description_1 = this.getDescription(a);
-          String _plus_1 = (_description_1 + ": referenced type is not an IdentityType");
-          this.errorOnStructuralElement(a, _plus_1);
+          String _plus_3 = (_description_1 + ": association target must be an IdentityType");
+          this.errorOnStructuralElement(a, _plus_3);
         }
       }
     }
   }
   
-  @Check
   @Override
-  public void checkParameterIsValueType(final DQueryParameter p) {
+  public void checkMemberType(final DNavigableMember p) {
     if ((p instanceof IDeductionDefinition)) {
       return;
     }
-    boolean _isSynthetic = p.isSynthetic();
-    boolean _not = (!_isSynthetic);
-    if (_not) {
-      boolean _not_1 = (!((p.getType() instanceof IValueType) || Objects.equal(p.getType(), p.eContainer())));
-      if (_not_1) {
-        this.error("Refererenced query-parameter type is neither a ValueType nor the query\'s own container", p, 
-          BasePackage.Literals.DNAVIGABLE_MEMBER__TYPE);
-      }
-    } else {
-      DType _type = p.getType();
-      boolean _tripleEquals = (_type == null);
-      if (_tripleEquals) {
-        String _description = this.getDescription(p);
-        String _plus = (_description + ": no mapping rule for type");
-        this.errorOnStructuralElement(p, _plus);
+    if ((p instanceof IDeducibleElement)) {
+      boolean _isSynthetic = ((IDeducibleElement)p).isSynthetic();
+      boolean _not = (!_isSynthetic);
+      if (_not) {
+        super.checkMemberType(p);
       } else {
-        boolean _not_2 = (!((p.getType() instanceof IValueType) || Objects.equal(p.getType(), p.eContainer())));
-        if (_not_2) {
-          String _description_1 = this.getDescription(p);
-          String _plus_1 = (_description_1 + ": type is neither a ValueType nor the query\'s own container");
-          this.errorOnStructuralElement(p, _plus_1);
+        DType _type = p.getType();
+        boolean _tripleEquals = (_type == null);
+        if (_tripleEquals) {
+          String _description = this.getDescription(p);
+          String _plus = (_description + ": no type mapping for element \'");
+          String _name = p.getName();
+          String _plus_1 = (_plus + _name);
+          String _plus_2 = (_plus_1 + "\'");
+          this.errorOnStructuralElement(p, _plus_2);
+        } else {
+          boolean _isAllowedMemberType = this.isAllowedMemberType(p);
+          boolean _not_1 = (!_isAllowedMemberType);
+          if (_not_1) {
+            String _description_1 = this.getDescription(p);
+            String _plus_3 = (_description_1 + ": ");
+            String _plus_4 = (_plus_3 + DimValidator.ILLEGAL_MEMBER_TYPE_MSG);
+            this.errorOnStructuralElement(p, _plus_4);
+          }
         }
-      }
-    }
-  }
-  
-  @Check
-  public void checkCoreQueryInCoreModel(final DQuery q) {
-    final EObject eContainer = q.eContainer();
-    if ((eContainer instanceof SInformationModel)) {
-      SInformationModelKind _kind = ((SInformationModel)eContainer).getKind();
-      boolean _tripleNotEquals = (_kind != SInformationModelKind.CORE);
-      if (_tripleNotEquals) {
-        this.error("Core queries can only be defined in core interface models", eContainer, SimPackage.Literals.SINFORMATION_MODEL__QUERIES);
       }
     }
   }

@@ -4,8 +4,8 @@
 package com.mimacom.ddd.sm.asm.util;
 
 import com.mimacom.ddd.dm.base.DNamedElement;
+import com.mimacom.ddd.dm.base.DNamespace;
 import com.mimacom.ddd.dm.base.DNavigableMember;
-import com.mimacom.ddd.dm.base.INamespace;
 import com.mimacom.ddd.dm.base.INavigableMemberContainer;
 import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 
@@ -132,14 +132,14 @@ public class AsmAdapterFactory extends AdapterFactoryImpl
 				return createDNamedElementAdapter();
 			}
 			@Override
+			public Adapter caseDNamespace(DNamespace object)
+			{
+				return createDNamespaceAdapter();
+			}
+			@Override
 			public Adapter caseIStaticReferenceTarget(IStaticReferenceTarget object)
 			{
 				return createIStaticReferenceTargetAdapter();
-			}
-			@Override
-			public Adapter caseINamespace(INamespace object)
-			{
-				return createINamespaceAdapter();
 			}
 			@Override
 			public Adapter caseINavigableMemberContainer(INavigableMemberContainer object)
@@ -324,6 +324,21 @@ public class AsmAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.DNamespace <em>DNamespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.mimacom.ddd.dm.base.DNamespace
+	 * @generated
+	 */
+	public Adapter createDNamespaceAdapter()
+	{
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.IStaticReferenceTarget <em>IStatic Reference Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -334,21 +349,6 @@ public class AsmAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createIStaticReferenceTargetAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.mimacom.ddd.dm.base.INamespace <em>INamespace</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.mimacom.ddd.dm.base.INamespace
-	 * @generated
-	 */
-	public Adapter createINamespaceAdapter()
 	{
 		return null;
 	}

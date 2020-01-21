@@ -33,7 +33,7 @@ class STypeDeductionRuleProcessor  {
 	
 	static val UNDEFINED = "UNDEFINED"
 	
-	protected def void addImplicitSyntheticTypes(ITypeContainer container, SAggregateDeduction deductionDefinition, DAggregate source, List<SyntheticComplexTypeDescriptor> acceptor, TransformationContext context) {
+	protected def void addImplicitSyntheticTypes(ITypeContainer container, SAggregateDeduction deductionDefinition, DAggregate source, List<SyntheticFeatureContainerDescriptor> acceptor, TransformationContext context) {
 		val typeDeductionDefinitions = deductionDefinition.types.filter(IDeductionDefinition)
 		if (! typeDeductionDefinitions.exists[deductionRule instanceof SGrabRule]) {
 			// there are no explicit grabs, so implicitly grab ALL TYPES WITHOUT an EXPLICIT RULE:
@@ -47,13 +47,13 @@ class STypeDeductionRuleProcessor  {
 				if (syntheticType instanceof DEnumeration) {
 					syntheticType.addImplicitSyntheticLiterals(sourceType as DEnumeration, null)
 				} else if (syntheticType instanceof DComplexType) {
-					acceptor.add(new SyntheticComplexTypeDescriptor(syntheticType, sourceType as DComplexType))
+					acceptor.add(new SyntheticFeatureContainerDescriptor(syntheticType, sourceType as DComplexType))
 				}
 			}
 		}
 	}
 	
-	protected def void addSyntheticTypes(ITypeContainer container, DAggregate origin, List<SyntheticComplexTypeDescriptor> acceptor, TransformationContext context) {
+	protected def void addSyntheticTypes(ITypeContainer container, DAggregate origin, List<SyntheticFeatureContainerDescriptor> acceptor, TransformationContext context) {
 		val typeDeductionDefinitions = origin.types.filter(STypeDeduction).toList // cannot sort iterable 
 		Collections.sort(typeDeductionDefinitions, new TypeSorter)
 		for (definition : typeDeductionDefinitions) {
@@ -62,7 +62,7 @@ class STypeDeductionRuleProcessor  {
 			if (source instanceof DType) {
 				val syntheticType = container.processTypeDeduction(definition, rule, context)
 				if (syntheticType instanceof DComplexType) {
-					acceptor.add(new SyntheticComplexTypeDescriptor(syntheticType, definition as SComplexTypeDeduction, source as DComplexType))
+					acceptor.add(new SyntheticFeatureContainerDescriptor(syntheticType, definition as SComplexTypeDeduction, source as DComplexType))
 				}
 			}
 		}

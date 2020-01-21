@@ -3,6 +3,7 @@
 package com.mimacom.ddd.dm.dmx.impl;
 
 import com.mimacom.ddd.dm.base.DExpression;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 
 import com.mimacom.ddd.dm.dmx.DmxPackage;
 import com.mimacom.ddd.dm.dmx.DmxTest;
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxTestImpl#getNavigableMembers <em>Navigable Members</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxTestImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxTestImpl#getContext <em>Context</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.dmx.impl.DmxTestImpl#getExpr <em>Expr</em>}</li>
@@ -100,6 +102,21 @@ public class DmxTestImpl extends MinimalEObjectImpl.Container implements DmxTest
 	protected EClass eStaticClass()
 	{
 		return DmxPackage.Literals.DMX_TEST;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<DNavigableMember> getNavigableMembers()
+	{
+		// TODO: implement this method to return the 'Navigable Members' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -220,6 +237,8 @@ public class DmxTestImpl extends MinimalEObjectImpl.Container implements DmxTest
 	{
 		switch (featureID)
 		{
+			case DmxPackage.DMX_TEST__NAVIGABLE_MEMBERS:
+				return getNavigableMembers();
 			case DmxPackage.DMX_TEST__NAME:
 				return getName();
 			case DmxPackage.DMX_TEST__CONTEXT:
@@ -241,6 +260,10 @@ public class DmxTestImpl extends MinimalEObjectImpl.Container implements DmxTest
 	{
 		switch (featureID)
 		{
+			case DmxPackage.DMX_TEST__NAVIGABLE_MEMBERS:
+				getNavigableMembers().clear();
+				getNavigableMembers().addAll((Collection<? extends DNavigableMember>)newValue);
+				return;
 			case DmxPackage.DMX_TEST__NAME:
 				setName((String)newValue);
 				return;
@@ -265,6 +288,9 @@ public class DmxTestImpl extends MinimalEObjectImpl.Container implements DmxTest
 	{
 		switch (featureID)
 		{
+			case DmxPackage.DMX_TEST__NAVIGABLE_MEMBERS:
+				getNavigableMembers().clear();
+				return;
 			case DmxPackage.DMX_TEST__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -288,6 +314,8 @@ public class DmxTestImpl extends MinimalEObjectImpl.Container implements DmxTest
 	{
 		switch (featureID)
 		{
+			case DmxPackage.DMX_TEST__NAVIGABLE_MEMBERS:
+				return !getNavigableMembers().isEmpty();
 			case DmxPackage.DMX_TEST__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DmxPackage.DMX_TEST__CONTEXT:

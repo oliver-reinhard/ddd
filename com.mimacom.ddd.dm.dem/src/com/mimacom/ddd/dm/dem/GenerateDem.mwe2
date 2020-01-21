@@ -5,7 +5,6 @@ import org.eclipse.xtext.xtext.generator.model.project.*
 
 var rootPath = ".."
 var project="com.mimacom.ddd.dm.dem"
-var genModel="platform:/resource/${project}/model/dem.genmodel"
 var baseGenModel="platform:/resource/com.mimacom.ddd.dm.base/model/base.genmodel"
 var dmxGenModel="platform:/resource/com.mimacom.ddd.dm.dmx/model/dmx.genmodel"
 

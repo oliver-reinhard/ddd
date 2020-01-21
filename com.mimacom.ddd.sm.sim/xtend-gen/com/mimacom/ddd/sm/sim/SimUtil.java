@@ -1,6 +1,7 @@
 package com.mimacom.ddd.sm.sim;
 
 import com.mimacom.ddd.dm.base.BasePackage;
+import com.mimacom.ddd.dm.base.DAggregate;
 import com.mimacom.ddd.dm.base.DAssociation;
 import com.mimacom.ddd.dm.base.DAttribute;
 import com.mimacom.ddd.dm.base.DDeductionRule;
@@ -28,17 +29,11 @@ import com.mimacom.ddd.sm.sim.SMorphRule;
 import com.mimacom.ddd.sm.sim.SPrimitiveDeduction;
 import com.mimacom.ddd.sm.sim.SQueryDeduction;
 import com.mimacom.ddd.sm.sim.STypeDeduction;
-import javax.inject.Inject;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.xtext.xbase.lib.Extension;
 
 @SuppressWarnings("all")
-public class SimUtil {
-  @Inject
-  @Extension
-  private DimUtil _dimUtil;
-  
+public class SimUtil extends DimUtil {
   public Class<? extends DType> baseImplClass(final STypeDeduction type) {
     Class<? extends DTypeImpl> _switchResult = null;
     boolean _matched = false;
@@ -111,12 +106,18 @@ public class SimUtil {
     return _switchResult;
   }
   
+  @Override
+  public String label(final DAggregate a) {
+    String _name = a.getName();
+    return ("Aggregate " + _name);
+  }
+  
   public String label(final DDeductionRule rule) {
     String _switchResult = null;
     boolean _matched = false;
     if (rule instanceof SMorphRule) {
       _matched=true;
-      String _label = this._dimUtil.label(((SMorphRule)rule).getSource());
+      String _label = this.label(((SMorphRule)rule).getSource());
       String _plus = ("Morph " + _label);
       String _xifexpression = null;
       String _renameTo = ((SMorphRule)rule).getRenameTo();
@@ -132,14 +133,14 @@ public class SimUtil {
     if (!_matched) {
       if (rule instanceof SFuseRule) {
         _matched=true;
-        String _label = this._dimUtil.label(((SFuseRule)rule).getSource());
+        String _label = this.label(((SFuseRule)rule).getSource());
         _switchResult = ("Fuse " + _label);
       }
     }
     if (!_matched) {
       if (rule instanceof SGrabRule) {
         _matched=true;
-        String _label = this._dimUtil.label(((SGrabRule)rule).getSource());
+        String _label = this.label(((SGrabRule)rule).getSource());
         String _plus = ("Grab " + _label);
         String _xifexpression = null;
         String _renameTo = ((SGrabRule)rule).getRenameTo();
@@ -156,14 +157,14 @@ public class SimUtil {
     if (!_matched) {
       if (rule instanceof SDitchRule) {
         _matched=true;
-        String _label = this._dimUtil.label(((SDitchRule)rule).getSource());
+        String _label = this.label(((SDitchRule)rule).getSource());
         _switchResult = ("Ditch " + _label);
       }
     }
     if (!_matched) {
       if (rule instanceof SGrabAggregateRule) {
         _matched=true;
-        String _label = this._dimUtil.label(((SGrabAggregateRule)rule).getSource());
+        String _label = this.label(((SGrabAggregateRule)rule).getSource());
         _switchResult = ("Grab aggregate " + _label);
       }
     }

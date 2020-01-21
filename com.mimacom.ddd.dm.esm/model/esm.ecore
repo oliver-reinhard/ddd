@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="esm" nsURI="http://www.mimacom.com/ddd/dm/esm" nsPrefix="esm">
-  <eClassifiers xsi:type="ecore:EClass" name="EsmDomain" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
-        eType="ecore:EClass ../../com.mimacom.ddd.dm.base/model/base.ecore#//DImport"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EsmDomain" eSuperTypes="../../com.mimacom.ddd.dm.base/model/base.ecore#//DNamespace">
     <eStructuralFeatures xsi:type="ecore:EReference" name="stateModel" eType="#//EsmEntityStateModel"
         containment="true"/>
   </eClassifiers>

@@ -3,10 +3,7 @@
  */
 package com.mimacom.ddd.dm.esm;
 
-import com.mimacom.ddd.dm.base.DImport;
-import com.mimacom.ddd.dm.base.DNamedElement;
-
-import org.eclipse.emf.common.util.EList;
+import com.mimacom.ddd.dm.base.DNamespace;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,7 +14,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.mimacom.ddd.dm.esm.EsmDomain#getImports <em>Imports</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.esm.EsmDomain#getStateModel <em>State Model</em>}</li>
  * </ul>
  *
@@ -25,20 +21,8 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface EsmDomain extends DNamedElement
+public interface EsmDomain extends DNamespace
 {
-	/**
-	 * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
-	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DImport}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Imports</em>' containment reference list.
-	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmDomain_Imports()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<DImport> getImports();
-
 	/**
 	 * Returns the value of the '<em><b>State Model</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

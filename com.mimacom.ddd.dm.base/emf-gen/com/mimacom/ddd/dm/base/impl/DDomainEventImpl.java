@@ -8,7 +8,10 @@ import com.mimacom.ddd.dm.base.DContext;
 import com.mimacom.ddd.dm.base.DDomainEvent;
 import com.mimacom.ddd.dm.base.DNamedElement;
 import com.mimacom.ddd.dm.base.DNamedPredicate;
+import com.mimacom.ddd.dm.base.DNavigableMember;
 import com.mimacom.ddd.dm.base.DNotification;
+import com.mimacom.ddd.dm.base.INavigableMemberContainer;
+import com.mimacom.ddd.dm.base.IStaticReferenceTarget;
 
 import java.util.Collection;
 
@@ -33,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainEventImpl#getNavigableMembers <em>Navigable Members</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainEventImpl#getContext <em>Context</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainEventImpl#getTrigger <em>Trigger</em>}</li>
  *   <li>{@link com.mimacom.ddd.dm.base.impl.DDomainEventImpl#getPreconditionsCNF <em>Preconditions CNF</em>}</li>
@@ -113,6 +117,21 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	protected EClass eStaticClass()
 	{
 		return BasePackage.Literals.DDOMAIN_EVENT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<DNavigableMember> getNavigableMembers()
+	{
+		// TODO: implement this method to return the 'Navigable Members' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -252,6 +271,8 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	{
 		switch (featureID)
 		{
+			case BasePackage.DDOMAIN_EVENT__NAVIGABLE_MEMBERS:
+				return getNavigableMembers();
 			case BasePackage.DDOMAIN_EVENT__CONTEXT:
 				return getContext();
 			case BasePackage.DDOMAIN_EVENT__TRIGGER:
@@ -278,6 +299,10 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	{
 		switch (featureID)
 		{
+			case BasePackage.DDOMAIN_EVENT__NAVIGABLE_MEMBERS:
+				getNavigableMembers().clear();
+				getNavigableMembers().addAll((Collection<? extends DNavigableMember>)newValue);
+				return;
 			case BasePackage.DDOMAIN_EVENT__CONTEXT:
 				getContext().clear();
 				getContext().addAll((Collection<? extends DContext>)newValue);
@@ -311,6 +336,9 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	{
 		switch (featureID)
 		{
+			case BasePackage.DDOMAIN_EVENT__NAVIGABLE_MEMBERS:
+				getNavigableMembers().clear();
+				return;
 			case BasePackage.DDOMAIN_EVENT__CONTEXT:
 				getContext().clear();
 				return;
@@ -340,6 +368,8 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	{
 		switch (featureID)
 		{
+			case BasePackage.DDOMAIN_EVENT__NAVIGABLE_MEMBERS:
+				return !getNavigableMembers().isEmpty();
 			case BasePackage.DDOMAIN_EVENT__CONTEXT:
 				return context != null && !context.isEmpty();
 			case BasePackage.DDOMAIN_EVENT__TRIGGER:
@@ -352,6 +382,58 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 				return notifications != null && !notifications.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == INavigableMemberContainer.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case BasePackage.DDOMAIN_EVENT__NAVIGABLE_MEMBERS: return BasePackage.INAVIGABLE_MEMBER_CONTAINER__NAVIGABLE_MEMBERS;
+				default: return -1;
+			}
+		}
+		if (baseClass == IStaticReferenceTarget.class)
+		{
+			switch (derivedFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == INavigableMemberContainer.class)
+		{
+			switch (baseFeatureID)
+			{
+				case BasePackage.INAVIGABLE_MEMBER_CONTAINER__NAVIGABLE_MEMBERS: return BasePackage.DDOMAIN_EVENT__NAVIGABLE_MEMBERS;
+				default: return -1;
+			}
+		}
+		if (baseClass == IStaticReferenceTarget.class)
+		{
+			switch (baseFeatureID)
+			{
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //DDomainEventImpl
