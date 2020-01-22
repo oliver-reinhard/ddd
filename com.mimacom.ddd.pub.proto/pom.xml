@@ -127,7 +127,7 @@
         <configuration>
           <filesets combine.children="append">
             <fileset>
-              <directory>${basedir}/../com.mimacom.ddd.pub.proto/emf-gen/</directory>
+              <directory>${project.basedir}/emf-gen/</directory>
               <includes>
                 <include>**/*</include>
               </includes>

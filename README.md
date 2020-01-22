@@ -21,6 +21,7 @@ From the command line in the repository root directory, execute the following co
 **Troubleshooting**
 * possibly there is a limitation with the `xtend-maven-plugin`, see [this issue](https://github.com/eclipse/xtext-xtend/issues/576)
 * if Maven fails to build, try deleting the local repository, or use the `-Dmaven.repo.local` flag to specify a different repository
+* if the Maven build fails for mysterious reasons, check if there are any programs running which might have an impact on the build; for instance Visual Studio Code or Eclipse may notice when files on disk have changed and as a consequence perform an action that has an impact on the build
 
 ## Development
 
