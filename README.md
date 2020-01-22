@@ -27,3 +27,6 @@ From the command line in the repository root directory, execute the following co
 
 ### Eclipse IDE setup
 Import the `com.mimacom.ddd.target` project from the `releng` folder into the workspace and set the target platform to the file `releng/com.mimacom.ddd.target/com.mimacom.ddd.target-latest.target`.
+
+### Related links
+* https://www.nikostotz.de/blog/combine-xcore-xtend-ecore-and-maven/
