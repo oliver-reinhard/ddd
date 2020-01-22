@@ -2,19 +2,21 @@
 <?pde version="3.8"?>
 <target name="com.mimacom.ddd.target">
   <locations>
+
     <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
-      <repository location="https://download.eclipse.org/releases/2019-12/"/>
-      <unit id="org.eclipse.emf.mwe.sdk.feature.group" version="1.5.1.v20191121-1148"/>
-      <unit id="org.eclipse.emf.mwe2.language.sdk.feature.group" version="2.11.1.v20191121-1148"/>
-      <unit id="org.eclipse.emf.mwe2.runtime.sdk.feature.group" version="2.11.1.v20191121-1148"/>
-      <unit id="org.eclipse.emf.sdk.feature.group" version="2.20.0.v20191028-0905"/>
-      <unit id="org.eclipse.sdk.feature.group" version="4.14.0.v20191210-0610"/>
+      <repository location="http://download.eclipse.org/releases/2019-09"/>
+      <unit id="org.eclipse.emf.mwe.sdk.feature.group" version="1.5.0.201906111547"/>
+      <unit id="org.eclipse.emf.mwe2.language.sdk.feature.group" version="2.11.0.201906111547"/>
+      <unit id="org.eclipse.emf.mwe2.runtime.sdk.feature.group" version="2.11.0.201906111547"/>
+      <unit id="org.eclipse.emf.sdk.feature.group" version="2.19.0.v20190824-1315"/>
+      <unit id="org.eclipse.sdk.feature.group" version="4.13.0.v20190916-1323"/>
       <unit id="org.eclipse.xpand.sdk.feature.group" version="2.2.0.v201605260315"/>
-      <unit id="org.eclipse.xtext.sdk.feature.group" version="2.20.0.v20191202-1256"/>
-      <unit id="org.eclipse.equinox.sdk.feature.group" version="3.20.0.v20191122-2104"/>
-      <unit id="org.eclipse.emf.ecore.xcore.sdk.feature.group" version="1.12.0.v20190924-0817"/>
-      <unit id="org.eclipse.egit.feature.group" version="5.6.0.201912101111-r"/>
+      <unit id="org.eclipse.xtext.sdk.feature.group" version="2.19.0.v20190902-1322"/>
+      <unit id="org.eclipse.equinox.sdk.feature.group" version="3.19.0.v20190907-0428"/>
+      <unit id="org.eclipse.emf.ecore.xcore.sdk.feature.group" version="1.11.0.v20190822-1451"/>
+      <unit id="org.eclipse.emf.compare.egit.feature.group" version="3.3.8.201909101346"/>
     </location>
+
     <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
       <repository location="http://hallvard.github.io/plantuml/"/>
       <unit id="net.sourceforge.plantuml.ecore.feature.feature.group" version="1.1.23"/>
