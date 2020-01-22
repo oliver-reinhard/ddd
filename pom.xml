@@ -34,12 +34,12 @@
     <module>com.mimacom.ddd.dm.dmx.ui.tests</module>
     <module>com.mimacom.ddd.dm.dmx.feature</module>
     <!-- pubproto -->
-<!--     <module>com.mimacom.ddd.pub.proto</module> -->
-<!--     <module>com.mimacom.ddd.pub.proto.ide</module> -->
-<!--     <module>com.mimacom.ddd.pub.proto.tests</module> -->
-<!--     <module>com.mimacom.ddd.pub.proto.ui</module> -->
-<!--     <module>com.mimacom.ddd.pub.proto.ui.tests</module> -->
-<!--     <module>com.mimacom.ddd.pub.proto.feature</module> -->
+    <module>com.mimacom.ddd.pub.proto</module>
+    <module>com.mimacom.ddd.pub.proto.ide</module>
+    <module>com.mimacom.ddd.pub.proto.tests</module>
+    <module>com.mimacom.ddd.pub.proto.ui</module>
+    <module>com.mimacom.ddd.pub.proto.ui.tests</module>
+    <module>com.mimacom.ddd.pub.proto.feature</module>
     <!-- pub -->
 <!--     <module>com.mimacom.ddd.pub.pub</module> -->
 <!--     <module>com.mimacom.ddd.pub.pub.ide</module> -->
