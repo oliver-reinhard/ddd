@@ -82,6 +82,7 @@ public class StyledTextPackageImpl extends EPackageImpl implements StyledTextPac
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+<<<<<<< HEAD
 	 *
 	 * <p>This method is used to initialize {@link StyledTextPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
@@ -276,6 +277,187 @@ public class StyledTextPackageImpl extends EPackageImpl implements StyledTextPac
 	 * @generated
 	 */
 	@Override
+=======
+	 * 
+	 * <p>This method is used to initialize {@link StyledTextPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #eNS_URI
+	 * @see #createPackageContents()
+	 * @see #initializePackageContents()
+	 * @generated
+	 */
+	public static StyledTextPackage init()
+	{
+		if (isInited) return (StyledTextPackage)EPackage.Registry.INSTANCE.getEPackage(StyledTextPackage.eNS_URI);
+
+		// Obtain or create and register package
+		StyledTextPackageImpl theStyledTextPackage = (StyledTextPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof StyledTextPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new StyledTextPackageImpl());
+
+		isInited = true;
+
+		// Create package meta-data objects
+		theStyledTextPackage.createPackageContents();
+
+		// Initialize created meta-data
+		theStyledTextPackage.initializePackageContents();
+
+		// Mark meta-data to indicate it can't be changed
+		theStyledTextPackage.freeze();
+
+  
+		// Update the registry and return the package
+		EPackage.Registry.INSTANCE.put(StyledTextPackage.eNS_URI, theStyledTextPackage);
+		return theStyledTextPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDStyledTextSpan()
+	{
+		return dStyledTextSpanEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDStyledTextSpan_Style()
+	{
+		return (EAttribute)dStyledTextSpanEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDStyledTextSpan_Attributes()
+	{
+		return (EAttribute)dStyledTextSpanEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDStyledTextSpan_StartPos()
+	{
+		return (EAttribute)dStyledTextSpanEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDStyledTextSpan_EndPos()
+	{
+		return (EAttribute)dStyledTextSpanEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDStyledTextSpan_Subspans()
+	{
+		return (EReference)dStyledTextSpanEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDStyledTextSpan_TextColor()
+	{
+		return (EAttribute)dStyledTextSpanEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDStyledTextSpan_HighlightColor()
+	{
+		return (EAttribute)dStyledTextSpanEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDStyledTextSpan_Leaf()
+	{
+		return (EAttribute)dStyledTextSpanEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDStyledTextSpan_Parent()
+	{
+		return (EReference)dStyledTextSpanEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDStyledTextSpan_Text()
+	{
+		return (EAttribute)dStyledTextSpanEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDTextStyle()
+	{
+		return dTextStyleEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDTextAttribute()
+	{
+		return dTextAttributeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDColor()
+	{
+		return dColorEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+>>>>>>> refs/heads/master
 	public StyledTextFactory getStyledTextFactory()
 	{
 		return (StyledTextFactory)getEFactoryInstance();

@@ -86,7 +86,15 @@ public class PubScopeProvider extends AbstractPubScopeProvider {
         _switchResult = PubScopeProvider.PUB.getReferenceTarget();
       }
       final EClass targetScope = _switchResult;
+<<<<<<< HEAD
       return this.getDefaultScopeOfType(context, targetScope);
+=======
+<<<<<<< HEAD
+      return this.getDefaultScopeOfType(context, targetScope);
+=======
+      return this.getDefaultScopeForType(context, targetScope);
+>>>>>>> refs/remotes/origin/master
+>>>>>>> refs/heads/master
     }
     return super.getScope(context, reference);
   }

@@ -9,7 +9,11 @@ Bundle-ActivationPolicy: lazy
 Require-Bundle: com.mimacom.ddd.dm.dmx,
  org.eclipse.xtext.ide,
  org.eclipse.xtext.xbase.ide,
- org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.mimacom.ddd.dm.dmx.ide,
  com.mimacom.ddd.dm.dmx.ide.contentassist.antlr,

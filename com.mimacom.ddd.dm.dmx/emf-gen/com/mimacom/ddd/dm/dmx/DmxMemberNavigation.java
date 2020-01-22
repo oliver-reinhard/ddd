@@ -30,6 +30,10 @@ public interface DmxMemberNavigation extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Member</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Member</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Member</em>' reference.
 	 * @see #setMember(DNavigableMember)
@@ -52,6 +56,10 @@ public interface DmxMemberNavigation extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Preceding Navigation Segment</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Preceding Navigation Segment</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Preceding Navigation Segment</em>' containment reference.
 	 * @see #setPrecedingNavigationSegment(DExpression)
@@ -74,6 +82,10 @@ public interface DmxMemberNavigation extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Explicit Operation Call</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Explicit Operation Call</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Explicit Operation Call</em>' attribute.
 	 * @see #setExplicitOperationCall(boolean)
@@ -96,6 +108,10 @@ public interface DmxMemberNavigation extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Call Arguments</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Call Arguments</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Call Arguments</em>' containment reference.
 	 * @see #setCallArguments(DmxCallArguments)
@@ -118,6 +134,10 @@ public interface DmxMemberNavigation extends DExpression
 	/**
 	 * Returns the value of the '<em><b>Before</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Before</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Before</em>' attribute.
 	 * @see #setBefore(boolean)

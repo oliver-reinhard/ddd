@@ -157,6 +157,7 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
 	@Override
 	public EList<DImport> getImports()
 	{
@@ -188,6 +189,36 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * @generated
 	 */
 	@Override
+=======
+	public EList<DImport> getImports()
+	{
+		if (imports == null)
+		{
+			imports = new EObjectContainmentEList<DImport>(DImport.class, this, BasePackage.DDOMAIN__IMPORTS);
+		}
+		return imports;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DAggregate> getAggregates()
+	{
+		if (aggregates == null)
+		{
+			aggregates = new EObjectContainmentEList<DAggregate>(DAggregate.class, this, BasePackage.DDOMAIN__AGGREGATES);
+		}
+		return aggregates;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+>>>>>>> refs/heads/master
 	public EList<DType> getTypes()
 	{
 		if (types == null)
@@ -272,7 +303,10 @@ public class DDomainImpl extends DNamedElementImpl implements DDomain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> refs/heads/master
 	public EList<DDomainEvent> getEvents()
 	{
 		if (events == null)

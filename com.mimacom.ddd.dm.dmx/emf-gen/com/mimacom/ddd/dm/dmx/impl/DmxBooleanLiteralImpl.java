@@ -74,7 +74,6 @@ public class DmxBooleanLiteralImpl extends DExpressionImpl implements DmxBoolean
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public boolean isValue()
 	{
 		return value;
@@ -85,7 +84,6 @@ public class DmxBooleanLiteralImpl extends DExpressionImpl implements DmxBoolean
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setValue(boolean newValue)
 	{
 		boolean oldValue = value;
@@ -170,7 +168,7 @@ public class DmxBooleanLiteralImpl extends DExpressionImpl implements DmxBoolean
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (value: ");
 		result.append(value);
 		result.append(')');

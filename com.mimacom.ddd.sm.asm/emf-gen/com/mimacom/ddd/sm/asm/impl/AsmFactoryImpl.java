@@ -121,7 +121,6 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SApplication createSApplication()
 	{
 		SApplicationImpl sApplication = new SApplicationImpl();
@@ -133,7 +132,6 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SServiceInterface createSServiceInterface()
 	{
 		SServiceInterfaceImplCustom sServiceInterface = new SServiceInterfaceImplCustom();
@@ -145,7 +143,6 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SException createSException()
 	{
 		SExceptionImpl sException = new SExceptionImpl();
@@ -157,7 +154,6 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SWatchdog createSWatchdog()
 	{
 		SWatchdogImpl sWatchdog = new SWatchdogImpl();
@@ -169,7 +165,6 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SHuman createSHuman()
 	{
 		SHumanImpl sHuman = new SHumanImpl();
@@ -181,7 +176,6 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SServiceOperation createSServiceOperation()
 	{
 		SServiceOperationImplCustom sServiceOperation = new SServiceOperationImplCustom();
@@ -193,7 +187,6 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SServiceParameter createSServiceParameter()
 	{
 		SServiceParameterImpl sServiceParameter = new SServiceParameterImpl();
@@ -249,7 +242,6 @@ public class AsmFactoryImpl extends EFactoryImpl implements AsmFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public AsmPackage getAsmPackage()
 	{
 		return (AsmPackage)getEPackage();

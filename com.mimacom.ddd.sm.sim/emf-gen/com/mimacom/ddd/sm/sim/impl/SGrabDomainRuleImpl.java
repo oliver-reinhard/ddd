@@ -52,7 +52,6 @@ public class SGrabDomainRuleImpl extends DDeductionRuleImplCustom implements SGr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DDomain getDomain()
 	{
 		// TODO: implement this method to return the 'Domain' reference

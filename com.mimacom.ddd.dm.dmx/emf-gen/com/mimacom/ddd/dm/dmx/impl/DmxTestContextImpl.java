@@ -68,7 +68,6 @@ public class DmxTestContextImpl extends DContextImpl implements DmxTestContext
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DExpression getValue()
 	{
 		return value;
@@ -96,7 +95,6 @@ public class DmxTestContextImpl extends DContextImpl implements DmxTestContext
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setValue(DExpression newValue)
 	{
 		if (newValue != value)

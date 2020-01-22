@@ -87,7 +87,6 @@ public class DmxFilterParameterImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName()
 	{
 		return name;
@@ -98,7 +97,6 @@ public class DmxFilterParameterImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setName(String newName)
 	{
 		String oldName = name;
@@ -112,7 +110,6 @@ public class DmxFilterParameterImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DmxFilterTypeDescriptor getTypeDesc()
 	{
 		return typeDesc;
@@ -140,7 +137,6 @@ public class DmxFilterParameterImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setTypeDesc(DmxFilterTypeDescriptor newTypeDesc)
 	{
 		if (newTypeDesc != typeDesc)
@@ -259,7 +255,7 @@ public class DmxFilterParameterImpl extends MinimalEObjectImpl.Container impleme
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(')');

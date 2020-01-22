@@ -86,7 +86,15 @@ public abstract class AbstractPubRenderer {
   
   public abstract CharSequence renderEquation(final Equation e);
   
+<<<<<<< HEAD
   public abstract CharSequence renderCodeListing(final CodeListing cl, final java.util.List<String> lines);
+=======
+<<<<<<< HEAD
+  public abstract CharSequence renderCodeListing(final CodeListing cl, final java.util.List<String> lines);
+=======
+  public abstract CharSequence renderCodeListing(final CodeListing cl);
+>>>>>>> refs/remotes/origin/master
+>>>>>>> refs/heads/master
   
   public abstract CharSequence renderPlainParagraph(final Paragraph para);
   

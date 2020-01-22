@@ -86,7 +86,7 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 *
+	 * 
 	 * <p>This method is used to initialize {@link DomPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -101,13 +101,11 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 		if (isInited) return (DomPackage)EPackage.Registry.INSTANCE.getEPackage(DomPackage.eNS_URI);
 
 		// Obtain or create and register package
-		Object registeredDomPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		DomPackageImpl theDomPackage = registeredDomPackage instanceof DomPackageImpl ? (DomPackageImpl)registeredDomPackage : new DomPackageImpl();
+		DomPackageImpl theDomPackage = (DomPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DomPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DomPackageImpl());
 
 		isInited = true;
 
 		// Initialize simple dependencies
-		BasePackage.eINSTANCE.eClass();
 		DmxPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
@@ -119,6 +117,7 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 		// Mark meta-data to indicate it can't be changed
 		theDomPackage.freeze();
 
+  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(DomPackage.eNS_URI, theDomPackage);
 		return theDomPackage;
@@ -129,7 +128,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDomModel()
 	{
 		return domModelEClass;
@@ -140,6 +138,7 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
 	@Override
 	public EReference getDomModel_Snapshots()
 	{
@@ -152,6 +151,18 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * @generated
 	 */
 	@Override
+=======
+	public EReference getDomModel_Snapshots()
+	{
+		return (EReference)domModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+>>>>>>> refs/heads/master
 	public EClass getDomSnapshot()
 	{
 		return domSnapshotEClass;
@@ -162,7 +173,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDomSnapshot_Name()
 	{
 		return (EAttribute)domSnapshotEClass.getEStructuralFeatures().get(0);
@@ -173,7 +183,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDomSnapshot_Objects()
 	{
 		return (EReference)domSnapshotEClass.getEStructuralFeatures().get(1);
@@ -184,7 +193,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDomObject()
 	{
 		return domObjectEClass;
@@ -195,7 +203,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDomNamedComplexObject()
 	{
 		return domNamedComplexObjectEClass;
@@ -206,7 +213,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDomNamedComplexObject_Object()
 	{
 		return (EReference)domNamedComplexObjectEClass.getEStructuralFeatures().get(0);
@@ -217,7 +223,6 @@ public class DomPackageImpl extends EPackageImpl implements DomPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DomFactory getDomFactory()
 	{
 		return (DomFactory)getEFactoryInstance();

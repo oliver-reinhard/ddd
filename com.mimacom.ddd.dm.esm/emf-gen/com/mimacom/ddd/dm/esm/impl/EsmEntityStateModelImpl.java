@@ -128,7 +128,6 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EsmLayoutDirection getDirection()
 	{
 		return direction;
@@ -139,7 +138,6 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setDirection(EsmLayoutDirection newDirection)
 	{
 		EsmLayoutDirection oldDirection = direction;
@@ -153,7 +151,6 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<IEsmState> getStates()
 	{
 		if (states == null)
@@ -168,7 +165,6 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<EsmTransition> getTransitions()
 	{
 		if (transitions == null)
@@ -183,6 +179,7 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
 	@Override
 	public EList<DNavigableMember> getNavigableMembers()
 	{
@@ -199,6 +196,22 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 	 * @generated
 	 */
 	@Override
+=======
+	public EList<DNavigableMember> getNavigableMembers()
+	{
+		// TODO: implement this method to return the 'Navigable Members' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+>>>>>>> refs/heads/master
 	public DEntityType getForType()
 	{
 		if (forType != null && forType.eIsProxy())
@@ -229,7 +242,6 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setForType(DEntityType newForType)
 	{
 		DEntityType oldForType = forType;
@@ -449,7 +461,7 @@ public class EsmEntityStateModelImpl extends DNamedElementImpl implements EsmEnt
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (direction: ");
 		result.append(direction);
 		result.append(')');

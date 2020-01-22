@@ -31,6 +31,10 @@ public interface UserStory extends DNamespace
 	 * Returns the value of the '<em><b>Sections</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.sm.sus.Section}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sections</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sections</em>' containment reference list.
 	 * @see com.mimacom.ddd.sm.sus.SusPackage#getUserStory_Sections()
@@ -42,6 +46,10 @@ public interface UserStory extends DNamespace
 	/**
 	 * Returns the value of the '<em><b>Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Event</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Event</em>' reference.
 	 * @see #setEvent(DDomainEvent)

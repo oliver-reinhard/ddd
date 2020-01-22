@@ -15,6 +15,7 @@ import org.eclipse.xtext.testing.util.ParseHelper;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.junit.jupiter.api.Assertions;
+<<<<<<< HEAD
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -26,6 +27,21 @@ public class PubProtoParsingTest {
   private ParseHelper<PublicationClass> parseHelper;
   
   @Test
+=======
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+@ExtendWith(InjectionExtension.class)
+@InjectWith(PubProtoInjectorProvider.class)
+@SuppressWarnings("all")
+public class PubProtoParsingTest {
+  @Inject
+  private ParseHelper<PublicationClass> parseHelper;
+  
+  @Test
+  @Disabled
+>>>>>>> refs/heads/master
   public void loadModel() {
     try {
       StringConcatenation _builder = new StringConcatenation();

@@ -143,7 +143,7 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 *
+	 * 
 	 * <p>This method is used to initialize {@link AsmPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -158,13 +158,11 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 		if (isInited) return (AsmPackage)EPackage.Registry.INSTANCE.getEPackage(AsmPackage.eNS_URI);
 
 		// Obtain or create and register package
-		Object registeredAsmPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		AsmPackageImpl theAsmPackage = registeredAsmPackage instanceof AsmPackageImpl ? (AsmPackageImpl)registeredAsmPackage : new AsmPackageImpl();
+		AsmPackageImpl theAsmPackage = (AsmPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof AsmPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new AsmPackageImpl());
 
 		isInited = true;
 
 		// Initialize simple dependencies
-		BasePackage.eINSTANCE.eClass();
 		SimPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
@@ -176,6 +174,7 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 		// Mark meta-data to indicate it can't be changed
 		theAsmPackage.freeze();
 
+  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(AsmPackage.eNS_URI, theAsmPackage);
 		return theAsmPackage;
@@ -186,7 +185,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getModel()
 	{
 		return modelEClass;
@@ -197,7 +195,10 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> refs/heads/master
 	public EClass getSApplication()
 	{
 		return sApplicationEClass;
@@ -208,7 +209,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSApplication_Model()
 	{
 		return (EReference)sApplicationEClass.getEStructuralFeatures().get(0);
@@ -219,7 +219,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSApplication_Services()
 	{
 		return (EReference)sApplicationEClass.getEStructuralFeatures().get(1);
@@ -230,7 +229,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSApplication_Actors()
 	{
 		return (EReference)sApplicationEClass.getEStructuralFeatures().get(2);
@@ -241,7 +239,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSServiceInterface()
 	{
 		return sServiceInterfaceEClass;
@@ -252,7 +249,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSServiceInterface_Interface()
 	{
 		return (EReference)sServiceInterfaceEClass.getEStructuralFeatures().get(0);
@@ -263,7 +259,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSServiceInterface_Core()
 	{
 		return (EReference)sServiceInterfaceEClass.getEStructuralFeatures().get(1);
@@ -274,7 +269,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSServiceInterface_Exceptions()
 	{
 		return (EReference)sServiceInterfaceEClass.getEStructuralFeatures().get(2);
@@ -285,7 +279,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSServiceInterface_Operations()
 	{
 		return (EReference)sServiceInterfaceEClass.getEStructuralFeatures().get(3);
@@ -296,7 +289,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSException()
 	{
 		return sExceptionEClass;
@@ -307,7 +299,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSActor()
 	{
 		return sActorEClass;
@@ -318,7 +309,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getSActor_Name()
 	{
 		return (EAttribute)sActorEClass.getEStructuralFeatures().get(0);
@@ -329,7 +319,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSWatchdog()
 	{
 		return sWatchdogEClass;
@@ -340,7 +329,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSHuman()
 	{
 		return sHumanEClass;
@@ -351,7 +339,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSServiceOperation()
 	{
 		return sServiceOperationEClass;
@@ -362,7 +349,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getSServiceOperation_Name()
 	{
 		return (EAttribute)sServiceOperationEClass.getEStructuralFeatures().get(0);
@@ -373,7 +359,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSServiceOperation_Parameters()
 	{
 		return (EReference)sServiceOperationEClass.getEStructuralFeatures().get(1);
@@ -384,7 +369,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSServiceOperation_Raises()
 	{
 		return (EReference)sServiceOperationEClass.getEStructuralFeatures().get(2);
@@ -395,7 +379,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSServiceOperation_Guards()
 	{
 		return (EReference)sServiceOperationEClass.getEStructuralFeatures().get(3);
@@ -406,7 +389,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSServiceOperation_Effects()
 	{
 		return (EReference)sServiceOperationEClass.getEStructuralFeatures().get(4);
@@ -417,7 +399,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSServiceParameter()
 	{
 		return sServiceParameterEClass;
@@ -428,7 +409,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getSServiceParameter_Direction()
 	{
 		return (EAttribute)sServiceParameterEClass.getEStructuralFeatures().get(0);
@@ -439,7 +419,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EEnum getSServiceKind()
 	{
 		return sServiceKindEEnum;
@@ -450,7 +429,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EEnum getSDirection()
 	{
 		return sDirectionEEnum;
@@ -461,7 +439,6 @@ public class AsmPackageImpl extends EPackageImpl implements AsmPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public AsmFactory getAsmFactory()
 	{
 		return (AsmFactory)getEFactoryInstance();

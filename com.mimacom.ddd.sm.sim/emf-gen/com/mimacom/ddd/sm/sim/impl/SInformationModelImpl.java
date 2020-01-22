@@ -158,6 +158,7 @@ public class SInformationModelImpl extends DNamedElementImpl implements SInforma
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
 	@Override
 	public EList<DImport> getImports()
 	{
@@ -254,6 +255,96 @@ public class SInformationModelImpl extends DNamedElementImpl implements SInforma
 	 * @generated
 	 */
 	@Override
+=======
+	public EList<DImport> getImports()
+	{
+		if (imports == null)
+		{
+			imports = new EObjectContainmentEList<DImport>(DImport.class, this, SimPackage.SINFORMATION_MODEL__IMPORTS);
+		}
+		return imports;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DAggregate> getAggregates()
+	{
+		if (aggregates == null)
+		{
+			aggregates = new EObjectContainmentEList<DAggregate>(DAggregate.class, this, SimPackage.SINFORMATION_MODEL__AGGREGATES);
+		}
+		return aggregates;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DType> getTypes()
+	{
+		if (types == null)
+		{
+			types = new EObjectContainmentEList<DType>(DType.class, this, SimPackage.SINFORMATION_MODEL__TYPES);
+		}
+		return types;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isGenerate()
+	{
+		return generate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGenerate(boolean newGenerate)
+	{
+		boolean oldGenerate = generate;
+		generate = newGenerate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SINFORMATION_MODEL__GENERATE, oldGenerate, generate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SInformationModelKind getKind()
+	{
+		return kind;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setKind(SInformationModelKind newKind)
+	{
+		SInformationModelKind oldKind = kind;
+		kind = newKind == null ? KIND_EDEFAULT : newKind;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SINFORMATION_MODEL__KIND, oldKind, kind));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+>>>>>>> refs/heads/master
 	public EList<SDomainDeduction> getDomainProxies()
 	{
 		if (domainProxies == null)
@@ -484,7 +575,7 @@ public class SInformationModelImpl extends DNamedElementImpl implements SInforma
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (generate: ");
 		result.append(generate);
 		result.append(", kind: ");

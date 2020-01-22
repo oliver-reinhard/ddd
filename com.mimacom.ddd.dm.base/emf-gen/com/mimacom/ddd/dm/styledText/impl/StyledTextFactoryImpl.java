@@ -118,6 +118,7 @@ public class StyledTextFactoryImpl extends EFactoryImpl implements StyledTextFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
 	@Override
 	public DStyledTextSpan createDStyledTextSpan()
 	{
@@ -197,6 +198,85 @@ public class StyledTextFactoryImpl extends EFactoryImpl implements StyledTextFac
 	 * @generated
 	 */
 	@Override
+=======
+	public DStyledTextSpan createDStyledTextSpan()
+	{
+		DStyledTextSpanImplCustom dStyledTextSpan = new DStyledTextSpanImplCustom();
+		return dStyledTextSpan;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DTextStyle createDTextStyleFromString(EDataType eDataType, String initialValue)
+	{
+		DTextStyle result = DTextStyle.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDTextStyleToString(EDataType eDataType, Object instanceValue)
+	{
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DTextAttribute createDTextAttributeFromString(EDataType eDataType, String initialValue)
+	{
+		DTextAttribute result = DTextAttribute.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDTextAttributeToString(EDataType eDataType, Object instanceValue)
+	{
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DColor createDColorFromString(EDataType eDataType, String initialValue)
+	{
+		DColor result = DColor.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDColorToString(EDataType eDataType, Object instanceValue)
+	{
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+>>>>>>> refs/heads/master
 	public StyledTextPackage getStyledTextPackage()
 	{
 		return (StyledTextPackage)getEPackage();

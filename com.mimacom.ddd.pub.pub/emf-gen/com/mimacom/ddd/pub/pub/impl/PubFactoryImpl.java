@@ -60,6 +60,7 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 			case PubPackage.PUB_MODEL: return createPubModel();
 			case PubPackage.PUBLICATION: return createPublication();
 			case PubPackage.COMPONENT: return createComponent();
+<<<<<<< HEAD
 			case PubPackage.REFERENCE: return createReference();
 			case PubPackage.SEGMENT_WITH_TEXT: return createSegmentWithText();
 			case PubPackage.ABSTRACT: return createAbstract();
@@ -148,6 +149,187 @@ public class PubFactoryImpl extends EFactoryImpl implements PubFactory {
 				return convertCodeLanguageToString(eDataType, instanceValue);
 			case PubPackage.PARAGRAPH_STYLE:
 				return convertParagraphStyleToString(eDataType, instanceValue);
+=======
+<<<<<<< HEAD
+			case PubPackage.REFERENCE: return createReference();
+			case PubPackage.SEGMENT_WITH_TEXT: return createSegmentWithText();
+			case PubPackage.ABSTRACT: return createAbstract();
+			case PubPackage.PREFACE: return createPreface();
+			case PubPackage.EPILOGUE: return createEpilogue();
+			case PubPackage.SEGMENT_WITH_TABLE: return createSegmentWithTable();
+			case PubPackage.CHANGE_HISTORY: return createChangeHistory();
+			case PubPackage.CHANGE_DESCRIPTION: return createChangeDescription();
+			case PubPackage.TOC: return createTOC();
+			case PubPackage.ABBREVIATIONS: return createAbbreviations();
+			case PubPackage.ABBREVIATION: return createAbbreviation();
+			case PubPackage.LIST_OF_TABLES: return createListOfTables();
+			case PubPackage.LIST_OF_FIGURES: return createListOfFigures();
+			case PubPackage.BIBLIOGRAPHY: return createBibliography();
+			case PubPackage.BIBLIOGRAPHY_ENTRY: return createBibliographyEntry();
+			case PubPackage.GLOSSARY: return createGlossary();
+			case PubPackage.GLOSSARY_ENTRY: return createGlossaryEntry();
+			case PubPackage.INDEX: return createIndex();
+			case PubPackage.INDEX_ENTRY: return createIndexEntry();
+			case PubPackage.SEGMENT_INCLUDE: return createSegmentInclude();
+			case PubPackage.PUBLICATION_BODY: return createPublicationBody();
+			case PubPackage.PART: return createPart();
+			case PubPackage.APPENDIX: return createAppendix();
+			case PubPackage.CHAPTER: return createChapter();
+			case PubPackage.SECTION: return createSection();
+			case PubPackage.SUBSECTION: return createSubsection();
+			case PubPackage.SUBSUBSECTION: return createSubsubsection();
+			case PubPackage.ADMONITION: return createAdmonition();
+			case PubPackage.LIST: return createList();
+			case PubPackage.LIST_ITEM: return createListItem();
+			case PubPackage.TABLE: return createTable();
+			case PubPackage.TABLE_ROW: return createTableRow();
+			case PubPackage.TABLE_CELL: return createTableCell();
+			case PubPackage.FIGURE: return createFigure();
+			case PubPackage.EQUATION: return createEquation();
+			case PubPackage.CODE_LISTING: return createCodeListing();
+			case PubPackage.PARAGRAPH: return createParagraph();
+			case PubPackage.UNFORMATTED_PARAGRAPH: return createUnformattedParagraph();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case PubPackage.PUBLICATION_NATURE:
+				return createPublicationNatureFromString(eDataType, initialValue);
+			case PubPackage.REFERENCE_SCOPE:
+				return createReferenceScopeFromString(eDataType, initialValue);
+			case PubPackage.ADMONITION_KIND:
+				return createAdmonitionKindFromString(eDataType, initialValue);
+			case PubPackage.LIST_STYLE:
+				return createListStyleFromString(eDataType, initialValue);
+			case PubPackage.CODE_LANGUAGE:
+				return createCodeLanguageFromString(eDataType, initialValue);
+			case PubPackage.PARAGRAPH_STYLE:
+				return createParagraphStyleFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case PubPackage.PUBLICATION_NATURE:
+				return convertPublicationNatureToString(eDataType, instanceValue);
+			case PubPackage.REFERENCE_SCOPE:
+				return convertReferenceScopeToString(eDataType, instanceValue);
+			case PubPackage.ADMONITION_KIND:
+				return convertAdmonitionKindToString(eDataType, instanceValue);
+			case PubPackage.LIST_STYLE:
+				return convertListStyleToString(eDataType, instanceValue);
+			case PubPackage.CODE_LANGUAGE:
+				return convertCodeLanguageToString(eDataType, instanceValue);
+			case PubPackage.PARAGRAPH_STYLE:
+				return convertParagraphStyleToString(eDataType, instanceValue);
+=======
+			case PubPackage.SEGMENT_WITH_TEXT: return createSegmentWithText();
+			case PubPackage.ABSTRACT: return createAbstract();
+			case PubPackage.PREFACE: return createPreface();
+			case PubPackage.EPILOGUE: return createEpilogue();
+			case PubPackage.PUBLICATION_BODY: return createPublicationBody();
+			case PubPackage.SEGMENT_WITH_TABLE: return createSegmentWithTable();
+			case PubPackage.CHANGE_HISTORY: return createChangeHistory();
+			case PubPackage.CHANGE_DESCRIPTION: return createChangeDescription();
+			case PubPackage.TOC: return createTOC();
+			case PubPackage.ABBREVIATIONS: return createAbbreviations();
+			case PubPackage.ABBREVIATION: return createAbbreviation();
+			case PubPackage.LIST_OF_TABLES: return createListOfTables();
+			case PubPackage.LIST_OF_FIGURES: return createListOfFigures();
+			case PubPackage.BIBLIOGRAPHY: return createBibliography();
+			case PubPackage.BIBLIOGRAPHY_ENTRY: return createBibliographyEntry();
+			case PubPackage.GLOSSARY: return createGlossary();
+			case PubPackage.GLOSSARY_ENTRY: return createGlossaryEntry();
+			case PubPackage.INDEX: return createIndex();
+			case PubPackage.INDEX_ENTRY: return createIndexEntry();
+			case PubPackage.SEGMENT_INCLUDE: return createSegmentInclude();
+			case PubPackage.PART: return createPart();
+			case PubPackage.APPENDIX: return createAppendix();
+			case PubPackage.CHAPTER: return createChapter();
+			case PubPackage.SECTION: return createSection();
+			case PubPackage.SUBSECTION: return createSubsection();
+			case PubPackage.SUBSUBSECTION: return createSubsubsection();
+			case PubPackage.ADMONITION: return createAdmonition();
+			case PubPackage.LIST: return createList();
+			case PubPackage.LIST_ITEM: return createListItem();
+			case PubPackage.TABLE: return createTable();
+			case PubPackage.TABLE_ROW: return createTableRow();
+			case PubPackage.TABLE_CELL: return createTableCell();
+			case PubPackage.FIGURE: return createFigure();
+			case PubPackage.EQUATION: return createEquation();
+			case PubPackage.CODE_LISTING: return createCodeListing();
+			case PubPackage.PARAGRAPH: return createParagraph();
+			case PubPackage.UNFORMATTED_PARAGRAPH: return createUnformattedParagraph();
+			case PubPackage.REFERENCE: return createReference();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case PubPackage.PUBLICATION_NATURE:
+				return createPublicationNatureFromString(eDataType, initialValue);
+			case PubPackage.ADMONITION_KIND:
+				return createAdmonitionKindFromString(eDataType, initialValue);
+			case PubPackage.LIST_STYLE:
+				return createListStyleFromString(eDataType, initialValue);
+			case PubPackage.CODE_LANGUAGE:
+				return createCodeLanguageFromString(eDataType, initialValue);
+			case PubPackage.PARAGRAPH_STYLE:
+				return createParagraphStyleFromString(eDataType, initialValue);
+			case PubPackage.REFERENCE_SCOPE:
+				return createReferenceScopeFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case PubPackage.PUBLICATION_NATURE:
+				return convertPublicationNatureToString(eDataType, instanceValue);
+			case PubPackage.ADMONITION_KIND:
+				return convertAdmonitionKindToString(eDataType, instanceValue);
+			case PubPackage.LIST_STYLE:
+				return convertListStyleToString(eDataType, instanceValue);
+			case PubPackage.CODE_LANGUAGE:
+				return convertCodeLanguageToString(eDataType, instanceValue);
+			case PubPackage.PARAGRAPH_STYLE:
+				return convertParagraphStyleToString(eDataType, instanceValue);
+			case PubPackage.REFERENCE_SCOPE:
+				return convertReferenceScopeToString(eDataType, instanceValue);
+>>>>>>> refs/remotes/origin/master
+>>>>>>> refs/heads/master
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}

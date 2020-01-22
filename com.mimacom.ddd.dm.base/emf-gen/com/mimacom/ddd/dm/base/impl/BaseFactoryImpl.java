@@ -142,7 +142,10 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> refs/heads/master
 	public DImport createDImport()
 	{
 		DImportImpl dImport = new DImportImpl();
@@ -178,6 +181,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
 	@Override
 	public DMultiplicity createDMultiplicity()
 	{
@@ -299,6 +303,118 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * @generated
 	 */
 	@Override
+=======
+	public DMultiplicity createDMultiplicity()
+	{
+		DMultiplicityImplCustom dMultiplicity = new DMultiplicityImplCustom();
+		return dMultiplicity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DTextSegment createDTextSegment()
+	{
+		DTextSegmentImpl dTextSegment = new DTextSegmentImpl();
+		return dTextSegment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DRichText createDRichText()
+	{
+		DRichTextImpl dRichText = new DRichTextImpl();
+		return dRichText;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DNamedPredicate createDNamedPredicate()
+	{
+		DNamedPredicateImpl dNamedPredicate = new DNamedPredicateImpl();
+		return dNamedPredicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DPrimitive createDPrimitive()
+	{
+		DPrimitiveImpl dPrimitive = new DPrimitiveImpl();
+		return dPrimitive;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DEnumeration createDEnumeration()
+	{
+		DEnumerationImplCustom dEnumeration = new DEnumerationImplCustom();
+		return dEnumeration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DLiteral createDLiteral()
+	{
+		DLiteralImplCustom dLiteral = new DLiteralImplCustom();
+		return dLiteral;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DDetailType createDDetailType()
+	{
+		DDetailTypeImpl dDetailType = new DDetailTypeImpl();
+		return dDetailType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DEntityType createDEntityType()
+	{
+		DEntityTypeImpl dEntityType = new DEntityTypeImpl();
+		return dEntityType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DAssociation createDAssociation()
+	{
+		DAssociationImplCustom dAssociation = new DAssociationImplCustom();
+		return dAssociation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+>>>>>>> refs/heads/master
 	public DAttribute createDAttribute()
 	{
 		DAttributeImpl dAttribute = new DAttributeImpl();
@@ -508,7 +624,10 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> refs/heads/master
 	public BasePackage getBasePackage()
 	{
 		return (BasePackage)getEPackage();

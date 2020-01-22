@@ -134,6 +134,7 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
 	@Override
 	public EList<DNavigableMember> getNavigableMembers()
 	{
@@ -150,6 +151,22 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
+=======
+	public EList<DNavigableMember> getNavigableMembers()
+	{
+		// TODO: implement this method to return the 'Navigable Members' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+>>>>>>> refs/heads/master
 	public String getName()
 	{
 		return name;
@@ -160,7 +177,6 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setName(String newName)
 	{
 		String oldName = name;
@@ -174,7 +190,6 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<SServiceParameter> getParameters()
 	{
 		if (parameters == null)
@@ -189,7 +204,6 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<SException> getRaises()
 	{
 		if (raises == null)
@@ -204,7 +218,6 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DExpression> getGuards()
 	{
 		if (guards == null)
@@ -219,7 +232,6 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DExpression> getEffects()
 	{
 		if (effects == null)
@@ -381,7 +393,7 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(')');

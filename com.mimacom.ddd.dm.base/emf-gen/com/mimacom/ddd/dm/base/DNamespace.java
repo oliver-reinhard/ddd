@@ -26,6 +26,13 @@ public interface DNamespace extends DNamedElement
 	 * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DImport}.
 	 * <!-- begin-user-doc -->
+<<<<<<< HEAD
+=======
+	 * <p>
+	 * If the meaning of the '<em>Imports</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+>>>>>>> refs/heads/master
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Imports</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDNamespace_Imports()

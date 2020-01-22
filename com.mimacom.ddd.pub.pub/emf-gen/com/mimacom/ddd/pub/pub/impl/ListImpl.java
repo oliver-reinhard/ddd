@@ -240,7 +240,15 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 */
 	@Override
 	public int getLevel() {
+<<<<<<< HEAD
 		int i = PubConstants.TOP_LEVEL;
+=======
+<<<<<<< HEAD
+		int i = PubConstants.TOP_LEVEL;
+=======
+		int i = 0;
+>>>>>>> refs/remotes/origin/master
+>>>>>>> refs/heads/master
 		EObject parent = this.eContainer();
 		while (((parent != null) && (!(parent instanceof Division)))) {
 			{

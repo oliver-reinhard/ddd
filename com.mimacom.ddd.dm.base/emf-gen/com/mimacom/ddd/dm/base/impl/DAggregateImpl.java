@@ -141,6 +141,7 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
 	@Override
 	public EList<DFeature> getFeatures()
 	{
@@ -172,6 +173,36 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * @generated
 	 */
 	@Override
+=======
+	public EList<DFeature> getFeatures()
+	{
+		if (features == null)
+		{
+			features = new EObjectContainmentEList<DFeature>(DFeature.class, this, BasePackage.DAGGREGATE__FEATURES);
+		}
+		return features;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DNavigableMember> getNavigableMembers()
+	{
+		// TODO: implement this method to return the 'Navigable Members' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+>>>>>>> refs/heads/master
 	public IDeductionDefinition getDeducedFrom()
 	{
 		if (deducedFrom != null && deducedFrom.eIsProxy())

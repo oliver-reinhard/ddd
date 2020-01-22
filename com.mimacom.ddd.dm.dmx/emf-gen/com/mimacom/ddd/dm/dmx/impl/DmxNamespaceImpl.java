@@ -110,6 +110,7 @@ public class DmxNamespaceImpl extends DNamedElementImpl implements DmxNamespace
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
 	@Override
 	public EList<DImport> getImports()
 	{
@@ -127,6 +128,9 @@ public class DmxNamespaceImpl extends DNamedElementImpl implements DmxNamespace
 	 */
 	@Override
 	public EList<DType> getTypes()
+=======
+	public EList<DImport> getImports()
+>>>>>>> refs/heads/master
 	{
 		if (types == null)
 		{
@@ -140,7 +144,20 @@ public class DmxNamespaceImpl extends DNamedElementImpl implements DmxNamespace
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	public EList<DType> getTypes()
+	{
+		if (types == null)
+		{
+			types = new EObjectContainmentEList<DType>(DType.class, this, DmxPackage.DMX_NAMESPACE__TYPES);
+		}
+		return types;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<DmxFilter> getFilters()
 	{
 		if (filters == null)
@@ -155,7 +172,6 @@ public class DmxNamespaceImpl extends DNamedElementImpl implements DmxNamespace
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DmxTest> getTests()
 	{
 		if (tests == null)

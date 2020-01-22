@@ -67,7 +67,6 @@ public class EsmDerivedStateImpl extends EsmStateImpl implements EsmDerivedState
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DExpression getExpression()
 	{
 		return expression;
@@ -95,7 +94,6 @@ public class EsmDerivedStateImpl extends EsmStateImpl implements EsmDerivedState
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setExpression(DExpression newExpression)
 	{
 		if (newExpression != expression)

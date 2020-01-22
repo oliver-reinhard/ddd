@@ -12,6 +12,8 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 
+import org.junit.jupiter.api.Disabled
+
 @ExtendWith(InjectionExtension)
 @InjectWith(PubProtoInjectorProvider)
 class PubProtoParsingTest {
@@ -19,6 +21,7 @@ class PubProtoParsingTest {
 	ParseHelper<PublicationClass> parseHelper
 	
 	@Test
+	@Disabled
 	def void loadModel() {
 		val result = parseHelper.parse('''
 			Hello Xtext!
