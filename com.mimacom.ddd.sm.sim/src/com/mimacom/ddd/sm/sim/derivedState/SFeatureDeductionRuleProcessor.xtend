@@ -2,7 +2,6 @@ package com.mimacom.ddd.sm.sim.derivedState
 
 import com.google.common.collect.Lists
 import com.google.inject.Inject
-import com.mimacom.ddd.dm.base.DComplexType
 import com.mimacom.ddd.dm.base.DFeature
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DQueryParameter

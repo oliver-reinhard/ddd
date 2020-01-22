@@ -97,9 +97,10 @@ class DimDiagramTextProvider extends AbstractDiagramTextProvider {
 			«ENDFOR»
 			
 			' all entities referenced from within current domain
-			«FOR re:allEntitiesReferencedWithinDomain»
-				«re.generateType»
-			«ENDFOR»
+«««			This generates duplicate entries when a type if referenced from another aggregate:
+«««			«FOR re:allEntitiesReferencedWithinDomain»
+«««				«re.generateType»
+«««			«ENDFOR»
 			
 			' all other referenced domains
 			«FOR rd:allDomainsReferencedOutsideDomain»

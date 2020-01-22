@@ -14,7 +14,9 @@ import com.mimacom.ddd.dm.base.DDetailType;
 import com.mimacom.ddd.dm.base.DEntityType;
 import com.mimacom.ddd.dm.base.DQuery;
 import com.mimacom.ddd.dm.base.DQueryParameter;
+import com.mimacom.ddd.dm.base.DType;
 import com.mimacom.ddd.dm.base.IAggregateContainer;
+import com.mimacom.ddd.dm.base.ITypeContainer;
 import com.mimacom.ddd.dm.dim.scoping.AbstractDimScopeProvider;
 import java.util.ArrayList;
 import org.eclipse.emf.common.util.EList;
@@ -112,9 +114,20 @@ public class DimScopeProvider extends AbstractDimScopeProvider {
   }
   
   public IScope getIdentityTypeScope(final DEntityType context, final Class<?> type) {
+    final ArrayList<DEntityType> list = Lists.<DEntityType>newArrayList();
+    final ITypeContainer typeContainer = EcoreUtil2.<ITypeContainer>getContainerOfType(context, ITypeContainer.class);
+    if ((typeContainer != null)) {
+      EList<DType> _types = typeContainer.getTypes();
+      for (final DType t : _types) {
+        if ((t instanceof DEntityType)) {
+          if (((!((DEntityType)t).isRoot()) && type.isAssignableFrom(((DEntityType)t).getClass()))) {
+            list.add(((DEntityType)t));
+          }
+        }
+      }
+    }
     final IAggregateContainer domain = EcoreUtil2.<IAggregateContainer>getContainerOfType(context, IAggregateContainer.class);
     if ((domain != null)) {
-      final ArrayList<DEntityType> list = Lists.<DEntityType>newArrayList();
       EList<DAggregate> _aggregates = domain.getAggregates();
       for (final DAggregate a : _aggregates) {
         {
@@ -125,8 +138,11 @@ public class DimScopeProvider extends AbstractDimScopeProvider {
           Iterables.<DEntityType>addAll(list, roots);
         }
       }
-      return Scopes.scopeFor(list);
     }
-    return IScope.NULLSCOPE;
+    boolean _isEmpty = list.isEmpty();
+    if (_isEmpty) {
+      return IScope.NULLSCOPE;
+    }
+    return Scopes.scopeFor(list);
   }
 }
