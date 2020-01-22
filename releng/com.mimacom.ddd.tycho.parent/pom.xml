@@ -9,6 +9,8 @@
   <packaging>pom</packaging>
 
   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    
     <tycho-version>1.5.1</tycho-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -21,13 +23,13 @@
     <xtext.version>2.19.0</xtext.version>
     <text.version>3.5.101</text.version>
     <core-resources.version>3.7.100</core-resources.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <tycho-version>1.5.1</tycho-version>
-    <emf-ecore.version>2.20.0</emf-ecore.version>
+    <emf-ecore.version>2.19.0</emf-ecore.version>
     <emf-ecore-xmi.version>2.16.0</emf-ecore-xmi.version>
-    <emf-common.version>2.17.0</emf-common.version>
+    <emf-common.version>2.16.0</emf-common.version>
     <emf-codegen.version>2.19.0</emf-codegen.version>
-    <emf-codegen-ecore.version>2.20.0</emf-codegen-ecore.version>
+    <emf-codegen-ecore.version>2.19.0</emf-codegen-ecore.version>
+    <emf-mwe2-launch.version>2.11.0</emf-mwe2-launch.version>
     <ecore-xtext.version>1.4.0</ecore-xtext.version>
     <ecore-xcore.version>1.12.0</ecore-xcore.version>
     <ecore-xcore-lib.version>1.4.0</ecore-xcore-lib.version>
