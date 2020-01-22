@@ -98,7 +98,6 @@ public class DomSnapshotImpl extends MinimalEObjectImpl.Container implements Dom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DNavigableMember> getNavigableMembers()
 	{
 		// TODO: implement this method to return the 'Navigable Members' reference list
@@ -113,7 +112,6 @@ public class DomSnapshotImpl extends MinimalEObjectImpl.Container implements Dom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName()
 	{
 		return name;
@@ -124,7 +122,6 @@ public class DomSnapshotImpl extends MinimalEObjectImpl.Container implements Dom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setName(String newName)
 	{
 		String oldName = name;
@@ -138,7 +135,6 @@ public class DomSnapshotImpl extends MinimalEObjectImpl.Container implements Dom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DomObject> getObjects()
 	{
 		if (objects == null)
@@ -263,7 +259,7 @@ public class DomSnapshotImpl extends MinimalEObjectImpl.Container implements Dom
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(')');

@@ -226,7 +226,6 @@ public class DStyledTextSpanImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DTextStyle getStyle()
 	{
 		return style;
@@ -237,7 +236,6 @@ public class DStyledTextSpanImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setStyle(DTextStyle newStyle)
 	{
 		DTextStyle oldStyle = style;
@@ -251,7 +249,6 @@ public class DStyledTextSpanImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DTextAttribute> getAttributes()
 	{
 		if (attributes == null)
@@ -266,7 +263,6 @@ public class DStyledTextSpanImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getStartPos()
 	{
 		return startPos;
@@ -277,7 +273,6 @@ public class DStyledTextSpanImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setStartPos(int newStartPos)
 	{
 		int oldStartPos = startPos;
@@ -291,7 +286,6 @@ public class DStyledTextSpanImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getEndPos()
 	{
 		return endPos;
@@ -302,7 +296,6 @@ public class DStyledTextSpanImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setEndPos(int newEndPos)
 	{
 		int oldEndPos = endPos;
@@ -316,7 +309,6 @@ public class DStyledTextSpanImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DStyledTextSpan> getSubspans()
 	{
 		if (subspans == null)
@@ -331,7 +323,6 @@ public class DStyledTextSpanImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DColor getTextColor()
 	{
 		return textColor;
@@ -342,7 +333,6 @@ public class DStyledTextSpanImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setTextColor(DColor newTextColor)
 	{
 		DColor oldTextColor = textColor;
@@ -356,7 +346,6 @@ public class DStyledTextSpanImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DColor getHighlightColor()
 	{
 		return highlightColor;
@@ -367,7 +356,6 @@ public class DStyledTextSpanImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setHighlightColor(DColor newHighlightColor)
 	{
 		DColor oldHighlightColor = highlightColor;
@@ -381,7 +369,6 @@ public class DStyledTextSpanImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public boolean isLeaf()
 	{
 		// TODO: implement this method to return the 'Leaf' attribute
@@ -394,7 +381,6 @@ public class DStyledTextSpanImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setLeaf(boolean newLeaf)
 	{
 		// TODO: implement this method to set the 'Leaf' attribute
@@ -407,7 +393,6 @@ public class DStyledTextSpanImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DStyledTextSpan getParent()
 	{
 		if (eContainerFeatureID() != StyledTextPackage.DSTYLED_TEXT_SPAN__PARENT) return null;
@@ -430,7 +415,6 @@ public class DStyledTextSpanImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setParent(DStyledTextSpan newParent)
 	{
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != StyledTextPackage.DSTYLED_TEXT_SPAN__PARENT && newParent != null))
@@ -454,7 +438,6 @@ public class DStyledTextSpanImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getText()
 	{
 		return text;
@@ -465,7 +448,6 @@ public class DStyledTextSpanImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setText(String newText)
 	{
 		String oldText = text;
@@ -698,7 +680,7 @@ public class DStyledTextSpanImpl extends MinimalEObjectImpl.Container implements
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (style: ");
 		result.append(style);
 		result.append(", attributes: ");

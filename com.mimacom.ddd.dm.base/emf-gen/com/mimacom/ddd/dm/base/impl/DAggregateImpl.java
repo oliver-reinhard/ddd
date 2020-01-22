@@ -126,7 +126,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DType> getTypes()
 	{
 		if (types == null)
@@ -141,10 +140,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-<<<<<<< HEAD
-<<<<<<< Upstream, based on 31adbbe530a348e8e7950d43c70d55be3ba288b1
-=======
-	@Override
 	public EList<DFeature> getFeatures()
 	{
 		if (features == null)
@@ -159,7 +154,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DNavigableMember> getNavigableMembers()
 	{
 		// TODO: implement this method to return the 'Navigable Members' reference list
@@ -174,11 +168,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
->>>>>>> 0d09db5 SIM: update to enhanced BASE model and semantics
-=======
-	@Override
->>>>>>> refs/remotes/origin/master
 	public IDeductionDefinition getDeducedFrom()
 	{
 		if (deducedFrom != null && deducedFrom.eIsProxy())
@@ -209,7 +198,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setDeducedFrom(IDeductionDefinition newDeducedFrom)
 	{
 		IDeductionDefinition oldDeducedFrom = deducedFrom;
@@ -223,7 +211,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public boolean isSynthetic()
 	{
 		return synthetic;
@@ -234,7 +221,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setSynthetic(boolean newSynthetic)
 	{
 		boolean oldSynthetic = synthetic;
@@ -248,7 +234,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DEntityType> getRoots()
 	{
 		// TODO: implement this method to return the 'Roots' reference list
@@ -263,27 +248,6 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-<<<<<<< HEAD
-<<<<<<< Upstream, based on 31adbbe530a348e8e7950d43c70d55be3ba288b1
-=======
-	@Override
->>>>>>> refs/remotes/origin/master
-	public EList<DQuery> getStaticQueries()
-	{
-		if (staticQueries == null)
-		{
-			staticQueries = new EObjectContainmentEList<DQuery>(DQuery.class, this, BasePackage.DAGGREGATE__STATIC_QUERIES);
-		}
-		return staticQueries;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-=======
->>>>>>> 0d09db5 SIM: update to enhanced BASE model and semantics
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
@@ -524,7 +488,7 @@ public class DAggregateImpl extends DNamedElementImpl implements DAggregate
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (synthetic: ");
 		result.append(synthetic);
 		result.append(')');

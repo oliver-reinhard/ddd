@@ -83,7 +83,6 @@ public class StyledTextTokenizerTest {
     this.assertTokenType(t, StyledTextTokenizer.Token.EXPRESSION_END);
     this.assertTokenText(t, "cc");
     this.assertTokenType(t, StyledTextTokenizer.Token.EOF);
-<<<<<<< HEAD
     final StyledTextTokenizer t2 = new StyledTextTokenizer("[]");
     this.assertTokenType(t2, StyledTextTokenizer.Token.EXPRESSION_START);
     this.assertTokenSkip(t2, StyledTextTokenizer.Token.EXPRESSION_END, "");
@@ -203,45 +202,6 @@ public class StyledTextTokenizerTest {
     this.assertTokenText(t9, "bb ");
     this.assertTokenType(t9, StyledTextTokenizer.Token.STATIC_REFERENCE_START);
     this.assertTokenType(t9, StyledTextTokenizer.Token.EOF);
-=======
-    final StyledTextTokenizer t2 = new StyledTextTokenizer("aa[b]cc");
-    this.assertTokenText(t2, "aa");
-    this.assertTokenType(t2, StyledTextTokenizer.Token.EXPRESSION_START);
-    this.assertTokenSkip(t2, StyledTextTokenizer.Token.EXPRESSION_END, "b");
-    this.assertTokenType(t2, StyledTextTokenizer.Token.EXPRESSION_END);
-    this.assertTokenText(t2, "cc");
-    this.assertTokenType(t2, StyledTextTokenizer.Token.EOF);
-    final StyledTextTokenizer t3 = new StyledTextTokenizer("aa[bb]cc");
-    this.assertTokenText(t3, "aa");
-    this.assertTokenType(t3, StyledTextTokenizer.Token.EXPRESSION_START);
-    this.assertTokenSkip(t3, StyledTextTokenizer.Token.EXPRESSION_END, "bb");
-    this.assertTokenType(t3, StyledTextTokenizer.Token.EXPRESSION_END);
-    this.assertTokenText(t3, "cc");
-    this.assertTokenType(t3, StyledTextTokenizer.Token.EOF);
-    final StyledTextTokenizer t4 = new StyledTextTokenizer("aa **bb [cc ** dd] ee**");
-    this.assertTokenText(t4, "aa ");
-    this.assertTokenType(t4, StyledTextTokenizer.Token.EMPHASIS);
-    this.assertTokenText(t4, "bb ");
-    this.assertTokenType(t4, StyledTextTokenizer.Token.EXPRESSION_START);
-    this.assertTokenSkip(t4, StyledTextTokenizer.Token.EXPRESSION_END, "cc ** dd");
-    this.assertTokenType(t4, StyledTextTokenizer.Token.EXPRESSION_END);
-    this.assertTokenText(t4, " ee");
-    this.assertTokenType(t4, StyledTextTokenizer.Token.EMPHASIS);
-    this.assertTokenType(t4, StyledTextTokenizer.Token.EOF);
-    final StyledTextTokenizer t5 = new StyledTextTokenizer("aa **bb [cc ** dd");
-    this.assertTokenText(t5, "aa ");
-    this.assertTokenType(t5, StyledTextTokenizer.Token.EMPHASIS);
-    this.assertTokenText(t5, "bb ");
-    this.assertTokenType(t5, StyledTextTokenizer.Token.EXPRESSION_START);
-    this.assertTokenSkip(t5, StyledTextTokenizer.Token.EXPRESSION_END, "cc ** dd");
-    this.assertTokenType(t5, StyledTextTokenizer.Token.EOF);
-    final StyledTextTokenizer t6 = new StyledTextTokenizer("aa **bb [");
-    this.assertTokenText(t6, "aa ");
-    this.assertTokenType(t6, StyledTextTokenizer.Token.EMPHASIS);
-    this.assertTokenText(t6, "bb ");
-    this.assertTokenType(t6, StyledTextTokenizer.Token.EXPRESSION_START);
-    this.assertTokenType(t6, StyledTextTokenizer.Token.EOF);
->>>>>>> refs/remotes/origin/master
   }
   
   @Test

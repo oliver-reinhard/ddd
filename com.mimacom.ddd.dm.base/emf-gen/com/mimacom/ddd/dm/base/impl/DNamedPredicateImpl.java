@@ -65,7 +65,6 @@ public class DNamedPredicateImpl extends DNamedElementImpl implements DNamedPred
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DExpression getPredicate()
 	{
 		return predicate;
@@ -93,7 +92,6 @@ public class DNamedPredicateImpl extends DNamedElementImpl implements DNamedPred
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setPredicate(DExpression newPredicate)
 	{
 		if (newPredicate != predicate)

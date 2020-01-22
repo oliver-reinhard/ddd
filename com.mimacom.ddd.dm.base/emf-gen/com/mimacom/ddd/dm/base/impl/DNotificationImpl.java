@@ -84,10 +84,6 @@ public class DNotificationImpl extends DNavigableMemberImplCustom implements DNo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-<<<<<<< HEAD
-<<<<<<< Upstream, based on 31adbbe530a348e8e7950d43c70d55be3ba288b1
-=======
-	@Override
 	public EList<DNavigableMember> getNavigableMembers()
 	{
 		// TODO: implement this method to return the 'Navigable Members' reference list
@@ -102,11 +98,6 @@ public class DNotificationImpl extends DNavigableMemberImplCustom implements DNo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
->>>>>>> 0d09db5 SIM: update to enhanced BASE model and semantics
-=======
-	@Override
->>>>>>> refs/remotes/origin/master
 	public DMessage getMessage()
 	{
 		return message;
@@ -134,7 +125,6 @@ public class DNotificationImpl extends DNavigableMemberImplCustom implements DNo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setMessage(DMessage newMessage)
 	{
 		if (newMessage != message)
@@ -156,7 +146,6 @@ public class DNotificationImpl extends DNavigableMemberImplCustom implements DNo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DActor getNotified()
 	{
 		if (notified != null && notified.eIsProxy())
@@ -187,7 +176,6 @@ public class DNotificationImpl extends DNavigableMemberImplCustom implements DNo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setNotified(DActor newNotified)
 	{
 		DActor oldNotified = notified;

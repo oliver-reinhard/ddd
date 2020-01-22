@@ -26,6 +26,10 @@ public interface EsmDomain extends DNamespace
 	/**
 	 * Returns the value of the '<em><b>State Model</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>State Model</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>State Model</em>' containment reference.
 	 * @see #setStateModel(EsmEntityStateModel)

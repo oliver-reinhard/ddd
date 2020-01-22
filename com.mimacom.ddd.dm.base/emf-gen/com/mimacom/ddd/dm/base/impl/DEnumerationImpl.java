@@ -72,10 +72,6 @@ public class DEnumerationImpl extends DSimpleTypeImpl implements DEnumeration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-<<<<<<< HEAD
-<<<<<<< Upstream, based on 31adbbe530a348e8e7950d43c70d55be3ba288b1
-=======
-	@Override
 	public EList<DNavigableMember> getNavigableMembers()
 	{
 		// TODO: implement this method to return the 'Navigable Members' reference list
@@ -90,11 +86,6 @@ public class DEnumerationImpl extends DSimpleTypeImpl implements DEnumeration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
->>>>>>> 0d09db5 SIM: update to enhanced BASE model and semantics
-=======
-	@Override
->>>>>>> refs/remotes/origin/master
 	public EList<DLiteral> getLiterals()
 	{
 		if (literals == null)

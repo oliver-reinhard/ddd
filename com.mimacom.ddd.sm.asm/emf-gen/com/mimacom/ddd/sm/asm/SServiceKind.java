@@ -43,6 +43,10 @@ public enum SServiceKind implements Enumerator
 	/**
 	 * The '<em><b>SYNCHRONOUS</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>SYNCHRONOUS</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #SYNCHRONOUS
 	 * @model
@@ -54,6 +58,10 @@ public enum SServiceKind implements Enumerator
 	/**
 	 * The '<em><b>ASYNCHRONOUS</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>ASYNCHRONOUS</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #ASYNCHRONOUS
 	 * @model
@@ -182,7 +190,6 @@ public enum SServiceKind implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getValue()
 	{
 	  return value;
@@ -193,7 +200,6 @@ public enum SServiceKind implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName()
 	{
 	  return name;
@@ -204,7 +210,6 @@ public enum SServiceKind implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getLiteral()
 	{
 	  return literal;

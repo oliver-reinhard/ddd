@@ -37,6 +37,10 @@ public interface DStyledTextSpan extends EObject
 	 * Returns the value of the '<em><b>Style</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.mimacom.ddd.dm.styledText.DTextStyle}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Style</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Style</em>' attribute.
 	 * @see com.mimacom.ddd.dm.styledText.DTextStyle
@@ -63,6 +67,10 @@ public interface DStyledTextSpan extends EObject
 	 * The list contents are of type {@link com.mimacom.ddd.dm.styledText.DTextAttribute}.
 	 * The literals are from the enumeration {@link com.mimacom.ddd.dm.styledText.DTextAttribute}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Attributes</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Attributes</em>' attribute list.
 	 * @see com.mimacom.ddd.dm.styledText.DTextAttribute
@@ -75,6 +83,10 @@ public interface DStyledTextSpan extends EObject
 	/**
 	 * Returns the value of the '<em><b>Start Pos</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Start Pos</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Start Pos</em>' attribute.
 	 * @see #setStartPos(int)
@@ -97,6 +109,10 @@ public interface DStyledTextSpan extends EObject
 	/**
 	 * Returns the value of the '<em><b>End Pos</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>End Pos</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>End Pos</em>' attribute.
 	 * @see #setEndPos(int)
@@ -121,6 +137,10 @@ public interface DStyledTextSpan extends EObject
 	 * The list contents are of type {@link com.mimacom.ddd.dm.styledText.DStyledTextSpan}.
 	 * It is bidirectional and its opposite is '{@link com.mimacom.ddd.dm.styledText.DStyledTextSpan#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Subspans</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Subspans</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.styledText.StyledTextPackage#getDStyledTextSpan_Subspans()
@@ -134,6 +154,10 @@ public interface DStyledTextSpan extends EObject
 	 * Returns the value of the '<em><b>Text Color</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.mimacom.ddd.dm.styledText.DColor}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Text Color</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Text Color</em>' attribute.
 	 * @see com.mimacom.ddd.dm.styledText.DColor
@@ -159,6 +183,10 @@ public interface DStyledTextSpan extends EObject
 	 * Returns the value of the '<em><b>Highlight Color</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.mimacom.ddd.dm.styledText.DColor}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Highlight Color</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Highlight Color</em>' attribute.
 	 * @see com.mimacom.ddd.dm.styledText.DColor
@@ -183,6 +211,10 @@ public interface DStyledTextSpan extends EObject
 	/**
 	 * Returns the value of the '<em><b>Leaf</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Leaf</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Leaf</em>' attribute.
 	 * @see #setLeaf(boolean)
@@ -206,6 +238,10 @@ public interface DStyledTextSpan extends EObject
 	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link com.mimacom.ddd.dm.styledText.DStyledTextSpan#getSubspans <em>Subspans</em>}'.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parent</em>' container reference.
 	 * @see #setParent(DStyledTextSpan)
@@ -229,6 +265,10 @@ public interface DStyledTextSpan extends EObject
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Text</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Text</em>' attribute.
 	 * @see #setText(String)

@@ -82,7 +82,7 @@ public class StyledTextPackageImpl extends EPackageImpl implements StyledTextPac
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 *
+	 * 
 	 * <p>This method is used to initialize {@link StyledTextPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -97,8 +97,7 @@ public class StyledTextPackageImpl extends EPackageImpl implements StyledTextPac
 		if (isInited) return (StyledTextPackage)EPackage.Registry.INSTANCE.getEPackage(StyledTextPackage.eNS_URI);
 
 		// Obtain or create and register package
-		Object registeredStyledTextPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		StyledTextPackageImpl theStyledTextPackage = registeredStyledTextPackage instanceof StyledTextPackageImpl ? (StyledTextPackageImpl)registeredStyledTextPackage : new StyledTextPackageImpl();
+		StyledTextPackageImpl theStyledTextPackage = (StyledTextPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof StyledTextPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new StyledTextPackageImpl());
 
 		isInited = true;
 
@@ -111,6 +110,7 @@ public class StyledTextPackageImpl extends EPackageImpl implements StyledTextPac
 		// Mark meta-data to indicate it can't be changed
 		theStyledTextPackage.freeze();
 
+  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(StyledTextPackage.eNS_URI, theStyledTextPackage);
 		return theStyledTextPackage;
@@ -121,7 +121,6 @@ public class StyledTextPackageImpl extends EPackageImpl implements StyledTextPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDStyledTextSpan()
 	{
 		return dStyledTextSpanEClass;
@@ -132,7 +131,6 @@ public class StyledTextPackageImpl extends EPackageImpl implements StyledTextPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDStyledTextSpan_Style()
 	{
 		return (EAttribute)dStyledTextSpanEClass.getEStructuralFeatures().get(0);
@@ -143,7 +141,6 @@ public class StyledTextPackageImpl extends EPackageImpl implements StyledTextPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDStyledTextSpan_Attributes()
 	{
 		return (EAttribute)dStyledTextSpanEClass.getEStructuralFeatures().get(1);
@@ -154,7 +151,6 @@ public class StyledTextPackageImpl extends EPackageImpl implements StyledTextPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDStyledTextSpan_StartPos()
 	{
 		return (EAttribute)dStyledTextSpanEClass.getEStructuralFeatures().get(2);
@@ -165,7 +161,6 @@ public class StyledTextPackageImpl extends EPackageImpl implements StyledTextPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDStyledTextSpan_EndPos()
 	{
 		return (EAttribute)dStyledTextSpanEClass.getEStructuralFeatures().get(3);
@@ -176,7 +171,6 @@ public class StyledTextPackageImpl extends EPackageImpl implements StyledTextPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDStyledTextSpan_Subspans()
 	{
 		return (EReference)dStyledTextSpanEClass.getEStructuralFeatures().get(4);
@@ -187,7 +181,6 @@ public class StyledTextPackageImpl extends EPackageImpl implements StyledTextPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDStyledTextSpan_TextColor()
 	{
 		return (EAttribute)dStyledTextSpanEClass.getEStructuralFeatures().get(5);
@@ -198,7 +191,6 @@ public class StyledTextPackageImpl extends EPackageImpl implements StyledTextPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDStyledTextSpan_HighlightColor()
 	{
 		return (EAttribute)dStyledTextSpanEClass.getEStructuralFeatures().get(6);
@@ -209,7 +201,6 @@ public class StyledTextPackageImpl extends EPackageImpl implements StyledTextPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDStyledTextSpan_Leaf()
 	{
 		return (EAttribute)dStyledTextSpanEClass.getEStructuralFeatures().get(7);
@@ -220,7 +211,6 @@ public class StyledTextPackageImpl extends EPackageImpl implements StyledTextPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDStyledTextSpan_Parent()
 	{
 		return (EReference)dStyledTextSpanEClass.getEStructuralFeatures().get(8);
@@ -231,7 +221,6 @@ public class StyledTextPackageImpl extends EPackageImpl implements StyledTextPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDStyledTextSpan_Text()
 	{
 		return (EAttribute)dStyledTextSpanEClass.getEStructuralFeatures().get(9);
@@ -242,7 +231,6 @@ public class StyledTextPackageImpl extends EPackageImpl implements StyledTextPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EEnum getDTextStyle()
 	{
 		return dTextStyleEEnum;
@@ -253,7 +241,6 @@ public class StyledTextPackageImpl extends EPackageImpl implements StyledTextPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EEnum getDTextAttribute()
 	{
 		return dTextAttributeEEnum;
@@ -264,7 +251,6 @@ public class StyledTextPackageImpl extends EPackageImpl implements StyledTextPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EEnum getDColor()
 	{
 		return dColorEEnum;
@@ -275,7 +261,6 @@ public class StyledTextPackageImpl extends EPackageImpl implements StyledTextPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public StyledTextFactory getStyledTextFactory()
 	{
 		return (StyledTextFactory)getEFactoryInstance();

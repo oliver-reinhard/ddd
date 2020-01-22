@@ -27,6 +27,10 @@ public interface EsmConcurrentState extends IEsmState
 	 * Returns the value of the '<em><b>Sub States</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.esm.EsmSubStateModel}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sub States</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sub States</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getEsmConcurrentState_SubStates()

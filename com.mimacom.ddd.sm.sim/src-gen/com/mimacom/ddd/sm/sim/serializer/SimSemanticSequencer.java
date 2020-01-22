@@ -501,8 +501,8 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *         aliases+=ID* 
 	 *         superType=[DComplexType|ID]? 
 	 *         description=DRichText? 
-	 *         features+=Feature? 
-	 *         (constraints+=DConstraint? features+=Feature?)* 
+	 *         constraints+=DConstraint? 
+	 *         (features+=Feature? constraints+=DConstraint?)* 
 	 *         (features+=DFeature | constraints+=DConstraint)*
 	 *     )
 	 */
@@ -642,8 +642,8 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *     (
 	 *         (deductionRule=SGrabComplexTypeRule | deductionRule=SDitchComplexTypeRule | deductionRule=SMorphComplexTypeRule | deductionRule=SFuseComplexTypeRule) 
 	 *         description=DRichText? 
-	 *         constraints+=DConstraint? 
-	 *         (features+=Feature? constraints+=DConstraint?)*
+	 *         features+=Feature? 
+	 *         (constraints+=DConstraint? features+=Feature?)*
 	 *     )
 	 */
 	protected void sequence_SComplexTypeFeatures_SDetailTypeDeduction(ISerializationContext context, SDetailTypeDeduction semanticObject) {

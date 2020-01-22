@@ -122,6 +122,10 @@ public enum DColor implements Enumerator
 	/**
 	 * The '<em><b>Black</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Black</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #BLACK
 	 * @model name="black"
@@ -133,6 +137,10 @@ public enum DColor implements Enumerator
 	/**
 	 * The '<em><b>Brown</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Brown</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #BROWN
 	 * @model name="brown"
@@ -144,6 +152,10 @@ public enum DColor implements Enumerator
 	/**
 	 * The '<em><b>Red</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Red</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #RED
 	 * @model name="red"
@@ -155,6 +167,10 @@ public enum DColor implements Enumerator
 	/**
 	 * The '<em><b>Orange</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Orange</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #ORANGE
 	 * @model name="orange"
@@ -166,6 +182,10 @@ public enum DColor implements Enumerator
 	/**
 	 * The '<em><b>Yellow</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Yellow</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #YELLOW
 	 * @model name="yellow"
@@ -177,6 +197,10 @@ public enum DColor implements Enumerator
 	/**
 	 * The '<em><b>Green</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Green</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #GREEN
 	 * @model name="green"
@@ -188,6 +212,10 @@ public enum DColor implements Enumerator
 	/**
 	 * The '<em><b>Blue</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Blue</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #BLUE
 	 * @model name="blue"
@@ -199,6 +227,10 @@ public enum DColor implements Enumerator
 	/**
 	 * The '<em><b>Purple</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Purple</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #PURPLE
 	 * @model name="purple"
@@ -210,6 +242,10 @@ public enum DColor implements Enumerator
 	/**
 	 * The '<em><b>Grey</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Grey</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #GREY
 	 * @model name="grey"
@@ -221,6 +257,10 @@ public enum DColor implements Enumerator
 	/**
 	 * The '<em><b>White</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>White</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #WHITE
 	 * @model name="white"
@@ -365,7 +405,6 @@ public enum DColor implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getValue()
 	{
 	  return value;
@@ -376,7 +415,6 @@ public enum DColor implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName()
 	{
 	  return name;
@@ -387,7 +425,6 @@ public enum DColor implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getLiteral()
 	{
 	  return literal;

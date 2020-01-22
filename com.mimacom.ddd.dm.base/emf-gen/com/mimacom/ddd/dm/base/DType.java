@@ -27,6 +27,10 @@ public interface DType extends DNamedElement, IDeducibleElement, IStaticReferenc
 	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DNamedPredicate}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Constraints</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Constraints</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDType_Constraints()
@@ -39,6 +43,10 @@ public interface DType extends DNamedElement, IDeducibleElement, IStaticReferenc
 	 * Returns the value of the '<em><b>Primitive</b></em>' attribute.
 	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Primitive</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Primitive</em>' attribute.
 	 * @see #setPrimitive(boolean)

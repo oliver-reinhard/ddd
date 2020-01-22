@@ -87,10 +87,6 @@ public class DQueryImpl extends DFeatureImpl implements DQuery
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-<<<<<<< HEAD
-<<<<<<< Upstream, based on 31adbbe530a348e8e7950d43c70d55be3ba288b1
-=======
-	@Override
 	public EList<DNavigableMember> getNavigableMembers()
 	{
 		// TODO: implement this method to return the 'Navigable Members' reference list
@@ -105,11 +101,6 @@ public class DQueryImpl extends DFeatureImpl implements DQuery
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
->>>>>>> 0d09db5 SIM: update to enhanced BASE model and semantics
-=======
-	@Override
->>>>>>> refs/remotes/origin/master
 	public EList<DQueryParameter> getParameters()
 	{
 		if (parameters == null)
@@ -124,7 +115,6 @@ public class DQueryImpl extends DFeatureImpl implements DQuery
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DExpression getReturns()
 	{
 		return returns;
@@ -152,7 +142,6 @@ public class DQueryImpl extends DFeatureImpl implements DQuery
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setReturns(DExpression newReturns)
 	{
 		if (newReturns != returns)

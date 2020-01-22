@@ -108,10 +108,6 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-<<<<<<< HEAD
-<<<<<<< Upstream, based on 31adbbe530a348e8e7950d43c70d55be3ba288b1
-=======
-	@Override
 	public EList<DFeature> getFeatures()
 	{
 		if (features == null)
@@ -126,7 +122,6 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DNavigableMember> getNavigableMembers()
 	{
 		// TODO: implement this method to return the 'Navigable Members' reference list
@@ -141,11 +136,6 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
->>>>>>> 0d09db5 SIM: update to enhanced BASE model and semantics
-=======
-	@Override
->>>>>>> refs/remotes/origin/master
 	public boolean isAbstract()
 	{
 		return abstract_;
@@ -156,7 +146,6 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setAbstract(boolean newAbstract)
 	{
 		boolean oldAbstract = abstract_;
@@ -170,7 +159,6 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DComplexType getSuperType()
 	{
 		if (superType != null && superType.eIsProxy())
@@ -201,7 +189,6 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setSuperType(DComplexType newSuperType)
 	{
 		DComplexType oldSuperType = superType;
@@ -215,27 +202,6 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-<<<<<<< HEAD
-<<<<<<< Upstream, based on 31adbbe530a348e8e7950d43c70d55be3ba288b1
-=======
-	@Override
->>>>>>> refs/remotes/origin/master
-	public EList<DFeature> getFeatures()
-	{
-		if (features == null)
-		{
-			features = new EObjectContainmentEList<DFeature>(DFeature.class, this, BasePackage.DCOMPLEX_TYPE__FEATURES);
-		}
-		return features;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-=======
->>>>>>> 0d09db5 SIM: update to enhanced BASE model and semantics
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
@@ -411,7 +377,7 @@ public abstract class DComplexTypeImpl extends DTypeImpl implements DComplexType
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (abstract: ");
 		result.append(abstract_);
 		result.append(')');

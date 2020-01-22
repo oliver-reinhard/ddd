@@ -109,7 +109,6 @@ public class DmxTestImpl extends MinimalEObjectImpl.Container implements DmxTest
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DNavigableMember> getNavigableMembers()
 	{
 		// TODO: implement this method to return the 'Navigable Members' reference list
@@ -124,7 +123,6 @@ public class DmxTestImpl extends MinimalEObjectImpl.Container implements DmxTest
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName()
 	{
 		return name;
@@ -135,7 +133,6 @@ public class DmxTestImpl extends MinimalEObjectImpl.Container implements DmxTest
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setName(String newName)
 	{
 		String oldName = name;
@@ -149,7 +146,6 @@ public class DmxTestImpl extends MinimalEObjectImpl.Container implements DmxTest
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DmxTestContext> getContext()
 	{
 		if (context == null)
@@ -164,7 +160,6 @@ public class DmxTestImpl extends MinimalEObjectImpl.Container implements DmxTest
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DExpression getExpr()
 	{
 		return expr;
@@ -192,7 +187,6 @@ public class DmxTestImpl extends MinimalEObjectImpl.Container implements DmxTest
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setExpr(DExpression newExpr)
 	{
 		if (newExpr != expr)
@@ -336,7 +330,7 @@ public class DmxTestImpl extends MinimalEObjectImpl.Container implements DmxTest
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(')');

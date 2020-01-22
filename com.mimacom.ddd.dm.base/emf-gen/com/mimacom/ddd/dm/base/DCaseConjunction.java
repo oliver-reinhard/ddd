@@ -27,6 +27,10 @@ public interface DCaseConjunction extends DNamedElement
 	/**
 	 * Returns the value of the '<em><b>Selector</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Selector</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Selector</em>' containment reference.
 	 * @see #setSelector(DExpression)
@@ -49,6 +53,10 @@ public interface DCaseConjunction extends DNamedElement
 	/**
 	 * Returns the value of the '<em><b>Otherwise</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Otherwise</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Otherwise</em>' attribute.
 	 * @see #setOtherwise(boolean)
@@ -72,6 +80,10 @@ public interface DCaseConjunction extends DNamedElement
 	 * Returns the value of the '<em><b>Predicates</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DNamedPredicate}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Predicates</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Predicates</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDCaseConjunction_Predicates()

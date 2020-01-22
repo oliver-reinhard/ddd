@@ -86,7 +86,6 @@ public class DQueryParameterImpl extends DNavigableMemberImplCustom implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public IDeductionDefinition getDeducedFrom()
 	{
 		if (deducedFrom != null && deducedFrom.eIsProxy())
@@ -117,7 +116,6 @@ public class DQueryParameterImpl extends DNavigableMemberImplCustom implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setDeducedFrom(IDeductionDefinition newDeducedFrom)
 	{
 		IDeductionDefinition oldDeducedFrom = deducedFrom;
@@ -131,7 +129,6 @@ public class DQueryParameterImpl extends DNavigableMemberImplCustom implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public boolean isSynthetic()
 	{
 		return synthetic;
@@ -142,7 +139,6 @@ public class DQueryParameterImpl extends DNavigableMemberImplCustom implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setSynthetic(boolean newSynthetic)
 	{
 		boolean oldSynthetic = synthetic;
@@ -278,7 +274,7 @@ public class DQueryParameterImpl extends DNavigableMemberImplCustom implements D
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (synthetic: ");
 		result.append(synthetic);
 		result.append(')');

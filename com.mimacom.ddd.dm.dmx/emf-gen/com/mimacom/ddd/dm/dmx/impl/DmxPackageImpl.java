@@ -333,7 +333,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 *
+	 * 
 	 * <p>This method is used to initialize {@link DmxPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -348,8 +348,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		if (isInited) return (DmxPackage)EPackage.Registry.INSTANCE.getEPackage(DmxPackage.eNS_URI);
 
 		// Obtain or create and register package
-		Object registeredDmxPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		DmxPackageImpl theDmxPackage = registeredDmxPackage instanceof DmxPackageImpl ? (DmxPackageImpl)registeredDmxPackage : new DmxPackageImpl();
+		DmxPackageImpl theDmxPackage = (DmxPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DmxPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DmxPackageImpl());
 
 		isInited = true;
 
@@ -365,6 +364,7 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 		// Mark meta-data to indicate it can't be changed
 		theDmxPackage.freeze();
 
+  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(DmxPackage.eNS_URI, theDmxPackage);
 		return theDmxPackage;
@@ -375,7 +375,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxNamespace()
 	{
 		return dmxNamespaceEClass;
@@ -386,7 +385,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxNamespace_Filters()
 	{
 		return (EReference)dmxNamespaceEClass.getEStructuralFeatures().get(0);
@@ -397,7 +395,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxNamespace_Tests()
 	{
 		return (EReference)dmxNamespaceEClass.getEStructuralFeatures().get(1);
@@ -408,7 +405,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxTest()
 	{
 		return dmxTestEClass;
@@ -419,7 +415,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxTest_Name()
 	{
 		return (EAttribute)dmxTestEClass.getEStructuralFeatures().get(0);
@@ -430,7 +425,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxTest_Context()
 	{
 		return (EReference)dmxTestEClass.getEStructuralFeatures().get(1);
@@ -441,7 +435,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxTest_Expr()
 	{
 		return (EReference)dmxTestEClass.getEStructuralFeatures().get(2);
@@ -452,7 +445,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxTestContext()
 	{
 		return dmxTestContextEClass;
@@ -463,7 +455,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxTestContext_Value()
 	{
 		return (EReference)dmxTestContextEClass.getEStructuralFeatures().get(0);
@@ -474,7 +465,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxBaseTypeSet()
 	{
 		return dmxBaseTypeSetEClass;
@@ -485,7 +475,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxBaseTypeSet_Name()
 	{
 		return (EAttribute)dmxBaseTypeSetEClass.getEStructuralFeatures().get(0);
@@ -496,7 +485,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxBaseTypeSet_Members()
 	{
 		return (EAttribute)dmxBaseTypeSetEClass.getEStructuralFeatures().get(1);
@@ -507,7 +495,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxArchetype()
 	{
 		return dmxArchetypeEClass;
@@ -518,7 +505,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxArchetype_BaseType()
 	{
 		return (EAttribute)dmxArchetypeEClass.getEStructuralFeatures().get(0);
@@ -529,7 +515,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxFilter()
 	{
 		return dmxFilterEClass;
@@ -540,7 +525,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxFilter_Parameters()
 	{
 		return (EReference)dmxFilterEClass.getEStructuralFeatures().get(0);
@@ -551,7 +535,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxFilter_TypeDesc()
 	{
 		return (EReference)dmxFilterEClass.getEStructuralFeatures().get(1);
@@ -562,7 +545,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxFilter_WithTypeSet()
 	{
 		return (EReference)dmxFilterEClass.getEStructuralFeatures().get(2);
@@ -573,7 +555,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxFilterTypeDescriptor()
 	{
 		return dmxFilterTypeDescriptorEClass;
@@ -584,7 +565,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxFilterTypeDescriptor_Single()
 	{
 		return (EAttribute)dmxFilterTypeDescriptorEClass.getEStructuralFeatures().get(0);
@@ -595,7 +575,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxFilterTypeDescriptor_Multiple()
 	{
 		return (EReference)dmxFilterTypeDescriptorEClass.getEStructuralFeatures().get(1);
@@ -606,7 +585,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxFilterTypeDescriptor_Collection()
 	{
 		return (EAttribute)dmxFilterTypeDescriptorEClass.getEStructuralFeatures().get(2);
@@ -617,7 +595,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxFilterTypeDescriptor_MultiTyped()
 	{
 		return (EAttribute)dmxFilterTypeDescriptorEClass.getEStructuralFeatures().get(3);
@@ -628,7 +605,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EOperation getDmxFilterTypeDescriptor__IsCompatible__DmxBaseType_boolean()
 	{
 		return dmxFilterTypeDescriptorEClass.getEOperations().get(0);
@@ -639,7 +615,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EOperation getDmxFilterTypeDescriptor__IsCompatible__DmxBaseType()
 	{
 		return dmxFilterTypeDescriptorEClass.getEOperations().get(1);
@@ -650,7 +625,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxFilterParameter()
 	{
 		return dmxFilterParameterEClass;
@@ -661,7 +635,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxFilterParameter_Name()
 	{
 		return (EAttribute)dmxFilterParameterEClass.getEStructuralFeatures().get(0);
@@ -672,7 +645,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxFilterParameter_TypeDesc()
 	{
 		return (EReference)dmxFilterParameterEClass.getEStructuralFeatures().get(1);
@@ -683,7 +655,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxAssignment()
 	{
 		return dmxAssignmentEClass;
@@ -694,7 +665,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxAssignment_PrecedingNavigationSegment()
 	{
 		return (EReference)dmxAssignmentEClass.getEStructuralFeatures().get(0);
@@ -705,7 +675,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxAssignment_AssignToMember()
 	{
 		return (EReference)dmxAssignmentEClass.getEStructuralFeatures().get(1);
@@ -716,7 +685,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxAssignment_Value()
 	{
 		return (EReference)dmxAssignmentEClass.getEStructuralFeatures().get(2);
@@ -727,7 +695,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxPredicateWithCorrelationVariable()
 	{
 		return dmxPredicateWithCorrelationVariableEClass;
@@ -738,7 +705,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxPredicateWithCorrelationVariable_CorrelationVariable()
 	{
 		return (EReference)dmxPredicateWithCorrelationVariableEClass.getEStructuralFeatures().get(0);
@@ -749,7 +715,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxPredicateWithCorrelationVariable_Predicate()
 	{
 		return (EReference)dmxPredicateWithCorrelationVariableEClass.getEStructuralFeatures().get(1);
@@ -760,7 +725,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxCorrelationVariable()
 	{
 		return dmxCorrelationVariableEClass;
@@ -771,7 +735,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxMemberNavigation()
 	{
 		return dmxMemberNavigationEClass;
@@ -782,7 +745,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxMemberNavigation_Member()
 	{
 		return (EReference)dmxMemberNavigationEClass.getEStructuralFeatures().get(0);
@@ -793,7 +755,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxMemberNavigation_PrecedingNavigationSegment()
 	{
 		return (EReference)dmxMemberNavigationEClass.getEStructuralFeatures().get(1);
@@ -804,7 +765,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxMemberNavigation_ExplicitOperationCall()
 	{
 		return (EAttribute)dmxMemberNavigationEClass.getEStructuralFeatures().get(2);
@@ -815,7 +775,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxMemberNavigation_CallArguments()
 	{
 		return (EReference)dmxMemberNavigationEClass.getEStructuralFeatures().get(3);
@@ -826,7 +785,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxMemberNavigation_Before()
 	{
 		return (EAttribute)dmxMemberNavigationEClass.getEStructuralFeatures().get(4);
@@ -837,7 +795,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxCallArguments()
 	{
 		return dmxCallArgumentsEClass;
@@ -848,7 +805,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxCallArguments_Arguments()
 	{
 		return (EReference)dmxCallArgumentsEClass.getEStructuralFeatures().get(0);
@@ -859,7 +815,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxFunctionCall()
 	{
 		return dmxFunctionCallEClass;
@@ -870,7 +825,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxFunctionCall_Function()
 	{
 		return (EReference)dmxFunctionCallEClass.getEStructuralFeatures().get(0);
@@ -881,7 +835,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxFunctionCall_CallArguments()
 	{
 		return (EReference)dmxFunctionCallEClass.getEStructuralFeatures().get(1);
@@ -892,7 +845,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxBinaryOperation()
 	{
 		return dmxBinaryOperationEClass;
@@ -903,7 +855,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxBinaryOperation_LeftOperand()
 	{
 		return (EReference)dmxBinaryOperationEClass.getEStructuralFeatures().get(0);
@@ -914,7 +865,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxBinaryOperation_Operator()
 	{
 		return (EAttribute)dmxBinaryOperationEClass.getEStructuralFeatures().get(1);
@@ -925,7 +875,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxBinaryOperation_RightOperand()
 	{
 		return (EReference)dmxBinaryOperationEClass.getEStructuralFeatures().get(2);
@@ -936,7 +885,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxInstanceOfExpression()
 	{
 		return dmxInstanceOfExpressionEClass;
@@ -947,7 +895,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxInstanceOfExpression_Expression()
 	{
 		return (EReference)dmxInstanceOfExpressionEClass.getEStructuralFeatures().get(0);
@@ -958,7 +905,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxInstanceOfExpression_Type()
 	{
 		return (EReference)dmxInstanceOfExpressionEClass.getEStructuralFeatures().get(1);
@@ -969,7 +915,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxUnaryOperation()
 	{
 		return dmxUnaryOperationEClass;
@@ -980,7 +925,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxUnaryOperation_Operand()
 	{
 		return (EReference)dmxUnaryOperationEClass.getEStructuralFeatures().get(0);
@@ -991,7 +935,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxUnaryOperation_Operator()
 	{
 		return (EAttribute)dmxUnaryOperationEClass.getEStructuralFeatures().get(1);
@@ -1002,7 +945,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxCastExpression()
 	{
 		return dmxCastExpressionEClass;
@@ -1013,7 +955,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxCastExpression_Target()
 	{
 		return (EReference)dmxCastExpressionEClass.getEStructuralFeatures().get(0);
@@ -1024,7 +965,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxCastExpression_Type()
 	{
 		return (EReference)dmxCastExpressionEClass.getEStructuralFeatures().get(1);
@@ -1035,7 +975,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxListExpression()
 	{
 		return dmxListExpressionEClass;
@@ -1046,7 +985,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxListExpression_Elements()
 	{
 		return (EReference)dmxListExpressionEClass.getEStructuralFeatures().get(0);
@@ -1057,7 +995,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxStaticReference()
 	{
 		return dmxStaticReferenceEClass;
@@ -1068,7 +1005,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxStaticReference_Target()
 	{
 		return (EReference)dmxStaticReferenceEClass.getEStructuralFeatures().get(0);
@@ -1079,7 +1015,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxStaticReference_Member()
 	{
 		return (EReference)dmxStaticReferenceEClass.getEStructuralFeatures().get(1);
@@ -1090,7 +1025,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxStaticReference_DisplayName()
 	{
 		return (EAttribute)dmxStaticReferenceEClass.getEStructuralFeatures().get(2);
@@ -1101,7 +1035,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxStaticReference_Plural()
 	{
 		return (EAttribute)dmxStaticReferenceEClass.getEStructuralFeatures().get(3);
@@ -1112,7 +1045,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxContextReference()
 	{
 		return dmxContextReferenceEClass;
@@ -1123,7 +1055,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxContextReference_Target()
 	{
 		return (EReference)dmxContextReferenceEClass.getEStructuralFeatures().get(0);
@@ -1134,7 +1065,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxContextReference_All()
 	{
 		return (EAttribute)dmxContextReferenceEClass.getEStructuralFeatures().get(1);
@@ -1145,7 +1075,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxContextReference_Before()
 	{
 		return (EAttribute)dmxContextReferenceEClass.getEStructuralFeatures().get(2);
@@ -1156,7 +1085,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxIfExpression()
 	{
 		return dmxIfExpressionEClass;
@@ -1167,7 +1095,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxIfExpression_If()
 	{
 		return (EReference)dmxIfExpressionEClass.getEStructuralFeatures().get(0);
@@ -1178,7 +1105,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxIfExpression_Then()
 	{
 		return (EReference)dmxIfExpressionEClass.getEStructuralFeatures().get(1);
@@ -1189,7 +1115,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxIfExpression_Else()
 	{
 		return (EReference)dmxIfExpressionEClass.getEStructuralFeatures().get(2);
@@ -1200,7 +1125,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxBooleanLiteral()
 	{
 		return dmxBooleanLiteralEClass;
@@ -1211,7 +1135,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxBooleanLiteral_Value()
 	{
 		return (EAttribute)dmxBooleanLiteralEClass.getEStructuralFeatures().get(0);
@@ -1222,7 +1145,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxStringLiteral()
 	{
 		return dmxStringLiteralEClass;
@@ -1233,7 +1155,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxStringLiteral_Value()
 	{
 		return (EAttribute)dmxStringLiteralEClass.getEStructuralFeatures().get(0);
@@ -1244,7 +1165,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxNaturalLiteral()
 	{
 		return dmxNaturalLiteralEClass;
@@ -1255,7 +1175,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxNaturalLiteral_Value()
 	{
 		return (EAttribute)dmxNaturalLiteralEClass.getEStructuralFeatures().get(0);
@@ -1266,7 +1185,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxDecimalLiteral()
 	{
 		return dmxDecimalLiteralEClass;
@@ -1277,7 +1195,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxDecimalLiteral_Value()
 	{
 		return (EAttribute)dmxDecimalLiteralEClass.getEStructuralFeatures().get(0);
@@ -1288,7 +1205,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxDateLiteral()
 	{
 		return dmxDateLiteralEClass;
@@ -1299,7 +1215,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getDmxDateLiteral_Value()
 	{
 		return (EAttribute)dmxDateLiteralEClass.getEStructuralFeatures().get(0);
@@ -1310,7 +1225,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxUndefinedLiteral()
 	{
 		return dmxUndefinedLiteralEClass;
@@ -1321,7 +1235,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxComplexObject()
 	{
 		return dmxComplexObjectEClass;
@@ -1332,7 +1245,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxComplexObject_Type()
 	{
 		return (EReference)dmxComplexObjectEClass.getEStructuralFeatures().get(0);
@@ -1343,7 +1255,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxComplexObject_Fields()
 	{
 		return (EReference)dmxComplexObjectEClass.getEStructuralFeatures().get(1);
@@ -1354,7 +1265,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxField()
 	{
 		return dmxFieldEClass;
@@ -1365,7 +1275,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxField_Feature()
 	{
 		return (EReference)dmxFieldEClass.getEStructuralFeatures().get(0);
@@ -1376,7 +1285,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getDmxField_Value()
 	{
 		return (EReference)dmxFieldEClass.getEStructuralFeatures().get(1);
@@ -1387,7 +1295,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxEntity()
 	{
 		return dmxEntityEClass;
@@ -1398,7 +1305,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getDmxDetail()
 	{
 		return dmxDetailEClass;
@@ -1409,7 +1315,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EEnum getDmxBaseType()
 	{
 		return dmxBaseTypeEEnum;
@@ -1420,7 +1325,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EEnum getDmxBinaryOperator()
 	{
 		return dmxBinaryOperatorEEnum;
@@ -1431,7 +1335,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EEnum getDmxUnaryOperator()
 	{
 		return dmxUnaryOperatorEEnum;
@@ -1442,7 +1345,6 @@ public class DmxPackageImpl extends EPackageImpl implements DmxPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public DmxFactory getDmxFactory()
 	{
 		return (DmxFactory)getEFactoryInstance();

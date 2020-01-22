@@ -73,7 +73,6 @@ public abstract class ModelImpl extends DNamedElementImpl implements Model
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DImport> getImports()
 	{
 		if (imports == null)

@@ -85,7 +85,6 @@ public class DomModelImpl extends DNamedElementImpl implements DomModel
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DImport> getImports()
 	{
 		if (imports == null)
@@ -100,7 +99,6 @@ public class DomModelImpl extends DNamedElementImpl implements DomModel
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DomSnapshot> getSnapshots()
 	{
 		if (snapshots == null)

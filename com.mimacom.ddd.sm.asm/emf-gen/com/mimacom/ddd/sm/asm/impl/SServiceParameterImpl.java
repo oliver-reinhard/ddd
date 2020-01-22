@@ -76,7 +76,6 @@ public class SServiceParameterImpl extends DNavigableMemberImplCustom implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SDirection getDirection()
 	{
 		return direction;
@@ -87,7 +86,6 @@ public class SServiceParameterImpl extends DNavigableMemberImplCustom implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setDirection(SDirection newDirection)
 	{
 		SDirection oldDirection = direction;
@@ -172,7 +170,7 @@ public class SServiceParameterImpl extends DNavigableMemberImplCustom implements
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (direction: ");
 		result.append(direction);
 		result.append(')');

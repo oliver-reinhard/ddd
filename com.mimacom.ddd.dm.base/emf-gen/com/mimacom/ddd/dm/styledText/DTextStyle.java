@@ -82,6 +82,10 @@ public enum DTextStyle implements Enumerator
 	/**
 	 * The '<em><b>Plain</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Plain</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #PLAIN
 	 * @model name="Plain"
@@ -93,6 +97,10 @@ public enum DTextStyle implements Enumerator
 	/**
 	 * The '<em><b>Emphasis</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Emphasis</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #EMPHASIS
 	 * @model name="Emphasis"
@@ -104,6 +112,10 @@ public enum DTextStyle implements Enumerator
 	/**
 	 * The '<em><b>Strong</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Strong</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #STRONG
 	 * @model name="Strong"
@@ -115,6 +127,10 @@ public enum DTextStyle implements Enumerator
 	/**
 	 * The '<em><b>Keyword</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Keyword</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #KEYWORD
 	 * @model name="Keyword"
@@ -126,6 +142,10 @@ public enum DTextStyle implements Enumerator
 	/**
 	 * The '<em><b>Monospace</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Monospace</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #MONOSPACE
 	 * @model name="Monospace"
@@ -137,6 +157,10 @@ public enum DTextStyle implements Enumerator
 	/**
 	 * The '<em><b>Expression</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Expression</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #EXPRESSION
 	 * @model name="Expression"
@@ -273,7 +297,6 @@ public enum DTextStyle implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getValue()
 	{
 	  return value;
@@ -284,7 +307,6 @@ public enum DTextStyle implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName()
 	{
 	  return name;
@@ -295,7 +317,6 @@ public enum DTextStyle implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getLiteral()
 	{
 	  return literal;

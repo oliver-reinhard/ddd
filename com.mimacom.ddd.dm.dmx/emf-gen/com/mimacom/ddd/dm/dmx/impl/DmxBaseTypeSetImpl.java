@@ -91,7 +91,6 @@ public class DmxBaseTypeSetImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName()
 	{
 		return name;
@@ -102,7 +101,6 @@ public class DmxBaseTypeSetImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setName(String newName)
 	{
 		String oldName = name;
@@ -116,7 +114,6 @@ public class DmxBaseTypeSetImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DmxBaseType> getMembers()
 	{
 		if (members == null)
@@ -214,7 +211,7 @@ public class DmxBaseTypeSetImpl extends MinimalEObjectImpl.Container implements 
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", members: ");
