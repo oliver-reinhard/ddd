@@ -2,7 +2,8 @@ module com.mimacom.ddd.dm.base.GenerateBase
 
 var rootPath = ".."
 var project="com.mimacom.ddd.dm.base"
-var genModel="platform:/resource/${project}/model/base.genmodel"
+var genModelBase="platform:/resource/${project}/model/base.genmodel"
+var genModelStyledText="platform:/resource/${project}/model/styledText.genmodel"
 
 Workflow {
 	
@@ -10,12 +11,21 @@ Workflow {
 		directory = "${rootPath}/${project}/emf-gen"
 	}
 	component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
-		genModel = "${genModel}"
+		genModel = "${genModelBase}"
 		srcPath = "platform:/resource/${project}/src"
 	}
 	bean =  org.eclipse.emf.mwe.utils.StandaloneSetup {
 	    platformUri = "${rootPath}"
 	    scanClassPath = true
-	    registerGenModelFile = "${genModel}"
+	    registerGenModelFile = "${genModelBase}"
+	}
+	component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
+		genModel = "${genModelStyledText}"
+		srcPath = "platform:/resource/${project}/src"
+	}
+	bean =  org.eclipse.emf.mwe.utils.StandaloneSetup {
+	    platformUri = "${rootPath}"
+	    scanClassPath = true
+	    registerGenModelFile = "${genModelStyledText}"
 	}
 }

@@ -9,9 +9,9 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated base -->
       <package
-            uri="http://www.mimacom.com/ddd/dm/base"
-            class="com.mimacom.ddd.dm.base.BasePackage"
-            genModel="model/base.genmodel"/>
+            uri="http://www.mimacom.com/ddd/dm/styledText"
+            class="com.mimacom.ddd.dm.styledText.StyledTextPackage"
+            genModel="model/styledText.genmodel"/>
    </extension>
 
 </plugin>

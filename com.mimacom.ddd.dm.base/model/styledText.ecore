@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="styledText" nsURI="http://www.mimacom.com/ddd/dm/styledText"
+    nsPrefix="styledText">
+  <eClassifiers xsi:type="ecore:EClass" name="DStyledTextSpan">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="style" eType="#//DTextStyle"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributes" upperBound="-1"
+        eType="#//DTextAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startPos" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endPos" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subspans" upperBound="-1"
+        eType="#//DStyledTextSpan" containment="true" eOpposite="#//DStyledTextSpan/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="textColor" eType="#//DColor"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="highlightColor" eType="#//DColor"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="leaf" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//DStyledTextSpan"
+        eOpposite="#//DStyledTextSpan/subspans"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DTextStyle">
+    <eLiterals name="Plain"/>
+    <eLiterals name="Emphasis" value="1"/>
+    <eLiterals name="Strong" value="2"/>
+    <eLiterals name="Keyword" value="3"/>
+    <eLiterals name="Monospace" value="4"/>
+    <eLiterals name="Expression" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DTextAttribute">
+    <eLiterals name="Underline" value="1"/>
+    <eLiterals name="Strikethrough" value="2"/>
+    <eLiterals name="Superscript" value="3"/>
+    <eLiterals name="Subscript" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DColor">
+    <eLiterals name="black"/>
+    <eLiterals name="brown" value="1"/>
+    <eLiterals name="red" value="2"/>
+    <eLiterals name="orange" value="3"/>
+    <eLiterals name="yellow" value="4"/>
+    <eLiterals name="green" value="5"/>
+    <eLiterals name="blue" value="6"/>
+    <eLiterals name="purple" value="7"/>
+    <eLiterals name="grey" value="8"/>
+    <eLiterals name="white" value="9"/>
+  </eClassifiers>
+</ecore:EPackage>

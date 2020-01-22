@@ -28,10 +28,6 @@ public interface DDomain extends DNamespace, IAggregateContainer, ITypeContainer
 	 * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DImport}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Imports</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Imports</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomain_Imports()
@@ -44,10 +40,6 @@ public interface DDomain extends DNamespace, IAggregateContainer, ITypeContainer
 	 * Returns the value of the '<em><b>Aggregates</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DAggregate}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Aggregates</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Aggregates</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomain_Aggregates()
@@ -62,10 +54,6 @@ public interface DDomain extends DNamespace, IAggregateContainer, ITypeContainer
 	 * Returns the value of the '<em><b>Events</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DDomainEvent}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Events</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Events</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomain_Events()
@@ -78,10 +66,6 @@ public interface DDomain extends DNamespace, IAggregateContainer, ITypeContainer
 	 * Returns the value of the '<em><b>Actors</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DActor}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Actors</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Actors</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomain_Actors()

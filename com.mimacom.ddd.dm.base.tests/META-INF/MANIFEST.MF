@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Base Tests
+Bundle-SymbolicName: com.mimacom.ddd.dm.base.tests
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: mimacom ag
+Automatic-Module-Name: com.mimacom.ddd.dm.base.tests
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.junit,
+ com.mimacom.ddd.dm.base;bundle-version="0.1.0",
+ org.eclipse.emf.common;bundle-version="2.16.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.19.0",
+ org.eclipse.xtend.lib;bundle-version="2.19.0",
+ org.antlr.runtime;bundle-version="3.2.0",
+ org.eclipse.emf.ecore;bundle-version="2.19.0",
+ com.google.inject;bundle-version="3.0.0"
+Export-Package: com.mimacom.ddd.dm.base.richText.test,
+ com.mimacom.ddd.dm.base.styledText.test

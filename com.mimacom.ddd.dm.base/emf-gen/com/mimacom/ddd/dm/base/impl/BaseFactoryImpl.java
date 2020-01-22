@@ -142,7 +142,11 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
 <<<<<<< Upstream, based on 31adbbe530a348e8e7950d43c70d55be3ba288b1
+=======
+	@Override
+>>>>>>> refs/remotes/origin/master
 	public DTextSegment createDTextSegment()
 	{
 		DTextSegmentImpl dTextSegment = new DTextSegmentImpl();
@@ -154,6 +158,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DRichText createDRichText()
 	{
 		DRichTextImpl dRichText = new DRichTextImpl();
@@ -165,9 +170,13 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
 =======
 	@Override
 >>>>>>> 0d09db5 SIM: update to enhanced BASE model and semantics
+=======
+	@Override
+>>>>>>> refs/remotes/origin/master
 	public DImport createDImport()
 	{
 		DImportImpl dImport = new DImportImpl();
@@ -179,6 +188,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DDomain createDDomain()
 	{
 		DDomainImpl dDomain = new DDomainImpl();
@@ -190,6 +200,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DAggregate createDAggregate()
 	{
 		DAggregateImplCustom dAggregate = new DAggregateImplCustom();
@@ -201,6 +212,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
 <<<<<<< Upstream, based on 31adbbe530a348e8e7950d43c70d55be3ba288b1
 =======
 	@Override
@@ -241,6 +253,9 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 */
 	@Override
 >>>>>>> 0d09db5 SIM: update to enhanced BASE model and semantics
+=======
+	@Override
+>>>>>>> refs/remotes/origin/master
 	public DNamedPredicate createDNamedPredicate()
 	{
 		DNamedPredicateImpl dNamedPredicate = new DNamedPredicateImpl();
@@ -252,6 +267,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DPrimitive createDPrimitive()
 	{
 		DPrimitiveImpl dPrimitive = new DPrimitiveImpl();
@@ -263,6 +279,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DEnumeration createDEnumeration()
 	{
 		DEnumerationImplCustom dEnumeration = new DEnumerationImplCustom();
@@ -274,6 +291,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DLiteral createDLiteral()
 	{
 		DLiteralImplCustom dLiteral = new DLiteralImplCustom();
@@ -285,6 +303,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DDetailType createDDetailType()
 	{
 		DDetailTypeImpl dDetailType = new DDetailTypeImpl();
@@ -296,6 +315,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DEntityType createDEntityType()
 	{
 		DEntityTypeImpl dEntityType = new DEntityTypeImpl();
@@ -307,6 +327,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DAssociation createDAssociation()
 	{
 		DAssociationImplCustom dAssociation = new DAssociationImplCustom();
@@ -318,7 +339,11 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
 <<<<<<< Upstream, based on 31adbbe530a348e8e7950d43c70d55be3ba288b1
+=======
+	@Override
+>>>>>>> refs/remotes/origin/master
 	public DMultiplicity createDMultiplicity()
 	{
 		DMultiplicityImplCustom dMultiplicity = new DMultiplicityImplCustom();
@@ -330,9 +355,13 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
 =======
 	@Override
 >>>>>>> 0d09db5 SIM: update to enhanced BASE model and semantics
+=======
+	@Override
+>>>>>>> refs/remotes/origin/master
 	public DAttribute createDAttribute()
 	{
 		DAttributeImpl dAttribute = new DAttributeImpl();
@@ -344,6 +373,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DQuery createDQuery()
 	{
 		DQueryImplCustom dQuery = new DQueryImplCustom();
@@ -355,6 +385,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DQueryParameter createDQueryParameter()
 	{
 		DQueryParameterImpl dQueryParameter = new DQueryParameterImpl();
@@ -366,6 +397,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DState createDState()
 	{
 		DStateImpl dState = new DStateImpl();
@@ -377,6 +409,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DStateEvent createDStateEvent()
 	{
 		DStateEventImpl dStateEvent = new DStateEventImpl();
@@ -388,6 +421,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DContext createDContext()
 	{
 		DContextImpl dContext = new DContextImpl();
@@ -399,6 +433,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DDomainEvent createDDomainEvent()
 	{
 		DDomainEventImplCustom dDomainEvent = new DDomainEventImplCustom();
@@ -410,6 +445,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DCaseConjunction createDCaseConjunction()
 	{
 		DCaseConjunctionImpl dCaseConjunction = new DCaseConjunctionImpl();
@@ -421,6 +457,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DNotification createDNotification()
 	{
 		DNotificationImplCustom dNotification = new DNotificationImplCustom();
@@ -432,6 +469,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DMessage createDMessage()
 	{
 		DMessageImplCustom dMessage = new DMessageImplCustom();
@@ -443,6 +481,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DHumanActorRole createDHumanActorRole()
 	{
 		DHumanActorRoleImpl dHumanActorRole = new DHumanActorRoleImpl();
@@ -454,6 +493,7 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DService createDService()
 	{
 		DServiceImpl dService = new DServiceImpl();
@@ -554,9 +594,13 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
 =======
 	@Override
 >>>>>>> 0d09db5 SIM: update to enhanced BASE model and semantics
+=======
+	@Override
+>>>>>>> refs/remotes/origin/master
 	public BasePackage getBasePackage()
 	{
 		return (BasePackage)getEPackage();

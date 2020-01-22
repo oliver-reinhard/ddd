@@ -30,10 +30,6 @@ public interface DDomainEvent extends DNamedElement, INavigableMemberContainer, 
 	 * Returns the value of the '<em><b>Context</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DContext}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Context</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Context</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomainEvent_Context()
@@ -45,10 +41,6 @@ public interface DDomainEvent extends DNamedElement, INavigableMemberContainer, 
 	/**
 	 * Returns the value of the '<em><b>Trigger</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Trigger</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Trigger</em>' reference.
 	 * @see #setTrigger(DActor)
@@ -72,10 +64,6 @@ public interface DDomainEvent extends DNamedElement, INavigableMemberContainer, 
 	 * Returns the value of the '<em><b>Preconditions CNF</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DNamedPredicate}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Preconditions CNF</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Preconditions CNF</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomainEvent_PreconditionsCNF()
@@ -88,10 +76,6 @@ public interface DDomainEvent extends DNamedElement, INavigableMemberContainer, 
 	 * Returns the value of the '<em><b>Postconditions DNF</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DNamedElement}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Postconditions DNF</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Postconditions DNF</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomainEvent_PostconditionsDNF()
@@ -104,10 +88,6 @@ public interface DDomainEvent extends DNamedElement, INavigableMemberContainer, 
 	 * Returns the value of the '<em><b>Notifications</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DNotification}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Notifications</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Notifications</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDDomainEvent_Notifications()

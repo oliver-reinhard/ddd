@@ -62,10 +62,6 @@ public enum DEntityOrigin implements Enumerator
 	/**
 	 * The '<em><b>GENERIC ENTITY</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>GENERIC ENTITY</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #GENERIC_ENTITY
 	 * @model
@@ -77,10 +73,6 @@ public enum DEntityOrigin implements Enumerator
 	/**
 	 * The '<em><b>PHYSICAL OBJECT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>PHYSICAL OBJECT</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #PHYSICAL_OBJECT
 	 * @model
@@ -92,10 +84,6 @@ public enum DEntityOrigin implements Enumerator
 	/**
 	 * The '<em><b>VIRTUAL CONCEPT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>VIRTUAL CONCEPT</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #VIRTUAL_CONCEPT
 	 * @model
@@ -107,10 +95,6 @@ public enum DEntityOrigin implements Enumerator
 	/**
 	 * The '<em><b>RELATIONSHIP</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>RELATIONSHIP</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #RELATIONSHIP
 	 * @model
@@ -243,6 +227,7 @@ public enum DEntityOrigin implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue()
 	{
 	  return value;
@@ -253,6 +238,7 @@ public enum DEntityOrigin implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName()
 	{
 	  return name;
@@ -263,6 +249,7 @@ public enum DEntityOrigin implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral()
 	{
 	  return literal;

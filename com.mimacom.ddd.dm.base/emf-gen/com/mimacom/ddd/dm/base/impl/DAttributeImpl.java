@@ -93,6 +93,7 @@ public class DAttributeImpl extends DFeatureImpl implements DAttribute
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isDetail()
 	{
 		return detail;
@@ -103,6 +104,7 @@ public class DAttributeImpl extends DFeatureImpl implements DAttribute
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDetail(boolean newDetail)
 	{
 		boolean oldDetail = detail;
@@ -116,6 +118,7 @@ public class DAttributeImpl extends DFeatureImpl implements DAttribute
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isKey()
 	{
 		return key;
@@ -126,6 +129,7 @@ public class DAttributeImpl extends DFeatureImpl implements DAttribute
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setKey(boolean newKey)
 	{
 		boolean oldKey = key;
@@ -220,7 +224,7 @@ public class DAttributeImpl extends DFeatureImpl implements DAttribute
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (detail: ");
 		result.append(detail);
 		result.append(", key: ");

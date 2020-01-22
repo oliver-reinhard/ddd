@@ -21,6 +21,7 @@
     <module>releng</module>
     <!-- base -->
     <module>com.mimacom.ddd.dm.base</module>
+    <module>com.mimacom.ddd.dm.base.tests</module>
     <module>com.mimacom.ddd.dm.base.feature</module>
     <!-- util -->
     <module>com.mimacom.ddd.util</module>
@@ -32,6 +33,20 @@
     <module>com.mimacom.ddd.dm.dmx.ui</module>
     <module>com.mimacom.ddd.dm.dmx.ui.tests</module>
     <module>com.mimacom.ddd.dm.dmx.feature</module>
+    <!-- pubproto -->
+<!--     <module>com.mimacom.ddd.pub.proto</module> -->
+<!--     <module>com.mimacom.ddd.pub.proto.ide</module> -->
+<!--     <module>com.mimacom.ddd.pub.proto.tests</module> -->
+<!--     <module>com.mimacom.ddd.pub.proto.ui</module> -->
+<!--     <module>com.mimacom.ddd.pub.proto.ui.tests</module> -->
+<!--     <module>com.mimacom.ddd.pub.proto.feature</module> -->
+    <!-- pub -->
+<!--     <module>com.mimacom.ddd.pub.pub</module> -->
+<!--     <module>com.mimacom.ddd.pub.pub.ide</module> -->
+<!--     <module>com.mimacom.ddd.pub.pub.tests</module> -->
+<!--     <module>com.mimacom.ddd.pub.pub.ui</module> -->
+<!--     <module>com.mimacom.ddd.pub.pub.ui.tests</module> -->
+<!--     <module>com.mimacom.ddd.pub.pub.feature</module> -->
     <!-- dem -->
     <module>com.mimacom.ddd.dm.dem</module>
     <module>com.mimacom.ddd.dm.dem.ide</module>

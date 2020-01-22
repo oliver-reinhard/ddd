@@ -124,6 +124,7 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+<<<<<<< HEAD
 <<<<<<< Upstream, based on 31adbbe530a348e8e7950d43c70d55be3ba288b1
 =======
 	@Override
@@ -143,6 +144,9 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	 */
 	@Override
 >>>>>>> 0d09db5 SIM: update to enhanced BASE model and semantics
+=======
+	@Override
+>>>>>>> refs/remotes/origin/master
 	public EList<DContext> getContext()
 	{
 		if (context == null)
@@ -157,6 +161,7 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DActor getTrigger()
 	{
 		if (trigger != null && trigger.eIsProxy())
@@ -187,6 +192,7 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTrigger(DActor newTrigger)
 	{
 		DActor oldTrigger = trigger;
@@ -200,6 +206,7 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DNamedPredicate> getPreconditionsCNF()
 	{
 		if (preconditionsCNF == null)
@@ -214,6 +221,7 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DNamedElement> getPostconditionsDNF()
 	{
 		if (postconditionsDNF == null)
@@ -228,6 +236,7 @@ public class DDomainEventImpl extends DNamedElementImpl implements DDomainEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DNotification> getNotifications()
 	{
 		if (notifications == null)

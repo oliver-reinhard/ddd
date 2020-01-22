@@ -91,7 +91,7 @@ public class DmxValueConverters extends Ecore2XtextTerminalConverters {
 		public String toValue(String string, INode node) throws ValueConverterException {
 			if (string == null || string.length() < 2)
 				return "";
-			return string.substring(1, string.length() - 1).trim();
+			return string.substring(1, string.length() - 1);
 		}
 
 		@Override
