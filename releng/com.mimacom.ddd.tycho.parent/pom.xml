@@ -10,9 +10,6 @@
 
   <properties>
     <tycho-version>1.5.1</tycho-version>
-    <!-- version of the "bootstrap" plugin; used to compile xtend sources
-      in xtend -->
-    <xtend-maven-plugin-version>2.19.0</xtend-maven-plugin-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -20,7 +17,20 @@
     <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
     <sign.skip>true</sign.skip>
 
+    <xtend-maven-plugin.version>2.19.0</xtend-maven-plugin.version>
     <xtext.version>2.19.0</xtext.version>
+    <text.version>3.5.101</text.version>
+    <core-resources.version>3.7.100</core-resources.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <tycho-version>1.5.1</tycho-version>
+    <emf-ecore.version>2.20.0</emf-ecore.version>
+    <emf-ecore-xmi.version>2.16.0</emf-ecore-xmi.version>
+    <emf-common.version>2.17.0</emf-common.version>
+    <emf-codegen.version>2.19.0</emf-codegen.version>
+    <emf-codegen-ecore.version>2.20.0</emf-codegen-ecore.version>
+    <ecore-xtext.version>1.4.0</ecore-xtext.version>
+    <ecore-xcore.version>1.12.0</ecore-xcore.version>
+    <ecore-xcore-lib.version>1.4.0</ecore-xcore-lib.version>
 
     <target-platform-classifier></target-platform-classifier>
   </properties>
@@ -32,7 +42,7 @@
         <activeByDefault>true</activeByDefault>
       </activation>
       <properties>
-        <target-platform-classifier>com.mimacom.ddd.target-latest</target-platform-classifier>
+        <target-platform-classifier>com.mimacom.ddd.target</target-platform-classifier>
       </properties>
     </profile>
   </profiles>
@@ -134,12 +144,14 @@
       <plugin>
         <groupId>org.eclipse.xtend</groupId>
         <artifactId>xtend-maven-plugin</artifactId>
-        <version>${xtend-maven-plugin-version}</version>
+        <version>${xtend-maven-plugin.version}</version>
         <executions>
           <execution>
             <goals>
               <goal>compile</goal>
               <goal>xtend-install-debug-info</goal>
+              <goal>testCompile</goal>
+              <goal>xtend-test-install-debug-info</goal>
             </goals>
           </execution>
         </executions>

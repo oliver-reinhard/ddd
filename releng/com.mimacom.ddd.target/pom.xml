@@ -11,7 +11,7 @@
     <relativePath>../com.mimacom.ddd.tycho.parent</relativePath>
   </parent>
 
-  <packaging>pom</packaging>
+  <packaging>eclipse-target-definition</packaging>
   <artifactId>com.mimacom.ddd.target</artifactId>
 
   <name>Tycho Target Definition</name>
@@ -32,9 +32,9 @@
             <configuration>
               <artifacts>
                 <artifact>
-                  <file>${project.artifactId}-latest.target</file>
+                  <file>${project.artifactId}.target</file>
                   <type>target</type>
-                  <classifier>${project.artifactId}-latest</classifier>
+                  <classifier>${project.artifactId}</classifier>
                 </artifact>
               </artifacts>
             </configuration>
