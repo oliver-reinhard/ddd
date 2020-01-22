@@ -12,6 +12,7 @@ import com.mimacom.ddd.dm.base.DEntityType
 import com.mimacom.ddd.dm.base.DQuery
 import com.mimacom.ddd.dm.base.DQueryParameter
 import com.mimacom.ddd.dm.base.IAggregateContainer
+import com.mimacom.ddd.dm.base.ITypeContainer
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.EcoreUtil2
@@ -49,11 +50,11 @@ class DimScopeProvider extends AbstractDimScopeProvider {
 	def IScope getNavigableMemberTypeScope(EObject context, IScope outerScope) {
 		// This is classic scoping along the eContainer CONTAINMENT hierarchy:
 		val type = switch context {
-			DAttribute:	if (context.detail) BASE.DDetailType else BASE.IValueType
-			DQuery:BASE.DType
+			DAttribute: if (context.detail) BASE.DDetailType else BASE.IValueType
+			DQuery: BASE.DType
 			DAssociation: BASE.DEntityType
-			DQueryParameter:BASE.DType
-			default:BASE.IValueType
+			DQueryParameter: BASE.DType
+			default: BASE.IValueType
 		}
 		val IScope scope = getDefaultScopeOfType(context, type)
 		return scope
@@ -63,15 +64,27 @@ class DimScopeProvider extends AbstractDimScopeProvider {
 		DEntityType context,
 		Class<?> type
 	) {
+		val list = Lists.newArrayList
+		val typeContainer = EcoreUtil2.getContainerOfType(context, ITypeContainer)
+		if (typeContainer !== null) {
+			for (t : typeContainer.types) {
+				if (t instanceof DEntityType) {
+					if (!t.root && type.isAssignableFrom(t.class)) {
+						list.add(t)
+					}
+				}
+			}
+
+		}
 		val domain = EcoreUtil2.getContainerOfType(context, IAggregateContainer)
 		if (domain !== null) {
-			val list = Lists.newArrayList
 			for (a : domain.aggregates) {
 				val roots = a.roots.filter[it !== context && type.isAssignableFrom(it.class)]
 				list.addAll(roots)
 			}
-			return Scopes.scopeFor(list)
+
 		}
-		return IScope.NULLSCOPE
+		if (list.empty) return IScope.NULLSCOPE
+		return Scopes.scopeFor(list)
 	}
 }

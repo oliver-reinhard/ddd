@@ -209,13 +209,6 @@ public class DimDiagramTextProvider extends AbstractDiagramTextProvider {
     _builder.newLine();
     _builder.append("\' all entities referenced from within current domain");
     _builder.newLine();
-    {
-      for(final DEntityType re : allEntitiesReferencedWithinDomain) {
-        CharSequence _generateType_2 = this.generateType(re);
-        _builder.append(_generateType_2);
-        _builder.newLineIfNotEmpty();
-      }
-    }
     _builder.newLine();
     _builder.append("\' all other referenced domains");
     _builder.newLine();
