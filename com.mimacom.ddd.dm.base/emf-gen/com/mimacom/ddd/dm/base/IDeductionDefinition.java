@@ -25,10 +25,6 @@ public interface IDeductionDefinition extends EObject
 	/**
 	 * Returns the value of the '<em><b>Deduction Rule</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Deduction Rule</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Deduction Rule</em>' containment reference.
 	 * @see #setDeductionRule(DDeductionRule)

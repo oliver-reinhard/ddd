@@ -4,6 +4,7 @@ package com.mimacom.ddd.pub.pub.impl;
 
 import com.mimacom.ddd.pub.pub.Abstract;
 import com.mimacom.ddd.pub.pub.PubPackage;
+
 import org.eclipse.emf.ecore.EClass;
 
 /**

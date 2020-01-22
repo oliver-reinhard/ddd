@@ -36,7 +36,9 @@ public enum ReferenceScope implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DOCUMENT_SEGMENT(0, "DocumentSegment", "DocumentSegment"), /**
+	DOCUMENT_SEGMENT(0, "DocumentSegment", "DocumentSegment"),
+
+	/**
 	 * The '<em><b>Division</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -44,7 +46,9 @@ public enum ReferenceScope implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DIVISION(0, "Division", "Division"), /**
+	DIVISION(0, "Division", "Division"),
+
+	/**
 	 * The '<em><b>Part</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -52,7 +56,9 @@ public enum ReferenceScope implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PART(0, "Part", "Part"), /**
+	PART(0, "Part", "Part"),
+
+	/**
 	 * The '<em><b>Appendix</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -60,7 +66,9 @@ public enum ReferenceScope implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	APPENDIX(0, "Appendix", "Appendix"), /**
+	APPENDIX(0, "Appendix", "Appendix"),
+
+	/**
 	 * The '<em><b>Chapter</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,7 +146,9 @@ public enum ReferenceScope implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CODE_LISTING(0, "CodeListing", "CodeListing"), /**
+	CODE_LISTING(0, "CodeListing", "CodeListing"),
+
+	/**
 	 * The '<em><b>Admonition</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,7 +156,9 @@ public enum ReferenceScope implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ADMONITION(0, "Admonition", "Admonition"), /**
+	ADMONITION(0, "Admonition", "Admonition"),
+
+	/**
 	 * The '<em><b>Abbreviation</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -154,7 +166,9 @@ public enum ReferenceScope implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ABBREVIATION(0, "Abbreviation", "Abbreviation"), /**
+	ABBREVIATION(0, "Abbreviation", "Abbreviation"),
+
+	/**
 	 * The '<em><b>Glossary</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -162,7 +176,9 @@ public enum ReferenceScope implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GLOSSARY(0, "Glossary", "Glossary"), /**
+	GLOSSARY(0, "Glossary", "Glossary"),
+
+	/**
 	 * The '<em><b>Bibliography</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -483,7 +499,6 @@ public enum ReferenceScope implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getValue() {
 	  return value;
 	}
@@ -493,7 +508,6 @@ public enum ReferenceScope implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName() {
 	  return name;
 	}
@@ -503,7 +517,6 @@ public enum ReferenceScope implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getLiteral() {
 	  return literal;
 	}

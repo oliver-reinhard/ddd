@@ -49,6 +49,15 @@ public interface PubFactory extends EFactory {
 	Component createComponent();
 
 	/**
+	 * Returns a new object of class '<em>Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Reference</em>'.
+	 * @generated
+	 */
+	Reference createReference();
+
+	/**
 	 * Returns a new object of class '<em>Segment With Text</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,15 +92,6 @@ public interface PubFactory extends EFactory {
 	 * @generated
 	 */
 	Epilogue createEpilogue();
-
-	/**
-	 * Returns a new object of class '<em>Publication Body</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Publication Body</em>'.
-	 * @generated
-	 */
-	PublicationBody createPublicationBody();
 
 	/**
 	 * Returns a new object of class '<em>Segment With Table</em>'.
@@ -227,6 +227,15 @@ public interface PubFactory extends EFactory {
 	 * @generated
 	 */
 	SegmentInclude createSegmentInclude();
+
+	/**
+	 * Returns a new object of class '<em>Publication Body</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Publication Body</em>'.
+	 * @generated
+	 */
+	PublicationBody createPublicationBody();
 
 	/**
 	 * Returns a new object of class '<em>Part</em>'.
@@ -380,15 +389,6 @@ public interface PubFactory extends EFactory {
 	 * @generated
 	 */
 	UnformattedParagraph createUnformattedParagraph();
-
-	/**
-	 * Returns a new object of class '<em>Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Reference</em>'.
-	 * @generated
-	 */
-	Reference createReference();
 
 	/**
 	 * Returns the package supported by this factory.

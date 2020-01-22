@@ -3,6 +3,7 @@
 package com.mimacom.ddd.pub.pub;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -22,7 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface DivisionContainer extends EObject {
-
 	/**
 	 * Returns the value of the '<em><b>Divisions</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.pub.pub.Division}.

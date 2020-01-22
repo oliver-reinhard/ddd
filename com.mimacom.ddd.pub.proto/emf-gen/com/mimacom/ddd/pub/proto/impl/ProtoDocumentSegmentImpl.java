@@ -4,16 +4,17 @@ package com.mimacom.ddd.pub.proto.impl;
 
 import com.mimacom.ddd.pub.proto.ProtoDocumentSegment;
 import com.mimacom.ddd.pub.proto.ProtoPackage;
-
 import com.mimacom.ddd.pub.proto.PublicationClass;
+
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -107,7 +108,6 @@ public abstract class ProtoDocumentSegmentImpl extends MinimalEObjectImpl.Contai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName() {
 		return this.getClass().getSimpleName().replace("Impl", "").toLowerCase();
 	}
@@ -117,7 +117,6 @@ public abstract class ProtoDocumentSegmentImpl extends MinimalEObjectImpl.Contai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getTitle() {
 		return title;
 	}
@@ -127,7 +126,6 @@ public abstract class ProtoDocumentSegmentImpl extends MinimalEObjectImpl.Contai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setTitle(String newTitle) {
 		String oldTitle = title;
 		title = newTitle;
@@ -140,7 +138,6 @@ public abstract class ProtoDocumentSegmentImpl extends MinimalEObjectImpl.Contai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public boolean isOptional() {
 		return optional;
 	}
@@ -150,7 +147,6 @@ public abstract class ProtoDocumentSegmentImpl extends MinimalEObjectImpl.Contai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setOptional(boolean newOptional) {
 		boolean oldOptional = optional;
 		optional = newOptional;
@@ -163,7 +159,6 @@ public abstract class ProtoDocumentSegmentImpl extends MinimalEObjectImpl.Contai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public PublicationClass getParent() {
 		if (eContainerFeatureID() != ProtoPackage.PROTO_DOCUMENT_SEGMENT__PARENT) return null;
 		return (PublicationClass)eContainer();
@@ -194,7 +189,6 @@ public abstract class ProtoDocumentSegmentImpl extends MinimalEObjectImpl.Contai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setParent(PublicationClass newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != ProtoPackage.PROTO_DOCUMENT_SEGMENT__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, newParent))

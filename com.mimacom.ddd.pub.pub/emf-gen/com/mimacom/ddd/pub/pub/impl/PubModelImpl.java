@@ -3,20 +3,24 @@
 package com.mimacom.ddd.pub.pub.impl;
 
 import com.mimacom.ddd.dm.base.DImport;
+
 import com.mimacom.ddd.pub.pub.Document;
 import com.mimacom.ddd.pub.pub.PubModel;
 import com.mimacom.ddd.pub.pub.PubPackage;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -44,6 +48,7 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 	 * @ordered
 	 */
 	protected EList<DImport> imports;
+
 	/**
 	 * The cached value of the '{@link #getDocument() <em>Document</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -78,7 +83,6 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DImport> getImports() {
 		if (imports == null) {
 			imports = new EObjectContainmentEList<DImport>(DImport.class, this, PubPackage.PUB_MODEL__IMPORTS);
@@ -91,7 +95,6 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Document getDocument() {
 		return document;
 	}
@@ -116,7 +119,6 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setDocument(Document newDocument) {
 		if (newDocument != document) {
 			NotificationChain msgs = null;

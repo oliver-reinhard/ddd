@@ -3,6 +3,7 @@
 package com.mimacom.ddd.pub.pub.impl;
 
 import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle;
+
 import com.mimacom.ddd.pub.pub.Division;
 import com.mimacom.ddd.pub.pub.List;
 import com.mimacom.ddd.pub.pub.ListItem;
@@ -159,7 +160,6 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName() {
 		return name;
 	}
@@ -169,7 +169,6 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -182,7 +181,6 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getId() {
 		return this.getName();
 	}
@@ -192,7 +190,6 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public ListStyle getStyle() {
 		return style;
 	}
@@ -202,7 +199,6 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setStyle(ListStyle newStyle) {
 		ListStyle oldStyle = style;
 		style = newStyle == null ? STYLE_EDEFAULT : newStyle;
@@ -215,7 +211,6 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public ProtoSequenceNumberStyle getNumberingStyle() {
 		return numberingStyle;
 	}
@@ -225,7 +220,6 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setNumberingStyle(ProtoSequenceNumberStyle newNumberingStyle) {
 		ProtoSequenceNumberStyle oldNumberingStyle = numberingStyle;
 		numberingStyle = newNumberingStyle == null ? NUMBERING_STYLE_EDEFAULT : newNumberingStyle;
@@ -238,13 +232,8 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getLevel() {
-<<<<<<< HEAD
 		int i = PubConstants.TOP_LEVEL;
-=======
-		int i = 0;
->>>>>>> refs/remotes/origin/master
 		EObject parent = this.eContainer();
 		while (((parent != null) && (!(parent instanceof Division)))) {
 			{
@@ -263,7 +252,6 @@ public class ListImpl extends ContentBlockImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<ListItem> getItems() {
 		if (items == null) {
 			items = new EObjectContainmentWithInverseEList<ListItem>(ListItem.class, this, PubPackage.LIST__ITEMS, PubPackage.LIST_ITEM__LIST);

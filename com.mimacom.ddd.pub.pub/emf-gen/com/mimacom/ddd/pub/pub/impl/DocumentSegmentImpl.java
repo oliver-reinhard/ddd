@@ -7,15 +7,18 @@ import com.mimacom.ddd.pub.pub.DocumentSegment;
 import com.mimacom.ddd.pub.pub.PubPackage;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -53,6 +56,7 @@ public abstract class DocumentSegmentImpl extends MinimalEObjectImpl.Container i
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -108,17 +112,6 @@ public abstract class DocumentSegmentImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setName(final String name) {
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String getId() {
 		return this.getName();
 	}
@@ -128,17 +121,6 @@ public abstract class DocumentSegmentImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public String getName() {
-		return this.getClass().getSimpleName().replace("Impl", "").toLowerCase();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Component getParent() {
 		if (eContainerFeatureID() != PubPackage.DOCUMENT_SEGMENT__PARENT) return null;
 		return (Component)eContainer();
@@ -169,7 +151,6 @@ public abstract class DocumentSegmentImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setParent(Component newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != PubPackage.DOCUMENT_SEGMENT__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, newParent))
@@ -184,6 +165,24 @@ public abstract class DocumentSegmentImpl extends MinimalEObjectImpl.Container i
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PubPackage.DOCUMENT_SEGMENT__PARENT, newParent, newParent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return this.getClass().getSimpleName().replace("Impl", "").toLowerCase();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(final String name) {
+		throw new UnsupportedOperationException();
 	}
 
 	/**

@@ -36,7 +36,9 @@ public enum ProtoSequenceNumberStyle implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CAPITAL_ROMAN(0, "CapitalRoman", "CapitalRoman"), /**
+	CAPITAL_ROMAN(0, "CapitalRoman", "CapitalRoman"),
+
+	/**
 	 * The '<em><b>Small Roman</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -44,7 +46,9 @@ public enum ProtoSequenceNumberStyle implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SMALL_ROMAN(0, "SmallRoman", "SmallRoman"), /**
+	SMALL_ROMAN(0, "SmallRoman", "SmallRoman"),
+
+	/**
 	 * The '<em><b>Capital Letter</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,7 +66,9 @@ public enum ProtoSequenceNumberStyle implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SMALL_LETTER(0, "SmallLetter", "SmallLetter"), /**
+	SMALL_LETTER(0, "SmallLetter", "SmallLetter"),
+
+	/**
 	 * The '<em><b>None</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -251,7 +257,6 @@ public enum ProtoSequenceNumberStyle implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getValue() {
 	  return value;
 	}
@@ -261,7 +266,6 @@ public enum ProtoSequenceNumberStyle implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName() {
 	  return name;
 	}
@@ -271,7 +275,6 @@ public enum ProtoSequenceNumberStyle implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getLiteral() {
 	  return literal;
 	}

@@ -72,6 +72,7 @@ public class DEnumerationImpl extends DSimpleTypeImpl implements DEnumeration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DNavigableMember> getNavigableMembers()
 	{
 		// TODO: implement this method to return the 'Navigable Members' reference list
@@ -86,6 +87,7 @@ public class DEnumerationImpl extends DSimpleTypeImpl implements DEnumeration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DLiteral> getLiterals()
 	{
 		if (literals == null)

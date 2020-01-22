@@ -90,7 +90,6 @@ public class ProtoPublicationBodyImpl extends ProtoDocumentSegmentImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public boolean isAllowParts() {
 		return allowParts;
 	}
@@ -100,7 +99,6 @@ public class ProtoPublicationBodyImpl extends ProtoDocumentSegmentImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setAllowParts(boolean newAllowParts) {
 		boolean oldAllowParts = allowParts;
 		allowParts = newAllowParts;
@@ -113,7 +111,6 @@ public class ProtoPublicationBodyImpl extends ProtoDocumentSegmentImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public boolean isAllowAppendix() {
 		return allowAppendix;
 	}
@@ -123,7 +120,6 @@ public class ProtoPublicationBodyImpl extends ProtoDocumentSegmentImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setAllowAppendix(boolean newAllowAppendix) {
 		boolean oldAllowAppendix = allowAppendix;
 		allowAppendix = newAllowAppendix;

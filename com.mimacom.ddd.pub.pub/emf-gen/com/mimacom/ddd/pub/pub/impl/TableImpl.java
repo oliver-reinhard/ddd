@@ -4,15 +4,20 @@ package com.mimacom.ddd.pub.pub.impl;
 
 import com.mimacom.ddd.pub.pub.PubPackage;
 import com.mimacom.ddd.pub.pub.Table;
-
 import com.mimacom.ddd.pub.pub.TableRow;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -42,6 +47,7 @@ public class TableImpl extends TitledBlockImpl implements Table {
 	 * @ordered
 	 */
 	protected static final int COLUMNS_EDEFAULT = 0;
+
 	/**
 	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -51,6 +57,7 @@ public class TableImpl extends TitledBlockImpl implements Table {
 	 * @ordered
 	 */
 	protected int columns = COLUMNS_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getWidthPercent() <em>Width Percent</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -60,6 +67,7 @@ public class TableImpl extends TitledBlockImpl implements Table {
 	 * @ordered
 	 */
 	protected static final int WIDTH_PERCENT_EDEFAULT = 100;
+
 	/**
 	 * The cached value of the '{@link #getWidthPercent() <em>Width Percent</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -69,6 +77,7 @@ public class TableImpl extends TitledBlockImpl implements Table {
 	 * @ordered
 	 */
 	protected int widthPercent = WIDTH_PERCENT_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #isHideGrid() <em>Hide Grid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -78,6 +87,7 @@ public class TableImpl extends TitledBlockImpl implements Table {
 	 * @ordered
 	 */
 	protected static final boolean HIDE_GRID_EDEFAULT = false;
+
 	/**
 	 * The cached value of the '{@link #isHideGrid() <em>Hide Grid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -87,6 +97,7 @@ public class TableImpl extends TitledBlockImpl implements Table {
 	 * @ordered
 	 */
 	protected boolean hideGrid = HIDE_GRID_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getRows() <em>Rows</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -121,7 +132,6 @@ public class TableImpl extends TitledBlockImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getColumns() {
 		return columns;
 	}
@@ -131,7 +141,6 @@ public class TableImpl extends TitledBlockImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setColumns(int newColumns) {
 		int oldColumns = columns;
 		columns = newColumns;
@@ -144,7 +153,6 @@ public class TableImpl extends TitledBlockImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getWidthPercent() {
 		return widthPercent;
 	}
@@ -154,7 +162,6 @@ public class TableImpl extends TitledBlockImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setWidthPercent(int newWidthPercent) {
 		int oldWidthPercent = widthPercent;
 		widthPercent = newWidthPercent;
@@ -167,7 +174,6 @@ public class TableImpl extends TitledBlockImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public boolean isHideGrid() {
 		return hideGrid;
 	}
@@ -177,7 +183,6 @@ public class TableImpl extends TitledBlockImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setHideGrid(boolean newHideGrid) {
 		boolean oldHideGrid = hideGrid;
 		hideGrid = newHideGrid;
@@ -190,7 +195,6 @@ public class TableImpl extends TitledBlockImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<TableRow> getRows() {
 		if (rows == null) {
 			rows = new EObjectContainmentWithInverseEList<TableRow>(TableRow.class, this, PubPackage.TABLE__ROWS, PubPackage.TABLE_ROW__TABLE);

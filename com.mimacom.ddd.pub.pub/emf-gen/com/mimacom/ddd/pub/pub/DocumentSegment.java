@@ -2,6 +2,7 @@
  */
 package com.mimacom.ddd.pub.pub;
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Document Segment</b></em>'.
@@ -19,22 +20,6 @@ package com.mimacom.ddd.pub.pub;
  * @generated
  */
 public interface DocumentSegment extends ReferenceTarget {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" unique="false"
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model nameUnique="false"
-	 * @generated
-	 */
-	void setName(String name);
-
 	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link com.mimacom.ddd.pub.pub.Component#getSegments <em>Segments</em>}'.
@@ -58,5 +43,21 @@ public interface DocumentSegment extends ReferenceTarget {
 	 * @generated
 	 */
 	void setParent(Component value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false"
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model nameUnique="false"
+	 * @generated
+	 */
+	void setName(String name);
 
 } // DocumentSegment

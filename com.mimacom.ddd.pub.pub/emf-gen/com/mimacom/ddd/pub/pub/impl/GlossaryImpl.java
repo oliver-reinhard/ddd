@@ -66,7 +66,6 @@ public class GlossaryImpl extends SegmentWithTableImpl implements Glossary {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<GlossaryEntry> getEntries() {
 		if (entries == null) {
 			entries = new EObjectContainmentEList<GlossaryEntry>(GlossaryEntry.class, this, PubPackage.GLOSSARY__ENTRIES);

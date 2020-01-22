@@ -5,7 +5,6 @@ package com.mimacom.ddd.pub.pub.validation;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
-<<<<<<< HEAD
 import com.google.common.collect.Sets;
 import com.google.inject.Inject;
 import com.mimacom.ddd.dm.base.BasePackage;
@@ -259,85 +258,6 @@ public class PubValidator extends AbstractPubValidator {
     if (((div.getInclude() != null) && (div.getInclude().getInclude() != null))) {
       this.error("Included division cannot itself include another division. Replace with non-transitive include.", 
         PubValidator.PUB.getDivision_Include());
-=======
-import com.google.inject.Inject;
-import com.mimacom.ddd.dm.base.BasePackage;
-import com.mimacom.ddd.dm.base.DRichText;
-import com.mimacom.ddd.dm.base.DTextSegment;
-import com.mimacom.ddd.dm.base.IRichTextSegment;
-import com.mimacom.ddd.dm.dmx.DmxContextReference;
-import com.mimacom.ddd.dm.dmx.DmxStaticReference;
-import com.mimacom.ddd.pub.pub.Chapter;
-import com.mimacom.ddd.pub.pub.Division;
-import com.mimacom.ddd.pub.pub.ListItem;
-import com.mimacom.ddd.pub.pub.ListStyle;
-import com.mimacom.ddd.pub.pub.Part;
-import com.mimacom.ddd.pub.pub.PubPackage;
-import com.mimacom.ddd.pub.pub.PubUtil;
-import com.mimacom.ddd.pub.pub.PublicationBody;
-import com.mimacom.ddd.pub.pub.Table;
-import com.mimacom.ddd.pub.pub.TableCell;
-import com.mimacom.ddd.pub.pub.TableRow;
-import com.mimacom.ddd.pub.pub.TitledBlock;
-import com.mimacom.ddd.pub.pub.impl.PublicationConstants;
-import com.mimacom.ddd.pub.pub.validation.AbstractPubValidator;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.xtext.validation.Check;
-import org.eclipse.xtext.xbase.lib.Conversions;
-import org.eclipse.xtext.xbase.lib.Extension;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
-
-/**
- * This class contains custom validation rules.
- * 
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
- */
-@SuppressWarnings("all")
-public class PubValidator extends AbstractPubValidator {
-  @Inject
-  @Extension
-  private PubUtil _pubUtil;
-  
-  private static final BasePackage BASE = BasePackage.eINSTANCE;
-  
-  private static final PubPackage PUB = PubPackage.eINSTANCE;
-  
-  @Check
-  public void partsXorSections(final PublicationBody body) {
-    Iterable<Part> parts = Iterables.<Part>filter(body.getDivisions(), Part.class);
-    Iterable<Chapter> chapters = Iterables.<Chapter>filter(body.getDivisions(), Chapter.class);
-    if (((!IterableExtensions.isEmpty(parts)) && (!IterableExtensions.isEmpty(chapters)))) {
-      this.error("Cannot have both Parts and Chapters at the top level.", IterableExtensions.<Division>head(body.getDivisions()), PubValidator.PUB.getDivision_Title());
-    }
-  }
-  
-  @Check
-  public void startNumberOnlyAtFirstDivision(final Division div) {
-    if (((div.getSequenceNumber() > 0) && 
-      (div.getStartNumberingAt() != PublicationConstants.DIVISION_NUMBERING_DEFAULT_START_VALUE))) {
-      this.error("The numbering start can only be defined by the first element at that level.", 
-        PubValidator.PUB.getDivision_StartNumberingAt());
-    }
-  }
-  
-  @Check
-  public void titleForTitledListItems(final ListItem item) {
-    final ListStyle style = item.getList().getStyle();
-    if ((Objects.equal(style, ListStyle.TITLE) && this._pubUtil.empty(item.getTitle()))) {
-      String _literal = style.getLiteral();
-      String _plus = ("Item title must be defined for list style \'" + _literal);
-      String _plus_1 = (_plus + "\'.");
-      this.error(_plus_1, item.getList(), PubValidator.PUB.getList_Items(), 
-        item.getList().getItems().indexOf(item));
-    } else {
-      if (((!Objects.equal(style, ListStyle.TITLE)) && (!this._pubUtil.empty(item.getTitle())))) {
-        String _literal_1 = style.getLiteral();
-        String _plus_2 = ("Item cannot have a title for list style \'" + _literal_1);
-        String _plus_3 = (_plus_2 + "\'.");
-        this.error(_plus_3, PubValidator.PUB.getListItem_Title());
-      }
->>>>>>> refs/remotes/origin/master
     }
   }
   

@@ -62,7 +62,6 @@ public class PublicationImpl extends DocumentImpl implements Publication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<Component> getIncludes() {
 		if (includes == null) {
 			includes = new EObjectResolvingEList<Component>(Component.class, this, PubPackage.PUBLICATION__INCLUDES);

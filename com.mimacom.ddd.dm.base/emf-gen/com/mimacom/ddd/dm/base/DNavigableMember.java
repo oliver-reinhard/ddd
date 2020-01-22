@@ -27,10 +27,6 @@ public interface DNavigableMember extends DNamedElement
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Type</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' reference.
 	 * @see #setType(DType)
@@ -53,10 +49,6 @@ public interface DNavigableMember extends DNamedElement
 	/**
 	 * Returns the value of the '<em><b>Multiplicity</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Multiplicity</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Multiplicity</em>' containment reference.
 	 * @see #setMultiplicity(DMultiplicity)
@@ -79,10 +71,6 @@ public interface DNavigableMember extends DNamedElement
 	/**
 	 * Returns the value of the '<em><b>Optional</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Optional</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Optional</em>' attribute.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDNavigableMember_Optional()
@@ -94,10 +82,6 @@ public interface DNavigableMember extends DNamedElement
 	/**
 	 * Returns the value of the '<em><b>Collection</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Collection</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Collection</em>' attribute.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getDNavigableMember_Collection()

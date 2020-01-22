@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -65,7 +66,6 @@ public class ComponentImpl extends DocumentImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<DocumentSegment> getSegments() {
 		if (segments == null) {
 			segments = new EObjectContainmentWithInverseEList<DocumentSegment>(DocumentSegment.class, this, PubPackage.COMPONENT__SEGMENTS, PubPackage.DOCUMENT_SEGMENT__PARENT);

@@ -4,7 +4,6 @@ package com.mimacom.ddd.pub.pub;
 
 import org.eclipse.emf.common.util.EList;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Table</b></em>'.
@@ -25,7 +24,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Table extends TitledBlock {
-
 	/**
 	 * Returns the value of the '<em><b>Columns</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -106,4 +104,5 @@ public interface Table extends TitledBlock {
 	 * @generated
 	 */
 	EList<TableRow> getRows();
+
 } // Table

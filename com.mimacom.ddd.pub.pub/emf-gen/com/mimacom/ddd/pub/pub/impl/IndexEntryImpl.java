@@ -88,7 +88,6 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements Inde
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getText() {
 		return text;
 	}
@@ -98,7 +97,6 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements Inde
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setText(String newText) {
 		String oldText = text;
 		text = newText;
@@ -111,7 +109,6 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements Inde
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<Division> getReferences() {
 		if (references == null) {
 			references = new EObjectResolvingEList<Division>(Division.class, this, PubPackage.INDEX_ENTRY__REFERENCES);

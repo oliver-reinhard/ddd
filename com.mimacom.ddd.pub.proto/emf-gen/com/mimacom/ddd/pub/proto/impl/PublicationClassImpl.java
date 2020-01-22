@@ -147,7 +147,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName() {
 		return name;
 	}
@@ -157,7 +156,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -170,7 +168,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getTitle() {
 		return title;
 	}
@@ -180,7 +177,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setTitle(String newTitle) {
 		String oldTitle = title;
 		title = newTitle;
@@ -193,7 +189,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public PublicationNature getNature() {
 		return nature;
 	}
@@ -203,7 +198,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setNature(PublicationNature newNature) {
 		PublicationNature oldNature = nature;
 		nature = newNature == null ? NATURE_EDEFAULT : newNature;
@@ -216,7 +210,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<ProtoDocumentSegment> getSegments() {
 		if (segments == null) {
 			segments = new EObjectContainmentWithInverseEList<ProtoDocumentSegment>(ProtoDocumentSegment.class, this, ProtoPackage.PUBLICATION_CLASS__SEGMENTS, ProtoPackage.PROTO_DOCUMENT_SEGMENT__PARENT);
@@ -229,7 +222,6 @@ public class PublicationClassImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<ProtoDivision> getDivisions() {
 		if (divisions == null) {
 			divisions = new EObjectContainmentEList<ProtoDivision>(ProtoDivision.class, this, ProtoPackage.PUBLICATION_CLASS__DIVISIONS);

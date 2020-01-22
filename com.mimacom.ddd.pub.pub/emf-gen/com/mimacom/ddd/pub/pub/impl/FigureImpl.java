@@ -6,7 +6,9 @@ import com.mimacom.ddd.pub.pub.Figure;
 import com.mimacom.ddd.pub.pub.PubPackage;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -32,6 +34,7 @@ public class FigureImpl extends TitledBlockImpl implements Figure {
 	 * @ordered
 	 */
 	protected static final String FILE_URI_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getFileUri() <em>File Uri</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -66,7 +69,6 @@ public class FigureImpl extends TitledBlockImpl implements Figure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getFileUri() {
 		return fileUri;
 	}
@@ -76,7 +78,6 @@ public class FigureImpl extends TitledBlockImpl implements Figure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setFileUri(String newFileUri) {
 		String oldFileUri = fileUri;
 		fileUri = newFileUri;

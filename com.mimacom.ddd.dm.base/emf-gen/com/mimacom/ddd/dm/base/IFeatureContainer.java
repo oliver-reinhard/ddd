@@ -28,10 +28,6 @@ public interface IFeatureContainer extends EObject
 	 * Returns the value of the '<em><b>Features</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DFeature}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Features</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Features</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.base.BasePackage#getIFeatureContainer_Features()

@@ -501,8 +501,8 @@ public class SimSemanticSequencer extends DimSemanticSequencer {
 	 *         aliases+=ID* 
 	 *         superType=[DComplexType|ID]? 
 	 *         description=DRichText? 
-	 *         constraints+=DConstraint? 
-	 *         (features+=Feature? constraints+=DConstraint?)* 
+	 *         features+=Feature? 
+	 *         (constraints+=DConstraint? features+=Feature?)* 
 	 *         (features+=DFeature | constraints+=DConstraint)*
 	 *     )
 	 */

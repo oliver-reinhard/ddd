@@ -101,6 +101,7 @@ public class DAssociationImpl extends DFeatureImpl implements DAssociation
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DAssociationKind getKind()
 	{
 		return kind;
@@ -111,6 +112,7 @@ public class DAssociationImpl extends DFeatureImpl implements DAssociation
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setKind(DAssociationKind newKind)
 	{
 		DAssociationKind oldKind = kind;
@@ -124,6 +126,7 @@ public class DAssociationImpl extends DFeatureImpl implements DAssociation
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isDerived()
 	{
 		return derived;
@@ -134,6 +137,7 @@ public class DAssociationImpl extends DFeatureImpl implements DAssociation
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDerived(boolean newDerived)
 	{
 		boolean oldDerived = derived;
@@ -147,6 +151,7 @@ public class DAssociationImpl extends DFeatureImpl implements DAssociation
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DComplexType getSourceType()
 	{
 		// TODO: implement this method to return the 'Source Type' reference
@@ -159,6 +164,7 @@ public class DAssociationImpl extends DFeatureImpl implements DAssociation
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DEntityType getTargetType()
 	{
 		// TODO: implement this method
@@ -272,7 +278,7 @@ public class DAssociationImpl extends DFeatureImpl implements DAssociation
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (kind: ");
 		result.append(kind);
 		result.append(", derived: ");

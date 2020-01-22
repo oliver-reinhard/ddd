@@ -62,10 +62,6 @@ public enum DTextAttribute implements Enumerator
 	/**
 	 * The '<em><b>Underline</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Underline</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #UNDERLINE
 	 * @model name="Underline"
@@ -77,10 +73,6 @@ public enum DTextAttribute implements Enumerator
 	/**
 	 * The '<em><b>Strikethrough</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Strikethrough</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #STRIKETHROUGH
 	 * @model name="Strikethrough"
@@ -92,10 +84,6 @@ public enum DTextAttribute implements Enumerator
 	/**
 	 * The '<em><b>Superscript</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Superscript</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #SUPERSCRIPT
 	 * @model name="Superscript"
@@ -107,10 +95,6 @@ public enum DTextAttribute implements Enumerator
 	/**
 	 * The '<em><b>Subscript</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Subscript</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #SUBSCRIPT
 	 * @model name="Subscript"
@@ -243,6 +227,7 @@ public enum DTextAttribute implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue()
 	{
 	  return value;
@@ -253,6 +238,7 @@ public enum DTextAttribute implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName()
 	{
 	  return name;
@@ -263,6 +249,7 @@ public enum DTextAttribute implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral()
 	{
 	  return literal;

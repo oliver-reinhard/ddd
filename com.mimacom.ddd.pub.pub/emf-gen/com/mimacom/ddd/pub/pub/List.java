@@ -3,6 +3,7 @@
 package com.mimacom.ddd.pub.pub;
 
 import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle;
+
 import org.eclipse.emf.common.util.EList;
 
 /**

@@ -14,15 +14,4 @@ package com.mimacom.ddd.pub.pub;
  * @generated
  */
 public interface Part extends Division {
-<<<<<<< HEAD
-=======
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" unique="false"
-	 * @generated
-	 */
-	int getSequenceNumber();
->>>>>>> refs/remotes/origin/master
-
 } // Part

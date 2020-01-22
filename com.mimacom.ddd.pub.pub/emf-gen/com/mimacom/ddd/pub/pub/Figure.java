@@ -20,7 +20,6 @@ package com.mimacom.ddd.pub.pub;
  * @generated
  */
 public interface Figure extends TitledBlock {
-
 	/**
 	 * Returns the value of the '<em><b>File Uri</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -42,4 +41,5 @@ public interface Figure extends TitledBlock {
 	 * @generated
 	 */
 	void setFileUri(String value);
+
 } // Figure

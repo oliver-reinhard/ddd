@@ -99,6 +99,7 @@ public abstract class DNavigableMemberImpl extends DNamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DType getType()
 	{
 		if (type != null && type.eIsProxy())
@@ -129,6 +130,7 @@ public abstract class DNavigableMemberImpl extends DNamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setType(DType newType)
 	{
 		DType oldType = type;
@@ -142,6 +144,7 @@ public abstract class DNavigableMemberImpl extends DNamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DMultiplicity getMultiplicity()
 	{
 		return multiplicity;
@@ -169,6 +172,7 @@ public abstract class DNavigableMemberImpl extends DNamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMultiplicity(DMultiplicity newMultiplicity)
 	{
 		if (newMultiplicity != multiplicity)
@@ -190,6 +194,7 @@ public abstract class DNavigableMemberImpl extends DNamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isOptional()
 	{
 		// TODO: implement this method to return the 'Optional' attribute
@@ -202,6 +207,7 @@ public abstract class DNavigableMemberImpl extends DNamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isCollection()
 	{
 		// TODO: implement this method to return the 'Collection' attribute

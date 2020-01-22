@@ -118,6 +118,7 @@ public class StyledTextFactoryImpl extends EFactoryImpl implements StyledTextFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DStyledTextSpan createDStyledTextSpan()
 	{
 		DStyledTextSpanImplCustom dStyledTextSpan = new DStyledTextSpanImplCustom();
@@ -195,6 +196,7 @@ public class StyledTextFactoryImpl extends EFactoryImpl implements StyledTextFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StyledTextPackage getStyledTextPackage()
 	{
 		return (StyledTextPackage)getEPackage();

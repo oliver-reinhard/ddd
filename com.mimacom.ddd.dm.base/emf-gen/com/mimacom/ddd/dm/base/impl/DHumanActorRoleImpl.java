@@ -64,6 +64,7 @@ public class DHumanActorRoleImpl extends DActorImpl implements DHumanActorRole
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DEntityType getRole()
 	{
 		if (role != null && role.eIsProxy())
@@ -94,6 +95,7 @@ public class DHumanActorRoleImpl extends DActorImpl implements DHumanActorRole
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRole(DEntityType newRole)
 	{
 		DEntityType oldRole = role;
