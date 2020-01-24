@@ -90,6 +90,7 @@ public class DmxIfExpressionImpl extends DExpressionImpl implements DmxIfExpress
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DExpression getIf()
 	{
 		return if_;
@@ -117,6 +118,7 @@ public class DmxIfExpressionImpl extends DExpressionImpl implements DmxIfExpress
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIf(DExpression newIf)
 	{
 		if (newIf != if_)
@@ -138,6 +140,7 @@ public class DmxIfExpressionImpl extends DExpressionImpl implements DmxIfExpress
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DExpression getThen()
 	{
 		return then;
@@ -165,6 +168,7 @@ public class DmxIfExpressionImpl extends DExpressionImpl implements DmxIfExpress
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setThen(DExpression newThen)
 	{
 		if (newThen != then)
@@ -186,6 +190,7 @@ public class DmxIfExpressionImpl extends DExpressionImpl implements DmxIfExpress
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DExpression getElse()
 	{
 		return else_;
@@ -213,6 +218,7 @@ public class DmxIfExpressionImpl extends DExpressionImpl implements DmxIfExpress
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setElse(DExpression newElse)
 	{
 		if (newElse != else_)

@@ -67,6 +67,7 @@ public class DomNamedComplexObjectImpl extends DomObjectImpl implements DomNamed
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DmxComplexObject getObject()
 	{
 		return object;
@@ -94,6 +95,7 @@ public class DomNamedComplexObjectImpl extends DomObjectImpl implements DomNamed
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setObject(DmxComplexObject newObject)
 	{
 		if (newObject != object)

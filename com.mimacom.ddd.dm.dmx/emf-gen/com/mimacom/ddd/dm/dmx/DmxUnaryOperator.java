@@ -52,10 +52,6 @@ public enum DmxUnaryOperator implements Enumerator
 	/**
 	 * The '<em><b>PLUS</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>PLUS</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #PLUS
 	 * @model
@@ -67,10 +63,6 @@ public enum DmxUnaryOperator implements Enumerator
 	/**
 	 * The '<em><b>MINUS</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>MINUS</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #MINUS
 	 * @model
@@ -82,10 +74,6 @@ public enum DmxUnaryOperator implements Enumerator
 	/**
 	 * The '<em><b>NOT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>NOT</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #NOT
 	 * @model
@@ -216,6 +204,7 @@ public enum DmxUnaryOperator implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue()
 	{
 	  return value;
@@ -226,6 +215,7 @@ public enum DmxUnaryOperator implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName()
 	{
 	  return name;
@@ -236,6 +226,7 @@ public enum DmxUnaryOperator implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral()
 	{
 	  return literal;

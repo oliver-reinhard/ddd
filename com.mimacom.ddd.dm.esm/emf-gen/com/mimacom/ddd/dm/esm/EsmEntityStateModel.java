@@ -28,10 +28,6 @@ public interface EsmEntityStateModel extends DNamedElement, IEsmStateModel, INav
 	/**
 	 * Returns the value of the '<em><b>For Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>For Type</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>For Type</em>' reference.
 	 * @see #setForType(DEntityType)

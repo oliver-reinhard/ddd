@@ -30,10 +30,6 @@ public interface SApplication extends Model
 	/**
 	 * Returns the value of the '<em><b>Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Model</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Model</em>' reference.
 	 * @see #setModel(SInformationModel)
@@ -57,10 +53,6 @@ public interface SApplication extends Model
 	 * Returns the value of the '<em><b>Services</b></em>' reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.sm.asm.SServiceInterface}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Services</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Services</em>' reference list.
 	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getSApplication_Services()
@@ -73,10 +65,6 @@ public interface SApplication extends Model
 	 * Returns the value of the '<em><b>Actors</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.sm.asm.SActor}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Actors</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Actors</em>' containment reference list.
 	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getSApplication_Actors()

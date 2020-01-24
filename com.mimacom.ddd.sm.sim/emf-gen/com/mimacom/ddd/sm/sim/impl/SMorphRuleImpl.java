@@ -78,6 +78,7 @@ public class SMorphRuleImpl extends SStructureChangingRuleImpl implements SMorph
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DType getRetypeTo()
 	{
 		if (retypeTo != null && retypeTo.eIsProxy())
@@ -108,6 +109,7 @@ public class SMorphRuleImpl extends SStructureChangingRuleImpl implements SMorph
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRetypeTo(DType newRetypeTo)
 	{
 		DType oldRetypeTo = retypeTo;
@@ -121,6 +123,7 @@ public class SMorphRuleImpl extends SStructureChangingRuleImpl implements SMorph
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DMultiplicity getRemultiplyTo()
 	{
 		return remultiplyTo;
@@ -148,6 +151,7 @@ public class SMorphRuleImpl extends SStructureChangingRuleImpl implements SMorph
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRemultiplyTo(DMultiplicity newRemultiplyTo)
 	{
 		if (newRemultiplyTo != remultiplyTo)

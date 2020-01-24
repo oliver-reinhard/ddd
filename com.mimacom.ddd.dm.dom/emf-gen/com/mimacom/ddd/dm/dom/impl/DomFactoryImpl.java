@@ -78,6 +78,7 @@ public class DomFactoryImpl extends EFactoryImpl implements DomFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DomModel createDomModel()
 	{
 		DomModelImpl domModel = new DomModelImpl();
@@ -89,6 +90,7 @@ public class DomFactoryImpl extends EFactoryImpl implements DomFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DomSnapshot createDomSnapshot()
 	{
 		DomSnapshotImpl domSnapshot = new DomSnapshotImpl();
@@ -100,6 +102,7 @@ public class DomFactoryImpl extends EFactoryImpl implements DomFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DomNamedComplexObject createDomNamedComplexObject()
 	{
 		DomNamedComplexObjectImplCustom domNamedComplexObject = new DomNamedComplexObjectImplCustom();
@@ -111,6 +114,7 @@ public class DomFactoryImpl extends EFactoryImpl implements DomFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DomPackage getDomPackage()
 	{
 		return (DomPackage)getEPackage();

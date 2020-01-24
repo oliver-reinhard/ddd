@@ -108,6 +108,7 @@ public class EsmSubStateModelImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EsmLayoutDirection getDirection()
 	{
 		return direction;
@@ -118,6 +119,7 @@ public class EsmSubStateModelImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDirection(EsmLayoutDirection newDirection)
 	{
 		EsmLayoutDirection oldDirection = direction;
@@ -131,6 +133,7 @@ public class EsmSubStateModelImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<IEsmState> getStates()
 	{
 		if (states == null)
@@ -145,6 +148,7 @@ public class EsmSubStateModelImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<EsmTransition> getTransitions()
 	{
 		if (transitions == null)
@@ -271,7 +275,7 @@ public class EsmSubStateModelImpl extends MinimalEObjectImpl.Container implement
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (direction: ");
 		result.append(direction);
 		result.append(')');

@@ -71,6 +71,7 @@ public class SPrimitiveDeductionImpl extends DPrimitiveImpl implements SPrimitiv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DDeductionRule getDeductionRule()
 	{
 		return deductionRule;
@@ -98,6 +99,7 @@ public class SPrimitiveDeductionImpl extends DPrimitiveImpl implements SPrimitiv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDeductionRule(DDeductionRule newDeductionRule)
 	{
 		if (newDeductionRule != deductionRule)

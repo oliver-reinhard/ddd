@@ -33,10 +33,6 @@ public interface SServiceOperation extends INavigableMemberContainer
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -60,10 +56,6 @@ public interface SServiceOperation extends INavigableMemberContainer
 	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.sm.asm.SServiceParameter}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameters</em>' containment reference list.
 	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getSServiceOperation_Parameters()
@@ -76,10 +68,6 @@ public interface SServiceOperation extends INavigableMemberContainer
 	 * Returns the value of the '<em><b>Raises</b></em>' reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.sm.asm.SException}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Raises</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Raises</em>' reference list.
 	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getSServiceOperation_Raises()
@@ -92,10 +80,6 @@ public interface SServiceOperation extends INavigableMemberContainer
 	 * Returns the value of the '<em><b>Guards</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DExpression}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Guards</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Guards</em>' containment reference list.
 	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getSServiceOperation_Guards()
@@ -108,10 +92,6 @@ public interface SServiceOperation extends INavigableMemberContainer
 	 * Returns the value of the '<em><b>Effects</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.base.DExpression}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Effects</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Effects</em>' containment reference list.
 	 * @see com.mimacom.ddd.sm.asm.AsmPackage#getSServiceOperation_Effects()

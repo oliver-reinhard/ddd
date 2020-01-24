@@ -80,6 +80,7 @@ public class DmxFieldImpl extends DNavigableMemberImplCustom implements DmxField
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DFeature getFeature()
 	{
 		if (feature != null && feature.eIsProxy())
@@ -110,6 +111,7 @@ public class DmxFieldImpl extends DNavigableMemberImplCustom implements DmxField
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFeature(DFeature newFeature)
 	{
 		DFeature oldFeature = feature;
@@ -123,6 +125,7 @@ public class DmxFieldImpl extends DNavigableMemberImplCustom implements DmxField
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DExpression getValue()
 	{
 		return value;
@@ -150,6 +153,7 @@ public class DmxFieldImpl extends DNavigableMemberImplCustom implements DmxField
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(DExpression newValue)
 	{
 		if (newValue != value)

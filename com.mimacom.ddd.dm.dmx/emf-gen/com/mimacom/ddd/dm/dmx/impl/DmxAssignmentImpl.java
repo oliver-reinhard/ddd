@@ -91,6 +91,7 @@ public class DmxAssignmentImpl extends DExpressionImpl implements DmxAssignment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DExpression getPrecedingNavigationSegment()
 	{
 		return precedingNavigationSegment;
@@ -118,6 +119,7 @@ public class DmxAssignmentImpl extends DExpressionImpl implements DmxAssignment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPrecedingNavigationSegment(DExpression newPrecedingNavigationSegment)
 	{
 		if (newPrecedingNavigationSegment != precedingNavigationSegment)
@@ -139,6 +141,7 @@ public class DmxAssignmentImpl extends DExpressionImpl implements DmxAssignment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DNavigableMember getAssignToMember()
 	{
 		if (assignToMember != null && assignToMember.eIsProxy())
@@ -169,6 +172,7 @@ public class DmxAssignmentImpl extends DExpressionImpl implements DmxAssignment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAssignToMember(DNavigableMember newAssignToMember)
 	{
 		DNavigableMember oldAssignToMember = assignToMember;
@@ -182,6 +186,7 @@ public class DmxAssignmentImpl extends DExpressionImpl implements DmxAssignment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DExpression getValue()
 	{
 		return value;
@@ -209,6 +214,7 @@ public class DmxAssignmentImpl extends DExpressionImpl implements DmxAssignment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(DExpression newValue)
 	{
 		if (newValue != value)

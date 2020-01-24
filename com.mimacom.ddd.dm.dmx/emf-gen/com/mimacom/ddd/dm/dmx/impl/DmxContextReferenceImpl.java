@@ -109,6 +109,7 @@ public class DmxContextReferenceImpl extends DExpressionImpl implements DmxConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DNamedElement getTarget()
 	{
 		if (target != null && target.eIsProxy())
@@ -139,6 +140,7 @@ public class DmxContextReferenceImpl extends DExpressionImpl implements DmxConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTarget(DNamedElement newTarget)
 	{
 		DNamedElement oldTarget = target;
@@ -152,6 +154,7 @@ public class DmxContextReferenceImpl extends DExpressionImpl implements DmxConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isAll()
 	{
 		return all;
@@ -162,6 +165,7 @@ public class DmxContextReferenceImpl extends DExpressionImpl implements DmxConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAll(boolean newAll)
 	{
 		boolean oldAll = all;
@@ -175,6 +179,7 @@ public class DmxContextReferenceImpl extends DExpressionImpl implements DmxConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isBefore()
 	{
 		return before;
@@ -185,6 +190,7 @@ public class DmxContextReferenceImpl extends DExpressionImpl implements DmxConte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setBefore(boolean newBefore)
 	{
 		boolean oldBefore = before;
@@ -290,7 +296,7 @@ public class DmxContextReferenceImpl extends DExpressionImpl implements DmxConte
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (all: ");
 		result.append(all);
 		result.append(", before: ");

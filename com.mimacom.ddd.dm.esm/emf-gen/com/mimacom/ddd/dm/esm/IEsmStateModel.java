@@ -28,10 +28,6 @@ public interface IEsmStateModel extends IEsmLayout
 	 * Returns the value of the '<em><b>States</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.esm.IEsmState}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>States</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>States</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getIEsmStateModel_States()
@@ -44,10 +40,6 @@ public interface IEsmStateModel extends IEsmLayout
 	 * Returns the value of the '<em><b>Transitions</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.esm.EsmTransition}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transitions</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Transitions</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.esm.EsmPackage#getIEsmStateModel_Transitions()

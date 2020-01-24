@@ -76,6 +76,7 @@ public class SAssociationDeductionImpl extends DAssociationImplCustom implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DDeductionRule getDeductionRule()
 	{
 		return deductionRule;
@@ -103,6 +104,7 @@ public class SAssociationDeductionImpl extends DAssociationImplCustom implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDeductionRule(DDeductionRule newDeductionRule)
 	{
 		if (newDeductionRule != deductionRule)
@@ -124,6 +126,7 @@ public class SAssociationDeductionImpl extends DAssociationImplCustom implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SEntityTypeDeduction getTargetType()
 	{
 		// TODO: implement this method

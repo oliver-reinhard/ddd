@@ -125,6 +125,7 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EsmLayoutDirection getDirection()
 	{
 		return direction;
@@ -135,6 +136,7 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDirection(EsmLayoutDirection newDirection)
 	{
 		EsmLayoutDirection oldDirection = direction;
@@ -148,6 +150,7 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DState getFrom()
 	{
 		if (from != null && from.eIsProxy())
@@ -178,6 +181,7 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFrom(DState newFrom)
 	{
 		DState oldFrom = from;
@@ -191,6 +195,7 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DState getTo()
 	{
 		if (to != null && to.eIsProxy())
@@ -221,6 +226,7 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTo(DState newTo)
 	{
 		DState oldTo = to;
@@ -234,6 +240,7 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DStateEvent getEvent()
 	{
 		if (event != null && event.eIsProxy())
@@ -264,6 +271,7 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEvent(DStateEvent newEvent)
 	{
 		DStateEvent oldEvent = event;
@@ -277,6 +285,7 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DExpression getGuard()
 	{
 		return guard;
@@ -304,6 +313,7 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setGuard(DExpression newGuard)
 	{
 		if (newGuard != guard)
@@ -455,7 +465,7 @@ public class EsmTransitionImpl extends MinimalEObjectImpl.Container implements E
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (direction: ");
 		result.append(direction);
 		result.append(')');

@@ -100,6 +100,7 @@ public class UserStoryImpl extends DNamedElementImpl implements UserStory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DImport> getImports()
 	{
 		if (imports == null)
@@ -114,6 +115,7 @@ public class UserStoryImpl extends DNamedElementImpl implements UserStory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Section> getSections()
 	{
 		if (sections == null)
@@ -128,6 +130,7 @@ public class UserStoryImpl extends DNamedElementImpl implements UserStory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DDomainEvent getEvent()
 	{
 		if (event != null && event.eIsProxy())
@@ -158,6 +161,7 @@ public class UserStoryImpl extends DNamedElementImpl implements UserStory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEvent(DDomainEvent newEvent)
 	{
 		DDomainEvent oldEvent = event;

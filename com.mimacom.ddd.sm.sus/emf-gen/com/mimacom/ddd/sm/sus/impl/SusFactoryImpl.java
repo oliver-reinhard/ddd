@@ -78,6 +78,7 @@ public class SusFactoryImpl extends EFactoryImpl implements SusFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public UserStory createUserStory()
 	{
 		UserStoryImpl userStory = new UserStoryImpl();
@@ -89,6 +90,7 @@ public class SusFactoryImpl extends EFactoryImpl implements SusFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Section createSection()
 	{
 		SectionImpl section = new SectionImpl();
@@ -100,6 +102,7 @@ public class SusFactoryImpl extends EFactoryImpl implements SusFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Paragraph createParagraph()
 	{
 		ParagraphImpl paragraph = new ParagraphImpl();
@@ -111,6 +114,7 @@ public class SusFactoryImpl extends EFactoryImpl implements SusFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SusPackage getSusPackage()
 	{
 		return (SusPackage)getEPackage();

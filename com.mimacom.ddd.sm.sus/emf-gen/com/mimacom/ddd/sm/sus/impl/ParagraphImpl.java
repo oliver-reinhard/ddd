@@ -68,6 +68,7 @@ public class ParagraphImpl extends MinimalEObjectImpl.Container implements Parag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DRichText getText()
 	{
 		return text;
@@ -95,6 +96,7 @@ public class ParagraphImpl extends MinimalEObjectImpl.Container implements Parag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setText(DRichText newText)
 	{
 		if (newText != text)

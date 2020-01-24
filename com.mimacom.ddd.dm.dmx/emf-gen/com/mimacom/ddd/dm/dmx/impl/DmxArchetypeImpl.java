@@ -75,6 +75,7 @@ public class DmxArchetypeImpl extends DPrimitiveImpl implements DmxArchetype
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DmxBaseType getBaseType()
 	{
 		return baseType;
@@ -85,6 +86,7 @@ public class DmxArchetypeImpl extends DPrimitiveImpl implements DmxArchetype
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setBaseType(DmxBaseType newBaseType)
 	{
 		DmxBaseType oldBaseType = baseType;
@@ -169,7 +171,7 @@ public class DmxArchetypeImpl extends DPrimitiveImpl implements DmxArchetype
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (baseType: ");
 		result.append(baseType);
 		result.append(')');

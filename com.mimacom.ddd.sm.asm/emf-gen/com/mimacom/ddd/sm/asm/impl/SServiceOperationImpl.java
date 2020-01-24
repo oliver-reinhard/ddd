@@ -134,6 +134,7 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DNavigableMember> getNavigableMembers()
 	{
 		// TODO: implement this method to return the 'Navigable Members' reference list
@@ -148,6 +149,7 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName()
 	{
 		return name;
@@ -158,6 +160,7 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName)
 	{
 		String oldName = name;
@@ -171,6 +174,7 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SServiceParameter> getParameters()
 	{
 		if (parameters == null)
@@ -185,6 +189,7 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SException> getRaises()
 	{
 		if (raises == null)
@@ -199,6 +204,7 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DExpression> getGuards()
 	{
 		if (guards == null)
@@ -213,6 +219,7 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DExpression> getEffects()
 	{
 		if (effects == null)
@@ -374,7 +381,7 @@ public class SServiceOperationImpl extends MinimalEObjectImpl.Container implemen
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(')');

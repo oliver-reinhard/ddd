@@ -29,10 +29,6 @@ public interface DmxFilterTypeDescriptor extends EObject
 	 * Returns the value of the '<em><b>Single</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.mimacom.ddd.dm.dmx.DmxBaseType}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Single</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Single</em>' attribute.
 	 * @see com.mimacom.ddd.dm.dmx.DmxBaseType
@@ -57,10 +53,6 @@ public interface DmxFilterTypeDescriptor extends EObject
 	/**
 	 * Returns the value of the '<em><b>Multiple</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Multiple</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Multiple</em>' reference.
 	 * @see #setMultiple(DmxBaseTypeSet)
@@ -83,10 +75,6 @@ public interface DmxFilterTypeDescriptor extends EObject
 	/**
 	 * Returns the value of the '<em><b>Collection</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Collection</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Collection</em>' attribute.
 	 * @see #setCollection(boolean)
@@ -109,10 +97,6 @@ public interface DmxFilterTypeDescriptor extends EObject
 	/**
 	 * Returns the value of the '<em><b>Multi Typed</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Multi Typed</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Multi Typed</em>' attribute.
 	 * @see #setMultiTyped(boolean)

@@ -121,6 +121,7 @@ public class DmxStaticReferenceImpl extends DExpressionImpl implements DmxStatic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IStaticReferenceTarget getTarget()
 	{
 		if (target != null && target.eIsProxy())
@@ -151,6 +152,7 @@ public class DmxStaticReferenceImpl extends DExpressionImpl implements DmxStatic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTarget(IStaticReferenceTarget newTarget)
 	{
 		IStaticReferenceTarget oldTarget = target;
@@ -164,6 +166,7 @@ public class DmxStaticReferenceImpl extends DExpressionImpl implements DmxStatic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DNavigableMember getMember()
 	{
 		if (member != null && member.eIsProxy())
@@ -194,6 +197,7 @@ public class DmxStaticReferenceImpl extends DExpressionImpl implements DmxStatic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMember(DNavigableMember newMember)
 	{
 		DNavigableMember oldMember = member;
@@ -207,6 +211,7 @@ public class DmxStaticReferenceImpl extends DExpressionImpl implements DmxStatic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDisplayName()
 	{
 		return displayName;
@@ -217,6 +222,7 @@ public class DmxStaticReferenceImpl extends DExpressionImpl implements DmxStatic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDisplayName(String newDisplayName)
 	{
 		String oldDisplayName = displayName;
@@ -230,6 +236,7 @@ public class DmxStaticReferenceImpl extends DExpressionImpl implements DmxStatic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isPlural()
 	{
 		return plural;
@@ -240,6 +247,7 @@ public class DmxStaticReferenceImpl extends DExpressionImpl implements DmxStatic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPlural(boolean newPlural)
 	{
 		boolean oldPlural = plural;
@@ -356,7 +364,7 @@ public class DmxStaticReferenceImpl extends DExpressionImpl implements DmxStatic
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (displayName: ");
 		result.append(displayName);
 		result.append(", plural: ");

@@ -88,6 +88,7 @@ public class EsmDomainImpl extends DNamedElementImpl implements EsmDomain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DImport> getImports()
 	{
 		if (imports == null)
@@ -102,6 +103,7 @@ public class EsmDomainImpl extends DNamedElementImpl implements EsmDomain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EsmEntityStateModel getStateModel()
 	{
 		return stateModel;
@@ -129,6 +131,7 @@ public class EsmDomainImpl extends DNamedElementImpl implements EsmDomain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStateModel(EsmEntityStateModel newStateModel)
 	{
 		if (newStateModel != stateModel)

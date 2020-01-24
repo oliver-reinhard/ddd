@@ -30,10 +30,6 @@ public interface DmxFilter extends DNavigableMember
 	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
 	 * The list contents are of type {@link com.mimacom.ddd.dm.dmx.DmxFilterParameter}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameters</em>' containment reference list.
 	 * @see com.mimacom.ddd.dm.dmx.DmxPackage#getDmxFilter_Parameters()
@@ -45,10 +41,6 @@ public interface DmxFilter extends DNavigableMember
 	/**
 	 * Returns the value of the '<em><b>Type Desc</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Type Desc</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type Desc</em>' containment reference.
 	 * @see #setTypeDesc(DmxFilterTypeDescriptor)
@@ -71,10 +63,6 @@ public interface DmxFilter extends DNavigableMember
 	/**
 	 * Returns the value of the '<em><b>With Type Set</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>With Type Set</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>With Type Set</em>' containment reference.
 	 * @see #setWithTypeSet(DmxBaseTypeSet)

@@ -27,10 +27,6 @@ public interface SServiceParameter extends DNavigableMember
 	 * Returns the value of the '<em><b>Direction</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.mimacom.ddd.sm.asm.SDirection}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Direction</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Direction</em>' attribute.
 	 * @see com.mimacom.ddd.sm.asm.SDirection

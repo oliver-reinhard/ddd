@@ -72,6 +72,7 @@ public class DmxListExpressionImpl extends DExpressionImpl implements DmxListExp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DExpression> getElements()
 	{
 		if (elements == null)

@@ -129,6 +129,7 @@ public abstract class SStructureChangingRuleImpl extends SRenameRuleImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public STristate getAbstract()
 	{
 		return abstract_;
@@ -139,6 +140,7 @@ public abstract class SStructureChangingRuleImpl extends SRenameRuleImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAbstract(STristate newAbstract)
 	{
 		STristate oldAbstract = abstract_;
@@ -152,6 +154,7 @@ public abstract class SStructureChangingRuleImpl extends SRenameRuleImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public STristate getRootEntity()
 	{
 		return rootEntity;
@@ -162,6 +165,7 @@ public abstract class SStructureChangingRuleImpl extends SRenameRuleImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRootEntity(STristate newRootEntity)
 	{
 		STristate oldRootEntity = rootEntity;
@@ -175,6 +179,7 @@ public abstract class SStructureChangingRuleImpl extends SRenameRuleImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public STristate getDetail()
 	{
 		return detail;
@@ -185,6 +190,7 @@ public abstract class SStructureChangingRuleImpl extends SRenameRuleImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDetail(STristate newDetail)
 	{
 		STristate oldDetail = detail;
@@ -198,6 +204,7 @@ public abstract class SStructureChangingRuleImpl extends SRenameRuleImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DType getExtendFrom()
 	{
 		if (extendFrom != null && extendFrom.eIsProxy())
@@ -228,6 +235,7 @@ public abstract class SStructureChangingRuleImpl extends SRenameRuleImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExtendFrom(DType newExtendFrom)
 	{
 		DType oldExtendFrom = extendFrom;
@@ -343,7 +351,7 @@ public abstract class SStructureChangingRuleImpl extends SRenameRuleImpl impleme
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (abstract: ");
 		result.append(abstract_);
 		result.append(", rootEntity: ");

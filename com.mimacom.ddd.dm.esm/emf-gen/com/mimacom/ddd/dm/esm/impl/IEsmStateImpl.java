@@ -102,6 +102,7 @@ public abstract class IEsmStateImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DState getState()
 	{
 		if (state != null && state.eIsProxy())
@@ -132,6 +133,7 @@ public abstract class IEsmStateImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setState(DState newState)
 	{
 		DState oldState = state;
@@ -145,6 +147,7 @@ public abstract class IEsmStateImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EsmStateKind getKind()
 	{
 		return kind;
@@ -155,6 +158,7 @@ public abstract class IEsmStateImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setKind(EsmStateKind newKind)
 	{
 		EsmStateKind oldKind = kind;
@@ -168,6 +172,7 @@ public abstract class IEsmStateImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DRichText getDescription()
 	{
 		return description;
@@ -195,6 +200,7 @@ public abstract class IEsmStateImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(DRichText newDescription)
 	{
 		if (newDescription != description)
@@ -324,7 +330,7 @@ public abstract class IEsmStateImpl extends MinimalEObjectImpl.Container impleme
 	{
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (kind: ");
 		result.append(kind);
 		result.append(')');
