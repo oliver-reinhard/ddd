@@ -175,6 +175,7 @@ public class BibliographyEntryImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -184,6 +185,7 @@ public class BibliographyEntryImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -196,6 +198,7 @@ public class BibliographyEntryImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getAuthors() {
 		return authors;
 	}
@@ -205,6 +208,7 @@ public class BibliographyEntryImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAuthors(String newAuthors) {
 		String oldAuthors = authors;
 		authors = newAuthors;
@@ -217,6 +221,7 @@ public class BibliographyEntryImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTitle() {
 		return title;
 	}
@@ -226,6 +231,7 @@ public class BibliographyEntryImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTitle(String newTitle) {
 		String oldTitle = title;
 		title = newTitle;
@@ -238,6 +244,7 @@ public class BibliographyEntryImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getPublisher() {
 		return publisher;
 	}
@@ -247,6 +254,7 @@ public class BibliographyEntryImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPublisher(String newPublisher) {
 		String oldPublisher = publisher;
 		publisher = newPublisher;
@@ -259,6 +267,7 @@ public class BibliographyEntryImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDate() {
 		return date;
 	}
@@ -268,6 +277,7 @@ public class BibliographyEntryImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDate(String newDate) {
 		String oldDate = date;
 		date = newDate;
@@ -280,6 +290,7 @@ public class BibliographyEntryImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getComment() {
 		return comment;
 	}
@@ -289,6 +300,7 @@ public class BibliographyEntryImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setComment(String newComment) {
 		String oldComment = comment;
 		comment = newComment;

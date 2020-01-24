@@ -69,6 +69,7 @@ public class UnformattedParagraphImpl extends ContentBlockImpl implements Unform
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getText() {
 		return text;
 	}
@@ -78,6 +79,7 @@ public class UnformattedParagraphImpl extends ContentBlockImpl implements Unform
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setText(String newText) {
 		String oldText = text;
 		text = newText;

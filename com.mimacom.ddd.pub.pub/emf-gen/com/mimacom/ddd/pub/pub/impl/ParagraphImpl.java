@@ -85,6 +85,7 @@ public class ParagraphImpl extends ContentBlockImpl implements Paragraph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ParagraphStyle getStyle() {
 		return style;
 	}
@@ -94,6 +95,7 @@ public class ParagraphImpl extends ContentBlockImpl implements Paragraph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStyle(ParagraphStyle newStyle) {
 		ParagraphStyle oldStyle = style;
 		style = newStyle == null ? STYLE_EDEFAULT : newStyle;
@@ -106,6 +108,7 @@ public class ParagraphImpl extends ContentBlockImpl implements Paragraph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DRichText getText() {
 		return text;
 	}
@@ -130,6 +133,7 @@ public class ParagraphImpl extends ContentBlockImpl implements Paragraph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setText(DRichText newText) {
 		if (newText != text) {
 			NotificationChain msgs = null;

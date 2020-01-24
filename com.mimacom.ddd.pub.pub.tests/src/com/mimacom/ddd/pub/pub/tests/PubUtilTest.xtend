@@ -1,19 +1,25 @@
 package com.mimacom.ddd.pub.pub.tests
 
+import com.google.inject.Inject
 import com.mimacom.ddd.pub.proto.ProtoFactory
 import com.mimacom.ddd.pub.proto.ProtoSequenceNumberStyle
 import com.mimacom.ddd.pub.pub.Component
 import com.mimacom.ddd.pub.pub.PubFactory
 import com.mimacom.ddd.pub.pub.PubUtil
 import com.mimacom.ddd.pub.pub.generator.PubNumberingUtil
+import org.eclipse.xtext.testing.InjectWith
+import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.^extension.ExtendWith
 
 import static org.junit.jupiter.api.Assertions.*
 
+@ExtendWith(InjectionExtension)
+@InjectWith(PubInjectorProvider)
 package class PubUtilTest {
 	
-	static val UTIL = new PubUtil
-	static val NUM = new PubNumberingUtil
+	@Inject extension PubNumberingUtil NUM
+	@Inject extension PubUtil
 	
 	static val PROTO = ProtoFactory.eINSTANCE
 	static val PUB = PubFactory.eINSTANCE
@@ -30,7 +36,7 @@ package class PubUtilTest {
 		val toc = PUB.createTOC
 		compo.segments.add(toc);
 		
-		assertEquals(pTOC, UTIL.prototype(toc))
+		assertEquals(pTOC, toc.prototype)
 	}
 	
 	@Test def testDivisionPrototypeMapping() {
@@ -51,8 +57,8 @@ package class PubUtilTest {
 		val s = PUB.createSection
 		ch.divisions.add(s)
 		
-		assertEquals(pChapter, UTIL.prototype(ch))
-		assertEquals(pSection, UTIL.prototype(s))
+		assertEquals(pChapter, ch.prototype)
+		assertEquals(pSection, s.prototype)
 	}
 	
 	@Test def testRomanNumbering() {
@@ -117,17 +123,19 @@ package class PubUtilTest {
 		val d40 = PUB.createSubsubsection
 		d30.divisions.add(d40)
 		
-		assertEquals("I", NUM.formattedSingleNumber(d00))
-		assertEquals("1", NUM.formattedSingleNumber(d10))
-		assertEquals("A", NUM.formattedSingleNumber(d20))
-		assertEquals("a", NUM.formattedSingleNumber(d30))
-		assertEquals("", NUM.formattedSingleNumber(d40))
+		compo.gatherAllDivisionsAndSetSequenceNumbers
 		
-		assertEquals("I", NUM.tieredNumber(d00))
-		assertEquals("1", NUM.tieredNumber(d10))
-		assertEquals("1.A", NUM.tieredNumber(d20))
-		assertEquals("1.A.a", NUM.tieredNumber(d30))
-		assertEquals("", NUM.tieredNumber(d40))
+		assertEquals("I", d00.formattedSingleNumber)
+		assertEquals("1", d10.formattedSingleNumber)
+		assertEquals("A", d20.formattedSingleNumber)
+		assertEquals("a", d30.formattedSingleNumber)
+		assertEquals("", d40.formattedSingleNumber)
+		
+		assertEquals("I", d00.tieredNumber)
+		assertEquals("1.", d10.tieredNumber)
+		assertEquals("1.A", d20.tieredNumber)
+		assertEquals("1.A.a", d30.tieredNumber)
+		assertEquals("", d40.tieredNumber)
 		
 	}
 }

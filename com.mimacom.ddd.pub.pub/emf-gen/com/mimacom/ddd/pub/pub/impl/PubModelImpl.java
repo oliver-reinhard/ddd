@@ -83,6 +83,7 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<DImport> getImports() {
 		if (imports == null) {
 			imports = new EObjectContainmentEList<DImport>(DImport.class, this, PubPackage.PUB_MODEL__IMPORTS);
@@ -95,6 +96,7 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Document getDocument() {
 		return document;
 	}
@@ -119,6 +121,7 @@ public class PubModelImpl extends MinimalEObjectImpl.Container implements PubMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDocument(Document newDocument) {
 		if (newDocument != document) {
 			NotificationChain msgs = null;

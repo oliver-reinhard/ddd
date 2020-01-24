@@ -69,6 +69,7 @@ public class FigureImpl extends TitledBlockImpl implements Figure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getFileUri() {
 		return fileUri;
 	}
@@ -78,6 +79,7 @@ public class FigureImpl extends TitledBlockImpl implements Figure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFileUri(String newFileUri) {
 		String oldFileUri = fileUri;
 		fileUri = newFileUri;
